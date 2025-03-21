@@ -7,7 +7,7 @@
     ┗ __init__.py # Khởi tạo lên package  
     ┗ Chunking.py # Khởi tạo lên class dùng cho việc chunking
  ┣ 📂 data # Folder lưu file PDF
- ┣ 📂 Get_datas # Module để chunking data
+ ┣ 📂 Get_datas # Mpdule để lấy data
     ┗ __pycache__ 
     ┗ __init__.py # Khởi tạo lên package
     ┗ Get_datas.py # Khởi tạo lên class dùng cho việc đọc dữ liệu chuyển thành file text
