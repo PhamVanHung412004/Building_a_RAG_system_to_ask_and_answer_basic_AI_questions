@@ -6,6 +6,7 @@
     ┗ __pycache__ 
     ┗ __init__.py # Khởi tạo lên package  
     ┗ Chunking.py # Khởi tạo lên class dùng cho việc chunking
+ ┣ 📂 data # Folder lưu file PDF
  ┣ 📂 Get_datas # Module để chunking data
     ┗ __pycache__ 
     ┗ __init__.py # Khởi tạo lên package
