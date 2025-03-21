@@ -6,26 +6,23 @@
     ┗ __pycache__ 
     ┗ __init__.py # Khởi tạo lên package  
     ┗ Chunking.py # Khởi tạo lên class dùng cho việc chunking
- ┣ 📂 code # Module để chunking data
-    ┗ Build_RAG.ipynb
  ┣ 📂 Get_datas # Module để chunking data
     ┗ __pycache__ 
     ┗ __init__.py # Khởi tạo lên package
     ┗ Get_datas.py # Khởi tạo lên class dùng cho việc đọc dữ liệu chuyển thành file text
- ┣ 📂 Image # Module để chunking data
+ ┣ 📂 Image # Folder chứa ảnh cho các ý tưởng
+    ┗ Embedding_Retrival.png # Ảnh biểu diễn quá trình Embedding để đưa vào Vector database 
     ┗ Get_Data.png # Ảnh biểu diễn quá trình lấy data và chuyển thành Documents 
     ┗ ID_RAG.png # Ảnh biểu diễn ý tưởng của dự án 
-    ┗ Retrival.png # Ảnh biểu diễn Quá trình Retrival 
     ┗ Vector_Datababse.png # Ảnh biểu diễn quá trình chia dữ liệu để chuyển hóa vào Vector databse
-  README.md
-  setup.txt
+ ┣ 📂 code # Folder đầu tiên được khởi tạo để lưu file code trung tâm của dự án
+    ┗ Build_RAG.ipynb # File code trung tâm của dự án
+ ┣  README.md # File mô tả giới thiệu dự án 
+ ┣  setup.txt # File chứa các gói package cần cài đặt trước khi chạy chương trình  
 ```
 
-# Ý tưởng
-!(Image/ID_RAG.png)
-# Lấy data và chuyển thành file text
-!(Image/Get_Data.png)
-# Vector database
-!(Image/Vector_Database.png)
-# Retrival
-!(Image/Retrival.png)
+
+![Ý tưởng](Image/ID_RAG.png)
+![Quá trình data và chuyển thành Documents](Image/Get_Data.png)
+![Quá trình tách văn bản Embedding để đưa vào Vector database](Image/Vector_Database.png)
+![Quá trình Embedding để tiến hành Retrival](Image/Embedding_Retrival.png)
