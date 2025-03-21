@@ -20,8 +20,11 @@
  ┣  README.md # File mô tả giới thiệu dự án 
  ┣  setup.txt # File chứa các gói package cần cài đặt trước khi chạy chương trình  
 ```
-
+### Ý tưởng
 ![Ý tưởng](image/ID_RAG.png)
+### Quá trình data và chuyển thành Documents
 ![Quá trình data và chuyển thành Documents](image/Get_Data.png)
+### Quá trình tách văn bản Embedding để đưa vào Vector database
 ![Quá trình tách văn bản Embedding để đưa vào Vector database](image/Vector_Database.png)
+### Quá trình Embedding để tiến hành Retrival
 ![Quá trình Embedding để tiến hành Retrival](image/Embedding_Retrival.png)
