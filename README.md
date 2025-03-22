@@ -1,4 +1,4 @@
-# Bài toán: Xây dựng Chatbot hỏi đáp thông tin từ silde của AIO.
+# Bài toán: Xây dựng Chatbot hỏi đáp các câu hỏi liên quan đến AI.
 # Tổ chức dự án
 ```bash
 📦 ChatbotAIO
@@ -21,7 +21,7 @@
  ┣  main.ipynb # File code trung tâm của dự án
  ┣  setup.txt # File chứa các gói package cần cài đặt trước khi chạy chương trình  
 ```
-### Ý tưởng
+### Ý tưởng sử dụng RAG
 ![Ý tưởng](image/ID_RAG.png)
 ### Quá trình data và chuyển thành Documents
 ![Quá trình data và chuyển thành Documents](image/Get_Data.png)
