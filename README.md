@@ -17,8 +17,8 @@
     ┗ Get_Data.png # Ảnh biểu diễn quá trình lấy data và chuyển thành Documents 
     ┗ ID_RAG.png # Ảnh biểu diễn ý tưởng của dự án 
     ┗ Vector_Datababse.png # Ảnh biểu diễn quá trình chia dữ liệu để chuyển hóa vào Vector databse
- ┣  main.ipynb # File code trung tâm của dự án
  ┣  README.md # File mô tả giới thiệu dự án 
+ ┣  main.ipynb # File code trung tâm của dự án
  ┣  setup.txt # File chứa các gói package cần cài đặt trước khi chạy chương trình  
 ```
 ### Ý tưởng
