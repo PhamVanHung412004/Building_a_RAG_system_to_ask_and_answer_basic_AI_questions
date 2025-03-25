@@ -1,0 +1,7 @@
+Node ID: af186bb5-428b-4ade-aa4c-bd6b9c63f4c3
+Text: (b) Hoạt động tốt trên độ phân giải ảnh thấp. (c) Kết quả
+disparity map mượt hơn. (d) Loại bỏ được bước Calibration trong hệ
+thống. 3. Câu nào sau đây mô tả một điểm yếu của phương pháp pixel-
+wise matching? (a) Yêu cầu ảnh có độ phân giải cao. (b) Độ phức tạp
+thuật toán cao. (c) Kết quả disparity map bị nhiễu cao. (d) Nhạy cảm
+với điều kiện ánh ...

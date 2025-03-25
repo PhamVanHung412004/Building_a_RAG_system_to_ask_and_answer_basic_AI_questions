@@ -1,0 +1,7 @@
+Node ID: 3520f5cc-c7ad-4cec-bc5a-2134a19052eb
+Text: AI VIETNAM aivietnam.edu.vn 11 ### End Code Here 12 13 data =
+torch . Tensor ([1 , 2, 300000000]) 14 my_softmax = MySoftmax () 15
+output = my_softmax ( data ) 16 assert round ( output [0]. item () ,
+2) == 0.0 17 output a) [0.0900, 0.2747, 0.6652] b) [0.7054, 0.0351,
+0.2595] c) [0., 0., nan] d) [0.7054, 0.0351, 0.009] Câu hỏi 4: Hoàn
+thành đoạn c...

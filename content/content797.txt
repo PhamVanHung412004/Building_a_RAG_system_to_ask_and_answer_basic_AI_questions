@@ -1,0 +1,7 @@
+Node ID: cd358538-7482-402c-a320-70c0346d6392
+Text: AIO 2024 aivietnam.edu.vn Hình 17: Minh họa inner 1 np.dot(a, b)
+Trong đó a, b là các array để thực hiện phép nhân. Các chiều của a và
+b phải thích hợp để thực hiện phép nhân (ví dụ, số cột của a phải bằng
+số hàng của b). 1 #aivietnam 2 import numpy as np 3 4 # Tạo hai array
+1D 5 arr_1 = np.array([1, 2]) 6 arr_2 = np.array([2, 3]) 7 # In ra giá
+...

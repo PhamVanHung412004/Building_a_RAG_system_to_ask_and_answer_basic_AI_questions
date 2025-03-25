@@ -1,0 +1,7 @@
+Node ID: 5a3635be-ee75-4185-b56c-5b9259f26592
+Text: Công tác huấn luyện sẽ ghi đè một phần tham số trong bộ tham số
+gốc. Giải pháp Fine-tuning được đánh giá là giải pháp hiệu quả cho
+chất lượng kiểm soát tốt khi lượng dữ liệu huấn luyện đầy đủ, phủ khắp
+các trường hợp hỏi đáp. Điểm trừ của giải pháp là giải pháp yêu cầu
+nhiều công sức cho việc chuẩn bị dữ liệu, nhiều tài nguyên cho việc
+huấn luyê...

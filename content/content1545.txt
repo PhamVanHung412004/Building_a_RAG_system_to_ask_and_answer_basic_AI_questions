@@ -1,0 +1,7 @@
+Node ID: a9f6a33d-d8bf-4be1-aa71-4d9eb9002c8c
+Text: 8. Dòng code nào sau đây biểu diễn chiến lược cân bằng giữa
+exploration và exploitation? (a) np.argmax(Q[s]) (b)
+np.random.choice(A) (c) np.argmin(Q[s]) (d) np.argmax(Q[s]) if
+np.random.rand() > e else np.random.choice(A) 9. Mục đích của yếu tố
+Hệ số chiết khấu (Discounting Factor) là gì? (a) Gia tăng kích thước
+của không gian trạng thái. (b) Gi...

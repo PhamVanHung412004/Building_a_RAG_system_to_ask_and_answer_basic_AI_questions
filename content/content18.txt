@@ -1,0 +1,7 @@
+Node ID: 80915363-07b4-474f-8eda-3f95146721f4
+Text: AI VIETNAM (AIO2024) aivietnam.edu.vn 12 from langchain . chains
+import ConversationalRetrievalChain 13 14 from langchain_huggingface
+import HuggingFaceEmbeddings 15 from langchain_chroma import Chroma 16
+from langchain_community . document_loaders import PyPDFLoader ,
+TextLoader 17 from langchain_text_splitters import
+RecursiveCharacterTextSpli...

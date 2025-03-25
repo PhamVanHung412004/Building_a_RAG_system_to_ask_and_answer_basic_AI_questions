@@ -1,0 +1,7 @@
+Node ID: 1929341e-79f2-4a69-bf33-2e7122d404a5
+Text: Dataset Chúng ta sử dụng bộ dữ liệu openai_summarize_tldr. Nối
+phần văn bản và phần bản tóm tắt để huấn luyện mô hình. 1 from
+transformers import AutoTokenizer 2 3 ppo_ds_name = ’ CarperAI /
+openai_summarize_tldr ’ 4 ppo_ds = load_dataset ( sft_ds_name , split
+=" train ") 5 6 def build_dataset (ds , tokenizer , max_length =200) :
+7 ds = ds. filt...

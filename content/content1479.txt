@@ -1,0 +1,7 @@
+Node ID: 925fedd3-edff-45f1-90a9-3534927c5673
+Text: connect ( host = MILVUS_HOST , port = MILVUS_PORT ) 2 if utility
+. has_collection ( COLLECTION_NAME ): 3 qa_collection = Collection (
+COLLECTION_NAME ) 4 qa_collection . load ( replica_number =
+REPLICA_NUMBER ) 5 else : 6 raise RuntimeError (c) Khai báo mô hình
+QA:Chúng ta sẽ dùng mô hình đã huấn luyện ở buổi học về QA để sử dụng
+trong chương tr...

@@ -1,0 +1,4 @@
+Node ID: 936706cf-6c96-4851-8f6c-a0bd3ce6621b
+Text: • Output: Có là tin nhắn spam hay không (bool). Dựa vào các
+thông tin trên, ta sẽ xây dựng được một luồng xử lý (pipeline) cho bài
+toán này như sau: 1

@@ -1,0 +1,7 @@
+Node ID: 9af7b220-6938-4e33-9c7b-fea4da21ce69
+Text: AI VIETNAM aivietnam.edu.vn Phần II: Denoising Diffusion
+Probabilistic Models (DDPM) DDPM là một phương pháp để tạo ra dữ liệu
+mới, chẳng hạn như hình ảnh, âm thanh, hoặc văn bản, một cách tự
+nhiên. Bao gồm hai quá trình chính là Forward Diffusion và Reverse
+Diffusion. Trong đó: • Quá trình Phân tán - Forward Diffusion: Bắt đầu
+từ dữ liệu thực, ...

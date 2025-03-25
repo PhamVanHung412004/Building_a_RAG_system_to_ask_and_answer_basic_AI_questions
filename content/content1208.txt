@@ -1,0 +1,7 @@
+Node ID: ccf4205d-0ae6-463f-9dc4-47cc3db884a3
+Text: AI VIETNAM aivietnam.edu.vn Phần II: Nội dung 1. Ý tưởng chung
+GNN hoạt động bằng cách tổng hợp thông tin từ các node có liên quan
+với nhau (có edge), trong các dataset dành riêng cho GNN (ví dụ Cora,
+Citeseer, Pubmed,...), các edge được đã được định nghĩa sẵn, điều này
+gây ra khó khăn khi sử dụng GNN vào các bài toán khác (ví dụ image
+classific...

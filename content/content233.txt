@@ -1,0 +1,7 @@
+Node ID: 3900c538-e2de-4157-a007-33bee2093320
+Text: • pi là tỷ lệ của lớp i trong tập dữ liệu. Entropy càng cao khi
+tỷ lệ của các lớp trong tập dữ liệu gần bằng nhau, và càng thấp khi
+một lớp chiếm đa số. Khi xây dựng cây quyết định, chúng ta cố gắng
+chia tập dữ liệu sao cho entropy sau khi chia là thấp nhất có thể.
+Điều này giúp cây quyết định có thể học được các quy tắc quyết định
+hiệu quả từ d...

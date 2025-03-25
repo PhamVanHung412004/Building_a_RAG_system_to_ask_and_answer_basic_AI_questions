@@ -1,0 +1,7 @@
+Node ID: eb2bb24d-8c78-4773-94ef-05706aba2777
+Text: AIO 2024 aivietnam.edu.vn 7.9 Một số hàm thông dụng khác a) Tính
+Trung Bình Cộng Các Phần Tử Trong Mảng Trung bình= 1 n nX i=1 ai Để
+tính trung bình cộng các phần tử trong một mảng, ta sẽ sử dụng hàm
+np.mean. 1 #aivietnam 2 import numpy as np 3 4 # Tạo mảng 1 chiều 5
+arr = np.array([1, 2, 3, 4, 5]) 6 7 # Tính trung bình cộng các phần tử
+mảng 8 m...

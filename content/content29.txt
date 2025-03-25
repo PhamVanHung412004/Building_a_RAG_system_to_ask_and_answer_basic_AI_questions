@@ -1,0 +1,4 @@
+Node ID: 045644c1-9a5a-4ffe-a155-8e27e90d52a2
+Text: Kỹ thuật RAG cải thiện mô hình ngôn ngữ lớn bằng cách nào ? (a)
+Truy vấn thêm các thông tin bên ngoài. (b) Dùng google search. (c) Cải
+thiện việc sai chính tả. (d) Bỏ dấu câu.

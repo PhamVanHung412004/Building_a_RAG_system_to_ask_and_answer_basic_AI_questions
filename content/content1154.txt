@@ -1,0 +1,4 @@
+Node ID: 028b805c-5262-4d79-9a54-345b08dd4f31
+Text: 126 : param dim : the dimension of the output . 127 : param
+max_period : controls the minimum frequency of the embeddings . 128 :
+return : an [N x dim ] Tensor of positional embeddings .

@@ -1,0 +1,7 @@
+Node ID: 88664e96-5e60-436b-9ba1-e0f23b311330
+Text: AI VIETNAM aivietnam.edu.vn Phần II: Các thách thức cho bài toán
+text-to-video Trước hết, chúng ta hãy cùng nhau khám phá những thách
+thức lớn mà công nghệ tạo sinh video phải đối mặt. Những thách thức
+này chủ yếu liên quan đến việc giữ cho video có sự nhất quán về không
+gian và liên kết mạch lạc theo thời gian, đồng thời cũng cần phải quan
+tâm ...

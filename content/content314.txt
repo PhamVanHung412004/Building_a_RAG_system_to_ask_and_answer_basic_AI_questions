@@ -1,0 +1,7 @@
+Node ID: 45d0b7ec-1b51-4710-94de-2a015203073a
+Text: model = nn. Sequential ( 15 nn. Conv2d ( self . feats_nch , 384
+, 5, stride =1 , padding =2) , 16 nn. BatchNorm2d (384) , 17 nn. ReLU
+() , 18 nn. Conv2d (384 , 320 , 5, stride =1 , padding =2) , 19 nn.
+BatchNorm2d (320) , 20 nn. ReLU () , 21 nn. Conv2d (320 , 288 , 5,
+stride =1 , padding =2) , 22 nn. BatchNorm2d (288) , 23 nn. ReLU () ,
+24 nn. C...

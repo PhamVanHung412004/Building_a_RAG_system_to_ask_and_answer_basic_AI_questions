@@ -1,0 +1,7 @@
+Node ID: 72e7dd81-55cb-4639-8f68-246e9d657824
+Text: AI VIETNAM aivietnam.edu.vn • Phần bên trái: Chứa thông tin nhập
+vào tài khoản và mật khẩu huggingface, được sử dụng để có quyền truy
+cập vào hugchat 1 import streamlit as st 2 from hugchat import hugchat
+3 from hugchat . login import Login 4 5 # App title 6 st. title (’
+Simple ChatBot ’) 7 8 # Hugging Face Credentials 9 with st. sidebar :
+10 st...

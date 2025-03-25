@@ -1,0 +1,4 @@
+Node ID: b979914d-48ef-4bba-bef4-eb3195c62b8e
+Text: Mặc dù tabula-py còn khá nhiều hạn chế đối với cấu trúc bảng
+phức tạp tuy nhiên nó cũng có nhiều ưu điểm đáng để ta ưu tiên sử dụng
+khi trích xuất bảng trong pdf. 6

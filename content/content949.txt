@@ -1,0 +1,7 @@
+Node ID: c39b61fc-0fb6-46a3-a7ac-ffbd8584a677
+Text: AI VIETNAM aivietnam.edu.vn 7 8 # Tiến hành mã hóa thông tin đầu
+vào sử dụng tokenizer 9 inputs = tokenizer( 10 questions, 11
+examples["context"], 12 max_length=MAX_LENGTH, 13
+truncation="only_second", 14 stride=STRIDE, 15
+return_overflowing_tokens=True, 16 return_offsets_mapping=True, 17
+padding="max_length", 18 ) 19 20 # Trích xuất offset_mapp...

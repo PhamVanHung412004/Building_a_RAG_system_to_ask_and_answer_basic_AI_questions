@@ -1,0 +1,7 @@
+Node ID: f04c02f4-2d48-41c5-b4df-997569a6a17c
+Text: Daily AI Exercise (AIO) Ngày 8 tháng 4 năm 2024 • Tạo bảng:Để
+tạo bảng mới xong cơ sở dữ liệu chúng ta sẽ thực hiện như sau: 1 # Tạo
+bảng CUSTOMERS: 2 cursor.execute(""" 3 CREATE TABLE CUSTOMERS ( 4
+EMAIL TEXT PRIMARY KEY, 5 NAME TEXT NOT NULL, 6 PHONE TEXT NOT NULL 7
+); 8 """) • Thêm dữ liệu vào bảng (INSERT):Sau khi thực hiện tạo bảng
+ở bước t...

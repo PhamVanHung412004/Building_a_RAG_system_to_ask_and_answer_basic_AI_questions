@@ -1,0 +1,4 @@
+Node ID: 8f6b66ba-a509-4aef-814c-8b1b8d9ffabc
+Text: a) MLP b) Linear Projector c) Tiny Transformer d) Cross-
+Attention Câu hỏi 10Mô hình NExT-GPT sử dụng LLM nào? a) Flan-T5 b)
+Vicuna c) GPT3 d) PaLM - Hết - 9

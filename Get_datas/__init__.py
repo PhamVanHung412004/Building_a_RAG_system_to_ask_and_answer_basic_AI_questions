@@ -1,4 +1,6 @@
-from llama_index.core import SimpleDirectoryReader
+import sys
+sys.path.append("/content/drive/MyDrive/LLM/chatbot/ChatbotAIO")
+from Tutorial import *
 class Get_Data:
     def __init__(self, path_data: str) -> None:
         self.path_data: str = path_data

@@ -1,0 +1,7 @@
+Node ID: cffb41ed-8a42-471b-81ef-f5306b55d93e
+Text: Daily AI Exercise (AIO) aivietnam.edu.vn 1 name : str = "AI
+VIETNAM " 2 year : int = 2024 3 4 print (f" Welcome to { name } { year
+}!") 5 print ( __annotations__ ) ================= Output
+================ Welcome to AI VIETNAM 2024! {’name ’: <class ’str ’>,
+’year ’: <class ’ int ’ >} ==========================================
+Trong ví dụ trên ...

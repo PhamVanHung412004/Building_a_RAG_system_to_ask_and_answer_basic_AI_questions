@@ -1,0 +1,7 @@
+Node ID: 50648978-7641-4afa-bea8-37de5049c47b
+Text: Sequential () 8 9 self . gcn = GCN ( 10 in_features =576 , 11
+edge_features =576 , 12 out_feature = num_classes , 13 device =" cuda
+", 14 ratio =(1 ,) , 15 ) 16 17 def forward (self , x): 18 x = self .
+backbone (x) 19 x, edge_sim = self . gcn (x) 20 return x, edge_sim Để
+dễ dàng hình dung hơn nữa thì ta hãy nhìn vào model bình thường không
+có GN...

@@ -1,0 +1,7 @@
+Node ID: ed512120-8351-4bf0-a46f-df7eafc4de66
+Text: 5. Cập nhật filesrc/rag/file_loader.py: 1 from typing import
+Union , List , Literal 2 import glob 3 from tqdm import tqdm 4 import
+multiprocessing 5 from langchain_community . document_loaders import
+PyPDFLoader 6 from langchain_text_splitters import
+RecursiveCharacterTextSplitter 7 8 def remove_non_utf8_characters (
+text ): 9 return ’’. join ( ...

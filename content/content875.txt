@@ -1,0 +1,8 @@
+Node ID: a6228276-7ee5-4f19-88a9-e9852483cb5d
+Text: AI VIETNAM aivietnam.edu.vn 24 os.makedirs(term_dir) 25 26
+filename = os.path.join(term_dir,
+os.path.basename(urlparse(url).path)) 27 28
+self.filename.add(filename) # Record the filename directory 29 30 try:
+31 urllib.request.urlretrieve(url, filename) 32 pbar.update(1) 33
+return f"Downloaded: {url}" 34 except Exception as e: 35
+pbar.update(1) 3...

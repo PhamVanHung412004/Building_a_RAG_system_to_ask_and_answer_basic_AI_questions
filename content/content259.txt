@@ -1,0 +1,7 @@
+Node ID: 2a948be2-297c-4382-9781-1cd81f24d808
+Text: AI VIETNAM aivietnam.edu.vn Phần II: Cài đặt chương trình Trong
+phần này, chúng ta sẽ tiến hành cài đặt nội dung của project. Mã nguồn
+được xây dựng trên hệ điều hành Ubuntu với GPU 24GB. Các bước thực
+hiện như sau: 1. Tổ chức thư mục code:Để mã nguồn trở nên rõ ràng nhằm
+phục vụ cho mục đích đọc hiểu code, chúng ta sẽ có ảnh minh họa tổ
+chức câ...

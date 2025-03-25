@@ -1,0 +1,7 @@
+Node ID: 74ffdecc-cc39-47a5-b004-17bed97aa3f7
+Text: AI VIETNAM aivietnam.edu.vn 52 answer_dict = { 53 ’id’:
+example_id, 54 ’prediction_text’: best_answer[’text’], 55
+’no_answer_probability’: 1 - best_answer[’logit_score’] 56 } 57 else:
+58 answer_dict = { 59 ’id’: example_id, 60 ’prediction_text’: ’’, 61
+’no_answer_probability’: 1.0 62 } 63
+predicted_answers.append(answer_dict) 64 65 # Tạo danh sá...

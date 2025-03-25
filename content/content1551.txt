@@ -1,0 +1,7 @@
+Node ID: a62c6e6d-ae4e-47f4-89dd-9f41a5568bb6
+Text: 3 Trích xuất bảng với Tabula-py Trong tài liệu pdf, có rất nhiều
+định dạng bảng khác nhau. Chúng ta sẽ tìm hiểu cách trích xuất các
+loại bảng phổ biến nhất như: Bảng với cấu trúc rõ ràng, bảng không có
+đường viền... 3.1 Bảng với cấu trúc rõ ràng Bảng có cấu trúc rõ ràng
+là bảng có đường viền rõ ràng xung quanh cả bảng và các ô bên trong,
+giúp dễ...

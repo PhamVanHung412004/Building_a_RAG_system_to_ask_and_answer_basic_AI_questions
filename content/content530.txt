@@ -1,0 +1,7 @@
+Node ID: 6b38b76c-0416-4282-9736-cb30a2bf530a
+Text: AI VIETNAM aivietnam.edu.vn 24 search_kwargs : dict = {"k": 10}
+25 ): 26 retriever = self .db. as_retriever ( search_type =
+search_type , 27 search_kwargs = search_kwargs ) 28 return retriever
+7. Cập nhật filesrc/rag/offline_rag.py: Tại file này, ta khai báo
+classOffline_RAG để xây dựng một chain về RAG, bao gồm việc sử dụng
+retriever lấy contex...

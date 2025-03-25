@@ -1,0 +1,7 @@
+Node ID: 55206372-af74-4330-b7d5-be69fa0a0294
+Text: runnables import RunnablePassthrough 4 from langchain_core .
+output_parsers import StrOutputParser 5 6 class Str_OutputParser (
+StrOutputParser ): 7 def __init__ ( self ) -> None : 8 super ().
+__init__ () 9 10 def parse (self , text : str ) -> str : 11 return
+self . extract_answer ( text ) 12 13 def extract_answer (self , 14
+text_response : str ...

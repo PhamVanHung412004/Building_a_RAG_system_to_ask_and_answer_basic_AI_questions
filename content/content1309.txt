@@ -1,0 +1,7 @@
+Node ID: a75d52a5-8b66-4089-b1e4-d1a0f7cc3537
+Text: AI VIETNAM aivietnam.edu.vn 4 5 model_config = ModelConfig ( 6
+model_name_or_path =’ facebook /opt -350 m’ 7 ) 8 9 torch_dtype = ( 10
+model_config . torch_dtype 11 if model_config . torch_dtype in [" auto
+", None ] 12 else getattr ( torch , model_config . torch_dtype ) 13 )
+14 quantization_config = get_quantization_config ( model_config ) 15
+mod...

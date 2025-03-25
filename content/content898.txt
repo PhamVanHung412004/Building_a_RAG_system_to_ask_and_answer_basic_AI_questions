@@ -1,0 +1,7 @@
+Node ID: c1dad113-ee9c-461d-b55a-495446da600f
+Text: AI VIETNAM aivietnam.edu.vn 26 Để viết bất kỳ văn bản nào, chẳng
+hạn như một bài luận hoặc đoạn văn, và bạn muốn văn phong tương tự như
+mẫu được cung cấp, hãy bao gồm các prompt sau: • Use the same language
+based on the provided paragraph[/title/text /es- say/answer]. Phần II:
+Prompt Techniques 3 Zero-Shot Prompting Zero-Shot Prompting là một
+ph...

@@ -1,0 +1,7 @@
+Node ID: 55fe7b68-2ab4-44f8-ab23-16c7b9573d2c
+Text: 319 For example , if this contains 4, then at 4x downsampling ,
+attention 320 will be used . 321 : param dropout : the dropout
+probability . 322 : param channel_mults : channel multiplier for each
+level of the UNet . 323 : param conv_resample : if True , use learned
+convolutions for upsampling and 324 downsampling . 325 : param
+use_checkpoint : ...

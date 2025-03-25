@@ -1,0 +1,7 @@
+Node ID: ba79e012-9553-42d9-b19d-e74f033418db
+Text: AI VIETNAM aivietnam.edu.vn 8 self . hidden_size = 64 9 10 #
+Encoder block 11 self . enc_conv1 = nn. Conv2d (2 , 128 , 5, stride =2
+, padding =2) 12 self . enc_bn1 = nn. BatchNorm2d (128) 13 self .
+enc_conv2 = nn. Conv2d (128 , 256 , 5, stride =2 , padding =2) 14 self
+. enc_bn2 = nn. BatchNorm2d (256) 15 self . enc_conv3 = nn. Conv2d
+(256 , 512 ...

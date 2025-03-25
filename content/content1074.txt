@@ -1,0 +1,7 @@
+Node ID: 3bc153e7-0de9-4558-9a71-fc16102a0d61
+Text: DiT áp dụng chiến lược này trong khối adaLN của mô hình DiT,
+đồng thời hồi quy thêm các tham số tỷ lệ để tối ưu hóa hiệu suất trước
+khi thực hiện kết nối phần dư. Phần V: Mô hình Sora Sora là một mô
+hình AI có khả năng tạo ra các video lên đến một phút, với chất lượng
+hình ảnh cao và nội dung bám sát theo yêu cầu của người dùng. Mô hình
+hiện đan...

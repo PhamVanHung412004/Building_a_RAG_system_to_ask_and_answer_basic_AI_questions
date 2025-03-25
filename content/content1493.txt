@@ -1,0 +1,7 @@
+Node ID: b49cb138-fc55-4b00-bc62-ab14aa0997a8
+Text: AI VIETNAM aivietnam.edu.vn 8 filter = [64 , 128 , 256 , 512 ,
+512] 9 10 self . class_nb = 13 11 12 # define encoder decoder layers
+13 self . encoder_block = nn. ModuleList ([ self . conv_layer ([3 ,
+filter [0]]) ]) 14 self . decoder_block = nn. ModuleList ([ self .
+conv_layer ([ filter [0] , filter [0]]) ]) 15 for i in range (4) : 16
+self . enc...

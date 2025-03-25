@@ -1,0 +1,7 @@
+Node ID: 5922883a-e9c7-456c-8b7e-4847db98b7c9
+Text: Ví dụ chương trình dưới đây, chúng ta khai báo sử dụng thư viện
+pypdf và sử dụng PdfReader để đọc file yolov9.pdf sau đó lưu kết quả
+vào biến reader. Tiếp theo ta sử dụng reader.pages, phương thức này
+trả về một danh sách các trang trong tập tin PDF đã được đọc bằng
+PdfReader. Mỗi phần tử trong danh sách này đại diện cho một trang
+trong tập tin ...

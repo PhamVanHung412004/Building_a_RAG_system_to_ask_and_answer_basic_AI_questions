@@ -1,0 +1,7 @@
+Node ID: ddd2db54-dade-4436-952c-a71fb46fe62e
+Text: AI VIETNAM aivietnam.edu.vn 11 self . sample_num = sample_num 12
+self . train_loader = train_loader 13 self . val_loader = val_loader
+14 self . device = device 15 self . epochs = epochs 16 self .
+save_model = save_model + "/ best_model . pth " 17 18 def train_step (
+self ): 19 self . model . train () 20 losses = [] 21 for batch in tqdm
+( self . ...

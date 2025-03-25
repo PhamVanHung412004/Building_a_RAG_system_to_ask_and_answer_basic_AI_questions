@@ -1,0 +1,7 @@
+Node ID: 3b131fd8-1ec2-405c-8a29-9330cc8fee2b
+Text: AI VIETNAM aivietnam.edu.vn 2. Model Trong phần này chúng ta sẽ
+xây dựng mô hình cho quá trình RDP. Mô hình UNet sẽ được sử dụng làm
+mô hình khử nhiễu qua mỗi bước thời gian. Quá trình FDP sẽ thêm lần
+lượt theo bước thời gian T nhiễu Gauss vào ảnh đầu vào, vì vậy ở bước
+RDP chúng ta sẽ bổ sung thêm không gian embedding của bước thời gian
+vào mô ...

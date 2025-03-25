@@ -1,0 +1,7 @@
+Node ID: 8903c9ab-0c67-47ba-b366-4234c2a89757
+Text: AI VIETNAM aivietnam.edu.vn items ()} 58 return avg_losses 59 60
+def train ( train_loader , val_loader , model , device , optimizer ,
+epochs ): 61 best_loss = 100. 62 for epoch in range ( epochs ): 63
+train_loss = train_epoch ( train_loader , model , device , optimizer )
+64 val_loss = train_epoch ( train_loader , model , device , optimizer
+) 65 ...

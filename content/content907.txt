@@ -1,0 +1,7 @@
+Node ID: 08473bf4-005b-4625-b32b-2deead5b6a3f
+Text: Điều này giúp tăng cường khả năng suy luận chính xác của mô
+hình, đồng thời cung cấp cái nhìn sâu sắc và dễ hiểu về quá trình suy
+nghĩ của mô hình, giúp người dùng có thể kiểm tra và hiểu rõ cách mô
+hình đưa ra kết quả. Trong paper nhóm tác giả đề xuất thay thế cho
+chiến lược giải mã tham lam (greedy decoding) thường được sử dụng
+trong COT. Chiế...

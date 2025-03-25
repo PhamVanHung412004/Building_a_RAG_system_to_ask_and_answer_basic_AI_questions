@@ -1,0 +1,4 @@
+Node ID: f9603be2-ef36-44c9-bdd6-cee7dd24968e
+Text: 2. Làm quen với các câu lệnh SQL trong SQLite Database: - Ví dụ
+chúng ta cần quản lý thông tin khách hàng gồm các trường dữ liệu cơ
+bản như sau: aivietnam.edu.vn www.facebook.com/aivietnam.edu.vn

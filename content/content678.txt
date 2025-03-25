@@ -1,0 +1,7 @@
+Node ID: 290bce61-13ff-4dff-a7cc-5575a67fdace
+Text: AI VIETNAM aivietnam.edu.vn 1 # Định nghĩa một class
+MambaTrainer kế thừa từ class Trainer. 2 class MambaTrainer(Trainer):
+3 4 # Định nghĩa hàm compute_loss để tính toán hàm mất mát trong quá
+trình train. 5 def compute_loss(self, model, inputs,
+return_outputs=False): 6 # Lấy giá trị input_ids và labels từ inputs.
+7 input_ids = inputs.pop("input_...

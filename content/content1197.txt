@@ -1,0 +1,6 @@
+Node ID: 59dccf4a-dc2d-4571-baae-d2b91bfd4027
+Text: state_dict () , self . save_model ) 63 # Print loss , acc end
+epoch 64 print ("-" * 59) 65 print ( 66 "| End of epoch {:3 d} | Time
+: {:5.2 f}s | Train Loss {:8.3 f} " 67 "| Valid Loss {:8.3 f} | Valid
+MAE {:8.3 f} ". format ( 68 epoch +1 , time . time () -
+epoch_start_time , train_loss , val_loss , val_mae 23

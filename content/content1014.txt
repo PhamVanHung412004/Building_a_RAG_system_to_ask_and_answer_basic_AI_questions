@@ -1,0 +1,7 @@
+Node ID: efe3c2b2-0bae-40a4-aec0-1fcd555a45ea
+Text: AI VIETNAM aivietnam.edu.vn Trong nghiên cứu này, các tác giả
+huấn luyện mô hình LLM để tự sinh ra 4 loại token phải ứng (reflection
+token) để hỗ trợ cho quá trình trả lời, bao gồm: • Retrieve: Cho mô
+hình biết có nên truy vấn/tiếp tục truy vấn hay không. • IsRel: Đánh
+giá xem kết quả truy vấn có cung cấp thông tin hữu dụng cho quá trình
+trả lời...

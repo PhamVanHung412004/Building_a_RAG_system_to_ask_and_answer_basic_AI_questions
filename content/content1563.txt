@@ -1,0 +1,3 @@
+Node ID: 5a88799d-1d16-4f43-ab90-7665c6794682
+Text: Nhưng nếu ta cố tình sử dụng kiểu dữ liệu float thì chương trình
+vẫn hoạt động bình thường, không một cảnh báo lỗi nào xuất hiện. 2

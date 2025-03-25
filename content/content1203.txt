@@ -1,0 +1,7 @@
+Node ID: d4d26622-0641-4997-9541-9467cd844cc6
+Text: a) Mask các vị trí điểm ảnh trung tâm theo hình chữ nhật b) Mask
+các vị trí điểm ảnh ở góc trái trên theo hình chữ nhật c) Mask các vị
+trí điểm ảnh ở góc trái dưới theo hình chữ nhật d) Mask các vị trí
+điểm ảnh trung tâm theo hình tròn Câu hỏi 5Dựa vào bài báo cáo nghiên
+cứu "Denoising Diffusion Probabilistic Model", công thức tính giá trị
+xác s...

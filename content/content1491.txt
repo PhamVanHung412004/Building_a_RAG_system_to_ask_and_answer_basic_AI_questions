@@ -1,0 +1,7 @@
+Node ID: 2e8dcc4b-1276-41f0-9519-9c94ca175c81
+Text: dataset . Dataset ): 8 def __init__ (self , root , train = True
+): 9 self . train = train 10 self . root = os. path . expanduser (
+root ) 11 12 # read the data file 13 if train : 14 self . data_path =
+root + ’/ train ’ 15 else : 16 self . data_path = root + ’/ val ’ 17
+18 # calculate data length 19 self . data_len = len ( fnmatch . filter
+(os. l...

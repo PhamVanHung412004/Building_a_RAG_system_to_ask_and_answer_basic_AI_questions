@@ -1,0 +1,7 @@
+Node ID: 51b2258f-93a9-49c8-bda8-d481ed48f4b3
+Text: 3. Khởi tạo mô hình YOLOv10: Chúng ta sẽ khởi tạo mộ hình
+YOLOv10 với phiên bản nano (n) từ trọng số đã được huấn luyện trên bộ
+dữ liệu COCO. Để tải trọng số yolov10n.pt, các bạn chạy đoạn code sau:
+1 ! wget https :// github . com /THU - MIG / yolov10 / releases /
+download /v1 .1/ yolov10n .pt Sau đó, để khởi tạo mô hình từ trọng số
+đã tải về, c...

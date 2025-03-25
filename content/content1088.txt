@@ -1,0 +1,7 @@
+Node ID: d4cc9eda-79ee-4144-814d-002ffdd43627
+Text: AI VIET NAM – AI COURSE 2024 Tutorial: Phát hiện đối tượng trong
+ảnh với YOLOv10 Dinh-Thang Duong, Nguyen-Thuan Duong, Minh-Duc Bui và
+Quang-Vinh Dinh Ngày 30 tháng 5 năm 2024 I. Giới thiệu Object
+Detection (Tạm dịch: Phát hiện đối tượng)là một bài toán cổ điển thuộc
+lĩnh vực Computer Vision. Mục tiêu của bài toán này là tự động xác
+định vị trí ...

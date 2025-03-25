@@ -1,0 +1,7 @@
+Node ID: 28316e83-9208-4087-8315-92d2933ddce5
+Text: AI VIETNAM aivietnam.edu.vn Trọng số của model Mamba pretrain sẽ
+không bao gồm các tham số của phần head (classifier)
+MambaClassificationHead mà ta tự định nghĩa. Do đó, phần head này sẽ
+được khởi tạo tham số từ đầu: 1 # Tải model Mamba từ model đã được
+train trước đó. 2 model =
+MambaTextClassification.from_pretrained("state-spaces/mamba -130m")...

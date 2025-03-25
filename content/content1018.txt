@@ -1,0 +1,7 @@
+Node ID: d358ff32-74d4-45b3-9dc2-b4fc7ff8f96d
+Text: AI VIETNAM aivietnam.edu.vn Trong các ứng dụng RAG thông thường,
+thông tin ngữ cảnh truy vấn sẽ được đưa vào mô hình để sinh ra kết
+quả, bất kết rằng thông tin đó có liên quan hay không. Điều này làm
+cho kết quả sinh ra bởi mô hình trở nên nhiễu và làm chậm tốc độ tạo
+sinh đi rất nhiều. Vì vậy nghiên cứu "Corrective Retrieval Augmented
+Generatio...

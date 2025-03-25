@@ -1,0 +1,7 @@
+Node ID: 7404a562-8063-484f-a5fb-4dbd03df9bac
+Text: AI VIETNAM aivietnam.edu.vn 8. Câu nào sau đây mô tả đúng về kỹ
+thuật Parameter Efficient Fine-tuning (PEFT)? (a) Một kỹ thuật dùng để
+huấn luyện mô hình trên bộ dữ liệu cực lớn. (b) Một kỹ thuật liên quan
+đến việc cập nhật một phần nhỏ tham số của mô hình khi huấn luyện. (c)
+Một kỹ thuật huấn luyện dành riêng cho các mô hình có kích thước nhỏ
+(...

@@ -1,0 +1,7 @@
+Node ID: c0ca69b8-f702-4eea-8428-275b8e9b497c
+Text: Daily AI Exercise (AIO) aivietnam.edu.vn • top: Vị trí trên cùng
+của bảng • left: Vị trí cạnh trái của bảng • width: Vị ví cạnh phải
+của bảng • botton: Vị trí cạnh dưới cùng của bảng Chúng ta sẽ sử dụng
+công cụ mesuaring tool trong phần mềm Adobe reader để đo khoảng cách
+từ các cạnh của tài liệu đến các vị trí các cạnh của bảng tương ứng.
+Khoảng...

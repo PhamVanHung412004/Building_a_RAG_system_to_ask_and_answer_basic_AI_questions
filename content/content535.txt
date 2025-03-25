@@ -1,0 +1,6 @@
+Node ID: 90190a6b-cd69-48dc-9215-530341a07d9b
+Text: 10. Cập nhật filesrc/app.py: Cuối cùng, ta tạo file dùng để khai
+báo API với LangServe để triển khai ứng dụng RAG. Đối với LangServe,
+cách sử dụng gần như tương tự với việc sử dụng FastAPI. Nội dung file
+code như sau: 1 import os 2 os. environ [" TOKENIZERS_PARALLELISM "] =
+" false " 10

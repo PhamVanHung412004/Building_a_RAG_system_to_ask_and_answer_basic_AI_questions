@@ -1,0 +1,4 @@
+Node ID: 8291537e-b9f5-4751-81b4-191e59ce6a34
+Text: AI VIETNAM aivietnam.edu.vn Hình 6: Minh họa API sau khi ta
+triển khai thành công. Hình 7: Minh họa một kết quả của model thông
+qua API mà chúng ta đã xây dựng.

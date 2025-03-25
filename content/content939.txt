@@ -1,0 +1,7 @@
+Node ID: 9f52a483-058c-4a33-ba1d-2335db8ceeb5
+Text: (2023a). Tree of thoughts: Deliberate problem solving with large
+language models. Zhou, Y., Muresanu, A. I., Han, Z., Paster, K.,
+Pitis, S., Chan, H., & Ba, J. (2022). Large language models are human-
+level prompt engineers. Diao, S., Wang, P., Lin, Y., & Zhang, T.
+(2023). Active prompting with chain-of-thought for large language
+models. Li, Z., ...

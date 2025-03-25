@@ -1,0 +1,3 @@
+Node ID: 4dcaae41-9a6d-4544-a3c9-354e003d90ed
+Text: classes_ }’) 4 print (f’ Encoded labels : {y}’) 5 6 # >> Classes
+: [’ ham ’ ’spam ’] 7 # >> Encoded labels : [0 0 1 ... 0 0 0] 8 7

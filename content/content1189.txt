@@ -1,0 +1,7 @@
+Node ID: 7aa61179-51c7-4d4e-bb8e-6e4918eda2db
+Text: sqrt_recipm1_gammas , t, y_t . shape ) * noise 57 ) 58 59 def
+q_posterior (self , y_0_hat , y_t , t): 60 """ 61 Compute the mean and
+variance of the diffusion posterior : 62 63 q(x_{t -1} | x_t , x_0 )
+64 65 """ 66 posterior_mean = ( 67 get_index_from_list ( self .
+posterior_mean_coef1 , t, y_t . shape ) * y_0_hat + 68
+get_index_from_list ( self...

@@ -1,0 +1,7 @@
+Node ID: 9ffcc46f-b802-468b-a849-f37bdf3222f9
+Text: AI VIET NAM – AI COURSE 2023 Reinforcement Learning - Exercise
+Dinh-Thang Duong và Quang-Vinh Dinh PR-Team: Hoàng-Nguyên Vũ, Đăng-Nhã
+Nguyễn và Minh-Châu Phạm Ngày 18 tháng 4 năm 2024 Phần I: Giới thiệu
+Reinforcement Learning (RL) (Tạm dịch: Học tăng cường), là một trong 3
+nhánh chính trong Machine Learning (bên cạnh Supervised Learning và
+Unsup...

@@ -1,0 +1,7 @@
+Node ID: b02e2c6a-73fa-45db-8934-112cfef229a6
+Text: Daily AI Exercise (AIO) Ngày 9 tháng 4 năm 2024 Basic Python -
+Work with SQLite Database Hoàng-Nguyên Vũ 1. Mô tả: Thống kê cơ bản
+trong SQLite • SQL cung cấp nhiều hàm để thực hiện các phép tính thống
+kê cơ bản trên dữ liệu. Các hàm này được sử dụng để tính toán các giá
+trị như tổng, trung bình, giá trị tối đa, giá trị tối thiểu, v.v. Dưới
+đây ...

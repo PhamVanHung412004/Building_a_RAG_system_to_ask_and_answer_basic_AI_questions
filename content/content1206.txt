@@ -1,0 +1,7 @@
+Node ID: 71dd5f70-b5af-45b0-bb1e-9c1bbc532411
+Text: AI VIET NAM – 2024 Graph Neural Network - Exercise Minh-Duc Bui
+và Vinh Dinh Nguyen Ngày 28 tháng 4 năm 2024 Phần I: Giới thiệu Graph
+Neural Network - GNN là một nerual network sử dụng để xử lý dữ liệu
+được biểu diễn dưới dạng graph. Trong graph, các đỉnh (node) biểu diễn
+các thực thể, và các cạnh (edge) thể hiện các mối quan hệ giữa các
+node. G...

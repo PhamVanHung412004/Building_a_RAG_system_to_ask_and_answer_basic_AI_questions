@@ -1,0 +1,7 @@
+Node ID: 477e9ad1-39e5-493f-b0e1-846224048a53
+Text: AI VIETNAM aivietnam.edu.vn 109 for i in reversed ( range (0 ,
+self . num_timesteps )): 110 t = torch . full ((b ,) , i, device =
+y_cond . device , dtype = torch . long ) 111 y_t = self . p_sample
+(y_t , t, y_cond = y_cond ) 112 if mask is not None : 113 y_t = y_0
+*(1. - mask ) + mask * y_t 114 if i % sample_inter == 0: 115 ret_arr =
+torch . cat...

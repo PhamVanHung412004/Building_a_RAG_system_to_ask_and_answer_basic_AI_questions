@@ -1,0 +1,5 @@
+Node ID: 537bbedb-5bd6-4e12-bf35-e3ec77f54c89
+Text: Sau đó, sử dụng hàmDataset.from_list () 1 training_samples = []
+2 for sample in tqdm(data[’train’]): 3 for quest in
+sample[’problems’]: 4 choices = quest[’choices’] 5 explanation =
+quest[’explanation’].strip() 6 question = quest[’question’] 7 7

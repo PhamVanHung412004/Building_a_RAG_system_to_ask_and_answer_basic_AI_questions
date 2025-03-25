@@ -1,0 +1,7 @@
+Node ID: 853e109f-c01d-4861-bb22-d6fb58815edd
+Text: AI VIETNAM aivietnam.edu.vn Hình 16: (a) data flow cho cả quá
+trình training và inference: trong quá trình training, timestep t sẽ
+được chọn mẫu ngẫu nhiên từ [0, T] và các khung hình video đầu vào bị
+làm nhiễu qua quá trình lan truyền, U-Net được sử dụng để học cách tái
+tạo các khung hình video. Gaussian noise được chọn mẫu ngẫu nhiên
+trong suy...

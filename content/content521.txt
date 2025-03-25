@@ -1,0 +1,7 @@
+Node ID: fbc1783c-f82a-4814-a99a-839949481702
+Text: org / pdf /1706.03762 " 8 }, 9 { 10 " title ": "BERT - Pre -
+training of Deep Bidirectional Transformers for Language Understanding
+", 11 " url ": " https :// arxiv . org / pdf /1810.04805 " 12 }, 13 {
+14 " title ": " Chain -of - Thought Prompting Elicits Reasoning in
+Large Language Models ", 15 " url ": " https :// arxiv . org / pdf
+/2201.11903...

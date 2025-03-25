@@ -1,0 +1,7 @@
+Node ID: 5db949c0-53a8-46ac-9d53-3d985a045661
+Text: AIO2024 aivietnam.edu.vn Numpy Câu 1: Import gói Numpy và in ra
+phiên bản của nó 1 # Python code ( aivietnam ) 2 import numpy as np 3
+print (np. version . version ) ================= Output
+================ 1.25.0 ========================================== Câu
+2: Tạo mảng một chiều từ 4 đến 9 1 # Python code ( aivietnam ) 2
+import numpy as np 3 ...

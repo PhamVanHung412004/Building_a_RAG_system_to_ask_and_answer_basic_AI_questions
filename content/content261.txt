@@ -1,0 +1,7 @@
+Node ID: 27a3379e-5bae-40b2-93f1-befaa65cea9d
+Text: AI VIETNAM aivietnam.edu.vn (c) Xây dựng hàm check điều kiện
+dừng hội thoại cho UserProxyAgent:UserProxyA- gent cần nhận được đoạn
+code được tạo sinh từ Agent còn lại để thực thi. Vì vậy, ta sẽ khai
+báo một hàm kết thúc lượt nhắn của UserProxyAgent nếu chưa nhận được
+code và ngược lại: 1 def _is_termination_msg ( message ): 2 if
+isinstance ( mes...

@@ -1,0 +1,4 @@
+Node ID: f691275c-e32d-4954-bc7e-ece847ba4b63
+Text: Tensor ([1 , 2, 3]) 9 softmax_stable = softmax_stable () 10
+output = softmax_stable ( data ) 11 output 12 >> tensor ([0.0900 ,
+0.2447 , 0.6652]) 1

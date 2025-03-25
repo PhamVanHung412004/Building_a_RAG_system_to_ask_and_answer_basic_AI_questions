@@ -1,0 +1,7 @@
+Node ID: 5959cb65-013c-4034-8d70-ad8d7a6d7f69
+Text: 1 root_img_path = f"{ROOT}/train/" 2 query_path =
+f"{ROOT}/test/Orange_easy/0_100.jpg" 3 size = (448, 448) 4 query,
+ls_path_score = get_correlation_coefficient_score(root_img_path,
+query_path, size) 5 plot_results(query_path, ls_path_score,
+reverse=True) Hình 10: Image retrieval ảnh đơn giản với Correlation
+Coefficient 1 root_img_path =f"{ROOT}/...

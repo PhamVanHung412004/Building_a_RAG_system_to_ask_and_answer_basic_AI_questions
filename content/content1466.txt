@@ -1,0 +1,7 @@
+Node ID: 5d7fe51e-f9be-4c7a-bf2f-22bbbfab3f88
+Text: AI VIETNAM aivietnam.edu.vn 1 $ bash standalone_embed .sh start
+Lưu ý rằng, lệnh này sẽ mất một khoảng thời gian để hoàn tất tùy vào
+tốc độ mạng. (c) Kiểm tra cài đặt: Khi đã tải và triển khai xong, các
+bạn có thể kiểm tra bằng lệnh sau: 1 $ docker ps Hình 6: Kết quả kiểm
+tra cài đặt Milvus trên Terminal Như vậy, chúng ta đã hoàn tất cài đặt
+và ...

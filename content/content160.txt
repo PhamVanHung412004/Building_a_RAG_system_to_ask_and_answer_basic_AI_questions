@@ -1,0 +1,7 @@
+Node ID: 6d023cca-6232-4c0b-a7d1-b1f0ee8a9acc
+Text: AI VIETNAM aivietnam.edu.vn • f(x(t), t)∆t là thành phần drift.
+Nó miêu tả cách giá trị trung bình của x(t) thay đổi theo thời gian
+t.f(x(t), t) là một hàm của x và t được sử dụng để mô tả sự thay đổi
+trung bình của quá trình. • g(x, t) √ ∆t r là thành phần "nhiễu" hoặc
+diffusion.g(x, t) là một hàm x và t đo lường mức độ của biến ngẫu
+nhiên tron...

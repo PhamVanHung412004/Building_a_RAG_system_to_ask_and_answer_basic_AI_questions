@@ -1,0 +1,7 @@
+Node ID: 6ab90451-c5e7-4921-ae57-d8c87ff40c15
+Text: messages . append ({" role ": " user ", " content ": prompt })
+13 with st. chat_message (" user "): 14 st. write ( prompt ) 15 16 #
+Generate a new response if last message is not from assistant 17 if
+st. session_state . messages [ -1][ " role "] != " assistant ": 18
+with st. chat_message (" assistant "): 19 with st. spinner (" Thinking
+... "): 2...

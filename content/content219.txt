@@ -1,0 +1,7 @@
+Node ID: 2a749681-9c50-4dfe-89c7-5bfb2f7c5de3
+Text: 1 class Parent: 2 def __init__(self, name): 3 self.name = name 4
+5 def display(self): 6 print(f"Parent Name: {self.name}") 7 8 class
+Child(Parent): 9 def __init__(self, name, age): 10
+super().__init__(name) 11 self.age = age 12 13 def display(self): 14
+super().display() 15 print(f"Child Age: {self.age}") 16 17 # Tạo
+object từ lớp con 18 child = ...

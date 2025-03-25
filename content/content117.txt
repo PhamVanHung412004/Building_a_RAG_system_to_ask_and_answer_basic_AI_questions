@@ -1,0 +1,7 @@
+Node ID: 3073aa2b-6a39-4347-80d4-8296d7140a30
+Text: AI VIETNAM (AIO2024) aivietnam.edu.vn 10 11 dictionary =
+create_dictionary ( messages ) 12 Kế đến, chúng ta cần tạo ra những
+đặc trưng đại diện cho thông tin (là các từ) của các Message. Một
+trong những các đơn giản chính là dựa vào tần suất xuất hiện của từ.
+Với mỗi Message, vector đại diện sẽ có kích thước bằng với số lượng từ
+có trong Diction...

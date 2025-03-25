@@ -1,0 +1,7 @@
+Node ID: a896cc44-59e4-4042-84c4-88fe86b75f4f
+Text: Quá trình nén được thực hiện bằng cách trích xuất các patches
+không chồng lấn từ khung hình đầu tiên và các khung hình video tiếp
+theo, sau đó được làm phẳng và chiếu vào không gian chiều thấp hơn.
+Các chiều không gian và thời gian của các patches này được sắp xếp lại
+thành định dạng tensor phân biệt rõ ràng giữa chiều không gian và
+chiều thời g...

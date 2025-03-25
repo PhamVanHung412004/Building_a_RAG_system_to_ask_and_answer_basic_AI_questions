@@ -1,0 +1,2 @@
+Node ID: 7d0517e6-c9e1-401c-8c43-9c67729f5542
+Text: append ( str ( Path ( __file__ ). parent . parent )) 12

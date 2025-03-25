@@ -1,0 +1,7 @@
+Node ID: c3815900-a874-4175-9232-e10d9e5f52f1
+Text: AI VIETNAM aivietnam.edu.vn 32 33 def inference ( model ,
+test_sample ): 34 with torch . no_grad (): 35 output , visuals = model
+. restoration ( 36 test_sample [1]. unsqueeze (0) .to( device ) 37 )
+38 return output , visuals 39 40 output , visuals = inference (
+colordiff_model , test_sample ) 41 42 43 # Show the results 44 def
+show_tensor_image ...

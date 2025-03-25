@@ -1,0 +1,7 @@
+Node ID: 9143e2fb-47e7-428b-a83a-c3e512182d31
+Text: AIO 2024 aivietnam.edu.vn 7.4 Phép chia - Division Hình 16: Minh
+họa Division Phép chia mảng được thực hiện theo nguyên tắc element-
+wise. Cho hai mảng cùng kích thướcA và B, phép chia giữa chúng (A ÷ B)
+tạo ra một mảng (hoặc tensor) mớiC, với mỗi phần tửCij được tính bằng
+cách chia phần tửAij cho phần tửBij. Cij = Aij Bij Dể thực hiện phép
+chia ...

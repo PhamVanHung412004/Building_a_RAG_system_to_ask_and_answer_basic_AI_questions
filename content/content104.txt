@@ -1,0 +1,7 @@
+Node ID: 95f9d605-580c-4d1e-847d-714b8ea3f1b7
+Text: AI VIET NAM – AI COURSE 2024 Phân loại tin nhắn spam với Naive
+Bayes Dinh-Thang Duong, Anh-Khoi Nguyen, Quang-Vinh Dinh Ngày 2 tháng
+8 năm 2024 I. Giới thiệu Text Classification (Tạm dịch: Phân loại văn
+bản)là một trong những bài toán phổ biến trong lĩnh vực Machine
+Learning và Natural Language Processing. Trong đó, nhiệm vụ của chúng
+ta là xây ...

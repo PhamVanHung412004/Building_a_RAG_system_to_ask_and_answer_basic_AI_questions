@@ -1,0 +1,7 @@
+Node ID: f487da0f-3122-43ba-b300-1655af310822
+Text: Trong nhiều trường hợp, chúng được xác định để đảm bảo tính duy
+nhất và ổn định của giải pháp. 13 Effect of diffusion on Gaussian
+mixture Một chút mở rộng cho quá trình diffusion 1D, chúng ta sử dụng
+một điều kiện ban đầu là gaussian mixture gồm M mixture components.
+p0(x) = MX j=1 wj 1q 2πs2 j exp ( −[x − µj]2 2s2 j ) (13) Trong đó: •
+µj là tru...

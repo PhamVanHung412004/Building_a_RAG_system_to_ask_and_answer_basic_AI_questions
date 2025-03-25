@@ -1,0 +1,7 @@
+Node ID: b1869631-6385-40f3-9de9-8913ebdd5d59
+Text: XỬ LÝ TỆP PDF ĐƠN GIẢN VỚI PYPDF Dinh-Tiem Nguyen và Quang-Vinh
+Dinh 1 Mở đầu Làm sao để trích xuất nội dung văn bản và hình ảnh trong
+file pdf? Làm thế nào để ghép nhiều file pdf thành một file duy nhất?
+Trong bài viết này, chúng ta sẽ trả lời những câu hỏi đó bằng cách sử
+dụng thư viên pypdf-một thư viện xử lý file pdf hiệu quả. Yêu cầu: •
+Máy...

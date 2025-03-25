@@ -1,0 +1,7 @@
+Node ID: 6e4d8a6b-fdec-496e-be3a-959c228617bb
+Text: AI VIETNAM aivietnam.edu.vn Dựa trên kết quả đánh giá, một bảng
+xếp hạng các mô hình embedding đã được xây dựng dựa vào các tiêu chí.
+Hình 12: Bảng xếp hạng các mô hình embeddings dựa trên kết quả đánh
+giá của Muennighoff et al. (2023) Hiệuchỉnh(fine-
+tuning)môhìnhembedding: TrongcácgiảiphápRAG,hiệuchỉnhembedding là một
+cách được cân nhắc để cải ...

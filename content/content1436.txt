@@ -1,0 +1,7 @@
+Node ID: 00358c6b-09a2-4d7d-9187-570f43c3b8af
+Text: Daily AI Exercise (AIO) aivietnam.edu.vn Hình 4: Thực thi chương
+trình python 3.4 Lựa chọn môi trường dự án Khi chạy chương trình trên,
+chương trình được chạy trên môi trường mặc định của máy tính. Để chọn
+môi trường cụ thể, hãy chọn "View"> "Command Palette"từ thanh menu
+hoặc nhấn tổ hợp phím Ctrl + Shift + P sau đó nhập "Select
+Interpreter"và ...

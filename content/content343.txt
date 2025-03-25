@@ -1,0 +1,7 @@
+Node ID: d90a82f1-c959-49f1-b2ba-c3685d6cdbf1
+Text: AI VIETNAM aivietnam.edu.vn Phần II: Nội dung 1. Giới thiệu
+Video data • Video data: Video là chuỗi của các frame theo thời gian,
+ví dụ một video cóT frame và mỗi frame có kích thước(3 x W x H) thì
+video sẽ có kích thước(T x 3 x W x H) (tensor 4 chiều). • Đặc điểm:
+Video có kích thước rất lớn, ví dụ một video thông thường có khoảng 30
+frame, khi...

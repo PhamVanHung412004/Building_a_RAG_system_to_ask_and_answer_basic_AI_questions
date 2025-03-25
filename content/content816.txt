@@ -1,0 +1,7 @@
+Node ID: b3b97720-054b-4f22-9b05-6de925f31a6b
+Text: Đối với hệ điều hành window, các bạn cài đặt qua lệnh sau: 1 py
+-m pip install -- user pipx Tiếp theo chúng ta sẽ cài đặt poetry với
+lệnh sau: 1 pipx install poetry Sau khi cài đặt hoàn tất, ta có thể
+xác minh cài đặt thành công không qua lệnh sau: 1 poetry -- version
+Nếu bạn thấy kết quả tương tự nhưPoetry (version 1.8.2) thì tức là đã
+cài đặt ...

@@ -1,0 +1,7 @@
+Node ID: 20bdb34a-74d6-4bae-8e0a-e5cdfa45b3c2
+Text: AI VIETNAM aivietnam.edu.vn 4. Trainer Ở giai đoạn huấn luyện,
+chúng ta sẽ xây dựng class Trainer dành cho việc huấn luyện mô hình
+Dif- fusion. Ngoài ra, chúng ta cũng sẽ sử dụng một công cụ theo dõi
+được sử dụng phổ biến trong việc huấn luyện các mô hình học máy, được
+gọi làwandb. Theo đó, các kết quả bao gồm cả thông số mất mát của mô
+hình và ...

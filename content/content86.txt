@@ -1,0 +1,7 @@
+Node ID: 684e646f-7da3-4c9c-9dfa-c694fb323436
+Text: AI VIETNAM (AIO2024) aivietnam.edu.vn (a) Ảnh grayscale  (b) Ảnh
+color map Hình 3: Kết quả disparity map của phương pháp pixel-wise
+matching sử dụng L1 (a) Ảnh grayscale  (b) Ảnh color map Hình 4: Kết
+quả disparity map của phương pháp pixel-wise matching sử dụng L2
+Problem 2:Xây dựng hàm tính disparity map của hai ảnh stereo đầu vào
+(ảnh bên trá...

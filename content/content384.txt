@@ -1,0 +1,7 @@
+Node ID: 2bbb38ba-974d-4b32-8039-75b55bb5509c
+Text: Hình ảnh 3 mô tả hiệu quả của noise removal trên một đám point
+cloud bị nhiễu. 1 def statistic_outlier_removal (pcd , nb_neighbors
+=10 , std_ratio =1.0) : 2 _, ind = pcd . remove_statistical_outlier (
+nb_neighbors = nb_neighbors , 3 std_ratio = std_ratio ) 4 5
+display_inlier_outlier (pcd , ind ) 6 inlier_cloud = pcd .
+select_by_index ( ind ) 7 o...

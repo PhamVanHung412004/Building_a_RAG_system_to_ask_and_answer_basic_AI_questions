@@ -1,0 +1,7 @@
+Node ID: c702ca88-53ae-4f11-b0e5-35b9ffe79195
+Text: Nó tương tự như concept của "table" trong cơ sở dữ liệu quan hệ
+hoặc "collection" trong MongoDB. Đoạn code sau đây định nghĩa hàm
+add_embedding, một hàm giúp trích xuất và lưu trữ các vector đặc trưng
+của ảnh vào một collection đã được tạo. 1 def
+add_embedding(collection, files_path): 2 ids = [] 3 embeddings = [] 4
+for id_filepath, filepath in t...

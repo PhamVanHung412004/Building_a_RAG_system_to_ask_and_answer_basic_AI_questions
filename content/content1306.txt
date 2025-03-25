@@ -1,0 +1,7 @@
+Node ID: c0b9dd1d-f3b2-4c1c-810d-5cfea1d55f40
+Text: Ví dụ minh hoạ về bài toán tóm tắt văn bản được minh hoạ như
+hình 2. Các bước để huấn luyện và tối ưu mô hình được mô tả như sau:
+Hình 4: Các bước huấn luyện mô hình tóm tắt văn bản sử dụng RLHF. RLHF
+bao gồm 3 phần: • Supervised Fine-Tuning: Tinh chỉnh mô hình trên bộ
+dữ liệu có nhãn cho bài toán tóm tắt • Reward Modeling: Huấn luyện mô
+hình ch...

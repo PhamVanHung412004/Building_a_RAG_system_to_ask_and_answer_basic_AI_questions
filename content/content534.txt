@@ -1,0 +1,7 @@
+Node ID: febab174-a41e-4887-ab78-8f8ea7372b82
+Text: file_loader import Loader 4 from src . rag . vectorstore import
+VectorDB 5 from src . rag . offline_rag import Offline_RAG 6 7 class
+InputQA ( BaseModel ): 8 question : str = Field (... , title ="
+Question to ask the model ") 9 10 class OutputQA ( BaseModel ): 11
+answer : str = Field (... , title =" Answer from the model ") 12 13
+def build_rag_c...

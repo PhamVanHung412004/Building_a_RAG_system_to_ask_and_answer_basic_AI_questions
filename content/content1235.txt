@@ -1,0 +1,7 @@
+Node ID: 8b7f2f2b-f214-4ab6-9365-16d42501f7e3
+Text: AI VIETNAM aivietnam.edu.vn MLLMs - Multimodal Large Language
+Modelsngày càng được phát triển rộng rãi với mục tiêu xây dựng một mô
+hình ngôn ngữ lớn có thể xử lý cho các kiểu dữ liệu khác nhau như: văn
+bản, hình ảnh, âm thanh, video. Với các mô hình MLLMs đầu vào có thể
+là văn bản, hình ảnh, video, âm thanh hoặc kết hợp của các kiểu dữ
+liệu trê...

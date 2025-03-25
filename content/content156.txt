@@ -1,0 +1,7 @@
+Node ID: e1ceca22-cd28-4188-8f23-1d8bc58d3bc2
+Text: Tiếp theo xem xét sự thay đổi của mật độ xác suấtp(x, t) tức xác
+suất hệ thống ở vị trí x tại thời điểm t, theo thời gian. Nó đề cập
+đến diffusion equation: x(t + ∆t) = x(t) + σ √ ∆t r (19) thể hiện rằng
+mật độ xác suấtp(x, t) thay đổi theo thời gian theo cách được mô tả
+bởi phương trình trên. Diffusion equation còn được gọi là heat
+equation - m...

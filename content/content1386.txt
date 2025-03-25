@@ -1,0 +1,7 @@
+Node ID: 9158b54c-f942-4fa4-b856-2801fc0d74f2
+Text: AI VIETNAM aivietnam.edu.vn 305 306 @staticmethod 307 def
+count_flops ( model , _x , y): 308 return count_flops_attn ( model ,
+_x , y) 309 310 class UNet (nn. Module ): 311 """ 312 The full UNet
+model with attention and embedding . 313 : param in_channel : channels
+in the input Tensor , for image colorization : Y_channels + X_channels
+. 314 : pa...

@@ -1,0 +1,7 @@
+Node ID: 049ee8aa-d072-4c65-a688-9532d927dc7a
+Text: AI VIETNAM aivietnam.edu.vn 5.1 Video Diffusion Models Đây là
+một trong những công trình nghiên cứu đầu tiến tiếp cận theo hướng sử
+dụng mô hình diffusion để tạo sinh video. Video Diffusion Models [2]
+là sự mở rộng tự nhiên của kiến trúc image diffusion và cho phép đào
+tạo chung từ dữ liệu ảnh và video. Để tạo ra video dài và độ phân giải
+cao hơ...

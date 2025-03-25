@@ -1,0 +1,7 @@
+Node ID: 963390e7-70a2-445c-8a03-8228e8efa415
+Text: outshape [0] , self . outshape [1]) ) 56 57 # Convert BGR to LAB
+58 img_lab = cv2 . cvtColor (img , cv2 . COLOR_BGR2LAB ) 59
+img_lab_outres = cv2 . cvtColor ( img_outres , cv2 . COLOR_BGR2LAB )
+60 61 # Normalize to [ -1..1] 62 img_lab = (( img_lab * 2.0) / 255.0)
+- 1.0 63 img_lab_outres = (( img_lab_outres * 2.0) / 255.0) - 1.0 64
+65 recon_const...

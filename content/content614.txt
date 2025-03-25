@@ -1,0 +1,7 @@
+Node ID: 1a463109-aa36-4c6a-a357-233e16955b7d
+Text: ones ((3 ,3) , dtype = bool ) 10 print (f’{ data2 }
+\n---------------------’) 11 12 # way 3 13 data3 = np. full ((3 ,3) ,
+True , dtype = bool ) 14 print (f’{ data3 } \n---------------------’)
+================= Output ================ [[ True True True ] [ True
+True True ] [ True True True ]] ------------------- [[ True True True
+] [ True True Tr...

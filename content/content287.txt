@@ -1,0 +1,7 @@
+Node ID: b9aa0bd2-c6aa-48f6-a16e-621ca5b96e22
+Text: AI VIETNAM aivietnam.edu.vn Hình 2: Minh họa cho không gian
+màuLab • L (Lightness): Đây là thành phần đại diện cho độ sáng của một
+pixel trong ảnh. Thành phầnL có thể được xem như phiên bản grayscale
+của ảnh. • a (Green-Red): Thành phầna biểu diễn sự khác biệt màu giữa
+các màu xanh lam và đỏ. Khi giá trị củaa tăng, màu sắc trở nên đỏ hơn.
+Khi gi...

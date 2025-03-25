@@ -1,0 +1,7 @@
+Node ID: 6d2aafa6-28be-4ff6-9984-2cc9ca23be8b
+Text: 10. Vai trò củaGroup Chat Managertrong group chat là gì? (a)
+Chọn ra một Agent duy nhất để thực hiện task. (b) Nhận task từ Boss
+Agent, sau đó phân tán task cho tất cả các Agent trong group. (c) Thu
+thập kết quả từ các Agent sau đó đưa ra câu trả lời. (d) Nhận task từ
+Boss Agent, chọn một Agent thực hiện task, lặp lại cho tới khi hoàn
+thành. - H...

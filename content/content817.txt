@@ -1,0 +1,7 @@
+Node ID: f4c5ec85-5da2-4b6d-ba22-8622d6e4cdba
+Text: AIO2024 aivietnam.edu.vn 3 Thiết lập dự án Để tạo một dự án mới
+với Poetry ta sẽ sử dụng lệnh poetry new, ví dụ chúng ta tạo dự án xây
+dựng package tính giai thừa có tên aio2024, ta sẽ sử dụng lệnh sau: 1
+poetry new aio2024 Sau khi thực thi lệnh trên, ta sẽ nhận được một thư
+mục dự án có tên là aio2024 với cấu trúc sau: 1 | pyproject . toml 2 |
+...

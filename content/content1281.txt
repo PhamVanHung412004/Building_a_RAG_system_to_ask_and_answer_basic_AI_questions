@@ -1,0 +1,7 @@
+Node ID: 455d33fd-1ab3-424f-8883-9791d25ba20e
+Text: AI VIETNAM aivietnam.edu.vn Câu hỏi 1: Xác suất xảy ra sự kiện
+"Play Tennis"="Yes" và sự kiện "Play Tennis"="No" lần lượt là: a)
+P("Play Tennis" = "Yes") = 6/10, P("Play Tennis" = "No") = 4/10 b)
+P("Play Tennis" = "Yes") = 4/10, P("Play Tennis" = "No") = 6/10 c)
+P("Play Tennis" = "Yes") = 6/10, P("Play Tennis" = "No") = 6/10 d)
+P("Play Tennis" =...

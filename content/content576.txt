@@ -1,0 +1,7 @@
+Node ID: ab92d85d-06b9-413c-9242-3f3f6a6f0a7c
+Text: Nếu i là số chẵn (i % 2 == 0), lệnh continue sẽ được thực thi,
+bỏ qua câu lệnh print(i) và bắt đầu lần lặp tiếp theo. Kết quả chỉ gồm
+các số lẻ từ 1 đến 9 được hiển thị ra màn hình. 5 Sử dụng while với
+list Chúng ta cũng có thể sử dụng vòng lặp while để duyệt qua các phần
+tử của một danh sách. Cachs này thường dùng khi chúng ta cần thực hiện
+các...

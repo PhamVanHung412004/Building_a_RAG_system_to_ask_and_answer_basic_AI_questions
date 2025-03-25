@@ -1,0 +1,7 @@
+Node ID: 1fab4daf-5c5a-4531-b8de-4509cfdb1903
+Text: Sau đó, việc so sánh các hình ảnh không được thực hiện trực tiếp
+trên ảnh gốc mà là thông qua việc tính sự tương đồng giữa các vector
+này. Đoạn code bên đưới khởi tạo một hàm để trích xuất vector đặc
+trưng từ một hình sử dụng mô hình CLIP. Tiếp theo, hàm
+get_single_image_embedding nhận một hình ảnh làm đầu vào và sử dụng
+phương thức _encode_imag...

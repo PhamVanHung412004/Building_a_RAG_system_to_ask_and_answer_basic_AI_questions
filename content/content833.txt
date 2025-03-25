@@ -1,0 +1,7 @@
+Node ID: 23871f13-9e2b-4c2e-928f-c5a06720d5ff
+Text: AI VIETNAM aivietnam.edu.vn Hình 4: Image retrieval ảnh đơn giản
+với L1 1 root_img_path = f"{ROOT}/train/" 2 query_path =
+f"{ROOT}/test/African_crocodile/n01697457_18534.JPEG" 3 size = (448,
+448) 4 query, ls_path_score = get_l1_score(root_img_path, query_path,
+size) 5 plot_results(query_path, ls_path_score, reverse=False) Hình 5:
+Image retrieval...

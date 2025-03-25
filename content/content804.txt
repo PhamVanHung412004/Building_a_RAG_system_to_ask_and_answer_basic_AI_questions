@@ -1,0 +1,7 @@
+Node ID: b183f65e-c7b1-4aca-a24c-643b609ec6d7
+Text: Mặc định là None, tức là tổng của tất cả các phần tử trong mảng.
+• dtype: (Tùy chọn) Kiểu dữ liệu của kết quả. • keepdims: (Tùy chọn)
+Nếu là True, giữ chiều của mảng kết quả (nếu có) giống với chiều của
+mảng đầu vào. • initial: (Tùy chọn) Giá trị khởi tạo cho tổng. •
+where: (Tùy chọn) Một mảng Boolean chỉ định vị trí các phần tử được sử
+dụng tro...

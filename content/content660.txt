@@ -1,0 +1,3 @@
+Node ID: 91420775-ad03-4a95-a02c-4adbfc3b031d
+Text: Hình 10: Bảng so sánh kết quả U-Mamba và các model khác trên
+dataset ảnh 2D. 8

@@ -1,0 +1,7 @@
+Node ID: 2d1c0f04-837d-4df6-93b3-7583da01cfba
+Text: Quá trình này thường được hỗ trợ bởi thông tin điều kiện, như
+văn bản mô tả, để hướng dẫn quá trình tái tạo dữ liệu theo mong muốn.
+Trong bối cảnh của Sora, diffusion model được áp dụng để dự đoán và
+tái tạo các clean patches từ các noisy patches, với sự hỗ trợ của
+thông tin điều kiện như văn bản mô tả. Đặc biệt, Sora kết hợp cấu trúc
+của diffus...

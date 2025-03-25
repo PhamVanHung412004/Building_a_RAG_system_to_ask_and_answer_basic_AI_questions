@@ -1,0 +1,7 @@
+Node ID: c01a46a9-6ce8-441a-bcde-95cefd94a716
+Text: Ví dụ 1: Chúng ta sẽ tạo một mảng 1 chiều và lấy ra một phần của
+mảng này từ chỉ số thứ nhất đến chỉ số thứ tư. 1 #aivietnam 2 import
+numpy as np 3 4 # Tạo mảng 1 chiều 5 arr1d = np.array([1, 2, 3, 4, 5])
+6 7 # Lấy ra một phần của arr1d từ chỉ số thứ nhất đến chỉ số thứ tư 8
+slice_arr1d = arr1d[1:4] 9 print("arr1d:", arr1d) 10 print("Sclicing
+ar...

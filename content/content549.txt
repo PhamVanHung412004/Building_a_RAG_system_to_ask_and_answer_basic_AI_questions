@@ -1,0 +1,7 @@
+Node ID: c6cb0933-8f23-4adf-b659-22def71c54fe
+Text: Ví dụ: ‘message_1‘, ‘_massage‘ nhưng không thể đặt là
+‘1_message‘. • Tên biến có thể gồm nhiều từ, nhưng mỗi từ phải được
+viết liền, không được sử dụng khoảng trắng. Ví dụ ‘fresh_apple‘ nhưng
+không thể đặt là ‘fresh apple‘ • Không được đặt tên biến trùng với
+những từ khóa và tên hàm trong Python. Ví dụ: Không nên đặt tên biến
+là ‘list‘, ‘for‘, ‘...

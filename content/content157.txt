@@ -1,0 +1,7 @@
+Node ID: 83c3dbbb-f676-4953-94fd-19dfff5c15f6
+Text: Công thức cho heat kernel được áp dụng để giải phương trình với
+điều kiện này. Và chúng ta sẽ có: p(x, t|x0, 0) = 1√ 2πσ2t exp  −(x −
+x0)2 2σ2t  . (21) Công thức này cho biết xác suất hệ thống ở vị trí x
+tại thời điểm t, khi ta đã biết rằng hệ thống ban đầu ở vị tríx0 tại
+thời điểm 0. Nói cách khác, heat kernel cho biết cách xác suất của sự
+di...

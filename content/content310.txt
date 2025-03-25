@@ -1,0 +1,7 @@
+Node ID: a2495360-b5ab-4f38-832f-31ddc04b4518
+Text: dec_bn1 (x) 81 x = self . dec_upsamp2 (x) 82 x = torch . cat
+([x, sc_feat8 ], 1) 83 x = F. relu ( self . dec_conv2 (x)) 84 x = self
+. dec_bn2 (x) 85 x = self . dec_upsamp3 (x) 86 x = torch . cat ([x,
+sc_feat16 ], 1) 87 x = F. relu ( self . dec_conv3 (x)) 88 x = self .
+dec_bn3 (x) 89 x = self . dec_upsamp4 (x) 90 x = torch . cat ([x,
+sc_feat32 ],...

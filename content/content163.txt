@@ -1,0 +1,7 @@
+Node ID: a9cbbdad-4a8c-4d4e-b3aa-3656918407bc
+Text: Do đó, ảnh hưởng của điều kiện ban đầu giảm dần theo thời gian.
+Từ phương trình, ta thấy rằng khiXt lớn hơnµ thì θ(µ − Xt) sẽ âm dẫn
+đến việc giảmXt về phíaµ và ngược lại. Điều này cho thấy quá trình có
+tính hồi quy. • Sự Cân Bằng Giữa Xu Hướng và Nhiễu: Trong OU process,
+có một sự cân bằng giữa xu hướng hồi quy về giá trị trung bình và ảnh
+hưởn...

@@ -1,0 +1,7 @@
+Node ID: f9385c60-f8b8-460a-97ff-b23a6dc24cd2
+Text: AIO2024 aivietnam.edu.vn 2.1 If-elif-else Cách phổ biến nhất để
+thay thế switch case trong python là sử dụng cấu trúc if-elif-else.
+Cấu trúc này bắt đầu bằng câu lệnh if và điều kiện condition, nếu điều
+kiện này đúng khối lệnh trong if(statement) sẽ được thực hiện. Nếu
+điều kiện sai sẽ chuyển sang câu lệnh elif và tiếp tục kiểm tra điều
+kiện. Nế...

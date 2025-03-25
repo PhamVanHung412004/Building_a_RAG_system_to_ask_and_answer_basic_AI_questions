@@ -1,0 +1,3 @@
+Node ID: cea6d15d-5293-4f84-9834-83cb92b0a457
+Text: AI VIETNAM (AIO2024) aivietnam.edu.vn (b) Khởi tạo bộ chia
+vector. (c) Import text từ langchain. (d) Truy vấn text.

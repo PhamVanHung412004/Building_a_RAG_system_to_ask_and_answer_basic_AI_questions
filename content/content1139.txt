@@ -1,0 +1,7 @@
+Node ID: 6d2f74c5-564f-490d-a036-8aea5e99f025
+Text: AI VIETNAM aivietnam.edu.vn 13 # train : valid split 14
+num_train = 150000 15 train_imgpaths = img_paths [: num_train ] 16
+val_imgpaths = img_paths [ num_train :] 17 18 # generate mask image 19
+def bbox2mask ( img_shape , bbox , dtype =’uint8 ’): 20 """ 21
+Generate mask in ndarray from bbox . 22 bbox ( tuple [ int ]):
+Configuration tuple , (top ...

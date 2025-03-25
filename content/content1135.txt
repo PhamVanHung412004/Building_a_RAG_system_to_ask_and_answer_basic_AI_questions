@@ -1,0 +1,7 @@
+Node ID: 463ff364-2629-41cc-8943-1b4a67a46cd4
+Text: AI VIETNAM aivietnam.edu.vn (a) Forward Diffusion Process (FDP):
+Từ một điểm dữ liệu đầu vàox0 thuộc một phân phối biết trước x0 ∼
+q(x), FDP sẽ thêm từ từ lần lượt theo thời gian một lượng nhỏ nhiễu
+được lấy mẫu từ phân phối Gaussϵ ∼ N(µ, σ2) tạo ra các mẫu chứa
+nhiễux1, x2, ..., xT , vớiT (steps) số bước thêm nhiễu vào. (b)
+Reverse Diffusion Pr...

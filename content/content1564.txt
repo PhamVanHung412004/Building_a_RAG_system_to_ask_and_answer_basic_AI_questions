@@ -1,0 +1,7 @@
+Node ID: 85021616-fd25-4859-bcff-376379f206a6
+Text: Daily AI Exercise (AIO) aivietnam.edu.vn 1 def add (x: int , y:
+int ) -> int : 2 return x + y 3 4 if __name__ == " __main__ ": 5 print
+( add (x= 1.5 , y =2) ) 6 print ( add . __annotations__ )
+================= Output ================ 3.5 {’x ’: <class ’int ’>,
+’y ’: <class ’int ’>, ’return ’: <class ’int ’ >}
+===================================...

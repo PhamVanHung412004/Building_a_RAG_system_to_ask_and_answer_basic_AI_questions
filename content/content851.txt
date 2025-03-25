@@ -1,0 +1,7 @@
+Node ID: c5f7a7ec-3f37-4203-837f-41824874529b
+Text: AI VIETNAM aivietnam.edu.vn thư mục con và lưu trữ đường dẫn của
+từng ảnh vào một danh sách. 1 def get_files_path(path): 2 files_path =
+[] 3 for label in CLASS_NAME: 4 label_path = path + "/" + label 5
+filenames = os.listdir(label_path) 6 for filename in filenames: 7
+filepath = label_path + ’/’ + filename 8 files_path.append(filepath) 9
+return f...

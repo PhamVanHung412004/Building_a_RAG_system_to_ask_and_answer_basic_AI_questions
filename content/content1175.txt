@@ -1,0 +1,5 @@
+Node ID: 7ae780b6-f3af-4318-8cac-3799f44931b2
+Text: AI VIETNAM aivietnam.edu.vn 353 use_scale_shift_norm =True , 354
+resblock_updown =True , 355 use_new_attention_order = False , 356 ):
+357 358 super (). __init__ () 359 360 if num_heads_upsample == -1: 361
+num_heads_upsample = num_heads 362 363 self .

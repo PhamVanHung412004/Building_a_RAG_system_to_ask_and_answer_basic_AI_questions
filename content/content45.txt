@@ -1,0 +1,5 @@
+Node ID: 75c9542b-2243-49a4-90f3-c512c1faf9ea
+Text: Nếu truy cập thành công, các bạn sẽ thấy giao diện như hình
+dưới: Hình 9: Giao diện GitHub của YOLOv10 • Bước 2:Tại trang GitHub
+của YOLOv10, các bạn chọn mụcCode (có màu nền xanh dương như ảnh dưới)
+và chọn nút copy đường dẫn như ảnh minh họa dưới đây: 6

@@ -1,0 +1,7 @@
+Node ID: 36e8d656-65b7-4ada-9085-bf1af1cadfa1
+Text: memory import ConversationBufferMemory 9 from
+langchain_community . chat_message_histories import ChatMessageHistory
+10 from langchain_community . document_loaders import PyPDFLoader ,
+TextLoader 11 from langchain . chains import
+ConversationalRetrievalChain 12 13 from langchain_chroma import Chroma
+14 from langchain_text_splitters import Recurs...

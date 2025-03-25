@@ -1,0 +1,7 @@
+Node ID: 18de2023-af48-42f8-9550-e4b043e34fdd
+Text: Classes and Objects 1.1. Khái niệm về Classes và Objects •
+Classes là khuôn mẫu (template) để tạo ra các objects. Một class định
+nghĩa các thuộc tính (attributes) và phương thức (methods) mà objects
+của nó sẽ có. • Objects là các thể hiện (instance) của classes, tức là
+mỗi object được tạo ra từ một class sẽ có các thuộc tính và phương
+thức được ...

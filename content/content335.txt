@@ -1,0 +1,6 @@
+Node ID: 8f72e5f0-758e-41bc-94f3-ec57c9fbc4ee
+Text: numpy (). reshape ( -1) 71 ) 72 73 # Sample from GMM 74 z =
+curr_mu . repeat ( int (( batchsize * 1.0) / nmix ), 1) 75 76 #
+Predict color 77 _, _, color_out = model_vae ( input_color ,
+input_greylevel , z) 78 79 # Save images 80 data . saveoutput_gt ( 81
+color_out . cpu ().

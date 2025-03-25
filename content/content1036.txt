@@ -1,0 +1,7 @@
+Node ID: 7751ee68-e95d-4297-82f3-cf29b4d53fd4
+Text: Mô hình Sora, phát triển bởi OpenAI, hay Genie, phát triển bởi
+Google, là những minh chứng nổi bật cho tiến trình này, đánh dấu một
+cột mốc quan trọng trong việc mô hình hóa và tạo sinh video dựa trên
+văn bản, giúp biến những mô tả văn bản thành video sinh động với mạch
+lạc thời gian và không gian cao. Lý do phía sau việc nghiên cứu và
+phát triể...

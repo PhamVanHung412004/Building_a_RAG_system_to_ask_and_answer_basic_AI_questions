@@ -1,0 +1,7 @@
+Node ID: 08c742c8-4414-4776-8a7b-ccc8bc33e6b4
+Text: AI VIETNAM aivietnam.edu.vn mở rộng của các Diffusion
+Transformers (DiTs) thông qua phân tích độ phức tạp của quá trình lan
+truyền xuôi, được đo bằng Gflops. Nghiên cứu đã tìm thấy một xu hướng
+nhất quán, khi mô hình DiTs có Gflops cao hơn, đạt được thông qua việc
+tăng độ sâu/rộng của transformer hoặc số lượng token đầu vào, thể hiện
+điểm Freche...

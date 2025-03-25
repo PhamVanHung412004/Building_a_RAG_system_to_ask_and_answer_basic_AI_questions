@@ -1,0 +1,7 @@
+Node ID: 61d731f6-dc58-4f36-9899-c12ffcc05260
+Text: 1 # Tạo chức năng tiền xử lý để mã hóa văn bản và cắt bớt các
+chuỗi không dài hơn độ dài đầu vào tối đa của mã thông báo 2 def
+preprocess_function(examples): 3 samples = tokenizer(examples["text"],
+truncation=True) 4 # Không cần attention_mask 5 # Cụ thể hơn về token
+masking của mamba có thể tham khảo: https:// github.com/state-
+spaces/mamba/issu...

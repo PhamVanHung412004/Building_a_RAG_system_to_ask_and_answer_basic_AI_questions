@@ -1,0 +1,7 @@
+Node ID: d0aad703-75cf-4a08-aac7-126d41980f4e
+Text: FLARE hoạt động bằng cách tạo ra các câu tạm thời, và nếu nhận
+thấy có từ nào trong câu đó không chắc chắn, nó sẽ tìm kiếm thông tin
+liên quan để cải thiện câu tiếp theo. Điều này tiếp tục diễn ra cho
+đến khi hoàn thành văn bản. Một ưu điểm đáng chú ý là FLARE có thể áp
+dụng cho bất kỳ mô hình ngôn ngữ nào mà không cần phải huấn luyện lại
+từ đầu...

@@ -1,0 +1,7 @@
+Node ID: 5ada996b-a9f5-4fb4-b7ff-cede8ee3a94e
+Text: AI VIETNAM aivietnam.edu.vn 18 Zero out the parameters of a
+module and return it. 19 """ 20 for p in module . parameters (): 21 p.
+detach (). zero_ () 22 return module 23 24 25 def scale_module (
+module , scale ): 26 """ 27 Scale the parameters of a module and
+return it. 28 """ 29 for p in module . parameters (): 30 p. detach ().
+mul_ ( scale ) ...

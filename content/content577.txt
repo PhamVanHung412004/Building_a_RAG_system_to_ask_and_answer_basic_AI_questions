@@ -1,0 +1,7 @@
+Node ID: 0812583b-f612-4fd3-853d-c76e7ba71c23
+Text: AI VIET NAM – COURSE 2024 Data Structure – Exercise Ngày 8 tháng
+6 năm 2024 I. Câu hỏi tự luận 1. Cho một list các số nguyên num_list
+và một sliding window có kích thước size k di chuyển từ trái sang
+phải. Mỗi lần dịch chuyển 1 vị trí sang phải có thể nhìn thấy đươc k
+số trong num_list và tìm số lớn nhất trong k số này sau mỗi lần trượt
+k phải l...

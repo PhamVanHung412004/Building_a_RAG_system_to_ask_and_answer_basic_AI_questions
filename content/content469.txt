@@ -1,0 +1,7 @@
+Node ID: e359eb4f-440f-4e4c-a59d-4700c897fddf
+Text: log . addHandler ( stream_handler ) 31 32 def _add_file_hander
+(self , log_file ): 33 file_handler = RotatingFileHandler ( log_file ,
+maxBytes =10000 , backupCount =10) 34 file_handler . setFormatter (
+self . formatter ) 35 self . log . addHandler ( file_handler ) 36 37
+def log_model (self , predictor_name ): 38 self . log . info (f"
+Predictor n...

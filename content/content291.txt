@@ -1,0 +1,7 @@
+Node ID: 31511c9f-d147-4f8c-a510-038cb987924a
+Text: AI VIETNAM aivietnam.edu.vn 8 from torch . utils . data import
+DataLoader 9 import cv2 10 import numpy as np 11 from torch . utils .
+data import Dataset Khởi tạo class ColorDataset: 1 class ColorDataset
+( Dataset ): 2 def __init__ (self , out_directory , listdir =None , 3
+featslistdir =None , shape =(64 , 64) , 4 outshape =(256 , 256) ,
+split ="...

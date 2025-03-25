@@ -1,0 +1,7 @@
+Node ID: e32cac74-3046-4c00-b308-f8e48bb8d407
+Text: arange (0 , detections . shape [2]) : 20 confidence = detections
+[0 , 0, i, 2] 21 22 if confidence > confidence_threshold : 23 #
+extract the index of the class label from the ‘detections ‘, 24 # then
+compute the (x, y)- coordinates of the bounding box for 25 # the
+object 26 idx = int ( detections [0 , 0, i, 1]) 27 box = detections [0
+, 0, i, 3:7...

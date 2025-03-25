@@ -1,0 +1,7 @@
+Node ID: b86d36a4-e4bb-4b5f-af95-c08b1b84a7cf
+Text: AI VIET NAM – COURSE 2024 Probability Exercise (Naive Bayes
+Classifier) Ngày 20 tháng 7 năm 2024 Giả sửX có các đặc trưng thuộc
+tính độc lập với nhaux1, x2, ..., xn, để phân loạiX vào lớp một trong
+các lớpC = c1, c2, ..., cm, dựa vào công thức Bayes ta có: P(c|X) =
+P(X|c).P(c) P(X) Dựa vào ước lượng tối đa xác suất hậu nghiệm (MAP -
+Maximum A Po...

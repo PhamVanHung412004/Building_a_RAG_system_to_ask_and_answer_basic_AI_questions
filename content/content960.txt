@@ -1,0 +1,7 @@
+Node ID: 9590e48d-0ef0-49c8-8256-281611e803de
+Text: AI VIETNAM aivietnam.edu.vn Hình 4: Minh họa các bước xây dựng
+một vector database với Faiss Để cài đặt Faiss phục vụ cho việc tìm
+kiếm các văn bản context của các câu hỏi có nội dung giống với câu hỏi
+đầu vào, ta thực hiện như sau: (a) Cài đặt và import các thư viện cần
+thiết: 1 !pip install -qq transformers[sentencepiece]==4.35.2
+datasets==2.1...

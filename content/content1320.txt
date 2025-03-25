@@ -1,0 +1,7 @@
+Node ID: 271d07b7-7bf3-42fe-b505-a29c23ee3991
+Text: AI VIETNAM aivietnam.edu.vn 9 bias =" none ", 10 task_type ="
+SEQ_CLS ", 11 ) 12 13 model_path = "./ save_sft_model / checkpoint
+-1000 " 14 model = AutoModelForCausalLMWithValueHead . from_pretrained
+( 15 pretrained_model_name_or_path = model_path , 16 peft_config =
+peft_config , 17 ) 2.3. Trainer 1 from trl import PPOConfig ,
+PPOTrainer 2 3 def...

@@ -1,0 +1,7 @@
+Node ID: 556d316f-6f37-4bf5-924e-04872deefb9b
+Text: AI VIETNAM aivietnam.edu.vn • Ở quá trình backward, câu hỏi sẽ
+được LLM tạo ra dựa trên những câu hỏi mồi, cộng với một topic cho
+trước, một độ phức tạp dự kiến và một chuỗi suy luận được tạo tự động.
+Có một điểm cần lưu ý là chuỗi suy luận sẽ được tạo ra trước dựa trên
+từ chủ đề và đô phức tạp dự kiến, sau đó mô hình LLM sẽ tạo ra câu hỏi
+dựa t...

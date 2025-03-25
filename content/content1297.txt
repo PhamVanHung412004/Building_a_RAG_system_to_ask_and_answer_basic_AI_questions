@@ -1,0 +1,7 @@
+Node ID: ad945650-1002-4de9-ad8c-d64ab913aeb0
+Text: AI VIETNAM aivietnam.edu.vn 5. (OPTIONAL) IRIS CLASSIFIER
+IMPLEMENTATION Cho trước dữ liệu chứa thông tin về hoa Iris gồm có
+sepal length, sepal width và petal length, và Species (bảng 6). Hãy
+phát triển chương trình sử dụng mô hình phân loại Gausian Naive Bayes
+để dự đoán chủng loại của hoa Iris. Dữ liệu hoa iris được lưu trữ
+trong file iris_da...

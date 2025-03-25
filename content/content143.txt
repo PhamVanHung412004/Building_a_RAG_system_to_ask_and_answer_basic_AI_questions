@@ -1,0 +1,7 @@
+Node ID: 783d5042-ba4b-4a20-b00f-6b886ef5acb8
+Text: AI VIETNAM aivietnam.edu.vn Chúng ta sẽ xét một ví dụ về việc sử
+dụng Ito interpretation để giải quyết một bài toán cụ thể trong tài
+chính. Giả sử chúng ta muốn mô hình hóa giá cổ phiếu trong thời gian
+thực và dự đoán sự biến đổi của nó. Phương trình stochastics dạng itô
+cho giá cổ phiếu có thể được biểu diễn như sau: dS = µSdt + σSdW (9)
+Trong ...

@@ -1,0 +1,7 @@
+Node ID: d8acd6b2-6e40-47bf-bd34-ed14a69ef7c7
+Text: AI VIETNAM aivietnam.edu.vn 15.3 Score functions Score function
+là một khái niệm quan trọng trong reverse process. Được định nghĩa như
+sau: s(x, t) := ∇x p(x, t) . (50) Trong đós(x, t) là score function,
+một vector được tính bằng đạo hàm gradient củap(x, t) theo x. Vai trò
+của Score function: • Khi ta muốn thực thi reverse process trên một
+nhiễu...

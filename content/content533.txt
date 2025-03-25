@@ -1,0 +1,7 @@
+Node ID: 94a4c722-f74e-4cde-b6eb-3515c3df7442
+Text: AI VIETNAM aivietnam.edu.vn 2 3 def extract_answer (
+text_response : str , 4 pattern : str = r" Answer :\s *(.*) " 5 ) ->
+str : 6 7 match = re. search ( pattern , text_response ) 8 if match :
+9 answer_text = match . group (1) . strip () 10 return answer_text 11
+else : 12 return " Answer not found ." 9. Cập nhật
+filesrc/rag/main.py:Tại file này, ...

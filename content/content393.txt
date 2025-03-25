@@ -1,0 +1,7 @@
+Node ID: 0bda90e0-3d83-4d7c-9aa8-0ad7d8b7d1c7
+Text: registration . TransformationEstimationPointToPlane ()) 13
+draw_registration_result ( source , target , reg_p2l . transformation
+, " Point to plane ICP ") 14 return reg_p2l . transformation Sau khi
+registration, hai đám point clouds đạt được độ chồng chéo cao hơn đáng
+kể so với trước đó. Điều này thể hiện rõ ràng qua việc giảm dần giá
+trị inlier...

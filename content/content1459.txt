@@ -1,0 +1,7 @@
+Node ID: c3678cec-bb50-482a-be49-8e755421aba7
+Text: Việc này không chỉ giúp tiết kiệm không gian lưu trữ mà còn làm
+tăng tốc độ tải xuống và chia sẻ tập tin PDF. 1 from pypdf import
+PdfWriter 2 3 writer = PdfWriter(clone_from="yolov9.pdf") 4 5 for page
+in writer.pages: 6 page.compress_content_streams(level=8) # This is
+CPU intensive! 7 8 with open("out.pdf", "wb") as f: 9 writer.write(f)
+Trong ví...

@@ -1,0 +1,7 @@
+Node ID: 5aeadcb8-7bd2-4b7e-9641-0214b7c49e0e
+Text: load ( self . data_path + ’/ label /{: d}. npy ’. format ( index
+))) 25 depth = torch . from_numpy (np. moveaxis (np. load ( self .
+data_path + ’/ depth /{: d}. npy ’. format ( index )), -1, 0)) 26 27
+return { 28 ’image ’: image . float () , 29 ’ semantic ’: semantic .
+float () , 30 ’depth ’: depth . float () 31 } 32 33 def __len__ ( self
+): 34 ...

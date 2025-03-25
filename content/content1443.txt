@@ -1,0 +1,7 @@
+Node ID: 1ac07114-bc84-4a10-89d2-b4210e354ded
+Text: Cách cài đặt như sau: 1. Cài đặt thư viện PygWalker: + Để cài
+đặt thư PygWalker, chúng ta sử dụng câu lệnh sau ở Google Colab: 1
+!pip install pygwalker + Để cài thư viện trên máy cá nhân và chạy với
+Jupyter Notebook, chúng ta sẽ chạy thông qua Terminal đối với hệ điều
+hành MacOS và CMD đối với hệ điều hành Windows thông qua lệnh sau: 1
+pip insta...

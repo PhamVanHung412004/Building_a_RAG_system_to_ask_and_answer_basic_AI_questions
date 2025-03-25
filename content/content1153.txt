@@ -1,0 +1,7 @@
+Node ID: 5d8e763a-f252-4148-a28c-390d42da06bc
+Text: AI VIETNAM aivietnam.edu.vn 78 return output_tensors 79 80
+@staticmethod 81 def backward (ctx , * output_grads ): 82 ctx .
+input_tensors = [x. detach (). requires_grad_ ( True ) for x in ctx .
+input_tensors ] 83 with torch . enable_grad (): 84 # Fixes a bug where
+the first op in run_function modifies the 85 # Tensor storage in place
+, which is n...

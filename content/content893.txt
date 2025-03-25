@@ -1,0 +1,7 @@
+Node ID: 4031c26d-61d0-4f4a-aa34-faefb325c7c1
+Text: – Tìm câu trả lời sáng tạo: Tăng giá trị Top P (0.6 - 0.9). •
+Max Length – Điều chỉnh tùy theo nhu cầu của task: đối với phản hồi
+ngắn, giới hạn số lượng token (ví dụ: 100-200 tokens); đối với bài
+viết dài hơn, tăng số lượng token tối đa. • Stop Sequences – Đặt các
+chuỗi cụ thể để kết thúc kết quả trả về: nếu bạn muốn mô hình chỉ tạo
+ra một danh...

@@ -1,0 +1,7 @@
+Node ID: 223dda3d-86b8-4fa2-b4a1-7b92e6f0824e
+Text: AI VIETNAM aivietnam.edu.vn 236 def _forward (self , x): 237 b,
+c, * spatial = x. shape 238 x = x. reshape (b, c, -1) 239 qkv = self .
+qkv ( self . norm (x)) 240 h = self . attention ( qkv ) 241 h = self .
+proj_out (h) 242 return (x + h). reshape (b, c, * spatial ) 243 244
+245 class QKVAttentionLegacy (nn. Module ): 246 """ 247 A module which
+pe...

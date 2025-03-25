@@ -1,0 +1,7 @@
+Node ID: 66c5ac21-c63e-430e-82f2-87ec232cdc64
+Text: 1 # Điền các giá trị NaN bằng các giá trị từ hàng trước đó 2
+df[’Môn học’].fillna(method=’ffill’, inplace=True) 3 df[’Ngày
+thi’].fillna(method=’ffill’, inplace=True) 4 df[’Giờ bắt
+đầu’].fillna(method=’ffill’, inplace=True) 5 df[’Phòng
+thi’].fillna(method=’ffill’, inplace=True) Bảng 5: Dataframe sau khi
+đã fillna # Môn học Ngày thi Giờ bắt đầu Ph...

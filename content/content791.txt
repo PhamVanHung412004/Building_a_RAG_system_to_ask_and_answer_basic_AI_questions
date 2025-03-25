@@ -1,0 +1,7 @@
+Node ID: 5c10e2e9-37d4-4700-a1f9-9ca24033708d
+Text: AIO 2024 aivietnam.edu.vn 1 #aivietnam 2 import numpy as np 3 4
+# Tạo hai array 1D 5 arr_1 = np.array([1, 2, 3, 4]) 6 arr_2 =
+np.array([5, 6, 7, 8]) 7 8 # Thực hiện phép cộng hai array 9 # Cách 1:
+Sử dụng toán tử ’+’ 10 arr_add_1 = arr_1 + arr_2 11 # Cách 2: Sử dụng
+hàm np.add() 12 arr_add_2 = np.add(arr_1, arr_2) 13 # In ra màn hình
+14 print(f"...

@@ -1,0 +1,5 @@
+Node ID: 21c6cadf-4a1f-4f6f-9335-804928d6a965
+Text: AI VIETNAM aivietnam.edu.vn trạng thái của môi trường như các
+frame, sau đó lưu lại thành một file .gif, từ đó có thể dễ dàng hiển
+thị lên colab. Các bước thực hiện như sau: 1. Cài đặt một số package
+cần thiết: 1 ! sudo apt - get update 2 !

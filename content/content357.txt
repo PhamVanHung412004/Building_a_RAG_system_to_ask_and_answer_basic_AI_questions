@@ -1,0 +1,7 @@
+Node ID: 225b687c-a3c2-426a-b256-03e27d463503
+Text: AI VIETNAM aivietnam.edu.vn mỗi frame thành feature vector, sau
+đó ta sẽ tổng hợp các feature vector này và đưa vào MLP head để đưa ra
+prediction cuối cùng. Model late fusion được mô tả như hình sau, ta có
+thể concat hoặc tính average của các feature vector sau khi qua CNN,
+khi concat thì kích thước sẽ rất lớn nên ta sẽ tính average các
+vector. ...

@@ -1,0 +1,7 @@
+Node ID: 8d7270e0-161a-4f9a-acdd-b71908a89dd5
+Text: Lambda ( lambda t: (t + 1) / 2) , 29 transforms . Lambda (
+lambda t: t. permute (1 , 2, 0)), # CHW to HWC 30 transforms . Lambda
+( lambda t: t * 255.) , 31 transforms . Lambda ( lambda t: t. numpy
+(). astype (np. uint8 )), 32 transforms . ToPILImage () , 33 ]) 34 35
+# Take first image of batch 36 if len ( image . shape ) == 4: 37 image
+= image [...

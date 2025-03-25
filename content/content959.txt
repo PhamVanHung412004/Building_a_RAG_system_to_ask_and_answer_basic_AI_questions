@@ -1,0 +1,7 @@
+Node ID: fcf6a548-5f0a-4002-8821-544d7952bd28
+Text: Các bạn có thể đọc thêm về Faiss tại đây. Hình 3: Source Tại
+đây, chúng ta sẽ ứng dụng Faiss để làm module Retriever cho hệ thống
+E2E QA của chúng ta. Với nhiệm vụ tìm kiếm các context phù hợp nhất
+cho câu hỏi đầu vào, ta sẽ cài đặt Faiss theo cách thức như sau: (a)
+Với bộ dữ liệu SQuAD2.0, ta sẽ xây dựng một database chứa thêm cột đại
+diện cho ...

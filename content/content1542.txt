@@ -1,0 +1,6 @@
+Node ID: 5b13321e-8b58-44b7-8e61-80efe511b5f7
+Text: 5. Trong trò chơi Super Mario Bros phiên bản OpenAI Gym (có
+không gian trò chơi như ảnh minh họa trên), nhân vật Mario có thể thực
+hiện được các hành động bao gồm: Di chuyển Trái/Phải, Ngồi xuống, Nhảy
+lên và Đứng yên. Theo đó, không gian hành động (Action Space) của môi
+trường này là? 15

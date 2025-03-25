@@ -1,0 +1,7 @@
+Node ID: 1706d4bf-9421-45a2-b3e4-aad87a9e7701
+Text: 4 5 Returns: 6 None 7 """ 8 data = self.read_json() 9
+download_tasks = [] 10 11 total_images = sum(len(urls) for terms in
+data.values() for urls in terms.values()) 12 with
+tqdm(total=total_images, desc="Downloading images") as pbar: 13 with
+concurrent.futures.ThreadPoolExecutor(max_workers=self.max_workers) as
+executor: 14 for category, terms in...

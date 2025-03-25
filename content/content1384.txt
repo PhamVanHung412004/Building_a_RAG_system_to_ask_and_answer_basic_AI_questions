@@ -1,0 +1,7 @@
+Node ID: c739e938-7f9e-4745-8e45-5812673e9b2a
+Text: dtype ) 269 a = torch . einsum ("bts ,bcs -> bct ", weight , v)
+270 return a. reshape (bs , -1, length ) 271 272 @staticmethod 273 def
+count_flops ( model , _x , y): 274 return count_flops_attn ( model ,
+_x , y) 275 276 277 class QKVAttention (nn. Module ): 278 """ 279 A
+module which performs QKV attention and splits in a different order .
+280 "...

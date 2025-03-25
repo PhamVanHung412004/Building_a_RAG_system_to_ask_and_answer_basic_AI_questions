@@ -1,0 +1,5 @@
+Node ID: 713483d9-46fb-418d-9ae1-cdeff9837f3e
+Text: AI VIETNAM aivietnam.edu.vn 11 self . n_frames = n_frames 12
+self . phase = phase 13 self . videos , self . labels = self .
+_load_videos () 14 15 def _load_videos ( self ): 16 videos , labels =
+[] , [] 17 class_id = 0 18 19 video_folders = os. listdir (os.

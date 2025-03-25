@@ -1,0 +1,7 @@
+Node ID: 882abc7a-90f3-42b4-8609-b0f89b029fe3
+Text: Daily AI Exercise (AIO) Ngày 1 tháng 4 năm 2024 Hình 6: Biểu đồ
+hộp thể hiện dân số theo quốc gia + Vẽ bản đồ hộp thể hiện phân phối
+dữ liệu: Hình 7: Bản đồ thể hiện dân số theo quốc gia 3. Bài tập: Hãy
+đọc dữ liệu ở file: advertising.csv và khởi chạy thư viện PygWalker
+sau đó thực hiện trực quan các biểu đồ sau đây: • Câu 1:Vẽ biểu đồ
+phân phối...

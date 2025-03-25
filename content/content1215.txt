@@ -1,0 +1,7 @@
+Node ID: 267b98ae-818e-4019-a4ec-50eb90dd1dd1
+Text: AI VIETNAM aivietnam.edu.vn edge với nhau hay không, nên ta mới
+cần edge network làm nhiệm vụ edge prediction. 1 class GCN (nn. Module
+): 2 def __init__ (self , in_features , edge_features , out_feature ,
+device , ratio =(1 ,) ): 3 super (GCN , self ). __init__ () 4 5 self .
+edge_net = EdgeNet ( 6 in_features = in_features , 7 num_features =
+edg...

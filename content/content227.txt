@@ -1,0 +1,7 @@
+Node ID: f5d2b506-386c-4b9e-ab46-954a406bf0dd
+Text: AI VIETNAM aivietnam.edu.vn a. Nó cho phép lớp con kế thừa
+phương thức từ lớp cha mà không cần thay đổi gì b. Nó cho phép lớp con
+thay đổi hoặc mở rộng hành vi của phương thức kế thừa từ lớp cha c. Nó
+ngăn cản lớp con kế thừa phương thức từ lớp cha d. Nó yêu cầu lớp con
+phải gọi phương thức của lớp cha mà không được thay đổi Câu hỏi 9:
+Loại kế t...

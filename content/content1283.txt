@@ -1,0 +1,7 @@
+Node ID: eb78549b-b6b5-4c5b-af67-5054ffb8a545
+Text: MULTI-LABEL CLASSIFICATION - TRAFFIC DATACho tập dữ liệu huấn
+luyện mô hình phân loại Naive Bayes gồm các thuộc tính "Day",
+"Season", "Fog", "Rain". Day Season Fog Rain Class Weekday Spring None
+None On Time Weekday Winter None Slight On Time Weekday Winter None
+None On Time Holiday Winter High Slight Late Saturday Summer Normal
+None On Time Wee...

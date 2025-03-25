@@ -1,0 +1,7 @@
+Node ID: 459348ed-6ae5-44a2-8bbd-e17aa326148f
+Text: Sau đó, cấp lớn chứa đoạn tài liệu dài hơn, bao chùm ngữ cảnh
+tốt hơn (chứa đoạn nhỏ) được trả về như kết quả tìm kiếm. Giải pháp
+cho phép tìm kiếm chính xác hơn mà vẫn giữ được ngữ cảnh của tài liệu.
+• Sub-Queries: Trong bối cảnh thực tế, rất nhiều loại truy vấn được
+thực hiện. Nhằm tối ưu việc truy vấn, các giải pháp về truy vấn được
+đề xuất, ...

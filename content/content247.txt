@@ -1,0 +1,7 @@
+Node ID: e4fd47c2-e836-4351-8edc-e1c968cfcb23
+Text: ta có thể thấy với Wind(Strong) thì tất cả samples đều là no thì
+Entropy=0 ta có thể trả về no cho Strong. Tương tự với Weak sẽ trả về
+yes. 2.3.2 Data có biến liên tục Ta có 1 tệp data với các biến là độ
+dài của cách hoa với 2 label là 0 và 1. Bảng 5: Dữ liệu liên tục STT
+Petal_Length Label 1 1 0 2 1.3 0 3 0.9 0 4 1.7 1 5 1.8 1 6 1.2 1 Đầu
+tiên ...

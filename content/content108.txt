@@ -1,0 +1,7 @@
+Node ID: cd82da12-802b-40e6-8002-bd92751a1325
+Text: AI VIETNAM (AIO2024) aivietnam.edu.vn II. Cài đặt chương trình
+Trong phần này, ta sẽ tiến hành cài đặt chương trình phân loại tin
+nhắn rác hay không với Naive Bayes. Chương trình được cài đặt trên
+Google Colab. Các bước thực hiện như sau: 1. Tải bộ dữ liệu:Đầu tiên,
+chúng ta cùng nhìn qua bộ dataset sẽ được sử dụng trong bài này thông
+qua bảng s...

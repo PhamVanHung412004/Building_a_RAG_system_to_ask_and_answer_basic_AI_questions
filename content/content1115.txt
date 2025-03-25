@@ -1,0 +1,7 @@
+Node ID: 7b87ea47-9058-411c-8cef-0bdba963634d
+Text: AI VIETNAM (AIO2024) aivietnam.edu.vn 5. Dự đoán:Để chạy dự đoán
+cho ảnh đã tải về, các bạn truyền đường dẫn ảnh vào mô hình như đoạn
+code sau: 1 image_path = "./ images / HCMC_Street . jpg " 2 result =
+model ( source = image_path ) [0] Hình 15: Ảnh cần dự đoán. 6. Lưu kết
+quả dự đoán:Để lưu lại ảnh đã được dự đoán, các bạn chạy đoạn code
+sau: 1...

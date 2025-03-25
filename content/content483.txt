@@ -1,0 +1,7 @@
+Node ID: ad209f96-4c36-479b-8d96-33bad14109eb
+Text: append ( str ( Path ( __file__ ). parent )) 4 5 from fastapi
+import File , UploadFile 6 from fastapi import APIRouter 7 from
+schemas . catdog_schema import CatDogResponse 8 from config .
+catdog_cfg import ModelConfig 9 from models . catdog_predictor import
+Predictor 10 11 router = APIRouter () 12 predictor = Predictor ( 13
+model_name = ModelConf...

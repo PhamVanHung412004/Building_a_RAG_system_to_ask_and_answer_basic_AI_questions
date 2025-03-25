@@ -1,0 +1,7 @@
+Node ID: 963f61b8-553d-4084-8c24-ba4942fdf7b2
+Text: AI VIETNAM aivietnam.edu.vn 16 assert stack1 . is_full () ==
+False 17 stack1 . push (2) 18 print ( stack1 . is_full ()) a) True b)
+False c) None d) Raise an error Câu hỏi 10: Thực hiện xây dựng class
+Stack với các chức năng (method) sau đây: initialization method nhận
+một input "capacity", dùng để khởi tạo stack với capacity là số lượng
+element ...

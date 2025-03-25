@@ -1,0 +1,7 @@
+Node ID: 081d7681-1f55-46e8-b093-25c6994dd66d
+Text: AI VIETNAM aivietnam.edu.vn Hình 1: Hình biểu diễn 3D point
+clouds sau khi load data. Point cloud từ bộ a) KITTI, b) PCN, c)
+S3DIS. 1 def draw_point_clouds ( array , color = None , logits_color =
+False , name = " Open3D "): 2 """ 3 Visualize 3D point clouds from an
+3D point cloud array and its corresponding color array . 4 Args : 5
+array (np. ar...

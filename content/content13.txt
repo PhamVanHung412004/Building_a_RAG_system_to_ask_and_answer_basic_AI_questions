@@ -1,0 +1,7 @@
+Node ID: 7d2847ed-fad0-4382-b8ef-8d8eec69fa27
+Text: AI VIETNAM (AIO2024) aivietnam.edu.vn 5 max_new_tokens =512 , 6
+pad_token_id = tokenizer . eos_token_id , 7 device_map =" auto " 8 ) 9
+10 llm = HuggingFacePipeline ( 11 pipeline = model_pipeline , 12 ) 4.
+Chạy chương trình:Với vector database, retriever và mô hình Vicuna đã
+hoàn thiện. Ta sẽ kết hợp chúng lại để hoàn thành chương trình RAG đầu
+t...

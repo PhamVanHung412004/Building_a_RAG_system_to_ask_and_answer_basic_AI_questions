@@ -1,0 +1,7 @@
+Node ID: 2156f914-2258-4f7a-971f-65bcceec78d3
+Text: AI VIETNAM (AIO2024) aivietnam.edu.vn (a) Ảnh grayscale  (b) Ảnh
+color map Hình 6: Kết quả disparity map của phương pháp window-based
+matching sử dụng L1 (a) Ảnh grayscale  (b) Ảnh color map Hình 7: Kết
+quả disparity map của phương pháp window-based matching sử dụng L2
+Problem 3: Khi sử dụng hàm tính disparity map đã xây dựng ở Problem 2
+cho cặp...

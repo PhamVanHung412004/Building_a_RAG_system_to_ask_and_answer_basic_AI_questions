@@ -1,0 +1,7 @@
+Node ID: 62fe2f59-dc94-42da-a053-20e15da8082f
+Text: AI VIETNAM aivietnam.edu.vn 66 start_positions.append(0) 67
+end_positions.append(0) 68 else: 69 # Nếu không, gán vị trí bắt đầu và
+kết thúc dựa trên 70 # vị trí của các mã thông tin 71 idx =
+context_start 72 while idx <= context_end and offset[idx][0] <=
+start_char: 73 idx += 1 74 start_positions.append(idx - 1) 75 76 idx =
+context_end 77 while ...

@@ -1,0 +1,7 @@
+Node ID: 88289195-edf2-4001-b5fe-44ffc3827524
+Text: AI VIETNAM (AIO2024) aivietnam.edu.vn Hình 8: PGI và các kiến
+trúc tương tự. Ảnh: [9]. - Điểm mới: YOLOv9 sử dụng PGI và GELAN để
+cải thiện độ chính xác và hiệu suất của mô hình. - Ưu điểm: + Kiến
+trúc tiên tiến: Sử dụng PGI và GELAN giúp mô hình duy trì thông tin
+quan trọng và tối ưu hóa quá trình huấn luyện, làm cho YOLOv9 trở nên
+mạnh mẽ và l...

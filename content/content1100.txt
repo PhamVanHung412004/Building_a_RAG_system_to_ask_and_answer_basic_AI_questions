@@ -1,0 +1,7 @@
+Node ID: d8d4030c-984c-4ce3-bc00-6b6289542856
+Text: AI VIETNAM (AIO2024) aivietnam.edu.vn Hình 7: So sánh 2 phương
+pháp hand-crafted anchor (trên) và anchor-free (dưới). Ảnh: [11]. -
+Điểm mới: Sử dụng anchor-free detection, giúp đơn giản hóa kiến trúc
+mô hình và cải thiện hiệu suất. - Ưu điểm: + Độ chính xác cao hơn:
+YOLOv8 đạt mAP 50.2% trên bộ dữ liệu COCO, cao hơn so với YOLOv7. + Dễ
+sử dụng: ...

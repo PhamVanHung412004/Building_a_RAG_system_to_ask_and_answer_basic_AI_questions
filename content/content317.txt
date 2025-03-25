@@ -1,0 +1,7 @@
+Node ID: ded39890-5d4f-4015-abf8-f8a0047b8bc2
+Text: add ( torch . add (mu. pow (2) , logvar . exp ()), -1) , logvar
+. mul ( -1)) 6 kl_loss = torch . sum ( kl_element ). mul (0.5) 7 gt =
+gt. reshape (-1, 64 * 64 * 2) 8 pred = pred . reshape (-1, 64 * 64 *
+2) 9 recon_element = torch . sqrt ( torch . sum ( torch . mul ( torch
+. add (gt , pred . mul ( -1)). pow (2) , lossweights ), 1)) 10
+recon_loss ...

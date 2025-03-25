@@ -1,0 +1,7 @@
+Node ID: c645123b-1c01-4a0f-9e2a-cefcf903e02f
+Text: AI VIETNAM aivietnam.edu.vn (c) Mô-đun RAG:Một cách hệ thống,
+giải pháp RAG bao gồm nhiều cấu phần, mỗi cấu phần thực hiện các chức
+năng khác nhau. Mô-đun RAG được thiết kế với các mô đun chức năng nhằm
+cải thiện chất lượng của các cấu phần thuộc hệ thống RAG. Một cách
+tổng quan, RAG cơ bản là một giải pháp thuộc RAG nâng cao, RAG nâng
+cao là mộ...

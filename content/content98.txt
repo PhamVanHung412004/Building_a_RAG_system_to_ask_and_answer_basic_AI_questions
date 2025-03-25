@@ -1,0 +1,7 @@
+Node ID: 458ac87c-772b-4693-ba00-17c8a9ddd2af
+Text: linalg . norm (x) * np. linalg . norm (y) 7 8 return numerator /
+denominator 9 10 def window_based_matching ( left_img , right_img ,
+disparity_range , kernel_size =5 , save_result = True ): 11 # Read
+left , right images then convert to grayscale 12 left = cv2 . imread (
+left_img , 0) 13 right = cv2 . imread ( right_img , 0) 14 15 left =
+left . a...

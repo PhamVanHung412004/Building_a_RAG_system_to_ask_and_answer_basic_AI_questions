@@ -1,0 +1,7 @@
+Node ID: 9e60ea19-4a0a-48a9-b9e9-c37682116856
+Text: Các bước thực hiện như sau: 1. Tổ chức thư mục code:Để mã nguồn
+trở nên rõ ràng nhằm phục vụ cho mục đích đọc hiểu code, chúng ta sẽ
+tổ chức thư mục như sau: rag_langchain/ data_source/ generative_ai/
+download.py src/ base/ llm_model.py rag/ file_loader.py main.py
+offline_rag.py utils.py vectorstore.py app.py requirements.txt Tổng
+quan, chúng ta...

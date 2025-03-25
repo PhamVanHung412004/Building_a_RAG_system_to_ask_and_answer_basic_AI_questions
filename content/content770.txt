@@ -1,0 +1,7 @@
+Node ID: 17c8558b-b8e9-47e1-84af-ab381a0f0b4c
+Text: • size: Kích thước của mảng. Ví dụ sau sẽ tạo một mảng 3x3 với
+các số nguyên ngẫu nhiên từ 1 đến 10. 1 #aivietnam 2 import numpy as
+np 3 np.random.seed(2024) 4 5 # Tạo mảng 3x3 với các số nguyên ngẫu
+nhiê n từ 1 đến 10 6 randint_array = np.random.randint(1, 10, (3, 3))
+7 print(randint_array) ================= Output ================= [[9
+1 1] [5...

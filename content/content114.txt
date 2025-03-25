@@ -1,0 +1,7 @@
+Node ID: 03e60248-f832-4c51-bdee-b7a9664bbeb1
+Text: maketrans (’’, ’’, string . punctuation ) 6 7 return text .
+translate ( translator ) 8 9 def tokenize ( text ): 10 return nltk .
+word_tokenize ( text ) 11 12 def remove_stopwords ( tokens ): 13
+stop_words = nltk . corpus . stopwords . words (’ english ’) 14 15
+return [ token for token in tokens if token not in stop_words ] 16 17
+def stemming ( t...

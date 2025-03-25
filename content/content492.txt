@@ -1,0 +1,7 @@
+Node ID: 1d65dd09-1fb0-4d20-b65a-1c763e04158d
+Text: AI VIETNAM aivietnam.edu.vn Phần II: Cài đặt chương trình Trong
+phần này, chúng ta sẽ xây dựng một Chatbot chuyên giải toán trắc
+nghiệm tiếng Việt sử dụng Mô hình ngôn ngữ lớn được huấn luyện chủ yếu
+trên bộ dữ liệu tiếng Việt là VinaLLaMA. Các bước thực hiện như sau:
+1. Cài đặt thư viện:Chúng ta sẽ cần cài đặt một số thư viện sau để có
+thể chạy...

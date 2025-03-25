@@ -1,0 +1,5 @@
+Node ID: 3ca3cdab-cde8-4cf1-b2ac-1f870a5a0502
+Text: AI VIETNAM aivietnam.edu.vn Video TokenizerKhối này có nhiệm vụ
+nén các video thành những token rời rạc, với mục đích để giảm chiều và
+tăng chất lượng tạo sinh video. Một lần nữa kiến trúc VQ-VAE lại được
+sử dụng cho thành phần này.

@@ -1,0 +1,7 @@
+Node ID: b6eed515-c547-42c2-ac54-0d73ed1af23d
+Text: Trong bài viết này, chúng ta sẽ cùng nhau tìm hiểu về YOLOv10 và
+cách sử dụng mô hình này. Thông qua đó, nhóm cũng sẽ trình bày sơ lược
+về bài toán Object Detection cũng như tóm tắt ngắn gọn các phiên bản
+YOLO trước đó để bạn đọc có một cái nhìn tổng quan hơn về nội dung
+này. Theo đó, bài viết được bố cục như sau: - Phần I:Giới thiệu về nội
+dung...

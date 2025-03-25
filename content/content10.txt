@@ -1,0 +1,7 @@
+Node ID: d615d250-44ff-4af2-9887-c671823729f9
+Text: (d) Khởi tạo instance vectorization:Các văn bản gốc được biểu
+diễn dưới dạng string. Nếu giữ dạng biểu diễn này, việc truy vấn sẽ
+gặp khó khăn và kết quả truy vấn không được chính xác. Để khắc phục
+việc này, chúng ta có thể thực hiện chuyển đổi các văn bản thành các
+vector. Trong file notebook, ta chạy đoạn code sau: 1 embedding =
+HuggingFaceEmb...

@@ -1,0 +1,7 @@
+Node ID: ed48b4a3-94d5-4cc7-920e-1a7fb01b27f9
+Text: AI VIETNAM aivietnam.edu.vn Hình 8: Xử lý thông tin dạng bảng
+với phép biến đổi markdown và html. Thông tin trích xuất trực tiếp với
+Raw-text cho thấy cấu trúc bảng không rõ ràng. Cấu trúc bảng của
+markdown và html cho phép các LLM dễ hiểu hơn nội dung trong bảng. Dữ
+liệu có cấu trúc:Một số giải pháp coi dữ liệu dạng bảng như một nguồn
+dữ liệu c...

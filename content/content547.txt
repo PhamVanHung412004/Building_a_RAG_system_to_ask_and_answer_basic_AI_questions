@@ -1,0 +1,3 @@
+Node ID: d30712b8-8dc0-44d5-84ea-4555a71e6295
+Text: (b) Dùng để lập chỉ mục cho cơ sở dữ liệu. (c) Dùng để tìm kiếm
+tài liệu. (d) Dùng để tính toán độ tương đồng. - Hết - 15

@@ -1,0 +1,7 @@
+Node ID: 14eb747b-3094-4330-9486-ee32f229cc46
+Text: AIO 2024 aivietnam.edu.vn 1 Mở đầu NumPy là một thư viện mã
+nguồn mở trong Python được sử dụng để làm việc với mảng (array)-cấu
+trúc dữ liệu chính của numpy và cho phép thực hiện các thao tác toán
+học nhanh chóng và hiệu quả. Để bắt đầu sử dụng NumPy, chúng ta cần
+phải cài đặt thư viện này trong môi trường Python qua cú pháp: 1 pip
+install numpy...

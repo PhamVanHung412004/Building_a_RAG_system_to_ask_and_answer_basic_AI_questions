@@ -1,0 +1,7 @@
+Node ID: fc6dd635-a12e-4246-bfe7-6cebb0a851a4
+Text: Các điều kiện biên quy định cách giải phương trình hay hệ phương
+trình trong miền không gian cụ thể đó. Trong trường hợp phương trình
+Fokker-Planck (FPE), điều kiện biên có thể bao gồm các điều kiện về
+phân phối xác suất tại các ranh giới của miền không gian. Cụ thể: •
+Đối với phương trình FPE mô tả quá trình lan truyền xác suất, điều
+kiện biên ...

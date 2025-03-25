@@ -1,0 +1,7 @@
+Node ID: ecee313b-f6eb-4f1f-a57d-f950f8b4b7c0
+Text: AI VIETNAM aivietnam.edu.vn Câu hỏi 10:(code) Hãy hoàn thành
+chương trình dưới đây. Đầu ra của chương trình là gì? 1 def
+My_function ( integers , number = 1): 2 return any (# Your code here :
+Thuc hien duyet tung phan tu trong integers , so sanh tung phan tu voi
+number , neu bang nhau tra ve True , khac nhau tra ve false 3 #vi du:
+integers = [1 ...

@@ -1,0 +1,4 @@
+Node ID: d5a853b1-0801-4e3e-81ce-62087029fa0f
+Text: AIO2024 aivietnam.edu.vn Câu 19: Tạo mảng hai chiều chứa số ngẫu
+nhiên (kiểu số lẻ) 1 # Python code ( aivietnam ) 2 import numpy as np
+3 4 # create a 2x3 matrix ( from 5 to 10) 5 data1 = np. random .

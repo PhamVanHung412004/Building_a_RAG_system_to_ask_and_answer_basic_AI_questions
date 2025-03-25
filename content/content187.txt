@@ -1,0 +1,7 @@
+Node ID: 1b256257-a4f6-4254-8627-9d0c40c02b30
+Text: Daily AI Exercise (AIO) Ngày 8 tháng 4 năm 2024 Basic Python -
+Work with SQLite Database Hoàng-Nguyên Vũ 1. Mô tả: Làm quen với Cơ sở
+dữ liệu SQLite • SQLite là một hệ quản trị cơ sở dữ liệu hay còn gọi
+là hệ thống cơ sở dữ liệu quan hệ nhỏ gọn, khác với các hệ quản trị
+khác như MySQL, SQL Server, Ocr- acle, PostgreSQL... SQLite là một thư
+viện ...

@@ -1,0 +1,7 @@
+Node ID: ed76cbc0-7ac0-4f82-80e5-b3cf0198c022
+Text: AI VIETNAM aivietnam.edu.vn Phần 4. Câu hỏi trắc nghiệm Câu hỏi
+1Mô hình nào sau đây không phải là mô hình ngôn ngữ lớn (LLMs)? a)
+Vicuna b) LLaMA c) PaLM d) ResNet Câu hỏi 2Thành phần nào sau đây
+không có trong các thành phần chính của mô hình MLLMs? a) Contrastive
+Search b) Modality Encoder c) LLMs d) Input Projector Câu hỏi 3Mô hình
+được sử d...

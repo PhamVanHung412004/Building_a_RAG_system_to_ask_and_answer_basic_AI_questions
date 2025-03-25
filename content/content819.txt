@@ -1,0 +1,7 @@
+Node ID: d8932774-f6ef-42a4-bec5-82b9bf69143d
+Text: AIO2024 aivietnam.edu.vn • packages : Vị trí, tên của package,
+nơi mà chứa các file code của package. Lưu ý: packages = [{include =
+"aio2024"}] đây là thông tin vị trí của package, theo mặc định thì
+poetry sẽ lấy tên theo tool.poetry.name nhưng trong một số trường hợp
+dự án có tên thư mục dự án và tên package khác nhau, nên chúng ta cần
+chỉ định...

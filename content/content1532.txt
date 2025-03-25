@@ -1,0 +1,7 @@
+Node ID: 5d4dce84-8b34-4c8a-bd85-45644b4fe79f
+Text: • State Shape:(8,). • Mục tiêu (Objective):Điều khiển tàu tên
+lửa đáp xuống đúng vị trí (càng sát càng tốt) đã định trên màn hình,
+trong khi giữ cho lượng nguyên liệu tiêu thụ ít nhất, đặc biệt không
+để tàu phát nổ. • Trạng thái kết thúc (Terminate State):Tàu tên lửa
+đáp xuống thành công, hoặc phát nổ, hoặc bay khỏi giới hạn màn hình. •
+Hàm điểm...

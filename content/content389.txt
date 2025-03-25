@@ -1,0 +1,7 @@
+Node ID: 5349cb13-3d00-4292-b28c-835cf6d20603
+Text: utility . Vector3dVector (np. random . uniform (0 , 1, size =(
+np. asarray ( pcd . points ). shape [0] , 3))) 21 octree = o3d .
+geometry . Octree ( max_depth = max_depth ) 22 octree .
+convert_from_point_cloud (pcd , size_expand = size_expand ) 23 o3d .
+visualization . draw_geometries ([ octree ] , f" Octree_depth_ {
+max_depth }") 24 octree . tra...

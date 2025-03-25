@@ -1,0 +1,7 @@
+Node ID: 441dc6af-c063-4c43-ac87-97c59ece4be3
+Text: 8. Chọn đáp án đúng cho đoạn code sau: 1 def remove_stopwords (
+tokens ): 2 stop_words = nltk . corpus . stopwords . words (’ english
+’) 3 return [ token for token in tokens if token not in stop_words ] 4
+5 input_text = [" Pho ", "is", "a", " popular ", " Vietnamese ", "
+noodle ", " soup " ] 6 result = remove_stopwords ( input_text ) 7
+print ( r...

@@ -1,0 +1,7 @@
+Node ID: 21bb74da-add1-4e8c-8354-c064e991905a
+Text: AIO 2024 aivietnam.edu.vn Hình 19: Minh họa transpose A = 1 2 3
+4 5 6  Chuyển vị củaA, ký hiệu làAT , sẽ là: AT =   1 4 2 5 3 6  
+Một số tính chất của phép chuyển vị: • Chuyển vị của một ma trận
+chuyển vị lại sẽ cho ra ma trận ban đầu:(AT )T = A. • Chuyển vị của
+tổng hai ma trận bằng tổng chuyển vị của từng ma trận:(A + B)T = AT +
+BT . • C...

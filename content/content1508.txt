@@ -1,0 +1,7 @@
+Node ID: 8b6fa796-df06-4259-a930-8fbc32066d87
+Text: a) PAD-Net b) PAP-Net c) MTI-Net d) Cross-Stitch Networks Câu
+hỏi 5Mô hình MTL nào sau đây tập trung vào tinh chỉnh khối decoder? a)
+PAD-Net b) MTAN c) NDDR-CNN d) Cross-Stitch Networks Câu hỏi 6Hàm loss
+để huấn luyện cho bài toán semantic segmentation là? a) Pixel-wise
+Cross Entropy b) Huber Loss c) Recontruction Loss d) Contrastive Loss
+Câu hỏ...

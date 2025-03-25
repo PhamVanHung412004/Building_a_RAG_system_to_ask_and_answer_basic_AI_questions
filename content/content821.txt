@@ -1,0 +1,7 @@
+Node ID: 22d0eca1-c1de-42a3-a6fc-844205a689cf
+Text: AIO2024 aivietnam.edu.vn 1 # math .py 2 class MyMath : 3 def
+__init__ (self , value : int ) -> None : 4 self . value = value 5 def
+factorial ( self ) -> int : 6 if self . value == 0: 7 return 1 8 else
+: 9 return self . value * MyMath ( self . value - 1). factorial () 10
+11 # cat .py 12 class Cat : 13 def __init__ (self , name ): 14 self .
+__name...

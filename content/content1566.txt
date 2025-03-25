@@ -1,0 +1,7 @@
+Node ID: d34b4aa1-0e45-44a8-8eed-d6c7cca85fec
+Text: Daily AI Exercise (AIO) aivietnam.edu.vn Trong lớp Person trên,
+chúng ta gợi ý rằng thuộc tính name là một chuỗi (str), thuộc tính age
+là một số nguyên (int) và phương thức greet trả về một chuỗi (str).
+Lưu ý: Việc tạo type hints trong code chương trình là không bắt buộc,
+không có chúng thì chương trình vẫn chạy bình thường. Vậy thì khi nào
+nên ...

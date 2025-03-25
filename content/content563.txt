@@ -1,0 +1,7 @@
+Node ID: 6289f537-c867-48a4-89a6-79c11f1ac33c
+Text: All-in-One Course - 2024 aivietnam.edu.vn 1 2 squares_dict = {x:
+x ** 2 for x in range (10)} 3 print(squares_dict) =================
+Output ================ {0: 0, 1: 1, 2: 4, 3: 9, 4: 16, 5: 25, 6: 36,
+7: 49, 8: 64, 9: 81} ========================================== 4 Vòng
+lặp for với continue Lệnh continue trong vòng lặp for được sử dụng để
+bỏ ...

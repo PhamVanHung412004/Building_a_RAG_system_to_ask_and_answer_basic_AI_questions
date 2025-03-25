@@ -1,0 +1,7 @@
+Node ID: f3e48c87-321e-4695-b0e3-9b4fb905677a
+Text: AI VIETNAM aivietnam.edu.vn trong việc tạo ra các video chất
+lượng cao và đa dạng từ văn bản hoặc các dạng đầu vào khác. Một số
+thành phần chính của VideoGPT được thể hiện trong Hình 7 bao gồm: Hình
+4: Kiến trúc của VideoGPT bao gồm 2 thành phần: khối VQ-VAE và khối
+GPT • VQ-VAE (Vector Quantized Variational AutoEncoder): được đề xuất
+bởi [4], l...

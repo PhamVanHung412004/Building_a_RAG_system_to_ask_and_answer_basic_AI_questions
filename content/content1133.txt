@@ -1,0 +1,7 @@
+Node ID: 00abc875-8e77-4b2d-b20a-cd19252e466c
+Text: AI VIET NAM – AIO COURSE 2023 Exercise: Image Inpainting using
+Denoising Diffusion Probabilistic Model Quoc-Thai Nguyen và Quang-Vinh
+Dinh PR-Team: Đăng-Nhã Nguyễn, Minh-Châu Phạm và Hoàng-Nguyên Vũ Ngày
+25 tháng 3 năm 2024 Phần I. Giới thiệu Hình 1: Ví dụ minh hoạ Image
+Inpainting sử dụng mô hình Denoising Diffusion Probabilistic Model.
+Diffusi...

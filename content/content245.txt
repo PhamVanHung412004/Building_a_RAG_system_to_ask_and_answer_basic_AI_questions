@@ -1,0 +1,7 @@
+Node ID: 7a3792ca-8d98-4e95-bb00-3abd0f4d17c9
+Text: Bảng 4: Dữ liệu Outlook(Rainy) STT Outlook Temperature Humidity
+Wind PlayTennis 1 Rainy Mild High Weak Yes 2 Rainy Cool Normal Weak
+Yes 3 Rainy Cool Normal Strong No 4 Rainy Mild Normal Weak Yes 5 Rainy
+Mild High Strong No Đối với Outlook là Rainy Ở đây Entropy tổng sẽ là
+Entropy của Rainy: Entropy(Rainy)= −3 5 .log2(3 5 ) − 2 5 .log2(2 5 )
+= 0....

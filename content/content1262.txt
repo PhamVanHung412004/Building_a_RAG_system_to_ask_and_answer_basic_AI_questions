@@ -1,0 +1,5 @@
+Node ID: cd529070-b1a5-4bb0-acce-3b12bc89f599
+Text: push (2) 6 7 print ( stack1 . is_full ()) 8 >> False 9 10 print
+( stack1 . top ()) 11 >>2 12 13 print ( stack1 . pop ()) 14 >> 2 15 16
+print ( stack1 . top ()) 17 >> 1 18 19 print ( stack1 . pop ()) 20 >>
+1 21 22 print ( stack1 . is_empty ()) 23 >> True 4

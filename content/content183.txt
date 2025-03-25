@@ -1,0 +1,7 @@
+Node ID: 0d687efc-bad0-47b3-b8ae-f51e91dec15c
+Text: AI VIETNAM aivietnam.edu.vn • Không biết phân phối mục tiêu,
+điều này là lý do chính trong quá trình học của model. Giải Pháp: Hàm
+Mục Tiêu Thay ThếMột hàm mục tiêu thay thế được giới thiệu để giải
+quyết vấn đề ước lượng đạo hàm với việc sử dụng xác suất chuyển
+tiếpp(x, t|x(0), 0) để giảm khả năng khó khăn trong việc ước lượng đạo
+hàm củalogp(x,...

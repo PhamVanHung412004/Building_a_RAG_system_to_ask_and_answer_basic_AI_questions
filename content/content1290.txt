@@ -1,0 +1,7 @@
+Node ID: dd563e78-d9bb-4993-8b94-3e6546b15576
+Text: shape [1] -1) : 6 x_unique = np. unique ( data [: ,i]) 7
+list_x_name . append ( x_unique ) 8 9 # your code here
+******************** 10 11 conditional_probability . append (
+x_conditional_probability ) 12 return conditional_probability ,
+list_x_name 13 Câu hỏi 15: Hãy cho biết kết quả của đoạn chương trình
+sau đây: 1 train_data = create_train_da...

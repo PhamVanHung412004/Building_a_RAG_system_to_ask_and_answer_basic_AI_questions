@@ -1,0 +1,7 @@
+Node ID: dc2ca445-5b7b-42cb-8a64-f83b6ba30fde
+Text: 98 : param down : if True , use this block for downsampling . 99
+""" 100 101 def __init__ ( 102 self , 103 channels , 104 emb_channels
+, 105 dropout , 106 out_channel =None , 107 use_conv = False , 108
+use_scale_shift_norm = False , 109 use_checkpoint = False , 110 up=
+False , 111 down = False , 112 ): 113 super (). __init__ () 114 self .
+channe...

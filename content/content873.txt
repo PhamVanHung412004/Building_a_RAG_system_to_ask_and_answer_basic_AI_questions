@@ -1,0 +1,7 @@
+Node ID: 36e67a65-1348-44f9-a45b-81a5379b77c5
+Text: AI VIETNAM aivietnam.edu.vn 1 def read_json(self): 2 """ 3 Read
+the JSON file and return the data. 4 5 Returns: 6 data (dict): The
+data read from the JSON file. 7 """ 8 with open(self.json_file, ’r’)
+as file: 9 data = json.load(file) 10 return data 11 12 def
+is_valid_url(self, url): 13 """ 14 Check if the URL is valid. 15 16
+Parameters: 17 url (...

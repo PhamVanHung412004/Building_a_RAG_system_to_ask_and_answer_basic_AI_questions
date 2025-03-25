@@ -1,0 +1,7 @@
+Node ID: 73db5829-a5eb-47b5-825c-36fbbbc5f138
+Text: AI VIETNAM aivietnam.edu.vn 247 A module which performs QKV
+attention . Matches legacy QKVAttention + input / ouput heads shaping
+248 """ 249 250 def __init__ (self , n_heads ): 251 super (). __init__
+() 252 self . n_heads = n_heads 253 254 def forward (self , qkv ): 255
+""" 256 Apply QKV attention . 257 : param qkv : an [N x (H * 3 * C) x
+T] te...

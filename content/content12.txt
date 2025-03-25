@@ -1,0 +1,7 @@
+Node ID: 0758359c-bc1c-4307-a290-dc806edc9c4a
+Text: Một vấn đề của mô hình ngôn ngữ lớn đó là nó yêu cầu tài nguyên
+về phần cứng khá lớn. Vì vậy, để khởi tạo được mô hình Vicuna trên
+Colab, chúng ta sẽ cần thực hiện một số bước sau: (a) Khai báo một số
+cài đặt cần thiết cho mô hình: 1 nf4_config = BitsAndBytesConfig ( 2
+load_in_4bit =True , 3 bnb_4bit_quant_type =" nf4 ", 4
+bnb_4bit_use_double_qu...

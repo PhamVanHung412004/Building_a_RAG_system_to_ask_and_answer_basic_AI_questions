@@ -1,0 +1,6 @@
+Node ID: e7a3fc02-bb74-44d0-a3e0-35181b6bcf60
+Text: 4.3 Concatenate Hình 9: Minh họa concatenate Hàm concatenate
+được sử dụng để nối các mảng theo chiều cụ thể. Ví dụ sau sẽ tạo hai
+mảng từ list 2D là [[1 , 2 , 3] , [4 , 5 , 6]] và [[7 , 8 , 9] , [10 ,
+11 , 12]]. Sau đó sử dụng hàmconcatenate để nối theo trục ngang và
+trục dọc 9

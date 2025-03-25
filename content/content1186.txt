@@ -1,0 +1,7 @@
+Node ID: b26c07f3-a7d5-4e50-a0e1-b0ba79088a4c
+Text: gather (-1, t) 20 return out . reshape ( batch_size , *((1 ,) *
+( len ( x_shape ) - 1))).to( device ) 21 22 class
+InpaintingGaussianDiffusion (nn. Module ): 23 def __init__ (self ,
+unet_config , beta_schedule , ** kwargs ): 24 super (
+InpaintingGaussianDiffusion , self ). __init__ (** kwargs ) 25 self .
+denoise_fn = UNet (** unet_config ) 26 sel...

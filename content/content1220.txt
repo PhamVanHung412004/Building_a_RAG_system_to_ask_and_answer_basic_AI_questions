@@ -1,0 +1,7 @@
+Node ID: 9ac52c5a-7cc2-4302-92ad-ab16e6b7b004
+Text: unsqueeze (0) . repeat ( num_tasks , 1, 1).to( self . device )
+40 ) # (1 , bs , bs) 41 edge_feat = sim_val + force_edge_feat # (bs ,
+bs) 42 edge_feat = edge_feat + 1e -6 # add small value to avoid nan 43
+edge_feat = edge_feat / torch . sum ( edge_feat , dim =1) . unsqueeze
+(1) # normalize 44 return edge_feat , sim_val # (bs , bs), (bs , bs)
+Lưu ...

@@ -1,0 +1,5 @@
+Node ID: b871d483-3593-4e3a-ab56-dff383bcce1e
+Text: Ở đây, vòng lặp while hoạt động tương tự như việc bạn bật nhảy.
+Bạn sẽ tiếp tục thực hiện một hành động (nhảy và đập bóng) cho đến khi
+một điều kiện nào đó không còn đúng nữa (bạn cảm thấy mệt và không thể
+nhảy tiếp).

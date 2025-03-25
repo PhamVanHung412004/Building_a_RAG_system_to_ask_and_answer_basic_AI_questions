@@ -1,0 +1,7 @@
+Node ID: 92bdc4e6-2a32-4db6-bfea-5e3eccc42ba2
+Text: AI VIETNAM aivietnam.edu.vn 15.2 Reversing more general
+stochastic processes Ta có Forward process được mô tả bời SDE ˙x =
+f(x, t) + g(t) η(t) Trong đóf(x, t) là drift function,g(t) là thành
+phần nhiễu vàη(t) là white noise (gauss). Với Reverse process chúng ta
+sẽ đảo ngược thời gian được tạo ra cho Forward process từ thời điểm t
+= 0 đến t = T. ...
