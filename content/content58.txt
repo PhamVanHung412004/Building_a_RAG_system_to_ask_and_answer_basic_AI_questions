@@ -1,0 +1,7 @@
+Node ID: cbfb1066-9880-4cb2-a17b-7e36fd8db457
+Text: com /THU - MIG / yolov10 . git 2 %cd yolov10 3 ! pip install -q
+-r requirements . txt 4 ! pip install -e . 3. Khởi tạo mô hình
+YOLOv10: Chúng ta sẽ khởi tạo mộ hình YOLOv10 với phiên bản nano (n)
+từ trọng số đã được huấn luyện trên bộ dữ liệu COCO. Để tải trọng số
+yolov10n.pt, các bạn chạy đoạn code sau: 1 ! wget https :// github .
+com /THU - MI...

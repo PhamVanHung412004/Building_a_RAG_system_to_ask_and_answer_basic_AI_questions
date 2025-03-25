@@ -1,0 +1,5 @@
+Node ID: 009a4285-f4fc-4139-8eff-8ced85ad3bf3
+Text: AI VIETNAM aivietnam.edu.vn a) Accuracy b) F1 c) BLEU d) ROUGE
+Câu hỏi 8Bộ dữ liệu sử dụng cho mô hình SFT là? a)
+CarperAI/openai_summarize_tldr b) MNIST c) CIFAR10 d) CIFAR100 Câu hỏi
+9Bài toán nào sau đây sử dụng để huấn luyện mô hình SFT?

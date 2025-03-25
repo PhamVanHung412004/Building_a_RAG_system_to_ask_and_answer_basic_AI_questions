@@ -1,0 +1,7 @@
+Node ID: 98d6e2d4-de90-438a-948b-cd1340c1c894
+Text: AI VIETNAM aivietnam.edu.vn Phần II: Nội dung Để xây dựng một
+chương trình End-to-end Question Answering, chúng ta cần hoàn thiện
+hai module chính bao gồm Retriever và Reader: Hình 1: Ảnh minh hoạt
+tổng quát về một hệ thống End-to-end QA. Theo đó, nội dung của bài
+viết sẽ trình bày chương trình cài đặt cho từng thành phần như sau: 1.
+Dataset des...

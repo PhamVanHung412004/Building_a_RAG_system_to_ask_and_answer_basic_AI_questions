@@ -1,0 +1,7 @@
+Node ID: b293f289-f4a1-46fb-a141-77752e466a3c
+Text: AI VIETNAM aivietnam.edu.vn 5 Chain-of-Thought Prompting Phương
+pháp "Chain of Thought" (COT) được giới thiệu này như một cách để cải
+thiện hiệu suất của các mô hình ngôn ngữ lớn (LLMs) trong việc giải
+quyết các bài toán đòi hỏi suy luận phức tạp. Phương pháp này dựa trên
+việc kích thích mô hình tạo ra một chuỗi các bước suy nghĩ trung gian
+tự n...

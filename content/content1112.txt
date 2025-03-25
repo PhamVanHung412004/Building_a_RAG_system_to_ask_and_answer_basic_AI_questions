@@ -1,0 +1,7 @@
+Node ID: 77b1ca2b-9576-4968-b2da-296d28b20b39
+Text: AI VIETNAM (AIO2024) aivietnam.edu.vn IV. Cài đặt chương trình
+và đánh giá Trong phần này, nhóm sẽ trình bày cách cài đặt, sử dụng và
+huấn luyện YOLOv10 trên bộ dữ liệu mới. Đồng thời, nhóm cũng thực hiện
+một thực nghiệm nhỏ nhằm so sánh hiệu suất của YOLOv10 so với hai
+phiên bản gần nhất là YOLOv8 và YOLOv9. Môi trường lập trình nhóm sử
+dụng là...

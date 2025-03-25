@@ -1,0 +1,7 @@
+Node ID: 0a734f90-51e5-4530-954a-c171c4a31a49
+Text: Sequential ( 512 normalization (ch), 513 SiLU () , 514
+zero_module (nn. Conv2d ( input_ch , out_channel , 3, padding =1) ),
+515 ) 516 517 def forward (self , x, gammas ): 518 """ 519 Apply the
+model to an input batch . 520 : param x: an [N x 2 x ...] Tensor of
+inputs (B&W) 521 : param gammas : a 1-D batch of gammas . 522 : return
+: an [N x C x ....

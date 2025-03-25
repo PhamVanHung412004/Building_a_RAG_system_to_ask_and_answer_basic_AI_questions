@@ -1,0 +1,7 @@
+Node ID: 1478eedf-4c15-412b-96a5-5b5e5b2fc49e
+Text: AI VIETNAM aivietnam.edu.vn • Demo 3:Tác tử khi được huấn luyện
+qua 100 episodes. • Demo 4:Tác tử khi được huấn luyện qua 1000
+episodes. Để thực hiện được bài tập này, các bạn có thể tham khảo cách
+làm sau: 1. Cài đặt source code game Pacman:Dựa vào đường dẫn đã cung
+cấp ở trên, các bạn hãy tải source code game Pacman thông qua lệnh
+sau: 1 $ git...

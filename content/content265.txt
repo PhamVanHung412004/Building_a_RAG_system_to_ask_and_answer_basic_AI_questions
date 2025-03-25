@@ -1,0 +1,7 @@
+Node ID: da83d0ad-13a8-4b99-a516-31d1ad29a11f
+Text: Thread . __init__ (self , *args , ** keywords ) 10 self . killed
+= False 11 self . _return = None 12 13 def start ( self ): 14 self .
+__run_backup = self . run 15 self . run = self . __run 16 threading .
+Thread . start ( self ) 17 18 def __run ( self ): 19 sys . settrace (
+self . globaltrace ) 20 self . __run_backup () 21 self . run = self .
+__r...

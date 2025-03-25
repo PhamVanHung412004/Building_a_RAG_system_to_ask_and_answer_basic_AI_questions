@@ -1,0 +1,7 @@
+Node ID: 8a3952f0-660b-4b5f-a0eb-303c28113884
+Text: • Khi i là 1, điều kiện i == 2 là sai, lệnh print(i) sẽ in ra 1.
+• Khi i là 2, điều kiện i == 2 là đúng, lệnh continue sẽ được thực thi
+và vòng lặp bỏ qua việc in ra số 2. • Khi i là 3, điều kiện i == 2 là
+sai, lệnh print(i) sẽ in ra 3. • Khi i là 4, điều kiện i == 2 là sai,
+lệnh print(i) sẽ in ra 4. • Sau khi đã duyệt hết các giá trị trong
+rang...

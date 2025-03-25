@@ -1,0 +1,7 @@
+Node ID: 7c155578-dbf3-446c-baf7-d56d5d5a0efc
+Text: __init__ () 69 self . channels = channels 70 self . out_channel
+= out_channel or channels 71 self . use_conv = use_conv 72 stride = 2
+73 if use_conv : 74 self .op = nn. Conv2d ( 75 self . channels , self
+. out_channel , 3, stride = stride , padding =1 76 ) 77 else : 78
+assert self . channels == self . out_channel 79 self .op = nn.
+AvgPool2d ( ke...

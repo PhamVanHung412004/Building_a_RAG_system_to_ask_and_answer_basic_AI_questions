@@ -1,0 +1,7 @@
+Node ID: 2cbe8dde-c76c-4176-9827-e22478ca82ee
+Text: Trong đó, {your_task} là một đoạn văn bản mô tả một nhiệm vụ,
+câu hỏi hay một câu nói bất kì mà bạn mong muốn gửi đến mô hình. Dựa
+vào format trên, ta có thể thử đặt một yêu cầu xây dựng một hàm Python
+cho mô hình như trong môi trường code sau: Hình 3: Minh họa về cách
+xây dựng prompt theo format của mô hình VinaLLaMA (c) Chạy mô hình:Sử
+dụng đo...

@@ -1,0 +1,7 @@
+Node ID: 2fd68d0e-0574-428d-95bc-76f76c47b29e
+Text: Chỉ là hai hướng ngược nhau. Mở rộng sang N-dim Ito-interpreted
+SDEs bao gồm một vector x và vector noiseη(t). Reversed process cho
+N-dim có dạng: ˙x = −f(x, T− t) + g(T − t)2 ∇x log p(x, T− t) + g(T −
+t) η(t) . (47) Phần này chúng ta đã xác định reversed process của một
+stochastics process do một loại phương trình vi phân ngẫu nhiên điều
+khiển....

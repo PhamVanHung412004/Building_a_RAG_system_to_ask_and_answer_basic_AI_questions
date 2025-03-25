@@ -1,0 +1,7 @@
+Node ID: 754a7d86-659d-493f-9905-25519416d73f
+Text: AI VIETNAM (AIO2024) aivietnam.edu.vn II. Nội dung Problem 1:Xây
+dựng hàm tính disparity map của hai ảnh stereo đầu vào (ảnh bên trái
+(L) và ảnh bên phải (R)) theo phương thứcpixel-wise matching. Các bước
+tính toán trong phương pháp này có thể được miêu tả qua các bước dưới
+đây: 1. Đọc ảnh chụp bên trái (left) và ảnh chụp bên phải (right) dưới
+d...

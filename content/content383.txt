@@ -1,0 +1,7 @@
+Node ID: 4f563d92-c031-49b1-95e5-fc911fa00b6c
+Text: Xác định một giá trị bán kính nhất định. 2. Tìm kiếm các điểm
+lân cận của mỗi điểm trong đám mây điểm. 3. Loại bỏ các điểm có số
+lượng điểm lân cận trong bán kính quy định nhỏ hơn một giá trị ngưỡng.
+Ưu điểm: - Đơn giản dễ hiểu và dễ dàng thực hiện. - Hiệu quả với các
+nhiễu dạng điểm đơn lẻ hoặc cụm nhiễu nhỏ. Nhược điểm: - Khó lựa chọn
+bán kính...

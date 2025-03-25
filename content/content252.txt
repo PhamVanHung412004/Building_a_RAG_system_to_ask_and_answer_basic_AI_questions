@@ -1,0 +1,7 @@
+Node ID: e4e7deaa-f4b1-4ed9-8b41-fa8c5abd1b98
+Text: Chúng ta lần lượt tách dataset theo hàng và phân chia thành
+dataset-right và dataset-left để có thể tínhamse Mean và mse của left
+và right, ưu tiên lựa chọnamse có giá trị nhỏ nhất. Sau khi áp dụng
+công thức ta có được dataset-left và dataset-right với chỉ sốamse nhỏ
+nhất như sau. STT Experience Salary 1 1 0 2 1.5 0 3 2 0 4 2.5 0 Bảng
+8: Dataset...

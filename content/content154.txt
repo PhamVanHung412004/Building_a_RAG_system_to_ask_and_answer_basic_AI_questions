@@ -1,0 +1,7 @@
+Node ID: 5ee323c3-a296-450b-b49a-baab8c04b1f6
+Text: • βt: Tham số điều khiển số lượng noise được thêm vào tại mỗi
+thời điểm T. • βtI: Covariance Matrix của noise được thêm vào. Như
+vậy, ta có công thức tổng quan cho Normal Distribution với thời
+điểm[x0 : xT ] là: q(x1:T |x0) = TY t=1 q(xt|xt−1) (17) Hình 8:
+Forward Diffusion được mô tả dưới dạng một chuỗi Markov, trong đó size
+của từng bước được ...

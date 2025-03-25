@@ -1,0 +1,7 @@
+Node ID: c441d951-1abf-417b-9e78-5f9d497ee8f3
+Text: T-net là một mạng con bên trong PointNet, có chức năng học một
+ma trận biến đổi. Ma trận biến đổi này sau đó được áp dụng cho từng
+điểm trong đám mây điểm, về cơ bản là xoay các điểm. Bằng cách học
+phép biến đổi này, mạng có thể xử lý các đám mây điểm được trình bày
+từ các góc nhìn khác nhau. Tính ổn định và khởi tạo: Nếu T-net được
+khởi tạo với...

@@ -1,0 +1,7 @@
+Node ID: 625095ac-9916-4796-b7da-fce276ca306f
+Text: Daily AI Exercise (AIO) aivietnam.edu.vn Bảng trên có cấu trúc
+khá phức tạp, có những ô được gộp lại dẫn đến việc trích xuất đòi hỏi
+chúng ta phải thử các tham số khác nhau và phải xử lý đầu ra với
+pandas. Đầu tiên, để trích xuất bảng này từ file pdf, ta sẽ thử các
+tham số khác nhau để thu được kết quả output phù hợp. Trong ví dụ này,
+ta sẽ sử d...

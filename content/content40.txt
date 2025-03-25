@@ -1,0 +1,4 @@
+Node ID: 3ad4586e-04dc-451d-8bde-592051f5afda
+Text: AI VIETNAM (AIO2024) aivietnam.edu.vn Hình 5: Giao diện Google
+Colab sau khi đăng nhập thành công • Bước 2:Khởi tạo notebook mới.
+Notebook sẽ là giao diện để ta có thể viết các dòng lệnh Python.

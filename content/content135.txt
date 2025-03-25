@@ -1,0 +1,7 @@
+Node ID: 4faae047-4f0f-44af-990c-23df9da9a006
+Text: AI VIETNAM aivietnam.edu.vn tạo ra theo phân phối chuẩn để tính
+giá trị tiếp theo. Phương pháp này có thể được biểu thị bằng công
+thức: Xn+1 = Xn + f(Xn, tx).∆t + g(Xn, tx). √ ∆t.Zn+1 (2) Trong đó: •
+Xn là giá trị ước tính tại thời điểmtn • f(Xn, tn) là phần không xác
+định (deterministic) của phương trình vi phân stochastics. • g(Xn, tn)
+là ngẫu...

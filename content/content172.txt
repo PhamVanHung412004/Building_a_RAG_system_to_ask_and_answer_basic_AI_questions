@@ -1,0 +1,7 @@
+Node ID: a476c558-fecb-42e3-9840-25b538c2cb70
+Text: AI VIETNAM aivietnam.edu.vn Còn một điểm chú ý nữa là hàmβ(t)
+quyết định cách biến đổi của mức độ nhiễu theo thời gian. Bên cạnh
+việc tăng nhiễu theo cấp số mũ, hàm này có thể được chọn để tăng một
+cách tuyến tính: β(t) := βmin + (βmax − βmin) t T (41) Trong đó T là
+thời gian áp dụng quá trình nhiễu trên các mẫu. Điều quan trọng làβ(t)
+tăng tuyế...

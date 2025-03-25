@@ -1,0 +1,7 @@
+Node ID: 0e32a79f-e34f-4c5e-98dd-29c65d8f0c2f
+Text: append ( str ( Path ( __file__ ). parent . parent )) 7 8 from
+PIL import Image 9 from torch .nn import functional as F 10 from utils
+. logger import Logger 11 from config . catdog_cfg import
+CatDogDataConfig 12 from . catdog_model import CatDogModel 13 14
+LOGGER = Logger ( __file__ , log_file =" predictor . log ") 15 LOGGER
+. log . info (" Start...

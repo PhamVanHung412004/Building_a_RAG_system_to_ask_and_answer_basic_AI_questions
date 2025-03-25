@@ -1,0 +1,7 @@
+Node ID: d80b1047-54ba-41d5-a41b-9bf31c78562a
+Text: title (’ Object Detection for Images ’) 7 file = st.
+file_uploader (’ Upload Image ’, type = [’jpg ’,’png ’,’jpeg ’]) 8 if
+file is not None : 9 st. image (file , caption = " Uploaded Image ")
+10 11 image = Image . open ( file ) 12 image = np. array ( image ) 13
+detections = process_image ( image ) 14 processed_image =
+annotate_image ( image , de...

@@ -1,0 +1,7 @@
+Node ID: a6a802a9-db6a-4c7a-9c60-3de7275597c3
+Text: AI VIETNAM aivietnam.edu.vn 42 mdn_gmm_params = model_mdn (
+input_feats ) 43 44 # Compare 2 distributions 45 loss , _ = mdn_loss (
+mdn_gmm_params , mu , torch . sqrt ( torch . exp ( logvar )),
+batchsize ) 46 47 test_loss = test_loss + loss . item () 48 49
+test_loss = ( test_loss * 1.0) / ( nbatches ) 50 model_vae . train ()
+51 return test_loss 5...

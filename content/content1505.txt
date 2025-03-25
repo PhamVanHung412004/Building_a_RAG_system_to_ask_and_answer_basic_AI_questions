@@ -1,0 +1,5 @@
+Node ID: 7fcd5dce-0bdb-425b-a3e0-629a4f06ee59
+Text: lr_scheduler . StepLR ( optimizer , step_size =100 , gamma =0.5)
+81 82 epochs = 10 83 model = train ( train_loader , val_loader , model
+, device , optimizer , epochs ) 1.5. Inference 1 model_path = ’./
+model / hard_parameter_sharing_model_weights .

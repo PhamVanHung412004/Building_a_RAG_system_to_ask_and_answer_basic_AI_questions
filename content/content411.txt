@@ -1,0 +1,7 @@
+Node ID: 49a7c34d-e952-43b2-b875-ca747000a44b
+Text: float () , data [’ category ’]. to( device ) 10 11 optimizer .
+zero_grad () 12 outputs , m3x3 , m64x64 = pointnet ( inputs .
+transpose (1 ,2) ) 13 14 loss = pointnetloss ( outputs , labels , m3x3
+, m64x64 ) 15 loss . backward () 16 optimizer . step () 17 18 # print
+statistics 19 running_loss += loss . item () 20 if i % 10 == 9: #
+print every 10 ...

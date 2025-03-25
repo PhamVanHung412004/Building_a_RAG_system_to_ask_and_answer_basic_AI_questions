@@ -1,0 +1,7 @@
+Node ID: 9ab69185-6cd1-4460-859e-71a0455f76c0
+Text: • σjℓ(x, t) là các phần tử của ma trậng(x, t). Ma trận này chứa
+thông tin về biến đổi của mỗi thành phần của x do nhiễu. Cuối cùng,
+chúng ta sẽ tập trung vào trường hợp đơn giản hơn trong đóg(x, t)
+không còn là một ma trậnN ×M mà chỉ là một hàm sốg(x, t) vàM = N (tức
+số chiều của nhiễu và số chiều của x bằng nhau). Điều này đồng nghĩa
+với việc m...

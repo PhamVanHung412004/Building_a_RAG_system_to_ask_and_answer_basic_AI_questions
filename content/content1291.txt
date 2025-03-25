@@ -1,0 +1,7 @@
+Node ID: 4eb44a01-ffe0-4ca0-bbd8-710f21659ad2
+Text: AI VIETNAM aivietnam.edu.vn d) x1 = [’Overcast’ ’Rain’ ’Sunny’]
+x2 = [’Cool’ ’Hot’ ’Mild’] x3 = [’Strong’ ’Weak’] x4 = [’High’
+’Normal’] 4.4 Hoàn thiện functionget_index_from_value để tính trả về
+index tương ứng với feature name: 1 # This function is used to return
+the index of the feature name 2 def get_index_from_value (
+feature_name , list_fe...

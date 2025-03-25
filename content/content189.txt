@@ -1,0 +1,7 @@
+Node ID: 80d8ffce-2fe3-4198-88a3-1acb58933329
+Text: Daily AI Exercise (AIO) Ngày 8 tháng 4 năm 2024 Bảng 1: Bảng
+quản lý thông tin của khách hàng CUSTOMER Email Name Phone Phân tích
+sơ lược, chúng ta dễ thấy mỗi khách hàng chỉ có duy nhất 1 email, nên
+email sẽ đóng vai trò là khóa chính, nhằm dễ xác định thông tin của
+một khách hàng trong hệ thống. Để quản lý các thông tin trên và và
+truy vấn chú...

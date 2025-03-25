@@ -1,0 +1,7 @@
+Node ID: fb041b55-c739-4264-881e-e59ccf851db9
+Text: AI VIETNAM (AIO2024) aivietnam.edu.vn Về sau, mỗi lần cần sử
+dụng labelImg, ta chỉ cần kích hoạt môi trường đã tạo này và khởi động
+labelImg (tức chỉ thực hiện bước 4 và bước 7). Bây giờ, giả sử ta muốn
+gán nhãn một tập ảnh người (class person). Chúng ta sẽ thực hiện các
+bước như sau (chuẩn bị sẵn một thư mục hình ảnh): – Bước 1:Truy cập
+vào thư...

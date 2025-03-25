@@ -1,0 +1,7 @@
+Node ID: aa6033b6-cfc4-4c74-8c99-f4b61d7728e3
+Text: AI VIETNAM aivietnam.edu.vn Hình 3: Ví dụ chi tiết hoạt động của
+hệ thống RAG. Nguồn: Gao et al. (2024) Các thành phần trong ví dụ có
+thể giải thích như sau: • Input: Câu hỏi đầu vào, thường được cung
+cấp/yêu cầu bởi người dùng nhằm truy vấn và tương tác với mô hình ngôn
+ngữ. • Indexing: Trong hệ thống RAG, để xây dựng Knowledge Base, các
+văn bả...

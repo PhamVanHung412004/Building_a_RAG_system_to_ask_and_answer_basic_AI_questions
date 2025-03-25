@@ -1,0 +1,7 @@
+Node ID: 34b594dc-3d5f-45ca-94d3-432eef46ff4e
+Text: Tính tới thời điểm hiện tại, đã có rất nhiều phương pháp được
+phát triển nhằm giải quyết hiệu quả bài toán này. Trong đó, các phương
+pháp thuộc họ YOLO (You Only Look Once) thu hút được sự chú ý rất lớn
+từ cộng đồng nghiên cứu bởi độ chính xác và tốc độ thực thi mà loại mô
+hình này mang lại. Hình 1: Logo của mô hình YOLO. Ảnh: link. Thời gian
+vừ...

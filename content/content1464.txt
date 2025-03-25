@@ -1,0 +1,7 @@
+Node ID: 023e93d0-90c0-48e5-b819-02b12a859f0f
+Text: AI VIETNAM aivietnam.edu.vn Khi quá trình cài đặt Docker hoàn
+tất, chúng ta sẽ kiểm tra Docker đã sẵn sàng để sử dụng hay chưa. Đối
+với MacOS/Windows, ta mở ứng dụng Docker Desktop để khởi động Docker:
+Hình 4: Giao diện Docker Desktop trên hệ điều hành MacOS Sau đó, các
+bạn mở Terminal/CMD lên và chạy lần lượt các dòng lệnh sau: 1 $ docker
+-v 2 ...

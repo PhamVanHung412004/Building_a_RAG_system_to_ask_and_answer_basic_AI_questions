@@ -1,0 +1,7 @@
+Node ID: aacff7d6-e119-4d81-a407-3cc3e0bd1f40
+Text: • Modularity: cũng như việc phân rã suy nghĩ, đánh giá và thuật
+toán tìm kiếm có thể được thay đổi độc lập. • Adaptability: TOT có thể
+thích ứng với các tính chất vấn đề khác nhau và khả năng của LM. •
+Convenience: Không cần đào tạo thêm, chỉ cần một LM đã được đào tạo
+sẵn. 11 Automatic Prompt Engineer (APE) Automatic Prompt Engineer là
+một kĩ t...

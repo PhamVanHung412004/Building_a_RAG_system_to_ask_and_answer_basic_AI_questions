@@ -1,0 +1,7 @@
+Node ID: d16f2300-78a9-41a7-8b3d-f15dfb9ecd51
+Text: Bộ lọc tìm kiếm giúp thu gọn phạm vi tìm kiếm, nâng cao chất
+lượng truy vấn. 4.2 Mô hình sinh ngôn ngữ (Generation) Generation là
+công đoạn cuối trong chu trình RAG với nhiệm vụ chuyển đổi thông tin
+nhận được từ bối cảnh thành câu trả lời cho câu hỏi đầu vào của người
+dùng thông qua một mô hình ngôn ngữ lớn. Quá trình sinh câu trả lời
+cần đảm bả...

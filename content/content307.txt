@@ -1,0 +1,7 @@
+Node ID: fc52084e-d3bd-4188-9ba7-c311cd410e4a
+Text: Conv2d (256*2 , 128 , 5, stride =1 , padding =2) 41 self .
+dec_bn3 = nn. BatchNorm2d (128) 42 self . dec_upsamp4 = nn. Upsample (
+scale_factor =2 , mode =’ bilinear ’) 43 self . dec_conv4 = nn. Conv2d
+(128*2 , 64 , 5, stride =1 , padding =2) 44 self . dec_bn4 = nn.
+BatchNorm2d (64) 45 self . dec_upsamp5 = nn. Upsample ( scale_factor
+=2 , mode =’...

@@ -1,0 +1,7 @@
+Node ID: 131aba57-23ea-43a4-ac0b-4a4d98a97527
+Text: AI VIETNAM aivietnam.edu.vn 2. Object Detection Object Detection
+là ứng dụng quan trọng điển hình của xử lý hình ảnh, với mục tiêu phát
+hiện các khung hình chứa các đối tượng trong ảnh. Ví dụ minh hoạ về
+ứng dụng như hình sau: Hình 4: Object Detection. Trong phần này chúng
+ta sẽ xây dựng ứng dụng cho người dùng tải lên ảnh đầu vào, sử dụng mô
+hì...

@@ -1,0 +1,7 @@
+Node ID: 62d70c77-eaf3-46e7-acae-0299d5e4173c
+Text: AI VIETNAM (AIO2024) aivietnam.edu.vn II.II. Cài đặt và sử dụng
+pre-trained model Một cách nhanh chóng để sử dụng được YOLOv10 đó là
+sử dụng pre-trained model (mô hình đã được huấn luyện sẵn trên bộ dữ
+liệu COCO - một bộ dữ liệu rất lớn). Để sử dụng pre-trained model, các
+bạn làm như sau: 1. Tải mã nguồn YOLOv10 từ GitHub:Để sử dụng YOLOv10,
+chú...

@@ -1,0 +1,8 @@
+Node ID: 600469ee-86f9-467e-b206-3aa0b41967ad
+Text: AI VIETNAM aivietnam.edu.vn 17 18 <|im_start|>assistant 19
+""".strip() 20 21 encoding = tokenizer(prompt,
+return_tensors="pt").to(device) 22 with torch.inference_mode(): 23
+outputs = model.generate( 24 input_ids=encoding.input_ids, 25
+attention_mask=encoding.attention_mask, 26
+generation_config=generation_config 27 ) 28 29
+print(tokenizer.decode...

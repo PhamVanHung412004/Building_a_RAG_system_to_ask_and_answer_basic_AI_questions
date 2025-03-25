@@ -1,0 +1,7 @@
+Node ID: 2281df5e-bc0e-42a7-9357-76955b7e5159
+Text: AI VIET NAM - Project Truy vấn ảnh dùng các toán cơ bản Tho-Anh-
+Khoa Nguyen, Dang-Nha Nguyen Ngày 3 tháng 8 năm 2024 1 Giới thiệu Truy
+vấn hình ảnh (Images Retrieval) là một bài toán thuộc lĩnh vực Truy
+vấn thông tin (Information Retrieval). Trong đó, nhiệm vụ của ta là
+xây dựng một chương trình trả về các hình ảnh (Images) có liên quan
+đến hình...

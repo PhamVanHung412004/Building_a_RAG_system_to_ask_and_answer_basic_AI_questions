@@ -1,0 +1,7 @@
+Node ID: af5f7165-1810-43c7-a6e3-c15ea0300f33
+Text: Cụ thể, phương pháp này hoạt động như sau. Cho một câu query và
+nhiều văn bản được truy vấn. Một mô hình đánh giá gọn nhẹ sẽ được sử
+dụng để đánh giá độ phù hợp của các văn bản với câu query đầu vào, quy
+thành 3 mức độ: Đúng, Không đúng và không rõ ràng, tương ứng với những
+hành động khác nhau. Nếu những văn bản truy vấn được là Đúng, những
+văn ...

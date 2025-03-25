@@ -1,0 +1,7 @@
+Node ID: 7af3f701-4ada-4eb0-b0ef-f4d9edae70fe
+Text: • Edge là gì? • Ta có thể thêm hàm loss phụ trợ không? Ba câu
+hỏi trên sẽ quyết định việc ta có thể sử dụng GNN vào một bài toán bất
+kì được hay không. Tuy nhiên, để GNN có thể cải thiện performance của
+model hiện tại ta cần phải trả lời câu hỏi quan trọng sau: • GNN sẽ
+hoạt động như thế nào? Ta cần phải giải thích rõ cách GNN sẽ hoạt động
+trước...

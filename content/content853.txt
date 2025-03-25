@@ -1,0 +1,7 @@
+Node ID: f63b2a9b-bc26-4792-be8e-9dc90e503f26
+Text: AI VIETNAM aivietnam.edu.vn 6 n_results=n_results # how many
+results to return 7 ) 8 return results 1 test_path = f’{ROOT}/test’ 2
+test_files_path = get_files_path(path=test_path) 3 test_path =
+test_files_path[1] 4 l2_results = search(image_path=test_path,
+collection=l2_collection, n_results=5) 5
+plot_results(image_path=test_path, files_path=fil...

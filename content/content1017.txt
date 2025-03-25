@@ -1,0 +1,7 @@
+Node ID: c7a2d8df-8f81-4e21-aec8-11cb799b039b
+Text: Phương pháp này được chia thành 2 gai đoạn. Ở giai đoạn đầu
+tiên, phương pháp self-discover sẽ tìm ra những cấu trúc prompt suy
+luận phù hợp nhất cho từng task. Sau đó các cấu trúc này sẽ được
+format về dạng JSON, bới cấu trúc này được chứng minh là tăng cường
+khả năng suy luận của mô hình Zhou et al., 2023. Bước này có mục tiêu
+là tìm những cấu...

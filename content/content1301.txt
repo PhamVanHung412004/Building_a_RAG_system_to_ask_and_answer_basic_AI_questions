@@ -1,0 +1,7 @@
+Node ID: dc34a49a-04c9-4faa-ad4b-f3e372412979
+Text: AI VIETNAM aivietnam.edu.vn ChatGPT (Chat Generative Pre-
+Training Transformer)là mô hình chatbot được phát triển bởi OpenAI ra
+mắt vào tháng 11 năm 2022. ChatGPT được xây dựng dựa trên việc tinh
+chỉnh mô hình ngôn ngữ lớn (Large Language Model) kết hợp với học tăng
+cường dựa trên phản hồi của con người (Reinforcement Learning with
+Human Feedback...

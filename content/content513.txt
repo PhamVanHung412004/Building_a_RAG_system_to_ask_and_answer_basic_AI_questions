@@ -1,0 +1,6 @@
+Node ID: 36fc793c-addf-4bd7-b1b2-b04214b75d95
+Text: 10. So với LoRA, QLoRA có điểm gì khác biệt gì trong việc huấn
+luyện LLMs? (a) QLoRA lượng tử hóa (quantize) tham số mô hình; LoRA
+thì không. (b) QLoRA sử dụng nhiều tham số mô hình; LoRA ít hơn. (c)
+QLoRA tối ưu khả năng tổng quát của mô hình; LoRA tối ưu trên một task
+cụ thể. (d) QLoRA giảm kích thước mô hình; LoRA tăng lên. - Hết - 12

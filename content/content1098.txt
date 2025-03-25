@@ -1,0 +1,7 @@
+Node ID: bf484f88-1368-4b48-a26b-330ce7c35b7f
+Text: AI VIETNAM (AIO2024) aivietnam.edu.vn II.VI. YOLOv5 YOLOv5 [5],
+không phải do tác giả gốc phát triển, nhưng được cộng đồng sử dụng
+rộng rãi từ năm 2020. - Điểm mới: Tập trung vào tối ưu hóa và dễ dàng
+sử dụng với các framework như PyTorch. Sử dụng CSPNet làm backbone và
+PANet để fusion giúp cải thiện độ chính xác của mô hình. - Ưu điểm: Dễ
+dàng ...

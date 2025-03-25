@@ -1,0 +1,7 @@
+Node ID: b395a38e-4bc4-4662-a73a-5d20e1d4c8b4
+Text: Điều này giúp tăng cường khả năng suy luận của mô hình mà không
+cần truy cập vào một cơ sở kiến thức có cấu trúc hay tinh chỉnh cụ thể
+cho việc tích hợp kiến thức. Phương pháp này được chứng minh là hiệu
+quả thông qua việc cải thiện hiệu suất trên nhiều bài toán suy luận
+thông thường và đạt kết quả hàng đầu trên một số tác vụ. Sau đây là
+chi tiế...

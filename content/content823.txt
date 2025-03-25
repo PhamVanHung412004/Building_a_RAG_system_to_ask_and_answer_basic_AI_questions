@@ -1,0 +1,7 @@
+Node ID: b0a4e633-5eb0-4858-afd4-81663c2c8b62
+Text: AIO2024 aivietnam.edu.vn Hình 2: Tạo PyPI API token 1 poetry
+config pypi - token . pypi <my - token > Trong đó my-token là token ta
+đã tạo ở phía trên. Cuối cùng chúng ta đẩy package của chúng ta lên
+nền tảng PyPI bằng lệnh: 1 =============== Input
+====================== 2 poetry publish 3 4 5 6 7
+========================================== =====...

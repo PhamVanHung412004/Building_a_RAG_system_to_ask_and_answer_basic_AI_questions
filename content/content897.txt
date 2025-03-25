@@ -1,0 +1,7 @@
+Node ID: f4e9f792-a7c9-40e6-a00a-36c42e73879d
+Text: Bạn nên giữ nguyên phong cách viết ban đầu, đảm bảo rằng đoạn
+văn trang trọng vẫn giữ được hình thức trang trọng.) 23 Khi bạn có một
+prompt về lập trình phức tạp và có thể nằm trong các tệp khác nhau:
+“From now and on whenever you generate code that spans more than one
+file, generate a [programming language ] script that can be run to
+automatica...

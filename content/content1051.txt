@@ -1,0 +1,7 @@
+Node ID: cb16fe1b-1b38-492b-bf20-ec59d5ac4e25
+Text: AI VIETNAM aivietnam.edu.vn 4.3 Phenaki Hình 8: Kiến trúc chung
+của mô hình Phenaki Mô hình Phenaki, được trình bày trong công trình
+"Phenaki: Variable Length Video Generation From Open Domain Textual
+Description" [8], mở ra một hướng mới trong việc tạo video từ văn bản.
+Được thiết kế để tạo ra những đoạn video chân thực từ các mô tả văn
+bản, Ph...

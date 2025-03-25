@@ -1,0 +1,7 @@
+Node ID: d181d352-104b-4d00-a414-b335f3726ba5
+Text: AI VIETNAM aivietnam.edu.vn 83 84 def forward (self , x,
+timestep ): 85 # Embedd time 86 t = self . time_mlp ( timestep ) 87 #
+Initial conv 88 x = self . conv0 (x) 89 # Unet 90 residual_inputs = []
+91 for down in self . downs : 92 x = down (x, t) 93 residual_inputs .
+append (x) 94 for up in self . ups : 95 residual_x = residual_inputs .
+pop () 9...

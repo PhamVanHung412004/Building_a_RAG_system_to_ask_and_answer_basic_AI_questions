@@ -1,0 +1,7 @@
+Node ID: f4c485b1-4f5b-45f6-aecd-a36a2d8953e9
+Text: AI VIETNAM aivietnam.edu.vn 2.1.1 Truy vấn hình ảnh với độ đo L1
+Chúng ta xây dựng một hàmabsolute_difference () tính độ tương đồng
+giữa các hình ảnh. Trong ví dụ này chúng ta sẽ sử dụng hàm L1. Hàm L1
+có công thức tính như sau: L1(⃗ a,⃗b) = NX i=1 |a − b| 1 def
+absolute_difference(query, data): 2 axis_batch_size =
+tuple(range(1,len(data.shape))...

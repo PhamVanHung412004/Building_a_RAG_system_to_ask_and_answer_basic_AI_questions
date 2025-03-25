@@ -1,0 +1,7 @@
+Node ID: 96f0b086-6902-4783-8bae-bf143e555e5f
+Text: AI VIET NAM – COURSE 2024 Decision Tree Trung-Trực Trần Ngày 17
+tháng 2 năm 2024 1 Giới thiệu. Cây quyết định (Decision Tree) là một
+trong những thuật toán máy học phổ biến nhất. Nó là một công cụ mạnh
+mẽ được sử dụng cho việc phân loại và dự đoán trong học máy và khai
+phá dữ liệu. Cây quyết định thực hiện quá trình học bằng cách phân
+chia tập d...

@@ -1,0 +1,7 @@
+Node ID: 66861e86-dcf1-4324-a20c-373e9aa7fecc
+Text: AI VIETNAM (AIO2024) aivietnam.edu.vn 25 disparity = 0 26
+cost_min = max_value 27 28 for j in range ( disparity_range ): 29 cost
+= max_value if (x - j) < 0 else distance ( int ( left [y, x]) , int (
+right [y, x - j])) 30 31 if cost < cost_min : 32 cost_min = cost 33
+disparity = j 34 35 # Let depth at (y, x) = j ( disparity ) 36 #
+Multiply by a s...

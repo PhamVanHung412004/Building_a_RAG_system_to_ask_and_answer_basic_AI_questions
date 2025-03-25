@@ -1,0 +1,7 @@
+Node ID: 313c1015-246b-4c1d-9aec-28fb3ca46771
+Text: Đối với máy tính window, chúng ta tải java tại đây, sau đó tiến
+hành mở file và cài đặt theo các tùy chọn mặc định. Sau khi quá trình
+cài đặt hoàn tất, ta cần thêm đường dẫn của java vào Environment
+Variables của window theo các bước dưới đây: • Truy cập vào thư mục
+java đã cài đặt trên máy và sao chép đường dẫn của thư mục này
+C:\Program Files ...

@@ -1,0 +1,7 @@
+Node ID: 99c9311b-6e70-4e9b-93b3-28e538a22e1f
+Text: Daily AI Exercise (AIO) aivietnam.edu.vn • lattice là một tham
+số boolean cho biết liệu hàm có nên sử dụng chế độ "lattice"để trích
+xuất bảng hay không. Khi lattice=True, tabula-py sẽ cố gắng phát hiện
+các đường kẻ bảng (cả ngang và dọc) để xác định chính xác ranh giới
+của các ô trong bảng. Kết quả trả về từ tabula.read_pdf là một danh
+sách chứa...

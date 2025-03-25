@@ -1,0 +1,7 @@
+Node ID: 741a1989-7f50-4ad9-8680-e6c6922d2230
+Text: 15.4.1 1D diffusion from a point mass Xét quá trình 1D diffusion
+với điều kiện ban đầu là Delta Function tạix0. Nói cách khác, ta xem
+xét sự lan truyền của một phân phối Delta tạix0 theo thời gian. 1D
+Diffusion with Delta Function Initial Condition p(x, t) = 1√ 2πσ2t exp
+ −(x − x0)2 2σ2t  . (51) Trong đó: • p(x, t) là xác suất phân phối
+tại vị...

@@ -1,0 +1,7 @@
+Node ID: b2d68195-423c-4a67-aa08-a0a8841808e0
+Text: reshape (2 , -1) 5 print ( data1 ) 6 7 data2 = np. repeat (7 ,
+10) . reshape (2 , -1) 8 print ( data2 ) 9 10 # Way 1 : 11 out1 = np.
+concatenate ([ data1 , data2 ], 12 axis =0) 13 print ( out1 ) 14 15 #
+Way 2 : 16 out2 = np. vstack ([ data1 , data2 ]) 17 print ( out2 ) 18
+19 # Way 3 : 20 out3 = np.r_[ data1 , data2 ] 21 print ( out3 )
+==========...

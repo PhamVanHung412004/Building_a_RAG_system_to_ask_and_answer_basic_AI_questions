@@ -1,0 +1,7 @@
+Node ID: 34b06a53-0d7a-40ea-b1a8-555eaeb66a87
+Text: 0.] [0. 1. 0.] [0. 0. 1.]]
+========================================== 2.7 Tạo mảng ngẫu nhiên -
+random np.random là một module trong NumPy cung cấp các hàm để tạo
+mảng với các giá trị ngẫu nhiên. Trong phần này, các ví dụ về random
+sẽ sử dụng ramdom seed=2024 để đảm bảo kết quả đầu ra có thể tái tạo
+lại. a) random.rand() np.random.rand tạo một m...

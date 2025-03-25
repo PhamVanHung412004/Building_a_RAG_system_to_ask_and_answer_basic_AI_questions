@@ -1,0 +1,7 @@
+Node ID: 559662b6-689f-4294-9238-d8f3d6600cb2
+Text: AI VIETNAM aivietnam.edu.vn Hình 12: Bảng so sánh kết quả Swin-
+UMamba và các model khác. 7 Conclusion Như vậy, trong bài viết này ta
+đã tìm hiểu về kiến trúc Mamba được áp dụng cho data dạng ảnh thông
+qua nhiều bài toán khác nhau. Ta thấy rằng, các model Mamba-based này
+hoàn toàn vượt trội so với Transformer về cả 3 tiêu chí: tốc độ, tài
+nguyên ...

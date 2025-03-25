@@ -1,0 +1,7 @@
+Node ID: 3976e2ee-e741-4ca3-b513-48123e60e665
+Text: unsqueeze (0) . repeat ( num_tasks , 1, 1).to( 29 self . device
+30 ) # (1 , bs , bs) 31 # set diagonal as zero and normalize 32
+edge_feat = F. normalize ( edge_feat * diag_mask , p=1 , dim = -1) #
+(bs , bs) 33 # compute attention and aggregate 34 aggr_feat = torch .
+bmm ( edge_feat . squeeze (1) , node_feat ) # (bs , dim ) 35 node_feat
+= torch ....

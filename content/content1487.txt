@@ -1,0 +1,7 @@
+Node ID: 2fc05ac4-1f49-4f14-9a90-bbd0b38f36e8
+Text: AI VIETNAM aivietnam.edu.vn Phần II. Multi-Task Learning for
+Com- puter Vision Hai phương pháp chính bao gồm: hard parameter
+sharing được mô tả trong hình 3 và soft parameter sharing được mô tả
+trong hình 4. Hình 3: Hard parameter sharing. Hình 4: Soft parameter
+sharing. Hard parameter sharing bao gồm các layer dùng chung cho tất
+cả các task, sh...

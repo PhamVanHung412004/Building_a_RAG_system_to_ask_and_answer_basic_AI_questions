@@ -1,0 +1,7 @@
+Node ID: e4f934b7-913d-4e97-bf6d-e1e46f98d7c1
+Text: ?? Bảng 4: Play Tennis - Dữ liệu testing (a) "Play Tennis" =
+"Yes" (b) "Play Tennis" = "No" Để hoàn thành bài tập này bạn cần hoàn
+thành các function sau đây bằng cách sử dụng thư viên numpy: 4.1 Hoàn
+thiện functioncreate_train_dataset() để tổ chức dữ liệu bảng 1 vào
+array 2 chiều như bên dưới. 1 # ######################## 2 # Create
+data 3 # ##...

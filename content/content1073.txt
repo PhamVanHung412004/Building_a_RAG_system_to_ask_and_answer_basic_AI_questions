@@ -1,0 +1,7 @@
+Node ID: 203bcad6-afb1-432d-a0fc-7ef9a16cd7a4
+Text: AI VIETNAM aivietnam.edu.vn Hình 22: DiT Block. DiT block
+design- Với DiT block tác giả đã có một số những thay đổi nhỏ so với
+ViT block chuẩn thông thường: • In-context conditioning: DiT thêm các
+vector embedding của timestep và class labels như là hai token bổ sung
+trong chuỗi đầu vào, xử lý chúng không khác gì so với các token ảnh.
+Điều này t...

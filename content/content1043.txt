@@ -1,0 +1,7 @@
+Node ID: b2f0b84e-38f6-4031-9c19-8e3940fa4c5d
+Text: AI VIETNAM aivietnam.edu.vn Hình 3: CelebV-Text bao gồm (a)
+70,000 mẫu video và (b) 1,400,000 văn bản mô tả. Mỗi mẫu video được
+ghi chú với hình dáng tổng quát, hình dáng chi tiết, điều kiện ánh
+sáng, hành động, cảm xúc, và hướng ánh sáng. Phần IV: Các hướng tiếp
+cận chính Khi nói đến việc tạo video từ văn bản, có hai phương pháp
+tiếp cận chính ...

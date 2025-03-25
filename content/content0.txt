@@ -1,0 +1,7 @@
+Node ID: 3360cf48-9fbb-4bc2-9345-1e88319c0b28
+Text: AI VIET NAM – AI COURSE 2024 Ứng dụng RAG trong việc hỏi đáp tài
+liệu bài học AIO Dinh-Thang Duong, Nguyen-Thuan Duong, Quang-Vinh Dinh
+Ngày 23 tháng 6 năm 2024 I. Giới thiệu Large Language Models (LLMs)
+(Tạm dịch: Các mô hình ngôn ngữ lớn)là loại mô hình cho phép người
+dùng nhập vào một văn bản với nội dung bất kì, thường sẽ là các yêu
+cầu hoặc...

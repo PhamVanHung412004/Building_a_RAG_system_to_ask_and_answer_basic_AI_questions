@@ -1,0 +1,3 @@
+Node ID: f2179851-4ebe-4861-8947-3e351363204b
+Text: AI VIETNAM aivietnam.edu.vn b. Multiple Inheritance (Kế thừa đa
+kế) Kế thừa đa kế là khi một lớp con kế thừa từ nhiều lớp cha.

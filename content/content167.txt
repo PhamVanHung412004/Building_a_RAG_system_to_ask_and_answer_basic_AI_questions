@@ -1,0 +1,7 @@
+Node ID: d9e65299-9fc1-4342-bc78-1039db41d9cb
+Text: AI VIETNAM aivietnam.edu.vn • Mục tiêu là làm chop(x, t) (với t
+đủ lớn) trở thành một phân phối dễ lấy mẫu (ví dụ: phân phối gauss).
+Điều này làm cho việc tạo ra các mẫu reverse diffusion từ p(x,t) trở
+nên dễ dàng. • Chúng ta muốn mẫu bị biến đổi mạnh, tức là không còn
+dấu vết của mẫu ban đầu. Điều này đòi hỏi việc chúng ta phải đưa rất
+nhiều nh...

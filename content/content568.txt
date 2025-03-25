@@ -1,0 +1,6 @@
+Node ID: 6c87366e-c9af-4c0a-a325-f1b3169b34e1
+Text: Mặc dù bài viết đã cố gắng bao quát các trường hợp sử dụng vòng
+lặp for, tuy nhiên khi các bạn lập trình sẽ gặp nhiều trường hợp hơn
+nữa như việc kết hợp với thư viện tqdm, enumerate... nhưng về bản chất
+thì nó vẫn không thay đổi. Hy vọng các bạn đã nắm được vòng lặp for và
+sẽ sử dụng nó hiệu quả trong quá trình viết code của mình. 6

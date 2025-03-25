@@ -1,0 +1,7 @@
+Node ID: 6ffaae6e-749b-4b99-86d8-9318141304d2
+Text: 4. Một agent có khả năng thực thi script (Code Executors) (ví dụ
+như python code) sẽ tồn tại rủi ro tiềm ẩn nào? (a) Giống như chúng ta
+chạy code python nên không có rủi ro. (b) LLM có thể sinh ra các
+script nhằm đánh cắp dữ liệu của máy HOST. (c) Khiến máy HOST bị chậm
+do tiêu tốn tài nguyên CPU/GPU. (d) Tiêu tốn không gian lưu trữ dữ
+liệu mà a...

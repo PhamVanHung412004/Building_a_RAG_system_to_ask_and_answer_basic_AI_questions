@@ -1,0 +1,7 @@
+Node ID: 377ac245-d009-4618-bb59-4657f2798de5
+Text: AI VIETNAM aivietnam.edu.vn 83 84 return probabilities . squeeze
+(). tolist () , round ( best_prob , 6) , predicted_id ,
+predicted_class 6. Cập nhật foldermiddleware/: Middleware là một thành
+phần quan trọng API. Có thể hiểu nôm na Middleware là các hàm tiền và
+hậu xử lý các request mà API nhận được. Trong bài này, chúng ta sẽ
+triển khai như sau...

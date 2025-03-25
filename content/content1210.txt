@@ -1,0 +1,4 @@
+Node ID: 28787336-946a-46ad-bf9e-1ca360ebf815
+Text: AI VIETNAM aivietnam.edu.vn đó giúp model học tốt các sample khó
+và performance tổng quát của model sẽ được cải thiện. Ta sẽ tăng độ
+khó của dataset trong bài toán này để thấy sự hiệu quả của GNN.

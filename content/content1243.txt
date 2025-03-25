@@ -1,0 +1,7 @@
+Node ID: 2bf8c1ce-cb00-4dbb-94c4-7bf6d8aeec78
+Text: AI VIETNAM aivietnam.edu.vn 17 18 batch_size = 8 19
+train_dataloader = DataLoader ( train_dataset , batch_size =
+batch_size , shuffle =True , pin_memory = True ) 20 valid_dataloader =
+DataLoader ( valid_dataset , batch_size = batch_size , shuffle = False
+, pin_memory = True ) 2.4. Train 1 from tqdm import tqdm 2 3 optimizer
+= torch . optim . Ada...

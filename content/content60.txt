@@ -1,0 +1,5 @@
+Node ID: 6ac09db8-3dc9-4849-be91-0979e42bc2f9
+Text: train ( data = YAML_PATH , 7 epochs = EPOCHS , 8 batch =
+BATCH_SIZE , 9 imgsz = IMG_SIZE ) Hình 20: Quá trình huấn luyện mô
+mình YOLOv10. 5. Đánh giá mô hình:Để thực hiện đánh giá mô hình trên
+tập test, các bạn chạy đoạn code sau: 14

@@ -1,0 +1,7 @@
+Node ID: bca0b8c0-6666-455b-a394-89d3112ba2b6
+Text: 5.2 MagicVideo MagicVideo [11] có thể tạo ra các đoạn video mượt
+mà phù hợp với văn bản mô tả đã cho. Nhờ vào kiến trúc 3D U-Net và
+hiệu quả cùng với việc mô hình hóa phân phối video trong không gian
+low- dimensional. MagicVideo có thể tổng hợp video 256×256 spatial
+resolution trên một card GPU, giảm đến 64 lần lượng tính toán so với
+Video Diffu...

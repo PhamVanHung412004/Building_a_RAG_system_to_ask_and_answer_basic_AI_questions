@@ -1,0 +1,7 @@
+Node ID: 54cf9ca9-b4c4-4726-938b-c02f1f0918cc
+Text: utility . Vector3dVector ( array ) 12 if color is not None : 13
+if logits_color == False : 14 colorLength = abs (np. max ( color )) +
+1 15 colorPalette = sns . color_palette (" Paired ", int ( colorLength
+)) 16 colorArray = np. array ( colorPalette ) 17 color = colorArray [
+color ] 18 pcd . colors = o3d . utility . Vector3dVector ( color ) 19
+el...

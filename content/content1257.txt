@@ -1,0 +1,7 @@
+Node ID: 6992cc97-10f8-442c-801e-dbc5cc582221
+Text: (a) Cài đặt các class Student, Doctor, và Teacher theo mô tả
+trên. Thực hiện phương thức describe() method để in ra tất cả thông
+tin của các object. (b) Viết add_person(person) method trong Ward
+class để add thêm một người mới với nghề nghiệp bất kỳ (student,
+teacher, doctor) vào danh sách người của ward. Tạo ra một ward object,
+và thêm vào 1 st...

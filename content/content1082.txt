@@ -1,0 +1,7 @@
+Node ID: cb3c3321-7899-47a7-8b14-994867296ffa
+Text: Để giải quyết vấn đề này, mô hình sử dụng khối LAM, giúp máy học
+được các hành động ẩn mà không cần dữ liệu được gán nhãn cụ thể. Khối
+LAM hoạt động bằng cách xem xét một loạt các khung hình trước và sau
+đó dự đoán chuỗi hành động ẩn có thể dẫn đến khung hình tiếp theo. Một
+bộ giải mã sau đó sử dụng thông tin này cùng với chuỗi khung hình để
+dự ...

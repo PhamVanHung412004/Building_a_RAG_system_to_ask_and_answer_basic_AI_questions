@@ -1,0 +1,7 @@
+Node ID: 61d2232d-159f-42cd-82bc-83293e13039d
+Text: parameters (): 8 param . requires_grad = False 9 10 in_features
+= resnet_model .fc. in_features 11 self .fc = nn. Linear ( in_features
+, n_classes ) 12 13 def forward (self , x): 14 x = self . backbone (x)
+15 x = torch . flatten (x, 1) 16 x = self .fc(x) 17 18 return x Sau
+đó, ta khai báo mô hình và kiểm tra thử mô hình đã hoạt động được hay
+chư...

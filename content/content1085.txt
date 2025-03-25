@@ -1,0 +1,7 @@
+Node ID: 3ee44f8b-48df-4d7b-ac7d-9ee60487d36b
+Text: AI VIETNAM aivietnam.edu.vn nhiều lĩnh vực khác nhau như điện
+ảnh, làm game, thực tế ảo, v.v. Hơn hết, cả 2 mô hình đều cho thấy
+việc huấn luyện các mô hình deep learning trên tập data lớn về video
+có thể giúp các mô hình trí tuệ nhân tạo học được cách vận hành của
+thế giới vật chất, mở ra hướng mới cho việc phát triển AI có khả năng
+tương tác v...

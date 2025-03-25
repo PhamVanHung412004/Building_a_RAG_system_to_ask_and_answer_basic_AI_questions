@@ -1,0 +1,7 @@
+Node ID: c6f80e02-a38d-4b3d-8914-c3665d2063f1
+Text: AI VIETNAM aivietnam.edu.vn 7 " nthreads ": 2, 8 " epochs_mdn ":
+2, 9 " nmix ": 8, 10 " logstep ": 100 , 11 " dataset_key ": " lfw " 12
+} 13 14 def get_dirpaths ( args ): 15 if args [" dataset_key "] == "
+lfw ": 16 out_dir = " data / output / lfw " 17 listdir = " data /
+imglist / lfw " 18 featslistdir = " data / featslist / lfw " 19 else :
+20 ra...

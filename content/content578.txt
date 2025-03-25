@@ -1,0 +1,7 @@
+Node ID: c28d32ec-a210-4153-9329-39a7aa4f5928
+Text: Viết function trả về một dictionary đếm số lượng chữ xuất hiện
+trong một từ, với key là chữ cái và value là số lần xuất hiện • Input:
+một từ • Output: dictionary đếm số lần các chữ xuất hiện • Note: Giả
+sử các từ nhập vào đều có các chữ cái thuộc [a-z] hoặc [A-Z] 1 #
+Examples 2 string = ’ Happiness ’ 3 count_chars ( string ) 4 >> {’H’:
+1, ’a’: 1...

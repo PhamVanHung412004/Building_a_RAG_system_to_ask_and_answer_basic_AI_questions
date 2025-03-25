@@ -1,0 +1,7 @@
+Node ID: 6426ee49-8a24-45a5-bbe4-7635c732f039
+Text: Cụ thể, trên các nhiệm vụ trả lời câu hỏi (HotpotQA) và xác minh
+sự thật (Fever), ReAct giải quyết các vấn đề phổ biến về ảo giác và
+lan truyền lỗi trong COT bằng cách tương tác với API Wikipedia đơn
+giản, và tạo ra quỹ đạo giải quyết nhiệm vụ giống như con người dễ
+hiểu hơn so với các tiêu chuẩn không có dấu vết suy luận. Thông qua
+việc sử dụng...

@@ -1,0 +1,7 @@
+Node ID: e3d99ee6-4813-41ab-a1ae-898dc9df0eb0
+Text: AI VIETNAM aivietnam.edu.vn Wang, X., Wei, J., Schuurmans, D.,
+Le, Q., hsin Chi, E. H., & Zhou, D. (2022). Self-consistency improves
+chain of thought reasoning in language models.ArXiv, abs/2203.11171.
+https: //api.semanticscholar.org/CorpusID:247595263 Liu, J., Liu, A.,
+Lu, X., Welleck, S., West, P., Bras, R. L., Choi, Y., & Hajishirzi, H.
+(202...

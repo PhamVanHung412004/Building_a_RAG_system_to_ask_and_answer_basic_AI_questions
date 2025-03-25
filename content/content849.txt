@@ -1,0 +1,7 @@
+Node ID: 8c01a67b-1bf9-481a-8525-e0aadf268035
+Text: AI VIETNAM aivietnam.edu.vn 12 embedding_list.append(embedding)
+13 rates = correlation_coefficient(query_embedding,
+np.stack(embedding_list)) 14
+ls_path_score.extend(list(zip(images_path, rates))) 15 return query,
+ls_path_score Hình 18: Image retrieval ảnh đơn giản với model CLIP và
+Correlation Coefficient Hình 19: Image retrieval ảnh phức tạp v...

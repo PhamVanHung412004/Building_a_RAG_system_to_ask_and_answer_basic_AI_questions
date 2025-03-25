@@ -1,0 +1,7 @@
+Node ID: d830f2e6-1b49-489e-b66f-7a11082acaa6
+Text: transform = transform 5 6 def __len__ ( self ): 7 return len (
+self . data ) 8 9 def __getitem__ (self , idx ): 10 images = self .
+data [ idx ][ ’image ’] 11 labels = self . data [ idx ][ ’ labels ’]
+12 13 if self . transform : 14 images = self . transform ( images ) 15
+16 labels = torch . tensor ( labels , dtype = torch . long ) 17 18
+return im...

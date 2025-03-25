@@ -1,0 +1,7 @@
+Node ID: 79d27c1f-53ae-48a6-b016-3656e41c6c64
+Text: • Cả hai quá trình biến đổi ở trong thời gian dài (long time
+limit), chuyển đổi mẫu thành các mẫu từ phân phối gauss. Việc này đảm
+bảo rằngp(x, t) (với t đủ lớn) trở thành một phân phối dễ lấy mẫu. (có
+thể lấy mẫu từ phân phối gauss) 14.5 Variance Exploding SDE (VE SDE)
+Phần này chúng ta sẽ tìm hiểu về Variance Exploding (VE) trong SDE và
+cách x...

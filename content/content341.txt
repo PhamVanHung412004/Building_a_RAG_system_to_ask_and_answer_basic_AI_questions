@@ -1,0 +1,7 @@
+Node ID: 5f863137-c183-4cf9-8ae5-05cbbb67ac59
+Text: AI VIET NAM – AI COURSE 2023 Video Classification Project Minh-
+Duc Bui và Quang-Vinh Dinh Ngày 2 tháng 5 năm 2024 Phần I: Giới thiệu
+Video classification là một bài toán quan trọng trong thị giác máy
+tính và trí tuệ nhân tạo, liên quan đến việc tự động phân loại và gán
+nhãn các video dựa trên nội dung. Các ứng dụng của video
+classification rất đ...

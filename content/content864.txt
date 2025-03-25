@@ -1,0 +1,5 @@
+Node ID: 60df6be8-5e4c-4583-a4f3-957288e82632
+Text: AI VIETNAM aivietnam.edu.vn Hình 25: Tìm hiểu cấu trúc trang web
+( Các bức ảnh trên các trang web thường được lưu trữ trên các server
+riêng biệt. Khi bạn truy cập một trang web, trang web đó sẽ sử dụng
+URL của bức ảnh để gửi yêu cầu (request) đến các server chứa bức ảnh.

@@ -1,0 +1,7 @@
+Node ID: 5a382874-3573-4da4-93eb-ebf7213eb37c
+Text: AI VIETNAM aivietnam.edu.vn Phần II. Text Summarization using
+RLHF Trong phần này, chúng ta sẽ tập trung ứng dụng cải tiến mô hình
+dựa vào RLHF cho bài toán tóm tắt văn bản. Tóm tắt văn bản (Text
+Summarization) nhận đầu vào là đoạn văn bản dài hoặc nhiều đoạn văn
+bản dài. Thông qua mô hình các đoạn văn bản sẽ được tóm tắt ngắn gọn
+thành vài câu.

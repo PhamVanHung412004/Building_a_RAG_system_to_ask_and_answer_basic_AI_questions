@@ -1,0 +1,5 @@
+Node ID: c3a8937d-2171-4257-b146-77b5b23469c4
+Text: AI VIETNAM aivietnam.edu.vn 17 response_tensors ,
+ref_response_tensors = ppo_trainer . generate ( 18 query_tensors ,
+return_prompt = False , generate_ref_response =True , **
+generation_kwargs 19 ) 20 batch [" response "] = tokenizer .

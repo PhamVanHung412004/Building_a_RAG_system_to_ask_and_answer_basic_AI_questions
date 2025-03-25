@@ -1,0 +1,7 @@
+Node ID: 95d6eb9f-1742-4691-807c-fefb1267148e
+Text: All-in-One Course - 2024 aivietnam.edu.vn 1 class_name = "AI
+VIETNAM" 2 length = len(class_name) 3 print(f"Số ký tự trong chuỗi là:
+{length}") "Trong ví dụ này, class_name là chuỗi ’Hello’. Khi chúng ta
+sử dụng len(class_name), Python sẽ đếm số ký tự trong chuỗi này. Kết
+quả sẽ là: 1 Số ký tự trong chuỗi là: 10 Tương tự, các bạn có thể đếm
+số ký...

@@ -1,0 +1,7 @@
+Node ID: 0595b6f5-e113-4b7c-ab91-8d9c26fbbbf9
+Text: AI VIETNAM (AIO2024) aivietnam.edu.vn (a) Tính tổng các cost (l1
+hoặc l2) giữa các cặp pixel left[h + v, w + u] và right [h + v, w + u
+- d] (trong đó d∈ [0, disparity_range] và u, v∈ [-kernel_half,
+kernel_half]) nằm trong vùng window với tâm là vị trí của pixel đang
+xét. Nếu tại vị trí cho (w + u - d) < 0 thì gán giá trị cost của cặp
+pixel đang ...

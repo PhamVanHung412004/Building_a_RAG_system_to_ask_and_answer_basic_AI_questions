@@ -1,0 +1,7 @@
+Node ID: 58580bf1-6218-46a9-8f8d-96e3e154f084
+Text: 58 : param inputs : the argument sequence to pass to ‘func ‘. 59
+: param params : a sequence of parameters ‘func ‘ depends on but does
+not 60 explicitly take as arguments . 61 : param flag : if False ,
+disable gradient checkpointing . 62 """ 63 if flag : 64 args = tuple (
+inputs ) + tuple ( params ) 65 return CheckpointFunction . apply (func
+, l...

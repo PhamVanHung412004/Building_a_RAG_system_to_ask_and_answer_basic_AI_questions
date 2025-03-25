@@ -1,0 +1,7 @@
+Node ID: 8ae00f49-7f02-4159-bd69-bca3fe570f21
+Text: AI VIETNAM aivietnam.edu.vn (h) Load and inference model from
+Hub:Ở phần trước, sau khi ta đưa model lên Hugging- face Hub, nếu muốn
+inference model ta có thể gọi hàmfrom_pretrained của model Mamba ta đã
+định nghĩa ở trước để load pretrain model. Sau đó ta sẽ truyền văn bản
+cần phân loại, tokenize và id của từng class vô hàmpredict của model
+để ...

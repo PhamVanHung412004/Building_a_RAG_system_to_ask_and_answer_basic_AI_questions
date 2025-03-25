@@ -1,0 +1,7 @@
+Node ID: 583794c4-84a2-46c2-8615-ea458f3c0619
+Text: AI VIETNAM aivietnam.edu.vn 1.4 Noise removal Dữ liệu 3D point
+clouds đóng vai trò quan trọng trong nhiều lĩnh vực như khảo sát, lập
+bản đồ, robot, v.v. Tuy nhiên, dữ liệu này thường bị ảnh hưởng bởi
+nhiễu, gây ra sai sót trong việc xử lý và phân tích. Lọc nhiễu (noise
+removal) là bước quan trọng để làm sạch dữ liệu, giúp tăng độ chính
+xác và kh...

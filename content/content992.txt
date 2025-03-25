@@ -1,0 +1,7 @@
+Node ID: e19a205c-e176-48ba-a3f8-b0b2ea8e6c79
+Text: AI VIETNAM aivietnam.edu.vn Knowledge Graph được cân nhắc như
+một giải pháp hiệu quả để quản lý kiến thức. Bởi sự phát triển mối
+quan hệ theo chiều ngang, việc thiết lập các lập luận (reasoning) được
+thực hiện dễ dàng hơn. Tuy nhiên, các mô hình Knowledge Graph thường
+tốn công sức để xây dựng hơn các kiến trúc dữ liệu khác. 4.1.2
+Embedding Model...

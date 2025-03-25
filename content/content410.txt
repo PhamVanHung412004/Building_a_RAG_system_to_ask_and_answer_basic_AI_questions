@@ -1,0 +1,7 @@
+Node ID: 73f4c65f-c8e1-417d-a5d3-65a191c8baa3
+Text: AI VIETNAM aivietnam.edu.vn • Ma trận trực giao có một đặc tính
+đặc biệt: nghịch đảo của chúng đơn giản là chuyển vị của chúng. Điều
+này đơn giản hóa các phép tính trong mạng. Trong quá trình truyền
+tiếp, khi đám mây điểm được biến đổi được nhân với chuyển vị của ma
+trận chuyển đổi, nó trở thành phép nhân ma trận đơn thay vì một phép
+toán phức t...

@@ -1,0 +1,4 @@
+Node ID: 19cfd05e-ffaa-4960-9e4b-4a9527b6ee4e
+Text: send () 10. Chạy chainlit app: 1 ! chainlit run app .py -- host
+0.0.0.0 -- port 8000 & >/ content / logs . txt & 11. Expose localhost
+thành public host bằng localtunnel: 1 import urllib 11

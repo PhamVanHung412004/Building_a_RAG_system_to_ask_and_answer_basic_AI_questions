@@ -1,0 +1,6 @@
+Node ID: 1aed5939-af13-4b57-9cc2-61b5fcba4e14
+Text: Switch-case Alternatives in Python Dinh-Tiem Nguyen và Quang-
+Vinh Dinh 1 Switch Case Switch case là một cấu trúc điều khiển trong
+lập trình giúp kiểm tra giá trị của một biến, biểu thức và thực hiện
+các hành động khác nhau tùy thuộc vào giá trị đó. Để đơn giản thì hãy
+tưởng tượng bạn có một chiếc hộp điều khiển với nhiều nút bấm.

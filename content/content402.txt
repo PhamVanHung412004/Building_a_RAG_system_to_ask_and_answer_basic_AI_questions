@@ -1,0 +1,7 @@
+Node ID: 9583eb88-6dba-4949-ade7-d55d26fa3809
+Text: 1 class Tnet (nn. Module ): 2 def __init__ (self , k =3) : 3
+super (). __init__ () 4 self .k=k 5 self . conv1 = nn. Conv1d (k ,64
+,1) 6 self . conv2 = nn. Conv1d (64 ,128 ,1) 7 self . conv3 = nn.
+Conv1d (128 ,1024 ,1) 8 self . fc1 = nn. Linear (1024 ,512) 9 self .
+fc2 = nn. Linear (512 ,256) 10 self . fc3 = nn. Linear (256 , k*k) 11
+12 self . bn...

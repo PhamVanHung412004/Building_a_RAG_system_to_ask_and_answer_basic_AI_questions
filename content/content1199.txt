@@ -1,0 +1,7 @@
+Node ID: cd4952db-126d-4107-9fb2-1dd88d30dd52
+Text: model . load_state_dict ( torch . load ( self . save_model )) 73
+74 epochs = 200 # 5 75 sample_num = 8 76 save_model = ’./ save_model ’
+77 optimizers = { "lr": 5e -5 , " weight_decay ": 0} 78 device = "
+cuda " if torch . cuda . is_available () else " cpu " 79 80
+unet_config = { 81 " in_channel ": 6, 82 " out_channel ": 3, 83 "
+inner_channel ": 6...

@@ -1,0 +1,7 @@
+Node ID: 10df8a14-6648-40e0-a2b8-9a6251236530
+Text: llm_model import get_hf_llm 10 from src . rag . main import
+build_rag_chain , InputQA , OutputQA 11 12 llm = get_hf_llm (
+temperature =0.9) 13 genai_docs = "./ data_source / generative_ai " 14
+15 # --------- Chains ---------------- 16 17 genai_chain =
+build_rag_chain (llm , data_dir = genai_docs , data_type =" pdf ") 18
+19 # --------- App - Fast...

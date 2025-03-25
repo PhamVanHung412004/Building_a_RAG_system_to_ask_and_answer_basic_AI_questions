@@ -1,0 +1,7 @@
+Node ID: 3bd7ad68-20ea-48e1-b6e2-2578c12b256d
+Text: google . com /uc?id =1 IBScGdW2xlNsc9v5zSAya548kNgiOrko 2 3 def
+count_word ( file_path ): 4 counter = {} 5 6 # Your Code Here 7 8 #
+End Code Here 9 10 return counter 11 file_path = ’/ content / P1_data
+. txt ’ 12 result = count_word ( file_path ) 13 assert result [’who ’]
+== 3 14 print ( result [’man ’]) a) 4 b) 5 c) 6 d) 9 Câu hỏi 4:(Code)
+Hoàn...

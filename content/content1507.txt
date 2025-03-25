@@ -1,0 +1,7 @@
+Node ID: 179254e9-ce5d-4cbe-bb5c-df0b09c429d7
+Text: AI VIETNAM aivietnam.edu.vn Phần 3. Câu hỏi trắc nghiệm Câu hỏi
+1Học đa tác vụ (Multi-Task Learning) là gì? a) Học cách thực hiện
+nhiều tác vụ khác nhau một cách độc lập b) Học cách thực hiện nhiều
+tác vụ cùng một lúc c) Học cách thực hiện một tác vụ duy nhất d) Học
+cách thực hiện nhiều tác vụ theo thứ tự Câu hỏi 2Lợi ích chính của học
+đa tác vụ...

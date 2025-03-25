@@ -1,0 +1,7 @@
+Node ID: 76217db3-1883-4c0b-8309-088e4f202c0c
+Text: AI VIETNAM aivietnam.edu.vn 1 executor =
+DockerCommandLineCodeExecutor ( 2 image =" python :3.11 - slim ", 3
+timeout =10 , 4 work_dir = temp_dir .name , 5 ) Ý nghĩa của dòng thứ 2
+là gì? (a) Khai báo tên của docker container. (b) Khai báo tên của
+docker image. (c) Khai báo tên docker image được dùng để thực thi. (d)
+Khai báo tên của Code Executo...

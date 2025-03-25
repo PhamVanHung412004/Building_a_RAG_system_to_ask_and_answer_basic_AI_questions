@@ -1,0 +1,7 @@
+Node ID: a4c25f6a-51be-44d3-ba07-dd43b80fb75e
+Text: 6. What is the main input data format for PointNet? (A). Images.
+(B). Meshes. (C). Point Clouds. (D). Voxels. 7. PointNet utilizes
+symmetrical functions for processing point clouds. What does this
+mean? (A). The order of points in the input cloud doesn’t affect the
+output. (B). The network has the same number of layers in the encoder
+and decoder...

@@ -1,0 +1,7 @@
+Node ID: 19a90df1-fad6-4d49-a5cd-08dc135713ea
+Text: 2. Tải trọng số của pre-trained models:Để sử dụng được pre-
+trained models, chúng ta cần tải về file trọng số (file .pt). Các bạn
+chạy đoạn code sau để tải về file trọng số phiên bản YOLOv10n: 1 !
+wget https :// github . com /THU - MIG / yolov10 / releases / download
+/v1 .1/ yolov10n .pt 3. Khởi tạo mô hình:Để khởi tạo mô hình với trọng
+số vừa tả...

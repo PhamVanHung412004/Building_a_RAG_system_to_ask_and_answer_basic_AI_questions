@@ -1,0 +1,7 @@
+Node ID: 872d935b-787d-4fe8-81a0-749e69e4cf03
+Text: AI VIETNAM aivietnam.edu.vn FLAREdirect Trong phương
+phápFLAREinstruct, có lúc các câu truy vấn được tạo ra không chính
+xác, làm giảm độ tin cậy của quá trình truy vấn. Để giải quyết vấn đề
+này, bài báo đề xuất một cách tiếp cận truy vấn chủ động khác, dựa vào
+việc xem xét câu tiếp theo để quyết định thời điểm truy vấn. Cụ thể,
+mô hình ngôn ngữ ...

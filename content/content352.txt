@@ -1,0 +1,6 @@
+Node ID: 7a5bec75-3128-4303-ad9f-40afe9f578d5
+Text: AI VIETNAM aivietnam.edu.vn 68 69 # Rearrange to have the shape
+(C, T, H, W) 70 data = data . permute (1 , 0, 2, 3) 71 return data ,
+label 72 Sau đó ta sẽ tạo dataloader để train model: 1 BATCH_SIZE = 16
+2 MAX_LEN = 15 3 IMAGE_SIZE = 224 4 5 6 transform = transforms .
+Compose ( 7 [ 8 transforms .

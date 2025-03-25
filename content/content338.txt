@@ -1,0 +1,7 @@
+Node ID: 76579fb3-d6d7-4dd6-a436-c4b24dcbced5
+Text: AI VIETNAM aivietnam.edu.vn Phần III: Câu hỏi trắc nghiệm 1. VAE
+có thể được sử dụng trong các ứng dụng nào? (a) Tô màu cho ảnh xám (b)
+Nén ảnh (c) Sinh ảnh mới (d) Tất cả các phương án trên 2. Mô hình VAE
+cơ bản có bao nhiêu block chính? (a) 1 (b) 2 (c) 3 (d) 4 3. Trong VAE,
+đối tượng cần được mã hóa được biểu diễn như thế nào? (a) Dưới dạng
+mộ...

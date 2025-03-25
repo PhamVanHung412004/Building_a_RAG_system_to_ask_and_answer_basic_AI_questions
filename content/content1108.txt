@@ -1,0 +1,7 @@
+Node ID: f978e3df-15f5-43cc-8dab-1a17cd5b5193
+Text: AI VIETNAM (AIO2024) aivietnam.edu.vn Hình 12: Minh họa về phép
+depth-wise convolution và point-wise convolution để thay thế phép
+convolution thông thường. Ảnh: link. - Rank-guided block design: Quan
+sát YOLOv8, tác giả nhận thấy toàn bộ các stage trong kiến trúc đều sử
+dụng chung một building block. Tuy nhiên, thông qua việc tính
+intrinsic rank...

@@ -1,0 +1,7 @@
+Node ID: ba05947f-ed36-40e9-8ca3-64308ac963af
+Text: Zhou, P., Pujara, J., Ren, X., Chen, X., Cheng, H.-T., Le, Q.
+V., Chi, E. H., Zhou, D., Mishra, S., & Zheng, H. S. (2024). Self-
+discover: Large language models self-compose reasoning structures.
+Zhou, Y., Muresanu, A. I., Han, Z., Paster, K., Pitis, S., Chan, H., &
+Ba, J. (2023). Large language models are human-level prompt engineers.
+Yan, S.-Q....

@@ -1,0 +1,7 @@
+Node ID: 1b816897-df32-4513-9b0f-816f1eb6d0fe
+Text: shape [1]) 72 73 if self . lossweights is not None : 74 weights
+= self . __getweights__ ( color_ab ) 75 76 # Load feature maps 77
+featobj = np. load ( self . feats_fns [ idx ]) 78 greyfeats [: , :, :]
+= featobj [" arr_0 "] 79 80 return color_ab , recon_const , weights ,
+recon_const_outres , greyfeats 81 82 def __getweights__ (self , img ):
+83 ""...

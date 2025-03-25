@@ -1,0 +1,7 @@
+Node ID: 98b0e096-2b8c-4de1-a6e9-e92ee6190f61
+Text: AI VIETNAM aivietnam.edu.vn (b) V π(s) =P a∈A Qπ(s, a) (c) V
+π(s) =P a∈A π(a|s)Qπ(s, a) (d) V π(s) =Eπ[Rt+1 + γRt+2 + γ2Rt+3 +
+...|St = s] 13. Thuật toán nào sau đây thuộc nhóm thuật toán Policy
+Gradient? (a) REINFORCE (b) Q-Learning (c) SARSA (d) Value Iteration
+14. Trong Policy Gradient, hàm nào dưới đây biểu diễn stochastic
+policy? (a) πθ(s) ...

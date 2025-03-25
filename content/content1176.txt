@@ -1,0 +1,7 @@
+Node ID: e5a52fc8-3285-4b0d-8577-4eaaed8d6b6f
+Text: image_size = image_size 364 self . in_channel = in_channel 365
+self . inner_channel = inner_channel 366 self . out_channel =
+out_channel 367 self . res_blocks = res_blocks 368 self . attn_res =
+attn_res 369 self . dropout = dropout 370 self . channel_mults =
+channel_mults 371 self . conv_resample = conv_resample 372 self .
+use_checkpoint = use_c...

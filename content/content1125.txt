@@ -1,0 +1,7 @@
+Node ID: dd81bf61-60f0-45ad-8dfe-be37a2b46747
+Text: Bằng cách lựa chọn cả 3 phiên bản có cùng số lượng tham số
+khoảng 25M tương ứng là YOLOv8-M, YOLOv9-C và YOLOv10-L. Các thử
+nghiệm được thực hiện trên cùng một thiết bị, python version, random
+seed và một số hyperparameter như: batch_size=16, image_size=640,...
+Sau khi quá trình huấn luyện kết thúc, thực hiện đánh giá trên tập
+test và ghi lại kế...

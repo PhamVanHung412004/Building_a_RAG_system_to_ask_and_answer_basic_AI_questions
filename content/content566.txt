@@ -1,0 +1,7 @@
+Node ID: 4f010c60-b1c2-495a-ace4-25ab9f5a4504
+Text: • Khi i là 0, điều kiện i == 2 là sai, lệnh print(i) sẽ in ra 0.
+• Khi i là 1, điều kiện i == 2 là sai, lệnh print(i) sẽ in ra 1. • Khi
+i là 2, điều kiện i == 2 là đúng, lệnh break sẽ được thực thi và vòng
+lặp kết thúc. 6 Vòng lặp for lồng Vòng lặp lồng nhau là vòng lặp nằm
+bên trong một vòng lặp khác. Nó cho phép ta thực hiện các tác vụ phức
+tạ...

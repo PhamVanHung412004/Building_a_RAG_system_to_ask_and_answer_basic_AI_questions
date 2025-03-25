@@ -1,0 +1,7 @@
+Node ID: 796af8b9-0553-429b-918f-e7c0aff7bf4b
+Text: AI VIETNAM aivietnam.edu.vn 2. Tải bộ dữ liệu:Chúng ta sẽ sử
+dụng bộ dữ liệu Cat Dog có sẵn trên HuggingFace Dataset. Các bạn hãy
+chạy đoạn code bên dưới để tải cũng như load bộ dữ liệu: 1
+DATASET_NAME = ’ cats_vs_dogs ’ 2 datasets = load_dataset (
+DATASET_NAME ) 3 datasets Hình 4: Bộ dữ liệu về Cat Dog Image
+Classification trên HuggingFace Data...

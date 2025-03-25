@@ -1,0 +1,5 @@
+Node ID: 0a385686-e5ed-43a5-bddd-333c7be043b1
+Text: AI VIETNAM aivietnam.edu.vn Giao diện ứng dụng được mô tả như
+hình sau: Hình 5: Giao diện ứng dụng object detection. 1 import numpy
+as np 2 from PIL import Image 3 import streamlit as st 4 5 def main
+(): 6 st.

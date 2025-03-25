@@ -1,0 +1,7 @@
+Node ID: 8473ce9e-87b5-42ce-8b8b-8f706b5e8594
+Text: Tính toán các giá trị với các ô còn lại trong ma trận. Bắt đầu
+từD[1, 1] được tính dựa vào 3 ô phía trước làD[0, 1], D[1, 0], D[0, 0]
+như sau: D[1, 1] =    D[0, 1] +del_cost(source[1]) = 1 + 1 = 2 D[1,
+0] +ins_cost(target[1]) = 1 + 1 = 2 D[0, 0] +sub_cost(source[1],
+target[1]) = 0 + 0 = 0 (1) Vì vậyD[1, 1] = 0ta được ma trậnD như sau:
+3

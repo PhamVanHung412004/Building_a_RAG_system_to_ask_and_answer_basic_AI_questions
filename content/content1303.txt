@@ -1,0 +1,7 @@
+Node ID: fa0c5774-507b-4c0d-9455-9dde4c75b621
+Text: AI VIETNAM aivietnam.edu.vn (a) Supervised fine-tuning (SFT)
+Trong phần này chúng ta sử dụng 1 tập các prompt và response để tinh
+chỉnh mô hình ngôn ngữ. Mô hình GPT2 được chọn với 12 khối
+Transformer-Decoder. Ngoài ra, có nhiều mô hình ngôn ngữ có thể chọn
+phù hợp với mục tiêu và open source như BLOOM, LLaMa,... (b) Reward
+Modeling (RM) Trong p...

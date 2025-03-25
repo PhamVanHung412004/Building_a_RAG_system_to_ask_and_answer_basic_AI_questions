@@ -1,0 +1,7 @@
+Node ID: d8a87ae6-a511-4f03-b779-3d57ebf36f99
+Text: Tự động hóa quy trình bằng robot (RPA) NextGen AI Bankers 7 Bài
+tập thực hành 1. Xác định một Quy trình Ngân hàng: • Chọn một quy
+trình ngân hàng lặp đi lặp lại và dựa trên quy tắc có thể hưởng lợi từ
+RPA, chẳng hạn như mở tài khoản, xử lý giao dịch hoặc báo cáo tuân
+thủ. 2. Vẽ sơ đồ quy trình: • Tạo một sơ đồ chi tiết của quy trình
+hiện tại, ba...

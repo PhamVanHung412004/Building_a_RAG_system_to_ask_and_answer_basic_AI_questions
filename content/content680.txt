@@ -1,0 +1,7 @@
+Node ID: f62c3532-20c1-4a10-9b4a-71193e4a6162
+Text: AI VIETNAM aivietnam.edu.vn 6 tokenizer=tokenizer, # Tokenizer
+sử dụng để mã hóa dữ liệu 7 args=training_args, # Các tham số train đã
+được định nghĩa trước đó 8 compute_metrics=compute_metrics # Hàm tính
+các độ đo hiệu suất ( metrics) cho đánh giá 9 ) 10 # Bắt đầu quá trình
+train bằng cách gọi hàm train() trên classs trainer. 11
+trainer.train() ...

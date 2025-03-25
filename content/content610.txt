@@ -1,0 +1,7 @@
+Node ID: 028d19b4-5e47-4dab-82bf-285e2d5162a8
+Text: Code 4.1, 4.2 và 4.3 trình bày cài đặt Python cho việc cập nhật
+một và nhiều phần tử trong một danh sách. Ví dụ 4: Thêm nhiều phần từ
+vào một danh sách và nối hai danh sách. 1 # Python code 4.1 2 data =
+[6 , 5, 7, 1, 9, 2] 3 print ( data ) 4 data [1] = 4 5 print ( data )
+================= Output ================ [6 , 5, 7, 1, 9, 2] [6 , 4,
+7, 1,...

@@ -1,0 +1,5 @@
+Node ID: b5866ff6-21ca-42f2-a08a-79bb8883904c
+Text: gdown 1 -0 IcaofrE8cNbvUn1Ydo2WyShkxohv9r 1 # Load the model 2
+colordiff_model = ColorDiffusion ( unet_config , beta_schedule ) 3
+colordiff_model . set_new_noise_schedule ( device ) 4 load_state =
+torch . load (’./ best_model .

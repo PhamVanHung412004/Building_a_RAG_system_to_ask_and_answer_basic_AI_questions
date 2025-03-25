@@ -1,0 +1,7 @@
+Node ID: cc8da39c-fc7c-49e5-aef8-cd22af7b933a
+Text: 1.]] ========================================== 2.4 Tạo mảng với
+giá trị chỉ định Hình 4: Minh họa hàm full np.full là hàm dùng để tạo
+một mảng với tất cả các phần tử đều có cùng một giá trị xác định. Cú
+pháp: 1 np.full(shape, fill_value) • shape: Kích thước của mảng (có
+thể là một số nguyên hoặc một tuple). • fill_value: Giá trị sẽ được
+gán cho...

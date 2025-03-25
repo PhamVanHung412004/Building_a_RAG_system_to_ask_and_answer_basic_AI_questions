@@ -1,0 +1,7 @@
+Node ID: a222de9e-0458-43ec-9253-3c39da0119b2
+Text: BASIC PYTHON - WHILE LOOP Dinh-Tiem Nguyen và Quang-Vinh Dinh 1
+Giới thiệu Trong hầu hết các ngôn ngữ lập trình, vòng lặp là một cấu
+trúc cho phép ta thực thi một khối code nhiều lần. Trong Python, có
+hai loại vòng lặp chính là for và while. Bài viết này sẽ tập trung vào
+vòng lặp while, giải thích cách hoạt động qua các ví dụ cụ thể để có
+thể dễ...

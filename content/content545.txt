@@ -1,0 +1,7 @@
+Node ID: dc3321c3-4140-4398-8695-869b2d5a8063
+Text: Xét đoạn code dưới đây: 1 from langchain_community .
+document_loaders import PyPDFLoader 2 3 pdf_loader = PyPDFLoader (url
+, extract_images = True ) 4 5 docs = pdf_loader . load () Tham
+sốextract_images tại dòng code 3 có chức năng gì? (a) Trả về tất cả
+ảnh từ file pdf. (b) Bỏ qua ảnh, chỉ load text. (c) Phân tích ảnh
+thành vector. (d) Chuyển đổ...

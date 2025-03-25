@@ -1,0 +1,7 @@
+Node ID: 9c0f116e-36e8-4588-988f-3a3178187c14
+Text: type ( torch . bool ) 30 source_edge_mask = ~ target_edge_mask
+31 init_edge = edge * source_edge_mask . float () 32 return init_edge
+[0] , source_edge_mask 33 34 def forward (self , init_node_feat ): 35
+# compute normalized and not normalized affinity matrix 36 edge_feat ,
+edge_sim = self . edge_net ( init_node_feat ) 37 # compute node
+features ...

@@ -1,0 +1,3 @@
+Node ID: 76d63add-4784-4ebf-8645-525e5fc86ff4
+Text: astype (" int ") 29 cv2 . rectangle ( image , ( startX , startY
+), (endX , endY ), 70 , 2) 30 return image 5

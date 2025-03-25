@@ -1,0 +1,7 @@
+Node ID: 65ea0cf0-b21b-4828-a6a9-be47ea5041dd
+Text: AIO2024 aivietnam.edu.vn Câu 10: Lấy phần tử chung của 2 mảng 1
+# Python code ( aivietnam ) 2 import numpy as np 3 4 data1 = np. array
+([1 , 2, 3, 2]) 5 data2 = np. array ([7 , 2, 1, 8]) 6 print ( data1 )
+7 print ( data2 ) 8 9 out = np. intersect1d ( data1 , data2 ) 10 print
+( out ) ================= Output ================ [1 2 3 2] [7 2 1 8]
+[...

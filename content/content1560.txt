@@ -1,0 +1,5 @@
+Node ID: 068d8ebc-f1cc-446a-8dc3-009c15a20ddb
+Text: NÂNG CAO HIỆU QUẢ VIẾT CODE VỚI TYPE HINTS VÀ MYPY Dinh-Tiem
+Nguyen và Quang-Vinh Dinh 1 Mở đầu Làm sao để viết code Python dễ đọc,
+dễ hiểu và dễ bảo trì hơn? Làm thế nào để có thể kiểm tra tính đúng
+đắn của code trước khi thực thi chúng?

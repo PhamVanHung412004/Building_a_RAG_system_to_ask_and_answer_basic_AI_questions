@@ -1,0 +1,7 @@
+Node ID: 8f43b57e-05bd-4aa8-b5e2-440c84f68d03
+Text: AI VIETNAM aivietnam.edu.vn 4 Visual Mamba Sau khi Vim được công
+bố chỉ 1 ngày thì ta tiếp tục có bài paper thứ 2 sử dụng Mamba vào
+data dạng ảnh mang tên Visual Mamba (VMamba). Xuất phát từ Swin
+Transformer (một model cải tiến của ViT) các tác giả đã thay thế
+Transformer block bằng Visual State Space (VSS) block (hình 4). Hình
+4: Kiến trúc VMam...

@@ -1,0 +1,7 @@
+Node ID: cce08f39-4b6e-4a7c-a9f2-4989aeb29c44
+Text: Mỗi khung hình trong video được tạo ra đều phải liến kết đến tất
+cả các khung hình trước đó, đến từng chi tiết để đảm bảo độ chính xác
+về không gian và quá trình chuyển đổi giữa các khung hình phải được mô
+hình hóa cẩn thận để duy trì dòng thời gian. Quá trình này yêu cầu tài
+nguyên tính toán khổng lồ [8] [11], đặc biệt đối với các video có độ
+p...

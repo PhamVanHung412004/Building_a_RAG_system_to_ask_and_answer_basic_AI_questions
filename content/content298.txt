@@ -1,0 +1,7 @@
+Node ID: 35b9685b-1f36-49f1-900b-0a40e662cf37
+Text: reshape ( -1) 87 img_vec = img_vec * 128.0 88 img_lossweights =
+np. zeros ( img . shape , dtype ="f") 89 img_vec_a = img_vec [: np.
+prod ( self . shape )] 90 binedges_a = self . binedges [0 , ...].
+reshape ( -1) 91 binid_a = [ binedges_a . flat [np. abs ( binedges_a -
+v). argmin ()] 92 for v in img_vec_a ] 93 img_vec_b = img_vec [np.
+prod ( self...

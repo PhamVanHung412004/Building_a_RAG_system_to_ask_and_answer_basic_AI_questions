@@ -1,0 +1,7 @@
+Node ID: 5ed81837-152f-4397-a3f8-bf93aee5481b
+Text: OPTIONAL: Phần này sẽ bàn luận thêm một vài vấn đề trong YOLOv10
+bao gồm một vài các tham số trong lệnh training, lệnh đánh giá mô hình
+và gán nhãn dữ liệu. • Các tham số trong lệnh training:Dòng lệnh
+training tại bước 4 có mặc định sẵn một vài tham số, các tham số này
+các bạn có thể tùy chỉnh theo ý muốn của mình, với một số tham số có
+giá trị ...

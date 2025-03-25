@@ -1,39 +1,23 @@
-from llama_index.core.node_parser import (
-    SentenceSplitter,
-    SemanticSplitterNodeParser,
-)
-
-from llama_index.embeddings.openai import OpenAIEmbedding
-from llama_index.core import SimpleDirectoryReader
-from llama_index.embeddings.huggingface import HuggingFaceEmbedding
-
-import os
-import torch
-
-
+import sys
+sys.path.append("/content/drive/MyDrive/LLM/chatbot/ChatbotAIO")
+from Tutorial import *
 class Chunking_Data:
-    def __init__(self,name_model : str,documents : list) -> None:
+    def __init__(self,documents : list, model_embedding : HuggingFaceEmbedding) -> None:
         '''
-        name_model : Tên Model Embedding sẽ chọn để chunking
         documents : Văn bản sau khi đã chuyển hóa từ file PDF thành file text và được lưu dưới dạng list
+        model_embedding : là model embedding do mình lựa chọn để chunking data
         '''
-        self.__name_model: str = name_model
         self.__documents : list = documents
+        self.__model_embedding = model_embedding
 
     def Get_nodes(self) -> list:        
         try:
-            device_type = "cuda" if torch.cuda.is_available() else "cpu"
-
-            embed_model = HuggingFaceEmbedding(model_name=self.__name_model, device=device_type)
-
             splitter = SemanticSplitterNodeParser(
                 buffer_size=1,
                 breakpoint_percentile_threshold=95,
-                embed_model=embed_model
+                embed_model=self.__model_embedding
             )
             nodes = splitter.get_nodes_from_documents(self.__documents)
             return nodes
         except ZeroDivisionError as e:
             print("Error: {}".format(e))
-
-

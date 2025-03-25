@@ -1,0 +1,5 @@
+Node ID: f0d300a0-ca3e-43f1-a4ed-dc77b5ad7924
+Text: AI VIETNAM (AIO2024) aivietnam.edu.vn (c) conda env activate
+yolo_env (d) conda activate yolo_env 7. Cho hình ảnh cấu trúc cây thư
+mục (trong Google Colab) và đoạn lệnh sau: 1 YAML_PATH = ’./
+safety_helmet_dataset / data .

@@ -1,0 +1,7 @@
+Node ID: 1b809b07-612a-4109-9381-9654a11bc2d5
+Text: AI VIETNAM aivietnam.edu.vn 86 output_tensors , 87 ctx .
+input_tensors + ctx . input_params , 88 output_grads , 89 allow_unused
+=True , 90 ) 91 del ctx . input_tensors 92 del ctx . input_params 93
+del output_tensors 94 return (None , None ) + input_grads 95 96 97 def
+count_flops_attn ( model , _x , y): 98 """ 99 A counter for the ‘thop
+‘ package...

@@ -1,0 +1,7 @@
+Node ID: cdba1979-8c54-460f-ba54-006204f09c99
+Text: AI VIETNAM aivietnam.edu.vn Hình 6: Bên trái: Camera RGB-D thu
+được hai bức ảnh: ảnh màu sắc (RGB) và ảnh chiều sâu (Depth). Bên
+phải: Từ hai bức ảnh này, ta có thể tái tạo đám mây điểm 3D, mô tả
+hình dạng và vị trí của các vật thể trong không gian một cách chi
+tiết. 2 Machine Learning with Point Cloud Trong phần này, chúng ta sẽ
+đi tìm hiểu về ...

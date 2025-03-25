@@ -1,0 +1,7 @@
+Node ID: dfc42800-a8d9-4527-859e-afb9fb91e5c8
+Text: AIO 2024 aivietnam.edu.vn Trong trường hợp này,C11 = A11 · B11 +
+A12 · B21, C12 = A11 · B12 + A12 · B22, và tương tự cho các phần tử
+còn lại của ma trậnC. Hình 18: Minh họa phép nhân ma trận Trong thư
+viện Numpy, hàmnp.matmul() được sử dụng để thực hiện phép nhân ma
+trận. Hàm này cung cấp một cách linh hoạt để thực hiện nhân ma trận
+giữa các mản...

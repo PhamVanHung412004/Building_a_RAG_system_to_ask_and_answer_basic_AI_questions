@@ -1,0 +1,7 @@
+Node ID: eb674dc7-7947-413e-8923-fa545b335d68
+Text: AI VIETNAM aivietnam.edu.vn 3. Thực hiện theo các yêu cầu sau .
+Viết function đọc các câu trong một file txt, đếm số lượng các từ xuất
+hiện và trả về một dictionary với key là từ và value là số lần từ đó
+xuất hiện. • Input: Đường dẫn đến file txt • Output: dictionary đếm số
+lần các từ xuất hiện • Note: – Giả sử các từ trong file txt đều có các
+c...

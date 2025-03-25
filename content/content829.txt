@@ -1,0 +1,7 @@
+Node ID: 05d4dabf-36ee-48cf-8127-d0c96000bc0e
+Text: AI VIETNAM aivietnam.edu.vn 2 Xây dựng chương trình Dự án này sẽ
+giới thiệu các phương pháp từ cơ bản đến nâng cao để xây dựng một hệ
+thống truy vấn ảnh. Chúng ta sẽ phát triển hệ thống này trên một tập
+dữ liệu cụ thể. Tiếp theo, dự án sẽ tiến hành thu thập và xử lý dữ
+liệu để tạo ra hệ thống truy vấn ảnh được cá nhân hóa cho từng người
+dùng (ph...

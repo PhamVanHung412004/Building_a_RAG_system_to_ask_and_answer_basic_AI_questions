@@ -1,0 +1,7 @@
+Node ID: 43ac8946-ec34-41e2-a8f2-88bb3e30700c
+Text: AI VIETNAM aivietnam.edu.vn Phần 4. Câu hỏi trắc nghiệm Câu hỏi
+1Phương pháp huấn luyện của mô hình ChatGPT là gì? a) Tỉnh chỉnh mô
+hình ngôn ngữ lớn GPT2 b) Tinh chỉnh mô hình ngôn ngữ lớn BLOOM c)
+Tinh chỉnh mô hình mBART d) Tinh chỉnh mô hình ngôn ngữ lớn GPT
+3.5(Large Language Model) với phương pháp học tăng cường dựa trên phản
+hồi người dùn...

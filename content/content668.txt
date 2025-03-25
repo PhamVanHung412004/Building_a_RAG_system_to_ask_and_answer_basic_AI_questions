@@ -1,0 +1,7 @@
+Node ID: aee7a6db-973a-40b6-91b2-58c999e12b3c
+Text: Bộ dữ liệu được chia làm 2 phần bằng nhau, 25,000 mẫu để train,
+và 25,000 mẫu để kiểm thử. Bên cạnh đó, bộ dữ liệu cũng cung cấp
+50,000 mẫu dữ liệu chưa đánh nhãn để hỗ trợ quá trình train. Tuy nhiên
+trong project này ta chỉ sử dụng phần dữ liệu đã được đánh nhãn để
+train model. Hình 1: Ví dụ minh họa về dataset IMDB. 2. Model Mamba
+cho bài toán...

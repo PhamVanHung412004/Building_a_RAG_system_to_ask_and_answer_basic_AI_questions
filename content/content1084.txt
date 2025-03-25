@@ -1,0 +1,7 @@
+Node ID: 225277e7-bb54-4bc4-8bca-e74f48a8a68d
+Text: Khác với những công trình nghiên cứu khác chỉ tập trung vào việc
+nén trong chiều không gian, nghiên cứu này sử dụng khối ST-transformer
+trong cả encoder và decoder để có thể đảm bảo sự liên kết trong chiều
+thời gian. Khối Dynamics Model Đây là một khối decoder transformer
+tương tự như trong nghiên cứu MaskGIT [1]. Ở mỗi bước, khối này nhận
+đầu v...

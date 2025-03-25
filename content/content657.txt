@@ -1,0 +1,7 @@
+Node ID: 05e9f0c0-2a6b-4102-9cc6-1e38cff1cca4
+Text: AI VIETNAM aivietnam.edu.vn 5 U-Mamba Hơn 1 tháng sau khi Mamba
+được công bố, các tác giả tại Đại học Toronto, Canada đã hưởng ứng
+trend này với bài paper: “U-Mamba: Enhancing Long-range Dependency for
+Biomedical Image Segmentation”, một bài paper về bài toán Segmentation
+trong lĩnh vực Y Sinh. U-Mamba là model theo hướng encoder- decoder
+tương ...

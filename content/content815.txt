@@ -1,0 +1,7 @@
+Node ID: fee8c76e-c3bb-4398-8026-bb3d6a4df79f
+Text: AIO2024 aivietnam.edu.vn HƯỚNG DẪN TRIỂN KHAI VÀ ĐÓNG GÓI DỰ ÁN
+PYTHON VỚI POETRY Dinh-Tiem Nguyen và Quang-Vinh Dinh 1 Mở đầu Làm thế
+nào để xây dựng các package, library như math, numpy, tensorflow,
+pytorch? Làm thế nào để tái sử dụng code trong dự án? Trong bài viết
+này sẽ hướng dẫn cách triển khai xây dựng một package đơn giản với
+Poetry, sa...

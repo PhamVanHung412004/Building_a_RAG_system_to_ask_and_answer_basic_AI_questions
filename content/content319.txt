@@ -1,0 +1,7 @@
+Node ID: 95dffe78-6c49-41ee-9420-e61ae96129a2
+Text: size ()). normal_ (). cuda () 20 z = torch . add (mu , torch .
+mul (eps , stddev )) 21 z_flat = z. repeat (1 , args [" nmix "]) 22
+z_flat = z_flat . reshape ( batchsize * args [" nmix "], args ["
+hiddensize "]) 23 gmm_mu_flat = gmm_mu . reshape ( batchsize * args ["
+nmix "], args [" hiddensize "]) 24 dist_all = torch . sqrt ( torch .
+sum ( torch...

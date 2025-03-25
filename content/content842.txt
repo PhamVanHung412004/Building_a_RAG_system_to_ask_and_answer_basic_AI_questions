@@ -1,0 +1,7 @@
+Node ID: ce6c1e11-b11c-4649-8fbd-e9f65a4c9ce7
+Text: AI VIETNAM aivietnam.edu.vn Hình 11: Image retrieval ảnh đơn
+phức tạp Correlation Coefficient 2.2 Nâng Cao Chương Trình Truy Vấn
+Ảnh Phần này nhằm phát triển các tính năng nâng cao cho hệ thống truy
+vấn ảnh, bằng cách sử dụng deep learning model trích xuất feature
+vector cho các ảnh để tăng cường khả năng truy xuất hình ảnh chính xác
+hơn. Image ...

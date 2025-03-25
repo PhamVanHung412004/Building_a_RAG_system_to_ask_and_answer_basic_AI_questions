@@ -1,0 +1,6 @@
+Node ID: 3cdb6327-7a42-407d-a6d1-09ecabb286d8
+Text: AI VIETNAM aivietnam.edu.vn • Neighborhood Attention Transformer
+• Dilated Neighborhood Attention Transformer • MaxViT: Multi-Axis
+Vision Transformer Hình 10 mô tả kết quả so sánh giữa U-Mamba và các
+model CNN, Transformer khác. Ta thấy U-Mamba vượt trội hoàn toàn so
+với các model này, khoảng cách rất lớn≈ 10%.

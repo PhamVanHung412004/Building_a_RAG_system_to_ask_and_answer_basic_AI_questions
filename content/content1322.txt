@@ -1,0 +1,6 @@
+Node ID: 16c82e43-d848-4ffd-836a-256543f076d4
+Text: eos_token_id , 9 " max_new_tokens ": 200 , 10 } 11 sent_kwargs =
+{" return_all_scores ": True , " function_to_apply ": " none ", "
+batch_size ": 16} 12 13 for _epoch , batch in tqdm ( enumerate (
+ppo_trainer . dataloader )): 14 query_tensors = batch [" input_ids "]
+15 16 # Get response from gpt2 12

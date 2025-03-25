@@ -1,0 +1,7 @@
+Node ID: 8717bfe0-9e35-42e4-aaed-8000a30d449f
+Text: AIO 2024 aivietnam.edu.vn ng 19 2 chiều:", min_value_row) 20
+print("Giá trị nhỏ nhất theo cột trong 21 mảng 2 chiều:",
+min_value_col) ================= Output ================ Giá trị lớn
+nhất theo hàng trong mảng 2 chiều: [3 6] Giá trị lớn nhất theo cột
+trong mảng 2 chiều: [4 5 6] Giá trị nhỏ nhất theo hàng trong mảng 2
+chiều: [1 4] Giá trị nhỏ...

@@ -1,0 +1,7 @@
+Node ID: 523c5a07-4a8b-4a21-8124-9ceff851f546
+Text: Daily AI Exercise (AIO) aivietnam.edu.vn 1 from pypdf import
+PdfReader 2 3 # Đọc file PDF 4 reader = PdfReader("yolov9.pdf") 5 6 #
+Lấy số trang 7 num_pages = len(reader.pages) 8 9 # Lấy nội dung trang
+đầu tiên 10 page_1 = reader.pages[0] 11 page_1_txt =
+page_1.extract_text() 12 13 # Lấy nội dung toàn bộ các trang 14
+pages_txt = "" 15 for i in ra...

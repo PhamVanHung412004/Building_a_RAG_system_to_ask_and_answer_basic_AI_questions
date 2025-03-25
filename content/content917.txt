@@ -1,0 +1,7 @@
+Node ID: 3dbb9dcb-5cf1-45bb-8beb-22b3ab8a07ad
+Text: AI VIETNAM aivietnam.edu.vn Hình 11: Prompt được tạo sinh bằng
+phương pháp APE và prompt được định nghĩa bởi con người. Lợi ích của
+việc sử dụng APE: • tự động hóa quá trình prompt engineering. • APE
+đạt được kết quả ngang hoặc hơn con người trong một số task nhất định,
+bao gồm zero-shot và few-shot learning. 12 Active-Prompt Một trong
+những như...

@@ -1,0 +1,7 @@
+Node ID: 35ecc389-6f04-4013-991a-19ebd0072ee3
+Text: AI VIETNAM aivietnam.edu.vn Phần III: Câu hỏi trắc nghiệm 1.
+Trong Multi-agent LLMs, khái niệm agent có thể được hiểu như là? (a)
+Là một Docker Container. (b) Là một máy ảo (Virtual machine). (c) Là
+một mô hình LLM. (d) Là một thực thể (Entity) có khả năng nhận và gửi
+thông điệp (Message) đến các agent khác. 2. Đâu là ưu điểm của việc sử
+dụng ph...

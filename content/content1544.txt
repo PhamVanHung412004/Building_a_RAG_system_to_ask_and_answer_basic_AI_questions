@@ -1,0 +1,6 @@
+Node ID: c7b8aaeb-ecc5-49f4-af8d-1f3664dc749d
+Text: (b) Hàm ánh xạ trạng thái sang hành động. (c) Hàm ánh xạ điểm
+thưởng sang hành động. (d) Hàm ánh xạ hành động sang trạng thái. 7.
+Trong phương pháp Value-based, việc luôn lựa chọn hành động cho điểm
+thưởng tích lũy cao nhất còn được gọi là gì? (a) Softmax Policy. (b)
+Random Policy. (c) ε-greedy Policy. (d) Greedy Policy.

@@ -1,0 +1,7 @@
+Node ID: 0c4b0162-e9d4-4c40-9ff2-83280f3a91ca
+Text: Khởi tạo hai biến height, width có giá trị bằng chiều cao, chiều
+rộng của ảnh trái. 3. Khởi tạo một ma trận không - zero matrix (depth)
+với kích thước bằng height, width. 4. Với mỗi pixel tại vị trí (h, w)
+(duyệt từ trái qua phải, trên xuống dưới) thực hiện các bước sau: (a)
+Tính cost (L1 hoặc L2) giữa các cặp pixel left[h, w] và right[h, w -
+d]...

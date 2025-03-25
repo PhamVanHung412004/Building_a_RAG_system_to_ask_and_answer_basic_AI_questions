@@ -1,0 +1,7 @@
+Node ID: 515cfe09-07c6-47ce-950f-c7dd23b973ea
+Text: AI VIETNAM aivietnam.edu.vn Tổng quan, chúng ta sẽ có thư mục
+chứa mã nguồn có tênroot (các bạn hoàn toàn có thể sử dụng tên gọi
+khác). Bên trong sẽ có các thư mục con và các file với ý nghĩa như
+sau: _ config/: Thư mục chứa code định nghĩa các tham số liên quan đến
+các module khác nhau như model, logger... _ logs/: Thư mục lưu trữ
+log. Log có t...

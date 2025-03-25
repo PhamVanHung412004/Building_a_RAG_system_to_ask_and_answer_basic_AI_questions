@@ -1,0 +1,7 @@
+Node ID: 3635c9a0-16e4-40c1-86d4-6435fa9457d3
+Text: sqrt ( alphas ) / (1. - gammas ))) 31 32 def set_loss (self ,
+loss_fn ): 33 self . loss_fn = loss_fn 34 35 def
+predict_start_from_noise (self , y_t , t, noise ): 36 return ( 37
+get_index_from_list ( self . sqrt_recip_gammas , t, y_t . shape ) *
+y_t - 38 get_index_from_list ( self . sqrt_recipm1_gammas , t, y_t .
+shape ) * noise 39 ) 40 41 def q_...

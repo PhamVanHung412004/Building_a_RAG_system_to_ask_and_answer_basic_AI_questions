@@ -1,0 +1,5 @@
+Node ID: 67eccafc-ec2e-41a5-a025-7ff024a06b16
+Text: 1 trainer . train () Sau khi hoàn thành huấn luyện, hãy kết
+thúcwandb session. 1 if use_wandb : 2 wandb . finish () Theo dõi quá
+trình huấn luyện trênwandb. Hình 6: Theo dõi kết quả loss và metrics
+theo từng epoch trênwandb. 23

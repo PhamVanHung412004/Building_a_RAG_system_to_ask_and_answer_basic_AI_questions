@@ -1,0 +1,5 @@
+Node ID: f32487c9-bf26-44d5-80bb-8771ddf8ce4e
+Text: use_checkpoint = use_checkpoint 120 self . use_scale_shift_norm
+= use_scale_shift_norm 121 122 self . in_layers = nn. Sequential ( 123
+normalization ( channels ), 124 SiLU () , 125 nn. Conv2d ( channels ,
+self .

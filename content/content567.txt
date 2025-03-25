@@ -1,0 +1,7 @@
+Node ID: eeb33335-6741-4529-9549-e4437adb40ea
+Text: All-in-One Course - 2024 aivietnam.edu.vn Đầu tiên là khởi tạo
+vòng lặp ngoài duyệt qua từng hàng của ma trận matrix, với i là chỉ số
+của hàng. Tiếp theo là vòng lặp trong với mỗi hàng i, vòng lặp for j
+in range(len(matrix[i])) sẽ duyệt qua từng phần tử trong hàng đó, với
+j là chỉ số của cột. Với mỗi phần tử matrix[i][j], lệnh print(f"Vị
+trí: (i...

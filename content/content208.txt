@@ -1,0 +1,7 @@
+Node ID: 327e2d4c-f6e8-44c2-977a-4c6717a5c89f
+Text: AI VIETNAM aivietnam.edu.vn 1 class MyClass: 2 def
+__init__(self, value): 3 self.value = value 4 5 obj = MyClass(10) 6
+print(obj.value) # Output: 10 7 b. __str__() Phương thức này được sử
+dụng để định nghĩa chuỗi đại diện của object, thường được sử dụng bởi
+hàm print. 1 class MyClass: 2 def __init__(self, value): 3 self.value
+= value 4 5 def __s...

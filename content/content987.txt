@@ -1,0 +1,7 @@
+Node ID: e72fe8e4-e2eb-40b3-a540-62782418c1d9
+Text: Về phía các mô hình ngôn ngữ lớn (LLM) ở thời điểm hiện tại đều
+gặp giới hạn về độ dài ngữ cảnh (context) văn bản mà LLM có thể xử lý.
+Ví dụ: giới hạn 128k với GPT4 phiên bản mới nhất, 16k với GPT3.5, 32k
+với Gemini, 32k Llama-2, 8k Mixtral 8x7b,... Ngoài ra, việc đưa lượng
+lớn dữ liệu vào ngữ cảnh cho LLM được chứng minh là không hiệu quả với
+m...

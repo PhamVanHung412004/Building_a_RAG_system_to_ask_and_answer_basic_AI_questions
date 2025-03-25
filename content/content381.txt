@@ -1,0 +1,7 @@
+Node ID: 9f4f081e-ca96-4c77-8ab9-8f4571a9b461
+Text: Ưu điểm: - Giữ được thông tin về mật độ điểm của dữ liệu gốc. -
+Kiểm soát được mức độ giảm mẫu chính xác. - Dễ dàng thực hiện và hiệu
+quả về tính toán. Nhược điểm: - Có thể làm mất các chi tiết quan
+trọng, đặc biệt là các chi tiết ở ranh giới giữa các voxel. - Hiệu quả
+giảm sút với dữ liệu điểm phân bố không đều. Lấy mẫu xa nhất (Farthest
+Point ...

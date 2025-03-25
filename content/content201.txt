@@ -1,0 +1,5 @@
+Node ID: ef0d39dc-c149-4276-8506-05572030b0d6
+Text: trên các nhóm dữ liệu. Ví dụ:Giả sử bạn có một bảngProduct với
+các cộtname, brand và price. Bạn muốn biết: – Doanh thu tổng cho mỗi
+hãng (BRAND) của sản phẩm. aivietnam.edu.vn
+www.facebook.com/aivietnam.edu.vn

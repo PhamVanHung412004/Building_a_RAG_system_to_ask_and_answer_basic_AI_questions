@@ -1,0 +1,5 @@
+Node ID: b1c646f9-df63-4331-af87-2d89204627d1
+Text: png ") Hình 16: Kết quả dự đoạn của mô hình YOLOv10 phiên
+bảnnano (yolov10n.pt). 7. Dự đoán youtube video:Để dự đoán với input
+là youtube video, các bạn chỉ cần thay thế image_path bằng đường dẫn
+youtube video như đoạn code sau: 14

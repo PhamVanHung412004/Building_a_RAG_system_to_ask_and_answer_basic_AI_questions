@@ -1,0 +1,7 @@
+Node ID: 7d5cd0aa-b9fd-4db0-9d60-a744d166429a
+Text: Dưới đây là một số tham số cơ bản bạn thường gặp trong quá trình
+sử dụng các mô hình LLM. Temperature- Như chúng ta có thể đã biết thì
+Large Language Model (LLM) hoạt động theo cơ chế phân loại từ tiếp
+theo, và như bao bài toán phân loại khác thì output đầu ra của LLM sẽ
+áp dụng thêm một hàm softmax để tạo ra phân phối xác suất từ tiếp theo
+sao ...

@@ -1,0 +1,7 @@
+Node ID: 29c0ddba-d681-4265-9823-21f044f0dde1
+Text: Ví dụ name = “Alice”, mình sẽ in ra màn hình nội dung là “Alice
+is a great teacher!” Câu 2: Tạo một biến và gán giá trị “ms Taylor”
+cho nó, sau đó thực hiện in ra màn hình giá trị biến đó được viết hoa
+ký tự đầu tiên mỗi từ hoặc viết toàn bộ bằng chữ chữ hoa, hoặc chữ
+thường. 1 Input: name = "ms Taylor" 2 Output: 3 Title case: Ms Taylor
+4 Upper ...

@@ -1,0 +1,7 @@
+Node ID: a4a598cb-972d-40e0-bdc3-9199402f9326
+Text: AI VIETNAM aivietnam.edu.vn Hình 14: Gao et al. (2024) đã hệ
+thống các giải pháp đánh giá hệ thống RAG và danh sách các công cụ sử
+dụng để đánh giá. Việc tự động hoá công tác đánh giá các hệ thống RAG
+ngày càng phổ biến với sự xuất hiện của các công cụ như RAGAS, ARES,
+TruLens. Phần III: Advanced RAG Ở phần này chúng ta sẽ cùng tìm hiểu
+về vấn đ...

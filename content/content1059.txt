@@ -1,0 +1,7 @@
+Node ID: d36830d5-ae12-46f0-9413-efed2d3e62eb
+Text: AI VIETNAM aivietnam.edu.vn Hình 12: Multi-frame-rate
+hierarchical generation framework in CogVideo Quá trình Multi-frame-
+rate hierarchical generation của CogVideo là một quá trình đệ quy gồm
+hai giai đoạn. Đầu tiên là sinh tuần tự khung hình chủ chốt dựa trên
+frame-rate thấp và văn bản mô tả; thứ hai là nội suy đệ quy các khung
+hình dựa trên vă...

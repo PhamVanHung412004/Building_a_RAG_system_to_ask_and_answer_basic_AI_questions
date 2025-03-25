@@ -1,0 +1,7 @@
+Node ID: d2b83b65-167b-48ec-bfa2-3678c89b24b8
+Text: AI VIETNAM aivietnam.edu.vn 1 def oai_message_to_chat (
+oai_messages , sender ): 2 """ Convert OpenAI message format to chat
+history . """ 3 chat_history = [] 4 messages = oai_messages [ sender ]
+5 if LOG_LEVEL == " DEBUG ": 6 print (f" oai_message_to_chat : {
+messages }") 7 for i in range (0 , len ( messages ), 2): 8
+chat_history . append ( 9 [...

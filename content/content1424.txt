@@ -1,0 +1,7 @@
+Node ID: 2a0697c0-5e69-4e4d-bba8-0e10526f7022
+Text: (b) Nó bị bỏ qua trong quá trình tạo màu để chỉ tập trung vào
+sắc độ. (c) Nó được tăng cường thông tin qua mô hình khuếch tán để cải
+thiện độ trung thực của màu sắc ở đầu ra cuối cùng. 3. Đâu là nhược
+điểm chính của DDPM trong việc sinh ảnh dữ liệu có chất lượng, độ phân
+giải cao? (chọn phương án đúng nhất) (a) Tốn nhiều thời gian, tài
+nguyên tí...

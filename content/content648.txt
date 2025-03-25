@@ -1,0 +1,7 @@
+Node ID: 95ca3bf4-ff03-4375-beb9-181bf941c6f4
+Text: Điều này gây ra khó khăn khi áp dụng các model từ NLP (ví dụ
+Mamba, Transformer) sang CV. Hình 1: Pixel-level và Patch-level khi sử
+dụng mô hình Transformer cho data dạng ảnh. Hình 1 mô tả 2 cách chuyển
+đổi từ data 2D sang data 1D. Nếu ta chia ảnh đầu vào theo pixel-level
+thì với ví dụ như hình (ảnh224x224) ta sẽ có hơn50k token, nếu ánh xạ
+tươn...

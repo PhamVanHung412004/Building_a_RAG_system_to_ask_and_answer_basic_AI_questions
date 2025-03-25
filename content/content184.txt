@@ -1,0 +1,7 @@
+Node ID: 233a153e-6465-4453-808a-d3fcfc8d9ebc
+Text: • Nó bao gồm một phần tích phân trên không gian x vàx(0) cũng
+như qua thời gian t. • p(x, t|x(0), 0) là xác suất chuyển tiếp có điều
+kiện,p(x(0)) là xác suất ban đầu, vàsθ(x, t) là hàm điểm số được tham
+số hóa. Giải thích biểu thức: • Phần đầu củaJ(θ) tính tổng trung bình
+của bình phương sự chênh lệch giữa score function thực tế và đạo hàm
+của l...

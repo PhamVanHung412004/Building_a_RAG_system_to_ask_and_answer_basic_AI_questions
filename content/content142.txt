@@ -1,0 +1,7 @@
+Node ID: f7187fbc-f138-4779-acad-5bd1daaaec2a
+Text: • a(X, t)dt là thành phần xác định (deterministic component) của
+sự biến đổi của X. Nó phụ thuộc vào giá trị hiện tại của X và thời
+gian t. Thành phần này mô tả sự thay đổi trung bình hoặc sự biến đổi
+xác định của X theo thời gian. • b(X, t)dW là thành phần ngẫu nhiên
+(stochastic component) của sự biến đổi của X. Nó phụ thuộc vào giá trị
+hiện tạ...

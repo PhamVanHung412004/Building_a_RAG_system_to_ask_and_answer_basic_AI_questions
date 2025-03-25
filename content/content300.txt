@@ -1,0 +1,7 @@
+Node ID: 4d7795bc-b4c3-47da-ae70-3fe1aa8c5a2b
+Text: shape [0] , self . shape [1]) ) 140 img_rgb = cv2 . cvtColor (
+img_lab , cv2 . COLOR_LAB2BGR ) 141 out_img [ 142 r * self . outshape
+[0] : (r + 1) * self . outshape [0] , 143 c * self . outshape [1] : (c
++ 1) * self . outshape [1] , 144 ... , 145 ] = img_rgb 146 c = c + 1
+147 148 return out_img 149 150 def __decodeimg__ (self , img_enc ):
+151 ""...

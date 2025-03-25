@@ -1,0 +1,7 @@
+Node ID: 9bcfd38a-4439-4554-80cc-c85ba19467cb
+Text: AI VIETNAM aivietnam.edu.vn Hình 10: Nội dung trên màn hình
+terminal khi API đã được host thành công. Theo đó, nếu cài đặt tương
+tự như ví dụ trong bài, các bạn có thể truy cập vào địa chỉ
+http://0.0.0.0:8000/docs trên trình duyệt và sẽ có kết quả như sau:
+Hình 11: FastAPI docs. Giao diện được khởi tạo tự động cho phép tương
+tác với các chức năn...

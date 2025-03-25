@@ -1,0 +1,7 @@
+Node ID: 5e494c11-03ed-4bc1-a294-587f9bd0d856
+Text: AI VIETNAM aivietnam.edu.vn 15 ) 16 17 # Due to the varchar
+constraint we are going to limit the question size when inserting 18
+def insert_function ( batch ): 19 insertable = [ 20 batch [’title ’],
+21 batch [’ question ’], 22 [x [:9995] + ’... ’ if len (x) > 9999 else
+x for x in batch [’ context ’]] , 23 [x [:995] + ’... ’ if len (x) >
+999 else...

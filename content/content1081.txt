@@ -1,0 +1,7 @@
+Node ID: 5093ea3d-bffe-4bf4-ba18-525369515a17
+Text: AI VIETNAM aivietnam.edu.vn Hình 23: Kiến trúc khôi ST-
+Transformer pháp này giúp cân đối hiệu quả giữa khả năng xử lý của mô
+hình và các giới hạn về khả năng tính toán. Kiến trúc của khối này
+được minh họa trong Hình 23. Khác biệt so với các khối transformer
+thông thường, nơi mỗi phần tử dữ liệu (token) quan tâm đến mọi phần tử
+khác, ST-transfor...

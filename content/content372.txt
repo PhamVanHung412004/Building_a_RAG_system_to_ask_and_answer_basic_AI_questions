@@ -1,0 +1,7 @@
+Node ID: 13813bc9-5219-42d9-bac2-29d6e42f0a48
+Text: 3. Đâu là đặc điểm của data trong video classification? (a)
+Video là chuỗi của các frame theo không gian. (b) Mỗi frame thường có
+kích thước nhỏ. (c) Video là chuỗi của các frame theo thời gian. (d)
+Video không chứa dữ liệu âm thanh. 4. Trong VideoDataset,
+hàm_uniform_sample dùng để làm gì? (a) Để sắp xếp các frames theo thứ
+tự số. (b) Để chuyển...

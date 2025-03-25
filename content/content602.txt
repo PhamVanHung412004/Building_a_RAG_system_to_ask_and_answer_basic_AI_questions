@@ -1,0 +1,7 @@
+Node ID: 65d12ad9-8c76-438a-a774-95c64286843e
+Text: AIO2024 aivietnam.edu.vn 2. Kỹ thuật slicing Kỹ thuật slicing
+cho phép thao tác với nhiều phần tử trong danh sách. Cú pháp của kỹ
+thuật slicing là tên-danh-sách[start:end:step], trong đó start, end,
+và step cách nhau bằng dấu hai chấm (:) và có giá trị mặc định lần
+lượt là 0, độ dài của danh sách len(.), và 1. Cú pháp trên có ý nghĩa
+là lấy các ...

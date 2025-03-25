@@ -1,0 +1,7 @@
+Node ID: d6067623-4aff-4bcc-a78c-9c1dc8fb6646
+Text: imread ( right_img , 0) 11 12 left = left . astype (np. float32
+) 13 right = right . astype (np. float32 ) 14 15 height , width = left
+. shape [:2] 16 17 # Create blank disparity map 18 depth = np. zeros
+(( height , width ), np. uint8 ) 19 20 kernel_half = int ((
+kernel_size - 1) / 2) 21 scale = 3 22 max_value = 255 * 9 23 24 for y
+in range ( ke...

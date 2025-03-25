@@ -1,0 +1,7 @@
+Node ID: e26dce1f-d671-44b0-acc6-8cbca57f1553
+Text: AI VIETNAM aivietnam.edu.vn 9 fp16=True, # Sử dụng kiểu dữ liệu
+half-precision để tối ưu tài nguyên 10 push_to_hub=True, # Đẩy kết quả
+huấn luyện lên HuggingFace Hub 11 ) Cuối cùng ta sẽ khởi tạo class
+Trainer, đây là class chính để training model, ta sẽ không cần phải
+định nghĩa hàm train, đưa input vào mode, tính toán loss, update
+gradient nữa...

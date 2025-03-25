@@ -1,0 +1,2 @@
+Node ID: b903de33-f4dc-4853-8dbb-a22b4b92a684
+Text: . 4 2.6 Tạo ma trận đơn vị với eye() . .

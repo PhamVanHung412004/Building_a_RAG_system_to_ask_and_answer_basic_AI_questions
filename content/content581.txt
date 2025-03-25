@@ -1,0 +1,7 @@
+Node ID: da3b74fc-c13f-47f7-8d17-ec3eadf82454
+Text: AI VIETNAM aivietnam.edu.vn Các bước thực hiện như sau: • Bước
+1: Xây dựng ma trận lưu trữ có số hàng là M và số cột là N. Trong đó M
+là số lượng các ký tự trong từ source + 1, N là số lượng các ký tự
+trong từ target + 1. Vì vậy với ví dụ ’yu’ và ’you’, ta có ma trận
+được biểu diễn như hình 1. Ký hiệu ’#’ đại diện cho chuỗi rỗng. Gọi là
+ma trậnD...

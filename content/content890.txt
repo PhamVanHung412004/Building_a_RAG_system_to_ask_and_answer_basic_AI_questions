@@ -1,0 +1,7 @@
+Node ID: ffd21a93-fd84-4803-8ff1-58b089c6758a
+Text: Stop Sequences- Đây là cách thiết lập một chuỗi dừng giúp ngăn
+mô hình sinh thêm từ. Khi mô hình nhận diện một từ trong chuỗi dừng
+này, nó sẽ ngừng việc tạo thêm nội dung. Xác định stop sequences là
+một phương pháp hữu ích để kiểm soát chiều dài và bố cục của đầu ra mô
+hình. Chẳng hạn, nếu muốn mô hình chỉ tạo ra danh sách tối đa 10 mục,
+ta có t...

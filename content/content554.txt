@@ -1,0 +1,7 @@
+Node ID: fdd9f036-a38a-4ac0-99d2-2e53e8083a7f
+Text: Đối với chiều ngược lại, chỉ số bắt đầu từ -1, có nghĩa là ký tự
+cuối cùng của chuỗi sẽ có chỉ số là -1. Ví dụ: 1 class_name = "AI
+VIETNAM" 2 print(f"Ký tự đầu tiên trong chuỗi là: {class_name[0]}") 3
+print(f"Ký tự cuối cùng trong chuỗi là: {class_name[-1]}") Trong ví dụ
+này, class_name[0] sẽ lấy ký tự đầu tiên trong chuỗi, và
+class_name[-1] sẽ ...

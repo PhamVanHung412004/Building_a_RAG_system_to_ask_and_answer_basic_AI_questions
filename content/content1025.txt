@@ -1,0 +1,5 @@
+Node ID: e72bfa6e-7611-4855-acfc-8480b5f3dd2f
+Text: (2023). Active retrieval augmented generation. Schick, T.,
+Dwivedi-Yu, J., Dessi, R., Raileanu, R., Lomeli, M., Zettlemoyer, L.,
+Cancedda, N., & Scialom, T. Toolformer: Language models can teach
+themselves to use tools. In: 2023.

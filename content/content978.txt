@@ -1,0 +1,7 @@
+Node ID: f88c90f5-cdff-4b30-98c7-a4636d9eb3e1
+Text: Hình 2: Hệ thống RAG cơ bản với các cấu phần: Nguồn thông tin
+tra cứu (Knowledge Base), Truy vấn (Retriever), Mô hình sinh
+(Generator), Truy vấn đầu vào và Kết quả đầu ra. Hệ thống RAG cho phép
+tìm kiếm và nhận về các tài liệu liên quan đến câu hỏi truy vấn của
+người dùng. Các tài liệu này được sử dụng như nguồn thông tin kết hợp
+với câu hỏi tru...

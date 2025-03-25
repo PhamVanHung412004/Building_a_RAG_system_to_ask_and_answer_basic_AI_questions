@@ -1,0 +1,7 @@
+Node ID: 70051c15-63a1-43e6-a90c-2ccef15ea0d5
+Text: Hình 5: Ảnh minh họa cho việc sử dụngwandb. Khởi tạo class
+Trainer 1 import time 2 3 class Trainer (): 4 def __init__ (self ,
+model , optimizers , train_loader , 5 val_loader , epochs , sample_num
+, 6 device , save_model , use_wandb = False ): 7 8 self . model =
+model .to( device ) 9 self . optimizer = torch . optim . Adam ( list (
+filter ( 10 l...

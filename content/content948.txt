@@ -1,0 +1,7 @@
+Node ID: ba6459fb-63c5-4fd9-a729-86640072d6cd
+Text: Trong quá trình này, hàm trích xuất danh sách câu hỏi, mã hóa
+thông tin đầu vào bằng tokenizer, và trích xuất offset_mapping và
+sample_map để ánh xạ vị trí từ mã hóa về văn bản gốc. Hàm cũng xác
+định vị trí bắt đầu và kết thúc của câu trả lời trong ngữ cảnh và thêm
+thông tin về vị trí này vào biến inputs. 1 # Định nghĩa hàm
+preprocess_training_e...

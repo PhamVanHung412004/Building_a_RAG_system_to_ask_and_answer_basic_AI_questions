@@ -1,0 +1,7 @@
+Node ID: a3bd28f2-5d00-4503-8dfb-6a5c01f64b61
+Text: Theo đó, ở quá trình forward, Diffusion thêm nhiễu vào ảnh một
+cách có hệ thống, biến ảnh thành một nhiễu tuân theo phân phối Gauss.
+Sau đó, ở quá trình ngược lại, mô hình này học cách dự đoán nhiễu và
+tiến hành khử nhiễu dần dần từ một nhiễu chuẩn để tạo ra ảnh mới.
+Trong bài báo mang tên Palette: Image-to-Image Diffusion Models, mô
+hình Diffus...

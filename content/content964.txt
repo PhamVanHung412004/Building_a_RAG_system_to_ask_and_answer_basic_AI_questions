@@ -1,0 +1,7 @@
+Node ID: 608bce29-51f8-4a7a-86dc-9af158fcd99f
+Text: AI VIETNAM aivietnam.edu.vn (f) Xây dựng vector database:Với hàm
+tạo vector embedding đã triển khai, ta sẽ sử dụng nó để tạo một cột
+trong bảng dữ liệu dùng để chứa kết quả lời gọi hàmget_embeddings()
+với input là các câu hỏi của từng mẫu dữ liệu. Cụ thể, ta tạo cột mới
+tên làquestion_embedding và lưu vector embedding của câu hỏi như sau:
+1 EMBE...

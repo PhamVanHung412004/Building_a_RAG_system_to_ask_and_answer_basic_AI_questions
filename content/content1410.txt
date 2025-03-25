@@ -1,0 +1,7 @@
+Node ID: 26037230-f143-433c-a4e2-cdd18785cace
+Text: optimizer . step () 35 return sum ( losses )/ len ( losses ) 36
+37 def val_step (self , epoch ): 38 self . model . eval () 39 losses ,
+metrics = [] , [] 40 pred_images = [] 41 gt_images = [] 42 43 with
+torch . no_grad (): 44 for i, ( original_gray , gray , color ) in tqdm
+( enumerate ( self . val_loader )): 45 cond_gray = gray .to( self .
+device...

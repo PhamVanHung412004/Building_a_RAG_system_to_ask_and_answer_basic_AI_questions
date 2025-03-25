@@ -1,0 +1,7 @@
+Node ID: 56a983fe-c1dd-4e7e-9f1d-029d7e5e5dbd
+Text: Chuẩn bị môi trường lập trình Để thuận tiện trong việc sử dụng
+YOLOv10, chúng ta sẽ dùng Google Colab làm môi trường cài đặt và thực
+thi code. Các bước sử dụng Google Colab được thực hiện như sau (nếu
+các bạn đã biết cách kích hoạt GPU cho Google Colab thì có thể bỏ qua
+phần này): • Bước 1:Truy cập vào đường dẫn sau: link. Nếu truy cập
+thành côn...

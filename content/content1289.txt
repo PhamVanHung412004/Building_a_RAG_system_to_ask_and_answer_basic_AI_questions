@@ -1,0 +1,7 @@
+Node ID: 5ea2a629-b837-4f1d-a7a2-be592d9f6fe8
+Text: AI VIETNAM aivietnam.edu.vn Câu hỏi 14: Kết quả nào sau đây là
+output từ chương trình trên: a) P("Play Tennis" = "Yes") = 0.6,
+P("Play Tennis" = "No") = 0.4 b) P("Play Tennis" = "Yes") = 0.3,
+P("Play Tennis" = "No") = 0.7 c) P("Play Tennis" = "Yes") = 0.4,
+P("Play Tennis" = "No") = 0.8 d) P("Play Tennis" = "Yes") = 0.4,
+P("Play Tennis" = "No") =...

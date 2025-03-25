@@ -1,0 +1,7 @@
+Node ID: bfd06fdf-3f07-46e1-a459-f7a1a1fd52b1
+Text: Point Cloud Techniques and Applications Tuan Dang and Phuc Pham
+Ngày 23 tháng 4 năm 2024 1 Introduction to Point Cloud and basic
+techniques to process Trong phần này chúng ta sẽ được giới thiệu về
+một số thao tác cơ bản trên 3D Point Clouds data bằng thư viện Open3D.
+1.1 Cài đặt môi trường Để tránh bị xung đột về thư viện các bạn hãy
+cài đặt môi...

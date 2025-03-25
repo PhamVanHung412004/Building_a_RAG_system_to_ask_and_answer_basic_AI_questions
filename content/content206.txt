@@ -1,0 +1,7 @@
+Node ID: 27ae4e6b-57aa-4897-98f2-cc9deb64af9b
+Text: AI VIETNAM aivietnam.edu.vn 1.3. Cách định nghĩa một Class Để
+định nghĩa một Class, ta thực hiện khai báo các thuộc tính của class
+bên trong phương thức __init__() (hay còn gọi là constructor, một
+phương thức đặc biệt trong Class Python sẽ được mô tả kỹ hơn trong mục
+1.5). Các phương thức của class được định nghĩa bằng cách nhận biến
+đặc biệtsel...

@@ -1,0 +1,7 @@
+Node ID: 7dd5e185-c430-48df-a25b-671177a196b6
+Text: Và liệu có cách nào để phát hiện và sửa lỗi kiểu dữ liệu một
+cách dễ dàng và nhanh chóng không? Trong bài viết này sẽ hướng dẫn sử
+dụng Type Hints để xác định và gợi ý kiểu dữ liệu của các biến, giá
+trị trả về của các hàm, phương thức... Đồng thời kết hợp với Mypy-một
+công cụ kiểm tra kiểu dữ liệu static mạnh mẽ cho các chương trình
+Python, giúp...

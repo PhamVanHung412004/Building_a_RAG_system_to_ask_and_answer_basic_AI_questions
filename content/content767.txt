@@ -1,0 +1,7 @@
+Node ID: 5fcc352c-a252-44ec-9e81-90ec10bb2bc2
+Text: AIO 2024 aivietnam.edu.vn • stop: Giá trị kết thúc của dãy số
+(giá trị này không bao gôm trong mảng được tạo). • step: Khoảng cách
+giữa các giá trị trong dãy số (mặc định là 1). Ví dụ dưới đây sẽ tạo
+một mảng chứa các số nguyên từ 0 đến 9. 1 #aivietnam 2 import numpy as
+np 3 4 # Tạo mảng chứa các số nguyên từ 0 đến 9 5 arange_array =
+np.arange(0...

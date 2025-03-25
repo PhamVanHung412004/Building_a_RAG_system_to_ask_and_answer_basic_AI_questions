@@ -1,0 +1,6 @@
+Node ID: 36a69faf-0ef7-4cc2-9aa5-8dc175803d9a
+Text: 3.1 Cài đặt Vscode Để cài đặt Vscode, chúng ta có thể cài đặt
+theo hai cách, cách đầu tiên là chúng ta truy cập vào đường dẫn
+https://code.visualstudio.com/download và tiến hành lựa chọn tải xuống
+theo hệ điều hành trên máy, sau đó tiến hành cài đặt. Hình 2: Hai cách
+cài đặt Vscode 4

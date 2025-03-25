@@ -1,0 +1,7 @@
+Node ID: b297525d-64f6-4351-b9bb-4085c8b5d96e
+Text: Điều này giúp tiết kiệm bộ nhớ và tối ưu hóa hiệu suất. Một số
+quy tắc khi thực hiện broadcasting: • Nếu các mảng không có cùng số
+chiều, mảng có số chiều nhỏ hơn sẽ được mở rộng với các chiều có kích
+thước 1 ở đầu. • Nếu kích thước của các chiều không khớp, mảng có kích
+thước 1 trong chiều đó sẽ được mở rộng để khớp với kích thước của mảng
+khác...

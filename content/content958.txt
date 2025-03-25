@@ -1,0 +1,7 @@
+Node ID: 5684bdd2-575f-4e2a-a81c-0a90f398594f
+Text: AI VIETNAM aivietnam.edu.vn lên HuggingFace, nếu muốn sử dụng
+thì ta chỉ cần dùng class pipeline có sẵn của HuggingFace là đã có thể
+load model và tiến hành inference: 1 # Use a pipeline as a high-level
+helper 2 from transformers import pipeline 3 4 PIPELINE_NAME =
+’question-answering’ 5 MODEL_NAME = ’thangduong0509/distilbert-
+finetuned-squadv2’...

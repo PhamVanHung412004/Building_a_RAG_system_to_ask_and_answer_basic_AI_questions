@@ -1,0 +1,7 @@
+Node ID: 2e9dff56-6b32-4385-8ee9-7df74bae4dbc
+Text: AI VIETNAM (AIO2024) aivietnam.edu.vn 5. Chia bộ dữ liệu
+train/val/test: Khi tiến hành huấn luyệnh một mô hình machine
+learning, chúng ta sẽ không lấy toàn bộ bộ dữ liệu hiện có để huấn
+luyện mà sẽ tách ra làm 3 bộ khác nhau. Tại bước này, chúng ta chia bộ
+dữ liệu thành 3 phần: Train, Validation và Test theo tỉ lệ lần lượt là
+7/2/1 (trên tỉ lệ 1...

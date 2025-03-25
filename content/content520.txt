@@ -1,0 +1,7 @@
+Node ID: 99cf82f3-163c-400c-8c0a-48e7538b62f2
+Text: AI VIETNAM aivietnam.edu.vn (e) src/rag/vectorstore.py: File
+code dùng để khai báo hàm khởi tạo hệ cơ sở dữ liệu vector. _
+src/app.py: File code dùng để khởi tạo API. _ requirements.txt: File
+code dùng để khai báo các thư viện cần thiết để sử dụng source code.
+2. Cập nhật filerequirements.txt: Để bắt đầu, chúng ta sẽ liệt kê các
+gói thư viện cần...

@@ -1,0 +1,7 @@
+Node ID: 27fab78d-7476-4aae-87a1-850d814f8ae5
+Text: AI VIETNAM aivietnam.edu.vn 40 41 def forward (self , feats ):
+42 x = self . model ( feats ) 43 x = x. view (-1, 4 * 4 * 64) 44 x =
+F. relu (x) 45 x = F. dropout (x, p =0.7 , training = self . training
+) 46 x = self .fc(x) 47 return x 3. Loss Functions Trong phần này
+chúng ta xây dựng hàm mất mát cho các mô hình VAE và MDN. VAE Loss
+Hình 6: Ảnh ...

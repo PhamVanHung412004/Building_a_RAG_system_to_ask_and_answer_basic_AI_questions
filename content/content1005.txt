@@ -1,0 +1,7 @@
+Node ID: 8b6fa241-b0b9-40ac-88fd-ba3c855d7c1f
+Text: Hơn nữa, nó không xem xét các chi tiết quan trọng, như các tiêu
+đề hiện có trong văn bản. • Cấu trúc indexing chưa được tối ưu hóa đủ
+mức, dẫn đến chức năng truy xuất chưa hiệu quả. • Khả năng biểu diễn
+ngữ nghĩa của embedding model chưa đủ mạnh. Đối với quá trình
+Retrieval • Mức độ liên quan của các ngữ cảnh được ghi nhớ không đủ và
+độ chính xá...

@@ -1,0 +1,5 @@
+Node ID: 59ba41cf-032e-43bd-87b5-7604af6548d0
+Text: Quy trình này không chỉ tối ưu hóa việc học từ kinh nghiệm mà
+còn cho phép các đại diện nhanh chóng cải thiện quyết định của mình
+thông qua việc sử dụng phản hồi có giá trị, tạo ra một cơ chế học tập
+mạnh mẽ và linh hoạt. Hình 18: Diagram và Pseudo-Code của Reflexion 23

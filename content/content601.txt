@@ -1,0 +1,7 @@
+Node ID: 551e9e3f-7a07-486b-933c-15f83d0623e5
+Text: Mỗi phần tử trong danh sách được tiếp cận (lấy hay thay đổi giá
+trị) bằng thông tin chỉ mục (index) của nó. Thông tin chỉ mục bao gồm
+thông tin chỉ mục xuôi (từ trái sang phải) và thông tin chỉ mục ngược
+(từ phải sang trái). Khi từ "chỉ mục" được đề cập mà không nói rõ là
+chỉ mục xuôi hay chỉ mục ngược, chúng ta thường ngầm hiểu đó là chỉ
+mục xu...

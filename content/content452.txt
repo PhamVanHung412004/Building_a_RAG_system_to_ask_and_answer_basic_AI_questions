@@ -1,0 +1,7 @@
+Node ID: 40d7a95d-a75f-4617-90a6-6d94d6df9d5a
+Text: Ở đây, ta sẽ sử dụng thư viện PyTorch và Google Colab để giải
+quyết phần này như sau: 1. Tải và import các thư viện cần thiết:Đầu
+tiên, ta cài đặt thư việndatasets để sử dụng trong việc tải dữ liệu
+Cat Dog về sau: 1 $ pip install datasets ==2.18.0 -q Sau đó, ta thực
+hiện import các thư viện cần thiết trong việc huấn luyện mô hình: 1
+import torch...

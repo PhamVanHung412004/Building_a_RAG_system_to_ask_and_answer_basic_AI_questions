@@ -1,0 +1,7 @@
+Node ID: af71fe0a-a53c-4b82-b9d7-c7344bac09fb
+Text: Thay vì cập nhật trọng số, Reflexion tăng cường khả năng của
+language agents thông qua phản hồi ngôn ngữ. Cụ thể, Reflexion agents
+phản ánh về tín hiệu phản hồi công việc thông qua lời nói, sau đó duy
+trì văn bản phản ánh của chính nó trong một bộ đệm theo dõi để thúc
+đẩy quyết định tốt hơn trong các lần thử tiếp theo. Reflexion đủ linh
+hoạt để ...

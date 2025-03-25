@@ -1,0 +1,7 @@
+Node ID: ac9a5527-6f25-439e-b2cc-4f606da1dbb0
+Text: AI VIETNAM aivietnam.edu.vn SQuAD 2.0 Train Total examples
+130,319 Negative examples 43,498 Total articles 442 Articles with
+negatives 285 Development Total examples 11,873 Negative examples
+5,945 Total articles 35 Articles with negatives 35 Test Total examples
+8,862 Negative examples 4,332 Total articles 28 Articles with
+negatives 28 Bảng 1: Th...

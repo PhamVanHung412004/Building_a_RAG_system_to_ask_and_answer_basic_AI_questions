@@ -1,0 +1,7 @@
+Node ID: d107162f-af20-41da-9c75-ae8d9a258f63
+Text: (2023). Reflexion: Language agents with verbal reinforcement
+learning. Zhang, Z., Zhang, A., Li, M., Zhao, H., Karypis, G., &
+Smola, A. (2023b). Multimodal chain-of- thought reasoning in language
+models. Shao, Z., Gong, Y., Shen, Y., Huang, M., Duan, N., & Chen, W.
+(2023). Synthetic prompting: Generating chain-of-thought
+demonstrations for large...

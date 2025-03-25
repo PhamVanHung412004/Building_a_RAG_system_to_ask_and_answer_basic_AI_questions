@@ -1,0 +1,7 @@
+Node ID: aa97f17d-05e2-481c-91b1-3406bdbedaee
+Text: AI VIETNAM aivietnam.edu.vn 17 # Truyền input_ids qua model gốc
+để nhận hidden_states. 18 hidden_states = self.backbone(input_ids) 19
+20 # Lấy trung bình của hidden_states theo chiều thứ 2 để tạo ra [CLS]
+feature đại điện 21 mean_hidden_states = hidden_states.mean(dim=1) 22
+23 # Đưa mean_hidden_states qua đầu phân loại để nhận logits. 24
+logits ...

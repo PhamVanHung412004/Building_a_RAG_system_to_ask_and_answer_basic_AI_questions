@@ -1,0 +1,3 @@
+Node ID: 07735770-c060-4c26-b685-05c80aff4cc7
+Text: Mục tiêu là truy vấn được các thông tin liên quan nhất với câu
+hỏi đầu vào. Một số giải pháp có thể đề cập đến như: 10

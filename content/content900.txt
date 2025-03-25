@@ -1,0 +1,7 @@
+Node ID: 1f921108-3013-4f82-903a-0884e8c00231
+Text: AI VIETNAM aivietnam.edu.vn 4 Few-Shot Prompting Khi zero-shot
+learning không mang lại kết quả như mong đợi, việc đưa ra các mẫu ví
+dụ cụ thể trong prompt sẽ là phương pháp khuyến khích được lựa chọn
+tiếp theo, từ đó tiến tới kỹ thuật gợi ý với một số lượng nhỏ ví dụ.
+Đây cũng chính là cơ sở cho kỹ thuật Few-Shot Prompting. Trong paper
+"Language...

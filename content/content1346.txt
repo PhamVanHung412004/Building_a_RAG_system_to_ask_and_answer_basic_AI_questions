@@ -1,0 +1,5 @@
+Node ID: 697db217-4a75-4d0d-bf6b-cb9d6a64f5ff
+Text: AI VIETNAM aivietnam.edu.vn Sau khi hoàn thiện code vào file
+’chatbot.py’, chúng ta chạy lệnh: ’streamlit run chatbot.py’ và thử
+nghiệm thu được kết quả như sau: Hình 9: Kết quả thực nghiệm ứng dụng
+chatbot. 9

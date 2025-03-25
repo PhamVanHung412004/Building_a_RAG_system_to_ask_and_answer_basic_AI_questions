@@ -1,0 +1,7 @@
+Node ID: 79b0f394-3e61-4142-9c8a-72d350a6f24b
+Text: AI VIETNAM aivietnam.edu.vn 4 # Định nghĩa hàm compute_metrics
+để tính các độ đo hiệu suất (metrics) cho việc đánh giá model. 5 def
+compute_metrics(eval_pred): 6 predictions, labels = eval_pred 7 8 #
+Lấy chỉ số của lớp có xác suất cao nhất trong predictions. 9
+predictions = np.argmax(predictions, axis=1) 10 11 # Sử dụng module
+"accuracy" để tính...

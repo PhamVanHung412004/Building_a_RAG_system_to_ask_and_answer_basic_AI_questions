@@ -1,0 +1,7 @@
+Node ID: df7dfca1-475f-4b0b-b1e7-e394eb6afd0e
+Text: parameters (): 13 param . requires_grad = False 14 15
+in_features = resnet_model .fc. in_features 16 self .fc = nn. Linear (
+in_features , n_classes ) 17 18 def forward (self , x): 19 x = self .
+backbone (x) 20 x = torch . flatten (x, 1) 21 x = self .fc(x) 22 23
+return x _ Vớimodels/catdog_predictor.py: Ta xây dựng class Predictor,
+dùng trong vi...

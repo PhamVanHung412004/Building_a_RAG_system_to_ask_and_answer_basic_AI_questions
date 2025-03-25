@@ -1,0 +1,7 @@
+Node ID: bfb51595-b40b-49b8-a043-cef94ae89a8d
+Text: AI VIETNAM (AIO2024) aivietnam.edu.vn • numpy:Cung cấp các đối
+tượng mảng đa chiều và các hàm toán học để làm việc với các mảng này.
+• scikit-learn: Thư viện học máy phổ biến, giúp xây dựng và triển khai
+các mô hình học máy phức tạp một cách nhanh chóng. Hình 1: Logo của
+một số bộ dữ liệu kể trên. Trong môi trường code, các bạn thực thi
+đoạn cod...

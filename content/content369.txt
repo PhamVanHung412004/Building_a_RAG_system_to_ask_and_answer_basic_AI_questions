@@ -1,0 +1,7 @@
+Node ID: f475f6d8-5d9e-4b5b-b9cc-55b87cb2ebbb
+Text: num_classes = num_classes 8 cfg . image_size = image_size 9 cfg
+. num_frames = num_frames 10 11 self . vivit =
+VivitForVideoClassification . from_pretrained ( 12 " google / vivit -b
+-16 x2 - kinetics400 ", 13 config =cfg , 14 ignore_mismatched_sizes
+=True , 15 ) 16 17 def forward (self , x_3d ): 18 # (bs , C, T, H, W)
+-> (bs , T, C, H, W) 19 x_3...

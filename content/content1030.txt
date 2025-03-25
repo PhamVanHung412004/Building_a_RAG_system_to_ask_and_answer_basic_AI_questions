@@ -1,0 +1,4 @@
+Node ID: 39a15fbf-de4e-4048-a8cf-18c825acedac
+Text: Ta sẽ viết chương trình nhập đầu vào là thời gian để xem hoạt
+động của Tom. Input Output 5 AM Wake up 6 AM Yoga 7 AM Work Giá trị
+khác Do something else 2

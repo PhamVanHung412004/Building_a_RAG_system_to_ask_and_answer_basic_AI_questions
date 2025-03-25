@@ -1,0 +1,7 @@
+Node ID: f6da4eab-8404-4954-ba45-c9cac8d5ac33
+Text: AI VIETNAM aivietnam.edu.vn và lấy final hidden state của token
+[CLS] để làm vector embedding: 1 model = AutoModel . from_pretrained (
+MODEL_NAME ) 2 def quest_embedding ( batch ): 3 sentence_embs = model
+( 4 input_ids = batch [’ input_ids ’], 5 attention_mask = batch [’
+attention_mask ’] 6 ) 7 batch [’ question_embedding ’] = sentence_embs
+. la...

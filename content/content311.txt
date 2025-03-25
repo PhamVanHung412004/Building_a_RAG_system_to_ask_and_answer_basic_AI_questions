@@ -1,0 +1,7 @@
+Node ID: bec67203-4b78-49ae-89b8-36ca706a8602
+Text: device ) 108 color_out = self . decoder (z, sc_feat32 ,
+sc_feat16 , sc_feat8 , sc_feat4 ) 109 return mu , logvar , color_out
+(b) MDN model Đầu vào của một mạng Conditional Variational Autoencoder
+(CVAE) yêu cầu thông tin về cả trường màu C và ảnh xám G. Trong quá
+trình huấn luyện, khối Encoder chính ánh xạ thông tin của trường màu C
+thành phân p...

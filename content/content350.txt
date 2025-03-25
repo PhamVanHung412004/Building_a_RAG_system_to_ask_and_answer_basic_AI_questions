@@ -1,0 +1,3 @@
+Node ID: 3d01c554-0a5c-46c3-993c-c8ce94c19eb5
+Text: path . join ( self . root_dir , self . phase )) 20 21 for folder
+in video_folders : 22 video_paths = os. listdir (os.

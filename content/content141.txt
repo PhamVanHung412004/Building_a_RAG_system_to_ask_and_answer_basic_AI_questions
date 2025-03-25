@@ -1,0 +1,7 @@
+Node ID: ec9e79ad-e46f-4e28-8722-e216680bed64
+Text: AI VIETNAM aivietnam.edu.vn Hình 5: Phương trình này nói lên
+rằng sự thay đổi của nhiệt độ tại một điểm cụ thể trong không gian ∂u
+∂t phụ thuộc vào tốc độ dẫn nhiệtα và biến đổi không gian của nhiệt
+độ∇2u 7 Ito interpretation Ito interpretation là một khái niệm quan
+trọng trong lý thuyết xử lý stochastics (lý thuyết xử lý ngẫu nhiên),
+đặc biệt t...

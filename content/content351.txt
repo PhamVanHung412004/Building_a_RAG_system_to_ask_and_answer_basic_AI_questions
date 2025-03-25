@@ -1,0 +1,7 @@
+Node ID: 8fc2e682-ac1d-4761-adb7-2936ec04d900
+Text: path . join ( self . root_dir , self . phase , folder )) 23 24
+for video_path in video_paths : 25 video_folder = os. path . join ( 26
+self . root_dir , self . phase , folder , video_path 27 ) 28 frames =
+sorted ( 29 (os. path . join ( video_folder , f) for f in os. listdir
+( video_folder )), 30 key = lambda f: int ( 31 "". join ( filter ( str
+. ...

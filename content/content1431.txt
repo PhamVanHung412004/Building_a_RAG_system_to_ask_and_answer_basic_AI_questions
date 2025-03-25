@@ -1,0 +1,6 @@
+Node ID: a57d8f11-cfcd-46ae-a42d-6eb4d366e1b5
+Text: • Chúng ta có thể quản lí các gói và môi trường tại Environments
+• Chúng ta có thể dễ dàng cài đặt các công cụ như Vscode, Jupyter
+Notebook, Spider... bằng cách nhấn vào nút install. Để mở các công cụ
+này ta nhấn vào Launch, hoặc cũng có thể mở từ thanh tìm kiếm window.
+3
