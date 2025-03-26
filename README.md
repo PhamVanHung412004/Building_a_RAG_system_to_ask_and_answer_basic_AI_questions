@@ -29,3 +29,5 @@
 ![Quá trình tách văn bản Embedding để đưa vào Vector database](image/Vector_Database.png)
 # Quá trình Embedding để tiến hành Retrival
 ![Quá trình Embedding để tiến hành Retrival](image/Embedding_Retrival.png)
+# Quá trình thiết kế các package
+![Quá trình Embedding để tiến hành Retrival](image/package.png)
