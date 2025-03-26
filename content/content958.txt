@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 5684bdd2-575f-4e2a-a81c-0a90f398594f
 Text: AI VIETNAM aivietnam.edu.vn lên HuggingFace, nếu muốn sử dụng
 thì ta chỉ cần dùng class pipeline có sẵn của HuggingFace là đã có thể
@@ -5,3 +6,24 @@ load model và tiến hành inference: 1 # Use a pipeline as a high-level
 helper 2 from transformers import pipeline 3 4 PIPELINE_NAME =
 ’question-answering’ 5 MODEL_NAME = ’thangduong0509/distilbert-
 finetuned-squadv2’...
+=======
+AI VIETNAM aivietnam.edu.vn
+lên HuggingFace, nếu muốn sử dụng thì ta chỉ cần dùng class pipeline có sẵn của HuggingFace
+là đã có thể load model và tiến hành inference:
+1 # Use a pipeline as a high-level helper
+2 from transformers import pipeline
+3
+4 PIPELINE_NAME = ’question-answering’
+5 MODEL_NAME = ’thangduong0509/distilbert-finetuned-squadv2’
+6 pipe = pipeline(PIPELINE_NAME, model=MODEL_NAME)
+Sau đây ta sẽ chạy thử một example để test model:
+1 INPUT_QUESTION = ’What is my name?’
+2 INPUT_CONTEXT = ’My name is AI Vietnam and I live in Vietnam.’
+3 pipe(question=INPUT_QUESTION, context=INPUT_CONTEXT)
+4
+5 ## >> Output: {’score’: 0.97179114818573, ’start’: 11, ’end’: 21, ’answer’: ’
+AI Vietnam’}
+3. Retriever: Faiss(Facebook AI Similarity Search) là một thư viện được phát triển bởi Facebook
+AI Research Team, hỗ trợ trong việc tìm kiếm tương đồng và phân cụm (clustering) các vector
+với tốc độ và độ chính xác cao. 
+>>>>>>> HEAD@{1}

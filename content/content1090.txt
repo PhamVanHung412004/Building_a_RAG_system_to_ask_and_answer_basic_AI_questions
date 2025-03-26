@@ -1,6 +1,13 @@
+<<<<<<< HEAD
 Node ID: 4235bffb-d68a-48fb-a73c-d83a395b2ac4
 Text: AI VIETNAM (AIO2024) aivietnam.edu.vn Hình 2: Hiệu suất của
 YOLOv10 khi so sánh với các mô hình khác. Trên tập dữ liệu COCO,
 YOLOv10 đạt được kết quả tốt nhất về khía cạnh Độ trễ (Latency) và Số
 lượng tham số mô hình (Number of parameters) trong khi vẫn giữ được độ
 chính xác (COCO AP) cao. Ảnh: [10].
+=======
+AI VIETNAM (AIO2024) aivietnam.edu.vn
+Hình 2: Hiệu suất của YOLOv10 khi so sánh với các mô hình khác. Trên tập dữ liệu COCO,
+YOLOv10 đạt được kết quả tốt nhất về khía cạnh Độ trễ (Latency) và Số lượng tham số mô
+hình (Number of parameters) trong khi vẫn giữ được độ chính xác (COCO AP) cao. Ảnh: [10].
+>>>>>>> HEAD@{1}

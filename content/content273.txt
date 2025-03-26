@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 5cc757ec-54f6-4c85-987f-1e74ce468573
 Text: AI VIETNAM aivietnam.edu.vn Hình 4: Minh họa việc trả về nội
 dung đoạn hội thoại (carryover) giữa hai agent. Các carryover theo
@@ -5,3 +6,35 @@ thời gian trở thành lịch sử đoạn hội thoại làm context cho các
 chat khác. 6. Cập nhật fileapp.py: Cuối cùng, ta xây dựng một giao
 diện đơn giản để tương tác với chương trình, trực quan hóa hội thoại
 giữa hai agent c...
+=======
+AI VIETNAM aivietnam.edu.vn
+Hình 4: Minh họa việc trả về nội dung đoạn hội thoại (carryover) giữa hai agent. Các carryover theo
+thời gian trở thành lịch sử đoạn hội thoại làm context cho các lần chat khác.
+6. Cập nhật fileapp.py: Cuối cùng, ta xây dựng một giao diện đơn giản để tương tác với chương
+trình, trực quan hóa hội thoại giữa hai agent cũng như kết quả của chương trình mà ta mong
+muốn. Theo đó, ta sẽ xây dựng giao diện bằng thư viện Gradio. Triển khai như sau:
+(a) Import các thư viện và modules cần thiết:Tại đây, ta sẽ import thư viện Gradio. Ta
+sẽ sử dụng giao diện chat cơ bản của Gradio làChatInterface:
+1 import gradio as gr
+2 from gradio import ChatInterface
+3
+4 from chat import chat_respond
+5
+6 LOG_LEVEL = " INFO "
+(b) Xây dựng block Gradio:Để triển khai giao diện, ta xây dựng một block gradio với các
+thành phần trên giao diện như sau:
+1 with gr. Blocks () as demo :
+2
+3 description = gr. Markdown ( """
+4 # Microsoft AutoGen
+5 ## Multi - agent Conversation
+6 """ )
+7
+8 chatbot = gr. Chatbot (
+9 [] ,
+10 elem_id =" chatbot ",
+11 bubble_full_width = False ,
+12 avatar_images =(
+13 " ../ images / human . png ",
+14 " ../ images / autogen . 
+>>>>>>> HEAD@{1}

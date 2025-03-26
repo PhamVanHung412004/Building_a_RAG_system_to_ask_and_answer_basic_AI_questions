@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: ed512120-8351-4bf0-a46f-df7eafc4de66
 Text: 5. Cập nhật filesrc/rag/file_loader.py: 1 from typing import
 Union , List , Literal 2 import glob 3 from tqdm import tqdm 4 import
@@ -5,3 +6,34 @@ multiprocessing 5 from langchain_community . document_loaders import
 PyPDFLoader 6 from langchain_text_splitters import
 RecursiveCharacterTextSplitter 7 8 def remove_non_utf8_characters (
 text ): 9 return ’’. join ( ...
+=======
+5. Cập nhật filesrc/rag/file_loader.py:
+1 from typing import Union , List , Literal
+2 import glob
+3 from tqdm import tqdm
+4 import multiprocessing
+5 from langchain_community . document_loaders import PyPDFLoader
+6 from langchain_text_splitters import RecursiveCharacterTextSplitter
+7
+8 def remove_non_utf8_characters ( text ):
+9 return ’’. join ( char for char in text if ord ( char ) < 128)
+10
+11 def load_pdf ( pdf_file ):
+12 docs = PyPDFLoader ( pdf_file , extract_images = True ). load ()
+13 for doc in docs :
+14 doc . page_content = remove_non_utf8_characters ( doc . page_content )
+15 return docs
+16
+17 def get_num_cpu ():
+18 return multiprocessing . cpu_count ()
+19
+20 class BaseLoader :
+21 def __init__ ( self ) -> None :
+22 self . num_processes = get_num_cpu ()
+23
+24 def __call__ (self , files : List [ str ], ** kwargs ):
+25 pass
+26
+27 class PDFLoader ( BaseLoader ):
+6
+>>>>>>> HEAD@{1}

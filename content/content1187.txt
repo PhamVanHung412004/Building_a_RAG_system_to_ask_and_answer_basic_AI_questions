@@ -1,4 +1,13 @@
+<<<<<<< HEAD
 Node ID: 9d876ed4-42ab-4670-817e-fc37f60439ab
 Text: AI VIETNAM aivietnam.edu.vn 51 self . loss_fn = loss_fn 52 53
 def predict_start_from_noise (self , y_t , t, noise ): 54 return ( 55
 get_index_from_list ( self . sqrt_recip_gammas , t, y_t .
+=======
+AI VIETNAM aivietnam.edu.vn
+51 self . loss_fn = loss_fn
+52
+53 def predict_start_from_noise (self , y_t , t, noise ):
+54 return (
+55 get_index_from_list ( self . sqrt_recip_gammas , t, y_t . 
+>>>>>>> HEAD@{1}

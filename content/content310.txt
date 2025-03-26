@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: a2495360-b5ab-4f38-832f-31ddc04b4518
 Text: dec_bn1 (x) 81 x = self . dec_upsamp2 (x) 82 x = torch . cat
 ([x, sc_feat8 ], 1) 83 x = F. relu ( self . dec_conv2 (x)) 84 x = self
@@ -5,3 +6,34 @@ Text: dec_bn1 (x) 81 x = self . dec_upsamp2 (x) 82 x = torch . cat
 sc_feat16 ], 1) 87 x = F. relu ( self . dec_conv3 (x)) 88 x = self .
 dec_bn3 (x) 89 x = self . dec_upsamp4 (x) 90 x = torch . cat ([x,
 sc_feat32 ],...
+=======
+dec_bn1 (x)
+81 x = self . dec_upsamp2 (x)
+82 x = torch . cat ([x, sc_feat8 ], 1)
+83 x = F. relu ( self . dec_conv2 (x))
+84 x = self . dec_bn2 (x)
+85 x = self . dec_upsamp3 (x)
+86 x = torch . cat ([x, sc_feat16 ], 1)
+87 x = F. relu ( self . dec_conv3 (x))
+88 x = self . dec_bn3 (x)
+89 x = self . dec_upsamp4 (x)
+90 x = torch . cat ([x, sc_feat32 ], 1)
+91 x = F. relu ( self . dec_conv4 (x))
+92 x = self . dec_bn4 (x)
+93 x = self . dec_upsamp5 (x)
+94 x = torch . tanh ( self . dec_conv5 (x))
+95 return x
+96
+97 def forward (self , color , greylevel , z_in = None ):
+98 sc_feat32 , sc_feat16 , sc_feat8 , sc_feat4 = self . cond_encoder (
+greylevel )
+99 mu , logvar = self . encoder ( color )
+100 if self . training :
+101 stddev = torch . sqrt ( torch . exp ( logvar ))
+102 eps = torch . randn_like ( stddev )
+103 z = mu + eps * stddev
+104 z = z.to( greylevel . device )
+105 else :
+106 z = z_in
+107 z = z.to( greylevel . 
+>>>>>>> HEAD@{1}

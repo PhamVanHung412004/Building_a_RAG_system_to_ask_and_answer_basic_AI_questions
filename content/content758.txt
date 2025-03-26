@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 Node ID: 20ac7aa3-2435-4a4e-bdae-a98ccb0decda
 Text: . 26 9 Kết Luận . .
+=======
+. 26
+9 Kết Luận . . 
+>>>>>>> HEAD@{1}

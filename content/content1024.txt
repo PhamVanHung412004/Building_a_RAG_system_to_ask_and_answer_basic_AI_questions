@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: ca674f8f-eaaf-46f7-b07d-6dac20c35ff2
 Text: AI VIETNAM aivietnam.edu.vn Kamradt, G. (2024).The 5 levels of
 text splitting for retrieval. https://youtu.be/8OJC21T2SL4 Chen, T.,
@@ -5,3 +6,16 @@ Wang, H., Chen, S., Yu, W., Ma, K., Zhao, X., Zhang, H., & Yu, D.
 (2023). Dense x retrieval: What retrieval granularity should we use?
 Wang, Z., Zhang, H., Li, C.-L., Eisenschlos, J. M., Perot, V., Wang,
 Z., Miculic...
+=======
+AI VIETNAM aivietnam.edu.vn
+Kamradt, G. (2024).The 5 levels of text splitting for retrieval. https://youtu.be/8OJC21T2SL4
+Chen, T., Wang, H., Chen, S., Yu, W., Ma, K., Zhao, X., Zhang, H., & Yu, D. (2023). Dense x retrieval:
+What retrieval granularity should we use?
+Wang, Z., Zhang, H., Li, C.-L., Eisenschlos, J. M., Perot, V., Wang, Z., Miculicich, L., Fujii, Y., Shang,
+J., Lee, C.-Y., & Pfister, T. (2024). Chain-of-table: Evolving tables in the reasoning chain for
+table understanding.
+Muennighoff, N., Tazi, N., Magne, L., & Reimers, N. (2023). Mteb: Massive text embedding benchmark.
+Kojima, T., Gu, S. S., Reid, M., Matsuo, Y., & Iwasawa, Y. (2023). Large language models are zero-shot
+reasoners.
+Jiang, Z., Xu, F. F., Gao, L., Sun, Z., Liu, Q., Dwivedi-Yu, J., Yang, Y., Callan, J., & Neubig, G.
+>>>>>>> HEAD@{1}

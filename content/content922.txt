@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: d1d107ef-f5a6-4569-9771-4a2591a511ad
 Text: Hình 13: So sánh giữa DSP và Prompting truyền thống cho tác vụ
 tóm tắt văn bản. DSP sử dụng các kích thích/chỉ dẫn hướng, trong
@@ -5,3 +6,16 @@ trường hợp này là các keyword được đánh dấu bằng màu cam, đ�
 hình LLM có thể sinh ra bản tóm tắt phù hợp với mong muốn. Trong paper
 này, một mô hình language model nhỏ và có thể tune được (chẳng hạn như
 T5) được ...
+=======
+Hình 13: So sánh giữa DSP và Prompting truyền thống cho tác vụ tóm tắt văn bản. DSP sử dụng
+các kích thích/chỉ dẫn hướng, trong trường hợp này là các keyword được đánh dấu bằng màu cam,
+để các mô hình LLM có thể sinh ra bản tóm tắt phù hợp với mong muốn.
+Trong paper này, một mô hình language model nhỏ và có thể tune được (chẳng hạn như T5)
+được sử dụng để tạo sinh các kích thích/chỉ dẫn. Hướng tiếp cận này cho phép tránh việt phải
+fine-tune một mô hình ngôn ngữ lớn, thay vào đó ta có thể fine-tune một mô hình chỉ dẫn nhỏ hơn
+một cách dễ dàng hơn. Hướng tiếp cận này được mô tả trong hình 14.
+Hình 14: DSP sử dụng một mô hình ngôn ngữ nhỏ hơn để tạo sinh ra các kích thích/chỉ dẫn
+định hướng, trong trường hợp này là keyword. Mô hình này có thể được huấn luyện bằng SFT
+(supervised fine-tuning) và/hoặc là RL.
+19
+>>>>>>> HEAD@{1}

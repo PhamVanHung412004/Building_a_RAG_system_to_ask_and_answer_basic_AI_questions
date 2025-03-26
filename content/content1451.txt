@@ -1,5 +1,13 @@
+<<<<<<< HEAD
 Node ID: 0f8cb506-2e23-4c9b-8905-831eb9e3bf96
 Text: Daily AI Exercise (AIO) Ngày 1 tháng 4 năm 2024 Kết quả: Hình
 10: Bản đồ thể hiện phân bố dân số theo thành phố của các nước thuộc
 các nước: Việt Nam, Hàn Quốc, Nhật Bản, Singapore và Thái Lan - Hết -
+=======
+Daily AI Exercise (AIO) Ngày 1 tháng 4 năm 2024
+Kết quả:
+Hình 10: Bản đồ thể hiện phân bố dân số theo thành phố của các nước thuộc các nước: Việt
+Nam, Hàn Quốc, Nhật Bản, Singapore và Thái Lan
+- Hết -
+>>>>>>> HEAD@{1}
 www.facebook.com/aivietnam.edu.vn 7

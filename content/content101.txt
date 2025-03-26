@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 5fb5fa81-5635-4fbd-8ee9-7f0713ca2422
 Text: AI VIETNAM (AIO2024) aivietnam.edu.vn III. Trắc nghiệm 1. Ứng
 dụng nào sau đây có thể liên quan đến việc sử dụng disparity map? (a)
@@ -5,3 +6,15 @@ Object Detection. (b) Image Classification. (c) Text Retrieval. (d)
 Depth Estimation for 3D Reconstruction. 2. Lý do nào sau đây là lợi
 ích trong việc sử dụng phương pháp window-based matching so với phương
 pháp pix...
+=======
+AI VIETNAM (AIO2024) aivietnam.edu.vn
+III. Trắc nghiệm
+1. Ứng dụng nào sau đây có thể liên quan đến việc sử dụng disparity map?
+(a) Object Detection.
+(b) Image Classification.
+(c) Text Retrieval.
+(d) Depth Estimation for 3D Reconstruction.
+2. Lý do nào sau đây là lợi ích trong việc sử dụng phương pháp window-based matching so
+với phương pháp pixel-wise matching?
+(a) Tốc độ tính toán và xử lý nhanh hơn.
+>>>>>>> HEAD@{1}

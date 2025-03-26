@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 Node ID: fb2d5476-f9f5-4bc5-865c-f782c1376a70
 Text: . 11 6 Các phương pháp tìm kiếm và sắp xếp mảng. .
+=======
+. 11
+6 Các phương pháp tìm kiếm và sắp xếp mảng. . 
+>>>>>>> HEAD@{1}

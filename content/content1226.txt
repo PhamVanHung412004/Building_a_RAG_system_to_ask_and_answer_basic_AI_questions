@@ -1,3 +1,11 @@
+<<<<<<< HEAD
 Node ID: c370919b-d80b-42a7-a06a-2bac99ae6a8f
 Text: CrossEntropyLoss () 2 criterion_edge = nn. BCELoss () 3 ... 4
 for i, ( inputs , labels ) in enumerate ( trainloader , 0): 8
+=======
+CrossEntropyLoss ()
+2 criterion_edge = nn. BCELoss ()
+3 ...
+4 for i, ( inputs , labels ) in enumerate ( trainloader , 0):
+8
+>>>>>>> HEAD@{1}

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 495eb0a0-6f82-4606-b874-e5a854b4797d
 Text: AI VIETNAM (AIO2024) aivietnam.edu.vn Hình 27: Quá trình gán
 nhãn Sau khi kết thúc gán nhãn cho một ảnh, các bạn save lại (CTRL +
@@ -5,3 +6,16 @@ S) và di chuyển đi hình tiếp theo (phím D (Next Image) hoặc phím A
 (Prev Image)). Khi đã gán nhãn hết tất cả các ảnh, các bạn có thể kiểm
 tra tại thư mục chứa ảnh của mình, nếu thấy các file .txt cho từng ảnh
 bạn đã g...
+=======
+AI VIETNAM (AIO2024) aivietnam.edu.vn
+Hình 27: Quá trình gán nhãn
+Sau khi kết thúc gán nhãn cho một ảnh, các bạn save lại (CTRL + S) và di
+chuyển đi hình tiếp theo (phím D (Next Image) hoặc phím A (Prev Image)). Khi
+đã gán nhãn hết tất cả các ảnh, các bạn có thể kiểm tra tại thư mục chứa ảnh
+của mình, nếu thấy các file .txt cho từng ảnh bạn đã gán nhãn, bạn đã gán nhãn
+thành công:
+Hình 28: Thư mục chứa ảnh sau khi gán nhãn
+Đây là công việc tưởng chừng nhẹ nhàng nhưng lại hết sức quan trọng, vì nó sẽ
+ảnh hưởng rất lớn đến kết quả từ mô hình của bạn, vì vậy cần thật sự tập trung
+và cẩn trọng trong việc gán nhãn dữ liệu.
+>>>>>>> HEAD@{1}

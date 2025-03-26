@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: e72fe8e4-e2eb-40b3-a540-62782418c1d9
 Text: Về phía các mô hình ngôn ngữ lớn (LLM) ở thời điểm hiện tại đều
 gặp giới hạn về độ dài ngữ cảnh (context) văn bản mà LLM có thể xử lý.
@@ -5,3 +6,39 @@ Ví dụ: giới hạn 128k với GPT4 phiên bản mới nhất, 16k với GPT3
 với Gemini, 32k Llama-2, 8k Mixtral 8x7b,... Ngoài ra, việc đưa lượng
 lớn dữ liệu vào ngữ cảnh cho LLM được chứng minh là không hiệu quả với
 m...
+=======
+Về phía các mô hình ngôn ngữ lớn (LLM) ở thời điểm hiện tại đều gặp giới hạn về độ dài ngữ cảnh
+(context) văn bản mà LLM có thể xử lý. Ví dụ: giới hạn 128k với GPT4 phiên bản mới nhất, 16k với
+GPT3.5, 32k với Gemini, 32k Llama-2, 8k Mixtral 8x7b,...
+Ngoài ra, việc đưa lượng lớn dữ liệu vào ngữ
+cảnh cho LLM được chứng minh là không hiệu quả
+với một số vị trí. Liu et al. (2023) bằng cách thử
+nghiệm với các ngữ cảnh dài đã chỉ ra rằng việc sử
+dụng ngữ cảnh dài sẽ gặp khó khăn với các câu hỏi
+mà thông tin liên quan nằm giữa ngữ cảnh. Các
+câu hỏi sử dụng thông tin nằm ở đầu và cuối của
+ngữ cảnh thường cho kết quả tốt hơn.
+Để giải quyết vấn đề này, việc chia nhỏ dữ liệu
+đầu vào với tham số độ dài và chiến lược phân
+chia (chunking) phù hợp là giải pháp vô cùng quan
+trọng. Đề bài đặt ra là xây dựng phép chia tài liệu
+mà ở đó kết quả sau khi phân chia, các thông tin
+nằm trong một đoạn phải có ý nghĩa liên quan với
+nhau và việc phân tách không được làm mất thông
+tin.
+Đi từ giải pháp RAG cơ bản, việc phân đoạn đơn
+giản là phân chia đoạn theo độ dài (chunk size) với
+đơn vị là tokens, hay bổ sung phân đoạn chồng lấn
+(overlap chunk) nhằm giữ lại thông tin giữa các
+chunks, phân chia theo câu (Sentence Splitter).
+Hình 6: Hiện tượng Lost in the Middle chỉ ra các
+mô hình LLM thể hiện kém với việc hỏi đáp liên
+quan đến thông tin nằm ở giữa ngữ cảnh dài.
+Tuy nhiên các giải pháp phân chia cơ bản thường gặp nhiều vấn đề như không các đoạn chia (chunk)
+không chứa thông tin liên quan. Độ dài của các phân đoạn thường là cố định nên không phù hợp. Nếu
+độ dài quá lớn sẽ dẫn đến khó tìm kiếm với thông tin chi tiết. Nếu độ dài quá ngắn sẽ dẫn đến khó có
+được bối cảnh tổng quan.
+Với giải pháp RAG nâng cao, các hướng tiếp cận hiệu quả hơn được đề cập nhằm đưa ra các phương
+án chia nhỏ tối ưu để có thể vừa nâng cao khả năng tìm kiếm chi tiết mà vẫn có được thông tin bối
+6
+>>>>>>> HEAD@{1}

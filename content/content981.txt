@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 5d0e0e22-0df6-4f61-8dbf-bc6da3542b7e
 Text: AI VIETNAM aivietnam.edu.vn thống RAG có thể được phân loại theo
 các bước phát triển của mô hình từ RAG cơ bản (Naive) đến RAG nâng cao
@@ -5,3 +6,11 @@ các bước phát triển của mô hình từ RAG cơ bản (Naive) đến RAG
 quyết được các giới hạn của mô hình trước về các mặt mức độ thể hiện
 (performance), thời gian và hiệu quả (cost and efficiency). Hình 4:
 Phâ...
+=======
+AI VIETNAM aivietnam.edu.vn
+thống RAG có thể được phân loại theo các bước phát triển của mô hình từ RAG cơ bản (Naive) đến
+RAG nâng cao (Advanced) và Mô-đun RAG (Modular). Các mô hình có sự cập nhật và giải quyết được
+các giới hạn của mô hình trước về các mặt mức độ thể hiện (performance), thời gian và hiệu quả (cost
+and efficiency).
+Hình 4: Phân loại hệ thống RAG. 
+>>>>>>> HEAD@{1}

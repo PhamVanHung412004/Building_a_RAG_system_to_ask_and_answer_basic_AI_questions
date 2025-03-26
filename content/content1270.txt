@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 83e2c3cf-9dce-438f-a4eb-067439336286
 Text: 1 from abc import ABC , abstractmethod 2 3 class Person ( ABC ):
 4 def __init__ (self , name :str , yob : int ): 5 self . _name = name
@@ -5,3 +6,35 @@ Text: 1 from abc import ABC , abstractmethod 2 3 class Person ( ABC ):
 11 @abstractmethod 12 def describe ( self ): 13 pass 14 15 16 class
 Teacher ( Person ): 17 def __init__ (self , name :str , yob :int ,
 subject...
+=======
+1 from abc import ABC , abstractmethod
+2
+3 class Person ( ABC ):
+4 def __init__ (self , name :str , yob : int ):
+5 self . _name = name
+6 self . _yob = yob
+7
+8 def get_yob ( self ):
+9 return self . _yob
+10
+11 @abstractmethod
+12 def describe ( self ):
+13 pass
+14
+15
+16 class Teacher ( Person ):
+17 def __init__ (self , name :str , yob :int , subject : str ):
+18 ### Your Code Here
+19
+20 ### End Code Here
+21
+22 def describe ( self ):
+23 ### Your Code Here
+24
+25 ### End Code Here
+26
+27 teacher1 = Teacher ( name =" teacherZ2023 ", yob =1991 , subject =" History ")
+28 assert teacher1 . _yob == 1991
+29 teacher1 . describe ()
+8
+>>>>>>> HEAD@{1}

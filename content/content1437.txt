@@ -1,3 +1,8 @@
+<<<<<<< HEAD
 Node ID: 3a1dced2-6be3-4e92-9610-04f498770973
 Text: Trong một số trường hợp nếu bạn đã làm theo các bước trên mà
 không thấy môi trường được kích 6
+=======
+Trong một số trường hợp nếu bạn đã làm theo các bước trên mà không thấy môi trường được kích
+6
+>>>>>>> HEAD@{1}

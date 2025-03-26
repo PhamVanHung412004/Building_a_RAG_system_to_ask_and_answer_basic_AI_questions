@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 7dd5e185-c430-48df-a25b-671177a196b6
 Text: Và liệu có cách nào để phát hiện và sửa lỗi kiểu dữ liệu một
 cách dễ dàng và nhanh chóng không? Trong bài viết này sẽ hướng dẫn sử
@@ -5,3 +6,30 @@ dụng Type Hints để xác định và gợi ý kiểu dữ liệu của các 
 trị trả về của các hàm, phương thức... Đồng thời kết hợp với Mypy-một
 công cụ kiểm tra kiểu dữ liệu static mạnh mẽ cho các chương trình
 Python, giúp...
+=======
+Và liệu có cách nào để phát hiện và sửa lỗi kiểu dữ liệu
+một cách dễ dàng và nhanh chóng không? Trong bài viết này sẽ hướng dẫn sử dụng Type Hints để xác
+định và gợi ý kiểu dữ liệu của các biến, giá trị trả về của các hàm, phương thức... Đồng thời kết hợp
+với Mypy-một công cụ kiểm tra kiểu dữ liệu static mạnh mẽ cho các chương trình Python, giúp nâng
+cao hiệu quả viết code trong quá trình phát triển dự án.
+Yêu cầu:
+• Máy tính đã cài đặt python>=3.10, Vscode.
+• Đã biết lập trình Python cơ bản.
+2 Hướng dẫn sử dụng Type Hints và Mypy
+2.1 Hướng dẫn sử dụng Type Hints
+Type Hints là một tính năng đã được tích hợp sẵn trong Python, cho phép ta khi viết code có thể khai
+báo kiểu dữ liệu của các biến, tham số và giá trị trả về của hàm. Và điều thú vị là khi thực thi chương
+trình Python trình thông dịch sẽ bỏ qua các gợi ý kiểu dữ liệu trong code. Chúng ta sẽ hiểu rõ hơn
+thông qua các ví dụ.
+2.1.1 Type hints cho biến
+Chúng ta sẽ bắt đầu bằng ví dụ tạo biến theo cách thông thường:
+1 # Cách không dùng type hints
+2 name = "AI VIETNAM "
+3 year = 2024
+4
+5 print (f" Welcome to { name } { year }!")
+================= Output ================
+Welcome to AI VIETNAM 2024!
+==========================================
+Để gợi ý về kiểu dữ liệu của một biến, ta có thể sử dụng Type Hints như sau:
+>>>>>>> HEAD@{1}

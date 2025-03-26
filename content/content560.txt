@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: dc20a93e-e22e-493c-96ac-7e150903132c
 Text: Dưới đây, chúng ta sẽ sử dụng vòng lặp for với string, list,
 dictionary, tuple. Ví dụ sử dụng vòng lặp for qua từng phần tử trong
@@ -5,3 +6,55 @@ string: 1 for i in "AI VIETNAM": 2 print(i) 3 4 5 6 7 8 9 10 11 12
 #Vòng lặp for với string ================= Output ================ A I
 V I E T N A M ========================================== Ví dụ sử dụng
 vòng lặp...
+=======
+Dưới đây, chúng ta sẽ sử dụng vòng lặp for với string,
+list, dictionary, tuple.
+Ví dụ sử dụng vòng lặp for qua từng phần tử trong string:
+1 for i in "AI VIETNAM":
+2 print(i)
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12 #Vòng lặp for với string
+================= Output ================
+A
+I
+V
+I
+E
+T
+N
+A
+M
+==========================================
+Ví dụ sử dụng vòng lặp for qua từng phần tử trong list:
+1 # Vòng lặp for với danh sách
+2 fruits = ["apple", "banana", "cherry"]
+3
+4 for fruit in fruits:
+5 print(fruit)
+================= Output ================
+apple
+banana
+cherry
+==========================================
+Ví dụ sử dụng vòng lặp for qua từng phần tử trong tuple:
+1 # Vòng lặp for với tuple
+2 numbers = (1, 2, 3)
+3
+4 for number in numbers:
+5 print(number)
+================= Output ================
+1
+2
+3
+==========================================
+Ví dụ sử dụng vòng lặp for qua từng phần tử trong dictionary:
+2
+>>>>>>> HEAD@{1}

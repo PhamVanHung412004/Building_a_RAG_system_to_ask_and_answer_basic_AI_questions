@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: fb041b55-c739-4264-881e-e59ccf851db9
 Text: AI VIETNAM (AIO2024) aivietnam.edu.vn Về sau, mỗi lần cần sử
 dụng labelImg, ta chỉ cần kích hoạt môi trường đã tạo này và khởi động
@@ -5,3 +6,15 @@ labelImg (tức chỉ thực hiện bước 4 và bước 7). Bây giờ, giả 
 gán nhãn một tập ảnh người (class person). Chúng ta sẽ thực hiện các
 bước như sau (chuẩn bị sẵn một thư mục hình ảnh): – Bước 1:Truy cập
 vào thư...
+=======
+AI VIETNAM (AIO2024) aivietnam.edu.vn
+Về sau, mỗi lần cần sử dụng labelImg, ta chỉ cần kích hoạt môi trường đã tạo này và
+khởi động labelImg (tức chỉ thực hiện bước 4 và bước 7).
+Bây giờ, giả sử ta muốn gán nhãn một tập ảnh người (class person). Chúng ta sẽ thực
+hiện các bước như sau (chuẩn bị sẵn một thư mục hình ảnh):
+– Bước 1:Truy cập vào thư mục data trong mã nguồn labelImg, sửa lại nội dung
+file predefined_classes.txt bằng tên của các class trong bộ dữ liệu của bạn,
+mỗi tên class sẽ là một hàng trong file:
+Hình 22: Nội dung trong filepredefined_classes.txt. Mỗi hàng trong file tương ứng với mỗi
+tên class trong bộ dữ liệu.
+>>>>>>> HEAD@{1}

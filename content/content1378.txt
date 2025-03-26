@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 Node ID: 27711fe5-1bec-45b7-908d-f7a97c428a9f
 Text: out_layers [1:] 10
+=======
+out_layers [1:]
+10
+>>>>>>> HEAD@{1}

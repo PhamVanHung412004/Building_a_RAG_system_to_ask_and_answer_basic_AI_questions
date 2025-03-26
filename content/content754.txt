@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 Node ID: a9aeb6d1-9503-429a-a753-3ac14539dec3
 Text: . 25 8.1 Cơ chế Broadcasting . .
+=======
+. 25
+8.1 Cơ chế Broadcasting . . 
+>>>>>>> HEAD@{1}

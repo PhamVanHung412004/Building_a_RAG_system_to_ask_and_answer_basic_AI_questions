@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: e1ceca22-cd28-4188-8f23-1d8bc58d3bc2
 Text: Tiếp theo xem xét sự thay đổi của mật độ xác suấtp(x, t) tức xác
 suất hệ thống ở vị trí x tại thời điểm t, theo thời gian. Nó đề cập
@@ -5,3 +6,35 @@ suất hệ thống ở vị trí x tại thời điểm t, theo thời gian. N�
 mật độ xác suấtp(x, t) thay đổi theo thời gian theo cách được mô tả
 bởi phương trình trên. Diffusion equation còn được gọi là heat
 equation - m...
+=======
+Tiếp theo xem xét sự thay đổi của mật độ xác suấtp(x, t) tức xác suất hệ thống ở vị trí x tại thời
+điểm t, theo thời gian. Nó đề cập đến diffusion equation:
+x(t + ∆t) = x(t) + σ
+√
+∆t r (19)
+thể hiện rằng mật độ xác suấtp(x, t) thay đổi theo thời gian theo cách được mô tả bởi phương trình
+trên.
+Diffusion equation còn được gọi là heat equation - mô tả cách mật độ xác suấtp(x, t) thay đổi theo
+thời gian trong một quá trình diffusion. Cụ thể, nó cho biết cách độ dày của xác suất tại một vị trí x
+thời gian t thay đổi theo thời gian.
+Diffusion equation là một phương trình quan trọng trong lý thuyết xác suất và quá trình ngẫu nhiên,
+nó có thể được xuất phát từ một loạt các quy tắc cơ bản về sự biến đổi ngẫu nhiên. Bây giờ chúng ta
+sẽ tìm hiểu cách mà phương trình này được tạo ra.
+Bước đầu tiên là suy ra một biểu thức cho sự biến đổi xác suấtp(x, t) theo thời gian t khi không có
+sự tương tác hoặc mật độ xác suất ban đầu tại các vị trí khác. Một cách tự nhiên, nó sẽ thay đổi theo
+cường độ biến đổi ngẫu nhiên (σ) và tỷ lệ độ dày không gian (∂2p(x,t)
+∂x2 ). Dựa vào điều này chúng ta sẽ
+mô tả diffusion equation thông qua hệ số nhiệtD = σ2/2 với D là một diffusion constant.
+∂p(x, t)
+∂t = σ2
+2
+∂2p(x, t)
+∂x2 . (20)
+Phương trình này mô tả sự biến đổi của mật độ xác suấtp(x, t) theo thời gian t và vị trí không gian
+x trong diffusion process. Nó cho biết tốc độ biến đổi của xác suất tại một thời diểm t bằng một nửa
+của bình phương độ dày không gian và cường độ biến đổi theo thời gian.
+Để giải diffusion equation này với một điều kiện cụ thể làp(x, 0) = δ(x − x0), trong đóδ(x) là một
+hàm delta dirac. Điều này có nghĩa là chúng ta đang xem xét một trường hợp trong đó chúng ta biết
+chính xác rằng vị trí ban đầu là tạix0
+Với điều kiện ban đầup(x, 0) = δ(x − x0). 
+>>>>>>> HEAD@{1}

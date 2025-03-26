@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 40d7a95d-a75f-4617-90a6-6d94d6df9d5a
 Text: Ở đây, ta sẽ sử dụng thư viện PyTorch và Google Colab để giải
 quyết phần này như sau: 1. Tải và import các thư viện cần thiết:Đầu
@@ -5,3 +6,19 @@ tiên, ta cài đặt thư việndatasets để sử dụng trong việc tải d
 Cat Dog về sau: 1 $ pip install datasets ==2.18.0 -q Sau đó, ta thực
 hiện import các thư viện cần thiết trong việc huấn luyện mô hình: 1
 import torch...
+=======
+Ở đây, ta sẽ sử dụng thư viện PyTorch và Google Colab để giải quyết phần này như sau:
+1. Tải và import các thư viện cần thiết:Đầu tiên, ta cài đặt thư việndatasets để sử dụng
+trong việc tải dữ liệu Cat Dog về sau:
+1 $ pip install datasets ==2.18.0 -q
+Sau đó, ta thực hiện import các thư viện cần thiết trong việc huấn luyện mô hình:
+1 import torch
+2 import torch .nn as nn
+3
+4 from PIL import Image
+5 from datasets import load_dataset
+6 from torch . utils . data import Dataset , DataLoader
+7 from torchvision . models import resnet18
+8 from torchvision import transforms
+2
+>>>>>>> HEAD@{1}

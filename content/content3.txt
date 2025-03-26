@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: f026792c-2579-4fa5-b543-e788fa7d313a
 Text: Đồng thời, ứng dụng chương trình vào việc hỏi đáp tài liệu bài
 học trong khóa AIO. Theo đó, Input và Output của chương trình là: •
@@ -5,3 +6,13 @@ Input: File tài liệu cần hỏi đáp và một câu hỏi liên quan đến
 tài liệu. • Output: Câu trả lời. Tổng quan, luồng xử lý (pipeline) của
 chương trình RAG mà chúng ta sẽ xây dựng có dạng như sau: Hình 2:
 Pipeline...
+=======
+Đồng thời, ứng dụng chương trình vào việc hỏi đáp tài liệu
+bài học trong khóa AIO. Theo đó, Input và Output của chương trình là:
+• Input: File tài liệu cần hỏi đáp và một câu hỏi liên quan đến nội dung tài liệu.
+• Output: Câu trả lời.
+Tổng quan, luồng xử lý (pipeline) của chương trình RAG mà chúng ta sẽ xây dựng có dạng như
+sau:
+Hình 2: Pipeline của chương trình RAG trong project.
+2
+>>>>>>> HEAD@{1}

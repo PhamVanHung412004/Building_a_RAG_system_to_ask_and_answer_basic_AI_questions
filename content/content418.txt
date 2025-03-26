@@ -1,5 +1,12 @@
+<<<<<<< HEAD
 Node ID: 346299b2-92fa-4620-8262-647b4545fa5f
 Text: 4. When dealing with point clouds with smooth surfaces, which
 ICP variant might be more suitable? (A). Point-to-Point ICP. (B).
 Point-to-Plane ICP. (C). Both (a) and (b) are equally suitable. (D).
 Neither (a) nor (b) is suitable.
+=======
+4. When dealing with point clouds with smooth surfaces, which ICP variant might be
+more suitable?
+(A). Point-to-Point ICP. (B). Point-to-Plane ICP.
+(C). Both (a) and (b) are equally suitable. (D). Neither (a) nor (b) is suitable.
+>>>>>>> HEAD@{1}

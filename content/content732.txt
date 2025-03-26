@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 Node ID: d0270859-b570-4ab2-99f0-1812ca6c267b
 Text: . 15 7 Các phép toán trên mảng. .
+=======
+. 15
+7 Các phép toán trên mảng. . 
+>>>>>>> HEAD@{1}

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 88b5c33c-a15e-4130-ab05-75d30cdc348f
 Text: AI VIETNAM (AIO2024) aivietnam.edu.vn 40 total += value 41 42 if
 total < cost_min : 43 cost_min = total 44 disparity = j 45 46 # Let
@@ -5,3 +6,20 @@ depth at (y, x) = j ( disparity ) 47 # Multiply by a scale factor for
 visualization purpose 48 depth [y, x] = disparity * scale 49 50 if
 save_result == True : 51 print (’ Saving result ... ’) 52 # Save
 results 53 c...
+=======
+AI VIETNAM (AIO2024) aivietnam.edu.vn
+40 total += value
+41
+42 if total < cost_min :
+43 cost_min = total
+44 disparity = j
+45
+46 # Let depth at (y, x) = j ( disparity )
+47 # Multiply by a scale factor for visualization purpose
+48 depth [y, x] = disparity * scale
+49
+50 if save_result == True :
+51 print (’ Saving result ... ’)
+52 # Save results
+53 cv2 . imwrite (f’ window_based_l1 . 
+>>>>>>> HEAD@{1}

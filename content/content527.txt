@@ -1,4 +1,13 @@
+<<<<<<< HEAD
 Node ID: 8bf8d689-ed0a-4d2d-b95a-0bdcfabf37e9
 Text: glob (f"{ dir_path }/*. pdf ") 83 assert len ( files ) > 0, f"No
 { self . file_type } files found in { dir_path }" 84 else : 85 raise
 ValueError (" file_type must be pdf ") 7
+=======
+glob (f"{ dir_path }/*. pdf ")
+83 assert len ( files ) > 0, f"No { self . file_type } files found in { dir_path
+}"
+84 else :
+85 raise ValueError (" file_type must be pdf ")
+7
+>>>>>>> HEAD@{1}

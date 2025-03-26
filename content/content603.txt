@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: cff4ee32-faba-4b86-8829-cf1a378bbe02
 Text: Khi chỉ có một dấu hai chấm (:) được dùng, lúc này Python hiểu
 là đây là dấu hai chấm đầu tiên trong cú pháp slicing. Cụ thể,
@@ -5,3 +6,11 @@ data[2:4] nghĩa là start=2, end=4, và step nhận giá trị mặc định l�
 Một trường hợp khác, data[3:] nghĩa là start=2, và end=4 và step nhận
 giá trị mặc định là 6 và 1. Ví dụ 3: Các giá trị start, end và step có
 thể không...
+=======
+Khi chỉ có một dấu hai chấm (:) được dùng, lúc này Python hiểu là
+đây là dấu hai chấm đầu tiên trong cú pháp slicing. Cụ thể, data[2:4] nghĩa là start=2, end=4, và step
+nhận giá trị mặc định là 1. Một trường hợp khác, data[3:] nghĩa là start=2, và end=4 và step nhận giá
+trị mặc định là 6 và 1.
+Ví dụ 3: Các giá trị start, end và step có thể không khai báo trong kỹ thuật slicing.
+2
+>>>>>>> HEAD@{1}

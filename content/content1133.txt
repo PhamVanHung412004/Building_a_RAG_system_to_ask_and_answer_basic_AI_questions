@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 00abc875-8e77-4b2d-b20a-cd19252e466c
 Text: AI VIET NAM – AIO COURSE 2023 Exercise: Image Inpainting using
 Denoising Diffusion Probabilistic Model Quoc-Thai Nguyen và Quang-Vinh
@@ -5,3 +6,23 @@ Dinh PR-Team: Đăng-Nhã Nguyễn, Minh-Châu Phạm và Hoàng-Nguyên Vũ Ng�
 25 tháng 3 năm 2024 Phần I. Giới thiệu Hình 1: Ví dụ minh hoạ Image
 Inpainting sử dụng mô hình Denoising Diffusion Probabilistic Model.
 Diffusi...
+=======
+AI VIET NAM – AIO COURSE 2023
+Exercise: Image Inpainting using Denoising
+Diffusion Probabilistic Model
+Quoc-Thai Nguyen và Quang-Vinh Dinh
+PR-Team: Đăng-Nhã Nguyễn, Minh-Châu Phạm và Hoàng-Nguyên Vũ
+Ngày 25 tháng 3 năm 2024
+Phần I. Giới thiệu
+Hình 1: Ví dụ minh hoạ Image Inpainting sử dụng mô hình Denoising Diffusion Probabilistic Model.
+Diffusion Modelslà một trong những mô hình sinh ngày càng được ứng dụng rộng rãi cho nhiều
+ứng dụng khác nhau như: Image Inpainting (Chỉnh sửa hình ảnh khuyết thiếu), Image Colorization (Tô
+màu hình ảnh),... Diffusion Models có nhiệm vụ tạo ra một phân phối cho dữ liệu đầu vào và xấp xỉ
+phân phối của dữ liệu được sinh ra với phân phối của dữ liệu gốc, từ đó giúp mô hình có thể sinh ra
+hình ảnh mới.
+Trong phần này chúng ta sẽ tìm hiểu về ứng dụng Image Inpainting. Và sử dụng mô hình Denoising
+Diffusion Probabilistic Model để huấn luyện mô hình hoàn thiện các hình ảnh bị khuyết thiếu.
+Diffusion Models bao gồm 2 quá trình: Forward Diffusion Process và Reverse Diffusion Process được
+mô tả như hình sau:
+Hình 2: Minh hoạ quá trình hoạt động của Diffusion Models.
+>>>>>>> HEAD@{1}

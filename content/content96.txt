@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 27aff2ae-cd10-4d77-8a8a-19e5b5f23bd1
 Text: Problem 4:Dựa trên hàm tính disparity map theo phương thức
 window-based matching ở Problem 2 và coi các window là các vector, hãy
@@ -5,3 +6,19 @@ cài đặt Cosine Similarity trong việc tính sự tương quan giữa hai pi
 ảnh trái phải để giải quyết vấn đề ở Problem 3. Công thức Cosine
 Similarity được mô tả như sau: cosine_similarity(⃗ x, ⃗ y) = ⃗ x· ⃗ y
 ∥⃗ x∥∥⃗ y∥ ...
+=======
+Problem 4:Dựa trên hàm tính disparity map theo phương thức window-based matching ở
+Problem 2 và coi các window là các vector, hãy cài đặt Cosine Similarity trong việc tính sự tương
+quan giữa hai pixel ảnh trái phải để giải quyết vấn đề ở Problem 3. Công thức Cosine Similarity
+được mô tả như sau:
+cosine_similarity(⃗ x, ⃗ y) = ⃗ x· ⃗ y
+∥⃗ x∥∥⃗ y∥ =
+Pn
+i=1 xiyipPn
+i=1 x2
+i
+pPn
+i=1 y2
+i
+10
+>>>>>>> HEAD@{1}

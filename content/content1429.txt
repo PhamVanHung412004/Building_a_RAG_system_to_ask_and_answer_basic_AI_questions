@@ -1,3 +1,9 @@
+<<<<<<< HEAD
 Node ID: 2ef9e712-137b-4f93-b879-3ca0af809e93
 Text: Nếu bạn chưa biết môi trường trong các dự án python thì nó là
 không gian làm việc độc lập chứa các phiên bản 2
+=======
+Nếu bạn
+chưa biết môi trường trong các dự án python thì nó là không gian làm việc độc lập chứa các phiên bản
+2
+>>>>>>> HEAD@{1}

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: d2b83b65-167b-48ec-bfa2-3678c89b24b8
 Text: AI VIETNAM aivietnam.edu.vn 1 def oai_message_to_chat (
 oai_messages , sender ): 2 """ Convert OpenAI message format to chat
@@ -5,3 +6,39 @@ history . """ 3 chat_history = [] 4 messages = oai_messages [ sender ]
 5 if LOG_LEVEL == " DEBUG ": 6 print (f" oai_message_to_chat : {
 messages }") 7 for i in range (0 , len ( messages ), 2): 8
 chat_history . append ( 9 [...
+=======
+AI VIETNAM aivietnam.edu.vn
+1 def oai_message_to_chat ( oai_messages , sender ):
+2 """ Convert OpenAI message format to chat history . """
+3 chat_history = []
+4 messages = oai_messages [ sender ]
+5 if LOG_LEVEL == " DEBUG ":
+6 print (f" oai_message_to_chat : { messages }")
+7 for i in range (0 , len ( messages ), 2):
+8 chat_history . append (
+9 [
+10 messages [i][" content "],
+11 messages [i + 1][ " content "] if i + 1 < len ( messages ) else "",
+12 ]
+13 )
+14 return chat_history
+(e) Xây dựng hàm khởi tạo đoạn hội thoại ban đầu:Khi bắt đầu chương trình, ta cần
+khởi tạo môi trường chat cho hai agent. Ta có hàminitiate_chat() như sau:
+1 def initiate_chat ( config_list , user_message , chat_history ):
+2 if LOG_LEVEL == " DEBUG ":
+3 print (f" chat_history_init : { chat_history }")
+4
+5 if len ( config_list [0]. get (" api_key ", "")) < 2:
+6 chat_history . append (
+7 [
+8 user_message ,
+9 ]
+10 )
+11 return chat_history
+12 else :
+13 llm_config = {
+14 " timeout ": TIMEOUT ,
+15 " config_list ": config_list ,
+16 }
+17 assistant . llm_config . 
+>>>>>>> HEAD@{1}

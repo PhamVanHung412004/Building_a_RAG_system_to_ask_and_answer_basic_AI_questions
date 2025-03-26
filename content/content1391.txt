@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: fef2004f-6a52-4d76-9a3e-adf05ef27eec
 Text: AI VIETNAM aivietnam.edu.vn 423 ch , 424 cond_embed_dim , 425
 dropout , 426 out_channel = out_ch , 427 use_checkpoint =
@@ -5,3 +6,51 @@ use_checkpoint , 428 use_scale_shift_norm = use_scale_shift_norm , 429
 down =True , 430 ) 431 if resblock_updown 432 else Downsample ( 433 ch
 , conv_resample , out_channel = out_ch 434 ) 435 ) 436 ) 437 ch =
 out_ch 438 input_bl...
+=======
+AI VIETNAM aivietnam.edu.vn
+423 ch ,
+424 cond_embed_dim ,
+425 dropout ,
+426 out_channel = out_ch ,
+427 use_checkpoint = use_checkpoint ,
+428 use_scale_shift_norm = use_scale_shift_norm ,
+429 down =True ,
+430 )
+431 if resblock_updown
+432 else Downsample (
+433 ch , conv_resample , out_channel = out_ch
+434 )
+435 )
+436 )
+437 ch = out_ch
+438 input_block_chans . append (ch)
+439 ds *= 2
+440 self . _feature_size += ch
+441
+442 self . middle_block = EmbedSequential (
+443 ResBlock (
+444 ch ,
+445 cond_embed_dim ,
+446 dropout ,
+447 use_checkpoint = use_checkpoint ,
+448 use_scale_shift_norm = use_scale_shift_norm ,
+449 ),
+450 AttentionBlock (
+451 ch ,
+452 use_checkpoint = use_checkpoint ,
+453 num_heads = num_heads ,
+454 num_head_channels = num_head_channels ,
+455 use_new_attention_order = use_new_attention_order ,
+456 ),
+457 ResBlock (
+458 ch ,
+459 cond_embed_dim ,
+460 dropout ,
+461 use_checkpoint = use_checkpoint ,
+462 use_scale_shift_norm = use_scale_shift_norm ,
+463 ),
+464 )
+465 self . _feature_size += ch
+466
+467 self . 
+>>>>>>> HEAD@{1}

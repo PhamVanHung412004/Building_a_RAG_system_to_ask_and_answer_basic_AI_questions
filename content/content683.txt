@@ -1,4 +1,11 @@
+<<<<<<< HEAD
 Node ID: 0a964ed7-3de3-426a-b1c4-f51ff3e64b50
 Text: AI VIETNAM aivietnam.edu.vn Phần III: Câu hỏi trắc nghiệm 1.
 Trong state space model, dạng recurrent phù hợp cho quá trình
 inference vì? (a) Khả năng tính toán song song.
+=======
+AI VIETNAM aivietnam.edu.vn
+Phần III: Câu hỏi trắc nghiệm
+1. Trong state space model, dạng recurrent phù hợp cho quá trình inference vì?
+(a) Khả năng tính toán song song.
+>>>>>>> HEAD@{1}

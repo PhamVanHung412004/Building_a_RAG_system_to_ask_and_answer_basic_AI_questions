@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 106c9b54-fc85-4515-b888-cc71a9092d53
 Text: • p0(x0) là mật độ xác suất ban đầu tại vị tríx0 tại thời điểm
 0. 14.2 Basics of stochastic differential equations (SDEs) Diffusion
@@ -5,3 +6,25 @@ là một ví dụ đơn giản về quá trình ngẫu nhiên được điều 
 - một phương trình mô tả sự biến đổi của một biến ngẫu nhiên x(t) theo
 thời gian t có dạng: ˙x = f(x, t) + g(x, t) η(t) (23) Trong đó: • ˙x
 là đạ...
+=======
+• p0(x0) là mật độ xác suất ban đầu tại vị tríx0 tại thời điểm 0.
+14.2 Basics of stochastic differential equations (SDEs)
+Diffusion là một ví dụ đơn giản về quá trình ngẫu nhiên được điều chỉnh bởi SDE - một phương trình
+mô tả sự biến đổi của một biến ngẫu nhiên x(t) theo thời gian t có dạng:
+˙x = f(x, t) + g(x, t) η(t) (23)
+Trong đó:
+• ˙x là đạo hàm riêng theo thời gian của x(t).
+• f(x, t) là drift function, miêu tả sự biến đổi trung bình của x(t) theo thời gian.
+• g(x, t) là hàm nhiễu hoặc diffusion, miêu tả sự biến đổi ngẫu nhiên của x(t).
+• η(t) là Gaussian white noise.
+Áp dụng phương trình itô để theo dõi các biến đổi ngẫu nhiên của phương trình trên là sự hạn chế
+của quá trình rời rạc khi ta giảm bước thời gian∆t về 0. Với∆t rất nhỏ chúng ta miêu tả cách giá trị
+x(t) biến đổi ngẫu nhiên trong thời gian ngắn∆t dưới tác động của biến ngẫu nhiên.
+x(t + ∆t) = x(t) + f(x(t), t)∆t + g(x, t)
+√
+∆t r (24)
+Trong đó:
+• x(t + ∆t) là giá trị của biến ngẫu nhiên x tại thời điểmt + ∆t
+• x(t) là giá trị của biến ngẫu nhiên x tại thời điểm t.
+14
+>>>>>>> HEAD@{1}

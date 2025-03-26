@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 28ae1074-8566-46b8-8871-effcaf4c3380
 Text: AI VIETNAM (AIO2024) aivietnam.edu.vn Hình 18: Quá trình huấn
 luyện mô mình YOLOv10 trên tập dữ liệu PlantDoc. 5. Đánh giá mô
@@ -5,3 +6,15 @@ hình:Để thực hiện đánh giá mô hình trên tập test, các bạn ch�
 code sau: 1 model = YOLOv10 ("./ runs / detect / train / weights /
 best .pt") 2 3 model . val ( data =" ../ datasets / PlantDocv4 / data
 . yaml ", 4 imgs...
+=======
+AI VIETNAM (AIO2024) aivietnam.edu.vn
+Hình 18: Quá trình huấn luyện mô mình YOLOv10 trên tập dữ liệu PlantDoc.
+5. Đánh giá mô hình:Để thực hiện đánh giá mô hình trên tập test, các bạn chạy đoạn code
+sau:
+1 model = YOLOv10 ("./ runs / detect / train / weights / best .pt")
+2
+3 model . val ( data =" ../ datasets / PlantDocv4 / data . yaml ",
+4 imgsz =640 ,
+5 split =" test ")
+Hình 19: Đánh giá mô hình sau khi huấn luyện trên tập test.
+>>>>>>> HEAD@{1}

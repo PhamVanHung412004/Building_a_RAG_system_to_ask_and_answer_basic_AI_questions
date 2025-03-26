@@ -1,5 +1,16 @@
+<<<<<<< HEAD
 Node ID: 5e898d9d-551d-4bc6-a904-9e2c1c8d37f0
 Text: Bằng cách hiểu sâu toàn bộ tài liệu và truy vấn, có thể nắm bắt
 thông tin ngữ nghĩa một cách toàn diện hơn. 8 Exploring Semantic
 Chunking 9 Exploring Query Rewriting Phần VI: Research in RAG 9.1
 FLARE https://arxiv.org/pdf/2305.06983.pdf 17
+=======
+Bằng cách hiểu sâu toàn bộ tài liệu và truy vấn, có thể nắm bắt thông tin
+ngữ nghĩa một cách toàn diện hơn.
+8 Exploring Semantic Chunking
+9 Exploring Query Rewriting
+Phần VI: Research in RAG
+9.1 FLARE
+https://arxiv.org/pdf/2305.06983.pdf
+17
+>>>>>>> HEAD@{1}

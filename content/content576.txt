@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: ab92d85d-06b9-413c-9242-3f3f6a6f0a7c
 Text: Nếu i là số chẵn (i % 2 == 0), lệnh continue sẽ được thực thi,
 bỏ qua câu lệnh print(i) và bắt đầu lần lặp tiếp theo. Kết quả chỉ gồm
@@ -5,3 +6,36 @@ các số lẻ từ 1 đến 9 được hiển thị ra màn hình. 5 Sử dụn
 list Chúng ta cũng có thể sử dụng vòng lặp while để duyệt qua các phần
 tử của một danh sách. Cachs này thường dùng khi chúng ta cần thực hiện
 các...
+=======
+Nếu i là số chẵn (i % 2 == 0), lệnh continue sẽ được thực thi, bỏ qua câu lệnh
+print(i) và bắt đầu lần lặp tiếp theo. Kết quả chỉ gồm các số lẻ từ 1 đến 9 được hiển thị ra màn hình.
+5 Sử dụng while với list
+Chúng ta cũng có thể sử dụng vòng lặp while để duyệt qua các phần tử của một danh sách. Cachs này
+thường dùng khi chúng ta cần thực hiện các thao tác lặp lại trên các phần tử của danh sách mà không
+sử dụng vòng lặp for.
+Ví dụ sử dụng while để duyệt qua danh sách
+1 #ai vietnam
+2 fruits = ["apple", "banana", "cherry"]
+3 i = 0
+4 while i < len(fruits):
+5 print(fruits[i])
+6 i += 1
+================= Output ================
+apple
+banana
+cherry
+==========================================
+Trong ví dụ trên, chúng ta có một danh sách fruits chứa các phần tử là tên các loại trái cây. Vòng lặp
+while sẽ chạy khi chỉ số i nhỏ hơn độ dài của danh sách fruits. Trong mỗi lần lặp, phần tử tại vị trí i
+trong danh sách fruits sẽ được in ra. Chỉ số i sau đó được tăng lên một đơn vị, giúp duyệt qua các phần
+tử tiếp theo của danh sách. Khi i bằng độ dài của danh sách, vòng lặp sẽ kết thúc. Ngoài ra các bạn có
+thể thử với dictionary, tuple...
+6 Kết Luận
+Vòng lặp while là một công cụ mạnh mẽ trong Python, cho phép ta thực thi một khối code nhiều lần
+dựa trên điều kiện nào đó. Tuy nhiên, chúng ta cần cẩn thận để tránh vòng lặp vô hạn và sử dụng các
+lệnh break và continue một cách hợp lý để kiểm soát luồng của vòng lặp.
+Hy vọng rằng qua bài viết này, các bạn đã hiểu rõ hơn về vòng lặp while và cách sử dụng nó trong
+Python. Hãy thử áp dụng những gì các bạn đã học vào các bài tập và project trên lớp để nắm vững
+kiến thức hơn!
+4
+>>>>>>> HEAD@{1}

@@ -1,4 +1,13 @@
+<<<<<<< HEAD
 Node ID: d8e5a6b1-9815-4971-9383-4ff61432c4a1
 Text: optimizer . zero_grad () 30 31 loss = self . model ( gt_color ,
 cond_gray ) 32 loss . backward () 33 losses . append ( loss . item ())
 34 self .
+=======
+optimizer . zero_grad ()
+30
+31 loss = self . model ( gt_color , cond_gray )
+32 loss . backward ()
+33 losses . append ( loss . item ())
+34 self . 
+>>>>>>> HEAD@{1}

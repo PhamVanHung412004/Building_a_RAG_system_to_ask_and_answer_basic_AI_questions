@@ -1,5 +1,13 @@
+<<<<<<< HEAD
 Node ID: 6e91fcde-caa7-442a-9cd0-e2063096b40f
 Text: AI VIETNAM aivietnam.edu.vn B. Xây dựng API Sau khi có bộ trọng
 số mô hình Cat Dog Classification đã huấn luyện ở mục trước, chúng ta
 sẽ tiến hành xây dựng API để sử dụng mô hình này bằng FastAPI. Nội
 dung này chúng ta sẽ cài đặt ở máy tính cá nhân.
+=======
+AI VIETNAM aivietnam.edu.vn
+B. Xây dựng API
+Sau khi có bộ trọng số mô hình Cat Dog Classification đã huấn luyện ở mục trước, chúng ta
+sẽ tiến hành xây dựng API để sử dụng mô hình này bằng FastAPI. Nội dung này chúng ta sẽ cài
+đặt ở máy tính cá nhân. 
+>>>>>>> HEAD@{1}

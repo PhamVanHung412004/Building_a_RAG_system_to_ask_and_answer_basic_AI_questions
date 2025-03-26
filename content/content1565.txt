@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: cfee7c5e-8edf-4341-8cd9-a644805aea51
 Text: name = name 7 self . age = age 8 9 def greet ( self ) -> str :
 10 return f" Xin chào, Tôi là { self . name } năm nay tôi { self . age
@@ -5,3 +6,18 @@ Text: name = name 7 self . age = age 8 9 def greet ( self ) -> str :
 Tom ", 25) 14 print ( person_1 . greet ())
 ====================================== Output
 ======================================== Tôi là Tom năm ...
+=======
+name = name
+7 self . age = age
+8
+9 def greet ( self ) -> str :
+10 return f" Xin chào, Tôi là { self . name } năm nay tôi { self . age } tuổi."
+11
+12 if __name__ == " __main__ ":
+13 person_1 = Person (" Tom ", 25)
+14 print ( person_1 . greet ())
+====================================== Output ========================================
+Tôi là Tom năm nay tôi 25 tuổi.
+======================================================================================
+3
+>>>>>>> HEAD@{1}

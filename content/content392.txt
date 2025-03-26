@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 338a420b-d340-43b7-a5c4-b2289a5a5a65
 Text: Nó tập trung vào việc tìm điểm gần nhất trong đám mây điểm đích
 cho mỗi điểm trong đám mây điểm nguồn. Khoảng cách giữa các điểm gần
@@ -5,3 +6,27 @@ nhất này sau đó được thu nhỏ để tinh chỉnh lặp lại phép bi�
 và dịch chuyển) căn chỉnh hai đám mây. Point-to-plane ICP:Phương pháp
 này xem xét thông tin bề mặt của đám mây điểm đích. Nó tính toán vectơ
 ph...
+=======
+Nó tập trung vào việc
+tìm điểm gần nhất trong đám mây điểm đích cho mỗi điểm trong đám mây điểm nguồn. Khoảng cách
+giữa các điểm gần nhất này sau đó được thu nhỏ để tinh chỉnh lặp lại phép biến đổi (quay và dịch
+chuyển) căn chỉnh hai đám mây.
+Point-to-plane ICP:Phương pháp này xem xét thông tin bề mặt của đám mây điểm đích. Nó
+tính toán vectơ pháp tuyến (vuông góc với bề mặt) cho mỗi điểm trong đám mây đích. Thay vì chỉ đơn
+giản tìm điểm gần nhất, nó chiếu vectơ chênh lệch (giữa điểm nguồn và láng giềng gần nhất của nó) lên
+vectơ pháp tuyến của điểm đích. Điều này hiệu quả làm giảm khoảng cách vuông góc giữa điểm nguồn
+và bề mặt đích, dẫn đến sự căn chỉnh chính xác hơn cho các bề mặt cong.
+1 def point_to_point_ICP ( source , target , threshold , trans_init ):
+2 reg_p2p = o3d . pipelines . registration . registration_icp (
+3 source , target , threshold , trans_init ,
+4 o3d . pipelines . registration . TransformationEstimationPointToPoint ())
+5 draw_registration_result ( source , target , reg_p2p . transformation , " Point to point
+ICP ")
+6 return reg_p2p . transformation
+7
+8
+9 def point_to_plane_ICP ( source , target , threshold , trans_init ):
+10 reg_p2l = o3d . pipelines . registration . registration_icp (
+11 source , target , threshold , trans_init ,
+12 o3d . pipelines . 
+>>>>>>> HEAD@{1}

@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 Node ID: 370a37c7-66b3-48e1-b081-dddaf322ea3e
 Text: Cú phắp: 22
+=======
+Cú phắp:
+22
+>>>>>>> HEAD@{1}

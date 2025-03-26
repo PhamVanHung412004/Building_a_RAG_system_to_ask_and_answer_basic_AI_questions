@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: accb729d-d865-4a4c-8f85-ecb095646574
 Text: AI VIETNAM aivietnam.edu.vn 4. PLAY TENNIS CLASSIFIER
 IMPLEMENTATION Cho trước dữ liệu thời tiết của 10 ngày (D1-D10, như
@@ -5,3 +6,11 @@ bảng 1). Hãy phát triển chương trình sử dụng mô hình phân loại
 Bayes để dự đoán xem ngày thứ 11 (D11), AD có thể chơi tennis hay
 không? Day Outlook Temperature Humidity Wind PlayTennis D11 Sunny Cool
 High Strong ?
+=======
+AI VIETNAM aivietnam.edu.vn
+4. PLAY TENNIS CLASSIFIER IMPLEMENTATION
+Cho trước dữ liệu thời tiết của 10 ngày (D1-D10, như bảng 1). Hãy phát triển chương trình sử dụng
+mô hình phân loại Naive Bayes để dự đoán xem ngày thứ 11 (D11), AD có thể chơi tennis hay không?
+Day Outlook Temperature Humidity Wind PlayTennis
+D11 Sunny Cool High Strong ?
+>>>>>>> HEAD@{1}

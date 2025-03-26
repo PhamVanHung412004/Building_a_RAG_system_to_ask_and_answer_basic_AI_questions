@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 11bc274e-cbfa-46cd-98aa-e76c8a56ec02
 Text: Foundation of Prompt Engineering Team GenAIO Hoang-Bach Ngo
 Minh-Hung An Ngày 6 tháng 3 năm 2024 Phần I: Tổng quan về Prompt
@@ -5,3 +6,15 @@ Engineering 1 LLM Settings Khi tương tác với các mô hình ngôn ngữ l�
 bạn sẽ thường xuyên điều chỉnh một loạt các tham số và cài đặt. Việc
 tinh chỉnh những tham số này là bước không thể thiếu để làm cho các
 phản hồi trở n...
+=======
+Foundation of Prompt Engineering
+Team GenAIO
+Hoang-Bach Ngo Minh-Hung An
+Ngày 6 tháng 3 năm 2024
+Phần I: Tổng quan về Prompt Engineering
+1 LLM Settings
+Khi tương tác với các mô hình ngôn ngữ lớn, bạn sẽ thường xuyên điều chỉnh một loạt các tham
+số và cài đặt. Việc tinh chỉnh những tham số này là bước không thể thiếu để làm cho các phản
+hồi trở nên đáng tin cậy và phù hợp hơn với yêu cầu của bạn, và điều này đôi khi đòi hỏi phải thử
+nghiệm để xác định được cách cấu hình tối ưu. 
+>>>>>>> HEAD@{1}

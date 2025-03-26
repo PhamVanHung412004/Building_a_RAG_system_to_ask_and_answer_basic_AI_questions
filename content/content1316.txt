@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 8cbfad2c-5d82-4649-8ee1-36f37c736a42
 Text: model_name_or_path , use_fast = True ) 25 model =
 AutoModelForSequenceClassification . from_pretrained ( 26 model_config
@@ -5,3 +6,24 @@ AutoModelForSequenceClassification . from_pretrained ( 26 model_config
 peft_config = LoraConfig ( 30 r=16 , 31 lora_alpha =32 , 32
 lora_dropout =0.05 , 33 bias =" none ", 34 task_type =" SEQ_CLS ", 35
 ) 2.3. Trainer Huấn luyện mô h...
+=======
+model_name_or_path , use_fast =
+True )
+25 model = AutoModelForSequenceClassification . from_pretrained (
+26 model_config . model_name_or_path , num_labels =1 , ** model_kwargs
+27 )
+28
+29 peft_config = LoraConfig (
+30 r=16 ,
+31 lora_alpha =32 ,
+32 lora_dropout =0.05 ,
+33 bias =" none ",
+34 task_type =" SEQ_CLS ",
+35 )
+2.3. Trainer
+Huấn luyện mô hình Reward
+1 from trl import RewardConfig
+2 from trl import RewardTrainer
+3
+9
+>>>>>>> HEAD@{1}

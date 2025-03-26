@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 3a8ccb70-d64d-4927-8f0e-1c20d43dd354
 Text: Ghi đè phương thức cho phép bạn thay đổi hoặc mở rộng hành vi
 của phương thức kế thừa từ lớp cha trong lớp con. Để ghi đè một phương
@@ -5,3 +6,23 @@ thức trong lớp con, bạn chỉ cần định nghĩa lại phương thức �
 tên và cùng tham số trong lớp con. Trong ví dụ này, phương
 thứcdisplay() được ghi đè ở subclass Child. 1 class Parent: 2 def
 display(self): 3 p...
+=======
+Ghi đè phương thức cho
+phép bạn thay đổi hoặc mở rộng hành vi của phương thức kế thừa từ lớp cha trong lớp con.
+Để ghi đè một phương thức trong lớp con, bạn chỉ cần định nghĩa lại phương thức đó với cùng tên và
+cùng tham số trong lớp con.
+Trong ví dụ này, phương thứcdisplay() được ghi đè ở subclass Child.
+1 class Parent:
+2 def display(self):
+3 print("Display from Parent")
+4
+5 class Child(Parent):
+6 def display(self):
+7 print("Display from Child")
+8
+9 # Tạo object từ lớp con
+10 child = Child()
+11 child.display() # Output: Display from Child
+12
+7
+>>>>>>> HEAD@{1}

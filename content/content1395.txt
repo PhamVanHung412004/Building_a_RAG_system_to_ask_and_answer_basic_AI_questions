@@ -1,6 +1,18 @@
+<<<<<<< HEAD
 Node ID: 7b8d0c6e-cf79-4e51-bc8f-a2073b0ebc8b
 Text: pop ()], dim =1) 535 h = module (h, emb ) 536 h = h. type (x.
 dtype ) 537 return self . out (h) Color Diffusion Model 1 def
 make_beta_schedule ( schedule , n_timestep , linear_start =1e -5 ,
 linear_end =1e -2) : 2 if schedule == ’ linear ’: 3 betas = np.
 linspace ( 16
+=======
+pop ()], dim =1)
+535 h = module (h, emb )
+536 h = h. type (x. dtype )
+537 return self . out (h)
+Color Diffusion Model
+1 def make_beta_schedule ( schedule , n_timestep , linear_start =1e -5 , linear_end =1e -2) :
+2 if schedule == ’ linear ’:
+3 betas = np. linspace (
+16
+>>>>>>> HEAD@{1}

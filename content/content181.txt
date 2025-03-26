@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: ba9aa87c-4bb2-4cb0-b4e0-855d12d530ae
 Text: AI VIETNAM aivietnam.edu.vn • Kết quả là một tổng của các
 Gaussian với trung bìnhµj và độ lệch chuẩns2 j + σ2t. Score Function
@@ -5,3 +6,66 @@ Tương Ứng s(x) = ∂ ∂x log p(x, t) = − 1 p(x, t) MX j=1 wj (x − µj) 
 j + σ2t 1q 2π(s2 j + σ2t) exp ( − [x − µj]2 2(s2 j + σ2t) ) . (57)
 Trong đó: • s(x) là score function, là đạo hàm riêng theox của logarit
 của xác suất...
+=======
+AI VIETNAM aivietnam.edu.vn
+• Kết quả là một tổng của các Gaussian với trung bìnhµj và độ lệch chuẩns2
+j + σ2t.
+Score Function Tương Ứng
+s(x) = ∂
+∂x log p(x, t) = − 1
+p(x, t)
+MX
+j=1
+wj
+(x − µj)
+s2
+j + σ2t
+1q
+2π(s2
+j + σ2t)
+exp
+(
+− [x − µj]2
+2(s2
+j + σ2t)
+)
+. (57)
+Trong đó:
+• s(x) là score function, là đạo hàm riêng theox của logarit của xác suấtp(x, t).
+• Tổ hợp của các thành phần củas(x) là tổng trọng số của các đạo hàm riêng theo x của các thành
+phần Gaussian trong mixture.
+• Score function thường được sử dụng trong các mô hình generative để học xác suất và tạo dữ liệu
+mới
+15.5 Learning the score function
+Bây giờ chúng ta sẽ thử ước lượng tham sốθ của score functionsθ(x, t) trong bối cảnh của mô hình
+generative.
+Hàm Mục Tiêu Ban Đầu
+J(θ)
+?
+:= 1
+2
+Z
+dxdt [sθ(x, t) − ∇x log p(x, t)]2 . (58)
+Trong đó:
+• J(θ) là hàm mục tiêu ban đầu dựa trên việc so sánh score function xấp xỉsθ(x, t) với đạo hàm
+của log xác suấtp(x, t) theo x
+• Tuy nhiên, hàm này không ưu tiên bất kỳ giá trị cụ thể nào của x hơn các giá trị khác.
+Để giải quyết điều này chúng ta cần một sự điều chỉnh nhỏ là:
+J(θ)
+?
+:= 1
+2
+Z
+dxdt p(x, t) [ sθ(x, t) − ∇x log p(x, t)]2 . (59)
+Trong đó:
+• Trọng sốp(x, t) giúp ưu tiên việc xấp xỉ score function cho các giá trị x mà có xác suất cao.
+• Tuy nhiên, việc ước lượng đạo hàm củalogp(x, t) có thể khó khăn do phụ thuộc mạnh mẽ vào
+p(x, 0) (xác suất ban đầu).
+Thêm Trọng Số Theo Thời Gian
+Jnaive(θ) := 1
+2
+Z
+dxdt λ(t) p(x, t) [ sθ(x, t) − ∇x log p(x, t)]2 . (60)
+Trọng số thời gianλ(t) được thêm vào để có thể xử lý sự thay đổi về quy mô của độ lệch từ score
+function chính xác. 
+>>>>>>> HEAD@{1}

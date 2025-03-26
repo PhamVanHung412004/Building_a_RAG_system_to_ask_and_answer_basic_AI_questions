@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 3976e2ee-e741-4ca3-b513-48123e60e665
 Text: unsqueeze (0) . repeat ( num_tasks , 1, 1).to( 29 self . device
 30 ) # (1 , bs , bs) 31 # set diagonal as zero and normalize 32
@@ -5,3 +6,32 @@ edge_feat = F. normalize ( edge_feat * diag_mask , p=1 , dim = -1) #
 (bs , bs) 33 # compute attention and aggregate 34 aggr_feat = torch .
 bmm ( edge_feat . squeeze (1) , node_feat ) # (bs , dim ) 35 node_feat
 = torch ....
+=======
+unsqueeze (0) . repeat ( num_tasks ,
+1, 1).to(
+29 self . device
+30 ) # (1 , bs , bs)
+31 # set diagonal as zero and normalize
+32 edge_feat = F. normalize ( edge_feat * diag_mask , p=1 , dim = -1) # (bs ,
+bs)
+33 # compute attention and aggregate
+34 aggr_feat = torch . bmm ( edge_feat . squeeze (1) , node_feat ) # (bs , dim )
+35 node_feat = torch . cat ([ node_feat , aggr_feat ], -1). transpose (
+36 1, 2
+37 ) # (1 , 2* dim , bs)
+38 # non - linear transform
+39 node_feat = self . network ( node_feat . unsqueeze ( -1)). transpose (
+40 1, 2
+41 ) # (1 , bs , dim )
+42 node_feat = node_feat . squeeze ( -1). squeeze (0) # (bs , dim )
+43 return node_feat
+Tóm lại, input của GNN sẽ có shape [batch_size, dim_1] và output có shape [batch_size, dim_2],
+ta hoàn toàn có thể đặt dim_1 = dim_2 hoặc dim_2 = num_classes.
+Bước cuối cùng là tích hợp GNN vào một backbone bất kì:
+1 from torchvision . models import mobilenet_v3_small
+2
+3 class Model (nn. Module ):
+4 def __init__ (self , num_classes =7) :
+5 super ( Model , self ). __init__ ()
+7
+>>>>>>> HEAD@{1}

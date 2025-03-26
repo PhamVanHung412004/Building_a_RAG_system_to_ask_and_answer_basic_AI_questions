@@ -1,6 +1,14 @@
+<<<<<<< HEAD
 Node ID: de6b6afa-7e0a-4266-8c25-18ea7d5d78ab
 Text: Reinforcement learning thường được thử nghiệm trong môi trường
 game giả lập, song vẫn góp mặt trong một vài các ứng dụng nổi tiếng
 như: AlphaGo, ChatGPT... Để hiểu rõ hơn một số từ khóa sử dụng trong
 bài viết, chúng ta sẽ mô tả lại ý tưởng chính của một bài toán Học
 tăng cường qua framework sau: 1
+=======
+Reinforcement learning thường được thử nghiệm trong môi trường game
+giả lập, song vẫn góp mặt trong một vài các ứng dụng nổi tiếng như: AlphaGo, ChatGPT...
+Để hiểu rõ hơn một số từ khóa sử dụng trong bài viết, chúng ta sẽ mô tả lại ý tưởng chính của một
+bài toán Học tăng cường qua framework sau:
+1
+>>>>>>> HEAD@{1}

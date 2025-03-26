@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 620f1f5d-9f30-4c2f-afd5-40dab8acc64a
 Text: 2.1 Chương Trình Truy Vấn Ảnh Cơ Bản: Mục này tập trung vào việc
 thiết kế và triển khai một hệ thống truy vấn ảnh đơn giản, giúp người
@@ -5,3 +6,38 @@ dùng có thể tìm kiếm và truy xuất hình ảnh tương tự. Để có 
 được các hình ảnh có liên quan đến hình ảnh truy vấn, ta có thể sử
 dụng các độ được trình bày ở các mục tiếp theo để đo sự tương đồng
 giữa hai ản...
+=======
+2.1 Chương Trình Truy Vấn Ảnh Cơ Bản:
+Mục này tập trung vào việc thiết kế và triển khai một hệ thống truy vấn ảnh đơn giản, giúp người dùng
+có thể tìm kiếm và truy xuất hình ảnh tương tự. Để có thể tìm được các hình ảnh có liên quan đến
+hình ảnh truy vấn, ta có thể sử dụng các độ được trình bày ở các mục tiếp theo để đo sự tương đồng
+giữa hai ảnh.
+Các bạn sẽ được cung cấp một tập data trong đó đường dẫn data/train là nơi chứa đata sẽ trả về kết
+quả truy vấn, còn data/test là nơi chứa ảnh sẽ được đem đi truy vấn
+Đầu tiên chúng ta sẽ import một số thư viện cần thiết. Để đọc ảnh chúng ta sử dụng thư viện PIL, để
+xử lí ma trận chúng ta dử dụng numpy, để thao tác với thư mục, file chúng ta sử dụng thư viện os, sử
+dụng matplotlib để hiển thị kết quả.
+1 import os
+2 import numpy as np
+3 from PIL import Image
+4 import matplotlib.pyplot as plt
+Tiếp theo chúng ta sẽ lấy danh sách các class của ảnh trong data mà ta có
+1 ROOT = ’data’
+2 CLASS_NAME = sorted(list(os.listdir(f’{ROOT}/train’)))
+Sau đó để thực hiện tính toán trên các hình ảnh, chúng ta sẽ đọc ảnh, resize về kích thước chung (thì
+mới áp dụng được các phép đo) và chuyển đổi nó về dạng numpy:
+1 def read_image_from_path(path, size):
+2 im = Image.open(path).convert(’RGB’).resize(size)
+3 return np.array(im)
+4
+5 def folder_to_images(folder, size):
+6 list_dir = [folder + ’/’ + name for name in os.listdir(folder)]
+7 images_np = np.zeros(shape=(len(list_dir), *size, 3))
+8 images_path = []
+9 for i, path in enumerate(list_dir):
+10 images_np[i] = read_image_from_path(path, size)
+11 images_path.append(path)
+12 images_path = np.array(images_path)
+13 return images_np, images_path
+3
+>>>>>>> HEAD@{1}

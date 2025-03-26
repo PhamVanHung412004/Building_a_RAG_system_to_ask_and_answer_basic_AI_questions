@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: c739e938-7f9e-4745-8e45-5812673e9b2a
 Text: dtype ) 269 a = torch . einsum ("bts ,bcs -> bct ", weight , v)
 270 return a. reshape (bs , -1, length ) 271 272 @staticmethod 273 def
@@ -5,3 +6,40 @@ count_flops ( model , _x , y): 274 return count_flops_attn ( model ,
 _x , y) 275 276 277 class QKVAttention (nn. Module ): 278 """ 279 A
 module which performs QKV attention and splits in a different order .
 280 "...
+=======
+dtype )
+269 a = torch . einsum ("bts ,bcs -> bct ", weight , v)
+270 return a. reshape (bs , -1, length )
+271
+272 @staticmethod
+273 def count_flops ( model , _x , y):
+274 return count_flops_attn ( model , _x , y)
+275
+276
+277 class QKVAttention (nn. Module ):
+278 """
+279 A module which performs QKV attention and splits in a different order .
+280 """
+281
+282 def __init__ (self , n_heads ):
+283 super (). __init__ ()
+284 self . n_heads = n_heads
+285
+286 def forward (self , qkv ):
+287 """
+288 Apply QKV attention .
+289 : param qkv : an [N x (3 * H * C) x T] tensor of Qs , Ks , and Vs.
+290 : return : an [N x (H * C) x T] tensor after attention .
+291 """
+292 bs , width , length = qkv . shape
+293 assert width % (3 * self . n_heads ) == 0
+294 ch = width // (3 * self . n_heads )
+295 q, k, v = qkv . chunk (3 , dim =1)
+296 scale = 1 / math . sqrt ( math . sqrt (ch))
+297 weight = torch . einsum (
+298 "bct ,bcs -> bts ",
+299 (q * scale ). view (bs * self . n_heads , ch , length ),
+300 (k * scale ). view (bs * self . n_heads , ch , length ),
+301 ) # More stable with f16 than dividing afterwards
+302 weight = torch . softmax ( weight . float () , dim = -1). 
+>>>>>>> HEAD@{1}

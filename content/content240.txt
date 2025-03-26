@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: d38bd799-46c6-42aa-83a3-e852f265e719
 Text: 5 14 − 0= 0.246. Tính gain cho feature Temperature: •
 Entropy(Hot)= −2 4 .log2(2 4 ) − 2 4 .log2(2 4 ) = 1. • Entropy(Mild)=
@@ -5,3 +6,61 @@ Entropy(Hot)= −2 4 .log2(2 4 ) − 2 4 .log2(2 4 ) = 1. • Entropy(Mild)=
 .log2(3 4 ) − 1 4 .log2(1 4 ) = 0.811. • Gain(Outlook)= 0.94 − 1. 4 14
 − 0.918. 6 14 − 0.811. 4 14 = 0.029. Tính gain cho feature Humidity: •
 Entropy(High)=...
+=======
+5
+14 − 0= 0.246.
+Tính gain cho feature Temperature:
+• Entropy(Hot)= −2
+4 .log2(2
+4 ) − 2
+4 .log2(2
+4 ) = 1.
+• Entropy(Mild)= −4
+6 .log2(4
+6 ) − 2
+6 .log2(2
+6 ) = 0.918.
+• Entropy(Cool)= −3
+4 .log2(3
+4 ) − 1
+4 .log2(1
+4 ) = 0.811.
+• Gain(Outlook)= 0.94 − 1. 4
+14 − 0.918. 6
+14 − 0.811. 4
+14 = 0.029.
+Tính gain cho feature Humidity:
+• Entropy(High)= −3
+7 .log2(3
+7 ) − 4
+7 .log2(4
+7 ) = 0.985.
+• Entropy(Normal)= −6
+7 .log2(6
+7 ) − 1
+7 .log2(1
+7 ) = 0.592.
+• Gain(Humidity)= 0.94 − 0.985. 7
+14 − 0.592. 7
+14 = 0.151.
+Tính gain cho feature Wind:
+• Entropy(Weak)=−6
+8 .log2(6
+8 ) − 2
+8 .log2(2
+6 ) = 0.811.
+• Entropy(Strong)= −3
+6 .log2(3
+6 ) − 3
+6 .log2(3
+6 ) = 1.
+• Gain(Wind)= 0.94 − 0.811. 8
+14 − 1. 6
+14 = 0.048.
+Sau khi tính Gain, ta chọn Outlook làm gốc vì Outlook có chỉ số Gain lớn nhất (Nghĩa
+là entropy giảm nhiều nhất) ta được sơ đồ như sau:
+Hình 5: Nút gốc của cây
+ta có thể thấy với Outlook(Overcast) thì tất cả samples đều là yes thì Entropy=0 ta có
+thể trả về yes cho Overcast.
+6
+>>>>>>> HEAD@{1}

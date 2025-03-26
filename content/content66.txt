@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: a3ccfc00-cb9f-40e9-98ea-b8556460c53c
 Text: Các bạn sẽ sửa lại nội dung file bằng tên của class trong bộ dữ
 liệu của mình, giả sử chỉ có class là person, vậy ta chỉ sửa lại file
@@ -5,3 +6,14 @@ thành như sau: Hình 23: Nội dung trong filepredefined_classes.txt sau
 khi cập nhật. Đối với bộ dữ liệu Helmet Safety Dataset, ta sẽ có 3
 class gồm (’head’, ’helmet’, ’person’), các bạn có thể coi ở trong
 file data...
+=======
+Các bạn sẽ sửa lại nội dung file bằng tên của class trong bộ dữ liệu của mình, giả
+sử chỉ có class là person, vậy ta chỉ sửa lại file thành như sau:
+Hình 23: Nội dung trong filepredefined_classes.txt sau khi cập nhật.
+Đối với bộ dữ liệu Helmet Safety Dataset, ta sẽ có 3 class gồm (’head’, ’helmet’,
+’person’), các bạn có thể coi ở trong file data.yaml ở thư mục bộ dữ liệu:
+Hình 24: Nội dung file .yaml trong data Helmet Safety Detection.
+– Bước 2:Truy cập vào giao diện labelImg, các bạn hãy làm theo các bước theo
+hình sau:
+17
+>>>>>>> HEAD@{1}

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: d36830d5-ae12-46f0-9413-efed2d3e62eb
 Text: AI VIETNAM aivietnam.edu.vn Hình 12: Multi-frame-rate
 hierarchical generation framework in CogVideo Quá trình Multi-frame-
@@ -5,3 +6,19 @@ rate hierarchical generation của CogVideo là một quá trình đệ quy gồ
 hai giai đoạn. Đầu tiên là sinh tuần tự khung hình chủ chốt dựa trên
 frame-rate thấp và văn bản mô tả; thứ hai là nội suy đệ quy các khung
 hình dựa trên vă...
+=======
+AI VIETNAM aivietnam.edu.vn
+Hình 12: Multi-frame-rate hierarchical generation framework in CogVideo
+Quá trình Multi-frame-rate hierarchical generation của CogVideo là một quá trình đệ quy gồm hai
+giai đoạn. Đầu tiên là sinh tuần tự khung hình chủ chốt dựa trên frame-rate thấp và văn bản mô tả;
+thứ hai là nội suy đệ quy các khung hình dựa trên văn bản mô tả, frame-rate và các khung hình đã
+biết, với mục tiêu tạo ra video có nhiều khung hình hơn thông qua việc chia các khung hình đã sinh ra
+và nội suy thêm khung hình giữa chúng.
+Cũng trong bài báo CogVideo tác giả đề xuất việc sử dụng các mô hình tạo ảnh đã được huấn luyện
+trước để hỗ trợ việc tạo video từ văn bản mô tả, thay vì dựa trên việc thu thập dữ liệu ảnh và video
+chất lượng cao, quá trình này thường tốn kém và mất thời gian. Cụ thể áp dụng Dual-channel Attention
+bằng cách thêm spatial-temporal attention channel vào mỗi lớp chuyển đổi của mô hình CogView2 đã
+được huấn luyện trước, giữ nguyên các tham số cũ và chỉ huấn luyện các tham số mới của lớp attention.
+Điều này giúp giữ lấy kiến thức về mối quan hệ text-image từ CogView2 mà không làm hỏng trọng số
+đã học được khi chuyển sang tạo video, vốn đòi hỏi sự chú ý đến cả không gian và thời gian.
+>>>>>>> HEAD@{1}

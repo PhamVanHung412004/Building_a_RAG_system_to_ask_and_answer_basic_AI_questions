@@ -1,3 +1,11 @@
+<<<<<<< HEAD
 Node ID: fa206018-c095-4209-8f20-a65bc3c210a3
 Text: a. Single Inheritance b. Multiple Inheritance c. Multilevel
 Inheritance d. Hierarchical Inheritance 13
+=======
+a. Single Inheritance
+b. Multiple Inheritance
+c. Multilevel Inheritance
+d. Hierarchical Inheritance
+13
+>>>>>>> HEAD@{1}

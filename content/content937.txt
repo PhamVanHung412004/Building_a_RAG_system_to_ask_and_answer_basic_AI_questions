@@ -1,2 +1,6 @@
+<<<<<<< HEAD
 Node ID: 8ab53854-c3b5-415f-9caf-53b1beec654b
 Text: 26
+=======
+26
+>>>>>>> HEAD@{1}

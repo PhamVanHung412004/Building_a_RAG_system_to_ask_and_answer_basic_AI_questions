@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: aae7969c-9003-4cca-bd07-06ad73d0987e
 Text: Đó là việc tối ưu hóa hiệu suất tính toán, đối mặt với tình
 trạng thiếu hụt nguồn dữ liệu văn bản-video chất lượng cao và duy trì
@@ -5,3 +6,25 @@ sự nhất quán trong không gian cũng như tính liên kết về thời gia
 các video dài. Bằng cách biến đổi các đoạn văn bản thành những câu
 chuyện video liền mạch, Phenaki không chỉ đặt ra một tiêu chuẩn mới mà
 còn cho t...
+=======
+Đó là việc tối ưu hóa hiệu suất tính toán, đối mặt với tình trạng thiếu
+hụt nguồn dữ liệu văn bản-video chất lượng cao và duy trì sự nhất quán trong không gian cũng như
+tính liên kết về thời gian cho các video dài. Bằng cách biến đổi các đoạn văn bản thành những câu
+chuyện video liền mạch, Phenaki không chỉ đặt ra một tiêu chuẩn mới mà còn cho thấy khả năng ứng
+dụng rộng rãi của nó trong thực tế.
+4.3.1 Kiến trúc Encoder-Decoder cho video: C-ViVIT
+Để có thể làm được những điều trên, Phenaki giới thiệu một kiến trúc encoder-decodcer mới, đặt tên
+là C-ViViT, được mô tả trong Hình 8. Kiến trúc này có 2 khả năng chính.
+• Kiến trúc này có thể khai thác sự dư thừa thời gian trong video để cải thiện chất lượng tái tạo
+mỗi khung hình đồng thời nén số lượng video token từ 40% trở lên.
+• Cho phép mã hóa và giải mã các video có độ dài thay đổi dựa trên cấu trúc của nó.
+Một trong những thách thức lớn nhất đối với các mô hình tạo sinh video từ văn bản đó chính là
+quá trình nén video thành các vector biểu diễn. Các công trình trước đó đi theo 2 hướng chính để làm
+việc này, đó là sử dụng các image encoder theo từng frame một, hoặc là sử dụng một video encoder có
+số frame cố định. Hướng thứ nhất cho phép tạo sinh video với độ dài tùy thích, tuy nhiên trên thực tế
+thì việc tạo sinh video với độ dài lớn là rất khó khăn và tốn nhiều tài nguyên. Phương pháp thứ 2 có
+thể giúp giảm tài nguyên tính toán, tuy nhiên lại không thể tạo sinh video với độ dài tùy thích. Mục
+tiêu của Phenaki là giải quyết 2 vấn đề này: tạo sinh video với độ dài tùy thích, đồng thời nén số lượng
+token video về mức tối thiểu. Kiến trúc C-ViViT, là một biến thể của mô hình ViViT có khả năng tạo
+9
+>>>>>>> HEAD@{1}

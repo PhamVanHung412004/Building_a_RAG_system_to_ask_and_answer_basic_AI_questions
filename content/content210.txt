@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 024b131b-41ba-49a7-990f-eeb8e3650c8d
 Text: AI VIETNAM aivietnam.edu.vn 1 class Adder: 2 def __init__(self,
 value): 3 self.value = value 4 5 def __call__(self, x): 6 return
@@ -5,3 +6,46 @@ self.value + x 7 8 add_five = Adder(5) 9 print(add_five(10)) # Output:
 15 10 1.6. Sử dụng object của Class này làm thuộc tính của Class khác
 Thuộc tính của một class có thể là bất kỳ đối tượng nào, bao gồm các
 biến có ...
+=======
+AI VIETNAM aivietnam.edu.vn
+1 class Adder:
+2 def __init__(self, value):
+3 self.value = value
+4
+5 def __call__(self, x):
+6 return self.value + x
+7
+8 add_five = Adder(5)
+9 print(add_five(10)) # Output: 15
+10
+1.6. Sử dụng object của Class này làm thuộc tính của Class khác
+Thuộc tính của một class có thể là bất kỳ đối tượng nào, bao gồm các biến có kiểu dữ liệu nguyên
+thủy (integer, float, boolean,...), các iterable (list, tuple, string...), hay thậm chí cả object của một class
+đã được khai báo trước đó. Trong ví dụ này, thuộc tínhbirth trong classPerson nhận giá trị là một
+object được khởi tạo từ classDate đã được định nghĩa trước đó.
+1 class Date:
+2 def __init__(self, day, month, year):
+3 self.day = day
+4 self.month = month
+5 self.year = year
+6
+7 def __call__(self):
+8 return f"{self.day:02d}/{self.month:02d}/{self.year}"
+9
+10 class Person:
+11 def __init__(self, name, birth):
+12 self.name = name
+13 self.birth = birth
+14
+15 def info(self):
+16 print(f"Name: {self.name} - Birth: {self.birth()}")
+17
+18 name = "Isaac Newton"
+19 birth = Date(4, 1, 1643)
+20 physicist = Person(name, birth)
+21 physicist.info()
+22 # Output: Name: Isaac Newton - Birth: 04/01/1643
+23
+2. Inheritance
+Kế thừa là một trong những tính năng mạnh mẽ nhất của lập trình hướng đối tượng. 
+>>>>>>> HEAD@{1}

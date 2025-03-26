@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: c6f80e02-a38d-4b3d-8914-c3665d2063f1
 Text: AI VIETNAM aivietnam.edu.vn 7 " nthreads ": 2, 8 " epochs_mdn ":
 2, 9 " nmix ": 8, 10 " logstep ": 100 , 11 " dataset_key ": " lfw " 12
@@ -5,3 +6,36 @@ Text: AI VIETNAM aivietnam.edu.vn 7 " nthreads ": 2, 8 " epochs_mdn ":
 lfw ": 16 out_dir = " data / output / lfw " 17 listdir = " data /
 imglist / lfw " 18 featslistdir = " data / featslist / lfw " 19 else :
 20 ra...
+=======
+AI VIETNAM aivietnam.edu.vn
+7 " nthreads ": 2,
+8 " epochs_mdn ": 2,
+9 " nmix ": 8,
+10 " logstep ": 100 ,
+11 " dataset_key ": " lfw "
+12 }
+13
+14 def get_dirpaths ( args ):
+15 if args [" dataset_key "] == " lfw ":
+16 out_dir = " data / output / lfw "
+17 listdir = " data / imglist / lfw "
+18 featslistdir = " data / featslist / lfw "
+19 else :
+20 raise NameError ("[ ERROR ] Incorrect key : %s" % ( args . dataset_key ))
+21 return out_dir , listdir , featslistdir
+2. Models
+Chúng ta sẽ tiến hành xây dựng mô hình VAE và mô hình MDN.
+(a) VAE model:Trong bài toán này, chúng ta sẽ sử dụng một biến thể của mô hình VAE, được
+gọi là Conditional VAE (CVAE). Mô hình này bao gồm ba phần: khối Encoder chính và khối
+Decoder chính (hai khối này tạo thành một mạng VAE cơ bản, được bao quanh bởi hình chữ
+nhật màu đỏ), cùng với một khối Conditional Encoder (khối này giúp mô hình tận dụng tối
+đa những trường thông tin có sẵn). Đầu vào của mạng VAE cơ bản là trường màu C có kích
+thước (2 x h x w), và đầu ra là một feature map có kích thước tương tự (2 x h x w). Đồng
+thời, ảnh xám G (1 x h x w) cũng được sử dụng làm điểm khởi đầu cho khối Conditional
+Encoder để trích xuất các feature maps chứa thông tin cục bộ, và sau đó được sử dụng làm
+điều kiện để làm tăng khả năng cho khối Decoder.
+Hình 4: Ảnh minh họa cho mô hình Conditional VAE.
+1 import torch
+2 import torch .nn as nn
+3 import torch .nn. 
+>>>>>>> HEAD@{1}

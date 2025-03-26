@@ -1,6 +1,15 @@
+<<<<<<< HEAD
 Node ID: 5879c1e1-759d-4fff-8d79-77d0e8e89f3b
 Text: YOLOv9 YOLOv9 [9] được giới thiệu vào năm 2024 bởi Chien-Yao
 Wang, I-Hau Yeh, và Hong-Yuan Mark Liao. Mô hình này cải thiện độ
 chính xác và tốc độ so với YOLOv8 và giới thiệu nhiều kỹ thuật mới như
 Programmable Gradient Information (PGI) và Generalized Efficient Layer
 Aggregation Network (GELAN). 7
+=======
+YOLOv9
+YOLOv9 [9] được giới thiệu vào năm 2024 bởi Chien-Yao Wang, I-Hau Yeh, và Hong-Yuan Mark
+Liao. Mô hình này cải thiện độ chính xác và tốc độ so với YOLOv8 và giới thiệu nhiều kỹ thuật
+mới như Programmable Gradient Information (PGI) và Generalized Efficient Layer Aggregation
+Network (GELAN).
+7
+>>>>>>> HEAD@{1}

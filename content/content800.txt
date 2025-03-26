@@ -1,5 +1,15 @@
+<<<<<<< HEAD
 Node ID: f2327c40-5ce8-4c5b-8fad-1c5c49dc0400
 Text: NếuA là một ma trận với các phần tửaij, thì chuyển vị của A, ký
 hiệu làAT hay A⊺, có kích thước là số cột củaA trở thành số hàng củaA
 và ngược lại. Cụ thể, nếu A có kích thướcm × n, thìAT có kích thướcn ×
 m. (AT )ij = Aji Ví dụ: Giả sử có ma trậnA như sau: 21
+=======
+NếuA là một ma trận với các phần tửaij, thì chuyển vị của
+A, ký hiệu làAT hay A⊺, có kích thước là số cột củaA trở thành số hàng củaA và ngược lại. Cụ thể,
+nếu A có kích thướcm × n, thìAT có kích thướcn × m.
+(AT )ij = Aji
+Ví dụ:
+Giả sử có ma trậnA như sau:
+21
+>>>>>>> HEAD@{1}

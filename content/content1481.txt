@@ -1,4 +1,11 @@
+<<<<<<< HEAD
 Node ID: 18e9084f-9b31-42a8-ab5a-5bb8a95bb4f3
 Text: Ở đây, mình sẽ chạy với câu hỏi sau (câu hỏi này thuộc bộ dữ
 liệu SQuADv2): 1 $ python3 qa.py -- question ’In what year did Wesley
 Clark retire ?’ 11
+=======
+Ở đây, mình sẽ chạy với câu hỏi
+sau (câu hỏi này thuộc bộ dữ liệu SQuADv2):
+1 $ python3 qa.py -- question ’In what year did Wesley Clark retire ?’
+11
+>>>>>>> HEAD@{1}

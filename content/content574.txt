@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: e25bad0b-ff2b-48ec-a09c-dfbdf5657aa4
 Text: Continue thường được sử dụng khi chúng ta muốn bỏ qua một số
 bước trong vòng lặp dựa trên một điều kiện nào đó. Ví dụ sử dụng
@@ -5,3 +6,23 @@ continue để bỏ qua lần lặp của những trường hợp i chia hết c
 #ai vietnam 2 i = 0 3 while i < 10: 4 i += 1 5 if i % 2 == 0: 6
 continue 7 print(i) ================= Output ================ 1 3 5 7
 9 =================...
+=======
+Continue thường được sử dụng khi chúng ta muốn bỏ qua một số bước trong
+vòng lặp dựa trên một điều kiện nào đó.
+Ví dụ sử dụng continue để bỏ qua lần lặp của những trường hợp i chia hết cho 2:
+1 #ai vietnam
+2 i = 0
+3 while i < 10:
+4 i += 1
+5 if i % 2 == 0:
+6 continue
+7 print(i)
+================= Output ================
+1
+3
+5
+7
+9
+==========================================
+3
+>>>>>>> HEAD@{1}

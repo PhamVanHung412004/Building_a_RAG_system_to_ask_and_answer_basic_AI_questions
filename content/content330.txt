@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 87097420-a82f-4615-9d24-f1b6c543d73e
 Text: AI VIETNAM aivietnam.edu.vn 101 input_greylevel =
 batch_recon_const . cuda () 102 input_feats = batch_feats . cuda ()
@@ -5,3 +6,20 @@ batch_recon_const . cuda () 102 input_feats = batch_feats . cuda ()
 zero_grad () 105 106 # Get the parameters of the posterior
 distribution 107 mu , logvar , _ = model_vae ( input_color ,
 input_greylevel , z) 108 109 # Get the GMM v...
+=======
+AI VIETNAM aivietnam.edu.vn
+101 input_greylevel = batch_recon_const . cuda ()
+102 input_feats = batch_feats . cuda ()
+103 z = torch . randn ( batchsize , hiddensize )
+104 optimizer . zero_grad ()
+105
+106 # Get the parameters of the posterior distribution
+107 mu , logvar , _ = model_vae ( input_color , input_greylevel , z)
+108
+109 # Get the GMM vector
+110 mdn_gmm_params = model_mdn ( input_feats )
+111
+112 # Compare 2 distributions
+113 loss , loss_l2 = mdn_loss (
+114 mdn_gmm_params , mu , torch . sqrt ( torch . 
+>>>>>>> HEAD@{1}

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 090e649b-33b5-4194-afbc-8c823366be2b
 Text: __listPeople = list () 5 6 def add_person (self , person :
 Person ): 7 self . __listPeople . append ( person ) 8 9 def describe (
@@ -5,3 +6,40 @@ self ): 10 print (f" Ward Name : { self . __name }") 11 for p in self
 . __listPeople : 12 p. describe () 13 14 def count_doctor ( self ): 15
 ### Your Code Here 16 17 ### End Code Here 18 19 student1 = Student (
 name =...
+=======
+__listPeople = list ()
+5
+6 def add_person (self , person : Person ):
+7 self . __listPeople . append ( person )
+8
+9 def describe ( self ):
+10 print (f" Ward Name : { self . __name }")
+11 for p in self . __listPeople :
+12 p. describe ()
+13
+14 def count_doctor ( self ):
+15 ### Your Code Here
+16
+17 ### End Code Here
+18
+19 student1 = Student ( name =" studentA ", yob =2010 , grade ="7")
+20 teacher1 = Teacher ( name =" teacherA ", yob =1969 , subject =" Math ")
+21 teacher2 = Teacher ( name =" teacherB ", yob =1995 , subject =" History ")
+22 doctor1 = Doctor ( name =" doctorA ", yob =1945 , specialist =" Endocrinologists ")
+23 assert ward1 . count_doctor () == 1
+24 doctor2 = Doctor ( name =" doctorB ", yob =1975 , specialist =" Cardiologists ")
+25 ward1 = Ward ( name =" Ward1 ")
+26 ward1 . add_person ( student1 )
+27 ward1 . add_person ( teacher1 )
+28 ward1 . add_person ( teacher2 )
+29 ward1 . add_person ( doctor1 )
+30 ward1 . add_person ( doctor2 )
+31 ward1 . count_doctor ()
+a) 4
+b) 3
+c) 2
+d) 1
+Câu hỏi 9Thực hiện xây dựng class Stack với các chức năng (method) sau đây: initial- ization
+method nhận một input "capacity": dùng để khởi tạo stack với capacity là số lượng element mà
+stack có thể chứa. .is_full(): kiểm tra stack đã full chưa. 
+>>>>>>> HEAD@{1}

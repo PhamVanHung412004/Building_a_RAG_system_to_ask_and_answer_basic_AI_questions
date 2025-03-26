@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 14eb747b-3094-4330-9486-ee32f229cc46
 Text: AIO 2024 aivietnam.edu.vn 1 Mở đầu NumPy là một thư viện mã
 nguồn mở trong Python được sử dụng để làm việc với mảng (array)-cấu
@@ -5,3 +6,37 @@ trúc dữ liệu chính của numpy và cho phép thực hiện các thao tác 
 học nhanh chóng và hiệu quả. Để bắt đầu sử dụng NumPy, chúng ta cần
 phải cài đặt thư viện này trong môi trường Python qua cú pháp: 1 pip
 install numpy...
+=======
+AIO 2024 aivietnam.edu.vn
+1 Mở đầu
+NumPy là một thư viện mã nguồn mở trong Python được sử dụng để làm việc với mảng (array)-cấu
+trúc dữ liệu chính của numpy và cho phép thực hiện các thao tác toán học nhanh chóng và hiệu quả.
+Để bắt đầu sử dụng NumPy, chúng ta cần phải cài đặt thư viện này trong môi trường Python qua cú
+pháp:
+1 pip install numpy
+Sau khi cài đặt xong, bạn có thể kiểm tra xem NumPy đã được cài đặt thành công hay chưa bằng cách
+mở Python interpreter (hoặc Jupyter Notebook) và nhập:
+1 import numpy as np
+2 print(np.__version__)
+Nếu NumPy được cài đặt thành công, bạn sẽ thấy phiên bản của NumPy được in ra.
+2 Các phương pháp tạo mảng
+2.1 Tạo mảng từ dữ liệu có sẵn
+Hình 1: Minh họa mảng
+np.array là một hàm trong NumPy dùng để tạo mảng (array) từ dữ liệu có sẵn như list hoặc tuple. Cú
+pháp:
+1 np.array(object)
+• object: Dữ liệu đầu vào (list, tuple, hoặc các kiểu dữ liệu khác).
+Ví dụ sau sẽ tạo một mảng NumPy từ một list gồm các số nguyên [1, 2, 3, 4, 5].
+1 #aivietnam
+2 import numpy as np
+3 # Tạo mảng từ list
+4 list_data = [1, 2, 3, 4, 5]
+5 array_from_list = np.array(list_data)
+6 print(array_from_list)
+================= Output =================
+[1 2 3 4 5]
+==========================================
+Chúng ta có thể kiểm tra các thuộc tính cơ bản của array qua các phương thức sau:
+• Shape: kích thước của mảng, tức là số phần tử trong mỗi chiều của chúng.
+• dtype: kiểu dữ liệu của các phần tử trong mảng.
+>>>>>>> HEAD@{1}

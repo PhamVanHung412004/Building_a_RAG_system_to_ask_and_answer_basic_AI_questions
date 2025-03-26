@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 4faae047-4f0f-44af-990c-23df9da9a006
 Text: AI VIETNAM aivietnam.edu.vn tạo ra theo phân phối chuẩn để tính
 giá trị tiếp theo. Phương pháp này có thể được biểu thị bằng công
@@ -5,3 +6,24 @@ thức: Xn+1 = Xn + f(Xn, tx).∆t + g(Xn, tx). √ ∆t.Zn+1 (2) Trong đó: �
 Xn là giá trị ước tính tại thời điểmtn • f(Xn, tn) là phần không xác
 định (deterministic) của phương trình vi phân stochastics. • g(Xn, tn)
 là ngẫu...
+=======
+AI VIETNAM aivietnam.edu.vn
+tạo ra theo phân phối chuẩn để tính giá trị tiếp theo. Phương pháp này có thể được biểu thị bằng công
+thức:
+Xn+1 = Xn + f(Xn, tx).∆t + g(Xn, tx).
+√
+∆t.Zn+1 (2)
+Trong đó:
+• Xn là giá trị ước tính tại thời điểmtn
+• f(Xn, tn) là phần không xác định (deterministic) của phương trình vi phân stochastics.
+• g(Xn, tn) là ngẫu nhiên của phương trình vi phân stochastics.
+• ∆t là khoảng thời gian giữa các bước.
+• Zn+1 là phân phối chuẩn hóa hoặc chuẩn tắc (mean 0, variance 1)
+Hình 2: Euler-Maruyama có độ đơn giản và dễ triển khai, nhưng nó có thể có sai số và yếu tố ngẫu
+nhiên khi giải phương trình stochastics. Thường được sử dụng khi cần một phương pháp gần đúng cho
+mô phỏng thay vì một giải pháp chính xác
+4 Heat kernel
+Heat kernel (Gaussian heat kernel) - thường được sử dụng để mô tả sự lan truyền của nhiệt trong không
+gian 2D/3D và cũng có ứng dụng trong nhiều lĩnh vực khác. Heat kernel có tính chất lan truyền nhiệt
+từ một điểm cố định ra xa theo thời gian và không gian.
+>>>>>>> HEAD@{1}

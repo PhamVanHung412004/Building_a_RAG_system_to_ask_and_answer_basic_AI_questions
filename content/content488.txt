@@ -1,6 +1,14 @@
+<<<<<<< HEAD
 Node ID: d9dfda95-0868-4f32-aadc-20ac0942b5ce
 Text: AI VIETNAM aivietnam.edu.vn Hình 13: Cách bước sử dụng mô hình
 trên FastAPI docs. Hình 14: Kết quả của mô hình, tương ứng với dữ liệu
 đầu vào là ví dụ mẫu. Như vậy, chúng ta đã hoàn tất việc host một API
 với chức năng Cat Dog Classification. Các bạn giờ đây có thể tắt
 chương trình bằng cách nhấn tổ hợp phím Ctrl + C ở terminal.
+=======
+AI VIETNAM aivietnam.edu.vn
+Hình 13: Cách bước sử dụng mô hình trên FastAPI docs.
+Hình 14: Kết quả của mô hình, tương ứng với dữ liệu đầu vào là ví dụ mẫu.
+Như vậy, chúng ta đã hoàn tất việc host một API với chức năng Cat Dog Classification. Các
+bạn giờ đây có thể tắt chương trình bằng cách nhấn tổ hợp phím Ctrl + C ở terminal.
+>>>>>>> HEAD@{1}

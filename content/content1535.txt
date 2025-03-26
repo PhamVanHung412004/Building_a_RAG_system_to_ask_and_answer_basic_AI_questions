@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 48ce5d1d-a42e-47f9-9d22-3e21c10a08f3
 Text: float (). unsqueeze (0) .to( device ) 17 probs = self . forward
 ( state ). cpu () 18 m = Categorical ( probs ) 19 action = m. sample
@@ -5,3 +6,22 @@ Text: float (). unsqueeze (0) .to( device ) 17 probs = self . forward
 hàm training: 1 def reinforce ( 2 policy , 3 optimizer , 4
 n_training_episodes , 5 max_steps , 6 gamma , 7 print_every 8 ): 9
 scores_deque = deq...
+=======
+float (). unsqueeze (0) .to( device )
+17 probs = self . forward ( state ). cpu ()
+18 m = Categorical ( probs )
+19 action = m. sample ()
+20
+21 return action . item () , m. log_prob ( action )
+4. Xây dựng hàm training:
+1 def reinforce (
+2 policy ,
+3 optimizer ,
+4 n_training_episodes ,
+5 max_steps ,
+6 gamma ,
+7 print_every
+8 ):
+9 scores_deque = deque ( maxlen =100)
+12
+>>>>>>> HEAD@{1}

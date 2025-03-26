@@ -1,4 +1,11 @@
+<<<<<<< HEAD
 Node ID: 1eb07548-a523-4baf-845f-df20756011ae
 Text: Tuy vậy, chiến lược này lại dẫn đến hiệu suất mô hình không được
 tốt. Hình 10: Minh họa chiến lược one-to-one và one-to-many label
 assignemnts. 9
+=======
+Tuy vậy, chiến lược này lại dẫn đến hiệu suất mô hình
+không được tốt.
+Hình 10: Minh họa chiến lược one-to-one và one-to-many label assignemnts.
+9
+>>>>>>> HEAD@{1}

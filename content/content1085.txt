@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 3ee44f8b-48df-4d7b-ac7d-9ee60487d36b
 Text: AI VIETNAM aivietnam.edu.vn nhiều lĩnh vực khác nhau như điện
 ảnh, làm game, thực tế ảo, v.v. Hơn hết, cả 2 mô hình đều cho thấy
@@ -5,3 +6,31 @@ việc huấn luyện các mô hình deep learning trên tập data lớn về v
 có thể giúp các mô hình trí tuệ nhân tạo học được cách vận hành của
 thế giới vật chất, mở ra hướng mới cho việc phát triển AI có khả năng
 tương tác v...
+=======
+AI VIETNAM aivietnam.edu.vn
+nhiều lĩnh vực khác nhau như điện ảnh, làm game, thực tế ảo, v.v. Hơn hết, cả 2 mô hình đều cho thấy
+việc huấn luyện các mô hình deep learning trên tập data lớn về video có thể giúp các mô hình trí tuệ
+nhân tạo học được cách vận hành của thế giới vật chất, mở ra hướng mới cho việc phát triển AI có khả
+năng tương tác với thế giới và tiệm cận trí tuệ con người.
+References
+[1] Huiwen Chang et al. “MaskGIT: Masked Generative Image Transformer”. In:The IEEE Confer-
+ence on Computer Vision and Pattern Recognition (CVPR). 2022.
+[2] Jonathan Ho et al. “Video diffusion models”. In:arXiv:2204.03458 (2022).
+[3] Zheng W. Liu X. Tang J. Hong W. Ding M. “CogVideo: Large-scale Pretraining for Text-to-Video
+Generation via Transformers”. In:arXiv preprint arXiv:2205.15868(2022).
+[4] Aaron van den Oord, Oriol Vinyals, and Koray Kavukcuoglu. “Neural discrete representation
+learning”. In:Proceedings of the 31st International Conference on Neural Information Processing
+Systems. NIPS’17. Long Beach, California, USA: Curran Associates Inc., 2017, 6309–6318.isbn:
+9781510860964.
+[5] WilliamPeeblesandSainingXie.“ScalableDiffusionModelswithTransformers”.In: arXiv preprint
+arXiv:2212.09748 (2022).
+[6] Robin Rombach et al.High-Resolution Image Synthesis with Latent Diffusion Models. 2021. arXiv:
+2112.10752 [cs.CV].
+[7] Thomas Hayes Xi Yin Jie An Songyang Zhang Qiyuan Hu Singer Adam Polyak. “Make-A-Video:
+Text-to-Video Generation without Text-Video Data”. In:arXiv preprint arXiv:2209.14792(2022).
+[8] Ruben Villegas et al. “Phenaki: Variable Length Video Generation From Open Domain Textual
+Description”. In:ArXiv abs/2210.02399 (2022).
+[9] Jay Zhangjie Wu et al. “Tune-a-video: One-shot tuning of image diffusion models for text-to-video
+generation”. In: Proceedings of the IEEE/CVF International Conference on Computer Vision.
+2023, pp. 7623–7633.
+>>>>>>> HEAD@{1}

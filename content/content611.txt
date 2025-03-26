@@ -1,4 +1,11 @@
+<<<<<<< HEAD
 Node ID: c93603a9-86b8-429a-802f-58f028b531c4
 Text: AIO2024 aivietnam.edu.vn 5. Xóa phần tử khỏi danh sách Ví dụ 5:
 Xóa phần tử khỏi danh sách dùng hàm pop() và remove(). Ví dụ 6: Xóa
 phần tử khỏi danh sách dùng hàm clear() và và từ khóa del.
+=======
+AIO2024 aivietnam.edu.vn
+5. Xóa phần tử khỏi danh sách
+Ví dụ 5: Xóa phần tử khỏi danh sách dùng hàm pop() và remove().
+Ví dụ 6: Xóa phần tử khỏi danh sách dùng hàm clear() và và từ khóa del.
+>>>>>>> HEAD@{1}

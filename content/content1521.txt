@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: e2a32152-de79-4903-a571-5cb66532e53b
 Text: AI VIETNAM aivietnam.edu.vn Câu 1: Q-Learning Cho môi trường
 game Taxi trong thư viện OpenAI Gym, với một số thông tin chính như
@@ -5,3 +6,29 @@ sau (các bạn có thể đọc thêm thông tin chi tiết về môi trường
 đây): Hình 5: Hình ảnh trực quan của game Taxi • Kiểu môi trường:Grid
 World (Deterministic Environment). • Không gian hành động (Action
 Space):6 (Di...
+=======
+AI VIETNAM aivietnam.edu.vn
+Câu 1: Q-Learning
+Cho môi trường game Taxi trong thư viện OpenAI Gym, với một số thông tin chính như sau (các
+bạn có thể đọc thêm thông tin chi tiết về môi trường này tại đây):
+Hình 5: Hình ảnh trực quan của game Taxi
+• Kiểu môi trường:Grid World (Deterministic Environment).
+• Không gian hành động (Action Space):6 (Discrete).
+• Không gian trạng thái (State Space):500 (Discrete).
+• Mục tiêu (Objective):Di chuyển Taxi đến đón khách hàng và đưa họ đến một trong bốn vị trí
+trả khách.
+• Trạng thái kết thúc (Terminate State):Taxi trả khách đúng nơi đã định.
+• Hàm điểm thưởng (Reward Function):
+– +20 điểmnếu trả hàng khách đúng nơi.
+– -1 điểmmỗi một lần Taxi di chuyển.
+– -10 điểmnếu đón và trả hàng khách không đúng nơi đã định.
+Các bạn hãy cài đặt thuật toán Q-Learning để huấn luyện tác tử hoàn thành nhiệm vụ, cũng như đạt
+điểm thưởng tích lũy tối đa trên môi trường Taxi này. Để triển khai thuật toán này, các bạn có thể
+tham khảo một số bước hướng dẫn sau:
+1. Khai báo các thư viện cần thiết:
+1 import numpy as np
+2 import gymnasium as gym
+3 import os
+4 import tqdm
+5 import matplotlib . 
+>>>>>>> HEAD@{1}

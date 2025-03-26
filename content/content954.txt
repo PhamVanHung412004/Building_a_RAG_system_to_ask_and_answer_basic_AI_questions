@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: e26dce1f-d671-44b0-acc6-8cbca57f1553
 Text: AI VIETNAM aivietnam.edu.vn 9 fp16=True, # Sử dụng kiểu dữ liệu
 half-precision để tối ưu tài nguyên 10 push_to_hub=True, # Đẩy kết quả
@@ -5,3 +6,33 @@ huấn luyện lên HuggingFace Hub 11 ) Cuối cùng ta sẽ khởi tạo class
 Trainer, đây là class chính để training model, ta sẽ không cần phải
 định nghĩa hàm train, đưa input vào mode, tính toán loss, update
 gradient nữa...
+=======
+AI VIETNAM aivietnam.edu.vn
+9 fp16=True, # Sử dụng kiểu dữ liệu half-precision để tối ưu tài nguyên
+10 push_to_hub=True, # Đẩy kết quả huấn luyện lên HuggingFace Hub
+11 )
+Cuối cùng ta sẽ khởi tạo class Trainer, đây là class chính để training model, ta sẽ không cần
+phải định nghĩa hàm train, đưa input vào mode, tính toán loss, update gradient nữa, hàm
+class này sẽ tự động làm giúp chúng ta. Sau khi đã khởi tạo thì chỉ cần gọi trainner.train()
+thì quá trình training model sẽ được tiến hành:
+1 # Khởi tạo một đối tượng Trainer để huấn luyện mô hình
+2 trainer = Trainer(
+3 model=model, # Sử dụng mô hình đã tạo trước đó
+4 args=args, # Các tham số và cấu hình huấn luyện
+5 train_dataset=train_dataset, # Sử dụng tập dữ liệu huấn luyện
+6 eval_dataset=validation_dataset, # Sử dụng tập dữ liệu đánh giá
+7 tokenizer=tokenizer, # Sử dụng tokenizer để xử lý văn bản
+8 )
+9
+10 # Bắt đầu quá trình huấn luyện
+11 trainer.train()
+Sau khi quá trình training hoàn tất, ta sẽ đưa weight, config của model lên HuggingFace Hub
+để lưu lại:
+1 # Gửi dữ liệu đào tạo lên Hub
+2 trainer.push_to_hub(commit_message="Training complete")
+(f) Evaluate model:Để đánh giá performance của model ta sẽ sử dụng metric squad từ thư
+viện evaluate:
+1 # Tải metric "squad" từ thư viện evaluate
+2 metric = evaluate.load("squad_v2")
+8
+>>>>>>> HEAD@{1}

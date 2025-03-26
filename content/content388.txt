@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: f166b25a-3142-4a8d-884c-6b5374eae1db
 Text: visualization . draw_geometries ([ pcd ], "
 Kd_tree_nearest_neighbor_knn ") 8 9 10 def
@@ -5,3 +6,19 @@ kd_tree_nearest_neighbor_radius (pcd , point_index = 5, radius = 0.02)
 : 11 pcd . paint_uniform_color ([0.5 , 0.5 , 0.5]) 12 pcd_tree = o3d .
 geometry . KDTreeFlann ( pcd ) 13 pcd . colors [ point_index ] = [1 ,
 0, 0] 14 [k, idx , _] = pcd_tree . search_radius...
+=======
+visualization . draw_geometries ([ pcd ], " Kd_tree_nearest_neighbor_knn ")
+8
+9
+10 def kd_tree_nearest_neighbor_radius (pcd , point_index = 5, radius = 0.02) :
+11 pcd . paint_uniform_color ([0.5 , 0.5 , 0.5])
+12 pcd_tree = o3d . geometry . KDTreeFlann ( pcd )
+13 pcd . colors [ point_index ] = [1 , 0, 0]
+14 [k, idx , _] = pcd_tree . search_radius_vector_3d ( pcd . points [ point_index ], radius )
+15 np. asarray ( pcd . colors )[ idx [1:] , :] = [0 , 0, 1]
+16 o3d . visualization . draw_geometries ([ pcd ], " Kd_tree_radius_knn ")
+17
+18
+19 def octree_nearest_neighbor (pcd , point_index = 5, max_depth = 4, size_expand =0.01) :
+20 pcd . colors = o3d . 
+>>>>>>> HEAD@{1}

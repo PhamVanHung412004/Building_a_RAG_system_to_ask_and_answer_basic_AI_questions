@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: d4d26622-0641-4997-9541-9467cd844cc6
 Text: a) Mask các vị trí điểm ảnh trung tâm theo hình chữ nhật b) Mask
 các vị trí điểm ảnh ở góc trái trên theo hình chữ nhật c) Mask các vị
@@ -5,3 +6,25 @@ trí điểm ảnh ở góc trái dưới theo hình chữ nhật d) Mask các v
 điểm ảnh trung tâm theo hình tròn Câu hỏi 5Dựa vào bài báo cáo nghiên
 cứu "Denoising Diffusion Probabilistic Model", công thức tính giá trị
 xác s...
+=======
+a) Mask các vị trí điểm ảnh trung tâm theo hình chữ nhật
+b) Mask các vị trí điểm ảnh ở góc trái trên theo hình chữ nhật
+c) Mask các vị trí điểm ảnh ở góc trái dưới theo hình chữ nhật
+d) Mask các vị trí điểm ảnh trung tâm theo hình tròn
+Câu hỏi 5Dựa vào bài báo cáo nghiên cứu "Denoising Diffusion Probabilistic Model", công thức tính
+giá trị xác suấtq(xt|x0) là?
+a) xt = √ ¯αtx0 + √1 − ¯αtϵ
+b) xt = √ ¯αtx0 + √1 − αtϵ
+c) xt = √1 − ¯αtx0 + √1 − αtϵ
+d) xt = √1 − ¯αtx0 + √1 − ¯αtϵ
+Câu hỏi 6Dựa vào bài báo cáo nghiên cứu "Denoising Diffusion Probabilistic Model", công thức tính
+eβt trong q(xt−1|xt, x0) là?
+a) eβt = 1−¯αt−1
+1−¯αt
+b) eβt = 1−¯αt
+1−¯αt−1
+βt
+c) eβt = 1−¯αt−1
+1−¯αt βt
+26
+>>>>>>> HEAD@{1}

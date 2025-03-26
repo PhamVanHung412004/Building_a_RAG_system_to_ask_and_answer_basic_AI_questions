@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 87b8fdfa-ce37-43df-aeda-22106513252b
 Text: AI VIETNAM (AIO2024) aivietnam.edu.vn Hình 10: Copy đường dẫn để
 tải mã nguồn YOLOv10 • Bước 3: Quay lại Google Colab, các bạn khởi tạo
@@ -5,3 +6,13 @@ một code cell sử dụng lệnh: !git clone <link> (trong đó <link> là
 đường dẫn GitHub đã copy ởbước 2). Nếu code cell thực thi thành công,
 ta kết quả sẽ hiển thị như hình sau: Hình 11: Tải mã nguồn YOLOv10 sử
 dụng ...
+=======
+AI VIETNAM (AIO2024) aivietnam.edu.vn
+Hình 10: Copy đường dẫn để tải mã nguồn YOLOv10
+• Bước 3: Quay lại Google Colab, các bạn khởi tạo một code cell sử dụng lệnh:
+!git clone <link> (trong đó <link> là đường dẫn GitHub đã copy ởbước 2).
+Nếu code cell thực thi thành công, ta kết quả sẽ hiển thị như hình sau:
+Hình 11: Tải mã nguồn YOLOv10 sử dụng lệnh git clone
+Để kiểm tra, các bạn có thể refresh lại phầnFiles của Google Colab để xem thư mục
+YOLOv10 đã xuất hiện hay chưa.
+>>>>>>> HEAD@{1}

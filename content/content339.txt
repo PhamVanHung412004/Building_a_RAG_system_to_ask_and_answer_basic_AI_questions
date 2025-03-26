@@ -1,4 +1,12 @@
+<<<<<<< HEAD
 Node ID: dba821ee-a7d3-4a7d-9e15-a813e39a83ae
 Text: (d) Tất cả đáp án trên. 6. Trong quá trình inference, mô hình
 CVAE có sự tham gia của những thành phần nào? (a) Encoder, Conditional
 Encoder, Decoder (b) Encoder, Decoder 21
+=======
+(d) Tất cả đáp án trên.
+6. Trong quá trình inference, mô hình CVAE có sự tham gia của những thành phần nào?
+(a) Encoder, Conditional Encoder, Decoder
+(b) Encoder, Decoder
+21
+>>>>>>> HEAD@{1}

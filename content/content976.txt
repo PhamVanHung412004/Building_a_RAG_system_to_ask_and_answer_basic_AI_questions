@@ -1,3 +1,9 @@
+<<<<<<< HEAD
 Node ID: fb99e007-c1e3-4047-87aa-51411343d744
 Text: Trong bài báo của Lewis et al. (2021), khi lần đầu đề cấp đến hệ
 thống RAG, Lewis đã sử dụng một mô hình seq2seq huấn luyện trước ... 1
+=======
+Trong bài báo của Lewis et al. (2021), khi lần đầu đề cấp đến hệ thống RAG, Lewis đã sử dụng một
+mô hình seq2seq huấn luyện trước ...
+1
+>>>>>>> HEAD@{1}

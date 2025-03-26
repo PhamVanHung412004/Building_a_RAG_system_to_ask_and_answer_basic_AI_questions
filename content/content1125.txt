@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: dd81bf61-60f0-45ad-8dfe-be37a2b46747
 Text: Bằng cách lựa chọn cả 3 phiên bản có cùng số lượng tham số
 khoảng 25M tương ứng là YOLOv8-M, YOLOv9-C và YOLOv10-L. Các thử
@@ -5,3 +6,21 @@ nghiệm được thực hiện trên cùng một thiết bị, python version, 
 seed và một số hyperparameter như: batch_size=16, image_size=640,...
 Sau khi quá trình huấn luyện kết thúc, thực hiện đánh giá trên tập
 test và ghi lại kế...
+=======
+Bằng cách lựa chọn
+cả 3 phiên bản có cùng số lượng tham số khoảng 25M tương ứng là YOLOv8-M, YOLOv9-C và
+YOLOv10-L. Các thử nghiệm được thực hiện trên cùng một thiết bị, python version, random
+seed và một số hyperparameter như: batch_size=16, image_size=640,... Sau khi quá trình huấn
+luyện kết thúc, thực hiện đánh giá trên tập test và ghi lại kết quả vào bảng 1 dưới đây:
+Bảng 1: Bảng thực nghiệm kết quả trên tập test của các mô hình YOLO phiên bản YOLOv8-M,
+YOLOv9-C, YOLOv10-M, YOLOv10-L sau khi fine-tuning.
+Model params GFLOPs layers inference time mAP@50 mAP@50-95
+YOLOv8-M 25.9M 78.9 295 6.5 ms 0.614 0.476
+YOLOv9-C 25.3M 102.1 618 8.1 ms 0.653 0.503
+YOLOv10-M 16.5 M 64.5 498 5.5 ms 0.626 0.479
+YOLOv10-L 24.4M 120.3 628 7.8 ms 0.659 0.498
+Quan sát kết quả trên, ta có thể thấy trên cùng một phiên bản, YOLOv10 có mức độ tối ưu tốt
+hơn về mặt tham số mô hình cũng như độ trễ trong inference trong khi vẫn giữ được độ chính
+xác ngang hoặc hơn so với các phiên bản trước.
+18
+>>>>>>> HEAD@{1}

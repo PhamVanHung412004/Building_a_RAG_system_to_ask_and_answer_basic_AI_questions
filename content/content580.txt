@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 8dffad46-95f1-4c09-b7df-45da2e612359
 Text: Viết chương trình tính khoảng cách chỉnh sửa tối thiểu
 Levenshtein. Khoảng cách Levenshtein thể hiện khoảng cách khác biệt
@@ -5,3 +6,22 @@ giữa 2 chuỗi ký tự. Khoảng cách Levenshtein giữa chuỗi S và chu�
 số bước ít nhất biến chuỗi S thành chuỗi T thông qua 3 phép biến đổi
 là: • Xoá một ký tự • Thêm một ký tự • Thay thế ký tự này bằng ký tự
 khác Khoảng các...
+=======
+Viết chương trình tính khoảng cách chỉnh sửa tối thiểu Levenshtein. Khoảng cách Levenshtein thể
+hiện khoảng cách khác biệt giữa 2 chuỗi ký tự. Khoảng cách Levenshtein giữa chuỗi S và chuỗi T
+là số bước ít nhất biến chuỗi S thành chuỗi T thông qua 3 phép biến đổi là:
+• Xoá một ký tự
+• Thêm một ký tự
+• Thay thế ký tự này bằng ký tự khác
+Khoảng cách này được sử dụng trong việc tính toán sự giống và khác nhau giữa 2 chuỗi, như
+chương trình kiểm tra lỗi chính tả của winword spellchecker. Ví dụ: Khoảng cách Levenshtein
+giữa 2 chuỗi "kitten" và "sitting" là 3, vì phải dùng ít nhất 3 lần biến đổi. Trong đó:
+• kitten -> sitten (thay "k" bằng "s")
+• sitten -> sittin (thay "e" bằng "i")
+• sittin -> sitting (thêm ký tự "g")
+Để hiểu rõ về thuật toán, chúng ta lấy ví dụ, khoảng cách cần tính giữa hai từ source: ’yu’ và
+target: ’you’. Chi phí thực hiện cho các phép biến đổi bao gồm: xoá một ký tự, thêm một ký tự
+và thay thế ký tự này thành ký tự khác đều là 1 (Nếu 2 ký tự giống nhau thì chi phí thực hiện là
+0).
+2
+>>>>>>> HEAD@{1}

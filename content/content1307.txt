@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: c76b7968-7401-4906-b3d9-f7e6c50bfbfc
 Text: AI VIETNAM aivietnam.edu.vn 1. Supervised Fine-Tuning (SFT)
 Trong phần này chúng ta sẽ tinh chỉnh mô hình tiền huấn luyện như GPT,
@@ -5,3 +6,37 @@ BLOOM, FlanT5,... trên bộ dữ liệu được gán nhãn. Bộ dữ liệu
 openai_summarize_tldr bao gồm các cặp dữ liệu: văn bản và bản tóm tắt.
 Hình 5: Supervised Fine-Tuning. 1.1. Dataset Chúng ta tải về bộ dữ
 liệu từ thư viện t...
+=======
+AI VIETNAM aivietnam.edu.vn
+1. Supervised Fine-Tuning (SFT)
+Trong phần này chúng ta sẽ tinh chỉnh mô hình tiền huấn luyện như GPT, BLOOM, FlanT5,... trên
+bộ dữ liệu được gán nhãn. Bộ dữ liệu openai_summarize_tldr bao gồm các cặp dữ liệu: văn bản và bản
+tóm tắt.
+Hình 5: Supervised Fine-Tuning.
+1.1. Dataset
+Chúng ta tải về bộ dữ liệu từ thư viện transformers sau đó tiền hành xây dựng cấu trúc dữ liệu như
+sau: "Text: document # Summary: summary"
+1 # install libs
+2 ! pip install -q datasets ==2.18.0 trl ==0.8.1 evaluate ==0.4.1 rouge_score ==0.1.2 peft
+==0.10.0
+3
+4 # load the dataset
+5 from datasets import load_dataset
+6
+7 sft_ds_name = ’ CarperAI / openai_summarize_tldr ’
+8 sft_ds = load_dataset ( sft_ds_name )
+9 sft_train = sft_ds [’train ’]
+10 sft_valid = sft_ds [’valid ’]
+11 sft_test = sft_ds [’test ’]
+12
+13 def formatting_func ( example ):
+14 text = f" ### Text : { example [’ prompt ’]}\n ### Summary : { example [’ label ’]}"
+15 return text
+16
+17 # demo formating
+18 for example in sft_train :
+19 print ( formatting_func ( example ))
+20 break
+1.2. Model
+Mô hình tiền huấn luyện được sử dụng là OPT. 
+>>>>>>> HEAD@{1}

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 2d1c0f04-837d-4df6-93b3-7583da01cfba
 Text: Quá trình này thường được hỗ trợ bởi thông tin điều kiện, như
 văn bản mô tả, để hướng dẫn quá trình tái tạo dữ liệu theo mong muốn.
@@ -5,3 +6,34 @@ Trong bối cảnh của Sora, diffusion model được áp dụng để dự đ
 tái tạo các clean patches từ các noisy patches, với sự hỗ trợ của
 thông tin điều kiện như văn bản mô tả. Đặc biệt, Sora kết hợp cấu trúc
 của diffus...
+=======
+Quá trình này thường được hỗ trợ bởi thông tin điều
+kiện, như văn bản mô tả, để hướng dẫn quá trình tái tạo dữ liệu theo mong muốn.
+Trong bối cảnh của Sora, diffusion model được áp dụng để dự đoán và tái tạo các clean patches từ
+các noisy patches, với sự hỗ trợ của thông tin điều kiện như văn bản mô tả. Đặc biệt, Sora kết hợp cấu
+trúc của diffusion transformer (DiT), tận dụng khả năng mở rộng mạnh mẽ của bộ biến đổi qua nhiều
+lĩnh vực như mô hình hóa ngôn ngữ và sinh hình ảnh. Qua quá trình huấn luyện, chất lượng của dữ liệu
+sinh ra bởi Sora tiếp tục cải thiện, chứng minh khả năng mở rộng hiệu quả của diffusion model dưới
+dạng bộ biến đổi cho việc mô hình hóa video.
+8 Một số khả năng của Sora
+Khả năng thông hiểu ngôn ngữ: Đầu tiên đó chính là khả năng hiểu ngôn ngữ của Sora, từ đó có
+thể tạo ra video từ các prompt văn bản. Sora được train trên dữ liệu video-text với caption cho các
+video được thu thập bằng phương pháp re-captioning được giới thiệu trong paper DALLE 3. Tương
+tự như DALLE 3, Sora cũng sử dụng các mô hình GPT để biến những prompt của người dùng thành
+những câu captions dài và chi tiết.
+Prompting từ hình ảnh và videoNgoài khả năng tạo sinh video từ văn bản, ta còn có thể
+prompt sora bằng ảnh và video. Khả năng này cho phép Sora có thể thực hiệu những tác vụ về edit
+hình ảnh và video, chẳng hạn như tạo những video loop, tạo ảnh động từ ảnh tĩnh, kéo dài video tiến
+hoặc lùi theo thời gian, v.v.
+Khả năng mô phỏng thế giớiVà cuối cùng, một khả năng của Sora khiến giới khoa học thảo
+luận và tranh cãi khá nhiều đó chính là khả năng mô phỏng thế giới của Sora. Khi được huấn luyện với
+lượng dữ liệu khổng lồ, Sora có thể có được một số khả năng thú vị, cho phép mô hình có thể mô phỏng
+một số khía cạnh của con người, động vật và môi trường từ thế giới vật chất. Sora hoàn toàn không
+được train để làm những tác vụ này, đây hoàn toàn là thành quả tuyệt vời được sinh ra từ dữ liệu lớn.
+Những khả năng này cho thấy rằng việc mở rộng kích thước của các mô hình video là một con
+đường đầy hứa hẹn, hướng tới sự phát triển của các mô hình có khả năng mô phỏng thế giới vật chất
+và tương tác giữa các vật thể, con người và động vật trong đó.
+Tóm lại, SORA đã chứng minh mình là một bước tiến đáng kể trong lĩnh vực công nghệ, mở ra một
+tương lai đầy hứa hẹn với khả năng tạo sinh video từ văn bản. Mặc dù còn tồn tại một số hạn chế,
+22
+>>>>>>> HEAD@{1}

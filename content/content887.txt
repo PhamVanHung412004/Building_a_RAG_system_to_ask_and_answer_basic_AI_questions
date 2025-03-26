@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 113d209e-2068-4db7-abf9-ca6453566a1a
 Text: AI VIETNAM aivietnam.edu.vn Hình 1: Khi temperature được set
 bằng 1.0, tức là không có một sự thay đổi nào so với hàm softmax bình
@@ -5,3 +6,11 @@ thường, lúc này sẽ là như apply một hàm softmax bình thường. Hì
 Khi temperature được đặt thành giá trị lớn hơn 1.0, nó sẽ "làm mượt"
 lại phân bố xác suất, làm cho phân bố xác suất trở nên phẳng hơn. Điều
 này có ...
+=======
+AI VIETNAM aivietnam.edu.vn
+Hình 1: Khi temperature được set bằng 1.0, tức là không có một sự thay đổi nào so với hàm softmax
+bình thường, lúc này sẽ là như apply một hàm softmax bình thường.
+Hình 2: Khi temperature được đặt thành giá trị lớn hơn 1.0, nó sẽ "làm mượt" lại phân bố xác
+suất, làm cho phân bố xác suất trở nên phẳng hơn. Điều này có nghĩa là các từ có xác suất thấp
+hơn sẽ có cơ hội được chọn cao hơn, dẫn đến output model có tính ngẫu nhiên cao hơn.
+>>>>>>> HEAD@{1}

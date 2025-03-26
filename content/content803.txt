@@ -1,4 +1,12 @@
+<<<<<<< HEAD
 Node ID: 0f4e3bb3-f79b-40a8-b965-705856c277ad
 Text: AIO 2024 aivietnam.edu.vn 1 np.sum(a, axis=None, dtype=None,
 keepdims=False, initial=0, where=True) Trong đó: • a: Mảng đầu vào. •
 axis: (Tùy chọn) Chiều hoặc các chiều trên đó tổng sẽ được thực hiện.
+=======
+AIO 2024 aivietnam.edu.vn
+1 np.sum(a, axis=None, dtype=None, keepdims=False, initial=0, where=True)
+Trong đó:
+• a: Mảng đầu vào.
+• axis: (Tùy chọn) Chiều hoặc các chiều trên đó tổng sẽ được thực hiện. 
+>>>>>>> HEAD@{1}

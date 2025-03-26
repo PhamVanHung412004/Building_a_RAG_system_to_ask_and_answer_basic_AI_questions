@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 580aa61d-a31e-4241-acde-085c1aea226f
 Text: 3. Xét đoạn code dưới đây: 1 import os 2 from autogen import
 ConversableAgent 3 4 agent = ConversableAgent ( 5 " chatbot ", 6
@@ -5,3 +6,21 @@ llm_config ={" config_list ": [{ 7 " model ": "gpt -3.5 - turbo ", 8 "
 api_key ": os. environ . get (" OPENAI_API_KEY ") 9 }]} , 10 ) Agent
 trên được khởi tạo như là: (a) Một mô hình LLM. (b) Một công cụ thực
 thi code. (c...
+=======
+3. Xét đoạn code dưới đây:
+1 import os
+2 from autogen import ConversableAgent
+3
+4 agent = ConversableAgent (
+5 " chatbot ",
+6 llm_config ={" config_list ": [{
+7 " model ": "gpt -3.5 - turbo ",
+8 " api_key ": os. environ . get (" OPENAI_API_KEY ")
+9 }]} ,
+10 )
+Agent trên được khởi tạo như là:
+(a) Một mô hình LLM.
+(b) Một công cụ thực thi code.
+(c) Một máy ảo.
+(d) Công cụ lưu trữ lịch sử hội thoại.
+>>>>>>> HEAD@{1}

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 3087ca67-db18-43a7-b76c-e98962b9d90f
 Text: 1. Cài đặt các gói thư viện cần thiết:Thực hiện cài đặt một số
 gói thư viện thông qua lệnh pip install như sau: 1 ! pip install -q
@@ -5,3 +6,20 @@ transformers ==4.41.2 2 ! pip install -q bitsandbytes ==0.43.1 3 ! pip
 install -q accelerate ==0.31.0 4 ! pip install -q langchain ==0.2.5 5
 ! pip install -q langchainhub ==0.1.20 6 ! pip install -q langchain -
 chrom...
+=======
+1. Cài đặt các gói thư viện cần thiết:Thực hiện cài đặt một số gói thư viện thông qua
+lệnh pip install như sau:
+1 ! pip install -q transformers ==4.41.2
+2 ! pip install -q bitsandbytes ==0.43.1
+3 ! pip install -q accelerate ==0.31.0
+4 ! pip install -q langchain ==0.2.5
+5 ! pip install -q langchainhub ==0.1.20
+6 ! pip install -q langchain - chroma ==0.1.1
+7 ! pip install -q langchain - community ==0.2.5
+8 ! pip install -q langchain_huggingface ==0.0.3
+9 ! pip install -q python - dotenv ==1.0.1
+10 ! pip install -q pypdf ==4.2.0
+11 ! pip install -q numpy ==1.24.4
+2. Xây dựng vector database:Để thực hiện truy vấn, chúng ta cần phải có một cơ sở dữ
+liệu. 
+>>>>>>> HEAD@{1}

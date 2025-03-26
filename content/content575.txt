@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 Node ID: 549f106d-804c-4879-b39d-83851d387769
 Text: Daily AI Exercise (AIO) aivietnam.edu.vn Trong ví dụ này vòng
 lặp while sẽ chạy miễn là i nhỏ hơn 10. Mỗi lần vòng lặp chạy, giá trị
 của i được tăng lên một đơn vị.
+=======
+Daily AI Exercise (AIO) aivietnam.edu.vn
+Trong ví dụ này vòng lặp while sẽ chạy miễn là i nhỏ hơn 10. Mỗi lần vòng lặp chạy, giá trị của i được
+tăng lên một đơn vị. 
+>>>>>>> HEAD@{1}

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 00358c6b-09a2-4d7d-9187-570f43c3b8af
 Text: Daily AI Exercise (AIO) aivietnam.edu.vn Hình 4: Thực thi chương
 trình python 3.4 Lựa chọn môi trường dự án Khi chạy chương trình trên,
@@ -5,3 +6,16 @@ chương trình được chạy trên môi trường mặc định của máy t�
 môi trường cụ thể, hãy chọn "View"> "Command Palette"từ thanh menu
 hoặc nhấn tổ hợp phím Ctrl + Shift + P sau đó nhập "Select
 Interpreter"và ...
+=======
+Daily AI Exercise (AIO) aivietnam.edu.vn
+Hình 4: Thực thi chương trình python
+3.4 Lựa chọn môi trường dự án
+Khi chạy chương trình trên, chương trình được chạy trên môi trường mặc định của máy tính. Để chọn
+môi trường cụ thể, hãy chọn "View"> "Command Palette"từ thanh menu hoặc nhấn tổ hợp phím Ctrl
++ Shift + P sau đó nhập "Select Interpreter"và click vào "Python:Select Interpreter", một danh sách
+các môi trường chúng ta đã tạo được hiển thị, ta chọn môi trường có tên là "my_python_env"mà chúng
+ta đã tạo với conda ở phần 2.2.1.
+Hình 5: Chọn môi trường với select interpreter
+Tại Terminal ta thấy môi trường đã được kích hoạt và chương trình đã được thực thi trong môi trường
+này. 
+>>>>>>> HEAD@{1}

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 5aa49acb-e314-4b1b-b4bc-e021e4087685
 Text: Cụ thể với một video cho trước, nhiệm vụ của model là fine-tune
 cụ thể trên video đó, để từ đó có thể edit video đó dựa theo yêu cầu
@@ -5,3 +6,12 @@ từ text prompt của user. Điều này giúp giảm chi phí tính toán, khi
 thay vì phải train trên một tập dataset về video lớn, với chi phí về
 gán nhãn và về phần cứng khổng lồ, ta có thể tận dụng các mô hình
 Text-to-imag...
+=======
+Cụ thể với một video cho trước, nhiệm vụ của model là fine-tune cụ thể trên video đó, để từ đó có
+thể edit video đó dựa theo yêu cầu từ text prompt của user. Điều này giúp giảm chi phí tính toán, khi
+thay vì phải train trên một tập dataset về video lớn, với chi phí về gán nhãn và về phần cứng khổng
+lồ, ta có thể tận dụng các mô hình Text-to-image có sẵn để tune duy nhất cho một video, và tương tác
+trên video đó. Phương pháp này được gọi là zero-shot video-tuning.
+Hình 19: Pipeline của paper Tune-a-video
+17
+>>>>>>> HEAD@{1}

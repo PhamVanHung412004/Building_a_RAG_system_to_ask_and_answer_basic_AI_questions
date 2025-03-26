@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 5a049b2c-d294-4538-8b63-973a79f71d78
 Text: Nhiễu σ √ ∆t r tăng cường biến động ngẫu nhiên, thể hiện sự
 không chắc chắn trong quá trình reverse. Tóm lại, OU process và xác
@@ -5,3 +6,13 @@ suất chuyển đổi giúp mô tả các quá trình trong đó các giá tr�
 hướng hồi phục về giá trị trung bình với biến động ngẫu nhiên. Các
 bước Euler-Maruyama được sử dụng để mô phỏng số liệu và thu thập thông
 tin về quá tr...
+=======
+Nhiễu σ
+√
+∆t r tăng cường biến động ngẫu nhiên, thể hiện sự không chắc chắn trong quá trình
+reverse.
+Tóm lại, OU process và xác suất chuyển đổi giúp mô tả các quá trình trong đó các giá trị có xu
+hướng hồi phục về giá trị trung bình với biến động ngẫu nhiên. Các bước Euler-Maruyama được sử
+dụng để mô phỏng số liệu và thu thập thông tin về quá trình reverse.
+20
+>>>>>>> HEAD@{1}

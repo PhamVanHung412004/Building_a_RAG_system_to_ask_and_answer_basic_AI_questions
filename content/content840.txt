@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 6b451d79-2bd0-4fd9-b0ac-a1b4ebb3174f
 Text: AI VIETNAM aivietnam.edu.vn 5 query_norm =
 np.sqrt(np.sum(query_mean**2)) 6 data_norm =
@@ -6,3 +7,26 @@ np.sum(data_mean * query_mean, axis=axis_batch_size) /
 (query_norm*data_norm + np. finfo(float).eps) Chúng ta tạo hàm
 get_correlation_coefficient_score(), hàm này tương tự hàm
 get_l1_score() 1 def...
+=======
+AI VIETNAM aivietnam.edu.vn
+5 query_norm = np.sqrt(np.sum(query_mean**2))
+6 data_norm = np.sqrt(np.sum(data_mean**2, axis=axis_batch_size))
+7
+8 return np.sum(data_mean * query_mean, axis=axis_batch_size) / (query_norm*data_norm + np.
+finfo(float).eps)
+Chúng ta tạo hàm get_correlation_coefficient_score(), hàm này tương tự hàm get_l1_score()
+1 def get_correlation_coefficient_score(root_img_path, query_path, size):
+2 query = read_image_from_path(query_path, size)
+3 ls_path_score = []
+4 for folder in os.listdir(root_img_path):
+5 if folder in CLASS_NAME:
+6 path = root_img_path + folder
+7 images_np, images_path = folder_to_images(path, size) # mang numpy nhieu anh,
+paths
+8 rates = correlation_coefficient(query, images_np)
+9 ls_path_score.extend(list(zip(images_path, rates)))
+10 return query, ls_path_score
+Để hiển thị kết quả chúng ta sử dụng hàm plot_results(), tuy nhiên ở hàm này chúng ta sẽ sắp xếp giá
+trị giảm dần từ lớn đến nhỏ vì với độ đo này thì giá trị càng lớn sẽ càng giống nhau, cho nên chúng ta
+sử dụng reverse = True.
+>>>>>>> HEAD@{1}

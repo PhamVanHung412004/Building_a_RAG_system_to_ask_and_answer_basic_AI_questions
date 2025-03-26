@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: c3815900-a874-4175-9232-e10d9e5f52f1
 Text: AI VIETNAM aivietnam.edu.vn 32 33 def inference ( model ,
 test_sample ): 34 with torch . no_grad (): 35 output , visuals = model
@@ -5,3 +6,36 @@ test_sample ): 34 with torch . no_grad (): 35 output , visuals = model
 38 return output , visuals 39 40 output , visuals = inference (
 colordiff_model , test_sample ) 41 42 43 # Show the results 44 def
 show_tensor_image ...
+=======
+AI VIETNAM aivietnam.edu.vn
+32
+33 def inference ( model , test_sample ):
+34 with torch . no_grad ():
+35 output , visuals = model . restoration (
+36 test_sample [1]. unsqueeze (0) .to( device )
+37 )
+38 return output , visuals
+39
+40 output , visuals = inference ( colordiff_model , test_sample )
+41
+42
+43 # Show the results
+44 def show_tensor_image ( img_l , img_ab , is_save = False ):
+45 img_l = img_l . permute (1 , 2, 0). numpy ()
+46 img_ab = img_ab . permute (1 , 2, 0). numpy ()
+47 img_ab = cv2 . resize ( img_ab , ( img_l . shape [1] , img_l . shape [0]) , interpolation =
+cv2 . INTER_LINEAR )
+48 arr_lab = np. concatenate ([ img_l , img_ab ], axis =2)
+49 arr_lab = ( arr_lab + 1.0) * 255 / 2
+50 arr_lab = np. clip ( arr_lab , 0, 255) . astype (np. uint8 )
+51 arr_bgr = cv2 . cvtColor ( arr_lab , cv2 . COLOR_LAB2BGR )
+52 if is_save :
+53 cv2 . imwrite (" results . png ", arr_bgr )
+54 arr_bgr = cv2 . cvtColor ( arr_bgr , cv2 . COLOR_BGR2RGB )
+55 plt . imshow ( arr_bgr )
+56 plt . axis ( False )
+57
+58 output , visuals = inference ( colordiff_model , test_sample )
+59 show_tensor_image ( test_sample [0] , output [0]. cpu () , is_save = True )
+60 plt . 
+>>>>>>> HEAD@{1}

@@ -1,3 +1,11 @@
+<<<<<<< HEAD
 Node ID: 9691bfba-6602-45df-bde3-52e931c23907
 Text: 1 !pip install tqdm 2 3 !apt-get update 4 !apt-get install -y
 wget 20
+=======
+1 !pip install tqdm
+2
+3 !apt-get update
+4 !apt-get install -y wget
+20
+>>>>>>> HEAD@{1}

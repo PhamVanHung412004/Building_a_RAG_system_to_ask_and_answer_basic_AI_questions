@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 49ac2701-263d-4029-a1ef-5ddd279f5d10
 Text: 2. Instruction tuning là một dạng của kiểu học (a) Supervised
 learning. (b) Self-supervised learning. (c) Unsupervised learning. (d)
@@ -5,3 +6,17 @@ Reinforcement learning. 3. Khi thực hiện instruction tuning, hàm loss
 nào sau đây có thể được sử dụng? (a) Mean Squared Error (MSE) (b)
 Hinge Loss (c) Kullback-Leibler Divergence (d) Cross-Entropy Loss 4.
 Mệnh đề s...
+=======
+2. Instruction tuning là một dạng của kiểu học
+(a) Supervised learning.
+(b) Self-supervised learning.
+(c) Unsupervised learning.
+(d) Reinforcement learning.
+3. Khi thực hiện instruction tuning, hàm loss nào sau đây có thể được sử dụng?
+(a) Mean Squared Error (MSE)
+(b) Hinge Loss
+(c) Kullback-Leibler Divergence
+(d) Cross-Entropy Loss
+4. Mệnh đề sau đúng hay sai: "Ta luôn nên áp dụng instruction tuning để giảm thiểu chi phí tính
+toán trong quá trình training"?
+>>>>>>> HEAD@{1}

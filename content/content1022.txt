@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 6b820033-ef8a-46fb-9774-c078092e5ce4
 Text: AI VIETNAM aivietnam.edu.vn Giai đoạn 2: Tạo ra câu trả lờiBước
 tiếp theo là dùng những thông tin đã thu thập được tạo ra câu trả lời
@@ -5,3 +6,24 @@ chính xác. Nghiên cứu này chỉ ra rằng việc trực tiếp tạo ra c�
 lời sẽ gây khó khăn trong việc duy trì tính hội thoại cho câu trả lời
 của mô hình. Vì vậy, giai đoạn này sẽ chia thành 2 bước nhỏ. • Bước 6:
 Wiki...
+=======
+AI VIETNAM aivietnam.edu.vn
+Giai đoạn 2: Tạo ra câu trả lờiBước tiếp theo là dùng những thông tin đã thu thập được tạo ra
+câu trả lời chính xác. Nghiên cứu này chỉ ra rằng việc trực tiếp tạo ra câu trả lời sẽ gây khó khăn trong
+việc duy trì tính hội thoại cho câu trả lời của mô hình. Vì vậy, giai đoạn này sẽ chia thành 2 bước nhỏ.
+• Bước 6: WikiChat tạo ra một câu trả lời tạm dựa trên những gạch đầu dòng được truy vấn từ
+bước trước.
+• Bước 7: Sau đó WikiChat sẽ tạo ra nhận xét và chỉnh sửa lại câu trả lời dựa trên các yếu tố tính
+phù hợp, tính tự nhiên, tính không lặp lại và tính đúng đắn về mặt thời gian.
+Chắt lọc kiến thức sáng các mô hình nhỏ hơnĐể giảm độ trễ, chi phí và đảm bảo tính riêng
+tư, nghiên cứu này để xuất phương pháp để chắt lọc kiến thức từ một mô hình lớn và mã nguồn đóng
+(chẳng hạn như GPT-4) sang một mô hình nhỏ hơn và mã nguồn mở (chẳng hạn như Llama-7B). Một
+mô hình ngôn ngữ giả lập người dùng sẽ được sử dụng để hội thọai với WikiChat về những chủ đề
+được lấy từ Wikipedia, và ghi lại những đầu vào và đầu ra của mô hình. Dữ liệu này sẽ được giữ lại để
+fine-tune mô hình Llama nhỏ. Kết quả thu được cho thấy mô hình nhỏ này có khả năng trả lời tiệm
+cận so với mô hình lớn, trong khi giảm đi độ trễ, chi phí và vẫn đảm bảo được tính riêng tư cho dữ liệu
+người dùng.
+References
+Lewis, P., Perez, E., Piktus, A., Petroni, F., Karpukhin, V., Goyal, N., K¨ uttler, H., Lewis, M., tau
+Yih, W., Rockt¨ aschel, T., Riedel, S., & Kiela, D. 
+>>>>>>> HEAD@{1}

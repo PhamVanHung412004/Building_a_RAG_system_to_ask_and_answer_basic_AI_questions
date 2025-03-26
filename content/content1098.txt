@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: bf484f88-1368-4b48-a26b-330ce7c35b7f
 Text: AI VIETNAM (AIO2024) aivietnam.edu.vn II.VI. YOLOv5 YOLOv5 [5],
 không phải do tác giả gốc phát triển, nhưng được cộng đồng sử dụng
@@ -5,3 +6,28 @@ rộng rãi từ năm 2020. - Điểm mới: Tập trung vào tối ưu hóa và
 sử dụng với các framework như PyTorch. Sử dụng CSPNet làm backbone và
 PANet để fusion giúp cải thiện độ chính xác của mô hình. - Ưu điểm: Dễ
 dàng ...
+=======
+AI VIETNAM (AIO2024) aivietnam.edu.vn
+II.VI. YOLOv5
+YOLOv5 [5], không phải do tác giả gốc phát triển, nhưng được cộng đồng sử dụng rộng rãi từ
+năm 2020.
+- Điểm mới: Tập trung vào tối ưu hóa và dễ dàng sử dụng với các framework như PyTorch.
+Sử dụng CSPNet làm backbone và PANet để fusion giúp cải thiện độ chính xác của mô
+hình.
+- Ưu điểm: Dễ dàng triển khai, tối ưu hóa tốt, cộng đồng hỗ trợ mạnh mẽ.
+- Nhược điểm: Yêu cầu tài nguyên tính toán cao và khó detect được các object nhỏ.
+II.VII. YOLOv6
+YOLOv6 [6] là phiên bản tiếp theo với nhiều cải tiến về tốc độ và độ chính xác.
+- Điểm mới: Sử dụng backbone mới EfficientRep và Rep-PAN Neck để tối ưu hóa và tăng
+hiệu năng của mô hình. SimOTA, một phương pháp Label Assignment, cũng được sử dụng
+để tăng tính ổn định khi training.
+- Ưu điểm: Hiệu năng cao hơn, tốc độ nhanh hơn.
+- Nhược điểm: Yêu cầu tài nguyên tính toán cao hơn.
+II.VIII. YOLOv7
+YOLOv7 [7] tiếp tục phát triển với các cải tiến về mô hình và thuật toán.
+- Điểm mới: Sử dụng backbone E-ELAN kết hợp với phương pháp trainable bag-of-freebies
+để tăng độ chính xác của mô hình mà không làm tăng chi phí tính toán.
+- Ưu điểm: Tăng độ chính xác và khả năng nhận diện trong các điều kiện phức tạp.
+- Nhược điểm: Mức độ phức tạp cao, cần nhiều thời gian và tài nguyên để huấn luyện.
+II.IX. 
+>>>>>>> HEAD@{1}

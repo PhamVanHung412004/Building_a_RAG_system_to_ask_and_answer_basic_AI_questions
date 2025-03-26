@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 3f0c9e28-af4f-441a-ba24-601f6331063e
 Text: AI VIETNAM aivietnam.edu.vn 4 (Đọc thêm) Thu Thập và Xử Lý Dữ
 Liệu Để Xây Dựng Chương Trình Truy Vấn Ảnh Cá Nhân Hóa Phần này tập
@@ -5,3 +6,23 @@ trung vào việc thu thập và xử lý dữ liệu nhằm mục đích tạo 
 thống truy vấn ảnh được cá nhân hóa, phù hợp với nhu cầu và sở thích
 riêng của từng người dùng. Thu thập dữ liệu là tác vụ đầu tiên chúng
 ta cần làm...
+=======
+AI VIETNAM aivietnam.edu.vn
+4 (Đọc thêm) Thu Thập và Xử Lý Dữ Liệu Để Xây Dựng Chương
+Trình Truy Vấn Ảnh Cá Nhân Hóa
+Phần này tập trung vào việc thu thập và xử lý dữ liệu nhằm mục đích tạo ra một hệ thống truy vấn
+ảnh được cá nhân hóa, phù hợp với nhu cầu và sở thích riêng của từng người dùng.
+Thu thập dữ liệu là tác vụ đầu tiên chúng ta cần làm để có thể xây dựng nên bộ dữ liệu ảnh dành cho
+bài toán Image Retrieval. Có khá nhiều cách để thu thập dữ liệu dạng ảnh như chụp bằng thiết bị ghi
+hình, tải từ các website"Image Search Engine", phổ biến như: Google Image Search, TinyEye, Bing
+Image Search, Yahoo Image Search. Yandex Image Search. Pinterest, Visual Search, Openverse, Flickr,
+Shutterstock, Pexels, ... Đối với dự án này, chúng ta sẽ thực hiện thu thập ảnh từ trang web flickr.com
+- một trang web tìm kiếm ảnh chất lượng và miễn phí.
+Hình 22: Trang chủ flickr.com
+Trước hết, chúng ta sẽ cài đặt, import các thư viện cần thiết cho dự án này:
+• BeautifulSoup: Dùng để phân tích cú pháp HTML của trang web flickr.com.
+• Urllib: Xử lí các vấn đề liên quan tới URL.
+• Selenium: Dùng để tương tác với các HTML element của wetsite flickr.com
+• Concurrent.futures: Là Mô-đun dùng để xử lý đa luồng trong Python.
+• os: Làm việc với đường dẫn ảnh, tổ chức folder.
+>>>>>>> HEAD@{1}

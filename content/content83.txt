@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 765d4711-30a2-4b49-af0f-05852267a8ea
 Text: png ’, depth ) 43 cv2 . imwrite (f’ pixel_wise_l1_color . png ’,
 cv2 . applyColorMap ( depth , cv2 . COLORMAP_JET )) 44 45 print (’Done
@@ -5,3 +6,16 @@ cv2 . applyColorMap ( depth , cv2 . COLORMAP_JET )) 44 45 print (’Done
 tại vị trí của một pixel bất kì theo phương pháp pixel-wise matching
 Tận dụng phần cài đặt gợi ý trên, các bạn sẽ thực hiện thêm một số yêu
 cầu...
+=======
+png ’, depth )
+43 cv2 . imwrite (f’ pixel_wise_l1_color . png ’, cv2 . applyColorMap ( depth , cv2 .
+COLORMAP_JET ))
+44
+45 print (’Done .’)
+46
+47 return depth
+Hình 2: Các bước tính toán giá trị disparity tại vị trí của một pixel bất kì theo phương pháp
+pixel-wise matching
+Tận dụng phần cài đặt gợi ý trên, các bạn sẽ thực hiện thêm một số yêu cầu sau:
+3
+>>>>>>> HEAD@{1}

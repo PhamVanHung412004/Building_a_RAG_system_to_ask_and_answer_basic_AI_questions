@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 Node ID: 8cd19e27-01e7-4863-acff-f7ffd753cae3
 Text: Hàm này sẽ trả về số ký tự có trong chuỗi đó. ví dụ:
+=======
+Hàm này sẽ trả về số ký tự có
+trong chuỗi đó. ví dụ:
+>>>>>>> HEAD@{1}

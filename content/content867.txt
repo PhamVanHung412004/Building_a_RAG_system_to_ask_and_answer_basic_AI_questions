@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 89b8738e-3026-4cb4-adb4-97f6519df5bb
 Text: Đồng thời ở một mức nào đó, trang web sẽ yêu cầu người dùng bấm
 vào button "Load more results" để hiển thị thêm ảnh. Hình 27: Tính
@@ -5,3 +6,31 @@ chất lazy loading giúp trang web tối ưu hiệu năng hiển thị ảnh N�
 được đặc tính này, chúng ta sẽ sử dụng selenium để scroll trang web
 xuống dưới để nhận thêm nhiều nội dung HTML, đồng thời click vào
 button "Load mor...
+=======
+Đồng thời ở một mức nào đó, trang web sẽ yêu cầu người dùng bấm vào button "Load more results"
+để hiển thị thêm ảnh.
+Hình 27: Tính chất lazy loading giúp trang web tối ưu hiệu năng hiển thị ảnh
+Nắm được đặc tính này, chúng ta sẽ sử dụng selenium để scroll trang web xuống dưới để nhận thêm
+nhiều nội dung HTML, đồng thời click vào button "Load more results" để lấy thêm nhiều link ảnh cho
+tới khi đủ thì dừng lại.
+1 def get_url_images(self, term):
+2 """
+3 Crawl the urls of images by term
+4
+5 Parameters:
+6 term (str): The name of animal, plant, scenery, furniture
+7
+8 Returns:
+9 urls (list): List of urls of images
+10 """
+11
+12 # Initialize Chrome driver
+13 options = webdriver.ChromeOptions()
+14 options.add_argument(’--headless’)
+15 options.add_argument(’--no-sandbox’)
+16 options.add_argument(’--disable-dev-shm-usage’)
+17 driver = webdriver.Chrome(options=options)
+18
+19 url = self.url_template.format(search_term=term)
+24
+>>>>>>> HEAD@{1}

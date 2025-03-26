@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 7a88768d-b116-4e84-89f6-54f65ea03a97
 Text: AIO 2024 aivietnam.edu.vn Lưu ý khi sử dụnghstack là các array
 hoặc tensor cần phải có cùng độ dài trong chiều dọc (cùng số hàng).
@@ -5,3 +6,38 @@ Nếu các array/tensor không có cùng độ dài trong chiều dọc sẽ gâ
 lỗi khi thực thi chương trình. 4.2 vstack Hình 8: Minh họa vstack Hàm
 vstack trong NumPy, PyTorch được sử dụng để nối các array hoặc tensor
 theo chi...
+=======
+AIO 2024 aivietnam.edu.vn
+Lưu ý khi sử dụnghstack là các array hoặc tensor cần phải có cùng độ dài trong chiều dọc (cùng số
+hàng). Nếu các array/tensor không có cùng độ dài trong chiều dọc sẽ gây ra lỗi khi thực thi chương
+trình.
+4.2 vstack
+Hình 8: Minh họa vstack
+Hàm vstack trong NumPy, PyTorch được sử dụng để nối các array hoặc tensor theo chiều dọc, tức là
+nối chúng thành một cấu trúc dữ liệu lớn hơn theo chiều thứ nhất. Quá trình này giúp kết hợp dữ liệu
+từ các nguồn khác nhau hoặc mở rộng kích thước của cấu trúc dữ liệu hiện có.
+Ví dụ dưới đây sử dụngvstack để nối các array theo chiều dọc.
+1 # Numpy code
+2 import numpy as np
+3 # Tạo hai array
+4 arr_1 = np.array([1, 2, 3])
+5 arr_2 = np.array([4, 5, 6])
+6 # Nối hai array theo chiều dọc
+7 arr_3 = np.vstack((arr_1, arr_2))
+8 # In kết quả
+9 print("Array 1:\n", arr_1)
+10 print("Array 2:\n", arr_2)
+11 print("Array sau khi nối theo chiều dọc:\n
+", arr_3)
+================= Output ================
+Array 1:
+[1 2 3]
+Array 2:
+[4 5 6]
+Array sau khi nối theo chiều dọc:
+[[1 2 3]
+[4 5 6]]
+==========================================
+Lưu ý khi sử dụngvstacklà các array hoặc tensor cần phải có cùng số cột. Nếu các array/tensor không
+có cùng số cột sẽ gây ra lỗi khi thực thi chương trình.
+>>>>>>> HEAD@{1}

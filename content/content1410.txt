@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 26037230-f143-433c-a4e2-cdd18785cace
 Text: optimizer . step () 35 return sum ( losses )/ len ( losses ) 36
 37 def val_step (self , epoch ): 38 self . model . eval () 39 losses ,
@@ -5,3 +6,48 @@ metrics = [] , [] 40 pred_images = [] 41 gt_images = [] 42 43 with
 torch . no_grad (): 44 for i, ( original_gray , gray , color ) in tqdm
 ( enumerate ( self . val_loader )): 45 cond_gray = gray .to( self .
 device...
+=======
+optimizer . step ()
+35 return sum ( losses )/ len ( losses )
+36
+37 def val_step (self , epoch ):
+38 self . model . eval ()
+39 losses , metrics = [] , []
+40 pred_images = []
+41 gt_images = []
+42
+43 with torch . no_grad ():
+44 for i, ( original_gray , gray , color ) in tqdm ( enumerate ( self . val_loader
+)):
+45 cond_gray = gray .to( self . device )
+46 gt_color = color .to( self . device )
+47 loss = self . model ( gt_color , cond_gray )
+48
+49 output , visuals = self . model . restoration (
+50 cond_gray , sample_num = self . sample_num )
+51 if i == 0:
+52 for i in range ( output . shape [0]) :
+53 # Show predicted image
+54 pred_bgr_image = self . show_wandb_image ( original_gray [i],
+output [i]. detach (). cpu ())
+55 pred_wandb_image = wandb . Image ( pred_bgr_image , caption =f"
+epoch { epoch }")
+56 pred_images . append ( pred_wandb_image )
+57
+58 # Show grouth truth image
+59 gt_bgr_image = self . show_wandb_image ( original_gray [i],
+color [i])
+60 gt_wandb_image = wandb . Image ( gt_bgr_image , caption =f"
+epoch { epoch }")
+61 gt_images . append ( gt_wandb_image )
+62
+63 mae_score = mae ( gt_color , output )
+64 losses . append ( loss . item ())
+65 metrics . append ( mae_score . item ())
+66 return sum ( losses )/ len ( losses ), sum ( metrics )/ len ( metrics ), pred_images ,
+gt_images
+67
+68 # Postprocess the image before logging to WanDB
+69 def show_wandb_image (self , img_l , img_ab , is_save = False ):
+70 img_l = img_l . permute (1 , 2, 0). 
+>>>>>>> HEAD@{1}

@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 Node ID: c3beb463-e6cf-49e4-8298-a21cd589ad0a
 Text: train () 7
+=======
+train ()
+7
+>>>>>>> HEAD@{1}

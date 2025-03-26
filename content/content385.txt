@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: e55551bb-9ae8-4029-b5d3-d3858feb87e6
 Text: AI VIETNAM aivietnam.edu.vn Hình 3: Hình ảnh mô tả các phương
 pháp khử nhiễu trên point cloud. a) Noise, b) Radius noise removal với
@@ -5,3 +6,37 @@ radius = 0.5, c) Statistical noise removal với standard ratio = 0.5 và
 number of neighbor = 10. 1.5 Nearest neighbor search Đám mây điểm có
 cấu trúc không đều (irregular). Trong khi đó, vùng lân cận cục bộ của
 các ...
+=======
+AI VIETNAM aivietnam.edu.vn
+Hình 3: Hình ảnh mô tả các phương pháp khử nhiễu trên point cloud. a) Noise, b) Radius noise removal
+với radius = 0.5, c) Statistical noise removal với standard ratio = 0.5 và number of neighbor = 10.
+1.5 Nearest neighbor search
+Đám mây điểm có cấu trúc không đều (irregular). Trong khi đó, vùng lân cận cục bộ của các pixel
+trong ảnh 2D có thể dễ dàng được xác định bằng cách tạo ra một lưới xung quanh pixel, thì đám mây
+điểm không có biểu diễn dựa trên lưới tự nhiên và việc xây dựng lưới là không đơn giản. Thay vào
+đó, tìm kiếm nearest neighbor (NN) đóng vai trò là yếu tố cơ bản để xây dựng các vùng lân cận cục
+bộ cho các điểm trong đám mây điểm. Tìm kiếm NN được sử dụng trong các tác vụ loại bỏ nhiễu
+bán kính (radius_outlier_removal), loại bỏ nhiễu thống kê (statistic_outlier_removal)như được mô tả
+trong Phần 1.4, để tính toán các đặc điểm cục bộ cho mỗi điểm với vùng lân cận cục bộ của nó.
+Trong lĩnh vực xử lý dữ liệu điểm 3D, hai cấu trúc dữ liệu quan trọng thường được sử dụng để tìm
+kiếm lân cận (Search Neighbor) hiệu quả là cây KD (KD-Tree) và Octree.
+Cây KD (KD-Tree)
+Khái niệm: Cây KD là một cây tìm kiếm nhị phân đa chiều được sử dụng để lưu trữ dữ liệu điểm trong
+không gian đa chiều (ví dụ như không gian 3D). Nó phân chia lặp lại không gian thành các vùng con
+dựa trên các trục tọa độ (X, Y, Z).
+Hoạt động: Khi tìm kiếm điểm lân cận của một điểm truy vấn, cây KD sẽ hướng dẫn tìm kiếm theo các
+trục tọa độ, loại bỏ hiệu quả các vùng không gian không thể chứa điểm lân cận.
+Ưu điểm:
+- Tìm kiếm lân cận nhanh chóng, đặc biệt hiệu quả với dữ liệu điểm phân bố đều.
+- Sử dụng bộ nhớ hiệu quả.
+Nhược điểm:
+- Hiệu quả tìm kiếm có thể giảm với dữ liệu điểm phân bố không đều.
+- Cấu trúc cây có thể phức tạp đối với dữ liệu chiều cao.
+Octree
+Khái niệm: Octree là một cây tìm kiếm nhị phân được sử dụng để lưu trữ dữ liệu điểm trong không
+gian 3D. Nó phân chia lặp lại không gian thành các khối lập phương (octant) bằng nhau.
+Hoạt động: Tương tự như cây KD, Octree hướng dẫn tìm kiếm lân cận bằng cách loại bỏ các octant
+không thể chứa điểm lân cận.
+Ưu điểm:
+- Hiệu quả tốt với dữ liệu điểm phân bố không đều.
+>>>>>>> HEAD@{1}

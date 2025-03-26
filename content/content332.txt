@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 10e468b8-5af1-4fd0-9356-adeffac7452e
 Text: AI VIETNAM aivietnam.edu.vn Hình 8: Ảnh minh họa cho Big Model ở
 giai đoạn inference 1 def inference (): 2 # Load hyperparameters 3
@@ -5,3 +6,17 @@ out_dir , listdir , featslistdir = get_dirpaths ( args ) 4 batchsize =
 args [" batchsize "] 5 hiddensize = args [" hiddensize "] 6 nmix =
 args [" nmix "] 7 8 # Create DataLoader 9 data = ColorDataset ( 10 os.
 path .
+=======
+AI VIETNAM aivietnam.edu.vn
+Hình 8: Ảnh minh họa cho Big Model ở giai đoạn inference
+1 def inference ():
+2 # Load hyperparameters
+3 out_dir , listdir , featslistdir = get_dirpaths ( args )
+4 batchsize = args [" batchsize "]
+5 hiddensize = args [" hiddensize "]
+6 nmix = args [" nmix "]
+7
+8 # Create DataLoader
+9 data = ColorDataset (
+10 os. path . 
+>>>>>>> HEAD@{1}

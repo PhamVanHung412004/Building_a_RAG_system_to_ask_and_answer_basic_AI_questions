@@ -1,3 +1,9 @@
+<<<<<<< HEAD
 Node ID: b424d8aa-bce8-49c0-a875-1366ece0c106
 Text: AI VIETNAM (AIO2024) aivietnam.edu.vn Hình 16: Kết quả dự đoạn
 của mô hình YOLOv10 phiên bảnnano (yolov10n.pt). 8.
+=======
+AI VIETNAM (AIO2024) aivietnam.edu.vn
+Hình 16: Kết quả dự đoạn của mô hình YOLOv10 phiên bảnnano (yolov10n.pt).
+8. 
+>>>>>>> HEAD@{1}

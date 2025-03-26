@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 29d54470-cfec-490b-9442-59505b91381b
 Text: feats_fns = [] 9 10 with open ("%s/ list .%s. vae . txt " % (
 listdir , split ), "r") as ftr : 11 for img_fn in ftr : 12 self .
@@ -5,3 +6,18 @@ img_fns . append ( img_fn . strip ("\n")) 13 14 with open ("%s/ list
 .%s. txt " % ( featslistdir , split ), "r") as ftr : 15 for feats_fn
 in ftr : 16 self . feats_fns . append ( feats_fn . strip ("\n")) 17 18
 self . img...
+=======
+feats_fns = []
+9
+10 with open ("%s/ list .%s. vae . txt " % ( listdir , split ), "r") as ftr :
+11 for img_fn in ftr :
+12 self . img_fns . append ( img_fn . strip ("\n"))
+13
+14 with open ("%s/ list .%s. txt " % ( featslistdir , split ), "r") as ftr :
+15 for feats_fn in ftr :
+16 self . feats_fns . append ( feats_fn . strip ("\n"))
+17
+18 self . img_num = min ( len ( self . img_fns ), len ( self . feats_fns ))
+19 self . shape = shape
+20 self . 
+>>>>>>> HEAD@{1}

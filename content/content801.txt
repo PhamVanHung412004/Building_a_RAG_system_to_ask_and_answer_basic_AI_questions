@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 21bb74da-add1-4e8c-8354-c064e991905a
 Text: AIO 2024 aivietnam.edu.vn Hình 19: Minh họa transpose A = 1 2 3
 4 5 6  Chuyển vị củaA, ký hiệu làAT , sẽ là: AT =   1 4 2 5 3 6  
@@ -5,3 +6,58 @@ Một số tính chất của phép chuyển vị: • Chuyển vị của một
 chuyển vị lại sẽ cho ra ma trận ban đầu:(AT )T = A. • Chuyển vị của
 tổng hai ma trận bằng tổng chuyển vị của từng ma trận:(A + B)T = AT +
 BT . • C...
+=======
+AIO 2024 aivietnam.edu.vn
+Hình 19: Minh họa transpose
+A =
+1 2 3
+4 5 6
+
+Chuyển vị củaA, ký hiệu làAT , sẽ là:
+AT =
+
+
+1 4
+2 5
+3 6
+
+
+Một số tính chất của phép chuyển vị:
+• Chuyển vị của một ma trận chuyển vị lại sẽ cho ra ma trận ban đầu:(AT )T = A.
+• Chuyển vị của tổng hai ma trận bằng tổng chuyển vị của từng ma trận:(A + B)T = AT + BT .
+• Chuyển vị của tích hai ma trận bằng tích đảo ngược vị trí của chuyển vị từng ma trận:(AB)T =
+BT AT .
+Trong Numpy, chuyển vị của một mảng (array) có thể được thực hiện bằng cách sử dụng hàm
+np.transpose() hoặc toán tử chuyển vị.T. Chuyển vị thay đổi vị trí của các hàng thành cột và
+ngược lại trong array.
+1 #aivietnam
+2 import numpy as np
+3
+4 #Tạo array 2d
+5 arr_1 = np.array([[1, 2], [3, 4]])
+6 # Chuyển vị array
+7 # Cách 1: Sử dụng hàm np.transpose()
+8 arr_transposed_1 = np.transpose(arr_1)
+9 # Cách 2: Sử dụng toán tử T
+10 arr_transposed_2 = arr_1.T
+11 # In ra màn hình
+12 print("array 1:\n", arr_1)
+13 print("array 1 sau khi chuyển vị, cách 1:\
+n", arr_transposed_1)
+14 print("array 1 sau khi chuyển vị, cách 2:\
+n", arr_transposed_2)
+================= Output ================
+array 1:
+[[1 2]
+[3 4]]
+array 1 sau khi chuyển vị, cách 1:
+[[1 3]
+[2 4]]
+array 1 sau khi chuyển vị, cách 2:
+[[1 3]
+[2 4]]
+==========================================
+7.8 Summation
+Hàm np.sum() được sử dụng để tính tổng của các phần tử trong mảng (array). Hàm này có thể được
+áp dụng trên các mảng 1D, 2D hoặc có số chiều cao hơn. 
+>>>>>>> HEAD@{1}

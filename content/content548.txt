@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 1db67175-fc86-4852-9ba5-f12a2b0fca12
 Text: BASIC PYTHON - VARIABLE Dinh-Tiem Nguyen và Quang-Vinh Dinh 1
 Biến trong Python Biến trong Python là tên được sử dụng để tham chiếu
@@ -5,3 +6,12 @@ Biến trong Python Biến trong Python là tên được sử dụng để tham
 ta đặt cho vùng lưu trữ đó để có thể truy cập và thao tác với dữ liệu
 trong chương trình của mình. Khi đặt tên biến sẽ có một số quy tắc mà
 bạn c...
+=======
+BASIC PYTHON - VARIABLE
+Dinh-Tiem Nguyen và Quang-Vinh Dinh
+1 Biến trong Python
+Biến trong Python là tên được sử dụng để tham chiếu đến một vùng lưu trữ dữ liệu trong bộ nhớ, tên
+của biến là cách chúng ta đặt cho vùng lưu trữ đó để có thể truy cập và thao tác với dữ liệu trong
+chương trình của mình. Khi đặt tên biến sẽ có một số quy tắc mà bạn cần chú ý:
+• Tên biến có thể chứa chữ cái, số, dấu gạch dưới "_"nhưng không được là số. 
+>>>>>>> HEAD@{1}

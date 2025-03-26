@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: ba3a0163-838a-49da-8d8e-469f64f0836e
 Text: • Không chỉ việc lựa chọn nhãn một cách chính xác mới quan
 trọng, mà cả không gian nhãn và cách phân phối văn bản đầu vào từ
@@ -5,3 +6,12 @@ những ví dụ cũng đóng một vai trò quan trọng. • Cách thức chú
 trình bày dữ liệu cũng có ảnh hưởng đáng kể đến kết quả, thậm chí việc
 sử dụng nhãn một cách ngẫu nhiên cũng tốt hơn là không sử dụng nhãn. •
 Ngoài ra, việ...
+=======
+• Không chỉ việc lựa chọn nhãn một cách chính xác mới quan trọng, mà cả không gian nhãn
+và cách phân phối văn bản đầu vào từ những ví dụ cũng đóng một vai trò quan trọng.
+• Cách thức chúng ta trình bày dữ liệu cũng có ảnh hưởng đáng kể đến kết quả, thậm chí việc
+sử dụng nhãn một cách ngẫu nhiên cũng tốt hơn là không sử dụng nhãn.
+• Ngoài ra, việc lựa chọn nhãn một cách ngẫu nhiên nhưng phản ánh đúng phân phối thực tế
+của nhãn (không theo phân phối đều) cũng đem lại lợi ích rõ rệt.
+8
+>>>>>>> HEAD@{1}

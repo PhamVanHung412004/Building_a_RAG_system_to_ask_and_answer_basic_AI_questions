@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 90f31c39-4c60-481c-b60c-0c09cdab815d
 Text: Daily AI Exercise (AIO) aivietnam.edu.vn Trong ví dụ trên, ta
 thực hiện nối ba bài báo yolov6, yolov7, yolov9 lại với nhau, đầu tiên
@@ -5,3 +6,15 @@ chúng ta sẽ import Pdfwriter từ thư viện pypdf, tiếp theo chúng ta t�
 đối tượng merger từ PdfWriter(), đối tượng này sẽ được sử dụng để
 merge các tập tin PDF. Tiếp theo chúng ta duyệt qua từng file pdf và
 thêm chú...
+=======
+Daily AI Exercise (AIO) aivietnam.edu.vn
+Trong ví dụ trên, ta thực hiện nối ba bài báo yolov6, yolov7, yolov9 lại với nhau, đầu tiên chúng ta sẽ
+import Pdfwriter từ thư viện pypdf, tiếp theo chúng ta tạo đối tượng merger từ PdfWriter(), đối tượng
+này sẽ được sử dụng để merge các tập tin PDF. Tiếp theo chúng ta duyệt qua từng file pdf và thêm
+chúng vào đối tượng merger qua phương thức append. Cuối cùng ta ghi dữ liệu từ đối tượng merger
+vào tệp tin mới có tên là merged-yolov-679.pdf và phương thức close() được gọi để đóng tập tin PDF
+đã được merge.
+2.4 Nén file pdf
+Chức năng nén file trong thư viện pypdf cho phép bạn giảm kích thước của các tập tin PDF bằng cách
+nén lại các luồng nội dung của mỗi trang. 
+>>>>>>> HEAD@{1}

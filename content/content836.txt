@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 27696166-6bd6-4cc9-a171-4c3653771d1e
 Text: Nên để hiển thị kết quả chúng ta sử dụng hàm plot_results() như
 phép đo L1. 1 root_img_path = f"{ROOT}/train/" 2 query_path =
@@ -5,3 +6,19 @@ f"{ROOT}/test/Orange_easy/0_100.jpg" 3 size = (448, 448) 4 query,
 ls_path_score = get_l2_score(root_img_path, query_path, size) 5
 plot_results(query_path, ls_path_score, reverse=False) Hình 6: Image
 retrieval ảnh đơn giản...
+=======
+Nên để hiển thị kết quả chúng ta sử dụng
+hàm plot_results() như phép đo L1.
+1 root_img_path = f"{ROOT}/train/"
+2 query_path = f"{ROOT}/test/Orange_easy/0_100.jpg"
+3 size = (448, 448)
+4 query, ls_path_score = get_l2_score(root_img_path, query_path, size)
+5 plot_results(query_path, ls_path_score, reverse=False)
+Hình 6: Image retrieval ảnh đơn giản với L2
+1 root_img_path = f"{ROOT}/train/"
+2 query_path = f"{ROOT}/test/African_crocodile/n01697457_18534.JPEG"
+3 size = (448, 448)
+4 query, ls_path_score = get_l2_score(root_img_path, query_path, size)
+5 plot_results(query_path, ls_path_score, reverse=False)
+6
+>>>>>>> HEAD@{1}

@@ -1,3 +1,8 @@
+<<<<<<< HEAD
 Node ID: d55ae9d2-6870-4945-aa76-af71cc4a7c03
 Text: Hình 8: So sánh VMamba và các model Transformer và CNN khác dưới
 nhiều size ảnh khác nhau. 6
+=======
+Hình 8: So sánh VMamba và các model Transformer và CNN khác dưới nhiều size ảnh khác nhau.
+6
+>>>>>>> HEAD@{1}

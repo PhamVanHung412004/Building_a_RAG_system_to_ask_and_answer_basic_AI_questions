@@ -1,3 +1,9 @@
+<<<<<<< HEAD
 Node ID: 7f9a4338-db46-43c3-af85-0e2ee6e7cabd
 Text: tfs = transforms . Compose ([ 37 transforms . Resize ((
 image_size [0] , image_size [1]) ), 38 transforms .
+=======
+tfs = transforms . Compose ([
+37 transforms . Resize (( image_size [0] , image_size [1]) ),
+38 transforms . 
+>>>>>>> HEAD@{1}

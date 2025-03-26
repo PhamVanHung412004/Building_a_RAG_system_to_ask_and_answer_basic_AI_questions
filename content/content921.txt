@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 Node ID: 140d05b1-bc9b-4f79-b190-65364080fea6
 Text: AI VIETNAM aivietnam.edu.vn (LLMs) trong việc tạo ra các bản tóm
 tắt phù hợp hơn với bản tóm tắt tham khảo mong muốn. Hình 13 minh họa
 cách hoạt động của DSP.
+=======
+AI VIETNAM aivietnam.edu.vn
+(LLMs) trong việc tạo ra các bản tóm tắt phù hợp hơn với bản tóm tắt tham khảo mong muốn.
+Hình 13 minh họa cách hoạt động của DSP.
+>>>>>>> HEAD@{1}

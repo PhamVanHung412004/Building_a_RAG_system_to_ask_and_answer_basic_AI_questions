@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 838217a0-dbbf-4842-92c1-9b5ab39b0626
 Text: Daily AI Exercise (AIO) aivietnam.edu.vn riêng biệt của Python
 và các gói liên quan. Mỗi môi trường có thể có các phiên bản Python,
@@ -5,3 +6,30 @@ cài đặt và quản lý gói riêng biệt, giúp cô lập và quản lý d�
 từng dự án. 2.2.1 Hướng dẫn tạo một môi trường mới Để tạo một môi
 trường mới, chúng ta sử dụng cú pháp: 1 conda create -- name
 my_python_env pyth...
+=======
+Daily AI Exercise (AIO) aivietnam.edu.vn
+riêng biệt của Python và các gói liên quan. Mỗi môi trường có thể có các phiên bản Python, cài đặt và
+quản lý gói riêng biệt, giúp cô lập và quản lý dễ dàng cho từng dự án.
+2.2.1 Hướng dẫn tạo một môi trường mới
+Để tạo một môi trường mới, chúng ta sử dụng cú pháp:
+1 conda create -- name my_python_env python =3.10
+Trong đó my_python_env là tên của môi trường do chúng ta đặt, python=3.10 là phiên bản python
+mà chúng ta sẽ sử dụng trong môi trường này, chúng ta nên chọn phiên bản python thấp hơn 1 đến 2
+phiên bản mới nhất, tùy vào từng dự án.
+2.2.2 Quản lí môi trường: activate, deactivate, delete
+Để sử dụng môi trường đã tạo, chúng ta sử dụng cú pháp sau để kích hoạt môi trường:
+1 conda create -- name my_python_env python =3.10
+Để hủy kích hoạt hay nói cách khác là thoát ra khỏi môi trường hiện đang kích hoạt thì ta sử dụng lệnh
+sau:
+1 conda deactivate
+Khi muốn xóa một môi trường không còn sử dụng nữa, chúng ta sử dụng lệnh sau:
+1 conda remove -- name my_python_env --all
+Để kiểm tra danh sách các môi trường đã tạo, chúng ta sử dụng lệnh:
+1 conda env list
+2.2.3 Anaconda navigator
+Anaconda Navigator là một ứng dụng đồ họa cung cấp giao diện người dùng đồ họa (GUI) cho việc
+quản lý môi trường, gói và các công cụ tích hợp trong Anaconda. Đây là một công cụ tiện lợi cho người
+dùng mới bắt đầu với Python và dữ liệu khoa học, với các tính năng như:
+• Giao diện người dùng trực quan, rất hữu ích cho những người mới chưa quen với các cú pháp
+dòng lệnh.
+>>>>>>> HEAD@{1}

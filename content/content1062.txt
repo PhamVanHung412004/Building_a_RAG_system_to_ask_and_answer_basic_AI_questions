@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 00dd847f-9ae5-4d52-864e-12c383f47f4d
 Text: Các nghiên cứu tiên tiến trong lĩnh vực này đang khám phá cách
 thức áp dụng các nguyên tắc diffusion để tạo ra video không chỉ có
@@ -5,3 +6,11 @@ chất lượng hình ảnh sắc nét mà còn đảm bảo tính liên tục v
 mặt chuyển động. Dưới đây là một số công trình nổi bật đã đưa ra cách
 tiếp cận sử dụng mô hình diffusion cho việc sinh video, mở ra những
 khả năng...
+=======
+Các nghiên cứu tiên tiến
+trong lĩnh vực này đang khám phá cách thức áp dụng các nguyên tắc diffusion để tạo ra video không
+chỉ có chất lượng hình ảnh sắc nét mà còn đảm bảo tính liên tục và mượt mà về mặt chuyển động. Dưới
+đây là một số công trình nổi bật đã đưa ra cách tiếp cận sử dụng mô hình diffusion cho việc sinh video,
+mở ra những khả năng mới cho việc tạo ra nội dung video phong phú và đa dạng từ văn bản mô tả.
+14
+>>>>>>> HEAD@{1}

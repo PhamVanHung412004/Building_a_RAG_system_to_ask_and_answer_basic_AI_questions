@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 Node ID: 6c002cc6-249c-49db-9157-289ebfc8b0fe
 Text: . 19 7.6 Matrix-matrix multiplication . .
+=======
+. 19
+7.6 Matrix-matrix multiplication . . 
+>>>>>>> HEAD@{1}

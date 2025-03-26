@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 91f07f9e-d3f6-4c82-82e3-690d7f8a170c
 Text: AI VIETNAM aivietnam.edu.vn Hình 2: Pipeline tổng quan của một
 hệ thống Images Retrieval. Dựa vào hình trên, có thể phát biểu
@@ -5,3 +6,15 @@ Input/Output của một hệ thống truy vấn văn bản bao gồm: • Input
 ảnh truy vấn Query Image và bộ dữ liệu Images Library. • Output: Danh
 sách các hình ảnh có sự tương tự đến hình ảnh truy vấn. Hình 3: Image
 retrieval p...
+=======
+AI VIETNAM aivietnam.edu.vn
+Hình 2: Pipeline tổng quan của một hệ thống Images Retrieval.
+Dựa vào hình trên, có thể phát biểu Input/Output của một hệ thống truy vấn văn bản bao gồm:
+• Input: Hình ảnh truy vấn Query Image và bộ dữ liệu Images Library.
+• Output: Danh sách các hình ảnh có sự tương tự đến hình ảnh truy vấn.
+Hình 3: Image retrieval pipeline của project
+Trong dự án này, chúng ta sẽ xây dựng một hệ thống truy xuất hình ảnh bằng cách sử dụng mô hình
+deep learning đã được huấn luyện trước (CLIP) để trích xuất đặc trưng của ảnh và thu được các vector
+đặc trưng. Sau đó, chúng ta sẽ sử dụng vector database để index, lưu trữ và truy xuất các ảnh tương
+tự với ảnh yêu cầu thông qua các thuật toán đo độ tương đồng.
+>>>>>>> HEAD@{1}

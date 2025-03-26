@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 37d868b1-7f44-4512-96be-ea48b324eb47
 Text: LeakyReLU () 20 self . network = nn. Sequential ( layer_list
 ).to( device ) 21 22 def forward (self , node_feat , edge_feat ): 23
@@ -5,3 +6,16 @@ Text: LeakyReLU () 20 self . network = nn. Sequential ( layer_list
 node_feat . unsqueeze ( dim =0) # (1 , bs , dim ) 25 num_tasks =
 node_feat . size (0) # 1 26 num_data = node_feat . size (1) # bs 27 #
 get eye matr...
+=======
+LeakyReLU ()
+20 self . network = nn. Sequential ( layer_list ).to( device )
+21
+22 def forward (self , node_feat , edge_feat ):
+23 """ node_feat : (bs , dim ), edge_feat : (bs , bs) """
+24 node_feat = node_feat . unsqueeze ( dim =0) # (1 , bs , dim )
+25 num_tasks = node_feat . size (0) # 1
+26 num_data = node_feat . size (1) # bs
+27 # get eye matrix ( batch_size x node_size x node_size ) only use inter
+dist .
+28 diag_mask = 1.0 - torch . eye ( num_data ). 
+>>>>>>> HEAD@{1}

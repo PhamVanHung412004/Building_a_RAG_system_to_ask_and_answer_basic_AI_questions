@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 05d4dabf-36ee-48cf-8127-d0c96000bc0e
 Text: AI VIETNAM aivietnam.edu.vn 2 Xây dựng chương trình Dự án này sẽ
 giới thiệu các phương pháp từ cơ bản đến nâng cao để xây dựng một hệ
@@ -5,3 +6,15 @@ thống truy vấn ảnh. Chúng ta sẽ phát triển hệ thống này trên m
 dữ liệu cụ thể. Tiếp theo, dự án sẽ tiến hành thu thập và xử lý dữ
 liệu để tạo ra hệ thống truy vấn ảnh được cá nhân hóa cho từng người
 dùng (ph...
+=======
+AI VIETNAM aivietnam.edu.vn
+2 Xây dựng chương trình
+Dự án này sẽ giới thiệu các phương pháp từ cơ bản đến nâng cao để xây dựng một hệ thống truy vấn
+ảnh. Chúng ta sẽ phát triển hệ thống này trên một tập dữ liệu cụ thể. Tiếp theo, dự án sẽ tiến hành
+thu thập và xử lý dữ liệu để tạo ra hệ thống truy vấn ảnh được cá nhân hóa cho từng người dùng (phần
+đọc thêm (optional)). Các mục tiêu chính của dự án bao gồm:
+• Xây dựng chương trình truy vấn ảnh cơ bản.
+• Phát triển chương trình truy vấn ảnh nâng cao với CLIP model và vector database.
+• (Optional) Thu thập và xử lý dữ liệu nhằm mục đích xây dựng chương trình truy vấn ảnh cá nhân
+hóa.
+>>>>>>> HEAD@{1}

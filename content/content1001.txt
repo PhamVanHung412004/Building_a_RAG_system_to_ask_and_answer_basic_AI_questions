@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 Node ID: 880e3adb-7066-42ed-adf5-f18532f60501
 Text: Tuy nhiên, sự phổ biến và tính ứng dụng rộng rãi 13
+=======
+Tuy nhiên, sự phổ biến và tính ứng dụng rộng rãi
+13
+>>>>>>> HEAD@{1}

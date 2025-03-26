@@ -1,5 +1,15 @@
+<<<<<<< HEAD
 Node ID: bba2a413-7a81-4034-814b-799c8879609c
 Text: Cú pháp sử dụng reshape: 1 np.reshape(input, newshape) Trong đó:
 • input: là mảng đầu vào. • newshape là hình dạng mới ta muốn chuyển
 đổi. Trong ví dụ sau, ta sẽ sử dụngreshape để giảm chiều array,
 tensor: 11
+=======
+Cú pháp sử dụng reshape:
+1 np.reshape(input, newshape)
+Trong đó:
+• input: là mảng đầu vào.
+• newshape là hình dạng mới ta muốn chuyển đổi.
+Trong ví dụ sau, ta sẽ sử dụngreshape để giảm chiều array, tensor:
+11
+>>>>>>> HEAD@{1}

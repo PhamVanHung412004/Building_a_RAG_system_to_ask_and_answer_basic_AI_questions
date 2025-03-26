@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: d830f2e6-1b49-489e-b66f-7a11082acaa6
 Text: transform = transform 5 6 def __len__ ( self ): 7 return len (
 self . data ) 8 9 def __getitem__ (self , idx ): 10 images = self .
@@ -5,3 +6,41 @@ data [ idx ][ ’image ’] 11 labels = self . data [ idx ][ ’ labels ’]
 12 13 if self . transform : 14 images = self . transform ( images ) 15
 16 labels = torch . tensor ( labels , dtype = torch . long ) 17 18
 return im...
+=======
+transform = transform
+5
+6 def __len__ ( self ):
+7 return len ( self . data )
+8
+9 def __getitem__ (self , idx ):
+10 images = self . data [ idx ][ ’image ’]
+11 labels = self . data [ idx ][ ’ labels ’]
+12
+13 if self . transform :
+14 images = self . transform ( images )
+15
+16 labels = torch . tensor ( labels , dtype = torch . long )
+17
+18 return images , labels
+(c) Khai báo DataLoader:Cuối cùng, ta khai báo hai DataLoader với số batch size phù
+hợp:
+1 TRAIN_BATCH_SIZE = 512
+2 VAL_BATCH_SIZE = 256
+3
+4 train_dataset = CatDogDataset ( datasets [’train ’], transform = img_transforms )
+5 test_dataset = CatDogDataset ( datasets [’test ’], transform = img_transforms )
+6
+7 train_loader = DataLoader ( train_dataset , batch_size = TRAIN_BATCH_SIZE ,
+shuffle = True )
+8 test_loader = DataLoader ( test_dataset , batch_size = VAL_BATCH_SIZE , shuffle =
+False )
+5. Xây dựng mô hình:Ta xây dựng classCatDogModel cho bài toán Cat Dog Classification với
+backbone là pre-trained resnet18 như sau:
+1 class CatDogModel (nn. Module ):
+2 def __init__ (self , n_classes ):
+3 super ( CatDogModel , self ). __init__ ()
+4
+5 resnet_model = resnet18 ( weights =’ IMAGENET1K_V1 ’)
+6 self . backbone = nn. Sequential (* list ( resnet_model . children ()) [: -1])
+7 for param in self . backbone . 
+>>>>>>> HEAD@{1}

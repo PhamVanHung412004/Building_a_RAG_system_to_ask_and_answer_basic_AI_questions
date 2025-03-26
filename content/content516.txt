@@ -1,3 +1,10 @@
+<<<<<<< HEAD
 Node ID: 431edff1-63ff-4653-9243-6a2a207cbfa4
 Text: AI VIETNAM aivietnam.edu.vn Hình 2: Pipeline của project. Theo
 đó: 1.
+=======
+AI VIETNAM aivietnam.edu.vn
+Hình 2: Pipeline của project.
+Theo đó:
+1. 
+>>>>>>> HEAD@{1}

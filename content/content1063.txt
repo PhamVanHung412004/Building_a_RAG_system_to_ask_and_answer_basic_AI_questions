@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 049ee8aa-d072-4c65-a688-9532d927dc7a
 Text: AI VIETNAM aivietnam.edu.vn 5.1 Video Diffusion Models Đây là
 một trong những công trình nghiên cứu đầu tiến tiếp cận theo hướng sử
@@ -5,3 +6,28 @@ dụng mô hình diffusion để tạo sinh video. Video Diffusion Models [2]
 là sự mở rộng tự nhiên của kiến trúc image diffusion và cho phép đào
 tạo chung từ dữ liệu ảnh và video. Để tạo ra video dài và độ phân giải
 cao hơ...
+=======
+AI VIETNAM aivietnam.edu.vn
+5.1 Video Diffusion Models
+Đây là một trong những công trình nghiên cứu đầu tiến tiếp cận theo hướng sử dụng mô hình diffusion
+để tạo sinh video. Video Diffusion Models [2] là sự mở rộng tự nhiên của kiến trúc image diffusion và
+cho phép đào tạo chung từ dữ liệu ảnh và video. Để tạo ra video dài và độ phân giải cao hơn, các tác
+giả đã giới thiệu một kỹ thuật lấy mẫu điều kiện mới cho việc mở rộng video theo không gian và thời
+gian.
+Trong công trình nghiên cứu về mô hình hình ảnh, U-Net là kiến trúc tiêu chuẩn cho image diffusion,
+bao gồm quá trình giảm và tăng mẫu không gian với các skip connections. U-net được xây dựng từ các
+khối 2D convolutional và mỗi khối được theo sau bởi một khối spatial attention. Trong bài báo Video
+Diffusion Models tác giả đề xuất mở rộng kiến trúc này cho dữ liệu video với U-Net 3D, phân tách theo
+không gian và thời gian, và thêm khối temporal attention, cho phép đào tạo chung trên video và hình
+ảnh, cải thiện chất lượng mẫu.
+Hình 15: 3D U-Net architecture trong Video Diffusion Models
+Thông thường việc giải quyết thách thức tính toán khi mô hình hóa video, thường gồm hàng trăm
+đến hàng nghìn khung hình, bằng cách đào tạo model trên một tập hợp con khung hình và sau đó mở
+rộng mẫu để tạo video dài hơn. Hai phương pháp lấy mẫu điều kiện từ diffusion model gồm: sử dụng
+phương pháp thay thế - không hiệu quả cho mô hình video do thiếu sự liên kết giữa các khung hình
+được sinh ra, và phương pháp được đề xuất trong paper gọi là reconstruction-guided sampling. Phương
+pháp này cải thiện chất lượng mẫu bằng cách điều chỉnh denoising model với gradient term based dựa
+trên sự tái tạo của model, đặc biệt khi kết hợp với Langevin diffusion samplers. Nó cũng mở rộng sang
+nội suy không gian cho super-resolution, thể hiện tính linh hoạt của phương pháp trong việc tạo video
+độ phân giải cao từ đầu vào độ phân giải thấp.
+>>>>>>> HEAD@{1}

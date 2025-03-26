@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 2a5c8c8d-abc0-4d39-bb15-850cfdebd56b
 Text: AI VIETNAM aivietnam.edu.vn (b) √ 36 (c) √ 50 (d) √ 77 5. Sự kết
 hợp của CLIP và ChromaDB làm tăng cường quá trình truy xuất hình ảnh
@@ -5,3 +6,29 @@ như thế nào? (a) Giảm kích thước vật lý của hình ảnh (b) Cho p
 kiếm dựa trên ngữ nghĩa thông qua so sánh vector (c) Dịch nội dung
 hình ảnh ra các ngôn ngữ khác nhau (d) Mã hóa dữ liệu hình ảnh 6. Cho
 hai ve...
+=======
+AI VIETNAM aivietnam.edu.vn
+(b)
+√
+36
+(c)
+√
+50
+(d)
+√
+77
+5. Sự kết hợp của CLIP và ChromaDB làm tăng cường quá trình truy xuất hình ảnh
+như thế nào?
+(a) Giảm kích thước vật lý của hình ảnh
+(b) Cho phép tìm kiếm dựa trên ngữ nghĩa thông qua so sánh vector
+(c) Dịch nội dung hình ảnh ra các ngôn ngữ khác nhau
+(d) Mã hóa dữ liệu hình ảnh
+6. Cho hai vectora = [1, 0, 1] và b = [1, 1, 0], tính độ tương tự Cosine giữa chúng.
+(a) 0
+(b) 1
+2
+(c) 1
+(d) 2
+3
+7. 
+>>>>>>> HEAD@{1}

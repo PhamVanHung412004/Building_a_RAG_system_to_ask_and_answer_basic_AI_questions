@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 4a19d9e6-134e-4e3f-9b8b-03cb8d0b015b
 Text: Một sự thay đổi lớn so với khung hình trước có thể gây ra sai số
 lớn. Điều này khiến các mô hình ít có xu hướng khám phá mối liên hệ
@@ -5,3 +6,17 @@ dài hạn vì đơn giản sao chép khung hình trước đó giống như m�
 tắt. Trong quá trình huấn luyện, nhằm đạt được được sự khớp chính xác
 giữa văn bản mô tả và hình ảnh. CogVideo thiết lập trước một dãy các
 frame-ra...
+=======
+Một sự thay đổi lớn so với khung hình trước có
+thể gây ra sai số lớn. Điều này khiến các mô hình ít có xu hướng khám phá mối liên hệ dài hạn
+vì đơn giản sao chép khung hình trước đó giống như một lối tắt.
+Trong quá trình huấn luyện, nhằm đạt được được sự khớp chính xác giữa văn bản mô tả và hình
+ảnh. CogVideo thiết lập trước một dãy các frame-rate và chọn ra frame-rate thấp nhất có thể cho từng
+cặp text-video, đảm bảo có thể lấy mẫu được ít nhất là 5 khung hình. Dù phương pháp này cải thiện
+sự phù hợp giữa văn bản mô tả và video, nhưng video tạo ra ở frame-rate thấp có thể không liền mạch.
+Do đó, một frame interpolation model được tạo ra để thêm các khung hình chuyển tiếp vào video, giúp
+cho quá trình sinh video trở nên mượt mà hơn. Nhờ vào sự linh hoạt của CogLM, hai mô hình này có
+thể sử dụng chung một cấu trúc và quy trình huấn luyện, chỉ khác biệt ở điểm sử dụng các attention
+masks.
+12
+>>>>>>> HEAD@{1}

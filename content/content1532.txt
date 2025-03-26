@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 5d4dce84-8b34-4c8a-bd85-45644b4fe79f
 Text: • State Shape:(8,). • Mục tiêu (Objective):Điều khiển tàu tên
 lửa đáp xuống đúng vị trí (càng sát càng tốt) đã định trên màn hình,
@@ -5,3 +6,22 @@ trong khi giữ cho lượng nguyên liệu tiêu thụ ít nhất, đặc biệ
 để tàu phát nổ. • Trạng thái kết thúc (Terminate State):Tàu tên lửa
 đáp xuống thành công, hoặc phát nổ, hoặc bay khỏi giới hạn màn hình. •
 Hàm điểm...
+=======
+• State Shape:(8,).
+• Mục tiêu (Objective):Điều khiển tàu tên lửa đáp xuống đúng vị trí (càng sát càng tốt) đã
+định trên màn hình, trong khi giữ cho lượng nguyên liệu tiêu thụ ít nhất, đặc biệt không để tàu
+phát nổ.
+• Trạng thái kết thúc (Terminate State):Tàu tên lửa đáp xuống thành công, hoặc phát nổ,
+hoặc bay khỏi giới hạn màn hình.
+• Hàm điểm thưởng (Reward Function):
+– +100 điểmnếu đáp xuống bãi đáp thành công.
+– -100 điểmnếu tàu tên lửa phát nổ.
+– -0.3 điểmcho mỗi đơn vị thời gian trôi qua.
+– +10 điểmcho mỗi chân tàu nằm gọn bên trong bãi đáp.
+Các bạn hãy triển khai thuật toánREINFORCE (một trong những thuật toán policy gradient) và
+huấn luyện tác tử có thể hoàn thành được trò chơi này, tối thiểu phải có điểm thưởng tích lũy tối đa là
+dương. Các bạn có thể tham khảo các bước thực hiện như sau:
+Lưu ý:Để tăng tốc độ training, các bạn hãysử dụng GPUcho bài tập này.
+1. Khai báo các thư viện cần thiết:
+11
+>>>>>>> HEAD@{1}

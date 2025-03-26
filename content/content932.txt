@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 31eea9e8-c761-419a-866d-d885e28cff7b
 Text: Hình 19: Multimodal-CoT bao gồm hai giai đoạn: (i) tạo lập lý do
 và (ii) suy luận câu trả lời. Cả hai giai đoạn đều sử dụng cùng một
@@ -5,3 +6,25 @@ kiến trúc mô hình nhưng khác nhau về đầu vào và đầu ra. Trong g
 đoạn đầu tiên, cung cấp cho mô hình đầu vào ngôn ngữ và hình ảnh để
 tạo ra lý do. Trong giai đoạn thứ hai, thêm đầu vào ngôn ngữ ban đầu
 với lý do ...
+=======
+Hình 19: Multimodal-CoT bao gồm hai giai đoạn: (i) tạo lập lý do và (ii) suy luận câu trả lời. Cả
+hai giai đoạn đều sử dụng cùng một kiến trúc mô hình nhưng khác nhau về đầu vào và đầu ra.
+Trong giai đoạn đầu tiên, cung cấp cho mô hình đầu vào ngôn ngữ và hình ảnh để tạo ra lý do.
+Trong giai đoạn thứ hai, thêm đầu vào ngôn ngữ ban đầu với lý do được tạo ra từ giai đoạn đầu
+tiên. Sau đó, cung cấp đầu vào ngôn ngữ đã được cập nhật cùng với đầu vào hình ảnh ban đầu cho
+mô hình để suy luận ra câu trả lời.
+Multimodal-CoT hoạt động với 2-stage kết hợp giữa ngôn ngữ và thị giác để cải thiện suy luận
+và đưa ra câu trả lời cho các mô hình ngôn ngữ lớn. Giai đoạn đầu tiên, tạo các lý do, nhận đầu
+vào là dữ liệu ngôn ngữ và hình ảnh để sinh ra chuỗi lý do. Giai đoạn thứ hai, suy luận câu trả lời,
+bắt đầu bằng việc thêm chuỗi lý do vào đầu vào ngôn ngữ gốc, và sau đó kết hợp với đầu vào thị
+giác ban đầu để mô hình có thể suy luận ra câu trả lời. Cả hai giai đoạn này sử dụng chung kiến
+trúc mô hình nhưng khác biệt về dữ liệu đầu vào và đầu ra.
+Trong cả hai giai đoạn, mô hình được huấn luyện để xử lý thông tin đa phương tiện: đầu vào
+ngôn ngữ được mã hóa bởi một bộ mã hóa ngôn ngữ, trong khi đầu vào hình ảnh được xử lý bởi
+một bộ trích xuất đặc trưng hình ảnh và sau đó được kết hợp thông qua một single-head attention
+network để tạo đầu ra hợp nhất. Đầu ra này sau đó được đưa vào Transformer decoder để sinh ra
+dự đoán cuối cùng. Cách tiếp cận này không chỉ tận dụng được sức mạnh của cả văn bản và hình
+ảnh mà còn cho phép mô hình tạo ra các lý do suy luận phong phú và đa dạng, tăng cường khả
+năng đưa ra câu trả lời chính xác và có cơ sở
+24
+>>>>>>> HEAD@{1}

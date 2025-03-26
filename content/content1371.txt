@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: fa7e078b-75d8-4151-bf02-28aa491beb09
 Text: Conv2d ( self . channels , self . out_channel , 3, padding =1)
 52 53 def forward (self , x): 54 assert x. shape [1] == self .
@@ -5,3 +6,25 @@ channels 55 x = F. interpolate (x, scale_factor =2 , mode =" nearest
 ") 56 if self . use_conv : 57 x = self . conv (x) 58 return x 59 60
 class Downsample (nn. Module ): 61 """ 62 A downsampling layer with an
 optional conv...
+=======
+Conv2d ( self . channels , self . out_channel , 3, padding =1)
+52
+53 def forward (self , x):
+54 assert x. shape [1] == self . channels
+55 x = F. interpolate (x, scale_factor =2 , mode =" nearest ")
+56 if self . use_conv :
+57 x = self . conv (x)
+58 return x
+59
+60 class Downsample (nn. Module ):
+61 """
+62 A downsampling layer with an optional convolution .
+63 : param channels : channels in the inputs and outputs .
+64 : param use_conv : a bool determining if a convolution is applied .
+65 """
+66
+67 def __init__ (self , channels , use_conv , out_channel = None ):
+68 super (). __init__ ()
+69 self . channels = channels
+8
+>>>>>>> HEAD@{1}

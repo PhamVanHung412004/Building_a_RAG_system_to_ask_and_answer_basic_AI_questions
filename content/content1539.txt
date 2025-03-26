@@ -1,3 +1,14 @@
+<<<<<<< HEAD
 Node ID: 1fd560b1-c748-42e0-9718-0a20a6c6e1a3
 Text: AI VIETNAM aivietnam.edu.vn 3 optimizer , 4 n_training_episodes
 , 5 max_steps , 6 gamma , 7 print_every =100 8 ) 14
+=======
+AI VIETNAM aivietnam.edu.vn
+3 optimizer ,
+4 n_training_episodes ,
+5 max_steps ,
+6 gamma ,
+7 print_every =100
+8 )
+14
+>>>>>>> HEAD@{1}

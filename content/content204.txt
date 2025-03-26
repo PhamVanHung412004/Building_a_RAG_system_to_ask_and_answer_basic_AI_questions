@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 18564778-3cee-456f-b7b6-8f0d69e90419
 Text: AI VIET NAM – AIO2024 OOP Cơ Bản Dùng Python Khanh Duong Quang-
 Vinh Dinh Ngày 15 tháng 6 năm 2024 Abstract Trong lập trình hướng đối
@@ -5,3 +6,18 @@ tượng (OOP), việc sử dụng classes và objects đóng vai trò nền t�
 giúp cho mã nguồn được tổ chức và quản lý một cách hiệu quả. Python,
 với khả năng hỗ trợ mạnh mẽ cho OOP, cho phép ta mô hình hóa các thực
 thể tro...
+=======
+AI VIET NAM – AIO2024
+OOP Cơ Bản Dùng Python
+Khanh Duong Quang-Vinh Dinh
+Ngày 15 tháng 6 năm 2024
+Abstract
+Trong lập trình hướng đối tượng (OOP), việc sử dụng classes và objects đóng vai trò nền tảng, giúp
+cho mã nguồn được tổ chức và quản lý một cách hiệu quả. Python, với khả năng hỗ trợ mạnh mẽ cho
+OOP, cho phép ta mô hình hóa các thực thể trong thế giới thực thành các đối tượng với những thuộc
+tính và phương thức riêng biệt. Trong bài học này, chúng ta sẽ cùng nhau tìm hiểu những kiến thức cơ
+bản và quan trọng nhất về Classes và Objects, cùng với đó là những thao tác liên quan đến tính Kế
+thừa (Inheritance) trong OOP, một tính chất giúp cho những hệ thống được xây dựng dựa trên Python
+có khả năng tái sử dụng và mở rộng dễ dàng.
+1. 
+>>>>>>> HEAD@{1}

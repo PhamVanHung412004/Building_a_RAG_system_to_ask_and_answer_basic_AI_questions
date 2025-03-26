@@ -1,3 +1,10 @@
+<<<<<<< HEAD
 Node ID: 58ba9b44-6690-4577-b6b1-a44921f765c6
 Text: state_dict () , SAVE_PATH ) Như vậy, qua mục này, chúng ta đã có
 được một mô hình Deep Learning để sử dụng trong API. 5
+=======
+state_dict () , SAVE_PATH )
+Như vậy, qua mục này, chúng ta đã có được một mô hình Deep Learning để sử dụng trong
+API.
+5
+>>>>>>> HEAD@{1}

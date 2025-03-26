@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 37b6faf3-7373-4db5-a9a0-0d9dab1169d5
 Text: AI VIETNAM aivietnam.edu.vn Phần II: Nội dung Trong phần này,
 chúng ta sẽ triển khai mô hình VAE-base Image Colorization dựa trên
@@ -5,3 +6,26 @@ bài báo Learning Diverse Image Colorization để học cách tạo ra tập �
 màu đa dạng về mặt kết quả. Cụ thể, ta sẽ xây dựng chương trình dựa
 trên bộ dữ liệu LFW (Labeled Faces in the Wild Home), một trong những
 bộ dữ li...
+=======
+AI VIETNAM aivietnam.edu.vn
+Phần II: Nội dung
+Trong phần này, chúng ta sẽ triển khai mô hình VAE-base Image Colorization dựa trên bài báo Learning
+Diverse Image Colorization để học cách tạo ra tập ảnh màu đa dạng về mặt kết quả. Cụ thể, ta sẽ xây
+dựng chương trình dựa trên bộ dữ liệu LFW (Labeled Faces in the Wild Home), một trong những bộ
+dữ liệu quan trọng và phổ biến trong lĩnh vực nhận dạng khuôn mặt. Bộ dữ liệu này chứa các hình ảnh
+của khuôn mặt được thu thập từ các bức ảnh chụp thực tế, bao gồm nhiều điều kiện ánh sáng, góc chụp
+và nền khác nhau.
+Hình 3: Ảnh minh họa cho LFW dataset
+Theo đó, nội dung thực nghiệm sẽ trình bày với các thành phần như sau:
+a) Data Preparation: Chuẩn bị dữ liệu cho tập huấn luyện.
+b) Models: Xây dựng mô hình VAE và mô hình MDN (Mixture Density Network).
+c) Loss Functions: Xây dựng hàm mất mát cho mô hình VAE và mô hình MDN.
+d) Trainer: Xây dựng các hàm để huấn luyện cho từng mô hình.
+e) Inference: Minh họa kết quả đạt được sau khi huấn luyện mô hình.
+1. Data Preparation
+Đầu tiên, chúng ta cần chuẩn bị bộ dữ liệu LFW thông qua dòng lệnh dưới đây. Bộ dữ liệu bao
+gồm hơn 12,000 ảnh train và 1,000 ảnh test. Cùng với đó là một bộ đặc trưng tương ứng với từng
+ảnh, trích xuất từ một mạng VGG được huấn luyện mạnh mẽ trên bộ dữ liệu lớn ImageNet.
+Tải dữ liệu
+1 ! 
+>>>>>>> HEAD@{1}

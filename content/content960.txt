@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 9590e48d-0ef0-49c8-8256-281611e803de
 Text: AI VIETNAM aivietnam.edu.vn Hình 4: Minh họa các bước xây dựng
 một vector database với Faiss Để cài đặt Faiss phục vụ cho việc tìm
@@ -5,3 +6,37 @@ kiếm các văn bản context của các câu hỏi có nội dung giống vớ
 đầu vào, ta thực hiện như sau: (a) Cài đặt và import các thư viện cần
 thiết: 1 !pip install -qq transformers[sentencepiece]==4.35.2
 datasets==2.1...
+=======
+AI VIETNAM aivietnam.edu.vn
+Hình 4: Minh họa các bước xây dựng một vector database với Faiss
+Để cài đặt Faiss phục vụ cho việc tìm kiếm các văn bản context của các câu hỏi có nội dung giống
+với câu hỏi đầu vào, ta thực hiện như sau:
+(a) Cài đặt và import các thư viện cần thiết:
+1 !pip install -qq transformers[sentencepiece]==4.35.2 datasets==2.16.1
+evaluate==0.4.1
+2 !sudo apt-get install libomp-dev
+3 !pip install -qq faiss-gpu
+1 import numpy as np
+2 import collections
+3 import torch
+4 import faiss
+5 import evaluate
+6
+7 from datasets import load_dataset
+8 from transformers import AutoTokenizer, AutoModel
+9 from transformers import AutoModelForQuestionAnswering
+10 from transformers import TrainingArguments
+11 from transformers import Trainer
+12 from tqdm.auto import tqdm
+13
+14 device = torch.device("cuda") if torch.cuda.is_available() else torch.device(
+"cpu")
+(b) Tải bộ dữ liệu:Ta tải bộ dữ liệu SQuAD2.0:
+1 DATASET_NAME = ’squad_v2’
+2 raw_datasets = load_dataset(DATASET_NAME, split=’train+validation’)
+3 raw_datasets
+Để tận dụng toàn bộ ngữ liệu, chúng ta sẽ gom hai bộ dữ liệu train và validation trong bước
+tạo vector database này.
+(c) Loại bỏ các mẫu không có đáp án:Các mẫu dữ liệu không có đáp án thường chứa các
+câu hỏi không liên quan đến đoạn văn ngữ cảnh. 
+>>>>>>> HEAD@{1}

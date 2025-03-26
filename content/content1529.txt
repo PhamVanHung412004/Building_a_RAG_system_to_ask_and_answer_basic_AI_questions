@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 1478eedf-4c15-412b-96a5-5b5e5b2fc49e
 Text: AI VIETNAM aivietnam.edu.vn • Demo 3:Tác tử khi được huấn luyện
 qua 100 episodes. • Demo 4:Tác tử khi được huấn luyện qua 1000
@@ -5,3 +6,30 @@ episodes. Để thực hiện được bài tập này, các bạn có thể tha
 làm sau: 1. Cài đặt source code game Pacman:Dựa vào đường dẫn đã cung
 cấp ở trên, các bạn hãy tải source code game Pacman thông qua lệnh
 sau: 1 $ git...
+=======
+AI VIETNAM aivietnam.edu.vn
+• Demo 3:Tác tử khi được huấn luyện qua 100 episodes.
+• Demo 4:Tác tử khi được huấn luyện qua 1000 episodes.
+Để thực hiện được bài tập này, các bạn có thể tham khảo cách làm sau:
+1. Cài đặt source code game Pacman:Dựa vào đường dẫn đã cung cấp ở trên, các bạn hãy tải
+source code game Pacman thông qua lệnh sau:
+1 $ git clone https :// dagshub . com / DavidN / Pacman -RL. git
+Hình 7: Cấu trúc cây thư mục của mã nguồn game Pacman
+Để nhanh chóng tiếp cận, các bạn cần lưu ý một vài file/thư mục chính như sau:
+• ./pacman.py:File main dùng để thực hiện chạy chương trình game Pacman cũng như huấn
+luyện tác tử. Các bạn có thể chạy thử game này bằng lệnh:
+1 $ python3 pacman .py -n 1 -z 2
+Nếu thực thi thành công, cửa sổ game sẽ mở và các bạn có thể dùng nút lên xuống trái phải
+của bàn phím để chơi game.
+• ./agents:Thư mục chứa các class định nghĩa các kiểu tác tử, trong đó bao gồm Pacman và
+Ghosts. Đối với tác tử Pacman, hiện tại có 3 phiên bản gồm:
+– KeyboardAgent:Phiên bản cho phép ta điều khiển tác tử. Đây là mặc định của game.
+– LeftTurnAgent:Phiên bản Pacman sẽ luôn tự động chọn hướng rẽ trái để di chuyển.
+– GreedyAgent:Phiên bản tác tử sẽ luôn tự động chọn hành động mang lại điểm thưởng
+tức thời cao nhất.
+Ví dụ, để sử dụng GreedyAgent, các bạn sử dụng lệnh sau:
+1 $ python3 pacman .py -p GreedyAgent -n 1 -z 2
+Có thể thấy rằng, để tạo một phiên bản tác tử mới, ta cần định nghĩa một class mới trong các
+file trong thư mục./agents. Để dễ dàng tiếp cận bài toán, các bạn hãy tham khảo file code
+Approximate Q-Learning trong repo này và tích hợp vào mã nguồn của đề bài.
+>>>>>>> HEAD@{1}

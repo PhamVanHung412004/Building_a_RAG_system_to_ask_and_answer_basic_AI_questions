@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 Node ID: 124f4e11-3ef0-48c0-9da3-047fd2780ab1
 Text: Tuân thủ và báo cáo: 3
+=======
+Tuân thủ và báo cáo:
+3
+>>>>>>> HEAD@{1}

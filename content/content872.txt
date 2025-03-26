@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 68c4540c-f0f5-43fe-a95e-c4ebe48120ab
 Text: AI VIETNAM aivietnam.edu.vn Hình 28: Cấu trúc lưu trữ các đường
 dẫn ảnh của file json Trước tiên, khai báo lớp ImageDownloader với các
@@ -5,3 +6,29 @@ tham số đầu vào như sau: • json_file: đường dẫn tới file json �
 download_dir: folder chứa các ảnh sẽ download • max_worker: số luồng
 xử lý khi tải ảnh • delay: thời gian nghỉ giữa các lần request •
 filename: lưu ...
+=======
+AI VIETNAM aivietnam.edu.vn
+Hình 28: Cấu trúc lưu trữ các đường dẫn ảnh của file json
+Trước tiên, khai báo lớp ImageDownloader với các tham số đầu vào như sau:
+• json_file: đường dẫn tới file json
+• download_dir: folder chứa các ảnh sẽ download
+• max_worker: số luồng xử lý khi tải ảnh
+• delay: thời gian nghỉ giữa các lần request
+• filename: lưu trữ đường dẫn của tất cả các ảnh
+1 class ImageDownloader:
+2 def __init__(self, json_file, download_dir=’Dataset’, max_workers=4, delay=1):
+3 self.json_file = json_file # file containing URLs of images in JSON format
+4 self.download_dir = download_dir # Folder name for storing images
+5 self.max_workers = max_workers # Number of threads
+6 self.delay = delay # Polite delay: when we send request too much to the server for
+downloading images without polite delay, it will crash or prevent your IP
+7 self.filename = set() # To store filename directories
+8 self.setup_directory() # Set up the folder structure
+9
+10 def setup_directory(self):
+11 if not os.path.exists(self.download_dir):
+12 os.makedirs(self.download_dir)
+Khai báo hàm đọc file json, hàm kiểm tra xem url có đúng chuẩn không trước khi thực hiện request để
+tránh lỗi:
+28
+>>>>>>> HEAD@{1}

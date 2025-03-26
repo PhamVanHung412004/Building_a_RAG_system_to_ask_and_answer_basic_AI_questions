@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 1ed9d5ef-15f1-46d7-9455-99d733df334c
 Text: AI VIETNAM aivietnam.edu.vn 1 def scrape_urls(self, categories):
 2 """ 3 Call get_url_images method to get all urls of any object in
@@ -5,3 +6,42 @@ categories\ 4 5 Parameter: 6 categories (dictionary): the dict of all
 object we need to collect image with format categories{"name_object":
 [value1, value2, ...]} 7 8 Returns: 9 all_urls (dictionary):
 Dictionary of...
+=======
+AI VIETNAM aivietnam.edu.vn
+1 def scrape_urls(self, categories):
+2 """
+3 Call get_url_images method to get all urls of any object in categories\
+4
+5 Parameter:
+6 categories (dictionary): the dict of all object we need to collect image with format
+categories{"name_object": [value1, value2, ...]}
+7
+8 Returns:
+9 all_urls (dictionary): Dictionary of urls of images
+10 """
+11 all_urls = {category: {} for category in categories}
+12
+13 # Handle multi-threading for efficent installation
+14 with concurrent.futures.ThreadPoolExecutor(max_workers=self.max_workers) as executor:
+15 future_to_term = {executor.submit(self.get_url_images, term): (category, term)
+16 for category, terms in categories.items() for term in terms}
+17
+18 for future in tqdm(concurrent.futures.as_completed(future_to_term), total=len(
+future_to_term), desc="Overall Progress"):
+19 category, term = future_to_term[future]
+20 try:
+21 urls = future.result()
+22 all_urls[category][term] = urls
+23 print(f"\nNumber of images retrieved for {term}: {len(urls)}")
+24 except Exception as exc:
+25 print(f"\n{term} generated an exception: {exc}")
+26 return all_urls
+Sau khi đã hoàn thành tải, chúng ta sẽ lưu lại các url thành file định dạng json, thể hiện phân cấp giống
+như dictionary các class cần tải (category):
+1 def save_to_file(self, data, filename):
+2 """
+3 Save the data to a JSON file.
+4
+5 Parameters:
+6 data (dict): The data to be saved.
+>>>>>>> HEAD@{1}

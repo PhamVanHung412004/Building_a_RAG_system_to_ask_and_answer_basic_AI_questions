@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 378ab44d-8fae-425e-a656-e05873d026bc
 Text: out_channel , self . out_channel , 3, padding =1) 152 ), 153 )
 154 155 if self . out_channel == channels : 156 self . skip_connection
@@ -5,3 +6,32 @@ Text: out_channel , self . out_channel , 3, padding =1) 152 ), 153 )
 Conv2d ( 159 channels , self . out_channel , 3, padding =1 160 ) 161
 else : 162 self . skip_connection = nn. Conv2d ( channels , self .
 out_ch...
+=======
+out_channel , self . out_channel , 3, padding =1)
+152 ),
+153 )
+154
+155 if self . out_channel == channels :
+156 self . skip_connection = nn. Identity ()
+157 elif use_conv :
+158 self . skip_connection = nn. Conv2d (
+159 channels , self . out_channel , 3, padding =1
+160 )
+161 else :
+162 self . skip_connection = nn. Conv2d ( channels , self . out_channel , 1)
+163
+164 def forward (self , x, emb ):
+165 """
+166 Apply the block to a Tensor , conditioned on a embedding .
+167 : param x: an [N x C x ...] Tensor of features .
+168 : param emb : an [N x emb_channels ] Tensor of embeddings .
+169 : return : an [N x C x ...] Tensor of outputs .
+170 """
+171 return checkpoint (
+172 self . _forward , (x, emb ), self . parameters () , self . use_checkpoint
+173 )
+174
+175 def _forward (self , x, emb ):
+176 if self . updown :
+177 in_rest , in_conv = self . 
+>>>>>>> HEAD@{1}

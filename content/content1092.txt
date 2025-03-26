@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: b8335d2f-96f3-44b2-9bc4-c31f23cb7641
 Text: AI VIETNAM (AIO2024) aivietnam.edu.vn II. Bài toán Object
 Detection và các phiên bản YOLO đời trước II.I. Bài toán Object
@@ -5,3 +6,28 @@ Detection Trong Computer Vision, bài toán Object Detection hướng đến
 xây dựng một chương trình có thể tự động xác định vị trí và nhận diện
 tên (class) của các vật thể trong một bức ảnh. Tổng hợp hai thông tin
 đầu ra này còn đ...
+=======
+AI VIETNAM (AIO2024) aivietnam.edu.vn
+II. Bài toán Object Detection và các
+phiên bản YOLO đời trước
+II.I. Bài toán Object Detection
+Trong Computer Vision, bài toán Object Detection hướng đến xây dựng một chương trình có
+thể tự động xác định vị trí và nhận diện tên (class) của các vật thể trong một bức ảnh. Tổng
+hợp hai thông tin đầu ra này còn được gọi với tên là bounding box. Từ đây, ta có thể mô tả
+Input/Output của một chương trình Object Detection như sau:
+- Input: Một bức ảnh.
+- Output: Bounding box của các vật thể cần phát hiện trong ảnh.
+Hình 3: Minh họa Input/Output của bài toán Object Detection.
+Đến thời điểm hiện tại, các phương pháp sử dụng mạng Deep Learning cho thấy hiệu suất vượt
+trội. Ta có thể tóm tắt các hướng tiếp cận theo ba dạng như sau:
+1. One-stage Object Detection:Việc xác định vị trí tọa độ và phân loại tên class của các
+vật thể được thực hiện trên một bước duy nhất. Điển hình cho hướng tiếp cận này có thể
+kể đến SSD [13] và YOLO [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].
+2. Two-stage Object Detection:Việc xác định vị trí tọa độ và phân loại tên class của các
+vật thể được thực hiện riêng biệt. Điển hình cho hướng tiếp cận này có thể kể đến RCNN
+[14] và Faster RCNN [15].
+3. End-to-end Object Detection:Việc xác định vị trí tọa độ và phân loại tên class của
+các vật thể được dự đoán bởi một mô hình duy nhất (không sử dụng các bước tiền và hậu
+xử lý bounding box). Điển hình cho hướng tiếp cận này có thể kể đến DETR [16], DINO
+[17], và DeFCN [18].
+>>>>>>> HEAD@{1}

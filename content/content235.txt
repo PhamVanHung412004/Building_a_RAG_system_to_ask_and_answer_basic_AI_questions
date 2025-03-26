@@ -1,5 +1,13 @@
+<<<<<<< HEAD
 Node ID: 8286462a-ecf5-41d2-acfb-a9cea1283815
 Text: Hình 3: Minh hoạ đồ thị tương quan giữa surprise và log Như ta
 có thể thấy ở hình 3, với surprise=1 P(E) thì surprise∈ [1,∞]. Nếu xác
 suất là0% thì mức độ ngạc nhiên sẽ là dương vô cùng và với xác suất
 là100% thì kết quả lại trả về mức độ ngạc nhiên là 1.
+=======
+Hình 3: Minh hoạ đồ thị tương quan giữa surprise và log
+Như ta có thể thấy ở hình 3, với surprise=1
+P(E) thì surprise∈ [1,∞]. Nếu xác suất là0%
+thì mức độ ngạc nhiên sẽ là dương vô cùng và với xác suất là100% thì kết quả lại trả về
+mức độ ngạc nhiên là 1. 
+>>>>>>> HEAD@{1}

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: e10fd533-9265-477f-8ee2-22cdb98435d9
 Text: AI VIETNAM aivietnam.edu.vn 473 ch + ich , 474 cond_embed_dim ,
 475 dropout , 476 out_channel = int ( inner_channel * mult ), 477
@@ -5,3 +6,45 @@ use_checkpoint = use_checkpoint , 478 use_scale_shift_norm =
 use_scale_shift_norm , 479 ) 480 ] 481 ch = int ( inner_channel * mult
 ) 482 if ds in attn_res : 483 layers . append ( 484 AttentionBlock (
 485 ch , 486 use...
+=======
+AI VIETNAM aivietnam.edu.vn
+473 ch + ich ,
+474 cond_embed_dim ,
+475 dropout ,
+476 out_channel = int ( inner_channel * mult ),
+477 use_checkpoint = use_checkpoint ,
+478 use_scale_shift_norm = use_scale_shift_norm ,
+479 )
+480 ]
+481 ch = int ( inner_channel * mult )
+482 if ds in attn_res :
+483 layers . append (
+484 AttentionBlock (
+485 ch ,
+486 use_checkpoint = use_checkpoint ,
+487 num_heads = num_heads_upsample ,
+488 num_head_channels = num_head_channels ,
+489 use_new_attention_order = use_new_attention_order ,
+490 )
+491 )
+492 if level and i == res_blocks :
+493 out_ch = ch
+494 layers . append (
+495 ResBlock (
+496 ch ,
+497 cond_embed_dim ,
+498 dropout ,
+499 out_channel = out_ch ,
+500 use_checkpoint = use_checkpoint ,
+501 use_scale_shift_norm = use_scale_shift_norm ,
+502 up=True ,
+503 )
+504 if resblock_updown
+505 else Upsample (ch , conv_resample , out_channel = out_ch )
+506 )
+507 ds //= 2
+508 self . output_blocks . append ( EmbedSequential (* layers ))
+509 self . _feature_size += ch
+510
+511 self . out = nn. 
+>>>>>>> HEAD@{1}

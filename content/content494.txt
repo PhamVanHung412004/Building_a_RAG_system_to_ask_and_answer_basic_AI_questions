@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 46e6f0ea-96a3-431f-89fa-66fcec9c4075
 Text: AI VIETNAM aivietnam.edu.vn 6 bnb_4bit_quant_type="nf4", 7
 bnb_4bit_compute_dtype=torch.bfloat16 8 ) 9 10 model =
@@ -6,3 +7,45 @@ device_map="auto", 13 trust_remote_code=True, 14
 quantization_config=bnb_config 15 ) 16 17 tokenizer =
 AutoTokenizer.from_pretrained(MODEL_NAME) 18 tokenizer.pad_token =
 tokeniz...
+=======
+AI VIETNAM aivietnam.edu.vn
+6 bnb_4bit_quant_type="nf4",
+7 bnb_4bit_compute_dtype=torch.bfloat16
+8 )
+9
+10 model = AutoModelForCausalLM.from_pretrained(
+11 MODEL_NAME,
+12 device_map="auto",
+13 trust_remote_code=True,
+14 quantization_config=bnb_config
+15 )
+16
+17 tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
+18 tokenizer.pad_token = tokenizer.eos_token
+19
+20 model.gradient_checkpointing_enable()
+21 model = prepare_model_for_kbit_training(model)
+22
+23 config = LoraConfig(
+24 r=16,
+25 lora_alpha=32,
+26 target_modules=[
+27 "q_proj",
+28 "up_proj",
+29 "o_proj",
+30 "k_proj",
+31 "down_proj",
+32 "gate_proj",
+33 "v_proj"
+34 ],
+35 lora_dropout=0.05,
+36 bias="none",
+37 task_type="CAUSAL_LM"
+38 )
+39
+40 model = get_peft_model(model, config)
+Trong đó:
+• Dòng 1:Khai báo biến chứa tên của mô hình ngôn ngữ lớn chúng ta mong muốn sử dụng,
+ở đây sẽ là VinaLLaMA phiên bản 7b-chat.
+• Dòng 3 - 40:Khởi tạo mô hình và các cài đặt cần thiết.
+>>>>>>> HEAD@{1}

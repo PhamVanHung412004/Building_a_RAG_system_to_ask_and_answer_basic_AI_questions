@@ -1,5 +1,13 @@
+<<<<<<< HEAD
 Node ID: 8e0e75a6-15dd-4006-b870-0ff8f84a3768
 Text: • axis: Trục mà bạn muốn áp dụng hàm. • arr: Mảng muốn áp dụng
 hàm. Để hiểu rõ hơn về cách sử dụng np.apply_along_axis, chúng ta sẽ
 viết một hàm tính tổng các phần tử trong mỗi hàng của mảng 2 chiều và
 sau đó áp dụng hàm này lên mảng. 26
+=======
+• axis: Trục mà bạn muốn áp dụng hàm.
+• arr: Mảng muốn áp dụng hàm.
+Để hiểu rõ hơn về cách sử dụng np.apply_along_axis, chúng ta sẽ viết một hàm tính tổng các phần tử
+trong mỗi hàng của mảng 2 chiều và sau đó áp dụng hàm này lên mảng.
+26
+>>>>>>> HEAD@{1}

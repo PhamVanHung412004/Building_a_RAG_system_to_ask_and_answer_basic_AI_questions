@@ -1,4 +1,13 @@
+<<<<<<< HEAD
 Node ID: 9f75f28f-1fcb-4b3c-8ba1-25bb5156a4a6
 Text: Module ): 2 def __init__ ( self ): 3 super (). __init__ () 4
 self . input_transform = Tnet (k =3) 5 self . feature_transform = Tnet
 (k =64) 6 self . conv1 = nn.
+=======
+Module ):
+2 def __init__ ( self ):
+3 super (). __init__ ()
+4 self . input_transform = Tnet (k =3)
+5 self . feature_transform = Tnet (k =64)
+6 self . conv1 = nn. 
+>>>>>>> HEAD@{1}

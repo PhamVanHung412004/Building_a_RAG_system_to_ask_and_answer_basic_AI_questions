@@ -1,5 +1,11 @@
+<<<<<<< HEAD
 Node ID: 735d6597-a642-4561-baf5-889ae4423434
 Text: Daily AI Exercise (AIO) aivietnam.edu.vn Quá trình cài đặt khá
 đơn giản, chỉ cần mở file cài đặt và tiến hành nhấn next theo mặc
 định. Cách thứ hai thì đơn giản hơn, trong giao diện Anaconda
 Navigator chúng ta tìm đến Vscode và nhấn install.
+=======
+Daily AI Exercise (AIO) aivietnam.edu.vn
+Quá trình cài đặt khá đơn giản, chỉ cần mở file cài đặt và tiến hành nhấn next theo mặc định. Cách thứ
+hai thì đơn giản hơn, trong giao diện Anaconda Navigator chúng ta tìm đến Vscode và nhấn install.
+>>>>>>> HEAD@{1}

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 08473bf4-005b-4625-b32b-2deead5b6a3f
 Text: Điều này giúp tăng cường khả năng suy luận chính xác của mô
 hình, đồng thời cung cấp cái nhìn sâu sắc và dễ hiểu về quá trình suy
@@ -5,3 +6,23 @@ nghĩ của mô hình, giúp người dùng có thể kiểm tra và hiểu rõ 
 hình đưa ra kết quả. Trong paper nhóm tác giả đề xuất thay thế cho
 chiến lược giải mã tham lam (greedy decoding) thường được sử dụng
 trong COT. Chiế...
+=======
+Điều này giúp tăng cường khả năng suy luận chính
+xác của mô hình, đồng thời cung cấp cái nhìn sâu sắc và dễ hiểu về quá trình suy nghĩ của mô
+hình, giúp người dùng có thể kiểm tra và hiểu rõ cách mô hình đưa ra kết quả.
+Trong paper nhóm tác giả đề xuất thay thế cho chiến lược giải mã tham lam (greedy decoding)
+thường được sử dụng trong COT. Chiến lược này khắc phục một số nhược điểm của COT như:
+• Đa dạng hóa hướng suy nghĩ: Self-Consistency sinh ra một tập hợp đa dạng các hướng
+suy nghĩ, thay vì chỉ chọn một suy nghĩ duy nhất. Điều này dựa trên quan điểm rằng một
+bài toán suy luận phức tạp thường có nhiều cách suy nghĩ khác nhau dẫn đến một câu trả
+lời đúng duy nhất.
+• Cải thiện hiệu suất suy luận: Self-Consistency đã được chứng minh là cải thiện hiệu suất
+của COT một cách đáng kể trên các bài toán suy luận thông thường và toán học.
+• Khắc phục hạn chế của COT: Nghiên cứu cho thấy rằng COT có thể làm giảm hiệu suất
+so với gợi ý thông thường trong một số trường hợp. Self-Consistency giúp khắc phục điểm
+yếu này, đặc biệt trong các tác vụ few-shot learning.
+• Ứng dụng rộng rãi: Self-Consistency được ứng dụng trong nhiều tác vụ NLP, như trả lời
+câu hỏi không dựa trên nguồn thông tin (Closed-Book Question Answering) và suy luận ngôn
+ngữ tự nhiên (Natural Language Inference)
+11
+>>>>>>> HEAD@{1}

@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 Node ID: 63d23e50-f6e6-4bef-945c-28a24c870a19
 Text: . 2 2 Các phương pháp tạo mảng. .
+=======
+. 2
+2 Các phương pháp tạo mảng. . 
+>>>>>>> HEAD@{1}

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: a3b37137-8207-48bc-bdc2-62eaabb296eb
 Text: Hình 4: Kế thừa đa kế. 1 class Base1: 2 def __init__(self): 3
 self.str1 = "Base1" 4 print("Base1 Initialized") 5 6 class Base2: 7
@@ -5,3 +6,36 @@ def __init__(self): 8 self.str2 = "Base2" 9 print("Base2 Initialized")
 10 11 class Derived(Base1, Base2): 12 def __init__(self): 13
 Base1.__init__(self) 14 Base2.__init__(self) 15 print("Derived
 Initialized") 16 17 de...
+=======
+Hình 4: Kế thừa đa kế.
+1 class Base1:
+2 def __init__(self):
+3 self.str1 = "Base1"
+4 print("Base1 Initialized")
+5
+6 class Base2:
+7 def __init__(self):
+8 self.str2 = "Base2"
+9 print("Base2 Initialized")
+10
+11 class Derived(Base1, Base2):
+12 def __init__(self):
+13 Base1.__init__(self)
+14 Base2.__init__(self)
+15 print("Derived Initialized")
+16
+17 def display(self):
+18 print(self.str1, self.str2)
+19
+20 # Tạo object từ lớp Derived
+21 obj = Derived()
+22 obj.display()
+23
+24 # Output:
+25 # Base1 Initialized
+26 # Base2 Initialized
+27 # Derived Initialized
+28 # Base1 Base2
+29
+9
+>>>>>>> HEAD@{1}

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 85021616-fd25-4859-bcff-376379f206a6
 Text: Daily AI Exercise (AIO) aivietnam.edu.vn 1 def add (x: int , y:
 int ) -> int : 2 return x + y 3 4 if __name__ == " __main__ ": 5 print
@@ -5,3 +6,31 @@ int ) -> int : 2 return x + y 3 4 if __name__ == " __main__ ": 5 print
 ================= Output ================ 3.5 {’x ’: <class ’int ’>,
 ’y ’: <class ’int ’>, ’return ’: <class ’int ’ >}
 ===================================...
+=======
+Daily AI Exercise (AIO) aivietnam.edu.vn
+1 def add (x: int , y: int ) -> int :
+2 return x + y
+3
+4 if __name__ == " __main__ ":
+5 print ( add (x= 1.5 , y =2) )
+6 print ( add . __annotations__ )
+================= Output ================
+3.5
+{’x ’: <class ’int ’>, ’y ’: <class ’int ’>,
+’return ’: <class ’int ’ >}
+==========================================
+Ưu điểm của việc sử dụng type hints là giúp code của chúng ta dễ đọc hơn, ngoài ra thì giúp công cụ
+IDE code gợi ý cú pháp hiệu quả hơn. Thông thường, khi chúng ta tạo hàm, nếu các tham số trong
+hàm không được gán giá trị mặc định thì IDE không biết kiểu dữ liệu của tham số đó là gì, nên không
+đưa ra gợi ý code cho chúng ta được. Nhưng khi sử dụng type hints, điều này lại được khắc phục.
+Hình 1: Gợi ý code trong Vscode xuất hiện khi sử dụng type hints
+2.1.3 Type hints cho class
+Để sử dụng type hints cho class, đối với thuộc tính chúng ta tạo type hints cho chúng như cách làm với
+biến, đối với các phương thức thì chúng ta tạo type hints như cách chúng ta làm với hàm.
+1 class Person :
+2 name : str
+3 age : int
+4
+5 def __init__ (self , name : str , age : int ) -> None :
+6 self . 
+>>>>>>> HEAD@{1}

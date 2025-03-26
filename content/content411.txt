@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 49a7c34d-e952-43b2-b875-ca747000a44b
 Text: float () , data [’ category ’]. to( device ) 10 11 optimizer .
 zero_grad () 12 outputs , m3x3 , m64x64 = pointnet ( inputs .
@@ -5,3 +6,30 @@ transpose (1 ,2) ) 13 14 loss = pointnetloss ( outputs , labels , m3x3
 , m64x64 ) 15 loss . backward () 16 optimizer . step () 17 18 # print
 statistics 19 running_loss += loss . item () 20 if i % 10 == 9: #
 print every 10 ...
+=======
+float () , data [’ category ’].
+to( device )
+10
+11 optimizer . zero_grad ()
+12 outputs , m3x3 , m64x64 = pointnet ( inputs . transpose (1 ,2) )
+13
+14 loss = pointnetloss ( outputs , labels , m3x3 , m64x64 )
+15 loss . backward ()
+16 optimizer . step ()
+17
+18 # print statistics
+19 running_loss += loss . item ()
+20 if i % 10 == 9: # print every 10 mini - batches
+21 print (’[ Epoch : %d, Batch : %4d / %4d], loss : %.3 f’ %
+22 ( epoch + 1, i + 1, len ( train_loader ), running_loss / 10) )
+23 running_loss = 0.0
+24
+25 pointnet . eval ()
+26 correct = total = 0
+27
+28 # validation
+29 if val_loader :
+30 with torch . no_grad ():
+31 for data in val_loader :
+32 inputs , labels = data [’ pointcloud ’]. to( device ). 
+>>>>>>> HEAD@{1}

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: b88460fc-6290-4e31-99a9-d759b2b7ed1b
 Text: Thư viện này cung cấp một bộ công cụ mạnh mẽ để khám phá, tóm
 tắt và trực quan hóa dữ liệu của bạn, giúp bạn hiểu rõ hơn về dữ liệu
@@ -5,3 +6,33 @@ và đưa ra quyết định sáng suốt hơn. • Điểm nổi bật của Py
 Tạo bảng điều khiển tương tác:PyGWalker cho phép bạn tạo các bảng điều
 khiển trực quan và dễ sử dụng để khám phá dữ liệu của bạn. Bạn có thể
 dễ dàn...
+=======
+Thư viện này cung
+cấp một bộ công cụ mạnh mẽ để khám phá, tóm tắt và trực quan hóa dữ liệu của
+bạn, giúp bạn hiểu rõ hơn về dữ liệu và đưa ra quyết định sáng suốt hơn.
+• Điểm nổi bật của PyGWalker:
++ Tạo bảng điều khiển tương tác:PyGWalker cho phép bạn tạo các bảng
+điều khiển trực quan và dễ sử dụng để khám phá dữ liệu của bạn. Bạn có thể
+dễ dàng thêm và loại bỏ các biểu đồ, thay đổi bộ lọc và tương tác với dữ liệu
+theo thời gian thực.
++ Hỗ trợ nhiều loại biểu đồ:PyGWalker cung cấp nhiều loại biểu đồ khác
+nhau để trực quan hóa dữ liệu của bạn, bao gồm biểu đồ thanh, biểu đồ
+đường, biểu đồ phân tán, biểu đồ nhiệt, v.v.
++ Khả năng lọc và nhóm dữ liệu:PyGWalker cho phép bạn lọc dữ liệu theo
+các tiêu chí cụ thể và nhóm dữ liệu theo các trường khác nhau.
++ Tích hợp với Jupyter Notebook:PyGWalker có thể được sử dụng trong
+Jupyter Notebook, cho phép bạn kết hợp phân tích dữ liệu với mã Python
+khác.
++ Dễ sử dụng:PyGWalker có API đơn giản và dễ sử dụng, giúp bạn dễ dàng
+bắt đầu.
+• Ứng dụng của PygWalker trong việc trực quan hóa dữ liệu:
++ Khoa học dữ liệu:PyGWalker có thể được sử dụng để khám phá và phân
+tích dữ liệu trong khoa học dữ liệu.
++ Học máy:PyGWalker có thể được sử dụng để chuẩn bị dữ liệu và đánh giá
+mô hình học máy.
++ Tài chính:PyGWalker có thể được sử dụng để phân tích dữ liệu tài chính
+và thị trường chứng khoán.
++ Tiếp thị:PyGWalker có thể được sử dụng để phân tích dữ liệu khách hàng
+và chiến dịch tiếp thị.
+www.facebook.com/aivietnam.edu.vn 1
+>>>>>>> HEAD@{1}

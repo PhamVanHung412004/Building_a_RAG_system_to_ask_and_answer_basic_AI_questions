@@ -1,3 +1,12 @@
+<<<<<<< HEAD
 Node ID: f0a6a678-9d5a-47e3-97a1-de510fc978b3
 Text: Vận hành trong Tài chính Ngân hàng Tự động hóa quy trình bằng
 robot (RPA) Người soạn: Cao Trung Nghĩa Cập nhật ngày 05/07/2024
+=======
+Vận hành trong Tài chính Ngân hàng
+Tự động hóa quy trình bằng robot
+(RPA)
+Người soạn:
+Cao Trung Nghĩa
+Cập nhật ngày 05/07/2024
+>>>>>>> HEAD@{1}

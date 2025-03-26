@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: eb674dc7-7947-413e-8923-fa545b335d68
 Text: AI VIETNAM aivietnam.edu.vn 3. Thực hiện theo các yêu cầu sau .
 Viết function đọc các câu trong một file txt, đếm số lượng các từ xuất
@@ -5,3 +6,30 @@ hiện và trả về một dictionary với key là từ và value là số l�
 xuất hiện. • Input: Đường dẫn đến file txt • Output: dictionary đếm số
 lần các từ xuất hiện • Note: – Giả sử các từ trong file txt đều có các
 c...
+=======
+AI VIETNAM aivietnam.edu.vn
+3. Thực hiện theo các yêu cầu sau .
+Viết function đọc các câu trong một file txt, đếm số lượng các từ xuất hiện và trả về một dictionary
+với key là từ và value là số lần từ đó xuất hiện.
+• Input: Đường dẫn đến file txt
+• Output: dictionary đếm số lần các từ xuất hiện
+• Note:
+– Giả sử các từ trong file txt đều có các chữ cái thuộc [a-z] hoặc [A-Z]
+– Không cần các thao tác xử lý string phức tạpnhưng cần xử lý các từ đều là viết
+thường
+– Các bạn dùng lệnh này để download
+!gdown https://drive.google.com/uc?id=1IBScGdW2xlNsc9v5zSAya548kNgiOrko
+1 # Examples
+2 ! gdown https :// drive . google . com /uc?id =1 IBScGdW2xlNsc9v5zSAya548kNgiOrko
+3 file_path = ’/ content / P1_data . txt ’
+4 word_count ( file_path )
+5 >>{’a’: 7,
+6 ’again ’: 1,
+7 ’and ’: 1,
+8 ’are ’: 1,
+9 ’at ’: 1,
+10 ’be ’: 1,
+11 ’ become ’: 2,
+12 ...}
+4. Khoảng cách Levenshtein.
+>>>>>>> HEAD@{1}

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: f79f362f-2e2c-42dc-9bd9-84d70bb00f7f
 Text: AI VIETNAM aivietnam.edu.vn các lớp transformer bổ sung trên
 chiều thời gian sử dụng causal attention. Các lớp này có nhiệm vụ học
@@ -5,3 +6,13 @@ thông tin về thời gian. Điều này đảm bảo rằng mỗi token không
 tương tác với các token không gian từ các khung hình trước, cho phép
 khung hình đầu tiên được mã hóa độc lập. Thiết kế này tạo điều kiện
 cho việc...
+=======
+AI VIETNAM aivietnam.edu.vn
+các lớp transformer bổ sung trên chiều thời gian sử dụng causal attention. Các lớp này có nhiệm vụ
+học thông tin về thời gian. Điều này đảm bảo rằng mỗi token không gian chỉ tương tác với các token
+không gian từ các khung hình trước, cho phép khung hình đầu tiên được mã hóa độc lập. Thiết kế này
+tạo điều kiện cho việc kết hợp các mô hình text-to-image trong mô hình video và cho phép quá trình
+tạo video được điều kiện hóa (conditioned) bởi một tập hợp khung hình ban đầu.
+Các vector đầu ra sau khi đi qua các lớp transformer sẽ được lượng tử hóa về không gian latent rời
+rạc. 
+>>>>>>> HEAD@{1}

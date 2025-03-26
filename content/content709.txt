@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 Node ID: 860722a0-dde3-464e-8998-a1ca04ef2e87
 Text: . 7 4 Các phương pháp nối mảng. .
+=======
+. 7
+4 Các phương pháp nối mảng. . 
+>>>>>>> HEAD@{1}

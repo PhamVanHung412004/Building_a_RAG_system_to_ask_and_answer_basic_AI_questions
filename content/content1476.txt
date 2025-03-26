@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 668d94fc-0eb0-41c5-aa97-3a0329819f00
 Text: has_collection ( COLLECTION_NAME ): 3 qa_collection =
 create_collection ( COLLECTION_NAME , DIMENSION ) 4 qa_collection .
@@ -5,3 +6,38 @@ load ( replica_number = REPLICA_NUMBER ) 5 else : 6 qa_collection =
 Collection ( COLLECTION_NAME ) 7 qa_collection . load ( replica_number
 = REPLICA_NUMBER ) 8 9 if qa_collection . is_empty : 10
 create_squad_database ( qa_col...
+=======
+has_collection ( COLLECTION_NAME ):
+3 qa_collection = create_collection ( COLLECTION_NAME , DIMENSION )
+4 qa_collection . load ( replica_number = REPLICA_NUMBER )
+5 else :
+6 qa_collection = Collection ( COLLECTION_NAME )
+7 qa_collection . load ( replica_number = REPLICA_NUMBER )
+8
+9 if qa_collection . is_empty :
+10 create_squad_database ( qa_collection )
+(h) Xây dựng hàm search:Khi đã tạo xong vector database, chúng ta sẽ xây dựng một hàm
+cho phép nhận vào một batch các vector embedding của câu truy vấn (trong trường hợp này
+là các câu hỏi). Sau đó, tìm kiếm tương đồng và trả về các mẫu dữ liệu có liên quan nhất:
+1 def search ( question_batch ):
+2 res = qa_collection . search (
+3 question_batch [’ question_embedding ’]. tolist () ,
+4 anns_field =’ question_embedding ’,
+5 param ={
+6 " metric_type ": "L2",
+7 " params ": {" nprobe ": 10} ,
+8 },
+9 output_fields =[ ’ question ’, ’ context ’],
+10 limit = LIMIT
+11 )
+12 overall_id = []
+13 overall_distance = []
+14 overall_question = []
+15 overall_context = []
+16
+17 for hits in res :
+18 ids = []
+19 distances = []
+20 questions = []
+9
+>>>>>>> HEAD@{1}

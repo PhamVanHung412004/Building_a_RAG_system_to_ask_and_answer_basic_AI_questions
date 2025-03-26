@@ -1,5 +1,19 @@
+<<<<<<< HEAD
 Node ID: fbb23c27-6641-4a4c-ae0b-aa4a76bcdecd
 Text: a) Text Classification b) Machine Translation c) Text Generation
 d) Question Answering Câu hỏi 10Bài toán nào sau đây sử dụng để huấn
 luyện mô hình Reward? a) Text Classification b) Machine Translation c)
 Text Generation d) Question Answering - Hết - 15
+=======
+a) Text Classification
+b) Machine Translation
+c) Text Generation
+d) Question Answering
+Câu hỏi 10Bài toán nào sau đây sử dụng để huấn luyện mô hình Reward?
+a) Text Classification
+b) Machine Translation
+c) Text Generation
+d) Question Answering
+- Hết -
+15
+>>>>>>> HEAD@{1}

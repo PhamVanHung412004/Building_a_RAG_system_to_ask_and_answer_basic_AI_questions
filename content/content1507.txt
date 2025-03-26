@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 179254e9-ce5d-4cbe-bb5c-df0b09c429d7
 Text: AI VIETNAM aivietnam.edu.vn Phần 3. Câu hỏi trắc nghiệm Câu hỏi
 1Học đa tác vụ (Multi-Task Learning) là gì? a) Học cách thực hiện
@@ -5,3 +6,23 @@ nhiều tác vụ khác nhau một cách độc lập b) Học cách thực hi�
 tác vụ cùng một lúc c) Học cách thực hiện một tác vụ duy nhất d) Học
 cách thực hiện nhiều tác vụ theo thứ tự Câu hỏi 2Lợi ích chính của học
 đa tác vụ...
+=======
+AI VIETNAM aivietnam.edu.vn
+Phần 3. Câu hỏi trắc nghiệm
+Câu hỏi 1Học đa tác vụ (Multi-Task Learning) là gì?
+a) Học cách thực hiện nhiều tác vụ khác nhau một cách độc lập
+b) Học cách thực hiện nhiều tác vụ cùng một lúc
+c) Học cách thực hiện một tác vụ duy nhất
+d) Học cách thực hiện nhiều tác vụ theo thứ tự
+Câu hỏi 2Lợi ích chính của học đa tác vụ là gì?
+a) Tăng độ chính xác của mỗi tác vụ
+b) Tăng khả năng chuyển giao kiến thức giữa các tác vụ
+c) Cả 2 đáp án đều đúng
+d) Cả 2 đáp án đều sai
+Câu hỏi 3Phương pháp nào sau đây không phải là phương pháp học đa tác vụ?
+a) Chia sẻ tham số
+b) Chia sẻ biểu diễn
+c) Chia sẻ dữ liệu
+d) Học tuần tự
+Câu hỏi 4Mô hình MTL nào sau đây tập trung vào tinh chỉnh khối encoder?
+>>>>>>> HEAD@{1}

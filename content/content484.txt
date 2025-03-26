@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 9a0dd310-59a2-4add-b153-db23d521b9a0
 Text: AI VIETNAM aivietnam.edu.vn 19 async def predict ( file_upload :
 UploadFile = File (...) ): 20 response = await predictor . predict (
@@ -5,3 +6,46 @@ file_upload . file ) 21 22 return CatDogResponse (** response ) Trong
 đây, ta khởi tạo instance router của FastAPI để định nghĩa một
 endpoint, đồng thời khởi tạo một instance Predictor của model Cat Dog
 Classifica...
+=======
+AI VIETNAM aivietnam.edu.vn
+19 async def predict ( file_upload : UploadFile = File (...) ):
+20 response = await predictor . predict ( file_upload . file )
+21
+22 return CatDogResponse (** response )
+Trong đây, ta khởi tạo instance router của FastAPI để định nghĩa một endpoint, đồng
+thời khởi tạo một instance Predictor của model Cat Dog Classification để router này có
+thể gọi và lấy kết quả dự đoán.
+(b) routes/base.py: Trong trường hợp các bạn có nhiều router, chúng ta có thể tạo một file
+.py để import tất cả router của từng file và gom lại thành một router duy nhất. Trong
+trường hợp này, mặc dù vậy, chúng ta sẽ chỉ import một router:
+1 from fastapi import APIRouter
+2 from . catdog_route import router as catdog_cls_route
+3
+4 router = APIRouter ()
+5 router . include_router ( catdog_cls_route , prefix ="/ catdog_classification ")
+9. Cập nhật app.py và server.py: Cuối cùng, với các thành phần ở trên, ta sẽ khởi tạo một
+thực thể FastAPI để host API của chúng ta. Đầu tiên, ta code fileapp.py như sau:
+1 import sys
+2 from pathlib import Path
+3 sys . path . append ( str ( Path ( __file__ ). parent ))
+4
+5 from fastapi import FastAPI
+6 from middleware import LogMiddleware , setup_cors
+7 from routes . base import router
+8
+9 app = FastAPI ()
+10
+11 app . add_middleware ( LogMiddleware )
+12 setup_cors ( app )
+13 app . include_router ( router )
+Ta tạo instance FastAPI với tên biếnapp, sau đó cập nhật middlware cũng như router mà
+ta đã định nghĩa ở các file khác vào trong biến này. Cuối cùng, để triển khai API, ta sẽ cập
+nhật đoạn code này vào fileserver.py:
+1 import uvicorn
+2
+3 if __name__ == " __main__ ":
+4 uvicorn . run (" app : app ", host =" 0.0.0.0 ", port =8000 , reload = True )
+Theo đó, ta sử dụng thư việnuvicorn để host API trên địa chỉ 0.0.0.0 (địa chỉ máy local) trên
+port 8000. Trong trường hợp các bạn bị lỗi port đã được sử dụng, hãy đổi sang port khác
+nhé.
+>>>>>>> HEAD@{1}

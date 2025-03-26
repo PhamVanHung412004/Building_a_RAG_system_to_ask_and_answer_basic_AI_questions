@@ -1,5 +1,14 @@
+<<<<<<< HEAD
 Node ID: f35c12bd-3ffb-4e02-afe0-68d32cda137e
 Text: AI VIETNAM aivietnam.edu.vn Hình 7: Theo dõi quá trình tạo ảnh
 của mô hình theo từng epoch trênwandb. 5. Inference Bạn có thể sử dụng
 checkpoint sẵn có để tiến hành quá trình suy luận thử nghiệm. 1 #
 Download the checkpoint 2 !
+=======
+AI VIETNAM aivietnam.edu.vn
+Hình 7: Theo dõi quá trình tạo ảnh của mô hình theo từng epoch trênwandb.
+5. Inference
+Bạn có thể sử dụng checkpoint sẵn có để tiến hành quá trình suy luận thử nghiệm.
+1 # Download the checkpoint
+2 ! 
+>>>>>>> HEAD@{1}

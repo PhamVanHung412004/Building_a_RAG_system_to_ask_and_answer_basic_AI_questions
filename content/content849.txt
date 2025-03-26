@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 8c01a67b-1bf9-481a-8525-e0aadf268035
 Text: AI VIETNAM aivietnam.edu.vn 12 embedding_list.append(embedding)
 13 rates = correlation_coefficient(query_embedding,
@@ -5,3 +6,18 @@ np.stack(embedding_list)) 14
 ls_path_score.extend(list(zip(images_path, rates))) 15 return query,
 ls_path_score Hình 18: Image retrieval ảnh đơn giản với model CLIP và
 Correlation Coefficient Hình 19: Image retrieval ảnh phức tạp v...
+=======
+AI VIETNAM aivietnam.edu.vn
+12 embedding_list.append(embedding)
+13 rates = correlation_coefficient(query_embedding, np.stack(embedding_list))
+14 ls_path_score.extend(list(zip(images_path, rates)))
+15 return query, ls_path_score
+Hình 18: Image retrieval ảnh đơn giản với model CLIP và Correlation Coefficient
+Hình 19: Image retrieval ảnh phức tạp với model Clip và Correlation Coefficient
+2.2.2 Tối ưu hoá quá trình truy vấn hình ảnh sử dụng mô hình CLIP và cơ sở dữ liệu
+vector
+Chúng ta sẽ tiếp tục phát triển phương pháp ở trên, vì mỗi lần truy vấn đều cần phải sử dụng lại mô
+hình CLIP, phương pháp này sẽ sử dụng một cơ sở dữ liệu vector (vector database) để quản lý các
+embedding vector, giúp quá trình truy vấn được tối ưu hơn.
+Bước đầu tiên là trích xuất vector đặc trưng từ các ảnh và lưu trữ chúng vào cơ sở dữ liệu. 
+>>>>>>> HEAD@{1}

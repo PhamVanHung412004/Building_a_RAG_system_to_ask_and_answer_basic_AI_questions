@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: fcaa692d-0ba3-4287-a677-93ae0021a3ab
 Text: 2. Trong một chương trình Object Detection, Output của mô hình
 Object Detection là gì? (a) Ảnh chứa người. (b) Tọa độ bounding box
@@ -5,3 +6,16 @@ nếu có. (c) Tọa độ bounding box và tên class nếu có. (d) Ảnh ch�
 bounding box nếu có. 3. Trong các bước cài đặt và thực hiện huấn luyện
 YOLOv10, bước nào sau đây không nằm trong quy trình? (a) Tải
 pretrained model. ...
+=======
+2. Trong một chương trình Object Detection, Output của mô hình Object Detection là gì?
+(a) Ảnh chứa người.
+(b) Tọa độ bounding box nếu có.
+(c) Tọa độ bounding box và tên class nếu có.
+(d) Ảnh chứa bounding box nếu có.
+3. Trong các bước cài đặt và thực hiện huấn luyện YOLOv10, bước nào sau đây không nằm
+trong quy trình?
+(a) Tải pretrained model.
+(b) Cài đặt hàm huấn luyện.
+(c) Cài đặt thư viện ultralytics.
+(d) Tải bộ dữ liệu.
+>>>>>>> HEAD@{1}

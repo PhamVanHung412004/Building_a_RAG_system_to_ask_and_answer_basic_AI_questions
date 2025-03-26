@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: b922426b-6fcc-4cec-a35c-3b7ea9eecffd
 Text: Cho đoạn code Q-Learning sau: 1 state = env . reset () 2 for t
 in range ( max_steps ): 3 action = np. argmax (Q[ state ]) 4
@@ -5,3 +6,22 @@ next_state , reward , done , _ = env . step ( action ) 5 Q[ state ,
 action ] = Q[ state , action ] + alpha * ( reward + gamma * np. max
 (Q[ next_state ]) - Q[ state , action ]) 6 state = next_state 7 if
 done : 8 break Loại ...
+=======
+Cho đoạn code Q-Learning sau:
+1 state = env . reset ()
+2 for t in range ( max_steps ):
+3 action = np. argmax (Q[ state ])
+4 next_state , reward , done , _ = env . step ( action )
+5 Q[ state , action ] = Q[ state , action ] + alpha * ( reward + gamma * np. max (Q[
+next_state ]) - Q[ state , action ])
+6 state = next_state
+7 if done :
+8 break
+Loại policy dùng để lựa chọn hành động tại stept đã được triển khai là?
+(a) ε-greedy Policy
+(b) Softmax Policy
+(c) Greedy Policy
+(d) Random Policy
+- Hết -
+17
+>>>>>>> HEAD@{1}

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 6c4eb740-2ecc-4979-96db-4f94f4fff68c
 Text: Tutorial on Denoising Diffusion-based Generative Modeling Nguyen
 Vu Hoa Binh Khai Trinh Xuan Hoang-Bach ngo Minh-Hung An Ngày 7 tháng 2
@@ -5,3 +6,16 @@ năm 2024 Phần I: Một số khái niệm cơ bản Trước khi chúng ta b�
 tìm hiểu về Stable Diffusion (SD) thì ở phần này chúng ta sẽ cùng nhau
 tổng quan lại một số kiến thức nền tảng, những khái niệm trong phần
 này ...
+=======
+Tutorial on Denoising Diffusion-based
+Generative Modeling
+Nguyen Vu Hoa Binh Khai Trinh Xuan Hoang-Bach ngo Minh-Hung An
+Ngày 7 tháng 2 năm 2024
+Phần I: Một số khái niệm cơ bản
+Trước khi chúng ta bắt đầu tìm hiểu về Stable Diffusion (SD) thì ở phần này chúng ta sẽ cùng nhau
+tổng quan lại một số kiến thức nền tảng, những khái niệm trong phần này sẽ là cơ sở để chúng ta hiểu
+và chứng minh được cách mà một mô hình SD vận hành.
+1 Wiener process
+Wiener process còn được gọi là Brownian process (Brownian motion), là một quá trình ngẫu nhiên
+không giảm dần theo thời gian. 
+>>>>>>> HEAD@{1}

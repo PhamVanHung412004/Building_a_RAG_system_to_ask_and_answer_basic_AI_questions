@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 13ebdaa9-f324-4af3-9427-c57352d624ff
 Text: AI VIETNAM aivietnam.edu.vn 17 Multimodal CoT Prompting Các mô
 hình ngôn ngữ lớn đã thể hiện hiệu suất ấn tượng trong việc giải quyết
@@ -5,3 +6,15 @@ các bài toán suy luận phức tạp bằng cách sử dụng COT để tạo
 chuỗi suy luận trung gian như rationale (lý do) để suy luận ra câu trả
 lời. Tuy nhiên, các nghiên cứu về COT trước đó đã tập trung vào mô
 hình ngô...
+=======
+AI VIETNAM aivietnam.edu.vn
+17 Multimodal CoT Prompting
+Các mô hình ngôn ngữ lớn đã thể hiện hiệu suất ấn tượng trong việc giải quyết các bài toán suy
+luận phức tạp bằng cách sử dụng COT để tạo ra các chuỗi suy luận trung gian như rationale (lý do)
+để suy luận ra câu trả lời. Tuy nhiên, các nghiên cứu về COT trước đó đã tập trung vào mô hình
+ngôn ngữ. Multimodal-CoT được đề xuất trong paper "Multimodal Chain-of-Thought Reasoning
+in Language Models" Zhang et al., 2023b, là một phương pháp kết hợp cả hai mô hình ngôn ngữ
+và hình ảnh vào một two-stage framework tách biệt việc tạo lý do và suy luận câu trả lời. Nhờ
+đó, việc suy luận câu trả lời có thể tận dụng tốt hơn các lý do được tạo ra dựa trên thông tin đa
+phương tiện.
+>>>>>>> HEAD@{1}

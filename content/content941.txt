@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 256d1155-29b1-42ce-a698-4c2f1e7b9d6b
 Text: AI VIET NAM – AI COURSE 2023 Xây dựng hệ thống hỏi-đáp mở với hệ
 cơ sở dữ liệu vector Dinh-Thang Duong, Minh-Duc Bui và Quang-Vinh Dinh
@@ -5,3 +6,17 @@ PR-Team: Minh-Châu Phạm, Hoàng-Nguyên và Vũ Đăng-Nhã Nguyễn Ngày 13
 tháng 2 năm 2024 Phần I: Giới thiệu Trong project này, chúng ta sẽ tập
 trung vào việc phát triển một hệ thống end-to-end hỏi đáp tự động, với
 k...
+=======
+AI VIET NAM – AI COURSE 2023
+Xây dựng hệ thống hỏi-đáp mở với hệ cơ sở dữ
+liệu vector
+Dinh-Thang Duong, Minh-Duc Bui và Quang-Vinh Dinh
+PR-Team: Minh-Châu Phạm, Hoàng-Nguyên và Vũ Đăng-Nhã Nguyễn
+Ngày 13 tháng 2 năm 2024
+Phần I: Giới thiệu
+Trong project này, chúng ta sẽ tập trung vào việc phát triển một hệ thống end-to-end hỏi đáp tự động,
+với khả năng trả lời một câu hỏi với nội dung bất kì. Hệ thống mà chúng ta cài đặt trong project này
+bao gồm hai phần chính là Retriever và Reader, với mục tiêu xây dựng một hệ thống toàn diện có khả
+năng rút trích thông tin từ văn bản và cung cấp câu trả lời cho các câu hỏi dựa trên nội dung của đoạn
+văn.
+>>>>>>> HEAD@{1}

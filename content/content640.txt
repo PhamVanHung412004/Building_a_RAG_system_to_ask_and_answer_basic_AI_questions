@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 4a30b582-e2a6-4a88-9c91-8d3affce6fe1
 Text: 2.]] ========================================== Câu 6: Chuyển vị
 một ma trận 1 # Python code ( aivietnam ) 2 X = np. array ([[1 , 2] ,
@@ -5,3 +6,40 @@ một ma trận 1 # Python code ( aivietnam ) 2 X = np. array ([[1 , 2] ,
 X.T) ================= Output ================ X: [[1 2] [3 4]] X.T:
 [[1 3] [2 4]] Câu 7: Phép nhân giữa ma trận và vector 1 # Python code
 ( ...
+=======
+2.]]
+==========================================
+Câu 6: Chuyển vị một ma trận
+1 # Python code ( aivietnam )
+2 X = np. array ([[1 , 2] ,
+3 [3 , 4]])
+4 print (’X: \n’, X)
+5
+6 # transpose X
+7 print (’X.T: \n’, X.T)
+================= Output ================
+X:
+[[1 2]
+[3 4]]
+X.T:
+[[1 3]
+[2 4]]
+Câu 7: Phép nhân giữa ma trận và vector
+1 # Python code ( aivietnam )
+2 import numpy as np
+3
+4 X = np. array ([[1 , 2] ,
+5 [3 , 4]])
+6 v = np. array ([1 , 2])
+7
+8 # Dot product between a matrix & a vector
+9 print (’X. dot (v) \n’, X. dot (v))
+10 print (’v. dot (X) \n’, v. dot (X))
+================= Output ================
+X. dot (v)
+[ 5 11]
+v. dot (X)
+[ 7 10]
+==========================================
+21
+>>>>>>> HEAD@{1}

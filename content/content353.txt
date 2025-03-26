@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 5d4a0df5-2d7b-480e-92ac-27fcf74b7dbb
 Text: Resize (( IMAGE_SIZE , IMAGE_SIZE )), 9 transforms . ToTensor ()
 , 10 ] 11 ) 12 13 # Load dataset 14 train_dataset = VideoDataset ( 15
@@ -5,3 +6,34 @@ root_dir ="./ dataset /rwf -2000 ", phase =" train ", transform =
 transform , n_frames = MAX_LEN 16 ) 17 18 val_dataset = VideoDataset (
 19 root_dir ="./ dataset /rwf -2000 ", phase =" val ", transform =
 transfor...
+=======
+Resize (( IMAGE_SIZE , IMAGE_SIZE )),
+9 transforms . ToTensor () ,
+10 ]
+11 )
+12
+13 # Load dataset
+14 train_dataset = VideoDataset (
+15 root_dir ="./ dataset /rwf -2000 ", phase =" train ", transform = transform ,
+n_frames = MAX_LEN
+16 )
+17
+18 val_dataset = VideoDataset (
+19 root_dir ="./ dataset /rwf -2000 ", phase =" val ", transform = transform ,
+n_frames = MAX_LEN
+20 )
+21
+22 # Count number of cpus
+23 cpus = os. cpu_count ()
+24 print (f" Number of cpus : { cpus }")
+25
+26 # Create data loaders
+27 train_loader = DataLoader (
+28 train_dataset , batch_size = BATCH_SIZE , num_workers =cpus , shuffle = True
+29 )
+30 val_loader = DataLoader (
+31 val_dataset , batch_size = BATCH_SIZE , num_workers =cpus , shuffle = False
+32 )
+33
+6
+>>>>>>> HEAD@{1}

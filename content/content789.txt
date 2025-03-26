@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 2dca99ed-f441-44db-8561-4a520576abef
 Text: AIO 2024 aivietnam.edu.vn 1 #aivietnam 2 import numpy as np 3 4
 # Tạo mảng 2 chiều 5 arr2d = np.array([[3, 1, 2], [6, 5, 4]]) 6 # Sắp
@@ -5,3 +6,41 @@ xếp theo mặc định 7 sorted_arr2d = np.sort(arr2d) 8 print("Sắp xếp
 mảng theo mặc định:\n", sorted_arr2d) 9 # Sắp xếp theo từng hàng 10
 sorted_arr2d_row = np.sort(arr2d, axis=1) 11 print("Sắp xếp theo từng
 hàng:\n"...
+=======
+AIO 2024 aivietnam.edu.vn
+1 #aivietnam
+2 import numpy as np
+3
+4 # Tạo mảng 2 chiều
+5 arr2d = np.array([[3, 1, 2], [6, 5, 4]])
+6 # Sắp xếp theo mặc định
+7 sorted_arr2d = np.sort(arr2d)
+8 print("Sắp xếp mảng theo mặc định:\n",
+sorted_arr2d)
+9 # Sắp xếp theo từng hàng
+10 sorted_arr2d_row = np.sort(arr2d, axis=1)
+11 print("Sắp xếp theo từng hàng:\n",
+sorted_arr2d_row)
+12 # Sắp xếp theo từng cột
+13 sorted_arr2d_col = np.sort(arr2d, axis=0)
+14 print("Sắp xếp theo từng cột:\n",
+sorted_arr2d_col)
+================= Output ================
+Sắp xếp mảng theo mặc định:
+[[1 2 3]
+[4 5 6]]
+Sắp xếp theo từng hàng:
+[[1 2 3]
+[4 5 6]]
+Sắp xếp theo từng cột:
+[[3 1 2]
+[6 5 4]]
+==========================================
+7 Các phép toán trên mảng
+NumPy cung cấp nhiều hàm và phép toán để thực hiện các phép toán học phức tạp trên các mảng. Hiểu
+cách chuyển đổi các công thức toán học thành mã NumPy là rất quan trọng để tận dụng sức mạnh của
+thư viện này
+7.1 Phép cộng - Addition
+Phép cộng hai mảng được thực hiện theo cùng một nguyên tắc cơ bản, là phép cộng element-wise (theo
+từng phần tử). 
+>>>>>>> HEAD@{1}

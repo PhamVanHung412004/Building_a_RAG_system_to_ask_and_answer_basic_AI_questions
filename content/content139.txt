@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: d7f3f56d-cade-4c9a-91cc-2c420d8d38b6
 Text: AI VIETNAM aivietnam.edu.vn Hình 4: Hàm delta dirac thường được
 sử dụng trong các ứng dụng toán học và kỹ thuật như biểu diễn các hàm
@@ -5,3 +6,21 @@ xác định tại một điểm duy nhất hoặc trong lý thuyết xác suấ
 diễn phân phối xác suất của một biến ngẫu nhiên tại một giá trị duy
 nhất. 6 Heat equation Heat Equation là một phương trình đạo hàm riêng
 sử dụn...
+=======
+AI VIETNAM aivietnam.edu.vn
+Hình 4: Hàm delta dirac thường được sử dụng trong các ứng dụng toán học và kỹ thuật như biểu diễn
+các hàm xác định tại một điểm duy nhất hoặc trong lý thuyết xác suất để biểu diễn phân phối xác suất
+của một biến ngẫu nhiên tại một giá trị duy nhất.
+6 Heat equation
+Heat Equation là một phương trình đạo hàm riêng sử dụng để mô tả sự truyền nhiệt (heat) trong các
+hệ thống vật lý. Nó giúp chúng ta dự đoán và mô tả cách nhiệt độ thay đổi theo thời gian và không
+gian trong các vật thể hoặc hệ thống.
+Phương trình nhiệt thường được biểu diễn như sau:
+∂u
+∂t = α∇2u (7)
+Trong đó:
+• ∂u
+∂t là đạo hàm riêng theo thời gian của nhiệt độ (u)
+• α là hệ số dẫn nhiệt, biểu thị tốc độ truyền nhiệt trong vật thể.
+• ∇2u là Laplacian của nhiệt độ (u), biểu thị sự biến đổi trong không gian của nhiệt dộ.
+>>>>>>> HEAD@{1}

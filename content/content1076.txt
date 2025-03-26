@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 Node ID: 2dda1c2b-8622-432b-bb5c-07409688a312
 Text: Biểu diễn dựa trên patches của chúng cho phép Sora huấn luyện
 trên video và hình ảnh với độ phân giải, thời lượng và tỷ lệ khung
 hình đa dạng. Tại thời điểm suy luận, 21
+=======
+Biểu diễn dựa trên patches của chúng cho phép Sora huấn luyện
+trên video và hình ảnh với độ phân giải, thời lượng và tỷ lệ khung hình đa dạng. Tại thời điểm suy luận,
+21
+>>>>>>> HEAD@{1}

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 724e7b22-2a9f-4581-9d25-12ce230e4fa8
 Text: Mỗi nút bấm trên chiếc hộp này sẽ làm một việc khác nhau. Khi
 bạn nhấn vào một nút, chiếc hộp sẽ biết cần phải làm gì tiếp theo. Đó
@@ -5,3 +6,14 @@ chính là cách mà switch case hoạt động. Trong biểu đồ trên thể 
 các thành phần và cách switch case hoạt động, trong đó: • Switch
 Expression (Biểu thức kiểm tra): Chúng ta bắt đầu với việc kiểm tra
 biểu thức. Ví ...
+=======
+Mỗi nút bấm trên chiếc hộp này sẽ làm một việc khác
+nhau. Khi bạn nhấn vào một nút, chiếc hộp sẽ biết cần phải làm gì tiếp theo. Đó chính là cách mà
+switch case hoạt động.
+Trong biểu đồ trên thể hiện các thành phần và cách switch case hoạt động, trong đó:
+• Switch Expression (Biểu thức kiểm tra): Chúng ta bắt đầu với việc kiểm tra biểu thức. Ví dụ:
+Hôm nay bạn muốn ăn món gì?
+• Case 1: Kiểm tra trường hợp đầu tiên. Nếu biểu thức khớp với trường hợp này, chúng ta thực hiện
+"Statement 1"và sau đó kết thúc. Ví dụ: Case bạn muốn ăn Táo thì thực hiện Statement 1: Lấy
+trong tủ lạnh.
+>>>>>>> HEAD@{1}

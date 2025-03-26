@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 588faccb-87ab-4f2d-a5b6-879e35206ec6
 Text: AI VIETNAM (AIO2024) aivietnam.edu.vn [17] Caron, M., Touvron,
 H., Misra, I., Jégou, H., Mairal, J., Bojanowski, P., & Joulin, A.
@@ -5,3 +6,10 @@ H., Misra, I., Jégou, H., Mairal, J., Bojanowski, P., & Joulin, A.
 ArXiv. /abs/2104.14294 [18]
 Wang,J.,Song,L.,Li,Z.,Sun,H.,Sun,J.,&Zheng,N.(2020).End-to-
 EndObjectDetection with Fully Convolutional Network. ArXiv.
+=======
+AI VIETNAM (AIO2024) aivietnam.edu.vn
+[17] Caron, M., Touvron, H., Misra, I., Jégou, H., Mairal, J., Bojanowski, P., & Joulin, A. (2021).
+Emerging Properties in Self-Supervised Vision Transformers. ArXiv. /abs/2104.14294
+[18] Wang,J.,Song,L.,Li,Z.,Sun,H.,Sun,J.,&Zheng,N.(2020).End-to-EndObjectDetection
+with Fully Convolutional Network. ArXiv. 
+>>>>>>> HEAD@{1}

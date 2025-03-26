@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: af5f7165-1810-43c7-a6e3-c15ea0300f33
 Text: Cụ thể, phương pháp này hoạt động như sau. Cho một câu query và
 nhiều văn bản được truy vấn. Một mô hình đánh giá gọn nhẹ sẽ được sử
@@ -5,3 +6,22 @@ dụng để đánh giá độ phù hợp của các văn bản với câu query
 thành 3 mức độ: Đúng, Không đúng và không rõ ràng, tương ứng với những
 hành động khác nhau. Nếu những văn bản truy vấn được là Đúng, những
 văn ...
+=======
+Cụ thể, phương pháp này hoạt động như sau. Cho một câu query và nhiều văn bản được truy vấn.
+Một mô hình đánh giá gọn nhẹ sẽ được sử dụng để đánh giá độ phù hợp của các văn bản với câu query
+đầu vào, quy thành 3 mức độ: Đúng, Không đúng và không rõ ràng, tương ứng với những hành động
+khác nhau. Nếu những văn bản truy vấn được là Đúng, những văn bản đó sẽ được chắt lọc lại thành
+những thông tin liên quan. Quá trình này bao gồm: phân rã kiến thức, chắt lọc và sắp xếp lại kiến thức.
+Nếu những văn bản truy vấn được là không chính xác, những văn bản này sẽ được bỏ đi, thay vào đó
+là bước tìm kiếm trên internet. Khi những thông tin truy vấn là không rõ ràng, cả 2 quá trình chắt lọc
+và tìm kiếm trên web sẽ đồng thời được diễn ra.
+Một trong những thành phần quan trọng nhất trong phương pháp này là mô hình đánh giá văn bản
+truy vấn. Trong nghiên cứu này, mô hình T5-Large được sử dụng để fine-tune cho tác vụ này. Với mỗi
+câu query, sẽ có 10 văn bản được truy vấn. Từng câu sẽ kết hợp với câu query để thành input đầu vào
+đưa vào mô hình T5, từ đó đưa ra một thang điểm độ liên quan. Dựa trên thang điểm này, ta sẽ phân
+loại văn bản đầu vào thành 3 loại: Đúng, Không Đúng, hoặc không liên quan.
+Khi những văn bản truy vấn được là Đúng, quá trình chắt lọc kiến thức sẽ được bắt đầu. Đầu tiên,
+những văn bản này sẽ được cắt ra thành những đoạn kiến thức. Lúc này mô hình đánh giá truy vấn ở
+bước trên sẽ được sử dụng lại độ liên quan của những dải kiến thức này, và những dải không quá liên
+22
+>>>>>>> HEAD@{1}

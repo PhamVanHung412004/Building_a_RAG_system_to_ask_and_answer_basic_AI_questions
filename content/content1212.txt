@@ -1,3 +1,9 @@
+<<<<<<< HEAD
 Node ID: d7ba5de2-868a-42d5-88c7-99a519ab5712
 Text: AI VIETNAM aivietnam.edu.vn 7 transforms . CenterCrop (224) , 8
 transforms .
+=======
+AI VIETNAM aivietnam.edu.vn
+7 transforms . CenterCrop (224) ,
+8 transforms . 
+>>>>>>> HEAD@{1}

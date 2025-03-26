@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: a476c558-fecb-42e3-9840-25b538c2cb70
 Text: AI VIETNAM aivietnam.edu.vn Còn một điểm chú ý nữa là hàmβ(t)
 quyết định cách biến đổi của mức độ nhiễu theo thời gian. Bên cạnh
@@ -5,3 +6,50 @@ việc tăng nhiễu theo cấp số mũ, hàm này có thể được chọn đ
 cách tuyến tính: β(t) := βmin + (βmax − βmin) t T (41) Trong đó T là
 thời gian áp dụng quá trình nhiễu trên các mẫu. Điều quan trọng làβ(t)
 tăng tuyế...
+=======
+AI VIETNAM aivietnam.edu.vn
+Còn một điểm chú ý nữa là hàmβ(t) quyết định cách biến đổi của mức độ nhiễu theo thời gian.
+Bên cạnh việc tăng nhiễu theo cấp số mũ, hàm này có thể được chọn để tăng một cách tuyến tính:
+β(t) := βmin + (βmax − βmin) t
+T (41)
+Trong đó T là thời gian áp dụng quá trình nhiễu trên các mẫu. Điều quan trọng làβ(t) tăng tuyến
+tính thay vì tăng mũ theo thời gian. Điều này đảm bảo rằng cuối cùng, mức độ nhiễu không giảm và
+làm cho sự biến đổi được duy trì.
+Bên cạnh đó chúng ta còn có phương trình sub-VP tương tự VP như sau:
+˙x = −β(t)
+2 x +
+r
+β(t)
+h
+1 − e−2
+R t
+0 β(s)ds
+i
+η(t) (42)
+15 Reverse diffusion
+15.1 Reversing 1D diffusion
+Trước tiên chúng ta sẽ tìm hiểu về reverse 1D. Ở phần trước quá trình forward chúng ta thấy rằng
+diffusion khiến noise được khuếch tán dần ra (theo thời gian) và làm thay đổi mẫu ban đầu. Tại đây
+chúng ta sẽ kỳ vọng reverse lại quá trình diffusion thì mẫu của chúng ta sẽ trở về như cũ.
+˙x = x0 − x
+T − t + σ η(t) (43)
+Công thức trên (OU process) phản ảnh một quá trình trong đó biến ngẫu nhiênx tiếp tục được tái
+tạo về một giá trịx0 theo thời gian. Thành phầnx0−x
+T−t tạo ra sự hồi phục về giá trịx0, vàσ η(t) thêm
+nhiễu để tạo sự biến động ngẫu nhiên.
+Nói cách khác, quá trình trên nén một Gaussian cho đến khi nó trở thành Delta Dirac Function với
+centered x0 tạ thời điểmT. Đây cũng là một xác suất chuyển đổi (transition probability) của quá trình
+reverse.
+q(x, t|x0, 0) = 1p
+2πσ2(T − t)
+exp
+
+− (x − x0)2
+2σ2(T − t)
+
+. (44)
+Trong đó xác suất chuyển đổiq(x, t|x0, 0) là xác suất để OU process chuyển từ giá trị ban đầux0
+tại thời điểm 0 đến giá trịx tại thời điểmt - được định nghĩa bởi hàm Gaussian, xác suất chuyển đổi
+giảm theo thời gian và tập trung xung quanh giá trịx0. Điều này phản ánh khả năng của quá trình
+OU hồi phục về trung bình và giảm thiểu biến động ngẫu nhiên theo thời gian.
+>>>>>>> HEAD@{1}

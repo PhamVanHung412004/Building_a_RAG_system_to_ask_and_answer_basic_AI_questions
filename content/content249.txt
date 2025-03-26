@@ -1,5 +1,18 @@
+<<<<<<< HEAD
 Node ID: 24ed95d6-8ee9-46ef-b51e-e96b8b4b79fd
 Text: Bảng 6: Dữ liệu liên tục (sắp xếp từ bé đến lớn theo
 Petal_Length) và trung bình cộng STT Petal_Length Label Trung bình 3
 0.9 0 1 1 0 0.95 2 1.2 1 1.1 6 1.3 0 1.25 4 1.7 1 1.5 5 1.8 1 1.75
 Hình 9: Minh hoạ Decison Tree với Data liên tục 11
+=======
+Bảng 6: Dữ liệu liên tục (sắp xếp từ bé đến lớn theo Petal_Length) và trung bình cộng
+STT Petal_Length Label Trung bình
+3 0.9 0
+1 1 0 0.95
+2 1.2 1 1.1
+6 1.3 0 1.25
+4 1.7 1 1.5
+5 1.8 1 1.75
+Hình 9: Minh hoạ Decison Tree với Data liên tục
+11
+>>>>>>> HEAD@{1}

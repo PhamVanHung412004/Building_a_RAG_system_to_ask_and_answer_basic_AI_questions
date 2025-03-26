@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: fc2e333c-14d3-4a93-96ec-7a00975330c4
 Text: a) Spacy b) Fasttext c) Langchain d) Fairseq Câu hỏi 5Dựa vào dữ
 liệu đầu vào, bài toán tóm tắt văn bản được chia thành những loại nào?
@@ -5,3 +6,21 @@ a) Single-Document và Multi-Document b) Abstractive và Single-Document
 c) Extractive và Abstractive d) Multi-Document và Extractive Câu hỏi
 6Dựa vào dữ liệu đầu ra, bài toán tóm tắt văn bản được chia thành
 những...
+=======
+a) Spacy
+b) Fasttext
+c) Langchain
+d) Fairseq
+Câu hỏi 5Dựa vào dữ liệu đầu vào, bài toán tóm tắt văn bản được chia thành những loại nào?
+a) Single-Document và Multi-Document
+b) Abstractive và Single-Document
+c) Extractive và Abstractive
+d) Multi-Document và Extractive
+Câu hỏi 6Dựa vào dữ liệu đầu ra, bài toán tóm tắt văn bản được chia thành những loại nào?
+a) Single-Document và Multi-Document
+b) Abstractive và Single-Document
+c) Extractive và Abstractive
+d) Multi-Document và Extractive
+Câu hỏi 7Độ đo đánh giá bài toán tóm tắt văn bản là?
+14
+>>>>>>> HEAD@{1}

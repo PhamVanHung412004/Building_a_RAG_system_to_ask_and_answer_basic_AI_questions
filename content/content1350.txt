@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 61c2b90a-906f-40b5-a3ce-adc5052ce217
 Text: columns (2) 3 f_name = col1 . text_input (’First N a m e ) 4
 l_name = col2 . text_input (’Last N a m e ) 5 6 b) 7 with st. form ("
@@ -5,3 +6,22 @@ my_form "): 8 col1 , col2 = st. columns (2) 9 f_name = col1 .
 text_input (’First N a m e ) 10 l_name = col2 . text_input (’Last N a
 m e ) 11 12 c) 13 with st. form (" my_form "): 14 col1 , col2 = st.
 columns (2) 15 f...
+=======
+columns (2)
+3 f_name = col1 . text_input (’First N a m e )
+4 l_name = col2 . text_input (’Last N a m e )
+5
+6 b)
+7 with st. form (" my_form "):
+8 col1 , col2 = st. columns (2)
+9 f_name = col1 . text_input (’First N a m e )
+10 l_name = col2 . text_input (’Last N a m e )
+11
+12 c)
+13 with st. form (" my_form "):
+14 col1 , col2 = st. columns (2)
+15 f_name = col1 . text_input (’First N a m e )
+16 l_name = col2 . text_input (’Last N a m e )
+17 submitted = st. form_submit_button (" Submit ")
+11
+>>>>>>> HEAD@{1}

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 539c8be8-0327-4bda-9be1-92a3dac3bd38
 Text: array ([[2 , 3] , 7 [2 , 1]]) 8 9 # Dot product between the two
 matrices 10 print (’X. dot (Y) \n’, X. dot (Y)) 11 print (’Y. dot (X)
@@ -5,3 +6,21 @@ matrices 10 print (’X. dot (Y) \n’, X. dot (Y)) 11 print (’Y. dot (X)
 [[ 6 5] [14 13]] Y. dot (X) [[11 16] [ 5 8]]
 ========================================== Câu 9: Nhân vector/matrix
 với đại lượng vô hướng (scala...
+=======
+array ([[2 , 3] ,
+7 [2 , 1]])
+8
+9 # Dot product between the two matrices
+10 print (’X. dot (Y) \n’, X. dot (Y))
+11 print (’Y. dot (X) \n’, Y. dot (X))
+================= Output ================
+X. dot (Y)
+[[ 6 5]
+[14 13]]
+Y. dot (X)
+[[11 16]
+[ 5 8]]
+==========================================
+Câu 9: Nhân vector/matrix với đại lượng vô hướng (scalar)
+22
+>>>>>>> HEAD@{1}

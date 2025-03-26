@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 0196a762-7a92-4f36-8464-676dc4b6da36
 Text: AI VIETNAM aivietnam.edu.vn sẽ trả về kết quả dự đoán của tấm
 ảnh dưới dạng dictionary (JSON). Như vậy, ta sẽ định nghĩa pydantic
@@ -5,3 +6,32 @@ model cho response này trong fileschemas/catdog_schema.py như sau: 1
 from pydantic import BaseModel 2 3 class CatDogResponse ( BaseModel ):
 4 probs : list = [] 5 best_prob : float = -1.0 6 predicted_id : int =
 -1 7 pr...
+=======
+AI VIETNAM aivietnam.edu.vn
+sẽ trả về kết quả dự đoán của tấm ảnh dưới dạng dictionary (JSON). Như vậy, ta sẽ định
+nghĩa pydantic model cho response này trong fileschemas/catdog_schema.py như sau:
+1 from pydantic import BaseModel
+2
+3 class CatDogResponse ( BaseModel ):
+4 probs : list = []
+5 best_prob : float = -1.0
+6 predicted_id : int = -1
+7 predicted_class : str = ""
+8 predictor_name : str = ""
+Việc tạo pydantic model gần như tương tự với việc tạo một class trong Python, điểm khác
+biệt là bạn cần phải cho kế thừa class BaseModel.
+8. Cập nhật folder routes/: Một API có thể sẽ có nhiều những chức năng khác nhau, từ
+việc truy vấn dữ liệu trong một database đến inference các Deep Learning model khác nhau.
+Vì vậy, để phân biệt rõ các chức năng trong một API, chúng ta cần định nghĩa các API
+endpoints.
+Hình 9: Minh họa về API Endpoints. Với tên miền API là https://api_domain.com, chúng ta có thể có
+các endpoints với các chức năng khác nhau.
+Trong demo này, chúng ta sẽ chỉ có một endpoint với chức năng inference model Cat Dog
+Classification. Vì vậy, nội dung folder này như sau:
+(a) routes/catdog_route.py: Định nghĩa router (endpoint) cho phép nhận vào một tấm ảnh
+upload từ máy tính và trả về kết quả dự đoán của mô hình. Cấu trúc của response sẽ
+giống với pydantic model mà ta đã định nghĩa trước đó:
+1 import sys
+2 from pathlib import Path
+3 sys . path . 
+>>>>>>> HEAD@{1}

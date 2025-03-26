@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 090309c4-f135-414f-bf39-a0b9b06b1f38
 Text: AI VIETNAM aivietnam.edu.vn 18 ) 19 20 txt_input = gr. Textbox (
 21 scale =4 , 22 show_label = False , 23 placeholder =" Enter text and
@@ -5,3 +6,24 @@ press enter ", 24 container = False , 25 render = False , 26 autofocus
 =True , 27 ) 28 29 chatiface = ChatInterface ( 30 chat_respond , 31
 chatbot = chatbot , 32 textbox = txt_input , 33 examples =[ 34 ["
 write ...
+=======
+AI VIETNAM aivietnam.edu.vn
+18 )
+19
+20 txt_input = gr. Textbox (
+21 scale =4 ,
+22 show_label = False ,
+23 placeholder =" Enter text and press enter ",
+24 container = False ,
+25 render = False ,
+26 autofocus =True ,
+27 )
+28
+29 chatiface = ChatInterface (
+30 chat_respond ,
+31 chatbot = chatbot ,
+32 textbox = txt_input ,
+33 examples =[
+34 [" write a python function to count the sum of two numbers ?"],
+35 [" what if the production of two numbers ?
+>>>>>>> HEAD@{1}

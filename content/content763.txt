@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 751c5e25-65ff-4675-a9bf-c50f13d44da3
 Text: AIO 2024 aivietnam.edu.vn 1 #aivietnam 2 import numpy as np 3 4
 arr = np.array([1, 2, 3, 4, 5]) 5 print("arr:", arr) 6 print("Shape of
@@ -5,3 +6,36 @@ arr:", arr.shape) 7 print("Size of arr:", arr.size) 8 print("Data type
 of arr:", arr.dtype) 9 print("Number of dimensions of arr:", 10
 arr.ndim) ================= Output ================= arr: [1 2 3 4 5]
 Shape o...
+=======
+AIO 2024 aivietnam.edu.vn
+1 #aivietnam
+2 import numpy as np
+3
+4 arr = np.array([1, 2, 3, 4, 5])
+5 print("arr:", arr)
+6 print("Shape of arr:", arr.shape)
+7 print("Size of arr:", arr.size)
+8 print("Data type of arr:", arr.dtype)
+9 print("Number of dimensions of arr:",
+10 arr.ndim)
+================= Output =================
+arr: [1 2 3 4 5]
+Shape of arr: (5,)
+Size of arr: 5
+Data type of arr: int64
+Number of dimensions of arr: 1
+==========================================
+2.2 Tạo mảng 0-zero()
+Hình 2: Minh họa mảng 0
+np.zeros là hàm dùng để tạo một mảng với tất cả các phần tử đều là 0. Cú pháp:
+1 np.zeros(shape)
+Ví dụ dưới đây sẽ tạo một mảng 1 chiều với 5 phần tử, tất cả đều là 0.
+1 #aivietnam
+2 import numpy as np
+3
+4 # Tạo mảng 1 chiều với 5 phần tử đều là 0
+5 zeros_array = np.zeros(5)
+6 print(zeros_array)
+================= Output =================
+[0. 0. 
+>>>>>>> HEAD@{1}

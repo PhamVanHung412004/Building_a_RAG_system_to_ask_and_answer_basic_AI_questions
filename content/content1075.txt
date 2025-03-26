@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 473ddbe1-ad8b-456e-b2d7-9b1e1dd12cc0
 Text: AI VIETNAM aivietnam.edu.vn để đánh giá về các rủi ro tiềm ẩn và
 cũng được cung cấp cho các nghệ sĩ, nhà thiết kế và nhà làm phim để
@@ -5,3 +6,38 @@ thu thập phản hồi nhằm cải thiện mô hình cho nhu cầu sáng tạo
 thể tạo ra các cảnh phức tạp với nhiều nhân vật, các loại chuyển động
 cụ thể, và chi tiết chính xác về đối tượng và phông nền. Mặc dù có khả
 nă...
+=======
+AI VIETNAM aivietnam.edu.vn
+để đánh giá về các rủi ro tiềm ẩn và cũng được cung cấp cho các nghệ sĩ, nhà thiết kế và nhà làm phim
+để thu thập phản hồi nhằm cải thiện mô hình cho nhu cầu sáng tạo. Sora có thể tạo ra các cảnh phức
+tạp với nhiều nhân vật, các loại chuyển động cụ thể, và chi tiết chính xác về đối tượng và phông nền.
+Mặc dù có khả năng hiểu biết sâu sắc về ngôn ngữ và tạo ra các nhân vật biểu cảm, mô hình vẫn còn
+hạn chế như khó khăn trong mô phỏng vật lý của cảnh phức tạp và nhầm lẫn các chi tiết không gian
+trong yêu cầu.
+Safety - Trước khi Sora được tích hợp vào các sản phẩm của OpenAI, mô hình sẽ được áp dụng
+các biện pháp an toàn quan trọng, bao gồm hợp tác với các chuyên gia từ các lĩnh vực như thông tin
+sai lệch và nội dung độc hại để kiểm thử mô hình. Hiện OpenAI cũng đang phát triển công cụ để phát
+hiện nội dung lừa đảo và dự định tích hợp metadata C2PA. Sử dụng các phương pháp an toàn từ sản
+phẩm sử dụng DALL·E 3 và tiếp tục phát triển kỹ thuật mới nhằm đảm bảo vào việc kiểm soát nội
+dung vi phạm chính sách sử dụng trước khi hiển thị cho người dùng.
+7 Research techniques
+Ở phần này chúng ta sẽ tìm hiểu tổng quan về mô hình Sora. Trong khi nghiên cứu trước đây tập trung
+vào video ngắn hoặc dữ liệu hình ảnh hạn chế, Sora phá vỡ giới hạn này bằng cách tạo ra video và hình
+ảnh đa dạng, kéo dài đến một phút với độ nét cao.
+Xử lý dữ liệu hình ảnh- Áp dụng phương pháp từ các mô hình ngôn ngữ lớn trước đó là dùng
+dữ liệu quy mô internet để phát triển khả năng tổng quát sau đó chuyển đổi qua dữ liệu ảnh với các
+image patches thay cho các tokens văn bản. Cách tiếp cận này, đã được chứng minh là hiệu quả trong
+việc đại diện cho dữ liệu hình ảnh giúp Sora trở nên mạnh mẽ và có thể mở rộng để huấn luyện trên
+video và hình ảnh đa dạng. Quá trình biến đổi video thành các patches được thực hiện bằng cách nén
+chúng vào lower-dimensional latent space sau đó phân tách chúng vào spacetime patches.
+Mạng nén thông tin videoMột trong những thành phần rất quan trọng của Sora, nhưng lại
+không được đề cập quá kĩ trong báo cáo kĩ thuật của OpenAI đó chính là mô hình nén video. Mô hình
+này có chức năng chính là nén video gốc thành những vector biễu diễn trên không gian latent, và những
+vector biễu diễn này đã nén cả về chiều không gian lẫn chiều thời gian. Một mạng decoder cũng được
+train để ánh xạ những biểu diễn này về lại không gian pixel. Có một số suy đoán về kiến trúc của thành
+phần này, chẳng hạn một mô hình VAE, hay một dạng tượng tự như VQGAN như các mô hình ở phần
+III có đề cập. Tuy nhiên ta không thể nào biết chính xác kiến trúc và cách training của thành phần này.
+Spacetime latent patches- Với một video đầu vào đã được nén, Sora trích xuất một chuỗi các
+spacetime patches hoạt động như các token transformer. Cơ chế này cũng áp dụng cho ảnh vì ảnh chỉ
+là video với một khung hình duy nhất. 
+>>>>>>> HEAD@{1}

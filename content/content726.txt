@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 Node ID: f5b200a5-f18b-4251-94a4-fc8a5fb52d9e
 Text: . 12 6.2 Tìm giá trị lớn nhất và nhỏ nhất . .
+=======
+. 12
+6.2 Tìm giá trị lớn nhất và nhỏ nhất . . 
+>>>>>>> HEAD@{1}

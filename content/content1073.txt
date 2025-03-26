@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 203bcad6-afb1-432d-a0fc-7ef9a16cd7a4
 Text: AI VIETNAM aivietnam.edu.vn Hình 22: DiT Block. DiT block
 design- Với DiT block tác giả đã có một số những thay đổi nhỏ so với
@@ -5,3 +6,23 @@ ViT block chuẩn thông thường: • In-context conditioning: DiT thêm các
 vector embedding của timestep và class labels như là hai token bổ sung
 trong chuỗi đầu vào, xử lý chúng không khác gì so với các token ảnh.
 Điều này t...
+=======
+AI VIETNAM aivietnam.edu.vn
+Hình 22: DiT Block.
+DiT block design- Với DiT block tác giả đã có một số những thay đổi nhỏ so với ViT block chuẩn
+thông thường:
+• In-context conditioning: DiT thêm các vector embedding của timestep và class labels như là hai
+token bổ sung trong chuỗi đầu vào, xử lý chúng không khác gì so với các token ảnh. Điều này
+tương tự như token cls trong ViTs, và nó cho phép DiT sử dụng các khối ViT chuẩn mà không
+cần chỉnh sửa.
+• Cross-attention block: tại đây nối các embedding của timestep và class labels thành một chuỗi có
+độ dài hai, tách biệt từ chuỗi token ảnh. Khối transformer được chỉnh sửa để bao gồm thêm một
+lớp multi-head cross-attention theo sau multi-head self-attention.
+• Adaptive layer norm (adaLN) block: thay thế các layer norm thông thường trong các khối trans-
+former bằng adaptive layer norm - adaLN. Tại đây, thay vì học trực tiếp các tham số dimensionwise
+scale và shift parameters thì DiT hồi quy chúng từ tổng của các vector embedding của timestep
+và class labels.
+• adaLN-Zero block: Trong nghiên cứu về ResNets, việc khởi tạo các residual block để hoạt động
+như identity function đã được chứng minh là có ích. Mô hình Diffusion U-Net áp dụng phương
+pháp tương tự với lớp tích chập cuối của mỗi khối. 
+>>>>>>> HEAD@{1}

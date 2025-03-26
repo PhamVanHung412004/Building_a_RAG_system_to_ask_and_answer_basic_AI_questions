@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: b3d2fc7d-566d-415e-a171-47111a9f6ac1
 Text: AI VIETNAM aivietnam.edu.vn Phần III: Câu hỏi trắc nghiệm 1.
 Trong ngữ cảnh về mô hình ngôn ngữ lớn (LLMs), Instruction Tuning được
@@ -5,3 +6,12 @@ hiểu như thế nào? (a) Huấn luyện mô hình trên task mới mà không
 mẫu dữ liệu nào. (b) Điều chỉnh kết quả của mô hình trong quá trình
 deploy. (c) Huấn luyện mô hình để tuân theo các yêu cầu cụ thể
 (instruction). (...
+=======
+AI VIETNAM aivietnam.edu.vn
+Phần III: Câu hỏi trắc nghiệm
+1. Trong ngữ cảnh về mô hình ngôn ngữ lớn (LLMs), Instruction Tuning được hiểu như thế nào?
+(a) Huấn luyện mô hình trên task mới mà không cần mẫu dữ liệu nào.
+(b) Điều chỉnh kết quả của mô hình trong quá trình deploy.
+(c) Huấn luyện mô hình để tuân theo các yêu cầu cụ thể (instruction).
+(d) Giảm kích thước của mô hình để tăng độ hiệu quả.
+>>>>>>> HEAD@{1}

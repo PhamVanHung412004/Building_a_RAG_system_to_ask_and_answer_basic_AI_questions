@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 873d5d92-3252-42b8-8f22-0a7727ec61e3
 Text: AI VIETNAM aivietnam.edu.vn Hình 6: Các biến thể OU process có
 thể điều chỉnh các thành phần này để thích nghi với các tình huống cụ
@@ -5,3 +6,30 @@ thể hoặc để mô hình biến đổi phức tạp hơn trong thời gian. 
 thể được sử dụng để mô hình hóa các quá trình ngẫu nhiên có cấu trúc
 phản hồi và trạng thái cân bằng trong nhiều ứng dụng khác nhau. 11
 Monte Carl...
+=======
+AI VIETNAM aivietnam.edu.vn
+Hình 6: Các biến thể OU process có thể điều chỉnh các thành phần này để thích nghi với các tình huống
+cụ thể hoặc để mô hình biến đổi phức tạp hơn trong thời gian. Chúng có thể được sử dụng để mô hình
+hóa các quá trình ngẫu nhiên có cấu trúc phản hồi và trạng thái cân bằng trong nhiều ứng dụng khác
+nhau.
+11 Monte Carlo method
+Phương pháp Monte Carlo là một phương pháp toán học và thống kê dựa trên việc sử dụng số ngẫu
+nhiên để giải các vấn đề có thể có sự ngẫu nhiên trong quá trình tính toán. Phương pháp này được đặt
+tên theo sòng bài Monte Carlo ở Monaco, nơi có trò chơi roulette với tính ngẫu nhiên tương tự.
+Cụ thể, phương pháp Monte Carlo được sử dụng để xấp xỉ giá trị của một biểu thức toán học bằng
+cách thực hiện một loạt các mẫu ngẫu nhiên và tính toán giá trị trung bình của chúng. Phương pháp
+này được ứng dụng rộng rãi trong nhiều lĩnh vực như vật lý, thống kê, tài chính.
+Các bước cơ bản của phương pháp Monte Carlo là:
+• Xác định vấn đề: Chọn một vấn đề cần giải và biểu diễn nó dưới dạng một biểu thức toán học
+hoặc mô hình.
+• Tạo số ngẫu nhiên: Sinh ra một loạt các số ngẫu nhiên theo một phân phối xác định
+• Áp dụng mẫu ngẫu nhiên: Sử dụng các số ngẫu nhiên để đưa vào biểu thức hoặc mô hình đã chọn
+và tính giá trị tương ứng.
+• Tính toán giá trị trung bình: lấy trung bình của tất cả các giá trị đã tính từ các mẫu để xấp xỉ
+giá trị cuối cùng của biểu thức hoặc mô hình.
+Phương pháp Monte Carlo thường được sử dụng khi không thể tính toán chính xác giá trị mong
+muốn một cách trực tiếp, nhưng có thể dễ dàng tạo ra các mẫu ngẫu nhiên và tính toán xấp xỉ.
+12 Boundary conditions
+Điều kiện biên (Boundary conditions) là các điều kiện được áp dụng tại ranh giới của miền không gian
+khi giải một vấn đề toán học hoặc vật lý. 
+>>>>>>> HEAD@{1}

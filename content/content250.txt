@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 9b125f01-a9c0-4150-9afa-1508487d92a8
 Text: 2.4 Ví dụ về Decision Tree dùng Mean và Variance (Regression)
 Chúng ta có một table thể hiện sự tương quan giữa năm kinh nghiệm
@@ -5,3 +6,42 @@ Chúng ta có một table thể hiện sự tương quan giữa năm kinh nghi�
 và lương là label. Bảng 7: Dữ liệu liên tục STT Experience Salary 1 1
 0 2 1.5 0 3 2 0 4 2.5 0 5 3 60 6 3.5 64 7 4 55 8 4.5 61 9 5 66 10 5.5
 83 11 6 93...
+=======
+2.4 Ví dụ về Decision Tree dùng Mean và Variance (Regression)
+Chúng ta có một table thể hiện sự tương quan giữa năm kinh nghiệm (Exp) và mức lương
+tương ứng (Salary) với năm kinh nghiệm là feature và lương là label.
+Bảng 7: Dữ liệu liên tục
+STT Experience Salary
+1 1 0
+2 1.5 0
+3 2 0
+4 2.5 0
+5 3 60
+6 3.5 64
+7 4 55
+8 4.5 61
+9 5 66
+10 5.5 83
+11 6 93
+12 6.5 91
+13 7 98
+14 7.5 101
+Để có thể hoàn thành bài toán dự đoán Decision Tree, chúng ta cần tính lần lượt
+Mean(data), Variance(Data).
+Với Mean và Variance được biểu diễn như sau:
+Mean = 1
+S
+nX
+i=1
+Si (6)
+• Mean là giá trị trung bình.
+• S là số lượng các phần tử trong tập hợp dữ liệu.
+• Si là số lượng các phần tử trong tập hợp dữ liệu.
+mse = 1
+S
+nX
+i=1
+(Si − Mean)2 (7)
+• mse là phương sai.
+• Mean là giá trị trung bình.
+>>>>>>> HEAD@{1}

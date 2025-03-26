@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 5ab8a30b-b495-4a2b-a914-eb6e304efd59
 Text: • Explain to me as if I’m a beginner in [field]. • Write the
 [essay/text/paragraph] using simple English like you’re explain- ing
@@ -5,3 +6,34 @@ something to a 5-year-old. 6 Thêm “I’m going to tip $xxx“ (tôi sẽ bo
 cho bạn $xxx) để kết quả cho ra tốt hơn 7 Triển khai prompt dựa trên
 ví dụ (Dùng few-shot prompting). 8 Khi soạn prompt của bạn, bắt đầu
 với “###Ins...
+=======
+• Explain to me as if I’m a beginner in [field].
+• Write the [essay/text/paragraph] using simple English like you’re explain-
+ing something to a 5-year-old.
+6 Thêm “I’m going to tip $xxx“ (tôi sẽ bo cho bạn $xxx) để kết quả cho ra tốt
+hơn
+7 Triển khai prompt dựa trên ví dụ (Dùng few-shot prompting).
+8
+Khi soạn prompt của bạn, bắt đầu với “###Instruction###”, theo sau đó
+bằng “###Example###” hoặc “###Question###” nếu cần thiết. Sau đó,
+trình bày ngữ cảnh của bạn. Sử dụng một hoặc nhiều dấu ngắt dòng để phân
+tách các hướng dẫn, ví dụ, câu hỏi, ngữ cảnh và dữ liệu đầu vào.
+9 Kết hợp các cụm từ sau: “Your task is” và “You MUST”.
+10 Kết hợp các cụm từ sau: “You will be penalized”. (bạn sẽ bị phạt nếu)
+11
+Sử dụng những cụm như “Answer a question given in a natural, human-like
+manner” (trả lời câu hỏi theo các tự nhiên, giống con người) trong prompt của
+bạn.
+12 Sử dụng những từ dẫn đầu như viết “think step by step” (Hãy suy nghĩ theo
+từng bước).
+13
+Thêm vào prompt của bạn cụm sau “Ensure that your answer is unbiased and
+avoids relying on stereotypes.” (Đảm bảo rằng câu trả lời của bạn không thiên
+vị và tránh dựa vào khuôn mẫu.)
+14
+Cho phép mô hình gợi ra các chi tiết và yêu cầu chính xác từ bạn bằng cách
+đặt câu hỏi cho bạn cho đến khi mô hình có đủ thông tin để cung cấp kết quả
+đầu ra cần thiết (ví dụ: “From now on, I would like you to ask me questions to
+...” (từ bây giờ tôi muốn bạn hỏi câu hỏi cho đến khi ...)).
+5
+>>>>>>> HEAD@{1}

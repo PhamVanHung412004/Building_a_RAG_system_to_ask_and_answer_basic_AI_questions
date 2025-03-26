@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 996947b3-6bd9-43f6-b8e9-aee6c5c8aef5
 Text: bn1 ( self . fc1 (xb))) 17 xb = F. relu ( self . bn2 ( self .
 dropout ( self . fc2 (xb)))) 18 output = self . fc3 (xb) 19 20 return
@@ -5,3 +6,17 @@ self . logsoftmax ( output ), matrix3x3 , matrix64x64 2.3 Hàm loss
 Trong PointNet, việc áp dụng ràng buộc ma trận chuyển đổi học được bởi
 các mô-đun Tnet gần với ma trận trực giao (||X ∗ XT − I|| ≈0) mang lại
 nhiều ...
+=======
+bn1 ( self . fc1 (xb)))
+17 xb = F. relu ( self . bn2 ( self . dropout ( self . fc2 (xb))))
+18 output = self . fc3 (xb)
+19
+20 return self . logsoftmax ( output ), matrix3x3 , matrix64x64
+2.3 Hàm loss
+Trong PointNet, việc áp dụng ràng buộc ma trận chuyển đổi học được bởi các mô-đun Tnet gần với ma
+trận trực giao (||X ∗ XT − I|| ≈0) mang lại nhiều lợi ích quan trọng:
+• Khi ma trận chuyển đổi gần với ma trận trực giao, chúng chủ yếu ảnh hưởng đến việc xoay các
+điểm, không phải khoảng cách. Điều này đảm bảo rằng các tính năng được mạng trích xuất nắm
+bắt các mối quan hệ hình học thực sự giữa các điểm, điều cần thiết cho việc nhận dạng đối tượng
+chính xác.
+>>>>>>> HEAD@{1}

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 1e622385-823d-4961-87d2-639c83330eb9
 Text: Về việc tìm kiếm tài liệu tương đồng, ta sử dụng FAISS. Như vậy,
 nội dung của file như sau: Hình 4: Minh họa việc sử dụng vector
@@ -5,3 +6,33 @@ database Chroma để truy vấn các tài liệu có liên quan làm context
 trong prompt. Ảnh: Link. 1 from typing import Union 2 from
 langchain_chroma import Chroma 3 from langchain_community .
 vectorstores import FAISS 4 from ...
+=======
+Về việc tìm kiếm tài liệu tương
+đồng, ta sử dụng FAISS. Như vậy, nội dung của file như sau:
+Hình 4: Minh họa việc sử dụng vector database Chroma để truy vấn các tài liệu có liên quan làm context
+trong prompt. Ảnh: Link.
+1 from typing import Union
+2 from langchain_chroma import Chroma
+3 from langchain_community . vectorstores import FAISS
+4 from langchain_community . embeddings import HuggingFaceEmbeddings
+5
+6 class VectorDB :
+7 def __init__ (self ,
+8 documents = None ,
+9 vector_db : Union [ Chroma , FAISS ] = Chroma ,
+10 embedding = HuggingFaceEmbeddings () ,
+11 ) -> None :
+12
+13 self . vector_db = vector_db
+14 self . embedding = embedding
+15 self .db = self . _build_db ( documents )
+16
+17 def _build_db (self , documents ):
+18 db = self . vector_db . from_documents ( documents = documents ,
+19 embedding = self . embedding )
+20 return db
+21
+22 def get_retriever (self ,
+23 search_type : str = " similarity ",
+8
+>>>>>>> HEAD@{1}

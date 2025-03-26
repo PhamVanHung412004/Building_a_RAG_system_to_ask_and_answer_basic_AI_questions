@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: e8aa0839-7287-4ad8-af64-84aff7aee107
 Text: AI VIETNAM aivietnam.edu.vn nhau" làm giảm hiệu suất của hệ
 thống RAG. Với quá trình Indexing: • Quá trình Indexing còn chưa hoàn
@@ -5,3 +6,13 @@ thiện, vì nó chưa xử lý hiệu quả thông tin hữu ích trong hình �
 biểu đồ và bảng biểu trong các tệp dữ liệu không cấu trúc như PDF. •
 Quá trình chunking sử dụng chiến lược “one-size-fits-all” thay vì chọn
 lựa các ch...
+=======
+AI VIETNAM aivietnam.edu.vn
+nhau" làm giảm hiệu suất của hệ thống RAG.
+Với quá trình Indexing:
+• Quá trình Indexing còn chưa hoàn thiện, vì nó chưa xử lý hiệu quả thông tin hữu ích trong hình
+ảnh, biểu đồ và bảng biểu trong các tệp dữ liệu không cấu trúc như PDF.
+• Quá trình chunking sử dụng chiến lược “one-size-fits-all” thay vì chọn lựa các chiến lược tối ưu
+dựa trên đặc điểm của các loại tệp khác nhau. Điều này đã dẫn đến việc mỗi phần chứa thông tin
+ngữ nghĩa chưa đầy đủ. 
+>>>>>>> HEAD@{1}

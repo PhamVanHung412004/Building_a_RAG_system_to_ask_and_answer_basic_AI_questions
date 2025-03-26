@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 9143e2fb-47e7-428b-a83a-c3e512182d31
 Text: AIO 2024 aivietnam.edu.vn 7.4 Phép chia - Division Hình 16: Minh
 họa Division Phép chia mảng được thực hiện theo nguyên tắc element-
@@ -5,3 +6,44 @@ wise. Cho hai mảng cùng kích thướcA và B, phép chia giữa chúng (A ÷
 tạo ra một mảng (hoặc tensor) mớiC, với mỗi phần tửCij được tính bằng
 cách chia phần tửAij cho phần tửBij. Cij = Aij Bij Dể thực hiện phép
 chia ...
+=======
+AIO 2024 aivietnam.edu.vn
+7.4 Phép chia - Division
+Hình 16: Minh họa Division
+Phép chia mảng được thực hiện theo nguyên tắc element-wise. Cho hai mảng cùng kích thướcA và B,
+phép chia giữa chúng (A ÷ B) tạo ra một mảng (hoặc tensor) mớiC, với mỗi phần tửCij được tính
+bằng cách chia phần tửAij cho phần tửBij.
+Cij = Aij
+Bij
+Dể thực hiện phép chia mảng ta có thể sử dụng toán tử "/"hoặc hàm divide().
+1 #aivietnam
+2 import numpy as np
+3
+4 # Tạo hai array 1D
+5 arr_1 = np.array([1, 2, 3, 4])
+6 arr_2 = np.array([5, 6, 7, 8])
+7 # In ra giá trị của hai array
+8 print("arr_1:\n", arr_1)
+9 print("arr_2:\n", arr_2)
+10 # Chia hai array
+11 # Cách 1: Sử dụng toán tử ’/’
+12 result_div_1 = arr_1 / arr_2
+13 # Cách 2: Sử dụng hàm np.divide()
+14 result_div_2 = np.divide(arr_1, arr_2)
+15 # In ra màn hình
+16 print("Cách 1:\n", result_div_1)
+17 print("Cách 2:\n", result_div_2)
+================= Output ================
+arr_1:
+[1 2 3 4]
+arr_2:
+[5 6 7 8]
+Cách 1:
+[0.2 0.33333333 0.42857143 0.5]
+Cách 2:
+[0.2 0.33333333 0.42857143 0.5]
+==========================================
+7.5 Inner product
+Phép tính tích vô hướng (inner product), còn được biết đến với tên gọi khác là dot product. Phép
+tích vô hướng giữa hai vector có thể được tính để đo lường sự tương quan hoặc hướng của chúng.
+>>>>>>> HEAD@{1}

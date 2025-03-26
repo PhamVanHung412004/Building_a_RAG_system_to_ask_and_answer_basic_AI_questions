@@ -1,3 +1,12 @@
+<<<<<<< HEAD
 Node ID: af5b4497-9a2b-4951-baaf-28c74ab4b8c2
 Text: AI VIETNAM aivietnam.edu.vn 21 contexts = [] 22 23 for hit in
 hits : 24 ids . append ( hit .id) 25 distances .
+=======
+AI VIETNAM aivietnam.edu.vn
+21 contexts = []
+22
+23 for hit in hits :
+24 ids . append ( hit .id)
+25 distances . 
+>>>>>>> HEAD@{1}

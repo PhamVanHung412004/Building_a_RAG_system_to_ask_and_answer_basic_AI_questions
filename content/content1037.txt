@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 88664e96-5e60-436b-9ba1-e0f23b311330
 Text: AI VIETNAM aivietnam.edu.vn Phần II: Các thách thức cho bài toán
 text-to-video Trước hết, chúng ta hãy cùng nhau khám phá những thách
@@ -5,3 +6,27 @@ thức lớn mà công nghệ tạo sinh video phải đối mặt. Những thá
 này chủ yếu liên quan đến việc giữ cho video có sự nhất quán về không
 gian và liên kết mạch lạc theo thời gian, đồng thời cũng cần phải quan
 tâm ...
+=======
+AI VIETNAM aivietnam.edu.vn
+Phần II: Các thách thức cho bài toán
+text-to-video
+Trước hết, chúng ta hãy cùng nhau khám phá những thách thức lớn mà công nghệ tạo sinh video phải
+đối mặt. Những thách thức này chủ yếu liên quan đến việc giữ cho video có sự nhất quán về không gian
+và liên kết mạch lạc theo thời gian, đồng thời cũng cần phải quan tâm đến yếu tố tài nguyên tính toán
+và sự khan hiếm của dữ liệu dataset chất lượng cao.
+1 Sự nhất quán trong không gian và sự liên kết về mặt thời gian
+Duy trì sự nhất quán trong không gian và sự liên kết về mặt thời gian giữa các vật thể, nhân vật và
+bối cảnh là một trong những thử thách lớn nhất trong bài toán tạo sinh video [8], [11]. Sự nhất quán
+về không gian yêu cầu mô hình phải có sự hiểu biết về không gian ba chiều trong video và theo sát vị
+trí, phương hướng và sự tương tác giữa các vật thể trong video. Vấn đề này trở nên khó khăn khi câu
+văn bản mô tả những phân cảnh có tính phức tạp cao, với nhiều vật thể tương tác với nhau, yêu cầu
+mô hình phải có hiểu biết phức tạp về bối cảnh.
+Bên cạnh đó, sự nhất quán về thời gian yêu cầu video được tạo ra không chỉ tuân theo mạch tường
+thuật được mô tả trong văn bản mà chuyển động và chuyển tiếp giữa các khung hình cũng mượt mà
+và chân thực. Để đạt được sự mạch lạc về mặt thời gian đòi hỏi mô hình phải hiểu được mối quan hệ
+nhân quả và trình tự của các sự kiện trong câu text prompt, chuyển chúng thành một chuỗi khung hình
+mạch lạc về mặt trực quan.
+2 Độ phức tạp trong tính toán
+Nhu cầu duy trì đồng thời sự nhất quán về không gian và tính liên kết về thời gian làm tăng đáng kể
+yêu cầu tính toán của việc tạo văn bản thành video. 
+>>>>>>> HEAD@{1}

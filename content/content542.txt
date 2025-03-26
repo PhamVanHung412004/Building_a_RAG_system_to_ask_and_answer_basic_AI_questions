@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 33dfa357-eeac-4862-ad40-1e791472ad3a
 Text: 4. Xét đoạn code dưới đây: 1 from langchain_openai import
 ChatOpenAI 2 from langchain_openai import OpenAI 3 4 llm = OpenAI () 5
@@ -5,3 +6,27 @@ chat_model = ChatOpenAI ( model ="gpt -3.5 - turbo -0125 ") Ý nghĩa
 của đoạn code trên là? (a) Khởi tạo model GPT 3.5 Turbo-0125. (b) Tải
 pre-trained model GPT 3.5 Turbo-0125. (c) Kiểm tra tốc độ đường truyền
 với ChatG...
+=======
+4. Xét đoạn code dưới đây:
+1 from langchain_openai import ChatOpenAI
+2 from langchain_openai import OpenAI
+3
+4 llm = OpenAI ()
+5 chat_model = ChatOpenAI ( model ="gpt -3.5 - turbo -0125 ")
+Ý nghĩa của đoạn code trên là?
+(a) Khởi tạo model GPT 3.5 Turbo-0125.
+(b) Tải pre-trained model GPT 3.5 Turbo-0125.
+(c) Kiểm tra tốc độ đường truyền với ChatGPT API.
+(d) Các đáp án trên đều sai.
+5. Ý nghĩa của phương thứcfrom_template() trong class PromptTemplate là?
+(a) Để khởi tạo prompt template từ một file.
+(b) Để khởi tạo prompt template từ một string.
+(c) Để khởi tạo prompt template từ một danh sách các tin nhắn.
+(d) Để khởi tạo prompt template từ một prompt template có sẵn.
+6. Trong LangChain, loại OutputParser nào dưới đây có thể được sử dụng để trả về kết quả của mô
+hình dưới dạng JSON?
+(a) PydanticOutputParser.
+(b) RegexOutputParser.
+(c) JsonOutputParser.
+13
+>>>>>>> HEAD@{1}

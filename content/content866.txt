@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 91508709-1f89-44b8-ae41-eb2496d062f3
 Text: AI VIETNAM aivietnam.edu.vn 7 self.setup_environment() # Call
 for set up environment 8 9 # Set up environment for selenium 10 def
@@ -5,3 +6,16 @@ setup_environment(self): 11 os.environ[’PATH’] += ’:/usr/lib/chromium-
 browser/’ 12 os.environ[’PATH’] += ’:/usr/lib/chromium-
 browser/chromedriver/’ Ta quan sát được rằng, thẻ chứa url của bức ảnh
 là thẻ <img/> với thu...
+=======
+AI VIETNAM aivietnam.edu.vn
+7 self.setup_environment() # Call for set up environment
+8
+9 # Set up environment for selenium
+10 def setup_environment(self):
+11 os.environ[’PATH’] += ’:/usr/lib/chromium-browser/’
+12 os.environ[’PATH’] += ’:/usr/lib/chromium-browser/chromedriver/’
+Ta quan sát được rằng, thẻ chứa url của bức ảnh là thẻ <img/> với thuộc tính loading="lazy". Từ đó,
+ta có thể sử dụng thư viện BeautifulSoup để bắt lấy tất cả các thẻ chứa url ảnh,
+Bên cạnh đó, Flickr là trang web hiển thị ảnh theo kiểu "lazy loading", tức nó sẽ không hiển thị hết tất
+cả ảnh một lần hay phân trang, mà nó sẽ hiển thị thêm ảnh nếu người dùng tiếp tục lướt xuống dưới.
+>>>>>>> HEAD@{1}

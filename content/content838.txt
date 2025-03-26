@@ -1,5 +1,14 @@
+<<<<<<< HEAD
 Node ID: 71ce3df0-f5a7-48e9-8bc3-49726bb5de3b
 Text: 1 root_img_path = f"{ROOT}/train/" 2 query_path =
 f"{ROOT}/test/Orange_easy/0_100.jpg" 3 size = (448, 448) 4 query,
 ls_path_score = get_cosine_similarity_score(root_img_path, query_path,
 size) 5 plot_results(query_path, ls_path_score, reverse=True) 7
+=======
+1 root_img_path = f"{ROOT}/train/"
+2 query_path = f"{ROOT}/test/Orange_easy/0_100.jpg"
+3 size = (448, 448)
+4 query, ls_path_score = get_cosine_similarity_score(root_img_path, query_path, size)
+5 plot_results(query_path, ls_path_score, reverse=True)
+7
+>>>>>>> HEAD@{1}

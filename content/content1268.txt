@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 296705ae-356d-4911-8555-c2d1bc1bd3c4
 Text: Một student gồm có name (string), yob (int) (năm sinh), và grade
 (string). Các bạn thực hiện viết class Student theo mô tả trên (Các
@@ -5,3 +6,21 @@ bạn sẽ viết thêm describe() method để print ra tất cả thông tin c
 object) và kết quả đầu ra là gì? Chọn đáp án đúng nhất bên dưới. 1
 from abc import ABC , abstractmethod 2 3 class Person ( ABC ): 4 def
 __init__ (...
+=======
+Một student gồm có name
+(string), yob (int) (năm sinh), và grade (string). Các bạn thực hiện viết class Student theo mô tả
+trên (Các bạn sẽ viết thêm describe() method để print ra tất cả thông tin của object) và kết quả
+đầu ra là gì? Chọn đáp án đúng nhất bên dưới.
+1 from abc import ABC , abstractmethod
+2
+3 class Person ( ABC ):
+4 def __init__ (self , name :str , yob : int ):
+5 self . _name = name
+6 self . _yob = yob
+7
+8 def get_yob ( self ):
+9 return self . _yob
+10
+11 @abstractmethod
+7
+>>>>>>> HEAD@{1}

@@ -1,2 +1,6 @@
+<<<<<<< HEAD
 Node ID: 488e82da-a801-48b8-8b89-80fce4676ccc
 Text: type ( weight .
+=======
+type ( weight . 
+>>>>>>> HEAD@{1}

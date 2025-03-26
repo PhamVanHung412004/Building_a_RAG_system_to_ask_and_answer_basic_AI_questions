@@ -1,5 +1,13 @@
+<<<<<<< HEAD
 Node ID: 63c6f1a2-06d6-43e7-b313-a57a57803049
 Text: AI VIETNAM aivietnam.edu.vn Phần II: Nội dung 1. Mô tả dataset
 IMDB IMDB dataset là bộ data bao gồm 50,000 đánh giá về phim. Đây là
 bộ dữ liệu được sử dụng cho việc phân loại đánh giá tiêu cực và tích
 cực.
+=======
+AI VIETNAM aivietnam.edu.vn
+Phần II: Nội dung
+1. Mô tả dataset IMDB
+IMDB dataset là bộ data bao gồm 50,000 đánh giá về phim. Đây là bộ dữ liệu được sử dụng cho
+việc phân loại đánh giá tiêu cực và tích cực. 
+>>>>>>> HEAD@{1}

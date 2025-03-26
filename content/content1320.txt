@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 271d07b7-7bf3-42fe-b505-a29c23ee3991
 Text: AI VIETNAM aivietnam.edu.vn 9 bias =" none ", 10 task_type ="
 SEQ_CLS ", 11 ) 12 13 model_path = "./ save_sft_model / checkpoint
@@ -5,3 +6,38 @@ SEQ_CLS ", 11 ) 12 13 model_path = "./ save_sft_model / checkpoint
 ( 15 pretrained_model_name_or_path = model_path , 16 peft_config =
 peft_config , 17 ) 2.3. Trainer 1 from trl import PPOConfig ,
 PPOTrainer 2 3 def...
+=======
+AI VIETNAM aivietnam.edu.vn
+9 bias =" none ",
+10 task_type =" SEQ_CLS ",
+11 )
+12
+13 model_path = "./ save_sft_model / checkpoint -1000 "
+14 model = AutoModelForCausalLMWithValueHead . from_pretrained (
+15 pretrained_model_name_or_path = model_path ,
+16 peft_config = peft_config ,
+17 )
+2.3. Trainer
+1 from trl import PPOConfig , PPOTrainer
+2
+3 def collator ( data ):
+4 return { key : [d[ key ] for d in data ] for key in data [0]}
+5
+6 ppo_config = PPOConfig (
+7 model_name =" facebook /opt -350 m"
+8 )
+9
+10 device = 0 if torch . cuda . is_available () else " cpu "
+11
+12 ppo_trainer = PPOTrainer ( ppo_config , model , None , tokenizer , dataset = ppo_ds ,
+data_collator = collator )
+2.4. Reward Model
+Load lại mô hình reward được huấn luyện ở bước 2
+1 from transformers import AutoModelForSequenceClassification , pipeline
+2
+3 rw_model = model = AutoModelForSequenceClassification . from_pretrained (’./ save_rw_model
+’)
+4 sentiment_pipe = pipeline (" sentiment - analysis ", model = rw_model , device = device )
+5
+6 if sentiment_pipe . 
+>>>>>>> HEAD@{1}

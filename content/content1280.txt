@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: b86d36a4-e4bb-4b5f-af95-c08b1b84a7cf
 Text: AI VIET NAM – COURSE 2024 Probability Exercise (Naive Bayes
 Classifier) Ngày 20 tháng 7 năm 2024 Giả sửX có các đặc trưng thuộc
@@ -5,3 +6,34 @@ tính độc lập với nhaux1, x2, ..., xn, để phân loạiX vào lớp m�
 các lớpC = c1, c2, ..., cm, dựa vào công thức Bayes ta có: P(c|X) =
 P(X|c).P(c) P(X) Dựa vào ước lượng tối đa xác suất hậu nghiệm (MAP -
 Maximum A Po...
+=======
+AI VIET NAM – COURSE 2024
+Probability Exercise
+(Naive Bayes Classifier)
+Ngày 20 tháng 7 năm 2024
+Giả sửX có các đặc trưng thuộc tính độc lập với nhaux1, x2, ..., xn, để phân loạiX vào lớp một
+trong các lớpC = c1, c2, ..., cm, dựa vào công thức Bayes ta có:
+P(c|X) = P(X|c).P(c)
+P(X)
+Dựa vào ước lượng tối đa xác suất hậu nghiệm (MAP - Maximum A Posterior) ta được:
+P(c|X) ∝ P(X|c).P(c)
+P(c|X) ∝ P(x1|c).P(x2|c)...P(xn|c).P(c)
+1. BINARY CLASSIFICATION - PLAY TENNIS
+Cho tập dữ liệu huấn luyện mô hình phân loại nhị phân Naive Bayes gồm các thuộc tính "Outlook",
+"Temperature", "Humidity", "Wind":
+Day Outlook Temperature Humidity Wind PlayTennis
+D1 Sunny Hot High Weak No
+D2 Sunny Hot High Strong No
+D3 Overcast Hot High Weak Yes
+D4 Rain Mild High Weak Yes
+D5 Rain Cool Normal Weak Yes
+D6 Rain Cool Normal Strong No
+D7 Overcast Cool Normal Strong Yes
+D8 Overcast Mild High Weak No
+D9 Sunny Cool Normal Weak Yes
+D10 Rain Mild Normal Weak Yes
+Bảng 1: Play Tennis - Tập dữ liệu huấn luyện
+Cho sự kiện thử nghiệm:
+X = (Outlook=Sunny, Temperature=Cool, Humidity=High, Wind=Strong)
+1
+>>>>>>> HEAD@{1}

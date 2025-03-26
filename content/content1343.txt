@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 72e7dd81-55cb-4639-8f68-246e9d657824
 Text: AI VIETNAM aivietnam.edu.vn • Phần bên trái: Chứa thông tin nhập
 vào tài khoản và mật khẩu huggingface, được sử dụng để có quyền truy
@@ -5,3 +6,29 @@ cập vào hugchat 1 import streamlit as st 2 from hugchat import hugchat
 3 from hugchat . login import Login 4 5 # App title 6 st. title (’
 Simple ChatBot ’) 7 8 # Hugging Face Credentials 9 with st. sidebar :
 10 st...
+=======
+AI VIETNAM aivietnam.edu.vn
+• Phần bên trái: Chứa thông tin nhập vào tài khoản và mật khẩu huggingface, được sử dụng
+để có quyền truy cập vào hugchat
+1 import streamlit as st
+2 from hugchat import hugchat
+3 from hugchat . login import Login
+4
+5 # App title
+6 st. title (’ Simple ChatBot ’)
+7
+8 # Hugging Face Credentials
+9 with st. sidebar :
+10 st. title (’Login HugChat ’)
+11 hf_email = st. text_input (’Enter E- mail :’)
+12 hf_pass = st. text_input (’Enter Password :’, type =’ password ’)
+13 if not ( hf_email and hf_pass ):
+14 st. warning (’ Please enter your account !’)
+15 else :
+16 st. success (’ Proceed to entering your prompt message !’)
+17
+• Phần bên phải (phần trung tâm): Chứa khu vực nhập vào văn bản và trả về phản hồi từ
+chatbot.
+1 # Store LLM generated responses
+2 if " messages " not in st. 
+>>>>>>> HEAD@{1}

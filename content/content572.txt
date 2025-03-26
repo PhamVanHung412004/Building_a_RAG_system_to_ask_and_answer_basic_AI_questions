@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 05f1e140-a8a1-4be6-92d4-4300dfc1630f
 Text: Khi số lần nhảy đạt đến 5, bạn cảm thấy mệt và đặt has_energy
 thành False, vòng lặp kết thúc. 2 Vòng lặp vô hạn Một vòng lặp vô hạn
@@ -5,3 +6,22 @@ là một vòng lặp tiếp tục thực thi câu lệnh trong vòng lặp đ�
 vì điều kiện của vòng lặp luôn là True. Mặc dù chúng thường là điều
 cần tránh, nhưng cũng có những trường hợp chúng ta có thể tạo ra một
 vòng lặ...
+=======
+Khi số lần nhảy đạt đến 5, bạn cảm thấy mệt và đặt has_energy thành False, vòng
+lặp kết thúc.
+2 Vòng lặp vô hạn
+Một vòng lặp vô hạn là một vòng lặp tiếp tục thực thi câu lệnh trong vòng lặp đến mãi mãi, vì điều
+kiện của vòng lặp luôn là True. Mặc dù chúng thường là điều cần tránh, nhưng cũng có những trường
+hợp chúng ta có thể tạo ra một vòng lặp vô hạn một cách cố ý, chẳng hạn khi xây dựng các chương
+trình liên tục lắng nghe đầu vào hoặc chạy các tiến trình máy chủ.
+Ví dụ Vòng lặp vô hạn:
+1 while True:
+2 print("This loop will run forever!")
+Trong ví dụ trên, điều kiện của vòng lặp while được đặt là True, có nghĩa là vòng lặp sẽ chạy mãi mãi
+vì điều kiện luôn đúng. Bên trong vòng lặp, câu lệnh print("This loop will run forever!") được thực thi
+lặp đi lặp lại. Để thoát khỏi vòng lặp, chúng ta cần phải dừng chương trình bằng cách kết thúc quá
+trình thực thi của nó. Trong hầu hết các môi trường phát triển, chúng ta có thể làm điều này bằng
+cách nhấn Ctrl + C nếu chúng ta chạy chương trình bằng dòng lệnh hoặc nhấn nút stop trên công cụ
+lập trình.
+2
+>>>>>>> HEAD@{1}

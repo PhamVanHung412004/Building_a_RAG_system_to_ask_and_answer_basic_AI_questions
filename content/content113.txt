@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 923e9920-6466-45d6-acb0-6e808e20f57d
 Text: AI VIETNAM (AIO2024) aivietnam.edu.vn 4. Tiền xử lý dữ liệu: •
 Tiền xử lý dữ liệu đặc trưng:Như chúng ta đã biết, nội dung của các
@@ -5,3 +6,21 @@ Messages (như thư/SMS/email...) vô cùng nhiều và đa dạng các tổ h�
 hoặc ký tự với nhau. Trong các trường hợp đặc biệt, chúng có thể là
 những từ viết tắt(như "’m, ’s, ’re, ...), từ không mang nhiều ý
 nghĩa(như các...
+=======
+AI VIETNAM (AIO2024) aivietnam.edu.vn
+4. Tiền xử lý dữ liệu:
+• Tiền xử lý dữ liệu đặc trưng:Như chúng ta đã biết, nội dung của các Messages
+(như thư/SMS/email...) vô cùng nhiều và đa dạng các tổ hợp từ hoặc ký tự với nhau.
+Trong các trường hợp đặc biệt, chúng có thể là những từ viết tắt(như "’m, ’s, ’re,
+...), từ không mang nhiều ý nghĩa(như các dấu câu (.,’/), các biến thể của từ(ví dụ:
+change, changing, changes, changed, changer, ...)và rất nhiều trường hợp đặc biệt
+khác. Vì vậy, bước Tiền xử lý dữ liệu là vô cùng quan trọng với các tác vụ liên quan
+đến ngôn ngữ. Với bài này, chúng ta sẽ đối phó với chúng với một số hàm đơn giản
+như hình sau:
+Tương ứng với đoạn code sau:
+1 def lowercase ( text ):
+2 return text . lower ()
+3
+4 def punctuation_removal ( text ):
+5 translator = str . 
+>>>>>>> HEAD@{1}

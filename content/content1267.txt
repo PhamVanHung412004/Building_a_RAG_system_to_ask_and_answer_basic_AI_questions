@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 3520f5cc-c7ad-4cec-bc5a-2134a19052eb
 Text: AI VIETNAM aivietnam.edu.vn 11 ### End Code Here 12 13 data =
 torch . Tensor ([1 , 2, 300000000]) 14 my_softmax = MySoftmax () 15
@@ -5,3 +6,41 @@ output = my_softmax ( data ) 16 assert round ( output [0]. item () ,
 2) == 0.0 17 output a) [0.0900, 0.2747, 0.6652] b) [0.7054, 0.0351,
 0.2595] c) [0., 0., nan] d) [0.7054, 0.0351, 0.009] Câu hỏi 4: Hoàn
 thành đoạn c...
+=======
+AI VIETNAM aivietnam.edu.vn
+11 ### End Code Here
+12
+13 data = torch . Tensor ([1 , 2, 300000000])
+14 my_softmax = MySoftmax ()
+15 output = my_softmax ( data )
+16 assert round ( output [0]. item () , 2) == 0.0
+17 output
+a) [0.0900, 0.2747, 0.6652]
+b) [0.7054, 0.0351, 0.2595]
+c) [0., 0., nan]
+d) [0.7054, 0.0351, 0.009]
+Câu hỏi 4: Hoàn thành đoạn code sau đây theo công thức tính stable softmax.
+1 import torch
+2 import torch .nn as nn
+3
+4 class SoftmaxStable (nn. Module ):
+5 def __init__ ( self ):
+6 super (). __init__ ()
+7
+8 def forward (self , x):
+9 x_max = torch . max (x, dim =0 , keepdims = True )
+10 x_exp = torch . exp (x - x_max . values )
+11 partition = x_exp . sum (0 , keepdims = True )
+12 return x_exp / partition
+13
+14 data = torch . Tensor ([1 , 2, 3])
+15 softmax_stable = SoftmaxStable ()
+16 output = softmax_stable ( data )
+17 assert round ( output [ -1]. item () , 2) == 0.67
+18 output
+a) [0.0900, 0.2747, 0.6652]
+b) [0.0900, 0.2447, 0.6652]
+c) [0., 0., nan]
+d) [0.7054, 0.0351, 0.009]
+Câu hỏi 5: Một người (person) có thể là student, doctor, hoặc teacher. 
+>>>>>>> HEAD@{1}

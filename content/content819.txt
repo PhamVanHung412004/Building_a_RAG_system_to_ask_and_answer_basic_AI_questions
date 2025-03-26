@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: d8932774-f6ef-42a4-bec5-82b9bf69143d
 Text: AIO2024 aivietnam.edu.vn • packages : Vị trí, tên của package,
 nơi mà chứa các file code của package. Lưu ý: packages = [{include =
@@ -5,3 +6,61 @@ nơi mà chứa các file code của package. Lưu ý: packages = [{include =
 poetry sẽ lấy tên theo tool.poetry.name nhưng trong một số trường hợp
 dự án có tên thư mục dự án và tên package khác nhau, nên chúng ta cần
 chỉ định...
+=======
+AIO2024 aivietnam.edu.vn
+• packages : Vị trí, tên của package, nơi mà chứa các file code của package.
+Lưu ý: packages = [{include = "aio2024"}] đây là thông tin vị trí của package, theo mặc định thì
+poetry sẽ lấy tên theo tool.poetry.name nhưng trong một số trường hợp dự án có tên thư mục dự án
+và tên package khác nhau, nên chúng ta cần chỉ định lại tên của package. Nếu không sẽ bị lỗi khi build
+package.
+Tiếp theo là phần [tool.poetry.dependencies] chứa thông tin về phiên bản python và các package, library
+tương thích với package chúng ta xây dựng. Ví dụ package chúng ta đang xây dựng cần sử dụng python,
+streamlit thì chúng sẽ được liệt kê tại đây.
+Phần cuối của file là [build-system], phần này chứa một số thông tin về các phụ thuộc để thực hiện
+đóng gói package. Ta sẽ để các giá trị theo mặc định.
+Theo mặc định phiên bản python Poetry sẽ sử dụng để tạo môi trường cho dự án là phiên bản python
+trên môi trường chung của máy tính. Ta có thể xem thông tin môi trường bằng cách điều hướng đến
+thư mục dự án vừa tạo và dùng lệnh sau:
+1 =============== Input ======================
+2 cd aio2024
+3 poetry env info
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14 ==========================================
+================= Output =================
+Virtualenv
+Python : 3.12.2
+Implementation : CPython
+Path : NA
+Executable : NA
+Base
+Platform : win32
+OS: nt
+Python : 3.12.2
+Path : C:\ Python312
+Executable : C:\ Python312 \ python . exe
+==========================================
+Chúng ta có thể kích hoạt môi trường trong Poetry bằng lệnh sau:
+1 poetry shell
+Môi trường này hoạt động tương tự như môi trường trong anaconda. Nhưng điều thú vị là không như
+Anaconda có thể kích hoạt môi trường ở mọi nơi, môi trường trong Poetry chỉ có thể kích hoạt tại trong
+chính vị trí thư mục dự án.
+Để cài đặt một package hay library cho dự án, ta sẽ sử dụng lệnh sau
+1 poetry add name_package
+Ta cũng có thể cài nhiều package bằng cách thêm nó vào phần [tool.poetry.dependencies] sau đó sử
+dụng lệnh sau để cài đặt:
+1 poetry install
+4 Xây dựng và public package
+4.1 Xây dựng package
+Chúng ta sẽ xây dựng package với hai module, module1 là math.py chứa class MyMath với thuộc tính
+là một số tự nhiên value và một phương thức factorial() để tính giai thừa cho value. Module thứ 2 là
+cat.py, chúng ta sẽ xây dựng class Cat với thuộc tính name và phương thức describe().
+>>>>>>> HEAD@{1}

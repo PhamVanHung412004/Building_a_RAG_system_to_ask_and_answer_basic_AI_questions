@@ -1,4 +1,16 @@
+<<<<<<< HEAD
 Node ID: c8f2eaf3-217f-451d-919f-2627ef2b7a6b
 Text: Build Dataset 1 # install libs 2 ! pip install -q peft
 transformers bitsandbytes datasets 3 4 import os 5 import torch 6 from
 PIL import Image 7 8 class VQADataset ( torch . utils .
+=======
+Build Dataset
+1 # install libs
+2 ! pip install -q peft transformers bitsandbytes datasets
+3
+4 import os
+5 import torch
+6 from PIL import Image
+7
+8 class VQADataset ( torch . utils . 
+>>>>>>> HEAD@{1}

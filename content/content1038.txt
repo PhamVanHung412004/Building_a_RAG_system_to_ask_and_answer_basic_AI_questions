@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: cce08f39-4b6e-4a7c-a9f2-4989aeb29c44
 Text: Mỗi khung hình trong video được tạo ra đều phải liến kết đến tất
 cả các khung hình trước đó, đến từng chi tiết để đảm bảo độ chính xác
@@ -5,3 +6,26 @@ về không gian và quá trình chuyển đổi giữa các khung hình phải 
 hình hóa cẩn thận để duy trì dòng thời gian. Quá trình này yêu cầu tài
 nguyên tính toán khổng lồ [8] [11], đặc biệt đối với các video có độ
 p...
+=======
+Mỗi khung hình trong video được tạo ra đều phải
+liến kết đến tất cả các khung hình trước đó, đến từng chi tiết để đảm bảo độ chính xác về không gian
+và quá trình chuyển đổi giữa các khung hình phải được mô hình hóa cẩn thận để duy trì dòng thời gian.
+Quá trình này yêu cầu tài nguyên tính toán khổng lồ [8] [11], đặc biệt đối với các video có độ phân giải
+cao trong đó độ trung thực của từng pixel có thể ảnh hưởng đến chất lượng tổng thể và độ chân thực
+của video.
+Hơn nữa, các mô hình tổng hợp được sử dụng để tổng hợp văn bản thành video, chẳng hạn như
+Mạng GAN, VAE hay mạng Diffusion,đều cần một lượng tính toán khổng lồ. Khi được giao nhiệm vụ
+tạo video, các mô hình này phải hoạt động trên không gian đầu ra lớn hơn nhiều so với việc tạo hình
+ảnh, xử lý nhiều khung hình thậm chí chỉ trong vài giây video. Điều này không chỉ đòi hỏi sức mạnh
+xử lý đáng kể mà còn đặt ra những thách thức về bộ nhớ và lưu trữ, vì mô hình phải duy trì và xử lý
+lượng lớn dữ liệu để tạo ra đầu ra video cuối cùng.
+3 Thiếu các datasets có chất lượng cao
+Trong việc chuyển đổi văn bản thành video, một trong những khó khăn lớn nhất chính là việc tìm kiếm
+và sử dụng dữ liệu phù hợp. Có một sự thiếu hụt rõ ràng về các bộ dữ liệu lớn, nơi mô tả văn bản chi
+tiết đi kèm với video tương ứng [9], [7] [3] khiến việc thu thập dữ liệu trở nên cực kỳ phức tạp. Cần
+phải có những mô tả rất cụ thể và chính xác về nội dung video, điều này làm tăng thêm độ khó trong
+việc tạo ra những bộ dữ liệu đa dạng và chất lượng cao.
+Để giải quyet vấn đề này, các nhà nghiên cứu đang áp dụng nhiều phương pháp như tạo dữ liệu
+giả, phương pháp tăng cường dữ liệu, sử dụng crowdsourcing để thu thập mô tả video, và áp dụng kỹ
+2
+>>>>>>> HEAD@{1}

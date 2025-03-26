@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 Node ID: ee2ff4f6-bf5e-4501-8a77-82699276ac4e
 Text: AI VIETNAM aivietnam.edu.vn 55 ( self .
+=======
+AI VIETNAM aivietnam.edu.vn
+55 ( self . 
+>>>>>>> HEAD@{1}

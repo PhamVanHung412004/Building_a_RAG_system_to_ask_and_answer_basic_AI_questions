@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: b297525d-64f6-4351-b9bb-4085c8b5d96e
 Text: Điều này giúp tiết kiệm bộ nhớ và tối ưu hóa hiệu suất. Một số
 quy tắc khi thực hiện broadcasting: • Nếu các mảng không có cùng số
@@ -5,3 +6,49 @@ chiều, mảng có số chiều nhỏ hơn sẽ được mở rộng với các
 thước 1 ở đầu. • Nếu kích thước của các chiều không khớp, mảng có kích
 thước 1 trong chiều đó sẽ được mở rộng để khớp với kích thước của mảng
 khác...
+=======
+Điều này giúp tiết kiệm bộ nhớ và tối ưu hóa hiệu suất.
+Một số quy tắc khi thực hiện broadcasting:
+• Nếu các mảng không có cùng số chiều, mảng có số chiều nhỏ hơn sẽ được mở rộng với các chiều
+có kích thước 1 ở đầu.
+• Nếu kích thước của các chiều không khớp, mảng có kích thước 1 trong chiều đó sẽ được mở rộng
+để khớp với kích thước của mảng khác.
+• Nếu kích thước của bất kỳ chiều nào không khớp và không phải là 1, sẽ xảy ra lỗi.
+Để hiểu rõ hơn về cơ chế broadcasting, chúng ta thực hiện một số ví dụ dưới đây:
+Ví dụ 1: Cộng một số vô hướng vào mảng
+1 #aivietnam
+2 import numpy as np
+3
+4 # Tạo mảng 1 chiều
+5 arr = np.array([1, 2, 3])
+6 # Cộng số 2 vào từng phần tử của mảng
+7 result = arr + 2
+8 print("Kết quả:", result)
+================= Output ================
+Kết quả: [3, 4, 5]
+==========================================
+Ví dụ 2: Cộng hai mảng có kích thước khác nhau
+1 #aivietnam
+2 import numpy as np
+3
+4 # Tạo mảng 2 chiều
+5 arr2d = np.array([[1, 2, 3], [4, 5, 6]])
+6 # Tạo mảng 1 chiều
+7 arr1d = np.array([1, 2, 3])
+8 # Cộng hai mảng
+9 result = arr2d + arr1d
+10 print("array 2d:\n", arr2d)
+11 print("array 1d:\n", arr1d)
+12 print("Kết quả:\n", result)
+================= Output ================
+array 2d:
+[[1 2 3]
+[4 5 6]]
+array 1d:
+[1 2 3]
+Kết quả:
+[[2 4 6]
+[5 7 9]]
+==========================================
+25
+>>>>>>> HEAD@{1}

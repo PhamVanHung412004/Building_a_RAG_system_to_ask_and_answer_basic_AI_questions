@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: a70b2c4b-31c8-4271-beb1-289d9914fc50
 Text: (a) Đúng (b) Sai 5. Trong LLMs, khái niệm prompt được hiểu như
 thế nào? (a) Một phần mềm bổ trợ giúp tối ưu hóa hiệu suất của mô hình
@@ -5,3 +6,24 @@ thế nào? (a) Một phần mềm bổ trợ giúp tối ưu hóa hiệu suất
 hình (c) Một câu hỏi hoặc yêu cầu mà người dùng đưa ra cho mô hình (d)
 Một thuật toán đặc biệt để phân loại dữ liệu đầu vào 6. Trong LLMs, ta
 n...
+=======
+(a) Đúng
+(b) Sai
+5. Trong LLMs, khái niệm prompt được hiểu như thế nào?
+(a) Một phần mềm bổ trợ giúp tối ưu hóa hiệu suất của mô hình
+(b) Một kỹ thuật mã hóa thông tin riêng tư trong quá trình đào tạo mô hình
+(c) Một câu hỏi hoặc yêu cầu mà người dùng đưa ra cho mô hình
+(d) Một thuật toán đặc biệt để phân loại dữ liệu đầu vào
+6. Trong LLMs, ta nên áp dụng kỹ thuật nào sau đây để cải thiện khả năng thực hiện một task cụ
+thể nào đó của mô hình mà không cần training?
+(a) Sử dụng kỹ thuật transfer learning.
+(b) Ứng dụng khả năng zero-shot learning của mô hình.
+(c) Lập trình thủ công tại bước hậu xử lý cho mỗi task.
+(d) Mở rộng bộ dữ liệu training.
+7. Kỹ thuật prompting nào dưới đây cung cấp cho mô hình chỉ một ví dụ về task cần làm?
+(a) One-shot learning
+(b) Few-shot learning
+(c) Continuous learning
+(d) Transfer learning
+11
+>>>>>>> HEAD@{1}

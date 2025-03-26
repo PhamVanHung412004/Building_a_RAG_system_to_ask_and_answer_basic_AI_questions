@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 7d5cd0aa-b9fd-4db0-9d60-a744d166429a
 Text: Dưới đây là một số tham số cơ bản bạn thường gặp trong quá trình
 sử dụng các mô hình LLM. Temperature- Như chúng ta có thể đã biết thì
@@ -5,3 +6,19 @@ Large Language Model (LLM) hoạt động theo cơ chế phân loại từ tiế
 theo, và như bao bài toán phân loại khác thì output đầu ra của LLM sẽ
 áp dụng thêm một hàm softmax để tạo ra phân phối xác suất từ tiếp theo
 sao ...
+=======
+Dưới đây là một số tham số cơ bản bạn thường gặp
+trong quá trình sử dụng các mô hình LLM.
+Temperature- Như chúng ta có thể đã biết thì Large Language Model (LLM) hoạt động theo
+cơ chế phân loại từ tiếp theo, và như bao bài toán phân loại khác thì output đầu ra của LLM sẽ
+áp dụng thêm một hàm softmax để tạo ra phân phối xác suất từ tiếp theo sao cho tổng xác suất
+cộng lại bằng 1. Temperature thật ra là một tham số điều khiển độ “mượt mà” của hàm softmax
+đó bằng cách lấy logits output ra từ LLM chia cho tham số temperature.
+P(i) = exp(logiti/T)P
+j exp(logitj/T) (1)
+Công thức trên là công thức hàm softmax, trong đó tham số temperature được kĩ hiệu bằng
+chữ T, vàlogitn kí hiệu output thứn ở lớp cuối của mô hình LLM. Để giúp bạn dễ hình dung,
+sau đây là một visualization nho nhỏ với hàm sigmoid - một hàm có những đặc điểm tương tự như
+softmax.
+1
+>>>>>>> HEAD@{1}

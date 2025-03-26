@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 62aed3e5-7384-4381-825a-ee6ef16ea6c4
 Text: AI VIETNAM aivietnam.edu.vn • Phần thứ hai củaJ(θ) diễn giải lại
 phần đầu với kỳ vọng theo thời gian t và các kỳ vọng xác suất ban đầu
@@ -5,3 +6,22 @@ và xác suất chuyển tiếp có điều kiện theox(0) và x. Chúng ta có
 chú ý sau: • E là ký hiệu cho kỳ vọng theo thời gian t vàEx(0) và
 Ex|x(0) là ký hiệu cho kỳ vọng theo xác suất ban đầu và xác suất
 chuyển tiế...
+=======
+AI VIETNAM aivietnam.edu.vn
+• Phần thứ hai củaJ(θ) diễn giải lại phần đầu với kỳ vọng theo thời gian t và các kỳ vọng xác suất
+ban đầu và xác suất chuyển tiếp có điều kiện theox(0) và x.
+Chúng ta có một số chú ý sau:
+• E là ký hiệu cho kỳ vọng theo thời gian t vàEx(0) và Ex|x(0) là ký hiệu cho kỳ vọng theo xác suất
+ban đầu và xác suất chuyển tiếp có điều kiện.
+• λ(t) là một hệ số trọng số có thể thay đổi theo thời gian, giúp điều chỉnh độ quan trọng của các
+khoảng thời gian khác nhau trong việc ước lượng gradient.
+• ||.||2 là normL2 và ∥ sθ(x, t) − ∇x log p(x, t|x(0), 0) ∥2
+2 là bình phương của khoảng cách giữa hai
+vector.
+• Việc sử dụng đạo hàm của log xác xuất chuyển tiếp có điều kiện thay vì xác suất chuyển tiếp trực
+tiếp giúp giảm độ phức tạp khi tính đạo hàm.
+15.6 Approximating the objective function using samples
+Để tính xấp xỉ cho objective function chúng ta sử dụng kỳ vọng và Monte Carlo.
+• Khi hàm mục tiêu được viết dưới dạng kỳ vọng, nó gợi ý về một chiến lược rõ ràng để xấp xỉ nó
+bằng cách sử dụng mẫu (Monte Carlo).
+>>>>>>> HEAD@{1}

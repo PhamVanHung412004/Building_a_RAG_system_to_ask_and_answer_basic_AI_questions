@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: faef059a-8c93-4d1e-a0c2-b2767efb64cb
 Text: AI VIETNAM aivietnam.edu.vn Phần 4. Câu hỏi trắc nghiệm Câu hỏi
 1Mục tiêu của Forward Diffusion Process trong mô hình Diffusion là gì?
@@ -5,3 +6,26 @@ a) Thêm một lượng nhỏ nhiễu được lấy mẫu từ phân phối Gau
 trị inputx0 lần lượt theo bước nhảy T với lịch trình phương saiβ1,
 ..., βT b) Khử nhiễu trongxT để khôi phục giá trị đầu vào c) Cả 2 đáp
 án trên...
+=======
+AI VIETNAM aivietnam.edu.vn
+Phần 4. Câu hỏi trắc nghiệm
+Câu hỏi 1Mục tiêu của Forward Diffusion Process trong mô hình Diffusion là gì?
+a) Thêm một lượng nhỏ nhiễu được lấy mẫu từ phân phối Gauss vào giá trị inputx0 lần lượt theo bước
+nhảy T với lịch trình phương saiβ1, ..., βT
+b) Khử nhiễu trongxT để khôi phục giá trị đầu vào
+c) Cả 2 đáp án trên đều đúng
+d) Cả 2 đáp án trên đều sai
+Câu hỏi 2Mục tiêu của Reverse Diffusion Process trong mô hình Diffusion là gì?
+a) Thêm một lượng nhỏ nhiễu được lấy mẫu từ phân phối Gauss vào giá trị inputx0 lần lượt theo bước
+nhảy T với lịch trình phương saiβ1, ..., βT
+b) Khử nhiễu trongxT để khôi phục giá trị đầu vào
+c) Cả 2 đáp án trên đều đúng
+d) Cả 2 đáp án trên đều sai
+Câu hỏi 3Dựa vào thực nghiệm trong phần 2, lịch trình phương saiβ được tính dựa vào hàm nào sau
+đây?
+a) Linspace
+b) Sigmoid
+c) ReLU
+d) Tanh
+Câu hỏi 4Dựa vào thực nghiệm trong phần 2, phương pháp mask nào sau đây được sử dụng?
+>>>>>>> HEAD@{1}

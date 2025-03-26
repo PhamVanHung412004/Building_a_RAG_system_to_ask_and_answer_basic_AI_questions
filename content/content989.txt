@@ -1,3 +1,9 @@
+<<<<<<< HEAD
 Node ID: 92e3d35d-3e02-4bc6-a94c-d93b6eddf5b6
 Text: Các phương pháp đơn giản sẽ chuyển đổi cấu trúc bảng thành các
 cấu trúc dễ hiểu hơn với máy như markdown hoặc html. 7
+=======
+Các phương pháp đơn giản sẽ chuyển đổi cấu trúc bảng thành các cấu trúc dễ
+hiểu hơn với máy như markdown hoặc html.
+7
+>>>>>>> HEAD@{1}

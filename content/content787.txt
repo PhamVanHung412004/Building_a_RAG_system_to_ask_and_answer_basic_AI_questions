@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: ec85e42b-5c08-4575-90e5-5758d67b8ce3
 Text: AIO 2024 aivietnam.edu.vn 1 #aivietnam 2 import numpy as np 3 4
 # Tạo mảng 2 chiều 5 arr2d = np.array([[1, 2, 3], [4, 5, 6]]) 6 7 #
@@ -5,3 +6,56 @@ Tìm chỉ số của giá trị lớn nhất trong to àn bộ mảng 8 index_m
 np.argmax(arr2d) 9 print("Chỉ số của giá trị lớn nhất trong m ảng 2
 chiều:", index_max2d) 10 11 # Tìm chỉ số của giá trị nhỏ nhất trong to
 àn bộ mả...
+=======
+AIO 2024 aivietnam.edu.vn
+1 #aivietnam
+2 import numpy as np
+3
+4 # Tạo mảng 2 chiều
+5 arr2d = np.array([[1, 2, 3], [4, 5, 6]])
+6
+7 # Tìm chỉ số của giá trị lớn nhất trong to
+àn bộ mảng
+8 index_max2d = np.argmax(arr2d)
+9 print("Chỉ số của giá trị lớn nhất trong m
+ảng 2 chiều:", index_max2d)
+10
+11 # Tìm chỉ số của giá trị nhỏ nhất trong to
+àn bộ mảng
+12 index_min2d = np.argmin(arr2d)
+13 print("Chỉ số của giá trị nhỏ nhất trong m
+ảng 2 chiều:", index_min2d)
+14
+15 # Tìm chỉ số của giá trị lớn nhất theo từ
+ng hàng
+16 index_max_row = np.argmax(arr2d, axis=1)
+17 print("Chỉ số của giá trị lớn nhất theo từ
+ng hàng trong mảng 2 chiều:",
+index_max_row)
+18
+19 # Tìm chỉ số của giá trị lớn nhất theo từ
+ng cột
+20 index_max_col = np.argmax(arr2d, axis=0)
+21 print("Chỉ số của giá trị lớn nhất theo từ
+ng cột trong mảng 2 chiều:",
+index_max_col)
+================= Output ================
+Mảng 2 chiều ban đầu:
+[[1 2 3]
+[4 5 6]]
+Chỉ số của giá trị lớn nhất trong mảng 2
+chiều: 5
+Chỉ số của giá trị nhỏ nhất trong mảng 2
+chiều: 0
+Chỉ số của giá trị lớn nhất theo từng hàng
+trong mảng 2 chiều: [2 2]
+Chỉ số của giá trị lớn nhất theo từng cột
+trong mảng 2 chiều: [1 1 1]
+==========================================
+6.4 Sắp xếp
+Hàm np.sort được sử dụng để sắp xếp các phần tử của mảng theo thứ tự tăng dần. Cú pháp:
+1 np.sort(array, axis)
+• array: mảng cần sắp xếp
+• axis: Chiều được chọn để sắp xếp, mặc định là -1, tức là sắp xếp theo chiều cuối cùng của mảng.
+Ví dụ dưới đây sẽ thực hiện sắp xếp mảng theo các chiều khác nhau.
+>>>>>>> HEAD@{1}

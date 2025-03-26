@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 1686c08e-2972-40c8-b39b-15945cae9a17
 Text: AI VIETNAM aivietnam.edu.vn • Temperature: Ban đầu khi nhìn vào
 tham số này, chúng ta sẽ dễ bị lầm tưởng đây là tham số chạy từ 0 đến
@@ -5,3 +6,20 @@ tham số này, chúng ta sẽ dễ bị lầm tưởng đây là tham số ch�
 không hề là một biến chạy từ 0 đến 1. Vậy ta nên chọn tham số này như
 thế nào để tối ưu nhất? – Chọn temperature = 0.0nếu chúng ta muốn kết
 qu...
+=======
+AI VIETNAM aivietnam.edu.vn
+• Temperature: Ban đầu khi nhìn vào tham số này, chúng ta sẽ dễ bị lầm tưởng đây là tham
+số chạy từ 0 đến 1. Thực tế thì như giải thích ở trên thì ta có thể thấy là temperature không
+hề là một biến chạy từ 0 đến 1. Vậy ta nên chọn tham số này như thế nào để tối ưu nhất?
+– Chọn temperature = 0.0nếu chúng ta muốn kết quả model không có tính ngẫu nhiên
+và luôn giống nhau với những input giống nhau. Lúc nào mô hình LLM luôn chọn từ có
+xác suất cao nhất.
+– Chọn temperature = 0.7, 0.8nếu chúng ta muốn kết quả model “sắc nét” hơn nhưng
+vẫn có tính random, đây cũng là khoảng các “cao nhân” trên mạng hay truyền tai nhau
+để model ra kết quả tốt và vẫn có tính sáng tạo.
+– Chọn temperature > 1nếu chúng ta muốn model có tính sáng tạo cao, tuy nhiên
+điều này cũng đem lại rủi ro là kết quả model có thể không quá tốt, và nếu set quá cao
+thì kết quả từ model sẽ là ngẫu nhiên hoàn toàn.
+• Top P
+– Tìm câu trả lời chính xác: Giữ giá trị Top P thấp (0.1 - 0.5).
+>>>>>>> HEAD@{1}

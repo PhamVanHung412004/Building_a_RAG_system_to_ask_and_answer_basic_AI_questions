@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 1fbba127-103a-46bf-87a0-393af8042c57
 Text: AI VIETNAM aivietnam.edu.vn Hình 2: Stack 3. Thực hiện xây dựng
 class Stack với các phương thức (method) sau đây • initialization
@@ -5,3 +6,21 @@ method nhận một input "capacity": dùng để khởi tạo stack với capac
 là số lượng element mà stack có thể chứa • .is_empty(): kiểm tra stack
 có đang rỗng • .is_full(): kiểm tra stack đã full chưa • .pop(): loại
 bỏ top...
+=======
+AI VIETNAM aivietnam.edu.vn
+Hình 2: Stack
+3. Thực hiện xây dựng class Stack với các phương thức (method) sau đây
+• initialization method nhận một input "capacity": dùng để khởi tạo stack với capacity là số
+lượng element mà stack có thể chứa
+• .is_empty(): kiểm tra stack có đang rỗng
+• .is_full(): kiểm tra stack đã full chưa
+• .pop(): loại bỏ top element và trả về giá trị đó
+• .push(value)add thêm value vào trong stack
+• .top() lấy giá trị top element hiện tại của stack, nhưng không loại bỏ giá trị đó
+• Không cần thiết phải thực hiện với pointer như trong hình minh họa
+1 stack1 = MyStack ( capacity =5)
+2
+3 stack1 . push (1)
+4
+5 stack1 . 
+>>>>>>> HEAD@{1}

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 3d657547-442b-4cfa-8814-5de757a4bd81
 Text: (2019). FreeAnchor: Learning to Match Anchors for Visual Object
 Detection. ArXiv. /abs/1909.02466 [12] Singh, Davinder and Jain, Naman
@@ -5,3 +6,18 @@ and Jain, Pranjali and Kayal, Pratik and Kumawat, Sudhakar and Batra,
 Nipun (2020). PlantDoc: A Dataset for Visual Plant Disease Detection.
 https://doi.org/10.1145/3371158.3371196 [13] Liu, W., Anguelov, D.,
 Erha...
+=======
+(2019). FreeAnchor: Learning to Match Anchors
+for Visual Object Detection. ArXiv. /abs/1909.02466
+[12] Singh, Davinder and Jain, Naman and Jain, Pranjali and Kayal, Pratik and Kumawat,
+Sudhakar and Batra, Nipun (2020). PlantDoc: A Dataset for Visual Plant Disease Detection.
+https://doi.org/10.1145/3371158.3371196
+[13] Liu, W., Anguelov, D., Erhan, D., Szegedy, C., Reed, S., Fu, C., & Berg, A. C. (2015). SSD:
+Single Shot MultiBox Detector. ArXiv. https://doi.org/10.1007/978-3-319-46448-0_2
+[14] Girshick, R., Donahue, J., Darrell, T., & Malik, J. (2013). Rich feature hierarchies for accu-
+rate object detection and semantic segmentation. ArXiv. /abs/1311.2524
+[15] Ren, S., He, K., Girshick, R., & Sun, J. (2015). Faster R-CNN: Towards Real-Time Object
+Detection with Region Proposal Networks. ArXiv. /abs/1506.01497
+[16] Carion, N., Massa, F., Synnaeve, G., Usunier, N., Kirillov, A., & Zagoruyko, S. (2020).
+End-to-End Object Detection with Transformers. ArXiv. 
+>>>>>>> HEAD@{1}

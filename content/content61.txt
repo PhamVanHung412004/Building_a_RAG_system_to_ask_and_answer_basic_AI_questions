@@ -1,6 +1,18 @@
+<<<<<<< HEAD
 Node ID: 8d92e451-7936-4f31-b640-41a220707773
 Text: AI VIETNAM (AIO2024) aivietnam.edu.vn 1 TRAINED_MODEL_PATH =
 ’runs / detect / train / weights / best .pt ’ 2 model = YOLOv10 (
 TRAINED_MODEL_PATH ) 3 4 model . val ( data = YAML_PATH , 5 imgsz =
 IMG_SIZE , 6 split =’test ’) Hình 21: Đánh giá mô hình sau khi huấn
 luyện trên tập test. 6.
+=======
+AI VIETNAM (AIO2024) aivietnam.edu.vn
+1 TRAINED_MODEL_PATH = ’runs / detect / train / weights / best .pt ’
+2 model = YOLOv10 ( TRAINED_MODEL_PATH )
+3
+4 model . val ( data = YAML_PATH ,
+5 imgsz = IMG_SIZE ,
+6 split =’test ’)
+Hình 21: Đánh giá mô hình sau khi huấn luyện trên tập test.
+6. 
+>>>>>>> HEAD@{1}

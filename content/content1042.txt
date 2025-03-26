@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 Node ID: 5d61124c-fde4-40fd-857b-4b6d3fae8a8d
 Text: Sự vượt trội của CelebV-Text so với các tập dữ liệu khác được
 thể hiện qua phân tích thống kê toàn diện về video, văn bản mô tả và
 mối liên quan text-video. 4
+=======
+Sự vượt trội của CelebV-Text so với các tập dữ liệu khác
+được thể hiện qua phân tích thống kê toàn diện về video, văn bản mô tả và mối liên quan text-video.
+4
+>>>>>>> HEAD@{1}

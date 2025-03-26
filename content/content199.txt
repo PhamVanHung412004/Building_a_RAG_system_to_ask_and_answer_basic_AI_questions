@@ -1,6 +1,21 @@
+<<<<<<< HEAD
 Node ID: dc9fc75f-070b-47c9-a297-6484ed68af5c
 Text: – Số lượng các sản phẩm khác nhau. Câu lệnh SQL cho các yêu cầu
 trên sẽ như sau: 1 # Query để lấy tổng giá bán toàn bộ sản phẩm trong
 bảng Product 2 query = """ 3 SELECT SUM(price) AS total_revenue 4 FROM
 PRODUCT; 5 """ 6 7 data_sum = pd.read_sql_query(query, connection) 8
 print(data_sum) 9 aivietnam.edu.vn www.facebook.com/aivietnam.edu.vn
+=======
+– Số lượng các sản phẩm khác nhau.
+Câu lệnh SQL cho các yêu cầu trên sẽ như sau:
+1 # Query để lấy tổng giá bán toàn bộ sản phẩm trong bảng Product
+2 query = """
+3 SELECT SUM(price) AS total_revenue
+4 FROM PRODUCT;
+5 """
+6
+7 data_sum = pd.read_sql_query(query, connection)
+8 print(data_sum)
+9
+aivietnam.edu.vn www.facebook.com/aivietnam.edu.vn
+>>>>>>> HEAD@{1}

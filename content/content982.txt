@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 04a626e2-fe80-45f3-9609-95ae31d5ab37
 Text: Nguồn: Gao et al. (2024) (a) RAG cơ bảnbao gồm các bước thực
 hiện truyền thống từ: xử lý dữ liệu nguồn (indexing), truy vấn
@@ -5,3 +6,25 @@ hiện truyền thống từ: xử lý dữ liệu nguồn (indexing), truy vấ
 giới hạn như chỉ lệ chính xác chưa cao đén từ việc truy vấn thiếu
 chính xác các phân đoạn tài liệu (chunks) liên quan. Điều này cũng là
 nguyên nhân khiến ...
+=======
+Nguồn: Gao et al. (2024)
+(a) RAG cơ bảnbao gồm các bước thực hiện truyền thống từ: xử lý dữ liệu nguồn (indexing), truy
+vấn (retrieval) và sinh câu trả lời (generation). RAG cơ bản tồn tại các giới hạn như chỉ lệ chính
+xác chưa cao đén từ việc truy vấn thiếu chính xác các phân đoạn tài liệu (chunks) liên quan. Điều
+này cũng là nguyên nhân khiến các vấn đề về "tự cho mình đúng" (hallucination) từ các mô hình
+LLM còn tồn tại.
+(b) RAG nâng caocung cấp các giải pháp giải quyết nhược điểm của RAG cơ bản như cải thiện
+chất lượng truy vấn bằng cách thực thi các giải pháp tiền truy vấn, trong truy vấn và sau truy
+vấn.
+• Giải pháp tiền truy vấn:bao gồm tối ưu quá trình xử lý dữ liệu nguồn như tối ưu cấu
+trúc tài liệu đã xử lý bằng các phương pháp tách tài liệu (chunking khác nhau: sentence
+splitter, sentence window, semantic splitter, hierarchical,...), bổ sung metadata, tối ưu mô
+hình embedding bằng embedding fine-tuning,...
+• Giải pháp truy vấn:Quá trình truy vấn có thể được cải thiện bằng các giải pháp viết lại
+câu hỏi truy vấn (Sub-queries), truy vấn mở rộng (sử dụng bộ lọc metadata), truy vấn với
+các phương pháp khác nhau (full-text search, semantic-search, hybrid-search).
+• Giải pháp sau truy vấn:Các kết quả sau khi truy vấn với nhiều phương pháp được xếp
+hạng lại nhằm đánh giá lại mức độ tương quan trước khi chọn ra top-k tài liệu liên quan
+nhất.
+4
+>>>>>>> HEAD@{1}

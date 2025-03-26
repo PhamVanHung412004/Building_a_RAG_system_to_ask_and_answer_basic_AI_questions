@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 36e67a65-1348-44f9-a45b-81a5379b77c5
 Text: AI VIETNAM aivietnam.edu.vn 1 def read_json(self): 2 """ 3 Read
 the JSON file and return the data. 4 5 Returns: 6 data (dict): The
@@ -5,3 +6,43 @@ data read from the JSON file. 7 """ 8 with open(self.json_file, ’r’)
 as file: 9 data = json.load(file) 10 return data 11 12 def
 is_valid_url(self, url): 13 """ 14 Check if the URL is valid. 15 16
 Parameters: 17 url (...
+=======
+AI VIETNAM aivietnam.edu.vn
+1 def read_json(self):
+2 """
+3 Read the JSON file and return the data.
+4
+5 Returns:
+6 data (dict): The data read from the JSON file.
+7 """
+8 with open(self.json_file, ’r’) as file:
+9 data = json.load(file)
+10 return data
+11
+12 def is_valid_url(self, url):
+13 """
+14 Check if the URL is valid.
+15
+16 Parameters:
+17 url (str): The URL to be checked.
+18
+19 Returns:
+20 bool: True if the URL is valid, False otherwise.
+21 """
+22 try:
+23 with urllib.request.urlopen(url) as response:
+24 if response.status == 200 and ’image’ in response.info().get_content_type():
+25 return True
+26 except Exception:
+27 return False
+Thực hiện khai báo hàm tải một ảnh, ngoài việc request tới server để tải ảnh đó thông qua url, chúng
+ta còn cần đặt nó vào đúng thư mục và đặt tên file cho bức ảnh khi tải về. Tất cả các thao tác đó được
+thực hiện bằng các built-in function trong thư viện os.
+1 def download_image(self, url, category, term, pbar):
+2 """
+3 Download the image from the given URL.
+4
+5 Parameters:
+6 url (str): The URL of the image to be downloaded.
+7 category (str): The category of the image.
+>>>>>>> HEAD@{1}

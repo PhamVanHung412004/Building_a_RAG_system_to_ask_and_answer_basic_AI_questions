@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 35b96bf0-3b5d-44cc-a8c1-8d77c7be6c5b
 Text: AI VIETNAM (AIO2024) aivietnam.edu.vn Hình 7: Các bước kích hoạt
 GPU cho notebook mới trên Google Colab • Bước 4:Cuối cùng, để có thể
@@ -5,3 +6,12 @@ thực thi các dòng lệnh Python, ta cần khởi động notebook. Các thao
 khởi động một notebook trong Google Colab sẽ như hình sau: Hình 8:
 Khởi động một notebook có GPU trong Google Colab Sau khi thực hiện các
 bước...
+=======
+AI VIETNAM (AIO2024) aivietnam.edu.vn
+Hình 7: Các bước kích hoạt GPU cho notebook mới trên Google Colab
+• Bước 4:Cuối cùng, để có thể thực thi các dòng lệnh Python, ta cần khởi động notebook.
+Các thao tác khởi động một notebook trong Google Colab sẽ như hình sau:
+Hình 8: Khởi động một notebook có GPU trong Google Colab
+Sau khi thực hiện các bước trên, các bạn đã có một môi trường code Python với GPU miễn phí
+từ Google.
+>>>>>>> HEAD@{1}

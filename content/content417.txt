@@ -1,5 +1,12 @@
+<<<<<<< HEAD
 Node ID: 0928be11-ebe1-4c33-932f-a61cb7fe8e2b
 Text: 3. When dealing with point cloud data containing elongated or
 anisotropic features, which data structure might be less efficient for
 nearest neighbor search? (A). Kd-Tree. (B). Octree. (C). Both (a) and
 (b) can be affected. (D). Neither (a) nor (b).
+=======
+3. When dealing with point cloud data containing elongated or anisotropic features,
+which data structure might be less efficient for nearest neighbor search?
+(A). Kd-Tree. (B). Octree.
+(C). Both (a) and (b) can be affected. (D). Neither (a) nor (b).
+>>>>>>> HEAD@{1}

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 99c9311b-6e70-4e9b-93b3-28e538a22e1f
 Text: Daily AI Exercise (AIO) aivietnam.edu.vn • lattice là một tham
 số boolean cho biết liệu hàm có nên sử dụng chế độ "lattice"để trích
@@ -5,3 +6,33 @@ xuất bảng hay không. Khi lattice=True, tabula-py sẽ cố gắng phát hi�
 các đường kẻ bảng (cả ngang và dọc) để xác định chính xác ranh giới
 của các ô trong bảng. Kết quả trả về từ tabula.read_pdf là một danh
 sách chứa...
+=======
+Daily AI Exercise (AIO) aivietnam.edu.vn
+• lattice là một tham số boolean cho biết liệu hàm có nên sử dụng chế độ "lattice"để trích xuất
+bảng hay không. Khi lattice=True, tabula-py sẽ cố gắng phát hiện các đường kẻ bảng (cả ngang
+và dọc) để xác định chính xác ranh giới của các ô trong bảng.
+Kết quả trả về từ tabula.read_pdf là một danh sách chứa các dataframe. Trong ví dụ trên kết quả đầu
+ra là danh sách chứa 1 dataframe, chúng ta có thể truy cập bằng chỉ mục của danh sách, ví dụ dfs[0].
+3.2 Bảng không có đường viền
+Bảng không có đường viền là loại bảng không có đường viền xác định rõ ràng giữa các hàng và cột, chỉ
+dựa vào khoảng cách để phân chia các ô. Việc trích xuất từ các bảng này có thể khó khăn hơn do thiếu
+các dấu hiệu nhận biết.
+Bảng 2: Thông tin khách hàng
+Tên Tuổi Thành phố
+An 22 Hà Nội
+Cúc 25 TP HCM
+Hoa 20 Đà Nẵng
+Nụ 23 Cần Thơ
+Bảng trên là một ví dụ điển hình cho bảng không có đường viền, chúng ta sẽ thực hiện trích xuất bảng
+này từ tệp pdf.
+1 import tabula
+2 pdf_path = "https://github.com/NguyenDinhTiem/tabula-py-examples/raw/main/data/tables.
+pdf"
+3
+4 dfs = tabula.read_pdf(pdf_path, pages="2", stream=True)
+5 print(len(dfs))
+6 dfs[0]
+Trong chương trình trên, ta sử dụng tabula.read_pdf để trích xuất bảng tại trang 2 của tệp pdf. Đối
+với loại bảng này chúng ta sử dụng tham số stream = True, tabula-py sẽ phân tích trang PDF dựa trên
+cấu trúc các hàng và khoảng trống giữa chúng để xác định ranh giới.
+>>>>>>> HEAD@{1}

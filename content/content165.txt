@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 38dbbfb6-c502-46ec-a57c-aa1c6842e325
 Text: AI VIETNAM aivietnam.edu.vn ˙x = f(x, t) + g(x, t) η(t) (30)
 Trong đó: • f(x, t) là một hàm ánh xạ vector từ x và thời gian t sang
@@ -5,3 +6,40 @@ một vector trongRN • g(x, t) là một ma trậnN × M (trong đó N là s�
 chiều của x và M là số chiều của vector noise η(t)). Ma trận này phụ
 thuộc vào x và t. • η(t) là một vector M chiều của các thành phần
 gaussian noise...
+=======
+AI VIETNAM aivietnam.edu.vn
+˙x = f(x, t) + g(x, t) η(t) (30)
+Trong đó:
+• f(x, t) là một hàm ánh xạ vector từ x và thời gian t sang một vector trongRN
+• g(x, t) là một ma trậnN × M (trong đó N là số chiều của x và M là số chiều của vector noise
+η(t)). Ma trận này phụ thuộc vào x và t.
+• η(t) là một vector M chiều của các thành phần gaussian noise độc lập
+Tiếp theo chúng ta sẽ có Euler-Maruyama đa biến với:
+x(t + ∆t) = x(t) + f(x(t), t)∆t + g(x(t), t)
+√
+∆t r (31)
+Trong đó r là một vectorr = (r1, ..., rM )T với mỗi thành phầnri được lấy mẫu từ phân phối chuẩn.
+Công thức Fokker-Planck cho phương trình SDE đa biến có dạng:
+∂p(x, t)
+∂t =
+NX
+j=1
+− ∂
+∂xj
+[ fj(x, t)p(x, t) ] +
+NX
+j=1
+NX
+k=1
+∂2
+∂xj∂xk
+[ Djk(x, t)p(x, t) ] (32)
+Trong đó:
+• D(x, t) là một ma trậnN × N gọi là "diffusion tensor". Các phần tử của ma trận này được tính
+như sau:
+Djk(x, t) = 1
+2
+MX
+ℓ=1
+σjℓ(x, t)σkℓ(x, t) .
+>>>>>>> HEAD@{1}

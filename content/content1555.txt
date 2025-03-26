@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 66c5ac21-c63e-430e-82f2-87ec232cdc64
 Text: 1 # Điền các giá trị NaN bằng các giá trị từ hàng trước đó 2
 df[’Môn học’].fillna(method=’ffill’, inplace=True) 3 df[’Ngày
@@ -5,3 +6,24 @@ thi’].fillna(method=’ffill’, inplace=True) 4 df[’Giờ bắt
 đầu’].fillna(method=’ffill’, inplace=True) 5 df[’Phòng
 thi’].fillna(method=’ffill’, inplace=True) Bảng 5: Dataframe sau khi
 đã fillna # Môn học Ngày thi Giờ bắt đầu Ph...
+=======
+1 # Điền các giá trị NaN bằng các giá trị từ hàng trước đó
+2 df[’Môn học’].fillna(method=’ffill’, inplace=True)
+3 df[’Ngày thi’].fillna(method=’ffill’, inplace=True)
+4 df[’Giờ bắt đầu’].fillna(method=’ffill’, inplace=True)
+5 df[’Phòng thi’].fillna(method=’ffill’, inplace=True)
+Bảng 5: Dataframe sau khi đã fillna
+# Môn học Ngày thi Giờ bắt đầu Phòng thi
+0 NaN 20/12/2024 08:00 101A
+1 Toán 20/12/2024 08:00 101A
+2 Toán 21/12/2024 09:00 102B
+3 Toán 21/12/2024 08:00 101A
+4 Lý 22/12/2024 08:00 101A
+5 Lý 22/12/2024 10:00 102B
+6 Lý 22/12/2024 08:00 101A
+7 Hóa 23/12/2024 08:00 101A
+8 Hóa 23/12/2024 10:00 102B
+Sau khi lấp đầy các ô NaN, chúng ta nhận thấy, các giá trị ở hàng 0, 3, 6 không cần thiết, ta sẽ loại bỏ
+chúng:
+4
+>>>>>>> HEAD@{1}

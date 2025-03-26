@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 2c77572f-fb40-47e0-9b3e-5ce97169911a
 Text: Để cài đặt Anaconda, bạn tiến hành tải về tại đây. Trong hướng
 dẫn này, chúng ta sẽ cài đặt trên hệ điều hành Window. Hình 1:
@@ -5,3 +6,13 @@ Annconda hỗ trợ Window, Mac, Linux Sau khi tải về file cài đặt, chú
 ta tiến hành nhấn chuột hai lần vào file cài đặt để mở file và tiến
 hành cài đặt. Việc cài đặt này khá dễ dàng, bạn thực hiện theo các
 bước sau, lưu ý ...
+=======
+Để cài đặt Anaconda, bạn tiến hành tải về
+tại đây. Trong hướng dẫn này, chúng ta sẽ cài đặt trên hệ điều hành Window.
+Hình 1: Annconda hỗ trợ Window, Mac, Linux
+Sau khi tải về file cài đặt, chúng ta tiến hành nhấn chuột hai lần vào file cài đặt để mở file và tiến hành
+cài đặt. Việc cài đặt này khá dễ dàng, bạn thực hiện theo các bước sau, lưu ý khi cài đặt bạn nên click
+vào lựa chọn "add Anaconda to your PATH environment variable"để thêm đường dẫn Anaconda vào
+môi trường máy tính đang sử dụng. Các bước cài đặt đơn giản như sau:
+Khi cửa sổ cài đặt xuất hiện, bạn nhấn next để chuyển sang bước tiếp theo:
+>>>>>>> HEAD@{1}

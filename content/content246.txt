@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 Node ID: 7eebb7bf-ee1c-4b7b-ab39-0226249ee185
 Text: Hình 7: Final Tree 9
+=======
+Hình 7: Final Tree
+9
+>>>>>>> HEAD@{1}

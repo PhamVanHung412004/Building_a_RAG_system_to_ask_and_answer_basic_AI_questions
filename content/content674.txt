@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 28316e83-9208-4087-8315-92d2933ddce5
 Text: AI VIETNAM aivietnam.edu.vn Trọng số của model Mamba pretrain sẽ
 không bao gồm các tham số của phần head (classifier)
@@ -5,3 +6,21 @@ MambaClassificationHead mà ta tự định nghĩa. Do đó, phần head này s�
 được khởi tạo tham số từ đầu: 1 # Tải model Mamba từ model đã được
 train trước đó. 2 model =
 MambaTextClassification.from_pretrained("state-spaces/mamba -130m")...
+=======
+AI VIETNAM aivietnam.edu.vn
+Trọng số của model Mamba pretrain sẽ không bao gồm các tham số của phần head
+(classifier) MambaClassificationHead mà ta tự định nghĩa. Do đó, phần head này sẽ được
+khởi tạo tham số từ đầu:
+1 # Tải model Mamba từ model đã được train trước đó.
+2 model = MambaTextClassification.from_pretrained("state-spaces/mamba
+-130m")
+3 model.to("cuda")
+4
+5 # Tải tokenizer của model Mamba từ model gpt-neox-20b.
+6 tokenizer = AutoTokenizer.from_pretrained("EleutherAI/gpt-neox-20b")
+7 # Đặt id của token pad bằng id của token eos trong tokenizer.
+8 tokenizer.pad_token_id = tokenizer.eos_token_id
+(d) Preprocess dataset:Trong phần này ta sẽ tiến hành tokenize dataset cho tập train và tập
+test. Vì số lượng sample của tập test khá lớn nên để thuận tiện cho quá trình train ta sẽ lấy
+ra 1 phần nhỏ của tập test để đánh giá model.
+>>>>>>> HEAD@{1}

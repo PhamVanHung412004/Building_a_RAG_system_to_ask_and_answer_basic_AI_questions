@@ -1,6 +1,13 @@
+<<<<<<< HEAD
 Node ID: 719b08ff-7281-443e-bfa3-952601631196
 Text: [10] Wilson Yan et al. VideoGPT: Video Generation using VQ-VAE
 and Transformers. 2021. arXiv: 2104.10157 [cs.CV]. [11] Wang W. Yan H.
 Lv W. Zhu Y. Feng J. Zhou D. “MagicVideo: Efficient Video Generation
 With Latent Diffusion Models”. In:arXiv preprint
 arXiv:2211.11018(2022).
+=======
+[10] Wilson Yan et al. VideoGPT: Video Generation using VQ-VAE and Transformers. 2021. arXiv:
+2104.10157 [cs.CV].
+[11] Wang W. Yan H. Lv W. Zhu Y. Feng J. Zhou D. “MagicVideo: Efficient Video Generation With
+Latent Diffusion Models”. In:arXiv preprint arXiv:2211.11018(2022).
+>>>>>>> HEAD@{1}

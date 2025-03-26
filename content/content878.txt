@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 0b20970d-6a8b-405b-b319-9b06cb16d227
 Text: Thông thường, sau khi chúng ta request cho 1 url, chúng ta sẽ
 đợi phản hồi từ server, sau đó khi nhận được ảnh, chúng ta sẽ tiếp tục
@@ -5,3 +6,22 @@ request tiếp theo. Việc này khiến cho quá trình tải rất chậm ch�
 tốn rất nhiều thời gian. Trong khi đó nếu áp dụng multi-threading,
 chúng ta sẽ liên tục gửi các request tới server, mỗi lần gửi sẽ là n
 request l...
+=======
+Thông thường, sau khi chúng ta request cho 1 url, chúng ta sẽ đợi phản hồi từ server, sau
+đó khi nhận được ảnh, chúng ta sẽ tiếp tục request tiếp theo. Việc này khiến cho quá trình tải rất chậm
+chạp và tốn rất nhiều thời gian. Trong khi đó nếu áp dụng multi-threading, chúng ta sẽ liên tục gửi các
+request tới server, mỗi lần gửi sẽ là n request liên tục nhau (không đồng thời) rồi tiếp tục quay lại thực
+hiện vòng lặp cho tới khi nhận đủ hình ảnh. Như vậy thời gian tải hình ảnh sẽ giảm đáng kể
+Hình 29: Xử lí Multi-treading trong quá trình gửi request tới server
+Việc gửi request tới server một cách ồ ạt tuy tốt cho thời gian của chúng ta thế nhưng lại là một hành
+động xấu đối với server-side. Đối với một server lớn, hàng ngày có cả triệu request từ nhiều user khác
+nhau, nó vẫn có thể xử lí một cách bình thường nhờ hệ thông điều phối hiệu quả. Tuy nhiên điểm khác
+biệt giữa request từ hàng triệu user trong một thời gian ngắn và cả ngàn request từ 1 user trong một
+thời gian ngắn là địa chỉ IP. Địa chỉ IP đại diện cho 1 client truy cập tới server, nếu chúng ta gửi liên
+tiếp request tới server, nó sẽ tự động phát hiện đây là hành vi bất thường và ngay lập tức chặn IP của
+chúng ta khiến quá trình tải lập lức dùng lại. Trường hợp tệ hơn đối với các server nhỏ không có hệ
+thông tốt, server sẽ bị crash và sập. Vì vậy, chúng ta cần lịch sự trong việc request tới server thông qua
+polite delay, giữa các lần request, hãy giãn thời gian ra tầm 0.5 đến 1s để khiến cho server không bị
+chịu tải cao, đồng thời server không phát hiện bất thường và chặn IP của chúng ta.
+31
+>>>>>>> HEAD@{1}

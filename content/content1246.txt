@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: caf03312-2d8b-4f95-bbc2-1a983d823a0e
 Text: AI VIETNAM aivietnam.edu.vn 49 50 loss = outputs . loss 51
 valid_loss . append ( loss . item ()) 52 print (" Epoch : {} -
@@ -5,3 +6,21 @@ Training loss : {} - Eval Loss : {} - LR: {}". format ( epoch +1 , sum
 ( epoch_loss )/ len ( epoch_loss ), sum ( valid_loss )/ len (
 valid_loss ), optimizer . param_groups [0][ "lr"])) 53 scheduler .
 step () 54 avg_loss = sum...
+=======
+AI VIETNAM aivietnam.edu.vn
+49
+50 loss = outputs . loss
+51 valid_loss . append ( loss . item ())
+52 print (" Epoch : {} - Training loss : {} - Eval Loss : {} - LR: {}". format ( epoch +1 , sum
+( epoch_loss )/ len ( epoch_loss ), sum ( valid_loss )/ len ( valid_loss ), optimizer .
+param_groups [0][ "lr"]))
+53 scheduler . step ()
+54 avg_loss = sum ( valid_loss )/ len ( valid_loss )
+55 if avg_loss < min_eval_loss :
+56 model . save_pretrained ("./ save_model ", from_pt = True )
+57 print (" Saved model to ./ save_model ")
+58 min_eval_loss = valid_loss
+59 processor . save_pretrained ("./ save_model ", from_pt = True )
+2.5. Predict
+Sau khi huấn luyện mô hình xong, trong phầ này chúng ta sẽ load mô hình tốt nhất và dự đoán. 
+>>>>>>> HEAD@{1}

@@ -1,5 +1,14 @@
+<<<<<<< HEAD
 Node ID: c8b5a163-e0f7-430b-a9c3-b6817567aeea
 Text: AI VIETNAM aivietnam.edu.vn 9. Trong state space model, dạng
 recurrent phù hợp để inference vì độ phức tạpO(1) khi tạo ra từng
 token là nhận định: (a) True (b) False 10. Đâu là contribution của
 Mamba?
+=======
+AI VIETNAM aivietnam.edu.vn
+9. Trong state space model, dạng recurrent phù hợp để inference vì độ phức tạpO(1) khi tạo ra từng
+token là nhận định:
+(a) True
+(b) False
+10. Đâu là contribution của Mamba?
+>>>>>>> HEAD@{1}

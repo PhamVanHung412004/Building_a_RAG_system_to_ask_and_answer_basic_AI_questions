@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: c9f99c2d-0e0a-4d69-82b9-e25908412cc9
 Text: AI VIETNAM aivietnam.edu.vn • Tại sao sử dụng heat kernel?: Heat
 kernel được sử dụng để biểu diễn mật độ xác suất trong trường hợp cụ
@@ -5,3 +6,26 @@ thể khi chúng ta đã biết một điểm cụ thể mà fist step ở đó.
 biết xác suất sẽ xuất hiện ở các vị trí khác nhau sau một khoảng thời
 gian t dựa trên điểm ban đầu đã biết. Trong bối cảnh của diffusion nó
 sẽ giú...
+=======
+AI VIETNAM aivietnam.edu.vn
+• Tại sao sử dụng heat kernel?: Heat kernel được sử dụng để biểu diễn mật độ xác suất trong
+trường hợp cụ thể khi chúng ta đã biết một điểm cụ thể mà fist step ở đó. Nó cho biết xác suất
+sẽ xuất hiện ở các vị trí khác nhau sau một khoảng thời gian t dựa trên điểm ban đầu đã biết.
+Trong bối cảnh của diffusion nó sẽ giúp làm mịn hình ảnh và mô tả sự lan truyền của dữ liệu.
+Kết luận: Về cơ bản, heat kernel không giúp giải phương trình diffusion mà là một công cụ để biểu
+diễn kết quả phương trình diffusion cho một điều kiện ban đầu cụ thể và nó có thể được sử dụng để
+tính toán xác suất của sự di chuyển của hệ thống trong không gian và thời gian.
+Cuối cùng để tính toán mật độ xác suấtp(x, t) dựa trên xác suất ban đầup0(x0) và heat kernel
+p(x, t|x0, 0). Để làm điều này, chúng ta tính tích phân qua tất cả các vị trí ban đầu có thểx0 bằng cách
+sử dụng heat kernel. Điều này cho phép chúng ta tính toán mật độ xác suất cuối cùngp(x, t) tại mọi
+vị trí x và thời điểm t dựa trên mật độ xác suất ban đầup0(x0). Công thức này giúp hiểu cách mật độ
+xác suất thay đổi theo thời gian và không gian trong quá trình diffusion.
+p(x, t) =
+Z ∞
+−∞
+p(x, t|x0, 0)p0(x0) dx0 . (22)
+Trong đó:
+• p(x, t) là mật độ xác suất của hệ thống tại vị trí x tại thời điểm t.
+• p(x, t|x0, 0) là heat kernel. Cho biết xác suất di chuyển từ vị trí ban đầux0 tại thời điểm 0 đến vị
+trí x tại thời điểm t, dựa trên sự phân tán không gian và thời gian.
+>>>>>>> HEAD@{1}

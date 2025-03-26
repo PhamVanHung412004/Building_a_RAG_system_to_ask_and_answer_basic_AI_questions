@@ -1,6 +1,15 @@
+<<<<<<< HEAD
 Node ID: 3c1c0679-6b66-4ff7-a3ad-888d691ef752
 Text: AI VIETNAM (AIO2024) aivietnam.edu.vn Hai hàm này có chung tham
 số đầu vào là: – left_img:đường dẫn đến ảnh chụp bên trái. –
 right_img:đường dẫn đến ảnh chụp bên phải. – disparity_range: độ dài
 tối đa của vùng tìm kiếm giá trị disparity tại mỗi pixel. Trong
 Problem 02, các bạn gán giá mặc định giá trị này = 64.
+=======
+AI VIETNAM (AIO2024) aivietnam.edu.vn
+Hai hàm này có chung tham số đầu vào là:
+– left_img:đường dẫn đến ảnh chụp bên trái.
+– right_img:đường dẫn đến ảnh chụp bên phải.
+– disparity_range: độ dài tối đa của vùng tìm kiếm giá trị disparity tại mỗi pixel.
+Trong Problem 02, các bạn gán giá mặc định giá trị này = 64.
+>>>>>>> HEAD@{1}

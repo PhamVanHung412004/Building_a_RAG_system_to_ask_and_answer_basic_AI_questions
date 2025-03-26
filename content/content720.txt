@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 Node ID: e0405f68-d34a-4d26-962c-a92c0ad8b99f
 Text: . 10 5.2 reshape . .
+=======
+. 10
+5.2 reshape . . 
+>>>>>>> HEAD@{1}

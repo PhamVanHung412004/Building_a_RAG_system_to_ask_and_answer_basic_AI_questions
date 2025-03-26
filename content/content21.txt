@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 6dae8d1e-14ff-4a2b-84cd-dc26fabcf4ef
 Text: Upload a PDF or text file 3 2. Ask a question about the file 4
 """ 8. Khởi tạo hàm on_chat_start: 1 @cl . on_chat_start 2 async def
@@ -5,3 +6,30 @@ on_chat_start (): 3 files = None 4 while files is None : 5 files =
 await cl. AskFileMessage ( 6 content = welcome_message , 7 accept =["
 text / plain ", " application / pdf "], 8 max_size_mb =20 , 9 timeout
 =180 , 1...
+=======
+Upload a PDF or text file
+3 2. Ask a question about the file
+4 """
+8. Khởi tạo hàm on_chat_start:
+1 @cl . on_chat_start
+2 async def on_chat_start ():
+3 files = None
+4 while files is None :
+5 files = await cl. AskFileMessage (
+6 content = welcome_message ,
+7 accept =[" text / plain ", " application / pdf "],
+8 max_size_mb =20 ,
+9 timeout =180 ,
+10 ). send ()
+11 file = files [0]
+12
+13 msg = cl. Message ( content =f" Processing ‘{ file . name } ‘... ",
+14 disable_feedback = True )
+15 await msg . send ()
+16
+17 vector_db = await cl. make_async ( get_vector_db )( file )
+18
+19 message_history = ChatMessageHistory ()
+20 memory = ConversationBufferMemory (
+10
+>>>>>>> HEAD@{1}

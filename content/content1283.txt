@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: eb78549b-b6b5-4c5b-af67-5054ffb8a545
 Text: MULTI-LABEL CLASSIFICATION - TRAFFIC DATACho tập dữ liệu huấn
 luyện mô hình phân loại Naive Bayes gồm các thuộc tính "Day",
@@ -5,3 +6,45 @@ luyện mô hình phân loại Naive Bayes gồm các thuộc tính "Day",
 None On Time Weekday Winter None Slight On Time Weekday Winter None
 None On Time Holiday Winter High Slight Late Saturday Summer Normal
 None On Time Wee...
+=======
+MULTI-LABEL CLASSIFICATION - TRAFFIC DATACho tập dữ liệu huấn luyện mô
+hình phân loại Naive Bayes gồm các thuộc tính "Day", "Season", "Fog", "Rain".
+Day Season Fog Rain Class
+Weekday Spring None None On Time
+Weekday Winter None Slight On Time
+Weekday Winter None None On Time
+Holiday Winter High Slight Late
+Saturday Summer Normal None On Time
+Weekday Autumn Normal None Very Late
+Holiday Summer High Slight On Time
+Sunday Summer Normal None On Time
+Weekday Winter High Heavy Very Late
+Weekday Summer None Slight On Time
+Saturday Spring High Heavy Cancelled
+Weekday Summer High Slight On Time
+Weekday Winter Normal None Late
+Weekday Summer High None On Time
+Weekday Winter Normal Heavy Vary Late
+Saturday Autumn High Slight On Time
+Weekday Autumn None Heavy On Time
+Holiday Spring Normal Slight On Time
+Weekday Spring Normal None On Time
+Weekday Spring Normal Heavy On Time
+Bảng 2: Traffic Data - Tập dữ liệu huấn luyện
+Cho sự kiện thử nghiệm:
+X = (Day=Weekday, Season=Winter, Fog=High, Rain=Heavy)
+Câu hỏi 5: Xác suất xảy ra sự kiện "Class"="On Time", sự kiện "Class"="Late",
+sự kiện "Class"=" Very Late" và sự kiện "Class"="Cancelled" lần lượt là:
+(A) P("Class" = "On Time") = 14/20, P("Class" = "Late") = 2/20,
+P("Class" = "Very Late") = 3/20, P("Class" = "Cancelled") = 1/20
+(B) P("Class" = "On Time") = 2/20, P("Class" = "Late") = 3/20,
+P("Class" = "Very Late") = 1/20, P("Class" = "Cancelled") = 14/20
+(C) P("Class" = "On Time") = 3/20, P("Class" = "Late") = 1/20,
+P("Class" = "Very Late") = 2/20, P("Class" = "Cancelled") = 14/20
+(D) P("Class" = "On Time") = 1/20, P("Class" = "Late") = 1/20,
+P("Class" = "Very Late") = 14/20, P("Class" = "Cancelled") = 3/20
+Câu hỏi 6: Xác suất xảy ra sự kiện "Class"="On Time" khi sự kiện X xảy ra là:
+(A) P("Class" = "On Time" | X)∝ 0.0222
+(B) P("Class" = "On Time" | X)∝ 0.0013
+3
+>>>>>>> HEAD@{1}

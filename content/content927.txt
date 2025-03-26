@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 68be6732-86a0-446f-b232-ecec8f5161cd
 Text: AI VIETNAM aivietnam.edu.vn Hình 16: So sánh 4 phương pháp
 prompting, standard, Chain-of-thought (CoT, Reason Only), Act- only và
@@ -5,3 +6,16 @@ ReAct (Reason+Act) 16 Reflexion Reflexion được đề xuất trong bài báo
 "Reflexion: Language Agents with Verbal Reinforcement Learning" Shinn
 et al., 2023, đánh dấu bước tiến trong việc cải thiện khả năng của các
 languag...
+=======
+AI VIETNAM aivietnam.edu.vn
+Hình 16: So sánh 4 phương pháp prompting, standard, Chain-of-thought (CoT, Reason Only), Act-
+only và ReAct (Reason+Act)
+16 Reflexion
+Reflexion được đề xuất trong bài báo "Reflexion: Language Agents with Verbal Reinforcement
+Learning" Shinn et al., 2023, đánh dấu bước tiến trong việc cải thiện khả năng của các language
+agents - những mô hình ngôn ngữ lớn được sử dụng ngày càng nhiều để tương tác với môi trường
+bên ngoài như trò chơi, trình biên dịch, API với vai trò là các đại diện có mục tiêu. Mặc dù việc áp
+dụng các phương pháp học tăng cường truyền thống đang đối mặt với thách thức lớn, do yêu cầu
+lượng dữ liệu huấn luyện rộng lớn và việc tinh chỉnh mô hình tốn kém, Reflexion mở ra một hướng
+đi mới. 
+>>>>>>> HEAD@{1}

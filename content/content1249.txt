@@ -1,6 +1,18 @@
+<<<<<<< HEAD
 Node ID: aadb20e6-3f16-42c5-9cc9-8089acfded49
 Text: open ( image_path ). convert (" RGB ") 18 19 encoding =
 processor ( image , question , return_tensors ="pt").to( device ,
 torch . float16 ) 20 21 out = model . generate (** encoding ) 22
 generated_text = processor . decode ( out [0] , skip_special_tokens =
 True ) 23 24 generated_text 7
+=======
+open ( image_path ). convert (" RGB ")
+18
+19 encoding = processor ( image , question , return_tensors ="pt").to( device , torch . float16 )
+20
+21 out = model . generate (** encoding )
+22 generated_text = processor . decode ( out [0] , skip_special_tokens = True )
+23
+24 generated_text
+7
+>>>>>>> HEAD@{1}

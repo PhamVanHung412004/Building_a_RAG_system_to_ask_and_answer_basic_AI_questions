@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: a222de9e-0458-43ec-9253-3c39da0119b2
 Text: BASIC PYTHON - WHILE LOOP Dinh-Tiem Nguyen và Quang-Vinh Dinh 1
 Giới thiệu Trong hầu hết các ngôn ngữ lập trình, vòng lặp là một cấu
@@ -5,3 +6,36 @@ trúc cho phép ta thực thi một khối code nhiều lần. Trong Python, có
 hai loại vòng lặp chính là for và while. Bài viết này sẽ tập trung vào
 vòng lặp while, giải thích cách hoạt động qua các ví dụ cụ thể để có
 thể dễ...
+=======
+BASIC PYTHON - WHILE LOOP
+Dinh-Tiem Nguyen và Quang-Vinh Dinh
+1 Giới thiệu
+Trong hầu hết các ngôn ngữ lập trình, vòng lặp là một cấu trúc cho phép ta thực thi một khối code
+nhiều lần. Trong Python, có hai loại vòng lặp chính là for và while. Bài viết này sẽ tập trung vào vòng
+lặp while, giải thích cách hoạt động qua các ví dụ cụ thể để có thể dễ dàng hiểu và áp dụng.
+1.1 Vòng lặp while là gì?
+Vòng lặp while thực thi một khối mã liên tục miễn là điều kiện được chỉ định là đúng. Cú pháp của
+vòng lặp while như sau:
+1 while điều_kiện:
+2 # Khối code trong while
+Vòng lặp while bắt đầu bằng việc kiểm tra điều kiện. Nếu điều kiện là True, khối code bên trong vòng
+lặp sẽ được thực thi. Sau khi khối code kết thúc, điều kiện sẽ được kiểm tra lại. Quá trình này tiếp tục
+cho đến khi điều kiện trở thành False.
+Ví dụ chương trình in ra màn hình các số từ 1 đến 5:
+1 i = 1
+2 while i <= 5:
+3 print(i)
+4 i += 1
+5
+6
+7 #ai vietnam
+================= Output ================
+1
+2
+3
+4
+5
+==========================================
+Một ví dụ khác để hiểu vòng lặp while, hãy tưởng tượng bạn đang chơi một trò chơi bật nhảy với một
+quả bóng. Bạn sẽ tiếp tục nhảy và đập bóng xuống đất cho đến khi bạn mệt và không thể nhảy nữa.
+>>>>>>> HEAD@{1}

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 96c9f4fd-f317-4d30-8af6-ffff58c6d4ce
 Text: imread ( right_img , 0) 11 12 left = left . astype (np. float32
 ) 13 right = right . astype (np. float32 ) 14 15 height , width = left
@@ -5,3 +6,21 @@ Text: imread ( right_img , 0) 11 12 left = left . astype (np. float32
 (( height , width ), np. uint8 ) 19 scale = 16 20 max_value = 255 21
 22 for y in range ( height ): 23 for x in range ( width ): 24 # Find j
 whe...
+=======
+imread ( right_img , 0)
+11
+12 left = left . astype (np. float32 )
+13 right = right . astype (np. float32 )
+14
+15 height , width = left . shape [:2]
+16
+17 # Create blank disparity map
+18 depth = np. zeros (( height , width ), np. uint8 )
+19 scale = 16
+20 max_value = 255
+21
+22 for y in range ( height ):
+23 for x in range ( width ):
+24 # Find j where cost has minimum value
+2
+>>>>>>> HEAD@{1}

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: c6be56c0-1da8-403d-bb52-81b498d63b56
 Text: output_blocks = nn. ModuleList ([]) 468 for level , mult in list
 ( enumerate ( channel_mults )) [:: -1]: 469 for i in range (
@@ -5,3 +6,22 @@ res_blocks + 1): 470 ich = input_block_chans . pop () 471 layers = [
 472 ResBlock ( 473 ch + ich , 474 cond_embed_dim , 475 dropout , 476
 out_channel = int ( inner_channel * mult ), 477 use_checkpoint =
 use_checkpoint , 4...
+=======
+output_blocks = nn. ModuleList ([])
+468 for level , mult in list ( enumerate ( channel_mults )) [:: -1]:
+469 for i in range ( res_blocks + 1):
+470 ich = input_block_chans . pop ()
+471 layers = [
+472 ResBlock (
+473 ch + ich ,
+474 cond_embed_dim ,
+475 dropout ,
+476 out_channel = int ( inner_channel * mult ),
+477 use_checkpoint = use_checkpoint ,
+478 use_scale_shift_norm = use_scale_shift_norm ,
+479 )
+480 ]
+481 ch = int ( inner_channel * mult )
+482 if ds in attn_res :
+15
+>>>>>>> HEAD@{1}

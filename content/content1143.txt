@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 3c743906-81f5-45d2-be9c-adaf5ee09b0e
 Text: 1 from torch import nn 2 import math 3 4 5 class Block (nn.
 Module ): 6 def __init__ (self , in_ch , out_ch , time_emb_dim , up=
@@ -5,3 +6,27 @@ False ): 7 super (). __init__ () 8 self . time_mlp = nn. Linear (
 time_emb_dim , out_ch ) 9 if up: 10 self . conv1 = nn. Conv2d (2*
 in_ch , out_ch , 3, padding =1) 11 self . transform = nn.
 ConvTranspose2d ( out_ch , o...
+=======
+1 from torch import nn
+2 import math
+3
+4
+5 class Block (nn. Module ):
+6 def __init__ (self , in_ch , out_ch , time_emb_dim , up= False ):
+7 super (). __init__ ()
+8 self . time_mlp = nn. Linear ( time_emb_dim , out_ch )
+9 if up:
+10 self . conv1 = nn. Conv2d (2* in_ch , out_ch , 3, padding =1)
+11 self . transform = nn. ConvTranspose2d ( out_ch , out_ch , 4, 2, 1)
+12 else :
+13 self . conv1 = nn. Conv2d ( in_ch , out_ch , 3, padding =1)
+14 self . transform = nn. Conv2d ( out_ch , out_ch , 4, 2, 1)
+15 self . conv2 = nn. Conv2d ( out_ch , out_ch , 3, padding =1)
+16 self . bnorm1 = nn. BatchNorm2d ( out_ch )
+17 self . bnorm2 = nn. BatchNorm2d ( out_ch )
+18 self . relu = nn. ReLU ()
+19
+20 def forward (self , x, t, ):
+21 # First Conv
+22 h = self . bnorm1 ( self . 
+>>>>>>> HEAD@{1}

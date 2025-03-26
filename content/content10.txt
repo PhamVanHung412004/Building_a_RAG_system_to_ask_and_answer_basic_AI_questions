@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: d615d250-44ff-4af2-9887-c671823729f9
 Text: (d) Khởi tạo instance vectorization:Các văn bản gốc được biểu
 diễn dưới dạng string. Nếu giữ dạng biểu diễn này, việc truy vấn sẽ
@@ -5,3 +6,25 @@ gặp khó khăn và kết quả truy vấn không được chính xác. Để k
 việc này, chúng ta có thể thực hiện chuyển đổi các văn bản thành các
 vector. Trong file notebook, ta chạy đoạn code sau: 1 embedding =
 HuggingFaceEmb...
+=======
+(d) Khởi tạo instance vectorization:Các văn bản gốc được biểu diễn dưới dạng string.
+Nếu giữ dạng biểu diễn này, việc truy vấn sẽ gặp khó khăn và kết quả truy vấn không
+được chính xác. Để khắc phục việc này, chúng ta có thể thực hiện chuyển đổi các văn
+bản thành các vector. Trong file notebook, ta chạy đoạn code sau:
+1 embedding = HuggingFaceEmbeddings ()
+embedding instance sẽ giúp chúng ta thực hiện việc chuyển đổi văn bản thành vector.
+(e) Khởi tạo vector database:Với các thông tin về danh sách các documents (từ kết
+quả text_splitter và object dùng để vectorizationembedding, ta sẽ đưa vào hàm dùng
+để khởi tạo vector database như sau:
+1 vector_db = Chroma . from_documents ( documents =docs ,
+2 embedding = embedding )
+3
+4 retriever = vector_db . as_retriever ()
+Ta có thể thử thực hiện truy vấn với một đoạn văn bản bất kì tại đây:
+1 result = retriever . invoke (" What is YOLO ?")
+2
+3 print (" Number of relevant documents : ", len ( result ))
+Kết quả của đoạn code này sẽ trả về cho ta danh sách các tài liệu có liên quan đến
+đoạn văn bản đầu vào.
+5
+>>>>>>> HEAD@{1}

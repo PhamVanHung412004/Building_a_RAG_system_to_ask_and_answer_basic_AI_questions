@@ -1,5 +1,13 @@
+<<<<<<< HEAD
 Node ID: bac06ecb-3652-4d87-bf74-eb806e8d056d
 Text: AIO 2024 aivietnam.edu.vn 1 np.where(condition) • condition: Là
 một mảng boolean hoặc biểu thức trả về mảng boolean. Để hiểu rõ hơn về
 cách sử dụng np.where, chúng ta sẽ tạo một mảng và tìm các vị trí của
 phần tử lớn hơn 2 và in ra giá trị các phần tử đó.
+=======
+AIO 2024 aivietnam.edu.vn
+1 np.where(condition)
+• condition: Là một mảng boolean hoặc biểu thức trả về mảng boolean.
+Để hiểu rõ hơn về cách sử dụng np.where, chúng ta sẽ tạo một mảng và tìm các vị trí của phần tử lớn
+hơn 2 và in ra giá trị các phần tử đó.
+>>>>>>> HEAD@{1}

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: e4f934b7-913d-4e97-bf6d-e1e46f98d7c1
 Text: ?? Bảng 4: Play Tennis - Dữ liệu testing (a) "Play Tennis" =
 "Yes" (b) "Play Tennis" = "No" Để hoàn thành bài tập này bạn cần hoàn
@@ -5,3 +6,50 @@ thành các function sau đây bằng cách sử dụng thư viên numpy: 4.1 Ho
 thiện functioncreate_train_dataset() để tổ chức dữ liệu bảng 1 vào
 array 2 chiều như bên dưới. 1 # ######################## 2 # Create
 data 3 # ##...
+=======
+??
+Bảng 4: Play Tennis - Dữ liệu testing
+(a) "Play Tennis" = "Yes"
+(b) "Play Tennis" = "No"
+Để hoàn thành bài tập này bạn cần hoàn thành các function sau đây bằng cách sử dụng thư viên
+numpy:
+4.1 Hoàn thiện functioncreate_train_dataset() để tổ chức dữ liệu bảng 1 vào array 2 chiều như
+bên dưới.
+1 # ########################
+2 # Create data
+3 # ########################
+4 import numpy as np
+5
+6 def create_train_data ():
+7
+8 # your code here ************************
+9
+10 return np. array ( data )
+11
+12 train_data = create_train_data ()
+13 print ( train_data )
+14
+15 ***************** Sample Result when we print out train_data *****************
+16 [[ ’Sunny ’ ’Hot ’ ’High ’ ’Weak ’ ’no ’]
+17 [’Sunny ’ ’Hot ’ ’High ’ ’ Strong ’ ’no ’]
+18 [’ Overcast ’ ’Hot ’ ’High ’ ’Weak ’ ’yes ’]
+19 [’Rain ’ ’Mild ’ ’High ’ ’Weak ’ ’yes ’]
+20 [’Rain ’ ’Cool ’ ’ Normal ’ ’Weak ’ ’yes ’]
+21 [’Rain ’ ’Cool ’ ’ Normal ’ ’ Strong ’ ’no ’]
+22 [’ Overcast ’ ’Cool ’ ’ Normal ’ ’ Strong ’ ’yes ’]
+23 [’ Overcast ’ ’Mild ’ ’High ’ ’Weak ’ ’no ’]
+24 [’Sunny ’ ’Cool ’ ’Normal ’ ’Weak ’ ’yes ’]
+25 [’Rain ’ ’Mild ’ ’ Normal ’ ’Weak ’ ’yes ’]]
+4.2 Hoàn thiện functioncompute_prior_probability tính P("Play Tennis" = "Yes") and tính
+P("Play Tennis" = "No") như bên dưới:
+1 def compute_prior_probablity ( train_data ):
+2 y_unique = [’no ’, ’yes ’]
+3 prior_probability = np. zeros ( len ( y_unique ))
+4 # your code here ******************
+5 return prior_probability
+6
+7 prior_probablity = compute_prior_probablity ( train_data )
+8 print ("P( play tennis = No"), prior_probablity [0])
+9 print ("P( play tennis = Yes "), prior_probablity [1])
+6
+>>>>>>> HEAD@{1}

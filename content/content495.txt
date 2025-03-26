@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 2643391c-7d0e-43fc-8d78-ac093b674e4b
 Text: 4. Sử dụng mô hình (trước khi huấn luyện):Mô hình vừa khởi tạo
 đã được nhóm tác giả huấn luyện trên một bộ dữ liệu rất lớn, có thể
@@ -5,3 +6,20 @@ thực hiện được nhiều task khác nhau. Chúng ta có thể tương tác
 hình ngay lúc này, bằng cách viết một đoạn chat mô tả mệnh lệnh nào đó
 (prompt) và gửi vào mô hình. Sau một khoảng thời gian tính toán, mô
 hình sẽ...
+=======
+4. Sử dụng mô hình (trước khi huấn luyện):Mô hình vừa khởi tạo đã được nhóm tác giả
+huấn luyện trên một bộ dữ liệu rất lớn, có thể thực hiện được nhiều task khác nhau. Chúng ta có
+thể tương tác với mô hình ngay lúc này, bằng cách viết một đoạn chat mô tả mệnh lệnh nào đó
+(prompt) và gửi vào mô hình. Sau một khoảng thời gian tính toán, mô hình sẽ trả về câu trả lời
+phù hợp. Cách thực hiện như sau:
+(a) Cài đặt một vài tham số cần thiết cho mô hình, các tham số này sẽ ảnh hưởng đến kết quả
+trả lời của mô hình ngôn ngữ lớn:
+1 generation_config = model.generation_config
+2 generation_config.max_new_tokens = 200
+3 generation_config.temperature = 0.7
+4 generation_config.top_p = 0.7
+5 generation_config.num_return_sequences = 1
+6 generation_config.pad_token_id = tokenizer.eos_token_id
+7 generation_config.eos_token_id = tokenizer.eos_token_id
+3
+>>>>>>> HEAD@{1}

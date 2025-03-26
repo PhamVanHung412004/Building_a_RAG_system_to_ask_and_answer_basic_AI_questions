@@ -1,3 +1,10 @@
+<<<<<<< HEAD
 Node ID: acb57305-81e4-408f-a0fe-44c6de2f9bf3
 Text: arange (0 , 10) 6 print ( data ) 7 8 # replace odd numbers by -1
+=======
+arange (0 , 10)
+6 print ( data )
+7
+8 # replace odd numbers by -1
+>>>>>>> HEAD@{1}
 9

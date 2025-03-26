@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: f3e48c87-321e-4695-b0e3-9b4fb905677a
 Text: AI VIETNAM aivietnam.edu.vn trong việc tạo ra các video chất
 lượng cao và đa dạng từ văn bản hoặc các dạng đầu vào khác. Một số
@@ -5,3 +6,25 @@ thành phần chính của VideoGPT được thể hiện trong Hình 7 bao gồ
 4: Kiến trúc của VideoGPT bao gồm 2 thành phần: khối VQ-VAE và khối
 GPT • VQ-VAE (Vector Quantized Variational AutoEncoder): được đề xuất
 bởi [4], l...
+=======
+AI VIETNAM aivietnam.edu.vn
+trong việc tạo ra các video chất lượng cao và đa dạng từ văn bản hoặc các dạng đầu vào khác. Một số
+thành phần chính của VideoGPT được thể hiện trong Hình 7 bao gồm:
+Hình 4: Kiến trúc của VideoGPT bao gồm 2 thành phần: khối VQ-VAE và khối GPT
+• VQ-VAE (Vector Quantized Variational AutoEncoder): được đề xuất bởi [4], là một dạng
+mô hình nén các điểm dữ liệu ở không gian nhiều chiều về không gian latent rời rạc và tái tạo lại
+những điểm dữ liệu đó. Thành phần này có chức năng chính là học những biểu diễn của các video
+trong không gian latent, cụ thể như sau:
+– Đầu tiên một khối encoderE(x) −→h mã hóa video x thành một chuỗi các vectorh. Sau
+đó chuỗi vector này sẽ được rời rạc hóa bằng cách sử dụng phương pháp nearest neighbor để
+map về các vector codebook có sẵn.
+– Sau đó một khốiD(e) −→ˆx học để tái tạo lạix từ những vector đã được rời rạc hóa.
+Để có thể học mô hình hóa được data dạng video, VideoGPT sử dụng một chuỗi các khối 3D
+convolutions để lấy mẫu xuống (downsample) thông tin không gian và thời gian, theo sau đó bằng
+một khối attention residual. Khối attention residual được thiết kế như hình 5:
+Hình 5: Khối attention residual
+• GPT: Ở giai đoạn tiếp theo, sau khi đã có những vector rời rạc trong không gian latent ở bước
+trước, tác giả dùng một kiểu kiến trúc tương tự GPT (Generative pretrained transformer) để mô
+hình hóa những vector này thành một chuỗi liên tục. Và train bằng cách dự đoán vector của frame
+kế tiếp.
+>>>>>>> HEAD@{1}

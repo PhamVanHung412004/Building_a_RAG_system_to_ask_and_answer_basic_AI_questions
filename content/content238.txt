@@ -1,6 +1,31 @@
+<<<<<<< HEAD
 Node ID: 7130daf2-1d73-406f-bf54-12843a6d26ba
 Text: Với data có [9 yes, 5 no]: Entropy(data)=− 5 14 .log2( 5 14 ) −
 9 14 .log2( 9 14 ) = 0.94. Tính gain cho feature Outlook: •
 Entropy(Sunny)= −2 5 .log2(2 5 ) − 3 5 .log2(3 5 ) = 0.971. •
 Entropy(Rainy)= −3 5 .log2(3 5 ) − 2 5 .log2(2 5 ) = 0.971. •
 Entropy(Overcast)=−4 4 .log2(4 4 ) − 0 4 .log2(0 4 ) = 0. 5
+=======
+Với data có [9 yes, 5 no]: Entropy(data)=− 5
+14 .log2( 5
+14 ) − 9
+14 .log2( 9
+14 ) = 0.94.
+Tính gain cho feature Outlook:
+• Entropy(Sunny)= −2
+5 .log2(2
+5 ) − 3
+5 .log2(3
+5 ) = 0.971.
+• Entropy(Rainy)= −3
+5 .log2(3
+5 ) − 2
+5 .log2(2
+5 ) = 0.971.
+• Entropy(Overcast)=−4
+4 .log2(4
+4 ) − 0
+4 .log2(0
+4 ) = 0.
+5
+>>>>>>> HEAD@{1}

@@ -1,6 +1,18 @@
+<<<<<<< HEAD
 Node ID: d7ee2bac-222b-4b81-bf28-5035c0693c86
 Text: sum (). item () 37 val_acc = 100. * correct / total 38 print
 (’Valid accuracy : %d %% ’ % val_acc ) 39 40 41 torch . save (
 pointnet . state_dict () , " save_ "+ str ( epoch )+". pth ") 2.5
 Inference Sau khi train model xong, inference ta được kết quả như hình
 8. 14
+=======
+sum (). item ()
+37 val_acc = 100. * correct / total
+38 print (’Valid accuracy : %d %% ’ % val_acc )
+39
+40
+41 torch . save ( pointnet . state_dict () , " save_ "+ str ( epoch )+". pth ")
+2.5 Inference
+Sau khi train model xong, inference ta được kết quả như hình 8.
+14
+>>>>>>> HEAD@{1}

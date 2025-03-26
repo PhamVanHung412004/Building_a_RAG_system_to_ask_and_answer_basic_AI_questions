@@ -1,6 +1,18 @@
+<<<<<<< HEAD
 Node ID: f6292717-9256-40b5-bc6e-b08dfc6b4c76
 Text: AI VIET NAM – AIO COURSE 2023 Project: Multi-Task Learning Quoc-
 Thai Nguyen và Quang-Vinh Dinh Ngày 30 tháng 4 năm 2024 Phần I. Giới
 thiệu Hình 1: Ví dụ về mô hình học đa tác vụ cho bài toán image
 semantic segmentation và depth-image prediction Hình 2: Các phương
 pháp huấn luyện mô hình học đa tác vụ. 1
+=======
+AI VIET NAM – AIO COURSE 2023
+Project: Multi-Task Learning
+Quoc-Thai Nguyen và Quang-Vinh Dinh
+Ngày 30 tháng 4 năm 2024
+Phần I. Giới thiệu
+Hình 1: Ví dụ về mô hình học đa tác vụ cho bài toán image semantic segmentation và depth-image
+prediction
+Hình 2: Các phương pháp huấn luyện mô hình học đa tác vụ.
+1
+>>>>>>> HEAD@{1}

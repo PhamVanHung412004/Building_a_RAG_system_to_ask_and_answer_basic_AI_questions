@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 4031c26d-61d0-4f4a-aa34-faefb325c7c1
 Text: – Tìm câu trả lời sáng tạo: Tăng giá trị Top P (0.6 - 0.9). •
 Max Length – Điều chỉnh tùy theo nhu cầu của task: đối với phản hồi
@@ -5,3 +6,29 @@ ngắn, giới hạn số lượng token (ví dụ: 100-200 tokens); đối vớ
 viết dài hơn, tăng số lượng token tối đa. • Stop Sequences – Đặt các
 chuỗi cụ thể để kết thúc kết quả trả về: nếu bạn muốn mô hình chỉ tạo
 ra một danh...
+=======
+– Tìm câu trả lời sáng tạo: Tăng giá trị Top P (0.6 - 0.9).
+• Max Length
+– Điều chỉnh tùy theo nhu cầu của task: đối với phản hồi ngắn, giới hạn số lượng
+token (ví dụ: 100-200 tokens); đối với bài viết dài hơn, tăng số lượng token tối đa.
+• Stop Sequences
+– Đặt các chuỗi cụ thể để kết thúc kết quả trả về: nếu bạn muốn mô hình chỉ tạo
+ra một danh sách với 10 item, bạn có thể thêm "11" làm Stop Sequences.
+• Frequency Penalty
+– Để giảm sự lặp lại của từ: Sử dụng giá trị trung bình đến cao (0.5 - 1.0).
+– Nếu không quan tâm đến sự lặp lại: Giữ giá trị thấp (0.0 - 0.4).
+• Presence Penalty
+– Để tạo kết quả đa dạng: Sử dụng giá trị cao (0.6 - 1.0).
+– Để duy trì độ chính xác của mô hình:Sử dụng giá trị thấp (0.0 - 0.4).
+2 Prompt Engineering
+Chất lượng của các câu trả lời được tạo ra bởi LLM đã qua huấn luyện và điều chỉnh phụ thuộc trực
+tiếp vào chất lượng của prompts, hay cấu trúc của prompt (instructions prompt) do người dùng
+cung cấp. Vì vậy, việc thiết kế prompts mà LLM có thể hiểu và trả lời một cách hiệu quả là rất
+quan trọng. Prompts đóng vai trò như một phương tiện để lập trình cuộc tương tác giữa người dùng
+và LLM, giúp nâng cao khả năng xử lý đa dạng các nhiệm vụ. Điều này đòi hỏi phải hiểu biết sâu
+rộng về cách hoạt động và hành vi của LLMs, cơ chế đằng sau chúng và các nguyên tắc điều khiển
+phản ứng của chúng. Dựa vào bài báo:"Principled Instructions Are All You Need for Questioning
+LLaMA-1/2, GPT-3.5/4" Bsharat et al., 2024, nhóm sẽ trích dẫn lại một số instructions prompt
+hữu ích giúp tăng chất lượng trả lời của LLM.
+4
+>>>>>>> HEAD@{1}

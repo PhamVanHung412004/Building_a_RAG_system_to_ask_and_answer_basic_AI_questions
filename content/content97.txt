@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 8e0d590e-3f46-4544-8538-50678bde2978
 Text: AI VIETNAM (AIO2024) aivietnam.edu.vn Như vậy, phần cài đặt
 thuật toán gần như tương tự với phiên bản ở Problem 02. Tại đây, ta sẽ
@@ -5,3 +6,15 @@ thay đổi lại một chút cách sử dụng giá trị của các window đ�
 đưa vào công thức cosine similarity. Bằng cách coi cửa sổ là vector,
 phần cài đặt code sẽ thay đổi lại như sau: 1 import cv2 2 import numpy
 as np 3 ...
+=======
+AI VIETNAM (AIO2024) aivietnam.edu.vn
+Như vậy, phần cài đặt thuật toán gần như tương tự với phiên bản ở Problem 02. Tại đây, ta
+sẽ thay đổi lại một chút cách sử dụng giá trị của các window để có thể đưa vào công thức cosine
+similarity. Bằng cách coi cửa sổ là vector, phần cài đặt code sẽ thay đổi lại như sau:
+1 import cv2
+2 import numpy as np
+3
+4 def cosine_similarity (x, y):
+5 numerator = np. dot (x, y)
+6 denominator = np. 
+>>>>>>> HEAD@{1}

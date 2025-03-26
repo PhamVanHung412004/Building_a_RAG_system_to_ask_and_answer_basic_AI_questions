@@ -1,6 +1,19 @@
+<<<<<<< HEAD
 Node ID: ddab1a5f-87e8-450c-9cc5-b6db2109f35f
 Text: AI VIETNAM aivietnam.edu.vn II. Câu hỏi trắc nghiệm Câu hỏi 1:
 Hàm nào sau đây được sử dụng để hiển thị chuỗi văn bản trong
 streamlit. a) st.text(...) b) st.image(...) c) st.selectbox(...) d)
 st.slider(...) Câu hỏi 2: Đoạn code nào sau đây thể hiện đúng để hiển
 thị cho giao diện sau: 1 a) 2 options = st.
+=======
+AI VIETNAM aivietnam.edu.vn
+II. Câu hỏi trắc nghiệm
+Câu hỏi 1: Hàm nào sau đây được sử dụng để hiển thị chuỗi văn bản trong streamlit.
+a) st.text(...)
+b) st.image(...)
+c) st.selectbox(...)
+d) st.slider(...)
+Câu hỏi 2: Đoạn code nào sau đây thể hiện đúng để hiển thị cho giao diện sau:
+1 a)
+2 options = st. 
+>>>>>>> HEAD@{1}

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 95dffe78-6c49-41ee-9420-e61ae96129a2
 Text: size ()). normal_ (). cuda () 20 z = torch . add (mu , torch .
 mul (eps , stddev )) 21 z_flat = z. repeat (1 , args [" nmix "]) 22
@@ -5,3 +6,21 @@ z_flat = z_flat . reshape ( batchsize * args [" nmix "], args ["
 hiddensize "]) 23 gmm_mu_flat = gmm_mu . reshape ( batchsize * args ["
 nmix "], args [" hiddensize "]) 24 dist_all = torch . sqrt ( torch .
 sum ( torch...
+=======
+size ()). normal_ (). cuda ()
+20 z = torch . add (mu , torch . mul (eps , stddev ))
+21 z_flat = z. repeat (1 , args [" nmix "])
+22 z_flat = z_flat . reshape ( batchsize * args [" nmix "], args [" hiddensize "])
+23 gmm_mu_flat = gmm_mu . reshape ( batchsize * args [" nmix "], args [" hiddensize "])
+24 dist_all = torch . sqrt ( torch . sum ( torch . add ( z_flat , gmm_mu_flat . mul ( -1)). pow (2)
+. mul (50) , 1))
+25 dist_all = dist_all . reshape ( batchsize , args [" nmix "])
+26 dist_min , selectids = torch . min ( dist_all , 1)
+27 gmm_pi_min = torch . gather ( gmm_pi , 1, selectids . reshape (-1, 1))
+28 gmm_loss = torch . mean ( torch . add ( -1 * torch . log ( gmm_pi_min + 1e -30) , dist_min )
+)
+29 gmm_loss_l2 = torch . mean ( dist_min )
+30 return gmm_loss , gmm_loss_l2
+4. Trainer
+Trong phần này chúng ta xây dựng hàm huấn luyện cho từng mô hình.
+>>>>>>> HEAD@{1}

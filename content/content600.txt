@@ -1,5 +1,16 @@
+<<<<<<< HEAD
 Node ID: bd93609b-007c-42cc-a181-b4b114b5392d
 Text: AI VIETNAM – AIO2024 Học List và Numpy Qua Các Ví Dụ Đinh Quang
 Vinh Ngày 9 tháng 7 năm 2024 List 1. Chỉ mục xuôi và chỉ mục ngược Ví
 dụ cho một danh sách có tên là data, chứa sáu phần tử lần lượt là 4,
 5, 6, 7, 8, và 9 như hình bên dưới.
+=======
+AI VIETNAM – AIO2024
+Học List và Numpy Qua Các Ví Dụ
+Đinh Quang Vinh
+Ngày 9 tháng 7 năm 2024
+List
+1. Chỉ mục xuôi và chỉ mục ngược
+Ví dụ cho một danh sách có tên là data, chứa sáu phần tử lần lượt là 4, 5, 6, 7, 8, và 9 như hình bên
+dưới. 
+>>>>>>> HEAD@{1}

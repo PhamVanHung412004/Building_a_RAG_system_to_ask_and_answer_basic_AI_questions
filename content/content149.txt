@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: a771c6c0-f8ab-429d-831b-c26109cbae5a
 Text: AI VIETNAM aivietnam.edu.vn • Đối với các phương trình FPE tương
 ứng với time-reversed process, điều kiện khởi tạo tạit = T là quan
@@ -5,3 +6,12 @@ trọng. • Nếu p(x, T) được xác định là phân phối xác suất �
 reverse process, điều kiện khởi tạo có thể đặt ra giả định nó có sẵn
 và có thể là một phân phối xác suất đã biết từ các điều kiện khác của
 vấn đề....
+=======
+AI VIETNAM aivietnam.edu.vn
+• Đối với các phương trình FPE tương ứng với time-reversed process, điều kiện khởi tạo tạit = T
+là quan trọng.
+• Nếu p(x, T) được xác định là phân phối xác suất ổn định của reverse process, điều kiện khởi tạo
+có thể đặt ra giả định nó có sẵn và có thể là một phân phối xác suất đã biết từ các điều kiện khác
+của vấn đề.
+Điều kiện biên có thể thay đổi tùy thuộc vào bối cảnh cụ thể và vấn đề mà chúng ta đang xem xét.
+>>>>>>> HEAD@{1}

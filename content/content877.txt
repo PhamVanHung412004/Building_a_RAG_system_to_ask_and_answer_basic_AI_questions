@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 Node ID: 28921b6e-302a-453f-884f-980620500f09
 Text: AI VIETNAM aivietnam.edu.vn Đầu tiên, chúng ta cần hiểu rõ về cơ
 chế đa luồng. Ở phần trước, chúng ta cũng đã áp dụng nó để tải các url
 ảnh.
+=======
+AI VIETNAM aivietnam.edu.vn
+Đầu tiên, chúng ta cần hiểu rõ về cơ chế đa luồng. Ở phần trước, chúng ta cũng đã áp dụng nó để tải
+các url ảnh. 
+>>>>>>> HEAD@{1}

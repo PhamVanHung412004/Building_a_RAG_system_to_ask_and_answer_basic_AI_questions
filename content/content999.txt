@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 5a3635be-ee75-4185-b56c-5b9259f26592
 Text: Công tác huấn luyện sẽ ghi đè một phần tham số trong bộ tham số
 gốc. Giải pháp Fine-tuning được đánh giá là giải pháp hiệu quả cho
@@ -5,3 +6,23 @@ chất lượng kiểm soát tốt khi lượng dữ liệu huấn luyện đầ
 các trường hợp hỏi đáp. Điểm trừ của giải pháp là giải pháp yêu cầu
 nhiều công sức cho việc chuẩn bị dữ liệu, nhiều tài nguyên cho việc
 huấn luyê...
+=======
+Công tác huấn luyện
+sẽ ghi đè một phần tham số trong bộ tham số gốc. Giải pháp Fine-tuning được đánh giá là giải
+pháp hiệu quả cho chất lượng kiểm soát tốt khi lượng dữ liệu huấn luyện đầy đủ, phủ khắp các
+trường hợp hỏi đáp. Điểm trừ của giải pháp là giải pháp yêu cầu nhiều công sức cho việc chuẩn
+bị dữ liệu, nhiều tài nguyên cho việc huấn luyên bổ sung cho mô hình ngôn ngữ lớn. Bên cạnh đó,
+người xây dựng cũng cần có kiến thức và kỹ thuật làm việc với mô hình tốt, tránh trường hợp kết
+quả sau khi fine-tuning tệ hơn trước khi fine-tuning.
+4.3 Đánh giá hệ thống RAG
+Giống với các loại mô hình khác, việc đánh giá mô hình luôn là yếu tố quan trọng để đánh giá chất
+lượng của giải pháp. Thông thường, hệ thống RAG được đánh giá bằng việc đo lường mức độ thể hiện
+trong các tác vụ cuối (hỏi đáp). Hệ thống đánh giá RAG đo lường hai yếu tố chính là khả năng truy
+vấn dữ liệu (retrieval) và khả năng sinh câu trả lời (generation).
+Công tác đánh giá RAG tập trung vào ba yếu tố đo lường và bốn khả năng. Ba yếu tố đo lường gồm
+"context relevance" (sự chính xác của kết quả tìm kiếm), "answer faithfulness" (sự thành thực của câu
+trả lời với ngữ cảnh), "answer relevance" (sự liên quan giữa câu trả lời và câu hỏi). Bên cạnh đó, bốn
+khả năng được cân nhắc bao gồm: "noise robustness", "negative rejection", "information integration",
+và "counterfactual robustness".
+12
+>>>>>>> HEAD@{1}

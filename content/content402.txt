@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 9583eb88-6dba-4949-ade7-d55d26fa3809
 Text: 1 class Tnet (nn. Module ): 2 def __init__ (self , k =3) : 3
 super (). __init__ () 4 self .k=k 5 self . conv1 = nn. Conv1d (k ,64
@@ -5,3 +6,37 @@ super (). __init__ () 4 self .k=k 5 self . conv1 = nn. Conv1d (k ,64
 Conv1d (128 ,1024 ,1) 8 self . fc1 = nn. Linear (1024 ,512) 9 self .
 fc2 = nn. Linear (512 ,256) 10 self . fc3 = nn. Linear (256 , k*k) 11
 12 self . bn...
+=======
+1 class Tnet (nn. Module ):
+2 def __init__ (self , k =3) :
+3 super (). __init__ ()
+4 self .k=k
+5 self . conv1 = nn. Conv1d (k ,64 ,1)
+6 self . conv2 = nn. Conv1d (64 ,128 ,1)
+7 self . conv3 = nn. Conv1d (128 ,1024 ,1)
+8 self . fc1 = nn. Linear (1024 ,512)
+9 self . fc2 = nn. Linear (512 ,256)
+10 self . fc3 = nn. Linear (256 , k*k)
+11
+12 self . bn1 = nn. BatchNorm1d (64)
+13 self . bn2 = nn. BatchNorm1d (128)
+14 self . bn3 = nn. BatchNorm1d (1024)
+15 self . bn4 = nn. BatchNorm1d (512)
+16 self . bn5 = nn. BatchNorm1d (256)
+17
+18
+19 def forward (self , input ):
+20 # input . shape == (bs ,n ,3)
+21 bs = input . size (0)
+22 xb = F. relu ( self . bn1 ( self . conv1 ( input )))
+23 xb = F. relu ( self . bn2 ( self . conv2 (xb)))
+24 xb = F. relu ( self . bn3 ( self . conv3 (xb)))
+25 pool = nn. MaxPool1d (xb. size ( -1))(xb)
+26 flat = nn. Flatten (1) ( pool )
+27 xb = F. relu ( self . bn4 ( self . fc1 ( flat )))
+28 xb = F. relu ( self . bn5 ( self . fc2 (xb)))
+29
+30 # initialize as identity
+31 init = torch . eye ( self .k, requires_grad = True ). repeat (bs ,1 ,1)
+32 if xb. 
+>>>>>>> HEAD@{1}

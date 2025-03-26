@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 Node ID: b0a100a1-7ead-4269-8b4d-bff98074e800
 Text: . 13 6.3 Tìm chỉ số của giá trị lớn nhất và nhỏ nhất . .
+=======
+. 13
+6.3 Tìm chỉ số của giá trị lớn nhất và nhỏ nhất . . 
+>>>>>>> HEAD@{1}

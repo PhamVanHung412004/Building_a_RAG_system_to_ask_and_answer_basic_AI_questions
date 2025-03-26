@@ -1,3 +1,9 @@
+<<<<<<< HEAD
 Node ID: e7252029-aefb-4b47-9d32-5301e59d08cd
 Text: • S là số lượng các phần tử trong tập hợp dữ liệu. • Si là số
 lượng các phần tử trong tập hợp dữ liệu. 12
+=======
+• S là số lượng các phần tử trong tập hợp dữ liệu.
+• Si là số lượng các phần tử trong tập hợp dữ liệu.
+12
+>>>>>>> HEAD@{1}

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 31c81362-5310-405f-9c3b-987185a02c7c
 Text: (c) Dùng để truy vấn thông tin văn bản. (d) Là một vector
 database. 9. Chainlit là gì ? (a) Là một thư viện giúp xây dựng các
@@ -5,3 +6,18 @@ database. 9. Chainlit là gì ? (a) Là một thư viện giúp xây dựng các
 diện tích hợp chatGPT. (d) Là một thư viện để huấn luyên AI. 10. Câu
 lệnh nào sau đây dùng để khởi chạy chainlit ? (a) run chainlit (b)
 chainlit run –app...
+=======
+(c) Dùng để truy vấn thông tin văn bản.
+(d) Là một vector database.
+9. Chainlit là gì ?
+(a) Là một thư viện giúp xây dựng các ứng dụng hội thoại với AI.
+(b) Là một phần mềm chatbot.
+(c) Là giao diện tích hợp chatGPT.
+(d) Là một thư viện để huấn luyên AI.
+10. Câu lệnh nào sau đây dùng để khởi chạy chainlit ?
+(a) run chainlit
+(b) chainlit run –app.py
+(c) chainlit run
+(d) chainlit run app.py
+15
+>>>>>>> HEAD@{1}

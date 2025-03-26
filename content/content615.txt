@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 948137ed-ab10-44b3-ad70-f79319b28a31
 Text: AIO2024 aivietnam.edu.vn Câu 4: Lấy những phần tử mà thoả mãn
 một điều kiện cho trước của mảng một chiều 1 # Python code ( aivietnam
@@ -5,3 +6,27 @@ một điều kiện cho trước của mảng một chiều 1 # Python code ( a
 np. arange (0 , 10) 6 print ( data ) 7 8 # Find odd numbers 9 data_odd
 = data [ data %2 == 1] 10 print ( data_odd ) ================= Output
 =====...
+=======
+AIO2024 aivietnam.edu.vn
+Câu 4: Lấy những phần tử mà thoả mãn một điều kiện cho trước của mảng một chiều
+1 # Python code ( aivietnam )
+2 import numpy as np
+3
+4 # create an ndarray from 0 to 9
+5 data = np. arange (0 , 10)
+6 print ( data )
+7
+8 # Find odd numbers
+9 data_odd = data [ data %2 == 1]
+10 print ( data_odd )
+================= Output ================
+[0 1 2 3 4 5 6 7 8 9]
+[1 3 5 7 9]
+==========================================
+Câu 5: Thay thế phần tử thoả mãn điều kiện cho trước bằng một giá khác
+1 # Python code ( aivietnam )
+2 import numpy as np
+3
+4 # create an ndarray from 0 to 9
+5 data = np. 
+>>>>>>> HEAD@{1}

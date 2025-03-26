@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 55fe7b68-2ab4-44f8-ab23-16c7b9573d2c
 Text: 319 For example , if this contains 4, then at 4x downsampling ,
 attention 320 will be used . 321 : param dropout : the dropout
@@ -5,3 +6,51 @@ probability . 322 : param channel_mults : channel multiplier for each
 level of the UNet . 323 : param conv_resample : if True , use learned
 convolutions for upsampling and 324 downsampling . 325 : param
 use_checkpoint : ...
+=======
+319 For example , if this contains 4, then at 4x downsampling , attention
+320 will be used .
+321 : param dropout : the dropout probability .
+322 : param channel_mults : channel multiplier for each level of the UNet .
+323 : param conv_resample : if True , use learned convolutions for upsampling and
+324 downsampling .
+325 : param use_checkpoint : use gradient checkpointing to reduce memory usage .
+326 : param num_heads : the number of attention heads in each attention layer .
+327 : param num_heads_channels : if specified , ignore num_heads and instead use
+328 a fixed channel width per attention head .
+329 : param num_heads_upsample : works with num_heads to set a different number
+330 of heads for upsampling . Deprecated .
+331 : param use_scale_shift_norm : use a FiLM - like conditioning mechanism .
+332 : param resblock_updown : use residual blocks for up/ downsampling .
+333 : param use_new_attention_order : use a different attention pattern for
+potentially
+334 increased efficiency .
+335 """
+336
+337 def __init__ (
+338 self ,
+339 image_size ,
+340 in_channel ,
+341 inner_channel ,
+342 out_channel ,
+343 res_blocks ,
+344 attn_res ,
+345 dropout =0 ,
+346 channel_mults =(1 , 2, 4, 8) ,
+347 conv_resample =True ,
+348 use_checkpoint = False ,
+349 use_fp16 = False ,
+350 num_heads =1 ,
+351 num_head_channels =-1,
+352 num_heads_upsample =-1,
+353 use_scale_shift_norm =True ,
+354 resblock_updown =True ,
+355 use_new_attention_order = False ,
+356 ):
+357
+358 super (). __init__ ()
+359
+360 if num_heads_upsample == -1:
+361 num_heads_upsample = num_heads
+362
+13
+>>>>>>> HEAD@{1}

@@ -1,3 +1,9 @@
+<<<<<<< HEAD
 Node ID: 07848ebc-2684-43f9-b496-ddb4970a15d8
 Text: AI VIETNAM aivietnam.edu.vn 118 self . use_conv = use_conv 119
 self .
+=======
+AI VIETNAM aivietnam.edu.vn
+118 self . use_conv = use_conv
+119 self . 
+>>>>>>> HEAD@{1}

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 20310945-f15c-4831-8825-0f42be5ddccd
 Text: round ( conditional_probability [0][1 , x1 ] ,2)) a)
 P(’Outlook’=’Sunny’|Play Tennis’=’Yes’) = 0.27 b)
@@ -6,3 +7,19 @@ P(’Outlook’=’Sunny’|Play Tennis’=’Yes’) = 0.37 d)
 P(’Outlook’=’Sunny’|Play Tennis’=’Yes’) = 0.17 Câu hỏi 18: Hãy cho
 biết kết quả của đoạn chương trình sau đây: 1 train_data =
 create_train_data ...
+=======
+round ( conditional_probability
+[0][1 , x1 ] ,2))
+a) P(’Outlook’=’Sunny’|Play Tennis’=’Yes’) = 0.27
+b) P(’Outlook’=’Sunny’|Play Tennis’=’Yes’) = 0.47
+c) P(’Outlook’=’Sunny’|Play Tennis’=’Yes’) = 0.37
+d) P(’Outlook’=’Sunny’|Play Tennis’=’Yes’) = 0.17
+Câu hỏi 18: Hãy cho biết kết quả của đoạn chương trình sau đây:
+1 train_data = create_train_data ()
+2 conditional_probability , list_x_name = compute_conditional_probability ( train_data )
+3 # Compute P(" Outlook "=" Sunny "| Play Tennis "=" No ")
+4 x1= get_index_from_value (" Sunny ", list_x_name [0])
+5 print ("P(’ Outlook ’=’ Sunny ’| Play Tennis ’=’No ’) = ", np. round ( conditional_probability
+[0][1 , x1 ] ,2))
+8
+>>>>>>> HEAD@{1}

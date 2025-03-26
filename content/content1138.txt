@@ -1,4 +1,13 @@
+<<<<<<< HEAD
 Node ID: 1aa4be4a-50b1-4e95-8468-cfe7f1942cb7
 Text: data import Dataset 9 10 file_names = os. listdir (’./
 img_align_celeba ’) 11 img_paths = [’./ img_align_celeba /’ +
 file_name for file_name in file_names ] 12 3
+=======
+data import Dataset
+9
+10 file_names = os. listdir (’./ img_align_celeba ’)
+11 img_paths = [’./ img_align_celeba /’ + file_name for file_name in file_names ]
+12
+3
+>>>>>>> HEAD@{1}

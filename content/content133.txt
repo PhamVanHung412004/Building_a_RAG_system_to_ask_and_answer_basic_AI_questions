@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 8dad174a-db8c-4423-b8cb-4a29f6c620e2
 Text: AI VIETNAM aivietnam.edu.vn Hình 1: Hình ảnh minh họa cho Wiener
 process 2 Stochastic Differential Equation (SDE) Phương trình vi phân
@@ -5,3 +6,17 @@ process 2 Stochastic Differential Equation (SDE) Phương trình vi phân
 sử dụng để mô tả sự biến đổi ngẫu nhiên trong các quá trình theo thời
 gian, như sự biến động giá cổ phiếu trong tài chính, phân phối không
 đều...
+=======
+AI VIETNAM aivietnam.edu.vn
+Hình 1: Hình ảnh minh họa cho Wiener process
+2 Stochastic Differential Equation (SDE)
+Phương trình vi phân (SDE) là một loại phương trình chứa thành phần ngẫu nhiên. Chúng được sử
+dụng để mô tả sự biến đổi ngẫu nhiên trong các quá trình theo thời gian, như sự biến động giá cổ phiếu
+trong tài chính, phân phối không đều trong sinh học, hay các hiện tượng tự nhiên khác có yếu tố ngẫu
+nhiên.
+dX(t) = a(X(t), t)dt + b(X(t), t)dW(t) (1)
+Trong đó:
+• X(t) là quá trình stochastics cần mô phỏng.
+• a(X(t), t) và b(X(t), t) là các hàm thường chứa thành phần xác định và có thể chứa thành phần
+ngẫu nhiên.
+>>>>>>> HEAD@{1}

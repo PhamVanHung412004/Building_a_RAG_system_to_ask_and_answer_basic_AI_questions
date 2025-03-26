@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 4906b36a-3107-4c16-a3fc-d8d49e8cd9a9
 Text: AI VIETNAM aivietnam.edu.vn 16 def forward (self , input ): 17
 matrix3x3 = self . input_transform ( input ) 18 # batch matrix
@@ -5,3 +6,25 @@ multiplication 19 xb = torch . bmm ( torch . transpose ( input ,1 ,2)
 , matrix3x3 ). transpose (1 ,2) 20 21 xb = F. relu ( self . bn1 ( self
 . conv1 (xb))) 22 23 matrix64x64 = self . feature_transform (xb) 24 xb
 = torch ....
+=======
+AI VIETNAM aivietnam.edu.vn
+16 def forward (self , input ):
+17 matrix3x3 = self . input_transform ( input )
+18 # batch matrix multiplication
+19 xb = torch . bmm ( torch . transpose ( input ,1 ,2) , matrix3x3 ). transpose (1 ,2)
+20
+21 xb = F. relu ( self . bn1 ( self . conv1 (xb)))
+22
+23 matrix64x64 = self . feature_transform (xb)
+24 xb = torch . bmm ( torch . transpose (xb ,1 ,2) , matrix64x64 ). transpose (1 ,2)
+25
+26 xb = F. relu ( self . bn2 ( self . conv2 (xb)))
+27 xb = self . bn3 ( self . conv3 (xb))
+28 xb = nn. MaxPool1d (xb. size ( -1))(xb)
+29 output = nn. Flatten (1) (xb)
+30 return output , matrix3x3 , matrix64x64
+2.2.3 PointNet
+Mạng PointNet sử dụng module Transform 2.2.2 và các lớp fully connected layer để tổng hợp thông tin
+và đưa ra dự đoán dựa vào hàm softmax.
+1 class PointNet (nn. 
+>>>>>>> HEAD@{1}

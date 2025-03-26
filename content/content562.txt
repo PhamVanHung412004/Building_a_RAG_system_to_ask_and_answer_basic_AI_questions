@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: bf714694-5d92-414c-9c30-d6f2bc00944c
 Text: 3.1 List comprehension List comprehension cho phép chúng ta tạo
 ra một danh sách mới bằng cách áp dụng một biểu thức cho mỗi phần tử
@@ -5,3 +6,31 @@ trong một iterable. 1 [expression for item in iterable if condition]
 Trong đó: • expression: Biểu thức được áp dụng cho mỗi phần tử. •
 item: Phần tử hiện tại từ iterable. • iterable: Bất kỳ đối tượng nào
 có thể lặp...
+=======
+3.1 List comprehension
+List comprehension cho phép chúng ta tạo ra một danh sách mới bằng cách áp dụng một biểu thức cho
+mỗi phần tử trong một iterable.
+1 [expression for item in iterable if condition]
+Trong đó:
+• expression: Biểu thức được áp dụng cho mỗi phần tử.
+• item: Phần tử hiện tại từ iterable.
+• iterable: Bất kỳ đối tượng nào có thể lặp (như danh sách, chuỗi, range, v.v.).
+• condition: (Tùy chọn) Điều kiện để lọc các phần tử.
+Ví dụ: Tạo danh sách bình phương của các số chẵn từ 0 đến 9
+1 squares = [x ** 2 for x in range(10) if x
+% 2 == 0]
+2 print(squares)
+================= Output ================
+[0, 4, 16, 36, 64]
+==========================================
+3.2 Dictionary comprehension
+Dictionary comprehension cho phép ta tạo ra một từ điển mới bằng cách áp dụng một biểu thức cho
+mỗi phần tử trong một iterable.
+1 {key_expression: value_expression for item in iterable if condition}
+Trong đó:
+• key_expression: Biểu thức cho khóa.
+• value_expression: Biểu thức cho giá trị.
+• item, iterable, và condition: Tương tự như trong list comprehension.
+Ví dụ: Tạo dictionary với khóa là số và giá trị là bình phương của số đó.
+3
+>>>>>>> HEAD@{1}

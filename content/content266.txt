@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: b1c55f48-a214-4b96-8445-addf23bf36e4
 Text: AI VIETNAM aivietnam.edu.vn 27 def globaltrace (self , frame ,
 event , arg ): 28 if event == " call ": 29 return self . localtrace 30
@@ -5,3 +6,46 @@ else : 31 return None 32 33 def localtrace (self , frame , event , arg
 ): 34 if self . killed : 35 if event == " line ": 36 raise SystemExit
 () 37 return self . localtrace 38 39 def kill ( self ): 40 self .
 killed...
+=======
+AI VIETNAM aivietnam.edu.vn
+27 def globaltrace (self , frame , event , arg ):
+28 if event == " call ":
+29 return self . localtrace
+30 else :
+31 return None
+32
+33 def localtrace (self , frame , event , arg ):
+34 if self . killed :
+35 if event == " line ":
+36 raise SystemExit ()
+37 return self . localtrace
+38
+39 def kill ( self ):
+40 self . killed = True
+41
+42 def join (self , timeout =0) :
+43 threading . Thread . join (self , timeout )
+44 return self . _return
+5. Cập nhật filechat.py: Trong file này, ta định nghĩa các hàm xây dựng hộp hội thoại (chatbox)
+giữa hai agent. Từ đó, cho chúng tương tác qua lại và lấy về kết quả cuối cùng - lịch sử cuộc trò
+chuyện giữa hai agent, từ đó trích xuất được đoạn code và kết quả thực thi. Theo đó, ta triển
+khai như sau:
+(a) Import các thư viện và module cần thiết:
+1 import os
+2 from autogen import OpenAIWrapper
+3 from agent import initialize_agents , config_list
+4 from utils import *
+(b) Khởi tạo agents:Ta khởi tạo hai agent, UserProxyAgent và AssistantAgent. Đây là hai
+agent sẽ tương tác qua lại với nhau trong chatbox:
+1 assistant , userproxy = initialize_agents ()
+(c) Xây dựng hàm chuyển đổi format lịch sử hội thoại:Để đưa thông tin các cuộc hội thoại
+giữa 2 agent tại quá khứ trong chatbox vào model GPT, ta sẽ xây dựng hàm chuyển đổi thông
+tin lịch sử ta ghi nhận được sang format của OpenAI thông qua hàmchat_to_oai_message():
+1 def chat_to_oai_message ( chat_history ):
+2 """ Convert chat history to OpenAI message format . """
+3 messages = []
+4 if LOG_LEVEL == " DEBUG ":
+5 print (f" chat_to_oai_message : { chat_history }")
+6 for msg in chat_history :
+7 messages . 
+>>>>>>> HEAD@{1}

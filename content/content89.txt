@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: d6067623-4aff-4bcc-a78c-9c1dc8fb6646
 Text: imread ( right_img , 0) 11 12 left = left . astype (np. float32
 ) 13 right = right . astype (np. float32 ) 14 15 height , width = left
@@ -5,3 +6,37 @@ Text: imread ( right_img , 0) 11 12 left = left . astype (np. float32
 (( height , width ), np. uint8 ) 19 20 kernel_half = int ((
 kernel_size - 1) / 2) 21 scale = 3 22 max_value = 255 * 9 23 24 for y
 in range ( ke...
+=======
+imread ( right_img , 0)
+11
+12 left = left . astype (np. float32 )
+13 right = right . astype (np. float32 )
+14
+15 height , width = left . shape [:2]
+16
+17 # Create blank disparity map
+18 depth = np. zeros (( height , width ), np. uint8 )
+19
+20 kernel_half = int (( kernel_size - 1) / 2)
+21 scale = 3
+22 max_value = 255 * 9
+23
+24 for y in range ( kernel_half , height - kernel_half + 1):
+25 for x in range ( kernel_half , width - kernel_half + 1):
+26
+27 # Find j where cost has minimum value
+28 disparity = 0
+29 cost_min = 65534
+30
+31 for j in range ( disparity_range ):
+32 total = 0
+33 value = 0
+34
+35 for v in range (- kernel_half , kernel_half ):
+36 for u in range (- kernel_half , kernel_half ):
+37 value = max_value
+38 if (x + u - j) >= 0:
+39 value = l1_distance ( int ( left [y + v, x + u]) , int (
+right [y + v, (x + u) - j]))
+6
+>>>>>>> HEAD@{1}

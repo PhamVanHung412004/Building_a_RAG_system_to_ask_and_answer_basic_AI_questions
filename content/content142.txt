@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: f7187fbc-f138-4779-acad-5bd1daaaec2a
 Text: • a(X, t)dt là thành phần xác định (deterministic component) của
 sự biến đổi của X. Nó phụ thuộc vào giá trị hiện tại của X và thời
@@ -5,3 +6,16 @@ gian t. Thành phần này mô tả sự thay đổi trung bình hoặc sự bi�
 xác định của X theo thời gian. • b(X, t)dW là thành phần ngẫu nhiên
 (stochastic component) của sự biến đổi của X. Nó phụ thuộc vào giá trị
 hiện tạ...
+=======
+• a(X, t)dt là thành phần xác định (deterministic component) của sự biến đổi của X. Nó phụ thuộc
+vào giá trị hiện tại của X và thời gian t. Thành phần này mô tả sự thay đổi trung bình hoặc sự
+biến đổi xác định của X theo thời gian.
+• b(X, t)dW là thành phần ngẫu nhiên (stochastic component) của sự biến đổi của X. Nó phụ thuộc
+vào giá trị hiện tại của X và thời gian t, cũng như vào dạng ngẫu nhiêndW. Thành phần này mô
+tả sự biến đổi ngẫu nhiên của X dưới tác động của dạng ngẫu nhiêndW
+• dW là dạng ngẫu nhiên Wiener. Nó thường được mô tả là một biến ngẫu nhiên liên tục và không
+thể dự đoán, với tính chất∆W = Z
+√
+dt, trong đó Z là một biến ngẫu nhiên theo phân phối Gauss.
+6
+>>>>>>> HEAD@{1}

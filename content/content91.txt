@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 98d8e37e-c5db-4003-b2a2-0f5693f0863b
 Text: png ’, depth ) 54 cv2 . imwrite (f’ window_based_l1_color . png
 ’, cv2 . applyColorMap ( depth , cv2 . COLORMAP_JET )) 55 56 print
@@ -5,3 +6,19 @@ Text: png ’, depth ) 54 cv2 . imwrite (f’ window_based_l1_color . png
 disparity tại vị trí của một pixel bất kì theo phương pháp window-
 based matching Tận dụng phần cài đặt gợi ý trên, các bạn sẽ thực hiện
 thêm một số yêu...
+=======
+png ’, depth )
+54 cv2 . imwrite (f’ window_based_l1_color . png ’, cv2 . applyColorMap ( depth , cv2
+. COLORMAP_JET ))
+55
+56 print (’Done .’)
+57
+58 return depth
+Hình 5: Các bước tính toán giá trị disparity tại vị trí của một pixel bất kì theo phương pháp
+window-based matching
+Tận dụng phần cài đặt gợi ý trên, các bạn sẽ thực hiện thêm một số yêu cầu sau:
+• Thiết kế hai hàm có tên gọi lần lượt là:
+– window_based_matching_l1()
+– window_based_matching_l2()
+7
+>>>>>>> HEAD@{1}

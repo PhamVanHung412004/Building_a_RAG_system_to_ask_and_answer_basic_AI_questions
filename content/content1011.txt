@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: d0aad703-75cf-4a08-aac7-126d41980f4e
 Text: FLARE hoạt động bằng cách tạo ra các câu tạm thời, và nếu nhận
 thấy có từ nào trong câu đó không chắc chắn, nó sẽ tìm kiếm thông tin
@@ -5,3 +6,19 @@ liên quan để cải thiện câu tiếp theo. Điều này tiếp tục diễ
 đến khi hoàn thành văn bản. Một ưu điểm đáng chú ý là FLARE có thể áp
 dụng cho bất kỳ mô hình ngôn ngữ nào mà không cần phải huấn luyện lại
 từ đầu...
+=======
+FLARE hoạt động bằng cách tạo ra các câu tạm thời,
+và nếu nhận thấy có từ nào trong câu đó không chắc chắn, nó sẽ tìm kiếm thông tin liên quan để cải
+thiện câu tiếp theo. Điều này tiếp tục diễn ra cho đến khi hoàn thành văn bản. Một ưu điểm đáng chú
+ý là FLARE có thể áp dụng cho bất kỳ mô hình ngôn ngữ nào mà không cần phải huấn luyện lại từ
+đầu. Bài báo cũng trình bày hai cách thức truy vấn chủ động khác nhau: phương pháp đầu tiên, gọi là
+FLAREinstruct, tạo ra truy vấn dựa trên một chỉ dẫn đặc biệt để khuyến khích việc truy vấn thông tin,
+trong khi phương pháp thứ hai,FLAREdirect, sử dụng kết quả tạo sinh trực tiếp từ mô hình ngôn ngữ
+làm truy vấn, đặc biệt khi có từ không chắc chắn trong câu đó.
+FLAREntruct: Một phương pháp đơn giản để tạo ra thông tin truy vấn trong quá trình tạo nội dung
+là sử dụng token đặc biệt "[Search(query)]" mỗi khi cần thông tin bổ sung. Khi mô hình ngôn ngữ sinh
+ra token này, quá trình tạo nội dung tạm thời dừng lại, và câu truy vấn bên trong token sẽ được dùng
+để tìm kiếm thông tin liên quan. Phương pháp này được lấy cảm hứng từ nghiên cứu "Toolformer:
+Language Models Can Teach Themselves to Use Tools" Schick et al., 2023.
+18
+>>>>>>> HEAD@{1}

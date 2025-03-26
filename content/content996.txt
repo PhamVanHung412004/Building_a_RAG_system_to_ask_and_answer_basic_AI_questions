@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: bbe5bb9b-0aef-4d8b-96dd-a2a02ec6e69c
 Text: AI VIETNAM aivietnam.edu.vn • Viết lại câu hỏi:Trong quá trình
 hỏi đáp, việc làm rõ câu hỏi đầu vào giúp cho việc tổ chức truy vấn
@@ -5,3 +6,16 @@ hiệu quả. Việc sử dụng một LLM có hướng dẫn (instruction) đ�
 câu hỏi đầu vào của người dùng là giải pháp phù hợp với những câu hỏi
 quá đơn giản hoặc quá phức tạp. • Hypothetical Document Embedding:Tạo
 ra câu...
+=======
+AI VIETNAM aivietnam.edu.vn
+• Viết lại câu hỏi:Trong quá trình hỏi đáp, việc làm rõ câu hỏi đầu vào giúp cho việc tổ chức
+truy vấn hiệu quả. Việc sử dụng một LLM có hướng dẫn (instruction) để viết lại câu hỏi đầu vào
+của người dùng là giải pháp phù hợp với những câu hỏi quá đơn giản hoặc quá phức tạp.
+• Hypothetical Document Embedding:Tạo ra câu hỏi giả thuyết để phục vụ embedding và
+tìm kiếm thông tin liên quan.
+• Hybrid Search and Reranker:Áp dụng tìm kiếm với từ khoá và ngữ nghĩa sau đó thực hiện
+xếp hạng lại kết quả tìm kiếm giúp nâng cao kết quả so với việc tìm kiếm đơn thuần với một
+phương pháp.
+• Metadata Filter:Giải pháp sử dụng thông tin bổ sung để tạo bộ lọc được sử dụng khi nắm rõ
+được cấu trúc của cơ sở dữ liệu cũng như nắm được các trường hợp truy vấn. 
+>>>>>>> HEAD@{1}

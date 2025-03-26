@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 15e2c32f-2ccf-4dc9-99cc-b69d4f2f2217
 Text: AI VIETNAM aivietnam.edu.vn 4.2 Make-A-Video Được giới thiệu
 trong [7], đây là một phương pháp tạo video từ văn bản mà không cần dữ
@@ -5,3 +6,22 @@ liệu video đi kèm văn bản mô tả, từ đó giải quyết vấn đề 
 data trong tác vụ tạo sinh video. Phương pháp này mở rộng từ mô hình
 tạo hình ảnh từ văn bản mô tả (Text to Image-T2I) bằng cách thêm vào
 các mô-...
+=======
+AI VIETNAM aivietnam.edu.vn
+4.2 Make-A-Video
+Được giới thiệu trong [7], đây là một phương pháp tạo video từ văn bản mà không cần dữ liệu video
+đi kèm văn bản mô tả, từ đó giải quyết vấn đề về thiếu hụt data trong tác vụ tạo sinh video. Phương
+pháp này mở rộng từ mô hình tạo hình ảnh từ văn bản mô tả (Text to Image-T2I) bằng cách thêm vào
+các mô-đun spatialtemporal, cho phép tạo video có độ phân giải cao và tốc độ khung hình cao từ văn
+bản đầu vào. Make-A-Video không yêu cầu dữ liệu video có kèm theo văn bản mô tả và có thể tạo ra
+video với chất lượng và mức độ chi tiết cao, mở ra khả năng áp dụng trong nhiều lĩnh vực khác nhau.
+Hình 6: Make-A-Video high-level architecture
+Make-A-Video bao gồm ba thành phần chính:
+• Một mô hình cơ sở T2I được huấn luyện trên các cặp text-image: Sử dụng 3 networks để
+tạo ra hình ảnh độ phân giải cao từ văn bản.Prior network Ptrong quá trình inference tạo ra
+các image embedding từ text embedding và các BPE encoded text tokens.Decoder network D
+tạo ảnh RGB với low-resolution (64× 64) dựa trên các image embedding.Hai super-resolution
+networks SR1, SRh tăng độ phân giải của ảnh lên thành 256× 256 và 768× 768.
+• Spatiotemporal network sử dụng các spatiotemporal convolution và attention layers
+để mở rộng các blocks.Điều này đòi hỏi phải điều chỉnh các lớp tích chập và các lớp attention.
+>>>>>>> HEAD@{1}

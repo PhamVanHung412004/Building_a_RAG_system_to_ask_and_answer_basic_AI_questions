@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 266f5a5c-5151-4316-89f0-ae63b0513fdb
 Text: 1 #aivietnam 2 import numpy as np 3 # Tạo mảng 4 arr =
 np.array([1, 2, 3, 4, 5]) 5 # Tìm vị trí của các phần tử lớn hơn 2 6
@@ -5,3 +6,64 @@ result = np.where(arr > 2) 7 print("Vị trí của các phần tử lớn hơn
 2:", result) 8 print("Giá trị các phần tử tại vị trí tìm được:",
 arr[result]) ================= Output ================ Vị trí của các
 phần tử lớn hơn 2: (a...
+=======
+1 #aivietnam
+2 import numpy as np
+3 # Tạo mảng
+4 arr = np.array([1, 2, 3, 4, 5])
+5 # Tìm vị trí của các phần tử lớn hơn 2
+6 result = np.where(arr > 2)
+7 print("Vị trí của các phần tử lớn hơn 2:",
+result)
+8 print("Giá trị các phần tử tại vị trí tìm
+được:", arr[result])
+================= Output ================
+Vị trí của các phần tử lớn hơn 2:
+(array([2, 3, 4]),)
+Giá trị các phần tử tại vị trí tìm được:
+[3 4 5]
+==========================================
+6.2 Tìm giá trị lớn nhất và nhỏ nhất
+Hàm np.max và np.min được sử dụng để tìm giá trị lớn nhất và nhỏ nhất trong mảng. Cú pháp:
+1 np.max(array, axis)
+2 np.min(array, axis)
+Để hiểu rõ hơn về cách sử dụng np.max và np.min, chúng ta sẽ tạo một mảng và tìm giá trị lớn nhất
+và nhỏ nhất trong mảng đó.
+1 #aivietnam
+2 import numpy as np
+3 # Tạo mảng
+4 arr = np.array([1, 2, 3, 4, 5])
+5 # Tìm giá trị lớn nhất
+6 max_value = np.max(arr)
+7 print("Giá trị lớn nhất trong mảng:",
+max_value)
+8 # Tìm giá trị nhỏ nhất
+9 min_value = np.min(arr)
+10 print("Giá trị nhỏ nhất trong mảng:",
+min_value)
+================= Output ================
+Giá trị lớn nhất trong mảng: 5
+Giá trị nhỏ nhất trong mảng: 1
+==========================================
+Ngoài ra, chúng ta có thể tìm kiếm phần tử nhỏ nhất, lớn nhất theo từng chiều cụ thể đối với mảng
+nhiều chiều.
+1 #aivietnam
+2 import numpy as np
+3
+4 # Tạo mảng 2 chiều
+5 arr2d = np.array([[1, 2, 3], [4, 5, 6]])
+6
+7 # Tìm giá trị lớn nhất theo từng chiều
+8 max_value_row = np.max(arr2d, axis=1)
+9 max_value_col = np.max(arr2d, axis=0)
+10 print("Giá trị lớn nhất theo hàng trong
+11 mảng 2 chiều:", max_value_row)
+12 print("Giá trị lớn nhất theo cột trong
+13 mảng 2 chiều:", max_value_col)
+14
+15 # Tìm giá trị nhỏ nhất theo từng chiều
+16 min_value_row = np.min(arr2d, axis=1)
+17 min_value_col = np.min(arr2d, axis=0)
+18 print("Giá trị nhỏ nhất theo hàng trong mả
+13
+>>>>>>> HEAD@{1}

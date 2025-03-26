@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: eb7f8092-ef00-45e6-83fa-6a2234642292
 Text: AI VIETNAM aivietnam.edu.vn 7 Automatic Chain-of-Thought
 Prompting Auto-CoT: Automatic Chain-of-Thought Prompting (Auto-COT)
@@ -5,3 +6,11 @@ Prompting Auto-CoT: Automatic Chain-of-Thought Prompting (Auto-COT)
 Large Language Models" Zhang et al., 2023a là một cách tiếp cận để tự
 động tạo ra các chuỗi suy nghĩ trong các mô hình ngôn ngữ lớn (LLMs).
 Auto-CoT tận d...
+=======
+AI VIETNAM aivietnam.edu.vn
+7 Automatic Chain-of-Thought Prompting
+Auto-CoT: Automatic Chain-of-Thought Prompting (Auto-COT) được đề xuất trong paper "Au-
+tomatic Chain of Thought Prompting in Large Language Models" Zhang et al., 2023a là một cách
+tiếp cận để tự động tạo ra các chuỗi suy nghĩ trong các mô hình ngôn ngữ lớn (LLMs). Auto-CoT
+tận dụng khả năng của LLMs để tự sinh ra các chuỗi suy nghĩ, từ đó xây dựng các ví dụ minh họa.
+>>>>>>> HEAD@{1}

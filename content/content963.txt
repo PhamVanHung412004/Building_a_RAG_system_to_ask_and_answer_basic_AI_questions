@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: dbdbeb58-ced1-4f2f-a6bd-00915329daa1
 Text: Đầu tiên, ta xây dựng hàm lấy final hidden state của token CLS:
 1 def cls_pooling(model_output): 2 return
@@ -5,3 +6,21 @@ model_output.last_hidden_state[:, 0] Sau đó, xây dựng hàm đưa một văn
 bản vào model để từ đó có thể gọi hàmcls_pooling(): 1 def
 get_embeddings(text_list): 2 encoded_input = tokenizer( 3 text_list, 4
 padding=True, 5 truncation=True, 6 return_...
+=======
+Đầu tiên, ta xây dựng hàm lấy final hidden state của token CLS:
+1 def cls_pooling(model_output):
+2 return model_output.last_hidden_state[:, 0]
+Sau đó, xây dựng hàm đưa một văn bản vào model để từ đó có thể gọi hàmcls_pooling():
+1 def get_embeddings(text_list):
+2 encoded_input = tokenizer(
+3 text_list,
+4 padding=True,
+5 truncation=True,
+6 return_tensors=’pt’
+7 )
+8 encoded_input = {k: v.to(device) for k, v in encoded_input.items()}
+9 model_output = model(**encoded_input)
+10
+11 return cls_pooling(model_output)
+13
+>>>>>>> HEAD@{1}

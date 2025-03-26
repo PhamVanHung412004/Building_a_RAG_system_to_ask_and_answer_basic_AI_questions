@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: d9d867e9-4837-4623-9070-222083712bf5
 Text: (2024) đề cập giải pháp có tên gọi Chain of Table, trong đó
 phương pháp thiết lập một chuỗi các lập luận với LLM để thực thi các
@@ -5,3 +6,12 @@ truy vấn nhằm đạt được kết quả liên quan nhất với câu hỏi
 Hình 9: So sánh giải pháp truy vấn thông tin bảng biểu (a) generic
 reasoning, (b) program-aided reasoning, and (c) CHAIN-OF-TABLE..
 Knowledge Graph: Bê...
+=======
+(2024) đề cập giải pháp có tên gọi Chain of Table,
+trong đó phương pháp thiết lập một chuỗi các lập luận với LLM để thực thi các truy vấn nhằm đạt
+được kết quả liên quan nhất với câu hỏi đầu vào.
+Hình 9: So sánh giải pháp truy vấn thông tin bảng biểu (a) generic reasoning, (b) program-aided
+reasoning, and (c) CHAIN-OF-TABLE..
+Knowledge Graph: Bên cạnh các kiến trúc lưu trữ dữ liệu truyền thống, Graph database hay
+8
+>>>>>>> HEAD@{1}

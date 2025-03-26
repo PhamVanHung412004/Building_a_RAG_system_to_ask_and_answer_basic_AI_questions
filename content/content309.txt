@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: ef118e27-87f3-4ef0-81bc-a16515c3e1ac
 Text: AI VIETNAM aivietnam.edu.vn 67 x = F. relu ( self .
 cond_enc_conv2 ( sc_feat32 )) 68 sc_feat16 = self . cond_enc_bn2 (x)
@@ -5,3 +6,20 @@ cond_enc_conv2 ( sc_feat32 )) 68 sc_feat16 = self . cond_enc_bn2 (x)
 self . cond_enc_bn3 (x) 71 x = F. relu ( self . cond_enc_conv4 (
 sc_feat8 )) 72 sc_feat4 = self . cond_enc_bn4 (x) 73 return sc_feat32
 , sc_feat16 , sc_feat8 ...
+=======
+AI VIETNAM aivietnam.edu.vn
+67 x = F. relu ( self . cond_enc_conv2 ( sc_feat32 ))
+68 sc_feat16 = self . cond_enc_bn2 (x)
+69 x = F. relu ( self . cond_enc_conv3 ( sc_feat16 ))
+70 sc_feat8 = self . cond_enc_bn3 (x)
+71 x = F. relu ( self . cond_enc_conv4 ( sc_feat8 ))
+72 sc_feat4 = self . cond_enc_bn4 (x)
+73 return sc_feat32 , sc_feat16 , sc_feat8 , sc_feat4
+74
+75 def decoder (self , z, sc_feat32 , sc_feat16 , sc_feat8 , sc_feat4 ):
+76 x = z. view (-1, self . hidden_size , 1, 1)
+77 x = self . dec_upsamp1 (x)
+78 x = torch . cat ([x, sc_feat4 ], 1)
+79 x = F. relu ( self . dec_conv1 (x))
+80 x = self . 
+>>>>>>> HEAD@{1}

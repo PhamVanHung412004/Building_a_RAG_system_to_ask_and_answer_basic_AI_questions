@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 76217db3-1883-4c0b-8309-088e4f202c0c
 Text: AI VIETNAM aivietnam.edu.vn 1 executor =
 DockerCommandLineCodeExecutor ( 2 image =" python :3.11 - slim ", 3
@@ -5,3 +6,31 @@ timeout =10 , 4 work_dir = temp_dir .name , 5 ) Ý nghĩa của dòng thứ 2
 là gì? (a) Khai báo tên của docker container. (b) Khai báo tên của
 docker image. (c) Khai báo tên docker image được dùng để thực thi. (d)
 Khai báo tên của Code Executo...
+=======
+AI VIETNAM aivietnam.edu.vn
+1 executor = DockerCommandLineCodeExecutor (
+2 image =" python :3.11 - slim ",
+3 timeout =10 ,
+4 work_dir = temp_dir .name ,
+5 )
+Ý nghĩa của dòng thứ 2 là gì?
+(a) Khai báo tên của docker container.
+(b) Khai báo tên của docker image.
+(c) Khai báo tên docker image được dùng để thực thi.
+(d) Khai báo tên của Code Executor Agent.
+7. Xét đoạn code dưới đây:
+1 human_proxy = ConversableAgent (
+2 " human_proxy ",
+3 human_input_mode =" ALWAYS ",
+4 )
+Ý nghĩa của dòng thứ 3 là gì?
+(a) Là message từ user truyển cho agent tại thời điểm khởi tạo.
+(b) Cho phép agent có khả năng thực thi code.
+(c) Luôn luôn yêu cầu message của con người trước khi agent thực thi.
+(d) Cho phép con người truyển message bất cứ khi nào.
+8. Trong Autogen framework, đâu là cách để chấm dứt cuộc hội thoại, trò chuyện?
+(a) Dùng max_turns parameter trong hàminitiate_chat.
+(b) Dùng max_consecutive_auto_reply parameter khi khởi tạo agent.
+(c) Dùng is_termination_msg parameter khi khởi tạo agent.
+(d) Cả 3 cách trên.
+>>>>>>> HEAD@{1}

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 4dbef3a1-4a79-46b5-a111-cd4bbe2043c9
 Text: AI VIET NAM – COURSE 2024 Streamlit – Project Ngày 22 tháng 6
 năm 2024 I. Lý thuyết Xây dựng và phát triển các ứng dụng AI bao gồm
@@ -5,3 +6,22 @@ các bước sau: • Data Handling: bao gồm các bước về thu thập và 
 dữ liệu • Exploratory Data Analysis (EDA): phân tích các đặc trưng của
 dữ liệu • Modeling: từ các đặc trưng, xây dựng các mô hình và đánh giá
 tính ...
+=======
+AI VIET NAM – COURSE 2024
+Streamlit – Project
+Ngày 22 tháng 6 năm 2024
+I. Lý thuyết
+Xây dựng và phát triển các ứng dụng AI bao gồm các bước sau:
+• Data Handling: bao gồm các bước về thu thập và xử lý dữ liệu
+• Exploratory Data Analysis (EDA): phân tích các đặc trưng của dữ liệu
+• Modeling: từ các đặc trưng, xây dựng các mô hình và đánh giá tính hiệu quả của mô hình
+• Deployment: triển khai mô hình thành sản phẩm trên các nên tảng khác nhau như website, app,...
+Trong phần này, chúng ta sẽ tập trung tìm hiểu thư viện Streamlit, một trong những thư viện mã
+nguồn mở được phát triển và ứng dụng rộng rãi để triển khai các ứng dụng AI nói chung. Streamlit
+cung cấp các công cụ hiệu quả để tương tác với người dùng để nhập thông tin hoặc hiển thị thông tin.
+Trong các phần tiếp theo, chúng ta tập trung vào phát triển các ứng dụng cơ bản sau:
+• Word Correction
+• Object Detection
+• Chatbot
+1. Word Correction.
+>>>>>>> HEAD@{1}

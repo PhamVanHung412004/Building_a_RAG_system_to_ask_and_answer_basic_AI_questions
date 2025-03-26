@@ -1,3 +1,9 @@
+<<<<<<< HEAD
 Node ID: a6ca21a9-317e-4542-8604-1e8f3e909e71
 Text: AI VIETNAM aivietnam.edu.vn (c) Dừng docker container được dùng
 để thực thi code. (d) Dừng việc thực thi code.
+=======
+AI VIETNAM aivietnam.edu.vn
+(c) Dừng docker container được dùng để thực thi code.
+(d) Dừng việc thực thi code.
+>>>>>>> HEAD@{1}

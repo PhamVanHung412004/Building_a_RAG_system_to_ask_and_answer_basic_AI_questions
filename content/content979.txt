@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: aa6033b6-cfc4-4c74-8c99-f4b61d7728e3
 Text: AI VIETNAM aivietnam.edu.vn Hình 3: Ví dụ chi tiết hoạt động của
 hệ thống RAG. Nguồn: Gao et al. (2024) Các thành phần trong ví dụ có
@@ -5,3 +6,29 @@ thể giải thích như sau: • Input: Câu hỏi đầu vào, thường đư�
 cấp/yêu cầu bởi người dùng nhằm truy vấn và tương tác với mô hình ngôn
 ngữ. • Indexing: Trong hệ thống RAG, để xây dựng Knowledge Base, các
 văn bả...
+=======
+AI VIETNAM aivietnam.edu.vn
+Hình 3: Ví dụ chi tiết hoạt động của hệ thống RAG. Nguồn: Gao et al. (2024)
+Các thành phần trong ví dụ có thể giải thích như sau:
+• Input: Câu hỏi đầu vào, thường được cung cấp/yêu cầu bởi người dùng nhằm truy vấn và tương
+tác với mô hình ngôn ngữ.
+• Indexing: Trong hệ thống RAG, để xây dựng Knowledge Base, các văn bản/tài liệu cần được xử
+lý (indexing) và lưu trữ dưới các định dạng dễ dàng truy vấn như vector. Các thao tác cần xử
+lý có thể kể đến như phân đoạn (chunking), vector hoá (embedding), lưu trữ trên cơ sở dữ liệu
+vector (vector store database). Trong quá trình truy vấn, câu hỏi người dùng sẽ được embedded
+để sẵn sàng cho các thuật toán tìm kiếm.
+• Retrieval:Quá trình tìm kiếm các đoạn tài liệu (chunks) liên quan đến câu hỏi truy vấn. Công
+tác tìm kiếm thường được thực hiện thông qua phép tìm kiếm mức độ tương đồng (similarity), so
+sánh vector truy vấn và vector đã được xử lý (index) trong cơ sở dữ liệu vector. Các kết quả có
+similarity score cao thể hiện mức độ tương quan tốt với câu hỏi truy vấn. Giá trị top-k cũng được
+thiết lập tại bước này nhằm thể hiện số lượng k tài liệu có score cao nhất được lấy ra từ bước này.
+• Generation: Khái niệm thể hiện cho các mô hình sinh ngôn ngữ, có thể biết đến như các mô
+hình ngôn ngữ lớn (từ các mô hình thương mại như GPT - OpenAI, Gemini - Google, Claude
+- Anthropic cho đến các mô hình mã nguồn mở như Llama - MetaAI, BLOOM, BERT, Falcon,
+Mixtral, Vicuna, PhoGPT,...). Trong hệ thống RAG, các tài liệu liên quan được đưa vào mô hình
+ngôn ngữ cùng câu hỏi dưới dạng prompt (ngữ cảnh bổ sung thông tin). Kết quả từ mô hình ngôn
+ngữ được đưa về người dùng như câu trả lời.
+3 Phân loại RAG
+Theo Yunfan Gao et al, một khảo sát tổng hợp chi tiết về sự phát triển của các hệ thống RAG đã được
+thực hiện và ra công bố vào những ngày đầu năm dương lịch 2024 Gao et al. (2024). 
+>>>>>>> HEAD@{1}

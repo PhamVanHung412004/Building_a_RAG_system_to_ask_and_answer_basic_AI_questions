@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 629d494c-396b-4730-a6bb-5ae15caed45e
 Text: Daily AI Exercise (AIO) Ngày 8 tháng 4 năm 2024 Ví dụ: 1 -- Thêm
 mới 1 dòng trong bảng CUSTOMERS 2 INSERT INTO CUSTOMERS(EMAIL, NAME,
@@ -5,3 +6,49 @@ PHONE) 3 VALUES(’nguyen@nguyen.com’, ’Nguyen’, ’123456789’); 4 5 --
 Thêm mới nhiều dòng trong bảng CUSTOMERS 6 INSERT INTO
 CUSTOMERS(EMAIL, NAME, PHONE) 7 VALUES 8 (’nguyen@aivietnam.edu.vn’,
 ’Nguyen’, ’123456789’...
+=======
+Daily AI Exercise (AIO) Ngày 8 tháng 4 năm 2024
+Ví dụ:
+1 -- Thêm mới 1 dòng trong bảng CUSTOMERS
+2 INSERT INTO CUSTOMERS(EMAIL, NAME, PHONE)
+3 VALUES(’nguyen@nguyen.com’, ’Nguyen’, ’123456789’);
+4
+5 -- Thêm mới nhiều dòng trong bảng CUSTOMERS
+6 INSERT INTO CUSTOMERS(EMAIL, NAME, PHONE)
+7 VALUES
+8 (’nguyen@aivietnam.edu.vn’, ’Nguyen’, ’123456789’),
+9 (’admin@aivietnam.edu.vn’, ’Vinh’, ’1122334455’);
++ Cập nhật dữ liệu (UPDATE):Để cập nhật dữ liệu vào bảng chúng ta có thể
+thực thi với câu lệnh có cấu trúc tổng quát như sau:
+1 UPDATE table_name
+2 SET column1 = value1, column2 = value2, ...
+3 WHERE condition;
+Vídụ: Cậpnhậttêncủaemaillànguyen@aivietnam.edu.vnthànhHoangNguyen.
+1 -- Cập nhật tên của email là nguyen@aivietnam.edu.vn thành Hoang
+Nguyen
+2 UPDATE CUSTOMERS
+3 SET NAME = ’Hoang Nguyen’
+4 WHERE 1 = 1
+5 AND EMAIL = ’nguyen@aivietnam.edu.vn’;
++ Xóa dữ liệu (DELETE):Để xóa dữ liệu khỏi bảng chúng ta có thể thực thi
+với câu lệnh có cấu trúc tổng quát như sau:
+1 DELETE FROM table_name
+2 WHERE condition;
+Ví dụ:Xóa email nguyen@aivietnam.edu.vn khỏi bảng CUSTOMERS
+1 -- Xóa email: nguyen@aivietnam.edu.vn khỏi bảng CUSTOMERS
+2 DELETE FROM CUSTOMERS
+3 WHERE 1 = 1
+4 AND EMAIL = ’nguyen@aivietnam.edu.vn’;
+3. Sử dụng SQLite trong Python:
+• Tạo kết nối đến CSDL:Để sử dụng SQLite và tương tác với cơ sử dữ liệu
+SQLite trong python, chúng ta cần tạo kết nối đến CSDL bằng câu lệnh như sau:
+1 import sqlite3
+2 # Tạo kết nối tới CSDL có tên là database.sqlite
+3 # Nếu database.sqlite chưa tồn tại trong hệ thống thì nó sẽ
+4 # tự tạo mới
+5 connection = sqlite3.connect(’database.sqlite’)
+6 cursor = connection.cursor()
+→ Sau khi tạo kết nối đến cơ sở dữ liệu xong, chúng ta có Object có têncursor
+nhằm giúp chúng ta thực thi và tương tác các câu lệnh truy vấn (SELECT,
+INSERT, UPDATE, DELETE,...) đến cơ sở dữ liệu.
+>>>>>>> HEAD@{1}

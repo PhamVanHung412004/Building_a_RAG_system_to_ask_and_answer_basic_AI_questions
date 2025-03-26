@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: f62c8d59-2ac1-4093-99bd-8c64823216cb
 Text: Cách tiếp cận này đã được chứng minh là cải thiện đáng kể khả
 năng của mô hình trong việc thực hiện các nhiệm vụ chưa được nhìn thấy
@@ -5,3 +6,15 @@ năng của mô hình trong việc thực hiện các nhiệm vụ chưa đượ
 sự cải thiện hiệu suất đáng kể so với các mô hình ngôn ngữ, lợi ích
 càng trở nên rõ rệt khi số lượng nhiệm vụ tăng lên và khi được áp dụng
 với L...
+=======
+Cách tiếp cận này đã được chứng minh là cải thiện đáng kể khả năng của mô hình trong
+việc thực hiện các nhiệm vụ chưa được nhìn thấy (unseen tasks). Hiệu quả của việc tinh chỉnh
+prompt được thể hiện qua sự cải thiện hiệu suất đáng kể so với các mô hình ngôn ngữ, lợi ích càng
+trở nên rõ rệt khi số lượng nhiệm vụ tăng lên và khi được áp dụng với LLM. Trong nghiên cứu
+"Finetuned Language Models Are Zero-shot learners" Wei et al., n.d. kết luận rằng việc tinh chỉnh
+prompt là một kỹ thuật triển vọng để cải thiện khả năng tổng quát hóa và hiệu suất của LLMs
+trong các tình huống zero-shot learning.
+Hình 4: Ví dụ minh họa về áp dụng zero-shot prompting trong việc phân tích, đánh giá thái độ
+nhân viên chăm sóc khách hàng qua email.
+7
+>>>>>>> HEAD@{1}

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 4f77a143-6064-4d8b-b5c3-302882df0513
 Text: – kernel_size:tham số về kích thướck của window. Trong Problem
 02, các bạn gán mặc định giá trị này = 3. – save_result:giá trị
@@ -5,3 +6,45 @@ boolean đại diện cho việc có lưu disparity map hay không? Mặc địn
 có giá trị là True. Cuối cùng, kết quả trả về của hàm sẽ là một
 numpy.ndarray đại diện cho disparity map tính được. • Đối với
 hàmwindow_based_matching...
+=======
+– kernel_size:tham số về kích thướck của window. Trong Problem 02, các bạn gán
+mặc định giá trị này = 3.
+– save_result:giá trị boolean đại diện cho việc có lưu disparity map hay không? Mặc
+định sẽ có giá trị là True.
+Cuối cùng, kết quả trả về của hàm sẽ là một numpy.ndarray đại diện cho disparity map
+tính được.
+• Đối với hàmwindow_based_matching_l1(), ta dùng hàm tính cost là L1.
+• Đối với hàmwindow_based_matching_l2(), ta dùng hàm tính cost là L2.
+• Khi lưu kết quả, ta in ra màn hình dòng chữ"Saving result..."và lưu ý rằng sẽ lưu cả
+hai phiên bản ảnh grayscale và ảnh color map của disparity map.
+• Sau khi kết thúc toàn bộ quá trình tính toán, in ra dòng chữ"Done.".
+Kết quả minh họa khi chạy hàmwindow_based_matching() với cặp ảnh Aloe_1 sẽ có kết
+quả trả về như sau (các dòng comment tượng trưng cho nội dung trả về):
+1 left_img_path = ’Aloe / Aloe_left_1 . png ’
+2 right_img_path = ’Aloe / Aloe_right_1 . png ’
+3 disparity_range = 64
+4 kernel_size = 3
+5
+6 window_based_result = window_based_matching_l1 (
+7 left_img_path ,
+8 right_img_path ,
+9 disparity_range ,
+10 kernel_size = kernel_size ,
+11 save_result = True
+12 )
+13
+14 # Saving result ...
+15 # Done .
+16
+17 window_based_result = window_based_matching_l2 (
+18 left_img_path ,
+19 right_img_path ,
+20 disparity_range ,
+21 kernel_size = kernel_size ,
+22 save_result = True
+23 )
+24
+25 # Saving result ...
+26 # Done .
+8
+>>>>>>> HEAD@{1}

@@ -1,3 +1,9 @@
+<<<<<<< HEAD
 Node ID: fe0c8a86-6013-4fda-a2ec-559a5aec707e
 Text: (a) Chấm dứt cuộc hội thoại. (b) Ngắt hội thoại củauserproxy
 agent. 12
+=======
+(a) Chấm dứt cuộc hội thoại.
+(b) Ngắt hội thoại củauserproxy agent.
+12
+>>>>>>> HEAD@{1}

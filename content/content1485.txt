@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 04e0e8ab-53e5-4868-9d2f-909de1941bd4
 Text: AI VIETNAM aivietnam.edu.vn Mô hình học đa tác vụ (Multi-Task
 Learning)là phương pháp huấn luyện cho một mô hình nhưng có thể giải
@@ -5,3 +6,12 @@ quyết cho nhiều bài toán khác nhau. Ví dụ, chúng ta huấn luyện m�
 hình với đầu vào là một hình ảnh và đầu ra giải quyết cho hai bài toán
 khác nhau như: semantic segmentation và depth-image prediction được mô
 tả n...
+=======
+AI VIETNAM aivietnam.edu.vn
+Mô hình học đa tác vụ (Multi-Task Learning)là phương pháp huấn luyện cho một mô hình
+nhưng có thể giải quyết cho nhiều bài toán khác nhau. Ví dụ, chúng ta huấn luyện một mô hình với
+đầu vào là một hình ảnh và đầu ra giải quyết cho hai bài toán khác nhau như: semantic segmentation
+và depth-image prediction được mô tả như Hình 1.
+Các phương pháp huấn luyện các mô hình MTL có thể được chia thành 2 nhóm:
+1. 
+>>>>>>> HEAD@{1}

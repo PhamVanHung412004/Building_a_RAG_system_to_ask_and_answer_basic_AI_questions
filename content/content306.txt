@@ -1,6 +1,15 @@
+<<<<<<< HEAD
 Node ID: 13a8cb26-0d13-477e-b481-181024dd64b7
 Text: BatchNorm2d (512) 36 self . dec_upsamp2 = nn. Upsample (
 scale_factor =2 , mode =’ bilinear ’) 37 self . dec_conv2 = nn. Conv2d
 (512*2 , 256 , 5, stride =1 , padding =2) 38 self . dec_bn2 = nn.
 BatchNorm2d (256) 39 self . dec_upsamp3 = nn. Upsample ( scale_factor
 =2 , mode =’ bilinear ’) 40 self . dec_conv3 = nn.
+=======
+BatchNorm2d (512)
+36 self . dec_upsamp2 = nn. Upsample ( scale_factor =2 , mode =’ bilinear ’)
+37 self . dec_conv2 = nn. Conv2d (512*2 , 256 , 5, stride =1 , padding =2)
+38 self . dec_bn2 = nn. BatchNorm2d (256)
+39 self . dec_upsamp3 = nn. Upsample ( scale_factor =2 , mode =’ bilinear ’)
+40 self . dec_conv3 = nn. 
+>>>>>>> HEAD@{1}

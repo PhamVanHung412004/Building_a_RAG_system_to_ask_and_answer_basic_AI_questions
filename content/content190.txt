@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 205fef63-9f69-4c27-9d21-9b88b48d83e9
 Text: + Tạo bảng mới (CREATE TABLE):Để tạo bảng trên ta sẽ sử dụng như
 sau: 1 -- Tạo Bảng CUSTOMERS gồm 3 cột email, name, phone với email là
@@ -5,3 +6,38 @@ khóa chính 2 CREATE TABLE customers ( 3 email TEXT PRIMARY KEY, 4 name
 TEXT NOT NULL, 5 phone TEXT 6 ); + Lấy dữ liệu (SELECT):Chúng ta có 2
 cách lấy dữ liệu từ bảng trong cơ sở dữ liệu bao gồm: lấy hết dữ liệu
 ...
+=======
++ Tạo bảng mới (CREATE TABLE):Để tạo bảng trên ta sẽ sử dụng như sau:
+1 -- Tạo Bảng CUSTOMERS gồm 3 cột email, name, phone với email là
+khóa chính
+2 CREATE TABLE customers (
+3 email TEXT PRIMARY KEY,
+4 name TEXT NOT NULL,
+5 phone TEXT
+6 );
++ Lấy dữ liệu (SELECT):Chúng ta có 2 cách lấy dữ liệu từ bảng trong cơ sở dữ
+liệu bao gồm: lấy hết dữ liệu của toàn bộ cột trong bảng và lấy dữ liệu từ các cột
+được chỉ định. Cách truy vấn (Query) có cấu trúc tổng quát như sau:
+1 SELECT column1, column2, ...
+2 FROM table_name;
+A. Lấy toàn bộ dữ liệu của tất cả cột trong bảng:
+1 -- Lấy toàn bộ dữ liệu của tất cả cột trong bảng CUSTOMERS
+2 SELECT *
+3 FROM CUSTOMERS;
+B. Lấy dữ liệu từ các cột được chỉ định trong bảng:
+1 -- Lấy dữ liệu từ các cột được chỉ định trong bảng CUSTOMERS
+2 SELECT NAME, PHONE
+3 FROM CUSTOMERS;
+C. Lấy dữ liệu theo điều kiện trong bảng (Filter):
+1 -- Lấy dữ liệu theo điều kiện email = giá trị truyền vào từ bảng
+CUSTOMERS
+2 SELECT NAME, PHONE
+3 FROM CUSTOMERS
+4 WHERRE 1 = 1
+5 AND EMAIL = ’aivietnam@aivietnam.edu.vn’;
++ Thêm dữ liệu (INSERT):Để thêm dữ liệu vào bảng chúng ta có thể thực thi
+với câu lệnh có cấu trúc tổng quát như sau:
+1 INSERT INTO table_name (column1, column2, column3, ...)
+2 VALUES (value1, value2, value3, ...);
+aivietnam.edu.vn www.facebook.com/aivietnam.edu.vn
+>>>>>>> HEAD@{1}

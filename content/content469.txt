@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: e359eb4f-440f-4e4c-a59d-4700c897fddf
 Text: log . addHandler ( stream_handler ) 31 32 def _add_file_hander
 (self , log_file ): 33 file_handler = RotatingFileHandler ( log_file ,
@@ -5,3 +6,34 @@ maxBytes =10000 , backupCount =10) 34 file_handler . setFormatter (
 self . formatter ) 35 self . log . addHandler ( file_handler ) 36 37
 def log_model (self , predictor_name ): 38 self . log . info (f"
 Predictor n...
+=======
+log . addHandler ( stream_handler )
+31
+32 def _add_file_hander (self , log_file ):
+33 file_handler = RotatingFileHandler ( log_file , maxBytes =10000 ,
+backupCount =10)
+34 file_handler . setFormatter ( self . formatter )
+35 self . log . addHandler ( file_handler )
+36
+37 def log_model (self , predictor_name ):
+38 self . log . info (f" Predictor name : { predictor_name }")
+39
+40 def log_response (self , pred_prob , pred_id , pred_class ):
+41 self . log . info (f" Predicted Prob : { pred_prob } - Predicted ID: { pred_id
+} - Predicted Class : { pred_class }")
+Đối với việc logging, chúng ta sẽ có tham số về đường dẫn thư mục lưu file log. Vì vậy, ta
+cũng sẽ cập nhật tham số này trong fileconfig/logging_cfg.py như sau:
+1 from pathlib import Path
+2
+3 class LoggingConfig :
+4 ROOT_DIR = Path ( __file__ ). parent . parent
+5
+6 LOG_DIR = ROOT_DIR / " logs "
+7
+8 LoggingConfig . LOG_DIR . mkdir ( parents =True , exist_ok = True )
+5. Cập nhật thư mụcmodels/: Chúng ta sẽ đưa thông tin model đã huấn luyện vào thư mục
+chuyên dùng để chứa các mô hình đã huấn luyện. Theo đó, chúng ta sẽ lưu file weights
+catdog_weights.pt vào trong thư mục conmodels/weights.
+Tiếp theo, để sử dụng mô hình PyTorch khi inference, chúng ta cần có định nghĩa class
+9
+>>>>>>> HEAD@{1}

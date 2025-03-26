@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: d3d4a029-d3fb-4e07-a60f-0cc4eace6b17
 Text: 201 https :// github . com / hojonathanho / diffusion / blob /1
 e0dceb3b3495bbe19116a5e1b3596cd0706c543 / diffusion_tf / models / unet
@@ -5,3 +6,46 @@ e0dceb3b3495bbe19116a5e1b3596cd0706c543 / diffusion_tf / models / unet
 207 num_heads =1 , 208 num_head_channels =-1, 209 use_checkpoint =
 False , 210 use_new_attention_order = False , 211 ): 212 super ().
 __init__ (...
+=======
+201 https :// github . com / hojonathanho / diffusion / blob /1
+e0dceb3b3495bbe19116a5e1b3596cd0706c543 / diffusion_tf / models / unet .py# L66 .
+202 """
+203
+204 def __init__ (
+205 self ,
+206 channels ,
+207 num_heads =1 ,
+208 num_head_channels =-1,
+209 use_checkpoint = False ,
+210 use_new_attention_order = False ,
+211 ):
+212 super (). __init__ ()
+213 self . channels = channels
+214 if num_head_channels == -1:
+215 self . num_heads = num_heads
+216 else :
+217 assert (
+218 channels % num_head_channels == 0
+219 ), f"q,k,v channels { channels } is not divisible by num_head_channels
+{ num_head_channels }"
+220 self . num_heads = channels // num_head_channels
+221 self . use_checkpoint = use_checkpoint
+222 self . norm = normalization ( channels )
+223 self . qkv = nn. Conv1d ( channels , channels * 3, 1)
+224 if use_new_attention_order :
+225 # split qkv before split heads
+226 self . attention = QKVAttention ( self . num_heads )
+227 else :
+228 # split heads before split qkv
+229 self . attention = QKVAttentionLegacy ( self . num_heads )
+230
+231 self . proj_out = zero_module (nn. Conv1d ( channels , channels , 1))
+232
+233 def forward (self , x):
+234 return checkpoint ( self . _forward , (x ,) , self . parameters () , True )
+235
+236 def _forward (self , x):
+237 b, c, * spatial = x. shape
+238 x = x. reshape (b, c, -1)
+239 qkv = self . qkv ( self . 
+>>>>>>> HEAD@{1}

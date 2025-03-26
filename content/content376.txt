@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 0bad5c9a-e907-4a60-b868-5472ccc432cc
 Text: 1 def load_bin ( path ): 2 pcd_arr = np. fromfile (path , dtype
 =np. float32 ). reshape (-1, 4) # x,y,x,r 3 return pcd_arr [: ,:3] ,
@@ -5,3 +6,20 @@ pcd_arr [: ,3:] 4 5 def load_ply ( path ): 6 pcd = o3d .io.
 read_point_cloud ( path ) 7 pcd_arr = np. asarray ( pcd . points ) 8
 pcd_color = np. asarray ( pcd . colors ) 9 return pcd_arr , pcd_color
 10 11 def load_...
+=======
+1 def load_bin ( path ):
+2 pcd_arr = np. fromfile (path , dtype =np. float32 ). reshape (-1, 4) # x,y,x,r
+3 return pcd_arr [: ,:3] , pcd_arr [: ,3:]
+4
+5 def load_ply ( path ):
+6 pcd = o3d .io. read_point_cloud ( path )
+7 pcd_arr = np. asarray ( pcd . points )
+8 pcd_color = np. asarray ( pcd . colors )
+9 return pcd_arr , pcd_color
+10
+11 def load_txt ( path ):
+12 pcd_arr = np. loadtxt ( path )
+13 return pcd_arr [: ,:3] , pcd_arr [: ,3:]
+Sau đó chúng ta sẽ sử dụng hàm draw_point_clouds để visualize data.
+1
+>>>>>>> HEAD@{1}

@@ -1,2 +1,6 @@
+<<<<<<< HEAD
 Node ID: df687f09-3e7c-4b57-b6ad-88468452cce0
 Text: model .
+=======
+model . 
+>>>>>>> HEAD@{1}

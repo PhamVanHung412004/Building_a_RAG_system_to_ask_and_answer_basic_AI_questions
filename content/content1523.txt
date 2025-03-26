@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: d977b05f-dc22-4873-a672-123f1575c02f
 Text: AI VIETNAM aivietnam.edu.vn 6 7 from IPython . display import
 Image 8 from matplotlib import animation 9 from tqdm . notebook import
@@ -5,3 +6,31 @@ tqdm 2. Khởi tạo môi trường Taxi-v3: 1 env_id = ’Taxi -v3 ’ 2 env =
 gym . make ( env_id , render_mode =’ rgb_array ’) 3. Xây dựng hàm khởi
 tạo Q-Table: 1 def init_q_table ( state_space , action_space ): 2
 q_table =...
+=======
+AI VIETNAM aivietnam.edu.vn
+6
+7 from IPython . display import Image
+8 from matplotlib import animation
+9 from tqdm . notebook import tqdm
+2. Khởi tạo môi trường Taxi-v3:
+1 env_id = ’Taxi -v3 ’
+2 env = gym . make ( env_id , render_mode =’ rgb_array ’)
+3. Xây dựng hàm khởi tạo Q-Table:
+1 def init_q_table ( state_space , action_space ):
+2 q_table = np. zeros (( state_space , action_space ))
+3
+4 return q_table
+4. Xây dựng hàm khởi tạo Greedy Policy:
+1 def greedy_policy ( q_table , state ):
+2 action = np. argmax ( q_table [ state , :])
+3
+4 return action
+5. Xây dựng hàm khởi tạo Epsilon-greedy Policy:
+1 def epsilon_greedy_policy ( q_table , state , epsilon ):
+2 rand_n = float (np. random . uniform (0 , 1))
+3
+4 if rand_n > epsilon :
+5 action = greedy_policy ( q_table , state )
+6 else :
+7 action = np. random . choice ( q_table . 
+>>>>>>> HEAD@{1}

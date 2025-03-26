@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 6a3f618a-70d8-4660-84b3-53a9e42a9b71
 Text: AI VIETNAM aivietnam.edu.vn quan sẽ được loại bỏ đi, trong khi
 những dải có liên quan sẽ được giữ lại. Khi những văn bản truy vấn là
@@ -5,3 +6,18 @@ Không Đúng, quá trình tìm kiếm trên web sẽ được bắt đầu. C�
 đầu vào sẽ được viết lại thành những keyword để mô phỏng quá trình tìm
 kiếm trên web. Sau đó quá trình chắt lọc thông tin tương tự như bước
 trên s...
+=======
+AI VIETNAM aivietnam.edu.vn
+quan sẽ được loại bỏ đi, trong khi những dải có liên quan sẽ được giữ lại.
+Khi những văn bản truy vấn là Không Đúng, quá trình tìm kiếm trên web sẽ được bắt đầu. Cụ thể
+câu đầu vào sẽ được viết lại thành những keyword để mô phỏng quá trình tìm kiếm trên web. Sau đó
+quá trình chắt lọc thông tin tương tự như bước trên sẽ được sử dụng để đưa ra những dải kiến thức
+liên quan nhất.
+9.5 WikiChat
+https://arxiv.org/pdf/2305.14292v2.pdf Đây là một phương pháp được nghiên cứu trong paper "Wi-
+kiChat: Stopping the Hallucination of Large Language Model Chatbots by Few-Shot Grounding on
+Wikipedia" Semnani et al., 2023, nhằm giải quyết vấn đền câu trả lời đưa ra bởi mô hình ngôn ngữ lớn
+có độ trung thực không cao và có tỉ lệ tưởng tượng (hallucination) lớn. Phương pháp này bao gồm 7
+bước chính, với mỗi bước sử dụng few-shot prompting để hướng mô hình trả lời theo ý muốn của người
+dùng. 
+>>>>>>> HEAD@{1}

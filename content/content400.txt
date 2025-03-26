@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: c441d951-1abf-417b-9e78-5f9d497ee8f3
 Text: T-net là một mạng con bên trong PointNet, có chức năng học một
 ma trận biến đổi. Ma trận biến đổi này sau đó được áp dụng cho từng
@@ -5,3 +6,14 @@ ma trận biến đổi. Ma trận biến đổi này sau đó được áp dụ
 phép biến đổi này, mạng có thể xử lý các đám mây điểm được trình bày
 từ các góc nhìn khác nhau. Tính ổn định và khởi tạo: Nếu T-net được
 khởi tạo với...
+=======
+T-net là một mạng con bên trong PointNet, có chức năng học một ma trận biến đổi. Ma trận
+biến đổi này sau đó được áp dụng cho từng điểm trong đám mây điểm, về cơ bản là xoay các điểm.
+Bằng cách học phép biến đổi này, mạng có thể xử lý các đám mây điểm được trình bày từ các góc nhìn
+khác nhau.
+Tính ổn định và khởi tạo:
+Nếu T-net được khởi tạo với các giá trị bằng 0, thì phép biến đổi ban đầu sẽ là phép biến đổi null
+(không thay đổi). Điều này có thể dẫn đến mất ổn định khi huấn luyện, đặc biệt là trong giai đoạn đầu.
+Ma trận đơn vị biểu diễn phép biến đổi đồng nhất, về cơ bản giữ nguyên các điểm. Sử dụng ma trận
+10
+>>>>>>> HEAD@{1}

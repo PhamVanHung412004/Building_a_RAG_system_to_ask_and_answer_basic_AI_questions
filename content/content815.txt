@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: fee8c76e-c3bb-4398-8026-bb3d6a4df79f
 Text: AIO2024 aivietnam.edu.vn HƯỚNG DẪN TRIỂN KHAI VÀ ĐÓNG GÓI DỰ ÁN
 PYTHON VỚI POETRY Dinh-Tiem Nguyen và Quang-Vinh Dinh 1 Mở đầu Làm thế
@@ -5,3 +6,25 @@ nào để xây dựng các package, library như math, numpy, tensorflow,
 pytorch? Làm thế nào để tái sử dụng code trong dự án? Trong bài viết
 này sẽ hướng dẫn cách triển khai xây dựng một package đơn giản với
 Poetry, sa...
+=======
+AIO2024 aivietnam.edu.vn
+HƯỚNG DẪN TRIỂN KHAI VÀ ĐÓNG GÓI
+DỰ ÁN PYTHON VỚI POETRY
+Dinh-Tiem Nguyen và Quang-Vinh Dinh
+1 Mở đầu
+Làm thế nào để xây dựng các package, library như math, numpy, tensorflow, pytorch? Làm thế nào để
+tái sử dụng code trong dự án? Trong bài viết này sẽ hướng dẫn cách triển khai xây dựng một package
+đơn giản với Poetry, sau đó phát hành nó trên nền tảng chia sẻ package nổi tiếng PyPI.
+Yêu cầu:
+• Máy tính đã cài đặt python
+• Đã biết cơ bản về cách tạo và quản lí môi trường trong python
+Hình 1: Pipline xây dựng package
+2 Cài đặt thư viện Poetry
+Poetry là một công cụ quản lý các package, library phụ thuộc trong môi trường riêng biệt để phát triển
+các dự án python, đặc biệt là nó cung cấp các chức năng thuận tiện cho việc xây dựng package python
+và phát hành lên nền tảng PyPI.
+Có một số cách khác nhau để cài Poetry, trong hướng dẫn này sử dụng cách cài đặt thông qua pipx -
+một công cụ để cài đặt và quản lí các package, library python( không phải là các package, library như
+numpy, pandas mà bạn hay dùng để import khi viết code đâu, mà nó là các package có thể sử dụng từ
+dòng lệnh như Python, Poetry...) . Để cài đặt pipx, bạn xem hướng dẫn chi tiết tại đây. 
+>>>>>>> HEAD@{1}

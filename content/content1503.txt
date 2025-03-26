@@ -1,3 +1,10 @@
+<<<<<<< HEAD
 Node ID: 3931baec-1cc6-4709-9e08-5c89057a0a2f
 Text: append ( loss . item ()) 56 57 avg_losses = { task : sum (
 task_loss )/ len ( task_loss ) for task , task_loss in losses . 7
+=======
+append ( loss . item ())
+56
+57 avg_losses = { task : sum ( task_loss )/ len ( task_loss ) for task , task_loss in losses .
+7
+>>>>>>> HEAD@{1}

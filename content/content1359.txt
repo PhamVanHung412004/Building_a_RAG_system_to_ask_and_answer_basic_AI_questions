@@ -1,5 +1,16 @@
+<<<<<<< HEAD
 Node ID: d0536c2c-938a-4f12-8fa9-2f8005c28945
 Text: AI VIETNAM aivietnam.edu.vn 16 # Build ColorDataset 17 class
 ColorDataset (): 18 def __init__ (self , img_paths , data_len =2880 ,
 image_size =(128 , 128) ): 19 if data_len > 0: 20 self . img_paths =
 img_paths [: int ( data_len )] 21 else : 22 self .
+=======
+AI VIETNAM aivietnam.edu.vn
+16 # Build ColorDataset
+17 class ColorDataset ():
+18 def __init__ (self , img_paths , data_len =2880 , image_size =(128 , 128) ):
+19 if data_len > 0:
+20 self . img_paths = img_paths [: int ( data_len )]
+21 else :
+22 self . 
+>>>>>>> HEAD@{1}

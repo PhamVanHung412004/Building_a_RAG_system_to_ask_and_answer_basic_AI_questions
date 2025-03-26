@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 8ae00f49-7f02-4159-bd69-bca3fe570f21
 Text: AI VIETNAM aivietnam.edu.vn (h) Load and inference model from
 Hub:Ở phần trước, sau khi ta đưa model lên Hugging- face Hub, nếu muốn
@@ -5,3 +6,31 @@ inference model ta có thể gọi hàmfrom_pretrained của model Mamba ta đã
 định nghĩa ở trước để load pretrain model. Sau đó ta sẽ truyền văn bản
 cần phân loại, tokenize và id của từng class vô hàmpredict của model
 để ...
+=======
+AI VIETNAM aivietnam.edu.vn
+(h) Load and inference model from Hub:Ở phần trước, sau khi ta đưa model lên Hugging-
+face Hub, nếu muốn inference model ta có thể gọi hàmfrom_pretrained của model Mamba ta
+đã định nghĩa ở trước để load pretrain model. Sau đó ta sẽ truyền văn bản cần phân loại,
+tokenize và id của từng class vô hàmpredict của model để thực hiện dự đoán kết quả.
+1 # Tải model Mamba từ model đã được train trước đó.
+2 model = MambaTextClassification.from_pretrained("trinhxuankhai/
+mamba_text_classification")
+3 model.to("cuda")
+4
+5 # Tải tokenizer của model Mamba từ model đã được train trước đó.
+6 tokenizer = AutoTokenizer.from_pretrained("trinhxuankhai/
+mamba_text_classification")
+7 # Đặt id của token pad bằng id của token eos trong tokenizer.
+8 tokenizer.pad_token_id = tokenizer.eos_token_id
+Sau đây ta sẽ chạy thử một sample trên tập test:
+1 id2label = {0: "NEGATIVE", 1: "POSITIVE"}
+2 text = imdb[’test’][0][’text’]
+3 label = imdb[’test’][0][’label’]
+4 response = model.predict(text, tokenizer, id2label)
+5 print(f’Classify: {text}\nGT: {id2label[label]}\nPredict: {response}’)
+6
+7 >> Output:
+8 - Classify: I love sci-fi and am willing to put up with a lot. Sci-fi
+movies/TV are usually underfunded, under-appreciated and
+misunderstood. 
+>>>>>>> HEAD@{1}

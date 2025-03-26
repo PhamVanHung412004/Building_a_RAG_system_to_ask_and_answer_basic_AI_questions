@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: c40cdbf0-23e0-4683-b2c6-b039abe3ca90
 Text: (a) Tốc độ train model chậm (b) Tốc độ inference nhanh (c) Số
 lượng param cực lớn (d) Không có điểm yếu nào 9. Đâu là điểm yếu của
@@ -5,3 +6,21 @@ GNN? (a) Cần train model theo 2 stage (b) Cần inference model theo 2
 stage (c) Tốc độ inference chậm (d) Tốc độ train model nhanh 10. Đâu
 là những yếu cầu của GNN? (a) Batch size bất kì, data bất kì (b) Batch
 size = ...
+=======
+(a) Tốc độ train model chậm
+(b) Tốc độ inference nhanh
+(c) Số lượng param cực lớn
+(d) Không có điểm yếu nào
+9. Đâu là điểm yếu của GNN?
+(a) Cần train model theo 2 stage
+(b) Cần inference model theo 2 stage
+(c) Tốc độ inference chậm
+(d) Tốc độ train model nhanh
+10. Đâu là những yếu cầu của GNN?
+(a) Batch size bất kì, data bất kì
+(b) Batch size = 1, data clean
+(c) Batch size > 1, data bất kì
+(d) Batch size > 1, data clean
+- Hết -
+11
+>>>>>>> HEAD@{1}

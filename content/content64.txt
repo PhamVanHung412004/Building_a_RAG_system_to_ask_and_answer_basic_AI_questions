@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 2118f1e3-35be-451d-ad49-4a33a59fe314
 Text: git – Bước 2:Cài đặt Anaconda tại đây. – Bước 3:Sau khi đã cài
 đặt Anaconda, các bạn sẽ khởi tạo môi trường Anaconda bằng dòng lệnh
@@ -5,3 +6,22 @@ sau: 1 $ conda create -n labelimg_env python =3.9 -y – Bước 4:Kích
 hoạt môi trường ảo đã tạo ở bước 3 sử dụng lệnh: 1 $ conda activate
 labelimg_env – Bước 5:Di chuyển vào thư mục mã nguồn của labelImg sử
 dụng lệnh s...
+=======
+git
+– Bước 2:Cài đặt Anaconda tại đây.
+– Bước 3:Sau khi đã cài đặt Anaconda, các bạn sẽ khởi tạo môi trường Anaconda
+bằng dòng lệnh sau:
+1 $ conda create -n labelimg_env python =3.9 -y
+– Bước 4:Kích hoạt môi trường ảo đã tạo ở bước 3 sử dụng lệnh:
+1 $ conda activate labelimg_env
+– Bước 5:Di chuyển vào thư mục mã nguồn của labelImg sử dụng lệnh sau:
+1 $ cd < path_to_labelImg_folder >
+– Bước 6:Thực hiện lần lượt các dòng lệnh:
+1 $ conda install pyqt =5
+2 $ conda install -c anaconda lxml
+3 $ pyrcc5 -o libs / resources .py resources . qrc
+– Bước 7:Khởi động giao diện của labelImg sử dụng lệnh:
+1 $ python labelImg .py
+Nếu thành công, các bạn sẽ thấy một giao hiện màn hình như sau:
+16
+>>>>>>> HEAD@{1}

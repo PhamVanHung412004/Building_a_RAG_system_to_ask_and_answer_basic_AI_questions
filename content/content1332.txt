@@ -1,2 +1,8 @@
+<<<<<<< HEAD
 Node ID: c0ea23e4-4dab-4991-b1a3-f50157f51a20
 Text: Giao diện của ứng dụng được mô tả như hình sau: 2
+=======
+Giao diện của ứng dụng được
+mô tả như hình sau:
+2
+>>>>>>> HEAD@{1}

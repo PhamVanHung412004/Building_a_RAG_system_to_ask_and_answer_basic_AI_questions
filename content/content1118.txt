@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 449cd20c-876e-47b6-beb8-c9a9dd470cbf
 Text: Các bước thực hiện như sau: 1. Tải bộ dữ liệu:Chúng ta sẽ giải
 quyết bài toán phát hiện các loại lá được phân biệt theo trình trạng
@@ -5,3 +6,15 @@ bệnh của chúng. Bộ dữ liệu được sử dụng trong bài toán này
 [12]. Để dễ hình dung, các bạn có thể quan sát ảnh minh họa sau: Hình
 17: Một vài mẫu dữ liệu trong bộ dữ liệu về bệnh của lá. Để tải bộ dữ
 liệu...
+=======
+Các bước thực hiện như sau:
+1. Tải bộ dữ liệu:Chúng ta sẽ giải quyết bài toán phát hiện các loại lá được phân biệt theo
+trình trạng bệnh của chúng. Bộ dữ liệu được sử dụng trong bài toán này là PlantDoc [12].
+Để dễ hình dung, các bạn có thể quan sát ảnh minh họa sau:
+Hình 17: Một vài mẫu dữ liệu trong bộ dữ liệu về bệnh của lá.
+Để tải bộ dữ liệu trên, các bạn hãy chạy đoạn code sau:
+1 ! gdown "1 LBpKKXFcfvUVgyk3tgQH6YxNp1KXX0Va "
+Giải nén bộ dữ liệu vào folderdatasets và xóa file nén không còn dùng đến. Các bạn thực
+thi đoạn code sau:
+15
+>>>>>>> HEAD@{1}

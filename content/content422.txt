@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 Node ID: 1eb29ae6-329b-4ab7-ac6b-57356d07f49a
 Text: Both (A) and (C). 16
+=======
+Both (A) and (C).
+16
+>>>>>>> HEAD@{1}

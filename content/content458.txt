@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: e80cd61a-1e37-4734-bd1d-325bd0de2036
 Text: AI VIETNAM aivietnam.edu.vn 3 model = CatDogModel ( N_CLASSES
 ).to( device ) 4 test_input = torch . rand (1 , 3, 224 , 224) .to(
@@ -5,3 +6,18 @@ device ) 5 with torch . no_grad (): 6 output = model ( test_input ) 7
 print ( output . shape ) # (1 , 2) 6. Thực hiện huấn luyện mô hình:Với
 mô hình và dataset đã sẵn sàng, chúng ta sẽ khai báo optimizer,
 criterion cũn...
+=======
+AI VIETNAM aivietnam.edu.vn
+3 model = CatDogModel ( N_CLASSES ).to( device )
+4 test_input = torch . rand (1 , 3, 224 , 224) .to( device )
+5 with torch . no_grad ():
+6 output = model ( test_input )
+7 print ( output . shape ) # (1 , 2)
+6. Thực hiện huấn luyện mô hình:Với mô hình và dataset đã sẵn sàng, chúng ta sẽ khai
+báo optimizer, criterion cũng như vòng lặp training để huấn luyện mô hình như sau:
+1 EPOCHS = 10
+2 LR = 1e -3
+3 WEIGHT_DECAY = 1e -5
+4
+5 optimizer = torch . optim . 
+>>>>>>> HEAD@{1}

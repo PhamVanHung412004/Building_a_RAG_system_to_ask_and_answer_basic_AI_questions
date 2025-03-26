@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 9af7b220-6938-4e33-9c7b-fea4da21ce69
 Text: AI VIETNAM aivietnam.edu.vn Phần II: Denoising Diffusion
 Probabilistic Models (DDPM) DDPM là một phương pháp để tạo ra dữ liệu
@@ -5,3 +6,24 @@ mới, chẳng hạn như hình ảnh, âm thanh, hoặc văn bản, một cách
 nhiên. Bao gồm hai quá trình chính là Forward Diffusion và Reverse
 Diffusion. Trong đó: • Quá trình Phân tán - Forward Diffusion: Bắt đầu
 từ dữ liệu thực, ...
+=======
+AI VIETNAM aivietnam.edu.vn
+Phần II: Denoising Diffusion Probabilistic
+Models (DDPM)
+DDPM là một phương pháp để tạo ra dữ liệu mới, chẳng hạn như hình ảnh, âm thanh, hoặc văn bản,
+một cách tự nhiên. Bao gồm hai quá trình chính là Forward Diffusion và Reverse Diffusion. Trong đó:
+• Quá trình Phân tán - Forward Diffusion: Bắt đầu từ dữ liệu thực, mô hình áp dụng một
+chuỗi các bước tạo nhiễu ngẫu nhiên, dần dần thêm nhiễu vào dữ liệu ban đầu cho đến khi toàn
+bộ cấu trúc của dữ liệu gốc biến mất, để lại chỉ một mẫu nhiễu.
+• Quá trình Khử nhiễu - Reverse Diffusion: Đây là quá trình ngược lại, trong đó mô hình học
+cách loại bỏ dần dần nhiễu khỏi mẫu nhiễu, với mục tiêu cuối cùng là tái tạo dữ liệu gốc. Quá
+trình này được thực hiện thông qua một loạt các bước, với mỗi bước cố gắng phục hồi một phần
+của cấu trúc dữ liệu ban đầu từ dữ liệu bị nhiễu.
+Bên cạnh đó, để tạo ra được một dữ liệu mới từ DDPM thì chúng ta cần phải làm cho mô hình học
+cách thực hiện quá trình khử nhiễu một cách hiệu quả. Mô hình được huấn luyện để dự đoán nhiễu và
+loại bỏ nó, từ đó phục hồi dữ liệu gốc từ mẫu nhiễu. Sau khi huấn luyện, mô hình có thể sử dụng quá
+trình khử nhiễu để tạo ra dữ liệu mới. Bắt đầu từ nhiễu ngẫu nhiên, mô hình thực hiện quá trình khử
+nhiễu để tạo ra mẫu dữ liệu mới mà không cần dựa trên dữ liệu gốc.
+Hình 7: DDPM được sử dụng trong nhiều ứng dụng khác nhau, từ tạo hình ảnh đến tạo văn bản và âm
+thanh. 
+>>>>>>> HEAD@{1}

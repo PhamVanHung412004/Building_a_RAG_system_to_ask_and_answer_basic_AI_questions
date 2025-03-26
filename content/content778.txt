@@ -1,3 +1,9 @@
+<<<<<<< HEAD
 Node ID: 8dbe64b5-4182-4c5f-8e7d-b09a1fa2b2b6
 Text: Hình 10: Minh họa cách thêm chiều dữ liệu Ví dụ sau đây thực
 hiện thêm một chiều mới vào array sử dụngnewaxis: 10
+=======
+Hình 10: Minh họa cách thêm chiều dữ liệu
+Ví dụ sau đây thực hiện thêm một chiều mới vào array sử dụngnewaxis:
+10
+>>>>>>> HEAD@{1}

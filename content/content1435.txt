@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: f638f190-888b-4981-b5b7-d1b419d6980b
 Text: 3.2 Cài đặt các tiện ích quan trọng trong Vscode Tiện ích là các
 phần mở rộng được cung cấp bởi cộng đồng hoặc các nhà phát triển để mở
@@ -5,3 +6,25 @@ rộng tính năng của VSCode. Chúng ta sẽ cài đặt hai tiện ích là 
 và Jupyter trong đó: • Tiện ích Python hỗ trợ cho lập trình Python
 trong VSCode, bao gồm hỗ trợ cú pháp, tự động hoàn thành, gỡ lỗi, và
 nhiều...
+=======
+3.2 Cài đặt các tiện ích quan trọng trong Vscode
+Tiện ích là các phần mở rộng được cung cấp bởi cộng đồng hoặc các nhà phát triển để mở rộng tính
+năng của VSCode. Chúng ta sẽ cài đặt hai tiện ích là Python và Jupyter trong đó:
+• Tiện ích Python hỗ trợ cho lập trình Python trong VSCode, bao gồm hỗ trợ cú pháp, tự động
+hoàn thành, gỡ lỗi, và nhiều tính năng khác.
+• Tiện ích Jupyter cho phép chúng ta làm việc với notebook Jupyter trực tiếp trong VSCode, giúp
+tạo, chỉnh sửa và chạy mã Python một cách thuận tiện.
+Để cài đặt các tiện ích trên, chúng ta tìm kiếm "Jupyter", "Python"trong tab Extensions và chọn tiện
+ích có tên "Jupyter", "Python"của Microsoft để cài đặt.
+Hình 3: Cài đặt tiện ích vscode
+3.3 Tạo một dự án Python
+Để tạo một dự án python, đầu tiên chúng ta cần tạo một thư mục để chứa dự án, sau đó tại giao diện
+vscode chọn "File-> "Open Folder"và chọn folder mà chúng ta vừa tạo.
+Để tạo tệp mã Python, tại cửa sổ EXPLORER phía trái màn hình, bạn trỏ chuột đến tên của dự án sẽ
+thấy xuất hiện icon new file, tiếp theo bạn click để tạo một file mới và đặt tên cho file là my_scripts.py.
+Sau khi tạo file, bạn tiến hành viết code và dùng tổ hợp phím ctl+S để lưu file.
+Để thực thi file, trong giao diện Vscode bạn nhấn vào biểu tượng tam giác ở góc trên phải màn hình,
+hoặc chọn "Terminal->"New Terminal"sau đó dùng lênh sau để thực thi chương trình:
+1 python my_script .py
+5
+>>>>>>> HEAD@{1}

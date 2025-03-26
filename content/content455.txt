@@ -1,5 +1,15 @@
+<<<<<<< HEAD
 Node ID: 3a66aa40-5c15-4ed3-a1f5-9e0d99256b4c
 Text: AI VIETNAM aivietnam.edu.vn (b) Xây dựng class
 CatDogDataset:Chúng ta xây dựng classCatDogDataset để đọc dữ liệu cho
 DataLoader: 1 class CatDogDataset ( Dataset ): 2 def __init__ (self ,
 data , transform = None ): 3 self . data = data 4 self .
+=======
+AI VIETNAM aivietnam.edu.vn
+(b) Xây dựng class CatDogDataset:Chúng ta xây dựng classCatDogDataset để đọc dữ
+liệu cho DataLoader:
+1 class CatDogDataset ( Dataset ):
+2 def __init__ (self , data , transform = None ):
+3 self . data = data
+4 self . 
+>>>>>>> HEAD@{1}

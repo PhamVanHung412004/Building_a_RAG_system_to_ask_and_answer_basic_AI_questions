@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: ec939225-d082-4e0f-9951-7df5e602b898
 Text: AI VIETNAM aivietnam.edu.vn • Setup config: 1 # Config class của
 Mamba 2 class MambaConfig: 3 d_model: int = 2560 4 n_layer: int = 64 5
@@ -5,3 +6,48 @@ vocab_size: int = 50277 6 ssm_cfg: dict = field(default_factory=dict)
 7 rms_norm: bool = True 8 residual_in_fp32: bool = True 9
 fused_add_norm: bool = True 10 pad_vocab_size_multiple: int = 8 11 12
 def to_json_s...
+=======
+AI VIETNAM aivietnam.edu.vn
+• Setup config:
+1 # Config class của Mamba
+2 class MambaConfig:
+3 d_model: int = 2560
+4 n_layer: int = 64
+5 vocab_size: int = 50277
+6 ssm_cfg: dict = field(default_factory=dict)
+7 rms_norm: bool = True
+8 residual_in_fp32: bool = True
+9 fused_add_norm: bool = True
+10 pad_vocab_size_multiple: int = 8
+11
+12 def to_json_string(self):
+13 return json.dumps(asdict(self))
+14
+15 def to_dict(self):
+16 return asdict(self)
+• Định nghĩa class head (classifier) để phục vụ cho việc phân loại văn bản:
+1 # Định nghĩa class head để phân loại
+2 class MambaClassificationHead(nn.Module):
+3 def __init__(self, d_model, num_classes, **kwargs):
+4 super(MambaClassificationHead, self).__init__()
+5 # Sử dụng một lớp tuyến tính để thực hiện phân loại dựa trên
+đầu vào có kích thước d_model và num_classes cần phân loại.
+6 self.classification_head = nn.Linear(d_model, num_classes,
+**kwargs)
+7
+8 def forward(self, hidden_states):
+9 return self.classification_head(hidden_states)
+• Định nghĩa model Mamba:
+1 class MambaTextClassification(MambaLMHeadModel):
+2 def __init__(
+3 self,
+4 config: MambaConfig,
+5 initializer_cfg=None,
+6 device=None,
+7 dtype=None,
+8 ) -> None:
+9 super().__init__(config, initializer_cfg, device, dtype)
+10
+11 # Tạo một đầu phân loại sử dụng MambaClassificationHead với
+kích thước đầu vào là d_model và số lớp là 2.
+>>>>>>> HEAD@{1}

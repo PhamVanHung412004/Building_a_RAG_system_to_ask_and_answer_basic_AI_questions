@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: d97f80bc-8563-4918-9137-88a98a5f3972
 Text: 4. Sau khi chắc chắn GNN có thể sử dụng, điều gì ta cần cân nhắc
 tiếp theo là phù hợp nhất? (a) Không cần gì (b) Độ lớn của model sau
@@ -5,3 +6,26 @@ khi thêm GNN (c) Hiểu rõ cách GNN tổng hợp thông tin (d) Tốc độ c
 model sau khi thêm GNN 5. Nếu input của GNN có shape [batch_size,
 dim_1] và output có shape [batch_size, dim_2] thì nhận định nào sau
 đây làSAI: ...
+=======
+4. Sau khi chắc chắn GNN có thể sử dụng, điều gì ta cần cân nhắc tiếp theo là phù hợp nhất?
+(a) Không cần gì
+(b) Độ lớn của model sau khi thêm GNN
+(c) Hiểu rõ cách GNN tổng hợp thông tin
+(d) Tốc độ của model sau khi thêm GNN
+5. Nếu input của GNN có shape [batch_size, dim_1] và output có shape [batch_size, dim_2] thì
+nhận định nào sau đây làSAI:
+(a) dim_2 có thể bằng dim_1 * 2
+(b) dim_2 có thể bằng số lượng class
+(c) dim_1 và dim_2 không bắt buộc bằng nhau
+(d) dim_1 và dim_2 phải bằng nhau
+6. Khi muốn kết hợp nhiều dataset với nhau ta có thể dùng:
+(a) torch.utils.data.MergeDataset
+(b) torch.utils.data.ConcatDataset
+(c) torch.utils.data.MergeData
+(d) torch.utils.data.ConcatData
+7. Trong GNN, cơ chế nào được sử dụng để lan truyền thông tin qua các node và edge?
+(a) Feedforward
+(b) Backpropagation
+(c) Message passing
+10
+>>>>>>> HEAD@{1}

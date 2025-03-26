@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: ab00d0b1-2f85-4e6a-8093-335954ce19f8
 Text: gdown --id 1N7rk - kfnDFIGMeX0ROVTjKh71gcgx -7R 2. Import các
 thư viện cần thiết:Trước tiên, chúng ta cùng điểm qua một số như viện
@@ -5,3 +6,14 @@ chính được sử dụng trong bài: • string: Cung cấp các hàm cơ b�
 thao tác với chuỗi ký tự. • nltk (Natural Language Toolkit):Một trong
 những thư viện xử lý ngôn ngữ tự nhiên phổ biến nhất trong Python. •
 pandas: C...
+=======
+gdown --id 1N7rk - kfnDFIGMeX0ROVTjKh71gcgx -7R
+2. Import các thư viện cần thiết:Trước tiên, chúng ta cùng điểm qua một số như viện
+chính được sử dụng trong bài:
+• string: Cung cấp các hàm cơ bản để thao tác với chuỗi ký tự.
+• nltk (Natural Language Toolkit):Một trong những thư viện xử lý ngôn ngữ tự
+nhiên phổ biến nhất trong Python.
+• pandas: Cung cấp các cấu trúc dữ liệu hiệu quả và các công cụ để làm việc với dữ
+liệu.
+3
+>>>>>>> HEAD@{1}

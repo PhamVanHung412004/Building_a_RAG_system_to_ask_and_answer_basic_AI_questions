@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 1f921108-3013-4f82-903a-0884e8c00231
 Text: AI VIETNAM aivietnam.edu.vn 4 Few-Shot Prompting Khi zero-shot
 learning không mang lại kết quả như mong đợi, việc đưa ra các mẫu ví
@@ -5,3 +6,27 @@ dụ cụ thể trong prompt sẽ là phương pháp khuyến khích được l�
 tiếp theo, từ đó tiến tới kỹ thuật gợi ý với một số lượng nhỏ ví dụ.
 Đây cũng chính là cơ sở cho kỹ thuật Few-Shot Prompting. Trong paper
 "Language...
+=======
+AI VIETNAM aivietnam.edu.vn
+4 Few-Shot Prompting
+Khi zero-shot learning không mang lại kết quả như mong đợi, việc đưa ra các mẫu ví dụ cụ thể
+trong prompt sẽ là phương pháp khuyến khích được lựa chọn tiếp theo, từ đó tiến tới kỹ thuật gợi
+ý với một số lượng nhỏ ví dụ. Đây cũng chính là cơ sở cho kỹ thuật Few-Shot Prompting.
+Trong paper "Language Models are Few-Shot Learners" Brown et al., 2020 - Few-shot learning
+được giới thiệu như một cách để mô hình hóa các mô hình ngôn ngữ có thể thích nghi và thực hiện
+các nhiệm vụ dựa trên một số ít ví dụ cụ thể được cung cấp trong quá trình suy luận, mà không
+cần cập nhật trọng số mô hình hay tinh chỉnh cụ thể cho nhiệm vụ đó. Điều này cho phép mô hình
+hoạt động gần giống với cách con người học: chúng ta thường có thể học và thực hiện tác vụ mới
+với chỉ vài hướng dẫn cụ thể. Kết quả từ paper cho thấy mô hình GPT-3 có khả năng thực hiện
+khá tốt trên nhiều tập dữ liệu với few-shot, thỉnh thoảng ngang bằng hoặc thậm chí vượt qua hiệu
+suất của các mô hình được tinh chỉnh cụ thể (fine-tuning). Điều này cho thấy tiềm năng lớn của
+việc sử dụng few-shot learning để cải thiện khả năng tổng quát hóa và thích ứng nhanh của các
+mô hình ngôn ngữ lớn với các nhiệm vụ mới mà chúng không được tinh chỉnh trực tiếp.
+Hình 5: Few shot giúp chúng ta phân loại nhanh một số vấn đề trong bài đánh giá bình luận của
+người dùng
+Với Few-Shot Prompting chúng ta có thể một ví dụ duy nhất (nghĩa là học 1-shot) đối với một
+số tác vụ dễ. Đối với một số tác vụ khó khăn hơn, chúng ta có thể thử nghiệm bằng cách tăng số
+lượng mẫu lên (3-shot, 5-shot, 10-shot,...). Dựa vào paper "Rethinking the Role of Demonstrations:
+What Makes In-Context Learning Work?" chúng ta có một số tricks để giúp few-shot prompting
+hiệu quả hơn.
+>>>>>>> HEAD@{1}

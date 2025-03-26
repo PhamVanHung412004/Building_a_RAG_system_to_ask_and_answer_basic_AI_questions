@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 5ada996b-a9f5-4fb4-b7ff-cede8ee3a94e
 Text: AI VIETNAM aivietnam.edu.vn 18 Zero out the parameters of a
 module and return it. 19 """ 20 for p in module . parameters (): 21 p.
@@ -5,3 +6,35 @@ detach (). zero_ () 22 return module 23 24 25 def scale_module (
 module , scale ): 26 """ 27 Scale the parameters of a module and
 return it. 28 """ 29 for p in module . parameters (): 30 p. detach ().
 mul_ ( scale ) ...
+=======
+AI VIETNAM aivietnam.edu.vn
+18 Zero out the parameters of a module and return it.
+19 """
+20 for p in module . parameters ():
+21 p. detach (). zero_ ()
+22 return module
+23
+24
+25 def scale_module ( module , scale ):
+26 """
+27 Scale the parameters of a module and return it.
+28 """
+29 for p in module . parameters ():
+30 p. detach (). mul_ ( scale )
+31 return module
+32
+33
+34 def mean_flat ( tensor ):
+35 """
+36 Take the mean over all non - batch dimensions .
+37 """
+38 return tensor . mean ( dim = list ( range (1 , len ( tensor . shape ))))
+39
+40
+41 def normalization ( channels ):
+42 """
+43 Make a standard normalization layer .
+44
+45 : param channels : number of input channels .
+46 : return : an nn. 
+>>>>>>> HEAD@{1}

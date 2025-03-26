@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 3c177730-78bc-43cc-a4dd-6ba3b79c67e4
 Text: AI VIETNAM aivietnam.edu.vn Caterpillar", "Cheetah", "Chicken",
 "Dragonfly", "Duck", "panda", "Giraffe"], 3 "plant": ["Bamboo",
@@ -5,3 +6,34 @@ Text: AI VIETNAM aivietnam.edu.vn Caterpillar", "Cheetah", "Chicken",
 Mushroom", "Weed", "Fern", "Reed", "Shrub", "Moss", "Grass",
 "Palmtree", "Corn", " Tulip", "Rose", "Clove", "Dogwood", "Durian",
 "Ferns", "Fig", "Flax", "F...
+=======
+AI VIETNAM aivietnam.edu.vn
+Caterpillar", "Cheetah", "Chicken", "Dragonfly", "Duck", "panda", "Giraffe"],
+3 "plant": ["Bamboo", "Apple", "Apricot", "Banana", "Bean", "Wildflower", "Flower", "
+Mushroom", "Weed", "Fern", "Reed", "Shrub", "Moss", "Grass", "Palmtree", "Corn", "
+Tulip", "Rose", "Clove", "Dogwood", "Durian", "Ferns", "Fig", "Flax", "Frangipani", "
+Lantana", "Hibiscus", "Bougainvillea", "Pea", "OrchidTree", "RangoonCreeper", "
+Jackfruit", "Cottonplant", "Corneliantree", "Coffeeplant", "Coconut", "wheat", "
+watermelon", "radish", "carrot"],
+4 "furniture": ["bed", "cabinet", "chair", "chests", "clock", "desks", "table", "Piano", "
+Bookcase", "Umbrella", "Clothes", "cart", "sofa", "ball", "spoon", "Bowl", "fridge", "
+pan", "book"],
+5 "scenery": ["Cliff", "Bay", "Coast", "Mountains", "Forests", "Waterbodies", "Lake", "
+desert", "farmland", "river", "hedges", "plain", "sky", "cave", "cloud", "flowergarden
+", "glacier", "grassland", "horizon", "lighthouse", "plateau", "savannah", "valley", "
+volcano", "waterfall"]
+6 }
+7
+8 urltopic = {"flickr": "https://www.flickr.com/search/?text={search_term}"}
+9 scraper = UrlScraper(url_template=urltopic["flickr"], max_images=20, max_workers=5)
+10 image_urls = scraper.scrape_urls(categories)
+11 scraper.save_to_file(image_urls, ’image_urls.json’)
+4.0.2 Thu thập dữ liệu - Crawl ảnh từ URL
+Mục tiêu:
+• Đọc nội dung từ file json (file kết quả của bước đầu tiên)
+• Tải ảnh theo các thư mục phân cấp
+• Xử lí đa luồng và polite delay
+Sau khi thực hiện crawl url của ảnh thành công, chúng ta sẽ nhận được kết quả là một file chứa các
+đường dẫn image_urls.json như sau:
+27
+>>>>>>> HEAD@{1}

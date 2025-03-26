@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: ba6459fb-63c5-4fd9-a729-86640072d6cd
 Text: Trong quá trình này, hàm trích xuất danh sách câu hỏi, mã hóa
 thông tin đầu vào bằng tokenizer, và trích xuất offset_mapping và
@@ -5,3 +6,17 @@ sample_map để ánh xạ vị trí từ mã hóa về văn bản gốc. Hàm c
 định vị trí bắt đầu và kết thúc của câu trả lời trong ngữ cảnh và thêm
 thông tin về vị trí này vào biến inputs. 1 # Định nghĩa hàm
 preprocess_training_e...
+=======
+Trong quá trình này,
+hàm trích xuất danh sách câu hỏi, mã hóa thông tin đầu vào bằng tokenizer, và trích
+xuất offset_mapping và sample_map để ánh xạ vị trí từ mã hóa về văn bản gốc. Hàm
+cũng xác định vị trí bắt đầu và kết thúc của câu trả lời trong ngữ cảnh và thêm thông
+tin về vị trí này vào biến inputs.
+1 # Định nghĩa hàm preprocess_training_examples và nhận tham số examples
+2 # là dữ liệu training
+3 def preprocess_training_examples(examples):
+4 # Trích xuất danh sách câu hỏi từ examples và
+5 # loại bỏ các khoảng trắng dư thừa
+6 questions = [q.strip() for q in examples["question"]]
+4
+>>>>>>> HEAD@{1}

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 2433c0e4-65e9-4906-ad97-9321f04665de
 Text: Nhờ vậy, Mamba có độ phức tạp thấp hơn nhiều so với Transformer,
 chỉO(n) so với O(n2) của Transformer (vớin là chiều dài sequence). Bên
@@ -5,3 +6,11 @@ cạnh đó, Mamba cho độ chính xác cao khi chiều dài sequence tăng (l�
 đến hàng triệu). Trong bài viết này, ta sẽ tìm hiểu cách các nhà
 nghiên cứu đã áp dụng kiến trúc Mamba vào data dạng ảnh, thông qua các
 bài pa...
+=======
+Nhờ vậy, Mamba có độ phức tạp thấp hơn
+nhiều so với Transformer, chỉO(n) so với O(n2) của Transformer (vớin là chiều dài sequence). Bên
+cạnh đó, Mamba cho độ chính xác cao khi chiều dài sequence tăng (lên đến hàng triệu).
+Trong bài viết này, ta sẽ tìm hiểu cách các nhà nghiên cứu đã áp dụng kiến trúc Mamba vào data dạng
+ảnh, thông qua các bài paper sau:
+1
+>>>>>>> HEAD@{1}

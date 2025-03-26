@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Node ID: 64e18206-6567-49c4-b8a5-1c8c36e3a256
 Text: AI VIETNAM aivietnam.edu.vn sinh video và nén video trong các
 chiều thời gian và không gian, trong khi vẫn có tính hồi quy theo thời
@@ -5,3 +6,15 @@ gian. Khối Encoder: Hình 9: Kiến trúc của khối encoder Khối encoder
 chuyển chuỗi video thành các token biểu diễn nhỏ gọn phù hợp để xử lý
 bởi các lớp transformers của mô hình.Quy trình bắt đầu với một chuỗi
 video b...
+=======
+AI VIETNAM aivietnam.edu.vn
+sinh video và nén video trong các chiều thời gian và không gian, trong khi vẫn có tính hồi quy theo thời
+gian.
+Khối Encoder:
+Hình 9: Kiến trúc của khối encoder
+Khối encoder chuyển chuỗi video thành các token biểu diễn nhỏ gọn phù hợp để xử lý bởi các lớp
+transformers của mô hình.Quy trình bắt đầu với một chuỗi video ban đầu ở không gian bốn chiều biểu
+diễn thời gian, chiều cao, chiều rộng và kênh màu. Chuỗi này sau đó được nén thành biểu diễn token
+nhỏ hơn phân biệt giữa khung hình đầu tiên và các token video không gian-thời gian tiếp theo, phụ
+thuộc vào các khung hình trước.
+>>>>>>> HEAD@{1}
