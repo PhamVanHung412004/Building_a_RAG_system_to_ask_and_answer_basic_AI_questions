@@ -1,7 +1,6 @@
-Node ID: 23a19070-d1f1-4e67-ad5f-35fa79625f84
-Text: Bây giờ chúng ta sẽ tìm hiểu một số lý do mà một hệ thống Naive
-RAG sẽ gặp phải làm ảnh hưởng tới hiệu suất của nó. Hình 15: Một số
-vấn đề của Naive RAG Với hình trên chúng ta thấy rằng cả ba quá trình
-Indexing, Retrieval và Generation đều gặp phải những vấn đề riêng của
-chúng. Những vấn đề này có thể là độc lập hoặc liên quan với nhau để
-"cùng 14
+Bây giờ chúng ta sẽ tìm hiểu một số lý do mà một hệ thống
+Naive RAG sẽ gặp phải làm ảnh hưởng tới hiệu suất của nó.
+Hình 15: Một số vấn đề của Naive RAG
+Với hình trên chúng ta thấy rằng cả ba quá trình Indexing, Retrieval và Generation đều gặp phải
+những vấn đề riêng của chúng. Những vấn đề này có thể là độc lập hoặc liên quan với nhau để "cùng
+14

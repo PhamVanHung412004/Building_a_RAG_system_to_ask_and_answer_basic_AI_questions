@@ -1,7 +1,14 @@
-Node ID: ea5a559f-5922-4afd-8305-86f9012f92c4
-Text: YOLOv3 YOLOv3 [3] ra mắt năm 2018, tiếp tục cải tiến từ YOLOv2.
-Hình 6: Kiến trúc mô hình YOLOv3. Ảnh: [3]. - Điểm mới: Sử dụng mạng
-Darknet-53 và detect object ở ba cấp độ khác nhau (multi-scale
-detection) để cải thiện độ chính xác. - Ưu điểm: Độ chính xác cao hơn,
-khả năng phát hiện object nhỏ tốt hơn. - Nhược điểm: Tốc độ chậm hơn
-so với các ...
+YOLOv3
+YOLOv3 [3] ra mắt năm 2018, tiếp tục cải tiến từ YOLOv2.
+Hình 6: Kiến trúc mô hình YOLOv3. Ảnh: [3].
+- Điểm mới: Sử dụng mạng Darknet-53 và detect object ở ba cấp độ khác nhau (multi-scale
+detection) để cải thiện độ chính xác.
+- Ưu điểm: Độ chính xác cao hơn, khả năng phát hiện object nhỏ tốt hơn.
+- Nhược điểm: Tốc độ chậm hơn so với các phiên bản trước do sự phức tạp của mô hình.
+II.V. YOLOv4
+YOLOv4 [4] ra mắt năm 2020, với mục tiêu cải thiện cả độ chính xác và tốc độ.
+- Điểm mới: Sử dụng nhiều kỹ thuật mới như CSPDarknet53, PANet, và nhiều cải tiến
+khác.
+- Ưu điểm: Cân bằng tốt giữa tốc độ và độ chính xác, dễ dàng sử dụng và triển khai.
+- Nhược điểm: Yêu cầu phần cứng mạnh để đạt hiệu năng tối ưu.
+5

@@ -1,7 +1,16 @@
-Node ID: 5e5f48a4-3fc5-4d5f-9384-023857828227
-Text: shape [0] , self . shape [1]) , 41 dtype ="f") 42 weights = np.
-ones ((2 , self . shape [0] , self . shape [1]) , 43 dtype ="f") 44
-recon_const = np. zeros ((1 , self . shape [0] , self . shape [1]) ,
-45 dtype ="f") 46 recon_const_outres = np. zeros ((1 , self . outshape
-[0] , self . outshape [1]) , 47 dtype ="f") 48 greyfeats = np. zeros
-((512 ...
+shape [0] , self . shape [1]) ,
+41 dtype ="f")
+42 weights = np. ones ((2 , self . shape [0] , self . shape [1]) ,
+43 dtype ="f")
+44 recon_const = np. zeros ((1 , self . shape [0] , self . shape [1]) ,
+45 dtype ="f")
+46 recon_const_outres = np. zeros ((1 , self . outshape [0] , self . outshape [1]) ,
+47 dtype ="f")
+48 greyfeats = np. zeros ((512 , 28 , 28) , dtype ="f")
+49
+50 # Read and reshape
+51 img_large = cv2 . imread ( self . img_fns [ idx ])
+52 if self . shape is not None :
+53 img = cv2 . resize ( img_large , ( self . shape [0] , self . shape [1]) )
+54 img_outres = cv2 . resize ( img_large ,
+4

@@ -1,7 +1,11 @@
-Node ID: 8d0985ed-cc4f-4e02-9260-efba8b9f976c
-Text: AI VIETNAM aivietnam.edu.vn 1 X = [’Sunny ’,’Cool ’, ’High ’, ’
-Strong ’] 2 data = create_train_data () 3 prior_probability ,
-conditional_probability , list_x_name = train_naive_bayes ( data ) 4
-pred = prediction_play_tennis (X, list_x_name , prior_probability ,
-conditional_probability ) 5 6 if( pred ): 7 print ("Ad should go!") 8
-else : 9 print...
+AI VIETNAM aivietnam.edu.vn
+1 X = [’Sunny ’,’Cool ’, ’High ’, ’ Strong ’]
+2 data = create_train_data ()
+3 prior_probability , conditional_probability , list_x_name = train_naive_bayes ( data )
+4 pred = prediction_play_tennis (X, list_x_name , prior_probability ,
+conditional_probability )
+5
+6 if( pred ):
+7 print ("Ad should go!")
+8 else :
+9 print ("Ad should not go!")

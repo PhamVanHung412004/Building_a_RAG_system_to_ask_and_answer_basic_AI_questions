@@ -1,7 +1,25 @@
-Node ID: d90a82f1-c959-49f1-b2ba-c3685d6cdbf1
-Text: AI VIETNAM aivietnam.edu.vn Phần II: Nội dung 1. Giới thiệu
-Video data • Video data: Video là chuỗi của các frame theo thời gian,
-ví dụ một video cóT frame và mỗi frame có kích thước(3 x W x H) thì
-video sẽ có kích thước(T x 3 x W x H) (tensor 4 chiều). • Đặc điểm:
-Video có kích thước rất lớn, ví dụ một video thông thường có khoảng 30
-frame, khi...
+AI VIETNAM aivietnam.edu.vn
+Phần II: Nội dung
+1. Giới thiệu Video data
+• Video data: Video là chuỗi của các frame theo thời gian, ví dụ một video cóT frame và mỗi
+frame có kích thước(3 x W x H) thì video sẽ có kích thước(T x 3 x W x H) (tensor 4 chiều).
+• Đặc điểm: Video có kích thước rất lớn, ví dụ một video thông thường có khoảng 30 frame,
+khi kích thước mỗi frame là(3 x 640 x 480) thì dung lượng của video (khi chưa nén) xấp xỉ
+1.5GB/phút, khi kích thước mỗi frame là(3 x 1920 x 1080) thì dung lượng xấp xỉ10GB/phút.
+Video có kích thước rất lớn khi so sánh với các loại data khác như ảnh, âm thanh, hoặc
+text. Vì thế, trong các bài toán video classification, ta thường dùng video có kích thước nhỏ,
+(T x 3 x 112 x 112) hoặc (T x 3 x 224 x 224) cùng với số lượng frameT nhỏ (ví dụ16 FPS).
+Đối với các trường hợp video có tính thống nhất từ đầu đến cuối, tức label của video sẽ giống
+nhau dù ta chỉ nhìn vào 1 phần ngắn của video thì ta có thể chia video thành nhiều clip
+ngắn và train model. Ví dụ ta có 1 video 30s phân loại các hoạt động thể thao, ta có thể
+chia video thành các clip ngắn (5s) rồi train model. Khi inference thực tế, ta sẽ chia video
+thành nhiều clip ngắn rồi predict trên các clip ngắn này, kết quả cuối cùng sẽ được tổng hợp
+lại (tham khảo hình 2).
+Hình 2: Minh họa cách chia video thành các clip ngắn khi train và cách inference sau khi đã train model.
+• Thách thức: các bài toán về video luôn có độ phức tạp rất cao do nhiều tính chất từ video,
+một số thách thức về video như:
+– Chỉ một phần nhỏ của đối tượng (quyết định label) xuất hiện trong video,
+– Video tại các vị trí đông người,
+– Các hành động chính (quyết định label) chỉ diễn ra trong một khoảng thời gian ngắn
+trong toàn bộ video,
+– Video có độ phân giải thấp.

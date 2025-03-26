@@ -1,7 +1,29 @@
-Node ID: cd82da12-802b-40e6-8002-bd92751a1325
-Text: AI VIETNAM (AIO2024) aivietnam.edu.vn II. Cài đặt chương trình
-Trong phần này, ta sẽ tiến hành cài đặt chương trình phân loại tin
-nhắn rác hay không với Naive Bayes. Chương trình được cài đặt trên
-Google Colab. Các bước thực hiện như sau: 1. Tải bộ dữ liệu:Đầu tiên,
-chúng ta cùng nhìn qua bộ dataset sẽ được sử dụng trong bài này thông
-qua bảng s...
+AI VIETNAM (AIO2024) aivietnam.edu.vn
+II. Cài đặt chương trình
+Trong phần này, ta sẽ tiến hành cài đặt chương trình phân loại tin nhắn rác hay không với Naive
+Bayes. Chương trình được cài đặt trên Google Colab. Các bước thực hiện như sau:
+1. Tải bộ dữ liệu:Đầu tiên, chúng ta cùng nhìn qua bộ dataset sẽ được sử dụng trong bài
+này thông qua bảng sau:
+Category Message
+ham Go until jurong point, crazy.. Available only in bugis
+n great world la e buffet... Cine there got a...
+ham Ok lar... Joking wif u oni...
+spam Free entry in 2 a wkly comp to win FA Cup final tkts
+21st May 2005. Text FA to 87121 to receive entr...
+spam FreeMsg Hey there darling it’s been 3 week’s
+now and no word back! I’d like some fun you up for it s...
+... ...
+Quan sát thấy bộ dữ liệu sẽ gồm có 2 cột:
+1. Category: gồm 2 nhãn làHam và Spam, với ý nghĩa như sau:
+• Ham: Là những tin nhắn bình thường, không có mục đích quảng cáo hoặc lừa
+đảo hoặc nói cách khác là người nhận mong muốn nhận được.
+• Spam: Là những tin nhắn không mong muốn, thường có mục đích quảng cáo sản
+phẩm, dịch vụ, hoặc lừa đảo.
+2. Message: là những nội dung bên trong một Messages.
+Nhiệm vụ của chúng ta là dựa vào nội dung Message để phân loại nhị phân với Naive
+Bayes, để xem xét rằng, liệu với nội dung như thế này thì Message đó làSpam hay Ham.
+Để huấn luyện mô hình Naive Bayes giải quyết bài toán này, ta cần tải bộ dữ liệu này về
+máy. Chúng ta có thể tải tại đây hoặc trực tiếp tại trang Kaggle của dataset này tại đây.
+Trong python, với đường dẫn google drive của bộ dữ liệu, ta có thể dùng lệnh sau đây để
+tải về một cách tự động về máy:
+1 # https :// drive . google . 

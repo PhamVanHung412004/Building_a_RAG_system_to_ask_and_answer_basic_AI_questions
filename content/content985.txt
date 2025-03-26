@@ -1,7 +1,29 @@
-Node ID: 459348ed-6ae5-44a2-8bbd-e17aa326148f
-Text: Sau đó, cấp lớn chứa đoạn tài liệu dài hơn, bao chùm ngữ cảnh
-tốt hơn (chứa đoạn nhỏ) được trả về như kết quả tìm kiếm. Giải pháp
-cho phép tìm kiếm chính xác hơn mà vẫn giữ được ngữ cảnh của tài liệu.
-• Sub-Queries: Trong bối cảnh thực tế, rất nhiều loại truy vấn được
-thực hiện. Nhằm tối ưu việc truy vấn, các giải pháp về truy vấn được
-đề xuất, ...
+Sau đó, cấp lớn chứa đoạn tài
+liệu dài hơn, bao chùm ngữ cảnh tốt hơn (chứa đoạn nhỏ) được trả về như kết quả tìm kiếm.
+Giải pháp cho phép tìm kiếm chính xác hơn mà vẫn giữ được ngữ cảnh của tài liệu.
+• Sub-Queries: Trong bối cảnh thực tế, rất nhiều loại truy vấn được thực hiện. Nhằm tối ưu
+việc truy vấn, các giải pháp về truy vấn được đề xuất, từ việc đơn giản hoá truy vấn, truy
+vấn nhiều cấp hay xác định chủ đích truy vấn. Các giải pháp này nhằm tăng cường mức độ
+hoàn thiện của đầu vào truy vấn, cũng như nâng cao mức độ chính xác của kết quả truy vấn.
+• Hypotherical Document Embeddings:Gao et al. (2022) đã đưa ra giải pháp mới với
+quan điểm tìm kiếm dựa trên một câu trả lời giả thuyết sẽ cho kết quả tốt hơn tìm kiếm
+trực tiếp với câu hỏi truy vấn. Giải pháp HyDE sử dụng một LLM để tạo ra một câu trả lời
+giả thuyết cho câu hỏi truy vấn. Sau đó câu trả lời này được sử dụng làm đầu vào cho việc
+tìm kiếm thông tin liên quan. Kết quả tìm kiếm sẽ được đưa trở lại LLM cùng câu hỏi truy
+vấn để tạo ra câu trả lời cuối cùng. Trên thực tế, giải pháp này không phải lúc nào cũng
+hiệu quả do phụ thuộc hoàn toàn vào câu trả lời giả thuyết. Khi chủ đề của câu hỏi không
+có sẵn trong dữ liệu được huấn luyện trước của LLM, kết quả nhận về thường không được
+như mong đợi.
+4 Cấu phần RAG
+Trong nội dung này, chi tiết các giải pháp cho từng cấu phần của hệ thống RAG: Retrieval, Augmented,
+Generation sẽ được đề cập. Mỗi giải pháp có điểm mạnh riêng và phù hợp với các trường hợp cụ thể.
+4.1 Tăng cường (Augmented) và Truy vấn (Retrieval) dữ liệu
+Tăng cường và truy vấn là cấu phần quan trọng trong việc tổ chức và tìm kiếm tài liệu liên quan với
+yêu cầu người dùng (user query). Việc xây dựng một quy trình truy vấn hiệu quả luôn là vấn đề then
+chốt trong mọi hệ thống RAG.
+Trong các mô hình RAG, công tác tổ chức truy vấn bao gồm cả nhiệm vụ tăng cường (augmented)
+tổ chức cơ sở dữ liệu (xử lý dữ liệu thô, lưu trữ, duy trì ngữ nghĩa,...) và nhiệm vụ tìm kiếm tài liệu
+(tra cứu thông tin liên quan theo yêu cầu của người dùng). Dưới góc nhìn của người viết, ba cấu phần
+chính của công tác Truy vấn được phân loại bao gồm: Xử lý dữ liệu đầu vào (Data Structure), Xử lý
+lưu trữ và đại diện ngữ nghĩa (Semantic Representation), Truy vấn - tìm kiếm (Searching).
+5

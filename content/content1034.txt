@@ -1,7 +1,27 @@
-Node ID: 6936e739-c7de-4082-ac1b-9e74d208f592
-Text: Cuối cùng chúng ta sử dụng phương thức get của từ điển để tìm
-công việc tương ứng với thời gian nhập vào. Nếu thời gian nhập vào có
-trong từ điển, phương thức get sẽ trả về công việc tương ứng. Nếu thời
-gian nhập vào không có trong từ điển, phương thức get sẽ trả về giá
-trị mặc định là "Do something else". 2.3 Mactch case Cấu trúc match
-case tro...
+Cuối cùng chúng
+ta sử dụng phương thức get của từ điển để tìm công việc tương ứng với thời gian nhập vào. Nếu thời
+gian nhập vào có trong từ điển, phương thức get sẽ trả về công việc tương ứng. Nếu thời gian nhập vào
+không có trong từ điển, phương thức get sẽ trả về giá trị mặc định là "Do something else".
+2.3 Mactch case
+Cấu trúc match case trong Python cung cấp một cách tiếp cận mạnh mẽ và trực quan để xử lý các điều
+kiện phức tạp. So với if-else, dictionary, và switch case từ các ngôn ngữ khác, match case giúp mã dễ
+đọc hơn, dễ bảo trì hơn, và linh hoạt hơn trong việc kiểm tra các mẫu dữ liệu phức tạp. Cú pháp sử
+dụng tương tự switch case, bắt đầu bằng match và biểu thức cần kiểm tra. Bên trong khối match gồm
+các case, với trường hợp các case đều sai thì sử dụng cú pháp "case _".
+Dưới đây là cách sử dụng match case để xây dựng chương trình theo dõi hoạt động của Tom:
+1 time = input (" Input time : ")
+2 match time :
+3 case "5 AM":
+4 print (" Wake up")
+5 case "6 AM":
+6 print (" Yoga ")
+7 case "7 AM":
+8 print (" Work ")
+9 case _:
+10 print ("Do something else ")
+11
+Trong chương trình trên, đầu tiên chúng ta sử dụng lệnh input để yêu cầu người dùng nhập thời gian
+và lưu giá trị đó vào biến time. Tiếp theo chúng ta kiểm tra giá trị biến time này với cấu trúc match
+case. Một chú ý nhỏ ở đây là dấu gạch dưới _ đại diện cho trường hợp mặc định, khi giá trị của time
+không khớp với bất kỳ trường hợp nào đã liệt kê.
+4

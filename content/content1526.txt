@@ -1,7 +1,23 @@
-Node ID: c802a6ce-b1fd-4948-babf-1fcae15b51d0
-Text: max ( q_table [ new_state ]) - q_table [ state , action ]) 25 26
-if terminated or truncated : 27 break 28 29 state = new_state 30 31
-return q_table 8. Thực hiện huấn luyện: 1 q_table = init_q_table (
-state_space , action_space ) 2 trained_q_table = train ( 3 env , 4
-max_steps , 5 q_table , 6 n_training_episodes , 7 min_epsilon , 8
-max_epsilon , ...
+max ( q_table [ new_state ]) - q_table [ state , action ])
+25
+26 if terminated or truncated :
+27 break
+28
+29 state = new_state
+30
+31 return q_table
+8. Thực hiện huấn luyện:
+1 q_table = init_q_table ( state_space , action_space )
+2 trained_q_table = train (
+3 env ,
+4 max_steps ,
+5 q_table ,
+6 n_training_episodes ,
+7 min_epsilon ,
+8 max_epsilon ,
+9 decay_rate ,
+10 lr ,
+11 gamma
+12 )
+Sau khi quá trình training hoàn tất, ta sẽ có một Q-table với các giá trị Q-value đã được cập nhật.
+8

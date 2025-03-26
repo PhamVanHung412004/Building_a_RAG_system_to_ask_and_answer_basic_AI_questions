@@ -1,7 +1,41 @@
-Node ID: 9e68df52-7eeb-4f4e-a8cf-fcbc0245cde8
-Text: randint (1 , self . num_timesteps , (b ,) , device = y_0 .
-device ). long () 102 gamma_t1 = get_index_from_list ( self . gammas ,
-t -1 , x_shape =(1 , 1)) 103 sqrt_gamma_t2 = get_index_from_list (
-self . gammas , t, x_shape =(1 , 1)) 104 sample_gammas = (
-sqrt_gamma_t2 - gamma_t1 ) * torch . rand ((b, 1) , device = y_0 .
-device ) + gamma_t1 105 ...
+randint (1 , self . num_timesteps , (b ,) , device = y_0 . device ). long ()
+102 gamma_t1 = get_index_from_list ( self . gammas , t -1 , x_shape =(1 , 1))
+103 sqrt_gamma_t2 = get_index_from_list ( self . gammas , t, x_shape =(1 , 1))
+104 sample_gammas = ( sqrt_gamma_t2 - gamma_t1 ) * torch . rand ((b, 1) , device = y_0 .
+device ) + gamma_t1
+105 sample_gammas = sample_gammas . view (b, -1)
+106
+107 noise = noise if noise is not None else torch . randn_like ( y_0 )
+108 y_noisy = self . q_sample (
+109 y_0 =y_0 , sample_gammas = sample_gammas . view (-1, 1, 1, 1) , noise = noise )
+110
+111 noise_hat = self . denoise_fn ( torch . cat ([ y_cond , y_noisy ], dim =1) ,
+sample_gammas )
+112 loss = self . loss_fn ( noise , noise_hat )
+113 return loss
+1 unet_config = {
+2 " in_channel ": 3,
+3 " out_channel ": 2,
+4 " inner_channel ": 64 ,
+5 " channel_mults ": [1 , 2, 4, 8] ,
+6 " attn_res ": [16] ,
+7 " num_head_channels ": 32 ,
+8 " res_blocks ": 2,
+9 " dropout ": 0.2 ,
+10 " image_size ": 128
+11 }
+12
+13 beta_schedule = {
+14 " schedule ": " linear ",
+15 " n_timestep ": 20 ,
+16 " linear_start ": 1e -4 ,
+17 " linear_end ": 0.09
+18 }
+19
+20 colordiff_model = ColorDiffusion ( unet_config , beta_schedule )
+3. Loss and Metrics
+Trong phần này, chúng ta thiết lập hàm mất mát cho mô hình Color Diffusion. Trong đó,L2
+norm, còn được biết đến làMean Square Error, được dùng làm hàm mất mát do sự đa dạng đáng
+kể về mặt kết quả so vớiMean Absolute Error(L1 norm), được kiểm chứng qua quá trình thực
+nghiệm bởi Saharia, C. và các cộng sự. Ngoài ra,MAE cũng đóng vai trò như một độ đo để đánh
+giá mô hình trong dự án này.

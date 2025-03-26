@@ -1,5 +1,16 @@
-Node ID: 498adfdb-6bba-4ed2-adef-c808f0a51cf0
-Text: a) NYUD-V2 b) CIFAR10 c) CIFAR100 d) MNIST Câu hỏi 9Bộ dữ liệu
-NYUD-V2 bao nhiêu sample? a) 499 b) 1119 c) 1449 d) 1999 Câu hỏi 10Độ
-đo để đánh giá cho bài toán semantic segmentation là? a) IoU b)
-F-Score c) Recall d) Precision - Hết - 10
+a) NYUD-V2
+b) CIFAR10
+c) CIFAR100
+d) MNIST
+Câu hỏi 9Bộ dữ liệu NYUD-V2 bao nhiêu sample?
+a) 499
+b) 1119
+c) 1449
+d) 1999
+Câu hỏi 10Độ đo để đánh giá cho bài toán semantic segmentation là?
+a) IoU
+b) F-Score
+c) Recall
+d) Precision
+- Hết -
+10

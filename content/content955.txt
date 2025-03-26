@@ -1,6 +1,5 @@
-Node ID: bb67cfd4-f415-4961-ae55-9cdf46801be2
-Text: AI VIETNAM aivietnam.edu.vn Hàm compute_metrics nhận các đầu vào
-như start_logits, end_logits, features, và examples, và thực hiện các
-bước sau để tính toán các độ đo và kết quả đánh giá mô hình hỏi đáp.
-Trong quá trình tính toán, hàm này tạo một danh sách các câu trả lời
-dự đoán dựa trên các logits được dự đoán bởi mô hình.
+AI VIETNAM aivietnam.edu.vn
+Hàm compute_metrics nhận các đầu vào như start_logits, end_logits, features, và examples,
+và thực hiện các bước sau để tính toán các độ đo và kết quả đánh giá mô hình hỏi đáp. Trong
+quá trình tính toán, hàm này tạo một danh sách các câu trả lời dự đoán dựa trên các logits
+được dự đoán bởi mô hình. 

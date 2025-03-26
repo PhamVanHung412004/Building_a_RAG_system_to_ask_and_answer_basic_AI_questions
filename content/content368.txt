@@ -1,3 +1,4 @@
-Node ID: 99f3978a-4fac-47ec-af67-eb9fe4ae1549
-Text: AI VIETNAM aivietnam.edu.vn 5 super ( Model , self ). __init__
-() 6 cfg = VivitConfig () 7 cfg .
+AI VIETNAM aivietnam.edu.vn
+5 super ( Model , self ). __init__ ()
+6 cfg = VivitConfig ()
+7 cfg . 

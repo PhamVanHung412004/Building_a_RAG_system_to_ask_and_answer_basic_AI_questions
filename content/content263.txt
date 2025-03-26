@@ -1,4 +1,4 @@
-Node ID: 2e1928bf-6c10-4b2d-b4b4-bcc49f33667a
-Text: AI VIETNAM aivietnam.edu.vn Hình 3: Minh họa về tương tác giữa
-hai agent - UserProxyAgent (Trình thực thi code) và AssistantAgent
-(LLM tạo sinh code). 4.
+AI VIETNAM aivietnam.edu.vn
+Hình 3: Minh họa về tương tác giữa hai agent - UserProxyAgent (Trình thực thi code) và AssistantAgent
+(LLM tạo sinh code).
+4. 

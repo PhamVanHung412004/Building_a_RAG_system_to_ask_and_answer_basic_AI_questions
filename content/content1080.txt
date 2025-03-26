@@ -1,7 +1,14 @@
-Node ID: 245b2fda-c841-47ca-9186-dc975561fde5
-Text: Điều này không chỉ làm giảm bớt gánh nặng về dữ liệu mà còn tạo
-điều kiện cho việc áp dụng rộng rãi. Hơn nữa, latent action space mà
-Genie học được mở ra khả năng đào tạo các đại lý để mô phỏng hành vi
-từ video chưa từng thấy, tiến một bước dài hướng tới mục tiêu phát
-triển các generalist agents cho tương lai. Genie bao gồm ba thành phần
-chính: ...
+Điều này không chỉ làm giảm bớt gánh nặng về dữ liệu mà
+còn tạo điều kiện cho việc áp dụng rộng rãi. Hơn nữa, latent action space mà Genie học được mở ra
+khả năng đào tạo các đại lý để mô phỏng hành vi từ video chưa từng thấy, tiến một bước dài hướng
+tới mục tiêu phát triển các generalist agents cho tương lai.
+Genie bao gồm ba thành phần chính: latent action model dự đoán hành động giữa các cặp khung
+hình, video tokenizer chuyển đổi khung hình thô thành token rời rạc, và dynamics model dự đoán khung
+hình tiếp theo dựa trên latent action và khung hình trước. Quá trình đào tạo mô hình diễn ra qua hai
+giai đoạn, bắt đầu với video tokenizer, sau đó đồng thời đào tạo latent action model và dynamics model,
+cho phép tạo ra dòng video liên tục và chân thực từ các pixel, mở ra khả năng tạo ra các trải nghiệm
+ảo đa dạng và phong phú. Sau đây, chúng ta hãy đi vào tìm hiểu từng thành phần chính của Genie.
+ST-TransformerMô hình Genie tích hợp nhiều yếu tố từ kiến trúc Vision Transformer, nổi bật
+với đặc thù là độ phức tạp tính toán tăng theo cấp số nhân. Điều này đặt ra thách thức không nhỏ
+trong việc xử lý video, do đó, nghiên cứu này đã chọn giải pháp sử dụng khối ST-Transformer. Phương
+23

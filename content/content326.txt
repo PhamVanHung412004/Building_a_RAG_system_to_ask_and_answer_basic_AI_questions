@@ -1,7 +1,28 @@
-Node ID: 7285cf1c-9448-4391-a057-18b1cb3cac9f
-Text: AI VIETNAM aivietnam.edu.vn 120 " train_ %05 d_ %05 d" % (
-epochs , batch_idx ), 121 batchsize , 122 net_recon_const =
-batch_recon_const_outres . numpy () , 123 ) 124 125 train_loss = (
-train_loss * 1.0) / ( nbatches ) 126 print (" VAE Train Loss , epoch
-%d has loss %f" % ( epochs , train_loss )) 127 test_loss = test_vae (
-model ) 128 print (" V...
+AI VIETNAM aivietnam.edu.vn
+120 " train_ %05 d_ %05 d" % ( epochs , batch_idx ),
+121 batchsize ,
+122 net_recon_const = batch_recon_const_outres . numpy () ,
+123 )
+124
+125 train_loss = ( train_loss * 1.0) / ( nbatches )
+126 print (" VAE Train Loss , epoch %d has loss %f" % ( epochs , train_loss ))
+127 test_loss = test_vae ( model )
+128 print (" VAE Test Loss , epoch %d has loss %f" % ( epochs , test_loss ))
+129
+130 # Save VAE model
+131 torch . save ( model . state_dict () , "%s/ models / model_vae . pth " % ( out_dir ))
+132
+133 print (" Complete VAE training ")
+134
+135 train_vae ()
+Train MDN model
+1 def test_mdn ( model_vae , model_mdn ):
+2 # Load hyperparameters
+3 out_dir , listdir , featslistdir = get_dirpaths ( args )
+4 batchsize = args [" batchsize "]
+5 hiddensize = args [" hiddensize "]
+6 nmix = args [" nmix "]
+7
+8 # Create DataLoader
+9 data = ColorDataset (
+10 os. path . 

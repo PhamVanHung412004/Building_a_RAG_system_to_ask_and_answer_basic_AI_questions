@@ -1,4 +1,7 @@
-Node ID: 1c432041-2c50-4f70-9f9e-2c774bc71b11
-Text: AI VIETNAM aivietnam.edu.vn (a) Discrete(4) (b) Discrete(5) (c)
-Discrete(6) (d) Discrete(7) 6. Trong Reinforcement Learning, Policy là
-gì? (a) Hàm ánh xạ hành động sang điểm thưởng.
+AI VIETNAM aivietnam.edu.vn
+(a) Discrete(4)
+(b) Discrete(5)
+(c) Discrete(6)
+(d) Discrete(7)
+6. Trong Reinforcement Learning, Policy là gì?
+(a) Hàm ánh xạ hành động sang điểm thưởng.

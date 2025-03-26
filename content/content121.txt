@@ -1,7 +1,12 @@
-Node ID: 780c4195-3ee2-408d-b875-66b5ddf05c19
-Text: AI VIETNAM (AIO2024) aivietnam.edu.vn 2 print (’Start training
-... ’) 3 model = model . fit ( X_train , y_train ) 4 print (’ Training
-completed !’) 5 6 # >> Start training ... 7 # >> Training completed !
-8 # >> CPU times : user 397 ms , sys : 162 ms , total : 559 ms 9 # >>
-Wall time : 633 ms 10 7. Đánh giá mô hình:Sau khi huấn luyện, chúng ta
-đế...
+AI VIETNAM (AIO2024) aivietnam.edu.vn
+2 print (’Start training ... ’)
+3 model = model . fit ( X_train , y_train )
+4 print (’ Training completed !’)
+5
+6 # >> Start training ...
+7 # >> Training completed !
+8 # >> CPU times : user 397 ms , sys : 162 ms , total : 559 ms
+9 # >> Wall time : 633 ms
+10
+7. Đánh giá mô hình:Sau khi huấn luyện, chúng ta đến phần đánh giá hiệu suất của mô
+hình. 

@@ -1,7 +1,16 @@
-Node ID: 5af51c7f-6b27-4b09-8d74-6d8a8fcd2a30
-Text: AI VIETNAM aivietnam.edu.vn Phần II: Nội dung Trong phần này,
-chúng ta sẽ triển khai mô hình Diffusion-based Image Colorization dựa
-trên ý tưởng cơ bản của bài báo Palette: Image-to-Image Diffusion
-Models để học cách biến đổi một hình ảnh xám đầu vào thành một hình
-ảnh màu hợp lý. Cụ thể, ta sẽ xây dựng chương trình dựa trên bộ dữ
-liệu CelebA (L...
+AI VIETNAM aivietnam.edu.vn
+Phần II: Nội dung
+Trong phần này, chúng ta sẽ triển khai mô hình Diffusion-based Image Colorization dựa trên ý tưởng
+cơ bản của bài báo Palette: Image-to-Image Diffusion Models để học cách biến đổi một hình ảnh xám
+đầu vào thành một hình ảnh màu hợp lý. Cụ thể, ta sẽ xây dựng chương trình dựa trên bộ dữ liệu
+CelebA (Large-scale CelebFaces Attributes), một tập dữ liệu lớn được sử dụng rộng rãi trong lĩnh vực
+nhận dạng khuôn mặt và phân loại hình ảnh, chứa hơn 200,000 hình ảnh của nhiều người nổi tiếng từ
+các bộ phim, truyền hình và âm nhạc.
+Hình 3: Ảnh minh họa cho CelebA dataset
+Theo đó, nội dung thực nghiệm sẽ trình bày với các thành phần như sau:
+a) Data Preparation: Chuẩn bị dữ liệu cho tập huấn luyện.
+b) Models: Xây dựng mô hình UNet và mô hình Diffusion cho Colorization.
+c) Loss, Metrics: Xây dựng hàm mất mát và độ đo đánh giá cho mô hình.
+d) Trainer: Xây dựng class Trainer dành riêng cho huấn luyện
+e) Inference: Minh họa kết quả đạt được sau khi huấn luyện mô hình.
+1. 

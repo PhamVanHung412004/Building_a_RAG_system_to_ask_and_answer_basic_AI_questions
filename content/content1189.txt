@@ -1,7 +1,56 @@
-Node ID: 7aa61179-51c7-4d4e-bb8e-6e4918eda2db
-Text: sqrt_recipm1_gammas , t, y_t . shape ) * noise 57 ) 58 59 def
-q_posterior (self , y_0_hat , y_t , t): 60 """ 61 Compute the mean and
-variance of the diffusion posterior : 62 63 q(x_{t -1} | x_t , x_0 )
-64 65 """ 66 posterior_mean = ( 67 get_index_from_list ( self .
-posterior_mean_coef1 , t, y_t . shape ) * y_0_hat + 68
-get_index_from_list ( self...
+sqrt_recipm1_gammas , t, y_t . shape ) * noise
+57 )
+58
+59 def q_posterior (self , y_0_hat , y_t , t):
+60 """
+61 Compute the mean and variance of the diffusion posterior :
+62
+63 q(x_{t -1} | x_t , x_0 )
+64
+65 """
+66 posterior_mean = (
+67 get_index_from_list ( self . posterior_mean_coef1 , t, y_t . shape ) * y_0_hat +
+68 get_index_from_list ( self . posterior_mean_coef2 , t, y_t . shape ) * y_t
+69 )
+70 posterior_log_variance_clipped = get_index_from_list (
+71 self . posterior_log_variance_clipped , t, y_t . shape
+72 )
+73 return posterior_mean , posterior_log_variance_clipped
+74
+75 def p_mean_variance (self , y_t , t, clip_denoised : bool , y_cond = None ):
+76 noise_level = get_index_from_list ( self . gammas , t, x_shape =(1 , 1)).to( y_t .
+device )
+77 y_0_hat = self . predict_start_from_noise (
+78 y_t , t=t, noise = self . denoise_fn ( torch . cat ([ y_cond , y_t ], dim =1) ,
+noise_level ))
+79
+80 if clip_denoised :
+81 y_0_hat . clamp_ ( -1. , 1.)
+82
+83 model_mean , posterior_log_variance = self . q_posterior (
+84 y_0_hat = y_0_hat , y_t =y_t , t=t)
+85 return model_mean , posterior_log_variance
+86
+87 def q_sample (self , y_0 , sample_gammas , noise = None ):
+88 noise = noise if noise is not None else torch . randn_like ( y_0 )
+89 return (
+90 sample_gammas . sqrt () * y_0 +
+91 (1 - sample_gammas ). sqrt () * noise
+92 )
+93
+94 @torch . no_grad ()
+95 def p_sample (self , y_t , t, clip_denoised =True , y_cond = None ):
+96 model_mean , model_log_variance = self . p_mean_variance (
+97 y_t =y_t , t=t, clip_denoised = clip_denoised , y_cond = y_cond )
+98 noise = torch . randn_like ( y_t ) if any (t >0) else torch . zeros_like ( y_t )
+99 return model_mean + noise * (0.5 * model_log_variance ). exp ()
+100
+101 @torch . no_grad ()
+102 def restoration (self , y_cond , y_t =None , y_0 =None , mask =None , sample_num =8) :
+103 b, *_ = y_cond . shape
+104
+105 sample_inter = ( self . num_timesteps // sample_num )
+106
+107 y_t = y_t if y_t is not None else torch . randn_like ( y_cond )
+108 ret_arr = y_t
+21

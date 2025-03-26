@@ -1,7 +1,15 @@
-Node ID: a9f07dd5-0f99-494d-ab00-544f3bf006e1
-Text: Daily AI Exercise (AIO) Ngày 9 tháng 4 năm 2024 10 # Query để
-lấy thông tin sản phẩm có giá bán cao nhất 11 query = """ 12 SELECT
-NAME, MAX(price) AS PRICE 13 FROM PRODUCT; 14 """ 15 data_max =
-pd.read_sql_query(query, connection) 16 print(data_max) → Kết quả: •
-Hàm thống kê với GROUP BY: GROUP BYlà một mệnh đề trong SQL được sử
-dụng để nhóm các...
+Daily AI Exercise (AIO) Ngày 9 tháng 4 năm 2024
+10 # Query để lấy thông tin sản phẩm có giá bán cao nhất
+11 query = """
+12 SELECT NAME, MAX(price) AS PRICE
+13 FROM PRODUCT;
+14 """
+15 data_max = pd.read_sql_query(query, connection)
+16 print(data_max)
+→ Kết quả:
+• Hàm thống kê với GROUP BY:
+GROUP BYlà một mệnh đề trong SQL được sử dụng để nhóm các hàng dựa
+trên các giá trị chung trong một hoặc nhiều cột và thực hiện các phép tính tổng
+hợp trên các nhóm đó.
+Hàm thống kê được sử dụng để tính toán các giá trị như tổng, trung bình, giá trị
+tối đa, giá trị tối thiểu, v.v. 

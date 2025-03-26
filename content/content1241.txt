@@ -1,7 +1,29 @@
-Node ID: 97a7dc73-b245-4fb8-bcd1-dc27a009b7be
-Text: open ( image_path ). convert (" RGB ") 26 text = question 27 28
-encoding = self . processor ( image , text , padding =" max_length ",
-truncation =True , return_tensors ="pt") 29 labels = self . processor
-. tokenizer . encode ( 30 answer , max_length = 8, pad_to_max_length
-=True , return_tensors =’pt ’ 31 ) 32 encoding [" labels "] = labels
-33 fo...
+open ( image_path ). convert (" RGB ")
+26 text = question
+27
+28 encoding = self . processor ( image , text , padding =" max_length ", truncation =True ,
+return_tensors ="pt")
+29 labels = self . processor . tokenizer . encode (
+30 answer , max_length = 8, pad_to_max_length =True , return_tensors =’pt ’
+31 )
+32 encoding [" labels "] = labels
+33 for k,v in encoding . items (): encoding [k] = v. squeeze ()
+34 return encoding
+2.2. Load Model
+1 import torch
+2 from peft import LoraConfig , get_peft_model
+3 from transformers import BlipProcessor , BlipForQuestionAnswering
+4
+5 processor = BlipProcessor . from_pretrained (" Salesforce /blip -vqa - base ")
+6 model = BlipForQuestionAnswering . from_pretrained (" Salesforce /blip -vqa - base ")
+7
+8 config = LoraConfig (
+9 r=16 ,
+10 lora_alpha =32 ,
+11 lora_dropout =0.05 ,
+12 bias =" none ",
+13 target_modules =[" query ", " key "]
+14 )
+15
+16 model = get_peft_model ( model , config )
+17 device = torch . device (" cuda " if torch . 

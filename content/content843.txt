@@ -1,7 +1,21 @@
-Node ID: ff0ea270-5a28-4fcd-92fc-a65776f8a82b
-Text: Trong quá trình tìm kiếm ảnh, một hình ảnh truy vấn được đưa vào
-mô hình, mô hình sẽ tính toán đặc trưng của hình ảnh truy vấn và so
-sánh chúng với các đặc trưng đã được tính toán trước của những hình
-ảnh được lưu trữ trên hệ thống. Sự tương đồng giữa các đặc trưng này
-được sử dụng để xác định các hình ảnh có liên quan nhất, và kết quả là
-những ...
+Trong quá trình tìm kiếm ảnh, một hình ảnh truy vấn được đưa vào mô hình, mô hình sẽ tính toán đặc
+trưng của hình ảnh truy vấn và so sánh chúng với các đặc trưng đã được tính toán trước của những
+hình ảnh được lưu trữ trên hệ thống. Sự tương đồng giữa các đặc trưng này được sử dụng để xác định
+các hình ảnh có liên quan nhất, và kết quả là những hình ảnh tương tự nhất với hình ảnh truy vấn được
+trả về cho người dùng. Những mô hình này có khả năng phân tích và nhận diện các đặc tính phức tạp
+của ảnh như kết cấu, hình dạng, và màu sắc, do đó chúng rất hiệu quả trong việc tìm kiếm và lấy lại
+hình ảnh dựa trên nội dung.
+2.2.1 Truy vấn hình ảnh với pretrained deep learning model
+Để bắt đầu quá trình truy vấn hình ảnh sử dụng pretrained deep learning model, trước tiên, chúng ta
+cần cài đặt hai thư viện quan trọng là chromadb và open-clip-torch. Thư viện chromadb hỗ trợ việc
+quản lý và truy xuất dữ liệu hình ảnh hiệu quả (chúng ta cũng sử dụng thêm với mục đích tạo vector
+database), và chromadb có thể dùng open-clip-torch để cung cấp khả năng sử dụng mô hình CLIP đã
+được đào tạo sẵn, đây là một công cụ mạnh mẽ để phân tích nội dung hình ảnh thông qua học sâu.
+1 pip install chromadb
+2 pip install open-clip-torch
+Import các thư viện cần thiết
+1 import os
+2 import numpy as np
+3 from PIL import Image
+4 import matplotlib.pyplot as plt
+10

@@ -1,7 +1,43 @@
-Node ID: 2be8ba49-9ae4-40d2-88ca-8441ea12bb9d
-Text: device ) 59 y_0_hat = self . predict_start_from_noise ( 60 y_t ,
-t=t, noise = self . denoise_fn ( torch . cat ([ y_cond , y_t ], dim
-=1) , noise_level )) 61 62 if clip_denoised : 63 y_0_hat . clamp_ (
--1. , 1.) 64 65 model_mean , posterior_log_variance = self .
-q_posterior ( 66 y_0_hat = y_0_hat , y_t =y_t , t=t) 67 return
-model_mean , posterior...
+device )
+59 y_0_hat = self . predict_start_from_noise (
+60 y_t , t=t, noise = self . denoise_fn ( torch . cat ([ y_cond , y_t ], dim =1) ,
+noise_level ))
+61
+62 if clip_denoised :
+63 y_0_hat . clamp_ ( -1. , 1.)
+64
+65 model_mean , posterior_log_variance = self . q_posterior (
+66 y_0_hat = y_0_hat , y_t =y_t , t=t)
+67 return model_mean , posterior_log_variance
+68
+69 def q_sample (self , y_0 , sample_gammas , noise = None ):
+70 noise = noise if noise is not None else torch . randn_like ( y_0 )
+71 return (
+72 sample_gammas . sqrt () * y_0 +
+73 (1 - sample_gammas ). sqrt () * noise
+74 )
+75
+76 @torch . no_grad ()
+77 def p_sample (self , y_t , t, clip_denoised =True , y_cond = None ):
+78 model_mean , model_log_variance = self . p_mean_variance (
+79 y_t =y_t , t=t, clip_denoised = clip_denoised , y_cond = y_cond )
+80 noise = torch . randn_like ( y_t ) if any (t >0) else torch . zeros_like ( y_t )
+81 return model_mean + noise * (0.5 * model_log_variance ). exp ()
+82
+83 @torch . no_grad ()
+84 def restoration (self , y_cond , y_t =None , y_0 =None , sample_num =8) :
+85 b, _, h, w = y_cond . shape
+86
+87 sample_inter = ( self . num_timesteps // sample_num )
+88
+89 y_t = y_t if y_t is not None else torch . randn ((b, 2, h, w))
+90 y_t = y_t .to( y_cond . device )
+91 ret_arr = y_t
+92 for i in reversed ( range (0 , self . num_timesteps )):
+93 t = torch . full ((b ,) , i, device = y_cond . device , dtype = torch . long )
+94 y_t = self . p_sample (y_t , t, y_cond = y_cond )
+95 ret_arr = torch . cat ([ ret_arr , y_t ], dim =0)
+96 return y_t , ret_arr
+97
+98 def forward (self , y_0 , y_cond =None , noise = None ):
+18

@@ -1,7 +1,19 @@
-Node ID: f6da4eab-8404-4954-ba45-c9cac8d5ac33
-Text: AI VIETNAM aivietnam.edu.vn và lấy final hidden state của token
-[CLS] để làm vector embedding: 1 model = AutoModel . from_pretrained (
-MODEL_NAME ) 2 def quest_embedding ( batch ): 3 sentence_embs = model
-( 4 input_ids = batch [’ input_ids ’], 5 attention_mask = batch [’
-attention_mask ’] 6 ) 7 batch [’ question_embedding ’] = sentence_embs
-. la...
+AI VIETNAM aivietnam.edu.vn
+và lấy final hidden state của token [CLS] để làm vector embedding:
+1 model = AutoModel . from_pretrained ( MODEL_NAME )
+2 def quest_embedding ( batch ):
+3 sentence_embs = model (
+4 input_ids = batch [’ input_ids ’],
+5 attention_mask = batch [’ attention_mask ’]
+6 )
+7 batch [’ question_embedding ’] = sentence_embs . last_hidden_state [: , 0]
+8
+9 return batch
+Hình 9: Final hidden state của token [CLS] trong BERT
+(f) Xây dựng hàm cập nhật dữ liệu SQuADv2 vào Collection:Hàm này sẽ tải về bộ dữ
+liệu SQuADv2 gốc và thực hiện đưa từng sample vào Collection:
+1 def create_squad_database ( qa_collection ):
+2 squad_v2_dataset = load_dataset ( DATASET_NAME , split =’all ’)
+3 squad_v2_dataset = squad_v2_dataset . train_test_split ( test_size =
+INSERT_RATIO , seed =0) [’test ’]
+4 squad_v2_dataset = squad_v2_dataset . 

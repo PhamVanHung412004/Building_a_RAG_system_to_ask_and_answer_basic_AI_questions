@@ -1,7 +1,23 @@
-Node ID: 0595b6f5-e113-4b7c-ab91-8d9c26fbbbf9
-Text: AI VIETNAM (AIO2024) aivietnam.edu.vn (a) Tính tổng các cost (l1
-hoặc l2) giữa các cặp pixel left[h + v, w + u] và right [h + v, w + u
-- d] (trong đó d∈ [0, disparity_range] và u, v∈ [-kernel_half,
-kernel_half]) nằm trong vùng window với tâm là vị trí của pixel đang
-xét. Nếu tại vị trí cho (w + u - d) < 0 thì gán giá trị cost của cặp
-pixel đang ...
+AI VIETNAM (AIO2024) aivietnam.edu.vn
+(a) Tính tổng các cost (l1 hoặc l2) giữa các cặp pixel left[h + v, w + u] và right [h + v,
+w + u - d] (trong đó d∈ [0, disparity_range] và u, v∈ [-kernel_half, kernel_half])
+nằm trong vùng window với tâm là vị trí của pixel đang xét. Nếu tại vị trí cho (w +
+u - d) < 0 thì gán giá trị cost của cặp pixel đang xét = max_cost (max_cost =255
+nếu dùng L1 hoặc2552 nếu dùng L2).
+(b) Với danh sách cost tính được, chọn giá trị d (doptimal) mà ở đó cho giá trị cost tổng là
+nhỏ nhất.
+(c) Gán depth[h, w] =doptimal × scale. Trong đó,scale = 255
+disparity_range (Ở Problem 02,
+các bạn gán mặc định giá trịscale = 3).
+Dựa theo mô tả các bước triển khai thuật toán, các bạn có thể cài đặt code như sau:
+1 import cv2
+2 import numpy as np
+3
+4 def distance (x, y):
+5 return abs (x - y)
+6
+7 def window_based_matching ( left_img , right_img , disparity_range , kernel_size =5 ,
+save_result = True ):
+8 # Read left , right images then convert to grayscale
+9 left = cv2 . imread ( left_img , 0)
+10 right = cv2 . 

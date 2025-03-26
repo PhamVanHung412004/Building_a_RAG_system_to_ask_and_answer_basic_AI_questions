@@ -1,7 +1,32 @@
-Node ID: deb3e154-c5e3-49a7-9e62-00a6e9dcc7dd
-Text: append ( loss . item ()) 33 self . optimizer . step () 34 return
-sum ( losses )/ len ( losses ) 35 36 def val_step ( self ): 37 self .
-model . eval () 38 losses , metrics = [] , [] 39 with torch . no_grad
-(): 40 for batch in tqdm ( self . val_loader ): 41 gt_image = batch [’
-gt_image ’]. to( self . device ) 42 cond_image = batch [’ cond_image
-’]...
+append ( loss . item ())
+33 self . optimizer . step ()
+34 return sum ( losses )/ len ( losses )
+35
+36 def val_step ( self ):
+37 self . model . eval ()
+38 losses , metrics = [] , []
+39 with torch . no_grad ():
+40 for batch in tqdm ( self . val_loader ):
+41 gt_image = batch [’ gt_image ’]. to( self . device )
+42 cond_image = batch [’ cond_image ’]. to( self . device )
+43 mask = batch [’mask ’]. to( self . device )
+44 mask_image = batch [’ mask_image ’]. to( self . device )
+45 loss = self . model ( gt_image , cond_image , mask = mask )
+46
+47 output , visuals = self . model . restoration (
+48 cond_image , y_t = cond_image , y_0 = gt_image , mask =mask , sample_num =
+self . sample_num )
+49 mae_score = mae ( gt_image , output )
+50
+51 losses . append ( loss . item ())
+52 metrics . append ( mae_score . item ())
+53 return sum ( losses )/ len ( losses ), sum ( metrics )/ len ( metrics )
+54
+55 def train ( self ):
+56 best_mae = 100000
+57 for epoch in range ( self . epochs ):
+58 epoch_start_time = time . time ()
+59 train_loss = self . train_step ()
+60 val_loss , val_mae = self . val_step ()
+61 if val_mae < best_mae :
+62 torch . save ( self . 

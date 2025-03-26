@@ -1,7 +1,17 @@
-Node ID: 1c5f4306-cf6b-40b1-94a2-a7004a7b9374
-Text: AI VIETNAM aivietnam.edu.vn của mô hình cũng như hàm prediction.
-Vậy nên, ta sẽ đưa các thông tin trên thành hai file riêng biệt: _ Với
-models/catdog_model.py: Dùng để chứa định nghĩa class của mô hình. Ở
-đây, ta đơn giản copy lại thông tin ở file notebook vào: 1 import
-torch 2 import torch .nn as nn 3 4 from torchvision . models import
-resnet18...
+AI VIETNAM aivietnam.edu.vn
+của mô hình cũng như hàm prediction. Vậy nên, ta sẽ đưa các thông tin trên thành hai file
+riêng biệt:
+_ Với models/catdog_model.py: Dùng để chứa định nghĩa class của mô hình. Ở đây, ta đơn
+giản copy lại thông tin ở file notebook vào:
+1 import torch
+2 import torch .nn as nn
+3
+4 from torchvision . models import resnet18
+5
+6 class CatDogModel (nn. Module ):
+7 def __init__ (self , n_classes ):
+8 super ( CatDogModel , self ). __init__ ()
+9
+10 resnet_model = resnet18 ( weights =’ IMAGENET1K_V1 ’)
+11 self . backbone = nn. Sequential (* list ( resnet_model . children ()) [: -1])
+12 for param in self . backbone . 

@@ -1,7 +1,44 @@
-Node ID: 67c9ff3d-75d7-49ed-97ea-4b5250503b02
-Text: Điều này phản ánh tính chất của OU process, nơi xác suất của sự
-biến động ngẫu nhiên tăng lên khi x cách xa giá trị kỳ vọng. 15.4.3 1D
-diffusion from a Gaussian mixture Ta có 1D Gaussian mixture với M
-mixture components: p0(x) = MX j=1 wj 1q 2πs2 j exp ( −[x − µj]2 2s2 j
-) (55) Xác Suất Sau Quá Trình Diffusion p(x, t) = Z ∞ −∞ p(x, t|x0,
-0)p0(x0...
+Điều này phản ánh tính chất của OU process,
+nơi xác suất của sự biến động ngẫu nhiên tăng lên khi x cách xa giá trị kỳ vọng.
+15.4.3 1D diffusion from a Gaussian mixture
+Ta có 1D Gaussian mixture với M mixture components:
+p0(x) =
+MX
+j=1
+wj
+1q
+2πs2
+j
+exp
+(
+−[x − µj]2
+2s2
+j
+)
+(55)
+Xác Suất Sau Quá Trình Diffusion
+p(x, t) =
+Z ∞
+−∞
+p(x, t|x0, 0)p0(x0) dx0
+=
+MX
+j=1
+wj
+1q
+2π(s2
+j + σ2t)
+exp
+(
+− [x − µj]2
+2(s2
+j + σ2t)
+)
+.
+(56)
+Trong đó:
+• p(x, t) là xác suất phân phối tại vị trí x và thời điểm t sau quá trình diffusion từ điều kiện ban
+đầu là hỗn hợp Gaussianp0(x0).
+• Đoạn tích phân trên là tích phân qua tất cả các điều kiện ban đầu có thể, mỗi điều kiện ban đầu
+được đánh trọng số bởip0(x0).
+23

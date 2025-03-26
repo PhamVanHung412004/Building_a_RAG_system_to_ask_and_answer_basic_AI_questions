@@ -1,4 +1,4 @@
-Node ID: f5057483-a8f6-4754-bf67-02aecf94dd75
-Text: Để tạo được notebook, các bạn thực hiện thao tác theo hình dưới
-đây: Hình 6: Khởi tạo notebook mới • Bước 3:Thay đổi runtime của
-notebook từ CPU thành GPU. 4
+Để tạo được notebook, các bạn thực hiện thao tác theo hình dưới đây:
+Hình 6: Khởi tạo notebook mới
+• Bước 3:Thay đổi runtime của notebook từ CPU thành GPU.
+4

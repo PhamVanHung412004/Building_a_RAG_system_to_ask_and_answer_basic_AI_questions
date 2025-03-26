@@ -1,7 +1,41 @@
-Node ID: 9533fa45-45bf-4a19-a80f-1338e07c5c6a
-Text: AI VIETNAM aivietnam.edu.vn 13 return_overflowing_tokens=True,
-14 return_offsets_mapping=True, 15 padding="max_length", 16 ) 17 18 #
-Lấy ánh xạ để ánh xạ lại ví dụ tham chiếu cho từng dòng trong inputs
-19 sample_map = inputs.pop("overflow_to_sample_mapping") 20
-example_ids = [] 21 22 # Xác định ví dụ tham chiếu cho mỗi dòng đầu
-vào và 23 # điều ...
+AI VIETNAM aivietnam.edu.vn
+13 return_overflowing_tokens=True,
+14 return_offsets_mapping=True,
+15 padding="max_length",
+16 )
+17
+18 # Lấy ánh xạ để ánh xạ lại ví dụ tham chiếu cho từng dòng trong inputs
+19 sample_map = inputs.pop("overflow_to_sample_mapping")
+20 example_ids = []
+21
+22 # Xác định ví dụ tham chiếu cho mỗi dòng đầu vào và
+23 # điều chỉnh ánh xạ offset
+24 for i in range(len(inputs["input_ids"])):
+25 sample_idx = sample_map[i]
+26 example_ids.append(examples["id"][sample_idx])
+27
+28 sequence_ids = inputs.sequence_ids(i)
+29 offset = inputs["offset_mapping"][i]
+30
+31 # Loại bỏ các offset không phù hợp với sequence_ids
+32 inputs["offset_mapping"][i] = [
+33 o if sequence_ids[k] == 1 else None \
+34 for k, o in enumerate(offset)
+35 ]
+36
+37 # Thêm thông tin ví dụ tham chiếu vào đầu vào
+38 inputs["example_id"] = example_ids
+39
+40 return inputs
+Ta sẽ chạy đoạn hàm trên với từng dòng trong raw_dataset của tâp validation:
+1 # Tạo một biến validation_dataset và gán giá trị bằng việc sử dụng dữ liệu
+2 # từ raw_datasets["validation"] sau khi áp dụng một hàm xử lý trước.
+3
+4 validation_dataset = raw_datasets["validation"].map(
+5 preprocess_validation_examples ,
+6 batched=True,
+7 remove_columns=raw_datasets["validation"].column_names,
+8 )
+9
+10 # In ra độ dài của raw_datasets["validation"]
+11 # và validation_dataset để so sánh.

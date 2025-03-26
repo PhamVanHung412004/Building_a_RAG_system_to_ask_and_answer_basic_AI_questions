@@ -1,5 +1,8 @@
-Node ID: 36900c17-1fd0-4962-b2d1-848748c137c6
-Text: AI VIETNAM aivietnam.edu.vn 22 23 output , visuals = inference (
-inpainting_model , test_sample ) 24 25 # show result 26 def
-show_tensor_image ( image , show = True ): 27 reverse_transforms =
-transforms . Compose ([ 28 transforms .
+AI VIETNAM aivietnam.edu.vn
+22
+23 output , visuals = inference ( inpainting_model , test_sample )
+24
+25 # show result
+26 def show_tensor_image ( image , show = True ):
+27 reverse_transforms = transforms . Compose ([
+28 transforms . 

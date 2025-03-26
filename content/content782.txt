@@ -1,7 +1,9 @@
-Node ID: b767b739-ed5e-4499-92b4-b5e4a066573e
-Text: Ở đây 6= 2x3, bằng với số phần tử của cũ, ta cần lưu ý khi thay
-đổi shape thì cần đảm bảo số lượng phần tử không được thay đổi
-khireshape. 6 Các phương pháp tìm kiếm và sắp xếp mảng 6.1 Tìm kiếm
-phần tử với điều kiện - where() Hình 12: Minh họa where Hàm np.where
-được sử dụng để tìm vị trí của các phần tử trong mảng thỏa mãn một
-điều kiện nhất đ...
+Ở đây 6= 2x3,
+bằng với số phần tử của cũ, ta cần lưu ý khi thay đổi shape thì cần đảm bảo số lượng phần tử không
+được thay đổi khireshape.
+6 Các phương pháp tìm kiếm và sắp xếp mảng
+6.1 Tìm kiếm phần tử với điều kiện - where()
+Hình 12: Minh họa where
+Hàm np.where được sử dụng để tìm vị trí của các phần tử trong mảng thỏa mãn một điều kiện nhất
+định. Cú pháp:
+12

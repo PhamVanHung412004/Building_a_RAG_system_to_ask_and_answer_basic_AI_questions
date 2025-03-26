@@ -1,3 +1,4 @@
-Node ID: 207a30ad-6ecb-409b-ab91-91e8ce202e0e
-Text: Theo đó, chúng ta thực thi đoạn code sau để khởi tạo và thực
-hiện việc huấn luyện mô hình Naive Bayes: 1 model = GaussianNB () 8
+Theo đó, chúng ta thực thi đoạn code sau để khởi tạo và thực hiện việc huấn luyện mô
+hình Naive Bayes:
+1 model = GaussianNB ()
+8

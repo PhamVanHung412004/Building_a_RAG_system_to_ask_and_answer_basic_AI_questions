@@ -1,6 +1,5 @@
-Node ID: 8e535234-ed78-409c-9def-455e8b244475
-Text: Daily AI Exercise (AIO) aivietnam.edu.vn 3 Cài đặt và sử dụng
-Vscode Visual Studio Code (VSCode) là một trình soạn thảo mã nguồn mở
-được phát triển bởi Microsoft. Nó cung cấp một loạt các tính năng hữu
-ích cho lập trình Python và khoa học dữ liệu và nhiều ngôn ngữ lập
-trình khác.
+Daily AI Exercise (AIO) aivietnam.edu.vn
+3 Cài đặt và sử dụng Vscode
+Visual Studio Code (VSCode) là một trình soạn thảo mã nguồn mở được phát triển bởi Microsoft. Nó
+cung cấp một loạt các tính năng hữu ích cho lập trình Python và khoa học dữ liệu và nhiều ngôn ngữ
+lập trình khác.

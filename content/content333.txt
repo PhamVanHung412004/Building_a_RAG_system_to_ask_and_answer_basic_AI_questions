@@ -1,7 +1,31 @@
-Node ID: 5eb43344-c8de-492d-88a8-f470ea739495
-Text: join ( out_dir , " images "), 11 listdir = listdir , 12
-featslistdir = featslistdir , 13 split =" test ", 14 ) 15 16 nbatches
-= np. int_ (np. floor ( data . img_num / batchsize )) 17 18
-data_loader = DataLoader ( 19 dataset =data , 20 num_workers = args ["
-nthreads "], 21 batch_size = batchsize , 22 shuffle = False , 23
-drop_last =True , 24 ) 25...
+join ( out_dir , " images "),
+11 listdir = listdir ,
+12 featslistdir = featslistdir ,
+13 split =" test ",
+14 )
+15
+16 nbatches = np. int_ (np. floor ( data . img_num / batchsize ))
+17
+18 data_loader = DataLoader (
+19 dataset =data ,
+20 num_workers = args [" nthreads "],
+21 batch_size = batchsize ,
+22 shuffle = False ,
+23 drop_last =True ,
+24 )
+25
+26 # Load VAE model
+27 model_vae = VAE ()
+28 model_vae . cuda ()
+29 model_vae . load_state_dict ( torch . load ("%s/ models / model_vae . pth " % ( out_dir )))
+30 model_vae . eval ()
+31
+32 # Load MDN model
+33 model_mdn = MDN ()
+34 model_mdn . cuda ()
+35 model_mdn . load_state_dict ( torch . load ("%s/ models / model_mdn . pth " % ( out_dir )))
+36 model_mdn . eval ()
+37
+38 # Infer
+39 for batch_idx , (
+18

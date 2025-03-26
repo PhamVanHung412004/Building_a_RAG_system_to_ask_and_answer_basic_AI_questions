@@ -1,4 +1,7 @@
-Node ID: 0a1735e6-b8ae-48db-ad56-bd357e4fc20b
-Text: relu ( self . conv2 (h))) 31 # Down or Upsample 32 return self .
-transform (h) 33 34 class SinusoidalPositionEmbeddings (nn. Module ):
-35 def __init__ (self , dim ): 36 super ().
+relu ( self . conv2 (h)))
+31 # Down or Upsample
+32 return self . transform (h)
+33
+34 class SinusoidalPositionEmbeddings (nn. Module ):
+35 def __init__ (self , dim ):
+36 super (). 

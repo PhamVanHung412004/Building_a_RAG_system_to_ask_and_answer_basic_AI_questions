@@ -1,7 +1,45 @@
-Node ID: c0ca69b8-f702-4eea-8428-275b8e9b497c
-Text: Daily AI Exercise (AIO) aivietnam.edu.vn • top: Vị trí trên cùng
-của bảng • left: Vị trí cạnh trái của bảng • width: Vị ví cạnh phải
-của bảng • botton: Vị trí cạnh dưới cùng của bảng Chúng ta sẽ sử dụng
-công cụ mesuaring tool trong phần mềm Adobe reader để đo khoảng cách
-từ các cạnh của tài liệu đến các vị trí các cạnh của bảng tương ứng.
-Khoảng...
+Daily AI Exercise (AIO) aivietnam.edu.vn
+• top: Vị trí trên cùng của bảng
+• left: Vị trí cạnh trái của bảng
+• width: Vị ví cạnh phải của bảng
+• botton: Vị trí cạnh dưới cùng của bảng
+Chúng ta sẽ sử dụng công cụ mesuaring tool trong phần mềm Adobe reader để đo khoảng cách từ các
+cạnh của tài liệu đến các vị trí các cạnh của bảng tương ứng. Khoảng cách này được tính theo giá trị
+inch, để chuyển đổi sang giá trị điểm trong pdf, chúng ta sẽ thực hiện theo phép chuyển đổi:1 inch =
+72 point pdf
+1 top = 0.88
+2 left = 0.6
+3 botton = 3.06
+4 width = 4.09
+5
+6 loc = [i*72 for i in [top, left, botton,
+width]]
+7 print(loc)
+================= Output ================
+[63.36, 43.199999999999996, 220.32,
+294.48]
+==========================================
+Sau khi xác định được vị trí của bảng, chúng ta thực hiện trích xuất bảng:
+1 import tabula
+2 pdf_path = "https://arxiv.org/pdf/1506.02640.pdf"
+3 dfs = tabula.read_pdf(pdf_path, pages="6", area = loc)
+Trong chương trình trên, chúng ta sử dụng hàm tabula.read_pdf để trích xuất bảng tại trang 6 và
+area=loc là vị trí mà chúng ta đã đo phía trên. Dưới đây là kết quả bảng trích xuất được:
+Bảng 7: Comparison of Real-Time Detectors
+Index Real-Time Detectors Train mAP FPS
+0 100Hz DPM [31] 2007 16.0 100.0
+1 30Hz DPM [31] 2007 26.1 30.0
+2 Fast YOLO 2007+2012 52.7 155.0
+3 YOLO 2007+2012 63.4 45.0
+4 Less Than Real-Time NaN NaN NaN
+5 Fastest DPM [38] 2007 30.4 15.0
+6 R-CNN Minus R [20] 2007 53.5 6.0
+7 Fast R-CNN [14] 2007+2012 70.0 0.5
+8 Faster R-CNN VGG-16 [28] 2007+2012 73.2 7.0
+9 Faster R-CNN ZF [28] 2007+2012 62.1 18.0
+10 YOLO VGG-16 2007+2012 66.4 21.0
+4 Kết Luận
+Trong bài viết này, chúng ta đã tìm hiểu và sử dụng thư viện tabula-py để trích xuất dữ liệu bảng từ
+các tài liệu PDF và cách làm sạch, xử lý dữ liệu với pandas. Chúng ta đã đi qua từng bước từ việc cài
+đặt thư viện, sử dụng các phương thức trích xuất bảng, cho đến các kỹ thuật cơ bản để làm sạch dữ
+liệu. 

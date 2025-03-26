@@ -1,7 +1,32 @@
-Node ID: 1e120018-eec3-4f97-9b9a-f109978ef6df
-Text: Trong bài tập này, chúng ta sẽ tìm hiểu cách sử dụng ba hàm
-trên. 4.1 hstack Hình 7: Minh họa hstack Hàm hstack được sử dụng để
-nối các array theo chiều ngang, tức là nối chúng thành một cấu trúc dữ
-liệu lớn hơn theo chiều thứ hai. Quá trình này giúp kết hợp dữ liệu từ
-các nguồn khác nhau hoặc mở rộng kích thước của cấu trúc dữ liệu hiện
-có. Ví ...
+Trong bài tập này, chúng
+ta sẽ tìm hiểu cách sử dụng ba hàm trên.
+4.1 hstack
+Hình 7: Minh họa hstack
+Hàm hstack được sử dụng để nối các array theo chiều ngang, tức là nối chúng thành một cấu trúc dữ
+liệu lớn hơn theo chiều thứ hai. Quá trình này giúp kết hợp dữ liệu từ các nguồn khác nhau hoặc mở
+rộng kích thước của cấu trúc dữ liệu hiện có.
+Ví dụ sau sử dụng hstack để nối các array theo chiều ngang:
+1 #Numpy code
+2 import numpy as np
+3
+4 # Tạo hai mảng
+5 arr_1 = np.array([1, 2, 3])
+6 arr_2 = np.array([4, 5, 6])
+7
+8 # Nối hai mảng theo trục ngang (axis=0)
+9 arr_3 = np.hstack((arr_1, arr_2))
+10
+11 # In kết quả
+12 print("Mảng 1:\n", arr_1)
+13 print("Mảng 2:\n", arr_2)
+14 print("Mảng sau khi nối theo trục
+15 ngang:\n", arr_3)
+================= Output ================
+Mảng 1:
+[1 2 3]
+Mảng 2:
+[4 5 6]
+Mảng sau khi nối theo trục ngang:
+[1 2 3 4 5 6]
+==========================================
+8

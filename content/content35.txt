@@ -1,7 +1,8 @@
-Node ID: a70682ea-c282-44dc-88cf-09ed1714c39b
-Text: Trong project này, chúng ta sẽ xây dựng một chương trình phát
-hiện các nhân viên có đeo mũ bảo vệ trong công trường hay không? Mô
-hình mà chúng ta sử dụng sẽ là mô hình YOLOv10. Theo đó, Input và
-Output của chương trình là: • Input: Một tấm ảnh. • Output: Tọa độ
-(bounding box) của các nhân viên và phần mũ bảo hiểm. Tổng quan, các
-bước thực hiện ...
+Trong project này, chúng ta sẽ xây dựng một chương trình phát hiện các nhân viên có đeo mũ
+bảo vệ trong công trường hay không? Mô hình mà chúng ta sử dụng sẽ là mô hình YOLOv10.
+Theo đó, Input và Output của chương trình là:
+• Input: Một tấm ảnh.
+• Output: Tọa độ (bounding box) của các nhân viên và phần mũ bảo hiểm.
+Tổng quan, các bước thực hiện trong project của chúng để hoàn thiện hệ thống Helmet Safety
+Detection bao gồm:
+1

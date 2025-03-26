@@ -1,7 +1,22 @@
-Node ID: cdeddf1d-acd4-42c8-be66-90020bde2ca4
-Text: Với 8 viên bi là xanh và 2 viên bi là đỏ ta có thể tính xác suất
-của từng trường hợp là P(A)=8 10 =4 5 và P(B)2 10 =1 5 Từ xác suất
-trên chúng ta có thể tính được độ ngạc nhiên khi xảy ra trường hợp đó
-surprise=1 P . Vậy độ ngạc nhiên của trường hợp bi xanh và bi đỏ là
-surprise(A)=1 4 5 =1.25 và surprise(B)= 1 1 1 5 =5. Công thức
-surprise: surpr...
+Với 8 viên bi là xanh và 2 viên bi là đỏ ta có thể tính xác suất của từng
+trường hợp là P(A)=8
+10 =4
+5 và P(B)2
+10 =1
+5
+Từ xác suất trên chúng ta có thể tính được độ ngạc nhiên khi xảy ra trường hợp đó
+surprise=1
+P . Vậy độ ngạc nhiên của trường hợp bi xanh và bi đỏ là surprise(A)=1
+4
+5
+=1.25 và
+surprise(B)= 1
+1
+1
+5
+=5.
+Công thức surprise:
+surprise = 1
+P(E) (3)
+• Với P(E) là xác suất xảy ra sự kiện E.
+3

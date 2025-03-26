@@ -1,7 +1,63 @@
-Node ID: f07bcc02-d483-4c7f-a0d2-cbddc5b9d862
-Text: AIO 2024 aivietnam.edu.vn Ví dụ 3: Nhân hai mảng có kích thước
-khác nhau 1 #aivietnam 2 import numpy as np 3 4 # Tạo mảng 3x1 5 arr1
-= np.array([[1], [2], [3]]) 6 # Tạo mảng 1x3 7 arr2 = np.array([10,
-20, 30]) 8 # Nhân hai mảng 9 result = arr1 * arr2 10 print("array
-1:\n", arr1) 11 print("array 2:\n", arr2) 12 print("Kết quả:\n",
-result) =======...
+AIO 2024 aivietnam.edu.vn
+Ví dụ 3: Nhân hai mảng có kích thước khác nhau
+1 #aivietnam
+2 import numpy as np
+3
+4 # Tạo mảng 3x1
+5 arr1 = np.array([[1], [2], [3]])
+6 # Tạo mảng 1x3
+7 arr2 = np.array([10, 20, 30])
+8 # Nhân hai mảng
+9 result = arr1 * arr2
+10 print("array 1:\n", arr1)
+11 print("array 2:\n", arr2)
+12 print("Kết quả:\n", result)
+================= Output ================
+array 1:
+[[1]
+[2]
+[3]]
+array 2:
+[10 20 30]
+Kết quả:
+[[10 20 30]
+[20 40 60]
+[30 60 90]]
+==========================================
+Ví dụ 4: Broadcasting với mảng nhiều chiều
+1 #aivietnam
+2 import numpy as np
+3
+4 # Tạo mảng 3 chiều
+5 arr3d = np.array([[[1, 2, 3], [4, 5, 6]],
+[[7, 8, 9], [10, 11, 12]]])
+6
+7 # Tạo mảng 1 chiều
+8 arr1d = np.array([1, 2, 3])
+9
+10 # Cộng hai mảng
+11 result = arr3d + arr1d
+12
+13 print("array 3d:\n", arr3d)
+14 print("array 1d:\n", arr1d)
+15 print("Kết quả:\n", result)
+================= Output ================
+array 3d:
+[[[ 1 2 3]
+[ 4 5 6]]
+[[ 7 8 9]
+[10 11 12]]]
+array 1d:
+[1 2 3]
+Kết quả:
+[[[ 2 4 6]
+[ 5 7 9]]
+[[ 8 10 12]
+[11 13 15]]]
+==========================================
+8.2 Tạo hàm
+a) apply_along_axis()
+np.apply_along_axis là hàm cho phép ta áp dụng một hàm tự định nghĩa dọc theo một trục cụ thể
+của mảng. Cú pháp:
+1 np.apply_along_axis(func, axis, arr)
+• func: Hàm sẽ được áp dụng lên các phần tử của mảng.

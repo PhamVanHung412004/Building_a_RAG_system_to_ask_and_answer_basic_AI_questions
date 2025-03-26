@@ -1,7 +1,22 @@
-Node ID: 71392b7c-310d-43b8-a2e2-682fb788916b
-Text: 8. Trong câu lệnh huấn luyện mô hình, tham sốEPOCHS có ý nghĩa
-là? (a) Tham số mô hình quan trọng trong quá trình huấn luyện. (b)
-Được sử dụng để chỉ định số lần lặp lại quá trình huấn luyện. (c) Một
-biến số ngẫu nhiên trong quá trình huấn luyện mô hình. (d) Số lần mà
-toàn bộ dữ liệu huấn luyện sẽ được sử dụng để cập nhật các trọng số
-của mô hìn...
+8. Trong câu lệnh huấn luyện mô hình, tham sốEPOCHS có ý nghĩa là?
+(a) Tham số mô hình quan trọng trong quá trình huấn luyện.
+(b) Được sử dụng để chỉ định số lần lặp lại quá trình huấn luyện.
+(c) Một biến số ngẫu nhiên trong quá trình huấn luyện mô hình.
+(d) Số lần mà toàn bộ dữ liệu huấn luyện sẽ được sử dụng để cập nhật các trọng số của
+mô hình.
+9. Trong câu lệnh huấn luyện mô hình, tham sốBATCH_SIZEcó ý nghĩa là?
+(a) Số lần lặp lại quá trình huấn luyện mô hình.
+(b) Số lượng tham số của mô hình cần được cập nhật sau mỗi lượt huấn luyện.
+(c) Số lượng mẫu dữ liệu được sử dụng trong mỗi lần cập nhật gradient.
+(d) Thời gian tối đa cho mỗi lần huấn luyện mô hình.
+10. Trong ngữ cảnh của project này, việc huấn luyện (training) mô hình còn được gọi với từ
+khóa là"fine-tuning", thuật ngữ này có thể được hiểu như thế nào?
+(a) Quá trình điều chỉnh lại mô hình đã được huấn luyện trước đó trên một tập dữ liệu
+mới để cải thiện hiệu suất hoặc thích nghi với một tác vụ cụ thể.
+(b) Quá trình huấn luyện mô hình từ đầu mà không sử dụng bất kỳ trọng số nào từ mô
+hình đã được huấn luyện trước đó.
+(c) Quá trình điều chỉnh siêu tham số của mô hình để tối ưu hóa độ chính xác.
+(d) Quá trình lấy mẫu một cách ngẫu nhiên từ tập dữ liệu huấn luyện để đảm bảo tính
+ngẫu nhiên và đại diện của dữ liệu.
+- Hết -
+22

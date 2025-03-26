@@ -1,7 +1,23 @@
-Node ID: f4c87b3c-7a85-45ec-a403-48e616af5e3a
-Text: columns (2) 22 f_name = col1 . text_input (’First N a m e ) 23
-l_name = col2 . text_input (’Last N a m e ) 24 submitted = st.
-form_submit_button (" Submit ") 25 if submitted : 26 st. write ("
-First Name : ", f_name , 27 " - Last Name :", l_name ) Câu hỏi 8Hàm
-nào sau đây cho phép người dùng tải lên nhiều file. a) uploaded_files
-= st.file_uploade...
+columns (2)
+22 f_name = col1 . text_input (’First N a m e )
+23 l_name = col2 . text_input (’Last N a m e )
+24 submitted = st. form_submit_button (" Submit ")
+25 if submitted :
+26 st. write (" First Name : ", f_name ,
+27 " - Last Name :", l_name )
+Câu hỏi 8Hàm nào sau đây cho phép người dùng tải lên nhiều file.
+a) uploaded_files = st.file_uploader("Choose files", accept_multiple_files=True)
+b) uploaded_files = st.multifile_uploader("Choose files", accept_multiple_files=True)
+c) uploaded_files = st.file_uploader("Choose files")
+d) uploaded_files = st.multifile_uploader("Choose files")
+Câu hỏi 9Hàm nào sau đây không được sử dụng để hiển thị code trong streamlit?
+a) st.code(...)
+b) st.echo(...)
+c) st.markdown(...)
+d) st.slider(...)
+Câu hỏi 10Dung lượng mặc định tối đa mỗi file được tải lên trong streamlit là bao nhiêu.
+a) 100 MB
+b) 200 MB
+c) 300 MB
+d) 400 MB
+12

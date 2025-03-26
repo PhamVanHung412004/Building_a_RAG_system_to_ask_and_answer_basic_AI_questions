@@ -1,7 +1,8 @@
-Node ID: 954ac251-58d8-4d93-adf5-d94240684e4d
-Text: Nó cho phép một lớp (class) có thể kế thừa các thuộc tính
-(attributes) và phương thức (methods) của một lớp khác. Lớp kế thừa
-được gọi là lớp con (subclass), còn lớp bị kế thừa được gọi là lớp cha
-(superclass). 2.1. Định nghĩa Kế thừa Lớp con có thể kế thừa tất cả
-các thuộc tính và phương thức từ lớp cha. Điều này giúp tái sử dụng mã
-nguồn và tạ...
+Nó cho phép một
+lớp (class) có thể kế thừa các thuộc tính (attributes) và phương thức (methods) của một lớp khác. Lớp
+kế thừa được gọi là lớp con (subclass), còn lớp bị kế thừa được gọi là lớp cha (superclass).
+2.1. Định nghĩa Kế thừa
+Lớp con có thể kế thừa tất cả các thuộc tính và phương thức từ lớp cha. Điều này giúp tái sử dụng mã
+nguồn và tạo ra mối quan hệ cha-con giữa các lớp.
+Trong hình 2, quan hệ Kế thừa được mô tả bằng Class Diagram. Trong, đó,Parent là superclass,Child
+4

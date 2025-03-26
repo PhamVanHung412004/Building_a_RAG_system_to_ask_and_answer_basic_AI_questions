@@ -1,7 +1,7 @@
-Node ID: 406c6881-c9a6-445e-8ac0-4695848f038f
-Text: Cụ thể, Vim nhanh hơn và tiết kiệm bộ nhớ hơn DeiT lần lượt
-là2.8x và 86.8%. Khi công nghệ ngày càng phát triển, kích thước
-ảnh224x224 -> 512x512 dần trở nên lỗi thời, con người luôn muốn sử
-dụng ảnh có kích thước lớn hơn để các model có thể đạt độ chính xác
-cao hơn. Điều này càng chứng tỏ Mamba sẽ có khả năng cao trở thành
-backbone được sử dụng...
+Cụ thể, Vim nhanh
+hơn và tiết kiệm bộ nhớ hơn DeiT lần lượt là2.8x và 86.8%. Khi công nghệ ngày càng phát triển, kích
+thước ảnh224x224 -> 512x512 dần trở nên lỗi thời, con người luôn muốn sử dụng ảnh có kích thước lớn
+hơn để các model có thể đạt độ chính xác cao hơn. Điều này càng chứng tỏ Mamba sẽ có khả năng cao
+trở thành backbone được sử dụng trong tương lai.
+Hình 3: Kết quả so sánh giữa Transformer (DeiT) và Vision Mamba.
+3

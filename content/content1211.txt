@@ -1,7 +1,22 @@
-Node ID: 292a2dbf-7f1f-4251-892a-57394d880254
-Text: 3. Dataset PACS PACS là một tập dữ liệu hình ảnh về domain
-generalization. PACS bao gồm 4 domain: photo (1.670 ảnh), art painting
-(2.048 ảnh), cartoon (2.344 ảnh) và sketch (3.929 ảnh). Mỗi domain bao
-gồm 7 class. Điểm khó của PACS là việc sẽ có nhiều domain cho cùng 1
-class, ví dụ trong class person sẽ có 4 domain (cột số 2 trong hình
-1): • Ảnh...
+3. Dataset PACS
+PACS là một tập dữ liệu hình ảnh về domain generalization. PACS bao gồm 4 domain: photo
+(1.670 ảnh), art painting (2.048 ảnh), cartoon (2.344 ảnh) và sketch (3.929 ảnh). Mỗi domain bao
+gồm 7 class.
+Điểm khó của PACS là việc sẽ có nhiều domain cho cùng 1 class, ví dụ trong class person sẽ có 4
+domain (cột số 2 trong hình 1):
+• Ảnh person được chụp từ thực tế (photo)
+• Ảnh person được vẽ phác thảo (sketch)
+• Ảnh person từ phim hoạt hình (cartoon)
+• Ảnh vẽ person (art painting)
+Việc có nhiều domain cho cùng một class như vậy sẽ tăng độ khó của dataset, đòi hỏi model phải
+có khả năng generalize tốt hơn.
+Hình 1: Dataset PACS.
+Sau đây là đoạn code download dataset PACS và tạo dataloader. Vì có 4 domain khác nhau nên
+ta sẽ có 4 dataset khác nhau.
+1 # means and standard deviations ImageNet because the network is pretrained
+2 means , stds = (0.485 , 0.456 , 0.406) , (0.229 , 0.224 , 0.225)
+3
+4 # Define transforms to apply to each image
+5 transf = transforms . Compose (
+6 [
+3

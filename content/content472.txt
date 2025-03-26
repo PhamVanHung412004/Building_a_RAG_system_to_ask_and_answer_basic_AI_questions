@@ -1,7 +1,23 @@
-Node ID: 0e32a79f-e34f-4c5e-98dd-29c65d8f0c2f
-Text: append ( str ( Path ( __file__ ). parent . parent )) 7 8 from
-PIL import Image 9 from torch .nn import functional as F 10 from utils
-. logger import Logger 11 from config . catdog_cfg import
-CatDogDataConfig 12 from . catdog_model import CatDogModel 13 14
-LOGGER = Logger ( __file__ , log_file =" predictor . log ") 15 LOGGER
-. log . info (" Start...
+append ( str ( Path ( __file__ ). parent . parent ))
+7
+8 from PIL import Image
+9 from torch .nn import functional as F
+10 from utils . logger import Logger
+11 from config . catdog_cfg import CatDogDataConfig
+12 from . catdog_model import CatDogModel
+13
+14 LOGGER = Logger ( __file__ , log_file =" predictor . log ")
+15 LOGGER . log . info (" Starting Model Serving ")
+16
+17 class Predictor :
+18 def __init__ (self , model_name : str , model_weight : str , device : str = "
+cpu "):
+19 self . model_name = model_name
+20 self . model_weight = model_weight
+21 self . device = device
+22 self . load_model ()
+23 self . create_transform ()
+24
+25 async def predict (self , image ):
+26 pil_img = Image . open ( image )
+10

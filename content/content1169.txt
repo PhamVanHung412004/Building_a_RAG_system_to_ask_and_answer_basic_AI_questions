@@ -1,7 +1,35 @@
-Node ID: 223dda3d-86b8-4fa2-b4a1-7b92e6f0824e
-Text: AI VIETNAM aivietnam.edu.vn 236 def _forward (self , x): 237 b,
-c, * spatial = x. shape 238 x = x. reshape (b, c, -1) 239 qkv = self .
-qkv ( self . norm (x)) 240 h = self . attention ( qkv ) 241 h = self .
-proj_out (h) 242 return (x + h). reshape (b, c, * spatial ) 243 244
-245 class QKVAttentionLegacy (nn. Module ): 246 """ 247 A module which
-pe...
+AI VIETNAM aivietnam.edu.vn
+236 def _forward (self , x):
+237 b, c, * spatial = x. shape
+238 x = x. reshape (b, c, -1)
+239 qkv = self . qkv ( self . norm (x))
+240 h = self . attention ( qkv )
+241 h = self . proj_out (h)
+242 return (x + h). reshape (b, c, * spatial )
+243
+244
+245 class QKVAttentionLegacy (nn. Module ):
+246 """
+247 A module which performs QKV attention . Matches legacy QKVAttention + input / ouput
+heads shaping
+248 """
+249
+250 def __init__ (self , n_heads ):
+251 super (). __init__ ()
+252 self . n_heads = n_heads
+253
+254 def forward (self , qkv ):
+255 """
+256 Apply QKV attention .
+257 : param qkv : an [N x (H * 3 * C) x T] tensor of Qs , Ks , and Vs.
+258 : return : an [N x (H * C) x T] tensor after attention .
+259 """
+260 bs , width , length = qkv . shape
+261 assert width % (3 * self . n_heads ) == 0
+262 ch = width // (3 * self . n_heads )
+263 q, k, v = qkv . reshape (bs * self . n_heads , ch * 3, length ). split (ch , dim =1)
+264 scale = 1 / math . sqrt ( math . sqrt (ch))
+265 weight = torch . einsum (
+266 "bct ,bcs -> bts ", q * scale , k * scale
+267 ) # More stable with f16 than dividing afterwards
+268 weight = torch . softmax ( weight . float () , dim = -1). 

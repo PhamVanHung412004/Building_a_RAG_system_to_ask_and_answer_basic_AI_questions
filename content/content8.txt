@@ -1,7 +1,24 @@
-Node ID: 36e8d656-65b7-4ada-9085-bf1af1cadfa1
-Text: memory import ConversationBufferMemory 9 from
-langchain_community . chat_message_histories import ChatMessageHistory
+memory import ConversationBufferMemory
+9 from langchain_community . chat_message_histories import
+ChatMessageHistory
 10 from langchain_community . document_loaders import PyPDFLoader ,
-TextLoader 11 from langchain . chains import
-ConversationalRetrievalChain 12 13 from langchain_chroma import Chroma
-14 from langchain_text_splitters import Recurs...
+TextLoader
+11 from langchain . chains import ConversationalRetrievalChain
+12
+13 from langchain_chroma import Chroma
+14 from langchain_text_splitters import RecursiveCharacterTextSplitter
+15 from langchain_core . runnables import RunnablePassthrough
+16 from langchain_core . output_parsers import StrOutputParser
+17 from langchain import hub
+(b) Đọc file pdf: Từ một file pdf cho trước (trong bài này ta sẽ sử dụng file mô tả
+là bài hướng dẫn YOLOv10, các bạn có thể tải file này tại đây), ta sử dụng class
+PyPDFLoader để đọc file pdf này lên như sau:
+1 Loader = PyPDFLoader
+2 FILE_PATH = "./ AIO -2024 - All - Materials . pdf "
+3 loader = Loader ( FILE_PATH )
+4 documents = loader . load ()
+(c) Khởi tạo bộ tách văn bản (text splitter):Hầu hết các trường hợp, vùng thông
+tin mà chúng ta cần chỉ là một câu nào đó trong file văn bản lớn. Vì vậy, sẽ tốt hơn
+nếu chúng ta tách file văn bản ra thành các đoạn văn bản nhỏ, và mỗi văn bản nhỏ
+này ta sẽ coi như là một tài liệu trong cơ sở dữ liệu. Dựa vào ý tưởng trên, ta sẽ sử
+4

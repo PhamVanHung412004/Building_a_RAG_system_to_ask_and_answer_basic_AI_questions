@@ -1,7 +1,9 @@
-Node ID: 31fe9ae2-aa37-4d7b-afe2-4990085d6eaa
-Text: AI VIET NAM – AI COURSE 2023 Ứng dụng cơ sở dữ liệu vector
-Milvus cho hệ thống hỏi-đáp mở Dinh-Thang Duong và Quang-Vinh Dinh
-Ngày 20 tháng 2 năm 2024 Milvus là một trong những hệ cơ sở dữ liệu
-vector (vector database) mã nguồn mở, chuyên dùng cho việc lưu trữ các
-vector embedding và tìm kiếm tương đồng (similarity search) giữa các
-vector với nh...
+AI VIET NAM – AI COURSE 2023
+Ứng dụng cơ sở dữ liệu vector Milvus cho hệ
+thống hỏi-đáp mở
+Dinh-Thang Duong và Quang-Vinh Dinh
+Ngày 20 tháng 2 năm 2024
+Milvus là một trong những hệ cơ sở dữ liệu vector (vector database) mã nguồn mở, chuyên dùng
+cho việc lưu trữ các vector embedding và tìm kiếm tương đồng (similarity search) giữa các vector với
+nhau. Từ đó, trở thành một công cụ cực kỳ mạnh mẽ hỗ trợ cho các ứng dụng AI trong việc truy cập
+vào nguồn kiến thức từ các cơ sở dữ liệu nội bộ, qua đó cải thiện độ chính xác một cách đáng kể. 

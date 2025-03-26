@@ -1,5 +1,6 @@
-Node ID: 4a6540e2-af58-466f-9672-b86430ab9af7
-Text: txt 3 ! pip install -e . 3. Tải trọng số của pre-trained
-models:Các bạn tải file pretrained model tại đây và đặt file đã tải
-vào thư mục./yolov10. Trên Google Colab, việc này có thể được thực
-hiện thông qua lệnhwget như hình dưới đây: 8
+txt
+3 ! pip install -e .
+3. Tải trọng số của pre-trained models:Các bạn tải file pretrained model tại đây và đặt
+file đã tải vào thư mục./yolov10. Trên Google Colab, việc này có thể được thực hiện
+thông qua lệnhwget như hình dưới đây:
+8

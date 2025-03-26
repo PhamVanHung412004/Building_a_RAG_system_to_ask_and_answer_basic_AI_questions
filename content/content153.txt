@@ -1,7 +1,7 @@
-Node ID: 318734a4-08ae-44b1-8b5c-bafff2bbc2e9
-Text: AI VIETNAM aivietnam.edu.vn • q(xt|xt−1): Là Conditional
-Distribution của dữ liệu tại thời điểm t, với dữ liệu tại thời điểm t
-trước đó • N(xt; √1 − βtxt−1, βtI): Là Công thức phân phối chuẩn
-(Normal Distribution). I là ma trận đơn vị, điều này có nghĩa là noise
-được thêm vào tại các thời điểm T đều là độc lập xuyên suốt các chiều
-không gian của...
+AI VIETNAM aivietnam.edu.vn
+• q(xt|xt−1): Là Conditional Distribution của dữ liệu tại thời điểm t, với dữ liệu tại thời điểm t
+trước đó
+• N(xt; √1 − βtxt−1, βtI): Là Công thức phân phối chuẩn (Normal Distribution). I là ma trận đơn
+vị, điều này có nghĩa là noise được thêm vào tại các thời điểm T đều là độc lập xuyên suốt các
+chiều không gian của dữ liệu.
+• √1 − βtxt−1: Mean của Normal Distribution cho thời điểm t hiện tại.

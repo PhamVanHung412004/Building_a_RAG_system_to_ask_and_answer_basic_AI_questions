@@ -1,7 +1,31 @@
-Node ID: 154c03f0-fba5-4a37-ba3d-eacf3830a381
-Text: Điều quan trọng là suy nghĩ phải đủ nhỏ để có thể quản lý được,
-nhưng cũng phải đủ "lớn" để có thể đánh giá tiến trình giải quyết vấn
-đề một cách có ý nghĩa. Thought generator: với mục đích tạo ra các suy
-nghĩ mới, khi có một trạng thái câys = [x, z1...zi] có hai cách để
-sinh ra k ứng viên cho bước suy nghĩ tiếp theo: • Sample: Đầu tiên
-chúng ta...
+Điều quan trọng là suy nghĩ phải đủ nhỏ để có thể quản lý được, nhưng
+cũng phải đủ "lớn" để có thể đánh giá tiến trình giải quyết vấn đề một cách có ý nghĩa.
+Thought generator: với mục đích tạo ra các suy nghĩ mới, khi có một trạng thái câys =
+[x, z1...zi] có hai cách để sinh ra k ứng viên cho bước suy nghĩ tiếp theo:
+• Sample: Đầu tiên chúng ta lấy mẫu độc lập và phân phối đồng đều theo COT prompt. Đây
+là việc chọn ra các suy nghĩ tiếp theo mà không phụ thuộc lẫn nhau và mỗi suy nghĩ đều có
+cùng khả năng xuất hiện. Đề xuất theo COT prompt là một dạng câu hỏi hoặc mệnh đề mà
+từ đó, mô hình có thể phát sinh ra các suy nghĩ tiếp theo. Một CoT prompt có thể là một
+nhiệm vụ mở ra cho mô hình, như yêu cầu mô tả một cảnh hoặc tạo ra một câu chuyện dựa
+trên các thông tin đã cho. Kết quả bước này là k suy nghĩ tiếp theo mà không cần các suy
+nghĩ đó phải liên quan mật thiết với nhau. Mỗi suy nghĩ tiếp theo có thể hoàn toàn độc lập
+với nhau, đảm bảo sự đa dạng trong chuỗi suy nghĩ.Chiến lược này được cho là hoạt
+động tốt khi không gian suy nghĩ rất phong phú, ví dụ như khi mỗi suy nghĩ là
+một đoạn văn dài. Điều này cho phép mô hình tạo ra nhiều suy nghĩ tiềm năng
+và đa dạng mà không bị giới hạn bởi các suy nghĩ trước đó.
+• Propose: Đầu tiên chúng ta đề xuất các suy nghĩ một cách tuần tự tức thay vì lấy mẫu ngẫu
+nhiên các suy nghĩ như trong sample thì propose đề xuất các suy nghĩ tiếp theo dựa trên suy
+nghĩ hiện tại. Điều này giúp cho các suy nghĩ được tạo ra có mối liên kết logic và tuần tự
+với nhau. Việc đề xuất này là đặt ra một khuôn khổ hoặc hướng dẫn cho mô hình về cách
+tạo ra suy nghĩ tiếp theo. Một điều đáng lưu ý là khi không gian suy nghĩ bị hạn chế việc sử
+dụng đề xuất prompt giúp tránh tạo ra các suy nghĩ trùng lặp, bởi vì mô hình sẽ cân nhắc
+đến bối cảnh hiện tại để tạo ra suy nghĩ mới. Kết quả là k suy nghĩ tiếp theo một cách có
+trật tự, mỗi suy nghĩ tiếp nối từ suy nghĩ trước đó, tạo ra một chuỗi suy nghĩ có cấu trúc và
+liền mạch hơn.Chiến lược này phù hợp khi không gian suy nghĩ bị hạn chế và cần
+một cách tiếp cận có cấu trúc để tạo ra các suy nghĩ mới mà khôn g bị lặp lại ý
+đã nêu trước đó.
+State evaluatorhoạt động như một hàm heuristic giúp thuật toán tìm kiếm quyết định trạng
+thái nào cần được khám phá thêm và thứ tự ưu tiên. Có hai chiến lược để đánh giá các trạng thái:
+• Đánh giá từng trạng thái độc lập: Mỗi trạng thái được đánh giá độc lập để tạo ra một
+giá trị vô hướng (ví dụ từ 1 đến 10) hoặc một phân loại. Cách tiếp cận này sử dụng suy luận
+14

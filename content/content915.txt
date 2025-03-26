@@ -1,7 +1,17 @@
-Node ID: aacff7d6-e119-4d81-a407-3cc3e0bd1f40
-Text: • Modularity: cũng như việc phân rã suy nghĩ, đánh giá và thuật
-toán tìm kiếm có thể được thay đổi độc lập. • Adaptability: TOT có thể
-thích ứng với các tính chất vấn đề khác nhau và khả năng của LM. •
-Convenience: Không cần đào tạo thêm, chỉ cần một LM đã được đào tạo
-sẵn. 11 Automatic Prompt Engineer (APE) Automatic Prompt Engineer là
-một kĩ t...
+• Modularity: cũng như việc phân rã suy nghĩ, đánh giá và thuật toán tìm kiếm có thể được
+thay đổi độc lập.
+• Adaptability: TOT có thể thích ứng với các tính chất vấn đề khác nhau và khả năng của LM.
+• Convenience: Không cần đào tạo thêm, chỉ cần một LM đã được đào tạo sẵn.
+11 Automatic Prompt Engineer (APE)
+Automatic Prompt Engineer là một kĩ thuật được đề xuất trong paper "Large Language Models
+Are Human-Level Prompt Engineers" Zhou et al., 2022. Paper này đề xuất một phương pháp tự
+động hóa việc prompt engineer bằng cách sử dụng các mô hình ngôn ngữ lớn để tự động tạo sinh
+và đánh giá prompt trong một không gian tìm kiếm.
+Phương pháp APE hoạt động như sau:
+• Đầu tiên, sử dụng một mô hình LLMs để tạo sinh ra một tập instruction đề xuất.
+• Chọn một subset từ tập train, sau đó đánh giá score của từng prompt đề xuất trên subset
+đó.
+• Lọc ra top k prompt có kết quả cao nhất, có thể sử dụng mô hình LLM để resample lại từ
+top k đó.
+• Lặp lại các bước trên đến khi hội tụ.
+15

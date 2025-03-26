@@ -1,6 +1,7 @@
-Node ID: d1ee8ae4-5745-48df-93b8-84394d9f8dc5
-Text: AIO 2024 aivietnam.edu.vn 8 Broadcasting, function 8.1 Cơ chế
-Broadcasting Hình 21: Minh họa Broadcasting Broadcasting cho phép thực
-hiện các phép toán trên các mảng có kích thước khác nhau. Khi thực
-hiện các phép toán, NumPy tự động mở rộng các mảng nhỏ hơn để chúng có
-cùng kích thước với mảng lớn hơn.
+AIO 2024 aivietnam.edu.vn
+8 Broadcasting, function
+8.1 Cơ chế Broadcasting
+Hình 21: Minh họa Broadcasting
+Broadcasting cho phép thực hiện các phép toán trên các mảng có kích thước khác nhau. Khi thực hiện
+các phép toán, NumPy tự động mở rộng các mảng nhỏ hơn để chúng có cùng kích thước với mảng lớn
+hơn. 

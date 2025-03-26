@@ -1,5 +1,4 @@
-Node ID: 04e09eae-c16a-4d74-9395-0b07e100ae65
-Text: 5. When dealing with point clouds with varying surface
-orientations (not necessarily smooth), which ICP variant might be more
-robust? (A). Point-to-Point ICP. (B). Point-to-Plane ICP. (C). Both
-(a) and (b) are equally robust. (D). Neither (a) nor (b) is suitable.
+5. When dealing with point clouds with varying surface orientations (not necessarily
+smooth), which ICP variant might be more robust?
+(A). Point-to-Point ICP. (B). Point-to-Plane ICP.
+(C). Both (a) and (b) are equally robust. (D). Neither (a) nor (b) is suitable.

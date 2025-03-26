@@ -1,7 +1,25 @@
-Node ID: 583794c4-84a2-46c2-8615-ea458f3c0619
-Text: AI VIETNAM aivietnam.edu.vn 1.4 Noise removal Dữ liệu 3D point
-clouds đóng vai trò quan trọng trong nhiều lĩnh vực như khảo sát, lập
-bản đồ, robot, v.v. Tuy nhiên, dữ liệu này thường bị ảnh hưởng bởi
-nhiễu, gây ra sai sót trong việc xử lý và phân tích. Lọc nhiễu (noise
-removal) là bước quan trọng để làm sạch dữ liệu, giúp tăng độ chính
-xác và kh...
+AI VIETNAM aivietnam.edu.vn
+1.4 Noise removal
+Dữ liệu 3D point clouds đóng vai trò quan trọng trong nhiều lĩnh vực như khảo sát, lập bản đồ, robot,
+v.v. Tuy nhiên, dữ liệu này thường bị ảnh hưởng bởi nhiễu, gây ra sai sót trong việc xử lý và phân tích.
+Lọc nhiễu (noise removal) là bước quan trọng để làm sạch dữ liệu, giúp tăng độ chính xác và khai thác
+tối đa tiềm năng của data.
+Loại bỏ nhiễu thống kê (Statistic Noise Removal):
+Ý tưởng: Sử dụng các tính chất thống kê của dữ liệu điểm đám 3D để phân biệt điểm nhiễu với các
+điểm thực tế.
+Thực hiện:
+1. Tính toán các thống kê của các điểm xung quanh một điểm, chẳng hạn như giá trị trung bình, độ
+lệch chuẩn, mật độ điểm.
+2. So sánh các giá trị thống kê của điểm đang xét với các điểm xung quanh.
+3. Xác định điểm là nhiễu nếu các giá trị thống kê của nó quá khác biệt so với các điểm xung quanh.
+Ưu điểm:
+- Có thể loại bỏ nhiễu đa dạng, không phụ thuộc vào dạng hình học của nhiễu.
+- Hiệu quả với cả nhiễu Gauss (nhiễu theo phân phối chuẩn) và nhiễu xung (nhiễu đột biến).
+Nhược điểm:
+- Cần lựa chọn các tham số ngưỡng phù hợp để phân biệt điểm nhiễu.
+- Có thể loại bỏ nhầm các điểm nằm trên vùng biên của đối tượng.
+Loại bỏ nhiễu bán kính (Radius Noise Removal):
+Ý tưởng: Loại bỏ các điểm nằm xa hơn một khoảng cách nhất định (bán kính) so với các điểm lân cận
+của chúng.
+Thực hiện:
+1. 

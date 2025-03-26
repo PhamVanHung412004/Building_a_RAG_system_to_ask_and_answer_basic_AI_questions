@@ -1,7 +1,25 @@
-Node ID: 6e4d8a6b-fdec-496e-be3a-959c228617bb
-Text: AI VIETNAM aivietnam.edu.vn Dựa trên kết quả đánh giá, một bảng
-xếp hạng các mô hình embedding đã được xây dựng dựa vào các tiêu chí.
-Hình 12: Bảng xếp hạng các mô hình embeddings dựa trên kết quả đánh
-giá của Muennighoff et al. (2023) Hiệuchỉnh(fine-
-tuning)môhìnhembedding: TrongcácgiảiphápRAG,hiệuchỉnhembedding là một
-cách được cân nhắc để cải ...
+AI VIETNAM aivietnam.edu.vn
+Dựa trên kết quả đánh giá, một bảng xếp hạng các mô hình embedding đã được xây dựng dựa vào
+các tiêu chí.
+Hình 12: Bảng xếp hạng các mô hình embeddings dựa trên kết quả đánh giá của Muennighoff et al.
+(2023)
+Hiệuchỉnh(fine-tuning)môhìnhembedding: TrongcácgiảiphápRAG,hiệuchỉnhembedding
+là một cách được cân nhắc để cải thiện chất lượng truy vấn. Các mô hình embedding gốc không được
+huấn luyện với dữ liệu riêng của người dùng nên việc đại diện ngữ nghĩa có thể không hoàn toàn tốt.
+Công tác hiệu chỉnh mô hình embedding là quá trình cập nhật lại tham số của mô hình với nhằm đưa
+thêm thông tin dữ liệu riêng vào mô hình.
+Các bước thực hiện hiệu chỉnh mô hình bao gồm:
+• Tạo dữ liệu huấn luyện:Bên cạnh việc xây dựng các tập dữ liệu huấn luyện một cách thủ công,
+nhiều giải pháp sử dụng các mô hình ngôn ngữ lớn để tạo dataset được sử dụng. Trong đó, LLM
+tạo ra câu hỏi giả thuyết tương ứng với thông tin chứa trong đoạn văn bản để tạo ra bộ câu hỏi -
+đoạn chứa thông tin liên quan.
+• Hiệu chỉnh mô hình embedding:Sử dụng tập dữ liệu được chuẩn bị trước và một mô hình
+embedding mã nguồn mở với thuật toán SentenceTransformers, việc huấn luyện hiệu chỉnh mô
+hình được thực hiện cùng các phép đánh giá đảm bảo mô hình đầu ra phù hợp với các tác vụ truy
+vấn. Code tham khảo cho hiệu chỉnh embedding model được viết bởi Jerry Liu.
+• Đánh giá mô hình:Đánh giá được thực thi để kiểm tra chất lượng mô hình sau khi hiệu chỉnh.
+Thông thường, việc hiệu chỉnh tốt sẽ tăng cường chất lượng của mô hình hỏi đáp từ 5-10 phần
+trăm.
+4.1.3 Giải pháp truy vấn (Retrieval)
+Dữ liệu sau khi xử lý được lưu trữ trên các cơ sở dữ liệu như Vector database, Knowledge graph hay
+non-sql (Mongodb). Công việc tiếp theo là thực thi các truy vấn. 

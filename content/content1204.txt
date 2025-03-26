@@ -1,7 +1,15 @@
-Node ID: 19dee1fe-6366-4682-b3f4-40616db8df72
-Text: AI VIETNAM aivietnam.edu.vn d) eβt = 1 1−¯αt βt Câu hỏi 7Dựa vào
-phần thực nghiệm 2, phương pháp embedding cho bước thời gian được sử
-dụng khi xây dựng mô hình Basic UNet là? a) ALiBi b) Rotary Embedding
-c) Conditional Positional Embedding d) Sinusoidal Positional Embedding
-Câu hỏi 8Dựa vào phần thực nghiệm 2, bộ dữ liệu huấn luyện mô hình nào
-đ...
+AI VIETNAM aivietnam.edu.vn
+d) eβt = 1
+1−¯αt βt
+Câu hỏi 7Dựa vào phần thực nghiệm 2, phương pháp embedding cho bước thời gian được sử dụng
+khi xây dựng mô hình Basic UNet là?
+a) ALiBi
+b) Rotary Embedding
+c) Conditional Positional Embedding
+d) Sinusoidal Positional Embedding
+Câu hỏi 8Dựa vào phần thực nghiệm 2, bộ dữ liệu huấn luyện mô hình nào được sử dụng?
+a) CelebA
+b) MNIST
+c) CIFAR10
+d) CIFAR100
+Câu hỏi 9Dựa vào phần thực nghiệm 2, hàm loss nào sau đây không được sử dụng?

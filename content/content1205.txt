@@ -1,4 +1,11 @@
-Node ID: 1a30b671-7c3a-4a99-bf7d-c6fbff056c09
-Text: a) BCELoss b) MSELoss c) L1Loss d) CTCLoss Câu hỏi 10Dựa vào
-phần thực nghiệm 2, độ đo đánh giá mô hình nào sau đây không được sử
-dụng? a) F1 b) Recall c) Precision d) MAE - Hết - 27
+a) BCELoss
+b) MSELoss
+c) L1Loss
+d) CTCLoss
+Câu hỏi 10Dựa vào phần thực nghiệm 2, độ đo đánh giá mô hình nào sau đây không được sử dụng?
+a) F1
+b) Recall
+c) Precision
+d) MAE
+- Hết -
+27

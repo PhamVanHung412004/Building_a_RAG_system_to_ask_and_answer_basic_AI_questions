@@ -1,7 +1,17 @@
-Node ID: d80b1047-54ba-41d5-a41b-9bf31c78562a
-Text: title (’ Object Detection for Images ’) 7 file = st.
-file_uploader (’ Upload Image ’, type = [’jpg ’,’png ’,’jpeg ’]) 8 if
-file is not None : 9 st. image (file , caption = " Uploaded Image ")
-10 11 image = Image . open ( file ) 12 image = np. array ( image ) 13
-detections = process_image ( image ) 14 processed_image =
-annotate_image ( image , de...
+title (’ Object Detection for Images ’)
+7 file = st. file_uploader (’ Upload Image ’, type = [’jpg ’,’png ’,’jpeg ’])
+8 if file is not None :
+9 st. image (file , caption = " Uploaded Image ")
+10
+11 image = Image . open ( file )
+12 image = np. array ( image )
+13 detections = process_image ( image )
+14 processed_image = annotate_image ( image , detections )
+15 st. image ( processed_image , caption = " Processed Image ")
+16
+17 if __name__ == " __main__ ":
+18 main ()
+Sau đó, tất cả code sẽ được để trong file: ’object_detection.py’. Cuối cùng chúng ta chạy lệnh
+’streamlit run object_detection.py’ để thử nghiệm và thu được kết quả như sau:
+Hình 6: Kết quả thực nghiệm ứng dụng object detection.
+6

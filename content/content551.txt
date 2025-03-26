@@ -1,7 +1,25 @@
-Node ID: f847b980-2434-4e71-bb2e-2071bbb04c08
-Text: BASIC PYTHON - STRING Dinh-Tiem Nguyen và Quang-Vinh Dinh 1
-String String trong Python là một chuỗi các ký tự, giống như các từ
-hoặc câu mà chúng ta viết. String có thể chứa chữ cái, số, ký tự đặc
-biệt và khoảng trắng. Để tạo một string trong Python, ta chỉ cần đặt
-các ký tự vào trong dấu ngoặc kép. Có thể dùng dấu ngoặc kép đơn (’),
-ngoặc kép (...
+BASIC PYTHON - STRING
+Dinh-Tiem Nguyen và Quang-Vinh Dinh
+1 String
+String trong Python là một chuỗi các ký tự, giống như các từ hoặc câu mà chúng ta viết. String có thể
+chứa chữ cái, số, ký tự đặc biệt và khoảng trắng. Để tạo một string trong Python, ta chỉ cần đặt các
+ký tự vào trong dấu ngoặc kép. Có thể dùng dấu ngoặc kép đơn (’), ngoặc kép (") hoặc dùng ba dấu
+nháy đối với chuỗi dài, nhiều dòng ("""hoặc ”’). Ví dụ:
+1 page_name = "AI VIET NAM"
+2 user_name = ’Tom’
+3 greeting = """Xin chào Tom!
+4 Chào mừng bạn đến AI VIET NAM!"""
+2 F-string
+F-string là một cách đặc biệt để viết các chuỗi ký tự trong Python. Nó giúp chúng ta dễ dàng chèn các
+biến hoặc kết quả của các phép toán vào trong chuỗi. Chỉ cần đặt chữ ’f’ hoặc ’F’ trước dấu ngoặc kép
+của chuỗi, rồi đặt các biểu thức hoặc biến trong cặp dấu ngoặc nhọn .
+1 student_name = "Tom"
+2 class_name = "AI VIETNAM"
+3 message = f"{student_name} học lập trình tại {class_name}"
+4 print(message)
+Trong ví dụ này, student_name sẽ được thay thế bằng giá trị của biến student_name là "Tom", và
+class_name sẽ được thay thế bằng giá trị của biến class_name là "AI VIETNAM". Khi chúng ta chạy
+chương trình, kết quả sẽ là:
+1 Tom học lập trình tại AI VIETNAM
+3 Chiều dài, chỉ số trong chuỗi
+Chúng ta có thể sử dụng hàm len() để đếm số ký tự trong một chuỗi. 

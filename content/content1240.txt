@@ -1,7 +1,10 @@
-Node ID: 4fe9fd05-3122-43ab-aa12-942459cbc376
-Text: AI VIETNAM aivietnam.edu.vn 18 19 def __getitem__ (self , idx ):
-20 # get image + text 21 question = self . dataset [ idx ][ ’ question
-’] 22 answer = self . dataset [ idx ][ ’ answer ’] 23 image_id = self
-. dataset [ idx ][ ’pid ’] 24 image_path = os. path . join ( self .
-data_path , f" train_fill_in_blank / train_fill_in_blank /{ image_id
-}/ i...
+AI VIETNAM aivietnam.edu.vn
+18
+19 def __getitem__ (self , idx ):
+20 # get image + text
+21 question = self . dataset [ idx ][ ’ question ’]
+22 answer = self . dataset [ idx ][ ’ answer ’]
+23 image_id = self . dataset [ idx ][ ’pid ’]
+24 image_path = os. path . join ( self . data_path , f" train_fill_in_blank /
+train_fill_in_blank /{ image_id }/ image . png ")
+25 image = Image . 

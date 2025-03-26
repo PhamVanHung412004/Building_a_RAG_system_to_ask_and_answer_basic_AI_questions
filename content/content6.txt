@@ -1,3 +1,2 @@
-Node ID: f384a47c-1194-4e69-96f3-8865d9c5ab1c
-Text: Theo như nội dung project, với dữ liệu nguồn là một file pdf,
-chúng ta sẽ thực hiện 3
+Theo như nội dung project, với dữ liệu nguồn là một file pdf, chúng ta sẽ thực hiện
+3

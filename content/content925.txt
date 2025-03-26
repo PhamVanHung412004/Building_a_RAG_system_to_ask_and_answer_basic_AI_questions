@@ -1,7 +1,23 @@
-Node ID: 78ba7fd4-4bc1-4412-a480-5edcaafbfc39
-Text: AI VIETNAM aivietnam.edu.vn bước giải quyết vấn đề một cách
-logic và hiệu quả. Các bước trung gian và câu lệnh lập trình được mô
-hình tạo ra sau đó được thực thi bởi trình thông dịch để thu được kết
-quả cuối cùng. Điều này không chỉ tăng cường khả năng của mô hình
-trong việc xử lý các vấn đề phức tạp mà còn mở rộng khả năng tương tác
-của nó với ...
+AI VIETNAM aivietnam.edu.vn
+bước giải quyết vấn đề một cách logic và hiệu quả. Các bước trung gian và câu lệnh lập trình được
+mô hình tạo ra sau đó được thực thi bởi trình thông dịch để thu được kết quả cuối cùng. Điều này
+không chỉ tăng cường khả năng của mô hình trong việc xử lý các vấn đề phức tạp mà còn mở rộng
+khả năng tương tác của nó với các ngôn ngữ lập trình thực tế.
+Trong quá trình thiết lập PAL, việc tận dụng các prompt có sẵn từ các nghiên cứu trước đây
+và bổ sung vào đó các ví dụ ngẫu nhiên để tạo nên một prompt đa dạng và phong phú, được tối
+ưu hóa bằng cách sử dụng các cấu trúc lập trình phổ biến như vòng lặp và dictionary. Quá trình
+này không chỉ giúp tạo ra các prompts chất lượng cao mà còn đảm bảo rằng các biến trong code
+được tạo ra có tên phản ánh chính xác vai trò và ý nghĩa của chúng trong vấn đề được giải quyết.
+PAL mở ra một hướng đi mới trong việc sử dụng trí tuệ nhân tạo để giải quyết vấn đề, nơi
+sự kết hợp giữa suy luận ngôn ngữ tự nhiên và lập trình cung cấp một cách tiếp cận linh hoạt và
+mạnh mẽ trong việc xử lý các thách thức phức tạp, từ đó thúc đẩy sự phát triển của các hệ thống
+AI thông minh và có khả năng thích ứng cao.
+15 ReAct Prompting
+ReAct Prompting được giới thiệu trong paper "ReAct: Synergizing Reasoning and Acting in Lan-
+guage Models" Yao et al., 2023b, là một kỹ thuật để tạo ra cả dấu vết suy luận và hành động cụ
+thể cho nhiệm vụ một cách xen kẽ, cho phép sự kết hợp chặt chẽ hơn giữa hai phần: theo vết suy
+luận giúp mô hình khởi tạo, theo dõi và cập nhật kế hoạch hành động cũng như xử lý ngoại lệ,
+trong khi hành động cho phép nó tương tác với và thu thập thông tin bổ sung từ các nguồn bên
+ngoài như cơ sở dữ liệu tri thức hoặc môi trường. ReAct cho một tập hợp đa dạng các nhiệm vụ về
+ngôn ngữ và ra quyết định, đã đạt hiệu quả so với các tiêu chuẩn hàng đầu cũng như cải thiện tính
+dễ hiểu và đáng tin cậy đối với con người. 

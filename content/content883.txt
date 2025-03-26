@@ -1,4 +1,5 @@
-Node ID: 9fe46a04-64af-489f-8cd1-509a67501c39
-Text: File name.txt sẽ được output ra sau khi khởi tạo đối tượng thuộc
-lớp ImageDownloader và gọi tới hàm export_filename(). Nếu muốn tải
-folder data về lưu trữ, chúng ta có thể zip folder data về drive: 34
+File
+name.txt sẽ được output ra sau khi khởi tạo đối tượng thuộc lớp ImageDownloader và gọi tới hàm
+export_filename().
+Nếu muốn tải folder data về lưu trữ, chúng ta có thể zip folder data về drive:
+34

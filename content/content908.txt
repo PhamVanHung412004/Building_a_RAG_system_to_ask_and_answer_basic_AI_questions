@@ -1,7 +1,11 @@
-Node ID: 43986ee5-d1d2-4308-93c5-ab3bea28ec58
-Text: AI VIETNAM aivietnam.edu.vn Hình 7: Self-Consistency gồm 3 bước:
-(1) Kỹ thuật prompt sử dụng COT, (2) Thay thế “greedy decode” trong
-COT bằng cách lấy mẫu từ language model’s decoder để tạo ra một tập
-hợp đa dạng các đường suy luận, (3) loại bỏ các đường suy luận và tổng
-hợp bằng cách chọn câu trả lời nhất quán nhất trong câu trả lời cuối
-cùng. ...
+AI VIETNAM aivietnam.edu.vn
+Hình 7: Self-Consistency gồm 3 bước: (1) Kỹ thuật prompt sử dụng COT, (2) Thay thế “greedy
+decode” trong COT bằng cách lấy mẫu từ language model’s decoder để tạo ra một tập hợp đa dạng
+các đường suy luận, (3) loại bỏ các đường suy luận và tổng hợp bằng cách chọn câu trả lời nhất
+quán nhất trong câu trả lời cuối cùng.
+9 Generated Knowledge Prompting
+Trong paper "Generated Knowledge Prompting for Commonsense Reasoning" Liu et al., 2021,
+Generated Knowledge Prompting được giới thiệu là một cách tiếp cận mới để cải thiện hiệu suất
+của các mô hình ngôn ngữ lớn trong các tác vụ suy luận thông thường. Phương pháp này bao gồm
+hai bước chính: sinh ra các phát biểu kiến thức liên quan đến câu hỏi từ một mô hình ngôn ngữ,
+sau đó sử dụng kiến thức này như một phần của đầu vào khi trả lời câu hỏi. 

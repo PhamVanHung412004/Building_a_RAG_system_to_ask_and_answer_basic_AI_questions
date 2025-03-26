@@ -1,7 +1,12 @@
-Node ID: a4a598cb-972d-40e0-bdc3-9199402f9326
-Text: AI VIETNAM aivietnam.edu.vn Hình 14: Gao et al. (2024) đã hệ
-thống các giải pháp đánh giá hệ thống RAG và danh sách các công cụ sử
-dụng để đánh giá. Việc tự động hoá công tác đánh giá các hệ thống RAG
-ngày càng phổ biến với sự xuất hiện của các công cụ như RAGAS, ARES,
-TruLens. Phần III: Advanced RAG Ở phần này chúng ta sẽ cùng tìm hiểu
-về vấn đ...
+AI VIETNAM aivietnam.edu.vn
+Hình 14: Gao et al. (2024) đã hệ thống các giải pháp đánh giá hệ thống RAG và danh sách các công cụ
+sử dụng để đánh giá.
+Việc tự động hoá công tác đánh giá các hệ thống RAG ngày càng phổ biến với sự xuất hiện của các
+công cụ như RAGAS, ARES, TruLens.
+Phần III: Advanced RAG
+Ở phần này chúng ta sẽ cùng tìm hiểu về vấn đề của Naive RAG và một số kỹ thuật RAG nâng cao
+nhằm nâng cao chất lượng cho một hệ thống sử dụng RAG.
+5 Vấn đề của Naive RAG
+RAG đã nhanh chóng được ứng dụng rộng rãi trong nhiều sản phẩm và dịch vụ, nó đóng vai trò quan
+trọng trong việc cải thiện khả năng tương tác và trải nghiệm người dùng bằng cách cung cấp câu trả
+lời chính xác và tức thời cho các truy vấn phức tạp. 

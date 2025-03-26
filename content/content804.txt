@@ -1,7 +1,46 @@
-Node ID: b183f65e-c7b1-4aca-a24c-643b609ec6d7
-Text: Mặc định là None, tức là tổng của tất cả các phần tử trong mảng.
-• dtype: (Tùy chọn) Kiểu dữ liệu của kết quả. • keepdims: (Tùy chọn)
-Nếu là True, giữ chiều của mảng kết quả (nếu có) giống với chiều của
-mảng đầu vào. • initial: (Tùy chọn) Giá trị khởi tạo cho tổng. •
-where: (Tùy chọn) Một mảng Boolean chỉ định vị trí các phần tử được sử
-dụng tro...
+Mặc định là None, tức là
+tổng của tất cả các phần tử trong mảng.
+• dtype: (Tùy chọn) Kiểu dữ liệu của kết quả.
+• keepdims: (Tùy chọn) Nếu là True, giữ chiều của mảng kết quả (nếu có) giống với chiều của mảng
+đầu vào.
+• initial: (Tùy chọn) Giá trị khởi tạo cho tổng.
+• where: (Tùy chọn) Một mảng Boolean chỉ định vị trí các phần tử được sử dụng trong phép toán.
+Hình 20: Minh họa sumation
+Trong ví dụ sau,np.sum() được sử dụng để tính tổng của mảng array. Tham số sử dụng ở đây là mặc
+định khi tính tổng các phần tử trong toàn bộ array, sử dụng tham số axis để tính tổng theo cột hoặc
+hàng. Kết quả được in ra màn hình bao gồm tổng của tất cả các phần tử, tổng theo cột, và tổng theo
+hàng của mảng.
+1 #aivietnam
+2 import numpy as np
+3
+4 # Tạo mảng 2D
+5 arr = np.array([[1, 2, 3],
+6 [4, 5, 6]])
+7
+8 # Tính tổng của tất cả các phần tử
+9 total_sum = np.sum(arr)
+10
+11 # Tính tổng theo cột
+12 column_sum = np.sum(arr, axis=0)
+13
+14 # Tính tổng theo hàng
+15 row_sum = np.sum(arr, axis=1)
+16
+17 # In ra màn hình
+18 print("Mảng:\n", arr)
+19 print("Tổng của tất cả các phần tử trong m
+ảng:\n", total_sum)
+20 print("Tổng theo cột:\n", column_sum)
+21 print("Tổng theo hàng:\n", row_sum)
+================= Output ================
+Mảng:
+[[1 2 3]
+[4 5 6]]
+Tổng của tất cả các phần tử trong mảng:
+21
+Tổng theo cột:
+[5 7 9]
+Tổng theo hàng:
+[ 6 15]
+==========================================
+23

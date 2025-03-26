@@ -1,7 +1,9 @@
-Node ID: 764b452f-e0b6-4f03-bcaf-e50e04e7f0d1
-Text: Nhằm tăng tính linh hoạt của hệ thống RAG, một số kỹ thuật có
-thể áp dụng như: • Hybrid Search Exploration:Là giải pháp kết hợp hai
-giải pháp tìm kiếm là tìm kiếm với từ khoá (keyword) và tìm kiếm theo
-ngữ nghĩa (semantic). Giải pháp này tối ưu được kết quả chính xác từ
-việc tìm theo từ khoá và việc linh hoạt tìm kiếm với các từ cùng ngữ
-cảnh. K...
+Nhằm tăng tính linh hoạt của hệ thống RAG, một số kỹ thuật có thể áp dụng như:
+• Hybrid Search Exploration:Là giải pháp kết hợp hai giải pháp tìm kiếm là tìm kiếm với
+từ khoá (keyword) và tìm kiếm theo ngữ nghĩa (semantic). Giải pháp này tối ưu được kết
+quả chính xác từ việc tìm theo từ khoá và việc linh hoạt tìm kiếm với các từ cùng ngữ cảnh.
+Kết hợp với giải pháp này thường là các thuật toán xếp hạng (reranker) để phân hạng lại
+các kết quả có được từ hai phương pháp tìm kiếm.
+• Recursive Retrieval and Query Engine:Giải pháp cung cấp phương pháp phân chia
+tài liệu hiệu quả với các cấp phân chia. Cấp nhỏ để phân chia thành các đoạn tài liệu ngắn
+nhằm gia tăng khả năng tìm kiếm các nội dung tương đồng. 

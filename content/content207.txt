@@ -1,3 +1,4 @@
-Node ID: 76659c73-ee08-4725-9bc0-852ce52c629b
-Text: __init__() Đây là phương thức khởi tạo (constructor), được gọi
-tự động mỗi khi một object mới của class được tạo ra. 2
+__init__()
+Đây là phương thức khởi tạo (constructor), được gọi tự động mỗi khi một object mới của class được
+tạo ra.
+2

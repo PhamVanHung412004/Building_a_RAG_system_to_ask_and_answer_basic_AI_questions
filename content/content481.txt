@@ -1,7 +1,22 @@
-Node ID: 86c2d86c-ffbb-4694-a9d1-dd382064489b
-Text: host } - \"{ request . method } { request . url . path } {
-request . scope [’ http_version ’]}\" { response . status_code } {
-process_time :.2 f}s") 20 21 return response Ta sử dụng class logger
-đã khai báo trước đó, khi một request đã được thực thi xong, ta sẽ log
-lại thông tin của response này trước khi trả về cho người dùng. Như đã
-đề cập trư...
+host } - \"{ request . method } { request . url . path
+} { request . scope [’ http_version ’]}\" { response . status_code } {
+process_time :.2 f}s")
+20
+21 return response
+Ta sử dụng class logger đã khai báo trước đó, khi một request đã được thực thi xong,
+ta sẽ log lại thông tin của response này trước khi trả về cho người dùng. Như đã đề cập
+trước đó, việc sử dụng class Middleware này sẽ được thực hiện khi ta khai báo một thực
+thể FastAPI.
+– middleware/__init__.py: Ta tạo file init để import sẵn các hàm, class của hai file trên để
+việc import ở các file trong vị trí folder khác thuận tiện hơn như sau:
+1 from . http import LogMiddleware
+2 from . cors import setup_cors
+7. Cập nhật folderschemas/: Các API thường biểu diễn dữ liệu request/response ở dạng bán
+cấu trúc như XML, JSON... Trong hầu hết tất cả các trường hợp, các trường thông tin trong
+dữ liệu sẽ được xác định trước. Vì vậy, sẽ thật tốt nếu chúng ta có một cách thức kiểm tra
+tự động mà không cần phải thao tác thủ công.
+Hình 8: Minh họa dữ liệu request và dữ liệu response.
+Trong FastAPI, chúng ta có thể sử dụng Pydantic Model, một dạng data validation. Pydantic
+Model cho phép chúng ta định nghĩa cấu trúc dữ liệu và đảm bảo rằng cấu trúc này sẽ luôn
+được tuân thủ bởi API. Đối với bài này, chúng ta sẽ cho người dùng gửi một tấm ảnh và API
+13

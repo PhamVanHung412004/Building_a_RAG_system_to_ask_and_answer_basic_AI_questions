@@ -1,7 +1,9 @@
-Node ID: 0a7fbaff-7370-413a-9633-e8a538775cd1
-Text: • Thiết kế class dùng để Crawl url từ website dựa vào các đặc
-điểm của html. • Xử lí đa luồng khi crawl url từ website. Trước tiên
-chúng ta sẽ quan sát bố cục của trang web này trước khi thực hiện đi
-sâu phân tích về cấu trúc HTML của nó. Hình 23: Bố cục trang tìm kiếm
-Có thể thấy flickr là trang web có bố cục khá đơn giản, khi chúng ta
-nhập một...
+• Thiết kế class dùng để Crawl url từ website dựa vào các đặc điểm của html.
+• Xử lí đa luồng khi crawl url từ website.
+Trước tiên chúng ta sẽ quan sát bố cục của trang web này trước khi thực hiện đi sâu phân tích về cấu
+trúc HTML của nó.
+Hình 23: Bố cục trang tìm kiếm
+Có thể thấy flickr là trang web có bố cục khá đơn giản, khi chúng ta nhập một từ khóa tìm kiếm vào
+ô search, bên dưới sẽ ngay lập tức hiển thị các hình ảnh chính xác. Và ở đây có một điểm quan trọng
+nhất cần lưu ý là đường link URL (2) của trang web. Dễ dàng nhận thấy được thay vì tìm kiếm bằng ô
+21

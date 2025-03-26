@@ -1,7 +1,29 @@
-Node ID: 428d1ff3-2e6f-41e4-967b-e0c4ae8bb666
-Text: AI VIETNAM (AIO2024) aivietnam.edu.vn 6
-bnb_4bit_use_double_quant =True , 7 bnb_4bit_compute_dtype = torch .
-bfloat16 8 ) 9 model = AutoModelForCausalLM . from_pretrained ( 10
-model_name , 11 quantization_config = nf4_config , 12
-low_cpu_mem_usage = True 13 ) 14 tokenizer = AutoTokenizer .
-from_pretrained ( model_name ) 15 16 model_pipeline = pi...
+AI VIETNAM (AIO2024) aivietnam.edu.vn
+6 bnb_4bit_use_double_quant =True ,
+7 bnb_4bit_compute_dtype = torch . bfloat16
+8 )
+9 model = AutoModelForCausalLM . from_pretrained (
+10 model_name ,
+11 quantization_config = nf4_config ,
+12 low_cpu_mem_usage = True
+13 )
+14 tokenizer = AutoTokenizer . from_pretrained ( model_name )
+15
+16 model_pipeline = pipeline (
+17 "text - generation ",
+18 model = model ,
+19 tokenizer = tokenizer ,
+20 max_new_tokens = max_new_token ,
+21 pad_token_id = tokenizer . eos_token_id ,
+22 device_map =" auto "
+23 )
+24
+25 llm = HuggingFacePipeline (
+26 pipeline = model_pipeline ,
+27 )
+28 return llm
+29
+30 LLM = get_huggingface_llm ()
+7. Khởi tạo welcome message:
+1 welcome_message = """ Welcome to the PDF QA! To get started :
+2 1. 

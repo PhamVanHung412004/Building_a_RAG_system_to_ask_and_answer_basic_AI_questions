@@ -1,7 +1,37 @@
-Node ID: 27ae4e6b-57aa-4897-98f2-cc9deb64af9b
-Text: AI VIETNAM aivietnam.edu.vn 1.3. Cách định nghĩa một Class Để
-định nghĩa một Class, ta thực hiện khai báo các thuộc tính của class
-bên trong phương thức __init__() (hay còn gọi là constructor, một
-phương thức đặc biệt trong Class Python sẽ được mô tả kỹ hơn trong mục
-1.5). Các phương thức của class được định nghĩa bằng cách nhận biến
-đặc biệtsel...
+AI VIETNAM aivietnam.edu.vn
+1.3. Cách định nghĩa một Class
+Để định nghĩa một Class, ta thực hiện khai báo các thuộc tính của class bên trong phương thức
+__init__() (hay còn gọi là constructor, một phương thức đặc biệt trong Class Python sẽ được mô
+tả kỹ hơn trong mục 1.5).
+Các phương thức của class được định nghĩa bằng cách nhận biến đặc biệtself làm đối số đầu tiên (một
+đối số được sử dụng để tham chiếu đến đối tượng hiện tại), và khởi tạo tương tự như các hàm bình
+thường.
+1 # Create a class
+2 class Rectangle:
+3 def __init__(self, my_width, my_height):
+4 self.width = my_width
+5 self.height = my_height
+6
+7 def calculate_area(self):
+8 self.area = self.width * self.height
+9 return self.area
+10
+11 def calculate_perimeter(self):
+12 return (self.width + self.height) * 2
+13
+1.4. Cách tạo một Object từ một Class
+Để khởi tạo một object thuộc một class, ta gọi tên class và kèm theo các giá trị tương ứng so với các
+biến đã được định nghĩa trong phương thức__init__.
+1 # Create a object and
+2 my_rec = Rectangle(4, 7)
+3
+4 # Call the attributes of the object
+5 print(my_rec.width) # Output: 4
+6 print(my_rec.height) # Output: 7
+7
+8 # Call the methods of the object
+9 print(my_rec.calculate_area()) # Output: 28
+10 print(my_rec.calculate_perimeter()) # Output: 22
+11
+1.5. Các phương thức đặc biệt
+a. 

@@ -1,7 +1,19 @@
-Node ID: feb6802c-1f57-461f-b922-dfb35e4fe17d
-Text: AIO2024 aivietnam.edu.vn Câu 14: Áp dụng một hàm user-defined
-cho ndarray dùng np.vectorize(). Áp dụng hàm get_max() cho hai mảng
-ndarray 1 # Python code ( aivietnam ) 2 import numpy as np 3 4 # get
-larger value 5 def get_max (x, y): 6 if x >= y : 7 return x 8 else : 9
-return y 10 11 # vectorize the function 12 pair_max = np. vectorize (
-get_max...
+AIO2024 aivietnam.edu.vn
+Câu 14: Áp dụng một hàm user-defined cho ndarray dùng np.vectorize(). Áp dụng hàm
+get_max() cho hai mảng ndarray
+1 # Python code ( aivietnam )
+2 import numpy as np
+3
+4 # get larger value
+5 def get_max (x, y):
+6 if x >= y :
+7 return x
+8 else :
+9 return y
+10
+11 # vectorize the function
+12 pair_max = np. vectorize ( get_max ,
+13 otypes =[ int ])
+14
+15 # create data1 and data2
+16 data1 = np. 

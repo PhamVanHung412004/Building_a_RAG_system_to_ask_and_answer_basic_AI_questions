@@ -1,5 +1,4 @@
-Node ID: 97359655-ceec-4f8d-909f-b34705247fb7
-Text: Daily AI Exercise (AIO) Ngày 1 tháng 4 năm 2024 2. Cách cài đặt
-và sử dụng một số tính năng: Để cài đặt thư viện PygWalker, chúng ta
-có thể cài trên Google Colab, hoặc ở máy cá nhân thông qua Jupyter
-Notebook.
+Daily AI Exercise (AIO) Ngày 1 tháng 4 năm 2024
+2. Cách cài đặt và sử dụng một số tính năng:
+Để cài đặt thư viện PygWalker, chúng ta có thể cài trên Google Colab, hoặc ở máy cá
+nhân thông qua Jupyter Notebook. 

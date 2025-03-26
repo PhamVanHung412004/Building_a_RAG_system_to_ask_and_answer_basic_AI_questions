@@ -1,5 +1,8 @@
-Node ID: 72df83aa-dfce-4a1e-97e1-f7abcf98d003
-Text: Để khởi tạo mô hình lên trên file notebook, chúng ta sẽ chạy
-đoạn code sau: 1 MODEL_NAME = "vilm/vinallama-7b-chat" 2 3 bnb_config
-= BitsAndBytesConfig( 4 load_in_4bit=True, 5
-bnb_4bit_use_double_quant=True, 2
+Để khởi tạo mô hình lên trên file notebook, chúng ta sẽ chạy đoạn code
+sau:
+1 MODEL_NAME = "vilm/vinallama-7b-chat"
+2
+3 bnb_config = BitsAndBytesConfig(
+4 load_in_4bit=True,
+5 bnb_4bit_use_double_quant=True,
+2

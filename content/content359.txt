@@ -1,5 +1,8 @@
-Node ID: 1282b999-218a-4dc0-b047-940a46093f2e
-Text: fc1 ( out ) 22 x = F. relu (x) 23 x = self . fc2 (x) 24 return x
-25 • Early Fusion: Early fusion sẽ kết hợp các input frame để tạo
-thành tensor có kích thước (3*T x H x W) và dùng model 2D (cần thay
-đổi layer conv đầu tiên để phù hợp với input). 8
+fc1 ( out )
+22 x = F. relu (x)
+23 x = self . fc2 (x)
+24 return x
+25
+• Early Fusion: Early fusion sẽ kết hợp các input frame để tạo thành tensor có kích thước
+(3*T x H x W) và dùng model 2D (cần thay đổi layer conv đầu tiên để phù hợp với input).
+8

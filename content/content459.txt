@@ -1,7 +1,42 @@
-Node ID: 5802a295-7bb6-4934-b482-398a983e157b
-Text: Adam ( model . parameters () , lr=LR , weight_decay =
-WEIGHT_DECAY ) 6 criterion = torch .nn. CrossEntropyLoss () 7 8 for
-epoch in range ( EPOCHS ): 9 train_losses = [] 10 model . train () 11
-for images , labels in train_loader : 12 images = images .to( device )
-13 labels = labels .to( device ) 14 15 outputs = model ( images ) 16
-17 optimizer . ...
+Adam ( model . parameters () , lr=LR , weight_decay =
+WEIGHT_DECAY )
+6 criterion = torch .nn. CrossEntropyLoss ()
+7
+8 for epoch in range ( EPOCHS ):
+9 train_losses = []
+10 model . train ()
+11 for images , labels in train_loader :
+12 images = images .to( device )
+13 labels = labels .to( device )
+14
+15 outputs = model ( images )
+16
+17 optimizer . zero_grad ()
+18 loss = criterion ( outputs , labels )
+19 loss . backward ()
+20 optimizer . step ()
+21
+22 train_losses . append ( loss . item ())
+23
+24 train_loss = sum ( train_losses ) / len ( train_losses )
+25
+26 val_losses = []
+27 model . eval ()
+28 with torch . no_grad ():
+29 for images , labels in test_loader :
+30 images = images .to( device )
+31 labels = labels .to( device )
+32
+33 outputs = model ( images )
+34 loss = criterion ( outputs , labels )
+35
+36 val_losses . append ( loss . item ())
+37
+38 val_loss = sum ( val_losses ) / len ( val_losses )
+39
+40 print (f’EPOCH { epoch + 1}:\ tTrain loss : { train_loss :.3 f}\ tVal loss : {
+val_loss :.3 f}’)
+7. Lưu trọng số mô hình:Với mô hình đã được huấn luyện xong, ta sẽ lưu mô hình lại dưới
+dạng file .pt và tải về máy file này:
+1 SAVE_PATH = ’ catdog_weights .pt ’
+2 torch . save ( model . 

@@ -1,7 +1,17 @@
-Node ID: 38b41069-40de-4686-b021-1522876a870f
-Text: AI VIETNAM aivietnam.edu.vn search, chúng ta hoàn toàn có thể
-thay đổi từ khóa "Cat" trong đường dẫn bằng từ khóa mong muốn. Từ đây,
-chúng ta có thể liên hệ tìm kiếm với trang web flickr thông qua đường
-link: 1 https://www.flickr.com/search/?text={search_term} Từ đường dẫn
-URL, chúng ta có thể lấy được toàn bộ nội dung mà trang web hiển thị:
-Hìn...
+AI VIETNAM aivietnam.edu.vn
+search, chúng ta hoàn toàn có thể thay đổi từ khóa "Cat" trong đường dẫn bằng từ khóa mong muốn.
+Từ đây, chúng ta có thể liên hệ tìm kiếm với trang web flickr thông qua đường link:
+1 https://www.flickr.com/search/?text={search_term}
+Từ đường dẫn URL, chúng ta có thể lấy được toàn bộ nội dung mà trang web hiển thị:
+Hình 24: Cách hoạt động cơ bản của website
+Khi chúng ta gõ một đường dẫn, hay click vào URL nào đó, browser (như Cốc cốc, chrome, brave) sẽ
+gửi một yêu cầu tới server, server sẽ đọc url, xử lí yêu cầu, truy xuất xuống database lấy những thông
+tin cần thiết, sau đó tổng hợp tất cả các file gửi trả lời cho browser. Trong các file đó, dĩ nhiên có file
+định dạng HTML, chính là file chứa cấu trúc của toàn bộ trang web. Sau khi browser nhận được phản
+hồi từ server, sẽ hiển thị tất cả thông tin dưới dạng một trang web, người dùng có thể dễ dàng tương
+tác, gửi các request khác tới server thông qua browser.
+Chúng ta vừa có thể tìm kiếm nội dung bằng cách thay đổi search_term trong đường link, vừa có thể
+lấy được nội dung (cấu trúc HTML) của trang đó thông qua việc gửi request tới server, như vậy, chúng
+ta chỉ cần xử lí thông tin ở trong file HTML nhận lại từ server để lấy ra thông tin về ảnh cần thu thập.
+Để phân tích cấu trúc trang web thông qua HTML:
+• Bước 1:Nhấn F12 để bật công cụ dev tool của browser.

@@ -1,7 +1,30 @@
-Node ID: 8da8d6b5-b674-401e-9a73-f144179e0106
-Text: AI VIETNAM aivietnam.edu.vn 15 Để hỏi về một chủ đề hoặc ý tưởng
-cụ thể hoặc bất kỳ thông tin nào và bạn muốn kiểm tra sự hiểu biết của
-mình, bạn có thể sử dụng cụm sau: “Teach me any [theorem/topic/rule
-name] and include a test at the end, and let me know if my answers are
-correct after I respond, without providing the answers beforehand.”
-(Hãy...
+AI VIETNAM aivietnam.edu.vn
+15
+Để hỏi về một chủ đề hoặc ý tưởng cụ thể hoặc bất kỳ thông tin nào và bạn
+muốn kiểm tra sự hiểu biết của mình, bạn có thể sử dụng cụm sau: “Teach
+me any [theorem/topic/rule name] and include a test at the end, and let me
+know if my answers are correct after I respond, without providing the answers
+beforehand.” (Hãy dạy tôi bất kỳ [định lý/chủ đề/tên quy tắc] nào và kèm theo
+một bài kiểm tra ở cuối, đồng thời cho tôi biết liệu câu trả lời của tôi có đúng
+sau khi tôi trả lời mà không cần cung cấp câu trả lời trước hay không.)
+16 Gán vai trò cho các mô hình ngôn ngữ lớn.
+17 Sử dụng các dấu phân cách.
+18 Lặp lại một từ hoặc cụm từ cụ thể nhiều lần trong prompt.
+19 Kết hợp Chain-of-thought với few-Shot prompts.
+20
+Sử dụng đoạn mở đầu đầu ra, bao gồm việc kết thúc lời nhắc của bạn với phần
+đầu của đầu ra mong muốn. Sử dụng đoạn mồi đầu ra bằng cách kết thúc
+prompt của bạn bằng phần bắt đầu phản hồi bạn muốn nhận được
+21
+Để viết một bài luận/văn bản/đoạn/bài viết hoặc bất kỳ loại văn bản nào cần
+chi tiết: “Write a detailed [essay/text/paragraph] for me on [topic] in detail by
+adding all the information necessary" (Viết một [bài luận/văn bản/đoạn văn]
+chi tiết cho tôi về [chủ đề] một cách chi tiết bằng cách thêm tất cả thông tin
+cần thiết).
+22
+Để sửa/thay đổi văn bản cụ thể mà không thay đổi văn phong: “Try to revise
+every paragraph sent by users. You should only improve the user’s grammar and
+vocabulary and make sure it sounds natural. You should maintain the original
+writing style, ensuring that a formal paragraph remains formal.” (Cố gắng sửa
+lại mọi đoạn văn do người dùng gửi. Bạn chỉ nên cải thiện ngữ pháp và từ vựng
+của người dùng và đảm bảo rằng nó nghe tự nhiên. 

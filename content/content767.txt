@@ -1,7 +1,28 @@
-Node ID: 5fcc352c-a252-44ec-9e81-90ec10bb2bc2
-Text: AIO 2024 aivietnam.edu.vn • stop: Giá trị kết thúc của dãy số
-(giá trị này không bao gôm trong mảng được tạo). • step: Khoảng cách
-giữa các giá trị trong dãy số (mặc định là 1). Ví dụ dưới đây sẽ tạo
-một mảng chứa các số nguyên từ 0 đến 9. 1 #aivietnam 2 import numpy as
-np 3 4 # Tạo mảng chứa các số nguyên từ 0 đến 9 5 arange_array =
-np.arange(0...
+AIO 2024 aivietnam.edu.vn
+• stop: Giá trị kết thúc của dãy số (giá trị này không bao gôm trong mảng được tạo).
+• step: Khoảng cách giữa các giá trị trong dãy số (mặc định là 1).
+Ví dụ dưới đây sẽ tạo một mảng chứa các số nguyên từ 0 đến 9.
+1 #aivietnam
+2 import numpy as np
+3
+4 # Tạo mảng chứa các số nguyên từ 0 đến 9
+5 arange_array = np.arange(0, 10)
+6 print(arange_array)
+================= Output =================
+[0 1 2 3 4 5 6 7 8 9]
+==========================================
+2.6 Tạo ma trận đơn vị với eye()
+np.eye là một hàm dùng để tạo một ma trận đơn vị, trong đó các phần tử trên đường chéo chính là 1
+và các phần tử còn lại là 0. Cú pháp:
+1 np.eye(N)
+• N: Số hàng và số cột của ma trận (ma trận vuông).
+Ví dụ sau sẽ tạo một ma trận đơn vị 3x3, với các phần tử trên đường chéo chính là 1 và các phần tử
+còn lại là 0.
+1 #aivietnam
+2 import numpy as np
+3
+4 # Tạo ma trận đơn vị 3x3
+5 eye_matrix = np.eye(3)
+6 print(eye_matrix)
+================= Output =================
+[[1. 0. 

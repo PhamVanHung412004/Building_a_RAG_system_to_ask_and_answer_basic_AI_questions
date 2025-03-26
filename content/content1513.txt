@@ -1,7 +1,7 @@
-Node ID: 636fa456-9b3b-462c-b188-c470191f7842
-Text: AI VIETNAM aivietnam.edu.vn Hình 1: Reinforcement Learning
-Framework. Mô tả tổng quan về bài toán Học tăng cường. Như đã nói ở
-trên, Reinforcement Learning liên quan đến việc triển khai một tác tử
-có khả năng tương tác với môi trường, từ đó học cách để tối ưu điểm
-thưởng tích lũy kỳ vọng nhận được qua mỗi nước đi. Với hình minh họa
-trên, ta có t...
+AI VIETNAM aivietnam.edu.vn
+Hình 1: Reinforcement Learning Framework. Mô tả tổng quan về bài toán Học tăng cường.
+Như đã nói ở trên, Reinforcement Learning liên quan đến việc triển khai một tác tử có khả năng
+tương tác với môi trường, từ đó học cách để tối ưu điểm thưởng tích lũy kỳ vọng nhận được qua mỗi
+nước đi. Với hình minh họa trên, ta có thể hình dung một ngữ cảnh khi quá trình huấn luyện bắt đầu
+(trò chơi bắt đầu) tại thời điểmt = 0như sau:
+1. Đầu tiên, tác tử nhận thông tin trạng tháiS0 (khởi tạo) từ môi trường.

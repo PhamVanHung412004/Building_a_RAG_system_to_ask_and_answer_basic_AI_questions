@@ -1,7 +1,17 @@
-Node ID: 1bb53a32-8572-423f-b27b-68bd7f4b4f85
-Text: AI VIETNAM aivietnam.edu.vn Phần III: Câu hỏi trắc nghiệm 1. Đâu
-là lưu ý khi áp dụng GNN vào các bài toán bất kì? (a) Label là gì? (b)
-Độ lớn dataset (c) Độ phức tạp của model (d) Edge là gì? 2. Đâu là lưu
-ý khi áp dụng GNN vào các bài toán bất kì? (a) Label là gì? (b) Node
-là gì? (c) Số lượng param (d) Loss là gì? 3. Đâu là lưu ý khi áp dụng
-G...
+AI VIETNAM aivietnam.edu.vn
+Phần III: Câu hỏi trắc nghiệm
+1. Đâu là lưu ý khi áp dụng GNN vào các bài toán bất kì?
+(a) Label là gì?
+(b) Độ lớn dataset
+(c) Độ phức tạp của model
+(d) Edge là gì?
+2. Đâu là lưu ý khi áp dụng GNN vào các bài toán bất kì?
+(a) Label là gì?
+(b) Node là gì?
+(c) Số lượng param
+(d) Loss là gì?
+3. Đâu là lưu ý khi áp dụng GNN vào các bài toán bất kì?
+(a) Có cần hàm loss phụ trợ hay không?
+(b) Loại hàm loss của model hiện tại.
+(c) Model có tính toán song song hay không?
+(d) Loss là gì?

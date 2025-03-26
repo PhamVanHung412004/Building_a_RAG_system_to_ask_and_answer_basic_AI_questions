@@ -1,7 +1,17 @@
-Node ID: 71dd5f70-b5af-45b0-bb1e-9c1bbc532411
-Text: AI VIET NAM – 2024 Graph Neural Network - Exercise Minh-Duc Bui
-và Vinh Dinh Nguyen Ngày 28 tháng 4 năm 2024 Phần I: Giới thiệu Graph
-Neural Network - GNN là một nerual network sử dụng để xử lý dữ liệu
-được biểu diễn dưới dạng graph. Trong graph, các đỉnh (node) biểu diễn
-các thực thể, và các cạnh (edge) thể hiện các mối quan hệ giữa các
-node. G...
+AI VIET NAM – 2024
+Graph Neural Network - Exercise
+Minh-Duc Bui và Vinh Dinh Nguyen
+Ngày 28 tháng 4 năm 2024
+Phần I: Giới thiệu
+Graph Neural Network - GNN là một nerual network sử dụng để xử lý dữ liệu được biểu diễn dưới dạng
+graph. Trong graph, các đỉnh (node) biểu diễn các thực thể, và các cạnh (edge) thể hiện các mối quan
+hệ giữa các node. GNN được thiết kế để trích xuất thông tin từ cấu trúc graph để thực hiện các bài
+toán như classification, prediction, clustering, và labeling graph data.
+Đặc điểm chính của GNN là khả năng tổng hợp thông tin từ các node lân cận trong graph. Mỗi node
+trong graph có thể được xem như một feature vector, và GNN sử dụng các cơ chế lan truyền thông tin
+qua các edge để cập nhật các vector này. Quá trình này thường được thực hiện qua nhiều layer của
+network, mỗi layer thực hiện một bước lan truyền và cập nhật thông tin.
+GNN có hiệu suất mạnh mẽ trong nhiều ứng dụng thực tế, bao gồm social network analysis, predicting
+molecular interactions, graph image classification, và nhiều tác vụ khác.
+Trong buổi hôm nay, ta sẽ sử dụng GNN vào bài toán classification nói chung và image classification
+nói riêng.

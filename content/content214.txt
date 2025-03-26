@@ -1,7 +1,37 @@
-Node ID: 4ac86a3c-03ca-4e58-b16f-0b0a2984232b
-Text: AI VIETNAM aivietnam.edu.vn a. Public members Các public members
-có thể được truy cập từ bất kỳ đâu, cả bên trong và bên ngoài class.
-Mặc định, tất cả các thuộc tính và phương thức trong Python đều là
-public. 1 class MyClass: 2 def __init__(self, value): 3 self.value =
-value 4 5 def display(self): 6 print(self.value) 7 8 obj = MyClass(10)
-9 prin...
+AI VIETNAM aivietnam.edu.vn
+a. Public members
+Các public members có thể được truy cập từ bất kỳ đâu, cả bên trong và bên ngoài class. Mặc định,
+tất cả các thuộc tính và phương thức trong Python đều là public.
+1 class MyClass:
+2 def __init__(self, value):
+3 self.value = value
+4
+5 def display(self):
+6 print(self.value)
+7
+8 obj = MyClass(10)
+9 print(obj.value) # Truy cập thuộc tính công khai
+10 obj.display() # Gọi phương thức công khai
+11
+b. Protected members
+Các protected members chỉ nên được truy cập bên trong class và các lớp con của nó. Để khai báo một
+member là protected, chúng ta sử dụng một dấu gạch dưới _ trước tên của thuộc tính hoặc phương
+thức.
+1 class MyClass:
+2 def __init__(self, value):
+3 self._value = value # Protected attribute
+4
+5 def _display(self): # Protected method
+6 print(self._value)
+7
+8 class SubClass(MyClass):
+9 def show(self):
+10 self._display() # Truy cập phương thức được bảo vệ từ lớp con
+11
+12 obj = SubClass(20)
+13 obj.show() # Output: 20
+14
+b. Private members
+Các private members chỉ có thể được truy cập bên trong class nơi chúng được định nghĩa. Để khai báo
+một member là private, chúng ta sử dụng hai dấu gạch dưới __ trước tên của thuộc tính hoặc phương
+thức.

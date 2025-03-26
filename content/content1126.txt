@@ -1,7 +1,10 @@
-Node ID: 2518684f-27be-4ea9-8e1c-5f3104e7847e
-Text: AI VIETNAM (AIO2024) aivietnam.edu.vn V. Trích dẫn [1] Redmon,
-J., Divvala, S., Girshick, R., & Farhadi, A. (2015). You Only Look
-Once: Unified, Real-Time Object Detection. ArXiv. /abs/1506.02640 [2]
-Redmon, J., & Farhadi, A. (2016). YOLO9000: Better, Faster, Stronger.
-ArXiv. /abs/1612.08242 [3] Redmon, J., & Farhadi, A. (2018). YOLOv3:
-An Incre...
+AI VIETNAM (AIO2024) aivietnam.edu.vn
+V. Trích dẫn
+[1] Redmon, J., Divvala, S., Girshick, R., & Farhadi, A. (2015). You Only Look Once: Unified,
+Real-Time Object Detection. ArXiv. /abs/1506.02640
+[2] Redmon, J., & Farhadi, A. (2016). YOLO9000: Better, Faster, Stronger. ArXiv.
+/abs/1612.08242
+[3] Redmon, J., & Farhadi, A. (2018). YOLOv3: An Incremental Improvement. ArXiv.
+/abs/1804.02767
+[4] Bochkovskiy, A., Wang, C. Y., & Liao, H. Y. M. (2020). YOLOv4: Optimal Speed and
+Accuracy of Object Detection. ArXiv. 

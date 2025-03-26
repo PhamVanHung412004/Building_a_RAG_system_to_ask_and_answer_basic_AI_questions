@@ -1,3 +1,5 @@
-Node ID: bbc43a18-670e-4c34-baa9-2c4d59a9e274
-Text: AI VIETNAM aivietnam.edu.vn Hình 5: Ảnh minh họa cho mô hình
-MDN. 1 import torch 2 import torch .nn as nn 3 import torch .nn.
+AI VIETNAM aivietnam.edu.vn
+Hình 5: Ảnh minh họa cho mô hình MDN.
+1 import torch
+2 import torch .nn as nn
+3 import torch .nn. 

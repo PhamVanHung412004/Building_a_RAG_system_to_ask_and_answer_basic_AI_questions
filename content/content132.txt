@@ -1,7 +1,17 @@
-Node ID: adfab74a-1a88-48cd-b30a-30bc7fb054b7
-Text: Được đặt tên theo nhà toán học và nhà vật lý học Norbert Wiener
-và Robert Brown. Một số đặc điểm của Wiener process: • Liên tục: Nó là
-một quá trình liên tục trong không gian và thời gian. Điều này có
-nghĩa rằng nó không bị gián đoạn và có giá trị tại mọi thời điểm. •
-Không xác định: Wiener process có tính chất ngẫu nhiên mạnh, nghĩa là
-không th...
+Được đặt tên theo nhà toán học và nhà vật lý học Norbert Wiener và
+Robert Brown.
+Một số đặc điểm của Wiener process:
+• Liên tục: Nó là một quá trình liên tục trong không gian và thời gian. Điều này có nghĩa rằng nó
+không bị gián đoạn và có giá trị tại mọi thời điểm.
+• Không xác định: Wiener process có tính chất ngẫu nhiên mạnh, nghĩa là không thể dự đoán
+được cách nó di chuyển tại một thời điểm cụ thể. Nó thường được mô tả bằng một biến ngẫu
+nhiên theo phân phối chuẩn (normal).
+• Điểm xuất phát: Quá trình Wiener thường được mô tả bằng một điểm xuất phát, sau đó tiến
+hành theo một quá trình ngẫu nhiên không giảm dần.
+• Được sử dụng rộng rãi: Quá trình Wiener được sử dụng trong nhiều lĩnh vực như tài chính
+(để mô phỏng biến động giá cổ phiếu), khoa học máy tính (để mô phỏng quá trình ngẫu nhiên),
+toán học,...
+Wiener process là một ví dụ quan trọng trong lĩnh vực lý thuyết xác suất và quá trình ngẫu nhiên
+và chúng thường được sử dụng để mô phỏng và nghiên cứu sự biến đổi ngẫu nhiên trong các hệ thống
+thực tế.
+1

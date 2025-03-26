@@ -1,7 +1,11 @@
-Node ID: f2deec6a-d943-4d31-960e-08c683ea4708
-Text: AI VIETNAM aivietnam.edu.vn 9. How does Voxel Net process point
-cloud data compare to PointNet? (A). It directly operates on the point
-cloud coordinates. (B). It converts the point cloud into a 3D
-volumetric grid (voxel grid). (C). It requires pre-segmentation of the
-point cloud. (D). It is computationally less expensive than PointNet.
-10. What ...
+AI VIETNAM aivietnam.edu.vn
+9. How does Voxel Net process point cloud data compare to PointNet?
+(A). It directly operates on the point cloud coordinates.
+(B). It converts the point cloud into a 3D volumetric grid (voxel grid).
+(C). It requires pre-segmentation of the point cloud.
+(D). It is computationally less expensive than PointNet.
+10. What is a potential drawback of using Voxel Net?
+(A). It can be computationally expensive for high-resolution voxel grids.
+(B). It requires color information for each point to be effective.
+(C). It is sensitive to the chosen voxel size.
+(D). 

@@ -1,7 +1,14 @@
-Node ID: f2f859b2-f55c-441a-8a25-6d8aa5f4347b
-Text: BASIC PYTHON - FOR LOOP Dinh-Tiem Nguyen và Quang-Vinh Dinh 1
-Giới thiệu Trong hầu hết các ngôn ngữ lập trình, vòng lặp là một công
-cụ quan trọng giúp thực hiện lặp đi lặp lại các tác vụ mà không cần
-viết mã nhiều lần. Trong bài viết này chúng ta sẽ tìm hiểu cách sử
-dụng vòng lặp for từ cơ bản đến nâng cao, bao gồm cách sử dụng
-continue, break, ...
+BASIC PYTHON - FOR LOOP
+Dinh-Tiem Nguyen và Quang-Vinh Dinh
+1 Giới thiệu
+Trong hầu hết các ngôn ngữ lập trình, vòng lặp là một công cụ quan trọng giúp thực hiện lặp đi lặp
+lại các tác vụ mà không cần viết mã nhiều lần. Trong bài viết này chúng ta sẽ tìm hiểu cách sử dụng
+vòng lặp for từ cơ bản đến nâng cao, bao gồm cách sử dụng continue, break, vòng lặp lồng nhau và cách
+duyệt qua các cấu trúc dữ liệu như string, list, tuple và dictionary.
+2 Vòng lặp for cơ bản
+Sử dụng vòng lặp for là cách hiệu quả để xử lý các tác vụ lặp đi lặp lại, duyệt qua các phần tử của một
+danh sách, mảng, hoặc bất kỳ tập hợp nào khác. Cú pháp sử dụng như sau:
+1 for variable in iterable:
+2 # Body of for loop
+Trong đó:
+• variable là biến sẽ nhận giá trị từng phần tử trong iterable qua mỗi lần lặp.

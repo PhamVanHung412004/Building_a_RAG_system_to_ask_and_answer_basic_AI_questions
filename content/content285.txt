@@ -1,7 +1,10 @@
-Node ID: 20161bfc-6a8d-4ac8-98c9-36daa8fd515c
-Text: AI VIET NAM – AI COURSE 2023 VAE-based Image Colorization Khanh
-Duong, Tien-Huy Nguyen và Nhu-Tai Do Ngày 2 tháng 4 năm 2024 Phần I:
-Giới thiệu Image Colorizationlà quá trình dự đoán màu cho các ảnh đen
-trắng, giúp tái tạo lại hình ảnh thực tế từ dữ liệu đơn sắc, mang lại
-trải nghiệm hình ảnh phong phú và sống động. Với đầu vào là một ảnh
-xám, b...
+AI VIET NAM – AI COURSE 2023
+VAE-based Image Colorization
+Khanh Duong, Tien-Huy Nguyen và Nhu-Tai Do
+Ngày 2 tháng 4 năm 2024
+Phần I: Giới thiệu
+Image Colorizationlà quá trình dự đoán màu cho các ảnh đen trắng, giúp tái tạo lại hình ảnh thực
+tế từ dữ liệu đơn sắc, mang lại trải nghiệm hình ảnh phong phú và sống động. Với đầu vào là một ảnh
+xám, biểu thị cường độ sáng của ảnh, mô hình sẽ học cách ước tính các kênh màu của ảnh, tạo ra một
+hình ảnh hợp lý và hài hòa về mặt thị giác.
+Hình 1: Ví dụ minh họa cho bài toán Image Colorization.

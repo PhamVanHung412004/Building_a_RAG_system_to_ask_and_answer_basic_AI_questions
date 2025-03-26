@@ -1,7 +1,40 @@
-Node ID: 69e7048e-a8e8-448e-af20-d35e18638c64
-Text: train () 82 83 optimizer = optim . Adam ( model . parameters ()
-, lr =5e -5) 84 85 # Train 86 itr_idx = 0 87 for epochs in range (
-nepochs ): 88 train_loss = 0.0 89 90 for batch_idx , ( 91 batch , 92
-batch_recon_const , 93 batch_weights , 94 batch_recon_const_outres ,
-95 _, 96 ) in tqdm ( enumerate ( data_loader ), total = nbatches ): 97
-98 inpu...
+train ()
+82
+83 optimizer = optim . Adam ( model . parameters () , lr =5e -5)
+84
+85 # Train
+86 itr_idx = 0
+87 for epochs in range ( nepochs ):
+88 train_loss = 0.0
+89
+90 for batch_idx , (
+91 batch ,
+92 batch_recon_const ,
+93 batch_weights ,
+94 batch_recon_const_outres ,
+95 _,
+96 ) in tqdm ( enumerate ( data_loader ), total = nbatches ):
+97
+98 input_color = batch . cuda ()
+99 lossweights = batch_weights . cuda ()
+100 lossweights = lossweights . reshape ( batchsize , -1)
+101 input_greylevel = batch_recon_const . cuda ()
+102 z = torch . randn ( batchsize , hiddensize )
+103
+104 optimizer . zero_grad ()
+105 mu , logvar , color_out = model ( input_color , input_greylevel , z)
+106 kl_loss , recon_loss , recon_loss_l2 = vae_loss (
+107 mu , logvar , color_out , input_color , lossweights , batchsize
+108 )
+109 loss = kl_loss . mul (1e -2) + recon_loss
+110 recon_loss_l2 . detach ()
+111 loss . backward ()
+112 optimizer . step ()
+113
+114 train_loss = train_loss + recon_loss_l2 . item ()
+115
+116 if batch_idx % args [" logstep "] == 0:
+117 data . saveoutput_gt (
+118 color_out . cpu (). data . numpy () ,
+119 batch . numpy () ,
+14

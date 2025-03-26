@@ -1,7 +1,32 @@
-Node ID: 58189f5d-1fa7-4775-bf82-2d27048bbe84
-Text: Kết quả này sau đó được kết hợp với trường màu ab tại timestep t
-để tính toán raab channels tại timestep t - 1. Quá trình này được lặp
-lại cho đến khi timestep t = 0. Lúc này ta nhận được trường màuab đã
-được khử nhiễu. Kết hợp với kênh màu xám, ta thu được một ảnh màu hoàn
-thiện. UNet model: 1 import math 2 import numpy as np 3 import torch 4
-i...
+Kết quả này sau đó được kết hợp với trường màu ab tại timestep t để tính toán raab channels
+tại timestep t - 1. Quá trình này được lặp lại cho đến khi timestep t = 0. Lúc này ta nhận được
+trường màuab đã được khử nhiễu. Kết hợp với kênh màu xám, ta thu được một ảnh màu hoàn
+thiện.
+UNet model:
+1 import math
+2 import numpy as np
+3 import torch
+4 import torch .nn as nn
+5
+6
+7 class GroupNorm32 (nn. GroupNorm ):
+8 def forward (self , x):
+9 return super (). forward (x. float ()). type (x. dtype )
+10
+11
+12 def zero_module ( module ):
+13 """
+14 Zero out the parameters of a module and return it.
+15 """
+16 for p in module . parameters ():
+17 p. detach (). zero_ ()
+18 return module
+19
+20
+21 def scale_module ( module , scale ):
+22 """
+23 Scale the parameters of a module and return it.
+24 """
+25 for p in module . parameters ():
+26 p. detach (). mul_ ( scale )
+5

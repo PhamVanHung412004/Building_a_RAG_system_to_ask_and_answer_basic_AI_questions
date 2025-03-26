@@ -1,3 +1,3 @@
-Node ID: 2fafd322-967b-4952-8f57-93371a405510
-Text: AI VIETNAM aivietnam.edu.vn Hình 9: Kết quả thực nghiệm mô hình
-sau khi huấn luyện. 20
+AI VIETNAM aivietnam.edu.vn
+Hình 9: Kết quả thực nghiệm mô hình sau khi huấn luyện.
+20

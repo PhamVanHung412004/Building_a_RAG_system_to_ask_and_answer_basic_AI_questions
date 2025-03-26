@@ -1,3 +1,8 @@
-Node ID: d57fedfb-4e8f-4ce4-8058-f5518594df4c
-Text: Module ): 5 def __init__ ( self ): 6 super (). __init__ () 7 8
-def forward (self , x): 9 ### Your Code Here 10 6
+Module ):
+5 def __init__ ( self ):
+6 super (). __init__ ()
+7
+8 def forward (self , x):
+9 ### Your Code Here
+10
+6

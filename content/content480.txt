@@ -1,7 +1,13 @@
-Node ID: 20bc3453-5a4d-4e0d-a1f0-13153a508765
-Text: base import BaseHTTPMiddleware 8 from starlette . requests
-import Request 9 from utils . logger import Logger 10 11 LOGGER =
-Logger ( __file__ , log_file =" http . log ") 12 13 class
-LogMiddleware ( BaseHTTPMiddleware ): 14 async def dispatch (self ,
-request : Request , call_next ): 15 start_time = time . time () 16
-response = await call_next ( ...
+base import BaseHTTPMiddleware
+8 from starlette . requests import Request
+9 from utils . logger import Logger
+10
+11 LOGGER = Logger ( __file__ , log_file =" http . log ")
+12
+13 class LogMiddleware ( BaseHTTPMiddleware ):
+14 async def dispatch (self , request : Request , call_next ):
+15 start_time = time . time ()
+16 response = await call_next ( request )
+17 process_time = time . time () - start_time
+18 LOGGER . log . info (
+19 f"{ request . client . 

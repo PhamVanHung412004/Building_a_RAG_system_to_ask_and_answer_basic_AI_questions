@@ -1,7 +1,9 @@
-Node ID: 2100d853-0ced-4f25-a413-8e7260fde897
-Text: Willcocks, L. P., Lacity, M. C., & Craig, A. (2015).Robotic
-Process Automa- tion: The Next Transformation Lever for Shared
-Services. The Outsourcing Unit Working Research Paper Series. 2.
-Asatiani, A., & Penttinen, E. (2016).Turning robotic process
-automation into commercial success – Case OpusCapita. Journal of
-Information Technology Teaching C...
+Willcocks, L. P., Lacity, M. C., & Craig, A. (2015).Robotic Process Automa-
+tion: The Next Transformation Lever for Shared Services. The Outsourcing
+Unit Working Research Paper Series.
+2. Asatiani, A., & Penttinen, E. (2016).Turning robotic process automation into
+commercial success – Case OpusCapita. Journal of Information Technology
+Teaching Cases, 6(2), 67-74.
+3. Van Der Aalst, W. M. P. (2018).Robotic Process Automation. InThe Digital
+Twin: Transforming the Manufacturing Industry(pp. 61-70). Springer, Cham.
+6

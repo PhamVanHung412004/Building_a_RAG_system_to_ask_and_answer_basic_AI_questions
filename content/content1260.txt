@@ -1,7 +1,18 @@
-Node ID: a0ce6da9-12de-4659-afb8-474e14e1a6cf
-Text: sort_age () 48 ward1 . describe () 49 50 # output 51 >> After
-sorting Age of Ward1 people 52 Ward Name : Ward1 53 Student - Name :
-studentA - YoB : 2010 - Grade : 7 54 Teacher - Name : teacherB - YoB :
-1995 - Subject : History 55 Doctor - Name : doctorB - YoB : 1975 -
-Specialist : Cardiologists 56 Teacher - Name : teacherA - YoB : 1969 -
-Subject...
+sort_age ()
+48 ward1 . describe ()
+49
+50 # output
+51 >> After sorting Age of Ward1 people
+52 Ward Name : Ward1
+53 Student - Name : studentA - YoB : 2010 - Grade : 7
+54 Teacher - Name : teacherB - YoB : 1995 - Subject : History
+55 Doctor - Name : doctorB - YoB : 1975 - Specialist : Cardiologists
+56 Teacher - Name : teacherA - YoB : 1969 - Subject : Math
+57 Doctor - Name : doctorA - YoB : 1945 - Specialist : Endocrinologists
+58
+59 # 2(e)
+60 print (f"\ nAverage year of birth ( teachers ): { ward1 . compute_average ()}")
+61
+62 # output
+63 >> Average year of birth ( teachers ): 1982.0
+3

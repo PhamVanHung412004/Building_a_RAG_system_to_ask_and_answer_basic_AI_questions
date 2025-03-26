@@ -1,7 +1,23 @@
-Node ID: 0b29e7ec-61ca-487a-bd5d-81de68d163fb
-Text: AI VIETNAM aivietnam.edu.vn 5 !pip install selenium 6 !apt-get
-install -y chromium-browser 7 !apt-get install -y chromium-
-chromedriver 8 9 from selenium import webdriver 10 from
-selenium.webdriver.common.by import By 11 from
-selenium.webdriver.support.ui import WebDriverWait 12 from
-selenium.webdriver.support import expected_conditions as EC 13 ...
+AI VIETNAM aivietnam.edu.vn
+5 !pip install selenium
+6 !apt-get install -y chromium-browser
+7 !apt-get install -y chromium-chromedriver
+8
+9 from selenium import webdriver
+10 from selenium.webdriver.common.by import By
+11 from selenium.webdriver.support.ui import WebDriverWait
+12 from selenium.webdriver.support import expected_conditions as EC
+13
+14 from bs4 import BeautifulSoup # For parsing HTML content
+15 from urllib.parse import urljoin, urlparse # For handling URLs
+16 import urllib.request # For making HTTP requests
+17 import time # For handling time-related operations
+18 import os # For interacting with the operating system (relate to dir, folder, file)
+19 from tqdm import tqdm # For displaying progress bars (visualize progress)
+20 import concurrent.futures # For multi-threading
+21 import json # For writing to a text file
+22 from PIL import Image # For handling images
+4.0.1 Thu thập dữ liệu - Crawl URL từ Website
+Mục tiêu:
+• Hiểu về bố cục trang web flickr.com.
+• Hiểu cách hoạt động cơ bản của website.

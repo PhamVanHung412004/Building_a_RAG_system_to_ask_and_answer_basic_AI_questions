@@ -1,7 +1,32 @@
-Node ID: 95f3c611-e77d-4317-bd76-7d32ad1b7b7f
-Text: Tự động hóa quy trình bằng robot (RPA) NextGen AI Bankers 1 Lý
-thuyết cơ bản Tự động hóa quy trình bằng robot (RPA)là một công nghệ
-cho phép các tổ chức tự động hóa các tác vụ lặp đi lặp lại và dựa trên
-quy tắc, thường do nhân viên thực hiện. RPA sử dụng các robot phần mềm
-(bot) để mô phỏng các hành động của con người như nhập dữ liệu, xử lý
-gia...
+Tự động hóa quy trình bằng robot (RPA) NextGen AI Bankers
+1 Lý thuyết cơ bản
+Tự động hóa quy trình bằng robot (RPA)là một công nghệ cho phép các tổ
+chức tự động hóa các tác vụ lặp đi lặp lại và dựa trên quy tắc, thường do nhân viên
+thực hiện. RPA sử dụng các robot phần mềm (bot) để mô phỏng các hành động của
+con người như nhập dữ liệu, xử lý giao dịch và trả lời các yêu cầu của khách hàng.
+Những bot này tương tác với các hệ thống và ứng dụng kỹ thuật số để thực hiện
+các tác vụ một cách nhanh chóng và chính xác.
+Các đặc điểm chính của RPA bao gồm:
+• Tự động hóa quy trình: Bot thực hiện các quy tắc và quy trình được định
+trước.
+• Khả năng mở rộng: RPA có thể xử lý khối lượng lớn các tác vụ lặp đi lặp lại.
+• Độ chính xác: Bot thực hiện các tác vụ với độ chính xác cao, giảm thiểu lỗi.
+• Hiệu quả chi phí: Tự động hóa các tác vụ thủ công giúp giảm chi phí lao động
+và nâng cao hiệu quả.
+2 Bối cảnh lịch sử
+Công nghệ RPA xuất hiện vào đầu những năm 2000, phát triển từ các công nghệ tự
+động hóa truyền thống và screen scraping. Ban đầu được sử dụng trong các ngành
+công nghiệp như sản xuất để tự động hóa quy trình, RPA sớm tìm thấy các ứng
+dụng trong các ngành dịch vụ, bao gồm cả tài chính và ngân hàng. Cuộc khủng
+hoảng tài chính năm 2008 đã thúc đẩy việc áp dụng RPA trong ngân hàng khi các
+tổ chức tìm cách giảm chi phí và cải thiện hiệu quả hoạt động.
+3 Các thí nghiệm quan trọng
+Một thí nghiệm đáng chú ý được thực hiện bởi Deutsche Bank, đã triển khai RPA
+để tự động hóa quy trình xử lý các chỉ dẫn thanh toán giao dịch. Bằng cách triển
+khai RPA, Deutsche Bank đã có thể giảm thời gian xử lý từ hàng giờ xuống còn vài
+phút, cải thiện đáng kể hiệu quả và độ chính xác, đồng thời giải phóng nhân viên
+để tập trung vào các nhiệm vụ chiến lược hơn.
+Một thí nghiệm quan trọng khác liên quan đến Ngân hàng Hoàng gia Scotland
+(RBS), đã sử dụng RPA để tự động hóa các quy trình dịch vụ khách hàng. RBS
+triển khai các bot để xử lý các yêu cầu và giao dịch thường xuyên, chẳng hạn như
+kiểm tra số dư và chuyển tiền. 

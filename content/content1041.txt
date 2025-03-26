@@ -1,7 +1,20 @@
-Node ID: 2ec19ffb-1d05-41b2-9659-0b8dd7c34a26
-Text: AI VIETNAM aivietnam.edu.vn 3.2 WebVid WebVid
-(https://maxbain.com/webvid-dataset)là tập dữ liệu được thu thập từ
-web, bao gồm 2.5 triệu cặp video-text, vượt trội hơn hẳn so với các
-tập dữ liệu trước đó. Quá trình thu thập dữ liệu này tuân thủ một
-phương pháp tương tự như Google Conceptual Captions, với việc nhận
-thấy một phần đáng kể các hình ả...
+AI VIETNAM aivietnam.edu.vn
+3.2 WebVid
+WebVid (https://maxbain.com/webvid-dataset)là tập dữ liệu được thu thập từ web, bao gồm 2.5
+triệu cặp video-text, vượt trội hơn hẳn so với các tập dữ liệu trước đó. Quá trình thu thập dữ liệu này
+tuân thủ một phương pháp tương tự như Google Conceptual Captions, với việc nhận thấy một phần
+đáng kể các hình ảnh từ CC3M thực chất là hình thu nhỏ của video, WebVid khai thác các nguồn
+video tương tự để tạo ra tập dữ liệu phong phú. Tập dữ liệu video này, mặc dù nhỏ hơn đáng kể so
+với HowTo100M về thời lượng và số lượng cặp clip-caption, nhưng lại nổi bật với chất lượng caption
+thủ công cao, tạo ra câu văn rõ ràng và mô tả chính xác nội dung hình ảnh. Bên cạnh đó, tập dữ liệu
+Google Conceptual Captions cho hình ảnh của WebVid, với 3.3 triệu cặp text-image, mở rộng phạm vi
+đa dạng phong cách mô tả và hình ảnh, phản ánh một cách chân thực hơn các nguồn thông tin đa dạng
+từ web.
+Hình 2: Ví dụ minh họa về cặp video và văn bản mô tả trong WebVid dataset:
+3.3 CelebV-Text
+CelebV-Text (https://celebv-text.github.io), một tập dữ liệu lớn, đa dạng và chất lượng cao của
+cặp video về khuôn mặt và văn bản mô tả, nhằm hỗ trợ nghiên cứu về nhiệm vụ tạo video từ văn bản
+mô tả cho khuôn mặt. CelebV-Text bao gồm 70,000 đoạn clip video về khuôn mặt trong môi trường tự
+nhiên với nội dung hình ảnh đa dạng, mỗi đoạn được ghép nối với 20 đoạn văn bản mô tả được tạo ra
+thông qua chiến lược tạo văn bản bán tự động. Các văn bản mô tả được cung cấp có chất lượng cao, mô
+tả chính xác cả các thuộc tính tĩnh và động. 

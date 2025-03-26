@@ -1,4 +1,7 @@
-Node ID: 881d6c01-8138-456b-8b40-698c9cafdf4b
-Text: 12 self.classification_head = MambaClassificationHead(d_model=
-config.d_model, num_classes=2) 13 14 del self.lm_head 15 16 def
-forward(self, input_ids, attention_mask=None, labels=None): 4
+12 self.classification_head = MambaClassificationHead(d_model=
+config.d_model, num_classes=2)
+13
+14 del self.lm_head
+15
+16 def forward(self, input_ids, attention_mask=None, labels=None):
+4

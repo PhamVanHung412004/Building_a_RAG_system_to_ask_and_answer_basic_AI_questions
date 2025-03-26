@@ -1,7 +1,35 @@
-Node ID: fbd153d9-1e31-4b5a-9e85-3efced55960c
-Text: Trong Poetry chúng ta có thể thực hiện điều này rất dễ dàng. Đầu
-tiên chúng ta đóng gói lại dự án bằng lệnh sau: 1 ===============
-Input ====================== 2 poetry build 3 4 5 6 7 8
-========================================== ================= Output
-================= Building aio2024 (0.1.0) - Building sdist - Built
-aio2024 -0.1.0. tar .gz ...
+Trong Poetry chúng ta có thể thực hiện điều này rất dễ dàng.
+Đầu tiên chúng ta đóng gói lại dự án bằng lệnh sau:
+1 =============== Input ======================
+2 poetry build
+3
+4
+5
+6
+7
+8 ==========================================
+================= Output =================
+Building aio2024 (0.1.0)
+- Building sdist
+- Built aio2024 -0.1.0. tar .gz
+- Building wheel
+- Built aio2024 -0.1.0 - py3 -none - any . whl
+==========================================
+Việc đóng gói này sẽ sử dụng các cấu hình mà chúng ta thiết lập trong file pyproject.toml. Vậy là quá
+trình đóng gói package của chúng ta đã thành công.
+4.2.2 Xuất bản package
+Tiếp theo, để đăng tải lên PyPI, ta sẽ truy cập vào trang web pypi.org và tiến hành đăng nhập, nếu
+chưa có tài khoản chúng ta sẽ cần phải đăng ký một tài khoản mới.
+Sau khi đăng nhập thành công, ta sẽ tạo một API token tại phần Account settings (1) hoặc tại link
+https://pypi.org/manage/account/token/. Sau đó tại phần API tokens chọn Add API tokens(2)phần
+Scope chúng ta chọn Entire account (all projects) như hình trên(3).
+Lưu ý: Trước khi tạo token PyPI sẽ yêu cầu chúng ta xác thực Two factor authentication (2FA). Chúng
+ta cần làm theo thông báo đó để bật xác thực 2FA, sau đó mới có thể tạo token được.
+(4)Cuối cùng chúng ta sẽ nhấn vào button create token, một đoạn mã chứa thông tin về token xuất
+hiện, ta cần copy lại và lưu vào một tệp nào đó trên máy tính của chúng ta để có thể xem lại khi cần.
+Vì đoạn mã này chỉ xuất hiện một lần duy nhất khi chúng ta tạo token trên PyPI.
+Tiếp theo ta sẽ thêm tài khoản PyPI vào Poetry với lệnh sau:
+1 poetry config http - basic . foo <username > <password >
+Trong đó username là tên đăng nhập, password là mật khẩu của tài khoản PyPI mà chúng ta đã tạo.
+Tiếp theo chúng ta thêm thông tin token của tài khoản bằng lệnh:
+4

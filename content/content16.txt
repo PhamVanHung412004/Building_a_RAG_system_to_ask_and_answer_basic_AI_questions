@@ -1,7 +1,8 @@
-Node ID: 4a00c849-35fe-4f3d-9fd5-61eabea2e99e
-Text: Xây dựng giao diện chat Sau khi có chương trình RAG có thể trả
-về output đúng như dự định, ta có thể tích hợp vào với một giao diện
-chat để có được một ứng dụng chat hoàn chỉnh. Để xây dựng phần giao
-diện trong project này, chúng ta sẽ sử dụng thư viện Chainlit. Lưu ý
-rằng, phần code Chainlit có sử dụng những đoạn code Python phức tạp,
-các bạn m...
+Xây dựng giao diện chat
+Sau khi có chương trình RAG có thể trả về output đúng như dự định, ta có thể tích hợp vào
+với một giao diện chat để có được một ứng dụng chat hoàn chỉnh. Để xây dựng phần giao diện
+trong project này, chúng ta sẽ sử dụng thư viện Chainlit. Lưu ý rằng, phần code Chainlit có sử
+dụng những đoạn code Python phức tạp, các bạn mới chỉ cần xem và chạy dưới dạng blackbox.
+Hình 8: Chainlit, một thư viện hỗ trợ giao diện cho các ứng dụng về chatbot. Ảnh: link.
+Các bước thực hiện như sau:
+1. 

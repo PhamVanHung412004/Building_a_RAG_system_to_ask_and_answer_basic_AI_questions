@@ -1,2 +1,2 @@
-Node ID: 82c54e62-357c-4154-9135-7fb388a44b36
-Text: . 5 3 Các phương pháp truy cập mảng. .
+. 5
+3 Các phương pháp truy cập mảng. . 

@@ -1,2 +1,2 @@
-Node ID: 7de47e22-2421-4ce1-8f78-e08afa665e81
-Text: . 3 2.4 Tạo mảng với giá trị chỉ định . .
+. 3
+2.4 Tạo mảng với giá trị chỉ định . . 

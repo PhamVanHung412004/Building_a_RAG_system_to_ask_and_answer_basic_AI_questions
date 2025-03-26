@@ -1,7 +1,16 @@
-Node ID: 8ac860e4-9b0e-4a66-8552-12e5ff8101c7
-Text: add_person ( teacher1 ) 26 ward1 . add_person ( teacher2 ) 27
-ward1 . add_person ( doctor1 ) 28 ward1 . add_person ( doctor2 ) 29
-ward1 . describe () 30 31 # output 32 >> Ward Name : Ward1 33 Student
-- Name : studentA - YoB : 2010 - Grade : 7 34 Teacher - Name :
-teacherA - YoB : 1969 - Subject : Math 35 Teacher - Name : teacherB -
-YoB : 1995 - S...
+add_person ( teacher1 )
+26 ward1 . add_person ( teacher2 )
+27 ward1 . add_person ( doctor1 )
+28 ward1 . add_person ( doctor2 )
+29 ward1 . describe ()
+30
+31 # output
+32 >> Ward Name : Ward1
+33 Student - Name : studentA - YoB : 2010 - Grade : 7
+34 Teacher - Name : teacherA - YoB : 1969 - Subject : Math
+35 Teacher - Name : teacherB - YoB : 1995 - Subject : History
+36 Doctor - Name : doctorA - YoB : 1945 - Specialist : Endocrinologists
+37 Doctor - Name : doctorB - YoB : 1975 - Specialist : Cardiologists
+38
+39 # 2(c)
+2

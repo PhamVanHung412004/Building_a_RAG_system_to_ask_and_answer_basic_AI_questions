@@ -1,7 +1,46 @@
-Node ID: aa97f17d-05e2-481c-91b1-3406bdbedaee
-Text: AI VIETNAM aivietnam.edu.vn 17 # Truyền input_ids qua model gốc
-để nhận hidden_states. 18 hidden_states = self.backbone(input_ids) 19
-20 # Lấy trung bình của hidden_states theo chiều thứ 2 để tạo ra [CLS]
-feature đại điện 21 mean_hidden_states = hidden_states.mean(dim=1) 22
-23 # Đưa mean_hidden_states qua đầu phân loại để nhận logits. 24
-logits ...
+AI VIETNAM aivietnam.edu.vn
+17 # Truyền input_ids qua model gốc để nhận hidden_states.
+18 hidden_states = self.backbone(input_ids)
+19
+20 # Lấy trung bình của hidden_states theo chiều thứ 2 để tạo
+ra [CLS] feature đại điện
+21 mean_hidden_states = hidden_states.mean(dim=1)
+22
+23 # Đưa mean_hidden_states qua đầu phân loại để nhận logits.
+24 logits = self.classification_head(mean_hidden_states)
+25
+26 if labels is None:
+27 ClassificationOutput = namedtuple("ClassificationOutput",
+["logits"])
+28 return ClassificationOutput(logits=logits)
+29 else:
+30 ClassificationOutput = namedtuple("ClassificationOutput",
+["loss", "logits"])
+31
+32 # Sử dụng hàm mất mát CrossEntropyLoss để tính loss.
+33 loss_fct = nn.CrossEntropyLoss()
+34 loss = loss_fct(logits, labels)
+35
+36 return ClassificationOutput(loss=loss, logits=logits)
+37
+38 def predict(self, text, tokenizer, id2label=None):
+39 input_ids = torch.tensor(tokenizer(text)[’input_ids’],
+device=’cuda’)[None]
+40 with torch.no_grad():
+41 logits = self.forward(input_ids).logits[0]
+42 label = np.argmax(logits.cpu().numpy())
+43
+44 if id2label is not None:
+45 return id2label[label]
+46 else:
+47 return label
+48
+49 @classmethod
+50 def from_pretrained(cls, pretrained_model_name, device=None,
+dtype=None, **kwargs):
+51 # Tải cấu hình từ model đã được train trước đó.
+52 config_data = load_config_hf(pretrained_model_name)
+53 config = MambaConfig(**config_data)
+54
+55 # Khởi tạo model từ cấu hình và chuyển nó đến thiết bị và ki
+ểu dữ liệu mong muốn.

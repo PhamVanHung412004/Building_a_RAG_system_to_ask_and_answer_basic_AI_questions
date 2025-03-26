@@ -1,7 +1,8 @@
-Node ID: ec6111c1-8864-4040-a0ea-168075d3fcb8
-Text: AI VIETNAM aivietnam.edu.vn • Video ViT (ViViT): Transformer vẫn
-luôn là backbone được sử dụng rộng rãi trong nhiều các bài toán hiện
-tại. ViViT là một trong những model đầu tiên sử dụng kiến trúc Vision
-Transformer (ViT) để áp dụng vào bài toán video classification. Model
-ViViT được mô tả như hình sau, lưu ý các block Spatial Transformer
-Encode...
+AI VIETNAM aivietnam.edu.vn
+• Video ViT (ViViT): Transformer vẫn luôn là backbone được sử dụng rộng rãi trong nhiều
+các bài toán hiện tại. ViViT là một trong những model đầu tiên sử dụng kiến trúc Vision
+Transformer (ViT) để áp dụng vào bài toán video classification. Model ViViT được mô tả
+như hình sau, lưu ý các block Spatial Transformer Encoder là các block share weight.
+1 from transformers import VivitConfig , VivitForVideoClassification
+2
+3 class Model (nn. 

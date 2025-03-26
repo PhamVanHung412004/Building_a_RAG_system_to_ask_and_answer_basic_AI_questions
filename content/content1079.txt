@@ -1,7 +1,17 @@
-Node ID: d269c62d-43c3-439d-aec7-f76d786742bb
-Text: AI VIETNAM aivietnam.edu.vn nhưng tiềm năng để phát triển thành
-một hệ thống mô phỏng thực tế ảo, nơi vật thể và con người có thể
-tương tác một cách tự nhiên, là điều không thể phủ nhận. SORA không
-chỉ mở ra cánh cửa cho những cải tiến công nghệ tiếp theo mà còn hứa
-hẹn sẽ mang lại những ứng dụng sáng tạo và cách mạng trong các ngành
-như metaver...
+AI VIETNAM aivietnam.edu.vn
+nhưng tiềm năng để phát triển thành một hệ thống mô phỏng thực tế ảo, nơi vật thể và con người có
+thể tương tác một cách tự nhiên, là điều không thể phủ nhận. SORA không chỉ mở ra cánh cửa cho
+những cải tiến công nghệ tiếp theo mà còn hứa hẹn sẽ mang lại những ứng dụng sáng tạo và cách mạng
+trong các ngành như metaverse, điện ảnh, quảng cáo và giáo dục, đánh dấu một bước ngoặt mới trong
+cách chúng ta tương tác và tạo ra nội dung số.
+Phần VI: Mô hình Genie
+Genie - là một generative interactive environment, đánh dấu bước tiến lớn trong việc tạo dựng thế giới
+ảo thông qua việc học không giám sát từ kho dữ liệu video trên internet không được gắn nhãn. Điểm
+nổi bật của Genie là khả năng của nó trong việc phản hồi các yêu cầu để sinh ra các thế giới ảo đa
+dạng, từ văn bản mô tả, hình ảnh tổng hợp, ảnh chụp đến bản vẽ, mở ra không gian sáng tạo không
+giới hạn cho người dùng. Với 11 tỷ tham số, mô hình này không chỉ là một cơ sở dữ liệu thế giới mà
+còn là một công cụ mạnh mẽ, bao gồm spatiotemporal video encoder, autoregressive dynamics model
+và scalable latent action model.
+Đặc biệt, Genie cho phép người dùng tương tác với các môi trường sinh ra, từng khung hình một,
+mà không cần đến nhãn hành động sự thật cơ bản hay các yêu cầu đặc thù của lĩnh vực thường thấy
+trong các nghiên cứu về mô hình thế giới. 

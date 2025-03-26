@@ -1,8 +1,31 @@
-Node ID: 226069cb-c73e-4a1e-888c-1bb9f6c0bbcb
-Text: AI VIETNAM aivietnam.edu.vn 14 15 trainer =
-transformers.Trainer( 16 model=model, 17 train_dataset=data, 18
-args=training_args, 19
-data_collator=transformers.DataCollatorForLanguageModeling(tokenizer,
-mlm= False) 20 ) 21 model.config.use_cache = False 22 trainer.train()
-Khi các bạn thấy bảng dưới đây xuất hiện, điều đó chứng tỏ tiến trình
-huấn l...
+AI VIETNAM aivietnam.edu.vn
+14
+15 trainer = transformers.Trainer(
+16 model=model,
+17 train_dataset=data,
+18 args=training_args,
+19 data_collator=transformers.DataCollatorForLanguageModeling(tokenizer, mlm=
+False)
+20 )
+21 model.config.use_cache = False
+22 trainer.train()
+Khi các bạn thấy bảng dưới đây xuất hiện, điều đó chứng tỏ tiến trình huấn luyện đã bắt đầu
+thành công, việc còn lại của chúng ta sẽ chỉ cần chờ cho tới khi việc thực thi hoàn tất.
+Hình 8: Ảnh minh họa bảng hiển thị các thông tin trong quá trình thực hiện huấn luyện mô hình ngôn
+ngữ lớn
+8. Chạy mô hình đã fine-tuning:Cuối cùng, ta sẽ thử tương tác với mô hình sau khi đã được
+fine-tuning như sau:
+1 %%time
+2 device = ’cuda’ if torch.cuda.is_available() else ’cpu’
+3
+4 prompt = """
+5 <|im_start|>system
+6 Bạn là một chuyên gia về toán. Bạn sẽ nhận câu hỏi trắc nghiệm kèm theo các lựa
+chọn, hãy giải step by step nếu có và chọn phương án đúng.
+7
+8 <|im_start|>user
+9 ### Câu hỏi:
+10 1 + 1 =
+11 ### Các lựa chọn:
+12 A. 1
+13 B. 

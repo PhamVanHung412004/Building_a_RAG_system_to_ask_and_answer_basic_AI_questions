@@ -1,7 +1,14 @@
-Node ID: ec50b543-2a40-4ddf-8e9f-94503815acfd
-Text: Note: Ký hiệu q là để tránh nhầm lẫn với quá trình forward
-diffusion (p). Vì Reverse process được điều chỉnh bởi SDE nên chúng ta
-sẽ áp dụng Eurler-Maruyama để biểu diễn nó. x(t + ∆t) = x(t) + x0 − x
-T − t ∆t + σ √ ∆t r . (45) Trong đó Euler-Maruyamax(t + ∆t) = x(t)
-+x0−x T−t ∆t + σ √ ∆t rmô phỏng cách mỗi bước thời gian, giá trịx thay
-đổi. Thàn...
+Note: Ký hiệu q là để tránh nhầm lẫn với quá trình forward diffusion (p).
+Vì Reverse process được điều chỉnh bởi SDE nên chúng ta sẽ áp dụng Eurler-Maruyama để biểu
+diễn nó.
+x(t + ∆t) = x(t) + x0 − x
+T − t ∆t + σ
+√
+∆t r . (45)
+Trong đó Euler-Maruyamax(t + ∆t) = x(t) +x0−x
+T−t ∆t + σ
+√
+∆t rmô phỏng cách mỗi bước thời gian,
+giá trịx thay đổi. Thành phần tái tạox0−x
+T−t ∆t đảm bảo rằng giá trịx hồi phục vềx0 dần dần theo thời
+gian. 

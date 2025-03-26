@@ -1,6 +1,6 @@
-Node ID: 8c632525-4925-4f52-867c-73d2801ad9ca
-Text: Yêu cầu: • Viết một hàm có tên là is_prime nhận một số nguyên
-dương n và trả về một giá trị boolean. Nếu n là số nguyên tố, hàm sẽ
-trả về True, ngược lại trả về False. • Sử dụng Type Hints để gợi ý về
-kiểu dữ liệu của tham số và giá trị trả về của hàm. • Sử dụng mypy để
-kiểm tra kiểu dữ liệu trong chương trình 5
+Yêu cầu:
+• Viết một hàm có tên là is_prime nhận một số nguyên dương n và trả về một giá trị boolean. Nếu
+n là số nguyên tố, hàm sẽ trả về True, ngược lại trả về False.
+• Sử dụng Type Hints để gợi ý về kiểu dữ liệu của tham số và giá trị trả về của hàm.
+• Sử dụng mypy để kiểm tra kiểu dữ liệu trong chương trình
+5

@@ -1,7 +1,17 @@
-Node ID: 38575ae9-422c-48f1-95ad-bffcb04ecc94
-Text: 9. Xét đoạn code dưới đây: 1 executor =
-DockerCommandLineCodeExecutor ( 2 image =" python :3.11 - slim ", 3
-timeout =10 , 4 work_dir = temp_dir .name , 5 ) 6 7 userproxy =
-UserProxyAgent ( 8 name =" userproxy ", 9 human_input_mode =" NEVER ",
-10 is_termination_msg = lambda msg : " TERMINATE " in msg [" content
-"], 11 max_consecutive_auto_reply =...
+9. Xét đoạn code dưới đây:
+1 executor = DockerCommandLineCodeExecutor (
+2 image =" python :3.11 - slim ",
+3 timeout =10 ,
+4 work_dir = temp_dir .name ,
+5 )
+6
+7 userproxy = UserProxyAgent (
+8 name =" userproxy ",
+9 human_input_mode =" NEVER ",
+10 is_termination_msg = lambda msg : " TERMINATE " in msg [" content "],
+11 max_consecutive_auto_reply =5 ,
+12 code_execution_config ={" executor ": executor },
+13 )
+14
+15 executor . stop ()
+Ý nghĩa của line thứ 15 là gì?

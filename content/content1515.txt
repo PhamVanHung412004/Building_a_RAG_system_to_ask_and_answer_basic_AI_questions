@@ -1,7 +1,14 @@
-Node ID: fc1e7fa5-14ce-4fbd-aa99-fa47bf8ff1fe
-Text: AI VIETNAM aivietnam.edu.vn Phần II: Bài tập Để có thể quan sát
-tác tử chơi game, các bạn cần chạy animation của game. Ở đây, chúng ta
-có thể hiển thị animation game trên cả 2 nền tảng code (máy local và
-Google Colab): • Đối với máy local:Các bạn hãy sử dụng môi trường ảo
-conda (cách cài đặt conda các bạn hãy tham khảo tại đây) và cài đặt
-thư vi...
+AI VIETNAM aivietnam.edu.vn
+Phần II: Bài tập
+Để có thể quan sát tác tử chơi game, các bạn cần chạy animation của game. Ở đây, chúng ta có thể
+hiển thị animation game trên cả 2 nền tảng code (máy local và Google Colab):
+• Đối với máy local:Các bạn hãy sử dụng môi trường ảo conda (cách cài đặt conda các bạn hãy
+tham khảo tại đây) và cài đặt thư viện gym như sau:
+1 $ pip3 install ’gym [ all ]’
+Sau khi quá trình tải hoàn tất, các bạn có thể test thư viện bằng cách chạy thử môi trường game
+CartPole-v1 bằng cách copy đoạn lệnh này vào một file .py bất kì (giả sửtest.py):
+1 # test .py
+2 import gym
+3
+4 env = gym . make (’CartPole -v1 ’, render_mode =’human ’)
+5 env . 

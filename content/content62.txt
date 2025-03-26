@@ -1,7 +1,23 @@
-Node ID: 5ed81837-152f-4397-a3f8-bf93aee5481b
-Text: OPTIONAL: Phần này sẽ bàn luận thêm một vài vấn đề trong YOLOv10
-bao gồm một vài các tham số trong lệnh training, lệnh đánh giá mô hình
-và gán nhãn dữ liệu. • Các tham số trong lệnh training:Dòng lệnh
-training tại bước 4 có mặc định sẵn một vài tham số, các tham số này
-các bạn có thể tùy chỉnh theo ý muốn của mình, với một số tham số có
-giá trị ...
+OPTIONAL: Phần này sẽ bàn luận thêm một vài vấn đề trong YOLOv10 bao gồm một
+vài các tham số trong lệnh training, lệnh đánh giá mô hình và gán nhãn dữ liệu.
+• Các tham số trong lệnh training:Dòng lệnh training tại bước 4 có mặc định sẵn
+một vài tham số, các tham số này các bạn có thể tùy chỉnh theo ý muốn của mình,
+với một số tham số có giá trị khác nhau sẽ cho ra hiệu suất mô hình khác nhau. Sau
+đây là ý nghĩa cơ bản của một vài tham số trên:
+– img: Kích thước ảnh training, các ảnh train và test sẽ được resize lại về kích
+thước bạn gán, mặc định là 640. Các bạn hoàn toàn có thể thử nghiệm trên các
+kích thước ảnh khác nhau.
+– batch:Khi thực hiện tính toán trong quá trình training, các mô hình có thể đọc
+một lúc toàn bộ dữ liệu train hoặc chia ra đọc theo từng batch. Với mặc định là
+64, bộ dữ liệu train sẽ được chia ra thành các batch có 64 mẫu dữ liệu. Các bạn
+có thể cài đặt các giá trị khác theo2n(n ≥ 0).
+– epochs: Số lần lặp qua bộ dữ liệu trong quá trình huấn luyện.
+– data:Thông tin bộ dữ liệu (file .yaml) mà bạn mong muốn training.
+– weights:File pretrained model sử dụng. Các bạn có thể tải và sử dụng các file
+pretrained model khác nhau trong danh sách này.
+• Gán nhãn dữ liệu:Vì YOLOv10 là học có giám sát (supervised learning), tức các
+mẫu trong bộ dữ liệu training cần phải có labels tương ứng với từng mẫu. Vì vậy, để
+có thể cung cấp thêm dữ liệu hoặc tạo ra một bộ dữ liệu mới, với các class mới. Ta cần
+phải thực hiện gán nhãn dữ liệu, việc gán nhãn này sẽ phải thực hiện thủ công. Trong
+bài hướng dẫn này, chúng ta sẽ tìm hiểu cách sử dụng labelImg. Để cài đặt labelImg
+15

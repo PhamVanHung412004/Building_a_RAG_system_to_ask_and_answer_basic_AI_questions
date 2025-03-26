@@ -1,7 +1,26 @@
-Node ID: 54cf9ca9-b4c4-4726-938b-c02f1f0918cc
-Text: utility . Vector3dVector ( array ) 12 if color is not None : 13
-if logits_color == False : 14 colorLength = abs (np. max ( color )) +
-1 15 colorPalette = sns . color_palette (" Paired ", int ( colorLength
-)) 16 colorArray = np. array ( colorPalette ) 17 color = colorArray [
-color ] 18 pcd . colors = o3d . utility . Vector3dVector ( color ) 19
-el...
+utility . Vector3dVector ( array )
+12 if color is not None :
+13 if logits_color == False :
+14 colorLength = abs (np. max ( color )) + 1
+15 colorPalette = sns . color_palette (" Paired ", int ( colorLength ))
+16 colorArray = np. array ( colorPalette )
+17 color = colorArray [ color ]
+18 pcd . colors = o3d . utility . Vector3dVector ( color )
+19 else :
+20 if np. max ( color ) > 1:
+21 color = color /255.0
+22 pcd . colors = o3d . utility . Vector3dVector ( color )
+23
+24 o3d . visualization . draw_geometries ([ pcd ], window_name = name )
+Kết quả sau được trực quan hoá như hình 1.
+1.3 Downsampling
+Dữ liệu 3D point cloud cung cấp thông tin chi tiết về hình dạng và kích thước của các đối tượng
+trong không gian 3D. Tuy nhiên, lượng dữ liệu lớn này có thể gây tốn kém về tính toán và lưu trữ.
+Giảm mẫu (Downsampling) là kỹ thuật then chốt giúp giữ lại thông tin quan trọng giảm thiểu kích
+thước của dữ liệu điểm 3D mà vẫn bảo toàn các đặc trưng cần thiết. Có 2 phương pháp phổ biến:
+voxel_grid_sampling và farthest_point_sampling.
+Phân ô voxel (Voxel Grid Sampling):
+Ý tưởng: Chia không gian 3D thành các ô nhỏ có kích thước bằng nhau, gọi là voxel.
+Giảm mẫu:
+Chọn một điểm đại diện (ví dụ như trọng tâm) cho mỗi voxel. Các điểm nằm trong cùng voxel sẽ được
+2

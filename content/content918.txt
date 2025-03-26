@@ -1,7 +1,7 @@
-Node ID: 82a87fa0-3e50-4de8-804e-ab967ee43784
-Text: • Đầu tiên sử dụng mô hình LLM để gấn nhãn cho data train, có
-thể có hoặc không sử dụng CoT với một số ví dụ ở bước này. • k câu trả
-lời được tạo ra cho mỗi câu hỏi trong tập train. Sau đó ta sẽ sử dụng
-một số phương pháp khác nhau để tính độ bất định cho từng câu hỏi. •
-Những câu hỏi bất định nhất sẽ được lựa chọn để gấn nhãn thủ công bởi
-con n...
+• Đầu tiên sử dụng mô hình LLM để gấn nhãn cho data train, có thể có hoặc không sử dụng
+CoT với một số ví dụ ở bước này.
+• k câu trả lời được tạo ra cho mỗi câu hỏi trong tập train. Sau đó ta sẽ sử dụng một số phương
+pháp khác nhau để tính độ bất định cho từng câu hỏi.
+• Những câu hỏi bất định nhất sẽ được lựa chọn để gấn nhãn thủ công bởi con người. Những
+câu hỏi này sẽ được lựa chọn để làm ví dụ cho CoT trong quá trình inference.
+17

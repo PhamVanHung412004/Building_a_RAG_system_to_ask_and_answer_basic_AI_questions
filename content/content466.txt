@@ -1,7 +1,10 @@
-Node ID: 6d5a57e5-14c5-4d34-a5c8-403175492ba2
-Text: 4. Xây dựng hàm logger:Khi triển khai API, rất nhiều khả năng
-chúng ta sẽ bắt gặp lỗi ở một request tại thời điểm nào đó. Để biết
-chính xác thông tin này, chúng ta cần thực hiện logging. Logging là
-một kỹ thuật giúp chương trình ghi nhận lại lịch sử của chương trình,
-có thể bao gồm kết quả dự đoán của mô hình, kết quả request... Hình 6:
-Minh họa...
+4. Xây dựng hàm logger:Khi triển khai API, rất nhiều khả năng chúng ta sẽ bắt gặp lỗi ở
+một request tại thời điểm nào đó. Để biết chính xác thông tin này, chúng ta cần thực hiện
+logging. Logging là một kỹ thuật giúp chương trình ghi nhận lại lịch sử của chương trình, có
+thể bao gồm kết quả dự đoán của mô hình, kết quả request...
+Hình 6: Minh họa thông tin kết quả các lần request API mà logger ghi nhận được.
+Trong bài này, chúng ta sẽ sử dụng module logging trong Python để xây dựng một logger.
+Ta sẽ triển khai code vào fileutils/logger.py như sau:
+1 import sys
+2 import logging
+8

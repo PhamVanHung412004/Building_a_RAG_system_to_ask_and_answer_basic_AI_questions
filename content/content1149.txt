@@ -1,7 +1,24 @@
-Node ID: 4585edb6-9f4d-47ec-9792-8585aeca3eb5
-Text: output (x) 2.2. Improved UNet Model Trong phần này chúng ta sẽ
-xây dựng mô hình UNet kết hợp với cơ chế Attention và Adaptive Group
-Normalization. Kết trúc mô hình UNet sử dụng kết hợp với cơ chế
-Attention được mô tả như sau: Hình 5: Mô hình UNet kết hợp cơ chế
-Attention trong DDP. 1 # Reference : https :// github . com / openai /
-guided - diffu...
+output (x)
+2.2. Improved UNet Model
+Trong phần này chúng ta sẽ xây dựng mô hình UNet kết hợp với cơ chế Attention và Adaptive Group
+Normalization.
+Kết trúc mô hình UNet sử dụng kết hợp với cơ chế Attention được mô tả như sau:
+Hình 5: Mô hình UNet kết hợp cơ chế Attention trong DDP.
+1 # Reference : https :// github . com / openai / guided - diffusion
+2 """
+3 Various utilities for neural networks .
+4 """
+5 import math
+6 import numpy as np
+7 import torch
+8 import torch .nn as nn
+9
+10
+11 class GroupNorm32 (nn. GroupNorm ):
+12 def forward (self , x):
+13 return super (). forward (x. float ()). type (x. dtype )
+14
+15
+16 def zero_module ( module ):
+17 """
+7

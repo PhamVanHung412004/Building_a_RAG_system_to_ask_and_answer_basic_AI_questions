@@ -1,7 +1,16 @@
-Node ID: a4c25f6a-51be-44d3-ba07-dd43b80fb75e
-Text: 6. What is the main input data format for PointNet? (A). Images.
-(B). Meshes. (C). Point Clouds. (D). Voxels. 7. PointNet utilizes
-symmetrical functions for processing point clouds. What does this
-mean? (A). The order of points in the input cloud doesn’t affect the
-output. (B). The network has the same number of layers in the encoder
-and decoder...
+6. What is the main input data format for PointNet?
+(A). Images. (B). Meshes.
+(C). Point Clouds. (D). Voxels.
+7. PointNet utilizes symmetrical functions for processing point clouds. What does this
+mean?
+(A). The order of points in the input cloud doesn’t affect the output.
+(B). The network has the same number of layers in the encoder and decoder.
+(C). The network can process both 2D and 3D data.
+(D). The network requires pre-segmented point clouds.
+8. PointNet++ is an extension of PointNet that addresses a limitation. What is that
+limitation?
+(A). Inability to handle large point clouds.
+(B). Sensitivity to point cloud order.
+(C). Difficulty capturing local features.
+(D). Limited number of learnable parameters.
+15

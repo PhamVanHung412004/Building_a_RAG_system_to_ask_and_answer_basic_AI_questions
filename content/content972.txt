@@ -1,7 +1,14 @@
-Node ID: a770cd62-a64a-45c8-8cc5-7774addfe693
-Text: (a) Nó cung cấp khả năng chuẩn hóa dữ liệu và ràng buộc tính
-toàn vẹn tốt hơn. (b) Nó cho phép tìm kiếm và truy vấn dữ liệu dựa
-trên nội dung một cách hiệu quả. (c) Nó cung cấp các cơ chế kiểm soát
-giao dịch mạnh mẽ hơn. (d) Nó tăng cường khả năng truy vấn SQL cho
-phân tích dữ liệu có cấu trúc. 9. Để tính sự tương đồng giữa hai
-vector, độ đo nào...
+(a) Nó cung cấp khả năng chuẩn hóa dữ liệu và ràng buộc tính toàn vẹn tốt hơn.
+(b) Nó cho phép tìm kiếm và truy vấn dữ liệu dựa trên nội dung một cách hiệu quả.
+(c) Nó cung cấp các cơ chế kiểm soát giao dịch mạnh mẽ hơn.
+(d) Nó tăng cường khả năng truy vấn SQL cho phân tích dữ liệu có cấu trúc.
+9. Để tính sự tương đồng giữa hai vector, độ đo nào sau đây không thể áp dụng?
+(a) Cosine Similarity
+(b) Euclidean Distance
+(c) Pearson Correlation Coefficient
+(d) Maximum Likelihood Estimation
+10. Khi ứng dụng BERT để tạo vector embedding trong vector database, final hidden state của token
+nào thường được sử dụng trong output của BERT?
+(a) [CLS] token
+(b) [SEP] token
+17

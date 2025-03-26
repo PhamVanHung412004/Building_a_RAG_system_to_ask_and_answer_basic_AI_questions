@@ -1,7 +1,43 @@
-Node ID: 3f3c8f0f-1d5e-49e7-9d51-802356074bc2
-Text: • Đưa ra một mẫux(0) từ phân phối mục tiêu. Các bước xấp xỉ: •
-Lấy một mẫu thời gian t theo phân phối đồng đều từ khoảng [0, T]. • Sử
-dụng kiến thức về xác suất chuyển tiếp để lấy mẫu x gần bằng với xác
-suấtp(x, t|x(0), 0) • Sử dụng kiến thức về xác suất chuyển tiếp để
-đánh giá∇x log p(x, t|x(0), 0) Ta có Approximating the objective
-function: J(...
+• Đưa ra một mẫux(0) từ phân phối mục tiêu.
+Các bước xấp xỉ:
+• Lấy một mẫu thời gian t theo phân phối đồng đều từ khoảng [0, T].
+• Sử dụng kiến thức về xác suất chuyển tiếp để lấy mẫu x gần bằng với xác suấtp(x, t|x(0), 0)
+• Sử dụng kiến thức về xác suất chuyển tiếp để đánh giá∇x log p(x, t|x(0), 0)
+Ta có Approximating the objective function:
+J(θ) ≈ 1
+2λ(t)
+h
+sθ(x, t) − ∇x log p(x, t|x(0), 0)
+i2
+. (65)
+Nếu có một Batch S, ta có thể xấp xỉ hàm mục tiêu bằng cách lặp lại quy trình với mỗi mẫu và xây
+dựng hàm xấp xỉ như sau:
+J(θ) ≈ 1
+2S
+SX
+j=1
+λ(tj)
+h
+sθ(xj, tj) − ∇x log p(xj, t|x(0)
+j , 0)
+i2
+. (66)
+Trong trường hợp cụ thể của quá trình ngẫu nhiên, log xác suất chuyển tiếp (transition probability)
+có dạng đơn giản, giúp giảm độ phức tạp khi tính toán đạo hàm.
+p(x, t|x(0), 0) = 1
+hp
+2πσ2(t)
+iN exp
+(
+−
+
+x − x(0)2
+2σ2(t)
+)
+, (67)
+∇x log p(x, t|x(0), 0) = −
+
+x − x(0)
+σ2(t) .
+- Hết -
+26

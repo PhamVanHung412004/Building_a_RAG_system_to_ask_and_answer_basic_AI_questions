@@ -1,7 +1,13 @@
-Node ID: 72440cfa-365e-415f-b798-95b0658510b7
-Text: Hiệu quả của phương pháp này được chứng minh thông qua các thử
-nghiệm rộng rãi trên nhiều ứng dụng, cho thấy khả năng ấn tượng của
-nó. 6 Diffusion Models with Transformer Đây là một phương pháp kết hợp
-những điểm mạnh của cả hai cách làm trước đây. Bằng cách dùng mô hình
-diffusion cùng với kiến trúc transformer - thay vì dùng kiến trúc UNet
-thôn...
+Hiệu quả của phương pháp này được chứng minh thông qua các thử
+nghiệm rộng rãi trên nhiều ứng dụng, cho thấy khả năng ấn tượng của nó.
+6 Diffusion Models with Transformer
+Đây là một phương pháp kết hợp những điểm mạnh của cả hai cách làm trước đây. Bằng cách dùng mô
+hình diffusion cùng với kiến trúc transformer - thay vì dùng kiến trúc UNet thông thường - cách tiếp
+cận này mở ra khả năng thiết kế mô hình linh hoạt hơn và tận dụng khả năng nhận diện hình ảnh ưu
+việt của transformer. Điều này giúp tạo ra những hình ảnh, video chất lượng cao, với hiểu biết sâu sắc
+về nội dung và bối cảnh hơn.
+Nghiên cứu "Scalable Diffusion Models with Transformers" [5] là một công trình tiên phong khám
+phá một nhánh mới của mô hình diffusion sử dụng kiến trúc transformer. Khác với các mô hình diffusion
+truyền thống thường sử dụng cốt lõi U-Net, nghiên cứu này giới thiệu việc sử dụng transformer hoạt
+động trên các patches trong không gian latent của hình ảnh. Điểm chính của nghiên cứu là về khả năng
+18

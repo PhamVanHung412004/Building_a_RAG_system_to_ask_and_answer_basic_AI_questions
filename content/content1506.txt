@@ -1,7 +1,14 @@
-Node ID: 5345b67c-e849-4373-9144-cb232826a2eb
-Text: pth ’ 2 model = HardParameterSharingModel () 3 model .
-load_state_dict ( torch . load ( model_path )) 4 model . eval () 5
-model .to( device ) 6 7 test_sample = next ( iter ( val_ds )) 8
-test_sample = { task : test_sample [ task ]. unsqueeze (0) .to( device
-) for task in test_sample . keys ()} 9 10 with torch . no_grad (): 11
-output = model ( tes...
+pth ’
+2 model = HardParameterSharingModel ()
+3 model . load_state_dict ( torch . load ( model_path ))
+4 model . eval ()
+5 model .to( device )
+6
+7 test_sample = next ( iter ( val_ds ))
+8 test_sample = { task : test_sample [ task ]. unsqueeze (0) .to( device ) for task in test_sample
+. keys ()}
+9
+10 with torch . no_grad ():
+11 output = model ( test_sample [’image ’])
+12 # output : output [’ depth ’], output [’ sematic ’]
+8

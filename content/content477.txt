@@ -1,7 +1,34 @@
-Node ID: 377ac245-d009-4618-bb59-4657f2798de5
-Text: AI VIETNAM aivietnam.edu.vn 83 84 return probabilities . squeeze
-(). tolist () , round ( best_prob , 6) , predicted_id ,
-predicted_class 6. Cập nhật foldermiddleware/: Middleware là một thành
-phần quan trọng API. Có thể hiểu nôm na Middleware là các hàm tiền và
-hậu xử lý các request mà API nhận được. Trong bài này, chúng ta sẽ
-triển khai như sau...
+AI VIETNAM aivietnam.edu.vn
+83
+84 return probabilities . squeeze (). tolist () , round ( best_prob , 6) ,
+predicted_id , predicted_class
+6. Cập nhật foldermiddleware/: Middleware là một thành phần quan trọng API. Có thể hiểu
+nôm na Middleware là các hàm tiền và hậu xử lý các request mà API nhận được. Trong bài
+này, chúng ta sẽ triển khai như sau:
+_ middleware/cors.py: Ta cập nhật nội dung file này với CORSMiddleware. Hiểu một cách
+đơn giản, CORSMiddleware là một tính năng bảo mật cho phép ta định nghĩa một tập
+các tên miền, URL... (gọi chung là origin) thực hiện request và đọc được response trả về
+từ API.
+Hình 7: Minh họa việc bị block khi đọc response từ một server khác tên miền do same-origin policy của
+các trình duyệt. Ảnh: link.
+Với demo này, ta sẽ cho phép tất cả origin được quyền request và đọc response. Ta định
+nghĩa như sau:
+1 from fastapi . middleware . cors import CORSMiddleware
+2
+3 def setup_cors ( app ):
+4 app . add_middleware (
+5 CORSMiddleware ,
+6 allow_origins =["*"],
+7 allow_credentials =True ,
+8 allow_methods =["*"],
+9 allow_headers =["*"],
+10 )
+Hàm setup_cors() nhận đầu vào là một thực thể (instance) FastAPI. Về sau, khi đã khai
+báo một thực thể FastAPI, ta sẽ đưa vào hàm này để cập nhật policy này.
+_ middleware/http.py: Ta cập nhật nội dung file này với một định nghĩa Middleware được
+custom cho việc logging:
+1 import time
+2 import sys
+3
+4 from pathlib import Path
+5 sys . path . 

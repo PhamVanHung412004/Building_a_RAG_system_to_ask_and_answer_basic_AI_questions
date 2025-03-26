@@ -1,2 +1,2 @@
-Node ID: 73377b06-4d19-4fe3-a82d-1f572cee2397
-Text: Thí nghiệm cho thấy rằng RPA có thể xử lý một khối 2
+Thí nghiệm cho thấy rằng RPA có thể xử lý một khối
+2

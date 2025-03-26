@@ -1,7 +1,19 @@
-Node ID: aee7a6db-973a-40b6-91b2-58c999e12b3c
-Text: Bộ dữ liệu được chia làm 2 phần bằng nhau, 25,000 mẫu để train,
-và 25,000 mẫu để kiểm thử. Bên cạnh đó, bộ dữ liệu cũng cung cấp
-50,000 mẫu dữ liệu chưa đánh nhãn để hỗ trợ quá trình train. Tuy nhiên
-trong project này ta chỉ sử dụng phần dữ liệu đã được đánh nhãn để
-train model. Hình 1: Ví dụ minh họa về dataset IMDB. 2. Model Mamba
-cho bài toán...
+Bộ dữ liệu được chia làm 2 phần bằng nhau, 25,000
+mẫu để train, và 25,000 mẫu để kiểm thử. Bên cạnh đó, bộ dữ liệu cũng cung cấp 50,000 mẫu dữ
+liệu chưa đánh nhãn để hỗ trợ quá trình train. Tuy nhiên trong project này ta chỉ sử dụng phần
+dữ liệu đã được đánh nhãn để train model.
+Hình 1: Ví dụ minh họa về dataset IMDB.
+2. Model Mamba cho bài toán Text classification
+(a) Install and import libraries:Đầu tiên ta sẽ install một số thư viện cần thiết của Hug-
+gingface và Mamba:
+1 !pip install datasets evaluate accelerate
+2 !pip install causal-conv1d>=1.1.0
+3 !pip install mamba-ssm
+Sau đó ta sẽ tiến hành login vào HuggingFace để download dataset và model có sẵn. Khi
+chạy block code này thì HuggingFace sẽ đưa ra một đường dẫn đến trang HuggingFace để
+lấy mã token. Lưu ý để thuận tiện cho quá trình train và đưa model lên Huggingface Hub
+thì ta nên sử dụng token có quyền ghi của Huggingface.
+1 from huggingface_hub import notebook_login
+2 notebook_login()
+Cuối cùng ta sẽ import các thư viện chính được sử dụng trong phần này:
+2

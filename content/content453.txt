@@ -1,7 +1,18 @@
-Node ID: 796af8b9-0553-429b-918f-e7c0aff7bf4b
-Text: AI VIETNAM aivietnam.edu.vn 2. Tải bộ dữ liệu:Chúng ta sẽ sử
-dụng bộ dữ liệu Cat Dog có sẵn trên HuggingFace Dataset. Các bạn hãy
-chạy đoạn code bên dưới để tải cũng như load bộ dữ liệu: 1
-DATASET_NAME = ’ cats_vs_dogs ’ 2 datasets = load_dataset (
-DATASET_NAME ) 3 datasets Hình 4: Bộ dữ liệu về Cat Dog Image
-Classification trên HuggingFace Data...
+AI VIETNAM aivietnam.edu.vn
+2. Tải bộ dữ liệu:Chúng ta sẽ sử dụng bộ dữ liệu Cat Dog có sẵn trên HuggingFace Dataset.
+Các bạn hãy chạy đoạn code bên dưới để tải cũng như load bộ dữ liệu:
+1 DATASET_NAME = ’ cats_vs_dogs ’
+2 datasets = load_dataset ( DATASET_NAME )
+3 datasets
+Hình 4: Bộ dữ liệu về Cat Dog Image Classification trên HuggingFace Dataset.
+3. Chia bộ dữ liệu train, val:Từ bộ dữ liệu gốc, ta sẽ tách thành hai bộ train và val để phục
+vụ cho việc huấn luyện mô hình như sau:
+1 TEST_SIZE = 0.2
+2 datasets = datasets [’train ’]. train_test_split ( test_size = TEST_SIZE )
+4. Xây dựng DataLoader:Để thuận tiện trong việc đọc dữ liệu khi thực hiện huấn luyện với
+PyTorch, chúng ta sẽ xây dựng DataLoader cho hai bộ train và val như sau:
+(a) Xây dựng hàm tiền xử lý dữ liệu ảnh:Chúng ta sẽ xây dựng hàm transforms trong
+PyTorch để tiền xử lý dữ liệu ảnh như sau:
+1 IMG_SIZE = 64
+2 img_transforms = transforms . Compose ([
+3 transforms . 

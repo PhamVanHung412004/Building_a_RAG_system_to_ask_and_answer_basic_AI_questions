@@ -1,7 +1,6 @@
-Node ID: 5b7ce6da-a234-4526-9afe-7e3d80bbf2f0
-Text: AI VIETNAM aivietnam.edu.vn 5 from
-chromadb.utils.embedding_functions import OpenCLIPEmbeddingFunction
-Quá trình thực hiện truy vấn hình ảnh sử dụng mô hình CLIP trong bối
-cảnh này tương tự như các bước ở phần cơ bản trước, nhưng chúng ta sẽ
-nâng cấp bằng cách thêm một hàm để trích xuất vector đặc trưng cho mỗi
-hình ảnh. Mô hình CLIP sẽ được sử ...
+AI VIETNAM aivietnam.edu.vn
+5 from chromadb.utils.embedding_functions import OpenCLIPEmbeddingFunction
+Quá trình thực hiện truy vấn hình ảnh sử dụng mô hình CLIP trong bối cảnh này tương tự như các
+bước ở phần cơ bản trước, nhưng chúng ta sẽ nâng cấp bằng cách thêm một hàm để trích xuất vector
+đặc trưng cho mỗi hình ảnh. Mô hình CLIP sẽ được sử dụng để biến đổi hình ảnh thành các vector đặc
+trưng đại diện cho nội dung và ngữ cảnh của hình ảnh đó. 

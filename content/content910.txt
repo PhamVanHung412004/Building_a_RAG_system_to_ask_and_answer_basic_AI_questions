@@ -1,7 +1,22 @@
-Node ID: a6e33702-87a9-4b3e-8f75-590fcd39b2ef
-Text: AI VIETNAM aivietnam.edu.vn q0 = q, q1 = [k1||q], . . . , qM =
-[kM ||q], với [·||·] biểu thị sự kết hợp văn bản. Điểm tổng hợp cho
-mỗi lựa chọn trả lời được tính dựa trên câu hỏi bổ sung hỗ trợ tốt
-nhất lựa chọn đó dưới mô hình suy luận. Câu trả lời dự đoán cuối cùng
-là lựa chọn được hỗ trợ nhiều nhất từ một trong các phát biểu kiến
-thức. Mô hìn...
+AI VIETNAM aivietnam.edu.vn
+q0 = q, q1 = [k1||q], . . . , qM = [kM ||q], với [·||·] biểu thị sự kết hợp văn bản. Điểm tổng hợp
+cho mỗi lựa chọn trả lời được tính dựa trên câu hỏi bổ sung hỗ trợ tốt nhất lựa chọn đó dưới
+mô hình suy luận. Câu trả lời dự đoán cuối cùng là lựa chọn được hỗ trợ nhiều nhất từ một
+trong các phát biểu kiến thức. Mô hình suy luận có thể là một mô hình ngôn ngữ hiện có
+hoặc được tinh chỉnh cụ thể cho tác vụ. Không cần tinh chỉnh thêm với kỹ thuật gợi ý kiến
+thức.
+Hình 8: Generated Knowledge Prompting bao gồm 2 bước: (1) sử dụng few-shot để tạo ra các phát
+biểu liên quan đến câu hỏi từ một mô hình ngôn ngữ, (2) sử dụng một mô hình ngôn ngữ khác để
+đưa ra dự đoán với mỗi phát biểu, sau đó chọn dự đoán có độ tin cậy cao nhất.
+10 Tree of Thoughts
+Tree of Thoughts (TOT) là phương pháp mở rộng cách tiếp cận COT bằng cách cho phép khám
+phá trên các đơn vị văn bản nhất quán ("thoughts") mà phục vụ như những bước trung gian hướng
+tới giải quyết vấn đề. Nó cho phép mô hình ngôn ngữ thực hiện quá trình ra quyết định một cách
+cẩn trọng, bằng cách xem xét nhiều hướng suy nghĩ khác nhau và tự đánh giá các lựa chọn để quyết
+định hành động tiếp theo, cũng như nhìn về phía trước hoặc lùi lại (forward and backward) khi
+cần thiết để đưa ra các quyết định. Trong paper "Tree of Thoughts: Deliberate Problem Solving
+with Large Language Models" Yao et al., 2023a, TOT đã được chứng minh là cải thiện đáng kể
+khả năng giải quyết vấn đề của các mô hình ngôn ngữ trên ba nhiệm vụ mới đòi hỏi kế hoạch hoặc
+tìm kiếm không đơn giản: Game of 24, Creative Writing, and Mini Crosswords.
+ToT giải quyết vấn đề bằng cách trả lời bốn câu hỏi:
+• Làm thế nào để phân rã quá trình trung gian thành các bước suy nghĩ?

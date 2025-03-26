@@ -1,7 +1,32 @@
-Node ID: 923db745-0053-46c4-b71d-9f5e9144ebe4
-Text: Khi xây dựng cây quyết định, chúng ta cần chọn thuộc tính và giá
-trị phân chia sao cho Gini Impurity sau phân chia là nhỏ nhất, tức là
-mức độ "thuần khiết" cho dữ liệu thuộc về từng nhóm con được tạo ra.
-Đối với tệp dữ liệu gồm 2 labels (i=2) thì chỉ sốIG sẽ đạt ngưỡng lớn
-nhất là bằng 0.5 (Dữ liệu sẽ bị nhiễu lớn nhất). Hình 1: Ví dụ 1 với 2
-la...
+Khi xây dựng cây quyết định, chúng ta cần chọn thuộc tính và giá trị phân chia sao cho
+Gini Impurity sau phân chia là nhỏ nhất, tức là mức độ "thuần khiết" cho dữ liệu thuộc về
+từng nhóm con được tạo ra.
+Đối với tệp dữ liệu gồm 2 labels (i=2) thì chỉ sốIG sẽ đạt ngưỡng lớn nhất là bằng 0.5
+(Dữ liệu sẽ bị nhiễu lớn nhất).
+Hình 1: Ví dụ 1 với 2 label xanh và đen
+Với ví dụ ở hình 1, ta có 2 label là xanh và đen. Với 5 viên bi thuộc xanh và 3 viên bi
+thuộc đen ta có thể tính được xác suất suất hiện của lần lượt 2 tập là5
+8 và 3
+8 . Áp dụng công
+thức Gini Impurity ta sẽ tính được:
+IG = 1− 5
+8
+2
+− 3
+8
+2
+= 0.46875.
+Vì ví dụ chỉ có 2 label là xanh và đen nên kết quả 0.46 có thể coi là tính không thuần
+khiết tiệm cận mức cao nhất (Max=0.5).
+2.2 Entropy
+Entropy trong cây quyết định là một khái niệm được sử dụng để đo lường sự không chắc chắn
+trong dữ liệu (Trung bình surprise). Trong ngữ cảnh của cây quyết định, entropy thường
+được sử dụng để đo lường mức độ không chắc chắn của phân phối lớp trong tập dữ liệu.
+Entropy được tính bằng công thức sau:
+Entropy(S) =−
+cX
+i=1
+pi log2(pi) (2)
+Trong đó:
+• S là tập dữ liệu.
+• c là số lớp trong tập dữ liệu.

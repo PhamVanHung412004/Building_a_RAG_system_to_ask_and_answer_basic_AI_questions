@@ -1,7 +1,42 @@
-Node ID: b791d609-ff66-4c2c-82bb-b51813bd860b
-Text: AI VIETNAM aivietnam.edu.vn II. Câu hỏi trắc nghiệm Câu hỏi 1:
-Kết quả của đoạn code dưới đây là bao nhiêu. 1 import torch 2 import
-torch .nn as nn 3 4 data = torch . Tensor ([1 , 2, 3]) 5
-softmax_function = nn. Softmax ( dim =0) 6 output = softmax_function (
-data ) 7 assert round ( output [0]. item () , 2) == 0.09 8 output a)
-[0.0900, 0.2747, 0...
+AI VIETNAM aivietnam.edu.vn
+II. Câu hỏi trắc nghiệm
+Câu hỏi 1: Kết quả của đoạn code dưới đây là bao nhiêu.
+1 import torch
+2 import torch .nn as nn
+3
+4 data = torch . Tensor ([1 , 2, 3])
+5 softmax_function = nn. Softmax ( dim =0)
+6 output = softmax_function ( data )
+7 assert round ( output [0]. item () , 2) == 0.09
+8 output
+a) [0.0900, 0.2747, 0.6652]
+b) [0.0700, 0.2447, 0.6652]
+c) [0.0900, 0.2447, 0.6652]
+d) [0.1900, 0.2447, 0.6692]
+Câu hỏi 2: Hoàn thành đoạn code sau đây theo công thức tính softmax.
+1 import torch
+2 import torch .nn as nn
+3
+4 class MySoftmax (nn. Module ):
+5 def __init__ ( self ):
+6 super (). __init__ ()
+7
+8 def forward (self , x):
+9 ### Your Code Here
+10
+11 ### End Code Here
+12
+13 data = torch . Tensor ([5 , 2, 4])
+14 my_softmax = MySoftmax ()
+15 output = my_softmax ( data )
+16 assert round ( output [ -1]. item () , 2) == 0.26
+17 output
+a) [0.0900, 0.2747, 0.6652]
+b) [0.7054, 0.0351, 0.2595]
+c) [0.0900, 0.2447, 0.6652]
+d) [0.7054, 0.0351, 0.009]
+Câu hỏi 3: Hoàn thành đoạn code sau đây theo công thức tính softmax.
+1 import torch
+2 import torch .nn as nn
+3
+4 class MySoftmax (nn. 

@@ -1,7 +1,18 @@
-Node ID: f721f5ca-1522-4d45-b8d9-373ecf96e37c
-Text: AI VIETNAM (AIO2024) aivietnam.edu.vn 4. Khởi tạo mô hình:Để
-khởi tạo mô hình với trọng số vừa tải về, các bạn chạy đoạn code sau:
-1 from ultralytics import YOLOv10 2 3 MODEL_PATH = ’ yolov10n .pt ’ 4
-model = YOLOv10 ( MODEL_PATH ) 5. Tải ảnh cần dự đoán:Chúng ta sẽ test
-mô hình trên một ảnh bất kì. Các bạn có thể tự chọn ảnh của riêng mình
-hoặc...
+AI VIETNAM (AIO2024) aivietnam.edu.vn
+4. Khởi tạo mô hình:Để khởi tạo mô hình với trọng số vừa tải về, các bạn chạy đoạn code
+sau:
+1 from ultralytics import YOLOv10
+2
+3 MODEL_PATH = ’ yolov10n .pt ’
+4 model = YOLOv10 ( MODEL_PATH )
+5. Tải ảnh cần dự đoán:Chúng ta sẽ test mô hình trên một ảnh bất kì. Các bạn có thể tự
+chọn ảnh của riêng mình hoặc sử dụng ảnh tại đây. Các bạn có thể chạy đoạn code sau để
+tải ảnh này vào colab tự động:
+1 ! gdown ’1 tr9PSRRdlC2pNir7jsYugpSMG -7 v32VJ ’ -O ’./ images /’
+6. Dự đoán:Để chạy dự đoán cho ảnh đã tải về, các bạn truyền đường dẫn ảnh vào mô hình
+như đoạn code sau:
+1 IMG_PATH = ’./ images / HCMC_Street . jpg ’
+2 result = model ( source = IMG_PATH ) [0]
+Hình 15: Ảnh cần dự đoán.
+7. Lưu kết quả dự đoán:Để lưu lại ảnh đã được dự đoán, các bạn chạy đoạn code sau:
+1 result . save (’./ images / HCMC_Street_predict . 

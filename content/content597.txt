@@ -1,6 +1,12 @@
-Node ID: dd29b12f-8c2c-4326-b27e-3a9e6a4727c7
-Text: AI VIETNAM aivietnam.edu.vn 3 while (y > 1): 4 # Your code here
-5 return var 6 assert my_function (8) == 40320 7 print ( my_function
-(4) ) a) 0 b) 20 c) 24 == d) Raise an Error Câu hỏi 14:(code) Hãy hoàn
-thành chương trình đảo ngược chuỗi dưới đây. Đầu ra của chương trình
+AI VIETNAM aivietnam.edu.vn
+3 while (y > 1):
+4 # Your code here
+5 return var
+6 assert my_function (8) == 40320
+7 print ( my_function (4) )
+a) 0
+b) 20
+c) 24 ==
+d) Raise an Error
+Câu hỏi 14:(code) Hãy hoàn thành chương trình đảo ngược chuỗi dưới đây. Đầu ra của chương trình
 là gì?

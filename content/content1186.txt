@@ -1,7 +1,38 @@
-Node ID: b26c07f3-a7d5-4e50-a0e1-b0ba79088a4c
-Text: gather (-1, t) 20 return out . reshape ( batch_size , *((1 ,) *
-( len ( x_shape ) - 1))).to( device ) 21 22 class
-InpaintingGaussianDiffusion (nn. Module ): 23 def __init__ (self ,
-unet_config , beta_schedule , ** kwargs ): 24 super (
-InpaintingGaussianDiffusion , self ). __init__ (** kwargs ) 25 self .
-denoise_fn = UNet (** unet_config ) 26 sel...
+gather (-1, t)
+20 return out . reshape ( batch_size , *((1 ,) * ( len ( x_shape ) - 1))).to( device )
+21
+22 class InpaintingGaussianDiffusion (nn. Module ):
+23 def __init__ (self , unet_config , beta_schedule , ** kwargs ):
+24 super ( InpaintingGaussianDiffusion , self ). __init__ (** kwargs )
+25 self . denoise_fn = UNet (** unet_config )
+26 self . beta_schedule = beta_schedule
+27
+28 def set_new_noise_schedule (self , device ):
+29 to_torch = partial ( torch . tensor , dtype = torch . float32 , device = device )
+30 betas = make_beta_schedule (** self . beta_schedule )
+31 alphas = 1. - betas
+32 timesteps , = betas . shape
+33 self . num_timesteps = int ( timesteps )
+34
+35 gammas = np. cumprod ( alphas , axis =0) # alphas_cumprod
+36 gammas_prev = np. append (1. , gammas [: -1])
+37
+38 # calculations for diffusion q( x_t | x_{t -1}) and others
+39 self . register_buffer (’ gammas ’, to_torch ( gammas ))
+40 self . register_buffer (’ sqrt_recip_gammas ’, to_torch (np. sqrt (1. / gammas )))
+41 self . register_buffer (’ sqrt_recipm1_gammas ’, to_torch (np. sqrt (1. / gammas - 1))
+)
+42
+43 # calculations for posterior q(x_{t -1} | x_t , x_0 )
+44 posterior_variance = betas * (1. - gammas_prev ) / (1. - gammas )
+45 # below : log calculation clipped because the posterior variance is 0 at the
+beginning of the diffusion chain
+46 self . register_buffer (’ posterior_log_variance_clipped ’, to_torch (np. log (np.
+maximum ( posterior_variance , 1e -20) )))
+47 self . register_buffer (’ posterior_mean_coef1 ’, to_torch ( betas * np. sqrt (
+gammas_prev ) / (1. - gammas )))
+48 self . register_buffer (’ posterior_mean_coef2 ’, to_torch ((1. - gammas_prev ) * np.
+sqrt ( alphas ) / (1. - gammas )))
+49
+50 def set_loss (self , loss_fn ):
+20

@@ -1,7 +1,39 @@
-Node ID: f4c5ec85-5da2-4b6d-ba22-8622d6e4cdba
-Text: AIO2024 aivietnam.edu.vn 3 Thiết lập dự án Để tạo một dự án mới
-với Poetry ta sẽ sử dụng lệnh poetry new, ví dụ chúng ta tạo dự án xây
-dựng package tính giai thừa có tên aio2024, ta sẽ sử dụng lệnh sau: 1
-poetry new aio2024 Sau khi thực thi lệnh trên, ta sẽ nhận được một thư
-mục dự án có tên là aio2024 với cấu trúc sau: 1 | pyproject . toml 2 |
-...
+AIO2024 aivietnam.edu.vn
+3 Thiết lập dự án
+Để tạo một dự án mới với Poetry ta sẽ sử dụng lệnh poetry new, ví dụ chúng ta tạo dự án xây dựng
+package tính giai thừa có tên aio2024, ta sẽ sử dụng lệnh sau:
+1 poetry new aio2024
+Sau khi thực thi lệnh trên, ta sẽ nhận được một thư mục dự án có tên là aio2024 với cấu trúc sau:
+1 | pyproject . toml
+2 | README .md
+3 |
+4 |--- aio2024
+5 | __init__ .py
+6 |
+7 |--- tests
+8 __init__ .py
+Trong thư mục aio2024 chứa các tệp và package được sử dụng với các mục đích khác nhau:
+• aio2024 : Ta sẽ viết code để tạo package ở trong thư mục này
+• tests : Ta sẽ viết code kiểm thử ở đây
+• pyproject.toml : Là file chứa thông tin cấu hình package chúng ta đang xây dựng
+• README.md : Là file mô tả package mà chúng ta đang xây dựng, hướng dẫn cài đặt... được viết
+bằng Markdown
+Đó chính là cấu trúc tiêu chuẩn của một dự án xây dựng package với Poetry. Nếu ta có một dự án từ
+trước mà muốn đóng gói lại với Poetry thì cần phải tổ chức lại code theo cấu trúc này.
+Vì file pyproject.toml chứa các thông tin quan trọng nên chúng ta sẽ cùng tìm hiểu nội dung của file
+này:
+1 [ tool . poetry ]
+2 name = " aio2024 "
+3 version = " 0.1.0 "
+4 description = ""
+5 authors = [" NguyenDinhTiem < nguyendinhtiem1999@gmail .com >"]
+6 readme = " README .md"
+7 packages = [{ include = " aio2024 "}]
+8
+9 [ tool . poetry . dependencies ]
+10 python = " ^3.12 "
+11
+12
+13 [ build - system ]
+14 requires = [" poetry - core "]
+15 build - backend = " poetry . core . 

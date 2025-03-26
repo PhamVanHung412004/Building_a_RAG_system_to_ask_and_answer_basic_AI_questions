@@ -1,7 +1,19 @@
-Node ID: e1755d3e-85df-4e52-808b-4fadc92d1c64
-Text: All-in-One Course - 2024 aivietnam.edu.vn 1 # Vòng lặp for với
-từ điển 2 student_scores = { 3 "Bông": 90, 4 "Hoa": 85, 5 "Mai": 78 6
-} 7 for student, score in student_scores.items (): 8
-print(f"{student}: {score}") ================= Output ================
-Bông: 90 Hoa: 85 Mai: 78 ========================================== 3
-Vòng lặp for trong c...
+All-in-One Course - 2024 aivietnam.edu.vn
+1 # Vòng lặp for với từ điển
+2 student_scores = {
+3 "Bông": 90,
+4 "Hoa": 85,
+5 "Mai": 78
+6 }
+7 for student, score in student_scores.items
+():
+8 print(f"{student}: {score}")
+================= Output ================
+Bông: 90
+Hoa: 85
+Mai: 78
+==========================================
+3 Vòng lặp for trong comprehension
+Comprehension là một loại cú pháp để viết vòng lặp for ngắn gọn hơn để tạo ra list, dictionary, set mới.
+Chúng ta sẽ tìm hiểu về cách sử dụng comprehension với list, dictionary còn các kiểu dữ liệu khác thì
+tương tự.

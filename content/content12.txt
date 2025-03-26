@@ -1,7 +1,26 @@
-Node ID: 0758359c-bc1c-4307-a290-dc806edc9c4a
-Text: Một vấn đề của mô hình ngôn ngữ lớn đó là nó yêu cầu tài nguyên
-về phần cứng khá lớn. Vì vậy, để khởi tạo được mô hình Vicuna trên
-Colab, chúng ta sẽ cần thực hiện một số bước sau: (a) Khai báo một số
-cài đặt cần thiết cho mô hình: 1 nf4_config = BitsAndBytesConfig ( 2
-load_in_4bit =True , 3 bnb_4bit_quant_type =" nf4 ", 4
-bnb_4bit_use_double_qu...
+Một vấn đề của mô hình ngôn ngữ lớn đó là nó yêu cầu tài nguyên về phần cứng khá lớn.
+Vì vậy, để khởi tạo được mô hình Vicuna trên Colab, chúng ta sẽ cần thực hiện một số
+bước sau:
+(a) Khai báo một số cài đặt cần thiết cho mô hình:
+1 nf4_config = BitsAndBytesConfig (
+2 load_in_4bit =True ,
+3 bnb_4bit_quant_type =" nf4 ",
+4 bnb_4bit_use_double_quant =True ,
+5 bnb_4bit_compute_dtype = torch . bfloat16
+6 )
+(b) Khởi tạo mô hình và tokenizer:
+1 MODEL_NAME = " lmsys / vicuna -7b-v1 .5"
+2
+3 model = AutoModelForCausalLM . from_pretrained (
+4 MODEL_NAME ,
+5 quantization_config = nf4_config ,
+6 low_cpu_mem_usage = True
+7 )
+8
+9 tokenizer = AutoTokenizer . from_pretrained ( model_name )
+(c) Tích hợp tokenizer và model thành một pipeline để tiện sử dụng:
+1 model_pipeline = pipeline (
+2 "text - generation ",
+3 model = model ,
+4 tokenizer = tokenizer ,
+6

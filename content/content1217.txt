@@ -1,7 +1,21 @@
-Node ID: 9c0f116e-36e8-4588-988f-3a3178187c14
-Text: type ( torch . bool ) 30 source_edge_mask = ~ target_edge_mask
-31 init_edge = edge * source_edge_mask . float () 32 return init_edge
-[0] , source_edge_mask 33 34 def forward (self , init_node_feat ): 35
-# compute normalized and not normalized affinity matrix 36 edge_feat ,
-edge_sim = self . edge_net ( init_node_feat ) 37 # compute node
-features ...
+type ( torch . bool )
+30 source_edge_mask = ~ target_edge_mask
+31 init_edge = edge * source_edge_mask . float ()
+32 return init_edge [0] , source_edge_mask
+33
+34 def forward (self , init_node_feat ):
+35 # compute normalized and not normalized affinity matrix
+36 edge_feat , edge_sim = self . edge_net ( init_node_feat )
+37 # compute node features and class logits
+38 logits_gnn = self . node_net ( init_node_feat , edge_feat )
+39 return logits_gnn , edge_sim
+Sau đây là đoạn code về edge network. Ta thấy output của edge network là edge_feat có shape
+là (batch_size, batch_size), đây chính là correlation matrix. Mỗi vị trí ij trong matrix này là mối
+liên hệ giữa sample i và sample j, giá trị càng gần 1 thì 2 sample càng có mối liên hệ cao, và ngược
+lại, giá trị càng thấp thì mối liên hệ càng thấp. Nói cách khác, mối liên hệ cao là các sample có
+cùng class với nhau, mối quan hệ thấp là các sample khác class với nhau.
+1 class EdgeNet (nn. Module ):
+2 def __init__ (self , in_features , num_features , device , ratio =(1 ,) ):
+3 super ( EdgeNet , self ). __init__ ()
+4 num_features_list = [ num_features * r for r in ratio ]
+5

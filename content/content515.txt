@@ -1,6 +1,5 @@
-Node ID: 17b843dd-10ff-4910-82d6-8a654a45b500
-Text: Hình 1: Logo của LangChain Trong bài viết này, chúng ta sẽ xây
-dựng một ứng dụng về RAG (Retrieval Augmented Generation) trả lời các
-câu hỏi học thuật tận dụng nguồn tài liệu là các bài báo khoa học mà
-ta thu thập được (dưới dạng file pdf), sử dụng thư viện LangChain.
-Tổng quan, pipeline của project như sau: 1
+Hình 1: Logo của LangChain
+Trong bài viết này, chúng ta sẽ xây dựng một ứng dụng về RAG (Retrieval Augmented Generation)
+trả lời các câu hỏi học thuật tận dụng nguồn tài liệu là các bài báo khoa học mà ta thu thập được (dưới
+dạng file pdf), sử dụng thư viện LangChain. Tổng quan, pipeline của project như sau:
+1

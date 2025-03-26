@@ -1,7 +1,18 @@
-Node ID: aba7d485-e6bc-4dfa-bc39-89ad12e6d383
-Text: .push(value) add thêm value vào trong stack. Kết quả đầu ra là
-gì? 1 class MyStack : 2 def __init__ (self , capacity ): 3 self .
-__capacity = capacity 4 self . __stack = [] 5 6 def is_full ( self ):
-7 return len ( self . __stack ) == self . __capacity 8 9 def push
-(self , value ): 10 ### Your Code Here 11 12 ### End Code Here 13 14
-stack1 = MySt...
+.push(value) add thêm value vào trong
+stack. Kết quả đầu ra là gì?
+1 class MyStack :
+2 def __init__ (self , capacity ):
+3 self . __capacity = capacity
+4 self . __stack = []
+5
+6 def is_full ( self ):
+7 return len ( self . __stack ) == self . __capacity
+8
+9 def push (self , value ):
+10 ### Your Code Here
+11
+12 ### End Code Here
+13
+14 stack1 = MyStack ( capacity =5)
+15 stack1 . push (1)
+10

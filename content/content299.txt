@@ -1,7 +1,33 @@
-Node ID: f5e2214d-1e0b-4ed0-a9b8-420a03d99731
-Text: AI VIETNAM aivietnam.edu.vn 113 num_rows = np. int_ (np. ceil ((
-batch_size * 1.0) / num_cols )) 114 border_img = 255 * np. ones ((
-num_rows * self . outshape [0] , 128 , 3) , 115 dtype =" uint8 ") 116
-out_fn_pred = "%s/%s. png " % ( self . out_directory , prefix ) 117
-cv2 . imwrite ( out_fn_pred , 118 np. concatenate (( net_out_img ,
-border_img...
+AI VIETNAM aivietnam.edu.vn
+113 num_rows = np. int_ (np. ceil (( batch_size * 1.0) / num_cols ))
+114 border_img = 255 * np. ones (( num_rows * self . outshape [0] , 128 , 3) ,
+115 dtype =" uint8 ")
+116 out_fn_pred = "%s/%s. png " % ( self . out_directory , prefix )
+117 cv2 . imwrite ( out_fn_pred ,
+118 np. concatenate (( net_out_img , border_img , gt_out_img ), axis =1)
+)
+119
+120 def __tiledoutput__ (self , net_op , batch_size ,
+121 num_cols =8 , net_recon_const = None ):
+122 """
+123 Generate a combined image from these inputs by stitching the images into
+a large image .
+124 """
+125 num_rows = np. int_ (np. ceil (( batch_size * 1.0) / num_cols ))
+126 out_img = np. zeros (( num_rows * self . outshape [0] , num_cols * self . outshape [1] ,
+3) ,
+127 dtype =" uint8 ")
+128 img_lab = np. zeros (( self . outshape [0] , self . outshape [1] , 3) ,
+129 dtype =" uint8 ")
+130 c = 0
+131 r = 0
+132
+133 for i in range ( batch_size ):
+134 if i % num_cols == 0 and i > 0:
+135 r = r + 1
+136 c = 0
+137 img_lab [... , 0] = self . __decodeimg__ ( net_recon_const [i, 0, :, :].
+reshape ( self . outshape [0] , self . outshape [1]) )
+138 img_lab [... , 1] = self . __decodeimg__ ( net_op [i, 0, :, :]. reshape ( self .
+shape [0] , self . shape [1]) )
+139 img_lab [... , 2] = self . __decodeimg__ ( net_op [i, 1, :, :]. reshape ( self .

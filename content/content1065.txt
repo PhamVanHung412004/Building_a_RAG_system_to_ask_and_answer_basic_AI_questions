@@ -1,7 +1,18 @@
-Node ID: 853e109f-c01d-4861-bb22-d6fb58815edd
-Text: AI VIETNAM aivietnam.edu.vn Hình 16: (a) data flow cho cả quá
-trình training và inference: trong quá trình training, timestep t sẽ
-được chọn mẫu ngẫu nhiên từ [0, T] và các khung hình video đầu vào bị
-làm nhiễu qua quá trình lan truyền, U-Net được sử dụng để học cách tái
-tạo các khung hình video. Gaussian noise được chọn mẫu ngẫu nhiên
-trong suy...
+AI VIETNAM aivietnam.edu.vn
+Hình 16: (a) data flow cho cả quá trình training và inference: trong quá trình training, timestep t sẽ
+được chọn mẫu ngẫu nhiên từ [0, T] và các khung hình video đầu vào bị làm nhiễu qua quá trình lan
+truyền, U-Net được sử dụng để học cách tái tạo các khung hình video. Gaussian noise được chọn mẫu
+ngẫu nhiên trong suy luận, và denoising process được lặp lại T lần. Latent vector z sau đó được đưa
+vào bộ giải mã VAE và chuyển đổi sang không gian RGB. (b) là cấu trúc của spatiotemporal attention
+(ST-Attn). (c) là directed attention được sử dụng trong ST-Attn
+Trong quá trình huấn luyện model tạo video từ văn bản mô tả, MagicVideo tiếp cận bằng cách lấy
+mẫu một phần nhỏ các khung hình liên tiếp và xác định rõ frame-rate mới dựa trên độ dài mẫu. Để cải
+thiện chất lượng, model được huấn luyện trước mà không cần ghép cặp văn bản-video sử dụng dữ liệu
+video chất lượng cao, sau đó được tinh chỉnh với mục tiêu huấn luyện cụ thể, áp dụng loss function cho
+từng khung hình và sử dụng các embeddings để tinh chỉnh mô hình, cho phép tạo video liền mạch và
+chất lượng cao từ văn bản mô tả.
+Hình 17: VideoVAE decoder
+Trong quá trình tổng hợp hình ảnh RGB từ các decoding latent features quaVAE decoder đã được
+đào tạo trước, quá trình tái tạo từng khung hình video dẫn đến hiện tượng pixel dithering, làm giảm
+chất lượng thẩm mỹ hình ảnh. Các đặc trưng không gian với kích thước lớn hơn sẽ giảm bớt dithering
+nhưng cũng làm tăng chi phí tính toán. 

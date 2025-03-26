@@ -1,7 +1,24 @@
-Node ID: 7703472d-a1c3-4d77-bae7-4deab3bc664e
-Text: path . exists (f" ./{ file_link [’ title ’]}. pdf ") 33 34 for
-file_link in file_links : 35 if not is_exist ( file_link ): 36 wget .
-download ( file_link [" url "], out =f" ./{ file_link [’ title ’]}.
-pdf ") Trong file code trên, chúng ta cung cấp một list các đường dẫn
-bài báo. Từ đó, sử dụngwget để tải về. Các bài báo sẽ được lưu ngay
-tại vị t...
+path . exists (f" ./{ file_link [’ title ’]}. pdf ")
+33
+34 for file_link in file_links :
+35 if not is_exist ( file_link ):
+36 wget . download ( file_link [" url "], out =f" ./{ file_link [’ title ’]}. pdf ")
+Trong file code trên, chúng ta cung cấp một list các đường dẫn bài báo. Từ đó, sử dụngwget để
+tải về. Các bài báo sẽ được lưu ngay tại vị trí của file code. Vì mục đích demo, chúng ta sẽ chỉ tải
+một số lượng nhỏ các paper. Các bạn có thể tự thêm vào nhiều paper khác để test.
+Hình 3: Minh họa danh sách các file bài báo khoa học sau khi được tải về.
+4. Cập nhật filesrc/base/llm_model.py: Tại file này, ta khai báo hàmget_hf_model(), dùng để thực
+hiện tải và gọi pre-trained LLM từ HuggingFace về máy. Đồng thời, ta áp dụng kỹ thuật quanti-
+zation lên model để thực hiện inference trên GPU thấp. Nội dung file như sau:
+1 import torch
+2 from transformers import BitsAndBytesConfig
+3 from transformers import AutoTokenizer , AutoModelForCausalLM , pipeline
+4 from langchain . llms . huggingface_pipeline import HuggingFacePipeline
+5
+6
+7 nf4_config = BitsAndBytesConfig (
+8 load_in_4bit =True ,
+9 bnb_4bit_quant_type =" nf4 ",
+10 bnb_4bit_use_double_quant =True ,
+11 bnb_4bit_compute_dtype = torch . bfloat16
+5

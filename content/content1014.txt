@@ -1,7 +1,19 @@
-Node ID: efe3c2b2-0bae-40a4-aec0-1fcd555a45ea
-Text: AI VIETNAM aivietnam.edu.vn Trong nghiên cứu này, các tác giả
-huấn luyện mô hình LLM để tự sinh ra 4 loại token phải ứng (reflection
-token) để hỗ trợ cho quá trình trả lời, bao gồm: • Retrieve: Cho mô
-hình biết có nên truy vấn/tiếp tục truy vấn hay không. • IsRel: Đánh
-giá xem kết quả truy vấn có cung cấp thông tin hữu dụng cho quá trình
-trả lời...
+AI VIETNAM aivietnam.edu.vn
+Trong nghiên cứu này, các tác giả huấn luyện mô hình LLM để tự sinh ra 4 loại token phải ứng
+(reflection token) để hỗ trợ cho quá trình trả lời, bao gồm:
+• Retrieve: Cho mô hình biết có nên truy vấn/tiếp tục truy vấn hay không.
+• IsRel: Đánh giá xem kết quả truy vấn có cung cấp thông tin hữu dụng cho quá trình trả lời câu
+hỏi hay không.
+• IsSup: Cho biết mực độ kết quả truy vấn cung cấp dẫn chứng hỗ trợ cho câu trả, bao gồm: support
+hoàn toàn, support một phần, và hoàn toàn không support cho câu trả lời.
+• IsUse: Đánh giá xem mức độ hữu dụng của câu trả lời, trên thang điểm từ 1-5.
+Ở quá trình inference, thuật toán Self-RAG hoạt động như sau:
+• Đầu tiên ta có một câu hỏi prompt từ người dùng và câu trả lời từ bước trước đó (nếu có). Model
+sẽ tự tạo ra token Retrieve để dự đoán xem có cần truy vấn thông tin từ cơ sở dữ liệu hay không.
+• Nếu cần Retrieve thì:
+– Truy vấn thông tin cần thiết từ cơ sở dữ liệu.
+– Mô hình dự đoán token IsRel để dự đoán kết quả truy vấn có cung cấp thông tin cần thiết.
+– Mô hình dự đoán token IsSup và IsUse để đánh giá từng kết quả truy vấn.
+– Rerank lại kết quả truy vấn dựa trên 3 token IsRel, IsSup và IsUse.
+• Nếu không cần Retrieve, mô hình sẽ trả lời mà không cần retrieve, sau đó dự đoán độ hữu ích của
+câu trả lời qua token IsUse.

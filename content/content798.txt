@@ -1,7 +1,24 @@
-Node ID: 22949f8b-fa97-4801-9b73-b7a5714da0e3
-Text: Phép nhân ma trậnC = A × B có thể được mô tả như sau: Cij = nX
-k=1 Aik · Bkj Trong đó: • Cij là phần tử ở hàng thứi và cột thứj của
-ma trậnC. • Aik là phần tử ở hàng thứi và cột thứk của ma trậnA. • Bkj
-là phần tử ở hàng thứk và cột thứj của ma trậnB. • Phép toánPn k=1
-biểu diễn việc tính tổng qua tất cả các giá trị củak từ 1 đếnn. Ví dụ:
-A11 A...
+Phép nhân ma trậnC = A × B có thể được mô tả như sau:
+Cij =
+nX
+k=1
+Aik · Bkj
+Trong đó:
+• Cij là phần tử ở hàng thứi và cột thứj của ma trậnC.
+• Aik là phần tử ở hàng thứi và cột thứk của ma trậnA.
+• Bkj là phần tử ở hàng thứk và cột thứj của ma trậnB.
+• Phép toánPn
+k=1 biểu diễn việc tính tổng qua tất cả các giá trị củak từ 1 đếnn.
+Ví dụ:
+A11 A12
+A21 A22
+
+×
+B11 B12
+B21 B22
+
+=
+C11 C12
+C21 C22
+
+20

@@ -1,7 +1,7 @@
-Node ID: c2226e1a-100b-40ba-afec-6f98510131c1
-Text: Khác với các mô hình RAG truyền thống có thể trích xuất thông
-tin không liên quan, Self-RAG sử dụng các mã token đặc biệt gọi là
-token phản ánh để làm cho mô hình có thể kiểm soát và thích nghi với
-nhiều nhiệm vụ khác nhau. Các tác giả chứng minh rằng Self-RAG vượt
-trội hơn các mô hình LLM hiện tại và các mô hình tăng cường tìm kiếm
-trong các nh...
+Khác với các mô hình RAG truyền thống có thể trích xuất thông
+tin không liên quan, Self-RAG sử dụng các mã token đặc biệt gọi là token phản ánh để làm cho mô hình
+có thể kiểm soát và thích nghi với nhiều nhiệm vụ khác nhau. Các tác giả chứng minh rằng Self-RAG
+vượt trội hơn các mô hình LLM hiện tại và các mô hình tăng cường tìm kiếm trong các nhiệm vụ như
+QA miền mở, suy luận, xác minh sự thật và tạo ra văn bản dài, làm nổi bật những cải thiện đáng kể
+về tính chính xác và độ chính xác của trích dẫn.
+19

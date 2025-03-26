@@ -1,7 +1,6 @@
-Node ID: 7ee896d9-0631-4173-8c47-68b2a1b07a84
-Text: Ngoài ra, spatiotemporal decoder network tạo ra những khung hình
-RGB độ phân giải thấp ban đầu. Các khung hình này sau đó được cải
-thiện bởi interpolation network và các super-resolution networks đảm
-bảo sự nhất quán giữa các khung hình để tránh flickering artifacts.
-Super-resolution được sử dụng do hạn chế về bộ nhớ và khả năng tính
-toán cùng v...
+Ngoài ra, spatiotemporal decoder network tạo ra những khung hình RGB độ phân giải thấp ban
+đầu. Các khung hình này sau đó được cải thiện bởi interpolation network và các super-resolution
+networks đảm bảo sự nhất quán giữa các khung hình để tránh flickering artifacts. Super-resolution
+được sử dụng do hạn chế về bộ nhớ và khả năng tính toán cùng với sự khởi tạo consistent noise
+giữa các khung hình để duy trì nội dung chi tiết giữa chúng.
+7

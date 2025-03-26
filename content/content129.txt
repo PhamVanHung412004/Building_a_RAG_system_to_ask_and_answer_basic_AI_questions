@@ -1,7 +1,5 @@
-Node ID: eb816bec-70e7-42f4-a1bc-ebacabda2acd
-Text: AI VIETNAM (AIO2024) aivietnam.edu.vn (c) Tạo vector có kích
-thước bằng với dictionary, mỗi phần tử tương ứng với thứ tự các từ
-trong dictionary và được gán giá trị bằng 1 nếu xuất hiện trong
-message. (d) Tạo vector có kích thước bằng với dictionary, mỗi phần tử
-tương ứng với thứ tự các từ trong dictionary và được gán giá trị bằng
-tần suất của t...
+AI VIETNAM (AIO2024) aivietnam.edu.vn
+(c) Tạo vector có kích thước bằng với dictionary, mỗi phần tử tương ứng với thứ tự các từ
+trong dictionary và được gán giá trị bằng 1 nếu xuất hiện trong message.
+(d) Tạo vector có kích thước bằng với dictionary, mỗi phần tử tương ứng với thứ tự các từ
+trong dictionary và được gán giá trị bằng tần suất của từ đó trong message.

@@ -1,7 +1,10 @@
-Node ID: 917ab5fd-a31a-4900-9a14-74f433af876c
-Text: AI VIETNAM aivietnam.edu.vn Phần III: Câu hỏi trắc nghiệm 1.
-Trong Diffusion Model, Loss Function là: (a) ELBO (Evidence Lower
-Bound) (b) VLB (Variational Lower Bound) (c) Simplified MSE (d) Tất cả
-đáp án đều đúng. 2. Gray channel đóng vai trò gì trong quá trình huấn
-luyện mô hình Diffusion-based Image Coloriza- tion? (a) Nó được sử
-dụng làm điề...
+AI VIETNAM aivietnam.edu.vn
+Phần III: Câu hỏi trắc nghiệm
+1. Trong Diffusion Model, Loss Function là:
+(a) ELBO (Evidence Lower Bound)
+(b) VLB (Variational Lower Bound)
+(c) Simplified MSE
+(d) Tất cả đáp án đều đúng.
+2. Gray channel đóng vai trò gì trong quá trình huấn luyện mô hình Diffusion-based Image Coloriza-
+tion?
+(a) Nó được sử dụng làm điều kiện mang thông tin cấu trúc của ảnh trong quá trình tạo màu.

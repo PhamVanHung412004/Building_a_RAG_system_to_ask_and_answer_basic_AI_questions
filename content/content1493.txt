@@ -1,7 +1,47 @@
-Node ID: b49cb138-fc55-4b00-bc62-ab14aa0997a8
-Text: AI VIETNAM aivietnam.edu.vn 8 filter = [64 , 128 , 256 , 512 ,
-512] 9 10 self . class_nb = 13 11 12 # define encoder decoder layers
-13 self . encoder_block = nn. ModuleList ([ self . conv_layer ([3 ,
-filter [0]]) ]) 14 self . decoder_block = nn. ModuleList ([ self .
-conv_layer ([ filter [0] , filter [0]]) ]) 15 for i in range (4) : 16
-self . enc...
+AI VIETNAM aivietnam.edu.vn
+8 filter = [64 , 128 , 256 , 512 , 512]
+9
+10 self . class_nb = 13
+11
+12 # define encoder decoder layers
+13 self . encoder_block = nn. ModuleList ([ self . conv_layer ([3 , filter [0]]) ])
+14 self . decoder_block = nn. ModuleList ([ self . conv_layer ([ filter [0] , filter [0]]) ])
+15 for i in range (4) :
+16 self . encoder_block . append ( self . conv_layer ([ filter [i], filter [i + 1]]) )
+17 self . decoder_block . append ( self . conv_layer ([ filter [i + 1] , filter [i ]]) )
+18
+19 # define convolution layer
+20 self . conv_block_enc = nn. ModuleList ([ self . conv_layer ([ filter [0] , filter [0]]) ])
+21 self . conv_block_dec = nn. ModuleList ([ self . conv_layer ([ filter [0] , filter [0]]) ])
+22 for i in range (4) :
+23 if i == 0:
+24 self . conv_block_enc . append ( self . conv_layer ([ filter [i + 1] , filter [i +
+1]]) )
+25 self . conv_block_dec . append ( self . conv_layer ([ filter [i], filter [i ]]) )
+26 else :
+27 self . conv_block_enc . append (nn. Sequential ( self . conv_layer ([ filter [i +
+1] , filter [i + 1]]) ,
+28 self . conv_layer ([ filter [i +
+1] , filter [i + 1]]) ))
+29 self . conv_block_dec . append (nn. Sequential ( self . conv_layer ([ filter [i],
+filter [i ]]) ,
+30 self . conv_layer ([ filter [i],
+filter [i ]]) ))
+31
+32 # define task specific layers
+33 self . pred_task1 = nn. Sequential (nn. Conv2d ( in_channels = filter [0] , out_channels =
+filter [0] , kernel_size =3 , padding =1) ,
+34 nn. Conv2d ( in_channels = filter [0] , out_channels =
+self . class_nb , kernel_size =1 , padding =0) )
+35 self . pred_task2 = nn. Sequential (nn. Conv2d ( in_channels = filter [0] , out_channels =
+filter [0] , kernel_size =3 , padding =1) ,
+36 nn. Conv2d ( in_channels = filter [0] , out_channels
+=1 , kernel_size =1 , padding =0) )
+37
+38 # define pooling and unpooling functions
+39 self . down_sampling = nn. MaxPool2d ( kernel_size =2 , stride =2 , return_indices = True
+)
+40 self . up_sampling = nn. MaxUnpool2d ( kernel_size =2 , stride =2)
+41
+42 for m in self . modules ():
+43 if isinstance (m, nn. 

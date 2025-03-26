@@ -1,7 +1,24 @@
-Node ID: b1f400d6-10ca-4278-914c-c7957c909461
-Text: 2.3 Ví dụ thực tế về Decision Tree dùng Entropy (Classify) 2.3.1
-Data có biến rời rạc Ta có một dataset về chơi tenis, với 2labels là
-yes (có chơi tenis) và no(không chơi tenis) với 14 samples và các cột
-(outlook, temperature, humidity, wind) là cácFeatures. Bảng 1: Dữ liệu
-STT Outlook Temperature Humidity Wind PlayTennis 1 Sunny Hot High Weak
-N...
+2.3 Ví dụ thực tế về Decision Tree dùng Entropy (Classify)
+2.3.1 Data có biến rời rạc
+Ta có một dataset về chơi tenis, với 2labels là yes (có chơi tenis) và no(không chơi tenis)
+với 14 samples và các cột (outlook, temperature, humidity, wind) là cácFeatures.
+Bảng 1: Dữ liệu
+STT Outlook Temperature Humidity Wind PlayTennis
+1 Sunny Hot High Weak No
+2 Sunny Hot High Strong No
+3 Overcast Hot High Weak Yes
+4 Rainy Mild High Weak Yes
+5 Rainy Cool Normal Weak Yes
+6 Rainy Cool Normal Strong No
+7 Overcast Cool Normal Strong Yes
+8 Sunny Mild High Weak No
+9 Sunny Cool Normal Weak Yes
+10 Rainy Mild Normal Weak Yes
+11 Sunny Mild Normal Strong Yes
+12 Overcast Mild High Strong Yes
+13 Overcast Hot Normal Weak Yes
+14 Rainy Mild High Strong No
+Chúng ta cần tính Entropy của các Features và tính information gain theo công thức sau.
+Hình 4: Công thức tính entropy và gain
+Nếu entropy nhánh giảm càng nhiều chúng ta sẽ nhận được Gain càng lớn nên ta ưu tiên
+chọn Features có Gain lớn nhất.

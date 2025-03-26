@@ -1,7 +1,27 @@
-Node ID: 7af3f701-4ada-4eb0-b0ef-f4d9edae70fe
-Text: • Edge là gì? • Ta có thể thêm hàm loss phụ trợ không? Ba câu
-hỏi trên sẽ quyết định việc ta có thể sử dụng GNN vào một bài toán bất
-kì được hay không. Tuy nhiên, để GNN có thể cải thiện performance của
-model hiện tại ta cần phải trả lời câu hỏi quan trọng sau: • GNN sẽ
-hoạt động như thế nào? Ta cần phải giải thích rõ cách GNN sẽ hoạt động
-trước...
+• Edge là gì?
+• Ta có thể thêm hàm loss phụ trợ không?
+Ba câu hỏi trên sẽ quyết định việc ta có thể sử dụng GNN vào một bài toán bất kì được hay
+không.
+Tuy nhiên, để GNN có thể cải thiện performance của model hiện tại ta cần phải trả lời câu
+hỏi quan trọng sau:
+• GNN sẽ hoạt động như thế nào?
+Ta cần phải giải thích rõ cách GNN sẽ hoạt động trước khi tiến hành code thay vì hoàn thành 3
+câu hỏi đầu tiên và cầu nguyện model sẽ chạy tốt.
+2. Ý tưởng GNN cho bài toán image classification
+Để có thể sử dụng GNN cho bài toán image classification, ta cần trả phải trả lời 3 câu hỏi ở phần
+trên.
+• Node: Ta có thể định nghĩa mỗi sample (image) là một node.
+• Edge: Khi mỗi sample là một node thì edge chính là liên kết giữa 2 sample khi 2 sample đó
+có cùng class. Nếu 2 sample không cùng class thì sẽ không có edge.
+• Hàm loss phụ trợ: Trong các bài toán mà các edge được định nghĩa rõ ràng (ví dụ trong
+bài này là cùng class với nhau) thì thêm hàm loss phụ trợ chắc chắn sẽ tăng performance so
+với không thêm.
+Sau khi đã trả lời được 3 câu hỏi trên thì ta đã chắc chắn rằng đã có thể triển khai code. Tuy
+nhiên, ta cần phải giải thích vai trò của GNN là gì trong model mới này.
+Ta thấy, trong 1 batch data sẽ có nhiều sample có cùng class, và trong các sample cùng class sẽ có
+các sample khó học và các sample dễ học. Ví dụ class về ghế sofa, các sample dễ học là các sample
+mà trong đó chỉ có mỗi ghế sofa, các sample khó học sẽ bao gồm ghế sofa và bàn gần vị trí đó.
+Việc này là hoàn toàn bình thường vì ghế sofa và bàn thường nằm cùng nhau trong nhà, nên khi
+chụp ảnh ghế thì sẽ dính phải bàn. Khi sử dụng GNN để tổng hợp thông tin từ các sample cùng
+class trong 1 batch thì ta sẽ dùng các sample dễ để “cung cấp” thông tin cho các sample khó, từ
+2

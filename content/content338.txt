@@ -1,7 +1,35 @@
-Node ID: 76579fb3-d6d7-4dd6-a436-c4b24dcbced5
-Text: AI VIETNAM aivietnam.edu.vn Phần III: Câu hỏi trắc nghiệm 1. VAE
-có thể được sử dụng trong các ứng dụng nào? (a) Tô màu cho ảnh xám (b)
-Nén ảnh (c) Sinh ảnh mới (d) Tất cả các phương án trên 2. Mô hình VAE
-cơ bản có bao nhiêu block chính? (a) 1 (b) 2 (c) 3 (d) 4 3. Trong VAE,
-đối tượng cần được mã hóa được biểu diễn như thế nào? (a) Dưới dạng
-mộ...
+AI VIETNAM aivietnam.edu.vn
+Phần III: Câu hỏi trắc nghiệm
+1. VAE có thể được sử dụng trong các ứng dụng nào?
+(a) Tô màu cho ảnh xám
+(b) Nén ảnh
+(c) Sinh ảnh mới
+(d) Tất cả các phương án trên
+2. Mô hình VAE cơ bản có bao nhiêu block chính?
+(a) 1
+(b) 2
+(c) 3
+(d) 4
+3. Trong VAE, đối tượng cần được mã hóa được biểu diễn như thế nào?
+(a) Dưới dạng một giá trị số thực.
+(b) Dưới dạng một phân phối xác suất
+(c) Dưới dạng một véc-tơ nhị phân
+(d) Dưới dạng một ma trận đặc trưng
+4. Trong VAE, khi huấn luyện mô hình, ta muốn KL Divergence Loss đạt giá trị bằng bao nhiêu?
+(a) 0
+(b) 1
+(c) Không có giá trị nhất định
+(d) Càng lớn càng tốt
+5. Trong Image Colorization, vì sao không gian màu Lab thường được sử dụng hơn không gian màu
+RGB (chọn phương án đúng nhất)?
+(a) Phân biệt rõ ràng giữa độ sáng và màu sắc: Không gian màu Lab phân chia màu sắc và
+độ sáng thành hai kênh riêng biệt (L, a, và b), giúp mô hình tập trung vào việc tái tạo màu
+sắc một cách chính xác hơn. Trong khi đó, ảnh RGB có thể làm mất thông tin về độ sáng khi
+thêm màu vào, gây ra hiệu ứng không mong muốn.
+(b) Khả năng lưu trữ thông tin màu sắc chi tiết: Các giá trị trong không gian màu Lab là
+liên tục, ngược lại với các giá trị rời rạc trong không gian màu RGB. Điều này dẫn đến việc
+không gian màu Lab có khả năng lưu trữ lớn hơn và chính xác hơn trong việc biểu diễn hình
+ảnh
+(c) Độ phức tạp thấp hơn khi dự đoán màu sắc: Với không gian màu Lab, chúng ta chỉ cần
+dự đoán hai kênh màu a và b, thay vì cả ba kênh màu như trong không gian màu RGB. Điều
+này giúp giảm độ phức tạp của bài toán và tăng hiệu suất của mô hình.

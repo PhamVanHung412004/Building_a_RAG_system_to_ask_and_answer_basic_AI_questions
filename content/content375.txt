@@ -1,7 +1,16 @@
-Node ID: bfd06fdf-3f07-46e1-a459-f7a1a1fd52b1
-Text: Point Cloud Techniques and Applications Tuan Dang and Phuc Pham
-Ngày 23 tháng 4 năm 2024 1 Introduction to Point Cloud and basic
-techniques to process Trong phần này chúng ta sẽ được giới thiệu về
-một số thao tác cơ bản trên 3D Point Clouds data bằng thư viện Open3D.
-1.1 Cài đặt môi trường Để tránh bị xung đột về thư viện các bạn hãy
-cài đặt môi...
+Point Cloud Techniques and Applications
+Tuan Dang and Phuc Pham
+Ngày 23 tháng 4 năm 2024
+1 Introduction to Point Cloud and basic techniques to process
+Trong phần này chúng ta sẽ được giới thiệu về một số thao tác cơ bản trên 3D Point Clouds data bằng
+thư viện Open3D.
+1.1 Cài đặt môi trường
+Để tránh bị xung đột về thư viện các bạn hãy cài đặt môi trường bằng các câu lệnh sau đây:
+1 conda create -n 3 d_pc python =3.8
+2 conda activate 3 d_pc
+3 pip install open3d ==0.18.0
+4 pip install seaborn
+5 pip install opencv - python
+1.2 Load a point cloud
+Có các loại file lưu trữ một đám mây điểm 3D thông dụng đó là file có đuôi .bin, .ply và .txt. Đây chính
+là code mẫu để load data với ".bin" file từ bộ data KITTI, ".ply" từ bộ PCN và ".txt" từ bộ S3DIS.

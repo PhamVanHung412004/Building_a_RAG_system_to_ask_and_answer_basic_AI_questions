@@ -1,7 +1,32 @@
-Node ID: f395f53c-fceb-4668-a566-dd0662e9498d
-Text: AIO2024 aivietnam.edu.vn Ba giá trị start, end và step có thể
-không khai báo khi dùng slicing như ở ví dụ 4. Lúc này start, end và
-step sẽ nhận các giá trị mặc định là 0, 6 và 1. Như đã thảo luận,
-chúng ta thậm chí có thể không khai báo đầy đủ hai dấu hai chấm như
-data[:] chỉ khai báo một dấu hai chấm, và lờ đi start, end, stop, và
-một dấu hai c...
+AIO2024 aivietnam.edu.vn
+Ba giá trị start, end và step có thể không khai báo khi dùng slicing như ở ví dụ 4. Lúc này start, end
+và step sẽ nhận các giá trị mặc định là 0, 6 và 1. Như đã thảo luận, chúng ta thậm chí có thể không
+khai báo đầy đủ hai dấu hai chấm như data[:] chỉ khai báo một dấu hai chấm, và lờ đi start, end, stop,
+và một dấu hai chấm. Tuy nhiên, nếu chúng ta bỏ đi luôn cả hai dấu hai chấm như data[], chương
+trình sẽ báo lỗi cú pháp không hợp lệ.
+Ví dụ 4: Chỉ dùng dấu hai chấm và không khai báo start, end và step trong kỹ thuật slicing.
+Trong thực tế, dù kỹ thuật slicing cho phép sử dụng một cách linh động. Chúng ta vẫn nên khai báo
+đầu đủ thông tin để code tường minh hơn và rõ ràng hơn. Hai đoạn code 3 và 4 trình bày code Python
+và kết quả của 2 chương trình.
+1 # Python code 3
+2 data = [4 , 5, 6, 7, 8, 9]
+3 print ( data [:3])
+4 print ( data [2:4])
+5 print ( data [3:])
+6 print ( data [:])
+7 print ( data [::])
+================= Output ================
+[4 , 5, 6]
+[6 , 7]
+[7 , 8, 9]
+[4 , 5, 6, 7, 8, 9]
+[4 , 5, 6, 7, 8, 9]
+==========================================
+1 # Python code 4
+2 data = [4 , 5, 6, 7, 8, 9]
+3 print ( data [])
+4
+5
+6 # =========================================
+================= Output ================
+Cell In [.] 

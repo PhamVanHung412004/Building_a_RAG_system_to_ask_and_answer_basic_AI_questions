@@ -1,6 +1,5 @@
-Node ID: 03c12e2f-ae07-4a5d-998d-5080acdc3c16
-Text: Đầu tiên, ta cần lấy danh sách đường dẫn của các ảnh mà ta muốn
-trích xuất vector. Đoạn code dưới đây mô tả quá trình trích xuất đường
-dẫn của các ảnh từ một thư mục cho trước. Đầu tiên, chúng ta sẽ liệt
-kê các thư mục con dựa trên tên của các class (CLASS_NAME). Sau đó,
-liệt kê tất cả các ảnh trong mỗi 15
+Đầu tiên,
+ta cần lấy danh sách đường dẫn của các ảnh mà ta muốn trích xuất vector. Đoạn code dưới đây mô tả
+quá trình trích xuất đường dẫn của các ảnh từ một thư mục cho trước. Đầu tiên, chúng ta sẽ liệt kê
+các thư mục con dựa trên tên của các class (CLASS_NAME). Sau đó, liệt kê tất cả các ảnh trong mỗi
+15

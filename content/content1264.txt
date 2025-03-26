@@ -1,5 +1,20 @@
-Node ID: dc1e0781-e704-4798-b30a-c09c27d4efa6
-Text: enqueue (2) 6 7 print ( queue1 . is_full ()) 8 >> False 9 10
-print ( queue1 . front ()) 11 >> 1 12 13 print ( queue1 . dequeue ())
-14 >> 1 15 16 print ( queue1 . front ()) 17 >> 2 18 19 print ( queue1
-. dequeue ()) 20 >> 2 21 22 print ( queue1 . is_empty ()) 23 >> True 5
+enqueue (2)
+6
+7 print ( queue1 . is_full ())
+8 >> False
+9
+10 print ( queue1 . front ())
+11 >> 1
+12
+13 print ( queue1 . dequeue ())
+14 >> 1
+15
+16 print ( queue1 . front ())
+17 >> 2
+18
+19 print ( queue1 . dequeue ())
+20 >> 2
+21
+22 print ( queue1 . is_empty ())
+23 >> True
+5

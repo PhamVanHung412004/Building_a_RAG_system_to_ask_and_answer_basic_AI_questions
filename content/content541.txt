@@ -1,6 +1,5 @@
-Node ID: 0301e533-89d5-4be5-9ab6-f852d5a4a7b8
-Text: 3. Trong LangChain, mục đích trong việc sử dụng PromptTemplate
-là? (a) Tạo các trường thông tin trong hệ cơ sở dữ liệu lưu thông tin
-người dùng. (b) Định nghĩa các tính năng trong giao diện của người
-dùng. (c) Tối ưu tốc độ xử lý của mô hình. (d) Chuẩn hóa một cấu trúc
-phản hồi nhất quán từ mô hình.
+3. Trong LangChain, mục đích trong việc sử dụng PromptTemplate là?
+(a) Tạo các trường thông tin trong hệ cơ sở dữ liệu lưu thông tin người dùng.
+(b) Định nghĩa các tính năng trong giao diện của người dùng.
+(c) Tối ưu tốc độ xử lý của mô hình.
+(d) Chuẩn hóa một cấu trúc phản hồi nhất quán từ mô hình.

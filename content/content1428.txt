@@ -1,7 +1,10 @@
-Node ID: f12c89fb-162b-46d8-8dbb-4260bf540e32
-Text: Daily AI Exercise (AIO) aivietnam.edu.vn Tiếp theo chọn "Next->
-"I Agree-> "Just me->"Next->"Next". Khi cửa sổ Advanced xuất hiện,
-tích vào lựa chọn "add Anaconda to your PATH environment variable".
-Cuối cùng bạn chọn "Install-> "Next-> "Finish"để hoàn tất quá trình
-cài đặt. Để kiểm tra đã cài đặt thành công hay chưa, bạn mở Command
-Prompt hoặc ...
+Daily AI Exercise (AIO) aivietnam.edu.vn
+Tiếp theo chọn "Next-> "I Agree-> "Just me->"Next->"Next". Khi cửa sổ Advanced xuất hiện, tích
+vào lựa chọn "add Anaconda to your PATH environment variable".
+Cuối cùng bạn chọn "Install-> "Next-> "Finish"để hoàn tất quá trình cài đặt. Để kiểm tra đã cài đặt
+thành công hay chưa, bạn mở Command Prompt hoặc Anaconda Prompt và nhập lệnh sau để kiểm tra
+phiên bản conda trên máy:
+1 conda -V
+Nếu kết quả hiển thị giống nhưconda 23.7.4 thì tức là bạn đã cài đặt thành công.
+2.2 Sử dụng Anaconda
+Một trong những chức năng chính của Anaconda là quản lí môi trường phát triển với conda. 

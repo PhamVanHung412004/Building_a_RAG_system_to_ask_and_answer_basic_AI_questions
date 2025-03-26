@@ -1,7 +1,30 @@
-Node ID: 35b9685b-1f36-49f1-900b-0a40e662cf37
-Text: reshape ( -1) 87 img_vec = img_vec * 128.0 88 img_lossweights =
-np. zeros ( img . shape , dtype ="f") 89 img_vec_a = img_vec [: np.
-prod ( self . shape )] 90 binedges_a = self . binedges [0 , ...].
-reshape ( -1) 91 binid_a = [ binedges_a . flat [np. abs ( binedges_a -
-v). argmin ()] 92 for v in img_vec_a ] 93 img_vec_b = img_vec [np.
-prod ( self...
+reshape ( -1)
+87 img_vec = img_vec * 128.0
+88 img_lossweights = np. zeros ( img . shape , dtype ="f")
+89 img_vec_a = img_vec [: np. prod ( self . shape )]
+90 binedges_a = self . binedges [0 , ...]. reshape ( -1)
+91 binid_a = [ binedges_a . flat [np. abs ( binedges_a - v). argmin ()]
+92 for v in img_vec_a ]
+93 img_vec_b = img_vec [np. prod ( self . shape ) :]
+94 binedges_b = self . binedges [1 , ...]. reshape ( -1)
+95 binid_b = [ binedges_b . flat [np. abs ( binedges_b - v). argmin ()]
+96 for v in img_vec_b ]
+97 binweights = np. array ([ self . lossweights [v1 ][ v2] for v1 , v2 in zip ( binid_a
+, binid_b )])
+98 img_lossweights [0 , :, :] = binweights . reshape ( self . shape [0] ,
+99 self . shape [1])
+100 img_lossweights [1 , :, :] = binweights . reshape ( self . shape [0] , self . shape
+[1])
+101 return img_lossweights
+102
+103 def saveoutput_gt (self , net_op , gt , prefix , batch_size ,
+104 num_cols =8 , net_recon_const = None ):
+105 """
+106 Save images
+107 """
+108 net_out_img = self . __tiledoutput__ ( net_op , batch_size , num_cols = num_cols ,
+109 net_recon_const = net_recon_const )
+110 gt_out_img = self . __tiledoutput__ (gt , batch_size , num_cols = num_cols ,
+111 net_recon_const = net_recon_const )
+112
+5

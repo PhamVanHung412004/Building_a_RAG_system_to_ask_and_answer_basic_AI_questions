@@ -1,7 +1,23 @@
-Node ID: ba1c7b9e-3867-4482-ab31-0743fc3bedc5
-Text: session_state . keys (): 3 st. session_state . messages = [{"
-role ": " assistant ", " content ": " How may I help you ?"}] 4 5 #
-Display chat messages 6 for message in st. session_state . messages :
-7 with st. chat_message ( message [" role "]): 8 st. write ( message
-[" content "]) 9 Tương ứng với mỗi request gửi đến chatbot, mô hình sẽ
-đăng nh...
+session_state . keys ():
+3 st. session_state . messages = [{" role ": " assistant ", " content ": " How
+may I help you ?"}]
+4
+5 # Display chat messages
+6 for message in st. session_state . messages :
+7 with st. chat_message ( message [" role "]):
+8 st. write ( message [" content "])
+9
+Tương ứng với mỗi request gửi đến chatbot, mô hình sẽ đăng nhập vào hugchat và đưa ra
+phản hồi tương ứng:
+1 # Function for generating LLM response
+2 def generate_response ( prompt_input , email , passwd ):
+3 # Hugging Face Login
+4 sign = Login ( email , passwd )
+5 cookies = sign . login ()
+6 # Create ChatBot
+7 chatbot = hugchat . ChatBot ( cookies = cookies . get_dict ())
+8 return chatbot . chat ( prompt_input )
+9
+10 # User - provided prompt
+11 if prompt := st. chat_input ( disabled = not ( hf_email and hf_pass )):
+12 st. session_state . 

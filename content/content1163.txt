@@ -1,7 +1,33 @@
-Node ID: d648f928-a6f0-44ab-9375-b866f46acae7
-Text: use_checkpoint = use_checkpoint 120 self . use_scale_shift_norm
-= use_scale_shift_norm 121 122 self . in_layers = nn. Sequential ( 123
-normalization ( channels ), 124 SiLU () , 125 nn. Conv2d ( channels ,
-self . out_channel , 3, padding =1) , 126 ) 127 128 self . updown = up
-or down 129 130 if up: 131 self . h_upd = Upsample ( channels , False
-)...
+use_checkpoint = use_checkpoint
+120 self . use_scale_shift_norm = use_scale_shift_norm
+121
+122 self . in_layers = nn. Sequential (
+123 normalization ( channels ),
+124 SiLU () ,
+125 nn. Conv2d ( channels , self . out_channel , 3, padding =1) ,
+126 )
+127
+128 self . updown = up or down
+129
+130 if up:
+131 self . h_upd = Upsample ( channels , False )
+132 self . x_upd = Upsample ( channels , False )
+133 elif down :
+134 self . h_upd = Downsample ( channels , False )
+135 self . x_upd = Downsample ( channels , False )
+136 else :
+137 self . h_upd = self . x_upd = nn. Identity ()
+138
+139 self . emb_layers = nn. Sequential (
+140 SiLU () ,
+141 nn. Linear (
+142 emb_channels ,
+143 2 * self . out_channel if use_scale_shift_norm else self . out_channel ,
+144 ),
+145 )
+146 self . out_layers = nn. Sequential (
+147 normalization ( self . out_channel ),
+148 SiLU () ,
+149 nn. Dropout (p= dropout ),
+150 zero_module (
+151 nn. Conv2d ( self . 

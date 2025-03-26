@@ -1,7 +1,16 @@
-Node ID: 3d614ea8-eab9-4401-95b0-eb628a57b2d3
-Text: AI VIET NAM – AI COURSE 2023 Triển khai mô hình Deep Learning
-với FastAPI Dinh-Thang Duong, Nguyen-Thuan Duong và Quang-Vinh Dinh
-PR-Team: Hoàng-Nguyên Vũ, Đăng-Nhã Nguyễn và Minh-Châu Phạm Ngày 28
-tháng 3 năm 2024 Phần I: Giới thiệu Triển khai mô hình Deep Learning
-(Model Deployment)là một trong những công việc quan trọng trong quy
-trình đưa mô...
+AI VIET NAM – AI COURSE 2023
+Triển khai mô hình Deep Learning với FastAPI
+Dinh-Thang Duong, Nguyen-Thuan Duong và Quang-Vinh Dinh
+PR-Team: Hoàng-Nguyên Vũ, Đăng-Nhã Nguyễn và Minh-Châu Phạm
+Ngày 28 tháng 3 năm 2024
+Phần I: Giới thiệu
+Triển khai mô hình Deep Learning (Model Deployment)là một trong những công việc quan
+trọng trong quy trình đưa mô hình ra sản phẩm thực tế, giúp cho người sử dụng có thể tương tác với
+trực tiếp với mô hình. Một trong những phương thức giúp chúng ta có thể làm điều này đó là triển khai
+mô hình thành một API. Theo đó, người dùng có thể thông qua API endpoint để sử dụng mô hình của
+chúng ta mà không cần phải sở hữu mã nguồn chương trình cũng như tài nguyên tính toán.
+Hình 1: Triển khai mô hình Deep Learning dưới dạng một API.
+Trong bài viết này, chúng ta sẽ triển khai một mô hình về Image Classification bằng thư viện FastAPI
+trong Python. Sau khi hoàn thành chương trình, chúng ta sẽ có thể sử dụng mô hình thông qua một
+địa chỉ web (URL).
+Hình 2: Logo của thư viện FastAPI.

@@ -1,5 +1,5 @@
-Node ID: b75eaafd-a265-4519-b634-a8f0e22b9ac6
-Text: Daily AI Exercise (AIO) Ngày 1 tháng 4 năm 2024 Hình 3: Giao
-diện PygWalker 2. Sử dụng một số tính năng trực quan hóa: + Tạo biểu
-đồ cột:Tạo biểu đồ cột cho tập data mẫu trên để thể hiện dân số
+Daily AI Exercise (AIO) Ngày 1 tháng 4 năm 2024
+Hình 3: Giao diện PygWalker
+2. Sử dụng một số tính năng trực quan hóa:
++ Tạo biểu đồ cột:Tạo biểu đồ cột cho tập data mẫu trên để thể hiện dân số
 (Population) theo quốc gia (Country).

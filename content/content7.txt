@@ -1,7 +1,15 @@
-Node ID: e7ecb7e7-1eb7-459a-a9bc-0cf5c46665a6
-Text: AI VIETNAM (AIO2024) aivietnam.edu.vn đưa các nội dung trong
-file này vào cơ sở dữ liệu. Về các bước thực hiện, các bạn có thể coi
-qua ảnh sau: Hình 4: Pipeline các bước thực hiện xây dựng vector
-database. (a) Import các thư viện cần thiết:Để xây dựng vector
-database, chúng ta cần một số thư viện sau: 1 import torch 2 3 from
-transformers import ...
+AI VIETNAM (AIO2024) aivietnam.edu.vn
+đưa các nội dung trong file này vào cơ sở dữ liệu. Về các bước thực hiện, các bạn có thể
+coi qua ảnh sau:
+Hình 4: Pipeline các bước thực hiện xây dựng vector database.
+(a) Import các thư viện cần thiết:Để xây dựng vector database, chúng ta cần một
+số thư viện sau:
+1 import torch
+2
+3 from transformers import BitsAndBytesConfig
+4 from transformers import AutoTokenizer , AutoModelForCausalLM ,
+pipeline
+5 from langchain_huggingface import HuggingFaceEmbeddings
+6 from langchain_huggingface . llms import HuggingFacePipeline
+7
+8 from langchain . 

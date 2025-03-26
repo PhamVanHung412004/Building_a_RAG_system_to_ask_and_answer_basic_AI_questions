@@ -1,7 +1,34 @@
-Node ID: fb9601e1-89a1-4e06-afee-3b1fbee0f202
-Text: AI VIETNAM aivietnam.edu.vn Hình 7: Image retrieval ảnh đơn phức
-tạp L2 2.1.3 Truy vấn hình ảnh với độ đo Cosine Similarity
-cosine_similarity(⃗ a,⃗b) = a · b ∥a∥∥b∥ = PN i=1 aibiqPN i=1 a2 i qPN
-i=1 b2 i Chúng ta tạo hàm tính độ tương đồng cosine_similarity() 1 def
-cosine_similarity(query, data): 2 axis_batch_size =
-tuple(range(1,len(data.shape)...
+AI VIETNAM aivietnam.edu.vn
+Hình 7: Image retrieval ảnh đơn phức tạp L2
+2.1.3 Truy vấn hình ảnh với độ đo Cosine Similarity
+cosine_similarity(⃗ a,⃗b) = a · b
+∥a∥∥b∥ =
+PN
+i=1 aibiqPN
+i=1 a2
+i
+qPN
+i=1 b2
+i
+Chúng ta tạo hàm tính độ tương đồng cosine_similarity()
+1 def cosine_similarity(query, data):
+2 axis_batch_size = tuple(range(1,len(data.shape)))
+3 query_norm = np.sqrt(np.sum(query**2))
+4 data_norm = np.sqrt(np.sum(data**2, axis=axis_batch_size))
+5 return np.sum(data * query, axis=axis_batch_size) / (query_norm*data_norm + np.finfo(float
+).eps)
+Chúng ta tạo hàm get_cosine_similarity_score(), hàm này tương tự hàm get_l1_score().
+1 def get_cosine_similarity_score(root_img_path, query_path, size):
+2 query = read_image_from_path(query_path, size)
+3 ls_path_score = []
+4 for folder in os.listdir(root_img_path):
+5 if folder in CLASS_NAME:
+6 path = root_img_path + folder
+7 images_np, images_path = folder_to_images(path, size) # mang numpy nhieu anh,
+paths
+8 rates = cosine_similarity(query, images_np)
+9 ls_path_score.extend(list(zip(images_path, rates)))
+10 return query, ls_path_score
+Để hiển thị kết quả chúng ta sử dụng hàm plot_results(), tuy nhiên ở hàm này chúng ta sẽ sắp xếp giá
+trị giảm dần từ lớn đến nhỏ vì với độ đo này thì giá trị càng lớn sẽ càng giống nhau, cho nên chúng ta
+sử dụng reverse = True.

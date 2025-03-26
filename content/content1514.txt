@@ -1,7 +1,11 @@
-Node ID: 0b6346a5-52a6-4079-8e56-13b1d578c45f
-Text: 2. Dựa vào thông tin trạng tháiS0, tác tử thực hiện hành độngAt
-lên môi trường. 3. Môi trường từ đó thay đổi sang trạng tháiS1. 4. Môi
-trường đồng thời trả về cho tác tử điểm thưởngR1. Và cứ như vậy, quá
-trình trên sẽ lặp đi lặp lại cho đến khi tác tử hoàn thành mục tiêu
-của trò chơi hoặc hết giờ (timeout), trò chơi sẽ kết thúc (gọi là
-terminate...
+2. Dựa vào thông tin trạng tháiS0, tác tử thực hiện hành độngAt lên môi trường.
+3. Môi trường từ đó thay đổi sang trạng tháiS1.
+4. Môi trường đồng thời trả về cho tác tử điểm thưởngR1.
+Và cứ như vậy, quá trình trên sẽ lặp đi lặp lại cho đến khi tác tử hoàn thành mục tiêu của trò chơi hoặc
+hết giờ (timeout), trò chơi sẽ kết thúc (gọi là terminate state).
+Hình 2: Hai loại thuật toán Reinforcement Learning sẽ được tìm hiểu trong bài
+Trong bài tập lần này, chúng ta sẽ cùng triển khai và chạy thử các thuật toán Reinforcement
+Learning cơ bản trên một số môi trường game, bao gồm các game trong thư viện gym của OpenAI
+(Taxi, LunarLander) và game PACMAN. Các thuật toán chúng ta sẽ triển khai bao gồm: Q-Learning,
+Approximate Q-Learning và Policy Gradient.
+2

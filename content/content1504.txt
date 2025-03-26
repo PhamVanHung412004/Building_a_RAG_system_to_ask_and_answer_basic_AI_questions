@@ -1,7 +1,28 @@
-Node ID: 8903c9ab-0c67-47ba-b366-4234c2a89757
-Text: AI VIETNAM aivietnam.edu.vn items ()} 58 return avg_losses 59 60
-def train ( train_loader , val_loader , model , device , optimizer ,
-epochs ): 61 best_loss = 100. 62 for epoch in range ( epochs ): 63
-train_loss = train_epoch ( train_loader , model , device , optimizer )
-64 val_loss = train_epoch ( train_loader , model , device , optimizer
-) 65 ...
+AI VIETNAM aivietnam.edu.vn
+items ()}
+58 return avg_losses
+59
+60 def train ( train_loader , val_loader , model , device , optimizer , epochs ):
+61 best_loss = 100.
+62 for epoch in range ( epochs ):
+63 train_loss = train_epoch ( train_loader , model , device , optimizer )
+64 val_loss = train_epoch ( train_loader , model , device , optimizer )
+65 scheduler . step ()
+66 if val_loss [’total ’] < best_loss :
+67 best_loss = val_loss [’total ’]
+68 torch . save ( model . state_dict () , ’./ model /
+soft_parameter_sharing_model_weights . pth ’)
+69 print (f" Model save : ./ model / soft_parameter_sharing_model_weights . pth ")
+70 print (’Epoch : {:04 d} | Train : Semantic Loss {:.4 f} - Depth Loss {:.4 f} - Total
+Loss {:.4 f} || ’
+71 ’Eval : Semantic Loss {:.4 f} - Depth Loss {:.4 f} - Total Loss {:.4 f} ’
+72 . format ( epoch +1 , train_loss [’ semantic ’], train_loss [’depth ’], train_loss [’
+total ’],
+73 val_loss [’ semantic ’], val_loss [’depth ’], val_loss [’total ’]))
+74 returnn model
+75
+76 device = torch . device (" cuda " if torch . cuda . is_available () else " cpu ")
+77 model = HardParameterSharingModel ()
+78 model .to( device )
+79 optimizer = torch . optim . Adam ( model . parameters () , lr =1e -4)
+80 scheduler = torch . optim . 

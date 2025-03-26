@@ -1,7 +1,20 @@
-Node ID: 56b4760b-717a-46f1-a6ae-88da3ad0e51f
-Text: THỰC HÀNH TRÍCH XUẤT BẢNG TRONG PDF VỚI TABULA-PY VÀ PANDAS
-Dinh-Tiem Nguyen và Quang-Vinh Dinh 1 Mở đầu PDF là một trong những
-định dạng tài liệu phổ biến nhất được sử dụng trên Internet và trong
-nhiều lĩnh vực khác nhau. Trích xuất dữ liệu từ các tài liệu PDF
-thường gặp phải nhiều khó khăn, đặc biệt là đối với các bảng dữ liệu.
-Tiếp nối bài vi...
+THỰC HÀNH TRÍCH XUẤT BẢNG TRONG
+PDF VỚI TABULA-PY VÀ PANDAS
+Dinh-Tiem Nguyen và Quang-Vinh Dinh
+1 Mở đầu
+PDF là một trong những định dạng tài liệu phổ biến nhất được sử dụng trên Internet và trong nhiều
+lĩnh vực khác nhau. Trích xuất dữ liệu từ các tài liệu PDF thường gặp phải nhiều khó khăn, đặc biệt
+là đối với các bảng dữ liệu. Tiếp nối bài viết "Xử Lý Tệp PDF Đơn Giản Với PYPDF", trong bài viết
+này chúng ta sẽ tìm hiểu về tabula-py - một thư viện Python hỗ trợ trích xuất bảng từ PDF, đồng thời
+kết hợp nó với thư viện pandas để xử lý dữ liệu trích xuất.
+Yêu cầu:
+• Máy tính đã cài đặt Python >=3.8, Java 8+
+• Biết lập trình Python, Pandas cơ bản.
+2 Cài đặt Tabula-py
+Tabula-py là một thư viện Python mã nguồn mở với chức năng chính là trích xuất dữ liệu từ các bảng
+trong tài liệu PDF. Dữ liệu được trích xuất bằng tabula-py có thể dễ dàng được chuyển đổi thành các
+cấu trúc dữ liệu của pandas để tiếp tục xử lý và phân tích. Để cài đặt thư viện này, ta sử dụng lệnh
+sau:
+1 pip install tabula-py
+Vì thư viện này yêu cầu cài đặt java 8+ để xử lý, nên chúng ta cần phải cài đặt nó. Đối với google colab
+đã được cài đặt sẵn java nên chúng ta bỏ qua bước này. 

@@ -1,5 +1,4 @@
-Node ID: b8cff271-5d8f-44e3-a145-3879a9a72290
-Text: AI VIETNAM aivietnam.edu.vn Hình 2: Hình so sánh point cloud qua
-các phương pháp sampling a) original point cloud, b) voxel grid
-sampling và c) farthest point sampling. thay thế bằng điểm đại diện
-này.
+AI VIETNAM aivietnam.edu.vn
+Hình 2: Hình so sánh point cloud qua các phương pháp sampling a) original point cloud, b) voxel grid
+sampling và c) farthest point sampling.
+thay thế bằng điểm đại diện này.

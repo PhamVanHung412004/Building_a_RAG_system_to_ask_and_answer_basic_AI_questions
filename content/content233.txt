@@ -1,7 +1,14 @@
-Node ID: 3900c538-e2de-4157-a007-33bee2093320
-Text: • pi là tỷ lệ của lớp i trong tập dữ liệu. Entropy càng cao khi
-tỷ lệ của các lớp trong tập dữ liệu gần bằng nhau, và càng thấp khi
-một lớp chiếm đa số. Khi xây dựng cây quyết định, chúng ta cố gắng
-chia tập dữ liệu sao cho entropy sau khi chia là thấp nhất có thể.
-Điều này giúp cây quyết định có thể học được các quy tắc quyết định
-hiệu quả từ d...
+• pi là tỷ lệ của lớp i trong tập dữ liệu.
+Entropy càng cao khi tỷ lệ của các lớp trong tập dữ liệu gần bằng nhau, và càng thấp
+khi một lớp chiếm đa số.
+Khi xây dựng cây quyết định, chúng ta cố gắng chia tập dữ liệu sao cho entropy sau khi
+chia là thấp nhất có thể. Điều này giúp cây quyết định có thể học được các quy tắc quyết
+định hiệu quả từ dữ liệu.
+Quyết định về cách chia tập dữ liệu dựa trên entropy thường được thực hiện bằng cách
+so sánh entropy trước và sau khi chia, và chọn cách chia mà giảm entropy nhiều nhất.
+2.2.1 Diễn giải công thức Entropy
+Để hiểu rõ hơn về công thức Entropy chúng ta hãy cùng sơ lược lại cái yếu tố chính và cách
+công thức hình thành.
+Hình 2: Ví dụ 2 gồm 10 viên bi xanh và đỏ
+Với ví dụ ở hình 2 chúng ta có thể thấy đây là một tập dataset gồm 10 viên bi và có 2
+label (xanh-đỏ). 

@@ -1,7 +1,14 @@
-Node ID: b6aa3cae-b362-41ea-9f98-7a93df0330c3
-Text: AI VIET NAM – AI COURSE 2023 LLMs Series: Cải thiện khả năng
-giải toán trắc nghiệm của LLMs với Instruction Tuning Dinh-Thang
-Duong, Nguyen-Thuan Duong và Quang-Vinh Dinh PR-Team: Hoàng-Nguyên Vũ,
-Đăng-Nhã Nguyễn và Minh-Châu Phạm Ngày 14 tháng 4 năm 2024 Phần I:
-Giới thiệu Instruction Tuning (IT)là một trong những kỹ thuật training
-mô hình ngôn...
+AI VIET NAM – AI COURSE 2023
+LLMs Series: Cải thiện khả năng giải toán trắc
+nghiệm của LLMs với Instruction Tuning
+Dinh-Thang Duong, Nguyen-Thuan Duong và Quang-Vinh Dinh
+PR-Team: Hoàng-Nguyên Vũ, Đăng-Nhã Nguyễn và Minh-Châu Phạm
+Ngày 14 tháng 4 năm 2024
+Phần I: Giới thiệu
+Instruction Tuning (IT)là một trong những kỹ thuật training mô hình ngôn ngữ lớn (LLMs) rất
+quan trọng. Trong đó, IT giúp chúng ta cải thiện khả năng của mô hình cũng như kiểm soát kết quả
+đầu ra. Là kiểu huấn luyện mô hình có giám sát từ bộ dữ liệu theo cặp (intruction-output), từ đó giúp
+mô hình thu hẹp khoảng cách giữa từ kế tiếp được sinh ra và sự chỉ dẫn của con người.
+Hình 1: Fine-tuning mô hình ngôn ngữ lớn với dữ liệu instruction giải toán trắc nghiệm
+Trong bài viết này, chúng ta sẽ huấn luyện một mô hình ngôn ngữ lớn tiếng Việt với dữ liệu
+instruction giải toán trắc nghiệm. Từ đó, mô hình này sẽ có thể phần nào cải thiện khả năng giải toán.

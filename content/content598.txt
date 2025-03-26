@@ -1,7 +1,40 @@
-Node ID: e8e9c0e4-e6b2-4ce3-88d3-b36dadd439c5
-Text: 1 def my_function (x): 2 # your code here 3 4 x = ’I can do it ’
-5 assert my_function (x)=="ti od nac I" 6 7 x = ’ apricot ’ 8 print (
-my_function (x)) a) apricot b) tocirpa == c) Raise a Error d) None Câu
-hỏi 15:(code) Hãy hoàn thành chương trình dưới đây. Đầu ra của chương
-trình là gì? 1 def function_helper (x): 2 # Your code here 3 # Neu x
->0...
+1 def my_function (x):
+2 # your code here
+3
+4 x = ’I can do it ’
+5 assert my_function (x)=="ti od nac I"
+6
+7 x = ’ apricot ’
+8 print ( my_function (x))
+a) apricot
+b) tocirpa ==
+c) Raise a Error
+d) None
+Câu hỏi 15:(code) Hãy hoàn thành chương trình dưới đây. Đầu ra của chương trình là gì?
+1 def function_helper (x):
+2 # Your code here
+3 # Neu x >0 tra ve ’T ’, nguoc lai tra ve ’N’
+4
+5 def my_function ( data ):
+6 res = [ function_helper (x) for x in data ]
+7 return res
+8
+9 data = [10 , 0, -10, -1]
+10 assert my_function ( data ) == [’T’, ’N’, ’N’, ’N’]
+11
+12 data = [2 , 3, 5, -1]
+13 print ( my_function ( data ))
+a) [’N’, ’T’, ’T’, ’N’]
+b) [’T’, ’N’, ’T’, ’N’]
+c) [’T’, ’T’, ’T’, ’N’] ==
+d) Raise an Error
+Câu hỏi 16:(code) Hãy hoàn thành chương trình dưới đây để loại bỏ những phần tử trùng nhau. Đầu
+ra của chương trình là gì?
+1 def function_helper (x, data ):
+2 for i in data :
+3 # Your code here
+4 # Neu x == i thi return 0
+5 return 1
+6
+7 def my_function ( data ):
+11

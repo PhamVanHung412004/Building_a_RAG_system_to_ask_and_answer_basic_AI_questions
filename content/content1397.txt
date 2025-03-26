@@ -1,7 +1,37 @@
-Node ID: a0d70b9e-2e4c-4759-9033-c005d29d5540
-Text: gather (-1, t) 17 return out . reshape ( batch_size , *((1 ,) *
-( len ( x_shape ) - 1))).to( device ) 1 from tqdm import tqdm 2 from
-functools import partial 3 4 class ColorDiffusion (nn. Module ): 5 def
-__init__ (self , unet_config , beta_schedule , ** kwargs ): 6 super (
-ColorDiffusion , self ). __init__ (** kwargs ) 7 self . denoise_fn =
-UNet...
+gather (-1, t)
+17 return out . reshape ( batch_size , *((1 ,) * ( len ( x_shape ) - 1))).to( device )
+1 from tqdm import tqdm
+2 from functools import partial
+3
+4 class ColorDiffusion (nn. Module ):
+5 def __init__ (self , unet_config , beta_schedule , ** kwargs ):
+6 super ( ColorDiffusion , self ). __init__ (** kwargs )
+7 self . denoise_fn = UNet (** unet_config )
+8 self . beta_schedule = beta_schedule
+9
+10 def set_new_noise_schedule (self , device ):
+11 to_torch = partial ( torch . tensor , dtype = torch . float32 , device = device )
+12 betas = make_beta_schedule (** self . beta_schedule )
+13 alphas = 1. - betas
+14 timesteps , = betas . shape
+15 self . num_timesteps = int ( timesteps )
+16
+17 gammas = np. cumprod ( alphas , axis =0) # alphas_cumprod
+18 gammas_prev = np. append (1. , gammas [: -1])
+19
+20 # calculations for diffusion q( x_t | x_{t -1}) and others
+21 self . register_buffer (’ gammas ’, to_torch ( gammas ))
+22 self . register_buffer (’ sqrt_recip_gammas ’, to_torch (np. sqrt (1. / gammas )))
+23 self . register_buffer (’ sqrt_recipm1_gammas ’, to_torch (np. sqrt (1. / gammas
+- 1)))
+24
+25 # calculations for posterior q(x_{t -1} | x_t , x_0 )
+26 posterior_variance = betas * (1. - gammas_prev ) / (1. - gammas )
+27 # below : log calculation clipped because the posterior variance is 0 at
+the beginning of the diffusion chain
+28 self . register_buffer (’ posterior_log_variance_clipped ’, to_torch (np. log (np
+. maximum ( posterior_variance , 1e -20) )))
+29 self . register_buffer (’ posterior_mean_coef1 ’, to_torch ( betas * np. sqrt (
+gammas_prev ) / (1. - gammas )))
+30 self . register_buffer (’ posterior_mean_coef2 ’, to_torch ((1. - gammas_prev )
+* np. 

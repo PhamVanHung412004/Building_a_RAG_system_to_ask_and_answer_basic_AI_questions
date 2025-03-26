@@ -1,7 +1,12 @@
-Node ID: 5d80be75-a4d2-4981-be80-472a2cc9a57f
-Text: Reader: DistilBERT Đầu tiên ta sẽ xây dựng model Reader hay
-chính là model QA trong project này. (a) Install and import
-bibraries:Đầu tiên ta sẽ install một số thư viện cần thiết mà Colab
-chưa hỗ trợ. 1 !pip install -qq datasets==2.16.1 evaluate==0.4.1
-transformers[sentencepiece ]==4.35.2 2 !pip install -qq
-accelerate==0.26.1 3 !apt install git-...
+Reader: DistilBERT Đầu tiên ta sẽ xây dựng model Reader hay chính là model QA trong
+project này.
+(a) Install and import bibraries:Đầu tiên ta sẽ install một số thư viện cần thiết mà Colab
+chưa hỗ trợ.
+1 !pip install -qq datasets==2.16.1 evaluate==0.4.1 transformers[sentencepiece
+]==4.35.2
+2 !pip install -qq accelerate==0.26.1
+3 !apt install git-lfs
+Sau đó ta sẽ tiến hành login vào HuggingFace để download dataset và model có sẵn. Khi
+chạy block code này thì HuggingFace sẽ đưa ra một đường dẫn đến trang HuggingFace để
+lấy mã token.
+3

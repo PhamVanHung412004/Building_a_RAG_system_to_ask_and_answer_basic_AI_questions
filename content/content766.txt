@@ -1,7 +1,27 @@
-Node ID: cc8da39c-fc7c-49e5-aef8-cd22af7b933a
-Text: 1.]] ========================================== 2.4 Tạo mảng với
-giá trị chỉ định Hình 4: Minh họa hàm full np.full là hàm dùng để tạo
-một mảng với tất cả các phần tử đều có cùng một giá trị xác định. Cú
-pháp: 1 np.full(shape, fill_value) • shape: Kích thước của mảng (có
-thể là một số nguyên hoặc một tuple). • fill_value: Giá trị sẽ được
-gán cho...
+1.]]
+==========================================
+2.4 Tạo mảng với giá trị chỉ định
+Hình 4: Minh họa hàm full
+np.full là hàm dùng để tạo một mảng với tất cả các phần tử đều có cùng một giá trị xác định. Cú pháp:
+1 np.full(shape, fill_value)
+• shape: Kích thước của mảng (có thể là một số nguyên hoặc một tuple).
+• fill_value: Giá trị sẽ được gán cho tất cả các phần tử của mảng.
+Ví dụ sau sẽ tạo một mảng NumPy 2 chiều, kích thước 2x3 với tất cả các phần tử đều có giá trị là 7.
+1 #aivietnam
+2 import numpy as np
+3
+4 # Tạo mảng 2 chiều 2x3 với tất cả các phần
+tử đều có giá trị là 7
+5 full_array = np.full((2, 3), 7)
+6 print(full_array)
+================= Output =================
+[[7 7 7]
+[7 7 7]]
+==========================================
+2.5 Tạo mảng với arange()
+Hình 5: Minh họa hàm arange
+np.arange là một hàm dùng để tạo một mảng chứa các số nguyên liên tiếp trong một khoảng xác định.
+Cú pháp:
+1 np.arange(start, stop, step)
+• start: Giá trị bắt đầu của dãy số( giá trị này bao gồm trong mảng được tạo).
+4

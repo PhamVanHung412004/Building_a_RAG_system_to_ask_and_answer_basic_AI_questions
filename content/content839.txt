@@ -1,7 +1,19 @@
-Node ID: 6f5c7454-24d5-434e-80f9-82dde612cd4f
-Text: AI VIETNAM aivietnam.edu.vn Hình 8: Image retrieval ảnh đơn giản
-với Cosine Similarity 1 root_img_path =f"{ROOT}/train/" 2 query_path =
-f"{ROOT}/test/African_crocodile/n01697457_18534.JPEG" 3 size = (448,
-448) 4 query, ls_path_score =
-get_cosine_similarity_score(root_img_path, query_path, size) 5
-plot_results(query_path, ls_path_score, reverse=T...
+AI VIETNAM aivietnam.edu.vn
+Hình 8: Image retrieval ảnh đơn giản với Cosine Similarity
+1 root_img_path =f"{ROOT}/train/"
+2 query_path = f"{ROOT}/test/African_crocodile/n01697457_18534.JPEG"
+3 size = (448, 448)
+4 query, ls_path_score = get_cosine_similarity_score(root_img_path, query_path, size)
+5 plot_results(query_path, ls_path_score, reverse=True)
+Hình 9: Image retrieval ảnh đơn phức tạp Cosine Similarity
+2.1.4 Truy vấn hình ảnh với độ đo Correlation Coefficient
+r = E[(X − µX)(Y − µY )]
+σXσY
+=
+P(xi − µX)(yi − µY )pP(xi − µX)2 P(yi − µY )2
+Chúng ta tạo hàm tính độ tương đồng correlation_coefficient()
+1 def correlation_coefficient(query, data):
+2 axis_batch_size = tuple(range(1,len(data.shape)))
+3 query_mean = query - np.mean(query)
+4 data_mean = data - np.mean(data, axis=axis_batch_size, keepdims=True)
+8

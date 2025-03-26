@@ -1,7 +1,21 @@
-Node ID: 9ddf90ea-ec61-4d10-be8e-b67f21523154
-Text: AI VIETNAM aivietnam.edu.vn 1 import os 2 import random 3 import
-json 4 import torch 5 import torch.nn as nn 6 from collections import
-namedtuple 7 from dataclasses import dataclass, field, asdict 8 from
-mamba_ssm.models.mixer_seq_simple import MambaLMHeadModel 9 from
-mamba_ssm.utils.hf import load_config_hf, load_state_dict_hf 10 11
-import eval...
+AI VIETNAM aivietnam.edu.vn
+1 import os
+2 import random
+3 import json
+4 import torch
+5 import torch.nn as nn
+6 from collections import namedtuple
+7 from dataclasses import dataclass, field, asdict
+8 from mamba_ssm.models.mixer_seq_simple import MambaLMHeadModel
+9 from mamba_ssm.utils.hf import load_config_hf, load_state_dict_hf
+10
+11 import evaluate
+12 import numpy as np
+13 from datasets import load_dataset
+14 from transformers import Trainer
+15 from transformers import AutoTokenizer, TrainingArguments
+(b) Download dataset:
+1 # Tải bộ dataset
+2 imdb = load_dataset("imdb")
+(c) Build Custom Mamba Model:Xây dựng model Mamba để phân loại văn bản.
+3

@@ -1,4 +1,5 @@
-Node ID: 983a1d18-729b-4c8b-a26d-e60f051336cd
-Text: float () , data [’ category ’]. to( device ) 33 outputs , __ ,
-__ = pointnet ( inputs . transpose (1 ,2) ) 34 _, predicted = torch .
-max ( outputs .data , 1) 13
+float () , data [’
+category ’]. to( device )
+33 outputs , __ , __ = pointnet ( inputs . transpose (1 ,2) )
+34 _, predicted = torch . max ( outputs .data , 1)
+13

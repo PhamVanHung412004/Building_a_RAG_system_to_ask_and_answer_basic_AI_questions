@@ -1,7 +1,15 @@
-Node ID: 7b3cebd4-4ae0-4087-b19e-8d3af83c2a58
-Text: AI VIETNAM aivietnam.edu.vn đánh giá để chuyển đổi một heuristic
-thành một giá trị. Sự suy luận đánh giá có thể thay đổi tùy thuộc vào
-vấn đề và các bước suy nghĩ. • Bầu chọn các trạng thái: Đánh giá dựa
-trên việc so sánh và bầu chọn giữa các trạng thái khác nhau, nơi
-"trạng thái tốt" là trạng thái nhận được nhiều phiếu bầu nhất từ việc
-so sánh ...
+AI VIETNAM aivietnam.edu.vn
+đánh giá để chuyển đổi một heuristic thành một giá trị. Sự suy luận đánh giá có thể thay đổi
+tùy thuộc vào vấn đề và các bước suy nghĩ.
+• Bầu chọn các trạng thái: Đánh giá dựa trên việc so sánh và bầu chọn giữa các trạng thái
+khác nhau, nơi "trạng thái tốt" là trạng thái nhận được nhiều phiếu bầu nhất từ việc so sánh
+cẩn thận giữa các trạng thái. Khi đánh giá bằng cách bầu chọn, LM sẽ xem xét các trạng
+thái khác nhau và bầu chọn cho trạng thái "ưu tú" nhất.
+Cả hai chiến lược này đều nhằm mục đích tăng cường linh hoạt cho việc sử dụng heuristic trong
+thuật toán tìm kiếm, đặc biệt là khi sử dụng các mô hình ngôn ngữ để suy nghĩ một cách có chủ
+đích về các trạng thái.
+Search algorithm có hai loại tìm kiếm cơ bản trong TOT là: Tìm kiếm theo chiều rộng
+(Breadth-first search - BFS) và Tìm kiếm theo chiều sâu (Depth-first search - DFS).
+Một số lợi ích của TOT:
+• Generalizability: Các cách tiếp cận khác như IO, CoT, CoT-SC, và tự tinh chỉnh có thể được
+coi là trường hợp đặc biệt của TOT.

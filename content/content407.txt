@@ -1,7 +1,16 @@
-Node ID: 92195594-af95-40b2-891b-88cfa8fa8670
-Text: Module ): 2 def __init__ (self , classes = 3): 3 super ().
-__init__ () 4 self . transform = Transform () 5 self . fc1 = nn.
-Linear (1024 , 512) 6 self . fc2 = nn. Linear (512 , 256) 7 self . fc3
-= nn. Linear (256 , classes ) 8 9 self . bn1 = nn. BatchNorm1d (512)
-10 self . bn2 = nn. BatchNorm1d (256) 11 self . dropout = nn. Dropout
-(p =0.3) 12 s...
+Module ):
+2 def __init__ (self , classes = 3):
+3 super (). __init__ ()
+4 self . transform = Transform ()
+5 self . fc1 = nn. Linear (1024 , 512)
+6 self . fc2 = nn. Linear (512 , 256)
+7 self . fc3 = nn. Linear (256 , classes )
+8
+9 self . bn1 = nn. BatchNorm1d (512)
+10 self . bn2 = nn. BatchNorm1d (256)
+11 self . dropout = nn. Dropout (p =0.3)
+12 self . logsoftmax = nn. LogSoftmax ( dim =1)
+13
+14 def forward (self , input ):
+15 xb , matrix3x3 , matrix64x64 = self . transform ( input )
+16 xb = F. relu ( self . 

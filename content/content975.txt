@@ -1,7 +1,27 @@
-Node ID: d3311afd-ccae-4484-9372-b60eae04fc93
-Text: AI VIET NAM – COURSE 2023 Foundation of Prompt Engineering Ngày
-19 tháng 3 năm 2024 Phần I: Tổng quan về RAG Phần II: Retrieval
-Augmented Generation (RAG) Trong bối cảnh các mô hình ngôn ngữ lớn
-(LLM) phát triển mạnh mẽ, sự xuất hiện của các mô hình GPT (OpenAI),
-LLama (Meta), Gemini (Google) đã thể hiện khả năng ấn tượng trong việc
-sinh ngôn ng...
+AI VIET NAM – COURSE 2023
+Foundation of Prompt Engineering
+Ngày 19 tháng 3 năm 2024
+Phần I: Tổng quan về RAG
+Phần II: Retrieval Augmented Generation
+(RAG)
+Trong bối cảnh các mô hình ngôn ngữ lớn (LLM) phát triển mạnh mẽ, sự xuất hiện của các mô hình
+GPT (OpenAI), LLama (Meta), Gemini (Google) đã thể hiện khả năng ấn tượng trong việc sinh ngôn
+ngữ, thực hiện tác tác vụ với ngôn ngữ tự nhiên. Cho dù vậy, các mô hình ngôn ngữ lớn vẫn cho thấy
+còn nhiều điểm yếu như dữ liệu thiếu tính cập nhật, thiếu dữ liệu chuyên môn cho các lĩnh vực cụ thể
+hay sinh ngôn ngữ thiếu chính xác (hay được biết đến với thuật ngữ "hallucination").
+Bên cạnh đó, nhu cầu sử dụng mô hình ngôn ngữ để tương tác với dữ liệu riêng, dữ liệu doanh
+nghiệp cũng gặp nhiều khó khăn với việc các giải pháp fine-tuning, training LLM bởi chi phí lớn và yêu
+cầu kỹ thuật cao. RAG ra đời cung cấp giải pháp nhanh chóng, tiện lợi cho phép LLM sử dụng thông
+tin bổ sung để giao tiếp, ...
+1 Khái niệm RAG
+Retrieval Augmented Generation (RAG) lần đầu được giới thiệu bởi nhóm kỹ sư thuộc Meta AI là một
+kỹ thuật trong lĩnh vực xử lý ngôn ngữ tự nhiên (NLP) nhằm nâng cao độ chính xác và tin cậy của các
+mô hình tạo văn bản (Generative language models - LLMs). RAG kết hợp hai thành phần chính: cấu
+phần truy xuất thông tin (Retriever) và mô hình sinh ngôn ngữ (Generator):
+• Truy xuất thông tin (Retrieval):RAG không chỉ dựa vào dữ liệu đào tạo ban đầu của LLM
+mà còn truy cập một nguồn kiến thức bên ngoài, thường là các văn bản được xác định trước và
+có độ tin cậy cao. Khi nhận được yêu cầu, RAG sẽ phân tích nó và tìm kiếm thông tin liên quan
+trong nguồn kiến thức bên ngoài.
+• Tạo văn bản (Generation):Dựa trên thông tin đã truy xuất, LLM sẽ tạo ra văn bản phản hồi
+phù hợp với yêu cầu. Quá trình này có thể bao gồm tóm tắt, giải thích, trả lời câu hỏi, viết văn
+bản sáng tạo, v.v.

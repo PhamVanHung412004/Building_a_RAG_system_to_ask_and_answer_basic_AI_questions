@@ -1,7 +1,14 @@
-Node ID: 5093ea3d-bffe-4bf4-ba18-525369515a17
-Text: AI VIETNAM aivietnam.edu.vn Hình 23: Kiến trúc khôi ST-
-Transformer pháp này giúp cân đối hiệu quả giữa khả năng xử lý của mô
-hình và các giới hạn về khả năng tính toán. Kiến trúc của khối này
-được minh họa trong Hình 23. Khác biệt so với các khối transformer
-thông thường, nơi mỗi phần tử dữ liệu (token) quan tâm đến mọi phần tử
-khác, ST-transfor...
+AI VIETNAM aivietnam.edu.vn
+Hình 23: Kiến trúc khôi ST-Transformer
+pháp này giúp cân đối hiệu quả giữa khả năng xử lý của mô hình và các giới hạn về khả năng tính toán.
+Kiến trúc của khối này được minh họa trong Hình 23.
+Khác biệt so với các khối transformer thông thường, nơi mỗi phần tử dữ liệu (token) quan tâm đến
+mọi phần tử khác, ST-transformer lại được thiết kế với các khối không gian-thời gian đa dạng. Các lớp
+chú ý không gian trong đó tập trung vào việc xem xét các phần tử dữ liệu trong cùng một bức ảnh,
+trong khi các lớp chú ý theo thời gian lại nhắm đến việc kết nối với dữ liệu từ các khung hình trước
+đó. Nhờ cách tiếp cận này, độ phức tạp tính toán của ST-transformer chỉ tăng theo chiều dài của video
+một cách tuyến tính thay vì theo cấp số nhân, làm cho việc xử lý video trở nên hiệu quả hơn nhiều.
+Hình 24: Các thành phần của mô hình Genie
+Latent Action Model (LAM)Trong mô hình Genie, quá trình tạo ra mỗi khung hình mới phụ
+thuộc vào hành động của người dùng được ghi nhận từ các khung hình trước đó. Thách thức ở đây là
+thông tin về những hành động này thường khá hiếm và khó có được từ những video trên internet. 

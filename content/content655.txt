@@ -1,5 +1,4 @@
-Node ID: 14819c1e-8a98-42d6-ad89-855499c938d9
-Text: AI VIETNAM aivietnam.edu.vn Tương tự Vim, các tác giả của VMamba
-cũng đánh giá backbone Mamba dưới nhiều size ảnh khác nhau (tham khảo
-hình 8). Ta thấy, VMamba vượt trội hơn hầu hết các model khác khi kích
-thước ảnh tăng dần.
+AI VIETNAM aivietnam.edu.vn
+Tương tự Vim, các tác giả của VMamba cũng đánh giá backbone Mamba dưới nhiều size ảnh khác
+nhau (tham khảo hình 8). Ta thấy, VMamba vượt trội hơn hầu hết các model khác khi kích thước ảnh
+tăng dần.

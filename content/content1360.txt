@@ -1,7 +1,41 @@
-Node ID: c329d4b6-e7f1-4263-bc74-ec0cc0e364d9
-Text: img_paths = img_paths 23 self . tfs = transforms . Resize ((
-image_size [0] , image_size [1]) ) 24 25 def __getitem__ (self , index
-): 26 img_path = self . img_paths [ index ] 27 arr_img_bgr = cv2 .
-imread ( img_path ) 28 29 # Convert BGR to LAB 30 arr_img_lab = cv2 .
-cvtColor ( arr_img_bgr , cv2 . COLOR_BGR2LAB ) 31 32 # Normalize from
-[0..255]...
+img_paths = img_paths
+23 self . tfs = transforms . Resize (( image_size [0] , image_size [1]) )
+24
+25 def __getitem__ (self , index ):
+26 img_path = self . img_paths [ index ]
+27 arr_img_bgr = cv2 . imread ( img_path )
+28
+29 # Convert BGR to LAB
+30 arr_img_lab = cv2 . cvtColor ( arr_img_bgr , cv2 . COLOR_BGR2LAB )
+31
+32 # Normalize from [0..255] to [ -1..1]
+33 arr_img_lab = (( arr_img_lab * 2.0) / 255.0) - 1.0
+34
+35 # Resize the image to image_size =(128 , 128)
+36 tens_img_lab = torch . tensor ( arr_img_lab . transpose (2 , 0, 1) ,
+37 dtype = torch . float32 )
+38
+39 # Divide the image into gray input and color output
+40 original_img_l = tens_img_lab [:1 , :, :]
+41 tens_img_lab = self . tfs ( tens_img_lab )
+42 tens_img_l = tens_img_lab [:1 , :, :]
+43 tens_img_ab = tens_img_lab [1: , :, :]
+44 return original_img_l , tens_img_l , tens_img_ab
+45
+46 def __len__ ( self ):
+47 return len ( self . img_paths )
+48
+49 # Create Dataset
+50 train_dataset = ColorDataset ( train_imgpaths , num_train )
+51 val_dataset = ColorDataset ( val_imgpaths , num_val )
+52
+53 # Create DataLoader
+54 BATCH_SIZE = 4
+55 train_loader = DataLoader ( train_dataset , batch_size = BATCH_SIZE ,
+56 shuffle =True , drop_last = True )
+57 val_loader = DataLoader ( val_dataset , batch_size = BATCH_SIZE )
+2. Models
+Trong phần này, chúng ta sẽ tận dụng một kiến trúc UNet phổ biến trong các bài toán liên quan
+đến Diffusion, sử dụng nhiều kỹ thuật như Attention Mechanism, Adaptive Group Normalization
+và được giới thiệu trong một công bố mang tên Diffusion Models Beat GAN on Image Synthesis.
+4

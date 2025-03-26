@@ -1,7 +1,11 @@
-Node ID: b545bfe8-5b38-428e-906b-3edff21cbea1
-Text: • Lấy dữ liệu (SELECT):Sau khi thực hiện bước tạo dữ liệu ở
-trên, chúng ta sẽ kiểm tra dữ liệu vừa thêm bằng cách thực thi câu SQL
-như sau: 1 import pandas as pd 2 # Lấy tất cả data từ bảng CUSTOMER 3
-data=pd.read_sql_query("SELECT * FROM CUSTOMERS", connection) 4
-print(data) → Kết quả: Hình 1: Kết quả sau khi thực hiện SELECT • Cập
-nhật dữ liệu...
+• Lấy dữ liệu (SELECT):Sau khi thực hiện bước tạo dữ liệu ở trên, chúng ta sẽ
+kiểm tra dữ liệu vừa thêm bằng cách thực thi câu SQL như sau:
+1 import pandas as pd
+2 # Lấy tất cả data từ bảng CUSTOMER
+3 data=pd.read_sql_query("SELECT * FROM CUSTOMERS", connection)
+4 print(data)
+→ Kết quả:
+Hình 1: Kết quả sau khi thực hiện SELECT
+• Cập nhật dữ liệu (UPDATE):Để thực hiện cập nhật dữ liệu trong CSDL,
+chúng ta sẽ thực thi câu SQL như sau:
+aivietnam.edu.vn www.facebook.com/aivietnam.edu.vn

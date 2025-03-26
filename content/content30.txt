@@ -1,7 +1,23 @@
-Node ID: 440fb38d-096b-47c6-a77c-1cd4d6ef97f9
-Text: 3. Input và Ouput trong hệ thống RAG cho bài toán PDF Question-
-Answering là gì? (a) Input là video, Ouput là text. (b) Input là text,
-Ouput là text. (c) Input là image và text, Ouput là text. (d) Input là
-pdf và text, Ouput là text. 4. Trước khi sinh ra câu trả lời, RAG sẽ
-làm gì ? (a) Tạo một chuỗi text ngẫu nhiên. (b) Dịch câu hỏi đầu vào
-sang...
+3. Input và Ouput trong hệ thống RAG cho bài toán PDF Question-Answering là gì?
+(a) Input là video, Ouput là text.
+(b) Input là text, Ouput là text.
+(c) Input là image và text, Ouput là text.
+(d) Input là pdf và text, Ouput là text.
+4. Trước khi sinh ra câu trả lời, RAG sẽ làm gì ?
+(a) Tạo một chuỗi text ngẫu nhiên.
+(b) Dịch câu hỏi đầu vào sang một ngôn ngữ khác.
+(c) Truy vấn các thông tin liên quan đến câu hỏi.
+(d) Kiếm tra chính tả của câu hỏi đầu vào.
+5. Trong RAG, vì sao lại cần chuyển đổi các đoạn văn bản thành vector?
+(a) Để giảm chi phí tính toán trong quá trình ánh xạ văn bản vào không gian vector.
+(b) Để tăng tính ngẫu nhiên và sáng tạo trong quá trình sinh câu trả lời.
+(c) Để tăng tốc độ xử lý và giảm thời gian huấn luyện mô hình.
+(d) Để mô hình có thể hiểu và xử lý thông tin dưới dạng số học, dễ dàng tính toán và so
+sánh.
+6. Chức năng của đoạn code dưới đây là gì ?
+1 from langchain_text_splitters import RecursiveCharacterTextSplitter
+2
+3 text_splitter = RecursiveCharacterTextSplitter ( chunk_size =1000 ,
+4 chunk_overlap =100)
+(a) Khởi tạo bộ chia text.
+14

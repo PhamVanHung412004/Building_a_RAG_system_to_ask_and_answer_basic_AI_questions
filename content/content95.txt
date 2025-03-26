@@ -1,7 +1,11 @@
-Node ID: 2d6c5698-664b-48c6-8c4d-dc807783acfc
-Text: AI VIETNAM (AIO2024) aivietnam.edu.vn (a) Ảnh chụp bên trái  (b)
-Ảnh chụp bên phải Hình 8: Ảnh stereo đầu vào của Problem 3 (a) Ảnh
-grayscale  (b) Ảnh color map Hình 9: Kết quả disparity map của phương
-pháp window-based matching với cài đặt dispar- ity_range = 64 và
-kernel_size = 5 Có thể thấy với sự thay đổi của các giá trị tham số
-đầu vào như ...
+AI VIETNAM (AIO2024) aivietnam.edu.vn
+(a) Ảnh chụp bên trái
+ (b) Ảnh chụp bên phải
+Hình 8: Ảnh stereo đầu vào của Problem 3
+(a) Ảnh grayscale
+ (b) Ảnh color map
+Hình 9: Kết quả disparity map của phương pháp window-based matching với cài đặt dispar-
+ity_range = 64 và kernel_size = 5
+Có thể thấy với sự thay đổi của các giá trị tham số đầu vào như trên, kết quả dispar-
+ity map đã phần nào tệ đi (bị nhiễu). Các bạn hãy sử dụng code ở Problem 2 để tạo ra ảnh
+disparity map với cài đặt này và giải thích (sử dụng markdown) vì sao lại xảy ra kết quả như vậy.

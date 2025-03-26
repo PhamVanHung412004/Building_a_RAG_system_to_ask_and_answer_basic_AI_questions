@@ -1,7 +1,40 @@
-Node ID: 556d316f-6f37-4bf5-924e-04872deefb9b
-Text: AI VIETNAM aivietnam.edu.vn • Ở quá trình backward, câu hỏi sẽ
-được LLM tạo ra dựa trên những câu hỏi mồi, cộng với một topic cho
-trước, một độ phức tạp dự kiến và một chuỗi suy luận được tạo tự động.
-Có một điểm cần lưu ý là chuỗi suy luận sẽ được tạo ra trước dựa trên
-từ chủ đề và đô phức tạp dự kiến, sau đó mô hình LLM sẽ tạo ra câu hỏi
-dựa t...
+AI VIETNAM aivietnam.edu.vn
+• Ở quá trình backward, câu hỏi sẽ được LLM tạo ra dựa trên những câu hỏi mồi, cộng với
+một topic cho trước, một độ phức tạp dự kiến và một chuỗi suy luận được tạo tự động. Có
+một điểm cần lưu ý là chuỗi suy luận sẽ được tạo ra trước dựa trên từ chủ đề và đô phức tạp
+dự kiến, sau đó mô hình LLM sẽ tạo ra câu hỏi dựa trên chuỗi suy luận đó.
+• Quá trình forward có mục đích là tạo ra chuỗi suy luận dựa vào câu hỏi vừa được tạo ra. Các
+tác giả nhận ra rằng chuỗi suy luận được tạo ra trong quá trình forward sẽ phù hợp và chính
+xác hơn cái được tạo ra trong quá trình backward, vì nó trực tiếp phụ thuộc vào câu hỏi.
+Cuối cùng một ví dụ mới được hình thành bằng cách sử dụng chuỗi suy luận từ quá trình
+forward và câu hỏi từ quá trình backward.
+Cuối cùng, trong quá trình inference, một tập nhỏ các câu hỏi được tạo sinh ra sẽ được sử dụng
+để làm ví dụ mẫu cho mô hình. Phương pháp này nhìn chung cho thấy sự vượt trội trong các task
+liên quan đến lập trình, toán học, và suy luận dựa trên biểu tượng.
+Phần III: Tổng kết
+Prompt engineering là yếu tố then chốt để khai thác hết khả năng của các mô hình ngôn ngữ tiên
+tiến. Sự hiệu quả và độ chính xác của các phản hồi từ mô hình ngôn ngữ lớn phụ thuộc rất nhiều
+vào cách thức ta thiết kế và cung cấp các prompt. Việc tinh chỉnh và tạo ra những prompts thông
+minh và sáng tạo không chỉ giúp các mô hình ngôn ngữ lớn hiểu rõ hơn yêu cầu của người dùng
+mà còn tối ưu hóa khả năng phản hồi của nó. Bài viết này mang lại cái nhìn tổng quan về những
+kỹ thuật prompt engineering đang được áp dụng hiện nay, mở ra những khả năng mới trong việc
+tương tác với các hệ thống trí tuệ nhân tạo.
+References
+Bsharat, S. M., Myrzakhan, A., & Shen, Z. (2024). Principled instructions are all you need for
+questioning llama-1/2, gpt-3.5/4.
+Wei, J., Bosma, M., Zhao, V., Guu, K., Yu, A. W., Lester, B., Du, N., Dai, A. M., & Le, Q. V. Fine-
+tuned language models are zero-shot learners. In: InInternational conference on learning
+representations.
+Brown, T., Mann, B., Ryder, N., Subbiah, M., Kaplan, J. D., Dhariwal, P., Neelakantan, A., Shyam,
+P., Sastry, G., Askell, A., Agarwal, S., Herbert-Voss, A., Krueger, G., Henighan, T., Child,
+R., Ramesh, A., Ziegler, D., Wu, J., Winter, C., ... Amodei, D. Language models are
+few-shot learners (H. Larochelle, M. Ranzato, R. Hadsell, M. Balcan, & H. Lin, Eds.). In:
+Advances in neural information processing systems(H. Larochelle, M. Ranzato, R. Hadsell,
+M. Balcan, & H. Lin, Eds.). Ed. by Larochelle, H., Ranzato, M., Hadsell, R., Balcan, M.,
+& Lin, H.33. Curran Associates, Inc., 2020, 1877–1901. https://proceedings.neurips.cc/
+paper_files/paper/2020/file/1457c0d6bfcb4967418bfb8ac142f64a-Paper.pdf
+Wei, J., Wang, X., Schuurmans, D., Bosma, M., Ichter, B., Xia, F., Chi, E., Le, Q., & Zhou,
+D. (2022). Chain-of-thought prompting elicits reasoning in large language models [cite
+arxiv:2201.11903]. http://arxiv.org/abs/2201.11903
+Kojima, T., Gu, S. S., Reid, M., Matsuo, Y., & Iwasawa, Y. Large language models are zero-shot
+reasoners. In: InAdvances in neural information processing systems. 

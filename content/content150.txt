@@ -1,7 +1,62 @@
-Node ID: f487da0f-3122-43ba-b300-1655af310822
-Text: Trong nhiều trường hợp, chúng được xác định để đảm bảo tính duy
-nhất và ổn định của giải pháp. 13 Effect of diffusion on Gaussian
-mixture Một chút mở rộng cho quá trình diffusion 1D, chúng ta sử dụng
-một điều kiện ban đầu là gaussian mixture gồm M mixture components.
-p0(x) = MX j=1 wj 1q 2πs2 j exp ( −[x − µj]2 2s2 j ) (13) Trong đó: •
-µj là tru...
+Trong nhiều trường hợp, chúng được xác định để đảm bảo tính duy nhất và ổn định của giải pháp.
+13 Effect of diffusion on Gaussian mixture
+Một chút mở rộng cho quá trình diffusion 1D, chúng ta sử dụng một điều kiện ban đầu là gaussian
+mixture gồm M mixture components.
+p0(x) =
+MX
+j=1
+wj
+1q
+2πs2
+j
+exp
+(
+−[x − µj]2
+2s2
+j
+)
+(13)
+Trong đó:
+• µj là trung bình của thành phần thứ j trong hỗn hợp gaussian.
+• sj là độ lệch chuẩn của thành phần thứ j trong gaussian mixture.
+• wj là trọng số của thành phần thứ j, sao choPM
+j=1 wj = 1
+Transition Probability cho Quá Trình Diffusion 1D:
+p(x, t|x0, 0) = 1√
+2πσ2t
+exp
+
+−(x − x0)2
+2σ2t
+
+. (14)
+Tích Phân để Tính Xác Suất Tại Thời Điểm t:
+p(x, t) =
+Z ∞
+−∞
+p(x, t|x0, 0)p0(x0) dx0
+=
+MX
+j=1
+wj
+1q
+2π(s2
+j + σ2t)
+exp
+(
+− [x − µj]2
+2(s2
+j + σ2t)
+)
+.
+(15)
+Trong đó:
+• p(x, t) là xác suất phân phối tại vị trí x và thời điểm t sau quá trình diffusion từ điều kiện ban
+đầu là Gaussian Mixturep0(x).
+• Đoạn tích phân trên là tích phân qua tất cả các điều kiện ban đầu có thể, mỗi điều kiện ban đầu
+được đánh trọng số bởip0(x0).
+• Kết quả là một tổng của các Gaussian với trung bìnhµj và độ lệch chuẩn(s2
+j + σ2t), nghĩa là tất
+cả các thành phần trong mixture được "lan truyền" và có phương sai tăng lên sau mỗi khoảng
+thời gian t.
+10

@@ -1,7 +1,15 @@
-Node ID: a61e0907-0b49-43e6-81ff-70248970491f
-Text: Khi giá trị giảm, màu sắc trở nên xanh hơn. Bằng cách sử dụng
-không gian màuLab, mô hình của chúng ta sẽ nhận đầu vào là kênhL, đại
-diện cho độ sáng, và sử dụng kênhab như ground truth của mô hình. Vì
-vậy, số lượng kênh màu cần dự đoán là 2, bao gồm thành phần màu a và
-b, giúp giảm bớt độ phức tạp so với việc dự đoán 3 kênh màu khi sử
-dụng không...
+Khi giá trị giảm, màu sắc trở nên xanh
+hơn.
+Bằng cách sử dụng không gian màuLab, mô hình của chúng ta sẽ nhận đầu vào là kênhL, đại diện
+cho độ sáng, và sử dụng kênhab như ground truth của mô hình. Vì vậy, số lượng kênh màu cần dự
+đoán là 2, bao gồm thành phần màu a và b, giúp giảm bớt độ phức tạp so với việc dự đoán 3 kênh màu
+khi sử dụng không gian màuRGB.
+Có nhiều phương pháp được sử dụng để thực hiện việc tô màu cho ảnh, bao gồm sử dụng mạng
+CNN truyền thống, hay các mạng tạo sinh đã và đang phát triển trong những năm gần đây như GAN,
+VAE (Variational Autoencoder) và cả Diffusion Models. Mỗi phương pháp mang lại những ưu điểm và
+hạn chế riêng, đều hướng tới mục tiêu cuối cùng là tạo ra các ảnh màu tự nhiên và chân thực.
+Trong phần này, chúng ta sẽ tập trung vào việc xây dựng một mô hình dựa trên VAE để giải quyết
+vấn đề Image Colorization. Input và output của chương trình như sau:
+• Input: Ảnh xám G (L channel).
+• Output: Trường ảnh màu C (ab channels).
+2

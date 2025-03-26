@@ -1,7 +1,56 @@
-Node ID: 6d023cca-6232-4c0b-a7d1-b1f0ee8a9acc
-Text: AI VIETNAM aivietnam.edu.vn • f(x(t), t)∆t là thành phần drift.
-Nó miêu tả cách giá trị trung bình của x(t) thay đổi theo thời gian
-t.f(x(t), t) là một hàm của x và t được sử dụng để mô tả sự thay đổi
-trung bình của quá trình. • g(x, t) √ ∆t r là thành phần "nhiễu" hoặc
-diffusion.g(x, t) là một hàm x và t đo lường mức độ của biến ngẫu
-nhiên tron...
+AI VIETNAM aivietnam.edu.vn
+• f(x(t), t)∆t là thành phần drift. Nó miêu tả cách giá trị trung bình của x(t) thay đổi theo thời
+gian t.f(x(t), t) là một hàm của x và t được sử dụng để mô tả sự thay đổi trung bình của quá
+trình.
+• g(x, t)
+√
+∆t r là thành phần "nhiễu" hoặc diffusion.g(x, t) là một hàm x và t đo lường mức độ
+của biến ngẫu nhiên trong quá trình.
+√
+∆t là căn bậc hai của∆t, và r là một số ngẫu nhiên được
+lấy mẫu từ normal distribution (r ∼ N(0, 1)).
+Công thức trên là một dạng tổng quát của Euler-Maruyama.
+Thường thì phương trình Fokker-Planck equation (FPE) khó có thể được giải một cách chính xác
+hoặc khá khó khăn để có được giải pháp chính xác chop(x, t) (mật độ xác suất). Nên chúng ta sẽ cung
+cấp phương trình SDE cho OU process, nó mô tả cáchx(t) biến đổi theo thời gian. Trong trường hợp
+một chiều, phương trình SDE có dạng:
+˙x = 1
+τ [µ − x] + σ
+r
+2
+τ η(t) . (25)
+Trong đó:
+• τ là tham số liên quan đến tốc độ trung bình trở về
+• µ là giá trị trung bình mà quá trình trung bình trở về
+• σ là độ lớn của biến ngẫu nhiên.
+• η(t) là white gaussian noise.
+Công thức chop(x, t|x0, 0) là một biểu thức phụ thuộc vàox, x0, tvà miêu tả cách mật độ xác suất
+thay đổi theo thời gian cho OU process khi ta biết rằng tạit = 0 đã có giá trịx0. Công thức này là
+heat kernel của OU process.
+p(x, t|x0, 0) = 1p
+2πs(t)2 exp
+
+−[x − µ(t)]2
+2s(t)2
+
+(26)
+Trong công thức này:
+• µ(t) là giá trị trung bình tại thời điểm t và được tính như sau:
+µ(t) := x0e−t/τ + µ
+
+1 − e−t/τ
+
+(27)
+• s(t)2 là phương sai tại thời điểm t và được tính như sau:
+s(t)2 := σ2
+
+1 − e−2t/τ
+
+(28)
+OU process có một đặc điểm quan trọng đó là khi thời gian tăng lên, mật độ xác suấtp(x, t) ít phụ
+thuộc vàop0(x), tức là giá trị ban đầup0(x) mất dần ảnh hưởng vào quá trình tiến đến trạng thái ổn
+định pss(x).
+p(x, t) =
+Z ∞
+−∞
+p(x, t|x0, 0)p0(x0) dx0 . 

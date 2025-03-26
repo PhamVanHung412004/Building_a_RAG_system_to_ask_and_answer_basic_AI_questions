@@ -1,6 +1,7 @@
-Node ID: 3d1f7bb5-cba2-4112-bafc-14dc5a529d44
-Text: 10. Thực thi chương trình:Để khởi động API, chúng ta hãy cài đặt
-các gói thư viện cần thiết trong file requirements.txt với lệnh sau
-trong terminal (các bạn nên cài trong môi trường conda, hướng dẫn cài
-đặt conda tại đây): 1 $ pip3 install -r requirements . txt Sau đó,
-chạy fileserver.py: 1 $ python3 server .py 15
+10. Thực thi chương trình:Để khởi động API, chúng ta hãy cài đặt các gói thư viện cần thiết
+trong file requirements.txt với lệnh sau trong terminal (các bạn nên cài trong môi trường
+conda, hướng dẫn cài đặt conda tại đây):
+1 $ pip3 install -r requirements . txt
+Sau đó, chạy fileserver.py:
+1 $ python3 server .py
+15

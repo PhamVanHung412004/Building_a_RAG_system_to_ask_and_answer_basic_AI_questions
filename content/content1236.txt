@@ -1,4 +1,4 @@
-Node ID: aaed5cc9-e401-4982-bd3a-d859878839c0
-Text: Hình 3: Một số mô hình MLLMs điển hình hiện nay. Trong phần tiếp
-theo, chúng ta sẽ huấn luyện mô hình cơ bản BLIP-2 trên bài toán VQA -
-Visual Question Answering. 2
+Hình 3: Một số mô hình MLLMs điển hình hiện nay.
+Trong phần tiếp theo, chúng ta sẽ huấn luyện mô hình cơ bản BLIP-2 trên bài toán VQA - Visual
+Question Answering.
+2

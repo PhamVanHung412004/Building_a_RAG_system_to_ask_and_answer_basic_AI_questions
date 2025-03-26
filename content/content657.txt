@@ -1,7 +1,19 @@
-Node ID: 05e9f0c0-2a6b-4102-9cc6-1e38cff1cca4
-Text: AI VIETNAM aivietnam.edu.vn 5 U-Mamba Hơn 1 tháng sau khi Mamba
-được công bố, các tác giả tại Đại học Toronto, Canada đã hưởng ứng
-trend này với bài paper: “U-Mamba: Enhancing Long-range Dependency for
-Biomedical Image Segmentation”, một bài paper về bài toán Segmentation
-trong lĩnh vực Y Sinh. U-Mamba là model theo hướng encoder- decoder
-tương ...
+AI VIETNAM aivietnam.edu.vn
+5 U-Mamba
+Hơn 1 tháng sau khi Mamba được công bố, các tác giả tại Đại học Toronto, Canada đã hưởng ứng trend
+này với bài paper: “U-Mamba: Enhancing Long-range Dependency for Biomedical Image Segmentation”,
+một bài paper về bài toán Segmentation trong lĩnh vực Y Sinh. U-Mamba là model theo hướng encoder-
+decoder tương tự U-Net, nhưng các block nhỏ trong encoder và decoder được thay bằng CNN và SSM
+block (các tác giả gọi là U-Mamba block). Kiến trúc U-Mamba block và U-Mamba hoàn chỉnh được mô
+tả như hình 9.
+Hình 9: Kiến trúc U-Mamba block và model U-Mamba hoàn chỉnh.
+Sự kết hợp giữa CNN và SSM tạo nên hybrid CNN-SSM model, model hybrid này vừa có khả năng
+tổng hợp thông tin local nhờ vào CNN và thông tin global nhờ vào SSM. Từ đó giúp model tổng hợp
+được 2 khía cạnh khác nhau trong ảnh đầu vào.
+U-Mamba block hoạt động bằng cách đưa input đầu vào sang CNN block, sau đó output từ CNN block
+này sẽ được đưa vào SSM block. Tùy thuộc vào CNN block thuộc phần encoder hay decoder thì sẽ được
+thiết kế khác nhau. Đối với encoder, CNN block sẽ có tác dụng giảm kích thước feature map và tăng
+chiều sâu, ngược lại đối với decoder, CNN làm nhiệm vụ tăng kích thước feature map và giảm chiều sâu.
+Bàn luận về hybrid model: Các model CNN thuần túy (AlexNet, Resnet, VGG,...) là những model
+chỉ dùng CNN để trích xuất thông tin, nói cách khác chỉ tổng hợp được thông tin local. Ngược lại, các
+model Transformer (ViT) chỉ trích xuất thông tin global. 

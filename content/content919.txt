@@ -1,6 +1,5 @@
-Node ID: 704d6f02-0842-4594-842f-153adfcf72cc
-Text: AI VIETNAM aivietnam.edu.vn Hình 12: Các bước trong Active-
-Prompting Các thang đo để tính độ bất định được sử dụng trong paper
-bao gồm: • Disagreement: Ta có kết quả cho k câu hỏiA = a1, a2, ...ak.
-Thang đo disagreement được tính bằng số đáp án trả lời riêng biệt chia
-cho tổng số đáp án.
+AI VIETNAM aivietnam.edu.vn
+Hình 12: Các bước trong Active-Prompting
+Các thang đo để tính độ bất định được sử dụng trong paper bao gồm:
+• Disagreement: Ta có kết quả cho k câu hỏiA = a1, a2, ...ak. Thang đo disagreement được
+tính bằng số đáp án trả lời riêng biệt chia cho tổng số đáp án.

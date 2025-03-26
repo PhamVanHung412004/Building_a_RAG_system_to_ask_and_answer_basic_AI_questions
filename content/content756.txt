@@ -1,2 +1,2 @@
-Node ID: 82c6c3ce-1cd9-4d5e-8515-a0c4fae47dd3
-Text: . 25 8.2 Tạo hàm . .
+. 25
+8.2 Tạo hàm . . 

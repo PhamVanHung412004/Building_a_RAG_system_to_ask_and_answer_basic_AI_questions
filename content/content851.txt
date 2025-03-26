@@ -1,7 +1,17 @@
-Node ID: c5f7a7ec-3f37-4203-837f-41824874529b
-Text: AI VIETNAM aivietnam.edu.vn thư mục con và lưu trữ đường dẫn của
-từng ảnh vào một danh sách. 1 def get_files_path(path): 2 files_path =
-[] 3 for label in CLASS_NAME: 4 label_path = path + "/" + label 5
-filenames = os.listdir(label_path) 6 for filename in filenames: 7
-filepath = label_path + ’/’ + filename 8 files_path.append(filepath) 9
-return f...
+AI VIETNAM aivietnam.edu.vn
+thư mục con và lưu trữ đường dẫn của từng ảnh vào một danh sách.
+1 def get_files_path(path):
+2 files_path = []
+3 for label in CLASS_NAME:
+4 label_path = path + "/" + label
+5 filenames = os.listdir(label_path)
+6 for filename in filenames:
+7 filepath = label_path + ’/’ + filename
+8 files_path.append(filepath)
+9 return files_path
+10
+11 data_path = f’{ROOT}/train’
+12 files_path = get_files_path(path=data_path)
+Truy vấn ảnh với L2 CollectionTrong ChromaDB, "collection" là một khái niệm quan trọng, dùng
+để tổ chức và quản lý dữ liệu. Một collection trong ChromaDB có thể được hiểu như là một tập hợp các
+vector hoặc tài liệu được chỉ mục và lưu trữ cùng nhau dựa trên một số tiêu chí hoặc đặc điểm chung.

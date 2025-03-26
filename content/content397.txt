@@ -1,7 +1,30 @@
-Node ID: cdba1979-8c54-460f-ba54-006204f09c99
-Text: AI VIETNAM aivietnam.edu.vn Hình 6: Bên trái: Camera RGB-D thu
-được hai bức ảnh: ảnh màu sắc (RGB) và ảnh chiều sâu (Depth). Bên
-phải: Từ hai bức ảnh này, ta có thể tái tạo đám mây điểm 3D, mô tả
-hình dạng và vị trí của các vật thể trong không gian một cách chi
-tiết. 2 Machine Learning with Point Cloud Trong phần này, chúng ta sẽ
-đi tìm hiểu về ...
+AI VIETNAM aivietnam.edu.vn
+Hình 6: Bên trái: Camera RGB-D thu được hai bức ảnh: ảnh màu sắc (RGB) và ảnh chiều sâu (Depth).
+Bên phải: Từ hai bức ảnh này, ta có thể tái tạo đám mây điểm 3D, mô tả hình dạng và vị trí của các
+vật thể trong không gian một cách chi tiết.
+2 Machine Learning with Point Cloud
+Trong phần này, chúng ta sẽ đi tìm hiểu về bài toán point clouds classification. Chúng ta sẽ sử dụng
+PointNet làm model để phân loại các vật thể 3D trong tập data ShapeNet.
+2.1 Data preparation
+Đầu tiên chúng ta sẽ tải bộ Shapenet bằng câu lệnh sau:
+1 dataset_url = " https :// git .io/ JiY4i "
+2
+3 dataset_path = keras . utils . get_file (
+4 fname =" shapenet . zip ",
+5 origin = dataset_url ,
+6 cache_subdir =" datasets ",
+7 hash_algorithm =" auto ",
+8 extract =True ,
+9 archive_format =" auto ",
+10 cache_dir =" datasets ",
+11 )
+Trong thí nghiệm này để dễ kiểm chứng kết quả thì ta chỉ lấy 3 classes trong tập Shapenet và mỗi
+class lấy tối đa 500 vật:
+1 point_clouds = []
+2 dense_labels = []
+3 code_index_mapping = {}
+4 for i, class_name in enumerate ( dict_mapping ):
+5 point_files = glob (f’/ tmp /. keras / datasets / PartAnnotation /{ class_name }/ points /* ’)
+6 num_object = 0
+7 for file in point_files :
+8 point_cloud = np. 

@@ -1,7 +1,29 @@
-Node ID: bf154512-9666-4f3c-8acf-e25e77a79ed2
-Text: You can now ask questions !" 38 await msg . update () 39 40 cl.
-user_session . set (" chain ", chain ) 9. Khởi tạo hàm on_message: 1
-@cl . on_message 2 async def on_message ( message : cl. Message ): 3
-chain = cl. user_session . get (" chain ") 4 cb = cl.
-AsyncLangchainCallbackHandler () 5 res = await chain . ainvoke (
-message . content , callba...
+You can now ask questions !"
+38 await msg . update ()
+39
+40 cl. user_session . set (" chain ", chain )
+9. Khởi tạo hàm on_message:
+1 @cl . on_message
+2 async def on_message ( message : cl. Message ):
+3 chain = cl. user_session . get (" chain ")
+4 cb = cl. AsyncLangchainCallbackHandler ()
+5 res = await chain . ainvoke ( message . content , callbacks =[ cb ])
+6 answer = res [" answer "]
+7 source_documents = res [" source_documents "]
+8 text_elements = []
+9
+10 if source_documents :
+11 for source_idx , source_doc in enumerate ( source_documents ):
+12 source_name = f" source_ { source_idx }"
+13 text_elements . append (
+14 cl. Text ( content = source_doc . page_content ,
+15 name = source_name )
+16 )
+17 source_names = [ text_el . name for text_el in text_elements ]
+18
+19 if source_names :
+20 answer += f"\ nSources : {’, ’. join ( source_names )}"
+21 else :
+22 answer += "\ nNo sources found "
+23
+24 await cl. Message ( content = answer , elements = text_elements ). 

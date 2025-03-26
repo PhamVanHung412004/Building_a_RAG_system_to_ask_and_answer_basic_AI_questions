@@ -1,7 +1,12 @@
-Node ID: 707385c5-b1f3-4de2-a2d5-452c02a222cb
-Text: Chúng có nhiều ứng dụng trong nhiều lĩnh vực như tài chính, vật
-lý, sinh học và điều khiển tự động. OU process có thể bao gồm nhiều
-các biến thể như OU phi tuyến tính, OU colored noise hoặc các biến thể
-khác nhằm mô tả các hiện tượng phức tạp hơn. Một OU process cơ bản có
-dạng sau: dXt = θ(µ − Xt)dt + σdWt (12) Trong đó: • Xt là OU process,
-biểu...
+Chúng có nhiều ứng dụng trong nhiều lĩnh vực như tài chính, vật lý, sinh
+học và điều khiển tự động.
+OU process có thể bao gồm nhiều các biến thể như OU phi tuyến tính, OU colored noise hoặc các
+biến thể khác nhằm mô tả các hiện tượng phức tạp hơn.
+Một OU process cơ bản có dạng sau:
+dXt = θ(µ − Xt)dt + σdWt (12)
+Trong đó:
+• Xt là OU process, biểu thị sự biến đổi của hệ thống tại thời điểm t.
+• θ là hệ số phản hồi, đo lường mức độ màXt trở về giá trị trung bìnhµ
+• µ là giá trị trung bình của process.
+• σ là độ lớn của biến thể noise, thường dựa trên quá trình WienerWt
+8

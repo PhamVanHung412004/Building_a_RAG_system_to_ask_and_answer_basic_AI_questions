@@ -1,7 +1,17 @@
-Node ID: c6cb0933-8f23-4adf-b659-22def71c54fe
-Text: Ví dụ: ‘message_1‘, ‘_massage‘ nhưng không thể đặt là
-‘1_message‘. • Tên biến có thể gồm nhiều từ, nhưng mỗi từ phải được
-viết liền, không được sử dụng khoảng trắng. Ví dụ ‘fresh_apple‘ nhưng
-không thể đặt là ‘fresh apple‘ • Không được đặt tên biến trùng với
-những từ khóa và tên hàm trong Python. Ví dụ: Không nên đặt tên biến
-là ‘list‘, ‘for‘, ‘...
+Ví dụ: ‘message_1‘,
+‘_massage‘ nhưng không thể đặt là ‘1_message‘.
+• Tên biến có thể gồm nhiều từ, nhưng mỗi từ phải được viết liền, không được sử dụng khoảng
+trắng. Ví dụ ‘fresh_apple‘ nhưng không thể đặt là ‘fresh apple‘
+• Không được đặt tên biến trùng với những từ khóa và tên hàm trong Python. Ví dụ: Không nên
+đặt tên biến là ‘list‘, ‘for‘, ‘from‘, ‘if‘, ‘is‘, ‘False‘...
+• Tên biến chỉ cần ngắn thôi nhưng phải rõ ràng, nếu không thì có thể tạo tên dài hơn mà rõ ràng
+cũng được. Ví dụ: ‘student_name‘ với ‘s_n‘ thì nên dùng biến tên ‘student_name‘ vì khi đọc sẽ
+hiểu ngay.
+• Bạn cũng nên cẩn thận khi sử dụng tên biến chứa chữ ‘l‘ và ‘o‘, vì nó giống số ‘1‘ và ‘0‘ nên có
+thể gây ra nhầm lẫn nếu quan sát không kỹ.
+2 Bài tập
+Viết chương trình với yêu cầu dưới đây, mỗi yêu cầu bạn sẽ viết nó tại một cell trong file jupyter
+notebook.
+1. Bạn hãy tạo file và đặt tên file bất kỳ nhưng tên phải được viết thường và mỗi từ cách nhau bởi
+dấu gạch dưới ‘"_"‘, ví dụ như ‘simple_message.ipynb‘. Sau đó hãy lập trình in chuỗi ‘"Hello
+world!"‘ ra màn hình.

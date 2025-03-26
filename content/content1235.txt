@@ -1,7 +1,22 @@
-Node ID: 8b7f2f2b-f214-4ab6-9365-16d42501f7e3
-Text: AI VIETNAM aivietnam.edu.vn MLLMs - Multimodal Large Language
-Modelsngày càng được phát triển rộng rãi với mục tiêu xây dựng một mô
-hình ngôn ngữ lớn có thể xử lý cho các kiểu dữ liệu khác nhau như: văn
-bản, hình ảnh, âm thanh, video. Với các mô hình MLLMs đầu vào có thể
-là văn bản, hình ảnh, video, âm thanh hoặc kết hợp của các kiểu dữ
-liệu trê...
+AI VIETNAM aivietnam.edu.vn
+MLLMs - Multimodal Large Language Modelsngày càng được phát triển rộng rãi với mục
+tiêu xây dựng một mô hình ngôn ngữ lớn có thể xử lý cho các kiểu dữ liệu khác nhau như: văn bản,
+hình ảnh, âm thanh, video.
+Với các mô hình MLLMs đầu vào có thể là văn bản, hình ảnh, video, âm thanh hoặc kết hợp của
+các kiểu dữ liệu trên. Đầu ra có thể là văn bản, hình ảnh, video, âm thanh. Ví dụ về sinh hình ảnh dựa
+vào văn bản được mô tả trong Hình 2.
+Mô hình MLLMs bao gồm các thành phần chính sau:
+• Modality Encoder: Bao gồm các module có thể từ các dữ liệu đầu vào như hình ảnh, âm thanh,
+video biểu diễn thành các đặc trưng. Ví dụ, với hình ảnh / video chúng ta có các mô hình như
+ViT, CLIP, Eva-CLIP ViT,... Với âm thanh chúng ta có các mô hình như: HuBERT, BEATs,...
+Hoặc là ImageBind - mô hình chung được sử dụng để encode các kiểu dữ liệu trên.
+• Input Projector: phần này sẽ học cách kết nối các đặc trưng từ Encoder với văn bản đẩy vào
+LLMs. Các phương pháp bao gồm: Linear, MLP, Cross-Attention, Q-Former, P-former,...
+• LLMs: các kiến trúc mô hình LLMs có thể được sử dụng như: GPT, LLaMA, Vicuna, Flan-T5,...
+• Output Projector: bao gồm các phương pháp có thể ánh xạ từ đặc trưng của mô hình ngôn ngữ
+sang đặc trưng của kiểu dữ liệu như hình ảnh, video, âm thanh. Ví dụ: MLP, Tiny Transformer,...
+• Modality Generator: bao gồm các module nhận đặc trưng của từng kiểu dữ liệu để sinh ra dữ
+liệu mong muốn. Ví dụ như Stable Diffusion cho ảnh, Zeroscope cho video, AudioLDM cho âm
+thanh,...
+Dưới đây là một số mô hình MLLMs điển hình hiện nay. Trong đó I: Image (hình ảnh), T: Text (văn
+bản), V: Video, A: Audio (âm thanh).

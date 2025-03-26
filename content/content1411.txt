@@ -1,7 +1,10 @@
-Node ID: 75353d19-2195-47b3-baae-4852f2f680f6
-Text: numpy () 71 img_ab = img_ab . permute (1 , 2, 0). numpy () 72
-img_ab = cv2 . resize ( img_ab , ( img_l . shape [1] , img_l . shape
-[0]) , interpolation = cv2 . INTER_LINEAR ) 73 arr_lab = np.
-concatenate ([ img_l , img_ab ], axis =2) 74 arr_lab = ( arr_lab +
-1.0) * 255 / 2 75 arr_lab = np. clip ( arr_lab , 0, 255) . astype (np.
-uint8 ) 76 arr_bg...
+numpy ()
+71 img_ab = img_ab . permute (1 , 2, 0). numpy ()
+72 img_ab = cv2 . resize ( img_ab , ( img_l . shape [1] , img_l . shape [0]) ,
+interpolation = cv2 . INTER_LINEAR )
+73 arr_lab = np. concatenate ([ img_l , img_ab ], axis =2)
+74 arr_lab = ( arr_lab + 1.0) * 255 / 2
+75 arr_lab = np. clip ( arr_lab , 0, 255) . astype (np. uint8 )
+76 arr_bgr = cv2 . cvtColor ( arr_lab , cv2 . COLOR_LAB2RGB )
+77 return arr_bgr
+21

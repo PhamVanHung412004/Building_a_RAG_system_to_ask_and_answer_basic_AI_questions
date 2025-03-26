@@ -1,7 +1,14 @@
-Node ID: 27cf2b99-409e-4ef6-8dc8-57ca7cd23660
-Text: AI VIETNAM aivietnam.edu.vn II. Câu hỏi trắc nghiệm • Đọc tự
-luận trước để nắm được idea tổng quát (sẽ không yêu cầu nhưng khuyến
-khích các bạn tự làm tự luận) và các bài này sẽ được giải trong buổi
-TA. • Các bạn phải làm phần trắc nghiệm – Các câu hỏi có ký
-hiệu(Code): là câu hỏi yêu cầu các bạn phải trực tiếp code vào phần bị
-khuyết để có thể ...
+AI VIETNAM aivietnam.edu.vn
+II. Câu hỏi trắc nghiệm
+• Đọc tự luận trước để nắm được idea tổng quát (sẽ không yêu cầu nhưng khuyến khích các
+bạn tự làm tự luận) và các bài này sẽ được giải trong buổi TA.
+• Các bạn phải làm phần trắc nghiệm
+– Các câu hỏi có ký hiệu(Code): là câu hỏi yêu cầu các bạn phải trực tiếp code vào
+phần bị khuyết để có thể chọn được đáp án đúng
+– Lưu ý:Đối với dạng câu hỏi(Code) trong file hint luôn có 1 test casse bắt đầu với
+từ khóa assert nếu các bạn chạy không báo lỗi có nghĩa các bạn đã vượt qua được test
+case này và chạy lệnh tiếp theo để trả lời câu hỏi trắc nghiệm
+– Lưu ý:Đọc kỹ các code gợi ý và code ví dụ mẫu ở tự luận có thể sẽ có ích cho các
+bạn khi làm trắc nghiệm
+Câu hỏi 1:(Code) Hoàn thành chương trình sau với mô tả bài toán từ câu I.1. Đầu ra của chương trình
+dưới đây là gì?

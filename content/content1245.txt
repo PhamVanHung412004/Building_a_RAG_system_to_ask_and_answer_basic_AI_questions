@@ -1,7 +1,19 @@
-Node ID: 3a14587b-ceb0-4b4e-9248-35550ec18741
-Text: update () 33 34 model . eval () 35 valid_loss = [] 36 for idx ,
-batch in zip ( tqdm ( range ( len ( valid_dataloader )), desc =f’
-Validating batch : { epoch +1} ’), valid_dataloader ): 37 input_ids =
-batch . pop (’ input_ids ’).to( device ) 38 pixel_values = batch . pop
-(’ pixel_values ’).to( device ) 39 attention_masked = batch . pop (’
-attenti...
+update ()
+33
+34 model . eval ()
+35 valid_loss = []
+36 for idx , batch in zip ( tqdm ( range ( len ( valid_dataloader )), desc =f’ Validating batch :
+{ epoch +1} ’), valid_dataloader ):
+37 input_ids = batch . pop (’ input_ids ’).to( device )
+38 pixel_values = batch . pop (’ pixel_values ’).to( device )
+39 attention_masked = batch . pop (’ attention_mask ’).to( device )
+40 labels = batch . pop (’ labels ’).to( device )
+41
+42 with torch . amp . autocast ( device_type =’cuda ’, dtype = torch . float16 ):
+43 outputs = model (
+44 input_ids = input_ids ,
+45 pixel_values = pixel_values ,
+46 attention_mask = attention_masked ,
+47 labels = labels
+48 )
+5

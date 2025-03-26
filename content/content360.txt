@@ -1,4 +1,5 @@
-Node ID: c63576df-2316-4b17-8c69-c70693b24c85
-Text: AI VIETNAM aivietnam.edu.vn Model early fusion được mô tả như
-hình sau: 1 class Model (nn. Module ): 2 def __init__ (self ,
-num_classes =2 , num_input_channel =48) : 3 super ( Model , self ).
+AI VIETNAM aivietnam.edu.vn
+Model early fusion được mô tả như hình sau:
+1 class Model (nn. Module ):
+2 def __init__ (self , num_classes =2 , num_input_channel =48) :
+3 super ( Model , self ). 

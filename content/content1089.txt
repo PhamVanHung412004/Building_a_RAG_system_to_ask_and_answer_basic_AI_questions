@@ -1,7 +1,11 @@
-Node ID: 34b594dc-3d5f-45ca-94d3-432eef46ff4e
-Text: Tính tới thời điểm hiện tại, đã có rất nhiều phương pháp được
-phát triển nhằm giải quyết hiệu quả bài toán này. Trong đó, các phương
-pháp thuộc họ YOLO (You Only Look Once) thu hút được sự chú ý rất lớn
-từ cộng đồng nghiên cứu bởi độ chính xác và tốc độ thực thi mà loại mô
-hình này mang lại. Hình 1: Logo của mô hình YOLO. Ảnh: link. Thời gian
-vừ...
+Tính tới thời điểm hiện tại, đã có rất nhiều phương pháp được phát triển nhằm
+giải quyết hiệu quả bài toán này. Trong đó, các phương pháp thuộc họ YOLO (You Only Look
+Once) thu hút được sự chú ý rất lớn từ cộng đồng nghiên cứu bởi độ chính xác và tốc độ thực
+thi mà loại mô hình này mang lại.
+Hình 1: Logo của mô hình YOLO. Ảnh: link.
+Thời gian vừa qua, Ao Wang và các cộng sự tại Đại học Thanh Hoa (Tsinghua University)
+đã đề xuất mô hìnhYOLOv10 trong bài báoYOLOv10: Real-Time End-to-End Object
+Detection [10]. Với những cải tiến mới, mô hình đã đạt được hiệu suất vượt trội hơn so với các
+phiên bản YOLO trước đó ở các khía cạnh khác nhau, tăng cường khả năng phát hiện đối tượng
+theo thời gian thực (real-time object detection).
+1

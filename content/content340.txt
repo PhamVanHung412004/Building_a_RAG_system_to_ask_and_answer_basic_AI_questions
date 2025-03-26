@@ -1,3 +1,5 @@
-Node ID: a983ba4e-b7ef-4e76-9c86-3d4d57ac7b80
-Text: AI VIETNAM aivietnam.edu.vn (c) Conditional Encoder, Decoder (d)
-Decoder - Hết - 22
+AI VIETNAM aivietnam.edu.vn
+(c) Conditional Encoder, Decoder
+(d) Decoder
+- Hết -
+22

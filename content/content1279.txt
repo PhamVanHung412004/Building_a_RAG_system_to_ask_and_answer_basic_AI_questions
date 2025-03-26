@@ -1,7 +1,30 @@
-Node ID: 39d4074d-09f1-4e25-b896-5ac170955e7f
-Text: 1 class MyQueue : 2 def __init__ (self , capacity ): 3 self .
-__capacity = capacity 4 self . __queue = [] 5 6 def isEmpty ( self ):
-7 return len ( self . __queue ) == 0 8 9 def is_full ( self ): 10
-return len ( self . __queue ) == self . __capacity 11 12 def dequeue (
-self ): 13 14 def enqueue (self , value ): 15 16 def front ( self ):
-17 ### Yo...
+1 class MyQueue :
+2 def __init__ (self , capacity ):
+3 self . __capacity = capacity
+4 self . __queue = []
+5
+6 def isEmpty ( self ):
+7 return len ( self . __queue ) == 0
+8
+9 def is_full ( self ):
+10 return len ( self . __queue ) == self . __capacity
+11
+12 def dequeue ( self ):
+13
+14 def enqueue (self , value ):
+15
+16 def front ( self ):
+17 ### Your Code Here
+18
+19 ### End Code Here
+20
+21 queue1 = MyQueue ( capacity =5)
+22 queue1 . enqueue (1)
+23 assert queue1 . is_full () == False
+24 queue1 . enqueue (2)
+25 print ( queue1 . front ())
+a) 4
+b) 3
+c) 2
+d) 1
+12

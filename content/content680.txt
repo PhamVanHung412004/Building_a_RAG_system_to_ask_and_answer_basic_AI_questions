@@ -1,7 +1,31 @@
-Node ID: f62c3532-20c1-4a10-9b4a-71193e4a6162
-Text: AI VIETNAM aivietnam.edu.vn 6 tokenizer=tokenizer, # Tokenizer
-sử dụng để mã hóa dữ liệu 7 args=training_args, # Các tham số train đã
-được định nghĩa trước đó 8 compute_metrics=compute_metrics # Hàm tính
-các độ đo hiệu suất ( metrics) cho đánh giá 9 ) 10 # Bắt đầu quá trình
-train bằng cách gọi hàm train() trên classs trainer. 11
-trainer.train() ...
+AI VIETNAM aivietnam.edu.vn
+6 tokenizer=tokenizer, # Tokenizer sử dụng để mã hóa dữ liệu
+7 args=training_args, # Các tham số train đã được định nghĩa trước
+đó
+8 compute_metrics=compute_metrics # Hàm tính các độ đo hiệu suất (
+metrics) cho đánh giá
+9 )
+10 # Bắt đầu quá trình train bằng cách gọi hàm train() trên classs
+trainer.
+11 trainer.train()
+• Sau khi quá trình train hoàn tất, ta sẽ đưa weight, config của model lên HuggingFace
+Hub để lưu lại:
+1 # Đẩy model lên huggingface hub
+2 trainer.push_to_hub(commit_message="Training complete")
+3
+4 >> Output: CommitInfo(commit_url=’https://huggingface.co/
+trinhxuankhai/mamba_text_classification/commit/816827
+ae91a91dd9006a9ef66ecefd837382998b’, commit_message=’Training
+complete’, commit_description=’’, oid=’816827
+ae91a91dd9006a9ef66ecefd837382998b’, pr_url=None, pr_revision=
+None, pr_num=None)
+(g) Run Testing:Sau khi đã hoàn tất quá trình train, ta sẽ đánh giá model trên tập test và in
+ra kết quả đánh giá của model:
+1 # Thực hiện dự đoán trên tập dữ liệu validation
+2 outputs = trainer.predict(test_dataset)
+3 print(outputs.metrics)
+4
+5 >> Output: {’test_loss’: 0.21128389239311218, ’test_accuracy’: 0.94708,
+’test_runtime’: 1308.2019, ’test_samples_per_second’: 19.11, ’
+test_steps_per_second’: 1.195}
+9

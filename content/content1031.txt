@@ -1,7 +1,24 @@
-Node ID: f9385c60-f8b8-460a-97ff-b23a6dc24cd2
-Text: AIO2024 aivietnam.edu.vn 2.1 If-elif-else Cách phổ biến nhất để
-thay thế switch case trong python là sử dụng cấu trúc if-elif-else.
-Cấu trúc này bắt đầu bằng câu lệnh if và điều kiện condition, nếu điều
-kiện này đúng khối lệnh trong if(statement) sẽ được thực hiện. Nếu
-điều kiện sai sẽ chuyển sang câu lệnh elif và tiếp tục kiểm tra điều
-kiện. Nế...
+AIO2024 aivietnam.edu.vn
+2.1 If-elif-else
+Cách phổ biến nhất để thay thế switch case trong python là sử dụng cấu trúc if-elif-else. Cấu trúc này
+bắt đầu bằng câu lệnh if và điều kiện condition, nếu điều kiện này đúng khối lệnh trong if(statement)
+sẽ được thực hiện. Nếu điều kiện sai sẽ chuyển sang câu lệnh elif và tiếp tục kiểm tra điều kiện. Nếu
+không có điều kiện nào đúng thì thực hiện khối lệnh trong else.
+Sau đây là cách sử dụng if-elif-else để xây dựng chương trình :
+1 time = input (" Input time : ")
+2 if time == "5 AM":
+3 print (" Wake up")
+4 elif time == "6 AM":
+5 print (" Yoga ")
+6 elif time == "7 AM":
+7 print (" Work ")
+8 else :
+9 print ("Do something else ")
+10
+Chương trình trên bắt đầu bằng cách yêu cầu người dùng nhập thời gian. Người dùng sẽ nhập một giá
+trị thời gian cụ thể (ví dụ: "5 AM", "6 AM", hoặc "7 AM"). Sau đó chương trình kiểm tra giá trị của
+biến thời gian với các lệnh if, elif, và else, nếu điều kiện đúng thì sẽ thực hiện câu lệnh print. Nếu người
+dùng nhập các giá trị khác thì thực hiện khối lệnh trong else in ra màn hình "Do something else".
+2.2 Dictionary
+Phương pháp thứ hai có thể thay thế switch case trong python là sử dụng Dictionary, đây là kiểu dữ
+liệu được lưu trữ dưới dạng các cặp khóa và giá trị. Mỗi khóa là duy nhất và liên kết với một giá trị.

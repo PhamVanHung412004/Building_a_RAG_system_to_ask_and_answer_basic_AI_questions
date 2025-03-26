@@ -1,7 +1,10 @@
-Node ID: a1430432-5717-4f54-ab8f-eb901e8e1cc9
-Text: AI VIETNAM (AIO2024) aivietnam.edu.vn bằng đường dẫn youtube
-video như đoạn code sau: 1 YOUTUBE_VIDEO_PATH = ’https :// youtu .be/
-wqPSsu7XQ74 ’ 2 video_result = model ( source = YOUTUBE_VIDEO_PATH )
-Kết quả dự đoán sẽ là một video được lưu dưới dạng .avi trong thư
-mục:/content/yolov10 /runs/detect/predict II.III. Huấn luyện YOLOv10
-trên tập dữ ...
+AI VIETNAM (AIO2024) aivietnam.edu.vn
+bằng đường dẫn youtube video như đoạn code sau:
+1 YOUTUBE_VIDEO_PATH = ’https :// youtu .be/ wqPSsu7XQ74 ’
+2 video_result = model ( source = YOUTUBE_VIDEO_PATH )
+Kết quả dự đoán sẽ là một video được lưu dưới dạng .avi trong thư mục:/content/yolov10
+/runs/detect/predict
+II.III. Huấn luyện YOLOv10 trên tập dữ liệu mới
+Trong phần này, chúng ta sẽ thực hiện huấn luyện mô hình YOLOv10 (fine-tuning) trên bộ dữ
+liệu Helmet Safety Detection. Để tránh sự nhầm lẫn, phần này sẽ được thực hiện ở một file colab
+khác so với phần trước. 

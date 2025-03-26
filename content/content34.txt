@@ -1,7 +1,11 @@
-Node ID: 4b9cab97-31b5-415c-b8fb-15eca2f36d4d
-Text: AI VIET NAM – AI COURSE 2024 Kiểm tra tuân thủ đội mũ bảo vệ với
-YOLOv10 Dinh-Thang Duong, Quang-Vinh Dinh Ngày 22 tháng 6 năm 2024 I.
-Giới thiệu Object Detection (Tạm dịch: Phát hiện đối tượng)là một bài
-toán cổ điển thuộc lĩnh vực Computer Vision. Mục tiêu của bài toán này
-là tự động xác định vị trí của các đối tượng trong một tấm ảnh. Đây là
-...
+AI VIET NAM – AI COURSE 2024
+Kiểm tra tuân thủ đội mũ bảo vệ với YOLOv10
+Dinh-Thang Duong, Quang-Vinh Dinh
+Ngày 22 tháng 6 năm 2024
+I. Giới thiệu
+Object Detection (Tạm dịch: Phát hiện đối tượng)là một bài toán cổ điển thuộc lĩnh
+vực Computer Vision. Mục tiêu của bài toán này là tự động xác định vị trí của các đối tượng
+trong một tấm ảnh. Đây là một trong những bài toán quan trọng và phức tạp trong Computer
+Vision, với ứng dụng rộng rãi từ nhận diện khuôn mặt, nhận dạng biển số xe, đến theo dõi đối
+tượng trong video và tự động lái xe.
+Hình 1: Chương trình phát hiện đối tượng có mang mũ bảo hiểm.

@@ -1,7 +1,21 @@
-Node ID: dc34a49a-04c9-4faa-ad4b-f3e372412979
-Text: AI VIETNAM aivietnam.edu.vn ChatGPT (Chat Generative Pre-
-Training Transformer)là mô hình chatbot được phát triển bởi OpenAI ra
-mắt vào tháng 11 năm 2022. ChatGPT được xây dựng dựa trên việc tinh
-chỉnh mô hình ngôn ngữ lớn (Large Language Model) kết hợp với học tăng
-cường dựa trên phản hồi của con người (Reinforcement Learning with
-Human Feedback...
+AI VIETNAM aivietnam.edu.vn
+ChatGPT (Chat Generative Pre-Training Transformer)là mô hình chatbot được phát triển
+bởi OpenAI ra mắt vào tháng 11 năm 2022. ChatGPT được xây dựng dựa trên việc tinh chỉnh mô hình
+ngôn ngữ lớn (Large Language Model) kết hợp với học tăng cường dựa trên phản hồi của con người
+(Reinforcement Learning with Human Feedback).
+ChatGPT có thể giải quyết nhiều bài toán khác nhau trong xử lý tự nhiên như: phân loại văn bản
+(Text Classification), bài toán dịch máy (Machine Translation), bài toán hỏi đáp (Question Answering),
+bài toán tóm tắt văn bản (Text Summarization),... Từ các bài toán gốc cơ bản này, ChatGPT được
+triển khai cho nhiều lĩnh vực khác nhau: giáo dục, sáng tạo nội dung, chăm sóc sức khoẻ,...
+Mô hình ChatGPT còn có khả năng tương thích, tối ưu cho bài toán cụ thể trong quá trình dự
+đoán (Inference - đưa ra phản hồi cho các bài toán) thông qua phương pháp học tập trong ngữ cảnh
+(In-Content Learning). Phương pháp học tập trong ngữ cảnh được xây dựng thông qua cácprompt,
+được hiểu là các dữ liệu đầu vào với mục tiêu hướng dẫn hoặc mô tả chi tiết cho bài toán giúp ChatGPT
+có thể xác định được bài toán cần xử lý và tối ưu miền xử lý, nhờ đó ChatGPT có thể cho kết quả tốt
+hơn.
+(a) Zero-shot: Đưa ra câu trả lời chỉ dựa vào mô tả của bài toán
+(b) One-shot: Đưa ra câu trả lời dựa vào mô tả bài toán và một ví dụ mẫu cho bài toán
+(c) One-shot: Đưa ra câu trả lời dựa vào mô tả bài toán và một vài ví dụ mẫu cho bài toán
+Một trong những kỹ thuật giúp cho mô hình ngôn ngữ đạt kết quả tốt là cải tiến các mô hình
+này dựa vào học tăng cường từ phản hồi của người dùng (RLHF - Reinforcement learning from human
+feedback). 

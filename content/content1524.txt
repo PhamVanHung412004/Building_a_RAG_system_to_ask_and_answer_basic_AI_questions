@@ -1,7 +1,25 @@
-Node ID: 7d91d863-3fbb-4b9a-a647-af00bba3fbb6
-Text: shape [1]) 8 9 return action 6. Khai báo một số siêu tham số cần
-thiết: 1 n_training_episodes = 30000 2 n_eval_episodes = 100 3 lr =
-0.7 4 5 max_steps = 99 6 gamma = 0.95 7 eval_seed = range (
-n_eval_episodes ) 8 9 max_epsilon = 1.0 10 min_epsilon = 0.05 11
-decay_rate = 0.0005 7. Xây dựng hàm training: 1 def train ( 2 env , 3
-max_steps , 4 q_tab...
+shape [1])
+8
+9 return action
+6. Khai báo một số siêu tham số cần thiết:
+1 n_training_episodes = 30000
+2 n_eval_episodes = 100
+3 lr = 0.7
+4
+5 max_steps = 99
+6 gamma = 0.95
+7 eval_seed = range ( n_eval_episodes )
+8
+9 max_epsilon = 1.0
+10 min_epsilon = 0.05
+11 decay_rate = 0.0005
+7. Xây dựng hàm training:
+1 def train (
+2 env ,
+3 max_steps ,
+4 q_table ,
+5 n_training_episodes ,
+6 min_epsilon ,
+7 max_epsilon ,
+8 decay_rate ,
+7

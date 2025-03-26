@@ -1,7 +1,19 @@
-Node ID: dc3321c3-4140-4398-8695-869b2d5a8063
-Text: Xét đoạn code dưới đây: 1 from langchain_community .
-document_loaders import PyPDFLoader 2 3 pdf_loader = PyPDFLoader (url
-, extract_images = True ) 4 5 docs = pdf_loader . load () Tham
-sốextract_images tại dòng code 3 có chức năng gì? (a) Trả về tất cả
-ảnh từ file pdf. (b) Bỏ qua ảnh, chỉ load text. (c) Phân tích ảnh
-thành vector. (d) Chuyển đổ...
+Xét đoạn code dưới đây:
+1 from langchain_community . document_loaders import PyPDFLoader
+2
+3 pdf_loader = PyPDFLoader (url , extract_images = True )
+4
+5 docs = pdf_loader . load ()
+Tham sốextract_images tại dòng code 3 có chức năng gì?
+(a) Trả về tất cả ảnh từ file pdf.
+(b) Bỏ qua ảnh, chỉ load text.
+(c) Phân tích ảnh thành vector.
+(d) Chuyển đổi ảnh trong file pdf thành text.
+9. Tại sao chúng ta cần phải chia nhỏ các tài liệu đầu vào thành các tài liệu ngắn hơn? Chọn câu
+trả lờiSAI.
+(a) Giúp LLM tập trung tạo ra câu trả lời chỉ dựa trên các thông tin có liên quan.
+(b) Tiết kiệm bộ nhớ cho phần cứng.
+(c) Chỉ dựa vào một phần nhỏ tài liệu thì mô hình vẫn trả lời chính xác.
+(d) Giúp mô hình LLM chạy nhanh hơn.
+10. Xét đoạn code dưới đây:
+14

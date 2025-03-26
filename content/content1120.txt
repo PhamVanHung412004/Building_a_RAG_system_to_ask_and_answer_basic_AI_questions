@@ -1,3 +1,4 @@
-Node ID: a68a1f82-b48b-4e57-9fe5-0476d3f9c74a
-Text: com /THU - MIG / yolov10 . git 2 %cd yolov10 3 ! pip install -q
--r requirements . txt 4 ! pip install -e .
+com /THU - MIG / yolov10 . git
+2 %cd yolov10
+3 ! pip install -q -r requirements . txt
+4 ! pip install -e .

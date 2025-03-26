@@ -1,4 +1,5 @@
-Node ID: c6f8fa0c-d56e-4238-b7ed-1098856bbf2d
-Text: 2 trainer = MambaTrainer( 3 model=model, # Model cần train 4
-train_dataset=train_dataset, # Dữ liệu train 5
-eval_dataset=eval_dataset, # Dữ liệu đánh giá 8
+2 trainer = MambaTrainer(
+3 model=model, # Model cần train
+4 train_dataset=train_dataset, # Dữ liệu train
+5 eval_dataset=eval_dataset, # Dữ liệu đánh giá
+8

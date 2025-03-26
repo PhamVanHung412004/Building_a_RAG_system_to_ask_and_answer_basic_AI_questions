@@ -1,7 +1,17 @@
-Node ID: f8709410-cb53-4d1c-bec0-8369a9543609
-Text: Sau đó xác định ví dụ tham chiếu cho từng dòng đầu vào và điều
-chỉnh ánh xạ offset để loại bỏ các offset không phù hợp với
-sequence_ids. Cuối cùng là thêm thông tin về ví dụ tham chiếu vào đầu
-vào. 1 def preprocess_validation_examples(examples): 2 # Chuẩn bị danh
-sách câu hỏi bằng cách 3 # loại bỏ khoảng trắng ở đầu và cuối mỗi câu
-hỏi 4 questio...
+Sau
+đó xác định ví dụ tham chiếu cho từng dòng đầu vào và điều chỉnh ánh xạ offset để loại
+bỏ các offset không phù hợp với sequence_ids. Cuối cùng là thêm thông tin về ví dụ
+tham chiếu vào đầu vào.
+1 def preprocess_validation_examples(examples):
+2 # Chuẩn bị danh sách câu hỏi bằng cách
+3 # loại bỏ khoảng trắng ở đầu và cuối mỗi câu hỏi
+4 questions = [q.strip() for q in examples["question"]]
+5
+6 # Sử dụng tokenizer để mã hóa các câu hỏi và văn bản liên quan
+7 inputs = tokenizer(
+8 questions,
+9 examples["context"],
+10 max_length=MAX_LENGTH,
+11 truncation="only_second",
+12 stride=STRIDE,
+6

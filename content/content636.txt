@@ -1,7 +1,36 @@
-Node ID: 96ab3925-0723-474a-81c7-50e8718f6ecb
-Text: array ([5 ,6 ,7 ,8]) 7 8 print (’data x \n’, x) 9 print (’data y
-\n’, y) 10 11 # Addition between the two vectors 12 print (’x + y =
-\n’, x + y) 13 14 # Subtration between the two vectors 15 print (’x -
-y = \n’, x - y) ================= Output ================ data x [1 2
-3 4] data y [5 6 7 8] x + y = [ 6 8 10 12] x - y = [ -4 -4 -4 -4]
-========...
+array ([5 ,6 ,7 ,8])
+7
+8 print (’data x \n’, x)
+9 print (’data y \n’, y)
+10
+11 # Addition between the two vectors
+12 print (’x + y = \n’, x + y)
+13
+14 # Subtration between the two vectors
+15 print (’x - y = \n’, x - y)
+================= Output ================
+data x
+[1 2 3 4]
+data y
+[5 6 7 8]
+x + y =
+[ 6 8 10 12]
+x - y =
+[ -4 -4 -4 -4]
+==========================================
+Câu 3: Nhân (Hadamard) và chia giữa hai vector
+1 # Python code ( aivietnam )
+2 import numpy as np
+3
+4 x = np. array ([1 ,2 ,3 ,4])
+5 y = np. array ([5 ,6 ,7 ,8])
+6
+7 print (’data x \n’, x)
+8 print (’data y \n’, y)
+9
+10 # Hadamard product between the two vectors
+11 print (’x * y = \n’, x*y)
+12
+13 # Division between the two vectors
+14 print (’x / y = \n’, x/y)
+19

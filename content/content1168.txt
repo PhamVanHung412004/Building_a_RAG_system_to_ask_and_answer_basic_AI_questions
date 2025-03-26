@@ -1,4 +1,6 @@
-Node ID: 23dd2e00-9ccb-4358-bd3c-babbafd5cc6f
-Text: proj_out = zero_module (nn. Conv1d ( channels , channels , 1))
-232 233 def forward (self , x): 234 return checkpoint ( self .
-_forward , (x ,) , self . parameters () , True ) 235 13
+proj_out = zero_module (nn. Conv1d ( channels , channels , 1))
+232
+233 def forward (self , x):
+234 return checkpoint ( self . _forward , (x ,) , self . parameters () , True )
+235
+13

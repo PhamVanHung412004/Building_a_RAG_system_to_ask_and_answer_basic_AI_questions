@@ -1,7 +1,11 @@
-Node ID: b00cbf9b-6c2b-4a89-8e02-d1bad9338f7b
-Text: Hình 11: Kiến trúc Swin-UMamba. Nhìn vào hình 11 ta thấy phần
-Encoder được sử dụng theo kiến trúc Swin Transformer với các Visual
-State Space (VSS) block tương tự bài paper Visual Mamba (VMamba).
-Chính vì tận dụng kiến trúc Encoder như VMamba như thế, ta có thể tận
-dụng pretrained VMamba để khởi tạo. Đối với phần Decoder, các tác giả
-đã thiết kế...
+Hình 11: Kiến trúc Swin-UMamba.
+Nhìn vào hình 11 ta thấy phần Encoder được sử dụng theo kiến trúc Swin Transformer với các Visual
+State Space (VSS) block tương tự bài paper Visual Mamba (VMamba). Chính vì tận dụng kiến trúc
+Encoder như VMamba như thế, ta có thể tận dụng pretrained VMamba để khởi tạo. Đối với phần
+Decoder, các tác giả đã thiết kế đơn giản như những model U-Net truyền thống: Transpose Convolution
++ Skip-Connection.
+Hình 12 mô tả kết quả của Swin-UMamba và các model Transformer-, Mamba-based khác. Ta thấy khi
+sử dụng pretrained model từ VMamba thì performance đã tăng từ4->6%. Swin-UMamba dù sử dụng
+ít số lượng parameter hơn so với U-Mamba≈30->40\% nhưng vẫn cho kết quả cao hơn. Về tổng quát,
+Swin-UMamba vượt trội hoàn toàn so với các model CNN, Transformer, và các model Mamba trước đó.
+9

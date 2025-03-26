@@ -1,7 +1,14 @@
-Node ID: 6ab90451-c5e7-4921-ae57-d8c87ff40c15
-Text: messages . append ({" role ": " user ", " content ": prompt })
-13 with st. chat_message (" user "): 14 st. write ( prompt ) 15 16 #
-Generate a new response if last message is not from assistant 17 if
-st. session_state . messages [ -1][ " role "] != " assistant ": 18
-with st. chat_message (" assistant "): 19 with st. spinner (" Thinking
-... "): 2...
+messages . append ({" role ": " user ", " content ": prompt })
+13 with st. chat_message (" user "):
+14 st. write ( prompt )
+15
+16 # Generate a new response if last message is not from assistant
+17 if st. session_state . messages [ -1][ " role "] != " assistant ":
+18 with st. chat_message (" assistant "):
+19 with st. spinner (" Thinking ... "):
+20 response = generate_response ( prompt , hf_email , hf_pass )
+21 st. write ( response )
+22 message = {" role ": " assistant ", " content ": response }
+23 st. session_state . messages . append ( message )
+24
+8

@@ -1,7 +1,9 @@
-Node ID: 0b7b62f3-75db-4862-8ae8-179f72b4a1ec
-Text: Biến có kiểu dữ liệu làDatasetDict, một kiểu dữ liệu riêng biệt
-của thư viện datasets 6. Xây dựng bộ dữ liệu fine-tuning:Với bộ dữ
-liệu đã tải, chúng ta sẽ sử dụng để thực hiện fine-tuning mô hình, tức
-sẽ huấn luyện cho mô hình học thêm các dữ liệu từ bộ dữ liệu mới này.
-Các bước làm như sau: (a) Xây dựng hàm tạo prompt:Trong trường hợp
-huấn luy...
+Biến có kiểu dữ liệu làDatasetDict, một kiểu dữ liệu riêng biệt của thư
+viện datasets
+6. Xây dựng bộ dữ liệu fine-tuning:Với bộ dữ liệu đã tải, chúng ta sẽ sử dụng để thực hiện
+fine-tuning mô hình, tức sẽ huấn luyện cho mô hình học thêm các dữ liệu từ bộ dữ liệu mới này.
+Các bước làm như sau:
+(a) Xây dựng hàm tạo prompt:Trong trường hợp huấn luyện VinaLLaMA, chúng ta cần
+thay đổi dữ liệu vào đúng format prompt như ở phần trước. Nhận thấy trong format prompt,
+ô user sẽ nhận input của người dùng, ứng với trường "prompt"của bộ dữ liệu. Ô assistant
+6

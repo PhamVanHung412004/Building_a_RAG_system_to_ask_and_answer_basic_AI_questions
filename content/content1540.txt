@@ -1,7 +1,10 @@
-Node ID: 18659d64-8cfd-4cfa-b554-613b862ceca3
-Text: AI VIETNAM aivietnam.edu.vn Phần III: Câu hỏi trắc nghiệm 1.
-Trong Reinforcement Learning, mục tiêu của tác tử là? (a) Tối ưu điểm
-thưởng nhận được tại mỗi trạng thái. (b) Tối ưu điểm thưởng tích lũy
-kỳ vọng. (c) Tối ưu thời gian hoàn thành mục tiêu. (d) Tối ưu tiền
-thưởng nhận được trong trò chơi. 2. Theo Reinforcement Learning
-Framework, sau k...
+AI VIETNAM aivietnam.edu.vn
+Phần III: Câu hỏi trắc nghiệm
+1. Trong Reinforcement Learning, mục tiêu của tác tử là?
+(a) Tối ưu điểm thưởng nhận được tại mỗi trạng thái.
+(b) Tối ưu điểm thưởng tích lũy kỳ vọng.
+(c) Tối ưu thời gian hoàn thành mục tiêu.
+(d) Tối ưu tiền thưởng nhận được trong trò chơi.
+2. Theo Reinforcement Learning Framework, sau khi tác tử thực hiện hành độngAt, môi trường sẽ
+trả lại cho tác tử những gì?
+(a) Điểm thưởngRt và Trạng tháiSt.

@@ -1,4 +1,6 @@
-Node ID: cf7da8ba-b269-4d2f-90f1-e8036e793dc4
-Text: AI VIETNAM aivietnam.edu.vn 25 for original_gray , gray , color
-in tqdm ( self . train_loader ): 26 cond_gray = gray .to( self .
-device ) 27 gt_color = color .to( self . device ) 28 29 self .
+AI VIETNAM aivietnam.edu.vn
+25 for original_gray , gray , color in tqdm ( self . train_loader ):
+26 cond_gray = gray .to( self . device )
+27 gt_color = color .to( self . device )
+28
+29 self . 

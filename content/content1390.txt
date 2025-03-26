@@ -1,7 +1,50 @@
-Node ID: 1914c778-4735-4d39-a124-d45792d4e192
-Text: num_heads = num_heads 375 self . num_head_channels =
-num_head_channels 376 self . num_heads_upsample = num_heads_upsample
-377 378 cond_embed_dim = inner_channel * 4 379 self . cond_embed = nn.
-Sequential ( 380 nn. Linear ( inner_channel , cond_embed_dim ), 381
-SiLU () , 382 nn. Linear ( cond_embed_dim , cond_embed_dim ), 383 )
-384 385 ch = input...
+num_heads = num_heads
+375 self . num_head_channels = num_head_channels
+376 self . num_heads_upsample = num_heads_upsample
+377
+378 cond_embed_dim = inner_channel * 4
+379 self . cond_embed = nn. Sequential (
+380 nn. Linear ( inner_channel , cond_embed_dim ),
+381 SiLU () ,
+382 nn. Linear ( cond_embed_dim , cond_embed_dim ),
+383 )
+384
+385 ch = input_ch = int ( channel_mults [0] * inner_channel )
+386 self . input_blocks = nn. ModuleList (
+387 [ EmbedSequential (nn. Conv2d ( in_channel , ch , 3, padding =1) )]
+388 )
+389 self . _feature_size = ch
+390 input_block_chans = [ch]
+391 ds = 1
+392 for level , mult in enumerate ( channel_mults ):
+393 for _ in range ( res_blocks ):
+394 layers = [
+395 ResBlock (
+396 ch ,
+397 cond_embed_dim ,
+398 dropout ,
+399 out_channel = int ( mult * inner_channel ),
+400 use_checkpoint = use_checkpoint ,
+401 use_scale_shift_norm = use_scale_shift_norm ,
+402 )
+403 ]
+404 ch = int ( mult * inner_channel )
+405 if ds in attn_res :
+406 layers . append (
+407 AttentionBlock (
+408 ch ,
+409 use_checkpoint = use_checkpoint ,
+410 num_heads = num_heads ,
+411 num_head_channels = num_head_channels ,
+412 use_new_attention_order = use_new_attention_order ,
+413 )
+414 )
+415 self . input_blocks . append ( EmbedSequential (* layers ))
+416 self . _feature_size += ch
+417 input_block_chans . append (ch)
+418 if level != len ( channel_mults ) - 1:
+419 out_ch = ch
+420 self . input_blocks . append (
+421 EmbedSequential (
+422 ResBlock (
+14

@@ -1,7 +1,48 @@
-Node ID: a54f6be5-6ec9-423f-a8d4-492b7c08c50f
-Text: AIO 2024 aivietnam.edu.vn 1 # Numpy code 2 import numpy as np 3
-# Tạo hai array 2D 4 arr_1 = np.array([[1, 2, 3], 5 [4, 5, 6]]) 6
-arr_2 = np.array([[7, 8, 9], 7 [10, 11, 12]]) 8 # Nối hai array theo
-chiều dọc axis = 0 9 arr_3 = np.concatenate((arr_1, arr_2), axis=0) 10
-# Nối hai array theo chiều ngang axis = 1 11 arr_4 =
-np.concatenate((arr_1, a...
+AIO 2024 aivietnam.edu.vn
+1 # Numpy code
+2 import numpy as np
+3 # Tạo hai array 2D
+4 arr_1 = np.array([[1, 2, 3],
+5 [4, 5, 6]])
+6 arr_2 = np.array([[7, 8, 9],
+7 [10, 11, 12]])
+8 # Nối hai array theo chiều dọc axis = 0
+9 arr_3 = np.concatenate((arr_1, arr_2),
+axis=0)
+10 # Nối hai array theo chiều ngang axis = 1
+11 arr_4 = np.concatenate((arr_1, arr_2),
+axis=1)
+12 # In kết quả
+13 print("Array 1:\n", arr_1)
+14 print("Array 2:\n", arr_2)
+15 print("Nối theo chiều dọc (axis=0):\n",
+arr_3)
+16 print("Nối theo chiều ngang (axis=1):\n",
+arr_4)
+================= Output ================
+Array 1:
+[[1 2 3]
+[4 5 6]]
+Array 2:
+[[ 7 8 9]
+[10 11 12]]
+Nối theo chiều dọc (axis=0):
+[[ 1 2 3]
+[ 4 5 6]
+[ 7 8 9]
+[10 11 12]]
+Nối theo chiều ngang (axis=1):
+[[ 1 2 3 7 8 9]
+[ 4 5 6 10 11 12]]
+==========================================
+Trong chương trình trên ta sử dụngnp.concatenate để nối hai array theo chiều dọc (axis=0) và chiều
+ngang (axis=1). Trong đóarr_1 và arr_2là hai array 2D được tạo bằng NumPy. Tiếp theo,arr_3
+được tạo bằng cách nốiarr_1 và arr_2 theo chiều dọc (axis=0), nghĩa là nối theo hàng. Cuối cùng
+arr_4 được tạo bằng cách nốiarr_1 và arr_2 theo chiều ngang (axis=1), nghĩa là nối theo cột.
+Khi sử dụng concatenate các bạn cần lưu ý, đối với việc nối hai array, tensor 1D theo chiều 1 sẽ gặp lỗi,
+lí do là vì các array, tensor 1D chỉ có 1 chiều là chiều 0. Chính vì vậy mầ ta cần chuyển đổi chúng sang
+dạng 2D trước khi nối chúng lại theo chiều 1. Một lựa chọn dễ dàng hơn là sử dụng vstack.
+5 Các phương pháp thay đổi chiều của mảng
+5.1 Slicing, expand_dims
+Khi thực hiện tính toán với array, tensor, chúng ta sẽ thường xuyên phải điều chỉnh số chiều của chúng.
+Để thêm một chiều mới, chúng ta sử dụngnewaxis hoặc expand_dims.

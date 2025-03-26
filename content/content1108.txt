@@ -1,7 +1,12 @@
-Node ID: f978e3df-15f5-43cc-8dab-1a17cd5b5193
-Text: AI VIETNAM (AIO2024) aivietnam.edu.vn Hình 12: Minh họa về phép
-depth-wise convolution và point-wise convolution để thay thế phép
-convolution thông thường. Ảnh: link. - Rank-guided block design: Quan
-sát YOLOv8, tác giả nhận thấy toàn bộ các stage trong kiến trúc đều sử
-dụng chung một building block. Tuy nhiên, thông qua việc tính
-intrinsic rank...
+AI VIETNAM (AIO2024) aivietnam.edu.vn
+Hình 12: Minh họa về phép depth-wise convolution và point-wise convolution để thay thế phép
+convolution thông thường. Ảnh: link.
+- Rank-guided block design: Quan sát YOLOv8, tác giả nhận thấy toàn bộ các
+stage trong kiến trúc đều sử dụng chung một building block. Tuy nhiên, thông qua
+việc tính intrinsic rank của mỗi stage, tác giả chỉ ra rằng ở các stage gần cuối có sự
+dư thừa (redundancy) về mặt tham số lớn, dẫn đến sự không tối ưu về chi phí tính
+toán và lưu trữ. Vì vậy, để khắc phục, nhóm tác giả áp dụng chiến lược: duyệt qua
+các stage trong một mô hình theo thứ tự tăng dần về intrinsic rank, thực hiện thay
+thế basic block bằng một block được đề xuất là Compact Inverted Block (CIB). Các
+bạn có thể quan sát thành phần của block này ở ảnh dưới đây:
+Hình 13: Minh họa cấu trúc của Compact Inverted Block (CIB). Ảnh: [10].

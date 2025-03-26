@@ -1,7 +1,13 @@
-Node ID: 77b1ca2b-9576-4968-b2da-296d28b20b39
-Text: AI VIETNAM (AIO2024) aivietnam.edu.vn IV. Cài đặt chương trình
-và đánh giá Trong phần này, nhóm sẽ trình bày cách cài đặt, sử dụng và
-huấn luyện YOLOv10 trên bộ dữ liệu mới. Đồng thời, nhóm cũng thực hiện
-một thực nghiệm nhỏ nhằm so sánh hiệu suất của YOLOv10 so với hai
-phiên bản gần nhất là YOLOv8 và YOLOv9. Môi trường lập trình nhóm sử
-dụng là...
+AI VIETNAM (AIO2024) aivietnam.edu.vn
+IV. Cài đặt chương trình và đánh giá
+Trong phần này, nhóm sẽ trình bày cách cài đặt, sử dụng và huấn luyện YOLOv10 trên bộ dữ
+liệu mới. Đồng thời, nhóm cũng thực hiện một thực nghiệm nhỏ nhằm so sánh hiệu suất của
+YOLOv10 so với hai phiên bản gần nhất là YOLOv8 và YOLOv9. Môi trường lập trình nhóm
+sử dụng là Google Colab.
+IV.I. Cài đặt và sử dụng pre-trained model
+Một cách nhanh chóng để sử dụng được YOLOv10 đó là sử dụng pre-trained model (mô hình đã
+được huấn luyện sẵn trên bộ dữ liệu COCO - một bộ dữ liệu rất lớn). Để sử dụng pre-trained
+model, các bạn làm như sau:
+1. Cài đặt các thư viện cần thiết:Tải về mã nguồn của YOLOv10 và cài đặt các thư
+viện trong file requirements.txt bằng các chạy đoạn code sau:
+1 ! git clone https :// github . 

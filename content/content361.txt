@@ -1,5 +1,7 @@
-Node ID: 0634d3d7-caf1-42d9-b286-bddb489df91b
-Text: __init__ () 4 self . resnet = resnet18 ( pretrained = True ) 5
-self . resnet . conv1 = nn. Conv2d ( 6 num_input_channel , 64 ,
-kernel_size =7 , stride =2 , padding =3 , bias = False 7 ) 8 self .
-resnet .fc = nn. Sequential (nn. Linear ( self .
+__init__ ()
+4 self . resnet = resnet18 ( pretrained = True )
+5 self . resnet . conv1 = nn. Conv2d (
+6 num_input_channel , 64 , kernel_size =7 , stride =2 , padding =3 ,
+bias = False
+7 )
+8 self . resnet .fc = nn. Sequential (nn. Linear ( self . 

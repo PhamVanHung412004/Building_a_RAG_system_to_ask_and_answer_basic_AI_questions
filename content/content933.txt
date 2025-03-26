@@ -1,7 +1,7 @@
-Node ID: 56861fe4-64b1-49c1-a2b7-45608c929e0b
-Text: AI VIETNAM aivietnam.edu.vn 18 Synthetic Prompting Bài báo
-"Synthetic Prompting: Generating Chain-of-Thought Demonstrations for
-Large Language Models" Shao et al., 2023, khám phá ý tưởng sử dụng kỹ
-thuật chain-of-thought (CoT) để hướng dẫn các mô hình ngôn ngữ lớn
-(LLMs) giải quyết các nhiệm vụ suy luận khác nhau. Ý tưởng chính là
-LLMs có thể tì...
+AI VIETNAM aivietnam.edu.vn
+18 Synthetic Prompting
+Bài báo "Synthetic Prompting: Generating Chain-of-Thought Demonstrations for Large Language
+Models" Shao et al., 2023, khám phá ý tưởng sử dụng kỹ thuật chain-of-thought (CoT) để hướng
+dẫn các mô hình ngôn ngữ lớn (LLMs) giải quyết các nhiệm vụ suy luận khác nhau. Ý tưởng chính
+là LLMs có thể tìm ra câu trả lời tốt hơn bằng cách theo dõi một loạt các bước giải thích từng
+bước. 

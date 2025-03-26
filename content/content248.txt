@@ -1,7 +1,8 @@
-Node ID: 80f3e6fd-06ca-4e47-85b9-8fd2f47bb8b5
-Text: Ta tính gain của các thuộc tính Trung bình để tìm gain lớn nhất,
-với cách tính là xét các giá trị bé hơn trung bình đang xét và các giá
-trị lớn hơn trung bình. Hình 8: Minh hoạ Tree Data liên tục Như vậy ta
-tính gain lần lượt của 0.95, 1.1, 1.25, 1.5, 1.75 và có kết quả là
-gain của 1.1 sẽ là lớn nhất, ta chọn điều kiện <=1.1 làm nút gốc. Tính
-tư...
+Ta tính gain của các thuộc tính Trung bình để tìm gain lớn nhất, với cách tính là xét
+các giá trị bé hơn trung bình đang xét và các giá trị lớn hơn trung bình.
+Hình 8: Minh hoạ Tree Data liên tục
+Như vậy ta tính gain lần lượt của 0.95, 1.1, 1.25, 1.5, 1.75 và có kết quả là gain của 1.1
+sẽ là lớn nhất, ta chọn điều kiện <=1.1 làm nút gốc.
+Tính tương tự như ví dụ tính cây bằng biến rời rạc, ta được một sơ đồ cây cho biến liên
+tục như sau.
+10

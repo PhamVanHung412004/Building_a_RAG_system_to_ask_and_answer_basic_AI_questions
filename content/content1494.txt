@@ -1,2 +1,2 @@
-Node ID: b2045b17-b539-4bad-be25-682ed37b3cca
-Text: Conv2d ): 44 nn.
+Conv2d ):
+44 nn. 

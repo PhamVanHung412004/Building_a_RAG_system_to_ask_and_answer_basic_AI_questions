@@ -1,7 +1,25 @@
-Node ID: 6d2f74c5-564f-490d-a036-8aea5e99f025
-Text: AI VIETNAM aivietnam.edu.vn 13 # train : valid split 14
-num_train = 150000 15 train_imgpaths = img_paths [: num_train ] 16
-val_imgpaths = img_paths [ num_train :] 17 18 # generate mask image 19
-def bbox2mask ( img_shape , bbox , dtype =’uint8 ’): 20 """ 21
-Generate mask in ndarray from bbox . 22 bbox ( tuple [ int ]):
-Configuration tuple , (top ...
+AI VIETNAM aivietnam.edu.vn
+13 # train : valid split
+14 num_train = 150000
+15 train_imgpaths = img_paths [: num_train ]
+16 val_imgpaths = img_paths [ num_train :]
+17
+18 # generate mask image
+19 def bbox2mask ( img_shape , bbox , dtype =’uint8 ’):
+20 """
+21 Generate mask in ndarray from bbox .
+22 bbox ( tuple [ int ]): Configuration tuple , (top , left , height , width )
+23 """
+24
+25 height , width = img_shape [:2]
+26
+27 mask = np. zeros (( height , width , 1) , dtype = dtype )
+28 mask [ bbox [0]: bbox [0] + bbox [2] , bbox [1]: bbox [1] + bbox [3] , :] = 1
+29
+30 return mask
+31
+32 # build dataset
+33 class InpaintingDataset ():
+34 def __init__ (self , img_paths , mask_mode , image_size =[256 , 256]) :
+35 self . img_paths = img_paths
+36 self . 

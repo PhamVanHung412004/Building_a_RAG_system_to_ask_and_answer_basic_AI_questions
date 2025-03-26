@@ -1,7 +1,23 @@
-Node ID: 1ac07114-bc84-4a10-89d2-b4210e354ded
-Text: Cách cài đặt như sau: 1. Cài đặt thư viện PygWalker: + Để cài
-đặt thư PygWalker, chúng ta sử dụng câu lệnh sau ở Google Colab: 1
-!pip install pygwalker + Để cài thư viện trên máy cá nhân và chạy với
-Jupyter Notebook, chúng ta sẽ chạy thông qua Terminal đối với hệ điều
-hành MacOS và CMD đối với hệ điều hành Windows thông qua lệnh sau: 1
-pip insta...
+Cách cài đặt như sau:
+1. Cài đặt thư viện PygWalker:
++ Để cài đặt thư PygWalker, chúng ta sử dụng câu lệnh sau ở Google Colab:
+1 !pip install pygwalker
++ Để cài thư viện trên máy cá nhân và chạy với Jupyter Notebook, chúng ta
+sẽ chạy thông qua Terminal đối với hệ điều hành MacOS và CMD đối với hệ
+điều hành Windows thông qua lệnh sau:
+1 pip install pandas
+2 pip install pygwalker
+Hình 1: Cài đặt PygWalker
++ Sau khi cài xong chúng ta khởi động jupyter notebook tại thư mục chứa
+project của chúng ta để sử dụng, thông qua lệnh sau:
+1 jupyter notebook
+Hình 2: Khởi chạy Jupyter Notebook
++ Để khởi động thư viện PygWalker trong Colab/Jupyter Notebook, trước tiên
+ta cần phải có dataset để thư viện có thể trực quan hóa dữ liệu. Sau khi
+chúng ta đã có data, để khởi tạo thư viện PygWalker như sau:
+1 import pygwalker as pyg
+2 import pandas as pd
+3 # FILE_PATH: đường dẫn tới tập tin CSV
+4 data = pd.read_csv(FILE_PATH)
+5 pyg.walk(data)
+www.facebook.com/aivietnam.edu.vn 2

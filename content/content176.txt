@@ -1,7 +1,40 @@
-Node ID: 2fd68d0e-0574-428d-95bc-76f76c47b29e
-Text: Chỉ là hai hướng ngược nhau. Mở rộng sang N-dim Ito-interpreted
-SDEs bao gồm một vector x và vector noiseη(t). Reversed process cho
-N-dim có dạng: ˙x = −f(x, T− t) + g(T − t)2 ∇x log p(x, T− t) + g(T −
-t) η(t) . (47) Phần này chúng ta đã xác định reversed process của một
-stochastics process do một loại phương trình vi phân ngẫu nhiên điều
-khiển....
+Chỉ là hai hướng ngược nhau.
+Mở rộng sang N-dim Ito-interpreted SDEs bao gồm một vector x và vector noiseη(t). Reversed
+process cho N-dim có dạng:
+˙x = −f(x, T− t) + g(T − t)2 ∇x log p(x, T− t) + g(T − t) η(t) . (47)
+Phần này chúng ta đã xác định reversed process của một stochastics process do một loại phương
+trình vi phân ngẫu nhiên điều khiển.
+Bây giờ chúng ta sẽ chứng minh mối quan hệ giữa forward và reverse process trên:
+q(x, t) = p(x, T− t)
+Áp dụng kiến thức về lý thuyết xác suất vào phương trình Fokker-Planck (FPE). Ta có Forward
+process được xác định bởi:
+∂p(x, t)
+∂t = −∇ ·[ f(x, t)p(x, t) ] + ∇2
+ g(x, t)2
+2 p(x, t)
+
+= −∇ ·
+
+f(x, t)p(x, t) − ∇
+ g(x, t)2
+2 p(x, t)
+ 
+.
+(48)
+Giả sửp(x, t) là phân phối xác suất của forward process với điều kiện ban đầup(x, 0) = p0(x). Xác
+định FPE cho reversed process bằng cách thay t bằngT − t trong FPE cho forward process.
+∂q(x, t)
+∂t = −∇ ·
+
+f(x, T− t)q(x, t) − ∇
+ g(x, T− t)2
+2 q(x, t)
+ 
+(49)
+Điều này giống với FPE cho forward process, chỉ là chúng ta thay đổi thời gian từt thành T −t. Vì
+p(x, 0) = p0(x), giả sử rằngq(x, T) sẽ là phân phối xác suất của quá trình đảo ngược.
+Để xác định mối quan hệ này chính xác, cần áp dụng điều kiện biên phù hợp choq(x, t) tại t = T.
+Điều này có thể được thực hiện thông qua điều kiện biên hoặc điều kiện khởi tạo phù hợp.
+Dựa vào đối số điều kiện biên và điều kiện khởi tạo, có thể chứng minh được mối quan hệ trên. (Để
+chứng minh cụ thể hơn còn phải phụ thuộc vào chi tiết bài toán cụ thể).
+21

@@ -1,7 +1,12 @@
-Node ID: c78c197f-73bf-4daa-86bc-f2403a5cef93
-Text: AI VIETNAM aivietnam.edu.vn Hình 4: Nearest neighbor search bằng
-KD-Tree và Octree. a) KD-Tree KNN với k = 200, b) KD-Tree Radius với
-radius = 0.02, c) Octree với max depth = 4. - Không hiệu quả bằng cây
-KD với dữ liệu điểm phân bố đều. 1 def kd_tree_nearest_neighbor_knn
-(pcd , point_index = 5, number_of_neighbor = 200) : 2 pcd .
-paint_uniform_c...
+AI VIETNAM aivietnam.edu.vn
+Hình 4: Nearest neighbor search bằng KD-Tree và Octree. a) KD-Tree KNN với k = 200, b) KD-Tree
+Radius với radius = 0.02, c) Octree với max depth = 4.
+- Không hiệu quả bằng cây KD với dữ liệu điểm phân bố đều.
+1 def kd_tree_nearest_neighbor_knn (pcd , point_index = 5, number_of_neighbor = 200) :
+2 pcd . paint_uniform_color ([0.5 , 0.5 , 0.5])
+3 pcd_tree = o3d . geometry . KDTreeFlann ( pcd )
+4 pcd . colors [ point_index ] = [1 , 0, 0]
+5 [k, idx , _] = pcd_tree . search_knn_vector_3d ( pcd . points [ point_index ],
+number_of_neighbor )
+6 np. asarray ( pcd . colors )[ idx [1:] , :] = [0 , 0, 1]
+7 o3d . 

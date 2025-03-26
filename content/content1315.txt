@@ -1,7 +1,42 @@
-Node ID: f39141d3-53b6-424e-9794-2d529557cef5
-Text: AI VIETNAM aivietnam.edu.vn 29 preprocess_function , 30 batched
-=True , 31 num_proc =4 , 32 ) 33 34 max_input_length = 512 35 36
-rw_ds_filted = rw_ds_processed . filter ( 37 lambda x: len (x["
-input_ids_chosen "]) <= max_input_length 38 and len (x["
-input_ids_rejected "]) <= max_input_length 39 ) 40 41 rw_train =
-rw_ds_filted [" train "] 42 rw_v...
+AI VIETNAM aivietnam.edu.vn
+29 preprocess_function ,
+30 batched =True ,
+31 num_proc =4 ,
+32 )
+33
+34 max_input_length = 512
+35
+36 rw_ds_filted = rw_ds_processed . filter (
+37 lambda x: len (x[" input_ids_chosen "]) <= max_input_length
+38 and len (x[" input_ids_rejected "]) <= max_input_length
+39 )
+40
+41 rw_train = rw_ds_filted [" train "]
+42 rw_valid = rw_ds_filted [" valid1 "]
+43 rw_test = rw_ds_filted [" test "]
+2.2. Model
+Mô hình được sử dụng sẽ là mô hình SFT và tinh chỉnh để phù hợp cho bài toán phân loại mức câu.
+1 import torch
+2 from trl import ModelConfig , get_quantization_config , get_kbit_device_map
+3 from transformers import AutoModelForSequenceClassification
+4
+5 model_config = ModelConfig (
+6 model_name_or_path =’ facebook /opt -350 m’ # ./ save_sft_model / checkpoint -1000
+7 )
+8
+9 torch_dtype = (
+10 model_config . torch_dtype
+11 if model_config . torch_dtype in [" auto ", None ]
+12 else getattr ( torch , model_config . torch_dtype )
+13 )
+14 quantization_config = get_quantization_config ( model_config )
+15 model_kwargs = dict (
+16 revision = model_config . model_revision ,
+17 trust_remote_code = model_config . trust_remote_code ,
+18 attn_implementation = model_config . attn_implementation ,
+19 torch_dtype = torch_dtype ,
+20 use_cache = False ,
+21 device_map = get_kbit_device_map () if quantization_config is not None else None ,
+22 quantization_config = quantization_config ,
+23 )
+24 tokenizer = AutoTokenizer . from_pretrained ( model_config . 

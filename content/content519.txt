@@ -1,7 +1,32 @@
-Node ID: 9e60ea19-4a0a-48a9-b9e9-c37682116856
-Text: Các bước thực hiện như sau: 1. Tổ chức thư mục code:Để mã nguồn
-trở nên rõ ràng nhằm phục vụ cho mục đích đọc hiểu code, chúng ta sẽ
-tổ chức thư mục như sau: rag_langchain/ data_source/ generative_ai/
-download.py src/ base/ llm_model.py rag/ file_loader.py main.py
-offline_rag.py utils.py vectorstore.py app.py requirements.txt Tổng
-quan, chúng ta...
+Các bước thực hiện như sau:
+1. Tổ chức thư mục code:Để mã nguồn trở nên rõ ràng nhằm phục vụ cho mục đích đọc hiểu
+code, chúng ta sẽ tổ chức thư mục như sau:
+rag_langchain/
+data_source/
+generative_ai/
+download.py
+src/
+base/
+llm_model.py
+rag/
+file_loader.py
+main.py
+offline_rag.py
+utils.py
+vectorstore.py
+app.py
+requirements.txt
+Tổng quan, chúng ta sẽ có thư mục chứa mã nguồn có tênrag_langchain (các bạn hoàn toàn
+có thể sử dụng tên gọi khác). Bên trong sẽ có các thư mục con và các file với ý nghĩa như sau:
+_ data_source/: Thư mục dùng để lưu trữ các tài liệu phục vụ cho việc xây dựng hệ cơ sở
+dữ liệu vector.
+_ data_source/generative_ai/download.py: File code dùng để tải tự động một số các
+bài báo khoa học dưới dạng file pdf.
+_ src/base/llm_model: File code dùng để khai báo hàm khởi tạo mô hình ngôn ngữ lớn.
+_ src/rag/: Thư mục dùng để lưu trữ các code liên quan đến xây dựng RAG, bao gồm:
+(a) src/rag/file_loader.py: File code dùng để khai báo các hàm load file pdf (vì tài liệu
+của chúng ta thu thập thuộc file pdf).
+(b) src/rag/main.py: File code dùng để khai báo hàm khởi tạo chains.
+(c) src/rag/offline_rag.py: File code dùng để khai báo PromptTemplate.
+(d) src/rag/utils.py: File code dùng để khai báo hàm tách câu trả lời từ model.
+3

@@ -1,7 +1,34 @@
-Node ID: c98b3f3f-5198-4cc7-b07a-8ea2b44f0a05
-Text: AI VIETNAM aivietnam.edu.vn Hình 8: Pipeline của hệ thống End-
-to-end QA trong bài Các bạn tạo một file code .py mới (ở đây mình sẽ
-tạo filebuild_database.py) và thực hiện các bước sau đây: (a) Import
-các thư viện cần thiết: 1 from pymilvus import ( 2 connections , 3
-utility , 4 FieldSchema , 5 CollectionSchema , 6 DataType , 7
-Collection , 8 ) 9...
+AI VIETNAM aivietnam.edu.vn
+Hình 8: Pipeline của hệ thống End-to-end QA trong bài
+Các bạn tạo một file code .py mới (ở đây mình sẽ tạo filebuild_database.py) và thực hiện các bước
+sau đây:
+(a) Import các thư viện cần thiết:
+1 from pymilvus import (
+2 connections ,
+3 utility ,
+4 FieldSchema ,
+5 CollectionSchema ,
+6 DataType ,
+7 Collection ,
+8 )
+9
+10 from datasets import load_dataset , Dataset
+11 from transformers import AutoTokenizer , AutoModel
+12 from torch import clamp , sum
+(b) Khai báo các hyperparameters sẽ dùng trong code:
+1 DATASET_NAME = ’ squad_v2 ’ # Huggingface Dataset to use
+2 MODEL_NAME = ’distilbert -base - uncased ’ # Transformer to use for embeddings
+3 TOKENIZATION_BATCH_SIZE = 1000 # Batch size for tokenizing operation
+4 INFERENCE_BATCH_SIZE = 64 # batch size for transformer
+5 INSERT_RATIO = 0.001 # How many samples to embed and insert
+6 COLLECTION_NAME = ’ huggingface_squad_db ’ # Collection name
+7 DIMENSION = 768 # Embeddings size
+8 LIMIT = 3 # How many results to search for
+9 MILVUS_HOST = " localhost "
+10 MILVUS_PORT = " 19530 "
+11 REPLICA_NUMBER = 1
+Một vài tham số các bạn cần quan tâm:
+• INFERENCE_BATCH_SIZE: Số lượng mẫu dữ liệu đưa vào mô hình BERT để
+lấy vector embedding, các bạn hãy điều chỉnh nhỏ hơn nếu không đủ GPU hoặc cao hơn
+trong trường hợp ngược lại.
+6

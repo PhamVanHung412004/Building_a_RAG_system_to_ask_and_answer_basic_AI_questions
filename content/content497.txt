@@ -1,7 +1,22 @@
-Node ID: 2cbe8dde-c76c-4176-9827-e22478ca82ee
-Text: Trong đó, {your_task} là một đoạn văn bản mô tả một nhiệm vụ,
-câu hỏi hay một câu nói bất kì mà bạn mong muốn gửi đến mô hình. Dựa
-vào format trên, ta có thể thử đặt một yêu cầu xây dựng một hàm Python
-cho mô hình như trong môi trường code sau: Hình 3: Minh họa về cách
-xây dựng prompt theo format của mô hình VinaLLaMA (c) Chạy mô hình:Sử
-dụng đo...
+Trong đó, {your_task} là một đoạn văn bản mô tả một nhiệm
+vụ, câu hỏi hay một câu nói bất kì mà bạn mong muốn gửi đến mô hình.
+Dựa vào format trên, ta có thể thử đặt một yêu cầu xây dựng một hàm Python cho mô hình
+như trong môi trường code sau:
+Hình 3: Minh họa về cách xây dựng prompt theo format của mô hình VinaLLaMA
+(c) Chạy mô hình:Sử dụng đoạn code dưới đây, ta đưa đoạn prompt đã khởi tạo để lấy câu
+trả lời từ mô hình như sau:
+1 %%time
+2 device = ’cuda’ if torch.cuda.is_available() else ’cpu’
+3
+4 encoding = tokenizer(prompt, return_tensors="pt").to(device)
+5 with torch.inference_mode():
+6 outputs = model.generate(
+7 input_ids=encoding.input_ids,
+8 attention_mask=encoding.attention_mask,
+9 generation_config=generation_config
+10 )
+11
+12 print(tokenizer.decode(outputs[0], skip_special_tokens=True))
+Khi quá trình tính toán hoàn tất, ta nhận được kết quả in ra màn hình là câu trả lời của mô
+hình ứng với đoạn prompt:
+4

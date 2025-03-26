@@ -1,7 +1,27 @@
-Node ID: 45d0b7ec-1b51-4710-94de-2a015203073a
-Text: model = nn. Sequential ( 15 nn. Conv2d ( self . feats_nch , 384
-, 5, stride =1 , padding =2) , 16 nn. BatchNorm2d (384) , 17 nn. ReLU
-() , 18 nn. Conv2d (384 , 320 , 5, stride =1 , padding =2) , 19 nn.
-BatchNorm2d (320) , 20 nn. ReLU () , 21 nn. Conv2d (320 , 288 , 5,
-stride =1 , padding =2) , 22 nn. BatchNorm2d (288) , 23 nn. ReLU () ,
-24 nn. C...
+model = nn. Sequential (
+15 nn. Conv2d ( self . feats_nch , 384 , 5, stride =1 , padding =2) ,
+16 nn. BatchNorm2d (384) ,
+17 nn. ReLU () ,
+18 nn. Conv2d (384 , 320 , 5, stride =1 , padding =2) ,
+19 nn. BatchNorm2d (320) ,
+20 nn. ReLU () ,
+21 nn. Conv2d (320 , 288 , 5, stride =1 , padding =2) ,
+22 nn. BatchNorm2d (288) ,
+23 nn. ReLU () ,
+24 nn. Conv2d (288 , 256 , 5, stride =2 , padding =2) ,
+25 nn. BatchNorm2d (256) ,
+26 nn. ReLU () ,
+27 nn. Conv2d (256 , 128 , 5, stride =1 , padding =2) ,
+28 nn. BatchNorm2d (128) ,
+29 nn. ReLU () ,
+30 nn. Conv2d (128 , 96 , 5, stride =2 , padding =2) ,
+31 nn. BatchNorm2d (96) ,
+32 nn. ReLU () ,
+33 nn. Conv2d (96 , 64 , 5, stride =2 , padding =2) ,
+34 nn. BatchNorm2d (64) ,
+35 nn. ReLU () ,
+36 nn. Dropout (p =0.7)
+37 )
+38
+39 self .fc = nn. Linear (4 * 4 * 64 , self . nout )
+10

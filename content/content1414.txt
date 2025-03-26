@@ -1,7 +1,36 @@
-Node ID: 3758e907-e0ef-4295-96a3-4b8f1eee8a36
-Text: state_dict () , self . save_model ) 99 # Print loss , acc end
-epoch 100 print ("-" * 59) 101 print ( 102 "| End of epoch {:3 d} |
-Time : {:5.2 f}s | Train Loss {:8.3 f} " 103 "| Valid Loss {:8.3 f} |
-Valid MAE {:8.3 f} ". format ( 104 epoch +1 , time . time () -
-epoch_start_time , 105 train_loss , val_loss , val_mae 106 ) 107 ) 108
-print ("-" * ...
+state_dict () , self . save_model )
+99 # Print loss , acc end epoch
+100 print ("-" * 59)
+101 print (
+102 "| End of epoch {:3 d} | Time : {:5.2 f}s | Train Loss {:8.3 f} "
+103 "| Valid Loss {:8.3 f} | Valid MAE {:8.3 f} ". format (
+104 epoch +1 , time . time () - epoch_start_time ,
+105 train_loss , val_loss , val_mae
+106 )
+107 )
+108 print ("-" * 59)
+109 self . model . load_state_dict ( torch . load ( self . save_model ))
+Tải thư việnwandb.
+1 ! pip install wandb
+2 import wandb
+Khởi tạo các tham số và Trainer object.
+1 epochs = 3
+2 sample_num = 8
+3 save_model = ’./ save_model / best_model . pth ’
+4 optimizers = { "lr": 5e -5 , " weight_decay ": 0}
+5 device = " cuda " if torch . cuda . is_available () else " cpu "
+6 use_wandb = True
+7
+8 trainer = Trainer (
+9 colordiff_model , optimizers ,
+10 train_loader , val_loader ,
+11 epochs , sample_num ,
+12 device , save_model ,
+13 use_wandb
+14 )
+Đăng nhậpwandb thông qua API được lấy từ tài khoảnwandb cá nhân.
+1 if use_wandb :
+2 wandb_api =" 387 da1f220b55f23dec29347d30650c011d7exxx "
+3 wandb . login ( key = wandb_api )
+Khởi tạo mộtwandb session.
+22

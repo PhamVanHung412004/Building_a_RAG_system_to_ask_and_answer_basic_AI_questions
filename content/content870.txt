@@ -1,7 +1,17 @@
-Node ID: 5d1ad320-af4a-4e5a-9eab-1ddf6125e895
-Text: 7 filename (str): The name of the JSON file. 8 9 Returns: 10
-None 11 """ 12 with open(filename, ’w’) as file: 13 json.dump(data,
-file, indent=4) 14 print(f"Data saved to {filename}") Sau khi đã khai
-báo xong, thực hiện khởi tạo đối lượng từ class, đưa vào các tham số
-cần thiết. Gọi đến hàm scrape_images để tải tất cả các đường dẫn cần
-thiết về. ...
+7 filename (str): The name of the JSON file.
+8
+9 Returns:
+10 None
+11 """
+12 with open(filename, ’w’) as file:
+13 json.dump(data, file, indent=4)
+14 print(f"Data saved to {filename}")
+Sau khi đã khai báo xong, thực hiện khởi tạo đối lượng từ class, đưa vào các tham số cần thiết. Gọi
+đến hàm scrape_images để tải tất cả các đường dẫn cần thiết về.
+1 categories = {
+2 "animal": ["Monkey", "Elephant", "cows", "Cat", "Dog", "bear", "fox", "Civet", "Pangolins"
+, "Rabbit", "Bats", "Whale", "Cock", "Owl", "flamingo", "Lizard", "Turtle", "Snake", "
+Frog", "Fish", "shrimp", "Crab", "Snail", "Coral", "Jellyfish", "Butterfly", "Flies",
+"Mosquito", "Ants", "Cockroaches", "Spider", "scorpion", "tiger", "bird", "horse", "
+pig", "Alligator", "Alpaca", "Anteater", "donkey", "Bee", "Buffalo", "Camel", "
+26

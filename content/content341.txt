@@ -1,7 +1,14 @@
-Node ID: 5f863137-c183-4cf9-8ae5-05cbbb67ac59
-Text: AI VIET NAM – AI COURSE 2023 Video Classification Project Minh-
-Duc Bui và Quang-Vinh Dinh Ngày 2 tháng 5 năm 2024 Phần I: Giới thiệu
-Video classification là một bài toán quan trọng trong thị giác máy
-tính và trí tuệ nhân tạo, liên quan đến việc tự động phân loại và gán
-nhãn các video dựa trên nội dung. Các ứng dụng của video
-classification rất đ...
+AI VIET NAM – AI COURSE 2023
+Video Classification Project
+Minh-Duc Bui và Quang-Vinh Dinh
+Ngày 2 tháng 5 năm 2024
+Phần I: Giới thiệu
+Video classification là một bài toán quan trọng trong thị giác máy tính và trí tuệ nhân tạo, liên quan
+đến việc tự động phân loại và gán nhãn các video dựa trên nội dung.
+Các ứng dụng của video classification rất đa dạng, từ an ninh và giám sát, cải thiện các hệ thống gợi
+ý nội dung trên nền tảng xem video như YouTube hay Netflix, đến phân tích hành vi người dùng và
+hỗ trợ các phương tiện tự lái. Để đạt được hiệu quả cao, các model phân loại video cần được train trên
+các bộ dữ liệu lớn, đa dạng và thường phải xử lý các thách thức như biến động của môi trường, sự thay
+đổi góc quay, và sự đa dạng về hành vi và tương tác trong video.
+Hình 1: Minh họa kiến trúc Video Vision Transformer (ViViT) cho bài toán video classification.
+Trong project này, ta sẽ triển khai một số model phân loại video từ cơ bản đến nâng cao.

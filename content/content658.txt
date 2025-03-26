@@ -1,7 +1,6 @@
-Node ID: 6bd22685-c944-43a6-8ddc-b121c0f4df8d
-Text: Và Transformer cho performance vượt trội hơn CNN. Nhưng không vì
-thế mà ta khẳng định rằng thông tin global luôn luôn tốt hơn local,
-dẫn tới tình huống chỉ tập trung vào global. Đây là một hiểu lầm phổ
-biến, cả thông tin local và global đều có những tính chất khác nhau,
-model mang cả 2 thông tin này sẽ cho performance cao hơn model chỉ
-mang 1 tr...
+Và Transformer cho performance vượt trội
+hơn CNN. Nhưng không vì thế mà ta khẳng định rằng thông tin global luôn luôn tốt hơn local, dẫn tới
+tình huống chỉ tập trung vào global. Đây là một hiểu lầm phổ biến, cả thông tin local và global đều
+có những tính chất khác nhau, model mang cả 2 thông tin này sẽ cho performance cao hơn model chỉ
+mang 1 trong 2. Ví dụ một số paper về Transformer sử dụng thông tin hybrid:
+7

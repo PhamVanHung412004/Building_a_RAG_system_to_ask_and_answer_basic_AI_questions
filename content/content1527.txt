@@ -1,7 +1,20 @@
-Node ID: 45775941-3b01-42b7-886e-3d00a0b966f8
-Text: AI VIETNAM aivietnam.edu.vn Câu 2: Approximate Q-Learning Cho
-môi trường game Pacman với một số thông tin chính như sau: Hình 6:
-Hình ảnh trực quan của game Pacman • Kiểu môi trường:Grid World
-(Stochastic Environment). • Không gian hành động (Actions Space):5
-(Discrete). • Mục tiêu (Objective):Di chuyển Pacman ăn toàn bộ tất cả
-các đồ ăn (chấm m...
+AI VIETNAM aivietnam.edu.vn
+Câu 2: Approximate Q-Learning
+Cho môi trường game Pacman với một số thông tin chính như sau:
+Hình 6: Hình ảnh trực quan của game Pacman
+• Kiểu môi trường:Grid World (Stochastic Environment).
+• Không gian hành động (Actions Space):5 (Discrete).
+• Mục tiêu (Objective):Di chuyển Pacman ăn toàn bộ tất cả các đồ ăn (chấm màu trắng) trên
+bản đồ đồng thời tránh né các ghosts.
+• Trạng thái kết thúc (Terminate State):Pacman ăn được toàn bộ các đồ ăn trên bản đồ.
+• Hàm điểm thưởng (Reward Function):
+– +10 điểmnếu ăn được 1 đồ ăn.
+– +200 điểmnếu tiêu diệt được 1 ghost.
+– -500 điểmnếu bị tiêu diệt bởi ghosts.
+– -1 điểmmỗi một lần thực hiện hành động bất kì.
+Các bạn hãy tải source code của game Pacman theo đường dẫn này và cài đặt thuật toán Approximate
+Q-Learning để huấn luyện tác tử hoàn thành nhiệm vụ, cũng như đạt được điểm thưởng tích lũy tối đa
+trên môi trường game Pacman này. Bên cạnh đó, dựa vào chức năng recording game trong source code,
+các bạn hãy thực nghiệm với 4 bản demo tác tử chơi 1 ván game như sau:
+• Demo 1:Tác tử khi không được huấn luyện.
+• Demo 2:Tác tử khi được huấn luyện qua 10 episodes.

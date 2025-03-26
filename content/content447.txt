@@ -1,7 +1,8 @@
-Node ID: 75c87228-f3b3-477b-ba4d-31c7fc568e50
-Text: Tự động hóa quy trình bằng robot (RPA) NextGen AI Bankers chi
-phí. Bằng cách hiểu và tận dụng RPA, các ngân hàng có thể đơn giản hóa
-các quy trình, giảm chi phí và cung cấp các dịch vụ tốt hơn cho khách
-hàng của mình. Việc thực hành và triển khai các giải pháp RPA trong
-các kịch bản thực tế là điều cần thiết để duy trì tính cạnh tranh và
-đổi mới...
+Tự động hóa quy trình bằng robot (RPA) NextGen AI Bankers
+chi phí. Bằng cách hiểu và tận dụng RPA, các ngân hàng có thể đơn giản hóa các
+quy trình, giảm chi phí và cung cấp các dịch vụ tốt hơn cho khách hàng của mình.
+Việc thực hành và triển khai các giải pháp RPA trong các kịch bản thực tế là điều
+cần thiết để duy trì tính cạnh tranh và đổi mới trong ngành tài chính đang phát
+triển nhanh chóng.
+9 Tài liệu tham khảo
+1. 

@@ -1,7 +1,34 @@
-Node ID: 250a3757-ca01-4f00-a58f-932d083d549e
-Text: AI VIETNAM aivietnam.edu.vn là subclass, được kết nối với bằng
-mũi tên có đầu tam giác rỗng, trỏ vào classParent, ngụ ý rằng class
-Parent là class cha của classChild. Hình 2: Quan hệ kế thừa được mô tả
-bằng Class Diagram. Ví dụ dưới đây mô tả cú pháp khởi tạo class kế
-thừa. Trong đó, class cha là Parent được gọi trong dấu ngoặc ngay khi
-class co...
+AI VIETNAM aivietnam.edu.vn
+là subclass, được kết nối với bằng mũi tên có đầu tam giác rỗng, trỏ vào classParent, ngụ ý rằng class
+Parent là class cha của classChild.
+Hình 2: Quan hệ kế thừa được mô tả bằng Class Diagram.
+Ví dụ dưới đây mô tả cú pháp khởi tạo class kế thừa. Trong đó, class cha là Parent được gọi trong dấu
+ngoặc ngay khi class con là Child được định nghĩa. Phương thức__init__() của class cha cũng được
+gọi ở class con thông qua hàmsuper().
+1 class Parent:
+2 def __init__(self, name):
+3 self.name = name
+4
+5 def display(self):
+6 print(f"Parent Name: {self.name}")
+7
+8 class Child(Parent):
+9 def __init__(self, name, age):
+10 super().__init__(name) # Gọi hàm khởi tạo của lớp cha
+11 self.age = age
+12
+13 def display(self):
+14 super().display() # Gọi phương thức của lớp cha
+15 print(f"Child Age: {self.age}")
+16
+17 # Tạo object của lớp Child
+18 child = Child("Alice", 20)
+19 child.display()
+20
+21 # Output:
+22 # Parent Name: Alice
+23 # Child Age: 20
+24
+2.2. Access Modifiers
+Access Modifiers trong Python là cách để kiểm soát mức độ truy cập và sửa đổi các thuộc tính (at-
+tributes) và phương thức (methods) của một class. 

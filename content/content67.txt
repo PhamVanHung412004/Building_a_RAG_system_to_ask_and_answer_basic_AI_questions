@@ -1,6 +1,6 @@
-Node ID: ee6c9d64-526f-4be5-bf07-d6ef233df223
-Text: AI VIETNAM (AIO2024) aivietnam.edu.vn Hình 25: Mở thư mục chứa
-ảnh cần gán nhãn và chuyển format nhãn thành YOLO – Bước 3:Nếu thành
-công, các bạn sẽ thấy giao diện như sau: Hình 26: Giao diện sau khi
-chọn thư mục ảnh cần gán nhãn – Bước 4:Thực hiện gán nhãn. Các bạn làm
-theo hình dưới đây: 18
+AI VIETNAM (AIO2024) aivietnam.edu.vn
+Hình 25: Mở thư mục chứa ảnh cần gán nhãn và chuyển format nhãn thành YOLO
+– Bước 3:Nếu thành công, các bạn sẽ thấy giao diện như sau:
+Hình 26: Giao diện sau khi chọn thư mục ảnh cần gán nhãn
+– Bước 4:Thực hiện gán nhãn. Các bạn làm theo hình dưới đây:
+18

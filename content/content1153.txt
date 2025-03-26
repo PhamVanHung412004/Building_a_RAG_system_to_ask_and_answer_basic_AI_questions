@@ -1,7 +1,50 @@
-Node ID: 5d8e763a-f252-4148-a28c-390d42da06bc
-Text: AI VIETNAM aivietnam.edu.vn 78 return output_tensors 79 80
-@staticmethod 81 def backward (ctx , * output_grads ): 82 ctx .
-input_tensors = [x. detach (). requires_grad_ ( True ) for x in ctx .
-input_tensors ] 83 with torch . enable_grad (): 84 # Fixes a bug where
-the first op in run_function modifies the 85 # Tensor storage in place
-, which is n...
+AI VIETNAM aivietnam.edu.vn
+78 return output_tensors
+79
+80 @staticmethod
+81 def backward (ctx , * output_grads ):
+82 ctx . input_tensors = [x. detach (). requires_grad_ ( True ) for x in ctx .
+input_tensors ]
+83 with torch . enable_grad ():
+84 # Fixes a bug where the first op in run_function modifies the
+85 # Tensor storage in place , which is not allowed for detach () ’d
+86 # Tensors .
+87 shallow_copies = [x. view_as (x) for x in ctx . input_tensors ]
+88 output_tensors = ctx . run_function (* shallow_copies )
+89 input_grads = torch . autograd . grad (
+90 output_tensors ,
+91 ctx . input_tensors + ctx . input_params ,
+92 output_grads ,
+93 allow_unused =True ,
+94 )
+95 del ctx . input_tensors
+96 del ctx . input_params
+97 del output_tensors
+98 return (None , None ) + input_grads
+99
+100
+101 def count_flops_attn ( model , _x , y):
+102 """
+103 A counter for the ‘thop ‘ package to count the operations in an
+104 attention operation .
+105 Meant to be used like :
+106 macs , params = thop . profile (
+107 model ,
+108 inputs =( inputs , timestamps ),
+109 custom_ops ={ QKVAttention : QKVAttention . count_flops },
+110 )
+111 """
+112 b, c, * spatial = y [0]. shape
+113 num_spatial = int (np. prod ( spatial ))
+114 # We perform two matmuls with the same number of ops .
+115 # The first computes the weight matrix , the second computes
+116 # the combination of the value vectors .
+117 matmul_ops = 2 * b * ( num_spatial ** 2) * c
+118 model . total_ops += torch . DoubleTensor ([ matmul_ops ])
+119
+120
+121 def gamma_embedding ( gammas , dim , max_period =10000) :
+122 """
+123 Create sinusoidal timestep embeddings .
+124 : param gammas : a 1-D Tensor of N indices , one per batch element .
+125 These may be fractional .

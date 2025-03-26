@@ -1,7 +1,49 @@
-Node ID: 10df8a14-6648-40e0-a2b8-9a6251236530
-Text: llm_model import get_hf_llm 10 from src . rag . main import
-build_rag_chain , InputQA , OutputQA 11 12 llm = get_hf_llm (
-temperature =0.9) 13 genai_docs = "./ data_source / generative_ai " 14
-15 # --------- Chains ---------------- 16 17 genai_chain =
-build_rag_chain (llm , data_dir = genai_docs , data_type =" pdf ") 18
-19 # --------- App - Fast...
+llm_model import get_hf_llm
+10 from src . rag . main import build_rag_chain , InputQA , OutputQA
+11
+12 llm = get_hf_llm ( temperature =0.9)
+13 genai_docs = "./ data_source / generative_ai "
+14
+15 # --------- Chains ----------------
+16
+17 genai_chain = build_rag_chain (llm , data_dir = genai_docs , data_type =" pdf ")
+18
+19 # --------- App - FastAPI ----------------
+20
+21 app = FastAPI (
+22 title =" LangChain Server ",
+23 version =" 1.0 ",
+24 description ="A simple api server using Langchain ’s Runnable interfaces ",
+25 )
+26
+27 app . add_middleware (
+28 CORSMiddleware ,
+29 allow_origins =["*"],
+30 allow_credentials =True ,
+31 allow_methods =["*"],
+32 allow_headers =["*"],
+33 expose_headers =["*"],
+34 )
+35
+36 # --------- Routes - FastAPI ----------------
+37
+38 @app . get ("/ check ")
+39 async def check ():
+40 return {" status ": "ok"}
+41
+42 @app . post ("/ generative_ai ", response_model = OutputQA )
+43 async def generative_ai ( inputs : InputQA ):
+44 answer = genai_chain . invoke ( inputs . question )
+45 return {" answer ": answer }
+46
+47 # --------- Langserve Routes - Playground ----------------
+48 add_routes (app ,
+49 genai_chain ,
+50 playground_type =" default ",
+51 path ="/ generative_ai ")
+Để khởi động API, chúng ta duy chuyển đến thư mục root của source code trong terminal (trong
+trường hợp của bài viết sẽ là thư mụcrag_langchain/), sử dụng lệnh sau (sau khi đã cài đặt các
+thư viện cần thiết cũng như vector database). Lưu ý, nếu bị lỗi do port đã được sử dụng trong
+máy của bạn thì có thể thay đổi sang một port khác:
+1 uvicorn src . app : app -- host " 0.0.0.0 " -- port 5000 -- reload
+11

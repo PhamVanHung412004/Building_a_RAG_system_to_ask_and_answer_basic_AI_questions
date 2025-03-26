@@ -1,7 +1,24 @@
-Node ID: bfb51595-b40b-49b8-a043-cef94ae89a8d
-Text: AI VIETNAM (AIO2024) aivietnam.edu.vn • numpy:Cung cấp các đối
-tượng mảng đa chiều và các hàm toán học để làm việc với các mảng này.
-• scikit-learn: Thư viện học máy phổ biến, giúp xây dựng và triển khai
-các mô hình học máy phức tạp một cách nhanh chóng. Hình 1: Logo của
-một số bộ dữ liệu kể trên. Trong môi trường code, các bạn thực thi
-đoạn cod...
+AI VIETNAM (AIO2024) aivietnam.edu.vn
+• numpy:Cung cấp các đối tượng mảng đa chiều và các hàm toán học để làm việc với
+các mảng này.
+• scikit-learn: Thư viện học máy phổ biến, giúp xây dựng và triển khai các mô hình
+học máy phức tạp một cách nhanh chóng.
+Hình 1: Logo của một số bộ dữ liệu kể trên.
+Trong môi trường code, các bạn thực thi đoạn code sau:
+1 import string
+2 import nltk
+3 nltk . download (’ stopwords ’)
+4 nltk . download (’punkt ’)
+5 import pandas as pd
+6 import numpy as np
+7 import matplotlib . pyplot as plt
+8
+9 from sklearn . model_selection import train_test_split
+10 from sklearn . naive_bayes import GaussianNB
+11 from sklearn . metrics import accuracy_score
+12 from sklearn . preprocessing import LabelEncoder
+3. Đọc dữ liệu:Để đọc bộ dữ liệu có dạng là một file .csv, chúng ta sẽ dùng thư việnpandas.
+Để tách riêng biệt phần đặc trưng và nhãn, sau khi có dataframe, chúng ta đọc và lưu trữ
+dữ liệu của từng cột vào 2 biến tương ứngmessages và labels:
+1 DATASET_PATH = ’/ content /2 cls_spam_text_cls . csv ’
+2 df = pd. 

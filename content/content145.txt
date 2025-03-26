@@ -1,7 +1,33 @@
-Node ID: 4f2925e9-8b45-43fd-b03d-a933ec73aec2
-Text: AI VIETNAM aivietnam.edu.vn Fokker-Planck equation có dạng tổng
-quát như sau: ∂p(x, t) ∂t = − ∂ ∂x [ f(x, t)p(x, t) ] + ∂2 ∂x2  g(x,
-t)2 2 p(x, t)  (11) Trong đó: • ∂p(x,t) ∂t là đạo hàm riêng của mật
-độ xác suấtp(x, t) theo thời gian t. Nó mô tả cách mật độ xác suất
-thay đổi theo thời gian. • ∂ ∂x là đạo hàm riêng theo x. Phần này mô
-tả cách ...
+AI VIETNAM aivietnam.edu.vn
+Fokker-Planck equation có dạng tổng quát như sau:
+∂p(x, t)
+∂t = − ∂
+∂x [ f(x, t)p(x, t) ] + ∂2
+∂x2
+ g(x, t)2
+2 p(x, t)
+
+(11)
+Trong đó:
+• ∂p(x,t)
+∂t là đạo hàm riêng của mật độ xác suấtp(x, t) theo thời gian t. Nó mô tả cách mật độ xác
+suất thay đổi theo thời gian.
+• ∂
+∂x là đạo hàm riêng theo x. Phần này mô tả cách mật độ xác suất thay đổi theo không gian (vị
+trí x)
+• f(x, t) là drift function, miêu tả cách giá trị trung bình của biến ngẫu nhiênx(t) thay đổi theo
+thời gian t.f(x, t) là một hàm của x và t và được sử dụng để mô tả sự thay đổi trung bình của
+quá trình.
+• ∂2
+∂x2 là đạo hàm riêng theo hai vị trí x. Phần này liên quan đến độ lớn của biến thể ngẫu nhiên
+(nhiễu) và mô tả cách sự biến đổi ngẫu nhiên của x(t) phân tán trong không gian (ví trí x). Hàm
+g(x, t) thường đo lường mức độ của biến ngẫu nhiên, vàg(x,t)2
+2 chính là phần diffusion
+Phương trình này mô tả cách mật độ xác suất thay đổi theo thời gian do tác động của các thành
+phần xác định và ngẫu nhiên. Fokker-Planck equation là một công cụ quan trọng để nghiên cứu và dự
+đoán hành vi của các hệ thống phức tạp trong điền kiện ngẫu nhiên.
+10 Ornstein-Uhlenbeck processes
+Ornstein-Uhlenbeck processes là một quá trình stochastics (ngẫu nhiên) thường được sử dụng trong lý
+thuyết xác suất và thống kê để mô hình hóa sự biến đổi và trạng thái cân bằng của các hệ thống có sự
+phản hồi trở lại. Cụ thể, các OU process có xu hướng trở về một giá trị trung bình cố định dưới tác
+động của nhiễu ngẫu nhiên. 

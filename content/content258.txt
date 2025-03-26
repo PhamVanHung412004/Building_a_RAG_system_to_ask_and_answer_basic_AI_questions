@@ -1,7 +1,6 @@
-Node ID: 9a6db0a9-59b7-4591-a3a9-8fbabe4bf808
-Text: Từ yêu cầu về tạo sinh một đoạn code với chức năng nào đó từ
-người dùng, ta kết hợp với context có sẵn trong Autogen để hình thành
-nội dung khởi đầu của cuộc hội thoại giữa hai agent. 2. Với nội dung
-trên, ta tiến hành cho hai agent giao tiếp với nhau. 3. Từ nội dung
-chat giữa hai agent, ta trích ra nội dung cần thiết để làm kết quả của
-chương t...
+Từ yêu cầu về tạo sinh một đoạn code với chức năng nào đó từ người dùng, ta kết hợp với context
+có sẵn trong Autogen để hình thành nội dung khởi đầu của cuộc hội thoại giữa hai agent.
+2. Với nội dung trên, ta tiến hành cho hai agent giao tiếp với nhau.
+3. Từ nội dung chat giữa hai agent, ta trích ra nội dung cần thiết để làm kết quả của chương trình
+(ở đây là đoạn code được tạo sinh theo yêu cầu và kết quả thực thi).
+2

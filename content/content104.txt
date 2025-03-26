@@ -1,7 +1,14 @@
-Node ID: 95f9d605-580c-4d1e-847d-714b8ea3f1b7
-Text: AI VIET NAM – AI COURSE 2024 Phân loại tin nhắn spam với Naive
-Bayes Dinh-Thang Duong, Anh-Khoi Nguyen, Quang-Vinh Dinh Ngày 2 tháng
-8 năm 2024 I. Giới thiệu Text Classification (Tạm dịch: Phân loại văn
-bản)là một trong những bài toán phổ biến trong lĩnh vực Machine
-Learning và Natural Language Processing. Trong đó, nhiệm vụ của chúng
-ta là xây ...
+AI VIET NAM – AI COURSE 2024
+Phân loại tin nhắn spam với Naive Bayes
+Dinh-Thang Duong, Anh-Khoi Nguyen, Quang-Vinh Dinh
+Ngày 2 tháng 8 năm 2024
+I. Giới thiệu
+Text Classification (Tạm dịch: Phân loại văn bản)là một trong những bài toán phổ biến
+trong lĩnh vực Machine Learning và Natural Language Processing. Trong đó, nhiệm vụ của chúng
+ta là xây dựng một chương trình có khả năng phân loại văn bản vào các phân lớp do chúng ta
+quy định. Các ứng dụng phổ biến liên quan đến loại chương trình này có thể kể đến phát hiện
+các bình luận tiêu cực trên không gian mạng, các đánh giá tích cực của sản phẩm...
+Trong project này, chúng ta sẽ xây dựng một chương trình Text Classification liên quan đến
+việc phân loại một đoạn tin nhắn là tin nhắn spam hay không, sử dụng thuật toán Naive Bayes.
+Theo đó, Input/Output của chương trình bao gồm:
+• Input: Một đoạn tin nhắn (text).

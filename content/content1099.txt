@@ -1,4 +1,4 @@
-Node ID: 6d580d2d-8919-4a22-9783-7f1016536a8a
-Text: YOLOv8 YOLOv8 [8] được giới thiệu vào năm 2023 bởi Ultralytics.
-Mô hình này cải thiện độ chính xác và tốc độ so với YOLOv7 và giới
-thiệu nhiều tính năng mới như anchor-free detection. 6
+YOLOv8
+YOLOv8 [8] được giới thiệu vào năm 2023 bởi Ultralytics. Mô hình này cải thiện độ chính xác
+và tốc độ so với YOLOv7 và giới thiệu nhiều tính năng mới như anchor-free detection.
+6

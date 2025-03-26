@@ -1,7 +1,55 @@
-Node ID: cffb41ed-8a42-471b-81ef-f5306b55d93e
-Text: Daily AI Exercise (AIO) aivietnam.edu.vn 1 name : str = "AI
-VIETNAM " 2 year : int = 2024 3 4 print (f" Welcome to { name } { year
-}!") 5 print ( __annotations__ ) ================= Output
-================ Welcome to AI VIETNAM 2024! {’name ’: <class ’str ’>,
-’year ’: <class ’ int ’ >} ==========================================
-Trong ví dụ trên ...
+Daily AI Exercise (AIO) aivietnam.edu.vn
+1 name : str = "AI VIETNAM "
+2 year : int = 2024
+3
+4 print (f" Welcome to { name } { year }!")
+5 print ( __annotations__ )
+================= Output ================
+Welcome to AI VIETNAM 2024!
+{’name ’: <class ’str ’>, ’year ’: <class ’
+int ’ >}
+==========================================
+Trong ví dụ trên chúng ta khai báo kiểu dữ liệu cho name là string, year với kiểu int tuy nhiên khi thực
+thi chương trình thì đều cho kết quả giống nhau vì Python sẽ bỏ qua phần gợi ý kiểu dữ liệu. Khác biệt
+duy nhất là khi sử dụng type hints chương trình sẽ tạo ra một thộc tính đặc biệt __annotations__ để
+chứa thông tin về kiểu dữ liệu của các biến, điều này sẽ giúp IDE(Vscode) đưa ra những gợi ý cú pháp
+chính xác. Ngoài ra thuộc tính này sẽ là thông tin quan trọng để các công cụ hỗ trợ như Mypy có thể
+kiểm tra kiểu dữ liệu của chương trình.
+Khi sử dụng type hints, có nhiều trường hợp gợi ý kiểu cho biến là kiểu list, tuple, boolean, hoặc biến
+đó có thể có nhiều kiểu dữ liệu khác nhau.
+1 # Biến với Type Hint là list chứa các số nguy ên
+2 numbers : list [ int ]
+3
+4 # Biến với Type Hint là tuple chứa một chu ỗi và một số nguy ên
+5 person : tuple [str , int ]
+6
+7 # Biến với Type Hint là int hoặc float
+8 value : int | float
+9
+10 # Biến với Type Hint là list chứa chu ỗi và tuple chứa số nguy ên
+11 data : list [ str ]| tuple [int , int ]
+12
+13 # Biến với Type Hint là Tuple chứa một list các số nguy ên và một dict
+14 info : tuple [ list [ int ], dict ]
+15
+16 # Biến với Type hint là boolean
+17 is_active : bool
+Trong ví dụ trên, chúng ta đã sử dụng Type Hints để chỉ định kiểu dữ liệu của các biến numbers, person,
+value, data, và info. Khi chúng ta tạo type hints cho biến mà không gán giá trị như vậy, thì các biến
+này vẫn chưa thực sự được tạo ra. Mà chỉ có __annotations__ được tạo ra chứa thông tin gợi ý kiểu
+dữ liệu cho từng biến. Chúng ta có thể kiểm tra điều này bằng cách in biến đó ra để xem thông tin.
+1 print ( __annotations__ )
+2 print ( numbers , person , value , data , info )
+====================================== Output ========================================
+{’ numbers ’: list [ int ], ’person ’: tuple [str , int ], ’value ’: int | float , ’data ’: list [
+str ] | tuple [int , int ], ’info ’: tuple [ list [ int ], dict ], ’is_active ’: <class ’bool
+’ >}
+Traceback ( most recent call last ):
+File " create_type_hints .py", line 20 , in <module >
+print ( numbers , person , value , data , info , is_active )
+NameError : name ’numbers ’ is not defined
+======================================================================================
+2.1.2 Type hints cho hàm
+Để gợi ý về kiểu dữ liệu của các tham số và giá trị trả về của một hàm, ta có thể sử dụng Type Hints
+như ví dụ phía dưới. Trong hàm add, chúng ta gợi ý rằng x và y là các số nguyên (int) và hàm trả về là
+một số nguyên (int). 

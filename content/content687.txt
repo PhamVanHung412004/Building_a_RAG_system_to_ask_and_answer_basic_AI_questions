@@ -1,7 +1,11 @@
-Node ID: 62582183-4cc5-4af4-9230-bc02fa9a5b62
-Text: (a) Khả năng tính toán song song ở dạng convolutional. (b) Khả
-năng tính toán song song ở dạng recurrent. (c) Khả năng tính toán song
-song ở 2 dạng convolutional và recurrent. (d) Khả năng tính toán song
-song khi inference. 11. Đâu là contribution của Mamba? (a) Khả năng
-tạo ra trọng số phụ thuộc vào input (b) Khả năng tạo ra trọng số không
-dựa ...
+(a) Khả năng tính toán song song ở dạng convolutional.
+(b) Khả năng tính toán song song ở dạng recurrent.
+(c) Khả năng tính toán song song ở 2 dạng convolutional và recurrent.
+(d) Khả năng tính toán song song khi inference.
+11. Đâu là contribution của Mamba?
+(a) Khả năng tạo ra trọng số phụ thuộc vào input
+(b) Khả năng tạo ra trọng số không dựa vào input.
+(c) Khả năng tạo ra trọng số phụ thuộc vào label.
+(d) Khả năng tạo ra trọng số không phụ thuộc vào label.
+- Hết -
+12

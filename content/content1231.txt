@@ -1,3 +1,3 @@
-Node ID: 4a2e30f4-cae6-4407-920e-27826c0e6ceb
-Text: AI VIETNAM aivietnam.edu.vn (d) Gradient descent 8. Đâu là điểm
-yếu của GNN?
+AI VIETNAM aivietnam.edu.vn
+(d) Gradient descent
+8. Đâu là điểm yếu của GNN?

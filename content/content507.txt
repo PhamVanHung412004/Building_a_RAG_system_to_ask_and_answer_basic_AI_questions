@@ -1,2 +1,5 @@
-Node ID: faa364d4-16c1-409c-adfe-9ba470637c69
-Text: 2 14 C. 3 15 D. 4 16 ### Câu trả lời: 9
+2
+14 C. 3
+15 D. 4
+16 ### Câu trả lời:
+9

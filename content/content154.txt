@@ -1,7 +1,20 @@
-Node ID: 5ee323c3-a296-450b-b49a-baab8c04b1f6
-Text: • βt: Tham số điều khiển số lượng noise được thêm vào tại mỗi
-thời điểm T. • βtI: Covariance Matrix của noise được thêm vào. Như
-vậy, ta có công thức tổng quan cho Normal Distribution với thời
-điểm[x0 : xT ] là: q(x1:T |x0) = TY t=1 q(xt|xt−1) (17) Hình 8:
-Forward Diffusion được mô tả dưới dạng một chuỗi Markov, trong đó size
-của từng bước được ...
+• βt: Tham số điều khiển số lượng noise được thêm vào tại mỗi thời điểm T.
+• βtI: Covariance Matrix của noise được thêm vào.
+Như vậy, ta có công thức tổng quan cho Normal Distribution với thời điểm[x0 : xT ] là:
+q(x1:T |x0) =
+TY
+t=1
+q(xt|xt−1) (17)
+Hình 8: Forward Diffusion được mô tả dưới dạng một chuỗi Markov, trong đó size của từng bước được
+xác định thông qua variance schedule. Điểm đặc biệt của Markovian process chính là khả năng thu được
+mẫu tại bất kỳ khoảng thời gian nào một cách chính xác mà không cần trải qua các bước trung gian.
+Bên cạnh đó, variance schedule được thiết kế một cách tỉ mỉ, nhằm đảm bảo mẫu sẽ dần biến đổi thành
+white noise khi đạt đến bước thời gian T.
+14.1 Basic of diffusion
+Trước tiên chúng ta có quá trình diffusion một chiều trên đường thẳng số thực. Sử dụng phương trình
+vi phân stochastic (SDE) để mô tả quá trình này:
+˙x = σ η(t) (18)
+Trong đó:
+• σ là một hằng số dương
+• η(t) là Gaussian white noise
+12

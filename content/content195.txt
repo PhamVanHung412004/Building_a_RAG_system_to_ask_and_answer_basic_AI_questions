@@ -1,7 +1,21 @@
-Node ID: 2afb89ae-d435-4e99-bc31-a037f4f98a68
-Text: Daily AI Exercise (AIO) Ngày 8 tháng 4 năm 2024 Cập nhật tên của
-email : nguyen@aivietnam.edu.vn sang giá trị mới và kiểm tra kết quả
-sau khi cập nhật. 1 # Update name của email: nguyen@aivietnam.edu.vn 2
-cursor.execute(""" 3 UPDATE CUSTOMERS 4 SET NAME = ’Hoang Nguyen’ 5
-WHERE 1 = 1 6 AND EMAIL = ’nguyen@aivietnam.edu.vn’; 7 """) 8 9
-connection...
+Daily AI Exercise (AIO) Ngày 8 tháng 4 năm 2024
+Cập nhật tên của email : nguyen@aivietnam.edu.vn sang giá trị mới và kiểm tra
+kết quả sau khi cập nhật.
+1 # Update name của email: nguyen@aivietnam.edu.vn
+2 cursor.execute("""
+3 UPDATE CUSTOMERS
+4 SET NAME = ’Hoang Nguyen’
+5 WHERE 1 = 1
+6 AND EMAIL = ’nguyen@aivietnam.edu.vn’;
+7 """)
+8
+9 connection.commit()
+10
+11 data=pd.read_sql_query("SELECT * FROM CUSTOMERS", connection)
+12 print(data)
+→ Kết quả:
+Hình 2: Kết quả sau khi thực hiện UPDATE
+• Xóa dữ liệu (DELETE):Để thực hiện xóa dữ liệu trong CSDL, chúng ta sẽ
+thực thi câu SQL như sau:
+Xóa email : nguyen@aivietnam.edu.vn khỏi bảng CUSTOMERS và kiểm tra kết
+quả sau khi cập nhật.

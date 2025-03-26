@@ -1,7 +1,17 @@
-Node ID: 11c1495b-38a2-4ab2-af0b-e9dfd78d7fa8
-Text: AI VIETNAM aivietnam.edu.vn Hình 3: Ngược lại, khi temperature
-được đặt thành giá trị nhỏ hơn 1.0 (ví dụ: 0,5), nó sẽ "làm sắc nét"
-phân bố xác suất. Điều này làm cho mô hình có nhiều khả năng chọn các
-từ có xác suất cao hơn, dẫn đến kết quả đầu ra tập trung và mang tính
-xác định hơn. Khi temperature bằng 0 (hình 4), phân bố xác suất sẽ
-được đẩy...
+AI VIETNAM aivietnam.edu.vn
+Hình 3: Ngược lại, khi temperature được đặt thành giá trị nhỏ hơn 1.0 (ví dụ: 0,5), nó sẽ "làm sắc
+nét" phân bố xác suất. Điều này làm cho mô hình có nhiều khả năng chọn các từ có xác suất cao
+hơn, dẫn đến kết quả đầu ra tập trung và mang tính xác định hơn. Khi temperature bằng 0 (hình
+4), phân bố xác suất sẽ được đẩy từ có logits cao nhất bằng 1 và tất cả các từ còn lại bằng 0, dẫn
+đến output của model sẽ luôn là từ có xác suất cao nhất.
+top_p - Tham số này được áp dụng trong kỹ thuật sampling gọi lànucleus sampling, giúp
+điều chỉnh độ đa dạng trong kết quả mà mô hình sinh ra. Theo phương pháp này, chúng ta sẽ chọn
+ra nhóm các từ có xác suất cao nhất, đảm bảo rằng tổng xác suất của nhóm này vượt qua một
+ngưỡng nhất định, ngưỡng này là top_p. Cách làm này giúp mở rộng khả năng chọn từ của mô
+hình, tạo ra kết quả phong phú hơn. Nếu chúng ta cần câu trả lời chính xác, dựa trên dữ liệu cụ
+thể, giá trị top_p nên được giữ ở mức thấp. Trong trường hợp muốn nhận được đầu ra đa dạng
+hơn, có thể tăng giá trị này. Tuy nhiên, lưu ý chỉ điều chỉnh hoặc tham số temperature hoặc top_p,
+không nên cùng lúc thay đổi cả hai để tránh gây rối loạn cho mô hình.
+Max Length- Chúng ta có thể dễ dàng điều chỉnh số lượng từ tối đa mà mô hình sinh ra bằng
+cách thiết lập giới hạn Max Length. Việc này giúp hạn chế những kết quả quá dài hoặc không mấy
+liên quan, đồng thời cũng giúp chúng ta kiểm soát được chi phí tốt hơn.

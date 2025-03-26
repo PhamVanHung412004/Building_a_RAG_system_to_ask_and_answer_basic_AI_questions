@@ -1,7 +1,20 @@
-Node ID: 7bab38b0-2e76-4941-85ae-26d406bb82c1
-Text: AI VIETNAM aivietnam.edu.vn Hình 7: Một vài thành phần trong
-Milvus. Nguồn: link Các bạn có thể tìm hiểu những khái niệm khác trong
-Milvus tại đây. Bây giờ, chúng ta sẽ thử kiểm tra danh sách các
-Collection có trong Milvus hiện tại. Các bạn tạo một file .py bất kì,
-ở đây mình tạm đặt tên làcheck_milvus.py, có nội dung như sau: 1 from
-pymilvus im...
+AI VIETNAM aivietnam.edu.vn
+Hình 7: Một vài thành phần trong Milvus. Nguồn: link
+Các bạn có thể tìm hiểu những khái niệm khác trong Milvus tại đây. Bây giờ, chúng ta sẽ thử
+kiểm tra danh sách các Collection có trong Milvus hiện tại. Các bạn tạo một file .py bất kì, ở đây
+mình tạm đặt tên làcheck_milvus.py, có nội dung như sau:
+1 from pymilvus import connections , utility
+2
+3 connections . connect (’ default ’, host =’ localhost ’, port =’19530 ’)
+4
+5 print ( utility . list_collections ())
+6 # Output : []
+Chương trình trên sử dụng phương thứcconnections.connect() để kết nối tới Milvus Standalone
+mà chúng ta đã host ở bước đầu tiên. Sau đó, sử dụngutility.list_collections() để kiểm tra danh
+sách các Collections hiện có, kết quả trả về là một list rỗng cho thấy chúng ta đang chưa có một
+bảng dữ liệu nào trên kho lưu trữ. Phần tiếp theo chúng ta sẽ tiến hành xây dựng một vector
+database cho bài QA.
+4. Xây dựng vector database cho bộ dữ liệu QA:Chúng ta sẽ xây dựng một vector database
+trên bộ dữ liệu QA là SQuAD. Mục tiêu của chúng ta khi sử dụng cơ sở dữ liệu này nhằm tìm
+kiếm các câu hỏi có liên quan đến câu hỏi input, từ đó tìm được các context có khả năng cao chứa
+đáp án cho câu hỏi.

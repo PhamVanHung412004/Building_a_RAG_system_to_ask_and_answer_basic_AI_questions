@@ -1,7 +1,24 @@
-Node ID: 0c4b0162-e9d4-4c40-9ff2-83280f3a91ca
-Text: Khởi tạo hai biến height, width có giá trị bằng chiều cao, chiều
-rộng của ảnh trái. 3. Khởi tạo một ma trận không - zero matrix (depth)
-với kích thước bằng height, width. 4. Với mỗi pixel tại vị trí (h, w)
-(duyệt từ trái qua phải, trên xuống dưới) thực hiện các bước sau: (a)
-Tính cost (L1 hoặc L2) giữa các cặp pixel left[h, w] và right[h, w -
-d]...
+Khởi tạo hai biến height, width có giá trị bằng chiều cao, chiều rộng của ảnh trái.
+3. Khởi tạo một ma trận không - zero matrix (depth) với kích thước bằng height, width.
+4. Với mỗi pixel tại vị trí (h, w) (duyệt từ trái qua phải, trên xuống dưới) thực hiện các bước
+sau:
+(a) Tính cost (L1 hoặc L2) giữa các cặp pixel left[h, w] và right[h, w - d] (trong đó
+d ∈ [0, disparity_range]). Nếu (w - d) < 0 thì gán giá trị cost = max_cost (max_cost
+= 255 nếu dùng L1 hoặc2552 nếu dùng L2).
+(b) Với danh sách cost tính được, chọn giá trị d (doptimal) mà ở đó cho giá trị cost là nhỏ
+nhất.
+(c) Gán depth[h, w] =doptimal × scale. Trong đó,scale = 255
+disparity_range (Ở Problem 01,
+các bạn gán mặc định giá trịscale = 16).
+Dựa theo mô tả các bước triển khai thuật toán, các bạn có thể cài đặt code như sau:
+1 import cv2
+2 import numpy as np
+3
+4 def distance (x, y):
+5 return abs (x - y)
+6
+7 def pixel_wise_matching ( left_img , right_img , disparity_range , save_result = True
+):
+8 # Read left , right images then convert to grayscale
+9 left = cv2 . imread ( left_img , 0)
+10 right = cv2 . 

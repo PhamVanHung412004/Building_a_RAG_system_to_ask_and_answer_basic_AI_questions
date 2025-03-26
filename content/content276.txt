@@ -1,7 +1,12 @@
-Node ID: 4eef3048-085f-45b7-a1cc-1ab141c8976e
-Text: "], 36 [" Plot a chart of the last year ’s stock prices of
-Microsoft , Google and Apple and save to stock_price . png ."], 37 ["
-show file : stock_price . png "], 38 ], 39 ) (c) Khởi động giao
-diện:Cuối cùng, ta cài đặt lệnh khởi động giao diện khi chạy file
-app.py như sau: 1 if __name__ == " __main__ ": 2 demo . launch ( share
-= False , server_...
+"],
+36 [" Plot a chart of the last year ’s stock prices of Microsoft ,
+Google and Apple and save to stock_price . png ."],
+37 [" show file : stock_price . png "],
+38 ],
+39 )
+(c) Khởi động giao diện:Cuối cùng, ta cài đặt lệnh khởi động giao diện khi chạy file app.py
+như sau:
+1 if __name__ == " __main__ ":
+2 demo . launch ( share = False , server_name =" 0.0.0.0 ", server_port =7868)
+Hình 5: Giao diện ứng dụng Multi-agent LLMs sau khi được triển khai và chạy thử một ví dụ.
+10

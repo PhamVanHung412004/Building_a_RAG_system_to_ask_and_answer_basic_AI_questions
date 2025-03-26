@@ -1,5 +1,10 @@
-Node ID: c88c834b-95e9-4bfa-8462-bd8d72a8cc2c
-Text: 1 # Merge PDFs 2 from pypdf import PdfWriter 3 4 merger =
-PdfWriter() 5 for pdf in ["yolov6.pdf", "yolov7.pdf", "yolov9.pdf"]: 6
-merger.append(pdf) 7 8 merger.write("merged-yolov-679.pdf") 9
-merger.close() 3
+1 # Merge PDFs
+2 from pypdf import PdfWriter
+3
+4 merger = PdfWriter()
+5 for pdf in ["yolov6.pdf", "yolov7.pdf", "yolov9.pdf"]:
+6 merger.append(pdf)
+7
+8 merger.write("merged-yolov-679.pdf")
+9 merger.close()
+3

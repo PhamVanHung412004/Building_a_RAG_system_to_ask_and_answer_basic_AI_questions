@@ -1,7 +1,19 @@
-Node ID: d16f2300-78a9-41a7-8b3d-f15dfb9ecd51
-Text: Bộ lọc tìm kiếm giúp thu gọn phạm vi tìm kiếm, nâng cao chất
-lượng truy vấn. 4.2 Mô hình sinh ngôn ngữ (Generation) Generation là
-công đoạn cuối trong chu trình RAG với nhiệm vụ chuyển đổi thông tin
-nhận được từ bối cảnh thành câu trả lời cho câu hỏi đầu vào của người
-dùng thông qua một mô hình ngôn ngữ lớn. Quá trình sinh câu trả lời
-cần đảm bả...
+Bộ lọc tìm kiếm
+giúp thu gọn phạm vi tìm kiếm, nâng cao chất lượng truy vấn.
+4.2 Mô hình sinh ngôn ngữ (Generation)
+Generation là công đoạn cuối trong chu trình RAG với nhiệm vụ chuyển đổi thông tin nhận được từ
+bối cảnh thành câu trả lời cho câu hỏi đầu vào của người dùng thông qua một mô hình ngôn ngữ lớn.
+Quá trình sinh câu trả lời cần đảm bảo câu trả lời đầu ra sử dụng thông tin từ ngữ cảnh được cung
+cấp, hạn chế câu trả lời sai (hallucination).
+Với các yêu cầu về chất lượng, các giải pháp có thể tiếp cận để nâng cao kết quả bao gồm tối ưu
+hoá kết quả tìm kiếm từ khâu truy vấn (retrieval) bằng các giải pháp hậu truy vấn. Quá trình sinh văn
+bản có thể được tác đông bằng các phương thức:
+• Prompt Engineering:Prompt Engineering là giải pháp can thiệp vào cách trả lời của LLM mà
+không cần hiệu chỉnh lại bộ tham số gốc. Prompt Engineering đóng vai trò như một bộ lọc trong
+quá trình sinh ngôn ngữ đảm bảo kết quả đầu ra theo phong cách trình bày mong muốn. Ngoài
+ra, một số giải pháp như yêu cầu LLM không tạo ra câu trả lời nếu không có đủ thông tin sẽ giúp
+hạn chế việc hallucination. Trong trường hợp khác khi ngữ cảnh không đủ dữ kiện, hãy sử dụng
+dữ liệu được huấn luyện cũng là giải pháp tốt. Bên cạnh đó, trong các kiến trúc RAG kết hợp
+Multi-Agents, prompt engineering đóng vai trò cốt lõi trong việc điều hướng Agents để tạo ra sự
+mượt mà ở giải pháp cuối.
+11

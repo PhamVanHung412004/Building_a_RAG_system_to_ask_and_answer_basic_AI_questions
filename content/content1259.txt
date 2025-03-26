@@ -1,5 +1,9 @@
-Node ID: 07204da5-e3e9-47a4-9ae8-123e0aa16757
-Text: AI VIETNAM aivietnam.edu.vn 40 print (f"\ nNumber of doctors : {
-ward1 . count_doctor ()}") 41 42 # output 43 >> Number of doctors : 2
-44 45 # 2(d) 46 print ("\ nAfter sorting Age of Ward1 people ") 47
-ward1 .
+AI VIETNAM aivietnam.edu.vn
+40 print (f"\ nNumber of doctors : { ward1 . count_doctor ()}")
+41
+42 # output
+43 >> Number of doctors : 2
+44
+45 # 2(d)
+46 print ("\ nAfter sorting Age of Ward1 people ")
+47 ward1 . 

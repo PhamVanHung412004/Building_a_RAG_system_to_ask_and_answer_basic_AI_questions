@@ -1,7 +1,20 @@
-Node ID: 6d24afc3-1e8b-4fc1-a188-13a08e5e78fe
-Text: AI VIETNAM aivietnam.edu.vn 1 if use_wandb : 2 wandb . init ( 3
-# set the wandb project where this run will be logged 4 project ="my
--diff - color ", 5 6 # track hyperparameters and run metadata 7 config
-={ 8 " learning_rate ": optimizers ["lr"], 9 " weight_decay ":
-optimizers [" weight_decay "], 10 " architecture ": " UNet ", 11 "
-dataset ": " ...
+AI VIETNAM aivietnam.edu.vn
+1 if use_wandb :
+2 wandb . init (
+3 # set the wandb project where this run will be logged
+4 project ="my -diff - color ",
+5
+6 # track hyperparameters and run metadata
+7 config ={
+8 " learning_rate ": optimizers ["lr"],
+9 " weight_decay ": optimizers [" weight_decay "],
+10 " architecture ": " UNet ",
+11 " dataset ": " CelebA ",
+12 " epochs ": epochs ,
+13 " save_model ": save_model ,
+14 " sample_num ": sample_num
+15 }
+16 )
+Tiến hành huấn luyện. Lúc này, nếu wandb được sử dụng thông qua việc cài đặt tham số
+use_wandb = True, các thông tin về loss, metrics và hình ảnh sẽ được đẩy lên giao diện
+wandb, giúp người dùng có thể dễ dàng theo dõi và đánh giá tiến độ huấn luyện.

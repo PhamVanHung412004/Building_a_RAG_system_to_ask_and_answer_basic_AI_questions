@@ -1,7 +1,41 @@
-Node ID: 80915363-07b4-474f-8eda-3f95146721f4
-Text: AI VIETNAM (AIO2024) aivietnam.edu.vn 12 from langchain . chains
-import ConversationalRetrievalChain 13 14 from langchain_huggingface
-import HuggingFaceEmbeddings 15 from langchain_chroma import Chroma 16
-from langchain_community . document_loaders import PyPDFLoader ,
-TextLoader 17 from langchain_text_splitters import
-RecursiveCharacterTextSpli...
+AI VIETNAM (AIO2024) aivietnam.edu.vn
+12 from langchain . chains import ConversationalRetrievalChain
+13
+14 from langchain_huggingface import HuggingFaceEmbeddings
+15 from langchain_chroma import Chroma
+16 from langchain_community . document_loaders import PyPDFLoader , TextLoader
+17 from langchain_text_splitters import RecursiveCharacterTextSplitter
+18 from langchain_core . runnables import RunnablePassthrough
+19 from langchain_core . output_parsers import StrOutputParser
+20 from langchain import hub
+3. Cài đặt lại các hàm và instance ở file trước:Chúng ta khai báo lại một số hàm và
+instance ở phần trước. Các bạn có thể quay lại mục trước để xem phần giải thích:
+1 text_splitter = RecursiveCharacterTextSplitter ( chunk_size =1000 ,
+2 chunk_overlap =100)
+3
+4 embedding = HuggingFaceEmbeddings ()
+4. Xây dựng hàm xử lý file input đầu vào:Để thuận tiện trong việc cài đặt, ta gom việc
+đọc và tách văn bản vào chung một hàm như sau:
+1 def process_file ( file : AskFileResponse ):
+2 if file . type == " text / plain ":
+3 Loader = TextLoader
+4 elif file . type == " application / pdf ":
+5 Loader = PyPDFLoader
+6
+7 loader = Loader ( file . path )
+8 documents = loader . load ()
+9 docs = text_splitter . split_documents ( documents )
+10 for i, doc in enumerate ( docs ):
+11 doc . metadata [" source "] = f" source_ {i}"
+12 return docs
+5. Xây dựng hàm khởi tạo Chroma database:Tương tự phía trên, ta xây dựng hàm
+khởi tạo vector database cho phần cài đặt này:
+1 def get_vector_db ( file : AskFileResponse ):
+2 docs = process_file ( file )
+3 cl. user_session . set (" docs ", docs )
+4 vector_db = Chroma . from_documents ( documents =docs ,
+5 embedding = embedding )
+6 return vector_db
+Tại line 2, gọi hàmprocess_file() để xử lý file input và trả về các tài liệu nhỏ (docs). Sau
+đó, khởi tạo Chroma vector database bằng cách gọiChroma.from_documents() và truyền vào
+docs cũng như embedding đã khởi tạo trước đó.

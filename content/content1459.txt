@@ -1,7 +1,39 @@
-Node ID: c3678cec-bb50-482a-be49-8e755421aba7
-Text: Việc này không chỉ giúp tiết kiệm không gian lưu trữ mà còn làm
-tăng tốc độ tải xuống và chia sẻ tập tin PDF. 1 from pypdf import
-PdfWriter 2 3 writer = PdfWriter(clone_from="yolov9.pdf") 4 5 for page
-in writer.pages: 6 page.compress_content_streams(level=8) # This is
-CPU intensive! 7 8 with open("out.pdf", "wb") as f: 9 writer.write(f)
-Trong ví...
+Việc này không chỉ giúp tiết kiệm không gian lưu trữ mà còn
+làm tăng tốc độ tải xuống và chia sẻ tập tin PDF.
+1 from pypdf import PdfWriter
+2
+3 writer = PdfWriter(clone_from="yolov9.pdf")
+4
+5 for page in writer.pages:
+6 page.compress_content_streams(level=8) # This is CPU intensive!
+7
+8 with open("out.pdf", "wb") as f:
+9 writer.write(f)
+Trong ví dụ trên, ta tạo một bản sao của tập tin PDF "yolov9.pdf", nén lại nội dung của mỗi trang
+trong tập tin PDF này với mức độ nén là 8, và sau đó lưu lại thành một tập tin PDF mới có tên là
+"out.pdf". Đầu tiên ta tạo một đối tượng PdfWriter mới gọi là writer với số clone_from chỉ định tên
+tập tin PDF mà chúng ta muốn tạo bản sao. Tiếp theo chúng ta lặp qua từng trang của pdf, sau đó sử
+dụng page.compress_content_streams(level=8) để nén, trong đó level là mức nén có giá trị từ 1 đến 9.
+Cuối cùng chúng ta lưu lại file có tên out.pdf.
+Chúng ta có thể kiểm tra dung lượng file qua đoạn mã dưới đây:
+1 # get size of file pdf
+2 import os
+3
+4 file_size = os.path.getsize("yolov9.pdf")
+/(1024 * 1024)
+5 print(f"yolo9.pdf size:{file_size}")
+6
+7 file_out = os.path.getsize("out.pdf")
+/(1024 * 1024)
+8 print(f"out.pdf size:{file_out}")
+================= Output ================
+yolo9.pdf size:4.738467216491699
+out.pdf size:4.718204498291016
+==========================================
+Có thể thấy dung lượng file out.pdf được nén từ file yolov9.pdf có dung lượng thấp hơn.
+3 Kết Luận
+Trong bài viết này, chúng ta đã tìm hiểu cách sử dụng thư viện pypdf trong Python để thực hiện hai
+tác vụ quan trọng là trích xuất văn bản và hình ảnh từ các tập tin PDF, cũng như thực hiện các tính
+năng nén, merge (gộp) các tập tin PDF lại với nhau. Qua bài viết, hy vọng có thể giúp mọi người biết
+thêm cách sử dụng công cụ hữu ích pypdf để xử lý dữ liệu pdf.
+4

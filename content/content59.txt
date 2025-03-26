@@ -1,7 +1,13 @@
-Node ID: a1406211-f715-4b7a-882e-20ed45c62c94
-Text: AI VIETNAM (AIO2024) aivietnam.edu.vn 1 from ultralytics import
-YOLOv10 2 3 MODEL_PATH = ’ yolov10n .pt ’ 4 model = YOLOv10 (
-MODEL_PATH ) 4. Huấn luyện mô hình:Chúng ta tiến hành huấn luyện
-YOLOv10 trên bộ dữ liệu Helmet Safety Detection với 50 epochs và kích
-thước ảnh là 640. Các bạn chạy đoạn code sau: 1 YAML_PATH = ’../
-safety_helmet_dataset...
+AI VIETNAM (AIO2024) aivietnam.edu.vn
+1 from ultralytics import YOLOv10
+2
+3 MODEL_PATH = ’ yolov10n .pt ’
+4 model = YOLOv10 ( MODEL_PATH )
+4. Huấn luyện mô hình:Chúng ta tiến hành huấn luyện YOLOv10 trên bộ dữ liệu Helmet
+Safety Detection với 50 epochs và kích thước ảnh là 640. Các bạn chạy đoạn code sau:
+1 YAML_PATH = ’../ safety_helmet_dataset / data . yaml ’
+2 EPOCHS = 50
+3 IMG_SIZE = 640
+4 BATCH_SIZE = 256
+5
+6 model . 
