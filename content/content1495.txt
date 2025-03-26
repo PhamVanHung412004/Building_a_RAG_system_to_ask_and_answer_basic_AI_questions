@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-Node ID: 88c9cdea-460d-4fa4-ab63-f28cddb809bd
-Text: init . xavier_normal_ (m. weight ) 45 nn. init . constant_
-(m.bias , 0) 46 elif isinstance (m, nn. BatchNorm2d ): 47 nn. init .
-constant_ (m. weight , 1) 48 nn. init . constant_ (m.bias , 0) 49 elif
-isinstance (m, nn. Linear ): 50 nn.
-=======
 init . xavier_normal_ (m. weight )
 45 nn. init . constant_ (m.bias , 0)
 46 elif isinstance (m, nn. BatchNorm2d ):
@@ -12,4 +5,3 @@ init . xavier_normal_ (m. weight )
 48 nn. init . constant_ (m.bias , 0)
 49 elif isinstance (m, nn. Linear ):
 50 nn. 
->>>>>>> HEAD@{1}

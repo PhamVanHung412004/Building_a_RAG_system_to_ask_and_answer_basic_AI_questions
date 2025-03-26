@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 625095ac-9916-4796-b7da-fce276ca306f
-Text: Daily AI Exercise (AIO) aivietnam.edu.vn Bảng trên có cấu trúc
-khá phức tạp, có những ô được gộp lại dẫn đến việc trích xuất đòi hỏi
-chúng ta phải thử các tham số khác nhau và phải xử lý đầu ra với
-pandas. Đầu tiên, để trích xuất bảng này từ file pdf, ta sẽ thử các
-tham số khác nhau để thu được kết quả output phù hợp. Trong ví dụ này,
-ta sẽ sử d...
-=======
 Daily AI Exercise (AIO) aivietnam.edu.vn
 Bảng trên có cấu trúc khá phức tạp, có những ô được gộp lại dẫn đến việc trích xuất đòi hỏi chúng ta
 phải thử các tham số khác nhau và phải xử lý đầu ra với pandas.
@@ -32,4 +23,3 @@ Bảng 4: Dataframe trích xuất từ bảng trong tệp pdf
 Tiếp theo chúng ta cần xử lí dataframe thu được, nhận thấy dữ liệu của môn Toán nằm rải rác ở 3
 dòng đầu, môn Lí nằm ở 3 dòng tiếp theo, môn Hóa nằm ở 3 dòng cuối cùng. Ta sẽ thực hiện lấp đầy
 các ô có giá trị NaN ở dòng phía sau bởi các giá trị của các ô ở dòng trước đó.
->>>>>>> HEAD@{1}

@@ -1,7 +1,2 @@
-<<<<<<< HEAD
-Node ID: ab614e0b-e3d1-4ee5-8c34-99e20ba7e421
-Text: . 16 7.2 Phép trừ - Subtraction . .
-=======
 . 16
 7.2 Phép trừ - Subtraction . . 
->>>>>>> HEAD@{1}

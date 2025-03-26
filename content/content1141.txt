@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 1491a255-7a54-4a1b-8b6e-64705652bdf5
-Text: ToTensor () , 39 transforms . Normalize ( mean =[0.5 , 0.5 ,
-0.5] , std =[0.5 ,0.5 , 0.5]) 40 ]) 41 self . mask_mode = mask_mode 42
-self . image_size = image_size 43 44 def __getitem__ (self , index ):
-45 img_path = self . img_paths [ index ] 46 img = Image . open (
-img_path ). convert (’RGB ’) 47 img = self . tfs ( img ) 48 mask =
-self . get_ma...
-=======
 ToTensor () ,
 39 transforms . Normalize ( mean =[0.5 , 0.5 , 0.5] , std =[0.5 ,0.5 , 0.5])
 40 ])
@@ -41,4 +32,3 @@ ToTensor () ,
 69 f’Mask mode { self . mask_mode } has not been implemented .’)
 70 return torch . from_numpy ( mask ). permute (2 ,0 ,1)
 4
->>>>>>> HEAD@{1}

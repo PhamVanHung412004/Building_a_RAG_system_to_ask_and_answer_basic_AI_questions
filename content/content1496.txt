@@ -1,7 +1,2 @@
-<<<<<<< HEAD
-Node ID: ea46a5ec-baf8-47f7-bfc4-1af7d5a7c2d4
-Text: init . xavier_normal_ (m. weight ) 51 nn.
-=======
 init . xavier_normal_ (m. weight )
 51 nn. 
->>>>>>> HEAD@{1}

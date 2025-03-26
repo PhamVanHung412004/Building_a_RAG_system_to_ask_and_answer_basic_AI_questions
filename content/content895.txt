@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 5ab8a30b-b495-4a2b-a914-eb6e304efd59
-Text: • Explain to me as if I’m a beginner in [field]. • Write the
-[essay/text/paragraph] using simple English like you’re explain- ing
-something to a 5-year-old. 6 Thêm “I’m going to tip $xxx“ (tôi sẽ bo
-cho bạn $xxx) để kết quả cho ra tốt hơn 7 Triển khai prompt dựa trên
-ví dụ (Dùng few-shot prompting). 8 Khi soạn prompt của bạn, bắt đầu
-với “###Ins...
-=======
 • Explain to me as if I’m a beginner in [field].
 • Write the [essay/text/paragraph] using simple English like you’re explain-
 ing something to a 5-year-old.
@@ -36,4 +27,3 @@ Cho phép mô hình gợi ra các chi tiết và yêu cầu chính xác từ b�
 đầu ra cần thiết (ví dụ: “From now on, I would like you to ask me questions to
 ...” (từ bây giờ tôi muốn bạn hỏi câu hỏi cho đến khi ...)).
 5
->>>>>>> HEAD@{1}

@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-Node ID: 226069cb-c73e-4a1e-888c-1bb9f6c0bbcb
-Text: AI VIETNAM aivietnam.edu.vn 14 15 trainer =
-transformers.Trainer( 16 model=model, 17 train_dataset=data, 18
-args=training_args, 19
-data_collator=transformers.DataCollatorForLanguageModeling(tokenizer,
-mlm= False) 20 ) 21 model.config.use_cache = False 22 trainer.train()
-Khi các bạn thấy bảng dưới đây xuất hiện, điều đó chứng tỏ tiến trình
-huấn l...
-=======
 AI VIETNAM aivietnam.edu.vn
 14
 15 trainer = transformers.Trainer(
@@ -39,4 +29,3 @@ chọn, hãy giải step by step nếu có và chọn phương án đúng.
 11 ### Các lựa chọn:
 12 A. 1
 13 B. 
->>>>>>> HEAD@{1}

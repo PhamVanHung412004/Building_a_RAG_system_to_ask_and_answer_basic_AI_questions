@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 4eb44a01-ffe0-4ca0-bbd8-710f21659ad2
-Text: AI VIETNAM aivietnam.edu.vn d) x1 = [’Overcast’ ’Rain’ ’Sunny’]
-x2 = [’Cool’ ’Hot’ ’Mild’] x3 = [’Strong’ ’Weak’] x4 = [’High’
-’Normal’] 4.4 Hoàn thiện functionget_index_from_value để tính trả về
-index tương ứng với feature name: 1 # This function is used to return
-the index of the feature name 2 def get_index_from_value (
-feature_name , list_fe...
-=======
 AI VIETNAM aivietnam.edu.vn
 d) x1 = [’Overcast’ ’Rain’ ’Sunny’]
 x2 = [’Cool’ ’Hot’ ’Mild’]
@@ -36,4 +27,3 @@ Câu hỏi 17: Hãy cho biết kết quả của đoạn chương trình sau đ�
 3 # Compute P(" Outlook "=" Sunny "| Play Tennis "=" Yes ")
 4 x1= get_index_from_value (" Sunny ", list_x_name [0])
 5 print ("P(’ Outlook ’=’ Sunny ’| Play Tennis ’=’ Yes ’) = ", np. 
->>>>>>> HEAD@{1}

@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 7a8cbe77-85ec-475d-88a1-1702980e166c
-Text: AI VIETNAM aivietnam.edu.vn Hình 17: Hình minh họa cho việc kết
-hợp nhiều Deep learning Model cho quá trình parse PDF 7 Re-ranking Re-
-ranking đóng vai trò quan trọng trong RAG. Trong naive RAG, một số
-lượng lớn ngữ cảnh có thể được truy vấn, nhưng không phải tất cả đều
-cần thiết liên quan đến câu hỏi. Re-ranking cho phép sắp xếp lại và
-lọc các t...
-=======
 AI VIETNAM aivietnam.edu.vn
 Hình 17: Hình minh họa cho việc kết hợp nhiều Deep learning Model cho quá trình parse PDF
 7 Re-ranking
@@ -22,4 +13,3 @@ Các phương pháp re-ranking chủ yếu được chia thành hai loại:
 để đánh giá mức độ liên quan một cách chính xác hơn.
 • Large Language Model: sự xuất hiện của mô hình ngôn ngữ lớn đã mở ra những khả năng mới
 cho việc re-ranking. 
->>>>>>> HEAD@{1}

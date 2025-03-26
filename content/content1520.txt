@@ -1,11 +1,3 @@
-<<<<<<< HEAD
-Node ID: 54367449-d771-4daf-b1a7-31ba89b82e9a
-Text: AI VIETNAM aivietnam.edu.vn Nếu toàn bộ các bước trên thành
-công, ta sẽ thấy animation game hiển thị trong Colab như hình sau:
-Hình 4: Hình ảnh trực quan của môi trường CartPole-v1 trong Google
-Colab Để thuận tiện trong việc thực hiện bài tập này, bài tập 1 và 3
-trong bài viết sẽ được thực hiện trong Google Colab. 5
-=======
 AI VIETNAM aivietnam.edu.vn
 Nếu toàn bộ các bước trên thành công, ta sẽ thấy animation game hiển thị trong Colab như
 hình sau:
@@ -13,4 +5,3 @@ Hình 4: Hình ảnh trực quan của môi trường CartPole-v1 trong Google C
 Để thuận tiện trong việc thực hiện bài tập này, bài tập 1 và 3 trong bài viết sẽ được thực hiện trong
 Google Colab.
 5
->>>>>>> HEAD@{1}

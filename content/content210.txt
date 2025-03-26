@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 024b131b-41ba-49a7-990f-eeb8e3650c8d
-Text: AI VIETNAM aivietnam.edu.vn 1 class Adder: 2 def __init__(self,
-value): 3 self.value = value 4 5 def __call__(self, x): 6 return
-self.value + x 7 8 add_five = Adder(5) 9 print(add_five(10)) # Output:
-15 10 1.6. Sử dụng object của Class này làm thuộc tính của Class khác
-Thuộc tính của một class có thể là bất kỳ đối tượng nào, bao gồm các
-biến có ...
-=======
 AI VIETNAM aivietnam.edu.vn
 1 class Adder:
 2 def __init__(self, value):
@@ -48,4 +39,3 @@ object được khởi tạo từ classDate đã được định nghĩa trướ
 23
 2. Inheritance
 Kế thừa là một trong những tính năng mạnh mẽ nhất của lập trình hướng đối tượng. 
->>>>>>> HEAD@{1}

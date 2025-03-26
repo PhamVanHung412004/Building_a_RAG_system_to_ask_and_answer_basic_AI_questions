@@ -1,12 +1,6 @@
-<<<<<<< HEAD
-Node ID: 0b4770e1-89f0-43af-a4f7-6bee0fa100cc
-Text: , line 3 print ( data []) ^ SyntaxError : invalid syntax
-========================================== 3
-=======
 , line 3
 print ( data [])
 ^
 SyntaxError : invalid syntax
 ==========================================
 3
->>>>>>> HEAD@{1}

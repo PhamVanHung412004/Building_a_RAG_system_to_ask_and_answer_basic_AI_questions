@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-Node ID: 907000b1-a9df-4133-8e65-125c4014e013
-Text: a) Flan-T5 b) Vicuna c) GPT3 d) PaLM Câu hỏi 7Mô hình BLIP-2
-không xử lý được bài toán nào sau đây? a) Image Captioning b) Prompted
-Image Captioning 8
-=======
 a) Flan-T5
 b) Vicuna
 c) GPT3
@@ -12,4 +6,3 @@ Câu hỏi 7Mô hình BLIP-2 không xử lý được bài toán nào sau đây?
 a) Image Captioning
 b) Prompted Image Captioning
 8
->>>>>>> HEAD@{1}

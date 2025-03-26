@@ -1,12 +1,6 @@
-<<<<<<< HEAD
-Node ID: 9543735d-79e3-4b22-a6e1-ba9917f6cd0d
-Text: @ b. _ c. __ d. # Câu hỏi 8: Điều nào sau đây là đúng về phương
-thức override trong Python? 12
-=======
 @
 b. _
 c. __
 d. #
 Câu hỏi 8: Điều nào sau đây là đúng về phương thức override trong Python?
 12
->>>>>>> HEAD@{1}

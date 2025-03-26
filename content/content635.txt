@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 65fdfefd-6644-4de9-a3fb-948dab8074dd
-Text: AIO2024 aivietnam.edu.vn Câu 1: Tính độ dài của một vector 1 #
-Python code ( aivietnam ) 2 import numpy as np 3 4 u = np. array ([1 ,
-2, 4, 2]) 5 6 # compute the length of u 7 print (np. linalg . norm
-(u)) ================= Output ================ 5.0
-========================================== Câu 2: Phép cộng và trừ
-giữa hai vector 1 # Python c...
-=======
 AIO2024 aivietnam.edu.vn
 Câu 1: Tính độ dài của một vector
 1 # Python code ( aivietnam )
@@ -26,4 +17,3 @@ Câu 2: Phép cộng và trừ giữa hai vector
 4 # create two vectors
 5 x = np. array ([1 ,2 ,3 ,4])
 6 y = np. 
->>>>>>> HEAD@{1}

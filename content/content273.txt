@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 5cc757ec-54f6-4c85-987f-1e74ce468573
-Text: AI VIETNAM aivietnam.edu.vn Hình 4: Minh họa việc trả về nội
-dung đoạn hội thoại (carryover) giữa hai agent. Các carryover theo
-thời gian trở thành lịch sử đoạn hội thoại làm context cho các lần
-chat khác. 6. Cập nhật fileapp.py: Cuối cùng, ta xây dựng một giao
-diện đơn giản để tương tác với chương trình, trực quan hóa hội thoại
-giữa hai agent c...
-=======
 AI VIETNAM aivietnam.edu.vn
 Hình 4: Minh họa việc trả về nội dung đoạn hội thoại (carryover) giữa hai agent. Các carryover theo
 thời gian trở thành lịch sử đoạn hội thoại làm context cho các lần chat khác.
@@ -37,4 +28,3 @@ thành phần trên giao diện như sau:
 12 avatar_images =(
 13 " ../ images / human . png ",
 14 " ../ images / autogen . 
->>>>>>> HEAD@{1}

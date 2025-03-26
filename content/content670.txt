@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: ec939225-d082-4e0f-9951-7df5e602b898
-Text: AI VIETNAM aivietnam.edu.vn • Setup config: 1 # Config class của
-Mamba 2 class MambaConfig: 3 d_model: int = 2560 4 n_layer: int = 64 5
-vocab_size: int = 50277 6 ssm_cfg: dict = field(default_factory=dict)
-7 rms_norm: bool = True 8 residual_in_fp32: bool = True 9
-fused_add_norm: bool = True 10 pad_vocab_size_multiple: int = 8 11 12
-def to_json_s...
-=======
 AI VIETNAM aivietnam.edu.vn
 • Setup config:
 1 # Config class của Mamba
@@ -50,4 +41,3 @@ AI VIETNAM aivietnam.edu.vn
 10
 11 # Tạo một đầu phân loại sử dụng MambaClassificationHead với
 kích thước đầu vào là d_model và số lớp là 2.
->>>>>>> HEAD@{1}

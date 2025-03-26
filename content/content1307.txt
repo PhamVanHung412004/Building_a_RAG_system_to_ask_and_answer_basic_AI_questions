@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: c76b7968-7401-4906-b3d9-f7e6c50bfbfc
-Text: AI VIETNAM aivietnam.edu.vn 1. Supervised Fine-Tuning (SFT)
-Trong phần này chúng ta sẽ tinh chỉnh mô hình tiền huấn luyện như GPT,
-BLOOM, FlanT5,... trên bộ dữ liệu được gán nhãn. Bộ dữ liệu
-openai_summarize_tldr bao gồm các cặp dữ liệu: văn bản và bản tóm tắt.
-Hình 5: Supervised Fine-Tuning. 1.1. Dataset Chúng ta tải về bộ dữ
-liệu từ thư viện t...
-=======
 AI VIETNAM aivietnam.edu.vn
 1. Supervised Fine-Tuning (SFT)
 Trong phần này chúng ta sẽ tinh chỉnh mô hình tiền huấn luyện như GPT, BLOOM, FlanT5,... trên
@@ -39,4 +30,3 @@ sau: "Text: document # Summary: summary"
 20 break
 1.2. Model
 Mô hình tiền huấn luyện được sử dụng là OPT. 
->>>>>>> HEAD@{1}

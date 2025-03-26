@@ -1,12 +1,6 @@
-<<<<<<< HEAD
-Node ID: f28f330e-dd11-49aa-b736-59725424a415
-Text: functional as F 4 5 class VAE (nn. Module ): 6 def __init__ (
-self ): 7 super (VAE , self ). __init__ () 7
-=======
 functional as F
 4
 5 class VAE (nn. Module ):
 6 def __init__ ( self ):
 7 super (VAE , self ). __init__ ()
 7
->>>>>>> HEAD@{1}

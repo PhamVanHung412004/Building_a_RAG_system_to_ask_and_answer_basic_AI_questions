@@ -1,11 +1,3 @@
-<<<<<<< HEAD
-Node ID: 3af59083-2ef1-40d6-8d35-2c953855c0c7
-Text: array ([2 , 3]) 6 7 # Compute inner product between v and w 8
-print (’dot product \n’, v. dot (w)) ================= Output
-================ dot product 8
-========================================== Câu 5: Các phép tính cơ bản
-trên ma trận 20
-=======
 array ([2 , 3])
 6
 7 # Compute inner product between v and w
@@ -16,4 +8,3 @@ dot product
 ==========================================
 Câu 5: Các phép tính cơ bản trên ma trận
 20
->>>>>>> HEAD@{1}

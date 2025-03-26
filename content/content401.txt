@@ -1,13 +1,4 @@
-<<<<<<< HEAD
-Node ID: d86332e1-9b49-4893-9250-d7ba41186805
-Text: AI VIETNAM aivietnam.edu.vn đơn vị để khởi tạo cung cấp một điểm
-bắt đầu ổn định cho T-net để học các phép biến đổi có ý nghĩa. Nó cho
-phép T-net dần dần lệch khỏi phép biến đổi đồng nhất khi học. Điều này
-giúp việc học diễn ra trơn tru hơn và tránh những thay đổi đột ngột
-trong quá trình huấn luyện.
-=======
 AI VIETNAM aivietnam.edu.vn
 đơn vị để khởi tạo cung cấp một điểm bắt đầu ổn định cho T-net để học các phép biến đổi có ý nghĩa.
 Nó cho phép T-net dần dần lệch khỏi phép biến đổi đồng nhất khi học. Điều này giúp việc học diễn ra
 trơn tru hơn và tránh những thay đổi đột ngột trong quá trình huấn luyện.
->>>>>>> HEAD@{1}

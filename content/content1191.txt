@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: c727b05d-4d0b-4d09-9949-bf4b9f6070e2
-Text: randint (1 , self . num_timesteps , (b ,) , device = y_0 .
-device ). long () 122 gamma_t1 = get_index_from_list ( self . gammas ,
-t -1 , x_shape =(1 , 1)) 123 sqrt_gamma_t2 = get_index_from_list (
-self . gammas , t, x_shape =(1 , 1)) 124 sample_gammas = (
-sqrt_gamma_t2 - gamma_t1 ) * torch . rand ((b, 1) , device = y_0 .
-device ) + gamma_t1 125 ...
-=======
 randint (1 , self . num_timesteps , (b ,) , device = y_0 . device ). long ()
 122 gamma_t1 = get_index_from_list ( self . gammas , t -1 , x_shape =(1 , 1))
 123 sqrt_gamma_t2 = get_index_from_list ( self . gammas , t, x_shape =(1 , 1))
@@ -49,4 +40,3 @@ Trong phần này chúng ta xây dựng hàm huấn luyện mô hình.
 , device , save_model ):
 5 self . model = model .to( device )
 6 self . optimizer = torch . 
->>>>>>> HEAD@{1}

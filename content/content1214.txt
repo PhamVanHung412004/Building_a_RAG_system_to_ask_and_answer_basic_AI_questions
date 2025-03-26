@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 8d2a739b-5552-4861-9e8d-136d2b6edf91
-Text: data . ConcatDataset ([ test_dataset , art_dataset ]) 11 12 #
-Create Dataloaders 13 trainloader = DataLoader ( 14 train_dataset ,
-batch_size =128 , shuffle =True , num_workers =4 , drop_last = True 15
-) 16 testloader = DataLoader ( test_datasets , batch_size =128 ,
-shuffle = False , num_workers =4) 4. Áp dụng GNN cho bài toán image
-classificatio...
-=======
 data . ConcatDataset ([ test_dataset , art_dataset ])
 11
 12 # Create Dataloaders
@@ -23,4 +14,3 @@ edge network để predict giữa 2 sample bất kì trong 1 batch có liên k�
 dùng 1 model để predict edge giữa 2 sample bất kì và dùng hàm loss để giúp edge network predict
 tốt hơn. Nói cách khác, vì khi inference ta không có label nên không thể biết 2 sample bất kì có
 4
->>>>>>> HEAD@{1}

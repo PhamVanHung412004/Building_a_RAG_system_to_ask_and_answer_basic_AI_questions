@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: fea7f1bf-c1c2-4222-9ff8-807c04965013
-Text: (a) Tăng cường chất lượng của hình ảnh (b) Tạo chú thích hình
-ảnh (c) Tìm những hình ảnh giống nhau dựa trên nội dung ngữ nghĩa (d)
-Nén hình ảnh 2. Cho hai vectora = [1, 2, 3] và b = [4, 5, 6], tính độ
-tương tự L1 (norm 1) giữa chúng. (a) 9 (b) 12 (c) 15 (d) 18 3. Một
-trường hợp sử dụng phổ biến cho tìm kiếm sự tương đồng hình ảnh trong
-thương m...
-=======
 (a) Tăng cường chất lượng của hình ảnh
 (b) Tạo chú thích hình ảnh
 (c) Tìm những hình ảnh giống nhau dựa trên nội dung ngữ nghĩa
@@ -27,4 +18,3 @@ mại điện tử là gì?
 √
 27
 18
->>>>>>> HEAD@{1}

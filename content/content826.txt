@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-Node ID: ba9ea574-cf85-42e5-ba1f-7c370ed2f738
-Text: Có rất nhiều cách thiết kế hệ thống truy vấn hình ảnh khác nhau,
-tuy nhiên về mặt tổng quát sẽ có pipeline như sau: 1
-=======
 Có rất nhiều cách thiết kế hệ thống truy vấn hình ảnh khác nhau, tuy nhiên về mặt tổng
 quát sẽ có pipeline như sau:
 1
->>>>>>> HEAD@{1}

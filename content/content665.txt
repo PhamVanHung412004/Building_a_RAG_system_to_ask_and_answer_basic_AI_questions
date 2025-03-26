@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: c2edd782-6f56-4758-bf78-5926f14765d7
-Text: AI VIET NAM – 2024 Text Classification with Mamba - Project
-Minh-Duc Bui, Khai-Xuan Trinh, và Quang-Vinh Dinh Ngày 25 tháng 2 năm
-2024 Phần I: Giới thiệu Gần đây, Mamba là kiến trúc mới ra mắt và được
-sự hưởng ứng mạnh mẽ từ cộng đồng các nhà nghiên cứu. Mamba trở thành
-trend vì khả năng vượt trội hơn Transformer (kiến trúc phổ biến ở thời
-điểm ...
-=======
 AI VIET NAM – 2024
 Text Classification with Mamba - Project
 Minh-Duc Bui, Khai-Xuan Trinh, và Quang-Vinh Dinh
@@ -18,4 +9,3 @@ hiện tại). Sự vượt trội được thể hiện ở cả 3 tiêu chí c
 computional cost.
 Trong project này, ta sẽ tìm hiểu cơ bản về kiến trúc Mamba và áp dụng Mamba vào bài toán text
 classification.
->>>>>>> HEAD@{1}

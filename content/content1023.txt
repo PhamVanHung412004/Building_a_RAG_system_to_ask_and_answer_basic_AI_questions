@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 3a61ca2e-2318-4ed1-bbac-215b639125ab
-Text: (2021). Retrieval-augmented generation for knowledge-intensive
-nlp tasks. Gao, Y., Xiong, Y., Gao, X., Jia, K., Pan, J., Bi, Y., Dai,
-Y., Sun, J., Guo, Q., Wang, M., & Wang, H. (2024). Retrieval-augmented
-generation for large language models: A survey. Gao, L., Ma, X., Lin,
-J., & Callan, J. (2022). Precise zero-shot dense retrieval without
-relev...
-=======
 (2021). Retrieval-augmented generation for
 knowledge-intensive nlp tasks.
 Gao, Y., Xiong, Y., Gao, X., Jia, K., Pan, J., Bi, Y., Dai, Y., Sun, J., Guo, Q., Wang, M., & Wang, H.
@@ -15,4 +6,3 @@ Gao, L., Ma, X., Lin, J., & Callan, J. (2022). Precise zero-shot dense retrieval
 Liu, N. F., Lin, K., Hewitt, J., Paranjape, A., Bevilacqua, M., Petroni, F., & Liang, P. (2023). Lost in
 the middle: How language models use long contexts.
 24
->>>>>>> HEAD@{1}

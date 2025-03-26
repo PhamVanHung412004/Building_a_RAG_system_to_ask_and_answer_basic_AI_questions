@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 1e622385-823d-4961-87d2-639c83330eb9
-Text: Về việc tìm kiếm tài liệu tương đồng, ta sử dụng FAISS. Như vậy,
-nội dung của file như sau: Hình 4: Minh họa việc sử dụng vector
-database Chroma để truy vấn các tài liệu có liên quan làm context
-trong prompt. Ảnh: Link. 1 from typing import Union 2 from
-langchain_chroma import Chroma 3 from langchain_community .
-vectorstores import FAISS 4 from ...
-=======
 Về việc tìm kiếm tài liệu tương
 đồng, ta sử dụng FAISS. Như vậy, nội dung của file như sau:
 Hình 4: Minh họa việc sử dụng vector database Chroma để truy vấn các tài liệu có liên quan làm context
@@ -35,4 +26,3 @@ trong prompt. Ảnh: Link.
 22 def get_retriever (self ,
 23 search_type : str = " similarity ",
 8
->>>>>>> HEAD@{1}

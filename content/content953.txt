@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 1922f043-417b-48c2-810c-c26c6dad9308
-Text: 12 len(raw_datasets["validation"]), len(validation_dataset) (e)
-Train model:Sau khi đã chuẩn bị xong dataset, ta sẽ tiến hành load
-model từ HuggingFace để chuẩn bị cho quá trình training: 1 # Load
-model 2 model =
-AutoModelForQuestionAnswering.from_pretrained(MODEL_NAME) Tiếp theo ta
-sẽ định nghĩa một số parameter mà ta sẽ sử dụng để training mod...
-=======
 12 len(raw_datasets["validation"]), len(validation_dataset)
 (e) Train model:Sau khi đã chuẩn bị xong dataset, ta sẽ tiến hành load model từ HuggingFace
 để chuẩn bị cho quá trình training:
@@ -22,4 +13,3 @@ Tiếp theo ta sẽ định nghĩa một số parameter mà ta sẽ sử dụng 
 7 num_train_epochs=3, # Số epoch huấn luyện
 8 weight_decay=0.01, # Giảm trọng lượng mô hình để tránh overfitting
 7
->>>>>>> HEAD@{1}

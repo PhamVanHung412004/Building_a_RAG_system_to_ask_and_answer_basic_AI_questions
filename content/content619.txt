@@ -1,13 +1,6 @@
-<<<<<<< HEAD
-Node ID: 7aff4d4d-b91f-4a9e-a080-ec0a271a09ad
-Text: AIO2024 aivietnam.edu.vn Câu 7: Xếp chồng 2 mảng theo chiều dọc
-1 # Python code ( aivietnam ) 2 import numpy as np 3 4 data1 = np.
-arange (10) .
-=======
 AIO2024 aivietnam.edu.vn
 Câu 7: Xếp chồng 2 mảng theo chiều dọc
 1 # Python code ( aivietnam )
 2 import numpy as np
 3
 4 data1 = np. arange (10) . 
->>>>>>> HEAD@{1}

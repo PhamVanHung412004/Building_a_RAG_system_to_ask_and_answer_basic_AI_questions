@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: ebc058c0-6246-4f44-a327-8a395a78a000
-Text: AI VIETNAM aivietnam.edu.vn 3 Vision Mamba Vision Mamba (Vim) là
-bài paper đầu tiên áp dụng Mamba vào data dạng ảnh. Các tác giả đã
-thay thế Transformer Encoder trong Vision Transformer (ViT) bằngVision
-Mamba Encoder, và thay đổi kiến trúc SSM thànhBidirectional SSM(tương
-tự Bidirectional LSTM). Kiến trúc của Vim và Vision Mamba Encoder được
-mô ...
-=======
 AI VIETNAM aivietnam.edu.vn
 3 Vision Mamba
 Vision Mamba (Vim) là bài paper đầu tiên áp dụng Mamba vào data dạng ảnh. Các tác giả đã thay
@@ -21,4 +12,3 @@ Hình 2: Kiến trúc Vision Mamba (Vim) và Vision Mamba Encoder.
 Hình 3 mô tả kết quả giữa Transformer (DeiT) và Vision Mamba (Vim). Ta thấy, Vim vượt trội hơn
 DeiT ở tất cả các task bao gồm: image classification, object detection, và instance segmentation. Hơn
 nữa, khi kích thước ảnh đầu vào tăng, Vim outperform DeiT ở cả speed và memory. 
->>>>>>> HEAD@{1}

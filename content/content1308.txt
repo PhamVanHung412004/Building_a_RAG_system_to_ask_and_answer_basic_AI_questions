@@ -1,11 +1,3 @@
-<<<<<<< HEAD
-Node ID: ac38cf56-5f5e-4a4e-b2e2-6319e1a1a9f5
-Text: Để tăng tốc độ huấn luyện mô hình, chúng ta sẽ sử dụng kỹ thuật
-quantization và LORA. 1 import torch 2 from trl import ModelConfig ,
-get_quantization_config , get_kbit_device_map 3 from peft import
-LoraConfig , PeftConfig , PeftModel , get_peft_model ,
-prepare_model_for_kbit_training 5
-=======
 Để tăng tốc độ huấn luyện mô hình, chúng ta sẽ sử
 dụng kỹ thuật quantization và LORA.
 1 import torch
@@ -13,4 +5,3 @@ dụng kỹ thuật quantization và LORA.
 3 from peft import LoraConfig , PeftConfig , PeftModel , get_peft_model ,
 prepare_model_for_kbit_training
 5
->>>>>>> HEAD@{1}

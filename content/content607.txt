@@ -1,15 +1,6 @@
-<<<<<<< HEAD
-Node ID: 81996c09-9e94-443b-a020-9640ebcff6e1
-Text: Chúng ta dùng dấu cộng (+) theo cú pháplist_1 + list_1 để nối
-hai danh sáchlist_1 và list_2 . Ví dụ 3.2 minh họa việc thêm nhiều
-phần tử vào một danh sách và việc nối hai danh sách vào thành một.
-Code 3.3 và 3.4 trình bày phần cài đặt cho ví dụ 3.2. Ví dụ 3.2: Thêm
-nhiều phần từ vào một danh sách và nối hai danh sách. 4
-=======
 Chúng ta dùng dấu
 cộng (+) theo cú pháplist_1 + list_1 để nối hai danh sáchlist_1 và list_2 . Ví dụ 3.2 minh họa
 việc thêm nhiều phần tử vào một danh sách và việc nối hai danh sách vào thành một. Code 3.3 và 3.4
 trình bày phần cài đặt cho ví dụ 3.2.
 Ví dụ 3.2: Thêm nhiều phần từ vào một danh sách và nối hai danh sách.
 4
->>>>>>> HEAD@{1}

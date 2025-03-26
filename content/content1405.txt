@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 20bdb34a-74d6-4bae-8e0a-e5cdfa45b3c2
-Text: AI VIETNAM aivietnam.edu.vn 4. Trainer Ở giai đoạn huấn luyện,
-chúng ta sẽ xây dựng class Trainer dành cho việc huấn luyện mô hình
-Dif- fusion. Ngoài ra, chúng ta cũng sẽ sử dụng một công cụ theo dõi
-được sử dụng phổ biến trong việc huấn luyện các mô hình học máy, được
-gọi làwandb. Theo đó, các kết quả bao gồm cả thông số mất mát của mô
-hình và ...
-=======
 AI VIETNAM aivietnam.edu.vn
 4. Trainer
 Ở giai đoạn huấn luyện, chúng ta sẽ xây dựng class Trainer dành cho việc huấn luyện mô hình Dif-
@@ -15,4 +6,3 @@ huấn luyện các mô hình học máy, được gọi làwandb. Theo đó, c�
 mất mát của mô hình và hình ảnh mà mô hình dự đoán cũng có thể được trực quan hóa, giúp người
 dùng dễ dàng kiểm soát quy trình huấn luyện, từ đó đưa ra những chiến lược thích hợp và kịp thời.
 Để có thể sử dụng wandb, bạn có thể đăng ký và nhận API cá nhân thông qua wandb.ai.
->>>>>>> HEAD@{1}

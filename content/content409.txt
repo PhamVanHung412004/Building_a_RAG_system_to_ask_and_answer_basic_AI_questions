@@ -1,12 +1,4 @@
-<<<<<<< HEAD
-Node ID: 22eb62dd-3cf6-4c12-a987-0f52b7071491
-Text: • Ma trận trực giao được điều chỉnh tốt, nghĩa là những thay đổi
-nhỏ trong đầu vào (đám mây điểm) không dẫn đến những thay đổi lớn
-trong đầu ra (đám mây điểm được biến đổi). Điều này cải thiện độ ổn
-định số của mạng trong quá trình đào tạo và giúp nó hội tụ nhanh hơn.
-=======
 • Ma trận trực giao được điều chỉnh tốt, nghĩa là những thay đổi nhỏ trong đầu vào (đám mây
 điểm) không dẫn đến những thay đổi lớn trong đầu ra (đám mây điểm được biến đổi). Điều này
 cải thiện độ ổn định số của mạng trong quá trình đào tạo và giúp nó hội tụ nhanh hơn.
->>>>>>> HEAD@{1}
 12

@@ -1,13 +1,5 @@
-<<<<<<< HEAD
-Node ID: 802c1bbb-d1b3-4ff8-bdfc-1669b2b99b4f
-Text: Để tạo ra nội dung đa dạng và sáng tạo hơn, chúng ta có thể tăng
-mức độ phạt này lên. Ngược lại, nếu muốn mô hình tập trung hơn vào một
-số ý tưởng nhất định, chúng ta có thể giảm mức phạt xuống. Để tổng kết
-lại, sau đây là một số đề xuất của nhóm khi khởi tạo các tham số này:
-=======
 Để tạo ra
 nội dung đa dạng và sáng tạo hơn, chúng ta có thể tăng mức độ phạt này lên. Ngược lại, nếu muốn
 mô hình tập trung hơn vào một số ý tưởng nhất định, chúng ta có thể giảm mức phạt xuống.
 Để tổng kết lại, sau đây là một số đề xuất của nhóm khi khởi tạo các tham số này:
->>>>>>> HEAD@{1}
 3

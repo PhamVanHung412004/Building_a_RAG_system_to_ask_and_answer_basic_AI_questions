@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: fef2004f-6a52-4d76-9a3e-adf05ef27eec
-Text: AI VIETNAM aivietnam.edu.vn 423 ch , 424 cond_embed_dim , 425
-dropout , 426 out_channel = out_ch , 427 use_checkpoint =
-use_checkpoint , 428 use_scale_shift_norm = use_scale_shift_norm , 429
-down =True , 430 ) 431 if resblock_updown 432 else Downsample ( 433 ch
-, conv_resample , out_channel = out_ch 434 ) 435 ) 436 ) 437 ch =
-out_ch 438 input_bl...
-=======
 AI VIETNAM aivietnam.edu.vn
 423 ch ,
 424 cond_embed_dim ,
@@ -53,4 +44,3 @@ AI VIETNAM aivietnam.edu.vn
 465 self . _feature_size += ch
 466
 467 self . 
->>>>>>> HEAD@{1}

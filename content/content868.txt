@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: b701a204-90f1-40a5-921c-d66486369a75
-Text: AI VIETNAM aivietnam.edu.vn 20 driver.get(url) 21 22 # Start
-crawl urls of image like brute force - the same mechanism with this
-but add some feature 23 urls = [] 24 more_content_available = True 25
-26 pbar = tqdm(total=self.max_images, desc=f"Fetching images for
-{term}") # Set up for visualize progress 27 28 while len(urls) <
-self.max_images an...
-=======
 AI VIETNAM aivietnam.edu.vn
 20 driver.get(url)
 21
@@ -61,4 +52,3 @@ crawl url, ta sẽ áp dụng xử lí đa luồng multi-threading để phân l
 class cùng một lần và thực hiện liên tiếp, từ đó tốc độ crawl tăng lên đáng kể, giúp chúng ta tối ưu thời
 gian xong việc thu thập dữ liệu.
 25
->>>>>>> HEAD@{1}

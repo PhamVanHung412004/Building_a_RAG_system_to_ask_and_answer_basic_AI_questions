@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-Node ID: 71b9fdd8-730b-4c51-8eae-339138022484
-Text: 2.1.2 Truy vấn hình ảnh với độ đo L2 L2(⃗ a,⃗b) = vuut NX i=1
-(ai − bi)2 Chúng ta tạo hàm tính độ tương đồng L2
-mean_square_difference() 5
-=======
 2.1.2 Truy vấn hình ảnh với độ đo L2
 L2(⃗ a,⃗b) =
 vuut
@@ -12,4 +6,3 @@ i=1
 (ai − bi)2
 Chúng ta tạo hàm tính độ tương đồng L2 mean_square_difference()
 5
->>>>>>> HEAD@{1}

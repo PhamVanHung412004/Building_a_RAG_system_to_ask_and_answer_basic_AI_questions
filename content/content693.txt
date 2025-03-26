@@ -1,7 +1,2 @@
-<<<<<<< HEAD
-Node ID: 194ae99e-f516-44cf-afe1-9fd6e06a9e56
-Text: . 2 2.1 Tạo mảng từ dữ liệu có sẵn . .
-=======
 . 2
 2.1 Tạo mảng từ dữ liệu có sẵn . . 
->>>>>>> HEAD@{1}

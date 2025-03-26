@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: f39141d3-53b6-424e-9794-2d529557cef5
-Text: AI VIETNAM aivietnam.edu.vn 29 preprocess_function , 30 batched
-=True , 31 num_proc =4 , 32 ) 33 34 max_input_length = 512 35 36
-rw_ds_filted = rw_ds_processed . filter ( 37 lambda x: len (x["
-input_ids_chosen "]) <= max_input_length 38 and len (x["
-input_ids_rejected "]) <= max_input_length 39 ) 40 41 rw_train =
-rw_ds_filted [" train "] 42 rw_v...
-=======
 AI VIETNAM aivietnam.edu.vn
 29 preprocess_function ,
 30 batched =True ,
@@ -49,4 +40,3 @@ Mô hình được sử dụng sẽ là mô hình SFT và tinh chỉnh để ph�
 22 quantization_config = quantization_config ,
 23 )
 24 tokenizer = AutoTokenizer . from_pretrained ( model_config . 
->>>>>>> HEAD@{1}

@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 9a0dd310-59a2-4add-b153-db23d521b9a0
-Text: AI VIETNAM aivietnam.edu.vn 19 async def predict ( file_upload :
-UploadFile = File (...) ): 20 response = await predictor . predict (
-file_upload . file ) 21 22 return CatDogResponse (** response ) Trong
-đây, ta khởi tạo instance router của FastAPI để định nghĩa một
-endpoint, đồng thời khởi tạo một instance Predictor của model Cat Dog
-Classifica...
-=======
 AI VIETNAM aivietnam.edu.vn
 19 async def predict ( file_upload : UploadFile = File (...) ):
 20 response = await predictor . predict ( file_upload . file )
@@ -48,4 +39,3 @@ nhật đoạn code này vào fileserver.py:
 Theo đó, ta sử dụng thư việnuvicorn để host API trên địa chỉ 0.0.0.0 (địa chỉ máy local) trên
 port 8000. Trong trường hợp các bạn bị lỗi port đã được sử dụng, hãy đổi sang port khác
 nhé.
->>>>>>> HEAD@{1}

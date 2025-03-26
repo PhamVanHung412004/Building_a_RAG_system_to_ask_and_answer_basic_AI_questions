@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: f19a1071-63ee-418a-9d4a-fe4bdf279a35
-Text: 5. Tham số stride có nghĩa là gì trong đoạn code sau: 1 inputs =
-tokenizer( 2 question, # Danh sách các câu hỏi 3 context, # Nội dung
-liên quan đến câu hỏi 4 max_length=MAX_LENGTH, # Độ dài tối đa cho đầu
-ra mã hóa 5 truncation="only_second", # Cắt bớt dữ liệu chỉ cho phần
-thứ hai (context) 6 stride=STRIDE, 7 return_overflowing_tokens=True, #
-Tr...
-=======
 5. Tham số stride có nghĩa là gì trong đoạn code sau:
 1 inputs = tokenizer(
 2 question, # Danh sách các câu hỏi
@@ -25,4 +16,3 @@ bản gốc
 (d) Độ dài bước nhảy trong trường hợp bất kỳ
 6. Tham số fp16=True có nghĩa là gì trong đoạn code sau:
 16
->>>>>>> HEAD@{1}

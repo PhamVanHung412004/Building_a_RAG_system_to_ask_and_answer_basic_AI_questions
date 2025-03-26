@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: a6e33702-87a9-4b3e-8f75-590fcd39b2ef
-Text: AI VIETNAM aivietnam.edu.vn q0 = q, q1 = [k1||q], . . . , qM =
-[kM ||q], với [·||·] biểu thị sự kết hợp văn bản. Điểm tổng hợp cho
-mỗi lựa chọn trả lời được tính dựa trên câu hỏi bổ sung hỗ trợ tốt
-nhất lựa chọn đó dưới mô hình suy luận. Câu trả lời dự đoán cuối cùng
-là lựa chọn được hỗ trợ nhiều nhất từ một trong các phát biểu kiến
-thức. Mô hìn...
-=======
 AI VIETNAM aivietnam.edu.vn
 q0 = q, q1 = [k1||q], . . . , qM = [kM ||q], với [·||·] biểu thị sự kết hợp văn bản. Điểm tổng hợp
 cho mỗi lựa chọn trả lời được tính dựa trên câu hỏi bổ sung hỗ trợ tốt nhất lựa chọn đó dưới
@@ -29,4 +20,3 @@ khả năng giải quyết vấn đề của các mô hình ngôn ngữ trên ba
 tìm kiếm không đơn giản: Game of 24, Creative Writing, and Mini Crosswords.
 ToT giải quyết vấn đề bằng cách trả lời bốn câu hỏi:
 • Làm thế nào để phân rã quá trình trung gian thành các bước suy nghĩ?
->>>>>>> HEAD@{1}

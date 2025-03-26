@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: c2e9da73-9e19-4aad-9fa0-8e8fdfe6c002
-Text: AI VIETNAM (AIO2024) aivietnam.edu.vn Ở phần sau, chúng ta sẽ
-tập trung điểm qua các phiên bản YOLO (từ v1 đến v9). II.II. YOLOv1
-YOLOv1 [1] là mô hình one-stage (hoặc single-stage) real-time object
-detection được giới thiệu vào năm 2016. Hình 4: Kiến trúc mô hình
-YOLOv1 với 24 lớp conv và 2 lớp mlp. Ảnh: [1]. - Điểm mới: YOLOv1 sử
-dụng một mạng...
-=======
 AI VIETNAM (AIO2024) aivietnam.edu.vn
 Ở phần sau, chúng ta sẽ tập trung điểm qua các phiên bản YOLO (từ v1 đến v9).
 II.II. YOLOv1
@@ -21,4 +12,3 @@ II.III. YOLOv2
 YOLOv2 [2], còn được gọi là YOLO9000, được giới thiệu vào năm 2017 với nhiều cải tiến so với
 YOLOv1.
 Hình 5: Hình ảnh minh họa về anchor boxes. Ảnh: Zixuan Zhang.
->>>>>>> HEAD@{1}

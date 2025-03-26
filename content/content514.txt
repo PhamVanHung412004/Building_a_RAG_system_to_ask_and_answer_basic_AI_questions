@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 150e262c-a1a1-45ea-8cde-d92475b673a0
-Text: AI VIET NAM – AI COURSE 2023 LLMs Series: Xây dựng ứng dụng RAG
-với LangChain Dinh-Thang Duong, Nguyen-Thuan Duong và Quang-Vinh Dinh
-Ngày 2 tháng 5 năm 2024 Phần I: Giới thiệu LangChain là một framework
-được thiết kế chuyên biệt cho việc triển khai LLMs trong các ứng dụng
-thực tế. LangChain hỗ trợ các công cụ và thư viện mạnh mẽ cho phép các
-nh...
-=======
 AI VIET NAM – AI COURSE 2023
 LLMs Series: Xây dựng ứng dụng RAG với
 LangChain
@@ -17,4 +8,3 @@ LangChain là một framework được thiết kế chuyên biệt cho việc tr
 thực tế. LangChain hỗ trợ các công cụ và thư viện mạnh mẽ cho phép các nhà phát triển dễ dàng tích
 hợp các mô hình ngôn ngữ lớn với các ứng dụng của họ, từ các Chatbot thông minh cho đến các hệ
 thống phân tích dữ liệu phức tạp.
->>>>>>> HEAD@{1}

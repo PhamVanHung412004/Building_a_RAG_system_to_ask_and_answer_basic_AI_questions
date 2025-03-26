@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: ba064b58-ac5c-4ffd-9bb2-1ac848607d19
-Text: AIO2024 aivietnam.edu.vn Câu 17: Đảo ngược các phần tử của các
-cột trong mảng hai chiều 1 # Python code ( aivietnam ) 2 import numpy
-as np 3 4 # create a 3x3 matrix 5 data = np. arange (9) . reshape (3
-,3) 6 print (data , ’\n’) 7 8 # reverse each column 9 out = data [::
--1 , :] 10 print ( out ) ================= Output ================ [[0
-1 2] ...
-=======
 AIO2024 aivietnam.edu.vn
 Câu 17: Đảo ngược các phần tử của các cột trong mảng hai chiều
 1 # Python code ( aivietnam )
@@ -33,4 +24,3 @@ Câu 18: Đảo ngược các phần tử của các hàng trong mảng hai chi�
 3
 4 # create a 3x3 matrix
 5 data = np. arange (9) . 
->>>>>>> HEAD@{1}

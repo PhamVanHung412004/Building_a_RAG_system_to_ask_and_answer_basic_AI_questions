@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-Node ID: be959ac0-01c4-4c03-bf1a-03ae3bac2f3d
-Text: AI VIETNAM aivietnam.edu.vn Phần III: Câu hỏi trắc nghiệm 1. So
-với QA, chương trình End-to-end QA có điểm gì khác biệt? (a) Mô hình
-trích xuất câu hỏi tốt hơn. (b) Sử dụng kiến trúc transformer. (c) Có
-sử dụng mô hình tìm kiếm context. (d) Tốc độ xử lý nhanh hơn.
-=======
 AI VIETNAM aivietnam.edu.vn
 Phần III: Câu hỏi trắc nghiệm
 1. So với QA, chương trình End-to-end QA có điểm gì khác biệt?
@@ -12,4 +5,3 @@ Phần III: Câu hỏi trắc nghiệm
 (b) Sử dụng kiến trúc transformer.
 (c) Có sử dụng mô hình tìm kiếm context.
 (d) Tốc độ xử lý nhanh hơn.
->>>>>>> HEAD@{1}

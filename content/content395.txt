@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: d67dd282-0c99-48ce-aa86-8c3636d0e802
-Text: transpose () 6 7 def show_rgbd (rgb , depth ): 8 plt . subplot
-(1 , 2, 1) 9 plt . title (’ Grayscale image ’) 10 plt . imshow ( rgb )
-11 plt . subplot (1 , 2, 2) 12 plt . title (’Depth image ’) 13 plt .
-imshow ( depth ) 14 plt . show () 15 16 def np_to_pc ( points , colors
-): 17 pcd = o3d . geometry . PointCloud () 18 pcd . points = o3d .
-utilit...
-=======
 transpose ()
 6
 7 def show_rgbd (rgb , depth ):
@@ -26,4 +17,3 @@ transpose ()
 21
 22 def get_pcl ( name = "0"):
 23 rgb = cv2 . cvtColor ( cv2 . 
->>>>>>> HEAD@{1}

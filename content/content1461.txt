@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: c2a37c9d-cfeb-47b5-b430-acba1364226f
-Text: Các bạn có thể theo dõi và đọc thêm về thư viện này tại trang
-chủ hoặc trang github của thư viện. Hình 1: Biểu tượng của Milvus
-Trong bài viết này, chúng ta sẽ tìm hiểu cách cài đặt nhanh Milvus
-trên máy tính cá nhân và ứng dụng Milvus trong việc tìm kiếm các tài
-liệu (context) có liên quan nhằm hỗ trợ hệ thống hỏi-đáp mở (Open
-Domain Question A...
-=======
 Các
 bạn có thể theo dõi và đọc thêm về thư viện này tại trang chủ hoặc trang github của thư viện.
 Hình 1: Biểu tượng của Milvus
@@ -19,4 +10,3 @@ dụng Milvus trong việc tìm kiếm các tài liệu (context) có liên quan
 đọc hãy thay đổi cho phù hợp với hệ điều hạnh của máy mình nhé. Đầu tiên, các bạn hãy kiểm
 tra cấu hình yêu cầu để cài đặt Milvus theo như ảnh dưới đây:
 1
->>>>>>> HEAD@{1}

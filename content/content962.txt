@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: f3163270-8720-4afe-8838-73d13e1fc9c8
-Text: AI VIETNAM aivietnam.edu.vn 1 raw_datasets =
-raw_datasets.filter( 2 lambda x: len(x[’answers’][’text’]) > 0 3 ) (d)
-Khởi tạo mô hình: Để tạo vector embedding cho các câu hỏi, ta sẽ sử
-dụng mô hình pre-trained DistilBERT: 1 MODEL_NAME = "distilbert-base-
-uncased" 2 tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME) 3
-model = AutoModel.from_pret...
-=======
 AI VIETNAM aivietnam.edu.vn
 1 raw_datasets = raw_datasets.filter(
 2 lambda x: len(x[’answers’][’text’]) > 0
@@ -21,4 +12,3 @@ embedding cho một đoạn text đầu vào, cụ thể ở đây sẽ là câu
 đại diện cho câu hỏi, ta sẽ sử dụng vector hidden state từ token [CLS] trong kết quả output
 của mô hình DistilBERT:
 Hình 5: Ảnh minh họa vị trí của final hidden state của token CLS.
->>>>>>> HEAD@{1}

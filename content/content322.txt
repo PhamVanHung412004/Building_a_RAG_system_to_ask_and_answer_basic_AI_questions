@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 6a933d75-365e-4036-a675-4f17f3daeaf2
-Text: path . join ( out_dir , " images "), 13 listdir = listdir , 14
-featslistdir = featslistdir , 15 split =" test ", 16 ) 17 nbatches =
-np. int_ (np. floor ( data . img_num / batchsize )) 18 data_loader =
-DataLoader ( 19 dataset =data , 20 num_workers = args [" nthreads "],
-21 batch_size = batchsize , 22 shuffle = False , 23 drop_last =True ,
-24 ) 2...
-=======
 path . join ( out_dir , " images "),
 13 listdir = listdir ,
 14 featslistdir = featslistdir ,
@@ -56,4 +47,3 @@ path . join ( out_dir , " images "),
 58 hiddensize = args [" hiddensize "]
 59 nmix = args [" nmix "]
 13
->>>>>>> HEAD@{1}

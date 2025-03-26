@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 37b6faf3-7373-4db5-a9a0-0d9dab1169d5
-Text: AI VIETNAM aivietnam.edu.vn Phần II: Nội dung Trong phần này,
-chúng ta sẽ triển khai mô hình VAE-base Image Colorization dựa trên
-bài báo Learning Diverse Image Colorization để học cách tạo ra tập ảnh
-màu đa dạng về mặt kết quả. Cụ thể, ta sẽ xây dựng chương trình dựa
-trên bộ dữ liệu LFW (Labeled Faces in the Wild Home), một trong những
-bộ dữ li...
-=======
 AI VIETNAM aivietnam.edu.vn
 Phần II: Nội dung
 Trong phần này, chúng ta sẽ triển khai mô hình VAE-base Image Colorization dựa trên bài báo Learning
@@ -28,4 +19,3 @@ gồm hơn 12,000 ảnh train và 1,000 ảnh test. Cùng với đó là một b
 ảnh, trích xuất từ một mạng VGG được huấn luyện mạnh mẽ trên bộ dữ liệu lớn ImageNet.
 Tải dữ liệu
 1 ! 
->>>>>>> HEAD@{1}

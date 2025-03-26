@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 826de9eb-c11f-4ed6-9f16-b17a0b2d5470
-Text: Nhìn tổng quan, WikiChat bao gồm 2 giai đoạn chính, giai đoạn
-đầu là thu thập thông tin dựa trên đoạn chat với người dùng, và giai
-đoạn hai đưa ra câu trả lời dựa trên thông tin thu thập được. 5 bước
-đầu của phương pháp này thuộc về giai đoạn 1, và 2 bước sau thuộc về
-giai đoạn 2, sau đây chúng ta đi chi tiết từng giai đoạn. Giai đoạn 1:
-Thu thậ...
-=======
 Nhìn tổng quan, WikiChat bao gồm 2 giai đoạn chính, giai đoạn đầu là thu thập thông tin dựa
 trên đoạn chat với người dùng, và giai đoạn hai đưa ra câu trả lời dựa trên thông tin thu thập được. 5
 bước đầu của phương pháp này thuộc về giai đoạn 1, và 2 bước sau thuộc về giai đoạn 2, sau đây chúng
@@ -27,4 +18,3 @@ hệ thống truy vấn thông tin sẽ được sử dụng để truy vấn nh
 những bằng chứng truy vấn được ủng hộ khẳng định, phủ định, hoặc không đủ thông tin để kết
 luận. Chỉ những khẳng định được ủng hộ bởi bằng chứng mới được giữ lại.
 23
->>>>>>> HEAD@{1}

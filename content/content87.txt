@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 493b171f-0625-401d-b485-219703a4012c
-Text: Đọc ảnh chụp bên trái (left) và ảnh chụp bên phải (right) dưới
-dạng ảnh grayscale (ảnh mức xám) đồng thời ép kiểu ảnh về np.float32.
-2. Khởi tạo hai biến height, width có giá trị bằng chiều cao, chiều
-rộng của ảnh trái. 3. Khởi tạo một ma trận không - zero matrix (depth)
-với kích thước bằng height, width. 4. Tính nửa kích thước của window
-tính t...
-=======
 Đọc ảnh chụp bên trái (left) và ảnh chụp bên phải (right) dưới dạng ảnh grayscale (ảnh
 mức xám) đồng thời ép kiểu ảnh về np.float32.
 2. Khởi tạo hai biến height, width có giá trị bằng chiều cao, chiều rộng của ảnh trái.
@@ -17,4 +8,3 @@ theo công thức kernel_half =k−1
 5. Với mỗi pixel tại vị trí (h, w) (h∈ [kernel_half, height - kernel_half], w∈ [kernel_half,
 width - kernel_half]; duyệt từ trái qua phải, trên xuống dưới), thực hiện các bước sau:
 5
->>>>>>> HEAD@{1}

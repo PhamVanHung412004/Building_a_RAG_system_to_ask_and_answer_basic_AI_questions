@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: d063f228-7fd2-4fae-9c44-86928cf2a610
-Text: AI VIETNAM aivietnam.edu.vn Hình 7: Kiến trúc và cơ chế khởi tạo
-của Pseudo-3D convolutional và attention layers, cho phép chuyển đổi
-mô hình T2I đã được huấn luyện trước sang chiều không gian thời gian.
-– Pseudo-3D convolutional layers: Việc sử dụng Pseudo-3D convolutional
-layers nhằm nâng cao 2D convolutional network cho temporal learning mà
-k...
-=======
 AI VIETNAM aivietnam.edu.vn
 Hình 7: Kiến trúc và cơ chế khởi tạo của Pseudo-3D convolutional và attention layers, cho phép chuyển
 đổi mô hình T2I đã được huấn luyện trước sang chiều không gian thời gian.
@@ -24,4 +15,3 @@ không tốn nhiều tài nguyên tính toán như sử dụng full 3D convoluti
 hiện bằng cách xếp chồng các 1D attention layer lên trên pre-trained spatial attention layer.
 Những lớp này cho phép network duy trì sự chú ý trong không gian đồng thời kết hợp thông
 tin thời gian. 
->>>>>>> HEAD@{1}

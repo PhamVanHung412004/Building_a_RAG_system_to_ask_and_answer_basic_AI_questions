@@ -1,12 +1,5 @@
-<<<<<<< HEAD
-Node ID: bb69b8ef-4fcf-41fc-890e-eec99cd820cc
-Text: type ( weight . dtype ) 303 a = torch . einsum ("bts ,bcs -> bct
-", weight , v. reshape (bs * self . n_heads , ch , length )) 304
-return a. reshape (bs , -1, length ) 12
-=======
 type ( weight . dtype )
 303 a = torch . einsum ("bts ,bcs -> bct ", weight , v. reshape (bs * self . n_heads , ch ,
 length ))
 304 return a. reshape (bs , -1, length )
 12
->>>>>>> HEAD@{1}

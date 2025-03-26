@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 4585edb6-9f4d-47ec-9792-8585aeca3eb5
-Text: output (x) 2.2. Improved UNet Model Trong phần này chúng ta sẽ
-xây dựng mô hình UNet kết hợp với cơ chế Attention và Adaptive Group
-Normalization. Kết trúc mô hình UNet sử dụng kết hợp với cơ chế
-Attention được mô tả như sau: Hình 5: Mô hình UNet kết hợp cơ chế
-Attention trong DDP. 1 # Reference : https :// github . com / openai /
-guided - diffu...
-=======
 output (x)
 2.2. Improved UNet Model
 Trong phần này chúng ta sẽ xây dựng mô hình UNet kết hợp với cơ chế Attention và Adaptive Group
@@ -31,4 +22,3 @@ Hình 5: Mô hình UNet kết hợp cơ chế Attention trong DDP.
 16 def zero_module ( module ):
 17 """
 7
->>>>>>> HEAD@{1}

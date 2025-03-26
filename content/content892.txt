@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 1686c08e-2972-40c8-b39b-15945cae9a17
-Text: AI VIETNAM aivietnam.edu.vn • Temperature: Ban đầu khi nhìn vào
-tham số này, chúng ta sẽ dễ bị lầm tưởng đây là tham số chạy từ 0 đến
-1. Thực tế thì như giải thích ở trên thì ta có thể thấy là temperature
-không hề là một biến chạy từ 0 đến 1. Vậy ta nên chọn tham số này như
-thế nào để tối ưu nhất? – Chọn temperature = 0.0nếu chúng ta muốn kết
-qu...
-=======
 AI VIETNAM aivietnam.edu.vn
 • Temperature: Ban đầu khi nhìn vào tham số này, chúng ta sẽ dễ bị lầm tưởng đây là tham
 số chạy từ 0 đến 1. Thực tế thì như giải thích ở trên thì ta có thể thấy là temperature không
@@ -22,4 +13,3 @@ vẫn có tính random, đây cũng là khoảng các “cao nhân” trên mạ
 thì kết quả từ model sẽ là ngẫu nhiên hoàn toàn.
 • Top P
 – Tìm câu trả lời chính xác: Giữ giá trị Top P thấp (0.1 - 0.5).
->>>>>>> HEAD@{1}

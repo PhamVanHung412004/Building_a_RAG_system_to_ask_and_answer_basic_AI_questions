@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 09cec014-f789-4d46-8497-b4885977d7c8
-Text: transforms . Compose ([ 73 torchvision . transforms . Resize ((
-CatDogDataConfig . IMG_SIZE , CatDogDataConfig . IMG_SIZE )), 74
-torchvision . transforms . ToTensor () , 75 torchvision . transforms .
-Normalize ( mean = CatDogDataConfig . NORMALIZE_MEAN , std =
-CatDogDataConfig . NORMALIZE_STD ) 76 ]) 77 78 def output2pred (self ,
-output ): 79 pr...
-=======
 transforms . Compose ([
 73 torchvision . transforms . Resize (( CatDogDataConfig . IMG_SIZE ,
 CatDogDataConfig . IMG_SIZE )),
@@ -21,4 +12,3 @@ NORMALIZE_MEAN , std = CatDogDataConfig . NORMALIZE_STD )
 81 predicted_id = torch . max ( probabilities , 1) [1]. item ()
 82 predicted_class = CatDogDataConfig . ID2DLABEL [ predicted_id ]
 11
->>>>>>> HEAD@{1}

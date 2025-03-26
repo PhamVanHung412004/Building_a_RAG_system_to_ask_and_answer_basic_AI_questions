@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-Node ID: 47b22c7c-092a-4003-a2cf-c417422ae31d
-Text: outshape [0] , self . outshape [1]) ) Khởi tạo các siêu tham số
-toàn cụ cho chương trình. 1 # Declare hyperparameters 2 args = { 3 "
-gpu ": 1, 4 " epochs ": 2, 5 " batchsize ": 32 , 6 " hiddensize ": 64
-, 6
-=======
 outshape [0] , self . outshape [1])
 )
 Khởi tạo các siêu tham số toàn cụ cho chương trình.
@@ -15,4 +8,3 @@ Khởi tạo các siêu tham số toàn cụ cho chương trình.
 5 " batchsize ": 32 ,
 6 " hiddensize ": 64 ,
 6
->>>>>>> HEAD@{1}

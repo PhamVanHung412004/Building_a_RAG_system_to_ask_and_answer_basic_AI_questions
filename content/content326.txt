@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 7285cf1c-9448-4391-a057-18b1cb3cac9f
-Text: AI VIETNAM aivietnam.edu.vn 120 " train_ %05 d_ %05 d" % (
-epochs , batch_idx ), 121 batchsize , 122 net_recon_const =
-batch_recon_const_outres . numpy () , 123 ) 124 125 train_loss = (
-train_loss * 1.0) / ( nbatches ) 126 print (" VAE Train Loss , epoch
-%d has loss %f" % ( epochs , train_loss )) 127 test_loss = test_vae (
-model ) 128 print (" V...
-=======
 AI VIETNAM aivietnam.edu.vn
 120 " train_ %05 d_ %05 d" % ( epochs , batch_idx ),
 121 batchsize ,
@@ -35,4 +26,3 @@ Train MDN model
 8 # Create DataLoader
 9 data = ColorDataset (
 10 os. path . 
->>>>>>> HEAD@{1}

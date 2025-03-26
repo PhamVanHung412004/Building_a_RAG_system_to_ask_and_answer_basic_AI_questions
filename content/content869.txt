@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 1ed9d5ef-15f1-46d7-9455-99d733df334c
-Text: AI VIETNAM aivietnam.edu.vn 1 def scrape_urls(self, categories):
-2 """ 3 Call get_url_images method to get all urls of any object in
-categories\ 4 5 Parameter: 6 categories (dictionary): the dict of all
-object we need to collect image with format categories{"name_object":
-[value1, value2, ...]} 7 8 Returns: 9 all_urls (dictionary):
-Dictionary of...
-=======
 AI VIETNAM aivietnam.edu.vn
 1 def scrape_urls(self, categories):
 2 """
@@ -44,4 +35,3 @@ như dictionary các class cần tải (category):
 4
 5 Parameters:
 6 data (dict): The data to be saved.
->>>>>>> HEAD@{1}

@@ -1,12 +1,4 @@
-<<<<<<< HEAD
-Node ID: 0b49250c-310f-4927-88bb-c8b4dd79ad16
-Text: 2. When dealing with 3D point cloud data, which data structure
-offers faster average- case search time complexity? (A). Kd-Tree. (B).
-Octree. (C). Both (a) and (b) have similar complexity. (D). The answer
-depends on the data distribution.
-=======
 2. When dealing with 3D point cloud data, which data structure offers faster average-
 case search time complexity?
 (A). Kd-Tree. (B). Octree.
 (C). Both (a) and (b) have similar complexity. (D). The answer depends on the data distribution.
->>>>>>> HEAD@{1}

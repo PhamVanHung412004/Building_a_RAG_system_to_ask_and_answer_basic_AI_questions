@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-Node ID: 1619841c-3abd-496c-8b81-c1e8e9872f23
-Text: AI VIETNAM aivietnam.edu.vn 363 self . image_size = image_size
-364 self .
-=======
 AI VIETNAM aivietnam.edu.vn
 363 self . image_size = image_size
 364 self . 
->>>>>>> HEAD@{1}

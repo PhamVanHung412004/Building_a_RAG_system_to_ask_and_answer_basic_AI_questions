@@ -1,11 +1,3 @@
-<<<<<<< HEAD
-Node ID: ace7a6f0-ae23-4d57-8900-8b3283ba8091
-Text: AI VIETNAM (AIO2024) aivietnam.edu.vn III. Câu hỏi trắc nghiệm
-1. RAG là viết tắt của cụm từ nào sau đây trong ngữ cảnh mô hình ngôn
-ngữ lớn (LLM)? (a) Randomized Augmentation Generator. (b) Retrieval
-Augmented Generation. (c) Recurrent Adaptive Generator. (d) Recursive
-Algorithmic Generator. 2.
-=======
 AI VIETNAM (AIO2024) aivietnam.edu.vn
 III. Câu hỏi trắc nghiệm
 1. RAG là viết tắt của cụm từ nào sau đây trong ngữ cảnh mô hình ngôn ngữ lớn (LLM)?
@@ -14,4 +6,3 @@ III. Câu hỏi trắc nghiệm
 (c) Recurrent Adaptive Generator.
 (d) Recursive Algorithmic Generator.
 2. 
->>>>>>> HEAD@{1}

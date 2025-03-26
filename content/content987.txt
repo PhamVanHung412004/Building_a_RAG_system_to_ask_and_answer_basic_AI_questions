@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: e72fe8e4-e2eb-40b3-a540-62782418c1d9
-Text: Về phía các mô hình ngôn ngữ lớn (LLM) ở thời điểm hiện tại đều
-gặp giới hạn về độ dài ngữ cảnh (context) văn bản mà LLM có thể xử lý.
-Ví dụ: giới hạn 128k với GPT4 phiên bản mới nhất, 16k với GPT3.5, 32k
-với Gemini, 32k Llama-2, 8k Mixtral 8x7b,... Ngoài ra, việc đưa lượng
-lớn dữ liệu vào ngữ cảnh cho LLM được chứng minh là không hiệu quả với
-m...
-=======
 Về phía các mô hình ngôn ngữ lớn (LLM) ở thời điểm hiện tại đều gặp giới hạn về độ dài ngữ cảnh
 (context) văn bản mà LLM có thể xử lý. Ví dụ: giới hạn 128k với GPT4 phiên bản mới nhất, 16k với
 GPT3.5, 32k với Gemini, 32k Llama-2, 8k Mixtral 8x7b,...
@@ -41,4 +32,3 @@ không chứa thông tin liên quan. Độ dài của các phân đoạn thườ
 Với giải pháp RAG nâng cao, các hướng tiếp cận hiệu quả hơn được đề cập nhằm đưa ra các phương
 án chia nhỏ tối ưu để có thể vừa nâng cao khả năng tìm kiếm chi tiết mà vẫn có được thông tin bối
 6
->>>>>>> HEAD@{1}

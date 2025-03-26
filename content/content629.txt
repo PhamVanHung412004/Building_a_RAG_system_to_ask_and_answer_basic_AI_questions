@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-Node ID: a196ce64-d8ef-4d78-9efe-bba78d1b40c8
-Text: AIO2024 aivietnam.edu.vn Câu 15: Hoán đổi các cột trong mảng hai
-chiều 1 # Python code ( aivietnam ) 2 import numpy as np 3 4 # create
-a 3x3 matrix 5 data = np. arange (9) .
-=======
 AIO2024 aivietnam.edu.vn
 Câu 15: Hoán đổi các cột trong mảng hai chiều
 1 # Python code ( aivietnam )
@@ -11,4 +5,3 @@ Câu 15: Hoán đổi các cột trong mảng hai chiều
 3
 4 # create a 3x3 matrix
 5 data = np. arange (9) . 
->>>>>>> HEAD@{1}

@@ -1,15 +1,5 @@
-<<<<<<< HEAD
-Node ID: 55dc9070-2b03-460f-8d67-faaf8afdc861
-Text: 2. Gán một chuỗi ‘"Have a nice day!"‘ vào biến ‘message‘. Sau đó
-sử dụng câu lệnh ‘print‘ để hiển thị biến này ra màn hình. 3. Bạn hãy
-tạo một chuỗi ‘"Let’s have Tet holidays!"‘ và gán vào biến với tên
-‘1_message‘. Sau đó sử dụng câu lệnh ‘print‘ để hiển thị biến này ra
-màn hình. Nếu kết quả hiển thị thông báo lỗi, hãy xác định lỗi này là
-gì và ...
-=======
 2. Gán một chuỗi ‘"Have a nice day!"‘ vào biến ‘message‘. Sau đó sử dụng câu lệnh ‘print‘ để hiển
 thị biến này ra màn hình.
 3. Bạn hãy tạo một chuỗi ‘"Let’s have Tet holidays!"‘ và gán vào biến với tên ‘1_message‘. Sau đó
 sử dụng câu lệnh ‘print‘ để hiển thị biến này ra màn hình. Nếu kết quả hiển thị thông báo lỗi,
 hãy xác định lỗi này là gì và sửa như thế nào? Sau đó chạy lại chương trình.
->>>>>>> HEAD@{1}

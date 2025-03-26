@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: f5d6e501-be13-4b18-9c15-ed584ce467ee
-Text: Các bước thực hiện như sau: 1. Tải bộ dữ liệu:Chúng ta sẽ giải
-quyết bài toán phát hiện các công nhân. Bộ dữ liệu được sử dụng trong
-bài toán này là Helmet Safety. Để dễ hình dung, các bạn có thể quan
-sát ảnh minh họa sau: Hình 18: Một vài mẫu dữ liệu trong bộ dữ liệu về
-Helmet Safety Detection. Để tải bộ dữ liệu trên, các bạn hãy chạy đoạn
-code...
-=======
 Các bước thực hiện như sau:
 1. Tải bộ dữ liệu:Chúng ta sẽ giải quyết bài toán phát hiện các công nhân. Bộ dữ liệu được
 sử dụng trong bài toán này là Helmet Safety. Để dễ hình dung, các bạn có thể quan sát
@@ -20,4 +11,3 @@ Giải nén bộ dữ liệu vào folderdatasets. Các bạn thực thi đoạn 
 3 ! unzip -q ’/ content / Safety_Helmet_Dataset . zip ’ -d ’/ content /
 safety_helmet_dataset ’
 12
->>>>>>> HEAD@{1}

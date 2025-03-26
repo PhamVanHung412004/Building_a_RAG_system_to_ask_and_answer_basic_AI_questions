@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: f7342087-90f8-4e98-8a50-dd25aaf6a1a6
-Text: AIO 2024 aivietnam.edu.vn 1 #Numpy code 2 import numpy as np 3 #
-Tạo một array 1D 4 arr_1 = np.array([1, 2, 3]) 5 # 1D -> 2D 6 arr_2 =
-arr_1[np.newaxis, :] 7 # 2D -> 5D 8 arr_3 = arr_2[np.newaxis, :,
-np.newaxis, :, np.newaxis] 9 print("array 1: ", arr_1, arr_1.shape) 10
-print("array 2: ", arr_2, arr_2.shape) 11 print("array 3:\n ", arr_3,
-arr_3....
-=======
 AIO 2024 aivietnam.edu.vn
 1 #Numpy code
 2 import numpy as np
@@ -60,4 +51,3 @@ array 3:
 5.2 reshape
 reshape là một hàm được sử dụng để thay đổi hình dạng của một mảng mà không làm thay đổi dữ
 liệu bên trong nó. Kích thước mảng mới được chỉ định thông qua tham số của hàmreshape.
->>>>>>> HEAD@{1}

@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-Node ID: 41c4e78b-8c7d-405c-a28a-c97edc10dff3
-Text: data . Dataset ): 9 """ VQA (v2) dataset . """ 10 11 def
-__init__ (self , dataset , processor , data_path ): 12 self . dataset
-= dataset 13 self . processor = processor 14 self . data_path =
-data_path 15 16 def __len__ ( self ): 17 return len ( self . dataset )
-=======
 data . Dataset ):
 9 """ VQA (v2) dataset . """
 10
@@ -15,5 +8,4 @@ data . Dataset ):
 15
 16 def __len__ ( self ):
 17 return len ( self . dataset )
->>>>>>> HEAD@{1}
 3

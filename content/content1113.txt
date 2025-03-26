@@ -1,10 +1,4 @@
-<<<<<<< HEAD
-Node ID: 3fb66482-0024-4ba6-909a-d8c46f478bcf
-Text: com /THU - MIG / yolov10 . git 2 %cd yolov10 3 ! pip install -q
--r requirements . txt 4 ! pip install -e .
-=======
 com /THU - MIG / yolov10 . git
 2 %cd yolov10
 3 ! pip install -q -r requirements . txt
 4 ! pip install -e .
->>>>>>> HEAD@{1}

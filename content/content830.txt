@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 620f1f5d-9f30-4c2f-afd5-40dab8acc64a
-Text: 2.1 Chương Trình Truy Vấn Ảnh Cơ Bản: Mục này tập trung vào việc
-thiết kế và triển khai một hệ thống truy vấn ảnh đơn giản, giúp người
-dùng có thể tìm kiếm và truy xuất hình ảnh tương tự. Để có thể tìm
-được các hình ảnh có liên quan đến hình ảnh truy vấn, ta có thể sử
-dụng các độ được trình bày ở các mục tiếp theo để đo sự tương đồng
-giữa hai ản...
-=======
 2.1 Chương Trình Truy Vấn Ảnh Cơ Bản:
 Mục này tập trung vào việc thiết kế và triển khai một hệ thống truy vấn ảnh đơn giản, giúp người dùng
 có thể tìm kiếm và truy xuất hình ảnh tương tự. Để có thể tìm được các hình ảnh có liên quan đến
@@ -40,4 +31,3 @@ mới áp dụng được các phép đo) và chuyển đổi nó về dạng nu
 12 images_path = np.array(images_path)
 13 return images_np, images_path
 3
->>>>>>> HEAD@{1}

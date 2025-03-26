@@ -1,12 +1,5 @@
-<<<<<<< HEAD
-Node ID: ad9870c6-8e04-413c-9ce3-b7132bcff054
-Text: Defaults to False . 8 name (str , optional ): name of display
-window . Defaults to " Open3D ". 9 """ 10 pcd = o3d . geometry .
-PointCloud () 11 pcd . points = o3d .
-=======
 Defaults to False .
 8 name (str , optional ): name of display window . Defaults to " Open3D ".
 9 """
 10 pcd = o3d . geometry . PointCloud ()
 11 pcd . points = o3d . 
->>>>>>> HEAD@{1}

@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 440fb38d-096b-47c6-a77c-1cd4d6ef97f9
-Text: 3. Input và Ouput trong hệ thống RAG cho bài toán PDF Question-
-Answering là gì? (a) Input là video, Ouput là text. (b) Input là text,
-Ouput là text. (c) Input là image và text, Ouput là text. (d) Input là
-pdf và text, Ouput là text. 4. Trước khi sinh ra câu trả lời, RAG sẽ
-làm gì ? (a) Tạo một chuỗi text ngẫu nhiên. (b) Dịch câu hỏi đầu vào
-sang...
-=======
 3. Input và Ouput trong hệ thống RAG cho bài toán PDF Question-Answering là gì?
 (a) Input là video, Ouput là text.
 (b) Input là text, Ouput là text.
@@ -30,4 +21,3 @@ sánh.
 4 chunk_overlap =100)
 (a) Khởi tạo bộ chia text.
 14
->>>>>>> HEAD@{1}

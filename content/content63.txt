@@ -1,16 +1,6 @@
-<<<<<<< HEAD
-Node ID: 034eb559-ff1d-4a32-8b5b-517af1e8d8c2
-Text: AI VIETNAM (AIO2024) aivietnam.edu.vn về máy tính, có rất nhiều
-cách khác nhau (các bạn có thể đọc file README.md trên trang GitHub
-của labelImg), ở đây chúng ta sẽ chọn cách cài đặt với Anaconda: –
-Bước 1:Tải mã nguồn của labelImg tại trang GitHub sử dụng dòng lệnh
-sau (các dòng lệnh trong các bước ở đây sẽ được thực hiện trong
-cmd/terminal): 1...
-=======
 AI VIETNAM (AIO2024) aivietnam.edu.vn
 về máy tính, có rất nhiều cách khác nhau (các bạn có thể đọc file README.md trên
 trang GitHub của labelImg), ở đây chúng ta sẽ chọn cách cài đặt với Anaconda:
 – Bước 1:Tải mã nguồn của labelImg tại trang GitHub sử dụng dòng lệnh sau
 (các dòng lệnh trong các bước ở đây sẽ được thực hiện trong cmd/terminal):
 1 $ git clone https :// github . com / heartexlabs / labelImg . 
->>>>>>> HEAD@{1}

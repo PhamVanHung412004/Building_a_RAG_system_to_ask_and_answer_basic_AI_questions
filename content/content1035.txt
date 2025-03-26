@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 59416481-2883-4130-ad4e-b36543472cb7
-Text: Text-to-Video Generation Guide Hoang-Bach Ngo Minh-Hung An Ngày
-28 tháng 2 năm 2024 Phần I: Giới thiệu tổng quan Trong những năm gần
-đây, sự phát triển không ngừng của công nghệ đã mở đường cho một bước
-đột phá đáng kinh ngạc trong lĩnh vực tạo sinh nội dung: khả năng
-chuyển đổi văn bản thành video, một tiến bộ mới nhất trong chuỗi các
-thành tựu...
-=======
 Text-to-Video Generation Guide
 Hoang-Bach Ngo Minh-Hung An
 Ngày 28 tháng 2 năm 2024
@@ -16,4 +7,3 @@ phá đáng kinh ngạc trong lĩnh vực tạo sinh nội dung: khả năng chu
 tiến bộ mới nhất trong chuỗi các thành tựu công nghệ. Điều này không chỉ là một bước tiến trong việc
 tạo ra nội dung đa phương tiện từ văn bản mô tả mà còn mở ra cánh cửa mới cho nhiều ngành công
 nghiệp khác nhau. 
->>>>>>> HEAD@{1}

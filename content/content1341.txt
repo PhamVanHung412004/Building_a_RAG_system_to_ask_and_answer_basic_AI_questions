@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 4d70ce52-4dcd-4ab3-8044-e13c3bd9e3ee
-Text: AI VIETNAM aivietnam.edu.vn 3. Chatbot Chatbot là ứng dụng được
-chú ý phát triển mạnh những năm gần đây, các ứng dụng chatbot chủ yếu
-tập trung vào các mô hình ngôn ngữ lớn có thể tương tác tốt với các
-yêu cầu của người dùng. Ví dụ về chatbot được mô tả trong hình sau:
-Hình 7: Ứng dụng chatbot. Trong phần này, chúng ta xây dựng ứng dụng
-chatbot ...
-=======
 AI VIETNAM aivietnam.edu.vn
 3. Chatbot
 Chatbot là ứng dụng được chú ý phát triển mạnh những năm gần đây, các ứng dụng chatbot chủ
@@ -16,4 +7,3 @@ Hình 7: Ứng dụng chatbot.
 Trong phần này, chúng ta xây dựng ứng dụng chatbot đơn giản dựa trên thư viện hugchat và
 streamlit. Đầu tiên chúng ta cần có tài khoảng hugging face để có quyền truy cập hugchat. Sau
 đó truy cập vào trang sau đây để gửi yêu cầu truy cập hugchat.
->>>>>>> HEAD@{1}

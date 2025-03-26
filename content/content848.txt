@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 7ac6bbbb-2be6-4b0d-862a-8d05a7eebbf9
-Text: AI VIETNAM aivietnam.edu.vn 15 return query, ls_path_score Hình
-16: Image retrieval ảnh đơn giản với model CLIP và Cosine Similarity
-Hình 17: Image retrieval ảnh phức tạp với model Clip và Cosine
-Similarity TruyvấnembeddingvectorvớiđộđoCorrelationCoefficient
-hàmget_correlation_coefficient_score được nâng cấp lên bằng cách sử
-dụng CLIP model để t...
-=======
 AI VIETNAM aivietnam.edu.vn
 15 return query, ls_path_score
 Hình 16: Image retrieval ảnh đơn giản với model CLIP và Cosine Similarity
@@ -26,4 +17,3 @@ paths
 10 for idx_img in range(images_np.shape[0]):
 11 embedding = get_single_image_embedding(images_np[idx_img].astype(np.uint8))
 14
->>>>>>> HEAD@{1}

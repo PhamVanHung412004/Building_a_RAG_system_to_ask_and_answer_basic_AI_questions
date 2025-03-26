@@ -1,6 +1,1 @@
-<<<<<<< HEAD
-Node ID: 13e78b33-365d-41cc-ab1b-4dcbde4b57ae
-Text: 3
-=======
 3
->>>>>>> HEAD@{1}

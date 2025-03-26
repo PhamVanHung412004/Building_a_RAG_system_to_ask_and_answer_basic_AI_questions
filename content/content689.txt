@@ -1,7 +1,2 @@
-<<<<<<< HEAD
-Node ID: b4fe19d1-15c5-44fb-a66b-fb6a916c0b79
-Text: Mục lục 1 Mở đầu . .
-=======
 Mục lục
 1 Mở đầu . . 
->>>>>>> HEAD@{1}

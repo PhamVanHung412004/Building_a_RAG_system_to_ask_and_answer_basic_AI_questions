@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: c0e0d9ec-5576-4774-b1c8-9f2898b05000
-Text: AI VIETNAM aivietnam.edu.vn (d) Kết hợp tất cả frames thành một
-tensor 3D. 8. Trong VideoDataset,__getitem__ trả về gì? (a) Chỉ một
-tensor của các frames. (b) Một cặp gồm data và label. (c) Một danh
-sách các đường dẫn đến frame. (d) Kết quả của mô hình đã được train.
-9. Trong quá trình training, việc xáo trộn (shuffle) dữ liệu
-trongtrain_loader ...
-=======
 AI VIETNAM aivietnam.edu.vn
 (d) Kết hợp tất cả frames thành một tensor 3D.
 8. Trong VideoDataset,__getitem__ trả về gì?
@@ -24,4 +15,3 @@ AI VIETNAM aivietnam.edu.vn
 (b) Giảm độ chính xác của model.
 (c) Giúp model có khả năng transfer learning.
 (d) Giảm số lượng layers cần thiết trong mô hình.
->>>>>>> HEAD@{1}

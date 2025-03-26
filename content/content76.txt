@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 71392b7c-310d-43b8-a2e2-682fb788916b
-Text: 8. Trong câu lệnh huấn luyện mô hình, tham sốEPOCHS có ý nghĩa
-là? (a) Tham số mô hình quan trọng trong quá trình huấn luyện. (b)
-Được sử dụng để chỉ định số lần lặp lại quá trình huấn luyện. (c) Một
-biến số ngẫu nhiên trong quá trình huấn luyện mô hình. (d) Số lần mà
-toàn bộ dữ liệu huấn luyện sẽ được sử dụng để cập nhật các trọng số
-của mô hìn...
-=======
 8. Trong câu lệnh huấn luyện mô hình, tham sốEPOCHS có ý nghĩa là?
 (a) Tham số mô hình quan trọng trong quá trình huấn luyện.
 (b) Được sử dụng để chỉ định số lần lặp lại quá trình huấn luyện.
@@ -29,4 +20,3 @@ hình đã được huấn luyện trước đó.
 ngẫu nhiên và đại diện của dữ liệu.
 - Hết -
 22
->>>>>>> HEAD@{1}

@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 27067f54-b936-4210-9b61-21e85d6eaf02
-Text: AI VIETNAM aivietnam.edu.vn • p(x, t) là mật độ xác suất tại
-thời điểm t cho OU process. Nó miêu tả xác suất mà biến x(t) có giá
-trị x tại thời điểm t, khi chúng ta đã biết mật độ xác suất ban
-đầup0(x0) tại t = 0. • p(x, t|x0, 0) là heat kernel của OU process, đã
-được tính toán trước đó và miêu tả cách mật độ xác suất thay đổi theo
-thời gian từt...
-=======
 AI VIETNAM aivietnam.edu.vn
 • p(x, t) là mật độ xác suất tại thời điểm t cho OU process. Nó miêu tả xác suất mà biến x(t) có
 giá trị x tại thời điểm t, khi chúng ta đã biết mật độ xác suất ban đầup0(x0) tại t = 0.
@@ -34,4 +25,3 @@ dXt = θ(µ − Xt)dt + σdWt
 • Tính Chất Hồi Quy: OU process có tính chất hồi quy về giá trị trung bình dài hạn. Điều này
 có nghĩa là, không phụ thuộc vào giá trị khởi tạo, quá trình sẽ dần dần hội tụ về một giá trị trung
 bình cố định qua thời gian. 
->>>>>>> HEAD@{1}

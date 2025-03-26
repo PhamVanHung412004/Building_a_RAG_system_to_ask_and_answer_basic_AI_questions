@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 68c4540c-f0f5-43fe-a95e-c4ebe48120ab
-Text: AI VIETNAM aivietnam.edu.vn Hình 28: Cấu trúc lưu trữ các đường
-dẫn ảnh của file json Trước tiên, khai báo lớp ImageDownloader với các
-tham số đầu vào như sau: • json_file: đường dẫn tới file json •
-download_dir: folder chứa các ảnh sẽ download • max_worker: số luồng
-xử lý khi tải ảnh • delay: thời gian nghỉ giữa các lần request •
-filename: lưu ...
-=======
 AI VIETNAM aivietnam.edu.vn
 Hình 28: Cấu trúc lưu trữ các đường dẫn ảnh của file json
 Trước tiên, khai báo lớp ImageDownloader với các tham số đầu vào như sau:
@@ -31,4 +22,3 @@ downloading images without polite delay, it will crash or prevent your IP
 Khai báo hàm đọc file json, hàm kiểm tra xem url có đúng chuẩn không trước khi thực hiện request để
 tránh lỗi:
 28
->>>>>>> HEAD@{1}

@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 7bab38b0-2e76-4941-85ae-26d406bb82c1
-Text: AI VIETNAM aivietnam.edu.vn Hình 7: Một vài thành phần trong
-Milvus. Nguồn: link Các bạn có thể tìm hiểu những khái niệm khác trong
-Milvus tại đây. Bây giờ, chúng ta sẽ thử kiểm tra danh sách các
-Collection có trong Milvus hiện tại. Các bạn tạo một file .py bất kì,
-ở đây mình tạm đặt tên làcheck_milvus.py, có nội dung như sau: 1 from
-pymilvus im...
-=======
 AI VIETNAM aivietnam.edu.vn
 Hình 7: Một vài thành phần trong Milvus. Nguồn: link
 Các bạn có thể tìm hiểu những khái niệm khác trong Milvus tại đây. Bây giờ, chúng ta sẽ thử
@@ -27,4 +18,3 @@ database cho bài QA.
 trên bộ dữ liệu QA là SQuAD. Mục tiêu của chúng ta khi sử dụng cơ sở dữ liệu này nhằm tìm
 kiếm các câu hỏi có liên quan đến câu hỏi input, từ đó tìm được các context có khả năng cao chứa
 đáp án cho câu hỏi.
->>>>>>> HEAD@{1}

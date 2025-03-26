@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 75f2e534-4abf-4ffc-8741-8b021b4693a4
-Text: Hình 15: Sơ đồ PAL: Đối với một câu hỏi suy luận toán học,
-Chain-of-Thought tạo ra các bước suy luận trung gian dưới dạng văn bản
-tự do. Ngược lại, PAL tạo ra các bước trung gian và mã Python. Điều
-này chuyển vai trò thực thi các bước suy luận từ mô hình ngôn ngữ sang
-trình thông dịch Python. Câu trả lời cuối cùng được thu bằng cách chạy
-chuỗi s...
-=======
 Hình 15: Sơ đồ PAL: Đối với một câu hỏi suy luận toán học, Chain-of-Thought tạo ra các bước
 suy luận trung gian dưới dạng văn bản tự do. Ngược lại, PAL tạo ra các bước trung gian và mã
 Python. Điều này chuyển vai trò thực thi các bước suy luận từ mô hình ngôn ngữ sang trình thông
@@ -21,4 +12,3 @@ cần cung cấp trực tiếp các câu trả lời cuối cùng trong prompt c
 Điểm đặc biệt của PAL là việc giải quyết vấn đề được chuyển giao cho một trình thông dịch, ví
 dụ như trình thông dịch Python, cho phép mô hình tập trung vào việc xây dựng và tối ưu hóa các
 20
->>>>>>> HEAD@{1}

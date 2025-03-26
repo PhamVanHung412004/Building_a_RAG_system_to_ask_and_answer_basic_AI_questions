@@ -1,15 +1,6 @@
-<<<<<<< HEAD
-Node ID: bce4a992-5164-421a-8f76-159cf1dfce6d
-Text: Cụ thể, ta sẽ xây dựng chương trình dựa vào dataset SQuAD2.0,
-một bộ dữ liệu về đọc hiểu, vector database là FAISS và mô hình BERT
-để thực hiện các nhiệm vụ cụ thể trong chương trình. Input và output
-của chương trình như sau: • Input: Một câu hỏi. • Output: Câu trả lời
-tương ứng. 1
-=======
 Cụ thể, ta sẽ xây dựng chương trình dựa vào dataset SQuAD2.0, một bộ dữ liệu về đọc hiểu, vector
 database là FAISS và mô hình BERT để thực hiện các nhiệm vụ cụ thể trong chương trình. Input và
 output của chương trình như sau:
 • Input: Một câu hỏi.
 • Output: Câu trả lời tương ứng.
 1
->>>>>>> HEAD@{1}

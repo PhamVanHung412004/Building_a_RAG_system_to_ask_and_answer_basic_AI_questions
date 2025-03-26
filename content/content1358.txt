@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 5c279862-3ebf-45cf-991b-87581c693b90
-Text: Data Preparation Đầu tiên, chúng ta cần chuẩn bị bộ dữ liệu
-CelebA. Bạn có thể tải bộ dữ liệu và giải nén tại đây. Khai báo các
-thư viện: 1 import glob 2 import torch 3 import cv2 4 import numpy as
-np 5 from torchvision import transforms 6 from torch . utils . data
-import Dataset 7 from torch . utils . data import DataLoader 8 9 #
-Load the paths...
-=======
 Data Preparation
 Đầu tiên, chúng ta cần chuẩn bị bộ dữ liệu CelebA. Bạn có thể tải bộ dữ liệu và giải nén tại đây.
 Khai báo các thư viện:
@@ -26,4 +17,3 @@ Khai báo các thư viện:
 14
 15
 3
->>>>>>> HEAD@{1}

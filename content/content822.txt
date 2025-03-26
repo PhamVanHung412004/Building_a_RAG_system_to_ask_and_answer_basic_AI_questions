@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: fbd153d9-1e31-4b5a-9e85-3efced55960c
-Text: Trong Poetry chúng ta có thể thực hiện điều này rất dễ dàng. Đầu
-tiên chúng ta đóng gói lại dự án bằng lệnh sau: 1 ===============
-Input ====================== 2 poetry build 3 4 5 6 7 8
-========================================== ================= Output
-================= Building aio2024 (0.1.0) - Building sdist - Built
-aio2024 -0.1.0. tar .gz ...
-=======
 Trong Poetry chúng ta có thể thực hiện điều này rất dễ dàng.
 Đầu tiên chúng ta đóng gói lại dự án bằng lệnh sau:
 1 =============== Input ======================
@@ -42,4 +33,3 @@ Tiếp theo ta sẽ thêm tài khoản PyPI vào Poetry với lệnh sau:
 Trong đó username là tên đăng nhập, password là mật khẩu của tài khoản PyPI mà chúng ta đã tạo.
 Tiếp theo chúng ta thêm thông tin token của tài khoản bằng lệnh:
 4
->>>>>>> HEAD@{1}

@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 14e5ab9b-6b8f-4452-9502-e9f804691afa
-Text: AI VIETNAM aivietnam.edu.vn Hình 30: Lỗi request liên tục tới
-server từ một địa chỉ IP Khi đã khai báo xong tất cả các phương thức
-trong class ImageDownloader, thực hiện tạo đối tượng rồi gọi tới hàm
-download_images để thực hiện tải ảnh. 1 downloader =
-ImageDownloader(json_file=’image_urls.json’, download_dir=’Dataset’,
-max_workers =4, delay=1) ...
-=======
 AI VIETNAM aivietnam.edu.vn
 Hình 30: Lỗi request liên tục tới server từ một địa chỉ IP
 Khi đã khai báo xong tất cả các phương thức trong class ImageDownloader, thực hiện tạo đối tượng
@@ -18,4 +9,3 @@ rồi gọi tới hàm download_images để thực hiện tải ảnh.
 4.0.3 Xử lí dữ liệu - Làm sạch bộ dữ liệu
 Thực hiện làm sạch bộ dữ liệu (xóa ảnh kích thước quá nhỏ, chuyển ảnh về 3 channel RGB, kiểm tra
 đúng định dạng file ảnh). 
->>>>>>> HEAD@{1}

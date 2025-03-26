@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: d97f80bc-8563-4918-9137-88a98a5f3972
-Text: 4. Sau khi chắc chắn GNN có thể sử dụng, điều gì ta cần cân nhắc
-tiếp theo là phù hợp nhất? (a) Không cần gì (b) Độ lớn của model sau
-khi thêm GNN (c) Hiểu rõ cách GNN tổng hợp thông tin (d) Tốc độ của
-model sau khi thêm GNN 5. Nếu input của GNN có shape [batch_size,
-dim_1] và output có shape [batch_size, dim_2] thì nhận định nào sau
-đây làSAI: ...
-=======
 4. Sau khi chắc chắn GNN có thể sử dụng, điều gì ta cần cân nhắc tiếp theo là phù hợp nhất?
 (a) Không cần gì
 (b) Độ lớn của model sau khi thêm GNN
@@ -28,4 +19,3 @@ nhận định nào sau đây làSAI:
 (b) Backpropagation
 (c) Message passing
 10
->>>>>>> HEAD@{1}

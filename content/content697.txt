@@ -1,7 +1,2 @@
-<<<<<<< HEAD
-Node ID: 16859b23-cd28-4b60-91bd-739986f248fb
-Text: . 4 2.5 Tạo mảng với arange() . .
-=======
 . 4
 2.5 Tạo mảng với arange() . . 
->>>>>>> HEAD@{1}

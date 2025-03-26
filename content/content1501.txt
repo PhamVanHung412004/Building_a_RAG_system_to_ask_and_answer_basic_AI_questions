@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 5ddbc132-f3f8-48aa-9ce9-6ed30add3425
-Text: AI VIETNAM aivietnam.edu.vn 1.4. Training 1 from tqdm import
-tqdm 2 3 def train_epoch ( train_loader , model , device , optimizer
-): 4 # iteration for all batches 5 model . train () 6 losses = {’
-semantic ’: [] , ’depth ’: [] , ’total ’: []} 7 for i, batch in tqdm (
-enumerate ( train_loader )): 8 images = batch [’image ’]. to( device )
-9 semanti...
-=======
 AI VIETNAM aivietnam.edu.vn
 1.4. Training
 1 from tqdm import tqdm
@@ -36,4 +27,3 @@ AI VIETNAM aivietnam.edu.vn
 25 losses [’ semantic ’]. append ( train_loss [’ semantic ’]. item ())
 26 losses [’depth ’]. append ( train_loss [’depth ’]. item ())
 27 losses [’total ’]. 
->>>>>>> HEAD@{1}

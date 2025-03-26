@@ -1,7 +1,2 @@
-<<<<<<< HEAD
-Node ID: fb4170d8-a6f4-40c1-9759-a0cc62b07d91
-Text: . 9 5 Các phương pháp thay đổi chiều của mảng. .
-=======
 . 9
 5 Các phương pháp thay đổi chiều của mảng. . 
->>>>>>> HEAD@{1}

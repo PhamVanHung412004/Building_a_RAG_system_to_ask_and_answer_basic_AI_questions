@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: b18d9a02-c351-49d4-b966-f4797e99f5e5
-Text: Tuy nhiên, việc tạo ra những bước giải thích này một cách thủ
-công là tốn thời gian và đắt đỏ. Bài báo giới thiệu một phương pháp
-gọi là Synthetic Prompting, sử dụng một vài ví dụ thủ công để gợi ý
-cho mô hình tự tạo ra thêm ví dụ. Phương pháp này bao gồm một quá
-trình ngược để tạo ra các câu hỏi phù hợp với chuỗi suy nghĩ được lấy
-mẫu, đảm bảo ...
-=======
 Tuy nhiên, việc tạo ra những bước giải thích này một cách thủ công là tốn thời gian và đắt
 đỏ. Bài báo giới thiệu một phương pháp gọi là Synthetic Prompting, sử dụng một vài ví dụ thủ
 công để gợi ý cho mô hình tự tạo ra thêm ví dụ. Phương pháp này bao gồm một quá trình ngược
@@ -18,4 +9,3 @@ Với phương pháp này, thay vì đưa trực tiếp các ví dụ về chu�
 chain-of-thought, phương pháp này lại sử dụng những ví dụ này như những ví dụ mồi để mô hình
 LLM tự động sinh ra các ví dụ khác qua 2 quá trình backward-forward.
 25
->>>>>>> HEAD@{1}

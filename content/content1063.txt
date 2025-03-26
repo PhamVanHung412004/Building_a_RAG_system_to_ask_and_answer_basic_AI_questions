@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 049ee8aa-d072-4c65-a688-9532d927dc7a
-Text: AI VIETNAM aivietnam.edu.vn 5.1 Video Diffusion Models Đây là
-một trong những công trình nghiên cứu đầu tiến tiếp cận theo hướng sử
-dụng mô hình diffusion để tạo sinh video. Video Diffusion Models [2]
-là sự mở rộng tự nhiên của kiến trúc image diffusion và cho phép đào
-tạo chung từ dữ liệu ảnh và video. Để tạo ra video dài và độ phân giải
-cao hơ...
-=======
 AI VIETNAM aivietnam.edu.vn
 5.1 Video Diffusion Models
 Đây là một trong những công trình nghiên cứu đầu tiến tiếp cận theo hướng sử dụng mô hình diffusion
@@ -30,4 +21,3 @@ pháp này cải thiện chất lượng mẫu bằng cách điều chỉnh deno
 trên sự tái tạo của model, đặc biệt khi kết hợp với Langevin diffusion samplers. Nó cũng mở rộng sang
 nội suy không gian cho super-resolution, thể hiện tính linh hoạt của phương pháp trong việc tạo video
 độ phân giải cao từ đầu vào độ phân giải thấp.
->>>>>>> HEAD@{1}

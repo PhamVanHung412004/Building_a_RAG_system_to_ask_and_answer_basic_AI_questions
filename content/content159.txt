@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 106c9b54-fc85-4515-b888-cc71a9092d53
-Text: • p0(x0) là mật độ xác suất ban đầu tại vị tríx0 tại thời điểm
-0. 14.2 Basics of stochastic differential equations (SDEs) Diffusion
-là một ví dụ đơn giản về quá trình ngẫu nhiên được điều chỉnh bởi SDE
-- một phương trình mô tả sự biến đổi của một biến ngẫu nhiên x(t) theo
-thời gian t có dạng: ˙x = f(x, t) + g(x, t) η(t) (23) Trong đó: • ˙x
-là đạ...
-=======
 • p0(x0) là mật độ xác suất ban đầu tại vị tríx0 tại thời điểm 0.
 14.2 Basics of stochastic differential equations (SDEs)
 Diffusion là một ví dụ đơn giản về quá trình ngẫu nhiên được điều chỉnh bởi SDE - một phương trình
@@ -27,4 +18,3 @@ Trong đó:
 • x(t + ∆t) là giá trị của biến ngẫu nhiên x tại thời điểmt + ∆t
 • x(t) là giá trị của biến ngẫu nhiên x tại thời điểm t.
 14
->>>>>>> HEAD@{1}

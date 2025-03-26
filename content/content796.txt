@@ -1,15 +1,6 @@
-<<<<<<< HEAD
-Node ID: 9e75d233-8b73-47c0-aa61-6adf30fc87cf
-Text: Cho hai vectơa = [a1, a2, . . . , an] và b = [b1, b2, . . . ,
-bn] trong không gian EuclideanRn, phép tích vô hướng của chúng được
-xác định bởi công thức: a · b = a1b1 + a2b2 + . . .+ anbn Trong thư
-viện Numpy, hàmnp.dot() được sử dụng để thực hiện phép nhân ma trận,
-và nó cũng hỗ trợ tích vô hướng cho các vectơ(array 1D). Cú pháp: 19
-=======
 Cho hai vectơa = [a1, a2, . . . , an] và b = [b1, b2, . . . , bn] trong không gian EuclideanRn, phép tích vô
 hướng của chúng được xác định bởi công thức:
 a · b = a1b1 + a2b2 + . . .+ anbn
 Trong thư viện Numpy, hàmnp.dot() được sử dụng để thực hiện phép nhân ma trận, và nó cũng hỗ
 trợ tích vô hướng cho các vectơ(array 1D). Cú pháp:
 19
->>>>>>> HEAD@{1}

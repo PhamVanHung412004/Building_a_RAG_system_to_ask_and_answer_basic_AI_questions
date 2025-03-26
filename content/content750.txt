@@ -1,7 +1,2 @@
-<<<<<<< HEAD
-Node ID: def94ccd-f5f2-4e54-aff9-ac229eade941
-Text: . 22 7.9 Một số hàm thông dụng khác . .
-=======
 . 22
 7.9 Một số hàm thông dụng khác . . 
->>>>>>> HEAD@{1}

@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: d3311afd-ccae-4484-9372-b60eae04fc93
-Text: AI VIET NAM – COURSE 2023 Foundation of Prompt Engineering Ngày
-19 tháng 3 năm 2024 Phần I: Tổng quan về RAG Phần II: Retrieval
-Augmented Generation (RAG) Trong bối cảnh các mô hình ngôn ngữ lớn
-(LLM) phát triển mạnh mẽ, sự xuất hiện của các mô hình GPT (OpenAI),
-LLama (Meta), Gemini (Google) đã thể hiện khả năng ấn tượng trong việc
-sinh ngôn ng...
-=======
 AI VIET NAM – COURSE 2023
 Foundation of Prompt Engineering
 Ngày 19 tháng 3 năm 2024
@@ -34,4 +25,3 @@ trong nguồn kiến thức bên ngoài.
 • Tạo văn bản (Generation):Dựa trên thông tin đã truy xuất, LLM sẽ tạo ra văn bản phản hồi
 phù hợp với yêu cầu. Quá trình này có thể bao gồm tóm tắt, giải thích, trả lời câu hỏi, viết văn
 bản sáng tạo, v.v.
->>>>>>> HEAD@{1}

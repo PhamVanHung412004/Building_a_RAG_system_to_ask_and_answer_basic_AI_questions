@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 6d86698d-93be-4976-9d1a-a6ad8a430537
-Text: AI VIETNAM aivietnam.edu.vn Hình 13: Dual-channel attention
-block Để giảm thiểu áp lực về thời gian và bộ nhớ trong quá trình huấn
-luyện và suy luận, CogVideo áp dụng Swin Attention, mở rộng nó cho các
-tình huống auto-regressive và temporal scenario bằng cách sử dụng
-auto-regressive attention mask trong shifted windows. Phát hiện thú vị
-là Swin ...
-=======
 AI VIETNAM aivietnam.edu.vn
 Hình 13: Dual-channel attention block
 Để giảm thiểu áp lực về thời gian và bộ nhớ trong quá trình huấn luyện và suy luận, CogVideo áp
@@ -20,4 +11,3 @@ Hình 14: Autoregressive swin attention (window size 2× 2)
 Một hướng tiếp cận khác cho tác vụ tạo sinh video từ văn bản là hướng áp dụng mô hình diffusion.
 Hướng tiếp này là một trong những phát triển đáng chú ý gần đây, được thúc đẩy bởi thành công mà
 các mô hình diffusion đã đạt được trong việc sinh ra hình ảnh chất lượng cao. 
->>>>>>> HEAD@{1}

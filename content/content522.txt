@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-Node ID: 5ee59a25-38c9-4c54-8931-e0b707ebed8d
-Text: AI VIETNAM aivietnam.edu.vn 25 { 26 " title ": " Llama 2- Open
-Foundation and Fine - Tuned Chat Models ", 27 " url ": " https ://
-arxiv . org / pdf /2307.09288 " 28 } 29 ] 30 31 def is_exist (
-file_link ): 32 return os.
-=======
 AI VIETNAM aivietnam.edu.vn
 25 {
 26 " title ": " Llama 2- Open Foundation and Fine - Tuned Chat Models ",
@@ -14,4 +7,3 @@ AI VIETNAM aivietnam.edu.vn
 30
 31 def is_exist ( file_link ):
 32 return os. 
->>>>>>> HEAD@{1}

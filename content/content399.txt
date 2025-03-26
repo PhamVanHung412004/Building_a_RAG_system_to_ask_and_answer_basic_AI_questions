@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: d5b38efc-1bb6-46c0-929b-de74d2b3495e
-Text: AI VIETNAM aivietnam.edu.vn Hình 7: Mô hình thiết kế của kiến
-trúc Pointnet Tạo dataloader: 1 point_clouds = np. stack (
-point_clouds ) 2 dense_labels = np. stack ( dense_labels ) 3 #
-label_clouds = keras . utils . to_categorical ( dense_labels ,
-num_classes =3) 4 label_clouds = dense_labels 5 class PointCloudData (
-Dataset ): 6 def __init__ (se...
-=======
 AI VIETNAM aivietnam.edu.vn
 Hình 7: Mô hình thiết kế của kiến trúc Pointnet
 Tạo dataloader:
@@ -34,4 +25,3 @@ Trong phần này chúng ta sẽ hiện thực lại kiến trúc Pointnet như 
 2.2.1 T-Net
 Trong PointNet, T-net đóng vai trò quan trọng trong việc đạt được tính bất biến hướng của đám mây
 điểm. 
->>>>>>> HEAD@{1}

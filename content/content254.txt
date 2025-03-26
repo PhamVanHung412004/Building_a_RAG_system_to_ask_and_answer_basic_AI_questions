@@ -1,13 +1,5 @@
-<<<<<<< HEAD
-Node ID: 41f2abd9-7b2b-4846-933a-63a557d3049c
-Text: Hình 11: Ví dụ Decision Tree Regression Chúng ta có thể tiếp tục
-tách data đến khi Squared_error đạt 0.0 nhưng vì để tránh bị
-Overfitting nên mô hình dừng ở Depth=3 với chỉ số Squared_error ở mức
-chấp nhận được. THAT’S IT, THANK YOU FOR READING♡♡♡ 14
-=======
 Hình 11: Ví dụ Decision Tree Regression
 Chúng ta có thể tiếp tục tách data đến khi Squared_error đạt 0.0 nhưng vì để tránh bị
 Overfitting nên mô hình dừng ở Depth=3 với chỉ số Squared_error ở mức chấp nhận được.
 THAT’S IT, THANK YOU FOR READING♡♡♡
 14
->>>>>>> HEAD@{1}

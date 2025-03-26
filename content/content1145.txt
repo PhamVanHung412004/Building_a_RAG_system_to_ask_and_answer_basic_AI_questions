@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-Node ID: 733dc326-0ebd-4174-ba82-bb9a19715f13
-Text: AI VIETNAM aivietnam.edu.vn 23 # Time embedding 24 time_emb =
-self . relu ( self . time_mlp (t)) 25 # Extend last 2 dimensions 26
-time_emb = time_emb [(... , ) + (None , ) * 2] 27 # Add time channel
-28 h = h + time_emb 29 # Second Conv 30 h = self . bnorm2 ( self .
-=======
 AI VIETNAM aivietnam.edu.vn
 23 # Time embedding
 24 time_emb = self . relu ( self . time_mlp (t))
@@ -14,4 +7,3 @@ AI VIETNAM aivietnam.edu.vn
 28 h = h + time_emb
 29 # Second Conv
 30 h = self . bnorm2 ( self . 
->>>>>>> HEAD@{1}

@@ -1,11 +1,3 @@
-<<<<<<< HEAD
-Node ID: 4f0e8edf-5c60-4357-bb55-421639aaf38a
-Text: is_cuda : 33 init = init . cuda () 34 matrix = self . fc3 (xb).
-view (-1, self .k, self .k) + init 35 return matrix 2.2.2 Transform
-Module Transform thực hiện thao tác biến đổi bằng T-Net 2.2.1 hai lần.
-Lần thứ nhất trong không gian 3 chiều (coordinate) và lần thứ hai
-trong không gian 64 chiều (feature). 1 class Transform (nn.
-=======
 is_cuda :
 33 init = init . cuda ()
 34 matrix = self . fc3 (xb). view (-1, self .k, self .k) + init
@@ -14,4 +6,3 @@ is_cuda :
 Module Transform thực hiện thao tác biến đổi bằng T-Net 2.2.1 hai lần. Lần thứ nhất trong không gian
 3 chiều (coordinate) và lần thứ hai trong không gian 64 chiều (feature).
 1 class Transform (nn. 
->>>>>>> HEAD@{1}

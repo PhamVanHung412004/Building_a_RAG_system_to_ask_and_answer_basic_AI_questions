@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: fd03b222-85c0-4546-845d-a4e79202360c
-Text: AI VIETNAM aivietnam.edu.vn Phần II: Nội dung Ở phần này, chúng
-ta sẽ xây dựng hai thành phần chính của chương trình bao gồm phần xây
-dựng mô hình và phần FastAPI. Cách thực hiện như sau: A. Xây dựng mô
-hình Đầu tiên, chúng ta sẽ bắt đầu với giai đoạn đầu như mọi project
-về Machine Learning đó là xây dựng mô hình. Như đã đề cập trong bài
-viết, c...
-=======
 AI VIETNAM aivietnam.edu.vn
 Phần II: Nội dung
 Ở phần này, chúng ta sẽ xây dựng hai thành phần chính của chương trình bao gồm phần xây dựng mô
@@ -16,4 +7,3 @@ A. Xây dựng mô hình
 xây dựng mô hình. Như đã đề cập trong bài viết, chúng ta sẽ xây dựng một mô hình về Image
 Classification, cụ thể là bài toán Cat/Dog Classification.
 Hình 3: Ảnh minh họa bài toán Cat/Dog Classification. Ảnh: link.
->>>>>>> HEAD@{1}

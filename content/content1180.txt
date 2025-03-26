@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: e10fd533-9265-477f-8ee2-22cdb98435d9
-Text: AI VIETNAM aivietnam.edu.vn 473 ch + ich , 474 cond_embed_dim ,
-475 dropout , 476 out_channel = int ( inner_channel * mult ), 477
-use_checkpoint = use_checkpoint , 478 use_scale_shift_norm =
-use_scale_shift_norm , 479 ) 480 ] 481 ch = int ( inner_channel * mult
-) 482 if ds in attn_res : 483 layers . append ( 484 AttentionBlock (
-485 ch , 486 use...
-=======
 AI VIETNAM aivietnam.edu.vn
 473 ch + ich ,
 474 cond_embed_dim ,
@@ -47,4 +38,3 @@ AI VIETNAM aivietnam.edu.vn
 509 self . _feature_size += ch
 510
 511 self . out = nn. 
->>>>>>> HEAD@{1}

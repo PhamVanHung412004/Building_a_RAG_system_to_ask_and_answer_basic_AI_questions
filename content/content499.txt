@@ -1,16 +1,6 @@
-<<<<<<< HEAD
-Node ID: b33863d2-a1dd-4d16-8096-ea82eda5b538
-Text: 5. Tải bộ dữ liệu fine-tuning:Trong bài này, vì mục tiêu của
-chúng ta là xây dựng chatbot chuyên dùng để giải toán trắc nghiệm
-tiếng Việt, nên ở phần sau chúng ta sẽ thực hiện fine-tuning VinaLLaMA
-trên bộ dữ liệu toán trắc nghiệm để cải thiện chất lượng câu trả lời.
-Ta thực hiện tải bộ dữ liệu có tên làvi_grade_school_math_mcq như sau:
-1 data =...
-=======
 5. Tải bộ dữ liệu fine-tuning:Trong bài này, vì mục tiêu của chúng ta là xây dựng chatbot
 chuyên dùng để giải toán trắc nghiệm tiếng Việt, nên ở phần sau chúng ta sẽ thực hiện fine-tuning
 VinaLLaMA trên bộ dữ liệu toán trắc nghiệm để cải thiện chất lượng câu trả lời. Ta thực hiện
 tải bộ dữ liệu có tên làvi_grade_school_math_mcq như sau:
 1 data = load_dataset(’hllj/vi_grade_school_math_mcq’)
 5
->>>>>>> HEAD@{1}

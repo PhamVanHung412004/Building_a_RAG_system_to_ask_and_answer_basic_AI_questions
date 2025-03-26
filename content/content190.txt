@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 205fef63-9f69-4c27-9d21-9b88b48d83e9
-Text: + Tạo bảng mới (CREATE TABLE):Để tạo bảng trên ta sẽ sử dụng như
-sau: 1 -- Tạo Bảng CUSTOMERS gồm 3 cột email, name, phone với email là
-khóa chính 2 CREATE TABLE customers ( 3 email TEXT PRIMARY KEY, 4 name
-TEXT NOT NULL, 5 phone TEXT 6 ); + Lấy dữ liệu (SELECT):Chúng ta có 2
-cách lấy dữ liệu từ bảng trong cơ sở dữ liệu bao gồm: lấy hết dữ liệu
-...
-=======
 + Tạo bảng mới (CREATE TABLE):Để tạo bảng trên ta sẽ sử dụng như sau:
 1 -- Tạo Bảng CUSTOMERS gồm 3 cột email, name, phone với email là
 khóa chính
@@ -40,4 +31,3 @@ với câu lệnh có cấu trúc tổng quát như sau:
 1 INSERT INTO table_name (column1, column2, column3, ...)
 2 VALUES (value1, value2, value3, ...);
 aivietnam.edu.vn www.facebook.com/aivietnam.edu.vn
->>>>>>> HEAD@{1}

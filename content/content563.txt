@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 6289f537-c867-48a4-89a6-79c11f1ac33c
-Text: All-in-One Course - 2024 aivietnam.edu.vn 1 2 squares_dict = {x:
-x ** 2 for x in range (10)} 3 print(squares_dict) =================
-Output ================ {0: 0, 1: 1, 2: 4, 3: 9, 4: 16, 5: 25, 6: 36,
-7: 49, 8: 64, 9: 81} ========================================== 4 Vòng
-lặp for với continue Lệnh continue trong vòng lặp for được sử dụng để
-bỏ ...
-=======
 All-in-One Course - 2024 aivietnam.edu.vn
 1
 2 squares_dict = {x: x ** 2 for x in range
@@ -44,4 +35,3 @@ Trong chương trình trên, vòng lặp for được khởi tạo với i nhậ
 thi, bỏ qua phần còn lại của vòng lặp cho giá trị i hiện tại và chuyển sang giá trị tiếp theo của i.
 Dưới đây là chi tiết từng bước thực hiện:
 • Khi i là 0, điều kiện i == 2 là sai, lệnh print(i) sẽ in ra 0.
->>>>>>> HEAD@{1}

@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: b791d609-ff66-4c2c-82bb-b51813bd860b
-Text: AI VIETNAM aivietnam.edu.vn II. Câu hỏi trắc nghiệm Câu hỏi 1:
-Kết quả của đoạn code dưới đây là bao nhiêu. 1 import torch 2 import
-torch .nn as nn 3 4 data = torch . Tensor ([1 , 2, 3]) 5
-softmax_function = nn. Softmax ( dim =0) 6 output = softmax_function (
-data ) 7 assert round ( output [0]. item () , 2) == 0.09 8 output a)
-[0.0900, 0.2747, 0...
-=======
 AI VIETNAM aivietnam.edu.vn
 II. Câu hỏi trắc nghiệm
 Câu hỏi 1: Kết quả của đoạn code dưới đây là bao nhiêu.
@@ -49,4 +40,3 @@ Câu hỏi 3: Hoàn thành đoạn code sau đây theo công thức tính softma
 2 import torch .nn as nn
 3
 4 class MySoftmax (nn. 
->>>>>>> HEAD@{1}

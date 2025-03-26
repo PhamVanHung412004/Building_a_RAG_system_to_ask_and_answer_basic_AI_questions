@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 4bb8036c-3657-42ba-82dd-ad8ed0a9997f
-Text: Server sau đó sẽ gửi bức ảnh trở lại để hiển thị trên trang web.
-Nói cách khác, trang web chỉ lưu trữ đường dẫn đến bức ảnh, còn bức
-ảnh thực tế được lưu trữ và phục vụ từ server khác.) Một cách khác để
-nhìn thấy rõ ràng hơn cấu trúc html của trang web, bấm tổ hợp phím
-Ctrl + U. Và như quan sát, tất cả các đường dẫn hình ảnh đều nằm trong
-khối m...
-=======
 Server sau đó sẽ gửi bức ảnh trở lại để hiển thị trên trang web. Nói cách khác, trang web chỉ lưu
 trữ đường dẫn đến bức ảnh, còn bức ảnh thực tế được lưu trữ và phục vụ từ server khác.)
 Một cách khác để nhìn thấy rõ ràng hơn cấu trúc html của trang web, bấm tổ hợp phím Ctrl + U. Và
@@ -21,4 +12,3 @@ tối đa cần tải mỗi lớp, số luồng hoạt động.
 5 self.max_images = max_images # Max images
 6 self.max_workers = max_workers # Thread
 23
->>>>>>> HEAD@{1}

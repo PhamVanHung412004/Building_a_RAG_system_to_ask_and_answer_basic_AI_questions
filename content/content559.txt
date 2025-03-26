@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 2cc5a434-3f48-4955-ab1b-2c13caf742f0
-Text: All-in-One Course - 2024 aivietnam.edu.vn nhận giá trị từ từng
-phần tử trong dãy số do range(5) tạo ra. Lệnh print(i) là khối lệnh
-thực thi trong vòng lặp. Với mỗi giá trị của i trong range(5), lệnh
-này sẽ in ra giá trị hiện tại của i. Chi tiết hoạt động từng bước của
-chương trình trên ta có thể hình dung như sau: • Bước đầu tiên: i nhận
-giá trị...
-=======
 All-in-One Course - 2024 aivietnam.edu.vn
 nhận giá trị từ từng phần tử trong dãy số do range(5) tạo ra. Lệnh print(i) là khối lệnh thực thi trong
 vòng lặp. Với mỗi giá trị của i trong range(5), lệnh này sẽ in ra giá trị hiện tại của i.
@@ -19,4 +10,3 @@ Chi tiết hoạt động từng bước của chương trình trên ta có th�
 Như đã đề cập phía trên thì mọi kiểu dữ liệu thuộc loại interable đều có thể dùng vòng lặp for. Theo
 định nghĩa Iterable là bất kỳ đối tượng Python nào có khả năng trả về từng phần tử của nó cùng một
 lúc, cho phép nó được lặp lại trong vòng lặp for. 
->>>>>>> HEAD@{1}

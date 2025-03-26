@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 45626f24-fcd0-46ed-aa8a-42b1f902f4d6
-Text: Daily AI Exercise (AIO) Ngày 9 tháng 4 năm 2024 2. Bài tập: •
-Hãy tạo mới bảng có tênSTOCK có các cột như sau: Bảng 1: Bảng quản lý
-cổ phiếu STOCK Cột Kiểu dữ liệu Chú thích ID INTEGER Khóa chính NAME
-TEXT Not null BUY INTEGER Not null INVESTOR TEXT Not null Hãy thêm mới
-các dòng có giá trị như sau: STOCK ID NAME BUY INVESTOR 1 ACB 29.45
-Nguyen ...
-=======
 Daily AI Exercise (AIO) Ngày 9 tháng 4 năm 2024
 2. Bài tập:
 • Hãy tạo mới bảng có tênSTOCK có các cột như sau:
@@ -33,4 +24,3 @@ Câu 2:Hãy viết lệnh SQL để thống kê mã cổ phiếu có giá mua (B
 theo nhà đầu tư (Investor):
 → Kết quả:
 aivietnam.edu.vn www.facebook.com/aivietnam.edu.vn
->>>>>>> HEAD@{1}

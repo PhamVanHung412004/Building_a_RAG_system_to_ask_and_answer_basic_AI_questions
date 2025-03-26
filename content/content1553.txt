@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: ae12a149-6344-4918-a74c-2a95103d2bbd
-Text: 3.3 Bảng với cấu trúc phức tạp Bảng có cấu trúc phức tạp là bảng
-có hàng hoặc cột được gộp lại, chứa các bảng con, hoặc các bảng chứa
-nhiều cấp độ của thông tin. Các bảng này thường xuất hiện trong các
-tài liệu kỹ thuật, tài chính hoặc khoa học. Việc trích xuất dữ liệu từ
-chúng khó hơn các loại bảng thông thường, đòi hỏi chúng ta phải xử
-dụng cá...
-=======
 3.3 Bảng với cấu trúc phức tạp
 Bảng có cấu trúc phức tạp là bảng có hàng hoặc cột được gộp lại, chứa các bảng con, hoặc các bảng
 chứa nhiều cấp độ của thông tin. Các bảng này thường xuất hiện trong các tài liệu kỹ thuật, tài chính
@@ -21,4 +12,3 @@ Lý 22/12/2024 08:00 101A
 Hóa 23/12/2024 08:00 101A
 10:00 102B
 3
->>>>>>> HEAD@{1}

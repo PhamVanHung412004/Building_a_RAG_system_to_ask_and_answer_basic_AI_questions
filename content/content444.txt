@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 1e1c27a1-6075-44a6-9457-b51a8fd18574
-Text: Thách thức và cân nhắc: 1. Tích hợp với các hệ thống kế thừa: •
-Việc tích hợp RPA với các hệ thống kế thừa hiện có có thể là một thách
-thức. Các ngân hàng cần đảm bảo rằng các giải pháp RPA của họ tương
-thích với cơ sở hạ tầng CNTT hiện tại và có thể tương tác liền mạch
-với các ứng dụng và cơ sở dữ liệu khác nhau. 2. An ninh và quyền riêng
-tư: •...
-=======
 Thách thức và cân nhắc:
 1. Tích hợp với các hệ thống kế thừa:
 • Việc tích hợp RPA với các hệ thống kế thừa hiện có có thể là một thách
@@ -29,4 +20,3 @@ thận. Các ngân hàng cần phát triển một chiến lược RPA có thể
 để xử lý khối lượng giao dịch và tác vụ tăng lên mà không làm giảm hiệu
 suất.
 4
->>>>>>> HEAD@{1}

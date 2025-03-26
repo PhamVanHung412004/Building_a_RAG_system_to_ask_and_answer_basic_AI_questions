@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 4f90d7de-47d1-4331-9424-de67727dedeb
-Text: AI VIETNAM aivietnam.edu.vn Phần II. Image Inpainting using De-
-noising Diffusion Probabilistic Model Trong phần này chúng ta sẽ huấn
-luyện mô hình Denoising Diffusion Probabilistic Model (DDP) (paper) để
-giải quyết bài toán Image Inpainting dựa vào bộ dữ liệu CelebA Nội
-dung thực nghiệm bao gồm 5 phần: (a) Data Preparing: Chuẩn bị dữ liệu
-Celeb...
-=======
 AI VIETNAM aivietnam.edu.vn
 Phần II. Image Inpainting using De-
 noising Diffusion Probabilistic Model
@@ -34,4 +25,3 @@ Hình 3: Minh hoạ quá trình tạo ra ảnh mask từ ảnh gốc.
 6 from PIL import Image
 7 from torchvision import transforms
 8 from torch . utils . 
->>>>>>> HEAD@{1}

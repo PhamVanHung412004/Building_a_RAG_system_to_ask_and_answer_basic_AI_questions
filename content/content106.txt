@@ -1,16 +1,6 @@
-<<<<<<< HEAD
-Node ID: a3b8c897-be77-4db7-bfe8-c29df48ff169
-Text: AI VIETNAM (AIO2024) aivietnam.edu.vn Theo đó, với bộ dữ liệu có
-nhãn về tin nhắn spam hoặc không spam, chúng ta sẽ đưa qua một số bước
-tiền xử lý dữ liệu để tách ra các đặc trưng và nhãn tương ứng. Khi đã
-chuẩn bị bộ dữ liệu cho việc huấn luyện, ta thực hiện xây dựng mô hình
-Naive Bayes Classifier. Cuối cùng, sử dụng mô hình Naive Bayes đã
-huấn...
-=======
 AI VIETNAM (AIO2024) aivietnam.edu.vn
 Theo đó, với bộ dữ liệu có nhãn về tin nhắn spam hoặc không spam, chúng ta sẽ đưa qua
 một số bước tiền xử lý dữ liệu để tách ra các đặc trưng và nhãn tương ứng. Khi đã chuẩn bị bộ
 dữ liệu cho việc huấn luyện, ta thực hiện xây dựng mô hình Naive Bayes Classifier. Cuối cùng,
 sử dụng mô hình Naive Bayes đã huấn luyện được, ta có thể dự đoán một tin nhắn bất kì có là
 spam hay không. Như vậy, chương trình trong project của chúng ta đã hoàn tất.
->>>>>>> HEAD@{1}

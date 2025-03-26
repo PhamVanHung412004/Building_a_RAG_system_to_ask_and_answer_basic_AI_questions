@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: ffd21a93-fd84-4803-8ff1-58b089c6758a
-Text: Stop Sequences- Đây là cách thiết lập một chuỗi dừng giúp ngăn
-mô hình sinh thêm từ. Khi mô hình nhận diện một từ trong chuỗi dừng
-này, nó sẽ ngừng việc tạo thêm nội dung. Xác định stop sequences là
-một phương pháp hữu ích để kiểm soát chiều dài và bố cục của đầu ra mô
-hình. Chẳng hạn, nếu muốn mô hình chỉ tạo ra danh sách tối đa 10 mục,
-ta có t...
-=======
 Stop Sequences- Đây là cách thiết lập một chuỗi dừng giúp ngăn mô hình sinh thêm từ. Khi
 mô hình nhận diện một từ trong chuỗi dừng này, nó sẽ ngừng việc tạo thêm nội dung. Xác định
 stop sequences là một phương pháp hữu ích để kiểm soát chiều dài và bố cục của đầu ra mô hình.
@@ -20,4 +11,3 @@ Presence Penalty- Tham số này giúp ta có thể áp dụng hình phạt cho 
 khác với frequency penalty, mức phạt này được áp dụng như nhau cho mọi từ lặp lại, không phân
 biệt một từ xuất hiện hai lần hay mười lần, chúng đều nhận mức phạt giống nhau. Cách làm này
 giúp hạn chế việc mô hình lặp đi lặp lại một cụm từ nhiều lần trong kết quả của mình. 
->>>>>>> HEAD@{1}

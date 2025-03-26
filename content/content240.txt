@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: d38bd799-46c6-42aa-83a3-e852f265e719
-Text: 5 14 − 0= 0.246. Tính gain cho feature Temperature: •
-Entropy(Hot)= −2 4 .log2(2 4 ) − 2 4 .log2(2 4 ) = 1. • Entropy(Mild)=
-−4 6 .log2(4 6 ) − 2 6 .log2(2 6 ) = 0.918. • Entropy(Cool)= −3 4
-.log2(3 4 ) − 1 4 .log2(1 4 ) = 0.811. • Gain(Outlook)= 0.94 − 1. 4 14
-− 0.918. 6 14 − 0.811. 4 14 = 0.029. Tính gain cho feature Humidity: •
-Entropy(High)=...
-=======
 5
 14 − 0= 0.246.
 Tính gain cho feature Temperature:
@@ -63,4 +54,3 @@ Hình 5: Nút gốc của cây
 ta có thể thấy với Outlook(Overcast) thì tất cả samples đều là yes thì Entropy=0 ta có
 thể trả về yes cho Overcast.
 6
->>>>>>> HEAD@{1}

@@ -1,15 +1,5 @@
-<<<<<<< HEAD
-Node ID: 26ed518b-c2c1-4b50-af4b-44a25691b2ca
-Text: AI VIETNAM aivietnam.edu.vn Hình 13: Kojima et al. (2023) sử
-dụng Zero-Shot-CoT để cải thiện chất lượng câu trả lời của LLM • Hiệu
-chỉnh mô hình ngôn ngữ lớn (Fine-tuning LLM):Công tác hiệu chỉnh mô
-hình ngôn ngữ lớn thực hiện việc huấn luyện lại một phần tham số của
-mô hình LLM gốc. Các dữ liệu huấn luyện được chuẩn bị trước từ nguồn
-dữ liệu ri...
-=======
 AI VIETNAM aivietnam.edu.vn
 Hình 13: Kojima et al. (2023) sử dụng Zero-Shot-CoT để cải thiện chất lượng câu trả lời của LLM
 • Hiệu chỉnh mô hình ngôn ngữ lớn (Fine-tuning LLM):Công tác hiệu chỉnh mô hình ngôn
 ngữ lớn thực hiện việc huấn luyện lại một phần tham số của mô hình LLM gốc. Các dữ liệu huấn
 luyện được chuẩn bị trước từ nguồn dữ liệu riêng, chưa được học bởi LLM. 
->>>>>>> HEAD@{1}

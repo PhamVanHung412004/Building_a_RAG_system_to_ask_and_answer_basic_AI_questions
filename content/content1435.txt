@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: f638f190-888b-4981-b5b7-d1b419d6980b
-Text: 3.2 Cài đặt các tiện ích quan trọng trong Vscode Tiện ích là các
-phần mở rộng được cung cấp bởi cộng đồng hoặc các nhà phát triển để mở
-rộng tính năng của VSCode. Chúng ta sẽ cài đặt hai tiện ích là Python
-và Jupyter trong đó: • Tiện ích Python hỗ trợ cho lập trình Python
-trong VSCode, bao gồm hỗ trợ cú pháp, tự động hoàn thành, gỡ lỗi, và
-nhiều...
-=======
 3.2 Cài đặt các tiện ích quan trọng trong Vscode
 Tiện ích là các phần mở rộng được cung cấp bởi cộng đồng hoặc các nhà phát triển để mở rộng tính
 năng của VSCode. Chúng ta sẽ cài đặt hai tiện ích là Python và Jupyter trong đó:
@@ -27,4 +18,3 @@ Sau khi tạo file, bạn tiến hành viết code và dùng tổ hợp phím ct
 hoặc chọn "Terminal->"New Terminal"sau đó dùng lênh sau để thực thi chương trình:
 1 python my_script .py
 5
->>>>>>> HEAD@{1}

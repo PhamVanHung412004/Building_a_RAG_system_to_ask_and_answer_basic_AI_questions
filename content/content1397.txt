@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: a0d70b9e-2e4c-4759-9033-c005d29d5540
-Text: gather (-1, t) 17 return out . reshape ( batch_size , *((1 ,) *
-( len ( x_shape ) - 1))).to( device ) 1 from tqdm import tqdm 2 from
-functools import partial 3 4 class ColorDiffusion (nn. Module ): 5 def
-__init__ (self , unet_config , beta_schedule , ** kwargs ): 6 super (
-ColorDiffusion , self ). __init__ (** kwargs ) 7 self . denoise_fn =
-UNet...
-=======
 gather (-1, t)
 17 return out . reshape ( batch_size , *((1 ,) * ( len ( x_shape ) - 1))).to( device )
 1 from tqdm import tqdm
@@ -44,4 +35,3 @@ the beginning of the diffusion chain
 gammas_prev ) / (1. - gammas )))
 30 self . register_buffer (’ posterior_mean_coef2 ’, to_torch ((1. - gammas_prev )
 * np. 
->>>>>>> HEAD@{1}

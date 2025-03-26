@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: e1180714-3a24-41d2-a0d3-65ebab381175
-Text: append ( hit . distance ) 26 questions . append ( hit . entity .
-get (’ question ’)) 27 contexts . append ( hit . entity . get (’
-context ’)) 28 29 overall_id . append ( ids ) 30 overall_distance .
-append ( distances ) 31 overall_question . append ( questions ) 32
-overall_context . append ( contexts ) 33 34 return { 35 ’id ’:
-overall_id , 36 ’ d...
-=======
 append ( hit . distance )
 26 questions . append ( hit . entity . get (’ question ’))
 27 contexts . append ( hit . entity . get (’ context ’))
@@ -43,4 +34,3 @@ file mới mang tênqa.py và có nội dung như sau:
 Các bạn lưu ý có một số hàm và biến sẽ được import từ file codebuild_dataset.py.
 (b) Kết nối tới vector database:
 1 connections . 
->>>>>>> HEAD@{1}

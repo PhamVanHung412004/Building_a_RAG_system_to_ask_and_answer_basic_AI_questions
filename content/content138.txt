@@ -1,11 +1,3 @@
-<<<<<<< HEAD
-Node ID: b73163f6-ad76-4e34-ab49-0de6ccaf44ec
-Text: 5 Delta Dirac Function Delta dirac là hàm đặc trưng với tích
-phân của nó bằng 1 trên toàn bộ trục số thực và bằng 0 ở mọi điểm
-ngoại trừ điểm gốc (x=0 hoặc k=0). Cụ thể, mô tả hàm delta dirac có
-thể được biểu diễn như sau: δ(x) = ( +∞ if x = 0 0 if x ̸= 0 (4) Z +∞
-−∞ δ(x) dx = 1 (5) Z +∞ −∞ f(x)δ(x − ξ) dx = f(ξ) (6) 4
-=======
 5 Delta Dirac Function
 Delta dirac là hàm đặc trưng với tích phân của nó bằng 1 trên toàn bộ trục số thực và bằng 0 ở mọi
 điểm ngoại trừ điểm gốc (x=0 hoặc k=0). Cụ thể, mô tả hàm delta dirac có thể được biểu diễn như
@@ -21,4 +13,3 @@ Z +∞
 −∞
 f(x)δ(x − ξ) dx = f(ξ) (6)
 4
->>>>>>> HEAD@{1}

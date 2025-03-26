@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: c06a65fa-67a1-4e70-b481-72f50abc4c55
-Text: Điều này bao gồm việc xác định vị trí bắt đầu và kết thúc tốt
-nhất cho các câu trả lời và đánh giá xem chúng có hợp lệ hay không dựa
-trên độ dài tối đa cho câu trả lời. Cuối cùng, hàm tính toán các độ đo
-và trả về kết quả đánh giá mô hình hỏi đáp dựa trên các câu trả lời dự
-đoán và câu trả lời lý thuyết từ ví dụ. 1 N_BEST = 20 # Số lượng kết
-quả...
-=======
 Điều này bao gồm việc xác định vị trí bắt đầu và kết thúc tốt
 nhất cho các câu trả lời và đánh giá xem chúng có hợp lệ hay không dựa trên độ dài tối đa
 cho câu trả lời. Cuối cùng, hàm tính toán các độ đo và trả về kết quả đánh giá mô hình hỏi
@@ -63,4 +54,3 @@ cho câu trả lời. Cuối cùng, hàm tính toán các độ đo và trả v�
 50 if len(answers) > 0:
 51 best_answer = max(answers, key=lambda x: x[’logit_score’])
 9
->>>>>>> HEAD@{1}

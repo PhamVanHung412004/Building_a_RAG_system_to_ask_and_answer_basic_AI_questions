@@ -1,7 +1,2 @@
-<<<<<<< HEAD
-Node ID: f2cda031-1b7d-4c2d-8c44-364093477d23
-Text: cond_enc_bn1 (x) 8
-=======
 cond_enc_bn1 (x)
 8
->>>>>>> HEAD@{1}

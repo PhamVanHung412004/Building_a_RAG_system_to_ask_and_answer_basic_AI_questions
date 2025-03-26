@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 685c1c73-ea64-4d54-94fa-ef26cb726698
-Text: AI VIETNAM aivietnam.edu.vn a) P(’Outlook’=’Sunny’|Play
-Tennis’=’Yes’) = 0.5 b) P(’Outlook’=’Sunny’|Play Tennis’=’Yes’) = 0.4
-c) P(’Outlook’=’Sunny’|Play Tennis’=’Yes’) = 0.3 d)
-P(’Outlook’=’Sunny’|Play Tennis’=’Yes’) = 0.2 4.5 Hoàn thiện
-functiontrain_naive_bayes như bên dưới: 1 # ##########################
-2 # Train Naive Bayes Model 3 # #####...
-=======
 AI VIETNAM aivietnam.edu.vn
 a) P(’Outlook’=’Sunny’|Play Tennis’=’Yes’) = 0.5
 b) P(’Outlook’=’Sunny’|Play Tennis’=’Yes’) = 0.4
@@ -30,4 +21,3 @@ d) P(’Outlook’=’Sunny’|Play Tennis’=’Yes’) = 0.2
 D11 không:
 Day Outlook Temperature Humidity Wind PlayTennis
 D11 Sunny Cool High Strong ???
->>>>>>> HEAD@{1}

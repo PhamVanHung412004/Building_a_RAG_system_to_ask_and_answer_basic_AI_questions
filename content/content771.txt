@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 3dceeb44-3298-4756-b9f7-4fa66d53bcb1
-Text: AIO 2024 aivietnam.edu.vn Ví dụ 2: Chúng ta sẽ tạo một mảng 2
-chiều và truy cập vào một phần tử cụ thể ở hàng thứ nhất và cột thứ
-hai của mảng. 1 #aivietnam 2 import numpy as np 3 4 # Tạo mảng 2 chiều
-5 arr2d = np.array([[1, 2, 3], [4, 5, 6]]) 6 print(arr2d) 7 8 # Truy
-cập vào phần tử ở hàng thứ nhất và cột thứ hai của arr2d 9 element_1_2
-= arr2...
-=======
 AIO 2024 aivietnam.edu.vn
 Ví dụ 2: Chúng ta sẽ tạo một mảng 2 chiều và truy cập vào một phần tử cụ thể ở hàng thứ nhất và cột
 thứ hai của mảng.
@@ -32,4 +23,3 @@ arr2d: 5
 Hình 6: Minh họa slicing
 Slicing trong NumPy cho phép ta trích xuất một phần của mảng bằng cách chỉ định khoảng chỉ mục.
 Để hiểu rõ hơn về cách sử dụng slicing, chúng ta sẽ thực hiện các ví dụ sau đây.
->>>>>>> HEAD@{1}

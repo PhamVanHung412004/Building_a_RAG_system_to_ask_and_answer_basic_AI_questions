@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: be4ba974-ba79-4f13-931f-353edae0af65
-Text: 4. Phát biểu nào sau đây đúng về Diffusion-based Image
-Colorization: (a) Cần xác định tấm ảnh đầy màu sắc làm groundtruth.
-(b) Ràng buộc trong việc sử dụng các kênh màu phổ biến RGB hoặc HSV.
-(c) Quá trình Sampling là sự kết hợp giữa việc sử dụng color channel
-được mô hình dự đoán (sau khi denoise) và việc sử dụng kênh màu gray-
-scale để tạo nên ...
-=======
 4. Phát biểu nào sau đây đúng về Diffusion-based Image Colorization:
 (a) Cần xác định tấm ảnh đầy màu sắc làm groundtruth.
 (b) Ràng buộc trong việc sử dụng các kênh màu phổ biến RGB hoặc HSV.
@@ -25,4 +16,3 @@ Learning là gì?
 (d) Finetune các siêu tham số một cách tự động.
 - Hết -
 26
->>>>>>> HEAD@{1}

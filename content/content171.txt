@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: fe269e55-3b6e-4abc-80b8-87ea550a148a
-Text: Phương trình này mô tả một quá trình nhiễu trong đó mức độ nhiễu
-để duy trì phương sai ban đầu. Phân phối chuyển đổip(x, t|x0, 0) VP
-cho biết xác suất để quá trình nhiễu đang tiến đến một giá trị x tại
-thời điểm t dựa trên giá trị ban đầux0 tại thời điểmt = 0 p(x, t|x(0),
-0) = 1 hp 2πσ2(t) iN exp ( −[x − µ(t)]2 2 σ2(t) ) = NY j=1 1p 2πσ2(t)
-exp ...
-=======
 Phương trình này mô tả một
 quá trình nhiễu trong đó mức độ nhiễu để duy trì phương sai ban đầu.
 Phân phối chuyển đổip(x, t|x0, 0) VP cho biết xác suất để quá trình nhiễu đang tiến đến một giá
@@ -74,4 +65,3 @@ j
 )
 (40)
 19
->>>>>>> HEAD@{1}

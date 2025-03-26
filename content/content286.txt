@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 979d121e-0a2a-4ae2-a385-e0919d08e812
-Text: Vấn đề tô màu cho ảnh mang lại một sự thuận lợi đáng kể về mặt
-dữ liệu, khi mà việc gán nhãn bị loại bỏ hoàn toàn. Bởi, mỗi bức ảnh
-đều có thể được phân chia thành hai thành phần thông tin chính: gray
-channel và color channel. Trong đó, gray channel được sử dụng làm đầu
-vào cho mô hình, đóng vai trò là cơ sở cho quá trình dự đoán. Mô hình
-sẽ tiế...
-=======
 Vấn đề tô màu cho ảnh mang lại một sự thuận lợi đáng kể về mặt dữ liệu, khi mà việc gán nhãn bị
 loại bỏ hoàn toàn. Bởi, mỗi bức ảnh đều có thể được phân chia thành hai thành phần thông tin chính:
 gray channel và color channel. Trong đó, gray channel được sử dụng làm đầu vào cho mô hình, đóng
@@ -16,4 +7,3 @@ kết hợp với gray channel để tạo ra một ảnh hoàn chỉnh.
 Trong các bài toán tô màu cho ảnh, không gian màu phổ biến thường được sử dụng làLab thay vì
 RGB như trong các bài toán xử lý ảnh thông thường, trong đó:
 1
->>>>>>> HEAD@{1}

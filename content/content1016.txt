@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 01e0f0b6-645a-4567-bdf6-bf9c0b827a6c
-Text: AI VIETNAM aivietnam.edu.vn 9.3 SELF-DISCOVER: Large Language
-Models Self-Compose Reasoning Struc- tures
-https://arxiv.org/pdf/2402.03620.pdf 52 y Trong các nghiên cứu, các
-phương pháp prompting khác nhau thường được đề xuất để giải quyết một
-vấn đề hết sức cụ thể, chẳng hạn như giải toán, suy luận theo từng
-bước, hay suy luận số học. Tuy nhiên ...
-=======
 AI VIETNAM aivietnam.edu.vn
 9.3 SELF-DISCOVER: Large Language Models Self-Compose Reasoning Struc-
 tures
@@ -19,4 +10,3 @@ vậy nghiên cứu "SELF-DISCOVER: Large Language Models Self-Compose Reasoning
 et al., 2024 nhắm đến tự tìm kiếm những cấu trúc suy luận phù hợp nahast cho từng task, trong khi
 vẫn giữ tính hiệu quả về mặt tính toán.
 Phương pháp này được lấy cảm hứng từ cách con người chúng ta suy luận một vấn đề. 
->>>>>>> HEAD@{1}

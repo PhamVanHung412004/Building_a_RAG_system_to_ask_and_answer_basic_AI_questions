@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 722d17fc-4824-4bdf-9a80-47c0391961aa
-Text: AI VIETNAM (AIO2024) aivietnam.edu.vn III. YOLOv10: Real-Time
-End-to-End Object Detection Ao Wang và các cộng sự đã đặt nghi vấn về
-sự tối ưu trong việc phụ thuộc vào kỹ thuật hậu xử lý Non-maximum
-Suppresion (NMS) và cách thiết kế mô hình của các phiên bản YOLO trước
-đó. Với các hạn chế quan sát được từ hai điều trên và mục tiêu xây
-dựng một mô...
-=======
 AI VIETNAM (AIO2024) aivietnam.edu.vn
 III. YOLOv10: Real-Time End-to-End
 Object Detection
@@ -28,4 +19,3 @@ thừa.
 Một cách tiếp cận khác đó là sử dụng chiến lược one-to-one label assignment, bằng cách
 chỉ gán một đề xuất bouding box “positive” với ground-truth của vật thể tương ứng, qua
 đó tránh việc hậu xử lý với NMS. 
->>>>>>> HEAD@{1}

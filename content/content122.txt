@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 0365b947-ecd1-4e7d-83a2-72fdee61c3d2
-Text: Bắt đầu với việc cho mô hình đã huấn luyện dự đoán trên tập
-Validation và Test. Sau đó, sử dụng độ đoAccuracy Scoređể đánh giá mô
-hình. 1 y_val_pred = model . predict ( X_val ) 2 y_test_pred = model .
-predict ( X_test ) 3 4 val_accuracy = accuracy_score ( y_val ,
-y_val_pred ) 5 test_accuracy = accuracy_score ( y_test , y_test_pred )
-6 7 print (f...
-=======
 Bắt đầu với việc cho mô hình đã huấn luyện dự đoán trên tập Validation và Test.
 Sau đó, sử dụng độ đoAccuracy Scoređể đánh giá mô hình.
 1 y_val_pred = model . predict ( X_val )
@@ -41,4 +32,3 @@ inverse_transform() để chuyển đổi lại về nhãn ban đầu là Ham ho
 14 # >> Prediction : ham
 15
 9
->>>>>>> HEAD@{1}

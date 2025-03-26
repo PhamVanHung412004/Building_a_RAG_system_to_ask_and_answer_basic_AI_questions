@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: bf714694-5d92-414c-9c30-d6f2bc00944c
-Text: 3.1 List comprehension List comprehension cho phép chúng ta tạo
-ra một danh sách mới bằng cách áp dụng một biểu thức cho mỗi phần tử
-trong một iterable. 1 [expression for item in iterable if condition]
-Trong đó: • expression: Biểu thức được áp dụng cho mỗi phần tử. •
-item: Phần tử hiện tại từ iterable. • iterable: Bất kỳ đối tượng nào
-có thể lặp...
-=======
 3.1 List comprehension
 List comprehension cho phép chúng ta tạo ra một danh sách mới bằng cách áp dụng một biểu thức cho
 mỗi phần tử trong một iterable.
@@ -33,4 +24,3 @@ Trong đó:
 • item, iterable, và condition: Tương tự như trong list comprehension.
 Ví dụ: Tạo dictionary với khóa là số và giá trị là bình phương của số đó.
 3
->>>>>>> HEAD@{1}

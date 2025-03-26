@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 8c6a6cb4-96ba-44c4-9e64-41a5b186603a
-Text: (b) Trạng tháiSt+1. (c) Điểm thưởngRt+1 và Trạng tháiSt+1. (d)
-Điểm thưởngRt+1. 3. Đáp án nào sau đây là một dạng bài toán trong
-Reinforcement Learning? (a) Adversarial (b) Recursive (c) Dynamic (d)
-Episodic 4. Trong Reinforcement Learning, trạng thái (S) được hiểu là?
-(a) Mô tả các hành động thực hiện được của tác tử. (b) Mô tả toàn cục
-của môi...
-=======
 (b) Trạng tháiSt+1.
 (c) Điểm thưởngRt+1 và Trạng tháiSt+1.
 (d) Điểm thưởngRt+1.
@@ -20,4 +11,3 @@ của môi...
 (b) Mô tả toàn cục của môi trường.
 (c) Mô tả cục bộ của môi trường.
 (d) Mô tả điểm thưởng nhận được của tác tử.
->>>>>>> HEAD@{1}

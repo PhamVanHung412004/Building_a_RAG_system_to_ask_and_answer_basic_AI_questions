@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 3c177730-78bc-43cc-a4dd-6ba3b79c67e4
-Text: AI VIETNAM aivietnam.edu.vn Caterpillar", "Cheetah", "Chicken",
-"Dragonfly", "Duck", "panda", "Giraffe"], 3 "plant": ["Bamboo",
-"Apple", "Apricot", "Banana", "Bean", "Wildflower", "Flower", "
-Mushroom", "Weed", "Fern", "Reed", "Shrub", "Moss", "Grass",
-"Palmtree", "Corn", " Tulip", "Rose", "Clove", "Dogwood", "Durian",
-"Ferns", "Fig", "Flax", "F...
-=======
 AI VIETNAM aivietnam.edu.vn
 Caterpillar", "Cheetah", "Chicken", "Dragonfly", "Duck", "panda", "Giraffe"],
 3 "plant": ["Bamboo", "Apple", "Apricot", "Banana", "Bean", "Wildflower", "Flower", "
@@ -36,4 +27,3 @@ Mục tiêu:
 Sau khi thực hiện crawl url của ảnh thành công, chúng ta sẽ nhận được kết quả là một file chứa các
 đường dẫn image_urls.json như sau:
 27
->>>>>>> HEAD@{1}

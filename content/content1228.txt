@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-Node ID: 2fabbd0e-cf05-4970-a153-8a1849ca32a9
-Text: backward () 30 optimizer . step () 31 ... Lưu ý: file pdf này
-chỉ cung cấp một số đoạn code chính để tránh người đọc phân tâm. Tất
-cả các phần code còn lại như một bài toán image classification bình
-thường, full code sẽ nằm ở file notebook. 9
-=======
 backward ()
 30 optimizer . step ()
 31 ...
@@ -12,4 +5,3 @@ Lưu ý: file pdf này chỉ cung cấp một số đoạn code chính để tr�
 các phần code còn lại như một bài toán image classification bình thường, full code sẽ nằm ở file
 notebook.
 9
->>>>>>> HEAD@{1}

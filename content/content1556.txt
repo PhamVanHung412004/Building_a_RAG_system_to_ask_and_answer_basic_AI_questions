@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 6efeabf2-ac22-455d-94ea-8f36ed291a56
-Text: Daily AI Exercise (AIO) aivietnam.edu.vn 1 df_cleaned =
-df.drop([0, 3, 6]) Và cuối cùng, chúng ta sẽ thu được dataframe được
-làm sạch. Bảng 6: Dataframe trích xuất từ bảng trong tệp pdf # Môn học
-Ngày thi Giờ bắt đầu Phòng thi 1 Toán 20/12/2024 08:00 101A 2 Toán
-21/12/2024 09:00 102B 4 Lý 22/12/2024 08:00 101A 5 Lý 22/12/2024 10:00
-102B 7 Hóa 23...
-=======
 Daily AI Exercise (AIO) aivietnam.edu.vn
 1 df_cleaned = df.drop([0, 3, 6])
 Và cuối cùng, chúng ta sẽ thu được dataframe được làm sạch.
@@ -22,4 +13,3 @@ Bảng 6: Dataframe trích xuất từ bảng trong tệp pdf
 Trong các tài liệu pdf, đặc biệt là các bài báo khoa học, các bảng thường rất phức tạp và ở nhiều các vị
 trí khác nhau, thư viện tabula-py thường cho kết quả trích xuất bảng rất tệ trong những tài liệu dạng
 này. 
->>>>>>> HEAD@{1}

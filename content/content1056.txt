@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: eed8168c-45ce-42f8-9e8b-d9d486fe7435
-Text: Tương tự như trong kiến trúc VQ-VAE. Khối Decoder: Khối decoder
-của C-ViViT đơn giản là một khối encoder được lật ngược. Đầu tiên
-token được chuyển đổi thành các embedding. Sau đó là temporal
-transformer, tiếp theo là spatial transformer. Đầu ra sau đó được áp
-dụng một phép chiếu tuyến tính đơn để ánh xạ các token trở lại không
-gian pixel. 4.3.2...
-=======
 Tương tự như trong kiến trúc VQ-VAE.
 Khối Decoder: Khối decoder của C-ViViT đơn giản là một khối encoder được lật ngược. Đầu
 tiên token được chuyển đổi thành các embedding. Sau đó là temporal transformer, tiếp theo là spatial
@@ -31,4 +22,3 @@ cùng một lúc dựa trên các embedding văn bản và các token video khô
 một tỷ lệβi của các token được dự đoán tại bước lấy mẫu i được giữ lại, và các token còn lại sẽ được
 che lại và dự đoán lại ở bước tiếp theo.
 11
->>>>>>> HEAD@{1}

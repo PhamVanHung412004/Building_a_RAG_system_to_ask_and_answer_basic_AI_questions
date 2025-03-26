@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: d7bbcedf-026c-4475-99cb-3808b516d976
-Text: 7. Tại sao cần phải có vector database trong hệ thống RAG? (a)
-Giúp hệ thống chạy nhanh hơn. (b) Làm cho hệ thống bảo mật cao hơn.
-(c) Thuận tiện cho việc truy vấn thông tin có liên quan. (d) Lưu trữ
-hiệu quả. 8. Cho đoạn code sau, chức năng củaembedding là gì ? 1 from
-langchain_huggingface import HuggingFaceEmbeddings 2 3 embedding =
-HuggingFac...
-=======
 7. Tại sao cần phải có vector database trong hệ thống RAG?
 (a) Giúp hệ thống chạy nhanh hơn.
 (b) Làm cho hệ thống bảo mật cao hơn.
@@ -18,4 +9,3 @@ HuggingFac...
 3 embedding = HuggingFaceEmbeddings ()
 (a) Là mô hình LLM.
 (b) Dùng để chuyển văn bản thành vector.
->>>>>>> HEAD@{1}

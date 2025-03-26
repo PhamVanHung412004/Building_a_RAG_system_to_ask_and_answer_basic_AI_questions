@@ -1,7 +1,2 @@
-<<<<<<< HEAD
-Node ID: 4f40aed8-0f85-48ba-808c-24167a418589
-Text: Ta thấy mypy thật tiện lợi phải không? 4
-=======
 Ta thấy mypy thật tiện lợi phải không?
 4
->>>>>>> HEAD@{1}

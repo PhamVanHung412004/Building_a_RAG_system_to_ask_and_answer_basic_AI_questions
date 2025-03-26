@@ -1,9 +1,4 @@
-<<<<<<< HEAD
-Node ID: 26702960-3282-4685-a5b9-a55790ad3c57
-Text: append ( token ) 8 9 return dictionary 6
-=======
 append ( token )
 8
 9 return dictionary
 6
->>>>>>> HEAD@{1}

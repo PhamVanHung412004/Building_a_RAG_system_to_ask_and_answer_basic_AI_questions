@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 45775941-3b01-42b7-886e-3d00a0b966f8
-Text: AI VIETNAM aivietnam.edu.vn Câu 2: Approximate Q-Learning Cho
-môi trường game Pacman với một số thông tin chính như sau: Hình 6:
-Hình ảnh trực quan của game Pacman • Kiểu môi trường:Grid World
-(Stochastic Environment). • Không gian hành động (Actions Space):5
-(Discrete). • Mục tiêu (Objective):Di chuyển Pacman ăn toàn bộ tất cả
-các đồ ăn (chấm m...
-=======
 AI VIETNAM aivietnam.edu.vn
 Câu 2: Approximate Q-Learning
 Cho môi trường game Pacman với một số thông tin chính như sau:
@@ -27,4 +18,3 @@ trên môi trường game Pacman này. Bên cạnh đó, dựa vào chức năng
 các bạn hãy thực nghiệm với 4 bản demo tác tử chơi 1 ván game như sau:
 • Demo 1:Tác tử khi không được huấn luyện.
 • Demo 2:Tác tử khi được huấn luyện qua 10 episodes.
->>>>>>> HEAD@{1}

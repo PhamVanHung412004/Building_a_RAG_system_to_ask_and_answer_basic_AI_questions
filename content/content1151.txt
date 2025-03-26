@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 177ac173-fc29-4cb9-8e0a-b74b7c2ced76
-Text: Module for normalization . 47 """ 48 return GroupNorm32 (32 ,
-channels ) 49 50 51 52 def checkpoint (func , inputs , params , flag
-): 53 """ 54 Evaluate a function without caching intermediate
-activations , allowing for 55 reduced memory at the expense of extra
-compute in the backward pass . 56 57 : param func : the function to
-evaluate .
-=======
 Module for normalization .
 47 """
 48 return GroupNorm32 (32 , channels )
@@ -19,4 +10,3 @@ Module for normalization .
 55 reduced memory at the expense of extra compute in the backward pass .
 56
 57 : param func : the function to evaluate .
->>>>>>> HEAD@{1}

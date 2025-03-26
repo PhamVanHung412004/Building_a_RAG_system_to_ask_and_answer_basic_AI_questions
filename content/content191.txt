@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 629d494c-396b-4730-a6bb-5ae15caed45e
-Text: Daily AI Exercise (AIO) Ngày 8 tháng 4 năm 2024 Ví dụ: 1 -- Thêm
-mới 1 dòng trong bảng CUSTOMERS 2 INSERT INTO CUSTOMERS(EMAIL, NAME,
-PHONE) 3 VALUES(’nguyen@nguyen.com’, ’Nguyen’, ’123456789’); 4 5 --
-Thêm mới nhiều dòng trong bảng CUSTOMERS 6 INSERT INTO
-CUSTOMERS(EMAIL, NAME, PHONE) 7 VALUES 8 (’nguyen@aivietnam.edu.vn’,
-’Nguyen’, ’123456789’...
-=======
 Daily AI Exercise (AIO) Ngày 8 tháng 4 năm 2024
 Ví dụ:
 1 -- Thêm mới 1 dòng trong bảng CUSTOMERS
@@ -51,4 +42,3 @@ SQLite trong python, chúng ta cần tạo kết nối đến CSDL bằng câu l
 → Sau khi tạo kết nối đến cơ sở dữ liệu xong, chúng ta có Object có têncursor
 nhằm giúp chúng ta thực thi và tương tác các câu lệnh truy vấn (SELECT,
 INSERT, UPDATE, DELETE,...) đến cơ sở dữ liệu.
->>>>>>> HEAD@{1}

@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: f92b8ce6-8dce-4b43-a405-ab3b2e320bea
-Text: 125 """ 126 half = dim // 2 127 freqs = torch . exp ( 128 -math
-. log ( max_period ) * torch . arange ( start =0 , end =half , dtype =
-torch . float32 ) / half 129 ).to( device = gammas . device ) 130 args
-= gammas [: , None ]. float () * freqs [ None ] 131 embedding = torch
-. cat ([ torch . cos ( args ), torch . sin ( args )], dim = -1) 132 if
-...
-=======
 125 """
 126 half = dim // 2
 127 freqs = torch . exp (
@@ -29,4 +20,3 @@ dim = -1)
 8 class SiLU (nn. Module ):
 9 def forward (self , x):
 7
->>>>>>> HEAD@{1}

@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: ff0ea270-5a28-4fcd-92fc-a65776f8a82b
-Text: Trong quá trình tìm kiếm ảnh, một hình ảnh truy vấn được đưa vào
-mô hình, mô hình sẽ tính toán đặc trưng của hình ảnh truy vấn và so
-sánh chúng với các đặc trưng đã được tính toán trước của những hình
-ảnh được lưu trữ trên hệ thống. Sự tương đồng giữa các đặc trưng này
-được sử dụng để xác định các hình ảnh có liên quan nhất, và kết quả là
-những ...
-=======
 Trong quá trình tìm kiếm ảnh, một hình ảnh truy vấn được đưa vào mô hình, mô hình sẽ tính toán đặc
 trưng của hình ảnh truy vấn và so sánh chúng với các đặc trưng đã được tính toán trước của những
 hình ảnh được lưu trữ trên hệ thống. Sự tương đồng giữa các đặc trưng này được sử dụng để xác định
@@ -28,4 +19,3 @@ Import các thư viện cần thiết
 3 from PIL import Image
 4 import matplotlib.pyplot as plt
 10
->>>>>>> HEAD@{1}

@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 401fb7ea-908e-4774-9c04-36cde073d9d3
-Text: AI VIETNAM aivietnam.edu.vn 57 nn. BatchNorm2d ( num_features =
-channel [1]) , 58 nn. ReLU ( inplace = True ) 59 ) 60 return
-conv_block 61 62 def forward (self , x): 63 g_encoder , g_decoder ,
-g_maxpool , g_upsampl , indices = ([0] * 5 for _ in range (5) ) 64 for
-i in range (5) : 65 g_encoder [i], g_decoder [-i - 1] = ([0] * 2 for _
-in range (2)...
-=======
 AI VIETNAM aivietnam.edu.vn
 57 nn. BatchNorm2d ( num_features = channel [1]) ,
 58 nn. ReLU ( inplace = True )
@@ -56,4 +47,3 @@ pixel-wise cross entropy và depth-image prediction là L1.
 3
 4 # binary mark to mask out undefined pixel space
 5 binary_mask = ( torch . sum ( x_output , dim =1) != 0). 
->>>>>>> HEAD@{1}

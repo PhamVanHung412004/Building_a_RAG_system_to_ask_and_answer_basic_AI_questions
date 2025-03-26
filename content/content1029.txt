@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 0c754a3f-984d-421e-bb72-64f32efdee17
-Text: AIO2024 aivietnam.edu.vn • Case 2: Nếu biểu thức không khớp với
-trường hợp đầu tiên, chúng ta kiểm tra trường hợp thứ hai. Nếu biểu
-thức khớp với trường hợp này, chúng ta thực hiện "Statement 2"và sau
-đó kết thúc. Ví dụ: Case bạn muốn ăn chuối thì thực hiện Statement 1:
-Lấy trên bàn ăn. • Case n: Tiếp tục kiểm tra các trường hợp khác cho
-đến khi...
-=======
 AIO2024 aivietnam.edu.vn
 • Case 2: Nếu biểu thức không khớp với trường hợp đầu tiên, chúng ta kiểm tra trường hợp thứ hai.
 Nếu biểu thức khớp với trường hợp này, chúng ta thực hiện "Statement 2"và sau đó kết thúc. Ví
@@ -26,4 +17,3 @@ vào đó, chúng ta có thể sử dụng các phương pháp khác nhưif-elif
 Chúng ta sẽ tìm hiểu các phương pháp thay thế switch case qua ví dụ về thói quen vào buổi sáng của
 Tom. Buổi sáng, Tom thường thức dậy vào lúc 5 giờ, đến 6 giờ thì cậu ấy bắt đàu tập yoga, sau đó
 7 giờ cậu ấy bắt đầu làm việc, và các thời gian còn lại thì cậu ấy làm các công việc khác. 
->>>>>>> HEAD@{1}

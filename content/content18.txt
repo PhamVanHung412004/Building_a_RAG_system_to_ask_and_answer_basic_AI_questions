@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 80915363-07b4-474f-8eda-3f95146721f4
-Text: AI VIETNAM (AIO2024) aivietnam.edu.vn 12 from langchain . chains
-import ConversationalRetrievalChain 13 14 from langchain_huggingface
-import HuggingFaceEmbeddings 15 from langchain_chroma import Chroma 16
-from langchain_community . document_loaders import PyPDFLoader ,
-TextLoader 17 from langchain_text_splitters import
-RecursiveCharacterTextSpli...
-=======
 AI VIETNAM (AIO2024) aivietnam.edu.vn
 12 from langchain . chains import ConversationalRetrievalChain
 13
@@ -48,4 +39,3 @@ khởi tạo vector database cho phần cài đặt này:
 Tại line 2, gọi hàmprocess_file() để xử lý file input và trả về các tài liệu nhỏ (docs). Sau
 đó, khởi tạo Chroma vector database bằng cách gọiChroma.from_documents() và truyền vào
 docs cũng như embedding đã khởi tạo trước đó.
->>>>>>> HEAD@{1}

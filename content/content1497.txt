@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-Node ID: f3b6a558-9971-4d99-bbb4-4a4ac4123cd0
-Text: init . constant_ (m.bias , 0) 52 53 # define convolutional block
-54 def conv_layer (self , channel ): 55 conv_block = nn. Sequential (
-56 nn. Conv2d ( in_channels = channel [0] , out_channels = channel [1]
-, kernel_size =3 , padding =1) , 5
-=======
 init . constant_ (m.bias , 0)
 52
 53 # define convolutional block
@@ -13,4 +6,3 @@ init . constant_ (m.bias , 0)
 56 nn. Conv2d ( in_channels = channel [0] , out_channels = channel [1] , kernel_size
 =3 , padding =1) ,
 5
->>>>>>> HEAD@{1}

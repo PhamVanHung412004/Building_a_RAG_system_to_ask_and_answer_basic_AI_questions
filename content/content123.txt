@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: edafdc1d-2e13-49fe-8708-76339225cf6c
-Text: AI VIETNAM (AIO2024) aivietnam.edu.vn III. Câu hỏi trắc nghiệm
-1. Naive Bayes là một thuật toán học máy thuộc loại nào? (a) Học có
-giám sát. (b) Học không giám sát. (c) Học bán giám sát. (d) Học tăng
-cường. 2. Trong Naive Bayes, "Naive"(ngây thơ) ám chỉ điều gì? (a)
-Thuật toán đơn giản và dễ hiểu. (b) Giả định về tính độc lập của các
-đặc trưng. ...
-=======
 AI VIETNAM (AIO2024) aivietnam.edu.vn
 III. Câu hỏi trắc nghiệm
 1. Naive Bayes là một thuật toán học máy thuộc loại nào?
@@ -24,4 +15,3 @@ III. Câu hỏi trắc nghiệm
 (b) Phân cụm.
 (c) Phân loại văn bản.
 (d) Tối ưu hóa.
->>>>>>> HEAD@{1}

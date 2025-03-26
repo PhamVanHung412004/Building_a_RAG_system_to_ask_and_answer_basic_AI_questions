@@ -1,11 +1,5 @@
-<<<<<<< HEAD
-Node ID: 47e1ae1f-b475-471c-900c-2636a39bfe21
-Text: AI VIETNAM aivietnam.edu.vn 69 ) 70 ) 71 print ("-" * 59) 72
-self .
-=======
 AI VIETNAM aivietnam.edu.vn
 69 )
 70 )
 71 print ("-" * 59)
 72 self . 
->>>>>>> HEAD@{1}

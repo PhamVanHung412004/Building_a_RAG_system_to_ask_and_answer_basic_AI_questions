@@ -1,11 +1,4 @@
-<<<<<<< HEAD
-Node ID: eed49f77-f230-4716-8ed7-c7ca9e55a703
-Text: Trọng số này giúp xử lý việc quy mô của độ lệch có thể thay đổi
-theo thời gian. Vấn Đề với Hàm Mục Tiêu Điều Chỉnh • Khó khăn trong
-việc ước lượng đạo hàm củalogp(x, t) do phụ thuộc mạnh mẽ vàop(x, 0).
-=======
 Trọng số này giúp xử lý việc quy mô của độ lệch có thể thay đổi theo thời gian.
 Vấn Đề với Hàm Mục Tiêu Điều Chỉnh
 • Khó khăn trong việc ước lượng đạo hàm củalogp(x, t) do phụ thuộc mạnh mẽ vàop(x, 0).
->>>>>>> HEAD@{1}
 24

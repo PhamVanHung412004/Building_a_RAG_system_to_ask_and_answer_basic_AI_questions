@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: ba564242-d30c-4b8e-a801-5cd40e500a01
-Text: AI VIET NAM – AI COURSE 2024 Phân tích thông tin chiều sâu của
-ảnh Dinh-Thang Duong, Quang-Vinh Dinh Ngày 2 tháng 8 năm 2024 I. Giới
-thiệu Stereo Matchinglà một bài toán lớn trong lĩnh vực Thị giác máy
-tính (Computer Vision), với mục tiêu phục hồi kiến trúc 3D thực tế từ
-một cặp ảnh 2D, gọi là ảnh stereo. Stereo Matching thường được ứng
-dụng tro...
-=======
 AI VIET NAM – AI COURSE 2024
 Phân tích thông tin chiều sâu của ảnh
 Dinh-Thang Duong, Quang-Vinh Dinh
@@ -23,4 +14,3 @@ khai một số thuật toán tính Disparity Map từ cặp ảnh stereo cho tr
 có thể biết được thông tin chiều sâu (Depth Information) thực tế. Các cặp ảnh stereo sẽ sử dụng
 trong project bao gồm:
 • Ảnh Tsukuba:Sử dụng trong Problem 1. 
->>>>>>> HEAD@{1}

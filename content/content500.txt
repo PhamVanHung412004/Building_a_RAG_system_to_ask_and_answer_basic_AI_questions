@@ -1,15 +1,6 @@
-<<<<<<< HEAD
-Node ID: 3e57613d-8d62-4414-a556-e789fa8df868
-Text: AI VIETNAM aivietnam.edu.vn Hình 5: Minh họa một số mẫu dữ liệu
-trong bộ dữ liệu vừa tải về Trong đoạn code, ta sử dụng hàmload_data()
-từ thư việndatasets, hàm này cho phép tải các bộ dữ liệu trong
-database của thư viện. Bộ dữ liệu được ta lưu vào biếndata, khi in
-biến này, ta có thông tin như sau: Hình 6: Dữ liệu của biếndata.
-=======
 AI VIETNAM aivietnam.edu.vn
 Hình 5: Minh họa một số mẫu dữ liệu trong bộ dữ liệu vừa tải về
 Trong đoạn code, ta sử dụng hàmload_data() từ thư việndatasets, hàm này cho phép tải các bộ
 dữ liệu trong database của thư viện. Bộ dữ liệu được ta lưu vào biếndata, khi in biến này, ta có
 thông tin như sau:
 Hình 6: Dữ liệu của biếndata. 
->>>>>>> HEAD@{1}

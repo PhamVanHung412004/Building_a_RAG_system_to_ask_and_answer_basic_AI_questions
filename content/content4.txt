@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 0c78f12a-faa8-419a-afac-87367c9583b7
-Text: AI VIETNAM (AIO2024) aivietnam.edu.vn II. Cài đặt chương trình
-Trong phần này, chúng ta sẽ tìm hiểu cách cài đặt chương trình RAG
-theo như mô tả ở phần trước, bao gồm phần chương trình RAG và phần
-giao diện chat (optional). Cả hai phần đều sẽ được thực hiện trên
-Google Colab đã được kích hoạt GPU. Lưu ý rằng, mục tiêu của project
-này hướng đến v...
-=======
 AI VIETNAM (AIO2024) aivietnam.edu.vn
 II. Cài đặt chương trình
 Trong phần này, chúng ta sẽ tìm hiểu cách cài đặt chương trình RAG theo như mô tả ở phần
@@ -21,4 +12,3 @@ chương trình RAG đơn giản. Tại đây, ta sẽ sử dụng thư viện L
 Các bước triển khai như sau:
 Hình 3: Thư viện LangChain. Một thư viện được thiết kế chuyên biệt cho việc xây dựng các ứng
 dụng về LLMs. Ảnh: link.
->>>>>>> HEAD@{1}

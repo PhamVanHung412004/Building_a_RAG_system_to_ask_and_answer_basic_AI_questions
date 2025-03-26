@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: f8240ccb-9f71-436a-b14c-ac844e234312
-Text: Ví dụ, ta có thể cài đặt cho LLMs sử dụng calculator để giải
-quyết các phép tính, từ đó sẽ đảm bảo kết quả đầu ra của mô hình. Hình
-1: Minh họa về các agent trong môi trường ChatDev. Ảnh: link. Trong
-bài viết này, chúng ta sẽ xây dựng một ứng dụng về Multi-agent LLMs
-tạo sinh code đồng thời kiểm tra code thông qua trình thực thi. Mã
-nguồn được x...
-=======
 Ví dụ, ta có thể cài đặt cho LLMs sử dụng calculator
 để giải quyết các phép tính, từ đó sẽ đảm bảo kết quả đầu ra của mô hình.
 Hình 1: Minh họa về các agent trong môi trường ChatDev. Ảnh: link.
@@ -16,4 +7,3 @@ thời kiểm tra code thông qua trình thực thi. Mã nguồn được xây d
 gồm AssistantAgent và UserProxyAgent:
 • AssistantAgentlà một LLM, có vai trò tạo sinh code theo yêu cầu và kiểm tra lại code nếu cần.
 1
->>>>>>> HEAD@{1}

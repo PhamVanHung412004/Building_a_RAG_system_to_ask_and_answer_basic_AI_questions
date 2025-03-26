@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 97a7dc73-b245-4fb8-bcd1-dc27a009b7be
-Text: open ( image_path ). convert (" RGB ") 26 text = question 27 28
-encoding = self . processor ( image , text , padding =" max_length ",
-truncation =True , return_tensors ="pt") 29 labels = self . processor
-. tokenizer . encode ( 30 answer , max_length = 8, pad_to_max_length
-=True , return_tensors =’pt ’ 31 ) 32 encoding [" labels "] = labels
-33 fo...
-=======
 open ( image_path ). convert (" RGB ")
 26 text = question
 27
@@ -36,4 +27,3 @@ return_tensors ="pt")
 15
 16 model = get_peft_model ( model , config )
 17 device = torch . device (" cuda " if torch . 
->>>>>>> HEAD@{1}

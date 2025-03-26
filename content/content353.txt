@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 5d4a0df5-2d7b-480e-92ac-27fcf74b7dbb
-Text: Resize (( IMAGE_SIZE , IMAGE_SIZE )), 9 transforms . ToTensor ()
-, 10 ] 11 ) 12 13 # Load dataset 14 train_dataset = VideoDataset ( 15
-root_dir ="./ dataset /rwf -2000 ", phase =" train ", transform =
-transform , n_frames = MAX_LEN 16 ) 17 18 val_dataset = VideoDataset (
-19 root_dir ="./ dataset /rwf -2000 ", phase =" val ", transform =
-transfor...
-=======
 Resize (( IMAGE_SIZE , IMAGE_SIZE )),
 9 transforms . ToTensor () ,
 10 ]
@@ -36,4 +27,3 @@ n_frames = MAX_LEN
 32 )
 33
 6
->>>>>>> HEAD@{1}

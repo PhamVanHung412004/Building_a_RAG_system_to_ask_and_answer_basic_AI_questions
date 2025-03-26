@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 102e8d9c-e646-4f05-bc78-a6bf79abea9f
-Text: AI VIETNAM aivietnam.edu.vn 6 Swin-UMamba Ngay sau khi U-Mamba
-được công bố được chưa đầy 1 tháng thì các tác giả tại Chinese Academy
-of Sciences, Peng Cheng Laboratory, và một số phòng Lab khác đã tiếp
-tục cải tiến U-Mamba và công bố Swin-UMamba. Swin-UMamba là sự kết hợp
-giữa việc tận dụng pretrained model (VMamba ở phần 2) và kết hợp với
-kiến...
-=======
 AI VIETNAM aivietnam.edu.vn
 6 Swin-UMamba
 Ngay sau khi U-Mamba được công bố được chưa đầy 1 tháng thì các tác giả tại Chinese Academy of
@@ -14,4 +5,3 @@ Sciences, Peng Cheng Laboratory, và một số phòng Lab khác đã tiếp t�
 bố Swin-UMamba. Swin-UMamba là sự kết hợp giữa việc tận dụng pretrained model (VMamba ở phần
 2) và kết hợp với kiến trức U-Net để giải quyết bài toánMedical image segmentation. Kiến trúc
 Swin-UMamba được mô tả như hình 11.
->>>>>>> HEAD@{1}

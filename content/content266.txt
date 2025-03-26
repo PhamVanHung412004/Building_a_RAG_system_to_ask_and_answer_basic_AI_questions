@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: b1c55f48-a214-4b96-8445-addf23bf36e4
-Text: AI VIETNAM aivietnam.edu.vn 27 def globaltrace (self , frame ,
-event , arg ): 28 if event == " call ": 29 return self . localtrace 30
-else : 31 return None 32 33 def localtrace (self , frame , event , arg
-): 34 if self . killed : 35 if event == " line ": 36 raise SystemExit
-() 37 return self . localtrace 38 39 def kill ( self ): 40 self .
-killed...
-=======
 AI VIETNAM aivietnam.edu.vn
 27 def globaltrace (self , frame , event , arg ):
 28 if event == " call ":
@@ -48,4 +39,3 @@ tin lịch sử ta ghi nhận được sang format của OpenAI thông qua hàmc
 5 print (f" chat_to_oai_message : { chat_history }")
 6 for msg in chat_history :
 7 messages . 
->>>>>>> HEAD@{1}

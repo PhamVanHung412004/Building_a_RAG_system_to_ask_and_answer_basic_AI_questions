@@ -1,13 +1,5 @@
-<<<<<<< HEAD
-Node ID: a7a52952-6a14-40a2-96d1-32c418c60125
-Text: Module ): 2 def __init__ (self , num_classes =2) : 3 super (
-Model , self ). __init__ () 4 self . resnet = resnet18 ( pretrained =
-True ) 5 self . resnet .fc = nn. Sequential (nn. Linear ( self .
-resnet .fc.
-=======
 Module ):
 2 def __init__ (self , num_classes =2) :
 3 super ( Model , self ). __init__ ()
 4 self . resnet = resnet18 ( pretrained = True )
 5 self . resnet .fc = nn. Sequential (nn. Linear ( self . resnet .fc.
->>>>>>> HEAD@{1}

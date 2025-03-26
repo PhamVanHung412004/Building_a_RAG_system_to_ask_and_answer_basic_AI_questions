@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: d767db02-cd53-4eda-aa28-a324ff175463
-Text: AI VIET NAM – AI COURSE 2023 Diffusion-based Image Colorization
-Tien-Huy Nguyen, Khanh Duong and Nhu-Tai Do Ngày 7 tháng 4 năm 2024
-Phần I: Giới thiệu Hình 1: Ví dụ minh họa cho bài toán Image
-Colorization. Sự bùng nổ của mô hìnhDiffusion trong những năm gần đây
-đã tạo ra nhiều bước ngoặt trong vấn đề sinh dữ liệu, đặc biệt là vấn
-đề tái tạo ảnh.
-=======
 AI VIET NAM – AI COURSE 2023
 Diffusion-based Image Colorization
 Tien-Huy Nguyen, Khanh Duong and Nhu-Tai Do
@@ -15,4 +6,3 @@ Phần I: Giới thiệu
 Hình 1: Ví dụ minh họa cho bài toán Image Colorization.
 Sự bùng nổ của mô hìnhDiffusion trong những năm gần đây đã tạo ra nhiều bước ngoặt trong vấn
 đề sinh dữ liệu, đặc biệt là vấn đề tái tạo ảnh. 
->>>>>>> HEAD@{1}

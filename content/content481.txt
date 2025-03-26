@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 86c2d86c-ffbb-4694-a9d1-dd382064489b
-Text: host } - \"{ request . method } { request . url . path } {
-request . scope [’ http_version ’]}\" { response . status_code } {
-process_time :.2 f}s") 20 21 return response Ta sử dụng class logger
-đã khai báo trước đó, khi một request đã được thực thi xong, ta sẽ log
-lại thông tin của response này trước khi trả về cho người dùng. Như đã
-đề cập trư...
-=======
 host } - \"{ request . method } { request . url . path
 } { request . scope [’ http_version ’]}\" { response . status_code } {
 process_time :.2 f}s")
@@ -29,4 +20,3 @@ Trong FastAPI, chúng ta có thể sử dụng Pydantic Model, một dạng data
 Model cho phép chúng ta định nghĩa cấu trúc dữ liệu và đảm bảo rằng cấu trúc này sẽ luôn
 được tuân thủ bởi API. Đối với bài này, chúng ta sẽ cho người dùng gửi một tấm ảnh và API
 13
->>>>>>> HEAD@{1}

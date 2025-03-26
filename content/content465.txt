@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 8eff6532-56f3-4a4a-a75b-a29b315aaf08
-Text: AI VIETNAM aivietnam.edu.vn 2. Cập nhật filerequirements.txt: Để
-bắt đầu, chúng ta sẽ liệt kê các gói thư viện cần thiết để chạy được
-chương trình này. Các bạn hãy cập nhật file requirements.txt với nội
-dung sau: 1 fastapi ==0.110.0 2 uvicorn ==0.27.1 3 torch ==2.2.1 4
-torchvision ==0.17.1 5 python - multipart ==0.0.9 3. Cập nhật thư
-mụcconfig/:...
-=======
 AI VIETNAM aivietnam.edu.vn
 2. Cập nhật filerequirements.txt: Để bắt đầu, chúng ta sẽ liệt kê các gói thư viện cần thiết
 để chạy được chương trình này. Các bạn hãy cập nhật file requirements.txt với nội dung sau:
@@ -39,4 +30,3 @@ thông tin tham số cho bài toán Cat Dog Classification vào fileconfig/catdo
 18 DEVICE = ’cpu ’
 Ở đây, ta quản lý các tham số bằng Python class. Việc đặt tên class có thể tùy chỉnh khác
 nhau nhưng nên được đặt tên cho phù hợp với ý nghĩa của chúng.
->>>>>>> HEAD@{1}

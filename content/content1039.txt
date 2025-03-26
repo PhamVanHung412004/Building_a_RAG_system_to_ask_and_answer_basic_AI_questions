@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 0260094d-f1c0-4f0e-b116-7f2dc68e8188
-Text: AI VIETNAM aivietnam.edu.vn thuật học chuyển giao từ các nhiệm
-vụ có liên quan. Mặc dù đã có nhiều cố gắng, việc vượt qua những trở
-ngại liên quan đến việc tiếp cận dữ liệu vẫn là một bước tiến quan
-trọng để phát triển công nghệ chuyển đổi văn bản thành video. Nhìn
-chung đó là những thách thức chính cho bài toán tạo sinh video từ văn
-bản. Ở phần...
-=======
 AI VIETNAM aivietnam.edu.vn
 thuật học chuyển giao từ các nhiệm vụ có liên quan. Mặc dù đã có nhiều cố gắng, việc vượt qua những
 trở ngại liên quan đến việc tiếp cận dữ liệu vẫn là một bước tiến quan trọng để phát triển công nghệ
@@ -35,4 +26,3 @@ quá dài hoặc thiếu nội dung. Tập dữ liệu được tinh lọc để
 mặc dù vẫn có khả năng chứa bản sao do tải lên nhiều lần, nhưng điều này không ảnh hưởng lớn đến
 quy mô dự án của tập dữ liệu này.
 Hình 1: Ví dụ về các cặp clip-caption được chọn dựa trên sự tương đồng giữa ảnh và mô tả tương ứng.
->>>>>>> HEAD@{1}

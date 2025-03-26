@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: b2da7c24-7c5a-45be-af5c-eaf107947fef
-Text: AI VIETNAM aivietnam.edu.vn Hình 13: Image retrieval ảnh phức
-tạp với model Clip và L1 Truy vấn embedding vector với độ đo L2hàm
-get_l2_score được nâng cấp lên bằng cách sử dụng CLIP model để trích
-xuất vector đặc trưng. 1 def get_l2_score(root_img_path, query_path,
-size): 2 query = read_image_from_path(query_path, size) 3
-query_embedding = get_...
-=======
 AI VIETNAM aivietnam.edu.vn
 Hình 13: Image retrieval ảnh phức tạp với model Clip và L1
 Truy vấn embedding vector với độ đo L2hàm get_l2_score được nâng cấp lên bằng cách sử dụng
@@ -28,4 +19,3 @@ paths
 14 ls_path_score.extend(list(zip(images_path, rates)))
 15 return query, ls_path_score
 12
->>>>>>> HEAD@{1}

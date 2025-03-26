@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: f847b980-2434-4e71-bb2e-2071bbb04c08
-Text: BASIC PYTHON - STRING Dinh-Tiem Nguyen và Quang-Vinh Dinh 1
-String String trong Python là một chuỗi các ký tự, giống như các từ
-hoặc câu mà chúng ta viết. String có thể chứa chữ cái, số, ký tự đặc
-biệt và khoảng trắng. Để tạo một string trong Python, ta chỉ cần đặt
-các ký tự vào trong dấu ngoặc kép. Có thể dùng dấu ngoặc kép đơn (’),
-ngoặc kép (...
-=======
 BASIC PYTHON - STRING
 Dinh-Tiem Nguyen và Quang-Vinh Dinh
 1 String
@@ -32,4 +23,3 @@ chương trình, kết quả sẽ là:
 1 Tom học lập trình tại AI VIETNAM
 3 Chiều dài, chỉ số trong chuỗi
 Chúng ta có thể sử dụng hàm len() để đếm số ký tự trong một chuỗi. 
->>>>>>> HEAD@{1}

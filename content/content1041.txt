@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 2ec19ffb-1d05-41b2-9659-0b8dd7c34a26
-Text: AI VIETNAM aivietnam.edu.vn 3.2 WebVid WebVid
-(https://maxbain.com/webvid-dataset)là tập dữ liệu được thu thập từ
-web, bao gồm 2.5 triệu cặp video-text, vượt trội hơn hẳn so với các
-tập dữ liệu trước đó. Quá trình thu thập dữ liệu này tuân thủ một
-phương pháp tương tự như Google Conceptual Captions, với việc nhận
-thấy một phần đáng kể các hình ả...
-=======
 AI VIETNAM aivietnam.edu.vn
 3.2 WebVid
 WebVid (https://maxbain.com/webvid-dataset)là tập dữ liệu được thu thập từ web, bao gồm 2.5
@@ -27,4 +18,3 @@ mô tả cho khuôn mặt. CelebV-Text bao gồm 70,000 đoạn clip video về 
 nhiên với nội dung hình ảnh đa dạng, mỗi đoạn được ghép nối với 20 đoạn văn bản mô tả được tạo ra
 thông qua chiến lược tạo văn bản bán tự động. Các văn bản mô tả được cung cấp có chất lượng cao, mô
 tả chính xác cả các thuộc tính tĩnh và động. 
->>>>>>> HEAD@{1}

@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: d269c62d-43c3-439d-aec7-f76d786742bb
-Text: AI VIETNAM aivietnam.edu.vn nhưng tiềm năng để phát triển thành
-một hệ thống mô phỏng thực tế ảo, nơi vật thể và con người có thể
-tương tác một cách tự nhiên, là điều không thể phủ nhận. SORA không
-chỉ mở ra cánh cửa cho những cải tiến công nghệ tiếp theo mà còn hứa
-hẹn sẽ mang lại những ứng dụng sáng tạo và cách mạng trong các ngành
-như metaver...
-=======
 AI VIETNAM aivietnam.edu.vn
 nhưng tiềm năng để phát triển thành một hệ thống mô phỏng thực tế ảo, nơi vật thể và con người có
 thể tương tác một cách tự nhiên, là điều không thể phủ nhận. SORA không chỉ mở ra cánh cửa cho
@@ -24,4 +15,3 @@ và scalable latent action model.
 Đặc biệt, Genie cho phép người dùng tương tác với các môi trường sinh ra, từng khung hình một,
 mà không cần đến nhãn hành động sự thật cơ bản hay các yêu cầu đặc thù của lĩnh vực thường thấy
 trong các nghiên cứu về mô hình thế giới. 
->>>>>>> HEAD@{1}

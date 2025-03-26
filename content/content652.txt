@@ -1,11 +1,3 @@
-<<<<<<< HEAD
-Node ID: 1ff32645-9f2b-48eb-9d6e-bcc083b7c957
-Text: Khác với Vim sử dụng Bidirectional, VMamba sử dụng Four-
-Directional (4 hướng) để tính SSM và sử dụng tên gọi Cross-Scan. 4
-hướng này bao gồm: 1. trái->phải->trên->dưới 2. phải->trái->dưới->trên
-3. trên->dưới->trái->phải 4. dưới->trên->phải->trái Hình 5: So sánh
-giữa Attention (hình a) và Cross-Scan (hình b). 4
-=======
 Khác với Vim sử dụng Bidirectional, VMamba sử dụng Four-Directional (4 hướng) để tính SSM và sử
 dụng tên gọi Cross-Scan. 4 hướng này bao gồm:
 1. trái->phải->trên->dưới
@@ -14,4 +6,3 @@ dụng tên gọi Cross-Scan. 4 hướng này bao gồm:
 4. dưới->trên->phải->trái
 Hình 5: So sánh giữa Attention (hình a) và Cross-Scan (hình b).
 4
->>>>>>> HEAD@{1}

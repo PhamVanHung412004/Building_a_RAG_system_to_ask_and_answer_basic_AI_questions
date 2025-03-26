@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 7a88768d-b116-4e84-89f6-54f65ea03a97
-Text: AIO 2024 aivietnam.edu.vn Lưu ý khi sử dụnghstack là các array
-hoặc tensor cần phải có cùng độ dài trong chiều dọc (cùng số hàng).
-Nếu các array/tensor không có cùng độ dài trong chiều dọc sẽ gây ra
-lỗi khi thực thi chương trình. 4.2 vstack Hình 8: Minh họa vstack Hàm
-vstack trong NumPy, PyTorch được sử dụng để nối các array hoặc tensor
-theo chi...
-=======
 AIO 2024 aivietnam.edu.vn
 Lưu ý khi sử dụnghstack là các array hoặc tensor cần phải có cùng độ dài trong chiều dọc (cùng số
 hàng). Nếu các array/tensor không có cùng độ dài trong chiều dọc sẽ gây ra lỗi khi thực thi chương
@@ -40,4 +31,3 @@ Array sau khi nối theo chiều dọc:
 ==========================================
 Lưu ý khi sử dụngvstacklà các array hoặc tensor cần phải có cùng số cột. Nếu các array/tensor không
 có cùng số cột sẽ gây ra lỗi khi thực thi chương trình.
->>>>>>> HEAD@{1}

@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 4aa6d258-6d52-4d95-a94a-1480f4bb3fe9
-Text: mean ()) / ( returns . std () + eps ) 38 39 policy_loss = [] 40
-for log_prob , disc_return in zip ( saved_log_probs , returns ): 41
-policy_loss . append (- log_prob * disc_return ) 42 policy_loss =
-torch . cat ( policy_loss ). sum () 43 44 optimizer . zero_grad () 45
-policy_loss . backward () 46 optimizer . step () 47 48 if i_episode %
-print_eve...
-=======
 mean ()) / ( returns . std () + eps )
 38
 39 policy_loss = []
@@ -37,4 +28,3 @@ scores_deque )))
 1 scores = reinforce (
 2 policy ,
 13
->>>>>>> HEAD@{1}

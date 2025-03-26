@@ -1,14 +1,5 @@
-<<<<<<< HEAD
-Node ID: 4c8f7c05-9b8d-4590-bcdf-df2872b5f5dc
-Text: Dự đoán youtube video:Bên cạnh source về ảnh, các bạn cũng có
-thể input source với các tham số khác nhau, đại diện cho các dữ liệu
-đầu vòa khác nhau: Hình 17: Tổng hợp các kiểu dữ liệu đầu vào YOLOv10
-hỗ trợ trong việc thực hiện predict. Ví dụ, để dự đoán với input là
-youtube video, các bạn chỉ cần thay thếIMG_PATH 11
-=======
 Dự đoán youtube video:Bên cạnh source về ảnh, các bạn cũng có thể input source với
 các tham số khác nhau, đại diện cho các dữ liệu đầu vòa khác nhau:
 Hình 17: Tổng hợp các kiểu dữ liệu đầu vào YOLOv10 hỗ trợ trong việc thực hiện predict.
 Ví dụ, để dự đoán với input là youtube video, các bạn chỉ cần thay thếIMG_PATH
 11
->>>>>>> HEAD@{1}

@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 37c3f0d1-eee8-48c7-a4fe-ccb21b860a15
-Text: AI VIET NAM – COURSE 2024 Python OOP – Exercise Ngày 15 tháng 6
-năm 2024 I. Câu hỏi tự luận 1. Viết class và cài phương thức softmax.
-Trong pytorch, torch.nn.Module là lớp cơ bản để từ đó xây dựng lên các
-mô hình hoặc các phương thức kích hoạt (activation funtion) như
-sigmoid, softmax,... Trong phần này, chúng ta xây dựng class Softmax
-và softma...
-=======
 AI VIET NAM – COURSE 2024
 Python OOP – Exercise
 Ngày 15 tháng 6 năm 2024
@@ -25,4 +16,3 @@ Hình 1: Softmax
 6 >> tensor ([0.0900 , 0.2447 , 0.6652])
 7
 8 data = torch . 
->>>>>>> HEAD@{1}

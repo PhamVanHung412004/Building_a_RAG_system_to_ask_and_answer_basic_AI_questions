@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: eb72f9bf-699d-4765-8da5-4a63aaf302dc
-Text: AI VIETNAM aivietnam.edu.vn 4. Model video classification Trong
-phần này, ta sẽ dùng một số model khác nhau để giải quyết bài toán
-video classification. • Single-frame: Single-frame hoạt động bằng cách
-dùng 2D model bất kì (resnet18) để predict trên mỗi frame và tổng hợp
-kết quả cuối cùng (average). Model single-frame được mô tả như hình
-sau, lư...
-=======
 AI VIETNAM aivietnam.edu.vn
 4. Model video classification
 Trong phần này, ta sẽ dùng một số model khác nhau để giải quyết bài toán video classification.
@@ -14,4 +5,3 @@ Trong phần này, ta sẽ dùng một số model khác nhau để giải quyế
 trên mỗi frame và tổng hợp kết quả cuối cùng (average). Model single-frame được mô tả như
 hình sau, lưu ý, ta chỉ cần dùng 1 model (share weight) để predict trên các frame.
 1 class Model (nn. 
->>>>>>> HEAD@{1}

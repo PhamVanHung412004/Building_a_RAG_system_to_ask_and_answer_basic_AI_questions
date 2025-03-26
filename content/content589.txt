@@ -1,11 +1,4 @@
-<<<<<<< HEAD
-Node ID: ad393f13-aafa-453d-96b6-8943722c136a
-Text: AI VIETNAM aivietnam.edu.vn Câu hỏi 3:(Code) Hoàn thành chương
-trình sau với mô tả bài toán từ câu I.3. Đầu ra của chương trình dưới
-đây là gì? 1 ! gdown https :// drive .
-=======
 AI VIETNAM aivietnam.edu.vn
 Câu hỏi 3:(Code) Hoàn thành chương trình sau với mô tả bài toán từ câu I.3. Đầu ra của chương trình
 dưới đây là gì?
 1 ! gdown https :// drive . 
->>>>>>> HEAD@{1}

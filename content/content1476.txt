@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 668d94fc-0eb0-41c5-aa97-3a0329819f00
-Text: has_collection ( COLLECTION_NAME ): 3 qa_collection =
-create_collection ( COLLECTION_NAME , DIMENSION ) 4 qa_collection .
-load ( replica_number = REPLICA_NUMBER ) 5 else : 6 qa_collection =
-Collection ( COLLECTION_NAME ) 7 qa_collection . load ( replica_number
-= REPLICA_NUMBER ) 8 9 if qa_collection . is_empty : 10
-create_squad_database ( qa_col...
-=======
 has_collection ( COLLECTION_NAME ):
 3 qa_collection = create_collection ( COLLECTION_NAME , DIMENSION )
 4 qa_collection . load ( replica_number = REPLICA_NUMBER )
@@ -40,4 +31,3 @@ là các câu hỏi). Sau đó, tìm kiếm tương đồng và trả về các 
 19 distances = []
 20 questions = []
 9
->>>>>>> HEAD@{1}

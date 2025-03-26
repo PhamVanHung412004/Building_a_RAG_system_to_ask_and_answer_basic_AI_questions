@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 6a3f618a-70d8-4660-84b3-53a9e42a9b71
-Text: AI VIETNAM aivietnam.edu.vn quan sẽ được loại bỏ đi, trong khi
-những dải có liên quan sẽ được giữ lại. Khi những văn bản truy vấn là
-Không Đúng, quá trình tìm kiếm trên web sẽ được bắt đầu. Cụ thể câu
-đầu vào sẽ được viết lại thành những keyword để mô phỏng quá trình tìm
-kiếm trên web. Sau đó quá trình chắt lọc thông tin tương tự như bước
-trên s...
-=======
 AI VIETNAM aivietnam.edu.vn
 quan sẽ được loại bỏ đi, trong khi những dải có liên quan sẽ được giữ lại.
 Khi những văn bản truy vấn là Không Đúng, quá trình tìm kiếm trên web sẽ được bắt đầu. Cụ thể
@@ -20,4 +11,3 @@ Wikipedia" Semnani et al., 2023, nhằm giải quyết vấn đền câu trả l
 có độ trung thực không cao và có tỉ lệ tưởng tượng (hallucination) lớn. Phương pháp này bao gồm 7
 bước chính, với mỗi bước sử dụng few-shot prompting để hướng mô hình trả lời theo ý muốn của người
 dùng. 
->>>>>>> HEAD@{1}

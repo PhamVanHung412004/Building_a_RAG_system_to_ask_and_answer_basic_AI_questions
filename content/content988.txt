@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: a12ff04e-41f2-49e8-a0f1-01e74bb5a947
-Text: AI VIETNAM aivietnam.edu.vn cảnh. Độ dài của các phân đoạn có
-thể linh hoạt ấn định cho phù hợp với nội dung ngữ nghĩa. Một số giải
-pháp có thể kể đến như sau: • Sentence Window:là giải pháp phân chia
-theo câu kết hợp cửa sổ mở rộng. Dữ liệu được ngữ nghĩa hoá (word2vec)
-là đơn vị câu, tuy nhiên dữ liệu trả về là dữ liệu mở rộng cho câu lân
-cận....
-=======
 AI VIETNAM aivietnam.edu.vn
 cảnh. Độ dài của các phân đoạn có thể linh hoạt ấn định cho phù hợp với nội dung ngữ nghĩa. Một số
 giải pháp có thể kể đến như sau:
@@ -40,4 +31,3 @@ triever and LLM
 Xử lý dữ liệu dạng bảng:Bên cạnh các giải pháp xử lý dữ liệu chữ, thông tin từ hệ thống bảng biểu
 cũng được cân nhắc. Bởi việc bóc tách xử lý chữ thông thường không giữ lại được cấu trúc và mối quan
 hệ trong các bảng biểu. 
->>>>>>> HEAD@{1}

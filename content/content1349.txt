@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 02457c27-d098-4ca0-90c4-c40c064ef55f
-Text: AI VIETNAM aivietnam.edu.vn d) st.image(image_path, caption=’A
-cat’, width=None, channels=’RGB’) Câu hỏi 5: Tính khoảng cách chỉnh
-sửa levenshtein của 2 từ sau: "elmets" và "elements". a) 2 b) 3 c) 4
-d) 5 Câu hỏi 6: Hàm st.session_state trong streamlit được sử dụng để
-làm gì. a) Hiển thị chuỗi văn bản b) Hiển thị hình ảnh c) Lưu hình ảnh
-d) Chia...
-=======
 AI VIETNAM aivietnam.edu.vn
 d) st.image(image_path, caption=’A cat’, width=None, channels=’RGB’)
 Câu hỏi 5: Tính khoảng cách chỉnh sửa levenshtein của 2 từ sau: "elmets" và "elements".
@@ -22,4 +13,3 @@ d) Chia sẻ các biến tỏng mỗi phiên truy cập của người dùng
 Câu hỏi 7: Đoạn code nào thể hiện đúng cho giao diện sau đây.
 1 a)
 2 col1 , col2 = st. 
->>>>>>> HEAD@{1}

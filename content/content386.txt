@@ -1,11 +1,4 @@
-<<<<<<< HEAD
-Node ID: 3e3be95f-0fd4-4c0f-8095-7c34f60506f5
-Text: - Cấu trúc đơn giản và dễ dàng truy cập dữ liệu theo vùng. Nhược
-điểm: - Có thể sử dụng nhiều bộ nhớ hơn so với cây KD cho cùng một
-lượng dữ liệu điểm. 5
-=======
 - Cấu trúc đơn giản và dễ dàng truy cập dữ liệu theo vùng.
 Nhược điểm:
 - Có thể sử dụng nhiều bộ nhớ hơn so với cây KD cho cùng một lượng dữ liệu điểm.
 5
->>>>>>> HEAD@{1}

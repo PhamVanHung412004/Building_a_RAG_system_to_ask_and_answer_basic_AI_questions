@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 338a420b-d340-43b7-a5c4-b2289a5a5a65
-Text: Nó tập trung vào việc tìm điểm gần nhất trong đám mây điểm đích
-cho mỗi điểm trong đám mây điểm nguồn. Khoảng cách giữa các điểm gần
-nhất này sau đó được thu nhỏ để tinh chỉnh lặp lại phép biến đổi (quay
-và dịch chuyển) căn chỉnh hai đám mây. Point-to-plane ICP:Phương pháp
-này xem xét thông tin bề mặt của đám mây điểm đích. Nó tính toán vectơ
-ph...
-=======
 Nó tập trung vào việc
 tìm điểm gần nhất trong đám mây điểm đích cho mỗi điểm trong đám mây điểm nguồn. Khoảng cách
 giữa các điểm gần nhất này sau đó được thu nhỏ để tinh chỉnh lặp lại phép biến đổi (quay và dịch
@@ -29,4 +20,3 @@ ICP ")
 10 reg_p2l = o3d . pipelines . registration . registration_icp (
 11 source , target , threshold , trans_init ,
 12 o3d . pipelines . 
->>>>>>> HEAD@{1}

@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 8c3e5e70-46c0-414b-ba91-86de9530db2f
-Text: AI VIETNAM aivietnam.edu.vn 1 from langchain_community .
-document_loaders import PyPDFLoader 2 from langchain_text_splitters
-import RecursiveCharacterTextSplitter 3 from langchain_community .
-embeddings import HuggingFaceEmbeddings 4 from langchain_chroma import
-Chroma 5 6 pdf_url = " https :// arxiv . org / pdf /2401.18059 v1. pdf
-" 7 8 # PDF l...
-=======
 AI VIETNAM aivietnam.edu.vn
 1 from langchain_community . document_loaders import PyPDFLoader
 2 from langchain_text_splitters import RecursiveCharacterTextSplitter
@@ -33,4 +24,3 @@ AI VIETNAM aivietnam.edu.vn
 23 chroma_db = Chroma . from_documents (docs , embedding = embedding_model )
 Nhiệm vụ củaembedding_model là gì?
 (a) Dùng biến đổi chuỗi đầu vào thành các vector cho cơ sở dữ liệu vector.
->>>>>>> HEAD@{1}

@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 974ddc4c-5009-4bb1-ba2d-6e6504884cf1
-Text: AI VIETNAM (AIO2024) aivietnam.edu.vn 21 22 def preprocess_text
-( text ): 23 text = lowercase ( text ) 24 text = punctuation_removal (
-text ) 25 tokens = tokenize ( text ) 26 tokens = remove_stopwords (
-tokens ) 27 tokens = stemming ( tokens ) 28 29 return tokens 30 31 def
-preprocess_text ( text ): 32 text = lowercase ( text ) 33 text =
-punctuat...
-=======
 AI VIETNAM (AIO2024) aivietnam.edu.vn
 21
 22 def preprocess_text ( text ):
@@ -38,4 +29,3 @@ có xuất hiện trong toàn bộ Messages sau khi được tiền xử lý và
 5 for token in tokens :
 6 if token not in dictionary :
 7 dictionary . 
->>>>>>> HEAD@{1}

@@ -1,13 +1,5 @@
-<<<<<<< HEAD
-Node ID: 981fca5a-30e7-4ad6-b246-daa5311f3eef
-Text: AI VIETNAM (AIO2024) aivietnam.edu.vn II. Cài đặt chương trình
-Trong phần này, chúng ta sẽ tìm hiểu cách sử dụng YOLOv10 bao gồm việc
-sử dụng pre-trained model và huấn luyện (fine-tuning) YOLOv10 trên bộ
-dữ liệu Helmet Safety Detection. II.I.
-=======
 AI VIETNAM (AIO2024) aivietnam.edu.vn
 II. Cài đặt chương trình
 Trong phần này, chúng ta sẽ tìm hiểu cách sử dụng YOLOv10 bao gồm việc sử dụng pre-trained
 model và huấn luyện (fine-tuning) YOLOv10 trên bộ dữ liệu Helmet Safety Detection.
 II.I. 
->>>>>>> HEAD@{1}

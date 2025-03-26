@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 8a56897d-7860-459f-8127-1df4350670b6
-Text: AI VIETNAM (AIO2024) aivietnam.edu.vn Về độ chính xác, dựa trên
-ý tưởng liên quan đến receptive field và phép self-attention, nhóm tác
-giả thực hiện hiệu chỉnh các nội dung sau: - Large-kernel
-convolution:Ở các phiên bản YOLOv10 kích thước nhỏ, nhóm tác giả thực
-hiện tăng kích thước kernel từ 3x3 lên 7x7 của phép depth-wise
-convolution trong CIB...
-=======
 AI VIETNAM (AIO2024) aivietnam.edu.vn
 Về độ chính xác, dựa trên ý tưởng liên quan đến receptive field và phép self-attention,
 nhóm tác giả thực hiện hiệu chỉnh các nội dung sau:
@@ -22,4 +13,3 @@ Transformer Encoder. Phần LayerNorm sẽ được thay thế bằng BatchNorm 
 tốc độ xử lý. Sau đó, kết quả của bước này sẽ được kết hợp với phần tách còn lại bởi
 phép point-wise convolution.
 Hình 14: Minh họa Partial self-attention (PSA). Ảnh: [10].
->>>>>>> HEAD@{1}

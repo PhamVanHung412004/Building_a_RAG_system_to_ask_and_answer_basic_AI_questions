@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: c9764956-6528-44d4-be7c-16a05b36ec70
-Text: AI VIETNAM aivietnam.edu.vn loạt hướng dẫn cho máy đọc hoặc máy
-in PDF biết cách hiển thị các ký tự trên màn hình hoặc giấy. Điều này
-trái ngược với các định dạng tệp như HTML và docx, sử dụng các thẻ như
-<p>, <w:p>, <table>, và <w:tbl> để tổ chức các cấu trúc logic khác
-nhau. Thách thức trong việc phân tích cú pháp tài liệu PDF nằm ở việc
-chính...
-=======
 AI VIETNAM aivietnam.edu.vn
 loạt hướng dẫn cho máy đọc hoặc máy in PDF biết cách hiển thị các ký tự trên màn hình hoặc giấy.
 Điều này trái ngược với các định dạng tệp như HTML và docx, sử dụng các thẻ như <p>, <w:p>,
@@ -23,4 +14,3 @@ Thông thường chúng ta sẽ có ba cách tiếp cận cơ bản để parse 
 ment Layout Analysis, Key Information Extraction,...
 • Phân tích cấu trúc phức tạp hoặc trích xuất thông tin chính trong PDF dựa trên các multimodal
 large models.
->>>>>>> HEAD@{1}

@@ -1,14 +1,5 @@
-<<<<<<< HEAD
-Node ID: edce940c-b03d-464b-8a28-048730a67124
-Text: /abs/2004.10934 [5] Jocher, G. (2020). YOLOv5 by Ultralytics.
-Zenodo. /record/3908559 [6] Li, C., Li, L., Jiang, H., Weng, K., Geng,
-Y., & Wei, X. (2022). YOLOv6: A Single-Stage Object Detection
-Framework for Industrial Applications. ArXiv. /abs/2209.02976 [7]
-Wang, C. Y., Bochkovskiy, A., & Liao, H. Y. M.
-=======
 /abs/2004.10934
 [5] Jocher, G. (2020). YOLOv5 by Ultralytics. Zenodo. /record/3908559
 [6] Li, C., Li, L., Jiang, H., Weng, K., Geng, Y., & Wei, X. (2022). YOLOv6: A Single-Stage
 Object Detection Framework for Industrial Applications. ArXiv. /abs/2209.02976
 [7] Wang, C. Y., Bochkovskiy, A., & Liao, H. Y. M. 
->>>>>>> HEAD@{1}

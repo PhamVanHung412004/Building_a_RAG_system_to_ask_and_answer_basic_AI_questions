@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: bf154512-9666-4f3c-8acf-e25e77a79ed2
-Text: You can now ask questions !" 38 await msg . update () 39 40 cl.
-user_session . set (" chain ", chain ) 9. Khởi tạo hàm on_message: 1
-@cl . on_message 2 async def on_message ( message : cl. Message ): 3
-chain = cl. user_session . get (" chain ") 4 cb = cl.
-AsyncLangchainCallbackHandler () 5 res = await chain . ainvoke (
-message . content , callba...
-=======
 You can now ask questions !"
 38 await msg . update ()
 39
@@ -36,4 +27,3 @@ You can now ask questions !"
 22 answer += "\ nNo sources found "
 23
 24 await cl. Message ( content = answer , elements = text_elements ). 
->>>>>>> HEAD@{1}

@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-Node ID: b0ce887c-3ff3-4cf8-adce-ece56c62b4ad
-Text: AI VIETNAM aivietnam.edu.vn 6 self . backbone =
-mobilenet_v3_small ( pretrained = True ) 7 self . backbone .
-classifier = nn.
-=======
 AI VIETNAM aivietnam.edu.vn
 6 self . backbone = mobilenet_v3_small ( pretrained = True )
 7 self . backbone . classifier = nn. 
->>>>>>> HEAD@{1}

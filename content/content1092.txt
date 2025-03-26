@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: b8335d2f-96f3-44b2-9bc4-c31f23cb7641
-Text: AI VIETNAM (AIO2024) aivietnam.edu.vn II. Bài toán Object
-Detection và các phiên bản YOLO đời trước II.I. Bài toán Object
-Detection Trong Computer Vision, bài toán Object Detection hướng đến
-xây dựng một chương trình có thể tự động xác định vị trí và nhận diện
-tên (class) của các vật thể trong một bức ảnh. Tổng hợp hai thông tin
-đầu ra này còn đ...
-=======
 AI VIETNAM (AIO2024) aivietnam.edu.vn
 II. Bài toán Object Detection và các
 phiên bản YOLO đời trước
@@ -30,4 +21,3 @@ vật thể được thực hiện riêng biệt. Điển hình cho hướng ti�
 các vật thể được dự đoán bởi một mô hình duy nhất (không sử dụng các bước tiền và hậu
 xử lý bounding box). Điển hình cho hướng tiếp cận này có thể kể đến DETR [16], DINO
 [17], và DeFCN [18].
->>>>>>> HEAD@{1}

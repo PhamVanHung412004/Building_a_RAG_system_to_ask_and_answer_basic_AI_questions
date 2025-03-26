@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 5692de87-8535-455c-99c7-db04b374a6e8
-Text: urlopen (’ https :// ipv4 . icanhazip . com ’). read (). decode
-(’utf8 ’). strip ("\n")) 1 !lt -- port 8000 -- subdomain aivn - simple
-- rag Khi chạy xong các bước trên, các bạn truy cập vào đường dẫn tạm
-localtunnel, nhập password được cung cấp để truy cập vào giao diện
-web. Lưu ý rằng, phương án sử dụng localtunnel là một phương án truy
-cập và...
-=======
 urlopen (’
 https :// ipv4 . icanhazip . com ’). read (). decode (’utf8 ’). strip ("\n"))
 1 !lt -- port 8000 -- subdomain aivn - simple - rag
@@ -17,4 +8,3 @@ lúc không hoạt động được. Nếu có máy tính có GPU, các bạn c�
 máy để tiện sử dụng và đảm bảo đầu ra hơn.
 Hình 9: Giao diện chat trong chương trình.
 12
->>>>>>> HEAD@{1}

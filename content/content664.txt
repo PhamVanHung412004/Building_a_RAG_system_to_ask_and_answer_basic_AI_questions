@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 017293d2-129f-4494-a454-cfa38f6b5d21
-Text: References [1] Gu, Albert, and Tri Dao. “Mamba: Linear-time
-sequence modeling with selective state spaces.” arXiv preprint
-arXiv:2312.00752 (2023) [2] Zhu, Lianghui, et al. “Vision mamba:
-Efficient visual representation learning with bidirectional state
-space model.” arXiv preprint arXiv:2401.09417 (2024). [3] Liu, Yue, et
-al. “Vmamba: Visual st...
-=======
 References
 [1] Gu, Albert, and Tri Dao. “Mamba: Linear-time sequence modeling with selective state spaces.” arXiv
 preprint arXiv:2312.00752 (2023)
@@ -18,4 +9,3 @@ image segmentation.” arXiv preprint arXiv:2401.04722 (2024).
 [5] Liu, Jiarun, et al. “Swin-UMamba: Mamba-based UNet with ImageNet-based pretraining.” arXiv
 preprint arXiv:2402.03302 (2024).
 10
->>>>>>> HEAD@{1}

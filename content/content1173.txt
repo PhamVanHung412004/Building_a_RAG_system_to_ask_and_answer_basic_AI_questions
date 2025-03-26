@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 709829ab-f367-4eb0-82b2-aaaef301e64d
-Text: type ( weight . dtype ) 303 a = torch . einsum ("bts ,bcs -> bct
-", weight , v. reshape (bs * self . n_heads , ch , length )) 304
-return a. reshape (bs , -1, length ) 305 306 @staticmethod 307 def
-count_flops ( model , _x , y): 308 return count_flops_attn ( model ,
-_x , y) 309 310 class UNet (nn. Module ): 311 """ 312 The full UNet
-model with at...
-=======
 type ( weight . dtype )
 303 a = torch . einsum ("bts ,bcs -> bct ", weight , v. reshape (bs * self . n_heads , ch ,
 length ))
@@ -26,4 +17,3 @@ Y_channels + X_channels .
 316 : param res_blocks : number of residual blocks per downsample .
 317 : param attn_res : a collection of downsample rates at which
 318 attention will take place . May be a set , list , or tuple .
->>>>>>> HEAD@{1}

@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 8d8338b0-1267-45b3-b58c-8fd44ed1d3e5
-Text: AI VIETNAM aivietnam.edu.vn 28 def __init__ ( self ) -> None :
-29 super (). __init__ () 30 31 def __call__ (self , pdf_files : List [
-str ], ** kwargs ): 32 num_processes = min ( self . num_processes ,
-kwargs [" workers "]) 33 with multiprocessing . Pool ( processes =
-num_processes ) as pool : 34 doc_loaded = [] 35 total_files = len (
-pdf_files ...
-=======
 AI VIETNAM aivietnam.edu.vn
 28 def __init__ ( self ) -> None :
 29 super (). __init__ ()
@@ -64,4 +55,3 @@ pbar :
 80 def load_dir (self , dir_path : str , workers : int = 1):
 81 if self . file_type == " pdf ":
 82 files = glob . 
->>>>>>> HEAD@{1}

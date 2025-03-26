@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 0b0f5835-6a3e-4de1-a17c-279e8106e8dd
-Text: Một ví dụ sử dụng đánh giá mô hình được mô tả như Hình 5. Hình
-5: Hình ảnh ví dụ với câu hỏi: "How many diamonds are there?". 1
-import json 2 processor = BlipProcessor . from_pretrained ("./
-save_model ") 3 model = BlipForQuestionAnswering . from_pretrained
-("./ save_model ").to( device ) 4 test_data_dir = f"{ data_path }/
-test_data / test_data ...
-=======
 Một
 ví dụ sử dụng đánh giá mô hình được mô tả như Hình 5.
 Hình 5: Hình ảnh ví dụ với câu hỏi: "How many diamonds are there?".
@@ -19,4 +10,3 @@ Hình 5: Hình ảnh ví dụ với câu hỏi: "How many diamonds are there?".
 7
 8 # read question , image id
 6
->>>>>>> HEAD@{1}

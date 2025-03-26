@@ -1,11 +1,3 @@
-<<<<<<< HEAD
-Node ID: 6146f0e0-49e8-4b33-b32b-840d8c904293
-Text: AI VIETNAM (AIO2024) aivietnam.edu.vn III. Câu hỏi trắc nghiệm
-1. Trong một chương trình Helmet Safety Detection với chức năng dùng
-để phát hiện người có đội mũ bảo vệ hay không trong một ảnh, Input của
-chương trình là gì? (a) Mô hình Object Detection. (b) Bounding Box.
-(c) Ảnh bất kì. (d) Ảnh chứa người.
-=======
 AI VIETNAM (AIO2024) aivietnam.edu.vn
 III. Câu hỏi trắc nghiệm
 1. Trong một chương trình Helmet Safety Detection với chức năng dùng để phát hiện người
@@ -14,4 +6,3 @@ có đội mũ bảo vệ hay không trong một ảnh, Input của chương tr�
 (b) Bounding Box.
 (c) Ảnh bất kì.
 (d) Ảnh chứa người.
->>>>>>> HEAD@{1}

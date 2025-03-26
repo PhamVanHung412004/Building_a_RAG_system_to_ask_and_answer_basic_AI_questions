@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: f467b426-ba6f-4e98-888c-ef746d7ab588
-Text: Tuy nhiên có một số trường hợp có thể khác phục bằng cách yêu
-cầu tabula-py chỉ thực hiện trích xuất bảng tại vị trí được chỉ định
-trên trang. Đây là cách làm thủ công và khá tốn sức, đầu tiên chúng ta
-cần một công cụ để xác định vị trí của bảng trong tệp tin pdf. Trong
-bài viết này, chúng ta sẽ sử dụng phần mềm Adobe reader, bạn có thể
-tải và c...
-=======
 Tuy nhiên có một số trường hợp có thể khác phục bằng cách yêu cầu tabula-py chỉ thực hiện trích
 xuất bảng tại vị trí được chỉ định trên trang.
 Đây là cách làm thủ công và khá tốn sức, đầu tiên chúng ta cần một công cụ để xác định vị trí của
@@ -16,4 +7,3 @@ Hình 1: Xác định vị trí bảng trong file pdf
 Chúng ta sẽ thực hiện ví dụ với bài báo YOLO. Vị trí của bảng chúng ta cần xác định là vị trí của 4
 điểm:
 5
->>>>>>> HEAD@{1}

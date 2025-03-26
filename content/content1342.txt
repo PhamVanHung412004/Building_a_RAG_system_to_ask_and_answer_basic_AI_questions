@@ -1,12 +1,5 @@
-<<<<<<< HEAD
-Node ID: bc91bb1d-6daf-412a-8ba2-8f0b5592a6c7
-Text: Sau khi được chấp nhận quyền truy cập, chúng ta xây dựng giao
-diện ứng dụng được mô tả như sau: Hình 8: Giao diện ứng dụng chatbot.
-Giao diện có bố cục gồm 2 phần: 7
-=======
 Sau khi được chấp nhận quyền truy cập, chúng ta xây dựng giao diện ứng dụng được mô tả như
 sau:
 Hình 8: Giao diện ứng dụng chatbot.
 Giao diện có bố cục gồm 2 phần:
 7
->>>>>>> HEAD@{1}

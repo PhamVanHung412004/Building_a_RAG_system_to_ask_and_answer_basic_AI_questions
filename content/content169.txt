@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: f0c17ff9-5ae8-4fa4-884e-4ebd39e039fe
-Text: Phương trình này mô tả một quá trình nhiễu trong đó mức độ nhiễu
-tăng lên theo thời gian. Phân phối chuyển đổi cho quá trình VE mô tả
-xác suất của VE khi thời gian tiến đến t, dựa trên giá trị ban đầux0
-tại t = 0. Và sau đó công thức được phân rã thành tích của N phân phối
-Gauss 1D. p(x, t|x(0), 0) = 1 hp 2πσ2(t) iN exp ( −  x − x(0)2
-2σ2(t) )...
-=======
 Phương trình này mô tả một quá trình
 nhiễu trong đó mức độ nhiễu tăng lên theo thời gian.
 Phân phối chuyển đổi cho quá trình VE mô tả xác suất của VE khi thời gian tiến đến t, dựa trên
@@ -64,4 +55,3 @@ Trong đó T là thời gian chúng ta áp dụng quá trình nhiễu trên các
 phải là việc đặt tham số mà là việc hàmσ2(t) tăng theo cấp số mũ theo thời gian. Điều này sẽ giúp cho
 sự biến đổi mạnh hơn theo thời gian.
 18
->>>>>>> HEAD@{1}

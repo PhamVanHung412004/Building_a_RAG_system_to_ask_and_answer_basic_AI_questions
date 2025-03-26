@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 6d52d628-2731-4bbe-b1d4-129df391c73c
-Text: append ( 8 { 9 " content ": msg [0]. split () [0] if msg [0].
-startswith (" exitcode ") else msg [0] , 10 " role ": " user ", 11 }
-12 ) 13 messages . append ({" content ": msg [1] , " role ": "
-assistant "}) 14 return messages (d) Xây dựng hàm chuyển đổi ngược
-format lịch sử hội thoại:Để hiển thị thông tin lịch sử lên giao diện
-của chúng ta sau ...
-=======
 append (
 8 {
 9 " content ": msg [0]. split () [0] if msg [0]. startswith (" exitcode ")
@@ -21,4 +12,3 @@ sử lên giao diện của chúng ta sau khi chạy xong, ta cần lấy lại 
 Vì thông tin đang ở format của OpenAI, ta cần có hàm chuyển đổi ngược lại thành một list
 như ban đầu. Theo đó, ta khai báo hàmoai_message_to_chat():
 6
->>>>>>> HEAD@{1}

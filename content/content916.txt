@@ -1,11 +1,3 @@
-<<<<<<< HEAD
-Node ID: ae46c7cb-f948-448d-a336-50d41c53e351
-Text: AI VIETNAM aivietnam.edu.vn Hình 9: Thuật toán của APE Hình 10:
-Phương pháp APE, các bước được đánh số từ 1 đến 5 APE giúp tìm kiếm
-những prompt cho ra kết quả tốt hơn khi sử dụng trong zero-shot CoT so
-với prompt được định nghĩa bởi con người như "Let’s think step by
-step" được đề xuất bởi Kojima et al., 2022. 16
-=======
 AI VIETNAM aivietnam.edu.vn
 Hình 9: Thuật toán của APE
 Hình 10: Phương pháp APE, các bước được đánh số từ 1 đến 5
@@ -13,4 +5,3 @@ APE giúp tìm kiếm những prompt cho ra kết quả tốt hơn khi sử dụ
 với prompt được định nghĩa bởi con người như "Let’s think step by step" được đề xuất bởi Kojima
 et al., 2022.
 16
->>>>>>> HEAD@{1}

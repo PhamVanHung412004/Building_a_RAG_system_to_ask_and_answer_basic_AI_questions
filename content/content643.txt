@@ -1,12 +1,6 @@
-<<<<<<< HEAD
-Node ID: efeda273-b086-417d-bbbe-630932b3ea74
-Text: AIO2024 aivietnam.edu.vn 1 # Python code ( aivietnam ) 2 import
-numpy as np 3 4 v = np. array ([1 , 2, 3]) 5 X = np.
-=======
 AIO2024 aivietnam.edu.vn
 1 # Python code ( aivietnam )
 2 import numpy as np
 3
 4 v = np. array ([1 , 2, 3])
 5 X = np. 
->>>>>>> HEAD@{1}

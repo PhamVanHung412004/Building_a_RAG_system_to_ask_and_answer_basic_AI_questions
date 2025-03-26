@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-Node ID: a48bb870-1ac0-4bf7-9a0c-5e9df1986cbf
-Text: Input: Ảnh xám G (L channel). 2. Output: Trường ảnh màu C (ab
-channels). 2
-=======
 Input: Ảnh xám G (L channel).
 2. Output: Trường ảnh màu C (ab channels).
 2
->>>>>>> HEAD@{1}

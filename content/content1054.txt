@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: a896cc44-59e4-4042-84c4-88fe86b75f4f
-Text: Quá trình nén được thực hiện bằng cách trích xuất các patches
-không chồng lấn từ khung hình đầu tiên và các khung hình video tiếp
-theo, sau đó được làm phẳng và chiếu vào không gian chiều thấp hơn.
-Các chiều không gian và thời gian của các patches này được sắp xếp lại
-thành định dạng tensor phân biệt rõ ràng giữa chiều không gian và
-chiều thời g...
-=======
 Quá trình nén được thực hiện bằng cách trích xuất các patches không chồng lấn từ khung hình đầu
 tiên và các khung hình video tiếp theo, sau đó được làm phẳng và chiếu vào không gian chiều thấp hơn.
 Các chiều không gian và thời gian của các patches này được sắp xếp lại thành định dạng tensor phân
@@ -15,4 +6,3 @@ Hình 10: Quá trình trích xuất các patches không chồng lấn sau đó l
 Bộ mã hóa áp dụng nhiều lớp transformer trên các chiều không gian sử dụng Spatial Transformer
 với attention toàn cục. Khối transformer này có nhiệm vụ học thông tin về không gian. Tiếp theo là
 10
->>>>>>> HEAD@{1}

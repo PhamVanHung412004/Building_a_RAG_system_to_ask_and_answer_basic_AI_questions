@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 01399823-5a1c-4a32-a165-98453ad4680b
-Text: imread (f"./ data / rgbd /{ name }. jpg ", cv2 .
-IMREAD_UNCHANGED ), cv2 . COLOR_BGR2RGB ) # read rgb 24 depth = cv2 .
-imread (f"./ data / rgbd /{ name }. png ", cv2 . IMREAD_UNCHANGED ) 25
-h, w = depth . shape 26 N = w*h 27 points = np. zeros ((N ,3) ) 28
-colors = np. zeros ((N ,3) ) 29 index = 0 30 for u in range (w): 31
-for v in range (h): 32...
-=======
 imread (f"./ data / rgbd /{ name }. jpg ", cv2 . IMREAD_UNCHANGED ),
 cv2 . COLOR_BGR2RGB ) # read rgb
 24 depth = cv2 . imread (f"./ data / rgbd /{ name }. png ", cv2 . IMREAD_UNCHANGED )
@@ -25,4 +16,3 @@ cv2 . COLOR_BGR2RGB ) # read rgb
 37 show_rgbd (rgb , depth )
 38 o3d . visualization . draw_geometries ([ pcd ], window_name = name )
 8
->>>>>>> HEAD@{1}

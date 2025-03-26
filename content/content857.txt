@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 9016c58b-375f-426b-853e-978fb2ea3c0c
-Text: Trong bối cảnh nào, khoảng cách L1 thường được ưu tiên sử dụng
-để so sánh hình ảnh? (a) Khi cần đo lường sự tương phản trực tiếp giữa
-các điểm ảnh (b) Khi các vector đặc trưng có độ dài không đồng đều (c)
-Khi các vector đặc trưng là đa chiều và phức tạp (d) Tất cả đều đúng
-8. Cho hai vectora = [2, 4] và b = [1, 2], tính hệ số tương quan
-Pearson ...
-=======
 Trong bối cảnh nào, khoảng cách L1 thường được ưu tiên sử dụng để so sánh hình
 ảnh?
 (a) Khi cần đo lường sự tương phản trực tiếp giữa các điểm ảnh
@@ -25,4 +16,3 @@ hình ảnh là gì?
 (c) Tính toán nhanh hơn do ít dữ liệu hơn cần xử lý
 (d) Khả năng chống nhiễu tốt hơn trong dữ liệu
 19
->>>>>>> HEAD@{1}

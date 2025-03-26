@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-Node ID: 2bb11951-7ede-41fa-b4ee-fdc750fc5486
-Text: AI VIETNAM (AIO2024) aivietnam.edu.vn 49 # Multiply by a scale
-factor for visualization purpose 50 depth [y, x] = disparity * scale
-51 52 if save_result == True : 53 print (’ Saving result ... ’) 54 #
-Save results 55 cv2 . imwrite (’ window_based_cosine_similarity .
-=======
 AI VIETNAM (AIO2024) aivietnam.edu.vn
 49 # Multiply by a scale factor for visualization purpose
 50 depth [y, x] = disparity * scale
@@ -13,4 +6,3 @@ AI VIETNAM (AIO2024) aivietnam.edu.vn
 53 print (’ Saving result ... ’)
 54 # Save results
 55 cv2 . imwrite (’ window_based_cosine_similarity . 
->>>>>>> HEAD@{1}

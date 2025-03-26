@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 440ee637-0d79-43ee-8a3e-f178fda61304
-Text: multiselect (" Your favorite colors :") 3 st. write (" You
-selected :", options ) 4 5 b) 6 options = st. multiselect (" Your
-favorite colors :", [" Green ", " Yellow ", " Red ", " Blue "], ["
-Yellow ", " Red "]) 7 8 c) 9 options = st. multiselect (" Your
-favorite colors :", [" Green ", " Yellow ", " Red ", " Blue "], ["
-Yellow ", " Red "]) 10 st...
-=======
 multiselect (" Your favorite colors :")
 3 st. write (" You selected :", options )
 4
@@ -33,4 +24,3 @@ a) st.image(image_path, caption=’A cat’, width=100, channels=’RGB’)
 b) st.image(image_path, caption=’A cat’, width=None, channels=’BGR’)
 c) st.image(image_path, caption=’A cat’, width=’RGB’, channels=’BGR’)
 10
->>>>>>> HEAD@{1}

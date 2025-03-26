@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: ce1111d3-0d07-4009-9d7d-ba4c87646496
-Text: AI VIETNAM aivietnam.edu.vn 12 def describe ( self ): 13 pass 14
-15 16 class Student ( Person ): 17 def __init__ (self , name :str ,
-yob :int , grade : str ): 18 ### Your Code Here 19 20 ### End Code
-Here 21 22 def describe ( self ): 23 ### Your Code Here 24 25 ### End
-Code Here 26 27 student1 = Student ( name =" studentZ2023 ", yob =2011
-, grad...
-=======
 AI VIETNAM aivietnam.edu.vn
 12 def describe ( self ):
 13 pass
@@ -34,4 +25,3 @@ Câu hỏi 6: Một người (person) có thể là student, doctor, hoặc teac
 (string), yob (int), và subject (string). Các bạn thực hiện viết class Teacher theo mô tả trên (Các
 bạn sẽ viết thêm describe() method để print ra tất cả thông tin của object) và kết quả đầu ra là
 gì? Chọn đáp án đúng nhất bên dưới.
->>>>>>> HEAD@{1}

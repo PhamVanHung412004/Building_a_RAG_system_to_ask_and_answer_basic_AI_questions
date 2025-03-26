@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 7b940f00-1b04-483b-8f1f-36ac2d516add
-Text: AI VIETNAM aivietnam.edu.vn Hình 4: Ví dụ về câu trả lời của mô
-hình về việc viết một hàm Python ứng với mô tả trong prompt Như vậy,
-có thể thấy chỉ với mô hình gốc (gọi là pre-trained model), chúng ta
-đã có thể tương tác với mô hình ngôn ngữ lớn và yêu cầu thực hiện một
-tác vụ nào đó với độ chính xác tương đối. Trong lĩnh vực Machine
-Learning, ...
-=======
 AI VIETNAM aivietnam.edu.vn
 Hình 4: Ví dụ về câu trả lời của mô hình về việc viết một hàm Python ứng với mô tả trong prompt
 Như vậy, có thể thấy chỉ với mô hình gốc (gọi là pre-trained model), chúng ta đã có thể
@@ -15,4 +6,3 @@ xác tương đối. Trong lĩnh vực Machine Learning, chúng ta còn có th�
 pre-trained model với một task cụ thể nào đó bằng cách áp dụng một kỹ thuật được gọi là
 fine-tuning. Cụ thể, chúng ta sẽ tiếp tục thực hiện huấn luyện mô hình, trên một bộ dữ liệu
 với các task cụ thể hơn (ứng với nhu cầu và mục đich sử dụng của chúng ta).
->>>>>>> HEAD@{1}

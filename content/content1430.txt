@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 838217a0-dbbf-4842-92c1-9b5ab39b0626
-Text: Daily AI Exercise (AIO) aivietnam.edu.vn riêng biệt của Python
-và các gói liên quan. Mỗi môi trường có thể có các phiên bản Python,
-cài đặt và quản lý gói riêng biệt, giúp cô lập và quản lý dễ dàng cho
-từng dự án. 2.2.1 Hướng dẫn tạo một môi trường mới Để tạo một môi
-trường mới, chúng ta sử dụng cú pháp: 1 conda create -- name
-my_python_env pyth...
-=======
 Daily AI Exercise (AIO) aivietnam.edu.vn
 riêng biệt của Python và các gói liên quan. Mỗi môi trường có thể có các phiên bản Python, cài đặt và
 quản lý gói riêng biệt, giúp cô lập và quản lý dễ dàng cho từng dự án.
@@ -32,4 +23,3 @@ quản lý môi trường, gói và các công cụ tích hợp trong Anaconda. 
 dùng mới bắt đầu với Python và dữ liệu khoa học, với các tính năng như:
 • Giao diện người dùng trực quan, rất hữu ích cho những người mới chưa quen với các cú pháp
 dòng lệnh.
->>>>>>> HEAD@{1}

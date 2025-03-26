@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: cdf373c5-d501-419d-9ba4-9c86f806edb0
-Text: 201 https :// github . com / hojonathanho / diffusion / blob /1
-e0dceb3b3495bbe19116a5e1b3596cd0706c543 / diffusion_tf / models / unet
-.py# L66 . 202 """ 203 204 def __init__ ( 205 self , 206 channels ,
-207 num_heads =1 , 208 num_head_channels =-1, 209 use_checkpoint =
-False , 210 use_new_attention_order = False , 211 ): 212 super ().
-__init__ (...
-=======
 201 https :// github . com / hojonathanho / diffusion / blob /1
 e0dceb3b3495bbe19116a5e1b3596cd0706c543 / diffusion_tf / models / unet .py# L66 .
 202 """
@@ -40,4 +31,3 @@ num_head_channels }"
 229 self . attention = QKVAttentionLegacy ( self . num_heads )
 230
 231 self . 
->>>>>>> HEAD@{1}

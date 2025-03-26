@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 64d67494-182a-48de-b264-53e1d1bafcab
-Text: Đối với 2 thuộc tính Sunny [2 yes, 3 no], Rainy [3 yes, 2 no] ta
-phải tính thêm các điều kiện của các features. Bằng cách tính gain lần
-lượt của Temperature, Humidity và Wind. Nhưng với điều kiện Outlook
-phải là Sunny hoặc Rainy. Từ dữ liệu trên ta có được dataset ở bảng 2.
-Bảng 2: Dữ liệu thu gọn STT Outlook Temperature Humidity Wind
-PlayTennis...
-=======
 Đối với 2 thuộc tính Sunny [2 yes, 3 no], Rainy [3 yes, 2 no] ta phải tính thêm các điều
 kiện của các features. Bằng cách tính gain lần lượt của Temperature, Humidity và Wind.
 Nhưng với điều kiện Outlook phải là Sunny hoặc Rainy. Từ dữ liệu trên ta có được dataset
@@ -41,4 +32,3 @@ Entropy(Sunny)= −2
 5 ) = 0.971.
 Tính Gain cho Temperature
 • Entropy(Cool)= 0.
->>>>>>> HEAD@{1}

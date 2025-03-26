@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 18de2023-af48-42f8-9550-e4b043e34fdd
-Text: Classes and Objects 1.1. Khái niệm về Classes và Objects •
-Classes là khuôn mẫu (template) để tạo ra các objects. Một class định
-nghĩa các thuộc tính (attributes) và phương thức (methods) mà objects
-của nó sẽ có. • Objects là các thể hiện (instance) của classes, tức là
-mỗi object được tạo ra từ một class sẽ có các thuộc tính và phương
-thức được ...
-=======
 Classes and Objects
 1.1. Khái niệm về Classes và Objects
 • Classes là khuôn mẫu (template) để tạo ra các objects. Một class định nghĩa các thuộc tính
@@ -19,4 +10,3 @@ biểu diễn cấu trúc và mối quan hệ giữa các lớp trong một hệ
 • Một Class Diagram bao gồm: tên của class, các thuộc tính của class, các phương thức của class.
 Hình 1: Thành phần của một Class Diagram.
 1
->>>>>>> HEAD@{1}

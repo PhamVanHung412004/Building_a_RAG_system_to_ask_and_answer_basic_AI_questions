@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 0a6da497-f86d-4ed4-b32b-286db5bcbdaa
-Text: drop_collection ( collection_name ) 4 5 fields = [ 6 FieldSchema
-( name =’id ’, dtype = DataType . INT64 , is_primary =True , auto_id =
-True ), 7 FieldSchema ( name =’title ’, dtype = DataType . VARCHAR ,
-max_length =1000) , 8 FieldSchema ( name =’ question ’, dtype =
-DataType . VARCHAR , max_length =1000) , 9 FieldSchema ( name =’
-context ’, dt...
-=======
 drop_collection ( collection_name )
 4
 5 fields = [
@@ -53,4 +44,3 @@ index_params )
 (e) Xây dựng hàm get embedding:Ta cần xây dựng hàm đổi từ text sang dạng vector
 embedding của nó. Tương tự như trong bài học chính, ở đây ta cũng sử dụng model BERT
 7
->>>>>>> HEAD@{1}

@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 936807f4-8dc1-4bd6-8eee-a5b19fba17ac
-Text: AI VIETNAM aivietnam.edu.vn Hình 14: Image retrieval ảnh đơn
-giản với model CLIP và L2 Hình 15: Image retrieval ảnh phức tạp với
-model Clip và L2 Truy vấn embedding vector với độ đo Cosine
-Similarityhàm get_cosine_similarity_score được nâng cấp lên bằng cách
-sử dụng CLIP model để trích xuất vector đặc trưng. 1 def
-get_cosine_similarity_score(roo...
-=======
 AI VIETNAM aivietnam.edu.vn
 Hình 14: Image retrieval ảnh đơn giản với model CLIP và L2
 Hình 15: Image retrieval ảnh phức tạp với model Clip và L2
@@ -28,4 +19,3 @@ paths
 13 rates = cosine_similarity(query_embedding, np.stack(embedding_list))
 14 ls_path_score.extend(list(zip(images_path, rates)))
 13
->>>>>>> HEAD@{1}

@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 4fd180fb-c7bb-4f23-b140-06a85bead5d3
-Text: num_heads = num_heads 375 self . num_head_channels =
-num_head_channels 376 self . num_heads_upsample = num_heads_upsample
-377 378 cond_embed_dim = inner_channel * 4 379 self . cond_embed = nn.
-Sequential ( 380 nn. Linear ( inner_channel , cond_embed_dim ), 381
-SiLU () , 382 nn. Linear ( cond_embed_dim , cond_embed_dim ), 383 )
-384 385 ch = input...
-=======
 num_heads = num_heads
 375 self . num_head_channels = num_head_channels
 376 self . num_heads_upsample = num_heads_upsample
@@ -47,4 +38,3 @@ num_heads = num_heads
 411 num_head_channels = num_head_channels ,
 412 use_new_attention_order = use_new_attention_order ,
 16
->>>>>>> HEAD@{1}

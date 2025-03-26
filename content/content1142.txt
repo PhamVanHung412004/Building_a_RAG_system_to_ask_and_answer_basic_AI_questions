@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 3b131fd8-1ec2-405c-8a29-9330cc8fee2b
-Text: AI VIETNAM aivietnam.edu.vn 2. Model Trong phần này chúng ta sẽ
-xây dựng mô hình cho quá trình RDP. Mô hình UNet sẽ được sử dụng làm
-mô hình khử nhiễu qua mỗi bước thời gian. Quá trình FDP sẽ thêm lần
-lượt theo bước thời gian T nhiễu Gauss vào ảnh đầu vào, vì vậy ở bước
-RDP chúng ta sẽ bổ sung thêm không gian embedding của bước thời gian
-vào mô ...
-=======
 AI VIETNAM aivietnam.edu.vn
 2. Model
 Trong phần này chúng ta sẽ xây dựng mô hình cho quá trình RDP. Mô hình UNet sẽ được sử dụng
@@ -19,4 +10,3 @@ bao gồm kiến trúc các Block của mô hình UNet gốc kết hợp với e
 giúp cải tiến mô hình được giới thiệu trong bài Diffusion Models Beat GAN on Image Synthesis
 2.1. Basic UNet Model
 Hình 4: Minh hoạ quá trình RDP sử dụng kết hợp embedding bước thời gian vào mô hình UNet.
->>>>>>> HEAD@{1}

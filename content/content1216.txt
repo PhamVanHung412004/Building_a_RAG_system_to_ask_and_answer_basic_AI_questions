@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-Node ID: 60e67450-3e40-4bc0-b614-c28a0d74ac9f
-Text: unsqueeze ( -1). repeat (1 , 1, num_sample ) 25 label_j =
-label_i . transpose (1 , 2) 26 edge = torch .eq( label_i , label_j ).
-float () 27 target_edge_mask = ( 28 torch .eq( label_i , self .
-mask_val ) + torch .eq( label_j , self . mask_val ) 29 ).
-=======
 unsqueeze ( -1). repeat (1 , 1, num_sample )
 25 label_j = label_i . transpose (1 , 2)
 26 edge = torch .eq( label_i , label_j ). float ()
@@ -12,4 +5,3 @@ unsqueeze ( -1). repeat (1 , 1, num_sample )
 28 torch .eq( label_i , self . mask_val ) + torch .eq( label_j , self .
 mask_val )
 29 ). 
->>>>>>> HEAD@{1}

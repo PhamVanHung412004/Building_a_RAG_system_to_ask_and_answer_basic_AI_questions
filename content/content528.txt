@@ -1,12 +1,4 @@
-<<<<<<< HEAD
-Node ID: 829c7581-ea21-41c3-9a23-2ae21377e298
-Text: AI VIETNAM aivietnam.edu.vn 86 return self . load ( files ,
-workers = workers ) 6. Cập nhật filesrc/rag/vectorstore.py: Tại file
-này, ta định nghĩa một class để khởi tạo hệ cơ sở dữ liệu vector.
-Trong project này, chúng ta sẽ sử dụng Chroma.
-=======
 AI VIETNAM aivietnam.edu.vn
 86 return self . load ( files , workers = workers )
 6. Cập nhật filesrc/rag/vectorstore.py: Tại file này, ta định nghĩa một class để khởi tạo hệ cơ sở
 dữ liệu vector. Trong project này, chúng ta sẽ sử dụng Chroma. 
->>>>>>> HEAD@{1}

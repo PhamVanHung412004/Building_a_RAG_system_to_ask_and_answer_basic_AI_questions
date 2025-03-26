@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 96fb1d1f-3acf-4168-9ea2-5ad1077a8559
-Text: Daily AI Exercise (AIO) aivietnam.edu.vn 3 Sử dụng break trong
-while Chúng ta có thể sử dụng lệnh break để thoát khỏi vòng lặp ngay
-lập tức, bất kể điều kiện của vòng lặp là gì. Sử dụng break khi chúng
-ta muốn dừng vòng lặp dựa trên một điều kiện khác xảy ra trong quá
-trình thực thi. Ví dụ sử dụng break để thoát khỏi vòng lặp: 1 #ai
-vietnam 2 i ...
-=======
 Daily AI Exercise (AIO) aivietnam.edu.vn
 3 Sử dụng break trong while
 Chúng ta có thể sử dụng lệnh break để thoát khỏi vòng lặp ngay lập tức, bất kể điều kiện của vòng lặp
@@ -34,4 +25,3 @@ thúc khi i bằng 5.
 4 Sử dụng continue trong while
 Chúng ta có thể sử dụng lệnh continue để bỏ qua các lệnh còn lại của khối code trong vòng lặp và bắt
 đầu lần lặp tiếp theo. 
->>>>>>> HEAD@{1}

@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: a653b261-37e6-4cef-8d6d-74f80fa397c5
-Text: Bảng 5: Play Tennis - Dữ liệu testing 1 # ################### 2
-# Prediction 3 # ################### 4 def prediction_play_tennis (X,
-list_x_name , prior_probability , conditional_probability ) : 5 6 x1=
-get_index_from_value (X[0] , list_x_name [0]) 7 x2=
-get_index_from_value (X[1] , list_x_name [1]) 8 x3=
-get_index_from_value (X[2] , list_x_nam...
-=======
 Bảng 5: Play Tennis - Dữ liệu testing
 1 # ###################
 2 # Prediction
@@ -32,4 +23,3 @@ Bảng 5: Play Tennis - Dữ liệu testing
 21 return y_pred
 Câu hỏi 19: Hãy cho biết kết quả của đoạn chương trình sau đây:
 9
->>>>>>> HEAD@{1}

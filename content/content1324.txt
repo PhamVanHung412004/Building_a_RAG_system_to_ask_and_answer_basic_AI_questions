@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: f0955466-6f25-4f67-b7cc-77512d5dd65e
-Text: batch_decode ( response_tensors ) 21 batch [" ref_response "] =
-tokenizer . batch_decode ( ref_response_tensors ) 22 23 # Compute
-sentiment score 24 texts = [q + r for q, r in zip ( batch [" query "],
-batch [" response "])] 25 pipe_outputs = sentiment_pipe ( texts , **
-sent_kwargs ) 26 rewards = [ torch . tensor ( output [1][ " score "])
-for out...
-=======
 batch_decode ( response_tensors )
 21 batch [" ref_response "] = tokenizer . batch_decode ( ref_response_tensors )
 22
@@ -24,4 +15,3 @@ batch_decode ( response_tensors )
 34 ppo_trainer . log_stats ( stats , batch , rewards , columns_to_log =[" query ", " response ",
 " ref_response ", " ref_rewards "])
 13
->>>>>>> HEAD@{1}

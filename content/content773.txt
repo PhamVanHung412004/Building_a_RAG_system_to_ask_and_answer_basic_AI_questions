@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 30c7b97b-9e21-4b29-b592-6579ace8a171
-Text: AIO 2024 aivietnam.edu.vn 1 #aivietnam 2 import numpy as np 3 4
-# Tạo mảng 2 chiều 5 arr2d = np.array([[1, 2, 3], [4, 5, 6], [7, 8,
-9]]) 6 7 # Lấy ra một phần của arr2d từ hàng thứ 8 #nhất đến hàng thứ
-ba và từ cột thứ hai 9 #đến cột cuối cùng 10 slice_arr2d = arr2d[1:3,
-1:] 11 print("arr2d:\n", arr2d) 12 print("Slicing arr2d từ hàng 1 đến
-2 và ...
-=======
 AIO 2024 aivietnam.edu.vn
 1 #aivietnam
 2 import numpy as np
@@ -36,4 +27,3 @@ cuối cùng:
 1. Mô tả
 Trong các thư viện Numpy, Pytorch, Tensorflow các hàmhstack, vstack, và concatenate được sử
 dụng để nối các array hoặc các tensor lại với nhau theo các hướng khác nhau. 
->>>>>>> HEAD@{1}

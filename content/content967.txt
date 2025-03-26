@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: d774acf3-97eb-4507-8da2-259ca0fe81a3
-Text: Chúng ta sẽ viết một đoạn code ngắn để thực hiện chương trình
-End-to-End QA. Đầu tiên, khởi tạo mô hình hỏi-đáp đã huấn luyện: 1
-from transformers import pipeline 2 3 PIPELINE_NAME = ’question-
-answering’ 4 MODEL_NAME = ’thangduong0509/distilbert-finetuned-
-squadv2’ 5 pipe = pipeline(PIPELINE_NAME, model=MODEL_NAME) Tận dụng
-kết quả truy vấn vừa r...
-=======
 Chúng ta sẽ viết một đoạn code ngắn để thực hiện chương trình
 End-to-End QA. Đầu tiên, khởi tạo mô hình hỏi-đáp đã huấn luyện:
 1 from transformers import pipeline
@@ -30,4 +21,3 @@ mô hình QA hai thông tin gồm question và context:
 12 print()
 Hình 7: Kết quả E2E QA được in ra màn hình
 15
->>>>>>> HEAD@{1}

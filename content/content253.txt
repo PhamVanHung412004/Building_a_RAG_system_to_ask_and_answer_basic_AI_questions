@@ -1,12 +1,5 @@
-<<<<<<< HEAD
-Node ID: 9f809c5c-5e33-4de4-89d9-96dc67f409a6
-Text: • với R là số lượng data ở data-right. • với S là số lượng data
-ở data gốc. Lặp lại việc tách và tìm min(amse) chúng ta có được một sơ
-đồ cây với Depth=3 như sau: 13
-=======
 • với R là số lượng data ở data-right.
 • với S là số lượng data ở data gốc.
 Lặp lại việc tách và tìm min(amse) chúng ta có được một sơ đồ cây với Depth=3 như
 sau:
 13
->>>>>>> HEAD@{1}

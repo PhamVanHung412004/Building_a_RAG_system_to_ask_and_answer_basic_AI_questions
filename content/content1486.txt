@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 7e867353-3c61-4acc-a54e-a241f7956b21
-Text: Deep Multi-Task Architectures. Bao gồm các phương pháp tập trung
-vào xây dựng các mô hình chung để giải quyết các bài toán khác nhau.
-Trong đó gồm 2 thành phần chính: thành phần thứ nhất bao gồm các layer
-chung hoặc chia sẻ trọng số để học các đặc trưng thường gọi là shared-
-encoder; thành phần thứ hai bao gồm các layer riêng để học các đặc
-trưn...
-=======
 Deep Multi-Task Architectures. Bao gồm các phương pháp tập trung vào xây dựng các mô hình
 chung để giải quyết các bài toán khác nhau. Trong đó gồm 2 thành phần chính: thành phần thứ
 nhất bao gồm các layer chung hoặc chia sẻ trọng số để học các đặc trưng thường gọi là shared-
@@ -19,4 +10,3 @@ normalization, uncertainy weighting,...
 Trong phần này để bước đầu hiểu rõ về các phương pháp huấn luyện mô hình MTL, chúng ta sẽ triển
 khai mô hình MTL cơ bản tập trung vào tinh chỉnh phần encoder là hard parameter sharing model.
 2
->>>>>>> HEAD@{1}

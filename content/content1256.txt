@@ -1,16 +1,6 @@
-<<<<<<< HEAD
-Node ID: e5720e2b-de45-4dfb-8a04-55101a44aecd
-Text: AI VIETNAM aivietnam.edu.vn 2. Một Ward (phường) gồm có name
-(string) và danh sách của mọi người trong Ward. Một người person có
-thể là student, doctor, hoặc teacher. Một student gồm có name, yob
-(int) (năm sinh), và grade (string). Một teacher gồm có name, yob, và
-subject (string). Một doctor gồm có name, yob, và specialist (string).
-Lưu ý cần ...
-=======
 AI VIETNAM aivietnam.edu.vn
 2. Một Ward (phường) gồm có name (string) và danh sách của mọi người trong Ward.
 Một người person có thể là student, doctor, hoặc teacher. Một student gồm có name,
 yob (int) (năm sinh), và grade (string). Một teacher gồm có name, yob, và subject
 (string). Một doctor gồm có name, yob, và specialist (string). Lưu ý cần sử dụng a
 list để chứa danh sách của mọi người trong Ward.
->>>>>>> HEAD@{1}

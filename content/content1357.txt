@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 5af51c7f-6b27-4b09-8d74-6d8a8fcd2a30
-Text: AI VIETNAM aivietnam.edu.vn Phần II: Nội dung Trong phần này,
-chúng ta sẽ triển khai mô hình Diffusion-based Image Colorization dựa
-trên ý tưởng cơ bản của bài báo Palette: Image-to-Image Diffusion
-Models để học cách biến đổi một hình ảnh xám đầu vào thành một hình
-ảnh màu hợp lý. Cụ thể, ta sẽ xây dựng chương trình dựa trên bộ dữ
-liệu CelebA (L...
-=======
 AI VIETNAM aivietnam.edu.vn
 Phần II: Nội dung
 Trong phần này, chúng ta sẽ triển khai mô hình Diffusion-based Image Colorization dựa trên ý tưởng
@@ -23,4 +14,3 @@ c) Loss, Metrics: Xây dựng hàm mất mát và độ đo đánh giá cho mô 
 d) Trainer: Xây dựng class Trainer dành riêng cho huấn luyện
 e) Inference: Minh họa kết quả đạt được sau khi huấn luyện mô hình.
 1. 
->>>>>>> HEAD@{1}

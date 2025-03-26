@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 250a3757-ca01-4f00-a58f-932d083d549e
-Text: AI VIETNAM aivietnam.edu.vn là subclass, được kết nối với bằng
-mũi tên có đầu tam giác rỗng, trỏ vào classParent, ngụ ý rằng class
-Parent là class cha của classChild. Hình 2: Quan hệ kế thừa được mô tả
-bằng Class Diagram. Ví dụ dưới đây mô tả cú pháp khởi tạo class kế
-thừa. Trong đó, class cha là Parent được gọi trong dấu ngoặc ngay khi
-class co...
-=======
 AI VIETNAM aivietnam.edu.vn
 là subclass, được kết nối với bằng mũi tên có đầu tam giác rỗng, trỏ vào classParent, ngụ ý rằng class
 Parent là class cha của classChild.
@@ -41,4 +32,3 @@ gọi ở class con thông qua hàmsuper().
 2.2. Access Modifiers
 Access Modifiers trong Python là cách để kiểm soát mức độ truy cập và sửa đổi các thuộc tính (at-
 tributes) và phương thức (methods) của một class. 
->>>>>>> HEAD@{1}

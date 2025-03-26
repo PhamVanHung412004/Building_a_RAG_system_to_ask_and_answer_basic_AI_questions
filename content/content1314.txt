@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 1e35d42a-bf73-4684-863a-643283b0c15a
-Text: 2.1. Dataset Bộ dữ liệu openai_summarize_comparisons bao gồm 83
-mẫu có nhãn: văn bản, bản tóm tắt phù hợp và bản tóm tắt không phù
-hợp. Chúng ta sẽ kết hợp lần lượt văn bản với bản tóm tắt phù hợp và
-không phù hợp để huấn luyện mô hình. 1 # load dataset 2 from datasets
-import load_dataset 3 4 rw_ds_name = ’ CarperAI /
-openai_summarize_comparison...
-=======
 2.1. Dataset
 Bộ dữ liệu openai_summarize_comparisons bao gồm 83 mẫu có nhãn: văn bản, bản tóm tắt phù hợp
 và bản tóm tắt không phù hợp. Chúng ta sẽ kết hợp lần lượt văn bản với bản tóm tắt phù hợp và không
@@ -43,4 +34,3 @@ attention_mask "])
 27
 28 rw_ds_processed = rw_ds . map (
 8
->>>>>>> HEAD@{1}

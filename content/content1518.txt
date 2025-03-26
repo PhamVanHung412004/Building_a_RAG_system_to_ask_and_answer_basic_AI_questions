@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: ad5bb716-893b-48d6-8487-be60603a4703
-Text: apt install imagemagick 3 ! pip install ’gym [ all ]’ pygame 2.
-Xây dựng hàm tạo ảnh gif:Hàm này nhận vào danh sách các frame, sau đó
-xuất thành file có têndemo.gif: 1 import matplotlib . pyplot as plt 2
-from matplotlib import animation 3 4 def save_frames_as_gif ( 5 frames
-, 6 path =’./ ’, 7 filename =’demo . gif ’, 8 fps =1 9 ): 10
-temp_frame ...
-=======
 apt install imagemagick
 3 ! pip install ’gym [ all ]’ pygame
 2. Xây dựng hàm tạo ảnh gif:Hàm này nhận vào danh sách các frame, sau đó xuất thành
@@ -42,4 +33,3 @@ tạo ảnh gif trên bằng đoạn lệnh sau:
 4
 5 env_id = ’CartPole -v1 ’
 6 env = gym . 
->>>>>>> HEAD@{1}

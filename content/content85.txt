@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 9be9fe9e-a968-4eaa-ae83-bd8d626f4193
-Text: – save_result:giá trị boolean đại diện cho việc có lưu disparity
-map hay không? Mặc định sẽ có giá trị là True. Cuối cùng, kết quả trả
-về của hàm sẽ là một numpy.ndarray đại diện cho disparity map tính
-được. • Đối với hàmpixel_wise_matching_l1(), ta dùng hàm tính cost là
-L1. • Đối với hàmpixel_wise_matching_l2(), ta dùng hàm tính cost là
-L2. • K...
-=======
 – save_result:giá trị boolean đại diện cho việc có lưu disparity map hay không? Mặc
 định sẽ có giá trị là True.
 Cuối cùng, kết quả trả về của hàm sẽ là một numpy.ndarray đại diện cho disparity map
@@ -42,4 +33,3 @@ trả về như sau (các dòng comment tượng trưng cho nội dung trả v�
 22 # Saving result ...
 23 # Done .
 4
->>>>>>> HEAD@{1}

@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 95f3c611-e77d-4317-bd76-7d32ad1b7b7f
-Text: Tự động hóa quy trình bằng robot (RPA) NextGen AI Bankers 1 Lý
-thuyết cơ bản Tự động hóa quy trình bằng robot (RPA)là một công nghệ
-cho phép các tổ chức tự động hóa các tác vụ lặp đi lặp lại và dựa trên
-quy tắc, thường do nhân viên thực hiện. RPA sử dụng các robot phần mềm
-(bot) để mô phỏng các hành động của con người như nhập dữ liệu, xử lý
-gia...
-=======
 Tự động hóa quy trình bằng robot (RPA) NextGen AI Bankers
 1 Lý thuyết cơ bản
 Tự động hóa quy trình bằng robot (RPA)là một công nghệ cho phép các tổ
@@ -39,4 +30,3 @@ Một thí nghiệm quan trọng khác liên quan đến Ngân hàng Hoàng gia 
 (RBS), đã sử dụng RPA để tự động hóa các quy trình dịch vụ khách hàng. RBS
 triển khai các bot để xử lý các yêu cầu và giao dịch thường xuyên, chẳng hạn như
 kiểm tra số dư và chuyển tiền. 
->>>>>>> HEAD@{1}

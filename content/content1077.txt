@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: ddcc11e8-3723-46c4-8bb9-aaa19a991d10
-Text: AI VIETNAM aivietnam.edu.vn chúng ta có thể kiểm soát kích thước
-của video được sinh ra bằng cách sắp xếp các patches được khởi tạo
-ngẫu nhiên trong một lưới có kích thước phù hợp. Mở rộng quy mô mạng
-transformer cho việc tạo sinh video- Như chúng ta đã biết diffusion
-model là một loại mô hình sinh mô phỏng quá trình xoá mờ và tái tạo dữ
-liệu, t...
-=======
 AI VIETNAM aivietnam.edu.vn
 chúng ta có thể kiểm soát kích thước của video được sinh ra bằng cách sắp xếp các patches được khởi
 tạo ngẫu nhiên trong một lưới có kích thước phù hợp.
@@ -15,4 +6,3 @@ model là một loại mô hình sinh mô phỏng quá trình xoá mờ và tái
 trong việc sinh ra hình ảnh, video, hoặc âm thanh. Bằng cách bắt đầu từ dữ liệu nhiễu và dần dần loại
 bỏ nhiễu đó qua nhiều bước lặp, mô hình học cách tái tạo dữ liệu gốc từ dữ liệu đã bị làm nhiễu, từ
 từ sinh ra sản phẩm cuối cùng có chất lượng cao. 
->>>>>>> HEAD@{1}

@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 82a91dee-ea3e-433e-bfa6-71ff479f624a
-Text: __init__ () 37 self . dim = dim 38 39 def forward (self , time
-): 40 device = time . device 41 half_dim = self . dim // 2 42
-embeddings = math . log (10000) / ( half_dim - 1) 43 embeddings =
-torch . exp ( torch . arange ( half_dim , device = device ) * -
-embeddings ) 44 embeddings = time [: , None ] * embeddings [None , :]
-45 embeddings = torch ...
-=======
 __init__ ()
 37 self . dim = dim
 38
@@ -55,4 +46,3 @@ __init__ ()
 81 # Edit : Corrected a bug found by Jakub C ( see YouTube comment )
 82 self . output = nn. Conv2d ( up_channels [ -1] , out_dim , 1)
 6
->>>>>>> HEAD@{1}

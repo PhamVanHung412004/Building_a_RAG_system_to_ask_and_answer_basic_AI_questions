@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: ce10b267-c335-4923-958d-6e4882788e0c
-Text: pull (" rlm /rag - prompt ") 2 3 def format_docs ( docs ): 4
-return "\n\n". join ( doc . page_content for doc in docs ) 5 6
-rag_chain = ( 7 {" context ": retriever | format_docs , " question ":
-RunnablePassthrough ()} 8 | prompt 9 | llm 10 | StrOutputParser () 11
-) 12 13 USER_QUESTION = " YOLOv10 là gì?" 14 output = rag_chain .
-invoke ( USER_QUE...
-=======
 pull (" rlm /rag - prompt ")
 2
 3 def format_docs ( docs ):
@@ -26,4 +17,3 @@ pull (" rlm /rag - prompt ")
 16 print ( answer )
 Hình 7: Minh họa kết quả đầu ra của chương trình.
 7
->>>>>>> HEAD@{1}

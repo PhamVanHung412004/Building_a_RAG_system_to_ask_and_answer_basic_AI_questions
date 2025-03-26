@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 248ba1f5-7f48-4af1-bc56-9d4d95c2ee3f
-Text: join ( out_dir , " images "), 65 listdir = listdir , 66
-featslistdir = featslistdir , 67 split =" train ", 68 ) 69 nbatches =
-np. int_ (np. floor ( data . img_num / batchsize )) 70 data_loader =
-DataLoader ( 71 dataset =data , 72 num_workers = args [" nthreads "],
-73 batch_size = batchsize , 74 shuffle =True , 75 drop_last =True , 76
-) 77 78 # I...
-=======
 join ( out_dir , " images "),
 65 listdir = listdir ,
 66 featslistdir = featslistdir ,
@@ -25,4 +16,3 @@ join ( out_dir , " images "),
 79 model = VAE ()
 80 model . cuda ()
 81 model . 
->>>>>>> HEAD@{1}

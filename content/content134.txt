@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: f0d4f85c-4208-4f2f-af30-9b83547b5261
-Text: • dt là một khoảng thời gian vô cùng nhỏ. • dW(t) là một biến
-ngẫu nhiên, thường là một Wiener process, có phân phối chuẩn với giá
-trị kỳ vọng bằng 0 và phương sai bằngdt Sự biến đổi ngẫu nhiên được
-biểu thị bằng phần tửb(X(t), t)dW(t). Sự biến đổi này làm cho các giá
-trịX(t) biến đổi theo thời gian theo một cách không xác định và có
-tính chất n...
-=======
 • dt là một khoảng thời gian vô cùng nhỏ.
 • dW(t) là một biến ngẫu nhiên, thường là một Wiener process, có phân phối chuẩn với giá trị kỳ
 vọng bằng 0 và phương sai bằngdt
@@ -20,4 +11,3 @@ Phương pháp này chủ yếu được sử dụng khi có một phương trì
 ngẫu nhiên. Euler-Maruyama chia khoảng thời gian thành các bước nhỏ và ước tính giá trị của hàm số
 tại mỗi time step. Tại mỗi bước, nó sử dụng giá trị của hàm số ở bước trước và một ngẫu nhiên được
 2
->>>>>>> HEAD@{1}

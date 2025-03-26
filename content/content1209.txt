@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 7af3f701-4ada-4eb0-b0ef-f4d9edae70fe
-Text: • Edge là gì? • Ta có thể thêm hàm loss phụ trợ không? Ba câu
-hỏi trên sẽ quyết định việc ta có thể sử dụng GNN vào một bài toán bất
-kì được hay không. Tuy nhiên, để GNN có thể cải thiện performance của
-model hiện tại ta cần phải trả lời câu hỏi quan trọng sau: • GNN sẽ
-hoạt động như thế nào? Ta cần phải giải thích rõ cách GNN sẽ hoạt động
-trước...
-=======
 • Edge là gì?
 • Ta có thể thêm hàm loss phụ trợ không?
 Ba câu hỏi trên sẽ quyết định việc ta có thể sử dụng GNN vào một bài toán bất kì được hay
@@ -34,4 +25,3 @@ Việc này là hoàn toàn bình thường vì ghế sofa và bàn thường n�
 chụp ảnh ghế thì sẽ dính phải bàn. Khi sử dụng GNN để tổng hợp thông tin từ các sample cùng
 class trong 1 batch thì ta sẽ dùng các sample dễ để “cung cấp” thông tin cho các sample khó, từ
 2
->>>>>>> HEAD@{1}

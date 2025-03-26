@@ -1,7 +1,2 @@
-<<<<<<< HEAD
-Node ID: cbbbb062-577e-4b8e-b0d6-32c3ac1045ce
-Text: . 21 7.8 Summation . .
-=======
 . 21
 7.8 Summation . . 
->>>>>>> HEAD@{1}

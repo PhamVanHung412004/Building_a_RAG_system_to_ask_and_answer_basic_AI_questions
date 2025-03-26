@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: e71d9f4d-a988-4df0-ab16-2a686e8ebc58
-Text: 10. Phương pháp nào được sử dụng để tạo vector đặc trưng cho mỗi
-email trong đoạn code? (a) TF-IDF. (b) Word2Vec. (c) Đếm tần suất xuất
-hiện của từ. (d) One-hot encoding. 11. Đáp án nào miêu tả đầy đủ và
-chính xác nhất đoạn code sau ? 1 def create_features ( tokens ,
-dictionary ): 2 features = np. zeros ( len ( dictionary )) 3 for token
-in token...
-=======
 10. Phương pháp nào được sử dụng để tạo vector đặc trưng cho mỗi email trong đoạn code?
 (a) TF-IDF.
 (b) Word2Vec.
@@ -24,4 +15,3 @@ in token...
 (b) Tạo vector có kích thước bằng với dictionary cho từng message, mỗi phần tử tương
 ứng với thứ tự các từ trong dictionary
 11
->>>>>>> HEAD@{1}

@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 83484b65-d2de-415e-8170-533367525d3c
-Text: AI VIETNAM (AIO2024) aivietnam.edu.vn • Thiết kế hai hàm có tên
-gọi lần lượt là: – pixel_wise_matching_l1() – pixel_wise_matching_l2()
-Hai hàm này có chung tham số đầu vào là: – left_img:đường dẫn đến ảnh
-chụp bên trái. – right_img:đường dẫn đến ảnh chụp bên phải. –
-disparity_range: độ dài tối đa của vùng tìm kiếm giá trị disparity tại
-mỗi pixel...
-=======
 AI VIETNAM (AIO2024) aivietnam.edu.vn
 • Thiết kế hai hàm có tên gọi lần lượt là:
 – pixel_wise_matching_l1()
@@ -16,4 +7,3 @@ Hai hàm này có chung tham số đầu vào là:
 – right_img:đường dẫn đến ảnh chụp bên phải.
 – disparity_range: độ dài tối đa của vùng tìm kiếm giá trị disparity tại mỗi pixel.
 Trong Problem 01, các bạn gán mặc định giá trị này = 16.
->>>>>>> HEAD@{1}

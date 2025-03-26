@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: bec67203-4b78-49ae-89b8-36ca706a8602
-Text: device ) 108 color_out = self . decoder (z, sc_feat32 ,
-sc_feat16 , sc_feat8 , sc_feat4 ) 109 return mu , logvar , color_out
-(b) MDN model Đầu vào của một mạng Conditional Variational Autoencoder
-(CVAE) yêu cầu thông tin về cả trường màu C và ảnh xám G. Trong quá
-trình huấn luyện, khối Encoder chính ánh xạ thông tin của trường màu C
-thành phân p...
-=======
 device )
 108 color_out = self . decoder (z, sc_feat32 , sc_feat16 , sc_feat8 , sc_feat4 )
 109 return mu , logvar , color_out
@@ -22,4 +13,3 @@ Image Colorization. Kết quả đầu ra của mô hình MDN sau đó được 
 tham số phân phối cho mô hình Gaussian Mixture Model, một mô hình thực hiện việc xấp
 xỉ phân phối P được tạo ra từ khối Encoder vừa được huấn luyện trước đó.
 9
->>>>>>> HEAD@{1}

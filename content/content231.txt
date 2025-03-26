@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 923db745-0053-46c4-b71d-9f5e9144ebe4
-Text: Khi xây dựng cây quyết định, chúng ta cần chọn thuộc tính và giá
-trị phân chia sao cho Gini Impurity sau phân chia là nhỏ nhất, tức là
-mức độ "thuần khiết" cho dữ liệu thuộc về từng nhóm con được tạo ra.
-Đối với tệp dữ liệu gồm 2 labels (i=2) thì chỉ sốIG sẽ đạt ngưỡng lớn
-nhất là bằng 0.5 (Dữ liệu sẽ bị nhiễu lớn nhất). Hình 1: Ví dụ 1 với 2
-la...
-=======
 Khi xây dựng cây quyết định, chúng ta cần chọn thuộc tính và giá trị phân chia sao cho
 Gini Impurity sau phân chia là nhỏ nhất, tức là mức độ "thuần khiết" cho dữ liệu thuộc về
 từng nhóm con được tạo ra.
@@ -39,4 +30,3 @@ pi log2(pi) (2)
 Trong đó:
 • S là tập dữ liệu.
 • c là số lớp trong tập dữ liệu.
->>>>>>> HEAD@{1}

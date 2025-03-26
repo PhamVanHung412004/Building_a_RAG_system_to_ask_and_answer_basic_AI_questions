@@ -1,7 +1,2 @@
-<<<<<<< HEAD
-Node ID: 74769bd4-ed31-4890-88a8-3d77887346ed
-Text: Hình 1: Khoảng cách chỉnh sửa Levenshtein 1
-=======
 Hình 1: Khoảng cách chỉnh sửa Levenshtein
 1
->>>>>>> HEAD@{1}

@@ -1,16 +1,6 @@
-<<<<<<< HEAD
-Node ID: 8947e322-59c5-4026-b816-622fa06ebf24
-Text: Vì vậy khoảng cách chỉnh sửa từ source: ’yu’ sang thành target:
-’you’ là 1. Đầu tiên ký tự ’y’ giữ nguyên sau đó thực hiện 1 phép thêm
-ký tự ’o’ vào sau ký tự ’y’ và cuối cùng ký tự ’u’ được giũ nguyên.
-Minh hoạ các bước quay lui để tìm đường đi ngắn nhất tưng ứng mũi tên
-vàng trong hình sau: Hình 6: Quay lui, tìm các bước thực hiện chỉnh
-sửa từ...
-=======
 Vì vậy khoảng cách chỉnh sửa từ source: ’yu’ sang thành target: ’you’ là 1. Đầu tiên
 ký tự ’y’ giữ nguyên sau đó thực hiện 1 phép thêm ký tự ’o’ vào sau ký tự ’y’ và cuối cùng
 ký tự ’u’ được giũ nguyên. Minh hoạ các bước quay lui để tìm đường đi ngắn nhất tưng ứng
 mũi tên vàng trong hình sau:
 Hình 6: Quay lui, tìm các bước thực hiện chỉnh sửa từ source ’yu’ sang target: ’you’.
 5
->>>>>>> HEAD@{1}

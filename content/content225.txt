@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 24969e08-c78d-4813-96f7-43045778d4b6
-Text: AI VIETNAM aivietnam.edu.vn 6. Bài Tập Câu hỏi 1: Khái niệm nào
-sau đây mô tả chính xác nhất về một class trong Python? a. Một biến b.
-Một hàm c. Một khuôn mẫu để tạo ra các đối tượng d. Một phương thức
-đặc biệt Câu hỏi 2: Trong sơ đồ class (class diagram), yếu tố nào sau
-đây không phải là thành phần của class? a. Tên class b. Thuộc tính
-(attrib...
-=======
 AI VIETNAM aivietnam.edu.vn
 6. Bài Tập
 Câu hỏi 1: Khái niệm nào sau đây mô tả chính xác nhất về một class trong Python?
@@ -43,4 +34,3 @@ d. Khả năng một class gọi các hàm từ class khác
 Câu hỏi 7: Access modifier nào sau đây được sử dụng để chỉ ra một thuộc tính hoặc phương thức là
 riêng tư (private) trong Python?
 a. 
->>>>>>> HEAD@{1}

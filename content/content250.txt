@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 9b125f01-a9c0-4150-9afa-1508487d92a8
-Text: 2.4 Ví dụ về Decision Tree dùng Mean và Variance (Regression)
-Chúng ta có một table thể hiện sự tương quan giữa năm kinh nghiệm
-(Exp) và mức lương tương ứng (Salary) với năm kinh nghiệm là feature
-và lương là label. Bảng 7: Dữ liệu liên tục STT Experience Salary 1 1
-0 2 1.5 0 3 2 0 4 2.5 0 5 3 60 6 3.5 64 7 4 55 8 4.5 61 9 5 66 10 5.5
-83 11 6 93...
-=======
 2.4 Ví dụ về Decision Tree dùng Mean và Variance (Regression)
 Chúng ta có một table thể hiện sự tương quan giữa năm kinh nghiệm (Exp) và mức lương
 tương ứng (Salary) với năm kinh nghiệm là feature và lương là label.
@@ -44,4 +35,3 @@ i=1
 (Si − Mean)2 (7)
 • mse là phương sai.
 • Mean là giá trị trung bình.
->>>>>>> HEAD@{1}

@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: c10fb02a-2b69-4298-b39f-ffc258f09830
-Text: • Gain(Temperature)= 0.571. Tính Gain cho Humidity •
-Entropy(High)= 0. • Entropy(Normal)= 0. • Gain(Humidity)= 0.971. Tính
-Gain cho Wind • Entropy(Weak)= 0.918. • Entropy(Strong)= 1. •
-Gain(Wind)= 0.1977. Sau khi tính Gain, ta chọn Humidity làm gốc vì
-Humidity có chỉ số Gain lớn nhất (Nghĩa là entropy giảm nhiều nhất).
-Hình 6: Tree ta có thể thấ...
-=======
 • Gain(Temperature)= 0.571.
 Tính Gain cho Humidity
 • Entropy(High)= 0.
@@ -21,4 +12,3 @@ là entropy giảm nhiều nhất).
 Hình 6: Tree
 ta có thể thấy với Humidity(High) thì tất cả samples đều là no thì Entropy=0 ta có thể
 trả về no cho High. Tương tự với Normal sẽ trả về yes.
->>>>>>> HEAD@{1}

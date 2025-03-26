@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 26037230-f143-433c-a4e2-cdd18785cace
-Text: optimizer . step () 35 return sum ( losses )/ len ( losses ) 36
-37 def val_step (self , epoch ): 38 self . model . eval () 39 losses ,
-metrics = [] , [] 40 pred_images = [] 41 gt_images = [] 42 43 with
-torch . no_grad (): 44 for i, ( original_gray , gray , color ) in tqdm
-( enumerate ( self . val_loader )): 45 cond_gray = gray .to( self .
-device...
-=======
 optimizer . step ()
 35 return sum ( losses )/ len ( losses )
 36
@@ -50,4 +41,3 @@ gt_images
 68 # Postprocess the image before logging to WanDB
 69 def show_wandb_image (self , img_l , img_ab , is_save = False ):
 70 img_l = img_l . permute (1 , 2, 0). 
->>>>>>> HEAD@{1}

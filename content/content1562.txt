@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: cffb41ed-8a42-471b-81ef-f5306b55d93e
-Text: Daily AI Exercise (AIO) aivietnam.edu.vn 1 name : str = "AI
-VIETNAM " 2 year : int = 2024 3 4 print (f" Welcome to { name } { year
-}!") 5 print ( __annotations__ ) ================= Output
-================ Welcome to AI VIETNAM 2024! {’name ’: <class ’str ’>,
-’year ’: <class ’ int ’ >} ==========================================
-Trong ví dụ trên ...
-=======
 Daily AI Exercise (AIO) aivietnam.edu.vn
 1 name : str = "AI VIETNAM "
 2 year : int = 2024
@@ -62,4 +53,3 @@ NameError : name ’numbers ’ is not defined
 Để gợi ý về kiểu dữ liệu của các tham số và giá trị trả về của một hàm, ta có thể sử dụng Type Hints
 như ví dụ phía dưới. Trong hàm add, chúng ta gợi ý rằng x và y là các số nguyên (int) và hàm trả về là
 một số nguyên (int). 
->>>>>>> HEAD@{1}

@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 50251d17-ef5d-47c0-950c-1d36699c621c
-Text: AI VIETNAM aivietnam.edu.vn (d) YamlOutputParser. 7. Xét đoạn
-code dưới đây: 1 from langchain import HuggingFaceHub 2 from langchain
-import PromptTemplate 3 4 template = """ Question : { question } 5 6
-Answer : """ 7 prompt = PromptTemplate ( 8 template = template , 9
-input_variables =[ ’ question ’] 10 ) 11 12 hub_llm = HuggingFaceHub (
-13 repo...
-=======
 AI VIETNAM aivietnam.edu.vn
 (d) YamlOutputParser.
 7. Xét đoạn code dưới đây:
@@ -33,4 +24,3 @@ AI VIETNAM aivietnam.edu.vn
 (b) Khởi tạo LLMChain với LLM và Prompt.
 (c) Cài đặt ủy quyền và bảo mật cho người dùng.
 (d) Phân tích và trực quan hóa dữ liệu.
->>>>>>> HEAD@{1}

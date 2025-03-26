@@ -1,11 +1,4 @@
-<<<<<<< HEAD
-Node ID: 0f181ba0-77e3-4fb7-b48f-1c28ff2f58b3
-Text: AI VIETNAM aivietnam.edu.vn Hình 2: Yêu cầu cấu hình về phần
-cứng cho Milvus Tiếp theo, chúng ta đến với phần cài đặt Milvus. Như
-đã đề cập ở trên, chúng ta sẽ cài đặt thông qua Docker.
-=======
 AI VIETNAM aivietnam.edu.vn
 Hình 2: Yêu cầu cấu hình về phần cứng cho Milvus
 Tiếp theo, chúng ta đến với phần cài đặt Milvus. Như đã đề cập ở trên, chúng ta sẽ cài đặt thông
 qua Docker. 
->>>>>>> HEAD@{1}

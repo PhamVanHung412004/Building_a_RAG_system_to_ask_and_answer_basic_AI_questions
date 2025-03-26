@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-Node ID: 998fc579-c18a-4dd9-b5ae-74cdc06a670a
-Text: AI VIETNAM (AIO2024) aivietnam.edu.vn liệu nào đó để trả lời cho
-một câu hỏi đầu vào. Trong project này, chúng ta sẽ tìm hiểu cách xây
-dựng một chương trình RAG cơ bản.
-=======
 AI VIETNAM (AIO2024) aivietnam.edu.vn
 liệu nào đó để trả lời cho một câu hỏi đầu vào. Trong project này, chúng ta sẽ tìm hiểu cách xây
 dựng một chương trình RAG cơ bản. 
->>>>>>> HEAD@{1}

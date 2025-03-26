@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: efe3c2b2-0bae-40a4-aec0-1fcd555a45ea
-Text: AI VIETNAM aivietnam.edu.vn Trong nghiên cứu này, các tác giả
-huấn luyện mô hình LLM để tự sinh ra 4 loại token phải ứng (reflection
-token) để hỗ trợ cho quá trình trả lời, bao gồm: • Retrieve: Cho mô
-hình biết có nên truy vấn/tiếp tục truy vấn hay không. • IsRel: Đánh
-giá xem kết quả truy vấn có cung cấp thông tin hữu dụng cho quá trình
-trả lời...
-=======
 AI VIETNAM aivietnam.edu.vn
 Trong nghiên cứu này, các tác giả huấn luyện mô hình LLM để tự sinh ra 4 loại token phải ứng
 (reflection token) để hỗ trợ cho quá trình trả lời, bao gồm:
@@ -26,4 +17,3 @@ sẽ tự tạo ra token Retrieve để dự đoán xem có cần truy vấn th�
 – Rerank lại kết quả truy vấn dựa trên 3 token IsRel, IsSup và IsUse.
 • Nếu không cần Retrieve, mô hình sẽ trả lời mà không cần retrieve, sau đó dự đoán độ hữu ích của
 câu trả lời qua token IsUse.
->>>>>>> HEAD@{1}

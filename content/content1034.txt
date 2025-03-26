@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 6936e739-c7de-4082-ac1b-9e74d208f592
-Text: Cuối cùng chúng ta sử dụng phương thức get của từ điển để tìm
-công việc tương ứng với thời gian nhập vào. Nếu thời gian nhập vào có
-trong từ điển, phương thức get sẽ trả về công việc tương ứng. Nếu thời
-gian nhập vào không có trong từ điển, phương thức get sẽ trả về giá
-trị mặc định là "Do something else". 2.3 Mactch case Cấu trúc match
-case tro...
-=======
 Cuối cùng chúng
 ta sử dụng phương thức get của từ điển để tìm công việc tương ứng với thời gian nhập vào. Nếu thời
 gian nhập vào có trong từ điển, phương thức get sẽ trả về công việc tương ứng. Nếu thời gian nhập vào
@@ -34,4 +25,3 @@ và lưu giá trị đó vào biến time. Tiếp theo chúng ta kiểm tra giá
 case. Một chú ý nhỏ ở đây là dấu gạch dưới _ đại diện cho trường hợp mặc định, khi giá trị của time
 không khớp với bất kỳ trường hợp nào đã liệt kê.
 4
->>>>>>> HEAD@{1}

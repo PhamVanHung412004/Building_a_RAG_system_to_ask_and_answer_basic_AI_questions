@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 5f0fa0f2-a6cd-44fc-bd36-0562c10a72ae
-Text: Daily AI Exercise (AIO) Ngày 1 tháng 4 năm 2024 Hình 4: Biểu đồ
-cột thể hiện dân số theo quốc gia + Lấy Top 20 Quốc Gia có giảm dần
-theo dân số, và tô màu theo độ lớn của dân số: (*) Ta sẽ thực hiện kéo
-2 cột: Chúng ta cũng thực hiện tương tự bài trên nhưng chúng sẽ thực
-hiện sắp xếp Population giảm dần và Limit 20 dòng. Đồng thời gắn Color
-là c...
-=======
 Daily AI Exercise (AIO) Ngày 1 tháng 4 năm 2024
 Hình 4: Biểu đồ cột thể hiện dân số theo quốc gia
 + Lấy Top 20 Quốc Gia có giảm dần theo dân số, và tô màu theo độ
@@ -15,4 +6,3 @@ lớn của dân số:
 nhưng chúng sẽ thực hiện sắp xếp Population giảm dần và Limit 20 dòng.
 Đồng thời gắn Color là cột Population để thư viện hiện hiện tô màu theo
 Population.
->>>>>>> HEAD@{1}

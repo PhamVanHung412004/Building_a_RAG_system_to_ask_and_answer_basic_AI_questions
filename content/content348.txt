@@ -1,10 +1,4 @@
-<<<<<<< HEAD
-Node ID: 5993e9a4-a5af-4e1f-b565-c2403ea615e0
-Text: 8 """ 9 self . root_dir = root_dir 10 self . transform =
-transform 4
-=======
 8 """
 9 self . root_dir = root_dir
 10 self . transform = transform
 4
->>>>>>> HEAD@{1}

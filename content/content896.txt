@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 8da8d6b5-b674-401e-9a73-f144179e0106
-Text: AI VIETNAM aivietnam.edu.vn 15 Để hỏi về một chủ đề hoặc ý tưởng
-cụ thể hoặc bất kỳ thông tin nào và bạn muốn kiểm tra sự hiểu biết của
-mình, bạn có thể sử dụng cụm sau: “Teach me any [theorem/topic/rule
-name] and include a test at the end, and let me know if my answers are
-correct after I respond, without providing the answers beforehand.”
-(Hãy...
-=======
 AI VIETNAM aivietnam.edu.vn
 15
 Để hỏi về một chủ đề hoặc ý tưởng cụ thể hoặc bất kỳ thông tin nào và bạn
@@ -37,4 +28,3 @@ vocabulary and make sure it sounds natural. You should maintain the original
 writing style, ensuring that a formal paragraph remains formal.” (Cố gắng sửa
 lại mọi đoạn văn do người dùng gửi. Bạn chỉ nên cải thiện ngữ pháp và từ vựng
 của người dùng và đảm bảo rằng nó nghe tự nhiên. 
->>>>>>> HEAD@{1}

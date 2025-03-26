@@ -1,7 +1,2 @@
-<<<<<<< HEAD
-Node ID: 52c93b26-3a75-4b43-a173-6c3615ff0cd9
-Text: Ta cùng xem ví dụ sau: 2
-=======
 Ta cùng xem ví dụ sau:
 2
->>>>>>> HEAD@{1}

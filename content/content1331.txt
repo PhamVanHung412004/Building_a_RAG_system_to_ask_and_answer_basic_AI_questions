@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 2c68f1e7-a980-4c4e-ab68-a9f71111ad1e
-Text: AI VIETNAM aivietnam.edu.vn Word Correction (Sửa lỗi chính tả)
-là một trong những ứng dụng cơ bản của xử lý ngôn ngữ tự nhiên, với
-mục đích xây dựng các ứng dụng nhận đầu vào là một từ, thông qua mô
-hình sửa lỗi nếu từ đó bị sai thành một từ đúng. Ví dụ: người dùng
-nhập vào từ ’hel’ là một từ sai, mô hình sẽ gợi ý sửa lỗi thành từ
-’hello’. Để đơ...
-=======
 AI VIETNAM aivietnam.edu.vn
 Word Correction (Sửa lỗi chính tả) là một trong những ứng dụng cơ bản của xử lý ngôn ngữ tự
 nhiên, với mục đích xây dựng các ứng dụng nhận đầu vào là một từ, thông qua mô hình sửa lỗi
@@ -59,4 +50,3 @@ nhập vào bởi người dùng.
 31
 • So sánh và chọn từ có khoảng cách chỉnh sửa bé nhất.
 Tiếp theo, chúng ta sẽ xây dựng giao diện bằng thư viện streamlit. 
->>>>>>> HEAD@{1}

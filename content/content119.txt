@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 2e9dff56-6b32-4385-8ee9-7df74bae4dbc
-Text: AI VIETNAM (AIO2024) aivietnam.edu.vn 5. Chia bộ dữ liệu
-train/val/test: Khi tiến hành huấn luyệnh một mô hình machine
-learning, chúng ta sẽ không lấy toàn bộ bộ dữ liệu hiện có để huấn
-luyện mà sẽ tách ra làm 3 bộ khác nhau. Tại bước này, chúng ta chia bộ
-dữ liệu thành 3 phần: Train, Validation và Test theo tỉ lệ lần lượt là
-7/2/1 (trên tỉ lệ 1...
-=======
 AI VIETNAM (AIO2024) aivietnam.edu.vn
 5. Chia bộ dữ liệu train/val/test: Khi tiến hành huấn luyệnh một mô hình machine
 learning, chúng ta sẽ không lấy toàn bộ bộ dữ liệu hiện có để huấn luyện mà sẽ tách ra làm
@@ -30,4 +21,3 @@ thêm tham sốSEED để duy trì kết quả giống nhau sau mỗi lần ch�
 6. Huấn luyện mô hình:Sau các bước trên, chúng ta đã tạo ra 2 Input cần thiết, công việc
 bây giờ chỉ cần truyền chúng vào mô hình Gaussian Naive Bayes và tiến hành huấn luyện
 bằng các hàm trong thư việnsklearn.
->>>>>>> HEAD@{1}

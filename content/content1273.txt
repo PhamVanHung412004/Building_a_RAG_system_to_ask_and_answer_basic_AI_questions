@@ -1,11 +1,5 @@
-<<<<<<< HEAD
-Node ID: bd047a18-e9ca-4546-80fb-763d39df8d02
-Text: AI VIETNAM aivietnam.edu.vn 1 class Ward : 2 def __init__ (self
-, name : str ): 3 self . __name = name 4 self .
-=======
 AI VIETNAM aivietnam.edu.vn
 1 class Ward :
 2 def __init__ (self , name : str ):
 3 self . __name = name
 4 self . 
->>>>>>> HEAD@{1}

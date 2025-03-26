@@ -1,7 +1,2 @@
-<<<<<<< HEAD
-Node ID: a1e4bd1c-c2cb-4eff-9843-8f4ccf9665fe
-Text: . 3 7 Bài tập thực hành . .
-=======
 . 3
 7 Bài tập thực hành . . 
->>>>>>> HEAD@{1}

@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: abfa6fad-10fd-4dbe-9061-5792dfdf6381
-Text: AI VIETNAM aivietnam.edu.vn 70 self . out_channel = out_channel
-or channels 71 self . use_conv = use_conv 72 stride = 2 73 if use_conv
-: 74 self .op = nn. Conv2d ( 75 self . channels , self . out_channel ,
-3, stride = stride , padding =1 76 ) 77 else : 78 assert self .
-channels == self . out_channel 79 self .op = nn. AvgPool2d (
-kernel_size = st...
-=======
 AI VIETNAM aivietnam.edu.vn
 70 self . out_channel = out_channel or channels
 71 self . use_conv = use_conv
@@ -58,4 +49,3 @@ AI VIETNAM aivietnam.edu.vn
 117 self . out_channel = out_channel or channels
 118 self . use_conv = use_conv
 119 self . 
->>>>>>> HEAD@{1}

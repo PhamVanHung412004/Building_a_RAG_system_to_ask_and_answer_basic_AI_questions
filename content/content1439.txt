@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 1863119e-cd8b-4178-a963-f662f41166e0
-Text: Điều này rất hữu ích khi mà dự án của chúng ta vừa sử dụng file
-.py vừa sử dụng file notebook .ipynb. Chúng ta sẽ tạo file với đuôi
-.ipynb trong thư mục dự án tương tự như cách tạo file my_script.py ở
-phần trên. Sau đó ta tiến hành viết code và thực thi code bằng cách
-nhấn vào biểu tượng run ở đầu ô đó. Hình 6: Tạo file jupyter notebook
-Với lần ...
-=======
 Điều này
 rất hữu ích khi mà dự án của chúng ta vừa sử dụng file .py vừa sử dụng file notebook .ipynb. Chúng ta
 sẽ tạo file với đuôi .ipynb trong thư mục dự án tương tự như cách tạo file my_script.py ở phần trên.
@@ -19,4 +10,3 @@ Trong bài viết này đã hướng dẫn cách cài đặt và sử dụng Ana
 lập dự án để lập trình Python trên Window. Hy vọng giúp các bạn có thêm kỹ năng cài đặt và sử dụng
 các công cụ cần thiết để bắt đầu hành trình học lập trình Python.
 7
->>>>>>> HEAD@{1}

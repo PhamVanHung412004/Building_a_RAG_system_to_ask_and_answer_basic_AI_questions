@@ -1,12 +1,5 @@
-<<<<<<< HEAD
-Node ID: a4cc210b-8263-493d-b2d0-93b83f26dae5
-Text: I tried to like this, I really did, but it is to good TV sci-fi
-as Babylon 5 is to Star Trek (the original). 9 - GT: NEGATIVE 10 -
-Predict: NEGATIVE 10
-=======
 I tried to like this, I really did, but it is to good
 TV sci-fi as Babylon 5 is to Star Trek (the original).
 9 - GT: NEGATIVE
 10 - Predict: NEGATIVE
 10
->>>>>>> HEAD@{1}

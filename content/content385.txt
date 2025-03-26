@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: e55551bb-9ae8-4029-b5d3-d3858feb87e6
-Text: AI VIETNAM aivietnam.edu.vn Hình 3: Hình ảnh mô tả các phương
-pháp khử nhiễu trên point cloud. a) Noise, b) Radius noise removal với
-radius = 0.5, c) Statistical noise removal với standard ratio = 0.5 và
-number of neighbor = 10. 1.5 Nearest neighbor search Đám mây điểm có
-cấu trúc không đều (irregular). Trong khi đó, vùng lân cận cục bộ của
-các ...
-=======
 AI VIETNAM aivietnam.edu.vn
 Hình 3: Hình ảnh mô tả các phương pháp khử nhiễu trên point cloud. a) Noise, b) Radius noise removal
 với radius = 0.5, c) Statistical noise removal với standard ratio = 0.5 và number of neighbor = 10.
@@ -39,4 +30,3 @@ Hoạt động: Tương tự như cây KD, Octree hướng dẫn tìm kiếm lâ
 không thể chứa điểm lân cận.
 Ưu điểm:
 - Hiệu quả tốt với dữ liệu điểm phân bố không đều.
->>>>>>> HEAD@{1}

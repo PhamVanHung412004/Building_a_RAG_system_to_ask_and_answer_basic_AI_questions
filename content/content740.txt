@@ -1,7 +1,2 @@
-<<<<<<< HEAD
-Node ID: cd7143d0-2c68-430a-b27e-aa815413c422
-Text: . 18 7.4 Phép chia - Division . .
-=======
 . 18
 7.4 Phép chia - Division . . 
->>>>>>> HEAD@{1}

@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 6b820033-ef8a-46fb-9774-c078092e5ce4
-Text: AI VIETNAM aivietnam.edu.vn Giai đoạn 2: Tạo ra câu trả lờiBước
-tiếp theo là dùng những thông tin đã thu thập được tạo ra câu trả lời
-chính xác. Nghiên cứu này chỉ ra rằng việc trực tiếp tạo ra câu trả
-lời sẽ gây khó khăn trong việc duy trì tính hội thoại cho câu trả lời
-của mô hình. Vì vậy, giai đoạn này sẽ chia thành 2 bước nhỏ. • Bước 6:
-Wiki...
-=======
 AI VIETNAM aivietnam.edu.vn
 Giai đoạn 2: Tạo ra câu trả lờiBước tiếp theo là dùng những thông tin đã thu thập được tạo ra
 câu trả lời chính xác. Nghiên cứu này chỉ ra rằng việc trực tiếp tạo ra câu trả lời sẽ gây khó khăn trong
@@ -26,4 +17,3 @@ người dùng.
 References
 Lewis, P., Perez, E., Piktus, A., Petroni, F., Karpukhin, V., Goyal, N., K¨ uttler, H., Lewis, M., tau
 Yih, W., Rockt¨ aschel, T., Riedel, S., & Kiela, D. 
->>>>>>> HEAD@{1}

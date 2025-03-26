@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 62cd5607-d4c4-4d98-8f70-6924c5ca45f4
-Text: 56 model = cls(config, device=device, dtype=dtype, **kwargs) 57
-58 # Tải trạng thái model đã được train trước đó. 59 model_state_dict
-= load_state_dict_hf(pretrained_model_name, device=device,
-dtype=dtype) 60 model.load_state_dict(model_state_dict, strict=False)
-61 62 # In ra các tham số embedding mới được khởi tạo. 63 print("Newly
-initialized e...
-=======
 56 model = cls(config, device=device, dtype=dtype, **kwargs)
 57
 58 # Tải trạng thái model đã được train trước đó.
@@ -20,4 +11,3 @@ device=device, dtype=dtype)
 64 return model
 • Cuối cùng ta sẽ tải trọng số và tokenizer của model Mamba đã được pretrain từ trước.
 5
->>>>>>> HEAD@{1}

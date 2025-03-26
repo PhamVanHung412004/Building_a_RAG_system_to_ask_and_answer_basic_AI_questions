@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 780ea595-6378-4ecd-be4b-e65c54827dbc
-Text: Daily AI Exercise (AIO) aivietnam.edu.vn 1 # extract images 2
-from pypdf import PdfReader 3 4 reader = PdfReader("yolov9.pdf") 5
-count = 0 6 for page in reader.pages: 7 for image_file_object in
-page.images: 8 with open(str(count) + image_file_object.name, "wb") as
-fp: 9 fp.write(image_file_object.data) 10 count += 1 Trong ví dụ trên,
-chúng ta đọ...
-=======
 Daily AI Exercise (AIO) aivietnam.edu.vn
 1 # extract images
 2 from pypdf import PdfReader
@@ -26,4 +17,3 @@ Hình 2: Trích xuất các hình ảnh từ file PDF
 2.3 Nối các file pdf
 Merge PDF cho phép bạn tổ chức các tài liệu PDF riêng lẻ thành một tài liệu lớn hơn, giúp dễ dàng
 quản lý và tìm kiếm thông tin. Trong pypdf cung cấp tính năng PdfWriter để thực hiện điều này.
->>>>>>> HEAD@{1}

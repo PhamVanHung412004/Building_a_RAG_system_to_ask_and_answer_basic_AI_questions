@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 38d273de-d15f-449c-83c7-5c600a7386fa
-Text: AI VIETNAM aivietnam.edu.vn Hình 2: Không gian màuLab. Trong dự
-án này, chúng ta sẽ tiếp tục sử dụng không gian màuLab cho xử lý dữ
-liệu. Theo đó, mô hình của chúng ta sẽ nhận đầu vào là kênhL như tấm
-ảnh gray-scale, đại diện cho độ sáng, và sử dụng kênh ab như ground
-truth của mô hình. Đối với vấn đề tô màu cho ảnh, có một thuật ngữ
-được gọi là...
-=======
 AI VIETNAM aivietnam.edu.vn
 Hình 2: Không gian màuLab.
 Trong dự án này, chúng ta sẽ tiếp tục sử dụng không gian màuLab cho xử lý dữ liệu. Theo đó, mô
@@ -28,4 +19,3 @@ Trong phần này, chúng ta sẽ tập trung vào việc xây dựng một mô 
 quyết vấn đề Image Colorization, cùng với đó là áp dụng công cụwandb để hỗ trợ quá trình huấn luyện.
 Input và output của chương trình như sau:
 1. 
->>>>>>> HEAD@{1}

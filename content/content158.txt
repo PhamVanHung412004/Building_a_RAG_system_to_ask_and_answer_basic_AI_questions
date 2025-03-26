@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: c9f99c2d-0e0a-4d69-82b9-e25908412cc9
-Text: AI VIETNAM aivietnam.edu.vn • Tại sao sử dụng heat kernel?: Heat
-kernel được sử dụng để biểu diễn mật độ xác suất trong trường hợp cụ
-thể khi chúng ta đã biết một điểm cụ thể mà fist step ở đó. Nó cho
-biết xác suất sẽ xuất hiện ở các vị trí khác nhau sau một khoảng thời
-gian t dựa trên điểm ban đầu đã biết. Trong bối cảnh của diffusion nó
-sẽ giú...
-=======
 AI VIETNAM aivietnam.edu.vn
 • Tại sao sử dụng heat kernel?: Heat kernel được sử dụng để biểu diễn mật độ xác suất trong
 trường hợp cụ thể khi chúng ta đã biết một điểm cụ thể mà fist step ở đó. Nó cho biết xác suất
@@ -28,4 +19,3 @@ Trong đó:
 • p(x, t) là mật độ xác suất của hệ thống tại vị trí x tại thời điểm t.
 • p(x, t|x0, 0) là heat kernel. Cho biết xác suất di chuyển từ vị trí ban đầux0 tại thời điểm 0 đến vị
 trí x tại thời điểm t, dựa trên sự phân tán không gian và thời gian.
->>>>>>> HEAD@{1}

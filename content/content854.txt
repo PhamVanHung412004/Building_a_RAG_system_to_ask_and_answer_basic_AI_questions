@@ -1,13 +1,5 @@
-<<<<<<< HEAD
-Node ID: 3eedc615-e3bc-4884-823f-bc0221f3291c
-Text: AI VIETNAM aivietnam.edu.vn Hình 21: Image retrieval dùng vector
-database với similarity score 3 Trắc Nghiệm 1. CLIP chủ yếu được sử
-dụng để làm gì trong bối cảnh tìm kiếm sự tương đồng giữa các hình ảnh
-với hình ảnh?
-=======
 AI VIETNAM aivietnam.edu.vn
 Hình 21: Image retrieval dùng vector database với similarity score
 3 Trắc Nghiệm
 1. CLIP chủ yếu được sử dụng để làm gì trong bối cảnh tìm kiếm sự tương đồng giữa
 các hình ảnh với hình ảnh?
->>>>>>> HEAD@{1}

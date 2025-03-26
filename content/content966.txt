@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-Node ID: e9dc1f71-1702-4523-8bdc-c76fd3aa4120
-Text: AI VIETNAM aivietnam.edu.vn (g) Áp dụng mô hình hỏi-đáp để trả
-lời câu hỏi:Như vậy, chúng ta đã có hai thành phần Retriever và
-Reader.
-=======
 AI VIETNAM aivietnam.edu.vn
 (g) Áp dụng mô hình hỏi-đáp để trả lời câu hỏi:Như vậy, chúng ta đã có hai thành
 phần Retriever và Reader. 
->>>>>>> HEAD@{1}

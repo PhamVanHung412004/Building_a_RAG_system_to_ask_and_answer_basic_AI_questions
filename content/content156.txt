@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: e1ceca22-cd28-4188-8f23-1d8bc58d3bc2
-Text: Tiếp theo xem xét sự thay đổi của mật độ xác suấtp(x, t) tức xác
-suất hệ thống ở vị trí x tại thời điểm t, theo thời gian. Nó đề cập
-đến diffusion equation: x(t + ∆t) = x(t) + σ √ ∆t r (19) thể hiện rằng
-mật độ xác suấtp(x, t) thay đổi theo thời gian theo cách được mô tả
-bởi phương trình trên. Diffusion equation còn được gọi là heat
-equation - m...
-=======
 Tiếp theo xem xét sự thay đổi của mật độ xác suấtp(x, t) tức xác suất hệ thống ở vị trí x tại thời
 điểm t, theo thời gian. Nó đề cập đến diffusion equation:
 x(t + ∆t) = x(t) + σ
@@ -37,4 +28,3 @@ của bình phương độ dày không gian và cường độ biến đổi the
 hàm delta dirac. Điều này có nghĩa là chúng ta đang xem xét một trường hợp trong đó chúng ta biết
 chính xác rằng vị trí ban đầu là tạix0
 Với điều kiện ban đầup(x, 0) = δ(x − x0). 
->>>>>>> HEAD@{1}

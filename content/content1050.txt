@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 3fae4ddc-ae93-42b1-a842-cc1e40d6eb58
-Text: Cách tiếp cận này giúp khả thi về quản lý tài nguyên bộ nhớ và
-tính toán, đồng thời giải quyết thách thức tích hợp thời gian vào tạo
-ảnh và video. • Spatiotemporal network còn có thêm một thành phần quan
-trọng cho việc tạo video làframe interpolation networknhằm cải thiện
-tốc độ tạo khung hình. Network có thể tăng số lượng khung hình của
-video đ...
-=======
 Cách tiếp cận này giúp khả thi về quản lý tài nguyên bộ nhớ và tính toán,
 đồng thời giải quyết thách thức tích hợp thời gian vào tạo ảnh và video.
 • Spatiotemporal network còn có thêm một thành phần quan trọng cho việc tạo video làframe
@@ -19,4 +10,3 @@ và sử dụng zero-padding cho các masked frames. Network cũng có khả nă
 hình biến đổi và điều kiện fps trong thời gian suy luận, cho phép linh hoạt trong việc nâng cao
 chất lượng thời gian từ một số lượng khung hình nhất định sang một số lượng lớn hơn.
 8
->>>>>>> HEAD@{1}

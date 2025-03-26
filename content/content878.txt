@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 0b20970d-6a8b-405b-b319-9b06cb16d227
-Text: Thông thường, sau khi chúng ta request cho 1 url, chúng ta sẽ
-đợi phản hồi từ server, sau đó khi nhận được ảnh, chúng ta sẽ tiếp tục
-request tiếp theo. Việc này khiến cho quá trình tải rất chậm chạp và
-tốn rất nhiều thời gian. Trong khi đó nếu áp dụng multi-threading,
-chúng ta sẽ liên tục gửi các request tới server, mỗi lần gửi sẽ là n
-request l...
-=======
 Thông thường, sau khi chúng ta request cho 1 url, chúng ta sẽ đợi phản hồi từ server, sau
 đó khi nhận được ảnh, chúng ta sẽ tiếp tục request tiếp theo. Việc này khiến cho quá trình tải rất chậm
 chạp và tốn rất nhiều thời gian. Trong khi đó nếu áp dụng multi-threading, chúng ta sẽ liên tục gửi các
@@ -24,4 +15,3 @@ thông tốt, server sẽ bị crash và sập. Vì vậy, chúng ta cần lịc
 polite delay, giữa các lần request, hãy giãn thời gian ra tầm 0.5 đến 1s để khiến cho server không bị
 chịu tải cao, đồng thời server không phát hiện bất thường và chặn IP của chúng ta.
 31
->>>>>>> HEAD@{1}

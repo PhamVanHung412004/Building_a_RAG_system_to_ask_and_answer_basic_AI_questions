@@ -1,11 +1,4 @@
-<<<<<<< HEAD
-Node ID: 2c819e08-3dd4-4a6d-8adb-299e0fe67782
-Text: AI VIETNAM (AIO2024) aivietnam.edu.vn Như vậy, chúng ta đã hoàn
-thành một chương trình Python về RAG, có khả năng hỏi đáp các nội dung
-trong một file pdf. II.II.
-=======
 AI VIETNAM (AIO2024) aivietnam.edu.vn
 Như vậy, chúng ta đã hoàn thành một chương trình Python về RAG, có khả năng hỏi đáp
 các nội dung trong một file pdf.
 II.II. 
->>>>>>> HEAD@{1}

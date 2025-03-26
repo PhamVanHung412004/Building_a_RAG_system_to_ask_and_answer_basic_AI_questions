@@ -1,12 +1,5 @@
-<<<<<<< HEAD
-Node ID: 1c6c1450-8639-4f5c-bfb4-d35aa517c4aa
-Text: AI VIETNAM aivietnam.edu.vn 2.4. Các loại Kế thừa trong Python
-a. Single Inheritance (Kế thừa đơn) Kế thừa đơn là khi một lớp con kế
-thừa từ một lớp cha duy nhất. Hình 3: Kế thừa đơn.
-=======
 AI VIETNAM aivietnam.edu.vn
 2.4. Các loại Kế thừa trong Python
 a. Single Inheritance (Kế thừa đơn)
 Kế thừa đơn là khi một lớp con kế thừa từ một lớp cha duy nhất.
 Hình 3: Kế thừa đơn.
->>>>>>> HEAD@{1}

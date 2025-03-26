@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: f2efa009-4ca5-400b-9a94-0be082495a7e
-Text: Đầu ra của chương trình là gì? 1 def my_function (x, y): 2 #
-Your code here 3 #Su dung extend de noi y vao x 4 # return x 5 6
-list_num1 = [’a’, 2, 5] 7 list_num2 = [1 , 1] 8 list_num3 = [0 , 0] 9
-10 assert my_function ( list_num1 , my_function ( list_num2 ,
-list_num3 )) == [’a’, 2, 5, 1, 1, 0, 0] 11 12 list_num1 = [1 , 2] 13
-list_num2 = [3 , 4] ...
-=======
 Đầu ra của chương trình là gì?
 1 def my_function (x, y):
 2 # Your code here
@@ -58,4 +49,3 @@ b) Raise an Error
 c) 0
 d) 9 ==
 9
->>>>>>> HEAD@{1}

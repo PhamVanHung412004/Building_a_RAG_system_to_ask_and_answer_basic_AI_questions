@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 6182f7e2-3888-47e9-a070-48a080f90e34
-Text: AI VIETNAM aivietnam.edu.vn Heat kernel thường được biểu diễn
-dưới dạng một hàm số, phụ thuộc vào biến thời gian t và không gian x
-và thường được ký hiệu làH(t, x) hoặc Kt(x). Hàm này thường được định
-nghĩa dựa trên phân phối Gaussian và có dạng: H(t, x) = 1
-(4πt)d/2e−||x||2 4t (3) Trong đó: • d là số chiều của không gian 2D/3D
-• t là thời gian....
-=======
 AI VIETNAM aivietnam.edu.vn
 Heat kernel thường được biểu diễn dưới dạng một hàm số, phụ thuộc vào biến thời gian t và không
 gian x và thường được ký hiệu làH(t, x) hoặc Kt(x). Hàm này thường được định nghĩa dựa trên phân
@@ -24,4 +15,3 @@ Hình 3: Heat kernel có các tính chất quan trọng bao gồm tính duy nh�
 đầu và thời gian khác nhau và tính xấp xỉ khi t tiến gần đến 0 hoặc vô cùng. Nó thường được sử dụng
 trong lý thuyết xác suất để mô tả quá trình diffusion và trong xử lý ảnh để làm mịn hoặc làm nổi bật
 các đặc trưng của ảnh.
->>>>>>> HEAD@{1}

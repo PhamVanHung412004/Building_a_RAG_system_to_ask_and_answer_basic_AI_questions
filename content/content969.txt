@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 36c6250f-2c6e-4fb8-9fd8-7050bd938f31
-Text: 2. Tại sao mô hình Transformer được sử dụng phổ biến trong bài
-toán Question Answering (QA)? (a) Do Transformer có khả năng tự học
-đặc trưng từ văn bản tự nhiên. (b) Do Transformer chứa nhiều kiến thức
-về dữ liệu. (c) Có sử dụng mô hình tìm kiếm context. (d) Do
-Transformer có khả năng xử lý dữ liệu dạng sequence. 3. Trong QA, tại
-sao phải sử dụn...
-=======
 2. Tại sao mô hình Transformer được sử dụng phổ biến trong bài toán Question Answering (QA)?
 (a) Do Transformer có khả năng tự học đặc trưng từ văn bản tự nhiên.
 (b) Do Transformer chứa nhiều kiến thức về dữ liệu.
@@ -22,4 +13,3 @@ sao phải sử dụn...
 (b) Mô hình End-to-end QA có khả năng tự động xây dựng câu hỏi.
 (c) Mô hình End-to-end QA sử dụng RNN để trích xuất câu trả lời.
 (d) Mô hình End-to-end QA chỉ hoạt động trên dữ liệu có cấu trúc.
->>>>>>> HEAD@{1}

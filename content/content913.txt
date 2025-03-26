@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 154c03f0-fba5-4a37-ba3d-eacf3830a381
-Text: Điều quan trọng là suy nghĩ phải đủ nhỏ để có thể quản lý được,
-nhưng cũng phải đủ "lớn" để có thể đánh giá tiến trình giải quyết vấn
-đề một cách có ý nghĩa. Thought generator: với mục đích tạo ra các suy
-nghĩ mới, khi có một trạng thái câys = [x, z1...zi] có hai cách để
-sinh ra k ứng viên cho bước suy nghĩ tiếp theo: • Sample: Đầu tiên
-chúng ta...
-=======
 Điều quan trọng là suy nghĩ phải đủ nhỏ để có thể quản lý được, nhưng
 cũng phải đủ "lớn" để có thể đánh giá tiến trình giải quyết vấn đề một cách có ý nghĩa.
 Thought generator: với mục đích tạo ra các suy nghĩ mới, khi có một trạng thái câys =
@@ -38,4 +29,3 @@ thái nào cần được khám phá thêm và thứ tự ưu tiên. Có hai chi
 • Đánh giá từng trạng thái độc lập: Mỗi trạng thái được đánh giá độc lập để tạo ra một
 giá trị vô hướng (ví dụ từ 1 đến 10) hoặc một phân loại. Cách tiếp cận này sử dụng suy luận
 14
->>>>>>> HEAD@{1}

@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 44ace5cf-e271-41d9-864d-632d631636d5
-Text: 6. Trường hợp muốn ngắt kết nối với Milvus và xóa dữ liệu:Để
-nhanh chóng ngắt kết nối với Milvus, các bạn hãy sử dụng lệnh sau
-trong Terminal: 1 $ bash standalone_embed .sh stop Để xóa hẳn dữ liệu
-được lưu trong Milvus, đầu tiên các bạn hãy chạy lệnh dưới đây trong
-Terminal: 1 $ docker ps -a Tại đây, các bạn sẽ thấy một danh sách các
-CONTAINER I...
-=======
 6. Trường hợp muốn ngắt kết nối với Milvus và xóa dữ liệu:Để nhanh chóng ngắt kết nối
 với Milvus, các bạn hãy sử dụng lệnh sau trong Terminal:
 1 $ bash standalone_embed .sh stop
@@ -21,4 +12,3 @@ Sau đó, các bạn chạy lệnh sau:
 Như vậy, các bạn đã ngắt kết nối khỏi Milvus cũng như xóa toàn bộ dữ liệu đã đưa vào.
 - Hết -
 12
->>>>>>> HEAD@{1}

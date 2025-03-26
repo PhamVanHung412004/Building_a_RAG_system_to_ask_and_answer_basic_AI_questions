@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 15e2c32f-2ccf-4dc9-99cc-b69d4f2f2217
-Text: AI VIETNAM aivietnam.edu.vn 4.2 Make-A-Video Được giới thiệu
-trong [7], đây là một phương pháp tạo video từ văn bản mà không cần dữ
-liệu video đi kèm văn bản mô tả, từ đó giải quyết vấn đề về thiếu hụt
-data trong tác vụ tạo sinh video. Phương pháp này mở rộng từ mô hình
-tạo hình ảnh từ văn bản mô tả (Text to Image-T2I) bằng cách thêm vào
-các mô-...
-=======
 AI VIETNAM aivietnam.edu.vn
 4.2 Make-A-Video
 Được giới thiệu trong [7], đây là một phương pháp tạo video từ văn bản mà không cần dữ liệu video
@@ -24,4 +15,3 @@ tạo ảnh RGB với low-resolution (64× 64) dựa trên các image embedding.
 networks SR1, SRh tăng độ phân giải của ảnh lên thành 256× 256 và 768× 768.
 • Spatiotemporal network sử dụng các spatiotemporal convolution và attention layers
 để mở rộng các blocks.Điều này đòi hỏi phải điều chỉnh các lớp tích chập và các lớp attention.
->>>>>>> HEAD@{1}

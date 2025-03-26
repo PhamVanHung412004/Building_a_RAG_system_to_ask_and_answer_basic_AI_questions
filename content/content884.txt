@@ -1,13 +1,5 @@
-<<<<<<< HEAD
-Node ID: 24736c44-f95b-4eb8-928a-b8f784c628e7
-Text: AI VIETNAM aivietnam.edu.vn 1 !zip -r
-/content/drive/MyDrive/data.zip data Kết quả cuối cùng chúng ta được
-bộ dữ liệu ảnh với nhiều class như sau: Hình 32: Dataset chứa tất cả
-các class được khai báo trong category 35
-=======
 AI VIETNAM aivietnam.edu.vn
 1 !zip -r /content/drive/MyDrive/data.zip data
 Kết quả cuối cùng chúng ta được bộ dữ liệu ảnh với nhiều class như sau:
 Hình 32: Dataset chứa tất cả các class được khai báo trong category
 35
->>>>>>> HEAD@{1}

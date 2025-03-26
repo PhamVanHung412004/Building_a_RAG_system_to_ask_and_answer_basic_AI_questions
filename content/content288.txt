@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: a61e0907-0b49-43e6-81ff-70248970491f
-Text: Khi giá trị giảm, màu sắc trở nên xanh hơn. Bằng cách sử dụng
-không gian màuLab, mô hình của chúng ta sẽ nhận đầu vào là kênhL, đại
-diện cho độ sáng, và sử dụng kênhab như ground truth của mô hình. Vì
-vậy, số lượng kênh màu cần dự đoán là 2, bao gồm thành phần màu a và
-b, giúp giảm bớt độ phức tạp so với việc dự đoán 3 kênh màu khi sử
-dụng không...
-=======
 Khi giá trị giảm, màu sắc trở nên xanh
 hơn.
 Bằng cách sử dụng không gian màuLab, mô hình của chúng ta sẽ nhận đầu vào là kênhL, đại diện
@@ -22,4 +13,3 @@ vấn đề Image Colorization. Input và output của chương trình như sau:
 • Input: Ảnh xám G (L channel).
 • Output: Trường ảnh màu C (ab channels).
 2
->>>>>>> HEAD@{1}

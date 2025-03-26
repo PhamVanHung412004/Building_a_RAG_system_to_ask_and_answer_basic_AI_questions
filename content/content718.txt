@@ -1,7 +1,2 @@
-<<<<<<< HEAD
-Node ID: 6bb7eafd-085d-4660-b23e-a677621eb9e7
-Text: . 10 5.1 Slicing, expand_dims . .
-=======
 . 10
 5.1 Slicing, expand_dims . . 
->>>>>>> HEAD@{1}

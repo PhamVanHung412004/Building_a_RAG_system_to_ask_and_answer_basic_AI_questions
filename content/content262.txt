@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 976c8677-3383-4e6f-b228-f792591f9d50
-Text: get (" content ") 4 if message is None : 5 return False 6 cb =
-extract_code ( message ) 7 contain_code = False 8 for c in cb: 9 if c
-[0] == " python ": 10 contain_code = True 11 break 12 return not
-contain_code (d) Xây dựng hàm khởi tạo các agents:Để thuận tiện trong
-việc triển khai code, ta xây dựng hàminitialize_agents() để tạo hai
-agent, sử d...
-=======
 get (" content ")
 4 if message is None :
 5 return False
@@ -43,4 +34,3 @@ source code:
 21
 22 return assistant , userproxy
 4
->>>>>>> HEAD@{1}

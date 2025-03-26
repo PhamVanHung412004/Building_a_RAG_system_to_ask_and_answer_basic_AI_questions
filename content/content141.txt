@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: ec9e79ad-e46f-4e28-8722-e216680bed64
-Text: AI VIETNAM aivietnam.edu.vn Hình 5: Phương trình này nói lên
-rằng sự thay đổi của nhiệt độ tại một điểm cụ thể trong không gian ∂u
-∂t phụ thuộc vào tốc độ dẫn nhiệtα và biến đổi không gian của nhiệt
-độ∇2u 7 Ito interpretation Ito interpretation là một khái niệm quan
-trọng trong lý thuyết xử lý stochastics (lý thuyết xử lý ngẫu nhiên),
-đặc biệt t...
-=======
 AI VIETNAM aivietnam.edu.vn
 Hình 5: Phương trình này nói lên rằng sự thay đổi của nhiệt độ tại một điểm cụ thể trong không gian
 ∂u
@@ -26,4 +17,3 @@ dX = a(X, t)dt + b(X, t)dW (8)
 Trong đó:
 • dX là thay đổi infinitesimal (vô cực nhỏ) của biến ngẫu nhiên X theo thời gian. Nó biểu thị sự
 biến đổi ngẫu nhiên của biến X trong một khoảng rất nhỏ của thời gian dt.
->>>>>>> HEAD@{1}

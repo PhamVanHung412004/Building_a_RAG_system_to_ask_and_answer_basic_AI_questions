@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: deb3e154-c5e3-49a7-9e62-00a6e9dcc7dd
-Text: append ( loss . item ()) 33 self . optimizer . step () 34 return
-sum ( losses )/ len ( losses ) 35 36 def val_step ( self ): 37 self .
-model . eval () 38 losses , metrics = [] , [] 39 with torch . no_grad
-(): 40 for batch in tqdm ( self . val_loader ): 41 gt_image = batch [’
-gt_image ’]. to( self . device ) 42 cond_image = batch [’ cond_image
-’]...
-=======
 append ( loss . item ())
 33 self . optimizer . step ()
 34 return sum ( losses )/ len ( losses )
@@ -39,4 +30,3 @@ self . sample_num )
 60 val_loss , val_mae = self . val_step ()
 61 if val_mae < best_mae :
 62 torch . save ( self . 
->>>>>>> HEAD@{1}

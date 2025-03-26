@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 0fc6ca5b-6f5f-4389-93a5-69306a4100ef
-Text: AI VIETNAM aivietnam.edu.vn 4.3.3 Tổng kết Phenaki được giới
-thiệu là một mô hình có khả năng tạo ra video có độ dài biến thiên dựa
-trên chuỗi prompt văn bản từ các chủ đề mở. Nó sử dụng C-ViViT làm bộ
-mã hóa video, một mô hình mới cung cấp khả năng nén không gian-thời
-gian hiệu quả trong khi vẫn duy trì tính tự hồi quy theo thời gian.
-Phenaki c...
-=======
 AI VIETNAM aivietnam.edu.vn
 4.3.3 Tổng kết
 Phenaki được giới thiệu là một mô hình có khả năng tạo ra video có độ dài biến thiên dựa trên chuỗi
@@ -29,4 +20,3 @@ thành một chuỗi huấn luyện cố định. Động lực dựa trên hai 
 • Táchvideodàithànhcácđoạnởframe-ratecốđịnhthườngdẫnđếnsựkhôngkhớpnghĩa.CogVideo
 vẫn sử dụng toàn bộ văn bản nhưng đoạn clip bị cắt có thể chỉ chứa hành động không hoàn chỉnh.
 • Các khung hình liền kề thường rất giống nhau. 
->>>>>>> HEAD@{1}

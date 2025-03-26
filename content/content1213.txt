@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 9f1fb63a-6cca-4095-9d0f-4bbda6675af1
-Text: ToTensor () , 9 transforms . Normalize ( means , stds ), 10 ] 11
-) 12 13 # Clone github repository with data 14 if not os. path . isdir
-("./ Homework3 - PACS "): 15 ! git clone https :// github . com /
-MachineLearning2020 / Homework3 - PACS 16 17 # Define datasets root 18
-DIR_PHOTO = " Homework3 - PACS / PACS / photo " 19 DIR_ART = "
-Homework3 -...
-=======
 ToTensor () ,
 9 transforms . Normalize ( means , stds ),
 10 ]
@@ -43,4 +34,3 @@ ConcatDataset để concat các dataset với nhau.
 8
 9 # Concatenate all datasets
 10 test_datasets = torch . utils . 
->>>>>>> HEAD@{1}

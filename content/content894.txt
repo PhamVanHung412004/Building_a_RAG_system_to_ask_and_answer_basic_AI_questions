@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 6919012c-a39a-4e31-a09d-6d316357c1bf
-Text: AI VIETNAM aivietnam.edu.vn Principle Prompt Principle for
-Instructions 1 Nếu bạn muốn một câu trả lời ngắn gọn, không cần phải
-lịch sự với mô hình LLM, không cần thêm những cụm từ như "please", "if
-you don’t mind", "thank you", "I would like to", v.v. Ta nên đi thẳng
-vào vấn đề 2 Nên đề cập đến đối tượng của câu trả lời ở trong prompt,
-ví dụ: n...
-=======
 AI VIETNAM aivietnam.edu.vn
 Principle Prompt Principle for Instructions
 1
@@ -23,4 +14,3 @@ trò chuyện tương tác với mô hình.
 bất kỳ thông tin nào, hãy sử dụng những prompt sau:
 • Explain [insert specific topic] in simple terms.
 • Explain to me like I’m 11 years old.
->>>>>>> HEAD@{1}

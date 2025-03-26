@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 6e227410-06e3-433b-acc3-1ca6da51136a
-Text: Giá trị lớn củaθ có nghĩa là hệ số giảm dần nhanh, làm cho ảnh
-hưởng của điều kiện ban đầu giảm nhanh theo thời gian. • Tính Dừng: OU
-process là một quá trình dừng, nghĩa là các đặc trưng thống kê của nó
-(như kỳ vọng và phương sai) không thay đổi theo thời gian. Điều này
-giúp quá trình trở nên ít phụ thuộc vào điều kiện ban đầu khi thời
-gian tăn...
-=======
 Giá trị lớn củaθ có nghĩa là hệ số giảm dần nhanh,
 làm cho ảnh hưởng của điều kiện ban đầu giảm nhanh theo thời gian.
 • Tính Dừng: OU process là một quá trình dừng, nghĩa là các đặc trưng thống kê của nó (như kỳ
@@ -16,4 +7,3 @@ vào điều kiện ban đầu khi thời gian tăng lên.
 Bây giờ chúng ta sẽ cùng tìm hiểu về phương trình vi phân ngẫu nhiên (SDE) đa biến và phương trình
 Fokker-Planck tương ứng. Quay trở lại với SDE, vớix(t) là một vector N-chiều(x(t) ∈ RN ) ta có:
 16
->>>>>>> HEAD@{1}

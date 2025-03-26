@@ -1,8 +1,2 @@
-<<<<<<< HEAD
-Node ID: 8e4b40fe-4c85-4ef9-97c8-337572c3a8fb
-Text: optim . Adam ( list ( filter ( 7 lambda p: p. requires_grad ,
-self . model .
-=======
 optim . Adam ( list ( filter (
 7 lambda p: p. requires_grad , self . model . 
->>>>>>> HEAD@{1}

@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 402294f1-883e-4793-8dd0-f0e88eb0031a
-Text: (2022). YOLOv7: Trainable bag-of-freebies sets new state-of-the-
-art for real-time object detectors. ArXiv. /abs/2207.02696 [8] Jocher,
-G., Stoken, A., Borovec, J., Christopher, S. T. A. N., Laughing, L.
-C., & Ultralytics. (2023). YOLOv8 by Ultralytics. GitHub.
-/ultralytics/ultralytics [9] Wang, C., Yeh, I., & Liao, H. (2024).
-YOLOv9: Learning Wh...
-=======
 (2022). YOLOv7: Trainable bag-of-freebies
 sets new state-of-the-art for real-time object detectors. ArXiv. /abs/2207.02696
 [8] Jocher, G., Stoken, A., Borovec, J., Christopher, S. T. A. N., Laughing, L. C., & Ultralytics.
@@ -16,4 +7,3 @@ Programmable Gradient Information. ArXiv. /abs/2402.13616
 [10] Wang, A., Chen, H., Liu, L., Chen, K., Lin, Z., Han, J., & Ding, G. (2024). YOLOv10:
 Real-Time End-to-End Object Detection. ArXiv. /abs/2405.14458
 [11] Zhang, X., Wan, F., Liu, C., Ji, R., Ye, Q. 
->>>>>>> HEAD@{1}

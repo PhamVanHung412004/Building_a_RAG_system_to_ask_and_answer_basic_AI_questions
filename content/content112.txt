@@ -1,12 +1,6 @@
-<<<<<<< HEAD
-Node ID: f352f1f8-5fcf-423c-b4aa-33b4352d1aa6
-Text: read_csv ( DATASET_PATH ) 3 4 messages = df[’ Message ’]. values
-. tolist () 5 labels = df[’ Category ’]. values . tolist () 6 4
-=======
 read_csv ( DATASET_PATH )
 3
 4 messages = df[’ Message ’]. values . tolist ()
 5 labels = df[’ Category ’]. values . tolist ()
 6
 4
->>>>>>> HEAD@{1}

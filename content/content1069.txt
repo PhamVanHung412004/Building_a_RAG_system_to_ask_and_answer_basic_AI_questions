@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: e5a0f9d7-11f6-44ee-a3ef-5b5ab0c4d730
-Text: AI VIETNAM aivietnam.edu.vn Paper này sử dụng Latent Diffusion
-Model (LDM, [6]) đã được pretrained như một mô hình text-to- image.
-Trong đó LDM sử dụng kiến trúc U-Net, sử dụng nhiều khối Convolution
-2D và khối transformer, với từng khối transformer sử dụng các layer
-self-attention, cross-attention và feed-forward. Để sử dụng các khối
-này cho tá...
-=======
 AI VIETNAM aivietnam.edu.vn
 Paper này sử dụng Latent Diffusion Model (LDM, [6]) đã được pretrained như một mô hình text-to-
 image. Trong đó LDM sử dụng kiến trúc U-Net, sử dụng nhiều khối Convolution 2D và khối transformer,
@@ -26,4 +17,3 @@ duy nhất với sự hỗ trợ của các mô hình chuyển đổi từ văn 
 từ trước. Công cụ được giới thiệu, Tune-A-Video, hỗ trợ việc tạo và chỉnh sửa video dựa trên văn bản
 thông qua một chiến lược tuning đặc biệt và sự đảo ngược cấu trúc, đảm bảo tính nhất quán về thời
 gian trong các video được tạo ra. 
->>>>>>> HEAD@{1}

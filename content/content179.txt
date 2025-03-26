@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: ed4a8b62-970d-4702-a03f-0d9cf7d7478c
-Text: AI VIETNAM aivietnam.edu.vn 15.4.2 1D OU process from a point
-mass Trong 1D OU process với điều kiện ban đầu là Delta function tạix0
-. 1D OU Process with Delta Function Initial Condition p(x, t) = 1p
-2πs(t)2 exp  −[x − µ(t)]2 2s(t)2  . (53) Trong đó: • p(x, t) là xác
-suất phân phối tạix và thời điểmt cho 1D OU process. • x0 là vị trí
-ban đầu c...
-=======
 AI VIETNAM aivietnam.edu.vn
 15.4.2 1D OU process from a point mass
 Trong 1D OU process với điều kiện ban đầu là Delta function tạix0 .
@@ -33,4 +24,3 @@ logarithm củap(x, t).
 t.
 • Trong trường hợp này, score function cho biết càng xa khỏi giá trị kỳ vọngµ(t), càng có giá trị
 tuyệt đối lớn hơn, với độ lệch chuẩns(t) làm mẫu số. 
->>>>>>> HEAD@{1}

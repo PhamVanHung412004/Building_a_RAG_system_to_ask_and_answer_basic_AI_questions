@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 515cfe09-07c6-47ce-950f-c7dd23b973ea
-Text: AI VIETNAM aivietnam.edu.vn Tổng quan, chúng ta sẽ có thư mục
-chứa mã nguồn có tênroot (các bạn hoàn toàn có thể sử dụng tên gọi
-khác). Bên trong sẽ có các thư mục con và các file với ý nghĩa như
-sau: _ config/: Thư mục chứa code định nghĩa các tham số liên quan đến
-các module khác nhau như model, logger... _ logs/: Thư mục lưu trữ
-log. Log có t...
-=======
 AI VIETNAM aivietnam.edu.vn
 Tổng quan, chúng ta sẽ có thư mục chứa mã nguồn có tênroot (các bạn hoàn toàn có thể
 sử dụng tên gọi khác). Bên trong sẽ có các thư mục con và các file với ý nghĩa như sau:
@@ -24,4 +15,3 @@ _ app.py: File code khai báo API.
 _ requirements.txt: File chứa thông tin các gói thư viện cần thiết để chạy mã nguồn.
 _ server.py:File code để thực thi triển khai mô hình.
 Hình 5: Minh họa cấu trúc cây thư mục của chương trình trong VSCode.
->>>>>>> HEAD@{1}

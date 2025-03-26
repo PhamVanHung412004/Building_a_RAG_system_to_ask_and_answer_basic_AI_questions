@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 473ddbe1-ad8b-456e-b2d7-9b1e1dd12cc0
-Text: AI VIETNAM aivietnam.edu.vn để đánh giá về các rủi ro tiềm ẩn và
-cũng được cung cấp cho các nghệ sĩ, nhà thiết kế và nhà làm phim để
-thu thập phản hồi nhằm cải thiện mô hình cho nhu cầu sáng tạo. Sora có
-thể tạo ra các cảnh phức tạp với nhiều nhân vật, các loại chuyển động
-cụ thể, và chi tiết chính xác về đối tượng và phông nền. Mặc dù có khả
-nă...
-=======
 AI VIETNAM aivietnam.edu.vn
 để đánh giá về các rủi ro tiềm ẩn và cũng được cung cấp cho các nghệ sĩ, nhà thiết kế và nhà làm phim
 để thu thập phản hồi nhằm cải thiện mô hình cho nhu cầu sáng tạo. Sora có thể tạo ra các cảnh phức
@@ -40,4 +31,3 @@ III có đề cập. Tuy nhiên ta không thể nào biết chính xác kiến t
 Spacetime latent patches- Với một video đầu vào đã được nén, Sora trích xuất một chuỗi các
 spacetime patches hoạt động như các token transformer. Cơ chế này cũng áp dụng cho ảnh vì ảnh chỉ
 là video với một khung hình duy nhất. 
->>>>>>> HEAD@{1}

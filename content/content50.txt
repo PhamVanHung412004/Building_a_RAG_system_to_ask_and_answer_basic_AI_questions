@@ -1,15 +1,6 @@
-<<<<<<< HEAD
-Node ID: a76c9709-a98f-417c-8487-ef9687494a46
-Text: AI VIETNAM (AIO2024) aivietnam.edu.vn Hình 13: Tải pretrained
-model sử dụng lệnh wget Để kiểm tra xem file pretrained model đã được
-tải về thành công hay chưa, các bạn refresh phần Files của Google
-Colab và tìm kiếm file có tênYOLOv10n.pt: Hình 14: File pretrained
-model 9
-=======
 AI VIETNAM (AIO2024) aivietnam.edu.vn
 Hình 13: Tải pretrained model sử dụng lệnh wget
 Để kiểm tra xem file pretrained model đã được tải về thành công hay chưa, các bạn refresh
 phần Files của Google Colab và tìm kiếm file có tênYOLOv10n.pt:
 Hình 14: File pretrained model
 9
->>>>>>> HEAD@{1}

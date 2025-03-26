@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-Node ID: 90a974e1-bd99-4aaf-8d2c-f660087be3ff
-Text: AI VIETNAM aivietnam.edu.vn c. Multilevel Inheritance (Kế thừa
-đa cấp) Kế thừa đa cấp là khi một lớp kế thừa từ lớp cha, và lớp cha
-đó lại kế thừa từ một lớp khác.
-=======
 AI VIETNAM aivietnam.edu.vn
 c. Multilevel Inheritance (Kế thừa đa cấp)
 Kế thừa đa cấp là khi một lớp kế thừa từ lớp cha, và lớp cha đó lại kế thừa từ một lớp khác.
->>>>>>> HEAD@{1}

@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 27e76b06-b5bc-4d82-9825-3dea872814b8
-Text: AI VIETNAM aivietnam.edu.vn Phần II. Visual Question Answering
-us- ing BLIP-2 Hình 4: Kiến trúc mô hình BLIP-2. Kiến trúc mô hình
-BLIP-2 được mô tả trong Hình 4. Đầu vào mô hình là câu hỏi và hình
-ảnh. Đầu ra của mô hình là câu trả lời dựa vào câu hỏi và ngữ cảnh là
-hình ảnh. Mô hình BLIP-2 bao gồm các thành phần: • Image Encoder: CLIP
-ViT. • In...
-=======
 AI VIETNAM aivietnam.edu.vn
 Phần II. Visual Question Answering us-
 ing BLIP-2
@@ -21,4 +12,3 @@ Trong phần tiếp theo, chúng ta sẽ huấn luyện mô hình BLIP-2 trên b
 viện transformers. Bộ dữ liệu VQA có 14,550 samples. Mỗi sample bao gồm đầu vào: Image + Question
 và đầu ra: Answer. Bộ dữ liệu VQA có thể được tải về: tại đây.
 2.1. 
->>>>>>> HEAD@{1}

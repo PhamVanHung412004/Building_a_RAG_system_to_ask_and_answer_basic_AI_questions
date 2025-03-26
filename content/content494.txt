@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-Node ID: 46e6f0ea-96a3-431f-89fa-66fcec9c4075
-Text: AI VIETNAM aivietnam.edu.vn 6 bnb_4bit_quant_type="nf4", 7
-bnb_4bit_compute_dtype=torch.bfloat16 8 ) 9 10 model =
-AutoModelForCausalLM.from_pretrained( 11 MODEL_NAME, 12
-device_map="auto", 13 trust_remote_code=True, 14
-quantization_config=bnb_config 15 ) 16 17 tokenizer =
-AutoTokenizer.from_pretrained(MODEL_NAME) 18 tokenizer.pad_token =
-tokeniz...
-=======
 AI VIETNAM aivietnam.edu.vn
 6 bnb_4bit_quant_type="nf4",
 7 bnb_4bit_compute_dtype=torch.bfloat16
@@ -48,4 +38,3 @@ Trong đó:
 • Dòng 1:Khai báo biến chứa tên của mô hình ngôn ngữ lớn chúng ta mong muốn sử dụng,
 ở đây sẽ là VinaLLaMA phiên bản 7b-chat.
 • Dòng 3 - 40:Khởi tạo mô hình và các cài đặt cần thiết.
->>>>>>> HEAD@{1}

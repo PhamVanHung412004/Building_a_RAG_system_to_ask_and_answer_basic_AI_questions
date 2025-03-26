@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 8aecb4ac-021c-4f08-812c-03f38dadd1ad
-Text: AI VIETNAM aivietnam.edu.vn Unzip file clean_dataset.zip: 1
-!unzip Clean_Dataset Thực hiện phân chia, tổ chức lại thư mục như đã
-đề cập ở trên: 1 import os 2 import shutil 3 from collections import
-defaultdict 4 5 # Define the source and target directories 6
-source_dir = "Dataset" 7 train_dir = "data/train" 8 test_dir =
-"data/test" 9 10 # Create...
-=======
 AI VIETNAM aivietnam.edu.vn
 Unzip file clean_dataset.zip:
 1 !unzip Clean_Dataset
@@ -56,4 +47,3 @@ Thực hiện phân chia, tổ chức lại thư mục như đã đề cập ở
 43
 44 print("Dataset organization complete!")
 Chú ý filename.txt là file chứa đường dẫn của tất cả các ảnh đã được download ở phần trước. 
->>>>>>> HEAD@{1}

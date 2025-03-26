@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 6cac87d9-2258-41c6-acfb-37acf800a749
-Text: AI VIETNAM aivietnam.edu.vn a) Teacher - Name: 1991 - YoB:
-teacherZ2023 - Subject: History b) Teacher - Name: teacherZ2023 - YoB:
-1991 - Subject: History c) Teacher - Name: History - YoB: teacherZ2023
-- Subject: 1991 d) Tất cả đều sai Câu hỏi 7: Một người (person) có thể
-là student, doctor, hoặc teacher. Một doctor gồm có name (string), yob
-(str...
-=======
 AI VIETNAM aivietnam.edu.vn
 a) Teacher - Name: 1991 - YoB: teacherZ2023 - Subject: History
 b) Teacher - Name: teacherZ2023 - YoB: 1991 - Subject: History
@@ -56,4 +47,3 @@ mới với nghề nghiệp bất kỳ (student, teacher, doctor) vào danh sác
 ward object, và thêm vào 1 student, 2 teacher, và 2 doctor. Thực hiện describe() method để in ra
 tên ward (name) và toàn bộ thông tin của từng người trong ward. Chọn đáp án đúng nhất bên
 dưới cho phương thức đếm số lượng doctor.
->>>>>>> HEAD@{1}

@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 090e649b-33b5-4194-afbc-8c823366be2b
-Text: __listPeople = list () 5 6 def add_person (self , person :
-Person ): 7 self . __listPeople . append ( person ) 8 9 def describe (
-self ): 10 print (f" Ward Name : { self . __name }") 11 for p in self
-. __listPeople : 12 p. describe () 13 14 def count_doctor ( self ): 15
-### Your Code Here 16 17 ### End Code Here 18 19 student1 = Student (
-name =...
-=======
 __listPeople = list ()
 5
 6 def add_person (self , person : Person ):
@@ -42,4 +33,3 @@ d) 1
 Câu hỏi 9Thực hiện xây dựng class Stack với các chức năng (method) sau đây: initial- ization
 method nhận một input "capacity": dùng để khởi tạo stack với capacity là số lượng element mà
 stack có thể chứa. .is_full(): kiểm tra stack đã full chưa. 
->>>>>>> HEAD@{1}

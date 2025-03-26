@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: a476c558-fecb-42e3-9840-25b538c2cb70
-Text: AI VIETNAM aivietnam.edu.vn Còn một điểm chú ý nữa là hàmβ(t)
-quyết định cách biến đổi của mức độ nhiễu theo thời gian. Bên cạnh
-việc tăng nhiễu theo cấp số mũ, hàm này có thể được chọn để tăng một
-cách tuyến tính: β(t) := βmin + (βmax − βmin) t T (41) Trong đó T là
-thời gian áp dụng quá trình nhiễu trên các mẫu. Điều quan trọng làβ(t)
-tăng tuyế...
-=======
 AI VIETNAM aivietnam.edu.vn
 Còn một điểm chú ý nữa là hàmβ(t) quyết định cách biến đổi của mức độ nhiễu theo thời gian.
 Bên cạnh việc tăng nhiễu theo cấp số mũ, hàm này có thể được chọn để tăng một cách tuyến tính:
@@ -52,4 +43,3 @@ Trong đó xác suất chuyển đổiq(x, t|x0, 0) là xác suất để OU pro
 tại thời điểm 0 đến giá trịx tại thời điểmt - được định nghĩa bởi hàm Gaussian, xác suất chuyển đổi
 giảm theo thời gian và tập trung xung quanh giá trịx0. Điều này phản ánh khả năng của quá trình
 OU hồi phục về trung bình và giảm thiểu biến động ngẫu nhiên theo thời gian.
->>>>>>> HEAD@{1}

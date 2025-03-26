@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 98d6e2d4-de90-438a-948b-cd1340c1c894
-Text: AI VIETNAM aivietnam.edu.vn Phần II: Nội dung Để xây dựng một
-chương trình End-to-end Question Answering, chúng ta cần hoàn thiện
-hai module chính bao gồm Retriever và Reader: Hình 1: Ảnh minh hoạt
-tổng quát về một hệ thống End-to-end QA. Theo đó, nội dung của bài
-viết sẽ trình bày chương trình cài đặt cho từng thành phần như sau: 1.
-Dataset des...
-=======
 AI VIETNAM aivietnam.edu.vn
 Phần II: Nội dung
 Để xây dựng một chương trình End-to-end Question Answering, chúng ta cần hoàn thiện hai module
@@ -18,4 +9,3 @@ theo hướng đọc hiểu, bao gồm các đoạn văn (passage) khác nhau v�
 đoạn văn sẽ có một các câu hỏi ngắn kèm theo. Bảng 1 miêu tả cấu trúc chi tiết về dataset
 SQuAD2.0:
 Hình 2: Ví dụ minh họa về dataset SQuAD2.0.
->>>>>>> HEAD@{1}

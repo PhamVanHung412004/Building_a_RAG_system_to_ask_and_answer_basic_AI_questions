@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 1ff1df5e-a271-4766-9b54-310378d7fb06
-Text: Đầu vào của khối DiT là biểu diễn trong không gian latentz của
-một tấm ảnh (với một tấm ảnh kích thước256 ×256 ×3, z có kích thước32
-×32 ×4). Sau đóz sẽ được chia thành từng patches ảnh nhỏ, sau đó trải
-phẳng để tạo thành một chuỗiT các token hình ảnh, với mỗi token có
-chiều làd. 6.1 Diffusion Transformer Bây giờ chúng ta sẽ tìm hiểu tổng
-quan v...
-=======
 Đầu vào của khối DiT là biểu diễn trong không gian latentz của
 một tấm ảnh (với một tấm ảnh kích thước256 ×256 ×3, z có kích thước32 ×32 ×4). Sau đóz sẽ được
 chia thành từng patches ảnh nhỏ, sau đó trải phẳng để tạo thành một chuỗiT các token hình ảnh, với
@@ -20,4 +11,3 @@ Classifier-free guidance- Phương pháp này cải thiện khả năng tạo m�
 Latent diffusion models- Đây là một phương pháp hiệu quả về mặt tính toán, nén ảnh vào biểu
 diễn không gian nhỏ hơn trước khi tạo ảnh, giúp tiết kiệm tài nguyên tính toán.
 19
->>>>>>> HEAD@{1}

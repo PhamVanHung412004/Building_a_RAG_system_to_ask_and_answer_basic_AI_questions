@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-Node ID: 27de56f4-71eb-491a-a36c-3386251ee883
-Text: yaml ’ 2 EPOCHS = 50 3 IMG_SIZE = 640 4 5 model . train ( data =
-YAML_PATH , 6 epochs = EPOCHS , 7 imgsz = IMG_SIZE ) Giả sử các bạn
-đang ở thư mục/content/yolov10, khi thực thi đoạn lệnh trên có xảy ra
-lỗi không? 21
-=======
 yaml ’
 2 EPOCHS = 50
 3 IMG_SIZE = 640
@@ -15,4 +8,3 @@ yaml ’
 Giả sử các bạn đang ở thư mục/content/yolov10, khi thực thi đoạn lệnh trên có xảy ra
 lỗi không?
 21
->>>>>>> HEAD@{1}

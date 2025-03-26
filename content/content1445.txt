@@ -1,13 +1,5 @@
-<<<<<<< HEAD
-Node ID: 92756814-753a-40d1-b9d5-285f1242a40c
-Text: (*) Ta sẽ thực hiện kéo 2 cột: Country vào X-Axis và Population
-vào Y-Axis. Ứng với 2 thông số của biểu đồ cột mà chúng ta cần thực
-hiện trực quan hóa biểu đồ: Trục Ox (Trục ngang) thể hiện cho Quốc gia
-(Country) và Trục Oy (Trục dọc) thể hiện cho Dân số (Population)
-=======
 (*) Ta sẽ thực hiện kéo 2 cột: Country vào X-Axis và Population vào Y-Axis.
 Ứng với 2 thông số của biểu đồ cột mà chúng ta cần thực hiện trực quan hóa
 biểu đồ: Trục Ox (Trục ngang) thể hiện cho Quốc gia (Country) và Trục Oy
 (Trục dọc) thể hiện cho Dân số (Population)
->>>>>>> HEAD@{1}
 www.facebook.com/aivietnam.edu.vn 3

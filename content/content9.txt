@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 137c9f6a-ad7c-40b2-86eb-c47c308c444f
-Text: AI VIETNAM (AIO2024) aivietnam.edu.vn dụng class Text Splitter
-để thực hiện tác vụ trên. Ở đây, ta khai báo instance text splitter
-như sau: 1 text_splitter = RecursiveCharacterTextSplitter ( chunk_size
-=1000 , 2 chunk_overlap =100) Vớitext_splitter, ta thực hiện tách file
-pdf: 1 docs = text_splitter . split_documents ( documents ) 2 3 print
-(" N...
-=======
 AI VIETNAM (AIO2024) aivietnam.edu.vn
 dụng class Text Splitter để thực hiện tác vụ trên. Ở đây, ta khai báo instance text
 splitter như sau:
@@ -20,4 +11,3 @@ Vớitext_splitter, ta thực hiện tách file pdf:
 Ở hai dòng print trên, ta in số lượng tài liệu sau khi tách khỏi pdf và in nội dung tài
 liệu đầu tiên.
 Hình 5: Minh họa việc tách văn bản lớn thành các văn bản nhỏ hơn.
->>>>>>> HEAD@{1}

@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: c329d4b6-e7f1-4263-bc74-ec0cc0e364d9
-Text: img_paths = img_paths 23 self . tfs = transforms . Resize ((
-image_size [0] , image_size [1]) ) 24 25 def __getitem__ (self , index
-): 26 img_path = self . img_paths [ index ] 27 arr_img_bgr = cv2 .
-imread ( img_path ) 28 29 # Convert BGR to LAB 30 arr_img_lab = cv2 .
-cvtColor ( arr_img_bgr , cv2 . COLOR_BGR2LAB ) 31 32 # Normalize from
-[0..255]...
-=======
 img_paths = img_paths
 23 self . tfs = transforms . Resize (( image_size [0] , image_size [1]) )
 24
@@ -48,4 +39,3 @@ Trong phần này, chúng ta sẽ tận dụng một kiến trúc UNet phổ bi�
 đến Diffusion, sử dụng nhiều kỹ thuật như Attention Mechanism, Adaptive Group Normalization
 và được giới thiệu trong một công bố mang tên Diffusion Models Beat GAN on Image Synthesis.
 4
->>>>>>> HEAD@{1}

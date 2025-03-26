@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: e437379b-9007-4b3e-9dcf-2d26beeeb6a6
-Text: dtype ) 269 a = torch . einsum ("bts ,bcs -> bct ", weight , v)
-270 return a. reshape (bs , -1, length ) 271 272 @staticmethod 273 def
-count_flops ( model , _x , y): 274 return count_flops_attn ( model ,
-_x , y) 275 276 277 class QKVAttention (nn. Module ): 278 """ 279 A
-module which performs QKV attention and splits in a different order .
-280 "...
-=======
 dtype )
 269 a = torch . einsum ("bts ,bcs -> bct ", weight , v)
 270 return a. reshape (bs , -1, length )
@@ -35,4 +26,3 @@ dtype )
 293 assert width % (3 * self . n_heads ) == 0
 294 ch = width // (3 * self . n_heads )
 14
->>>>>>> HEAD@{1}

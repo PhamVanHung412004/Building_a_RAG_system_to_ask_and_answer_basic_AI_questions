@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: cae822f0-4c84-4c22-840e-d58f32e96019
-Text: AIO2024 aivietnam.edu.vn 3. Thêm phần tử vào danh sách Chúng ta
-có thể thêm một hoặc nhiều phần tử vào một danh sách.
-Hàmappend(element) cho phép thêm phần tử element vào cuối danh sách.
-Hàminsert(index, element) chèn phần tử element vào vị trí có chỉ mục
-là index. Ví dụ 3.1 minh họa việc thêm một phần tử vào một danh sách
-dùng hàm append(elemen...
-=======
 AIO2024 aivietnam.edu.vn
 3. Thêm phần tử vào danh sách
 Chúng ta có thể thêm một hoặc nhiều phần tử vào một danh sách. Hàmappend(element) cho phép
@@ -35,4 +26,3 @@ Ví dụ 3.1: Thêm một phần tử vào một danh sách.
 ==========================================
 Ngoài ra, Python cho phép thêm nhiều phần tử vào một danh sách hay nối hai danh sách vào thành
 một. Hàm extend(a_list) thêm các phần tử trong a_list vào cuối một danh sách. 
->>>>>>> HEAD@{1}

@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: f395f53c-fceb-4668-a566-dd0662e9498d
-Text: AIO2024 aivietnam.edu.vn Ba giá trị start, end và step có thể
-không khai báo khi dùng slicing như ở ví dụ 4. Lúc này start, end và
-step sẽ nhận các giá trị mặc định là 0, 6 và 1. Như đã thảo luận,
-chúng ta thậm chí có thể không khai báo đầy đủ hai dấu hai chấm như
-data[:] chỉ khai báo một dấu hai chấm, và lờ đi start, end, stop, và
-một dấu hai c...
-=======
 AIO2024 aivietnam.edu.vn
 Ba giá trị start, end và step có thể không khai báo khi dùng slicing như ở ví dụ 4. Lúc này start, end
 và step sẽ nhận các giá trị mặc định là 0, 6 và 1. Như đã thảo luận, chúng ta thậm chí có thể không
@@ -39,4 +30,3 @@ và kết quả của 2 chương trình.
 6 # =========================================
 ================= Output ================
 Cell In [.] 
->>>>>>> HEAD@{1}

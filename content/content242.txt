@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-Node ID: 316fcbe5-78f9-42f2-9801-1ec50c40bfee
-Text: • Entropy(Mild)= 1. • Entropy(Hot)= 0. 7
-=======
 • Entropy(Mild)= 1.
 • Entropy(Hot)= 0.
 7
->>>>>>> HEAD@{1}

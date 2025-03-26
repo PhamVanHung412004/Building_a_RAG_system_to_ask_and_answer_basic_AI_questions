@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-Node ID: 08360f4e-1449-4c78-9e14-3e74827a8e8f
-Text: Vì vậy, ta sẽ loại bỏ các trường hợp này ra khỏi bộ dữ liệu: 12
-=======
 Vì vậy, ta sẽ loại bỏ các trường hợp này ra
 khỏi bộ dữ liệu:
 12
->>>>>>> HEAD@{1}

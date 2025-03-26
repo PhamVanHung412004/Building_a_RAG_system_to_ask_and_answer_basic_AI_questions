@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-Node ID: 9ebd0c98-da9c-4638-a0d7-7ea1a48c30a9
-Text: gdown 187 x5YSXYibG4QwC5m_Hx8cNzPGVTXv6G 2 ! unzip -q data . zip
-3 !rm data . zip Khai báo các thư viện: 1 import os 2 import numpy as
-np 3 from tqdm import tqdm 4 import torch 5 import torch .nn as nn 6
-import torch .nn. functional as F 7 import torch . optim as optim 3
-=======
 gdown 187 x5YSXYibG4QwC5m_Hx8cNzPGVTXv6G
 2 ! unzip -q data . zip
 3 !rm data . zip
@@ -17,4 +10,3 @@ Khai báo các thư viện:
 6 import torch .nn. functional as F
 7 import torch . optim as optim
 3
->>>>>>> HEAD@{1}

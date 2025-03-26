@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: f547ef7b-2674-443f-bd09-66fecfd67a35
-Text: Về cơ bản, trong quá trình huấn luyện, tác giả sử dụng thông tin
-của cả hai chiến lược. Đến quá trình inference, nhánh one-to-many sẽ
-được bỏ đi để tránh việc sử dụng NMS. Về cách bắt cặp ground-truth và
-bounding box dự đoán, cả hai chiến lược đều sử dụng chung một độ đo là
-Consistent Matching Metric. 2. Holistic Efficiency-Accuracy Driven
-Model...
-=======
 Về cơ bản, trong quá trình huấn luyện, tác giả sử dụng thông tin của cả hai chiến lược.
 Đến quá trình inference, nhánh one-to-many sẽ được bỏ đi để tránh việc sử dụng NMS. Về
 cách bắt cặp ground-truth và bounding box dự đoán, cả hai chiến lược đều sử dụng chung
@@ -28,4 +19,3 @@ layer convolution với kernel 3x3 và stride=2 để giảm kích thước feat
 tự như với classification head, YOLOv10 cũng sử dụng kết hợp phép point-wise và
 depth-wise convolution để thay thế phương thức thông thường.
 10
->>>>>>> HEAD@{1}

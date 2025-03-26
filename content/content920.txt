@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 18474bad-fcb4-4fbf-a5d3-fce3a61a24e3
-Text: • Entropy: Sử dụng hàm entropy để tính độ bất định. vời hàm
-entropy được định nghĩa như sau: u = arg max i − kX j=1 Pθ(aj|qi)
-lnPθ(aj|qi) (2) Trong đóPθ(aj|qi) là tần số xuất hiện của một câu trả
-lời j nhất định trong tập tất cả các dự đoán. Entropy càng cao chứng
-tỏ độ bất định càng lớn. • Variance: Sử dụng variance cho các câu hỏi
-liên quan đế...
-=======
 • Entropy: Sử dụng hàm entropy để tính độ bất định. vời hàm entropy được định nghĩa như
 sau:
 u = arg max
@@ -31,4 +22,3 @@ giới thiệu trong paper "Guiding Large Language Models via Directional Stimul
 et al., 2023. DSP sử dụng các kích thích/chỉ dẫn hướng (directional stimulus, trong trường hợp này
 là các từ khóa), để cung cấp hướng dẫn cụ thể cho từng trường hợp cho các mô hình ngôn ngữ lớn
 18
->>>>>>> HEAD@{1}

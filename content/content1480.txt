@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 976e2278-ddf9-4093-967f-0bb431b2079e
-Text: AI VIETNAM aivietnam.edu.vn (d) Xây dựng hàm main cho chương
-trình:Cuối cùng, ta viết code nhận đầu vào là câu hỏi từ command line,
-thực hiện embedding câu hỏi và chạy hàm search. Từ đó, với các tài
-liệu có liên quan, ta chạy mô hình QA để trả lời câu hỏi từ input: 1
-def main (): 2 parser = argparse . ArgumentParser () 3 parser .
-add_argument (’...
-=======
 AI VIETNAM aivietnam.edu.vn
 (d) Xây dựng hàm main cho chương trình:Cuối cùng, ta viết code nhận đầu vào là câu
 hỏi từ command line, thực hiện embedding câu hỏi và chạy hàm search. Từ đó, với các tài
@@ -62,4 +53,3 @@ result [’ context ’], result [’ distance ’])):
 47 main ()
 48 qa_collection . release ()
 Cuối cùng, chúng ta sẽ chạy file này để xem thử thành quả. 
->>>>>>> HEAD@{1}

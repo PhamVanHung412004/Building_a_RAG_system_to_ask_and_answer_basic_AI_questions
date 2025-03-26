@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: a8db9b4e-85f8-471d-ad41-e69808507c18
-Text: AIO 2024 aivietnam.edu.vn Hình 11: Minh họa cách sử dụng hàm
-reshape 1 # Numpy code 2 import numpy as np 3 # Tạo một array 2D 4
-arr_2D = np.array([[1, 2, 3], [4, 5, 6]]) 5 # (2, 3)->(3, 2) 6
-new_arr_2D = np.reshape(arr_2D, (3, 2)) 7 8 # Chuyển từ 2D -> 1D 9
-arr_1D = np.reshape(arr_2D, 10 newshape=(6, )) 11 print("array 2D:\n",
-arr_2D, arr_2D.sha...
-=======
 AIO 2024 aivietnam.edu.vn
 Hình 11: Minh họa cách sử dụng hàm reshape
 1 # Numpy code
@@ -36,4 +27,3 @@ array 1D:
 ==========================================
 Trong ví dụ trên, ta tạo một array 2D có 2 hàng và 3 cột. Sử dụngnp.reshape để thay đổi hình dạng
 của array từ 2D thành 1D với hình dạng mới là (6,), nghĩa là một array có 6 phần tử. 
->>>>>>> HEAD@{1}

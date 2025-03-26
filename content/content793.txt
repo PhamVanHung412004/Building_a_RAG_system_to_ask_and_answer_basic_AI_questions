@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 8d285ae5-0438-4d6d-a19d-6218fc8dc796
-Text: AIO 2024 aivietnam.edu.vn 1 #aivietnam 2 import numpy as np 3 #
-Tạo hai array 1D 4 arr_1 = np.array([1, 2, 3, 4]) 5 arr_2 =
-np.array([5, 6, 7, 8]) 6 print("arr_1:", arr_1) 7 print("arr_2:",
-arr_2) 8 # Hiệu hai array 9 # Cách 1: Sử dụng toán tử ’-’ 10
-array_sub_1 = arr_1 - arr_2 11 # Cách 2: Sử dụng hàm np.subtract() 12
-array_sub_2 = np.subtract(...
-=======
 AIO 2024 aivietnam.edu.vn
 1 #aivietnam
 2 import numpy as np
@@ -38,4 +29,3 @@ phần tửAij với phần tửBij.
 Cij = Aij · Bij
 Hình 15: Minh họa Multiplication
 Để thực hiện multiplication, ta sử dụng toán tử "*"hoặc hàmmultiply.
->>>>>>> HEAD@{1}

@@ -1,7 +1,2 @@
-<<<<<<< HEAD
-Node ID: 3bb47534-231a-4983-9caf-60c3dea94d65
-Text: relu ( self . conv1 (x))) 5
-=======
 relu ( self . conv1 (x)))
 5
->>>>>>> HEAD@{1}

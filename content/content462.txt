@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: e74860c4-6299-4f54-8b31-46f0536e3cd2
-Text: Demo được thực hiện trên hệ điều hành MacOS. Các bước thực hiện
-như sau: 1. Tổ chức thư mục code:Để mã nguồn trở nên rõ ràng nhằm phục
-vụ cho mục đích đọc hiểu code, chúng ta sẽ tổ chức thư mục như sau:
-root/ config/ catdog_cfg.py logging_cfg.py logs/ middleware/
-__init__.py cors.py http.py models/ weights/ catdog_weights.pt
-catdog_model.py catd...
-=======
 Demo được thực hiện trên hệ điều hành MacOS. Các bước thực hiện như
 sau:
 1. Tổ chức thư mục code:Để mã nguồn trở nên rõ ràng nhằm phục vụ cho mục đích đọc
@@ -36,4 +27,3 @@ app.py
 requirements.txt
 server.py
 6
->>>>>>> HEAD@{1}

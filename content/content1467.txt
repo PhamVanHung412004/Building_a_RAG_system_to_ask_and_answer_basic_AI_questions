@@ -1,16 +1,6 @@
-<<<<<<< HEAD
-Node ID: 36295be5-6be3-44e2-9a81-0ed002f3c99e
-Text: Kiểm tra hoạt động của Milvus:Chúng ta sẽ thử tương tác với
-Milvus trong Python thông qua thư viện pymilvus. Milvus có sử dụng một
-số từ khóa mới, song các bạn có thể nắm cơ bản rằng chúng ta sẽ có
-cácCollection, một dạng bảng dữ liệu của Milvus. Như vậy, để lưu trữ
-một vector database trong Milvus, chúng ta sẽ cần tạo một Collection,
-từ đó kết ...
-=======
 Kiểm tra hoạt động của Milvus:Chúng ta sẽ thử tương tác với Milvus trong Python thông
 qua thư viện pymilvus. Milvus có sử dụng một số từ khóa mới, song các bạn có thể nắm cơ bản
 rằng chúng ta sẽ có cácCollection, một dạng bảng dữ liệu của Milvus. Như vậy, để lưu trữ một
 vector database trong Milvus, chúng ta sẽ cần tạo một Collection, từ đó kết nối và tương tác với
 Collection này:
 4
->>>>>>> HEAD@{1}

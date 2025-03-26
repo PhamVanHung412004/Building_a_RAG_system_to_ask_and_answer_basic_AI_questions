@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 3d62dcc1-ae06-4278-9f3b-b7550e4eb87a
-Text: Sau đây là cách sử dụng dictionary để xây dựng chương trình theo
-dõi hoạt động của Tom. 1 todo = {"5 AM": " Wake up", 2 "6 AM": " Yoga
-", 3 "7 AM": " Work "} 4 time = input (" Input time : ") 5 todo . get
-(time , "Do something else ") Đầu tiên chúng ta tạo một từ điển todo
-với các cặp khóa-giá trị. Mỗi khóa là một thời gian cụ thể (ví dụ: "5
-AM"...
-=======
 Sau đây là cách sử dụng dictionary để xây dựng chương trình theo dõi hoạt động của Tom.
 1 todo = {"5 AM": " Wake up",
 2 "6 AM": " Yoga ",
@@ -16,4 +7,3 @@ Sau đây là cách sử dụng dictionary để xây dựng chương trình the
 Đầu tiên chúng ta tạo một từ điển todo với các cặp khóa-giá trị. Mỗi khóa là một thời gian cụ thể (ví
 dụ: "5 AM", "6 AM", "7 AM") và mỗi giá trị là haotj động của Tom vào thời gian đó (ví dụ: "Wake
 3
->>>>>>> HEAD@{1}

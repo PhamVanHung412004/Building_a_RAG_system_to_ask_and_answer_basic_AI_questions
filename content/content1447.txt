@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-Node ID: bd9ebbd3-822b-464d-a471-c3a6322e687a
-Text: Hình 5: Biểu đồ cột thể hiện dân số theo quốc gia + Vẽ biểu đồ
-hộp thể hiện phân phối dữ liệu: www.facebook.com/aivietnam.edu.vn 4
-=======
 Hình 5: Biểu đồ cột thể hiện dân số theo quốc gia
 + Vẽ biểu đồ hộp thể hiện phân phối dữ liệu:
 www.facebook.com/aivietnam.edu.vn 4
->>>>>>> HEAD@{1}

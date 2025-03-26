@@ -1,13 +1,5 @@
-<<<<<<< HEAD
-Node ID: 3f9d4de9-76d3-4b18-9c7c-db0349310557
-Text: AI VIETNAM aivietnam.edu.vn Vì vậyD[1, 3] = 2, D[2, 2] = 1, D[2,
-3] = 1ta được ma trận như sau: Hình 5: Giá trị tạiD[1, 3], D[2, 2],
-D[2, 3]. • Bước 4: Sau khi hoàn thành ma trận, chúng ta đi tìm đường
-đi từ ô cuối cùngD[2, 3] có giá trị là 1.
-=======
 AI VIETNAM aivietnam.edu.vn
 Vì vậyD[1, 3] = 2, D[2, 2] = 1, D[2, 3] = 1ta được ma trận như sau:
 Hình 5: Giá trị tạiD[1, 3], D[2, 2], D[2, 3].
 • Bước 4: Sau khi hoàn thành ma trận, chúng ta đi tìm đường đi từ ô cuối cùngD[2, 3] có giá
 trị là 1. 
->>>>>>> HEAD@{1}

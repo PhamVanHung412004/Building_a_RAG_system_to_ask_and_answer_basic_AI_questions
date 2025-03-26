@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: ad51eae0-25ab-46e2-93d9-5eb076512626
-Text: AI VIETNAM aivietnam.edu.vn 178 h = in_rest (x) 179 h = self .
-h_upd (h) 180 x = self . x_upd (x) 181 h = in_conv (h) 182 else : 183
-h = self . in_layers (x) 184 emb_out = self . emb_layers ( emb ). type
-(h. dtype ) 185 while len ( emb_out . shape ) < len (h. shape ): 186
-emb_out = emb_out [... , None ] 187 if self . use_scale_shift_norm :
-188 o...
-=======
 AI VIETNAM aivietnam.edu.vn
 178 h = in_rest (x)
 179 h = self . h_upd (h)
@@ -31,4 +22,3 @@ AI VIETNAM aivietnam.edu.vn
 198 """
 199 An attention block that allows spatial positions to attend to each other .
 200 Originally ported from here , but adapted to the N-d case .
->>>>>>> HEAD@{1}

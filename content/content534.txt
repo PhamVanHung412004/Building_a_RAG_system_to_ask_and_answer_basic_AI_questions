@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: febab174-a41e-4887-ab78-8f8ea7372b82
-Text: file_loader import Loader 4 from src . rag . vectorstore import
-VectorDB 5 from src . rag . offline_rag import Offline_RAG 6 7 class
-InputQA ( BaseModel ): 8 question : str = Field (... , title ="
-Question to ask the model ") 9 10 class OutputQA ( BaseModel ): 11
-answer : str = Field (... , title =" Answer from the model ") 12 13
-def build_rag_c...
-=======
 file_loader import Loader
 4 from src . rag . vectorstore import VectorDB
 5 from src . rag . offline_rag import Offline_RAG
@@ -26,4 +17,3 @@ file_loader import Loader
 Như vậy, ta đã hoàn thiện toàn bộ các code cần thiết để xây dựng một ứng dụng về RAG. Để
 tổng quát hóa toàn bộ quy trình, chúng ta có thể tham khảo qua ảnh sau:
 Hình 5: Minh họa chuỗi (chain) các bước xây dựng RAG trong LangChain. Ảnh: Link.
->>>>>>> HEAD@{1}

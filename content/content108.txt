@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: cd82da12-802b-40e6-8002-bd92751a1325
-Text: AI VIETNAM (AIO2024) aivietnam.edu.vn II. Cài đặt chương trình
-Trong phần này, ta sẽ tiến hành cài đặt chương trình phân loại tin
-nhắn rác hay không với Naive Bayes. Chương trình được cài đặt trên
-Google Colab. Các bước thực hiện như sau: 1. Tải bộ dữ liệu:Đầu tiên,
-chúng ta cùng nhìn qua bộ dataset sẽ được sử dụng trong bài này thông
-qua bảng s...
-=======
 AI VIETNAM (AIO2024) aivietnam.edu.vn
 II. Cài đặt chương trình
 Trong phần này, ta sẽ tiến hành cài đặt chương trình phân loại tin nhắn rác hay không với Naive
@@ -36,4 +27,3 @@ máy. Chúng ta có thể tải tại đây hoặc trực tiếp tại trang Kag
 Trong python, với đường dẫn google drive của bộ dữ liệu, ta có thể dùng lệnh sau đây để
 tải về một cách tự động về máy:
 1 # https :// drive . google . 
->>>>>>> HEAD@{1}

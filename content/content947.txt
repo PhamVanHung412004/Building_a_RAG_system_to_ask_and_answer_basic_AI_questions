@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: ef3db86c-e663-4ce7-ac80-e82be500d170
-Text: AI VIETNAM aivietnam.edu.vn 1 from huggingface_hub import
-notebook_login 2 3 notebook_login() Cuối cùng ta sẽ import các thư
-viện chính được sử dụng trong phần này: 1 import numpy as np 2 from
-tqdm.auto import tqdm 3 import collections 4 5 import torch 6 7 from
-datasets import load_dataset 8 from transformers import AutoTokenizer
-9 from transfor...
-=======
 AI VIETNAM aivietnam.edu.vn
 1 from huggingface_hub import notebook_login
 2
@@ -48,4 +39,3 @@ Cuối cùng ta sẽ import các thư viện chính được sử dụng trong p
 val.
 • Tokenize train set:Hàm preprocess_training_examples nhận dữ liệu đào tạo làm đầu
 vào và tiền xử lý để chuẩn bị cho việc huấn luyện mô hình hỏi đáp. 
->>>>>>> HEAD@{1}

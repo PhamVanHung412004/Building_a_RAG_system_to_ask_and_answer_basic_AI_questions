@@ -1,7 +1,2 @@
-<<<<<<< HEAD
-Node ID: fe34b7c2-87e3-4898-ad53-48bc4981cf59
-Text: . 8 4.2 vstack . .
-=======
 . 8
 4.2 vstack . . 
->>>>>>> HEAD@{1}

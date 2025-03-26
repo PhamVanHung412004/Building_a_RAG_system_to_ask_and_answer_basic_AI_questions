@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 608bce29-51f8-4a7a-86dc-9af158fcd99f
-Text: AI VIETNAM aivietnam.edu.vn (f) Xây dựng vector database:Với hàm
-tạo vector embedding đã triển khai, ta sẽ sử dụng nó để tạo một cột
-trong bảng dữ liệu dùng để chứa kết quả lời gọi hàmget_embeddings()
-với input là các câu hỏi của từng mẫu dữ liệu. Cụ thể, ta tạo cột mới
-tên làquestion_embedding và lưu vector embedding của câu hỏi như sau:
-1 EMBE...
-=======
 AI VIETNAM aivietnam.edu.vn
 (f) Xây dựng vector database:Với hàm tạo vector embedding đã triển khai, ta sẽ sử dụng nó
 để tạo một cột trong bảng dữ liệu dùng để chứa kết quả lời gọi hàmget_embeddings() với input
@@ -45,4 +36,3 @@ Khi chạy xong đoạn lệnh trên, ta được kết quả trả về như sa
 Hình 6: Kết quả truy vấn được in ra màn hình
 Có thể thấy, vì câu hỏi đầu vào có tồn tại trong vector database của chúng ta nên mẫu dữ
 liệu tương đồng nhất cũng chính là mẫu có câu hỏi tương tự.
->>>>>>> HEAD@{1}

@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 873d5d92-3252-42b8-8f22-0a7727ec61e3
-Text: AI VIETNAM aivietnam.edu.vn Hình 6: Các biến thể OU process có
-thể điều chỉnh các thành phần này để thích nghi với các tình huống cụ
-thể hoặc để mô hình biến đổi phức tạp hơn trong thời gian. Chúng có
-thể được sử dụng để mô hình hóa các quá trình ngẫu nhiên có cấu trúc
-phản hồi và trạng thái cân bằng trong nhiều ứng dụng khác nhau. 11
-Monte Carl...
-=======
 AI VIETNAM aivietnam.edu.vn
 Hình 6: Các biến thể OU process có thể điều chỉnh các thành phần này để thích nghi với các tình huống
 cụ thể hoặc để mô hình biến đổi phức tạp hơn trong thời gian. Chúng có thể được sử dụng để mô hình
@@ -32,4 +23,3 @@ muốn một cách trực tiếp, nhưng có thể dễ dàng tạo ra các mẫ
 12 Boundary conditions
 Điều kiện biên (Boundary conditions) là các điều kiện được áp dụng tại ranh giới của miền không gian
 khi giải một vấn đề toán học hoặc vật lý. 
->>>>>>> HEAD@{1}

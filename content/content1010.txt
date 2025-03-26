@@ -1,15 +1,5 @@
-<<<<<<< HEAD
-Node ID: 14fb33ba-e175-4e46-af5a-8aac8ec95c75
-Text: AI VIETNAM aivietnam.edu.vn Trong bài báo "Active Retrieval
-Augmented Generation" Jiang et al., 2023, các tác giả giới thiệu
-phương pháp mới có tên FLARE, viết tắt của Forward-Looking Active
-Retrieval Augmented Generation. Phương pháp này cho phép các mô hình
-ngôn ngữ lớn tích cực lựa chọn thời điểm và loại thông tin cần truy
-vấn trong suốt quá ...
-=======
 AI VIETNAM aivietnam.edu.vn
 Trong bài báo "Active Retrieval Augmented Generation" Jiang et al., 2023, các tác giả giới thiệu
 phương pháp mới có tên FLARE, viết tắt của Forward-Looking Active Retrieval Augmented Generation.
 Phương pháp này cho phép các mô hình ngôn ngữ lớn tích cực lựa chọn thời điểm và loại thông tin cần
 truy vấn trong suốt quá trình tạo ra văn bản. 
->>>>>>> HEAD@{1}

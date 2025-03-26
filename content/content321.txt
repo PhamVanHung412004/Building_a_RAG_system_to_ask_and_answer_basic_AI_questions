@@ -1,11 +1,3 @@
-<<<<<<< HEAD
-Node ID: 57e9ef63-1c76-4ee9-bfdb-21c07431808e
-Text: AI VIETNAM aivietnam.edu.vn Train VAE model 1 def test_vae (
-model ): 2 model . eval () 3 4 # Load hyperparameters 5 out_dir ,
-listdir , featslistdir = get_dirpaths ( args ) 6 batchsize = args ["
-batchsize "] 7 hiddensize = args [" hiddensize "] 8 nmix = args ["
-nmix "] 9 10 # Create DataLoader 11 data = ColorDataset ( 12 os.
-=======
 AI VIETNAM aivietnam.edu.vn
 Train VAE model
 1 def test_vae ( model ):
@@ -20,4 +12,3 @@ Train VAE model
 10 # Create DataLoader
 11 data = ColorDataset (
 12 os. 
->>>>>>> HEAD@{1}

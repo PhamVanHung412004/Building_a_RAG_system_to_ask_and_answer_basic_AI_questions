@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-Node ID: 783d5042-ba4b-4a20-b00f-6b886ef5acb8
-Text: AI VIETNAM aivietnam.edu.vn Chúng ta sẽ xét một ví dụ về việc sử
-dụng Ito interpretation để giải quyết một bài toán cụ thể trong tài
-chính. Giả sử chúng ta muốn mô hình hóa giá cổ phiếu trong thời gian
-thực và dự đoán sự biến đổi của nó. Phương trình stochastics dạng itô
-cho giá cổ phiếu có thể được biểu diễn như sau: dS = µSdt + σSdW (9)
-Trong ...
-=======
 AI VIETNAM aivietnam.edu.vn
 Chúng ta sẽ xét một ví dụ về việc sử dụng Ito interpretation để giải quyết một bài toán cụ thể trong
 tài chính. Giả sử chúng ta muốn mô hình hóa giá cổ phiếu trong thời gian thực và dự đoán sự biến đổi
@@ -44,4 +35,3 @@ suất của một quá trình stochastics (ngẫu nhiên) thay đổi theo th�
 Cụ thể, Fokker-Planck equation xuất hiện trong bối cảnh mô hình hóa sự biến đổi của một hệ thống
 có tính chất ngẫu nhiên, ví dụ, trong lý thuyết tài chính, vật lý thống kê và vật lý động lượng. Phương
 trình này giúp dự đoán cách mật độ xác suất của hệ thống thay đổi theo thời gian.
->>>>>>> HEAD@{1}
