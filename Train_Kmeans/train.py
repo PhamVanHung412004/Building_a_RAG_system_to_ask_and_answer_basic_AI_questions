@@ -4,7 +4,9 @@ from convert_embedding import Embedding_To_Numpy
 from Kmeans import Kmeans
 from check_clusterns import Check_Cluster
 
-
+'''
+python3 -m venv myenv
+'''
 def main():
     # Read file csv
     data = Read_File("/home/phamvanhung/Project_Github/ChatbotAIO/convert_csv/dataset.csv").run()
@@ -19,7 +21,8 @@ def main():
         print("-" * 50)
         print("k: {}".format(k))
         print("score : {}".format(train_kmeans.feeback()))
-    
+
+    #add row name labels and labels 
     data = pd.DataFrame(data)
     data["Labels"] = Kmeans(data_embedding,15).get_labels()
 

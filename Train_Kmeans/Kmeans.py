@@ -3,7 +3,11 @@ from package import np
 from package import silhouette_score
 
 class Kmeans:
-    def __init__(self,data : np.array, number_clusters : int) -> None:
+    def __init__(self,data : np.array = None, number_clusters : int = None) -> None:
+        '''
+        data : vector embedding sau khi chunking
+        number_clusters : so cum muon phan
+        '''
         self.__data : np.array = data
         self.__number_clusters : int = number_clusters
     
