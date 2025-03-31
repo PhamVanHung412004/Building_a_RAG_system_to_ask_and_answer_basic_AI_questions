@@ -3,7 +3,7 @@ from package import np
 from package import Init_Input
 
 class keyword_search(Init_Input):
-    def __init__(self, use_query : str = None, top_k : int = None, bm25 : BM25Okapi = None) -> None:
+    def __init__(self, use_query : str, top_k : int, bm25 : BM25Okapi) -> None:
         super().__init__(use_query,top_k)
         self.__bm25 : BM25Okapi = bm25
 
