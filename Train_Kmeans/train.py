@@ -1,12 +1,11 @@
-from read_file import Read_File
-from read_file import pd
-from convert_embedding import Embedding_To_Numpy
-from Kmeans import Kmeans
-from check_clusterns import Check_Cluster
+from package import np
+from package import pd
+from package import Read_File
+from package import Kmeans
+from package import Embedding_To_Numpy
+from package import Path
+from package import joblib
 
-'''
-python3 -m venv myenv
-'''
 def main():
     # Read file csv
     data = Read_File("/home/phamvanhung/Project_Github/ChatbotAIO/convert_csv/dataset.csv").run()
@@ -24,7 +23,20 @@ def main():
 
     #add row name labels and labels 
     data = pd.DataFrame(data)
-    data["Labels"] = Kmeans(data_embedding,15).get_labels()
+    train = Kmeans(data_embedding,15)
+    
+    model = train.run()
+    
+    labels = train.get_labels()
+    path = Path(__file__).parent
+    
+    
+    path_save_model = path.parent / "deploy" / "weight" / "model_KMeans.pkl"
+    path_save_labels = path.parent / "deploy" / "weight" / "labels.pkl"
+    # data.to_csv(target_dir, index=False, encoding="utf-8")
 
-    data.to_csv("dataset_train_kmeans.csv", index=False, encoding="utf-8")
+    joblib.dump(model, path_save_model )
+
+# 🔹 Lưu labels để sử dụng sau này
+    np.save(path_save_labels, labels)
 main()  

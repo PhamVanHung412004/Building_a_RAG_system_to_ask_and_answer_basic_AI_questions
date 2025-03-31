@@ -15,7 +15,3 @@ class Embedding_To_Numpy:
     
     def convert_to_numpy(self) -> np.array:
         return np.array(self.get_data().tolist())
-    
-
-    def convert_to_list(self) -> np.array:
-        return self.get_data().tolist()
