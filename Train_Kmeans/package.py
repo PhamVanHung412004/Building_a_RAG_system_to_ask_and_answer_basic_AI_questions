@@ -1,6 +1,8 @@
 import pandas as pd
 import numpy as np
 import ast
+import faiss
+from KMeans_FAISS import K
 from sklearn.cluster import KMeans
 from yellowbrick.cluster import KElbowVisualizer
 import joblib

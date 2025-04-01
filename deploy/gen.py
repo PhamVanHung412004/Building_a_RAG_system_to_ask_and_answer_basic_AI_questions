@@ -1,70 +1,49 @@
-import torch
-from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
-from llama_index.core import ChatPromptTemplate, PromptTemplate
-from llama_index.core.llms import ChatMessage, MessageRole
+from package import T5Tokenizer
+from package import T5ForConditionalGeneration
 
-# Cấu hình quantization 4-bit để tiết kiệm tài nguyên GPU
-nf4_config = BitsAndBytesConfig(
-    load_in_4bit=True,
-    bnb_4bit_quant_type="nf4",
-    bnb_4bit_use_double_quant=True,
-    bnb_4bit_compute_dtype=torch.bfloat16
-)
+# Tải mô hình và tokenizer
+model_name = "google/flan-t5-small"
+model = T5ForConditionalGeneration.from_pretrained(model_name)
+tokenizer = T5Tokenizer.from_pretrained(model_name)
 
-# Chọn mô hình sinh
-model_id = "Viet-Mistral/Vistral-7B-Chat"
-tokenizer = AutoTokenizer.from_pretrained(model_id)
+# tokenizer = T5Tokenizer.from_pretrained("t5-small", legacy=False)
+# # Câu hỏi của người dùng
+# user_question = "What is hybrid search?"
 
-# Load mô hình với quantization 4-bit
-model = AutoModelForCausalLM.from_pretrained(
-    model_id,
-    quantization_config=nf4_config,
-    device_map="auto"
-)
+# # Danh sách các văn bản trả về từ Hybrid Search
+# documents = [
+#     "Hybrid search is a technique that combines both keyword-based search and semantic search. This method retrieves documents that are relevant based on both the exact words and the meaning behind the terms.",
+#     "Keyword-based search matches documents based on the exact terms used in the query, while semantic search understands the meaning and context behind those terms to retrieve relevant documents.",
+#     "Hybrid search aims to improve search results by leveraging the strengths of both keyword search and semantic understanding to provide more comprehensive results."
+# ]
 
-print("✅ Mô hình đã load xong!")
+# Hàm trả lời câu hỏi từ các văn bản
+class Answer_Question_From_Documents:
+    def __init__(self,question : str, documents : list[str]) -> None:
+        self.question = question
+        self.documents = documents
 
-# Tạo prompt template
-system_prompt = """
-You are an expert Q&A system that is trusted around the world.
-Always answer the query using the provided context information, and not prior knowledge.
-Some rules to follow:
-1. Never directly reference the given context in your answer.
-2. Avoid statements like 'Based on the context, ...' or 'The context information ...'
-"""
+    def run(self) -> str:
+        # Kết hợp câu hỏi và tất cả các văn bản
+        string = ""
+        for i in self.documents:
+            string += i + " "
+        input_text = f"""
+            Question: {self.question}
+            Context: {string}  # Xóa xuống dòng để context rõ ràng hơn
+            Answer:
+        """
+        # input_text = f"question: {self.question}\ncontext: {}\n " + string 
+        
+        # Tokenize input
+        inputs = tokenizer(input_text, return_tensors="pt", max_length=512, truncation=True)
+        
+        # Sinh câu trả lời
+        outputs = model.generate(**inputs, max_length=100, num_beams=4, no_repeat_ngram_size=2, top_k=50, top_p=0.95)
+        
+        # Giải mã kết quả thành câu trả lời
+        answer = tokenizer.decode(outputs[0], skip_special_tokens=True)
+        return answer
 
-user_prompt = """
-Context information is below.
----------------------
-{context_str}
-
-User Query: {query}
-"""
-
-prompt_template = ChatPromptTemplate(
-    message_templates=[
-        ChatMessage(role=MessageRole.SYSTEM, content=system_prompt),
-        ChatMessage(role=MessageRole.USER, content=user_prompt),
-    ]
-)
-
-# Hàm sinh văn bản dựa trên prompt
-def generate_text(context_str, query):
-    # Format prompt
-    formatted_prompt = prompt_template.format_messages(context_str=context_str, query=query)
-
-    # Chuyển đổi prompt thành đầu vào của mô hình
-    inputs = tokenizer(str(formatted_prompt), return_tensors="pt").to("cuda")
-
-    # Sinh văn bản
-    output = model.generate(**inputs, max_length=200)
-
-    # Decode kết quả
-    return tokenizer.decode(output[0], skip_special_tokens=True)
-
-# Ví dụ sử dụng
-context = "The Eiffel Tower is a famous landmark located in Paris, France. It was completed in 1889 and stands 330 meters tall."
-query = "Where is the Eiffel Tower located?"
-
-response = generate_text(context, query)
-print("📝 AI Response:", response)
+# Áp dụng hàm và in câu trả lời
+# answer = answer_question_from_documents(user_question, documents)

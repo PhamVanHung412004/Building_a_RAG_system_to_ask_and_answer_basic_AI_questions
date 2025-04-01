@@ -5,29 +5,32 @@ from package import Kmeans
 from package import Embedding_To_Numpy
 from package import Path
 from package import joblib
-
+from package import Km
 def main():
     # Read file csv
     data = Read_File("/home/phamvanhung/Project_Github/ChatbotAIO/convert_csv/dataset.csv").run()
     data_embedding = Embedding_To_Numpy(data["embedding"]).convert_to_numpy()
     
+    model = 
+
+
     # check clustert good
     # check = Check_Cluster(data_embedding).show()
     
     #check score train model
-    for k in [4,15,22,25]:
-        train_kmeans = Kmeans(data_embedding,k)
-        print("-" * 50)
-        print("k: {}".format(k))
-        print("score : {}".format(train_kmeans.feeback()))
+    # for k in [4,15,22,25]:
+    #     train_kmeans = Kmeans(data_embedding,k)
+    #     print("-" * 50)
+    #     print("k: {}".format(k))
+    #     print("score : {}".format(train_kmeans.feeback()))
 
-    #add row name labels and labels 
-    data = pd.DataFrame(data)
-    train = Kmeans(data_embedding,15)
+    # #add row name labels and labels 
+    # data = pd.DataFrame(data)
+    # train = Kmeans(data_embedding,15)
     
-    model = train.run()
+    # model = train.run()
     
-    labels = train.get_labels()
+    # labels = train.get_labels()
     path = Path(__file__).parent
     
     
