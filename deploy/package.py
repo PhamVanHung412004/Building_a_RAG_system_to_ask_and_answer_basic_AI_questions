@@ -3,6 +3,9 @@ import numpy as np
 import pandas as pd
 import faiss
 import joblib
+import torch
+
+from transformers import AutoModelForCausalLM, AutoTokenizer,BitsAndBytesConfig
 from sklearn.cluster import KMeans
 from read_file import *
 from convert_embedding import Embedding_To_Numpy
@@ -15,6 +18,6 @@ from keyword_search import keyword_search
 from semantic_search import Sematic_search
 from Hybrid_Search import init_Hybrid_Search
 from read_file import *
-
+from transformers import RagSequenceForGeneration
 
 

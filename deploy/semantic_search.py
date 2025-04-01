@@ -28,7 +28,8 @@ class Sematic_search(Init_Input):
         query_embedding = self.model.encode([self.use_query])[0]
         faiss.normalize_L2(np.array([query_embedding]))
         
-        kmeans_model = joblib.load("/home/phamvanhung/Project_Github/Using_KMeans_combined_with_Hybrid_search_to_optimize_the_RAG_Chatbot_system_to_answer_basic_AI_quest/deploy/weight/model_KMeans.pkl")
+        file_tmp = Path(__file__).parent / "weight" / "model_KMeans.pkl" 
+        kmeans_model = joblib.load(file_tmp)
 
         cluster_id = kmeans_model.predict([query_embedding])[0]
 
