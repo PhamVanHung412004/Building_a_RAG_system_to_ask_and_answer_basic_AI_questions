@@ -1,7 +1,0 @@
-AI VIETNAM aivietnam.edu.vn
-2. Reward Modeling
-Trong phần này chúng ta sẽ xây dụng mô hình đánh giá chất lượng bản tóm tắt. Đầu vào của mô hình
-là văn bản kết hợp với bản tóm tắt. Đầu ra là giá trị dự đoán từ 0 đến 1. Chúng ta sẽ tinh chỉnh mô
-hình SFT cho bài toán phân loại. Với bản tóm tắt phù hợp (Chosen) sẽ có nhãn là 1, và bản tóm tắt
-không phù hợp (Rejected) sẽ có nhãn là 0.
-Hình 6: Reward Modeling.

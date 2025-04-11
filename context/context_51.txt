@@ -1,0 +1,643 @@
+Extra Class
+Imbalanced Data
+Year 2023
+Nguyen Quoc Thai
+AI VIETNAM
+All-in-One Course
+1
+2
+CONTENT
+(1) – Introduction
+(2) – Metric
+(3) – Approaches
+(4) – Undersampling
+(5) – Oversampling
+1 – Introduction
+!
+3
+Imbalanced Data (Classification)
+Negative
+9900
+Positive
+100
+0
+1000
+2000
+3000
+4000
+5000
+6000
+7000
+8000
+9000
+10000
+Negative
+Positive
+Negative
+Positve
+1 – Introduction
+!
+4
+Imbalanced Data (Classification)
+Negative
+9900
+Positive
+100
+0
+1000
+2000
+3000
+4000
+5000
+6000
+7000
+8000
+9000
+10000
+Negative
+Positive
+Imbalanced Data
+Negative
+5000
+Positive
+5000
+0
+1000
+2000
+3000
+4000
+5000
+6000
+7000
+8000
+9000
+10000
+Negative
+Positive
+Balanced Data
+1 – Introduction
+!
+5
+Imbalanced Data (Classification)
+0
+1000
+2000
+3000
+4000
+5000
+6000
+7000
+8000
+9000
+10000
+Negative
+Positive
+Binary Classification
+0
+1000
+2000
+3000
+4000
+5000
+6000
+7000
+8000
+9000
+10000
+Dog
+Cat
+Bird
+Fish
+Multi-class Classification
+1 – Introduction
+!
+6
+What happens if dataset is imbalanced ?
+Outlook
+Temperature
+Windy
+Humidity
+Play
+D0
+Sunny
+70
+True
+86
+No
+D1
+Rain
+80
+True
+78
+No
+D2
+Sunny
+85
+False
+56
+No
+D3
+Overcast
+66
+False
+87
+No
+D4
+Sunny
+77
+True
+89
+No
+D5
+Sunny
+88
+False
+78
+No
+D6
+Rain
+67
+False
+84
+No
+D7
+Sunny
+70
+False
+90
+Yes
+1 – Introduction
+!
+7
+What happens if dataset is imbalanced ?
+CAT
+DOG
+1 – Introduction
+!
+8
+What happens if dataset is imbalanced ?
+Documents
+Class
+Just plain boring
+Negative
+Entire predictable and lacks energy
+Negative
+No surprises and very few laughs
+Negative
+So bad
+Negative
+Not good
+Negative
+Don’t like it
+Negative
+Very powerful
+Positive
+2 - Metric
+!
+9
+Accuracy
+𝐴𝑐𝑐𝑢𝑟𝑎𝑐𝑦= 𝑁𝑢𝑚𝑏𝑒𝑟𝑜𝑓𝑐𝑜𝑟𝑟𝑒𝑐𝑡𝑝𝑟𝑒𝑑𝑖𝑐𝑡𝑖𝑜𝑛𝑠
+𝑇𝑜𝑡𝑎𝑙𝑛𝑢𝑚𝑏𝑒𝑟𝑜𝑓𝑝𝑟𝑒𝑑𝑖𝑐𝑡𝑖𝑜𝑛𝑠
+2 - Metric
+!
+10
+Confusion Matrix
+Actual Label
+Positive
+Negative
+Predicted 
+Label
+Positive
+TP
+True Positive
+FP
+False Positive
+Negative
+FN
+False Negative
+TN
+True Negative
+Confusion Matrix
+True Positive (TP): Observation is positive, and is predicted to be positive
+False Negative (FN): Observation is positive, but is predicted negative
+True Negative (TN): Observation is negative, and is predicted to be negative
+False Positive (FP): Observation is negative, but is predicted positive
+𝐴𝑐𝑐𝑢𝑟𝑎𝑐𝑦=
+𝑇𝑃+ 𝑇𝑁
+𝑇𝑃+ 𝑇𝑁+ 𝐹𝑃+ 𝐹𝑁
+2 - Metric
+!
+11
+Accuracy – Example
+Actual Label
+Positive
+Negative
+Predicted 
+Label
+Positive
+1
+0
+Negative
+1
+998
+A
+Actual Label
+Positive
+Negative
+Predicted 
+Label
+Positive
+400
+200
+Negative
+100
+300
+B
+Acc =
+0 + 998
+1 + 998 + 0 + 1 = 0.999
+Acc =
+400 + 300
+400 + 300 + 200 + 100 = 0.7
+2 - Metric
+!
+12
+Precision
+Actual Label
+Positive
+Negative
+Predicted 
+Label
+Positive
+TP
+True Positive
+FP
+False Positive
+Negative
+FN
+False Negative
+TN
+True Negative
+Confusion Matrix
+Precision =
+TP
+TP + FP
+❖Precision: % of items the model labeled as positive that are in fact positive
+❖Precision attempts to answer the following question: What proportion of positive identifications was 
+actually correct?
+2 - Metric
+!
+13
+Recall
+Actual Label
+Positive
+Negative
+Predicted 
+Label
+Positive
+TP
+True Positive
+FP
+False Positive
+Negative
+FN
+False Negative
+TN
+True Negative
+Confusion Matrix
+Precision =
+TP
+TP + FP
+❖Precision: % of items actually present in the input that were correctly identified by the model
+❖Precision attempts to answer the following question: What proportion of actual positive was identified 
+correctly?
+Recall =
+TP
+TP + FN
+2 - Metric
+!
+14
+Precision – Recall – Example
+Actual Label
+Positive
+Negative
+Predicted 
+Label
+Positive
+1
+0
+Negative
+1
+998
+A
+Actual Label
+Positive
+Negative
+Predicted 
+Label
+Positive
+400
+200
+Negative
+100
+300
+B
+Acc = 0.999
+Acc = 0.7
+Precision =
+1
+1 + 0 = 1.0
+Recall =
+1
+1 + 1 = 0.5
+Precision =
+400
+40 + 200 = 0.67
+Recall =
+400
+400 + 100 = 0.8
+2 - Metric
+!
+15
+F Measure
+❖F Measure
+F! = (β" + 1)PR
+β"P + R
+❖Balance: Precision and Recall
+F# = 2PR
+P + R
+2 - Metric
+!
+16
+F1 – Example
+Actual Label
+Positive
+Negative
+Predicted 
+Label
+Positive
+1
+0
+Negative
+1
+998
+A
+Actual Label
+Positive
+Negative
+Predicted 
+Label
+Positive
+400
+200
+Negative
+100
+300
+B
+Acc = 0.999
+Acc = 0.7
+Precision = 1.0
+Recall = 0.5
+Precision = 0.67
+Recall = 0.8
+F# = 2PR
+P + R = 2 ∗1 ∗0.5
+1 + 0.5
+= 0.67
+F# = 2PR
+P + R = 2 ∗0.67 ∗0.8
+0.67 + 0.8
+= 0.73
+3 - Appoarches
+!
+17
+Approach 1: Data Manipulation
+0
+1000
+2000
+3000
+4000
+5000
+6000
+7000
+8000
+9000
+10000
+Negative
+Positive
+0
+1000
+2000
+3000
+4000
+5000
+6000
+7000
+8000
+9000
+10000
+Negative
+Positive
+0
+1000
+2000
+3000
+4000
+5000
+6000
+7000
+8000
+9000
+10000
+Negative
+Positive
+Original Data
+Undersampling Data
+Oversampling Data
+3 - Appoarches
+!
+18
+Approach 1: Data Manipulation
+Augmentation (Oversampling)
+3 - Appoarches
+!
+19
+Approach 1: Data Manipulation
+Augmentation (Oversampling)
+Easy Data Augmentation
+Short Example
+Random Swap
+I am jogging => I jogging am
+Random Deletion
+I am jogging => I jogging
+Random Insertion
+I am jogging => I am a jogging
+This is pretty cool
+This is really cool
+This is super cool
+This is kinda cool
+This is very cool
+That’s very cool
+That’s cool
+This is very nice
+This is very cool
+En-Fr-En
+En-Vi-En
+En-Ko-En
+Synonym Replacement
+Back-Translation
+3 - Appoarches
+!
+20
+Approach 2: Loss Function and Optimization
+Train 
+Dataset
+Data
+Preparation
+Model
+Feature Extraction
+Normalization
+Convert to Tensor
+Parameter 
+Initialization
+Optimizer
+Loss
+Metric
+Trained
+Model
+Training
+Test 
+Dataset
+Evaluation
+Score: Accuracy
+4 – Undersampling
+!
+21
+Overview
+0
+1000
+2000
+3000
+4000
+5000
+6000
+7000
+8000
+9000
+10000
+Negative
+Positive
+0
+1000
+2000
+3000
+4000
+5000
+6000
+7000
+8000
+9000
+10000
+Negative
+Positive
+Original Data
+Undersampling Data
+4 – Undersampling
+!
+22
+Random Undersampling
+0
+1000
+2000
+3000
+4000
+5000
+6000
+7000
+8000
+9000
+10000
+Negative
+Positive
+0
+1000
+2000
+3000
+4000
+5000
+6000
+7000
+8000
+9000
+10000
+Negative
+Positive
+Original Data
+Undersampling Data
+4 – Undersampling
+!
+23
+Clustering-based Undersampling
+(1) Clustering Majority Samples
+(2) Identify nearest   neighbor for each center
+(3) – Undersampling Majority Samples
+Imbalanced Data
+Balanced Data
+5 – Oversampling
+!
+24
+Duplicate
+0
+1000
+2000
+3000
+4000
+5000
+6000
+7000
+8000
+9000
+10000
+Negative
+Positive
+0
+1000
+2000
+3000
+4000
+5000
+6000
+7000
+8000
+9000
+10000
+Negative
+Positive
+Original Data
+Oversampling Data
+5 – Oversampling
+!
+25
+Data Augmentation
+Original
+Flip
+Brightness
+Color
+Rotate
+Blur
+Noise
+5 – Oversampling
+!
+26
+SMOTE (Synthetic Minority Over-sampling TEchnique)
+Majority Class Samples 
+Minority Class Samples 
+Randomly Selected Minority 
+Class Sample (x_i) 
+n K-nearest Neighbors of x_i
+Randomly Selected Sample from n 
+K-nearest Neighbors 
+Generated Instance
+Thanks!
+Any questions?
+27

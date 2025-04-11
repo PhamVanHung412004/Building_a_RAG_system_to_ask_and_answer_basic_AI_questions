@@ -1,0 +1,677 @@
+Exercise
+Convolutional Neural Network
+Year 2023
+Nguyen Quoc Thai
+AI VIETNAM
+All-in-One Course
+1
+2
+CONTENT
+(1) – Convolutional Neural Network
+(2) – LeNet Model
+(3) – CNN Applications
+1 – CNN
+!
+3
+Convolutional Layer
+Input: M x N
+Kernel: K x O
+Bias
+1
+0
+0
+0
+0
+0
+0
+0
+0
+3
+1
+1
+0
+0
+3
+1
+2
+0
+0
+0
+3
+4
+2
+3
+0
+0
+3
+0
+0
+2
+0
+0
+0
+0
+0
+0
+0
+0
+3
+1
+1
+3
+1
+2
+0
+3
+4
+2
+3
+3
+0
+0
+2
+1
+1
+1
+1
+1
+1
+0
+1
+0
+Shape: (M+2P) x (N+2Q)
+Padding: (P, Q)
+Stride: (S, T)
+7
+8
+15
+13
+M + 2P −K
+S
++ 1 x N + 2Q −O
+T
++ 1
+1 – CNN
+!
+4
+Pooling Layer
+❖Max Pooling
+Input: 6 x 6
+Output: 3 x 3
+Kernel Size: 2
+Stride: 2
+3
+2
+1
+0
+0
+3
+0
+3
+3
+1
+1
+0
+3
+1
+4
+1
+1
+0
+2
+4
+1
+1
+0
+4
+1
+0
+3
+0
+3
+0
+3
+4
+4
+3
+3
+4
+3
+3
+3
+4
+4
+4
+4
+4
+4
+Output: 6 x 2
+MaxPool1d
+Kernel Size:  3
+Stride: 3
+3
+3
+3
+1
+4
+1
+4
+4
+3
+3
+4
+4
+1 – CNN
+!
+5
+Pooling Layer
+❖Average Pooling
+Input: 6 x 6
+Output: 2 x 3
+Kernel Size: (3, 2)
+Stride: 2
+3
+2
+1
+0
+0
+3
+0
+3
+3
+1
+1
+0
+3
+1
+4
+1
+1
+0
+2
+4
+1
+1
+0
+4
+1
+0
+3
+0
+3
+0
+3
+4
+4
+3
+3
+4
+2.0
+1.7
+0.8
+1.8
+1.6
+1.3
+Output: 6 x 2
+AvgPool1d
+Kernel Size:  3
+Stride: 3
+2.0
+1.0
+2.0
+0.7
+2.7
+0.7
+2.3
+1.7
+1.3
+1.0
+3.7
+3.3
+1 – CNN
+!
+6
+Multiple Input Channels
+0
+0
+2
+1
+4
+1
+3
+1
+4
+3
+1
+4
+2
+4
+2
+0
+0
+4
+3
+4
+4
+1
+2
+0
+1
+2
+2
+4
+2
+3
+3
+4
+3
+2
+0
+4
+0
+4
+1
+4
+0
+4
+3
+3
+1
+0
+0
+0
+1
+1
+1
+1
+1
+1
+1
+0
+0
+1
+1
+1
+1
+1
+1
+1
+1
+0
+1
+0
+1
+1
+0
+1
+0
+1
+1
+43
+50
+40
+13
+14
+17
+11
+Bias
+1
++ 
++
++
+Input Channel #1 (Red)
+Input Channel #2 (Green)
+Input Channel #3 (Blue)
+Kernel Channel #1
+Kernel Channel #2
+Kernel Channel #3
+1 – CNN
+!
+7
+Multiple Input Channels
+1 – CNN
+!
+8
+Multiple Output Channels
+3
+0
+1
+2
+4
+4
+0
+4
+2
+0
+3
+1
+1
+3
+1
+2
+1
+1
+1
+0
+0
+1
+1
+1
+1
+0
+1
+0
+1
+0
+1
+1
+1
+1
+10
+12
+17
+16
+Bias
+1
+Input
+Kernel Channel #1
+Kernel Channel #2
+Bias
+1
+10
+14
+15
+8
++ 
++ 
+= 
+= 
+1 – CNN
+!
+9
+Multiple Output Channels
+8
+13
+8
+12
+1 – CNN
+!
+10
+Multiple Input - Output Channels
+2
+2
+1
+4
+1
+0
+0
+4
+0
+3
+3
+4
+0
+4
+1
+2
+1
+0
+1
+0
+1
+0
+0
+1
+0
+1
+1
+0
+1
+0
+1
+1
+1
+0
+12
+21
+12
+21
+Bias
+1
+Input Channel #1
+Kernel Channel #1
+Kernel Channel #2
+Bias
+1
+0
+0
+2
+1
+4
+1
+3
+1
+4
+3
+1
+4
+2
+4
+2
+0
+Input Channel #2
+1
+1
+0
+0
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+Kernel Channel #1
+Kernel Channel #2
+15
+19
+23
+18
+6
+5
+14
+5
+12
+14
+17
+15
+25
+36
+30
+37
++ 
+= 
++ 
+= 
+1 – CNN
+!
+11
+Multiple Input - Output Channels
+2 – LeNet Model
+!
+12
+LeNet
+2 – LeNet Model
+!
+13
+LeNet
+2 – LeNet Model
+!
+14
+LeNet – Demo
+3 – CNN Applications
+!
+15
+Image Classification
+❖MNIST dataset
+Ø Images: 70.000
+Ø Class: 10
+Ø Image Size: 28 x 28
+3 – CNN Applications
+!
+16
+Image Classification - Demo
+❖MNIST dataset
+Ø Load Dataset
+3 – CNN Applications
+!
+17
+Image Classification - Demo
+❖MNIST dataset
+Ø Preprocessing
+3 – CNN Applications
+!
+18
+Image Classification - Demo
+❖MNIST dataset
+Ø Model
+3 – CNN Applications
+!
+19
+Image Classification
+❖MNIST dataset
+Ø Training (Test Set: 98.4)
+3 – CNN Applications
+!
+20
+Image Classification
+❖MNIST dataset
+Ø Kernel Visualization
+3 – CNN Applications
+!
+21
+Image Classification
+❖Cassava Leaf Disease dataset
+Ø Class: 5
+3 – CNN Applications
+!
+22
+Image Classification
+❖Cassava Leaf Disease dataset
+3 – CNN Applications
+!
+23
+Image Classification - Demo
+❖Cassava Leaf Disease dataset
+❖Cassava Leaf Disease dataset
+Ø Preprocessing
+3 – CNN Applications
+!
+24
+Image Classification – Demo
+❖Cassava Leaf Disease dataset
+❖Cassava Leaf Disease dataset
+Ø Model
+3 – CNN Applications
+!
+25
+Image Classification
+❖Cassava Leaf Disease dataset
+❖Cassava Leaf Disease dataset
+Ø Training
+3 – CNN Applications
+!
+26
+Text Classification
+❖NTC-CSV Dataset
+Ø Sentiment Analysis
+Positive Example
+Negative Example
+Mình được 1 cô bạn giới_thiệu đến đây , tìm
+địa_chỉkhá dễ. Menu nước uống chất khỏi nói
+. Mình muốn cũng đc 8 loại nước ởđây , món
+nào cũng ngon và bổ_dưỡng cả.
+Quán chế_biến đồ_ăn lâu , Cá_Sapa nướng 
+uớp rất dở , sò Lông ko tươi , nước_chấm ko 
+ngon\n Tóm_lại sẽ ko bao_giờ ghé nữa , ăn_dở 
+mà uổng tiền
+Mỗi lần thèm trà sữa là làm 1 ly . Quán dễ
+kiếm , không_gian lại rộng_rãi . Nhân_viên thì
+dễ_thương gần_gũi . Nói_chung thèm trà sữa
+là mình ghé Quán ởđây vì gần nhà .
+Quán này thấy khá nhiều người bảo mình nên 
+mình đã đi ăn thử , nhưng thực_sự ăn xong 
+thấy không được như mong_đợi lắm .
+3 – CNN Applications
+!
+27
+Text Classification - Demo
+❖NTC-CSV Dataset
+Ø Dense Representation
+[dog, bites, man]
+[man, bites, dog]
+2
+4
+3
+3
+4
+2
+Input matrix
+Index-based Representation
+Input shape: N x M
+0
+0.1
+3.1
+1
+0.5
+2.5
+2
+1.3
+0.6
+Embedding Matrix
+(Lookup Table)
+V   Vocabulary
+D: Embedding Dim
+IDX
+Token
+0
+<pad>
+1
+<unk>
+2
+dog
+0.6 1.4 0.1
+1.3 0.7 0.4
+0.4 0.7 1.3
+N Samples
+M: Sequence Length
+Shape: V x D
+Output shape: N x M x D
+Model
+28
+3 – CNN Applications
+!
+29
+Text Classification – Demo
+❖NTC-CSV Dataset
+Ø Model (TextCNN)
+3 – CNN Applications
+!
+30
+Text Classification
+❖NTC-CSV Dataset
+Ø Training (Test Set: 88.78%)
+3 – CNN Applications
+!
+31
+Source Code
+Thanks!
+Any questions?
+32

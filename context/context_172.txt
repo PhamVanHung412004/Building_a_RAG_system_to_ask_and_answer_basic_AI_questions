@@ -1,0 +1,410 @@
+Exploitation of Pretrained 
+Models
+Year 2023
+Quang-Vinh Dinh
+Ph.D. in Computer Science
+AI VIETNAM
+All-in-One Course
+➢Data Processing
+➢Network Manipulation
+➢Reuse a Pre-trained Model
+➢Case Studies
+Outline
+Data Processing
+❖ Cat-Dog dataset
+AI VIETNAM
+All-in-One Course
+cats_and_dogs
+train
+validation
+cat
+dog
+cat
+dog
+1
+Demo - Numpy
+Data Processing
+❖ In PyTorch
+AI VIETNAM
+All-in-One Course
+cats_and_dogs
+train
+validation
+cat
+dog
+cat
+dog
+2
+Data Processing
+❖ In PyTorch
+AI VIETNAM
+All-in-One Course
+flower_photos
+daisy
+dandelion
+roses
+sunflowers
+tulips
+3
+Data Processing
+❖ In PyTorch
+flower_photos
+daisy
+dandelion
+roses
+sunflowers
+tulips
+➢Data Processing
+➢Network Manipulation
+➢Reuse a Pre-trained Model
+➢Case Studies
+Outline
+Network Manipulation
+Conv with 
+stride=1 + ReLU 
+(2x2) max pooling
+(1,28,28)
+(32,14,14)
+(64,7,7)
+Flatten data
+Classifier
+Feature extractor
+Network 
+Manipulation
+Check if a layer is trainable
+Network Manipulation
+Check if a layer is trainable
+Network Manipulation
+Network 
+Manipulation
+Network 
+Manipulation
+Network Manipulation
+❖ VGG16 Model
+Network Manipulation
+❖ VGG16 Model
+12
+Network Manipulation
+❖ VGG16 Model: Feature extractor
+Demo
+Network Manipulation
+❖ VGG16 Model: Feature extractor
+input
+(3,32,32)
+(64,16,16)
+(256,8,8)
+(512,1,1)
+(512,4,4)
+(512,2,2)
+Network Manipulation
+❖ Create a new model from 
+     the VGG16 feature extractor
+(64,16,16)
+(256,8,8)
+(512,1,1)
+(512,4,4)
+(512,2,2)
+(10,)
+why doing so?
+Network Manipulation
+❖ Why?
+(64,16,16)
+(256,8,8)
+(512,1,1)
+(512,4,4)
+(512,2,2)
+(x,)
+(64,16,16)
+(256,8,8)
+(512,1,1)
+(512,4,4)
+(512,2,2)
+(10,)
+ImageNet-21k 
+(14 million images, 
+21,841 classes)
+Large 
+dataset
+trained
+copy 
+16
+➢Data Processing
+➢Network Manipulation
+➢Reuse a Pre-trained Model
+➢Case Studies
+Outline
+Exploitation of Pretrained Models
+❖ Train from scratch
+AI VIETNAM
+All-in-One Course
+ImageNet-21k 
+(14 million images, 
+21,841 classes)
+Feature 
+Extraction
+Classifier
+Large 
+dataset
+Feature 
+Extraction
+New 
+Classifier
+Small 
+dataset
+Copy only the  architecture 
+of feature extraction (FE)
+Pretrained Model
+Will be trained with the small dataset
+New Model
+Initialize and train the whole new model using a small dataset 
+17
+Exploitation of Pretrained Models
+❖ Transfer Learning
+AI VIETNAM
+All-in-One Course
+ImageNet dataset 
+(1.2 million images 
+of 1000 categories)
+Feature 
+Extraction
+Classifier
+Large 
+dataset
+Feature 
+Extraction
+New 
+Classifier
+Small 
+dataset
+Copy FE and its 
+pretrained weights
+Pretrained Model
+Our Model
+Freeze FE and train only new classifier
+18
+Will be trained with the small dataset
+Exploitation of Pretrained Models
+❖ Fine Tuning
+AI VIETNAM
+All-in-One Course
+ImageNet dataset 
+(1.2 million images 
+of 1000 categories)
+Feature 
+Extraction
+Classifier
+Large 
+dataset
+Feature 
+Extraction
+New 
+Classifier
+Small 
+dataset
+Copy FE and a part of its 
+pretrained weights
+Pretrained Model
+Our Model
+Freeze a part of FE and train the rest and new classifier
+19
+Will be trained with the small dataset
+Exploitation of Pretrained Models
+❖ As Initialization
+AI VIETNAM
+All-in-One Course
+ImageNet dataset 
+(1.2 million images 
+of 1000 categories)
+Feature 
+Extraction
+Classifier
+Large 
+dataset
+Feature 
+Extraction
+New 
+Classifier
+Small 
+dataset
+Copy FE and its 
+pretrained weights
+Pretrained Model
+Our Model
+Train the whole new model using a small dataset
+20
+Will be trained with the small dataset
+➢Data Processing
+➢Network Manipulation
+➢Reuse a Pre-trained Model
+➢Case Studies
+Outline
+Case Study 1
+❖ Cat-Dog dataset
+❖ Train from scratch
+cats_and_dogs
+train
+validation
+cat
+dog
+cat
+dog
+1
+Case Study 1
+❖ Cat-Dog dataset
+❖ Train from scratch
+Feature
+Extractor
+(3,224,224)
+(2,)
+(512,7,7)
+Flatten
+Linear(512) 
++ ReLU
+Dropout
+Linear(2)
+2
+AI VIETNAM
+All-in-One Course
+22
+Case Study 1
+❖ Cat-Dog dataset
+❖ Train from scratch
+AI VIETNAM
+All-in-One Course
+3
+Test accuracy: 66%
+Training accuracy: 65%
+23
+Case Study 1
+❖ Transfer learning
+AI VIETNAM
+All-in-One Course
+2
+24
+Case Study 1
+❖ Transfer learning
+AI VIETNAM
+All-in-One Course
+3
+Test accuracy: 99%
+Training accuracy: 99%
+25
+Case Study 1
+❖ Fine tuning
+AI VIETNAM
+All-in-One Course
+2
+26
+Case Study 1
+❖ Fine tuning
+AI VIETNAM
+All-in-One Course
+3
+Test accuracy: 99%
+Training accuracy: 99%
+27
+Case Study 1
+❖ Use the pretrained weights as an initialization
+AI VIETNAM
+All-in-One Course
+2
+28
+Case Study 1
+❖ Use the pretrained
+     weights as an initialization
+AI VIETNAM
+All-in-One Course
+3
+Test accuracy: 99%
+Training accuracy: 97.5%
+29
+Case Study 2
+❖ Cat-Dog dataset
+cats_and_dogs
+train
+validation
+cat
+dog
+cat
+dog
+1
+Train from scratch
+Transfer learning
+Fine tuning
+As initialization
+Case 
+Study 2
+2
+val_acc: 64%
+val_acc: 98%
+val_acc: 98%
+val_acc: 98%
+Case Study 3
+❖ Cat-Dog dataset
+cats_and_dogs
+train
+validation
+cat
+dog
+cat
+dog
+1
+Train from scratch
+Transfer learning
+Fine tuning
+As initialization
+Case 
+Study 3
+2
+val_acc: 56%
+val_acc: 97%
+val_acc: 96%
+val_acc: 96%
+Case Study 4
+❖ Cifar10 dataset
+1
+Train from scratch
+Transfer learning
+Fine tuning
+Case 
+Study 4
+2
+val_acc: 82%
+val_acc: 64% (!)
+val_acc: 89%
+As initialization
+val_acc: 89%
+ConvNeXt-tiny
+val_acc: 91%
+ConvNeXt-base
+val_acc: 93%
+ConvNeXt-large
+val_acc: 93.9%
+VGG16
+val_acc: 89%
+Case 
+Study 4
+Case Study 4
+❖ Add more augmentations
+AI VIETNAM
+All-in-One Course
+val_acc: 95.14%
+Case Study 5
+❖ New dataset
+AI VIETNAM
+All-in-One Course
+daisy
+dandelion
+roses
+sunflowers
+tulips
+flower_photos
+38
+Train from scratch
+Val Acc: 0.743
+Transfer learning
+Val Acc: 0.829
+Fine tuning
+Val Acc: 0.903
+As an initialization
+Val Acc: 0.912

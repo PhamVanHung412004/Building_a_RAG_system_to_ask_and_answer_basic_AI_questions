@@ -1,0 +1,1318 @@
+1
+AI VIETNAM
+All-in-One Course
+1
+AI VIETNAM
+All-in-One Course
+From Basic CNN to ConvNext
+(Performance Evaluation on CIFAR-10 Dataset)
+Year 2023
+Vinh Dinh Nguyen
+PhD in Computer Science
+AI VIETNAM
+All-in-One Course
+2
+AI VIETNAM
+All-in-One Course
+2
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø CNN: Basic Concepts 
+Ø LeNet
+Ø AlexNet
+Ø ZFNet
+Ø VGGNet
+Ø GoogleLeNet 
+Ø ResNet
+Ø MobileNet
+Ø ConvNext
+Ø Performance Evaluation on Cifar-10 Dataset
+3
+AI VIETNAM
+All-in-One Course
+3
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø CNN: Basic Concepts 
+Ø LeNet
+Ø AlexNet
+Ø ZFNet
+Ø VGGNet
+Ø GoogleLeNet 
+Ø ResNet
+Ø MobileNet
+Ø ConvNext
+Ø Performance Evaluation on Cifar-10 Dataset
+4
+AI VIETNAM
+All-in-One Course
+4
+Vinh Dinh Nguyen- PhD in Computer Science
+CNN: Basic Concepts
+A convolutional neural network composes of convolution layers, pooling 
+layers and fully connected layers(FC).
+5
+AI VIETNAM
+All-in-One Course
+5
+Vinh Dinh Nguyen- PhD in Computer Science
+CNN: Basic Concepts
+A convolutional neural network composes of convolution layers, pooling 
+layers and fully connected layers(FC).
+6
+AI VIETNAM
+All-in-One Course
+6
+Vinh Dinh Nguyen- PhD in Computer Science
+CNN: Basic Concepts
+In the lower layers within a CNN, the units/neurons learn low-level features 
+within the image such as lines, edges, contours etc. The higher layers 
+learn more abstract features of the image such as shapes
+Neural Network Simulation credit to Denis Dmitriev
+7
+AI VIETNAM
+All-in-One Course
+7
+Vinh Dinh Nguyen- PhD in Computer Science
+CNN: Basic Concepts
+Simple Convolution
+Padding Concept
+Stride Concept
+Reception Field
+8
+AI VIETNAM
+All-in-One Course
+8
+Vinh Dinh Nguyen- PhD in Computer Science
+CNN: Basic Concepts
+Filter in Image Processing
+Move the filter 1 pixel at a time from left to right and top to bottom until we 
+process every pixel.
+9
+AI VIETNAM
+All-in-One Course
+9
+Vinh Dinh Nguyen- PhD in Computer Science
+CNN: Basic Concepts
+Apply filters which each generates an output that we call feature map. If k-features map is created, we have feature maps with depth k
+10
+AI VIETNAM
+All-in-One Course
+10
+Vinh Dinh Nguyen- PhD in Computer Science
+CNN: Basic Concepts
+Max Pooling Concept
+Feature Accumulation
+Feature Aggreation
+Fully connected
+11
+AI VIETNAM
+All-in-One Course
+11
+Vinh Dinh Nguyen- PhD in Computer Science
+CNN: Basic Concepts
+Softmax Activation Function
+12
+AI VIETNAM
+All-in-One Course
+12
+Vinh Dinh Nguyen- PhD in Computer Science
+CNN: Basic Concepts
+https://www.analyticsvidhya.com/blog/2022/01/convolutional-neural-network-an-overview/
+13
+AI VIETNAM
+All-in-One Course
+13
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø CNN: Basic Concepts 
+Ø LeNet
+Ø AlexNet
+Ø ZFNet
+Ø VGGNet
+Ø GoogleLeNet 
+Ø ResNet
+Ø MobileNet
+Ø ConvNext
+Ø Performance Evaluation on Cifar-10 Dataset
+14
+AI VIETNAM
+All-in-One Course
+14
+Vinh Dinh Nguyen- PhD in Computer Science
+LetNet
+‘Hello World’ in the domain of Convolution Neural Networks
+It was introduced by Yann LeCun, Léon Bottou, Yoshua Bengio, and Patrick Haffner in 1998
+handwritten and machine-printed character recognition
+15
+AI VIETNAM
+All-in-One Course
+15
+Vinh Dinh Nguyen- PhD in Computer Science
+LetNet
+LeNet takes as input 
+grayscale images of 
+size 32x32 pixels
+Number of filters (feature map): nc = 6
+Filter size: F = 5
+Padding, P = 0
+Stride, S = 1
+Training parameters = Weight + Bias = 156
+Number of connections = 122304
+Why?
+C1: convolution layer
+Input layer
+32x32x1
+28x28x6
+6
+(shape of width of the filter * shape of height of the filter * number of filters in the previous layer+1)*number of filters)
+16
+AI VIETNAM
+All-in-One Course
+16
+Vinh Dinh Nguyen- PhD in Computer Science
+LetNet
+Why?
+Number of filters (feature map): nc = 6
+Filter size: F = 2
+Padding, P = 0
+Stride, S = 1
+Training parameters = (cofficient + bias)x filters = 12
+Number of connections = 5580
+S2: Pooling layer
+28x28x6
+14x14x6
+6
+6
+17
+AI VIETNAM
+All-in-One Course
+17
+Vinh Dinh Nguyen- PhD in Computer Science
+LetNet
+Why?
+Number of filters (feature map): nc = 16
+Filter size: F = 5
+Padding, P = 0
+Stride, S = 1
+Training parameters = (Weight + bias) = 1516
+Number of connections = 151600
+C3: Convolutional layer
+14x14x6
+10x10x16
+16
+6
+Each column indicates which feature map in S2 
+are combined by the units in a particular 
+feature map of C3
+18
+AI VIETNAM
+All-in-One Course
+18
+Vinh Dinh Nguyen- PhD in Computer Science
+LetNet
+Why?
+Number of filters (feature map): nc = 16
+Filter size: F = 2
+Padding, P = 0
+Stride, S = 2
+Training parameters = 32
+Number of connections = 2000
+S4: Convolutional layer
+5x5x16
+16
+Each column indicates which feature map in S2 
+are combined by the units in a particular 
+feature map of C3
+10x10x16
+16
+19
+AI VIETNAM
+All-in-One Course
+19
+Vinh Dinh Nguyen- PhD in Computer Science
+LetNet
+Why?
+Number of filters (feature map): N/A
+Filter size: 5
+Padding, N/A
+Stride, N/A
+Training parameters = (Weight + bias) = 48120
+C5: Fully connected convolutional layer
+5x5x6
+6
+…
+120x1
+20
+AI VIETNAM
+All-in-One Course
+20
+Vinh Dinh Nguyen- PhD in Computer Science
+LetNet
+Why?
+Number of filters (feature map): N/A
+Filter size: N/A
+Padding, N/A
+Stride, N/A
+Training parameters = (Weight + bias) = 10164
+F6: Fully connected layer
+…
+84x1
+…
+120x1
+21
+AI VIETNAM
+All-in-One Course
+21
+Vinh Dinh Nguyen- PhD in Computer Science
+LetNet
+Why?
+Number of filters (feature map): N/A
+Filter size: N/A
+Padding, N/A
+Stride, N/A
+Training parameters = (Weight + bias) = 10164
+Ouput: SoftMax output layer
+10x1
+…
+84x1
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+22
+AI VIETNAM
+All-in-One Course
+22
+Vinh Dinh Nguyen- PhD in Computer Science
+LetNet: Summary
+23
+AI VIETNAM
+All-in-One Course
+23
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø CNN: Basic Concepts 
+Ø LeNet
+Ø AlexNet
+Ø ZFNet
+Ø VGGNet
+Ø GoogleLeNet 
+Ø ResNet
+Ø MobileNet
+Ø ConvNext
+Ø Performance Evaluation on Cifar-10 Dataset
+24
+AI VIETNAM
+All-in-One Course
+24
+Vinh Dinh Nguyen- PhD in Computer Science
+AlexNet
+1. AlexNet consists of 5 Convolutional Layers and 3 Fully Connected Layers
+2. It has 60 million parameters and 650,000 neurons and took five to six days to train on two GTX 580 3GB GPUs (2012)
+3. This was the first architecture that used GPU to boost the training performance
+AlexNet
+is 
+the 
+name 
+of 
+a
+convolutional 
+neural 
+network
+(CNN) 
+architecture, 
+designed by Alex Krizhevsky in 
+collaboration 
+with
+Ilya 
+Sutskever and Geoffrey Hinton, 
+who was Krizhevsky's Ph.D. 
+advisor at the University of 
+Toronto.
+25
+AI VIETNAM
+All-in-One Course
+25
+Vinh Dinh Nguyen- PhD in Computer Science
+AlexNet
+New: Overlapping Max Pooling
+Max pooling
+(2x2)
+Stride 2
+Overlap 
+max- pooling
+(2x2)
+Stride 1
+This overlapping nature of pooling helped 
+reduce the top-1 error rate by 0.4% and 
+top-5 error rate by 0.3% respectively when 
+compared to using non-overlapping pooling 
+windows of size 2×2 with a stride of 2 that 
+would give same output dimensions.
+26
+AI VIETNAM
+All-in-One Course
+26
+Vinh Dinh Nguyen- PhD in Computer Science
+AlexNet
+New: Activation Function
+Using ReLU nonlinearity, deep CNNs could be trained much faster than using the saturating activation functions like tanh or sigmoid
+27
+AI VIETNAM
+All-in-One Course
+27
+Vinh Dinh Nguyen- PhD in Computer Science
+AlexNet
+New: Reduce OverFitting
+Using ReLU nonlinearity, deep CNNs could be trained much faster than using the saturating activation functions like tanh or sigmoid
+Data Augmentation
+Drop Out
+In dropout, a neuron is dropped from the network with a probability of 0.5.
+28
+AI VIETNAM
+All-in-One Course
+28
+Vinh Dinh Nguyen- PhD in Computer Science
+AlexNet
+New: Reduce OverFitting
+Using ReLU nonlinearity, deep CNNs could be trained much faster than using the saturating activation functions like tanh or sigmoid
+Data Augmentation
+Drop Out
+In dropout, a neuron is dropped from the network with a probability of 0.5.
+29
+AI VIETNAM
+All-in-One Course
+29
+Vinh Dinh Nguyen- PhD in Computer Science
+AlexNet
+New: Reduce OverFitting
+Using ReLU nonlinearity, deep CNNs could be trained much faster than using the saturating activation functions like tanh or sigmoid
+Data Augmentation
+Drop Out
+if a unit is retained with probability p during training, the outgoing weights of that unit 
+are multiplied by p during the prediction stage.
+30
+AI VIETNAM
+All-in-One Course
+30
+Vinh Dinh Nguyen- PhD in Computer Science
+AlexNet: Summary
+31
+AI VIETNAM
+All-in-One Course
+31
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø CNN: Basic Concepts 
+Ø LeNet
+Ø AlexNet
+Ø ZFNet
+Ø VGGNet
+Ø GoogleLeNet 
+Ø ResNet
+Ø MobileNet
+Ø ConvNext
+Ø Performance Evaluation on Cifar-10 Dataset
+32
+AI VIETNAM
+All-in-One Course
+32
+Vinh Dinh Nguyen- PhD in Computer Science
+ZFNet
+By visualizing the convolutional network, ZFNet become the Winner of ILSVLC 2013 in image classification by fine-tuning the AlexNet invented in 2012
+ZFNet was invented by Rob Fergus and Matthew D. Zeiler
+33
+AI VIETNAM
+All-in-One Course
+33
+Vinh Dinh Nguyen- PhD in Computer Science
+ZFNet
+New: Deconvnet Techniques for Visualization
+A standard step in deep learning framework is to have a series 
+of Conv > Rectification (Activation Function) > Pooling. To 
+visualize a deep layer feature, we need a set of decovnet 
+techniques to reverse the above actions such that we can 
+visualize the feature in pixel domain.
+34
+AI VIETNAM
+All-in-One Course
+34
+Vinh Dinh Nguyen- PhD in Computer Science
+ZFNet
+New: Deconvnet Techniques for Visualization
+Unpooling
+Max pooling operation is non-invertible, however we can obtain an 
+approximate inverse by recording the locations of the maxima within each 
+pooling region, as in the figure above.
+35
+AI VIETNAM
+All-in-One Course
+35
+Vinh Dinh Nguyen- PhD in Computer Science
+ZFNet
+New: Deconvnet Techniques for Visualization
+Rectification (Activation Function)
+Since ReLU is used as the activation function, and ReLU is to 
+keep all values positive while make negative values become 
+zero. In the reverse operation, we just need to perform ReLU 
+again.
+36
+AI VIETNAM
+All-in-One Course
+36
+Vinh Dinh Nguyen- PhD in Computer Science
+ZFNet
+New: Deconvnet Techniques for Visualization
+Convolution 
+(Blue is input, cyan is output)
+Deconvolution 
+(Blue is input, cyan is output)
+Convolution
+Convolution
+adds up the information spread in various pixels to one 
+pixel, whereas DeConvolution spreads the information present in one pixel to various 
+pixels.
+37
+AI VIETNAM
+All-in-One Course
+37
+Vinh Dinh Nguyen- PhD in Computer Science
+ZFNet
+38
+AI VIETNAM
+All-in-One Course
+38
+Vinh Dinh Nguyen- PhD in Computer Science
+ZFNet
+New: Deconvnet Techniques for Visualization
+39
+AI VIETNAM
+All-in-One Course
+39
+Vinh Dinh Nguyen- PhD in Computer Science
+ZFNet
+New: Deconvnet Techniques for Visualization
+Deconvolution
+Convolution
+adds up the information spread in various pixels to one 
+pixel, whereas DeConvolution spreads the information present in one pixel to various 
+pixels.
+40
+AI VIETNAM
+All-in-One Course
+40
+Vinh Dinh Nguyen- PhD in Computer Science
+ZFNet
+New: Visualization for Each Layer
+Layer 3 starts to learn some general patterns
+Layer 4 shows significant variation, and is more class-specific, such as dogs’ 
+faces and birds’ legs.
+Layer 5 shows entire objects with significant pose variation, such as 
+keyboards and dogs.
+41
+AI VIETNAM
+All-in-One Course
+41
+Vinh Dinh Nguyen- PhD in Computer Science
+ZFNet
+Layer 1: (a) More mid-frequencies in ZFNet, (b) Extremely low and high 
+frequencies in AlexNet
+Layer 2: (c) Aliasing artifacts in AlexNet and (d) 
+much cleaner features in ZFNet
+42
+AI VIETNAM
+All-in-One Course
+42
+Vinh Dinh Nguyen- PhD in Computer Science
+ZFNet
+New: Modifications of AlexNet Based on Visualization Results
+ZFNet is redrawn as the same style of 
+AlexNet for the ease of comparison. To 
+solve the two problems observed in 
+layer 1 and layer 2, ZFNet makes two 
+changes.
+(i) Reduced the 1st layer filter size 
+from 11x11 to 7x7.
+(ii) Made the 1st layer stride of the 
+convolution 2, rather than 4.
+43
+AI VIETNAM
+All-in-One Course
+43
+Vinh Dinh Nguyen- PhD in Computer Science
+ZFNet
+Local Response Normalization
+Normalization has become important for deep 
+neural networks that compensate for the 
+unbounded nature of certain activation functions 
+such as ReLU, ELU, etc.
+LRN is a non-trainable layer that square-normalizes 
+the pixel values in a feature map within a local 
+neighborhood
+44
+AI VIETNAM
+All-in-One Course
+44
+Vinh Dinh Nguyen- PhD in Computer Science
+ZFNet
+Inter-Channel LRN
+Lets take the hyper-parameters to be (k,α, β, n)=(0,1,1,2). The value 
+of n=2 means that while calculating the normalized value at position (i,x,y), 
+we consider the values at the same position for the previous and next filter 
+i.e
+(i-1, 
+x, 
+y)
+and
+(i+1, 
+x, 
+y). 
+For
+(i,x,y)=(0,0,0)
+we 
+have value(i,x,y)=1, value(i-1,x,y) doesn’t exist and value(i+,x,y)=1. 
+Hence normalized_value(i,x,y) = 1/(¹²+¹²) = 0.5
+45
+AI VIETNAM
+All-in-One Course
+45
+Vinh Dinh Nguyen- PhD in Computer Science
+ZFNet
+Intra-Channel LRN
+In Intra-channel LRN, the neighborhood is extended within the same channel only as can be seen in the figure above. The formula is given by
+46
+AI VIETNAM
+All-in-One Course
+46
+Vinh Dinh Nguyen- PhD in Computer Science
+ZFNet
+Batch Normalization (BN) is a trainable layer normally used for addressing the issues of Internal Covariate Shift (ICF)
+Roses vs No-roses classification. The feature map plotted on 
+the right have different distributions for two different batch 
+sampled from the dataset
+This is called the Covariate shift of the input neurons
+47
+AI VIETNAM
+All-in-One Course
+47
+Vinh Dinh Nguyen- PhD in Computer Science
+ZFNet
+Batch Normalization (BN) is a trainable layer normally used for addressing the issues of Internal Covariate Shift (ICF)
+48
+AI VIETNAM
+All-in-One Course
+48
+Vinh Dinh Nguyen- PhD in Computer Science
+ZFNet
+Batch Normalization (BN) is a trainable layer normally used for addressing the issues of Internal Covariate Shift (ICF)
+49
+AI VIETNAM
+All-in-One Course
+49
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø CNN: Basic Concepts 
+Ø LeNet
+Ø AlexNet
+Ø ZFNet
+Ø VGGNet
+Ø GoogleLeNet 
+Ø ResNet
+Ø MobileNet
+Ø ConvNext
+Ø Performance Evaluation on Cifar-10 Dataset
+50
+AI VIETNAM
+All-in-One Course
+50
+Vinh Dinh Nguyen- PhD in Computer Science
+VGGNet
+The full name of VGG is the Visual Geometry Group, which belongs to the 
+Department of Science and Engineering of Oxford University.
+The original purpose of VGG's research on the depth of convolutional 
+networks is to understand how the depth of convolutional networks affects 
+the accuracy and accuracy of large-scale image classification and 
+recognition.
+51
+AI VIETNAM
+All-in-One Course
+51
+Vinh Dinh Nguyen- PhD in Computer Science
+VGG16Net
+AlexNet came out in 2012 and was a revolutionary advancement; it improved on traditional Convolutional Neural Networks (CNNs) and 
+became one of the best models for image classification… until VGG came out.
+Use of a very small 3 x 3 receptive field (filters) throughout the entire network with the stride of 1 pixel. Please note that the receptive 
+field in the first layer in AlexNet was 11 x 11 with stride 4, and the same was 7 x 7 in ZFNet with stride 2.
+52
+AI VIETNAM
+All-in-One Course
+52
+Vinh Dinh Nguyen- PhD in Computer Science
+VGG16Net
+53
+AI VIETNAM
+All-in-One Course
+53
+Vinh Dinh Nguyen- PhD in Computer Science
+VGG16Net
+54
+AI VIETNAM
+All-in-One Course
+54
+Vinh Dinh Nguyen- PhD in Computer Science
+VGG16Net
+55
+AI VIETNAM
+All-in-One Course
+55
+Vinh Dinh Nguyen- PhD in Computer Science
+VGGNet: Parameters
+The VGG network has five configurations named A to E.
+56
+AI VIETNAM
+All-in-One Course
+56
+Vinh Dinh Nguyen- PhD in Computer Science
+VGGNet: Parameters
+57
+AI VIETNAM
+All-in-One Course
+57
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø CNN: Basic Concepts 
+Ø LeNet
+Ø AlexNet
+Ø ZFNet
+Ø VGGNet
+Ø GoogleLeNet 
+Ø ResNet
+Ø MobileNet
+Ø ConvNext
+Ø Performance Evaluation on Cifar-10 Dataset
+58
+AI VIETNAM
+All-in-One Course
+58
+Vinh Dinh Nguyen- PhD in Computer Science
+GoogleLeNet: Motivation
+•GoogleLeNet introduced by google in 2014 ,which is the winner of 
+ImageNet Large-Scale Visual Recognition Challenge 2014 (ILSVRC14)
+Standard CNN structure up until 2014 was stacked convolutional 
+layers, maybe max-pooling, then one or more fully-connected layers
+This has limits-
+•Large memory footprint
+•Large computation demand
+•Prone to overfitting
+•Vanishing and exploding gradients
+59
+AI VIETNAM
+All-in-One Course
+59
+Vinh Dinh Nguyen- PhD in Computer Science
+GoogleLeNet: Motivation
+A glimpse of the Backpropagation Algorithm
+https://www.analyticsvidhya.com/blog/2021/06/the-challenge-of-vanishing-exploding-gradients-in-deep-neural-networks/
+60
+AI VIETNAM
+All-in-One Course
+60
+Vinh Dinh Nguyen- PhD in Computer Science
+GoogleLeNet: Motivation
+https://www.analyticsvidhya.com/blog/2021/06/the-challenge-of-vanishing-exploding-gradients-in-deep-neural-networks/
+• Bigger size typically means a larger number of parameters, which makes the enlarged network more prone to overfitting, 
+especially if the number of labeled examples in the training set is limited.
+• The other drawback of uniformly increased network size is the dramatically increased use of computational resources.
+Introduce sparsity and replace the fully connected layers by the sparse ones, 
+even inside the convolutions.
+Problems
+Solution
+Densely 
+connected 
+architecture
+Sparkly 
+connected 
+architecture
+61
+AI VIETNAM
+All-in-One Course
+61
+Vinh Dinh Nguyen- PhD in Computer Science
+GoogleLeNet : Inception Net
+New: 1×1 convolution is used as a dimension reduction module to reduce the computation
+Number of parameters =28x28 (size of the input image)x 
+5x5(size of filter) x 192 (channels) x 32(no of filters) 
+= 120,422,400 operations
+28x28x192
+192
+28x28x32
+32
+Conv (5,5)
+Same, 32 filters
+28x28x192
+192
+28x28x16
+16
+Conv (1,1)
+Same, 16 filters
+28x28x32
+32
+Conv (5,5)
+Same, 32 filters
+Number of parameters =28 x 28 x 16  x 192  + 28 x 28 x 32  
+x 5 x 5 x 16  ~ 12.4M
+5x5 convolution using 1x1 bottleneck convolution
+5x5 convolution without using 1x1 bottleneck convolution
+As the authors said that the idea of the name “Inception” comes from famous internet meme below: WE NEED TO GO DEEPER
+62
+AI VIETNAM
+All-in-One Course
+62
+Vinh Dinh Nguyen- PhD in Computer Science
+GoogLeNet: Inception Net
+New: Inception Module
+Inception V1 Module
+Inception V1 Optimizated
+63
+AI VIETNAM
+All-in-One Course
+63
+Vinh Dinh Nguyen- PhD in Computer Science
+GoogLeNet: Inception Net
+New: Inception Module
+Inception V2 Module
+Inception V2 Module
+64
+AI VIETNAM
+All-in-One Course
+64
+Vinh Dinh Nguyen- PhD in Computer Science
+GoogleLeNet
+There are a total of 22 layers, It is already a very deep model 
+compared with previous AlexNet, ZFNet, and VGGNet
+65
+AI VIETNAM
+All-in-One Course
+65
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø CNN: Basic Concepts 
+Ø LeNet
+Ø AlexNet
+Ø ZFNet
+Ø VGGNet
+Ø GoogleLeNet 
+Ø ResNet
+Ø MobileNet
+Ø ConvNext
+Ø Performance Evaluation on Cifar-10 Dataset
+66
+AI VIETNAM
+All-in-One Course
+66
+Vinh Dinh Nguyen- PhD in Computer Science
+Residual Network (ResNet)
+The Residual Blocks idea was created by this design to address the issue of the vanishing/exploding gradient
+67
+AI VIETNAM
+All-in-One Course
+67
+Vinh Dinh Nguyen- PhD in Computer Science
+Residual Network (ResNet)
+A novel architecture called Residual Network was launched by Microsoft Research 
+experts in 2015 with the proposal of ResNet.
+68
+AI VIETNAM
+All-in-One Course
+68
+Vinh Dinh Nguyen- PhD in Computer Science
+Residual Network (ResNet34)
+New: Skip Connection
+The VGG-19-inspired 34-layer plain network architecture used by 
+ResNet is followed by the addition of the shortcut connection
+The intuition is that learning f(x) = 0 
+has to be easy for the network.
+69
+AI VIETNAM
+All-in-One Course
+69
+Vinh Dinh Nguyen- PhD in Computer Science
+Residual Network (ResNet34)
+New: Skip Connection
+Assumed Deep Convolutional Neural Network
+Traditional networks such as AlexNet, 
+VGG-16, etc try to learn the A1, A2, 
+A3, …. An directly as shown in the 
+diagram of the simple deep network. 
+In the forward pass, the input (image) 
+is passed to the network to get the 
+output. The error is calculated and 
+gradients are determined and 
+backpropagation helps the network to 
+approximate the functions A1, A2, A3, 
+…. An in the form of B1, B2, B3, …. 
+Bn
+IF THE MULTIPLE NON-LINEAR 
+LAYERS 
+CAN 
+ASYMPTOTICALLY 
+APPROXIMATE 
+COMPLICATED 
+FUNCTIONS, 
+THEN 
+IT 
+IS 
+EQUIVALENT TO HYPOTHESIZE 
+THAT THEY CAN ASYMPTOTICALLY 
+APPROXIMATE 
+THE 
+RESIDUAL 
+FUNCTION
+The creators of ResNet thought that:
+70
+AI VIETNAM
+All-in-One Course
+70
+Vinh Dinh Nguyen- PhD in Computer Science
+Residual Network (ResNet34)
+New: Skip Connection
+Intuitive representation of Residual Function
+Why identity mapping will work?
+Gradients can flow directly through the skip connections backwards from 
+later layers to initial filters.
+What is a Residual Function?
+RATHER THAN EXPECTING STACKED LAYERS TO 
+LEARN TO APPROXIMATE H(x), THE AUTHORS 
+ARE LETTING THE LAYERS TO APPROXIMATE A 
+RESIDUAL FUNCTION i.e. F(x) = H(x) – x.
+Gradient Pathways in ResNet
+71
+AI VIETNAM
+All-in-One Course
+71
+Vinh Dinh Nguyen- PhD in Computer Science
+Residual Network
+72
+AI VIETNAM
+All-in-One Course
+72
+Vinh Dinh Nguyen- PhD in Computer Science
+ResNet 34: Another look
+73
+AI VIETNAM
+All-in-One Course
+73
+Vinh Dinh Nguyen- PhD in Computer Science
+ResNet 34: Another look
+Consisting on a convolution + batch normalization + max 
+pooling operation
+74
+AI VIETNAM
+All-in-One Course
+74
+Vinh Dinh Nguyen- PhD in Computer Science
+ResNet 34: Another look
+Consisting on a convolution + batch 
+normalization + max pooling operation
+75
+AI VIETNAM
+All-in-One Course
+75
+Vinh Dinh Nguyen- PhD in Computer Science
+Resnet 34: Another Look
+Layer 1, block 1, operation 1
+Every layer of a ResNet is composed of several blocks
+Layer 1, block 1 (ResNet 18)
+Layer 1, block 1 ((ResNet 18)
+76
+AI VIETNAM
+All-in-One Course
+76
+Vinh Dinh Nguyen- PhD in Computer Science
+ResNet
+Down sampling performed by increasing the stride to 2
+Projection shortcut
+Identity Shortcut  and Projection Shortcut
+2 output volumes of each thread has the same 
+size and can be added
+77
+AI VIETNAM
+All-in-One Course
+77
+Vinh Dinh Nguyen- PhD in Computer Science
+ResNet50 Architecture
+78
+AI VIETNAM
+All-in-One Course
+78
+Vinh Dinh Nguyen- PhD in Computer Science
+ResNet50 Architecture
+79
+AI VIETNAM
+All-in-One Course
+79
+Vinh Dinh Nguyen- PhD in Computer Science
+ResNet50 Architecture
+80
+AI VIETNAM
+All-in-One Course
+80
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø CNN: Basic Concepts 
+Ø LeNet
+Ø AlexNet
+Ø ZFNet
+Ø VGGNet
+Ø GoogleLeNet 
+Ø ResNet
+Ø MobileNet
+Ø ConvNext
+Ø Performance Evaluation on Cifar-10 Dataset
+81
+AI VIETNAM
+All-in-One Course
+81
+Vinh Dinh Nguyen- PhD in Computer Science
+MobileNet
+The smaller MobileNets have as few as 1.3 million parameters. Also, the 
+size of the models is significantly less. While a VGG16 model can take up 
+to 500 MB of disk space, MobileNet just needs 16–18MB. This makes it 
+ideal to be loaded on mobile devices.
+1.Using Depthwise Separable Convolutions
+2.Using two Shrinking Hyperparameters:
+In 2017, Google introduced MobileNets, a family of computer vision 
+models based on TensorFlow
+News
+82
+AI VIETNAM
+All-in-One Course
+82
+Vinh Dinh Nguyen- PhD in Computer Science
+MobileNet
+New: Depthwise convolutions
+The main difference between 2D convolutions and Depthwise Convolution is 
+that 2D convolutions are performed over all/multiple input channels, 
+whereas in Depthwise convolution, each channel is kept separate.
+1.
+Input tensor of 3 dimensions is split into separate channels
+2.
+For each channel, the input is convolved with a filter (2D)
+3.
+The output of each channel is then stacked together to get the output 
+on the entire 3D tensor
+The depth-wise convolutions are used to apply a single filter into each input 
+channel. 
+83
+AI VIETNAM
+All-in-One Course
+83
+Vinh Dinh Nguyen- PhD in Computer Science
+MobileNet
+New: Depthwise Separable Convolutions:
+Depthwise convolutions are generally applied in combination with another 
+step — Depthwise Separable Convolution. This contains two parts
+1. Filtering (all the previous steps) and 
+2. Combining (combining the 3 color channels to form ’n’ number of 
+channels, as desired — in the example below we see how the 3 channel can 
+be combined to form a 1 channel output).
+84
+AI VIETNAM
+All-in-One Course
+84
+Vinh Dinh Nguyen- PhD in Computer Science
+MobileNet
+Why is Depthwise Separable Convolution so efficient?
+2D convolution
+Standard Convolution Cost
+Depthwise convolution cost
+Depth-Wise Convolution cost
+Where DF is the special dimensions of the input feature 
+map and DK is the size of the convolution kernel. Here 
+M and N are the number of input and output channels 
+respectively.
+Contains an input feature map of dimension DF*DF and 
+M number of kernels of channel size 1.
+85
+AI VIETNAM
+All-in-One Course
+85
+Vinh Dinh Nguyen- PhD in Computer Science
+MobileNet
+Why is Depthwise Separable Convolution so efficient?
+Depthwise convolution cost
+Depth-Wise Convolution cost
+Point-wise Convolution
+Pointwise convolution cost
+Since the depthwise convolution is only used to filter the input channel, it does not combine them to produce new features. So an additional layer called 
+pointwise convolution layer is made, which computes a linear combination of the output of depthwise convolution using a 1 × 1 convolution.
+Depthwise separable convolutions cost
+86
+AI VIETNAM
+All-in-One Course
+86
+Vinh Dinh Nguyen- PhD in Computer Science
+MobileNet
+Why is Depthwise Separable Convolution so efficient?
+Depth-Wise Convolution cost
+Pointwise convolution cost
+Standard Convolution Cost
+Ratio: Depthwise separable convolutions cost with 
+standard convolution cost
+87
+AI VIETNAM
+All-in-One Course
+87
+Vinh Dinh Nguyen- PhD in Computer Science
+MobileNet
+Why is Depthwise Separable Convolution so efficient?
+Let's assume that we have an input tensor of size — 8x8x3, And the desired output tensor is of size — 8x8x256
+8x8x3
+8x8x256
+In 2D Convolutions
+Number of multiplications required — 
+(8x8) x (5x5x3) x (256) = 1,228,800
+In Depthwise Separable Convolutions
+Filtering — Split into single channels, so 5x5x1 filter is required in place of 5x5x3, and since there are 
+three channels, so the total number of 5x5x1 filters required is 3: (8x8) x (5x5x1) x (3) = 3,800
+Combining — Total number of channels required is 256, so, (8x8) x (1x1x3) x (256) = 49,152
+Total number of multiplications = 3,800+49,152 = 53,952
+88
+AI VIETNAM
+All-in-One Course
+88
+Vinh Dinh Nguyen- PhD in Computer Science
+MobileNet
+New: Shrinking Hyperparameters
+Width multiplier which adjusts the number of channels: 
+Thinner Models
+Resolution multiplier which adjusts the spatial dimensions of the feature 
+maps and the input image: Reduced Representation
+Here α will vary from 0 to 1, with typical values of [1, 0.75, 0.5 
+and 0.25]. When α = 1, called as baseline MobileNet and α < 
+1, called as reduced MobileNet. Width Multiplier has the effect 
+of reducing computational cost by α².
+89
+AI VIETNAM
+All-in-One Course
+89
+Vinh Dinh Nguyen- PhD in Computer Science
+Mobile Net
+Standard Convolutional layer
+Depthwise Separable 
+Convolutional layers
+90
+AI VIETNAM
+All-in-One Course
+90
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø CNN: Basic Concepts 
+Ø LeNet
+Ø AlexNet
+Ø ZFNet
+Ø VGGNet
+Ø GoogleLeNet 
+Ø ResNet
+Ø MobileNet
+Ø ConvNext
+Ø Performance Evaluation on Cifar-10 Dataset
+91
+AI VIETNAM
+All-in-One Course
+91
+Vinh Dinh Nguyen- PhD in Computer Science
+Long-short Term Memory (LSTM)
+92
+AI VIETNAM
+All-in-One Course
+92
+Vinh Dinh Nguyen- PhD in Computer Science
+Sequence-to-Sequence using RNN
+93
+AI VIETNAM
+All-in-One Course
+93
+Vinh Dinh Nguyen- PhD in Computer Science
+Sequence-to-Sequence using RNN
+94
+AI VIETNAM
+All-in-One Course
+94
+Vinh Dinh Nguyen- PhD in Computer Science
+Transformer
+95
+AI VIETNAM
+All-in-One Course
+95
+Vinh Dinh Nguyen- PhD in Computer Science
+ConvNext: The ConvNet for the Roaring 20s
+Vision Transformer
+In NLP, Transformer models typically 
+represent text as a sequence of words. 
+However, images cannot be represented as 
+a sequence of words. Instead, ViTs 
+represent images as a sequence of 
+patches. A patch is a small rectangular 
+region of an image. The size of the patch 
+is typically 16x16 pixels.
+96
+AI VIETNAM
+All-in-One Course
+96
+Vinh Dinh Nguyen- PhD in Computer Science
+Swin Transformer
+97
+AI VIETNAM
+All-in-One Course
+97
+Vinh Dinh Nguyen- PhD in Computer Science
+ConvNext: The ConvNet for the Roaring 20s
+Vision Transformer
+In NLP, Transformer models typically 
+represent text as a sequence of words. 
+However, images cannot be represented as 
+a sequence of words. Instead, ViTs 
+represent images as a sequence of 
+patches. A patch is a small rectangular 
+region of an image. The size of the patch 
+is typically 16x16 pixels.
+98
+AI VIETNAM
+All-in-One Course
+98
+Vinh Dinh Nguyen- PhD in Computer Science
+ConvNext
+Ever since their invention in 2017, transformers have been “the 
+next big thing” in natural language processing (NLP). In recent 
+years, vision transformers have joined their NLP counterparts and 
+are now regularly used to solve computer vision issues. But does 
+that mean that classic convolutional neural networks (CNN) are 
+dead? Not yet. The authors of ConvNeXt did their best to revive 
+ResNet, a popular CNN, by tweaking it to perform better and to be 
+more similar to a transformer, without actually turning it into a 
+transformer or adding attention into the mix.
+99
+AI VIETNAM
+All-in-One Course
+99
+Vinh Dinh Nguyen- PhD in Computer Science
+ConvNext
+Original, the perfomrance ResNet-50 is 76.1% on Image Net.
+Improving the performance off ResNet-50 by:
+- Using AdamW optimizer
+- Extend epoches from 90 to 300
+- Data augmentation: Mixup, cutmix, RandAument, Random Erasing
+- Regularization schemes: Stochatis Depth, Label smoothing
+Accuracy increased by + 2.7%
+100
+AI VIETNAM
+All-in-One Course
+100
+Vinh Dinh Nguyen- PhD in Computer Science
+ConvNext
+Swin tranformer
+Compute ratio: 1:1:3:1
+ResNet50 ratio: 3:4:6:3  =>  3:3:9:3
+Changing stage compute ratio
+101
+AI VIETNAM
+All-in-One Course
+101
+Vinh Dinh Nguyen- PhD in Computer Science
+ConvNext
+Swin tranformer
+Compute ratio: 1:1:3:1
+ResNet50 ratio: 3:4:6:3  =>  3:3:9:3
+Changing stage compute ratio
+102
+AI VIETNAM
+All-in-One Course
+102
+Vinh Dinh Nguyen- PhD in Computer Science
+ConvNext
+ResNet50 ratio: 3:4:6:3  =>  3:3:9:3
+Changing stem to “Patchify”
+103
+AI VIETNAM
+All-in-One Course
+103
+Vinh Dinh Nguyen- PhD in Computer Science
+ConvNext
+ResNeXt-ify
+104
+AI VIETNAM
+All-in-One Course
+104
+Vinh Dinh Nguyen- PhD in Computer Science
+ConvNext
+Inverted Bottle Neck
+105
+AI VIETNAM
+All-in-One Course
+105
+Vinh Dinh Nguyen- PhD in Computer Science
+ConvNext
+Large Kernel  Size
+106
+AI VIETNAM
+All-in-One Course
+106
+Vinh Dinh Nguyen- PhD in Computer Science
+ConvNext
+ResNet50 ratio: 3:4:6:3  =>  3:3:9:3
+Mirco Design
+Replacing ReLU with GELU
+107
+AI VIETNAM
+All-in-One Course
+107
+Vinh Dinh Nguyen- PhD in Computer Science
+ConvNext
+ResNet50 ratio: 3:4:6:3  =>  3:3:9:3
+Mirco Design
+One Activation function per block to mimic Transformer
+Use only One Norm layer instead of 3
+Substitute LayerNorm for BatchNorm
+Adding separate down sampling layer + Norm layers when 
+spatial resolution changes helps stabilize training
+108
+AI VIETNAM
+All-in-One Course
+108
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø CNN: Basic Concepts 
+Ø LeNet
+Ø AlexNet
+Ø ZFNet
+Ø VGGNet
+Ø GoogleLeNet 
+Ø ResNet
+Ø MobileNet
+Ø ConvNext
+Ø Performance Evaluation on Cifar-10 Dataset
+109
+AI VIETNAM
+All-in-One Course
+109
+Vinh Dinh Nguyen- PhD in Computer Science
+CIFAR-10 Dataset
+The CIFAR-10 dataset consists of 60000 32x32 colour images in 
+10 classes, with 6000 images per class. There are 50000 training 
+images and 10000 test images.
+110
+AI VIETNAM
+All-in-One Course
+110
+Vinh Dinh Nguyen- PhD in Computer Science
+Performance Evaluation
+Done by TA Bui Minh Duc
+Image Size: 32 x 32
+Image Size: 224 x 224
+111
+AI VIETNAM
+All-in-One Course
+111
+Vinh Dinh Nguyen- PhD in Computer Science
+Summary
+Done by TA Bui Minh Duc
+112
+AI VIETNAM
+All-in-One Course

@@ -1,0 +1,20 @@
+AI VIET NAM – AIO COURSE 2023
+Project: Multi-Task Learning
+Ngày 2 tháng 5 năm 2024
+Project: Multi-Task Learning - Rubric
+Phần
+Kiến Thức
+Đánh Giá
+1
+- Giới thiệu vềcác phương pháp trong học đa
+tác vụ(Multi-Task Learning).
+- So sánh phương pháp multi-task learning
+với transfer learning, multi label,...
+- Tinh chỉnh mô hình cho các phương pháp
+multi-task learning.
+2.
+- Hiểu rõ mô hình hard parameter sharing,
+soft parameter sharing.
+- Huấn luyện mô hình hard parameter
+sharing trên bộdữliệu NYUD-V2.
+1

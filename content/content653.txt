@@ -1,7 +1,0 @@
-AI VIETNAM aivietnam.edu.vn
-Hình 5 mô tả cách hoạt động của Cross-Scan, và hình 6 mô tả cách tính toán với Cross-Scan trong SSM
-block. Cross-Scan giúp VMamba đạt được độ phức tạp linearO(n) mà không bị mất bất kỳ thông tin
-global nào. Ví dụ, token ở vị trí chính giữa trong hình 5 được tổng hợp thông tin từ tất cả các token
-khác theo nhiều hướng khác nhau. Cross-Scan được tính toán thông qua 3 bước chính:
-1. Scan expand: các token đầu vào được chia thành 4 sequence khác nhau (theo 4 hướng).
-2. 

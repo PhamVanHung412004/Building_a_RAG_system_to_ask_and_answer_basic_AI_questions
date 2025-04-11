@@ -1,0 +1,1831 @@
+1
+AI VIETNAM
+All-in-One Course
+1
+AI VIETNAM
+All-in-One Course
+Random Forest
+Year 2023
+Vinh Dinh Nguyen
+PhD in Computer Science
+AI VIETNAM
+All-in-One Course
+2
+AI VIETNAM
+All-in-One Course
+2
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Decision Tree Review
+Ø Random Forest
+Ø Fill in missing data with Random Forest
+Ø Case study
+Outline
+3
+AI VIETNAM
+All-in-One Course
+3
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Decision Tree Review
+Ø Random Forest
+Ø Fill in missing data with Random Forest
+Ø Case study
+Outline
+4
+AI VIETNAM
+All-in-One Course
+4
+Vinh Dinh Nguyen- PhD in Computer Science
+Decision Tree Review
+Unit(đơn vị)
+Effect (hiệu quả) (%)
+10
+98
+20
+0
+35
+100
+5
+44
+…
+…
+Khi có 1 vaccine ra đời, chúng ta muốn dự đoán xem nó hiệu quả bao 
+nhiêu % ứng với từng liều lượng dùng trên bệnh nhân.
+Tiêm 5 đơn vị vaccine
+Hiệu quảvaccine: 44%
+5
+AI VIETNAM
+All-in-One Course
+5
+Vinh Dinh Nguyen- PhD in Computer Science
+Decision Tree Review
+10
+20
+30
+40
+25
+50
+75
+100
+Unit (Đơn vị) vaccine
+Effectiveness 
+(Hiệu quả) 
+(%)
+14.5
+Unit < 14.5
+Predict effect: 
+4.2
+Unit < 29
+Kết quả dự đoán 
+cho unit < 14.5
+Kết quả dự đoán 
+cho unit >= 29
+Unit < 23.5
+Predict effect 2.5
+29
+23.5
+Predict effect: 100
+Predict effect: 52.8
+Kết quả dự đoán 
+cho unit > 23.5
+Kết quả dự đoán 
+cho unit < 23.5
+6
+AI VIETNAM
+All-in-One Course
+6
+Vinh Dinh Nguyen- PhD in Computer Science
+Decision Tree Review
+10
+20
+30
+40
+25
+50
+75
+100
+Unit (Đơn vị) vaccine
+Effectiveness 
+(Hiệu quả) 
+(%)
+14.5
+Unit < 14.5
+Predict effect: 
+4.2
+Unit < 29
+Kết quả dự đoán 
+cho unit < 14.5
+Kết quả dự đoán 
+cho unit >= 29
+Unit < 23.5
+Predict effect 2.5
+29
+23.5
+Predict effect: 100
+Predict effect: 52.8
+Kết quả dự đoán 
+cho unit > 23.5
+Kết quả dự đoán 
+cho unit < 23.5
+Dữ liệu test 
+Dữ liệu train
+Error
+7
+AI VIETNAM
+All-in-One Course
+7
+Vinh Dinh Nguyen- PhD in Computer Science
+Decision Tree Review
+10
+20
+30
+40
+25
+50
+75
+100
+Unit (Đơn vị) vaccine
+Effectiveness 
+(Hiệu quả) 
+(%)
+14.5
+Unit < 14.5
+Predict effect: 
+4.2
+Unit < 29
+Kết quả dự đoán 
+cho unit < 14.5
+Kết quả dự đoán 
+cho unit >= 29
+Delete
+Predict effect 2.5
+29
+23.5
+Delete
+Delete
+Kết quả dự đoán 
+cho unit > 23.5
+Kết quả dự đoán 
+cho unit < 23.5
+Dữ liệu test 
+Dữ liệu train
+Error
+Note : If we want to prune the tree more, we could remove last two
+leaves and replace the split with a leaf that is the average of all of the
+observations
+8
+AI VIETNAM
+All-in-One Course
+8
+Vinh Dinh Nguyen- PhD in Computer Science
+Decision Tree Review
+10
+20
+30
+40
+25
+50
+75
+100
+Unit (Đơn vị) vaccine
+Effectiveness 
+(Hiệu quả) 
+(%)
+14.5
+Unit < 14.5
+Predict effect: 
+4.2
+Unit < 29
+Kết quả dự đoán 
+cho unit < 14.5
+Kết quả dự đoán 
+cho unit >= 29
+Predict effect 2.5
+29
+Kết quả dự đoán 
+cho unit < 29
+Kết quả dự đoán 
+cho unit < 23.5
+Dữ liệu test 
+Dữ liệu train
+Error
+Predict effect 73.8
+9
+AI VIETNAM
+All-in-One Course
+9
+Vinh Dinh Nguyen- PhD in Computer Science
+Tree complexity penalty
+The tree complexity penalty compensates for the difference in the number of leaves.
+Tree Score = sum of squared residual + αT
+α (alpha) is a tuning parameter that we finding using cross validation.
+T is the total number of terminal nodes/the total number of leaves
+For now, let’s let α = 10,000 and calculate tree score for each tree.
+10
+AI VIETNAM
+All-in-One Course
+10
+Vinh Dinh Nguyen- PhD in Computer Science
+How to select α 
+α = 0 
+α = 10,000
+α = 15000
+α =20,000 
+Split 1
+…
+…
+…
+…
+Split 2
+…
+…
+…
+…
+Split 3
+…
+…
+…
+…
+Split 4
+…
+…
+…
+…
+Split 5
+…
+…
+…
+…
+Average
+50,000
+5000
+11,000
+30,000
+In this case, the optimal trees built with α = 10,000 had, on average, the
+lowest sum of square residuals. So α = 10,000 is our final value.
+11
+AI VIETNAM
+All-in-One Course
+11
+Vinh Dinh Nguyen- PhD in Computer Science
+Decision Tree Review
+https://twitter.com/gsutters/status/1281001812577976329
+ü Very easy to explain
+(Bạn nghĩ có dễ hiểu hơn linear regression không?)
+ü More closely mirror human
+(Bạn nghĩ sao về điều này?)
+ü Can easily handle qualitative predictors without the need of 
+create dummy variables.
+(Dummy variable là gì?)
+Advantages
+ü Do not have the same level of predicting accuracy as some 
+other regression and classification methods
+ü Small changes in the data can cause a large change in the large 
+estimated tree. 
+ü Are less effective in making predictions when the main goal is to
+predict the outcome of a continuous variable
+Disadvantages
+12
+AI VIETNAM
+All-in-One Course
+12
+Vinh Dinh Nguyen- PhD in Computer Science
+Dummy Variable
+https://twitter.com/gsutters/status/1281001812577976329
+13
+AI VIETNAM
+All-in-One Course
+13
+Vinh Dinh Nguyen- PhD in Computer Science
+Bias-Variance Trade-off
+High bias, low variance
+(Underfitting)
+Low variance, low bias
+(just right)
+High variance, low bias
+(overfitting)
+X1
+Y2
+X3
+Y2
+X2
+Y3
+Weak Learner
+14
+AI VIETNAM
+All-in-One Course
+14
+Vinh Dinh Nguyen- PhD in Computer Science
+Bias-Variance Trade-off
+Weight
+Height
+True
+Relationship
+Need to develop a ML algorith to capture this relationship
+Weight
+Tranning
+Testing
+Real Dataset
+15
+AI VIETNAM
+All-in-One Course
+15
+Vinh Dinh Nguyen- PhD in Computer Science
+Bias-Variance Trade-off
+Linear
+ Regression
+Linear Regression will never capture the true 
+relationship between weight and height
+The inability of machine learning to capture the
+true relationship is call bias
+Linear Regression has a high bias
+Polynomial 
+Regression
+Polynomial Regression can capture the true 
+relationship between weight and height
+Polynomial Regression has a low bias
+>> 0
+≈ 0
+16
+AI VIETNAM
+All-in-One Course
+16
+Vinh Dinh Nguyen- PhD in Computer Science
+Bias-Variance Trade-off
+Linear
+ Regression
+Polynomial 
+Regression
+Polynomial Regression has a low bias because …
+Polynomial Regression has high variance because it returns in 
+huge different in SSR between train and test dataset
+The different in fits between datatasets is call variance
+Linear Regression has a high bias because …
+Linear Regression has low variance because its SSR are very 
+similar for diference dataesets
+>> 0
+>> 0
+17
+AI VIETNAM
+All-in-One Course
+17
+Vinh Dinh Nguyen- PhD in Computer Science
+DATASET 
+Train 
+SSR on Train
+Bias as the error rate of the training data. 
+Our model
+Input
+Output
+Low bias
+High bias
+Low
+High
+Test 
+SSR on Test
+Our model
+Input
+Output
+Low Variance
+High variance
+High
+High
+Bias-Variance Trade-off
+The different in fits between datatasets is call variance
+18
+AI VIETNAM
+All-in-One Course
+18
+Vinh Dinh Nguyen- PhD in Computer Science
+Prediction errors (bias and variance)
+Bias as the error rate of the training data. 
+The different in fits between datatasets is call variance
+19
+AI VIETNAM
+All-in-One Course
+19
+Vinh Dinh Nguyen- PhD in Computer Science
+Random Forest Motivation
+You want to buy a perfume for your girlfriend(s)?
+What would you do?
+Ask for 
+Idea!
+Channel đi 
+con!
+Channel đi 
+bạn!!
+Cucci  ạ!!
+Cucci  đi!!
+Search: Cucci
+1
+5
+4
+3
+2
+20
+AI VIETNAM
+All-in-One Course
+20
+Vinh Dinh Nguyen- PhD in Computer Science
+Random Forest Motivation
+You want to buy a perfume for your girlfriend(s)?
+What would you do?
+Mua Gucci
+Thôi!!!
+Channel đi 
+con!
+Channel đi 
+bạn!!
+Cucci  ạ!!
+Cucci  đi!!
+Search: Cucci
+1
+5
+4
+3
+2
+21
+AI VIETNAM
+All-in-One Course
+21
+Vinh Dinh Nguyen- PhD in Computer Science
+Random Forest Motivation
+You want to buy a perfume for your girlfriend(s)?
+What would you do?
+Mua Gucci
+Thôi!!!
+Channel đi 
+con!
+Channel đi 
+bạn!!
+Cucci  ạ!!
+Cucci  đi!!
+Search: Cucci
+1
+5
+4
+3
+2
+22
+AI VIETNAM
+All-in-One Course
+22
+Vinh Dinh Nguyen- PhD in Computer Science
+Random Forest Motivation
+ENSEMPLE LEARNING
+23
+AI VIETNAM
+All-in-One Course
+23
+Vinh Dinh Nguyen- PhD in Computer Science
+What is an Ensemple Learning?
+24
+AI VIETNAM
+All-in-One Course
+24
+Vinh Dinh Nguyen- PhD in Computer Science
+Homogeneous Approach
+25
+AI VIETNAM
+All-in-One Course
+25
+Vinh Dinh Nguyen- PhD in Computer Science
+Heterogeneous Approach
+26
+AI VIETNAM
+All-in-One Course
+26
+Vinh Dinh Nguyen- PhD in Computer Science
+Ensemple Learning Techniques
+Ensemple Learning
+Bagging
+homogeneous weak learners
+Stacking
+Heterogeneous weak learners
+Boosting
+homogeneous weak learners
+Random Forest
+Thông dụng ởcác cuộc thi vềAI
+27
+AI VIETNAM
+All-in-One Course
+27
+Vinh Dinh Nguyen- PhD in Computer Science
+Bagging-based Method
+ENSEMPLE LEARNING
+Random Forest
+28
+AI VIETNAM
+All-in-One Course
+28
+Vinh Dinh Nguyen- PhD in Computer Science
+Boosting-Based Method
+29
+AI VIETNAM
+All-in-One Course
+29
+Vinh Dinh Nguyen- PhD in Computer Science
+Stacking-Based Method
+30
+AI VIETNAM
+All-in-One Course
+30
+Vinh Dinh Nguyen- PhD in Computer Science
+Decision Tree vs Random Forest
+https://commons.wikimedia.org/wiki/File:Decision_Tree_vs._Random_Forest.png
+31
+AI VIETNAM
+All-in-One Course
+31
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Decision Tree Review
+Ø Random Forest
+Ø Fill in missing data with Random Forest
+Ø Case study
+Outline
+32
+AI VIETNAM
+All-in-One Course
+32
+Vinh Dinh Nguyen- PhD in Computer Science
+RANDOM FOREST IS A SOLUTION
+33
+AI VIETNAM
+All-in-One Course
+33
+Vinh Dinh Nguyen- PhD in Computer Science
+Step to Random Rorest
+CHEST PAIN
+GOOD BLOOD CIRCULATION
+BLOCKED
+ARTERIES
+WEIGHT
+HEART 
+DISEASE
+NO
+NO
+NO
+125
+NO
+YES
+YES
+YES
+180
+YES
+YES
+YES
+NO
+210
+NO
+YES
+NO
+YES
+167
+YES
+34
+AI VIETNAM
+All-in-One Course
+34
+Vinh Dinh Nguyen- PhD in Computer Science
+1st Step: Create a New Dataset
+CHEST PAIN
+GOOD BLOOD 
+CIRCULATION
+BLOCKED
+ARTERIES
+WEIGHT
+HEART 
+DISEASE
+NO
+NO
+NO
+125
+NO
+YES
+YES
+YES
+180
+YES
+YES
+YES
+NO
+210
+NO
+YES
+NO
+YES
+167
+YES
+CHEST 
+PAIN
+GOOD 
+BLOOD 
+CIRCULATION
+BLOCKED
+ARTERIES
+WEIGHT
+HEART 
+DISEASE
+YES
+YES
+YES
+180
+YES
+NO
+NO
+NO
+125
+NO
+YES
+NO
+YES
+167
+YES
+YES
+NO
+YES
+167
+YES
+Original DATA
+New DATA
+Chọn lựa ngẫu nhiên từ 
+dataset ban đầu
+35
+AI VIETNAM
+All-in-One Course
+35
+Vinh Dinh Nguyen- PhD in Computer Science
+1st Step: Create a New Dataset
+CHEST PAIN
+GOOD BLOOD 
+CIRCULATION
+BLOCKED
+ARTERIES
+WEIGHT
+HEART 
+DISEASE
+NO
+NO
+NO
+125
+NO
+YES
+YES
+YES
+180
+YES
+YES
+YES
+NO
+210
+NO
+YES
+NO
+YES
+167
+YES
+CHEST 
+PAIN
+GOOD 
+BLOOD 
+CIRCULATION
+BLOCKED
+ARTERIES
+WEIGHT
+HEART 
+DISEASE
+YES
+YES
+YES
+180
+YES
+NO
+NO
+NO
+125
+NO
+YES
+NO
+YES
+167
+YES
+YES
+NO
+YES
+167
+YES
+Original DATA
+Bootrapped Dataset
+Chọn lựa ngẫu nhiên từ 
+dataset ban đầu
+36
+AI VIETNAM
+All-in-One Course
+36
+Vinh Dinh Nguyen- PhD in Computer Science
+CHEST PAIN
+GOOD BLOOD 
+CIRCULATION
+BLOCKED
+ARTERIES
+WEIGHT
+HEART 
+DISEASE
+YES
+YES
+YES
+180
+YES
+NO
+NO
+NO
+125
+NO
+YES
+NO
+YES
+167
+YES
+YES
+NO
+YES
+167
+YES
+2nd Step: Decision Tree from Boostrapped 
+Dataset
+GENERATE DECISION TREES FROM THE BOOTSTRAPPED DATASET USING PREDEFINED CONDITIONS
+A RANDOM SUBSET OF 2 ATTRIBUTES 
+(OR 2 COLUMNS). 
+Traditional Tree
+Tree with Predefined 
+Conditions
+CHEST PAIN
+GOOD BLOOD 
+CIRCULATION
+BLOCKED
+ARTERIES
+WEIGHT
+HEART 
+DISEASE
+YES
+YES
+YES
+180
+YES
+NO
+NO
+NO
+125
+NO
+YES
+NO
+YES
+167
+YES
+YES
+NO
+YES
+167
+YES
+37
+AI VIETNAM
+All-in-One Course
+37
+Vinh Dinh Nguyen- PhD in Computer Science
+CHEST PAIN
+GOOD BLOOD 
+CIRCULATION
+BLOCKED
+ARTERIES
+WEIGHT
+HEART 
+DISEASE
+YES
+YES
+YES
+180
+YES
+NO
+NO
+NO
+125
+NO
+YES
+NO
+YES
+167
+YES
+YES
+NO
+YES
+167
+YES
+CHEST PAIN
+GOOD BLOOD 
+CIRCULATION
+BLOCKED
+ARTERIES
+WEIGHT
+HEART 
+DISEASE
+YES
+YES
+YES
+180
+YES
+NO
+NO
+NO
+125
+NO
+YES
+NO
+YES
+167
+YES
+YES
+NO
+YES
+167
+YES
+GOOD BLOOD
+???
+???
+Chọn lựa ngẫu nhiên 2 
+features (columns)
+Giả sử Good Blood là 
+root node
+Loại bỏ Good Blood ra 
+khỏi dataset
+Chọn lựa ngẫu nhiên 2 features (columns)
+CHEST PAIN
+GOOD BLOOD 
+CIRCULATION
+BLOCKED
+ARTERIES
+WEIGHT
+HEART 
+DISEASE
+YES
+YES
+YES
+180
+YES
+NO
+NO
+NO
+125
+NO
+YES
+NO
+YES
+167
+YES
+YES
+NO
+YES
+167
+YES
+38
+AI VIETNAM
+All-in-One Course
+38
+Vinh Dinh Nguyen- PhD in Computer Science
+CHEST PAIN
+GOOD BLOOD 
+CIRCULATION
+BLOCKED
+ARTERIES
+WEIGHT
+HEART 
+DISEASE
+YES
+YES
+YES
+180
+YES
+NO
+NO
+NO
+125
+NO
+YES
+NO
+YES
+167
+YES
+YES
+NO
+YES
+167
+YES
+CHEST PAIN
+GOOD BLOOD 
+CIRCULATION
+BLOCKED
+ARTERIES
+WEIGHT
+HEART 
+DISEASE
+YES
+YES
+YES
+180
+YES
+NO
+NO
+NO
+125
+NO
+YES
+NO
+YES
+167
+YES
+YES
+NO
+YES
+167
+YES
+Chọn lựa ngẫu nhiên 2 features (columns)
+GOOD BLOOD
+Chest Pain
+???
+Giả sử Chest pain là 
+node tối ưu
+???
+???
+Loại bỏ chest pain ra khỏi dataset
+Chọn lựa ngẫu nhiên 2 features (columns)
+CHEST PAIN
+GOOD BLOOD 
+CIRCULATION
+BLOCKED
+ARTERIES
+WEIGHT
+HEART 
+DISEASE
+YES
+YES
+YES
+180
+YES
+NO
+NO
+NO
+125
+NO
+YES
+NO
+YES
+167
+YES
+YES
+NO
+YES
+167
+YES
+39
+AI VIETNAM
+All-in-One Course
+39
+Vinh Dinh Nguyen- PhD in Computer Science
+CHEST PAIN
+GOOD BLOOD 
+CIRCULATION
+BLOCKED
+ARTERIES
+WEIGHT
+HEART 
+DISEASE
+YES
+YES
+YES
+180
+YES
+NO
+NO
+NO
+125
+NO
+YES
+NO
+YES
+167
+YES
+YES
+NO
+YES
+167
+YES
+CHEST PAIN
+GOOD BLOOD 
+CIRCULATION
+BLOCKED
+ARTERIES
+WEIGHT
+HEART 
+DISEASE
+YES
+YES
+YES
+180
+YES
+NO
+NO
+NO
+125
+NO
+YES
+NO
+YES
+167
+YES
+YES
+NO
+YES
+167
+YES
+Chọn lựa ngẫu nhiên 2 features (columns)
+GOOD BLOOD
+Chest Pain
+???
+Giả sử Weight là node 
+tối ưu
+Weight
+???
+Loại bỏ Weight ra khỏi dataset
+Blocked Arteries
+Weight
+Weight
+Weight
+40
+AI VIETNAM
+All-in-One Course
+40
+Vinh Dinh Nguyen- PhD in Computer Science
+1st Decision Tree 
+CHEST 
+PAIN
+GOOD 
+BLOOD 
+CIRCULATION
+BLOCKED
+ARTERIES
+WEIGHT
+HEART 
+DISEASE
+YES
+YES
+YES
+180
+YES
+NO
+NO
+NO
+125
+NO
+YES
+NO
+YES
+167
+YES
+YES
+NO
+YES
+167
+YES
+41
+AI VIETNAM
+All-in-One Course
+41
+Vinh Dinh Nguyen- PhD in Computer Science
+…
+Create N Tree
+1st tree
+2nd tree
+nth tree
+Generate
+1st bootstrapped dataset
+2nd bootstrapped dataset
+nth bootstrapped dataset
+42
+AI VIETNAM
+All-in-One Course
+42
+Vinh Dinh Nguyen- PhD in Computer Science
+…
+Create N Tree
+1st tree
+2nd tree
+nth tree
+Generate
+1st bootstrapped dataset
+2nd bootstrapped dataset
+nth bootstrapped dataset
+Random Forest
+43
+AI VIETNAM
+All-in-One Course
+43
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Predict New Sample
+NEW PATIENT
+Heart Disease
+Chest Pain
+No
+GOOD BLOOD 
+CIRCULATION
+No
+BLOCKED ARTERIES
+No
+Weight
+125
+Tôi có thể bị 
+bệnh không?
+44
+AI VIETNAM
+All-in-One Course
+44
+Vinh Dinh Nguyen- PhD in Computer Science
+Bagging Technique
+Bootstrapped 
+Dataset
+Dataset
+45
+AI VIETNAM
+All-in-One Course
+45
+Vinh Dinh Nguyen- PhD in Computer Science
+1st tree
+Chest Pain
+No
+GOOD BLOOD 
+CIRCULATION
+No
+BLOCKED ARTERIES
+No
+Weight
+125
+Tôi có thể bị 
+bệnh không?
+2nd tree
+nth tree
+Yes
+No
+7
+2
+Predict
+Predict
+Predict
+Heart Disease
+Rất tiếc, bạn 
+đã mắc bệnh!
+How to Predict New Sample
+46
+AI VIETNAM
+All-in-One Course
+46
+Vinh Dinh Nguyen- PhD in Computer Science
+Review
+RANDOMLY SELECT DATA
+ORIGINAL DATA
+BOOTSTRAPPED DATASET
+ALLOW DUPLICATED VALUES
+47
+AI VIETNAM
+All-in-One Course
+47
+Vinh Dinh Nguyen- PhD in Computer Science
+Review
+CHEST PAIN
+GOOD BLOOD 
+CIRCULATION
+BLOCKED
+ARTERIES
+WEIGHT
+HEART 
+DISEASE
+NO
+NO
+NO
+125
+NO
+YES
+YES
+YES
+180
+YES
+YES
+YES
+NO
+210
+NO
+YES
+NO
+YES
+167
+YES
+CHEST PAIN
+GOOD BLOOD 
+CIRCULATION
+BLOCKED
+ARTERIES
+WEIGHT
+HEART 
+DISEASE
+YES
+YES
+YES
+180
+YES
+NO
+NO
+NO
+125
+NO
+YES
+NO
+YES
+167
+YES
+YES
+NO
+YES
+167
+YES
+Original Dataset
+Bootstrapped  Dataset
+Mộp phần của dataset ban đầu có thể không có mặt ở Bootstrapped dataset
+48
+AI VIETNAM
+All-in-One Course
+48
+Vinh Dinh Nguyen- PhD in Computer Science
+Out-of-bag Dataset
+OUT-OF-BAG ERROR
+Chúng ta có thể sử dụng out-of-bag dataset để đo lường độ chính xác của Random Forest
+49
+AI VIETNAM
+All-in-One Course
+49
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Decision Tree Review
+Ø Random Forest
+Ø Fill in missing data with Random Forest
+Ø Case study
+Outline
+50
+AI VIETNAM
+All-in-One Course
+50
+Vinh Dinh Nguyen- PhD in Computer Science
+Random Forest with Missing Data
+51
+AI VIETNAM
+All-in-One Course
+51
+Vinh Dinh Nguyen- PhD in Computer Science
+Types of Missing Data
+CHEST PAIN
+GOOD BLOOD CIRCULATION
+BLOCKED
+ARTERIES
+WEIGHT
+HEART 
+DISEASE
+NO
+NO
+NO
+125
+NO
+YES
+YES
+YES
+180
+YES
+YES
+YES
+NO
+210
+NO
+YES
+NO
+N/A
+N/A
+NO
+Text or Numbering
+52
+AI VIETNAM
+All-in-One Course
+52
+Vinh Dinh Nguyen- PhD in Computer Science
+How to fill in missing data
+GUESSING THE 
+DATA
+REFINE THE 
+GUESSES
+DATA WITH 
+MISSING VALUES
+53
+AI VIETNAM
+All-in-One Course
+53
+Vinh Dinh Nguyen- PhD in Computer Science
+Guessing the Data
+CHEST PAIN
+GOOD BLOOD CIRCULATION
+BLOCKED
+ARTERIES
+WEIGHT
+HEART 
+DISEASE
+NO
+NO
+NO
+125
+NO
+YES
+YES
+YES
+180
+YES
+YES
+YES
+NO
+210
+NO
+YES
+NO
+No
+167.5
+NO
+Ý tưởng: Điền giá ban đầu, sau đó 
+hiệu chỉnh dần cho nó tốt hơn
+54
+AI VIETNAM
+All-in-One Course
+54
+Vinh Dinh Nguyen- PhD in Computer Science
+Refine the Guesses
+BUILD RANDOM 
+FOREST
+EVALUATE THE 
+DATA FOR ALL 
+TREES
+55
+AI VIETNAM
+All-in-One Course
+55
+Vinh Dinh Nguyen- PhD in Computer Science
+Proximity Matrix
+Sample 3 and sample 4 reaches to the 
+same decision 
+1
+2
+3
+4
+1
+2
+3
+1
+4
+1
+Mỗi dòng thểhiện
+1 sample
+Mỗi cột thểhiện 1 sample
+Dòng 3 và 4 cùng trảvềkết quảlà No
+1st Tree
+56
+AI VIETNAM
+All-in-One Course
+56
+Vinh Dinh Nguyen- PhD in Computer Science
+Proximity Matrix
+1
+2
+3
+4
+1
+2
+1
+1
+3
+1
+2
+4
+1
+2
+Mỗi dòng thểhiện
+1 sample
+Mỗi cột thểhiện 1 sample
+2nd Tree
+Sample 3 and sample 4 reaches to the 
+same decision 
+57
+AI VIETNAM
+All-in-One Course
+57
+Vinh Dinh Nguyen- PhD in Computer Science
+Proximity Matrix Of N Trees
+1
+2
+3
+4
+1
+2
+1
+1
+2
+2
+1
+1
+3
+1
+1
+8
+4
+1
+1
+8
+58
+AI VIETNAM
+All-in-One Course
+58
+Vinh Dinh Nguyen- PhD in Computer Science
+Proximity Matrix Of N Trees
+1
+2
+3
+4
+1
+0.2
+0.1
+0.1
+2
+0.2
+0.1
+0.1
+3
+0.1
+0.1
+0.8
+4
+0.1
+0.1
+0.8
+Normalization:
+Assume we have 10 trees.
+59
+AI VIETNAM
+All-in-One Course
+59
+Vinh Dinh Nguyen- PhD in Computer Science
+Fill in Missing Values
+1
+2
+3
+4
+1
+0.2
+0.1
+0.1
+2
+0.2
+0.1
+0.1
+3
+0.1
+0.1
+0.8
+4
+0.1
+0.1
+0.8
+Frequency of Yes: 1/3
+The weight frequency of Yes = Frequency of Yes * Weight for Yes 
+The weight frequency of Yes = 1/3 * 0.1 = 0.03
+Proximity of Yes: 0.1
+All proximities: 0.1 + 0.1 + 0.8 = 1.0
+Weight for Yes  = Proximity of Yes/All proximities
+Proximity Matrix
+60
+AI VIETNAM
+All-in-One Course
+60
+Vinh Dinh Nguyen- PhD in Computer Science
+Fill in Missing Values
+1
+2
+3
+4
+1
+0.2
+0.1
+0.1
+2
+0.2
+0.1
+0.1
+3
+0.1
+0.1
+0.8
+4
+0.1
+0.1
+0.8
+Frequency of No: 2/3
+The weight frequency of No = Frequency of No * Weight for No
+The weight frequency of No = 2/3 * 0.9 = 0.6
+All proximities: 0.1 + 0.1 + 0.8 = 1.0
+Weight for No = Proximity of No/All proximities
+Proximity of No: 0.1 + 0.8 = 0.9
+Proximity Matrix
+61
+AI VIETNAM
+All-in-One Course
+61
+Vinh Dinh Nguyen- PhD in Computer Science
+Fill in Missing Values
+Predict
+The weight frequency of No = 2/3 * 0.9 = 0.6
+The weight frequency of Yes = 1/3 * 0.1 = 0.03
+62
+AI VIETNAM
+All-in-One Course
+62
+Vinh Dinh Nguyen- PhD in Computer Science
+1
+2
+3
+4
+1
+0.2
+0.1
+0.1
+2
+0.2
+0.1
+0.1
+3
+0.1
+0.1
+0.8
+4
+0.1
+0.1
+0.8
+Weight s1 = s1’s weight * Weighted average weight of s1
+Weight s1 = 125 * 0.1 = 12.5
+Weighted average weight of s1 = 0.1 / (0.1 + 0.8 + 0.1) = 0.1
+s1’s weight = 125
+Fill in Missing Values
+Proximity Matrix
+63
+AI VIETNAM
+All-in-One Course
+63
+Vinh Dinh Nguyen- PhD in Computer Science
+1
+2
+3
+4
+1
+0.2
+0.1
+0.1
+2
+0.2
+0.1
+0.1
+3
+0.1
+0.1
+0.8
+4
+0.1
+0.1
+0.8
+Weight s2 = s2’s weight * Weighted average weight of s2
+Weight s2 = 180 * 0.1= 18.0
+Weighted average weight of s2 = 0.1 / (0.1 + 0.8 + 0.1) = 0.1
+s2’s weight = 180
+Fill in Missing Values
+Proximity Matrix
+64
+AI VIETNAM
+All-in-One Course
+64
+Vinh Dinh Nguyen- PhD in Computer Science
+1
+2
+3
+4
+1
+0.2
+0.1
+0.1
+2
+0.2
+0.1
+0.1
+3
+0.1
+0.1
+0.8
+4
+0.1
+0.1
+0.8
+Weight s3 = s3’s weight * Weighted average weight of s3
+Weight s3 = 210 * 0.8= 168.0
+Weighted average weight of s3 = 0.8 / (0.1 + 0.8 + 0.1) = 0.8
+s3’s weight = 210
+Fill in Missing Values
+Proximity Matrix
+65
+AI VIETNAM
+All-in-One Course
+65
+Vinh Dinh Nguyen- PhD in Computer Science
+Fill in Missing Values
+198.5
+Weight s1 = 125 * 0.1 = 12.5
+Weight s2 = 180 * 0.1= 18.0
+Weight s3 = 210 * 0.8= 168.0
+Summation
+66
+AI VIETNAM
+All-in-One Course
+66
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Decision Tree Review
+Ø Random Forest
+Ø Fill in missing data with Random Forest
+Ø Case study
+Outline
+67
+AI VIETNAM
+All-in-One Course
+67
+Vinh Dinh Nguyen- PhD in Computer Science
+Decision Tree Implementation
+•Root node - node at the top of the tree, contains a feature that best splits the data (a single feature that
+alone classifies the target variable most accurately)
+•Decision nodes - nodes where the variables are evaluated. These nodes have arrows pointing to them and
+away from them
+•Leaf nodes - final node at which the prediction is made
+68
+AI VIETNAM
+All-in-One Course
+68
+Vinh Dinh Nguyen- PhD in Computer Science
+Decision Tree Implementation
+•How to determine the root node:
+•Check how every input feature classifies the target variable independently
+•If neither is 100% correct, we can consider them as impure
+•The Entropy metric can be used to calculate impurity
+• Values range from 0 (best) to 1 (worst)
+•The variable with the lowest entropy (impurity) is used as a root node
+69
+AI VIETNAM
+All-in-One Course
+69
+Vinh Dinh Nguyen- PhD in Computer Science
+Decision Tree Implementation
+•Training process:
+•Determine the root node
+•Calculate the Information gain for a single split
+• The higher the gain the better the split
+•Do a greedy search
+• Go over all input feature and their unique values (thresholds)
+• Calculate information gain for every feature/threshold combination
+• Save the best split feature and best split threshold for every node
+• Build the tree recursively
+• Some stopping criteria should be applied when doing so
+• Think of it as an exit condition of a recursive function
+• This could be maximum depth, minimum samples at node...
+• If at the leaf node, return the prediction (most common value)
+• You'll know you're at a leaf node if a stopping criteria has been met or 
+if the split is pure
+70
+AI VIETNAM
+All-in-One Course
+70
+Vinh Dinh Nguyen- PhD in Computer Science
+Decision Tree Implementation
+•Prediction process:
+•Recursively traverse the tree
+•At each node check if the direction of the traversal (left or right), based on 
+the input data
+•When the leaf node is reached, the most common value is returned
+71
+AI VIETNAM
+All-in-One Course
+71
+Vinh Dinh Nguyen- PhD in Computer Science
+Decision Tree Implementation
+•Entropy:
+•Measures the purity of the split
+•Calculated at the node level
+•Ranges between 0 (pure) and 1 (impure)
+72
+AI VIETNAM
+All-in-One Course
+72
+Vinh Dinh Nguyen- PhD in Computer Science
+Decision Tree Implementation
+•Entropy:
+•Measures the purity of the split
+•Calculated at the node level
+•Ranges between 0 (pure) and 1 (impure)
+73
+AI VIETNAM
+All-in-One Course
+73
+Vinh Dinh Nguyen- PhD in Computer Science
+Decision Tree Implementation
+•Information Gain:
+•Simply an average of all entropy based on a specific split
+•The higher the information gain, the better the decision 
+split is:
+Bạn có thểgiải thích thông tin từng node không?
+74
+AI VIETNAM
+All-in-One Course
+74
+Vinh Dinh Nguyen- PhD in Computer Science
+Decision Tree Implementation
+•Information Gain:
+•Simply an average of all entropy based on a specific split
+•The higher the information gain, the better the decision 
+split is:
+75
+AI VIETNAM
+All-in-One Course
+75
+Vinh Dinh Nguyen- PhD in Computer Science
+Decision Tree Implementation
+•Information Gain:
+76
+AI VIETNAM
+All-in-One Course
+76
+Vinh Dinh Nguyen- PhD in Computer Science
+Rercursion Review
+77
+AI VIETNAM
+All-in-One Course
+77
+Vinh Dinh Nguyen- PhD in Computer Science
+Define AIONode class
+78
+AI VIETNAM
+All-in-One Course
+78
+Vinh Dinh Nguyen- PhD in Computer Science
+Define AIODecisionTreee
+79
+AI VIETNAM
+All-in-One Course
+79
+Vinh Dinh Nguyen- PhD in Computer Science
+Load Iris Dataset
+80
+AI VIETNAM
+All-in-One Course
+80
+Vinh Dinh Nguyen- PhD in Computer Science
+Your progam vs Sklearn Lib
+81
+AI VIETNAM
+All-in-One Course
+81
+Vinh Dinh Nguyen- PhD in Computer Science
+Random Forest Implementation
+•Make N data subsets from the original set (training)
+•Build N decision trees (training)
+•Make predictions with every trained decision tree, and return a final prediction as a majority vote (prediction)
+•Three classes
+• AIONode - implements a single node of a decision tree
+• AIODecisionTree - implements a single decision tree
+• AIORandomForest - implements our ensemble algorithm
+•The Node class is here to store the data about the feature, threshold, data going left and right, information gain, and the leaf
+node value
+• All are initially set to None
+• The leaf node value is available only for leaf nodes
+82
+AI VIETNAM
+All-in-One Course
+82
+Vinh Dinh Nguyen- PhD in Computer Science
+Random Forest Implementation
+83
+AI VIETNAM
+All-in-One Course
+83
+Vinh Dinh Nguyen- PhD in Computer Science
+Random Forest Implementation
+84
+AI VIETNAM
+All-in-One Course

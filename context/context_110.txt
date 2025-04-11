@@ -1,0 +1,944 @@
+NLP Advanced - 01
+PRE-TRAINED
+LANGUAGE MODEL
+Year 2023
+AI VIET NAM
+Nguyen Quoc Thai
+AI VIETNAM
+All-in-One Course
+1
+2
+CONTENT
+1
+Language Model
+2
+Transformer Architecture
+3
+Pre-trained Language Model
+4
+Applications
+1 – Language Model
+3
+Language Model
+!
+Ø The task of predicting what word comes next
+1 – Language Model
+4
+Language Model
+!
+Ø Assign a probability P(w1, w2,…, wn) to every finite sequence w1, w2,…, wn
+Ø Predict a next token based on history tokens
+I am learning Natural Language …
+Processing
+Handling
+Completion
+P(Processing|I am learning Natural Language)
+P(Handling|I am learning Natural Language)
+Conditional Probability
+1 – Language Model
+5
+Statistical Language Model
+!
+𝑃𝑤!:# = $
+$%!
+#
+𝑃(𝑤$|𝑤$&'(!:$&!)
+𝑃(𝑤$| 𝑤!:$&!) = 𝑃(𝑤$| 𝑤$&'(!:$&!)
+ØThe probability of a word depends only on some previous words
+ØN-gram model with N = {1, 2,…}
+1 – Language Model
+6
+Statistical Language Model
+!
+P(w|h) = P(learning|I,am)
+w: token as word “learning”
+h: history tokens as “I,am”
+𝑃𝑤ℎ= 𝑐𝑜𝑢𝑛𝑡(ℎ𝑤)
+𝑐𝑜𝑢𝑛𝑡(ℎ)
+𝑃𝑠𝑐ℎ𝑜𝑜𝑙𝑖, 𝑔𝑜, 𝑡𝑜= 𝑐𝑜𝑢𝑛𝑡(𝐼, am, learning)
+𝑐𝑜𝑢𝑛𝑡(I, am)
+ØCompute P(w|h)
+1 – Language Model
+7
+Neural Language Model
+!
+1 – Language Model
+8
+The neural history of NLP
+!
+2001
+Neural Language Models
+2008
+Multi-task Learning
+2013
+2014
+Sequence-to-sequence Models
+2015
+Attention - Transformer
+2018
+Large Language Models
+Word Embedding
+Neural Network for NLP
+Pretrained Language Models
+2022
+1 – Language Model
+9
+The neural history of NLP
+!
+2001
+Neural Language Models
+2008
+Multi-task Learning
+2013
+2014
+Sequence-to-sequence Models
+2015
+Attention - Transformer
+2018
+Large Language Models
+Word Embedding
+Neural Network for NLP
+Pretrained Language Models
+2022
+1 – Language Model
+10
+The neural history of NLP
+!
+2001
+Neural Language Models
+2008
+Multi-task Learning
+2013
+2014
+Sequence-to-sequence Models
+2015
+Attention - Transformer
+2018
+Large Language Models
+Word Embedding
+Neural Network for NLP
+Pretrained Language Models
+2022
+1 – Language Model
+11
+The neural history of NLP
+!
+2001
+Neural Language Models
+2008
+Multi-task Learning
+2013
+2014
+Sequence-to-sequence Models
+2015
+Attention - Transformer
+2018
+Large Language Models
+Word Embedding
+Neural Network for NLP
+Pretrained Language Models
+2022
+1 – Language Model
+12
+The neural history of NLP
+!
+2001
+Neural Language Models
+2008
+Multi-task Learning
+2013
+2014
+Sequence-to-sequence Models
+2015
+Attention - Transformer
+2018
+Large Language Models
+Word Embedding
+Neural Network for NLP
+Pretrained Language Models
+2022
+RNN
+LSTM
+GRU
+CNN
+1 – Language Model
+13
+The neural history of NLP
+!
+2001
+Neural Language Models
+2008
+Multi-task Learning
+2013
+2014
+Sequence-to-sequence Models
+2015
+Attention - Transformer
+2018
+Large Language Models
+Word Embedding
+Neural Network for NLP
+Pretrained Language Models
+2022
+1 – Language Model
+14
+The neural history of NLP
+!
+2001
+Neural Language Models
+2008
+Multi-task Learning
+2013
+2014
+Sequence-to-sequence Models
+2015
+Attention - Transformer
+2018
+Large Language Models
+Word Embedding
+Neural Network for NLP
+Pretrained Language Models
+2022
+1 – Language Model
+15
+The neural history of NLP
+!
+2001
+Neural Language Models
+2008
+Multi-task Learning
+2013
+2014
+Sequence-to-sequence Models
+2015
+Attention - Transformer
+2018
+Large Language Models
+Word Embedding
+Neural Network for NLP
+Pretrained Language Models
+2022
+1 – Language Model
+16
+The neural history of NLP
+!
+2001
+Neural Language Models
+2008
+Multi-task Learning
+2013
+2014
+Sequence-to-sequence Models
+2015
+Attention - Transformer
+2018
+Large Language Models
+Word Embedding
+Neural Network for NLP
+Pretrained Language Models
+2022
+BERT
+GPT
+1 – Language Model
+17
+The neural history of NLP
+!
+2001
+Neural Language Models
+2008
+Multi-task Learning
+2013
+2014
+Sequence-to-sequence Models
+2015
+Attention - Transformer
+2018
+Large Language Models
+Word Embedding
+Neural Network for NLP
+Pretrained Language Models
+2022
+2 – Transformer
+18
+Machine Translation Task
+!
+Ø Translate a sentence w(s) in a source language (input) to a sentence w(t) in the 
+target language (output) 
+2 – Transformer
+19
+Machine Translation Task
+!
+Ø Translate a sentence w(s) in a source language (input) to a sentence w(t) in the 
+target language (output) 
+Ø Can be formulated as an optimization problem:
+=𝑤(*) = argmax
+,(")
+𝜃( 𝑤(-), 𝑤(.))
+Where 𝜃is a scoring function over source and target sentences
+Ø Requires two components:
+q Learning algorithm to compute parameters of 𝜃
+q Decoding algorithm for computing the best translation =𝑤(*)
+2 – Transformer
+20
+Machine Translation Task
+!
+Ø Machine Translation using Sequence to Sequence (Seq2Seq) architecture
+2 – Transformer
+21
+Machine Translation Task
+!
+Ø Machine Translation using Sequence to Sequence (Seq2Seq) architecture
+Input Sequence (Source)
+ENCODER
+DECODER
+Solution
+Each step of the decoder, directly 
+connected to the components of the 
+encoder
+Focus on all timestep in the encoder
+Attention
+2 – Transformer
+22
+Seq2Seq with Attention
+!
+s!
+"h!
+Tôi
+đang
+học tiếng anh
+Encoder
+Attention 
+Score
+Decoder
+h1 
+h2
+h3
+h4
+h5
+s1
+<start>
+Dot-Product Attention
+attention score is normalized to length of s 
+(key), called Scaled dot product attention
+2 – Transformer
+23
+Seq2Seq with Attention
+!
+s!
+"h!
+Tôi
+đang
+học tiếng anh
+Encoder
+s!
+"h#
+Attention 
+Score
+s!
+"h$
+s!
+"h$
+s!
+"h%
+<start>
+e! = s!
+"h#, s!
+"h$, … s!
+" h%
+Decoder
+h1 
+h2
+h3
+h4
+h5
+s1
+2 – Transformer
+24
+Seq2Seq with Attention
+!
+s!
+"h!
+Tôi
+đang
+học tiếng anh
+Encoder
+s!
+"h#
+Attention 
+Score
+s!
+"h$
+s!
+"h$
+s!
+"h%
+<start>
+α!
+α#
+α$
+α%
+α&
+α! = softmax(e!)
+Decoder
+h1 
+h2
+h3
+h4
+h5
+s1
+2 – Transformer
+25
+Seq2Seq with Attention
+!
+s!
+"h!
+Tôi
+đang
+học tiếng anh
+Encoder
+s!
+"h#
+Attention 
+Score
+s!
+"h$
+s!
+"h$
+s!
+"h%
+<start>
+Attention
+distribution
+α!
+α#
+α$
+α%
+α&
+Attention 
+output
+a! = 0
+#
+%
+α&
+!h&
+Decoder
+h1 
+h2
+h3
+h4
+h5
+s1
+2 – Transformer
+26
+Seq2Seq with Attention
+s!
+"h!
+Tôi
+đang
+học tiếng anh
+Encoder
+s!
+"h#
+Attention 
+Score
+s!
+"h$
+s!
+"h$
+s!
+"h%
+<start>
+Attention
+distribution
+α!
+α#
+α$
+α%
+α&
+Attention 
+output
+Concat [ a', s' ]
+I
+Decoder
+h1 
+h2
+h3
+h4
+h5
+s1
+!
+2 – Transformer
+27
+Seq2Seq with Attention
+Encoder
+Decoder
+Attention 
+Score
+Attention
+distribution
+Attention 
+output
+<end>
+h1 
+h2
+h3
+h4
+h5
+s1  
+s2     
+s3 
+s4 
+s5
+!
+2 – Transformer
+28
+Seq2Seq with Attention
+!
+Compute e ∈ℝ/ from h!, h0, … , h/ ∈ℝ1$ and s ∈ℝ1%
+Ø Dot-product attention
+e2 = s3h2; d! = d0
+Ø Multiplicative attention 
+e2 = s3Wh2; W ∈ℝ1%× 1$
+Ø Additive attention 
+e2 = v3tanh(W!h2 + W0s)
+W! ∈ℝ1&×1$, W0 ∈ℝ1&×1%, v ∈ℝ1&
+s!
+"h!
+Encoder
+Attention 
+Score
+Dot-Product Attention
+Decoder
+2 – Transformer
+29
+Transformer Architecture
+!
+v Architecture:
+Token Embedding
+Positional Embedding
+N x Encoder Layer:
+N x Decoder Layer
+v Core technique: Self-Attention
+2 – Transformer
+30
+Transformer Architecture
+!
+Ø Token Embedding
+i
+am
+learn
+#ing
+nlp
+0.1
+0.2
+0.3
+0.4
+0.5
+0.3
+0.2
+0.1
+0.8
+0.6
+0.1
+0.4
+0.3
+0.1
+0.5
+0.3
+0.2
+0.3
+0.3
+0.1
+0.1
+0.3
+0.5
+0.4
+0.5
+Embedding Layer
+d_model
+2 – Transformer
+31
+Transformer Architecture
+!
+Ø Positional Embedding (Sinusoid)
+PE(567,02) = sin(
+pos
+n
+02
+1'()*+
+)
+PE(567,02(!) = cos(
+pos
+n
+02
+1'()*+
+)
+pos: position of an entity in input sequence
+dmodel: dimension of the output embedding space
+n = 1000 (recommend)
+2 – Transformer
+32
+Transformer Architecture
+!
+Ø Positional Embedding (Sinusoid)
+Ø Example: n = 100, 
+dmodel = 5
+I
+am
+learn
+#ing
+nlp
+0
+1
+2
+3
+4
+P00= 0
+P01= 1
+P02= 0
+P03= 1
+P04= 0
+P10= 0.84
+P11=0.54
+P12=0.16
+P13=0.99
+P14=0.025
+P20= 0.91
+P21=-0.42
+P22=0.31
+P23=0.95
+P24=0.05
+P30= 0.14
+P31=-0.99
+P32=0.46
+P33=0.89
+P34=0.141
+P40= -0.76
+P41=-0.65
+P42=0.59
+P43=0.81
+P4d=0.1
+P(! = cos(
+0
+100
+#∗(
+&
+)
+P(( = sin(
+0
+100
+#∗(
+&
+)
+2 – Transformer
+33
+Transformer Architecture
+!
+Ø Positional Embedding (Sinusoid)
+2 – Transformer
+34
+Transformer Architecture
+!
+Ø Token embedding with positional embedding
+I
+am
+learn
+#ing
+nlp
+0.1
+0.2
+0.3
+0.4
+0.5
+0.3
+0.2
+0.1
+0.8
+0.6
+0.1
+0.4
+0.3
+0.1
+0.5
+0.3
+0.2
+0.3
+0.3
+0.1
+0.1
+0.3
+0.5
+0.4
+0.5
+0
+1
+0
+1
+0
+0.84
+0.54
+0.16
+0.99
+0.025
+0.91
+-0.416
+0.311
+0.95
+0.05
+0.141
+-0.99
+0.46
+0.89
+0.07
+-0.76
+-0.65
+0.59
+0.81
+0.1
+0.1
+1.2
+0.3
+1.4
+0.5
+1.14
+0.74
+0.26
+1.79
+0.625
+1.01
+-0.016
+0.611
+1.05
+0.55
+0.44
+-0.79
+0.76
+1.12
+0.176
+-0.65
+-0.35
+1.09
+1.21
+0.6
++
+Final Embedding
+2 – Transformer
+35
+Transformer Architecture
+!
+Ø Transformer-Encoder
+Ø Multi-Head Attention
+2 – Transformer
+36
+Transformer Architecture
+!
+Ø Multi-Head Attention
+Linear
+Linear
+Linear
+Seq
+Seq
+Seq
+Emb
+Emb
+Emb
+Split
+Split
+Split
+Seq
+Heads
+Heads
+Heads
+Attention Score (Scaled Dot-Product Attention)
+Merge
+2 – Transformer
+37
+Transformer Architecture
+!
+Ø Transformer-Encoder
+Ø Layer Normalization
+2 – Transformer
+38
+Transformer Architecture
+!
+Ø Transformer-Encoder
+Ø Point Wise Feed Forward Network
+2 – Transformer
+39
+Transformer Architecture
+!
+Ø Transformer-Decoder
+Ø Masked Multi-Head Attention
+Ø Predict next token based on the history token
+Not Seen
+2 – Transformer
+40
+Transformer Architecture
+!
+Ø Transformer-Decoder
+Ø Masked Multi-Head Attention
+Ø Predict next token based on the history token
+2 – Transformer
+41
+Transformer Architecture
+!
+2 – Transformer
+42
+Transformer Architecture
+!
+t
+_ôi
+đi
+l
+_àm
+ENCODER
+DECODER
+<start>
+I
+go
+to
+work
+I
+go
+_earn
+work
+<end>
+I
+go
+to
+work
+<end>
+Prediction
+Target
+Loss
+3 – Pre-trained LMs
+43
+Transfer Learning
+!
+3 – Pre-trained LMs
+44
+The family of recent typical pre-trained language models (PTMs)
+!
+Source
+3 – Pre-trained LMs
+45
+The architecture of Transformer, GPT and BERT
+!
+3 – Pre-trained LMs
+46
+BERT
+!
+Source
+v BERT: An encoder-only model
+v Maps an input sequence to a contextualized sequence:  𝒇𝜽𝑩𝑬𝑹𝑻: 𝑿𝟏:𝒏⟶T𝑿𝟏:𝒏
+3 – Pre-trained LMs
+47
+BERT
+!
+v BERT base:
+L=12, H=768, A=12, P=110M
+v BERT large:
+L=24, H=1024, A=16, P=340M
+Source
+3 – Pre-trained LMs
+48
+BERT
+!
+Objective Functions:
+v Masked LM (15% token):
+q 80%: replace with [MASK]
+q 10%: replace with a random word
+q 10%: keep unchanged
+v Next Sentence Prediction (NSP)
+q Classification Task
+q 2 Labels: IsNext and NotNext
+q Use [SEP] token
+Source
+3 – Pre-trained LMs
+49
+BERT
+!
+Source
+v BERT input representation
+3 – Pre-trained LMs
+50
+BERT
+!
+Source
+3 – Pre-trained LMs
+51
+GPT (GPT2)
+!
+v GPT2: A decoder-only model, use uni-directional (causal) self-attention
+v Maps an input sequence to a “next word” logit vector sequence:  
+𝒇𝜽𝑮𝑷𝒀𝟐: 𝑿𝟎:𝒎&𝟏⟶𝑳𝟏:𝒎
+3 – Pre-trained LMs
+52
+GPT (GPT2)
+!
+3 – Pre-trained LMs
+53
+BART
+!
+v BART: Denoising Sequence-to-Sequence Pre-Training for Natural Language 
+Generation, Translation and Comprehension
+3 – Pre-trained LMs
+54
+BART
+!
+v BART: Denoising Sequence-to-Sequence Pre-Training for Natural Language 
+Generation, Translation and Comprehension
+v Fine-tune BART
+Classification Task
+Machine Translation Task
+4 – Applications
+55
+Text Classification
+!
+Input
+Ø A document d
+Ø A fixed set of classes C={c1, c2,… cj }
+Ø A training set of m hand-labeled documents: (d1, c1), …, (dm, cj)
+Output
+Ø A learned classifier d => c
+Document
+Politics
+Sport
+Business
+56
+Text Classification using BERT
+!
+4 – Applications
+4 – Applications
+57
+Machine Translation using BERT-GPT2
+!
+v BERT for Encoder
+4 – Applications
+58
+Machine Translation using BERT-GPT2
+!
+v GPT2 for Decoder
+4 – Applications
+59
+Question Answering
+!
+4 – Applications
+60
+Question Answering
+!
+4 – Applications
+61
+Question Answering using BERT
+!
+Ø Input: A passage P - content (paragraph, 
+document,…) and a question Q
+Ø Output: An answer A
+4 – Applications
+62
+Experiment
+!
+Ø Source code + Checkpoint: Link
+Thanks!
+Any questions?
+63

@@ -1,0 +1,310 @@
+AI VIET NAM – COURSE 2023
+Background Subtraction
+(Computer Vision Foundation)
+Ngày 30 tháng 9 năm 2023
+Giới thiệu vềbài tập đếm sốlượng người ra vào siêu thịtrong ngày sửdụng giải thuật
+trừnền (Background Subtraction) :
+Cho trước thông tin hình ảnh lưu trữkhách hàng đến siêu thịđược lưu trữdưới dạng video file
+(dataset.mp4), hãy phát triển chương trình đếm tổng sốngười ra vào siêu thịbằng cách sửdụng các
+kỹthuật computer visions cơ bản như background subtraction, contour detection, erosion và dilation.
+Hình 1 thểhiện dữliệu mẫu của bài toán cần giải quyết.
+Hình 1: Dữliệu mẫu thểhiện thông tin hình ảnh cần thống kê sốlượng người vào và ra siêu thị
+Bài tập 1: (Background Subtraction) hãy hoàn thiện chương trình sau sửdụng thư viện Back-
+ground Subtraction từOpenCV phát hiện các đối tượng (foreground) ởframe thứ6 từvideo bài
+tập (dataset.mp4). Hình 2, thểhiện kết quảtrực quan của bài tập này.
+1 import cv2
+2 path_to_video = "/dataset.mp4"
+3 fgbg = cv2. createBackgroundSubtractorMOG2 ()
+4 capture = cv2.VideoCapture(path_to_video)
+5
+6 ***************
+Your code here
+****************************
+7
+8 cv2.imshow(’Frame ’, frame)
+9 cv2.imshow(’FG Mask ’, fgMask)
+1
+AI VIETNAM
+aivietnam.edu.vn
+Hình 2: Kết quảphát hiện đối tượng (foreground) tại frame thứ6 của video bài tập sửdụng giải thuật
+Bacground Subtraction
+10 cv2.waitKey (0)
+11 capture.release ()
+12 cv2. destroyAllWindows ()
+13 for i in range (1,5): #trick for
+closing
+the
+display
+window on macos
+14
+cv2.waitKey (1)
+15
+16 #Question 1
+17 print("Sum of intensities in fgMask is :", sum(sum(fgMask)))
+Question 1: Hãy cho biết kết quảsau khi thực hiện đoạn code ởbài tập 1
+a) Sum of intensities in fgMask is
+38110
+b) Sum of intensities in fgMask is
+48110
+c) Sum of intensities in fgMask is
+58110
+d) Sum of intensities in fgMask is
+68110
+Question 2: Hãy cho biết kết quảsau khi thực hiện đoạn code ởbài tập 1 và bổsung thêm kỹ
+thuật Dilation trên fgMask. Hình 3, thểhiện kết quảtrực quan sau khi sửdụng thêm kỹthuật dilation
+trên ảnh foreground tại frame thứ6.
+....
+fgMask = cv2.dilate(fgMask , None , iterations =2)
+print ("Sum of intensities in fgMask is :", sum(sum(fgMask)))
+a) Sum of intensities in fgMask is
+38110
+b) Sum of intensities in fgMask is
+54829
+c) Sum of intensities in fgMask is
+58110
+d) Sum of intensities in fgMask is
+68110
+Question 3: Hãy cho biết kết quảsau khi thực hiện đoạn code ởbài tập 1 và bổsung thêm kỹ
+thuật Erosion trên fgMask. Hình 4, thểhiện kết quảtrực quan sau khi sửdụng thêm kỹthuật Erosion
+trên ảnh foreground tại frame thứ6.
+....
+fgMask = cv2.erode(fgMask , None , iterations =2)
+print ("Sum of intensities in fgMask is :", sum(sum(fgMask)))
+2
+AI VIETNAM
+aivietnam.edu.vn
+Hình 3: Kết quảphát hiện đối tượng (foreground) tại frame thứ6 bổsung thêm kỹthuật dilation
+a) Sum of intensities in fgMask is
+38110
+b) Sum of intensities in fgMask is
+54829
+c) Sum of intensities in fgMask is
+17280
+d) Sum of intensities in fgMask is
+68110
+Hình 4: Kết quảphát hiện đối tượng (foreground) tại frame thứ6 bổsung thêm kỹthuật Erosion
+Question 4: Hãy cho biết kết quảsau khi thực hiện đoạn code ởbài tập 1 và bổsung thêm kỹ
+thuật Erosion và Dilation trên fgMask. Hình 5, thểhiện kết quảtrực quan sau khi sửdụng thêm kỹ
+thuật Erosion và Dilation trên ảnh foreground tại frame thứ6.
+....
+fgMask = cv2.erode(fgMask , None , iterations =2)
+fgMask = cv2.dilate(fgMask , None , iterations =2)
+print ("Sum of intensities in fgMask is :", sum(sum(fgMask)))
+a) Sum of intensities in fgMask is
+38110
+b) Sum of intensities in fgMask is
+54829
+c) Sum of intensities in fgMask is
+17280
+d) Sum of intensities in fgMask is
+16047
+Bài tập 2: (Contour Detection) hãy hoàn thiện chương trình sau sửdụng thư viện Contours Finding
+3
+AI VIETNAM
+aivietnam.edu.vn
+Hình 5: Kết quảphát hiện đối tượng (foreground) tại frame thứ6 bổsung thêm kỹthuật Erosion và
+Dilation
+từOpenCV xác định vịtrí các đối tượng (foreground) ởframe thứ100 từvideo bài tập (dataset.mp4).
+Hình 6, thểhiện kết quảtrực quan của bài tập này.
+1 import cv2
+2 path_to_video = "/Users/ nguyendinhvinh2004gmail .com/Downloads/peopleCount.mp4"
+3 fgbg = cv2. createBackgroundSubtractorMOG2 ()
+4 capture = cv2.VideoCapture(path_to_video)
+5
+6 for i in range (100):
+7
+(grabbed , frame) = capture.read ()
+8
+fgMask = fgbg.apply(frame)
+9
+10 #Question 5
+11 #
+S
+d ng
+k
+t h u t
+Dilation
+12 fgMask = cv2.threshold(fgMask , 200, 255, cv2. THRESH_BINARY )[1]
+13 fgMask = cv2.dilate(fgMask , None , iterations =2)
+14 fgMask = cv2.erode(fgMask , None , iterations =2)
+15
+16 ***********
+Your code here
+****************
+17
+18 #Question 5
+19 print("The
+locations of the
+foreground
+objects
+are: ", ( contours_result ))
+20
+21 cv2.imshow(’Frame ’, frame)
+22 cv2.imshow(’FG Mask ’, fgMask)
+23 cv2.waitKey (0)
+24 capture.release ()
+25 cv2. destroyAllWindows ()
+26 for i in range (1,5): #trick for
+closing
+the
+display
+window on macos
+27
+cv2.waitKey (1)
+Question 5: Hãy cho biết kết quảsau khi thực hiện đoạn code ởbài tập 2.
+....
+#Question 5
+print ("The
+locations of the
+foreground
+objects
+are: ", ( contours_result ))
+a) [[319 , 178]]
+b) [[315 , 178]]
+c) [[316 , 178]]
+d) [[317 , 178]]
+4
+AI VIETNAM
+aivietnam.edu.vn
+Hình 6: Kết quảphát hiện vịtrí đối tượng (foreground) tại frame thứ100 sửdụng kỹthuật Contours
+Finding
+Bài tập 3: (People Counter) hãy hoàn thiện chương trình sau đểtính tổng sốngười ra vào siêu thịtừ
+video bài tập (dataset.mp4). Hình 7, thểhiện kết quảtrực quan của bài tập này.
+1 import cv2
+2 path_to_video = "/dataset.mp4"
+3 fgbg = cv2. createBackgroundSubtractorMOG2 ()
+4 capture = cv2.VideoCapture(path_to_video)
+5
+6 (grabbed , frame) = capture.read ()
+7 fgMask = fgbg.apply(frame)
+8 line = 280
+9
+10 contours_previous
+= []
+11 people_out = 0
+12 people_in = 0
+13 contours_now
+= []
+14
+15 while
+True:
+16
+17
+contours_now
+= []
+18
+(grabbed , frame) = capture.read ()
+19
+20
+if not
+grabbed:
+21
+break
+22
+23
+fgMask = fgbg.apply(frame)
+24
+25
+cv2.putText(frame , str(capture.get(cv2. CAP_PROP_POS_FRAMES )) + "/433", (15, 15),
+26
+cv2.FONT_HERSHEY_SIMPLEX , 0.5 , (255 ,0 ,0))
+27
+28
+fgMask = cv2.threshold(fgMask , 200, 255, cv2. THRESH_BINARY )[1]
+29
+30
+fgMask = cv2.dilate(fgMask , None , iterations =2)
+31
+fgMask = cv2.erode(fgMask , None , iterations =2)
+32
+33
+contours_list , hierarchy = cv2.findContours(fgMask ,
+34
+cv2.RETR_TREE ,
+35
+cv2. CHAIN_APPROX_SIMPLE ) # Find
+contours
+36
+for c in contours_list:
+37
+if cv2.contourArea(c) < 1000:
+5
+AI VIETNAM
+aivietnam.edu.vn
+38
+continue
+39
+40
+(x,y,w,h) = cv2.boundingRect(c)
+41
+cv2.rectangle(frame , (x, y), (x+w,y+h), (0 ,255 ,0), 2)
+42
+contours_now.append ([x,y])
+43
+44
+if len( contours_previous ) == 0:
+45
+contours_previous = contours_now
+46
+continue
+47
+48
+closest_contour_list = []
+49
+50
+51
+# *********
+Your code here
+*************************************
+52
+53
+54
+contours_previous = contours_now
+55
+56
+57
+cv2.line(frame , (0,line), (frame.shape [1], line), (0 ,255 ,255) , 2)
+58
+cv2.putText(frame ,"People out: " +str(people_out), (15 ,40) , cv2.
+FONT_HERSHEY_SIMPLEX , 0.8, (0 ,0 ,255), 2)
+59
+cv2.putText(frame ,"People in: " +str(people_in), (14 ,80) , cv2.FONT_HERSHEY_SIMPLEX
+, 0.8, (0 ,0 ,255) ,2 )
+60
+61
+#show the
+current
+frame and the fg masks
+62
+cv2.imshow(’Frame ’, frame)
+63
+cv2.imshow(’FG Mask ’, fgMask)
+64
+## [show]
+65
+66
+keyboard = cv2.waitKey (0)
+67
+if keyboard == ’q’ or keyboard == 27:
+68
+break
+69
+70 capture.release ()
+71 cv2. destroyAllWindows ()
+72 for i in range (1,5): #trick for
+closing
+the
+display
+window on macos
+73
+cv2.waitKey (1)
+Question 6: Hãy cho biết kết quảtổng sốngười ra vào siêu thịmà bài tập 3 trảvề.
+a) People in: 3, People out: 3
+b) People in: 8, People out: 3
+c) People in: 7, People out: 3
+d) People in: 6, People out: 3
+6
+AI VIETNAM
+aivietnam.edu.vn
+Hình 7: Kết quảthống kê người vào và ra siêu thịởframe 294
+7

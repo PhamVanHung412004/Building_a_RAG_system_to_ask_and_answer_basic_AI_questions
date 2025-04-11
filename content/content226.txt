@@ -1,6 +1,0 @@
-@
-b. _
-c. __
-d. #
-Câu hỏi 8: Điều nào sau đây là đúng về phương thức override trong Python?
-12

@@ -1,0 +1,1543 @@
+1
+AI VIETNAM
+All-in-One Course
+1
+AI VIETNAM
+All-in-One Course
+AdaBoost & Gradient Boost
+Year 2023
+Vinh Dinh Nguyen
+PhD in Computer Science
+AI VIETNAM
+All-in-One Course
+2
+AI VIETNAM
+All-in-One Course
+2
+Vinh Dinh Nguyen- PhD in Computer Science
+Decision Tree and Its Variance
+3
+AI VIETNAM
+All-in-One Course
+3
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Boosting Technique
+Ø AdaBoost and Its Application
+Ø Gradient Boost and Its Application
+Outline
+4
+AI VIETNAM
+All-in-One Course
+4
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Boosting Technique
+Ø AdaBoost and Its Application
+Ø Gradient Boost and Its Application
+Outline
+5
+AI VIETNAM
+All-in-One Course
+5
+Vinh Dinh Nguyen- PhD in Computer Science
+What is an Ensemple Learning?
+6
+AI VIETNAM
+All-in-One Course
+6
+Vinh Dinh Nguyen- PhD in Computer Science
+Homogeneous Approach
+7
+AI VIETNAM
+All-in-One Course
+7
+Vinh Dinh Nguyen- PhD in Computer Science
+Heterogeneous Approach
+8
+AI VIETNAM
+All-in-One Course
+8
+Vinh Dinh Nguyen- PhD in Computer Science
+Ensemple Learning Techniques
+Ensemple Learning
+Bagging
+homogeneous weak learners
+Stacking
+Heterogeneous weak learners
+Boosting
+homogeneous weak learners
+Thông dụng ởcác cuộc thi vềAI
+9
+AI VIETNAM
+All-in-One Course
+9
+Vinh Dinh Nguyen- PhD in Computer Science
+Bagging-based Method
+Random Forest
+Last Week
+10
+AI VIETNAM
+All-in-One Course
+10
+Vinh Dinh Nguyen- PhD in Computer Science
+Boosting-Based Method
+11
+AI VIETNAM
+All-in-One Course
+11
+Vinh Dinh Nguyen- PhD in Computer Science
+Stacking-Based Method
+12
+AI VIETNAM
+All-in-One Course
+12
+Vinh Dinh Nguyen- PhD in Computer Science
+Stacking-Based Method
+13
+AI VIETNAM
+All-in-One Course
+13
+Vinh Dinh Nguyen- PhD in Computer Science
+Boosting Technique
+https://en.wikipedia.org/wiki/Boosting_%28machine_learning%29#/media/File:Ensemble_Boosting.svg
+Boosting
+is
+an
+ensemble
+modelling,
+technique that attempts to build a strong
+classifier
+from
+the
+number
+of
+weak
+classifiers
+14
+AI VIETNAM
+All-in-One Course
+14
+Vinh Dinh Nguyen- PhD in Computer Science
+Boosting Technique
+https://en.wikipedia.org/wiki/Boosting_%28machine_learning%29#/media/File:Ensemble_Boosting.svg
+Boosting is an ensemble modelling,
+technique that attempts to build a
+strong classifier from the number of
+weak classifiers
+15
+AI VIETNAM
+All-in-One Course
+15
+Vinh Dinh Nguyen- PhD in Computer Science
+Stump Definition
+a node with two leaves and this is known as Stump
+16
+AI VIETNAM
+All-in-One Course
+16
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Boosting Technique
+Ø AdaBoost and Its Application
+Ø Gradient Boost and Its Application
+Outline
+17
+AI VIETNAM
+All-in-One Course
+17
+Vinh Dinh Nguyen- PhD in Computer Science
+AdaBoost: Forest of Stump
+18
+AI VIETNAM
+All-in-One Course
+18
+Vinh Dinh Nguyen- PhD in Computer Science
+19
+AI VIETNAM
+All-in-One Course
+19
+Vinh Dinh Nguyen- PhD in Computer Science
+Sample Dataset
+CHEST PAIN
+GOOD BLOOD 
+CIRCULATION
+BLOCKED
+ARTERIES
+WEIGHT
+HEART 
+DISEASE
+NO
+NO
+NO
+125
+NO
+YES
+YES
+YES
+180
+YES
+YES
+YES
+NO
+210
+NO
+YES
+NO
+YES
+167
+YES
+20
+AI VIETNAM
+All-in-One Course
+20
+Vinh Dinh Nguyen- PhD in Computer Science
+Sample Dataset
+STRONG CLASSIFIER
+WEAK CLASSIFIER
+21
+AI VIETNAM
+All-in-One Course
+21
+Vinh Dinh Nguyen- PhD in Computer Science
+RANDOM FOREST
+• Each tree in the random forest has equal votes(weights) on the final decision
+22
+AI VIETNAM
+All-in-One Course
+22
+Vinh Dinh Nguyen- PhD in Computer Science
+AdaBoost: FOREST OF STUMP
+• Stump are not equally weighted in the final decision.
+• Stump that create more error will have less contribution in the final decision
+23
+AI VIETNAM
+All-in-One Course
+23
+Vinh Dinh Nguyen- PhD in Computer Science
+Random Forest
+Tree are indepently created
+24
+AI VIETNAM
+All-in-One Course
+24
+Vinh Dinh Nguyen- PhD in Computer Science
+AdaBoost: FOREST OF STUMP
+1
+2
+3
+4
+Influence
+25
+AI VIETNAM
+All-in-One Course
+25
+Vinh Dinh Nguyen- PhD in Computer Science
+Differences Between RF and AdaBoost
+Stumps have various ___ to 
+the final result
+Each stump is created by 
+considering ___
+Weak Learners is a ___
+AdaBoost combines a lot of___
+26
+AI VIETNAM
+All-in-One Course
+26
+Vinh Dinh Nguyen- PhD in Computer Science
+Heart Disease Dataset
+Chest Pain
+Blocked Arteries
+Patient Weight
+Heart Disease
+Yes
+Yes
+205
+Yes
+No
+Yes
+180
+Yes
+Yes
+No
+210
+Yes
+Yes
+Yes
+167
+Yes
+No
+Yes
+156
+No
+No
+Yes
+125
+No
+Yes
+No
+168
+No
+Yes
+Yes
+172
+No
+Important of sample = Sample weight = 1 / number of samples = 1/8
+27
+AI VIETNAM
+All-in-One Course
+27
+Vinh Dinh Nguyen- PhD in Computer Science
+1st Stump in the Tree
+28
+AI VIETNAM
+All-in-One Course
+28
+Vinh Dinh Nguyen- PhD in Computer Science
+Compute Gini Index For Chest Pain
+CHEST PAIN
+HEART DISEASE
+HEART DISEASE
+YES
+NO
+3
+2
+YES
+NO
+1
+2
+Gini index = 5/8 * (1 – (3/5)^2 – (2/5)^2) + 3/8* (1 - (1/3)^2 - (2/3)^2) = 0.57
+Yes
+No
+29
+AI VIETNAM
+All-in-One Course
+29
+Vinh Dinh Nguyen- PhD in Computer Science
+GINI INDEX FOR BLOCKED ARTERIES
+BLOCKED ARTERIES
+HEART DISEASE
+HEART DISEASE
+YES
+NO
+3
+3
+YES
+NO
+1
+1
+Gini index = 6/8 * (1 – (3/6)^2 – (3/6)^2) + 2/8* (1 - (1/2)^2 - (1/2)^2) = 0.5
+Yes
+No
+30
+AI VIETNAM
+All-in-One Course
+30
+Vinh Dinh Nguyen- PhD in Computer Science
+Gini Index for Heart Disease
+PATIENT WEIGHT > 170
+HEART DISEASE
+HEART DISEASE
+YES
+NO
+3
+1
+YES
+NO
+1
+3
+Gini index = =4/8 * (1-(1/4)^2 - (3/4)^2) + 4/8* (1-(1/4)^2 -(3/4)^2) =  0.375
+192.5
+195
+188.5
+140.5
+161.5
+146.5
+170
+31
+AI VIETNAM
+All-in-One Course
+31
+Vinh Dinh Nguyen- PhD in Computer Science
+Amount of Say
+How was this stump contribute to the final decision (classification)?
+PATIENT WEIGHT > 170
+HEART DISEASE
+HEART DISEASE
+YES
+NO
+3
+1
+YES
+NO
+1
+3
+YES
+NO
+Amount 
+of Say
+32
+AI VIETNAM
+All-in-One Course
+32
+Vinh Dinh Nguyen- PhD in Computer Science
+Amount of Say: Patient Weight
+• Total error is equal to the sum of the weights of the incorrect classified
+• Amount of say = 1/2*log((1-2/8) / (2/8)) = 0.55
+33
+AI VIETNAM
+All-in-One Course
+33
+Vinh Dinh Nguyen- PhD in Computer Science
+Amount of Say: Weight of The Tree
+Probability Vs. Odds
+Your friend went fishing 10 times a month
+•
+Caught a fish 4 times
+•
+Failed to catch 6 times
+What is the probability and odds of getting a Fish for lunch?
+Probability = 
+!"#$%& '() %#*%"+$, -+."
+/(*#0 %"#$%&.
+ = 
+1
+23 = 0.4 
+Odds = 
+!"#$%& '() %#*%"+$, -+."
+!"#$%& '() $(* %#*%"+$, -+." =
+1
+4 = 0.67 
+Odds = 
+5)(6#6+0+*7 (' %#*%"+$, -+."
+5)(6#6+0+*7 (' $(* %#*%"+$, -+." =
+1/23
+4/23 = 0.67 
+Odds = 
+2 95)(6#6+0+*7 (' $(* %#*%"+$, -+."
+5)(6#6+0+*7 (' $(* %#*%"+$, -+."  =
+1/23
+4/23 = 0.67 
+34
+AI VIETNAM
+All-in-One Course
+34
+Vinh Dinh Nguyen- PhD in Computer Science
+Amount of Say: Weight of The Tree
+PATIENT WEIGHT > 170
+HEART DISEASE
+HEART DISEASE
+YES
+NO
+3
+1
+YES
+NO
+1
+3
+YES
+NO
+Odds = 2 95)(6#6+0+*7 (' +$%())&%* :)&;+%*+($
+5)(6#6+0+*7 (' +$%())&%* :)&;+%*+($  
+Amount of says = Odds  or  Amount of says = ½ x log(Odds)
+Why?
+Odds = 
+2 95)(6#6+0+*7 (' $(* %#*%"+$, -+."
+5)(6#6+0+*7 (' $(* %#*%"+$, -+."  =
+1/23
+4/23 = 0.67 
+35
+AI VIETNAM
+All-in-One Course
+35
+Vinh Dinh Nguyen- PhD in Computer Science
+Amount of say: Chest Pain
+• Total error is equal to the sum of the weights of the incorrect classified
+• Amount of say = 1/2*log((1-3/8) / (3/8)) = 0.25
+log(Odds) = log(
+2 95)(6#6+0+*7 (' +$%())&%* :)&;+%*+($
+5)(6#6+0+*7 (' +$%())&%* :)&;+%*+($  )
+36
+AI VIETNAM
+All-in-One Course
+36
+Vinh Dinh Nguyen- PhD in Computer Science
+Amout of Say: Blocked Arteries
+• Total error is equal to the sum of the weights of the incorrect classified
+• Amount of say = 1/2*log((1-4/8) / (4/8)) = 0
+37
+AI VIETNAM
+All-in-One Course
+37
+Vinh Dinh Nguyen- PhD in Computer Science
+Assumptions
+Known: weight cho các sample dự đoán sai được sử dụng để tính “Amount of Say” cho từng 
+stump hiện tại. 
+Unknown: Tiếp theo, chúng ta cần làm thế nào để sử dụng thông tin các weight của sample dự 
+đoán sai này để xây dựng stump tiếp và khắc phục các dự đoán sai này
+38
+AI VIETNAM
+All-in-One Course
+38
+Vinh Dinh Nguyen- PhD in Computer Science
+Idea: Improved Bootstrapped Dataset
+Create new dataset
+Incorrect
+Incorrect
+This new stump can handel incorrect classification
+39
+AI VIETNAM
+All-in-One Course
+39
+Vinh Dinh Nguyen- PhD in Computer Science
+How to build next Stump
+Increase the sample weights of samples that were incorrectly classified and decrease
+sample weights of samples that were correctly classified. Label {-1, 1}
+New sample weight = 1/8 * e^{0.55} = 0.22
+40
+AI VIETNAM
+All-in-One Course
+40
+Vinh Dinh Nguyen- PhD in Computer Science
+How to build next Stump
+Increase the sample weights of samples that were incorrectly classified and decrease the sample
+weights of samples that were correctly classified. Label {-1, 1}
+New sample weight = 1/8 * e^{-0.55} = 0.07
+41
+AI VIETNAM
+All-in-One Course
+41
+Vinh Dinh Nguyen- PhD in Computer Science
+How to build next Stump
+Increase the sample weights of samples that were incorrectly classified and keep the sample
+weights of samples that were correctly classified. Label {0, 1}
+New sample weight = 1/8 * e^{0.55*1} = 0.22
+42
+AI VIETNAM
+All-in-One Course
+42
+Vinh Dinh Nguyen- PhD in Computer Science
+How to build next Stump
+Increase the sample weights of samples that were incorrectly classified and keep the sample
+weights of samples that were correctly classified. Label {0, 1}
+New sample weight = 1/8 * e^{0.55*0} = 0.125
+43
+AI VIETNAM
+All-in-One Course
+43
+Vinh Dinh Nguyen- PhD in Computer Science
+New Sample Weight
+Chest Pain
+Blocked Arteries
+Patient Weight
+Heart Diease
+Sample Weight
+New Weight
+Normal Weight
+Yes
+Yes
+205
+Yes
+1/8
+0.07
+0.08
+No
+Yes
+180
+Yes
+1/8
+0.07
+0.08
+Yes
+No
+210
+Yes
+1/8
+0.07
+0.08
+Yes
+Yes
+167
+Yes
+1/8
+0.22
+0.25
+No
+Yes
+156
+No
+1/8
+0.07
+0.08
+No
+Yes
+125
+No
+1/8
+0.07
+0.08
+Yes
+No
+168
+No
+1/8
+0.07
+0.08
+Yes
+Yes
+172
+No
+1/8
+0.22
+0.25
+Sum
+~1.0
+0.86
+~1.0
+Update
+44
+AI VIETNAM
+All-in-One Course
+44
+Vinh Dinh Nguyen- PhD in Computer Science
+New Sample Weight
+Chest Pain
+Blocked Arteries
+Patient Weight
+Heart Diease
+New Weight
+Yes
+Yes
+205
+Yes
+0.08
+No
+Yes
+180
+Yes
+0.08
+Yes
+No
+210
+Yes
+0.08
+Yes
+Yes
+167
+Yes
+0.25
+No
+Yes
+156
+No
+0.08
+No
+Yes
+125
+No
+0.08
+Yes
+No
+168
+No
+0.08
+Yes
+Yes
+172
+No
+0.25
+Sum
+~1.0
+45
+AI VIETNAM
+All-in-One Course
+45
+Vinh Dinh Nguyen- PhD in Computer Science
+AdaBoost: FOREST OF STUMPS
+IMPROVE ERROR
+IMPROVE ERROR
+IMPROVE ERROR
+46
+AI VIETNAM
+All-in-One Course
+46
+Vinh Dinh Nguyen- PhD in Computer Science
+New Dataset
+47
+AI VIETNAM
+All-in-One Course
+47
+Vinh Dinh Nguyen- PhD in Computer Science
+New Dataset
+Random [0,1] to select samples
+48
+AI VIETNAM
+All-in-One Course
+48
+Vinh Dinh Nguyen- PhD in Computer Science
+New Dataset
+Chest 
+Pain
+Blocked
+Arteries
+Patient
+Weight
+Heart
+Diease
+Normal
+Weight
+Range
+Yes
+Yes
+205
+Yes
+0.08
+[0-0.08]
+No
+Yes
+180
+Yes
+0.08
+(0.08-0.16]
+Yes
+No
+210
+Yes
+0.08
+(0.16-0.24]
+Yes
+Yes
+167
+Yes
+0.25
+(0.24-0.495]
+No
+Yes
+156
+No
+0.08
+(0.495-0.575]
+No
+Yes
+125
+No
+0.08
+(0.575-0.655]
+Yes
+No
+168
+No
+0.08
+(0.655-0.735]
+Yes
+Yes
+172
+No
+0.25
+(0.735-1.0]
+Sum
+~1.0
+49
+AI VIETNAM
+All-in-One Course
+49
+Vinh Dinh Nguyen- PhD in Computer Science
+New Dataset
+Random [0,1] 
+to select 
+samples
+Old dataset
+New dataset
+Ý tưởng: các sample bịphân loại sai, sẽđược được nhiều 
+hơn vào dataset mới
+CONTINUE TO BUILD
+THE NEXT STUMP
+50
+AI VIETNAM
+All-in-One Course
+50
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Classify The Final Result
+These stumps for predicting 
+heart disease
+These stumps for predicting 
+no heart disease
+51
+AI VIETNAM
+All-in-One Course
+51
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Classify The Final Result
+https://hastie.su.domains/Papers/samme.pdf
+52
+AI VIETNAM
+All-in-One Course
+52
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Classify The Final Result
+https://hastie.su.domains/Papers/samme.pdf
+SAMME — Stagewise Additive 
+Modeling using a Multi-class 
+Exponential loss function
+53
+AI VIETNAM
+All-in-One Course
+53
+Vinh Dinh Nguyen- PhD in Computer Science
+Behind The Scene
+The hypothesis function f(x) is defined as:
+Exponential loss function:
+M trees
+N Samples
+Label:  {-1,1}
+Supposing that:
+Expand the error function:
+not dependent on
+αₘ and Gm
+54
+AI VIETNAM
+All-in-One Course
+54
+Vinh Dinh Nguyen- PhD in Computer Science
+Behind The Scene
+M trees
+N Samples
+Label:  {-1,1}
+Expand the error function:
+It’s easy to show that the expression -yᵢαₘGm(xᵢ) is -αₘ if yᵢ= Gm(xᵢ)
+and is αₘ if yᵢ!= Gm(xᵢ).
+Total weight Tw as:
+Error weight Ew :
+55
+AI VIETNAM
+All-in-One Course
+55
+Vinh Dinh Nguyen- PhD in Computer Science
+Behind The Scene
+Taking log on
+both sides we have
+56
+AI VIETNAM
+All-in-One Course
+56
+Vinh Dinh Nguyen- PhD in Computer Science
+Summary
+Improve error
+Improve error
+Improve error
+Adaboost builds a stump based on the the error 
+made by previous stumps
+57
+AI VIETNAM
+All-in-One Course
+57
+Vinh Dinh Nguyen- PhD in Computer Science
+Example: Spam Classification
+• Classifying Email as Spam or Non-Spam
+http://archive.ics.uci.edu/dataset/94/spambase
+58
+AI VIETNAM
+All-in-One Course
+58
+Vinh Dinh Nguyen- PhD in Computer Science
+Example: Spam Classification
+59
+AI VIETNAM
+All-in-One Course
+59
+Vinh Dinh Nguyen- PhD in Computer Science
+Example: Spam Classification
+Our implementation
+Using Sklearn library
+60
+AI VIETNAM
+All-in-One Course
+60
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Boosting Technique
+Ø AdaBoost and Its Application
+Ø Gradient Boost and Its Application
+Outline
+61
+AI VIETNAM
+All-in-One Course
+61
+Vinh Dinh Nguyen- PhD in Computer Science
+Gradient Boost For Regression
+Height
+Favorite Color
+Gender
+Weight
+1.6
+Blue
+Male
+88
+1.6
+Green
+Female
+76
+1.5
+Blue
+Female
+56
+1.8
+Red
+Male
+73
+1.5
+Green
+Male
+77
+1.4
+Blue
+Female
+57
+Input
+Output
+62
+AI VIETNAM
+All-in-One Course
+62
+Vinh Dinh Nguyen- PhD in Computer Science
+Tree-based Gradient Boost
+• Step 1: Build 1st tree
+• Calculate the average of weights
+Height
+Favorite Color
+Gender
+Weight
+1.6
+Blue
+Male
+88
+1.6
+Green
+Female
+76
+1.5
+Blue
+Female
+56
+1.8
+Red
+Male
+73
+1.5
+Green
+Male
+77
+1.4
+Blue
+Female
+57
+Average of Weights: 71.17
+Node of 1st Tree
+63
+AI VIETNAM
+All-in-One Course
+63
+Vinh Dinh Nguyen- PhD in Computer Science
+Tree-based Gradient Boost
+• Step 2: 
+ØBuild 2nd tree
+Average of weights: 71.17
+64
+AI VIETNAM
+All-in-One Course
+64
+Vinh Dinh Nguyen- PhD in Computer Science
+Tree-based Gradient Boost
+• Step 2: 
+ØBuild 2nd tree
+Average of weights: 71.2
+Height
+Favorite Color
+Gender
+Weight
+Residual Error
+1.6
+Blue
+Male
+88
+16.8
+1.6
+Green
+Female
+76
+1.8
+1.5
+Blue
+Female
+56
+-15.2
+1.8
+Red
+Male
+73
+1.8
+1.5
+Green
+Male
+77
+5.8
+1.4
+Blue
+Female
+57
+-14.2
+65
+AI VIETNAM
+All-in-One Course
+65
+Vinh Dinh Nguyen- PhD in Computer Science
+Tree-based Gradient Boost
+Height
+Favorite Color
+Gender
+Residual Error
+1.6
+Blue
+Male
+16.8
+1.6
+Green
+Female
+1.8
+1.5
+Blue
+Female
+-15.2
+1.8
+Red
+Male
+1.8
+1.5
+Green
+Male
+5.8
+1.4
+Blue
+Female
+-14.2
+Gender is Female
+Height < 1.6
+Color is not Blue
+4.8
+16.8
+1.5, 5.8
+-14.2, -15.2
+Tại sao lại xây dựng cây 
+dự đoán Residual Error
+66
+AI VIETNAM
+All-in-One Course
+66
+Vinh Dinh Nguyen- PhD in Computer Science
+Tree-based Gradient Boost
+Height
+Favorite Color
+Gender
+Residual Error
+1.6
+Blue
+Male
+16.8
+1.6
+Green
+Female
+1.8
+1.5
+Blue
+Female
+-15.2
+1.8
+Red
+Male
+1.8
+1.5
+Green
+Male
+5.8
+1.4
+Blue
+Female
+-14.2
+Gender is Female
+Height < 1.6
+Color is not Blue
+4.8
+16.8
+3.8
+-14.7
+Trung bình residual
+Tại sao lại xây dựng cây 
+dự đoán Residual Error
+67
+AI VIETNAM
+All-in-One Course
+67
+Vinh Dinh Nguyen- PhD in Computer Science
+Tree-based Gradient Boost
+Average of weights: 71.2
+Gender is Female
+Height < 1.6
+Color is not Blue
+-14.7
+4.8
+16.8
+3.8
+1st Tree
+2nd Tree
+68
+AI VIETNAM
+All-in-One Course
+68
+Vinh Dinh Nguyen- PhD in Computer Science
+Prediction
+Height
+Favorite Color
+Gender
+Weight
+Prediction
+1.6
+Blue
+Male
+88
+88
+1.6
+Green
+Female
+76
+76
+1.5
+Blue
+Female
+56
+56
+1.8
+Red
+Male
+73
+73
+1.5
+Green
+Male
+77
+77
+1.4
+Blue
+Female
+57
+57
+69
+AI VIETNAM
+All-in-One Course
+69
+Vinh Dinh Nguyen- PhD in Computer Science
+Prediction
+AVG of weights: 71.2
+1st Tree
+70
+AI VIETNAM
+All-in-One Course
+70
+Vinh Dinh Nguyen- PhD in Computer Science
+Prediction
+Height
+Favorite Color
+Gender
+Weight
+Prediction
+1.6
+Blue
+Male
+88
+74.56
+0.2
+Prediction = 71.2 + 0.2 * 16.8 = 74.56
+71
+AI VIETNAM
+All-in-One Course
+71
+Vinh Dinh Nguyen- PhD in Computer Science
+Tree-based Gradient Boost
+• Step 3: 
+ØBuild 3rd tree
+Average of weights: 71.2
+Height
+Favorite Color
+Gender
+Weight
+Predicted Weight
+Residual Error
+1.6
+Blue
+Male
+88
+74.56
+12.44
+1.6
+Green
+Female
+76
+…
+…
+1.5
+Blue
+Female
+56
+…
+…
+1.8
+Red
+Male
+73
+…
+…
+1.5
+Green
+Male
+77
+…
+…
+1.4
+Blue
+Female
+57
+…
+…
+1st Tree
+2ndTree
+72
+AI VIETNAM
+All-in-One Course
+72
+Vinh Dinh Nguyen- PhD in Computer Science
+Tree-based Gradient Boost
+• Step 3: 
+ØBuild 3rd tree
+Average of weights: 71.2
+1st Tree
+2ndTree
+Height
+Favorite Color
+Gender
+First Tree
+Residual
+Second Tree
+Residual 
+Third Tree
+Residual
+1.6
+Blue
+Male
+16.8
+12.44
+???
+1.6
+Green
+Female
+1.8
+…
+???
+1.5
+Blue
+Female
+-15.2
+…
+???
+1.8
+Red
+Male
+1.8
+…
+???
+1.5
+Green
+Male
+5.8
+…
+???
+1.4
+Blue
+Female
+-14.2
+…
+???
+73
+AI VIETNAM
+All-in-One Course
+73
+Vinh Dinh Nguyen- PhD in Computer Science
+AVG of weights: 71.2
+Prediction
+74
+AI VIETNAM
+All-in-One Course
+74
+Vinh Dinh Nguyen- PhD in Computer Science
+Gradient Boost: Behind The Scenes
+Loss Function:
+• {(xi,yi)}n1
+Height
+Favorite Color
+Gender
+Weight
+1.6
+Blue
+Male
+88
+1.6
+Green
+Female
+76
+1.5
+Blue
+Female
+56
+1.8
+Red
+Male
+73
+1.5
+Green
+Male
+77
+1.4
+Blue
+Female
+57
+Loss function = L(yi, F(x)) = 1/2* (Output - Predicted)2
+𝒅𝑳
+𝒅𝑷𝒓𝒆𝒅𝒊𝒄𝒕𝒆𝒅
+= 2/2 (Output – Predicted) * -1 = - (Output – Predicted)
+n
+Tricky implementation here
+75
+AI VIETNAM
+All-in-One Course
+75
+Vinh Dinh Nguyen- PhD in Computer Science
+Gradient Boost: Behind The Scenes
+• Step 1:
+• Initialize a model with a constant value:
+• 𝑭𝟎𝒙= 𝒂𝒓𝒈𝒎𝒊𝒏∑𝒊'𝟏
+𝒏
+𝑳(𝒚, 𝜹)
+𝜹
+𝒚
+SSR = 1/2 {(88 – 𝜹)^2 + (76 – 𝜹)^2 + (56 - 𝜹)^2}
+<==>
+<𝜹= -(88 - 𝜹) – (76 - 𝜹) – (56 - 𝜹) = 0
+𝜹= 
+@@AB4AC4
+D
+= 73.3 = average of all sample’ weights
+76
+AI VIETNAM
+All-in-One Course
+76
+Vinh Dinh Nguyen- PhD in Computer Science
+• Step 1:
+• Initialize a model with a constant value:
+• 𝑭𝟎𝒙= 𝒂𝒓𝒈𝒎𝒊𝒏∑𝒊'𝟏
+𝒏
+𝑳(𝒚, 𝜹) = 73.3
+𝜹
+𝜹
+𝑺𝑺𝑹
+Gradient Boost: Behind The Scenes
+77
+AI VIETNAM
+All-in-One Course
+77
+Vinh Dinh Nguyen- PhD in Computer Science
+• M is the number of trees
+• n is the number of samples
+Gradient Boost: Behind The Scenes
+78
+AI VIETNAM
+All-in-One Course
+78
+Vinh Dinh Nguyen- PhD in Computer Science
+Gradient Boost: Behind The Scenes
+R is the residual error; m is the m-th tree; j is the j-th leaf
+R11
+R21
+Height
+Favorite Color
+Gender
+Weight
+ri1
+1.6
+Blue
+Male
+88
+14.7
+1.6
+Green
+Female
+76
+2.7
+1.5
+Blue
+Female
+56
+-17.3
+79
+AI VIETNAM
+All-in-One Course
+79
+Vinh Dinh Nguyen- PhD in Computer Science
+Step 2
+R is the residual error; m is the m-th tree; j is the i-th leaf
+xi ∈R11
+xi ∈R21
+Step 1
+Height
+Favorite Color
+Gender
+Weight
+ri1
+1.6
+Blue
+Male
+88
+14.7
+1.6
+Green
+Female
+76
+2.7
+1.5
+Blue
+Female
+56
+-17.3
+𝛾11 = argmin 1
+2 y3 −(F0 x3 + 𝛾) E
+𝛾11 = argmin
+2
+E 56 −(73.3 + 𝛾) E
+𝛾11 = argmin
+2
+E −17.3 −𝛾E
+𝑭m −𝟏𝒙= 𝑭𝟎𝒙= 𝟕𝟑. 𝟑
+𝛾
+𝛾
+𝛾
+𝛾11 = -17.3
+𝛾21 = 8.7
+80
+AI VIETNAM
+All-in-One Course
+80
+Vinh Dinh Nguyen- PhD in Computer Science
+Step 2
+R is the residual error; m is the m-th tree; j is the i-th leaf
+xi ∈R11
+xi ∈R21
+Step 1
+Height
+Favorite Color
+Gender
+Weight
+ri1
+1.6
+Blue
+Male
+88
+14.7
+1.6
+Green
+Female
+76
+2.7
+1.5
+Blue
+Female
+56
+-17.3
+𝛾21 = argmin 1
+2 y1 −(F0 x1 + 𝛾) E + 1
+2 y2 −(F0 x2 + 𝛾) E
+𝛾11 = argmin
+2
+E 88 −(73.3 + 𝛾) E +
+2
+E 76 −(73.33 + 𝛾) E
+𝛾11 = argmin
+2
+E 14,7 −𝛾E +
+2
+E 2.7 −𝛾) E
+𝑭m −𝟏𝒙= 𝑭𝟎𝒙= 𝟕𝟑. 𝟑
+𝛾
+𝛾21 = 8.7
+𝛾
+𝛾
+𝛾21 = 8.7
+𝛾11 = -17.3
+Giá trịtrung bình 
+của 2 samples
+81
+AI VIETNAM
+All-in-One Course
+81
+Vinh Dinh Nguyen- PhD in Computer Science
+Step 2
+R is the residual error; m is the m-th tree; j is the i-th leaf
+xi ∈R11
+xi ∈R21
+Step 1
+Height
+Favorite Color
+Gender
+Weight
+ri1
+F1(X)
+1.6
+Blue
+Male
+88
+14.7
+74.2
+1.6
+Green
+Female
+76
+2.7
+74.2
+1.5
+Blue
+Female
+56
+-17.3
+71.6
+𝑭m −𝟏𝒙= 𝑭𝟎𝒙= 𝟕𝟑. 𝟑
+𝛾11 = -17.3
+𝛾21 = 8.7
+82
+AI VIETNAM
+All-in-One Course
+82
+Vinh Dinh Nguyen- PhD in Computer Science
+Repeat for the next m + 1 iteration
+83
+AI VIETNAM
+All-in-One Course
+83
+Vinh Dinh Nguyen- PhD in Computer Science
+Summary
+84
+AI VIETNAM
+All-in-One Course
+84
+Vinh Dinh Nguyen- PhD in Computer Science
+Sales Prediction
+85
+AI VIETNAM
+All-in-One Course
+85
+Vinh Dinh Nguyen- PhD in Computer Science
+Sales Prediction
+86
+AI VIETNAM
+All-in-One Course

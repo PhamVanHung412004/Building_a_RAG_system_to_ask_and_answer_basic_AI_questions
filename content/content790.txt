@@ -1,7 +1,0 @@
-Phép cộng này được định nghĩa như sau: Cho hai array (hoặc tensor)A và B cùng kích
-thước, phép cộng giữa chúng (A + B) tạo ra một array mớiC, với mỗi phần tửCi được tính bằng cách
-cộng phần tửAi với phần tửBi.
-Ci = Ai + Bi
-Hình 13: Minh họa Addition
-Trong ví dụ dưới đây, ta thực hiện phép cộng các array bằng cách sử dụng toán tử "+"hoặc hàm add().
-16

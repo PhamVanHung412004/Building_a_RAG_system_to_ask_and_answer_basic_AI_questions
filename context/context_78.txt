@@ -1,0 +1,432 @@
+Point Cloud 
+Techniques and Applications
+Tuan Dang
+Instructor
+Email: tuan.dang@uta.edu
+Homepage: www.tuandang.info
+University of Texas at Arlington, USA
+Phuc Pham
+Teaching Assistant
+Email: phuc.phamhuythien@hcmut.edu.vn
+Ho Chi Minh City University of Technology
+Agenda
+●
+Section 1 (24/4): Introduction to Point Cloud and basic techniques to process 
+●
+Section 2 (26/4): Machine Learning with Point Cloud
+Requirement
+●
+Linear Algebra
+●
+Basic (numpy)
+●
+Advanced (pytorch) 
+Hints to effectively learn this course
+●
+Understanding is the key
+●
+Concepts are connected in a chain: each concept is a link in a chain
+●
+If you don’t understand some concepts at certain links, please stop or go 
+back to review them
+●
+Encourage ask questions even sometimes interrupt the instructor 
+Section 1 
+Introduction to Point Cloud and 
+basic techniques to process
+Content
+●
+Concepts of Point Cloud
+●
+●
+Data Acquisition, Sensors
+●
+●
+Camera Pinhole Model
+●
+●
+Noise Removal
+●
+●
+Sampling Techniques
+●
+●
+Surface Normal
+●
+●
+Surface Curvature
+●
+●
+Search on Point Cloud
+●
+●
+Data Structure for Efficient Search
+●
+●
+Registration
+●
+●
+Point Cloud Example Codes
+What is a Point Cloud?
+●
+A list of point 3D points:  
+○
+[p1, p2, p3, …]
+●
+Each point can be represented
+○
+(X,Y,Z[,feature1,feature2...])
+○
+X,Y,Z
+○
+X,Y,Z,I (intensity)
+○
+X,Y,Z,R,G,B
+○
+…
+●
+The number of points may vary from one point cloud to another
+Point Cloud vs Image
+JPEG, PNG, BITMAP
+txt, ply, bin
+Memory Space
+Storage Space
+[p1, p2, …, ] = [p2, p1, …, ]  
+WxHxC
+Unordered- irregular structure
+Well-deﬁned grid structure
+How to obtain pointcloud?
+●
+LiDAR
+●
+Depth images
+LiDAR (outdoor)
+Sing Beam
+Multiple beams
+For each point: (X,Y,Z, I)
+Industry LiDAR
+LiDAR Data
+Generated from: https://github.com/tuantdang/pointcloud_lessons/blob/main/session1/load_point_clouds.py
+RGB-D camera (most popular, indoor)
+Generated from: https://github.com/tuantdang/pointcloud_lessons/blob/main/session1/registration.py
+Commercial RGB-D cameras
+Microsoft
+Kinect
+Intel
+Realsense D435
+Intel
+Realsense L515
+Depth Measurement
+●
+Stereo Vision
+●
+Structure Light
+●
+LiDAR with MEMS
+Camera model (Pinhole)
+From world to camera
+From Camera to World
+Point cloud processing
+●
+Filter noises
+○
+Downsampling
+○
+Noise Removal
+●
+Search
+●
+Registration
+Voxel Grid Sampling
+●
+Build voxel grid
+●
+Select point strategies
+○
+Random
+○
+Center point
+○
+Centroid point
+Build Voxel Grid Coordinate
+Point Cloud Range
+Grid Dimensions
+r : voxel size 
+Voxel indexing
+0,1,..., NxNyNz-1
+Center Point Selection
+Furthest Point Sampling (FPS)
+●
+This heuristic algorithm
+●
+Algorithm
+○
+Step 1: Random select a point 
+○
+Step 2: Calculate distances between current selected point to all remaining points
+○
+Step 3: Select a point which is the furthest to the previous point
+○
+Step 4: Loop step 2 & 3 until m points are chosen
+●
+Advantages
+○
+Evenly across original point cloud
+○
+Capture Esen
+Voxel 
+Sampling
+FPS
+Generated from: https://github.com/tuantdang/pointcloud_lessons/blob/main/session1/down_sampling.py
+Surface Normal
+●
+A vector that is perpendicular to the plane
+●
+A plane can be determined by 
+○
+Perpendicular vector (a,b,c)
+○
+A point in the plane (x,y,z)
+●
+Plane equation from perpendicular vector and inner-point: ax+by+cz+d = 0
+Normal vector in Practise
+●
+Not points are perfect in a plane => eigenvector
+●
+Collect a set of point
+●
+Calculate eigenvectors and eigenvalues (λ1, λ2, λ3)
+●
+The least driven-value is normal vector: n = λ3
+Surface variance = Curvature
+Noise Removal: Radius Outlier Removal
+●
+Search around query point p 
+with radius r, call ball(p, r)
+●
+If number of points in the ball < 
+kmin, p is outlier. 
+Statistical Outlier Removal
+  Model inlier as Gaussian N(µ, σ) distribution
+●
+n : number of points, k neighbors, c : variance steps
+●
+ dij : distance from point i to point j 
+Examples
+Original
+Voxel size = 0.02
+kmin=16,r=0.05
+Statistical Outlier removal k=20,c=2
+Search  Nearest Neighbors (-NN)
+●
+Why searching neighbors?
+●
+K-NN : O(NlogN) or O(NlogK) since using sort algorithm
+●
+Radius-NN : O(N) compute and compare 
+1D-BST = 1D Binary Search Tree
+5
+8,3,10,1,6,14,4,7,14
+k-dimensional tree = k-d tree 
+●
+K-d tree is a BST where each node is k-dimensional point
+●
+Example:
+○
+Input 2D points: a,b,c,d,e,f
+○
+Draw a line: perpendicular x-axis to separate two subsets
+○
+For each subset, draw  lines: 
+■
+perpendicular y-axis
+■
+Separate two subsets
+○
+Repeat until no more data
+●
+Note: Using round-robin 
+○
+2D: perpendicular lines: x>y>x>y>...
+○
+3D: perpendicular planes: x>y>z>x>y>z>... 
+Construct 2-d tree from 2D data
+K-NN search on k-d tree
+Example with K=2 and query g, with worst 
+distance d = inﬁnity
+●
+Search from root s1
+○
+gx < s1 and gy >s2 where ||g-a|| < d  store a.
+○
+Update d = ||g - a||
+○
+Since |gx-s1|<d and |gy-s2| < d, c is stored
+○
+Update d = ||g - c||
+○
+….
+●
+Complexity O(logN): best case  and O(N) 
+worst case
+k-d tree with k=3
+Octree
+●
+k-d tree split along a dimension while octree split along a point.
+●
+The center represents for the regions and has 8 children (3D) or 4 children 
+(2D)
+Octree construction
+2D example a(4, 6), b(7,5), c(4,4), d(2,2), e(6, 3), f(8,2), g(7,1)
+Octree search with K-NN
+●
+Use Depth-First Search (DFS)
+●
+Example : 
+○
+Query h
+○
+ k=2
+○
+Initialize distance d = ∞
+○
+Start from s1 ﬁnd h in s2 among 
+children > store a
+○
+Update d = ||h-a||
+○
+Ball circle(h, d) intersect with s4
+○
+Search children s4: s6,s7
+○
+Store c where d < |h-c|
+Example
+KNN
+Radius
+Octree
+Registration
+●
+Align two or more point clouds into a common coordinate 
+●
+Iterative Closest Point (ICP) is the most common method
+○
+Find the correspondence between two point sets
+○
+Find the transformation that minimizes the Euclidean distance between matching points
+●
+Mathematic formation:
+○
+Let A = {ai}, B = {bj} are two point sets
+○
+Let T is transformation
+○
+Point mi in A which corresponding with Tbj
+○
+Find 
+Example
+Coding Examples
+●
+Introduction to Open3D installation (v0.1)
+●
+Create folder to store all ﬁles below: 
+●
+Load a point cloud
+○
+Bin (KITTI): load_bin.py
+○
+Ply (Shapenet): load_ply.py
+○
+Txt (ModelNet): load_txt.py (convert from numpy PCL)
+●
+Downsampling : downsampling.py
+●
+Noise Removal : noise_removal.py
+●
+Search neighbors: k-d-tree / octoc.tree (color search results)
+●
+Registration: registration.py
+●
+Reconstruct point cloud from RGB images and depth images: 
+Section 2 
+Deep Learning on Point Cloud
+Overview
+Datasets
+Point-based 3D methods
+Examples
+Voxel (3D grid)-based methods
+Example
+Hybrid: Point-Voxel based methods
+Examples
+Intrinsic Geometry Features (Hand-crafted): Point Feature Histogram (PFH)
+●
+Surface normal and curvature are too simple to represent point features
+Algorithms
+Dual rings:
+-
+First ring: estimate surface normal (see section 1)
+-
+Second ring: estimate PFH
+Darboux frame
+-
+Binning quadruplets (α,ɸ,θ,d) and indexing to 1-dimension
+Convolutional Operation on Point Cloud
+●
+Cannot be applied directly as on images
+○
+Voxelize point cloud into grid coordinate
+○
+Deﬁne a ﬁxed grid coordinate for all poincloud
+○
+3D convolutional operation > memory & computing 
+cost
+Reviews Convolution Operation
+Continuous
+Decrete
+1D Convolutions
+2D Convolution
+2D Convolution (cont’)
+3D Convolution
+3D convolutional operator on 3D voxel grid
+VoxelNet: End-to-End Learning for Point Cloud Based 3D Object Detection, (Yin Zhou et al)
+Voxel Feature Encoding (VFE)
+PointNet
+●
+Consume direct point cloud with n points
+●
+Use symmetric function like max-pooling
+Architecture
+PointNet++
+●
+Hierarchical Point Set Feature Learning
+○
+Multi-scale grouping (MSG)
+○
+Multi-resolution grouping (MRG)
+Point Transformer
+LBR:  Linear, Batch, ReLu
+LBRD: Linear, Batch, ReLu, DropOut
+PCN: Point Cloud Transformer, Guo et al, 2021
+Some results
+Generative Point Cloud (Diffusion Approach)
+forward
+backward
+Latent Point Diffusion
+LION: Latent Point Diffusion Models for 3D Shape Generation, Zeng et al, 2022
+Advanced: Graph Neural Network on Point Cloud
+Formulation
+Graph Convolutional
+Attention
+Message-passing
+⊕: Aggregation, permutation-invariant function
+Ѱ: Point Feature Transform
+ɸ : Point Feature Propagation (Diﬀusion)
+Geometric Pytorch
+Hand-on project
+●
+PointNet 
+○
+Classiﬁcation
+●
+Visualization: 
+○
+Inference classiﬁcation

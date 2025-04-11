@@ -1,0 +1,363 @@
+AI VIET NAM – COURSE 2023
+Project: K-Nearest Neighbors and Decision Tree
+Ngày 31 tháng 8 năm 2023
+1. K-Nearest Neighbors
+K-Nearest Neighbors (KNN) là một trong những thuật toán học máy có giám sát cơ bản. KNN
+còn được gọi là Lazy Learning, Memory-Based Learning,... Với bước huấn luyện mô hình, chỉđơn giản
+là lưu trữlại giá trịcủa dữliệu huấn luyện, vì vậy KNN là phương pháp học máy không tham số
+(Non-Parametric). Ởbước dựđoán, mô hình sẽdửdụng các độđo khoảng cách đểtìm các hàng xóm
+lân cận.
+Một sốđộđo thường được sửdụng trong KNN như:
+1. Euclidean
+2. Chebyshev
+3. Manhattan
+4. Minkowski
+Các độđo này tính toán dữliệu dựđoán với các điểm dữliệu khác được lưu trữtrong mô hình huấn
+luyện. Từđó xếp hạng và tìm ra K điểm dữliệu huấn luyện có kết quảgần với dữliệu dựđoán nhất.
+Cuối cùng dựa vào phương pháp biểu quyết của các dữliệu hàng xóm trong tập huấn luyện đểđưa ra
+kết quảdựđoán.
+Hình 1: Mô tảquá trình huấn luyện và dựđoán mô hình KNN.
+KNN được sửdụng rộng rãi cho ứng dụng phân loại (Classification) và dựđoán (Regression) được
+mô tảnhư hình sau:
+1
+AI VIETNAM
+aivietnam.edu.vn
+Hình 2: Mô tảquá trình huấn luyện và dựđoán mô hình KNN.
+Câu hỏi 1 Hàm đánh giá nào trong các hàm sau đây không được sửdụng trong KNN?
+a) Manhattan
+b) Minkowski
+c) Tanimoto
+d) ROUGE
+Câu hỏi 2 Cho hàm tính khoảng cách sau đây:
+d(x, y) =
+v
+u
+u
+t
+n
+X
+i=1
+(xi −yi)2
+Hàm tính độđo khoảng cách trên được gọi là:
+a) Manhattan
+b) Minkowski
+c) Eucidean
+d) Tanimoto
+Câu hỏi 3 Hoàn thành đoạn code sau đây đểđược thứtựđúng cho bài toán phân loại hoa Iris dử
+dụng mô hình KNN?
+import
+numpy as np
+from
+sklearn
+import
+datasets
+from
+sklearn. model_selection
+import
+train_test_split
+from
+sklearn.preprocessing
+import
+StandardScaler
+from
+sklearn.neighbors
+import
+KNeighborsClassifier
+# Load the
+diabetes
+dataset
+iris_X , iris_y = datasets.load_iris(return_X_y=True)
+# Split
+train:test = 8:2
+X_train , X_test , y_train , y_test = train_test_split (
+2
+AI VIETNAM
+aivietnam.edu.vn
+iris_X ,
+iris_y ,
+test_size =0.2,
+random_state =42
+)
+# Scale the
+features
+using
+StandardScaler
+scaler = StandardScaler ()
+X_train = scaler.fit_transform(X_train)
+X_test = scaler.transform(X_test)
+# Build KNN
+Classifier
+*** Your code here ***
+# Predict
+and
+Evaluate
+test set
+y_pred = knn_classifier.predict(X_test)
+accuracy_score (y_test , y_pred)
+a)
+knn_classifier = KNeighborsClassifier (n_neighbors =5)
+knn_classifier .fit(X_train , y_train)
+b)
+knn_classifier = KNeighborsRegessor (n_neighbors =5)
+knn_classifier .fit(X_train , y_train)
+c)
+knn_classifier = KNeighborsModel (n_neighbors =5)
+knn_classifier .fit(X_train , y_train)
+d)
+knn_classifier = KNeighbors(n_neighbors =5)
+knn_classifier .fit(X_train , y_train)
+Câu hỏi 4 Quan sát hình dưới vềảnh hưởng của giá trịK đến độđo R2Score.
+Hình 3: Ảnh hưởng của giá trịK đến độđo R2Score.
+3
+AI VIETNAM
+aivietnam.edu.vn
+Giá trịK nào trong các giá trịsau đây là tốt nhất cho mô hình KNN ởtrong hình 5?
+a) 10
+b) 7
+c) 17
+d) 4
+Câu hỏi 5 Sắp xếp các đoạn code sau đây đểđược thứtựđúng cho bài toán dựđoán chỉsốbệnh trên
+bô dữliệu Diabetes dửdụng mô hình KNN?
+import
+numpy as np
+from
+sklearn
+import
+datasets
+from
+sklearn. model_selection
+import
+train_test_split
+from
+sklearn.preprocessing
+import
+StandardScaler
+from
+sklearn.neighbors
+import
+KNeighborsRegressor
+Paragraph A:
+# Load the
+diabetes
+dataset
+diabetes_X , diabetes_y = datasets. load_diabetes(return_X_y=True)
+Paragraph B:
+# Scale the
+features
+using
+StandardScaler
+scaler = StandardScaler ()
+X_train = scaler.fit_transform(X_train)
+X_test = scaler.transform(X_test)
+Paragraph C:
+# Build KNN model
+knn_regressor = KNeighborsRegressor (n_neighbors =5)
+knn_regressor.fit(X_train , y_train)
+Paragraph D:
+# Split
+train:test = 8:2
+X_train , X_test , y_train , y_test = train_test_split (
+diabetes_X ,
+diabetes_y ,
+test_size =0.2,
+random_state =42
+)
+Thứtựđúng của các đoạn trên là:
+a) D - C - B - A
+b) A - D - B - C
+c) C - B - A - D
+d) B - C - D - A
+Câu hỏi 6 Phương pháp nào không được sửdùng đểbiểu diễn văn bản thành các giá trịvector là:
+a) Bag-of-Word
+b) TF-IDF
+c) One Hot Encoding
+d) F-Score
+4
+AI VIETNAM
+aivietnam.edu.vn
+Câu hỏi 7 Hoàn thành đoạn code sau đây cho bài toán phân loại văn bản sửdụng mô hình KNN trên
+bộdữliệu đánh giá phim:
+# Import
+library
+!pip install -q datasets
+import
+numpy as np
+from
+datasets
+import
+load_dataset
+from
+sklearn.neighbors
+import
+KNeighborsClassifier
+from
+sklearn.preprocessing
+import
+StandardScaler
+from
+sklearn. feature_extraction .text
+import
+CountVectorizer
+# Load IMDB
+dataset
+imdb = load_dataset (" imdb ")
+imdb_train , imdb_test = imdb[’train ’], imdb[’test ’]
+# Convert
+text to vector
+using BoW
+*** Your code here ***
+vectorizer =
+X_train =
+X_test =
+y_train = np.array(imdb_train[’label ’])
+y_test = np.array(imdb_test[’label ’])
+# Scale the
+features
+using
+StandardScaler
+scaler = StandardScaler ()
+X_train = scaler.fit_transform(X_train)
+X_test = scaler.transform(X_test)
+# Build KNN
+Classifier
+knn_classifier = KNeighborsClassifier (n_neighbors =1, algorithm=’ball_tree ’)
+knn_classifier .fit(X_train , y_train)
+# predict
+test set and
+evaluate
+y_pred = knn_classifier.predict(X_test)
+accuracy_score (y_test , y_pred)
+Chọn đáp án đúng trong các đáp án sau đây:
+a)
+vectorizer = CountVectorizer(max_features =1000)
+X_train = vectorizer.fit_transform (imdb_train[’text ’]).toarray ()
+X_test = vectorizer.transform(imdb_test[’label ’]).toarray ()
+b)
+vectorizer = CountVectorizer(max_features =1000)
+X_train = vectorizer.fit_transform (imdb_train[’label ’]).toarray ()
+X_test = vectorizer.transform(imdb_test[’text ’]).toarray ()
+c)
+vectorizer = CountVectorizer(max_features =1000)
+X_train = vectorizer.fit_transform (imdb_train[’text ’]).toarray ()
+X_test = vectorizer.transform(imdb_test[’text ’]).toarray ()
+d)
+vectorizer = CountVectorizer(max_features =1000)
+X_train = vectorizer.fit_transform (imdb_train[’text ’]).toarray ()
+X_test = vectorizer.transform(imdb_test[’label ’]).toarray ()
+5
+AI VIETNAM
+aivietnam.edu.vn
+2. Decision Tree
+Decison Tree là phương pháp học có giám sát dựa vào ý tưởng xây dựng mô hình dạng cây đểxấp
+xỉdữliệu huấn luyện. Cấu trúc cây quyết định được mô tảnhư hình sau:
+Hình 4: Mô hình biểu diễn cây quyết định.
+Đểxây dựng cây quyết định trên, chúng ta thường sửdụng thuật toán Iterative Dichotomiser (ID3)
+tính toán độđo Information Gain đểxem xét đặc trưng nào sẽlà đầu tiên. Công thức tính Entropy với
+tập dữliệu S ví dụtương ứng với C lớp được tính như sau:
+E(S) = −
+X
+c∈C
+pclog2pc
+Trong đó pc là phân phối xác suất của lớp c trong bộdữliệu S
+Informarmation Gain (IG) cho biết độquan trọng của feature F trên bộdữliệu S được tính như
+sau:
+Gain(F, S) = E(S) −
+X
+f∈F
+|Sf|
+|S| E(Sf)
+Trong đó, Sf là tập hợp các ví dụ của bộ dữ liệu S ứng với đặc trưng F mà có giá trị là f
+Câu hỏi 8 Giả sử cho bài toán bộ dữ liệu S gồm các ví dụ được phân loại thành 2 lớp. Độ đo Entropy bằng    
+1 khi nào?
+a) Sốdữliệu trong hai lớp bằng nhau
+b) sốdữliệu trong lớp 1 bằng 3 lần sốdữliệu trong lớp 2
+c) sốdữliệu trong lớp 1 bằng 2 lần sốdữliệu trong lớp 2
+d) sốdữliệu trong lớp 1 bằng 4 lần sốdữliệu trong lớp 2
+6
+AI VIETNAM
+aivietnam.edu.vn
+Cho độdữliệu phân loại sau:
+Hình 5: Dữliệu dựđoán khảnăng chơi Tennis.
+Câu hỏi 9 Dựa vào công thức tính Information Gain, tính giá trịGain(S, Wind)?
+a) 0.048
+b) 0.008
+c) 0.448
+d) 0.408
+Câu hỏi 10 Từbộdữliệu trên, node gốc được chọn sẽlà Outlook, vậy đểtìm đặc trưng nào tại
+node 1 trong hình sau chúng ta cần tính giá trịGain(Ssunny, Temperature), Gain(Ssunny, Humidity),
+Gain(Ssunny, Wind)
+Hình 6: Dữliệu dựđoán khảnăng chơi Tennis.
+Các giá trịGain(Ssunny, Temperature), Gain(Ssunny, Humidity), Gain(Ssunny, Wind) lần lượt là:
+7
+AI VIETNAM
+aivietnam.edu.vn
+a) 0.019, 0.97, 0.57
+b) 0.57, 0.97, 0.019
+c) 0.019, 0.57, 0.97
+d) 0.97, 0.019, 0.97
+Câu hỏi 11 Đặc trưng nào phù hợp tại node 1 là
+a) Temperate
+b) Humidity
+c) Wind
+d) Không có đặc trưng nào
+Câu hỏi 12 Sắp xếp các đoạn code phân loại trên bộdữliệu Iris dựa vào Decision Tree:
+import
+numpy as np
+from
+sklearn
+import
+datasets
+from
+sklearn. model_selection
+import
+train_test_split
+from
+sklearn.metrics
+import
+accuracy_score
+from
+sklearn.preprocessing
+import
+StandardScaler
+from
+sklearn.tree
+import
+DecisionTreeClassifier
+Paragraph A:
+# Scale the
+features
+using
+StandardScaler
+scaler = StandardScaler ()
+X_train = scaler.fit_transform(X_train)
+X_test = scaler.transform(X_test)
+Paragraph B:
+# Define
+model
+dt_classifier = DecisionTreeClassifier (max_depth =3, min_samples_leaf =10, random_state
+=1)
+dt_classifier.fit(X_train , y_train)
+Paragraph C:
+# Load the
+diabetes
+dataset
+iris_X , iris_y = datasets.load_iris(return_X_y=True)
+# Split
+train:test = 8:2
+X_train , X_test , y_train , y_test = train_test_split (
+iris_X , iris_y ,
+test_size =0.2,
+random_state =42)
+Paragraph D:
+# Preidct
+and
+evaluate
+y_pred = dt_classifier.predict(X_test)
+accuracy_score (y_test , y_pred)
+Thứtựđúng là
+a) C - A - B - D
+b) A - B - D - C
+c) D - C - A - B
+d) A - C - D - B
+- Hết -
+8

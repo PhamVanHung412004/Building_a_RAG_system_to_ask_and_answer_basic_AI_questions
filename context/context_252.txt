@@ -1,0 +1,1657 @@
+1
+AI VIETNAM
+All-in-One Course
+1
+AI VIETNAM
+All-in-One Course
+Time-series Forecasting Project
+(MLP, RNN, LSTM, Bi-LTSM, XGBoost)
+Year 2023
+Vinh Dinh Nguyen
+PhD in Computer Science
+AI VIETNAM
+All-in-One Course
+2
+AI VIETNAM
+All-in-One Course
+2
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Multilayer Perceptron and Time-series Data Forecasting
+Ø RNN and Time-series Data Forecasting
+Ø LSTM and Time-series Data Forecasting
+Ø Bi-LSTM and Time-series Data Forecasting
+Ø XGBoost and Time-series Data Forecasting
+Outline
+3
+AI VIETNAM
+All-in-One Course
+3
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Multilayer Perceptron and Time-series Data Forecasting
+Ø RNN and Time-series Data Forecasting
+Ø LSTM and Time-series Data Forecasting
+Ø Bi-LSTM and Time-series Data Forecasting
+Ø XGBoost and Time-series Data Forecasting
+Outline
+4
+AI VIETNAM
+All-in-One Course
+4
+Vinh Dinh Nguyen- PhD in Computer Science
+Neuron: Simple Explanation
+Neuron and it’s different components
+In 
+the 
+early 
+1940’s 
+Warren 
+McCulloch, 
+a 
+neurophysiologist, teamed up with logician Walter Pitts to 
+create a model of how brains work. It was a simple linear 
+model that produced a positive or negative output, given 
+a set of inputs and weights.
+5
+AI VIETNAM
+All-in-One Course
+5
+Vinh Dinh Nguyen- PhD in Computer Science
+Neuron: Simple Explanation
+The first application of the neuron replicated a logic gate, where you have one or two binary inputs, and a boolean function that only gets 
+activated given the right inputs and weights
+AND FUNCTION
+OR FUNCTION
+It couldn’t learn like 
+the brain. 
+Frank Rosenblatt 
+extended t
+his model
+6
+AI VIETNAM
+All-in-One Course
+6
+Vinh Dinh Nguyen- PhD in Computer Science
+Neuron: Simple Explanation
+OR FUNCTION
+-10
++20
++20
+Result
+0
+0
+s(-10)
+0
+0
+1
+s(10)
+1
+1
+0
+s(10)
+1
+1
+1
+s(30)
+1
+It couldn’t learn like 
+the brain. 
+It was only a decade later that Frank Rosenblatt extended this model, and created an algorithm that could learn the weights in order to generate an 
+output.
+7
+AI VIETNAM
+All-in-One Course
+7
+Vinh Dinh Nguyen- PhD in Computer Science
+Perceptron: Simple Explanation
+Frank Rosenblatt extended neuron model, and created an algorithm that could learn the weights in order to generate an output.
+It gets its name from performing the human-like function of perception, seeing and recognizing images.
+Perceptrons neuron model (left) and threshold logic (right). 
+Activation function
+8
+AI VIETNAM
+All-in-One Course
+8
+Vinh Dinh Nguyen- PhD in Computer Science
+Perception: Activation Fuctions
+But you might be wondering, Doesn’t Perceptron 
+actually learn the weights?
+It does! Perceptron uses Stochastic Gradient Descent to 
+find!
+9
+AI VIETNAM
+All-in-One Course
+9
+Vinh Dinh Nguyen- PhD in Computer Science
+Perceptron: Simple Explanation
+The first application of the neuron replicated a logic gate, where you have one or two binary inputs, and a boolean function that only gets 
+activated given the right inputs and weights
+AND FUNCTION
+-30
++20
++20
+Result
+0
+0
+s(-30)
+0
+0
+1
+s(-10)
+0
+1
+0
+s(-10)
+0
+1
+1
+s(10)
+1
+10
+AI VIETNAM
+All-in-One Course
+10
+Vinh Dinh Nguyen- PhD in Computer Science
+Perceptron: Simple Explanation
+OR FUNCTION
+-10
++20
++20
+Result
+0
+0
+s(-10)
+0
+0
+1
+s(10)
+1
+1
+0
+s(10)
+1
+1
+1
+s(30)
+1
+it couldn’t represent the XOR gate, exclusive OR, where the gate only returns 1 if the 
+inputs are different
+11
+AI VIETNAM
+All-in-One Course
+11
+Vinh Dinh Nguyen- PhD in Computer Science
+Multilayer Perceptron: Simple Explanation 
+The Multilayer Perceptron was developed to tackle this limitation. It is a neural network where the 
+mapping between inputs and output is non-linear.
+Multilayer Perceptron
+the Feedfoward and Backpropagation steps
+12
+AI VIETNAM
+All-in-One Course
+12
+Vinh Dinh Nguyen- PhD in Computer Science
+Multilayer Perceptron: Simple Explanation
+The Multilayer Perceptron was developed to tackle this limitation. It is a neural network where the 
+mapping between inputs and output is non-linear.
+the Feedfoward and Backpropagation steps
+One iteration of Gradient Descent
+13
+AI VIETNAM
+All-in-One Course
+13
+Vinh Dinh Nguyen- PhD in Computer Science
+Multilayer Perceptron: Simple Explanation
+-30
+20
+20
+10
+-20
+-20
+-10
+20
+20
+0
+0
+0
+1
+1
+0
+1
+0
+0
+0
+1
+0
+0
+0
+0
+1
+1
+1
+0
+1
+14
+AI VIETNAM
+All-in-One Course
+14
+Vinh Dinh Nguyen- PhD in Computer Science
+Multilayer Perceptron: Time-series Data Project
+Electricity Transformer Dataset (ETDataset)
+15
+AI VIETNAM
+All-in-One Course
+15
+Vinh Dinh Nguyen- PhD in Computer Science
+Multilayer Perceptron: Time-series Data Project
+Electricity Transformer Dataset (ETDataset)
+Data Windowing Techniques
+T=0
+T=1
+T=2
+T=…
+T=335
+T=336
+T=…
+T=429
+T=430
+T = 431
+15932
+Offset= 96
+Label width = 15 minutes
+Total width = 432
+Case 1 : Multivariate to Multivariate Prediction
+(Input, Output) = (336, 96)
+(Input shape)= (15932, 336, 7)
+(Output shape)= (15932, 96, 7)
+Input width = 336
+16
+AI VIETNAM
+All-in-One Course
+16
+Vinh Dinh Nguyen- PhD in Computer Science
+Multilayer Perceptron: Time-series Data Project
+Electricity Transformer Dataset (ETDataset)
+Data Windowing Techniques
+Case 1 : Multivariate to Multivariate Prediction
+(Input, Output) = (336, 96)
+(Input shape)= (15932, 336, 7)
+(Output shape)= (15932, 96, 7)
+17
+AI VIETNAM
+All-in-One Course
+17
+Vinh Dinh Nguyen- PhD in Computer Science
+Multilayer Perceptron: Time-series Data Project
+Electricity Transformer Dataset (ETDataset)
+Electricity Transformer Dataset (ETDataset)
+Data Windowing Techniques
+15932
+Case 2: Multivariate to Univariate Prediction
+(Input, Output) = (336, 96)
+(Input shape)= (15932, 336, 7)
+(Output shape)= (15932, 96, 1)
+T=0
+T=1
+T=2
+T=…
+T=335
+T=336
+T=…
+T=429
+T=430
+T = 431
+Offset= 96
+Label width = 15 minutes
+Total width = 432
+Input width = 336
+18
+AI VIETNAM
+All-in-One Course
+18
+Vinh Dinh Nguyen- PhD in Computer Science
+Multilayer Perceptron: Time-series Data Project
+Electricity Transformer Dataset (ETDataset)
+Electricity Transformer Dataset (ETDataset)
+Data Windowing Techniques
+Case 2: Multivariate to Univariate Prediction
+(Input, Output) = (336, 96)
+(Input shape)= (15932, 336, 7)
+(Output shape)= (15932, 96, 1)
+19
+AI VIETNAM
+All-in-One Course
+19
+Vinh Dinh Nguyen- PhD in Computer Science
+Multilayer Perceptron: Time-series Data Project
+Electricity Transformer Dataset (ETDataset)
+Electricity Transformer Dataset (ETDataset)
+Data Windowing Techniques
+15932
+Case 3: Univariate to Univariate Prediction
+(Input, Output) = (336, 96)
+(Input shape)= (15932, 336, 1)
+(Output shape)= (15932, 96, 1)
+T=0
+T=1
+T=2
+T=…
+T=335
+T=336
+T=…
+T=429
+T=430
+T = 431
+Offset= 96
+Label width = 15 minutes
+Total width = 432
+Input width = 336
+20
+AI VIETNAM
+All-in-One Course
+20
+Vinh Dinh Nguyen- PhD in Computer Science
+Multilayer Perceptron: Time-series Data Project
+Electricity Transformer Dataset (ETDataset)
+Electricity Transformer Dataset (ETDataset)
+Data Windowing Techniques
+Case 3: Univariate to Univariate Prediction
+(Input, Output) = (336, 96)
+(Input shape)= (15932, 336, 1)
+(Output shape)= (15932, 96, 1)
+21
+AI VIETNAM
+All-in-One Course
+21
+Vinh Dinh Nguyen- PhD in Computer Science
+Time-series Data Project: Data Exploration
+Experiments were perfomed by TA Khoa Nguyen
+22
+AI VIETNAM
+All-in-One Course
+22
+Vinh Dinh Nguyen- PhD in Computer Science
+Time-series Data Project: Data Exploration
+Experiments were perfomed by TA Khoa Nguyen
+23
+AI VIETNAM
+All-in-One Course
+23
+Vinh Dinh Nguyen- PhD in Computer Science
+Multilayer Perceptron: Time-series Data Project
+Define MLP Structure in Pytorch
+Configuration
+24
+AI VIETNAM
+All-in-One Course
+24
+Vinh Dinh Nguyen- PhD in Computer Science
+Multilayer Perceptron: Time-series Data Project
+Define MLP Structure in Pytorch
+Case 1: Multivariate to Multivariate Prediction
+Experiments were perfomed by TA Khoa Nguyen
+25
+AI VIETNAM
+All-in-One Course
+25
+Vinh Dinh Nguyen- PhD in Computer Science
+Multilayer Perceptron: Time-series Data Project
+Define MLP Structure in Pytorch
+Case 2: Multivariate to Univariate Prediction
+Experiments were perfomed by TA Khoa Nguyen
+26
+AI VIETNAM
+All-in-One Course
+26
+Vinh Dinh Nguyen- PhD in Computer Science
+Multilayer Perceptron: Time-series Data Project
+Define MLP Structure in Pytorch
+Case 3: Univariate to Univariate Prediction
+Experiments were perfomed by TA Khoa Nguyen
+27
+AI VIETNAM
+All-in-One Course
+27
+Vinh Dinh Nguyen- PhD in Computer Science
+Neural Network : Limitations
+Fixed input size
+28
+AI VIETNAM
+All-in-One Course
+28
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Multilayer Perceptron and Time-series Data Forecasting
+Ø RNN and Time-series Data Forecasting
+Ø LSTM and Time-series Data Forecasting
+Ø Bi-LSTM and Time-series Data Forecasting
+Ø XGBoost and Time-series Data Forecasting
+Outline
+29
+AI VIETNAM
+All-in-One Course
+29
+Vinh Dinh Nguyen- PhD in Computer Science
+Recurrent Neural Network : Simple Explanation
+Cryptocurrency Prediction
+Day
+Value
+1
+2
+3
+4
+5
+Went up for 4 days
+Going down
+BTC-USD
+30
+AI VIETNAM
+All-in-One Course
+30
+Vinh Dinh Nguyen- PhD in Computer Science
+Recurrent Neural Network : Simple Explanation
+Cryptocurrency Prediction
+BTC-USD
+Day
+Value
+1
+2
+3
+4
+5
+Went up for 4 days
+Going down
+6
+7
+8
+9
+31
+AI VIETNAM
+All-in-One Course
+31
+Vinh Dinh Nguyen- PhD in Computer Science
+Recurrent Neural Network : Simple Explanation
+Cryptocurrency Prediction
+BTC-USD
+Day
+Value
+1
+2
+3
+4
+5
+Went up for 4 days
+Going down
+6
+7
+8
+9
+10
+Predict LTC’s price, we need data for 5 days (5,6,7,8,9)
+Predict BTC’s price, we need data for 9 days (1,2,3,4,5,6,7,8,9)
+We need the NN to be more flexible in term 
+of how much sequential data we use to make 
+a prediction
+BTC-USD
+LTC-USD
+32
+AI VIETNAM
+All-in-One Course
+32
+Vinh Dinh Nguyen- PhD in Computer Science
+Recurrent Neural Network : Simple Explanation
+Humans tend to retrieve information from memory, short or long, use current information with it and derive logic to 
+take next action (or impulse/habit, again based on previous experiences).
+33
+AI VIETNAM
+All-in-One Course
+33
+Vinh Dinh Nguyen- PhD in Computer Science
+Recurrent Neural Network : Simple Explanation
+NN
+RNN
+RNN
+34
+AI VIETNAM
+All-in-One Course
+34
+Vinh Dinh Nguyen- PhD in Computer Science
+Recurrent Neural Network : Simple Explanation
+35
+AI VIETNAM
+All-in-One Course
+35
+Vinh Dinh Nguyen- PhD in Computer Science
+Recurrent Neural Network : Simple Explanation
+Input
+x 1.5
+w1
+sum
++ 0.0
+b1
+x 1.1
+w3
+sum
++ 0.0
+b2
+Input
+x 1.5
+w1
+sum
++ 0.0
+b1
+x 1.1
+w3
+sum
++ 0.0
+b2
+x -0.5
+w2
+Recurrent Neural Network for sequential input values
+Feedback loop
+Output
+Output
+Traditional Neural Network
+36
+AI VIETNAM
+All-in-One Course
+36
+Vinh Dinh Nguyen- PhD in Computer Science
+Recurrent Neural Network : Simple Explanation
+Input
+x 1.5
+w1
+sum
++ 0.0
+b1
+x 1.1
+w3
+sum
++ 0.0
+b2
+Yesterday
+Output
+Today
+x 1.5
+w1
+sum
++ 0.0
+b1
+x 1.1
+sum
++ 0.0
+Today
+x -0.5
+w2
+Tomorrow
+37
+AI VIETNAM
+All-in-One Course
+37
+Vinh Dinh Nguyen- PhD in Computer Science
+Recurrent Neural Network : Simple Explanation
+Prices
+Low
+Medium
+High
+Yesterday
+Today
+Tomorrow
+Prices
+Low
+Medium
+High
+Yesterday
+Today
+Tomorrow
+Prices
+Low
+Medium
+High
+Yesterday
+Today
+Tomorrow
+Prices
+Low
+Medium
+High
+Yesterday
+Today
+Tomorrow
+Day before 
+Yesterday
+38
+AI VIETNAM
+All-in-One Course
+38
+Vinh Dinh Nguyen- PhD in Computer Science
+Input
+x 1.5
+w1
+sum
++ 0.0
+b1
+x 1.1
+w3
+sum
++ 0.0
+b2
+Day before
+Yesterday
+Output
+Yesterday
+x 1.5
+w1
+sum
++ 0.0
+b1
+x 1.1
+sum
++ 0.0
+Yesterday
+x -0.5
+w2
+Today
+x 1.5
+sum
++ 0.0
+x 1.1
+sum
++ 0.0
+Tomorrow
+Today
+x -0.5
+w3
+w2
+Weight and Biases Are Shared Across Every Input
+b1
+w1
+w3
+b2
+b2
+No matter how many times we unroll a recurrent neural network, we never increase number of weights and bias to train
+39
+AI VIETNAM
+All-in-One Course
+39
+Vinh Dinh Nguyen- PhD in Computer Science
+RNN: Time-series Data Project
+Define RNN Structure in Pytorch
+Configuration
+40
+AI VIETNAM
+All-in-One Course
+40
+Vinh Dinh Nguyen- PhD in Computer Science
+RNN: Time-series Data Project
+Define RNN Structure in Pytorch
+Case 1: Multivariate to Multivariate Prediction
+Experiments were perfomed by TA Khoa Nguyen
+41
+AI VIETNAM
+All-in-One Course
+41
+Vinh Dinh Nguyen- PhD in Computer Science
+RNN: Time-series Data Project
+Define RNN Structure in Pytorch
+Case 2: Multivariate to Univariate Prediction
+Experiments were perfomed by TA Khoa Nguyen
+42
+AI VIETNAM
+All-in-One Course
+42
+Vinh Dinh Nguyen- PhD in Computer Science
+RNN: Time-series Data Project
+Define RNN Structure in Pytorch
+Case 3: Univariate to Univariate Prediction
+Experiments were perfomed by TA Khoa Nguyen
+43
+AI VIETNAM
+All-in-One Course
+43
+Vinh Dinh Nguyen- PhD in Computer Science
+Why RRN is not Use Often
+The more we unroll the recurrent neural network, the harder it is to train
+Vanishing / Exploding Gradient Problem
+W2
+W2
+44
+AI VIETNAM
+All-in-One Course
+44
+Vinh Dinh Nguyen- PhD in Computer Science
+Why RRN is not use Often
+If we set W2 ∈1, +∞, 𝐿𝑒𝑡’s 𝑠𝑡𝑎𝑟𝑡 𝑤𝑖𝑡ℎ 𝑊2 = 2
+Exploding Gradient Problem
+yesterday
+Today
+Tomorrow
+W2
+W2
+x2
+x2
+yesterday × 2 × 2 = yesterday × 22 = yesterday × 𝑊!
+!     
+Yesterday × 2100 = yesterday × 2100 = yesterday × 𝑊!
+"##     
+Yesterday × 𝐻𝑢𝑔𝑒 𝑁𝑢𝑚𝑏𝑒𝑟
+45
+AI VIETNAM
+All-in-One Course
+45
+Vinh Dinh Nguyen- PhD in Computer Science
+Why RRN is not use Often
+If we set W2 ∈1, +∞, 𝐿𝑒𝑡’s 𝑠𝑡𝑎𝑟𝑡 𝑤𝑖𝑡ℎ 𝑊2 = 2
+Exploding Gradient Problem
+yesterday
+Today
+Tomorrow
+W2
+W2
+x2
+x2
+W is a huge numbers
+Overshoot the optimal solution
+46
+AI VIETNAM
+All-in-One Course
+46
+Vinh Dinh Nguyen- PhD in Computer Science
+Why RRN is not use Often
+If we set W2 ∈1, +∞, 𝐿𝑒𝑡’s 𝑠𝑡𝑎𝑟𝑡 𝑤𝑖𝑡ℎ 𝑊2 = 2
+Vanishing Gradient Problem
+yesterday
+Today
+Tomorrow
+W2
+W2
+x2
+x2
+yesterday × 0.5 × 0.5 = yesterday × 0.52 = yesterday × 𝑊!
+!     
+Yesterday × 0.5100 = yesterday × 0.5100 = yesterday × 𝑊!
+"##     
+Yesterday × Really Small 𝑁𝑢𝑚𝑏𝑒𝑟
+47
+AI VIETNAM
+All-in-One Course
+47
+Vinh Dinh Nguyen- PhD in Computer Science
+47
+How to avoid Exploding and Vanishing Gradient Problem
+in RNN 
+I grew up in France… I speak fluent French
+RNN fail to handel
+48
+AI VIETNAM
+All-in-One Course
+48
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Multilayer Perceptron and Time-series Data Forecasting
+Ø RNN and Time-series Data Forecasting
+Ø LSTM and Time-series Data Forecasting
+Ø Bi-LSTM and Time-series Data Forecasting
+Ø XGBoost and Time-series Data Forecasting
+Outline
+49
+AI VIETNAM
+All-in-One Course
+49
+Vinh Dinh Nguyen- PhD in Computer Science
+Long short-term 
+Memory: Simple 
+Explanation
+Yesterday
+Today
+the day before yesterday
+Two day ago
+Tomorrow
+Short memory
+Long memory
+RNN
+LSTM
+50
+AI VIETNAM
+All-in-One Course
+50
+Vinh Dinh Nguyen- PhD in Computer Science
+Input
+* 1.63
+Sum
+* 2.70
++ 1.63
+Multi
+Sum
+Sum
+* 1.65
+* 2.00
++ 0.62
+Multi
+Sum
+* 0.94
++ 0.32
+Sum
+* 0.19
++ 0.59
+* 1.41
+* 4.38
+Multi
+Three Stages in a Single LSTM Unit 
+51
+AI VIETNAM
+All-in-One Course
+51
+Vinh Dinh Nguyen- PhD in Computer Science
+Input
+* 1.63
+Sum
+* 2.70
++ 1.63
+Multi
+Sum
+Sum
+* 1.65
+* 2.00
++ 0.62
+Multi
+Sum
+* 0.94
++ 0.32
+Sum
+* 0.19
++ 0.59
+* 1.41
+* 4.38
+Multi
+Long-term memories : no bias and weight present => avoid causing exploding and vanishing gradient
+52
+AI VIETNAM
+All-in-One Course
+52
+Vinh Dinh Nguyen- PhD in Computer Science
+Input
+* 1.63
+Sum
+Multi
+Sum
+Sum
+* 1.65
+Multi
+Sum
+* 0.94
+Sum
+* 0.19
+Multi
+* 2.70
+* 2.00
+* 1.41
+* 4.38
+Short-term memories : with bias and weight present
++ 1.63
++ 0.62
++ 0.32
++ 0.59
+53
+AI VIETNAM
+All-in-One Course
+53
+Vinh Dinh Nguyen- PhD in Computer Science
+Input
+* 1.63
+Sum
++ 1.63
+Multi
+Sum
+Sum
+* 1.65
++ 0.62
+Multi
+Sum
+* 0.94
++ 0.32
+Sum
+* 0.19
++ 0.59
+Sum
+* 2.70
+* 2.00
+* 1.41
+* 4.38
+Multi
+Sum
+Long-term memories : no bias and weight present => avoid causing exploding and vanishing gradient
+Short-term memories : with bias and weight present
+How do long-term memory and 
+short-term memories work?
+54
+AI VIETNAM
+All-in-One Course
+54
+Vinh Dinh Nguyen- PhD in Computer Science
+1
+Input
+* 1.63
+Sum
+* 2.70
++ 1.62
+Multi
+Sum
+Sum
+* 1.65
+* 2.00
++ 0.62
+Multi
+Sum
+* 0.94
++ 0.32
+Sum
+* 0.19
++ 0.59
+* 1.41
+* 4.38
+Multi
+2
+1
+0.997 × 2 = 1.99  
+(1 × 𝟏. 𝟔𝟑) + (𝟏× 2.70) + 1.62  =  5.95 
+1.99
+Reduce the long-
+term memory
+0.977
+55
+AI VIETNAM
+All-in-One Course
+55
+Vinh Dinh Nguyen- PhD in Computer Science
+-10
+Input
+* 1.63
+Sum
+* 2.70
++ 1.62
+Multi
+Sum
+Sum
+* 1.65
+* 2.00
++ 0.62
+Multi
+Sum
+* 0.94
++ 0.32
+Sum
+* 0.19
++ 0.59
+* 1.41
+* 4.38
+Multi
+2
+1
+0
+Reduce the long-term 
+memory, Completely 
+forgot
+0
+This block determine how much percentage of 
+the Long-term memory is remembered.
+Forget Gate
+56
+AI VIETNAM
+All-in-One Course
+56
+Vinh Dinh Nguyen- PhD in Computer Science
+1
+Input
+* 1.63
+Sum
+* 2.70
++ 1.62
+Multi
+Sum
+Sum
+* 1.65
+* 2.00
++ 0.62
+Multi
+Sum
+* 0.94
++ 0.32
+Sum
+* 0.19
++ 0.59
+* 1.41
+* 4.38
+Multi
+2
+1
+1.99
+Reduce the long-term 
+memory, Completely 
+forgot
+0.977
+Potential Long-term 
+memory
+(1 × 𝟎. 𝟗𝟒 ) + (𝟏. 𝟒𝟏× 1) + -0.32  =  2.03
+=> Tanh(2.03) = 0.97
+Bias
+Bias
+Bias
+0.97
+57
+AI VIETNAM
+All-in-One Course
+57
+Vinh Dinh Nguyen- PhD in Computer Science
+1
+Input
+* 1.63
+Sum
+* 2.70
++ 1.62
+Multi
+Sum
+Sum
+* 1.65
+* 2.00
++ 0.62
+Multi
+Sum
+* 0.94
++ 0.32
+Sum
+* 0.19
++ 0.59
+* 1.41
+* 4.38
+Multi
+2
+1
+1.99
+Reduce the long-term 
+memory, Completely 
+forgot
+0.977
+% Potential Long-term 
+memory to remember
+(1x 1.65) + (1 x 2.0) + 0.62 = 4.27
+Tanh(4.27) = 1.0 
+1.0
+58
+AI VIETNAM
+All-in-One Course
+58
+Vinh Dinh Nguyen- PhD in Computer Science
+-10
+Input
+* 1.63
+Sum
+* 2.70
++ 1.62
+Multi
+Sum
+Sum
+* 1.65
+* 2.00
++ 0.62
+Multi
+Sum
+* 0.94
++ 0.32
+Sum
+* 0.19
++ 0.59
+* 1.41
+* 4.38
+Multi
+2
+1
+1.99
+Reduce the long-term 
+memory, Completely 
+forgot
+0.977
+% Potential Long-term 
+memory to remember
+0.0
+59
+AI VIETNAM
+All-in-One Course
+59
+Vinh Dinh Nguyen- PhD in Computer Science
+1
+Input
+* 1.63
+Sum
+* 2.70
++ 1.62
+Multi
+Sum
+Sum
+* 1.65
+* 2.00
++ 0.62
+Multi
+Sum
+* 0.94
++ 0.32
+Sum
+* 0.19
++ 0.59
+* 1.41
+* 4.38
+Multi
+2
+1
+1.99
+Reduce the long-term 
+memory, Completely 
+forgot
+0.977
+Bias
+Bias
+Bias
+0.97
+2.96
+New long-term memory
+60
+AI VIETNAM
+All-in-One Course
+60
+Vinh Dinh Nguyen- PhD in Computer Science
+1
+Input
+* 1.63
+Sum
+* 2.70
++ 1.62
+Multi
+Sum
+Sum
+* 1.65
+* 2.00
++ 0.62
+Multi
+Sum
+* 0.94
++ 0.32
+Sum
+* 0.19
++ 0.59
+* 1.41
+* 4.38
+Multi
+2
+1
+1.99
+Reduce the long-term 
+memory, Completely 
+forgot
+0.977
+Bias
+Bias
+Bias
+0.97
+2.96
+New long-term memory
+0.99
+Potential short-term 
+memory 0.99
+61
+AI VIETNAM
+All-in-One Course
+61
+Vinh Dinh Nguyen- PhD in Computer Science
+1
+Input
+* 1.63
+Sum
+* 2.70
++ 1.62
+Multi
+Sum
+Sum
+* 1.65
+* 2.00
++ 0.62
+Multi
+Sum
+* 0.94
++ 0.32
+Sum
+* 0.19
++ 0.59
+* 1.41
+* 4.38
+Multi
+2
+1
+1.99
+Reduce the long-term 
+memory, Completely 
+forgot
+0.977
+Bias
+Bias
+Bias
+0.97
+2.96
+New long-term memory
+0.99
+How much  % Potential short-
+term memory to remember
+0.99
+0.98
+Output: New short-term 
+memory => Output Gate
+62
+AI VIETNAM
+All-in-One Course
+62
+Vinh Dinh Nguyen- PhD in Computer Science
+62
+Prices
+Low
+Medium
+High
+Day 2
+Day 3
+Day 4
+Day 1
+Day 5
+Input: day 1, day 2, day 3, day 4
+Output: day 5
+Algorithm: Long-short term memory
+LSTM Unit: Example 
+63
+AI VIETNAM
+All-in-One Course
+63
+Vinh Dinh Nguyen- PhD in Computer Science
+0
+Input
+* 1.63
+Sum
+* 2.70
++ 1.62
+Multi
+Sum
+Sum
+* 1.65
+* 2.00
++ 0.62
+Multi
+Sum
+* 0.94
++ 0.32
+Sum
+* 0.19
++ 0.59
+* 1.41
+* 4.38
+Multi
+0
+0
+0
+0.83
+Day 1 input
+64
+AI VIETNAM
+All-in-One Course
+64
+Vinh Dinh Nguyen- PhD in Computer Science
+0
+Input
+* 1.63
+Sum
+* 2.70
++ 1.62
+Multi
+Sum
+Sum
+* 1.65
+* 2.00
++ 0.62
+Multi
+Sum
+* 0.94
++ 0.32
+Sum
+* 0.19
++ 0.59
+* 1.41
+* 4.38
+Multi
+0
+0
+0
+0.83
+Bias
+Bias
+Bias
+-0.31
+Day 1 input
+0.65
+-0.20
+-0.20
+New long-term memory
+65
+AI VIETNAM
+All-in-One Course
+65
+Vinh Dinh Nguyen- PhD in Computer Science
+0
+Input
+* 1.63
+Sum
+* 2.70
++ 1.62
+Multi
+Sum
+Sum
+* 1.65
+* 2.00
++ 0.62
+Multi
+Sum
+* 0.94
++ 0.32
+Sum
+* 0.19
++ 0.59
+* 1.41
+* 4.38
+Multi
+0
+0
+0.0
+Reduce the long-term 
+memory, Completely 
+forgot
+0.977
+Bias
+Bias
+Bias
+0.97
+-0.20
+New long-term memory
+-0.20
+How much  % Potential short-
+term memory to remember
+0.64
+- 0.13
+Output: New short-term 
+memory => Output Gate
+Day 1 input
+66
+AI VIETNAM
+All-in-One Course
+66
+Vinh Dinh Nguyen- PhD in Computer Science
+Initialize long term 
+memory: 0
+Initialize short term 
+memory: 0
+Updated long term 
+memory: -0.2
+Updated short term 
+memory: -0.1
+Day 1 input
+Day 1: 0
+67
+AI VIETNAM
+All-in-One Course
+67
+Vinh Dinh Nguyen- PhD in Computer Science
+67
+Day 2 input
+Initialize long term 
+memory: -0.2
+Initialize short term 
+memory: -0.1
+Updated long term 
+memory: -0.2
+Updated short term 
+memory: -0.1
+Day 1 
+output
+Day 2: 0.5
+68
+AI VIETNAM
+All-in-One Course
+68
+Vinh Dinh Nguyen- PhD in Computer Science
+68
+Day 3 input
+Initialize long term 
+memory: -0.2
+Initialize short term 
+memory: -0.1
+Updated long term 
+memory: -0.3
+Updated short term 
+memory: -0.2
+Day 2 
+output
+Day 2: 0.25
+69
+AI VIETNAM
+All-in-One Course
+69
+Vinh Dinh Nguyen- PhD in Computer Science
+69
+Day 4 input
+Initialize long term 
+memory: -0.3
+Initialize short term 
+memory: -0.2
+Updated long term 
+memory: 0
+Updated short term 
+memory: 0
+Day 3 
+output
+Day 4: 1
+Predict value of day 5
+70
+AI VIETNAM
+All-in-One Course
+70
+Vinh Dinh Nguyen- PhD in Computer Science
+LSTM : Time-series Data Project
+Define LSTM Structure in Pytorch
+Configuration
+71
+AI VIETNAM
+All-in-One Course
+71
+Vinh Dinh Nguyen- PhD in Computer Science
+LSTM : Time-series Data Project
+Define LSTM Structure in Pytorch
+Case 1: Multivariate to Multivariate Prediction
+Experiments were perfomed by TA Khoa Nguyen
+72
+AI VIETNAM
+All-in-One Course
+72
+Vinh Dinh Nguyen- PhD in Computer Science
+LSTM : Time-series Data Project
+Define LSTM Structure in Pytorch
+Case 2: Multivariate to Univariate Prediction
+Experiments were perfomed by TA Khoa Nguyen
+73
+AI VIETNAM
+All-in-One Course
+73
+Vinh Dinh Nguyen- PhD in Computer Science
+LSTM: Time-series Data Project
+Define LSTM Structure in Pytorch
+Case 3: Univariate to Univariate Prediction
+Experiments were perfomed by TA Khoa Nguyen
+74
+AI VIETNAM
+All-in-One Course
+74
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Multilayer Perceptron and Time-series Data Forecasting
+Ø RNN and Time-series Data Forecasting
+Ø LSTM and Time-series Data Forecasting
+Ø Bi-LSTM and Time-series Data Forecasting
+Ø XGBoost and Time-series Data Forecasting
+Outline
+75
+AI VIETNAM
+All-in-One Course
+75
+Vinh Dinh Nguyen- PhD in Computer Science
+Bidirectional-LSTM: Simple Explanation
+76
+AI VIETNAM
+All-in-One Course
+76
+Vinh Dinh Nguyen- PhD in Computer Science
+Bidirectional-LSTM: Simple Explanation
+Vinh loves apple, it keeps him healthy
+Vinh loves apple, the company produces best electronics
+Person
+Fruit
+Company
+Vinh
+loves
+apple
+it
+keeps
+him
+healthy
+Vinh
+loves
+apple
+the company produces best electronics
+77
+AI VIETNAM
+All-in-One Course
+77
+Vinh Dinh Nguyen- PhD in Computer Science
+Bidirectional-LSTM: Simple Explanation
+In the sentence “boys go to …..” we can not fill the blank space. 
+We have a future sentence “boys come out of school” 
+78
+AI VIETNAM
+All-in-One Course
+78
+Vinh Dinh Nguyen- PhD in Computer Science
+Bi-LSTM : Time-series Data Project
+Define Bi-LSTM Structure in Pytorch
+Configuration
+79
+AI VIETNAM
+All-in-One Course
+79
+Vinh Dinh Nguyen- PhD in Computer Science
+Bi-LSTM : Time-series Data Project
+Define Bi-LSTM Structure in Pytorch
+Case 1: Multivariate to Multivariate Prediction
+Experiments were perfomed by TA Khoa Nguyen
+80
+AI VIETNAM
+All-in-One Course
+80
+Vinh Dinh Nguyen- PhD in Computer Science
+Bi-LSTM : Time-series Data Project
+Define Bi-LSTM Structure in Pytorch
+Case 2: Multivariate to Univariate Prediction
+Experiments were perfomed by TA Khoa Nguyen
+81
+AI VIETNAM
+All-in-One Course
+81
+Vinh Dinh Nguyen- PhD in Computer Science
+Bi-LSTM : Time-series Data Project
+Define Bi-LSTM Structure in Pytorch
+Case 3: Univariate to Univariate Prediction
+Experiments were perfomed by TA Khoa Nguyen
+82
+AI VIETNAM
+All-in-One Course
+82
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Multilayer Perceptron and Time-series Data Forecasting
+Ø RNN and Time-series Data Forecasting
+Ø LSTM and Time-series Data Forecasting
+Ø Bi-LSTM and Time-series Data Forecasting
+Ø XGBoost and Time-series Data Forecasting
+Outline
+83
+AI VIETNAM
+All-in-One Course
+83
+Vinh Dinh Nguyen- PhD in Computer Science
+Decision Tree
+Random Forest
+Adaboost
+Gradient Boosting
+XGBoost
+Regularization
+Approximate Greed Algorithm
+Parallel Learning
+Weighted Quantile Sketching
+Sparsity-Aware Finding
+Cache-Aware Access
+Stumps are created sequentially.
+Different contribution of each 
+stump to the final prediction
+Tree are created independently
+Same contribution of each tree to 
+the final prediction
+Tree is created by using GNI or 
+Entropy metrics
+Made up of Gradient descent 
+and Boosting.
+Minimize the cost function of 
+the ensemble
+Evolution of Tree and Its Variant
+84
+AI VIETNAM
+All-in-One Course
+84
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost: Simple Explanation
+85
+AI VIETNAM
+All-in-One Course
+85
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost: Simple Explanation
+Gradient Boost
+Regularization
+Approximate Greedy Algorithm
+Parallel Learning
+Weighted Quantile Sketch
+Sparsity-Aware Split Finding
+Cache-Aware Access
+86
+AI VIETNAM
+All-in-One Course
+86
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost : Time-series Data Project
+Define XGBoost Structure in Pytorch
+Multivariate to Multivariate Prediction
+Experiments were perfomed by TA Khoa Nguyen
+87
+AI VIETNAM
+All-in-One Course
+87
+Vinh Dinh Nguyen- PhD in Computer Science
+Performance Evaluation
+Multivariate to Multivariate
+Multivariate to Univariate
+Multivariate to Univariate
+88
+AI VIETNAM
+All-in-One Course
+88
+Vinh Dinh Nguyen- PhD in Computer Science
+Further Reading
+https://docs.google.com/spreadsheets/d/17J6IdQogp186AZDZv8ZVlBF5s2EaeZwQ/edit?usp=sharing&ouid=11
+8245386452054287147&rtpof=true&sd=true
+89
+AI VIETNAM
+All-in-One Course

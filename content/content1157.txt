@@ -1,7 +1,0 @@
-Conv2d ( self . channels , self . out_channel , 3, padding =1)
-52
-53 def forward (self , x):
-54 assert x. shape [1] == self . channels
-55 x = F. interpolate (x, scale_factor =2 , mode =" nearest ")
-56 if self . use_conv :
-57 x = self . 

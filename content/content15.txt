@@ -1,4 +1,0 @@
-AI VIETNAM (AIO2024) aivietnam.edu.vn
-Như vậy, chúng ta đã hoàn thành một chương trình Python về RAG, có khả năng hỏi đáp
-các nội dung trong một file pdf.
-II.II. 

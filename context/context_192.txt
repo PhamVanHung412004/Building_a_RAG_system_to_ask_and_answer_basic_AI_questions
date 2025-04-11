@@ -1,0 +1,863 @@
+Style Transfer
+Understanding Content Loss 
+and Style Loss
+Year 2024
+Quang-Vinh Dinh
+Ph.D. in Computer Science
+AI VIETNAM
+All-in-One Course
+Objectives
+Pretrained 
+Model
+Content 
+Loss
+Style Image
+Pretrained 
+Model
+Feature map
+Pretrained 
+Model
+Content Image
+Output 
+Image
+Style 
+Loss
+✓Understand deeply about content loss
+✓Understand deeply about style loss
+➢Introduction
+➢Inputs as Variables
+➢Content Loss
+➢Style Loss
+Outline
+Style Transfer
+❖ From different viewpoints
+1
+AI VIETNAM
+All-in-One Course
+https://towardsdatascience.com/light-on-math-machine-learning-intuitive-guide-to-neural-style-transfer-ef88e46697ee
+Style Transfer
+❖ From different viewpoints
+2
+AI VIETNAM
+All-in-One Course
+https://godatadriven.com/blog/how-to-style-transfer-your-own-images/
+Style Transfer
+❖ From different viewpoints
+3
+AI VIETNAM
+All-in-One Course
+https://www.tensorflow.
+org/lite/examples/style_
+transfer/overview
+Style Transfer
+4
+AI VIETNAM
+All-in-One Course
+https://www.tensorflow.
+org/lite/examples/style_
+transfer/overview
+❖ From different viewpoints
+Style Transfer
+5
+AI VIETNAM
+All-in-One Course
+From different 
+ viewpoints
+➢Introduction
+➢Inputs as Variables
+➢Content Loss
+➢Style Loss
+Outline
+Pretrained 
+Model
+Content 
+Loss
+Style Image
+Pretrained 
+Model
+Feature map
+Pretrained 
+Model
+Content Image
+Output 
+Image
+Style 
+Loss
+Total 
+Loss
+Style Transfer
+❖ How to use inputs as variables
+AI VIETNAM
+All-in-One Course
+Variable
+Constant
+6
+Inputs as Variables
+AI VIETNAM
+All-in-One Course
+❖ Variable: Represents a tensor whose value can be changed
+❖ Gradient computation
++
+𝑥1
+𝑥2
+𝑥3
+𝑥4
+𝑦
+∙2
+7
+Inputs as Variables
+❖ Variable
+❖ Gradient computation
++
+𝑥1
+𝑥2
+𝑥3
+𝑥4
+𝑦
+∙2
+AI VIETNAM
+All-in-One Course
+8
+Inputs as Variables
+❖ Change to Variable
+❖ Gradient computation
++
+𝑥1
+𝑥2
+𝑥3
+𝑥4
+𝑦
+∙2
+AI VIETNAM
+All-in-One Course
+9
+➢Introduction
+➢Inputs as Variables
+➢Content Loss
+➢Style Loss
+Outline
+https://en.wikipedia.org/wiki/Twin
+Local and Global Similarity
+≈ aggregate(                     )
+Style Transfer
+❖ Content Loss: Using a pretrained model (VGG19)
+10
+AI VIETNAM
+All-in-One Course
+11
+(3x3) Convolution
+padding=‘same’
+stride=1 + ReLU
+(2x2) max pooling
+Dense Layer
++ ReLU
+(4096) 
+Dense Layer
++ Softmax
+(1000) 
+Block-1
+Block-2
+Block-3
+Block-4
+Block-5
+Dense Block
+input
+(224,224,3)
+(64,112,112)
+(256,56,56)
+(512,7,7)
+(512,28,28)
+(512,14,14)
+output
+Low abstract feature
+High abstract feature
+Local and Global
+Spatial Information Constraint
+?
+?
+Detection Problem
+Copying Problem
+Style Transfer
+❖ Content Loss
+AI VIETNAM
+All-in-One Course
+Target 
+Image
+Noise 
+Image
+Pretrained 
+Model
+Pretrained 
+Model
+Feature 
+map
+Feature 
+map
+Variable
+Constant
+Content Loss
+8
+12
+Style Transfer
+13
+AI VIETNAM
+All-in-One Course
+Input Image
+VGG19
+Outputs of 
+some layers
+New Model
+❖ Content Loss
+❖ Create a model from some specific layers
+nn.Sequential
+VGG19
+features
+avgpool
+classifier
+from torchvision.models import vgg19
+nn.Sequential
+nn.Sequential
+nn. AdaptiveAvgPool2d
+Conv 3x3, 64 
+ReLU
+Conv 3x3, 128 
+Conv 3x3, 256 
+Conv 3x3, 512 
+ReLU
+Conv 3x3, 512 
+ReLU
+pool / 2
+pool / 2
+0
+3
+4
+5
+9
+10
+19
+20
+21
+22
+FC, 4096
+ReLU
+Dropout
+0
+1
+2
+FC, 4096
+3
+ReLU
+Dropout
+4
+5
+6
+FC, 4096
+Avg
+0
+ReLU
+1
+Conv 3x3, 64 
+2
+ReLU
+6
+Conv 3x3, 128 
+7
+ReLU
+8
+ReLU
+11
+Conv 3x3, 256 
+11
+ReLU
+12
+Conv 3x3, 256 
+12
+ReLU
+13
+Conv 3x3, 256 
+14
+ReLU
+15
+Conv 3x3, 256 
+16
+ReLU
+17
+pool / 2
+18
+Conv 3x3, 512 
+ReLU
+Conv 3x3, 512 
+ReLU
+23
+24
+25
+26
+pool / 2
+36
+Conv 3x3, 512 
+…
+27
+…
+features
+pooling
+classifier
+16
+Style Transfer
+❖ Content Loss: Demo
+❖ Some utility functions
+AI VIETNAM
+All-in-One Course
+Input Image
+VGG19
+Outputs of 
+some layers
+17
+❖ Content Loss
+❖Using different features
+Block-1
+Block-2
+Block-3
+Block-4
+Block-5
+input
+(224,224,3)
+(64,112,112)
+(256,56,56)
+(512,7,7)
+(512,28,28)
+(512,14,14)
+Style Transfer
+❖ Content Loss: Using the Content Image
+AI VIETNAM
+All-in-One Course
+Initial Image
+Epoch 11
+Epoch 21
+Epoch 31
+Epoch 41
+Epoch 71
+Epoch 91
+Target Image
+19
+Style Transfer
+❖ Content Loss: Using Conv1
+AI VIETNAM
+All-in-One Course
+Initial Image
+Epoch 11
+Epoch 21
+Epoch 31
+Epoch 41
+Epoch 71
+Epoch 91
+Target Image
+20
+Using Conv2
+Using Conv3
+Using Conv4
+Initial Image
+Epoch 11
+Epoch 41
+Epoch 91
+21
+Style Transfer
+❖ Content Loss: Using RandomNet 
+AI VIETNAM
+All-in-One Course
+Target 
+Image
+Noise 
+Image
+Random 
+Model
+Random 
+Model
+Feature 
+map
+Feature 
+map
+Variable
+Constant
+Content Loss
+8
+22
+Shared
+Style Transfer
+❖ Content Loss: Using RandomNet and the conv1 features (Why?)
+AI VIETNAM
+All-in-One Course
+Initial Image
+Epoch 11
+Epoch 21
+Epoch 31
+Epoch 41
+Epoch 71
+Epoch 91
+Target Image
+23
+Style Transfer
+24
+AI VIETNAM
+All-in-One Course
+Target 1
+Noise 
+Image
+Pretrained 
+Model
+Content Loss
+Target 2
+Pretrained 
+Model
+Feature map
+Pretrained 
+Model
+❖ Content Loss: Using Two Target
+Style Transfer
+25
+AI VIETNAM
+All-in-One Course
+❖ Content Loss: Using Two Target
+➢Introduction
+➢Inputs as Variables
+➢Content Loss
+➢Style Loss
+Outline
+Vector Operations
+4
+AI VIETNAM
+All-in-One Course
+26
+Hadamard product
+Ԧ𝑣=
+𝑣1
+…
+𝑣𝑛
+𝑢=
+𝑢1
+…
+𝑢𝑛
+Ԧ𝑣⨀𝑢=
+𝑣1
+…
+𝑣𝑛
+⨀
+𝑢1
+…
+𝑢𝑛
+=
+𝑣1 × 𝑢1
+…
+𝑣𝑛× 𝑢𝑛
+Vector Operations
+4
+AI VIETNAM
+All-in-One Course
+27
+Dot product
+Ԧ𝑣=
+𝑣1
+…
+𝑣𝑛
+𝑢=
+𝑢1
+…
+𝑢𝑛
+Ԧ𝑣∙𝑢= 𝑣1 × 𝑢1 + ⋯+ 𝑣𝑛× 𝑢𝑛
+Dot Product
+AI VIETNAM
+All-in-One Course
+𝑥1 =  1 
+0 
+𝑥2 =  0 
+1 
+𝑥1
+𝑥2
+a(𝑎1, 𝑎2)
+𝒑𝟐
+𝒑𝟏
+p1 = a𝑇. x1 = (a1 a2)T 1
+0 =a1
+𝑎1
+𝑎2
+p1 = a𝑇. x2 = (a1 a2)T 0
+1 =a2
+Tìm độ dài hình chiếu của a lên 𝑥1 và 𝑥2 
+𝑥1
+𝑥2
+a(𝑎1, 𝑎2)
+𝒒𝟐
+𝒒𝟏
+𝑣2
+𝑣1
+𝑣1 = 𝑣1_1
+𝑣1_2
+𝑣2 = 𝑣2_1
+𝑣2_2
+q1 = a𝑇. v1 = (a1 a2)T 𝑣1_1
+𝑣1_2
+q1 = a𝑇. v2 = (a1 a2)T 𝑣2_1
+𝑣2_2
+Tìm độ dài hình chiếu của a lên 𝑣1 và 𝑣2 
+Dot Product
+4
+AI VIETNAM
+All-in-One Course
+29
+𝑢= 𝑥1
+𝑥2
+=  3 
+2 
+𝑥1
+𝑥2
+3
+2
+𝑢
+𝑢=  3 
+2 
+𝑥1
+𝑥2
+3
+2
+𝑢
+Ԧ𝑣= 3 ∗𝑢=  9 
+6 
+Ԧ𝑣
+𝑚= 3 + 𝑢=  6 
+5 
+5
+6
+6
+9
+𝑚
+Dot Product
+4
+AI VIETNAM
+All-in-One Course
+30
+𝑥1 =  1 
+0 
+𝑥2 =  0 
+1 
+𝑥1
+𝑥2
+a(𝑎1, 𝑎2)
+𝒑𝟏
+𝛼
+𝑣1 = 𝑣1_1
+𝑣1_2
+𝑣2 = 𝑣2_1
+𝑣2_2
+𝑥1
+𝑥2
+a(𝑎1, 𝑎2)
+𝒒𝟏
+𝑣1
+𝛼
+Dot Product
+AI VIETNAM
+All-in-One Course
+❖ Definition
+4
+0
+3
+1
+4
+0
+3
+1
+.
+= 26
+4
+0
+3
+1
+4
+0
+3
+1
+.
+= 26
+x. y = ෍
+1
+𝑛
+𝑥𝑖𝑦𝑖
+Algebra
+x. y =
+x
+y 𝑐𝑜𝑠𝛼
+Geometry
+x
+𝛼
+x 𝑐𝑜𝑠𝛼
+y
+Position-invariant measure
+Dot Product
+4
+AI VIETNAM
+All-in-One Course
+32
+x. y = ෍
+1
+𝑛
+𝑥𝑖𝑦𝑖
+Algebra
+x. y =
+x
+y 𝑐𝑜𝑠𝛼
+Geometry
+❖ Definition
+Gram Matrix
+4
+AI VIETNAM
+All-in-One Course
+33
+𝐺𝑖𝑗= ෍
+𝑘
+𝑉𝑖𝑘𝑉𝑗𝑘
+.
+=
+Gram matrix
+𝑉𝑇
+𝑉
+.
+=
+26 17 19
+17 14 18
+19 18 50
+Gram matrix
+𝑉𝑇
+𝑉
+4
+0
+3
+3
+0
+1
+4
+5
+0
+1
+2
+3
+4
+0
+3
+3
+0
+1
+4
+5
+0
+1
+2
+3
+Gram Matrix
+AI VIETNAM
+All-in-One Course
+𝐺𝑖𝑗= ෍
+𝑘
+𝑉𝑖𝑘𝑉𝑗𝑘
+.
+=
+Gram matrix
+𝑉𝑇
+𝑉
+.
+=
+26 17 19
+17 14 18
+19 18 50
+Gram matrix
+𝑉𝑇
+𝑉
+4
+0
+3
+3
+0
+1
+4
+5
+0
+1
+2
+3
+4
+0
+3
+3
+0
+1
+4
+5
+0
+1
+2
+3
+Detailed discussion on the Einsum scheduled for Friday
+Gram 
+Matrix
+𝐺𝑖𝑗= ෍
+𝑘
+𝑉𝑖𝑘𝑉𝑗𝑘
+.
+=
+26 17 19
+17 14 18
+19 18 50
+Gram matrix
+𝑉𝑇
+𝑉
+4
+0
+3
+3
+0
+1
+4
+5
+0
+1
+2
+3
+4
+0
+3
+3
+0
+1
+4
+5
+0
+1
+2
+3
+4
+0
+3
+1
+4
+0
+3
+1
+.
+= 26
+4
+0
+3
+1
+4
+0
+3
+1
+.
+= 26
+x. y = ෍
+1
+𝑛
+𝑥𝑖𝑦𝑖
+Algebra
+x. y =
+x
+y 𝑐𝑜𝑠𝛼
+Geometry
+x
+𝛼
+x 𝑐𝑜𝑠𝛼
+y
+Inner Product
+Position-invariant measure
+Style Transfer
+❖ Gram matrix
+https://pytorchtaipei.github.io/articles/PyTorchTP-Style-Transfer/
+36
+Style Transfer
+❖ Style Loss
+37
+AI VIETNAM
+All-in-One Course
+Target 
+Image
+Noise 
+Image
+Pretrained 
+Model
+Pretrained 
+Model
+Feature 
+map 𝐹1
+Feature 
+map 𝐹2
+Style Loss
+𝐺𝐹1 −𝐺𝐹2
+2
+Style Transfer
+❖ Style Loss: Use which features?
+AI VIETNAM
+All-in-One Course
+Block-1
+Block-2
+Block-3
+Block-4
+Block-5
+input
+(224,224,3)
+(64,112,112)
+(256,56,56)
+(512,7,7)
+(512,28,28)
+(512,14,14)
+38
+Style Transfer
+❖ Style Loss: Use which features?
+AI VIETNAM
+All-in-One Course
+Block-1
+Block-2
+Block-3
+Block-4
+Block-5
+input
+(224,224,3)
+(64,112,112)
+(256,56,56)
+(512,7,7)
+(512,28,28)
+(512,14,14)
+39
+Initial Image
+Epoch 10
+Epoch 40
+Epoch 90
+Initial Image
+Epoch 10
+Epoch 40
+Epoch 90
+➢Introduction
+➢Inputs as Variables
+➢Content Loss
+➢Style Loss
+Outline
+Summary
+✓Studied about content loss
+✓Studied about style loss
+Pretrained 
+Model
+Content 
+Loss
+Style Image
+Pretrained 
+Model
+Feature map
+Pretrained 
+Model
+Content Image
+Output 
+Image
+Style 
+Loss
+Total 
+Loss
+✓Studying about the total loss
+✓Extend to some variants
+41

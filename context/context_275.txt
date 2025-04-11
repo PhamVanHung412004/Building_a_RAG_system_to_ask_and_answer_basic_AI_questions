@@ -1,0 +1,317 @@
+DNA HOLDS 
+THE KEY 
+TO COGNITION 
+1. INTRODUCTION
+GEN EXPRESSION 
+(BOOLEAN NETWORK)
+SIGNAL PROCESSING
+(EEG & EMG)
+2. Problem identification
+• Unconditional reflex
+• Experiment 
+• Artifical neural network 
+contradiction
+• What is algorithsm and its 
+origin? 
+• Instructions for forming 
+connections in the brain in an 
+organized manner.
+• Products derived from DNA 
+directly affect the electrical 
+current in neurons.
+• DNA acts as a database and 
+information is extracted by 
+interactions between DNA and 
+proteins – microbial memory.
+Potential applications 
+• Artificial intelligence
+• Data storage
+• Robotics 
+• Quantum
+•
+Brain – computer interface 
+Reverse 
+engineering
+• Step 1: Identify the principal 
+components and their 
+fundamental functions.
+• Step 2: Study the arrangement 
+between fundamental functions.
+• Step 3: Simulation, digital twin 
+and validate the hypothesis with 
+experiments.
+×, +, −, +, −,×
+and
+{×,×,÷}, {×,÷,×}, {÷,×,×}
+9
+9
+9
+9 = 81
+3. Boolean network model
+0101
+1010 
+1101 
+1011
+1111 
+0001
+0010
+0111
+1011
+1001
+0110
+0000
+0011
+1000
+1100
+0100
+𝑡
+𝑡+ 1
+𝑥1
+𝑥2
+𝑥3
+00
+00
+00
+11
+00
+0
+1
+1
+0
+1
+1
+0
+0
+1
+0
+0
+0
+0
+1
+0
+0
+1
+1
+1
+0
+0
+1
+0
+1
+0
+0
+0
+0
+1
+0
+0
+1
+0
+1
+1
+0
+1
+0
+0
+1
+1
+0
+1
+0
+0
+1
+0
+1
+1
+1
+1
+0
+0
+1
+1
+0
+0
+0
+0
+0
+1
+1
+1
+0
+0
+1
+1
+0
+1
+1
+1
+0
+1
+0
+0
+1
+0
+1
+1
+0
+1
+1
+1
+1
+0
+1
+1
+1
+0
+0
+0
+0
+1
+0
+1
+1
+0
+1
+1
+0
+1
+0
+1
+1
+1
+0
+1
+1
+0
+1
+1
+1
+1
+1
+1
+1
+0
+1
+0
+1
+1
+1
+1
+1
+1
+1
+0
+1
+𝑋1
+𝑋2
+𝑋3
+𝑋4
+𝑥1 = (𝑥2 ˄ 𝑥3) ˅ 𝑥4
+𝑥2 = 𝑥1 ˄ 𝑥3
+𝑥3 = 𝑥3
+𝑥4 = 𝑥2 ˅ 𝑥3
+Sample 1 (T1)Sample 2 (T2)...Sample N (TN)Gene 110...1Gene 210...0Gene 301...0...............Gene M10...1
+1011
+1000
+0101
+0001
+1001
+?
+?
+?
+?
+?
+ITERATION OVER SEARCHING SPACE
+Boolean network 
+characteristic •Attractor and basin•Canalizing functions•Nested loops•Convergence and divergence•Communities
+Communication protocol between 
+brain and sensory organs 
+APLICATION OF AI 
+BOOLEAN NETWORK INFERENCE BY GENETICS ALGORITHM
+• Protein structure prediction.
+• Protein–protein interactions.
+• Methylation sites, DNA-protein 
+binding sites.
+Experimental:
+X-ray crystallography.
+Nuclear magnetic resonance spectroscopy.
+Cryogenic transmission electron microscopy.
+Computational:
+Explicit sequence-to-structure maps: physics-
+based molecules, ab initio.
+Using co-evolution information: comparative, 
+deep learning + assembly method.
+End to end: RNN, CNN, LSTM, transformer 
+architects.
+Backbone 
+Side chain
+4. EEG Signal 
+processing
+• Paresthesia phenomenon
+• Electrical synapses
+• Common mapping functions
+• FFT: Converts signals from the time 
+domain to the frequency domain, filtering 
+out signals outside the brain's frequency 
+range.
+• BSS: separate a set of source signals from 
+a set of mixed signals without prior 
+information about the source signals or 
+the mixing process. The goal is to recover 
+the original source signals from their 
+observed mixtures.
+Step 1: Load EEG data from the buffer at every 1 second
+1 −𝑠𝑏𝑢𝑓𝑓𝑒𝑟
+Step 2: Use a 2-s window and 50% overlap between two consecutive
+Windows to extract features
+Step 3: Predict emotional states based on three consecutive segmented 
+And overlapping windows
+1𝑠𝑡𝑓𝑒𝑎𝑡𝑢𝑟𝑒𝑒𝑥𝑡𝑟𝑎𝑐𝑡𝑖𝑜𝑛
+2𝑛𝑑𝑓𝑒𝑎𝑡𝑢𝑟𝑒𝑒𝑥𝑡𝑟𝑎𝑐𝑡𝑖𝑜𝑛
+3𝑟𝑑𝑓𝑒𝑎𝑡𝑢𝑟𝑒𝑒𝑥𝑡𝑟𝑎𝑐𝑡𝑖𝑜𝑛
+1𝑠𝑡𝑑𝑒𝑐𝑖𝑠𝑖𝑜𝑛𝑚𝑎𝑘𝑖𝑛𝑔
+2𝑛𝑑𝑑𝑒𝑐𝑖𝑠𝑖𝑜𝑛𝑚𝑎𝑘𝑖𝑛𝑔
+•
+Input Gate:
+Decides which information from the input should be stored in 
+the memory cell.
+•
+Forget Gate:
+Decides which information stored in the memory cell should 
+be discarded or kept.
+•
+Cell State: 
+Represents the long-term memory and is modified by the 
+input gate and forget gate.
+•
+Output Gate:
+Decides what information from the memory cell should be 
+output as the final prediction.
+ 
+ 
+    
+ 
+    
+   
+       
+       
+   
+   
+   
+ 
+ 
+ 
+ 
+                                    
+REFFERENCE
+• Karl R. Gegenfurtner and Lindsay T. Sharpe. 1999. Color Vision: From Genes to Perception.
+• E.R. Dougherty, I Shmulevich. 2010. Probabilistic Boolean Networks: The Modeling and 
+Control of Gene Regulatory Networks.
+• Michael L. Goldberg, Leland H. Hartwell, Janice A. Fischer, Leroy E. Hood. 2021. Genetic: From 
+Genes to Genomes. 5th Edition.
+• Jonathan Pevsner. 2015. Bioinformatics and Functional Genomics.
+• Shi, Ning. 2021. Boolean network inference and control using metaheuristic algorithms.
+• Mwape Chintu. 2021. Protein Structure and Function Prediction by Deep Learning.
+• Patrick Bryant. 2022. Learning Protein Evolution and Structure.
+• Aston Zhang, Zachary C. Lipton, Mu Li, Alexander J. Smola. 2022. Dive into Deep Learning.
+• Mohammed AL Quraishi. 2019. End-to-end differentiable learning of protein structure.

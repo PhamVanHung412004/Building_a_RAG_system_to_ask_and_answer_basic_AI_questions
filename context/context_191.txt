@@ -1,0 +1,468 @@
+NLP - Competition
+VLSP-2023 INSTRUCTION
+Year 2023
+AI VIET NAM
+Nguyen Quoc Thai
+AI VIETNAM
+All-in-One Course
+1
+2
+CONTENT
+1
+Task 2: Legal Textual Entailment Recognition
+2
+Task 3: Comparative Opinion Mining from Vietnamese 
+Product Reviews
+3
+Task 4: Vietnamese Large Language Models
+4
+Task 5: Machine Translation
+5
+Task 6: Visual Reading Comprehension for Vietnamese
+6
+Task 7: Automatic Speech Recognition and Speech 
+Emotion Recognition
+7
+Improvement Tricks
+1 – Legal Textual Entailment Recognition
+3
+Description
+!
+Ø Given a set of statement (a assume S is a statement) and a set of legal passages (L1, 
+L2,…, LN)
+ØGoal: check the set of legal passages entails statement S
+Source: https://vlsp.org.vn/vlsp2023/eval/lter
+[
+{
+"example_id": "DS-101",
+"label": "Yes/No",
+"statement": "Cơ sở điện ảnh phát hành phim phải chịu trách nhiệm 
+trước pháp luật về nội dung phim phát hành là sai.",
+"legal_passages": [
+{
+"type": "law",
+"law_id": "05/2022/QH15",
+"article_id": "15"
+}
+]
+}
+]
+[
+{
+"example_id": "DS-101",
+"label": "Yes/No",
+}
+]
+Training Data Format
+Prediction Format
+1 – Legal Textual Entailment Recognition
+4
+Approach: Retriever - Classifier
+!
+[
+{
+"example_id": "DS-101",
+"label": "Yes/No",
+"statement": "Cơ sở điện ảnh phát hành phim phải chịu trách nhiệm 
+trước pháp luật về nội dung phim phát hành là sai.",
+"legal_passages": [
+{
+"type": "law",
+"law_id": "05/2022/QH15",
+"article_id": "15"
+}
+]
+}
+]
+Stage 1: Retriever
+Find the most 
+relevant passage to 
+the statement 
+1 – Legal Textual Entailment Recognition
+5
+Approach: Retriever - Classifier
+!
+[
+{
+"example_id": "DS-101",
+"label": "Yes/No",
+"statement": "Cơ sở điện ảnh phát hành phim phải chịu trách nhiệm 
+trước pháp luật về nội dung phim phát hành là sai.",
+"legal_passages": [
+{
+"type": "law",
+"law_id": "05/2022/QH15",
+"article_id": "15"
+}
+]
+}
+]
+Stage 2: Classifier
+1 – Legal Textual Entailment Recognition
+6
+Approach: Retriever - Classifier
+!
+ØStage 1: Retriever (Dense Passage Retrieval)
+Indexing
+Statement 
+Processing
+Search
+(Vector space or probabilistic
+Ranked Passgae
+1 – Legal Textual Entailment Recognition
+7
+Approach: Retriever - Classifier
+!
+ØStage 1: Retriever (Dense Passage Retrieval)
+ØBM25
+Common words 
+less important
+Repetitions of query 
+words => good
+More words in common with 
+the query => good
+But more important if document 
+is relatively long (average)
+Repetitions less important 
+than different query words
+1 – Legal Textual Entailment Recognition
+8
+Approach: Retriever - Classifier
+!
+ØStage 1: Retriever (Dense Passage Retrieval)
+ØBi-Encoder
+Source https://github.com/facebookresearch/DPR
+1 – Legal Textual Entailment Recognition
+9
+Approach: Retriever - Classifier
+!
+ØStage 1: Retriever (Dense Passage Retrieval)
+ØCross-Encoder
+Source
+1 – Legal Textual Entailment Recognition
+10
+Approach: Retriever - Classifier
+!
+ØStage 1: Retriever (Dense Passage Retrieval)
+ØExpand, Rerank and Retrieve (EAR)
+Source: https://github.com/voidism/EAR
+1 – Legal Textual Entailment Recognition
+11
+Approach: Retriever - Classifier
+!
+ØStage 2: Classifier
+ØMetric: Accuracy
+Statement
+Passage
+[
+{
+"example_id": "DS-101",
+"label": "Yes/No",
+}
+]
+2 – Comparative Opinion Mining
+12
+Description
+!
+Ø
+Participants are required to develop models that can extract the following information, referred 
+to as a “quintuple,” from comparative sentences:
+1.
+Subject: The entity that is the subject of the comparison (e.g., a particular product model).
+2.
+Object: The entity being compared to the subject (e.g., another model or a general reference).
+3.
+Aspect: The word or phrase about the feature or attribute of the subject and object that is being 
+compared (e.g., battery life, camera quality, performance).
+4.
+Predicate: The comparative word or phrase expressing the comparison (e.g., “better than,” “worse 
+than,” “equal to”).
+5.
+Comparison Type Label: This label indicates the type of comparison made and can be one of the 
+following categories: ranked comparison (e.g., “better”, “worse”), superlative comparison (e.g., “best”, 
+“worst”), equal comparison (e.g., “same as,” “as good as”), and non-gradable comparison (e.g., 
+“different from,” “unlike”).
+Source: https://vlsp.org.vn/vlsp2023/eval/comon
+2 – Comparative Opinion Mining
+13
+Example
+!
+Ø G6 has a worse zoom than G7, but G6’s battery was more reliable than G7
+Elements
+Subject: G6
+Object: G7
+Aspect: {zoom, battery}
+Predicate: {worse, more reliable}
+comparison type label: {ranked comparison, ranked 
+comparison}
+Quintuple
+{(G6, G7, zoom, worse, ranked comparison),
+(G6, G7, battery, more reliable, ranked comparison)
+2 – Comparative Opinion Mining
+14
+Approach
+!
+Ø Comparative Opinion Quintuple Extraction
+Ø BERT-based Multi-Stage Neural Network
+Source: https://github.com/nustm/coqe
+2 – Comparative Opinion Mining
+15
+Approach
+!
+Ø Comparative Opinion Quintuple Extraction
+Ø UniCOQE Model
+Source: https://aclanthology.org/2023.findings-acl.775.pdf
+2 – Comparative Opinion Mining
+16
+Approach
+!
+Ø Comparative Opinion Quintuple Extraction
+Ø UniCOQE Model
+Ø Data training format
+Source: https://aclanthology.org/2023.findings-acl.775.pdf
+Input: Canon’s optics and battery are more reliable than those of Sony and Nikon. 
+Target: 
+(Canon, Sony, optics, more reliable, BETTER); 
+(Canon, Sony, battery, more reliable, BETTER); 
+(Canon, Nikon, optics, more reliable, BETTER); 
+(Canon, Nikon, battery, more reliable, BETTER) 
+Input: Canon’s optics and battery are so great. 
+Target: 
+(unknown, unknown, unknown, unknown, unknown)
+2 – Comparative Opinion Mining
+17
+Approach
+!
+Ø Comparative Opinion Quintuple Extraction
+Ø UniCOQE Model
+Source: https://aclanthology.org/2023.findings-acl.775.pdf
+2 – Comparative Opinion Mining
+18
+Evaluation
+!
+Ø Comparative Opinion Quintuple Extraction
+Ø Evaluation: Exact Match, Proportional Match, Binary Match
+EM = 1/3
+Source: https://aclanthology.org/2023.findings-acl.775.pdf
+3 – Vietnamese Large Language Model
+19
+Description
+!
+Ø The goal of VLSP2023-VLLMs is to promote the development of large language 
+models for Vietnamese by constructing an evaluation dataset for VLLMs
+3 – Vietnamese Large Language Model
+20
+Pipeline for Pre-Training LLM
+!
+Ø Step 1: Prepare dataset
+Ø Step 2: Preprocessing
+Ø Step 3: Model (Transformer, Finetuning LLMs,…)
+Ø Step 4: Pre-training Tasks (Objective Functions)
+Ø Step 5: Optimization Setting
+Ø Step 6: Adaptation
+Ø Step 7: Evaluation
+3 – Vietnamese Large Language Model
+21
+3.1. Dataset
+!
+Ø Monolingual Vietnamese Dataset
+CC-100: 137GB
+https://arxiv.org/pdf/2307.10928.pdf
+https://arxiv.org/pdf/2303.18223.pdf
+3 – Vietnamese Large Language Model
+22
+3.2. Preprocessing
+!
+https://arxiv.org/pdf/2303.18223.pdf
+3 – Vietnamese Large Language Model
+23
+3.3. Architecture
+!
+https://arxiv.org/pdf/2303.18223.pdf
+3 – Vietnamese Large Language Model
+24
+3.3. Architecture
+!
+https://arxiv.org/pdf/2303.18223.pdf
+3 – Vietnamese Large Language Model
+25
+3.4. Pre-training Tasks
+!
+BART: https://arxiv.org/abs/1910.13461
+T5: https://arxiv.org/abs/1910.10683
+3 – Vietnamese Large Language Model
+26
+3.5. Optimization Setting
+!
+https://arxiv.org/pdf/2303.18223.pdf
+3 – Vietnamese Large Language Model
+27
+3.6. Adaptation of LLMs
+!
+https://arxiv.org/pdf/2303.18223.pdf
+Ø Instruction Tuning
+Ø Three different methods for constructing the instruction-formatted instances
+3 – Vietnamese Large Language Model
+28
+3.6. Adaptation of LLMs
+!
+https://arxiv.org/pdf/2303.18223.pdf
+Ø RLHF: Reinforcement Learning from Human Feedback
+Source: 
+https://arxiv.org/pdf/2203.02155.pdf
+ 
+https://huyenchip.com/2023/05/02/rlhf.html
+3 – Vietnamese Large Language Model
+29
+3.7. Library Resource
+!
+Ø Transformers
+Ø DeepSpeed
+Ø Langchain
+Ø Megatron-LM
+3 – Vietnamese Large Language Model
+30
+3.8. Evaluation
+!
+https://arxiv.org/pdf/2307.10928.pdf
+4 – Machine Translation
+31
+Description
+!
+Ø Lao-Vietnamese Machine Translation
+Ø Training and Test Data:
+- Parallel Corpora: Lao-Vietnamese
+- Monolingual Corpora: Lao and Vietnamese
+- Development set and test set: Lao-Vietnamese
+4 – Machine Translation
+32
+Approach
+!
+Ø Low-resource Neural Machine Translation
+Ø Fine Tuning: mT5 (101 languages)
+Source: https://huggingface.co/google/mt5-base
+4 – Machine Translation
+33
+Improvement
+!
+Ø Low-resource Neural Machine Translation
+Ø Data Filtering: Find-out low quality sentence pairs based on cosine similarity 
+sentence-level score
+Ø Making Monolingual Sentence Embeddings Multilingual using Knowledge 
+Distillation
+Công anh thành phố Hà Nội xin kính 
+chào người tham gia giao thông
+ຕ
+ໍ
+າຫຼວດນະຄອນຮ່າໂນ້ຍ
+(Công an Hà Nội)
+https://arxiv.org/abs/2004.09813
+4 – Machine Translation
+34
+Improvement
+!
+Ø Back Translation
+4 – Machine Translation
+35
+Evaluation
+!
+Ø BLEU Score
+5 – Visual Reading Comprehension
+36
+Description
+!
+Ø The OpenViVQA dataset: 11,000+ images associated with 37,000+ question-answer
+pairs in Vietnam
+5 – Visual Reading Comprehension
+37
+Approach
+!
+Ø Task: Vision Language Models (VLMs), Vision Reading Comprehension (VRC)
+Ø Comparison of various VLM approaches
+5 – Visual Reading Comprehension
+38
+Approach
+!
+Ø Task: Vision Language Models (VLMs), Vision Reading Comprehension (VRC)
+Ø BLIVA Model
+https://github.com/mlpc-ucsd/BLIVA
+5 – Visual Reading Comprehension
+39
+Approach
+!
+Ø Task: Vision Language Models (VLMs), Vision Reading Comprehension (VRC)
+Ø InstructBLIP
+https://github.com/salesforce/LAVIS/tree/main/projects/instructblip
+5 – Visual Reading Comprehension
+40
+Improvement
+!
+Ø Task: Vision Language Models (VLMs), Vision Reading Comprehension (VRC)
+Ø InstructBLIP & BLIVA
+Café Mộc, 
+Trà, Café, 
+Sinh tố,…
+OCR, Image-to-
+Text (Description)
+Denoising Task
+5 – Visual Reading Comprehension
+41
+Evaluation
+!
+Ø BLEU
+Ø CIDEr: https://arxiv.org/pdf/1411.5726.pdf
+6 – Automatic Speech Recognition
+42
+Description
+!
+Ø Automatic Speech Recognition (ASR) and Speech Emotion Recognition (SER)
+6 – Automatic Speech Recognition
+43
+Approach
+!
+Ø Automatic Speech Recognition (ASR) and Speech Emotion Recognition (SER)
+Ø Fine-tuning ASR model: Wav2Vec, WaLM, Whisper
+Wav2Vec: https://github.com/facebookresearch/fairseq
+WavLM: https://github.com/microsoft/unilm/tree/master/wavlm
+6 – Automatic Speech Recognition
+44
+Approach
+!
+Ø Automatic Speech Recognition (ASR)
+and Speech Emotion Recognition (SER)
+Ø Fine-tuning
+ASR
+model:
+Wav2Vec,
+WaLM, Whisper
+Whisper: https://github.com/openai/whisper
+6 – Automatic Speech Recognition
+45
+Approach
+!
+Ø Automatic Speech Recognition (ASR) and Speech Emotion Recognition (SER)
+Ø Approach #1: ASR => SER
+Ø Approach #2: Joint Learning
+Speech to Text
+Classifier
+Speech Embedding
+Audio
+6 – Automatic Speech Recognition
+46
+Evaluation
+!
+7 – Improvement Trick
+47
+Improvement
+!
+Ø EDA, Noise Handling (Overfiting)
+Ø Fine-Tuning Pre-trained LMs: Multilingual PTLMs (xlm-Roberta,…)
+Ø Ensemble PLMs, Average Checkpoints: Ref
+Ø Augmentation: synonym words, via pivot language, denoising, masked language
+modeling,…
+Ø Contrastive Learning
+Ø Unsupervised pre-training + fine-tuning
+Ø Prompting with LLMs
+Thanks!
+Any questions?
+48

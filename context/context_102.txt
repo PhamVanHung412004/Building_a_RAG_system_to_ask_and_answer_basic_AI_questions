@@ -1,0 +1,1426 @@
+Tutorial on Denoising Diffusion-based
+Generative Modeling
+Nguyen Vu Hoa Binh
+Khai Trinh Xuan
+Hoang-Bach ngo
+Minh-Hung An
+Ngày 7 tháng 2 năm 2024
+Phần I: Một sốkhái niệm cơ bản
+Trước khi chúng ta bắt đầu tìm hiểu vềStable Diffusion (SD) thì ởphần này chúng ta sẽcùng nhau
+tổng quan lại một sốkiến thức nền tảng, những khái niệm trong phần này sẽlà cơ sởđểchúng ta hiểu
+và chứng minh được cách mà một mô hình SD vận hành.
+1
+Wiener process
+Wiener process còn được gọi là Brownian process (Brownian motion), là một quá trình ngẫu nhiên
+không giảm dần theo thời gian. Được đặt tên theo nhà toán học và nhà vật lý học Norbert Wiener và
+Robert Brown.
+Một sốđặc điểm của Wiener process:
+• Liên tục: Nó là một quá trình liên tục trong không gian và thời gian. Điều này có nghĩa rằng nó
+không bịgián đoạn và có giá trịtại mọi thời điểm.
+• Không xác định: Wiener process có tính chất ngẫu nhiên mạnh, nghĩa là không thểdựđoán
+được cách nó di chuyển tại một thời điểm cụthể. Nó thường được mô tảbằng một biến ngẫu
+nhiên theo phân phối chuẩn (normal).
+• Điểm xuất phát: Quá trình Wiener thường được mô tảbằng một điểm xuất phát, sau đó tiến
+hành theo một quá trình ngẫu nhiên không giảm dần.
+• Được sửdụng rộng rãi: Quá trình Wiener được sửdụng trong nhiều lĩnh vực như tài chính
+(đểmô phỏng biến động giá cổphiếu), khoa học máy tính (đểmô phỏng quá trình ngẫu nhiên),
+toán học,...
+Wiener process là một ví dụquan trọng trong lĩnh vực lý thuyết xác suất và quá trình ngẫu nhiên
+và chúng thường được sửdụng đểmô phỏng và nghiên cứu sựbiến đổi ngẫu nhiên trong các hệthống
+thực tế.
+1
+AI VIETNAM
+aivietnam.edu.vn
+Hình 1: Hình ảnh minh họa cho Wiener process
+2
+Stochastic Differential Equation (SDE)
+Phương trình vi phân (SDE) là một loại phương trình chứa thành phần ngẫu nhiên. Chúng được sử
+dụng đểmô tảsựbiến đổi ngẫu nhiên trong các quá trình theo thời gian, như sựbiến động giá cổphiếu
+trong tài chính, phân phối không đều trong sinh học, hay các hiện tượng tựnhiên khác có yếu tốngẫu
+nhiên.
+dX(t) = a(X(t), t)dt + b(X(t), t)dW(t)
+(1)
+Trong đó:
+• X(t) là quá trình stochastics cần mô phỏng.
+• a(X(t), t) và b(X(t), t) là các hàm thường chứa thành phần xác định và có thểchứa thành phần
+ngẫu nhiên.
+• dt là một khoảng thời gian vô cùng nhỏ.
+• dW(t) là một biến ngẫu nhiên, thường là một Wiener process, có phân phối chuẩn với giá trịkỳ
+vọng bằng 0 và phương sai bằng dt
+Sựbiến đổi ngẫu nhiên được biểu thịbằng phần tửb(X(t), t)dW(t). Sựbiến đổi này làm cho các
+giá trịX(t) biến đổi theo thời gian theo một cách không xác định và có tính chất ngẫu nhiên.
+3
+Euler-Maruyama
+Euler-Maruyzama là một phương pháp sốhọc đểgiải các phương trình vi phân stochastics (SDE). Nó
+thường được sửdụng đểmô phỏng các quá trình ngẫu nhiên trong khoa học máy tính, tài chính, sinh
+học và nhiều lĩnh vực khác.
+Phương pháp này chủyếu được sửdụng khi có một phương trình vi phân stochastics, có sựbiến đổi
+ngẫu nhiên. Euler-Maruyama chia khoảng thời gian thành các bước nhỏvà ước tính giá trịcủa hàm số
+tại mỗi time step. Tại mỗi bước, nó sửdụng giá trịcủa hàm sốởbước trước và một ngẫu nhiên được
+2
+AI VIETNAM
+aivietnam.edu.vn
+tạo ra theo phân phối chuẩn đểtính giá trịtiếp theo. Phương pháp này có thểđược biểu thịbằng công
+thức:
+Xn+1 = Xn + f(Xn, tx).∆t + g(Xn, tx).
+√
+∆t.Zn+1
+(2)
+Trong đó:
+• Xn là giá trịước tính tại thời điểm tn
+• f(Xn, tn) là phần không xác định (deterministic) của phương trình vi phân stochastics.
+• g(Xn, tn) là ngẫu nhiên của phương trình vi phân stochastics.
+• ∆t là khoảng thời gian giữa các bước.
+• Zn+1 là phân phối chuẩn hóa hoặc chuẩn tắc (mean 0, variance 1)
+Hình 2: Euler-Maruyama có độđơn giản và dễtriển khai, nhưng nó có thểcó sai sốvà yếu tốngẫu
+nhiên khi giải phương trình stochastics. Thường được sửdụng khi cần một phương pháp gần đúng cho
+mô phỏng thay vì một giải pháp chính xác
+4
+Heat kernel
+Heat kernel (Gaussian heat kernel) - thường được sửdụng đểmô tảsựlan truyền của nhiệt trong không
+gian 2D/3D và cũng có ứng dụng trong nhiều lĩnh vực khác. Heat kernel có tính chất lan truyền nhiệt
+từmột điểm cốđịnh ra xa theo thời gian và không gian.
+3
+AI VIETNAM
+aivietnam.edu.vn
+Heat kernel thường được biểu diễn dưới dạng một hàm số, phụthuộc vào biến thời gian t và không
+gian x và thường được ký hiệu là H(t, x) hoặc Kt(x). Hàm này thường được định nghĩa dựa trên phân
+phối Gaussian và có dạng:
+H(t, x) =
+1
+(4πt)d/2e−||x||2
+4t
+(3)
+Trong đó:
+• d là sốchiều của không gian 2D/3D
+• t là thời gian.
+• x là vịtrí trong không gian (vector x có d chiều)
+• ||x|| là độdài của vector x.
+Hình 3: Heat kernel có các tính chất quan trọng bao gồm tính duy nhất của nó khi tất cảđiểm bắt
+đầu và thời gian khác nhau và tính xấp xỉkhi t tiến gần đến 0 hoặc vô cùng. Nó thường được sửdụng
+trong lý thuyết xác suất đểmô tảquá trình diffusion và trong xửlý ảnh đểlàm mịn hoặc làm nổi bật
+các đặc trưng của ảnh.
+5
+Delta Dirac Function
+Delta dirac là hàm đặc trưng với tích phân của nó bằng 1 trên toàn bộtrục sốthực và bằng 0 ởmọi
+điểm ngoại trừđiểm gốc (x=0 hoặc k=0). Cụthể, mô tảhàm delta dirac có thểđược biểu diễn như
+sau:
+δ(x) =
+(
++∞
+if x = 0
+0
+if x ̸= 0
+(4)
+Z +∞
+−∞
+δ(x) dx = 1
+(5)
+Z +∞
+−∞
+f(x)δ(x −ξ) dx = f(ξ)
+(6)
+4
+AI VIETNAM
+aivietnam.edu.vn
+Hình 4: Hàm delta dirac thường được sửdụng trong các ứng dụng toán học và kỹthuật như biểu diễn
+các hàm xác định tại một điểm duy nhất hoặc trong lý thuyết xác suất đểbiểu diễn phân phối xác suất
+của một biến ngẫu nhiên tại một giá trịduy nhất.
+6
+Heat equation
+Heat Equation là một phương trình đạo hàm riêng sửdụng đểmô tảsựtruyền nhiệt (heat) trong các
+hệthống vật lý. Nó giúp chúng ta dựđoán và mô tảcách nhiệt độthay đổi theo thời gian và không
+gian trong các vật thểhoặc hệthống.
+Phương trình nhiệt thường được biểu diễn như sau:
+∂u
+∂t = α∇2u
+(7)
+Trong đó:
+•
+∂u
+∂t là đạo hàm riêng theo thời gian của nhiệt độ(u)
+• α là hệsốdẫn nhiệt, biểu thịtốc độtruyền nhiệt trong vật thể.
+• ∇2u là Laplacian của nhiệt độ(u), biểu thịsựbiến đổi trong không gian của nhiệt dộ.
+5
+AI VIETNAM
+aivietnam.edu.vn
+Hình 5: Phương trình này nói lên rằng sựthay đổi của nhiệt độtại một điểm cụthểtrong không gian
+∂u
+∂t phụthuộc vào tốc độdẫn nhiệt α và biến đổi không gian của nhiệt độ∇2u
+7
+Ito interpretation
+Ito interpretation là một khái niệm quan trọng trong lý thuyết xửlý stochastics (lý thuyết xửlý ngẫu
+nhiên), đặc biệt trong lĩnh vực tài chính và toán học. Nó liên quan đến việc diễn giải và giải thích
+phương trình stochastics dạng Ito, một công cụquan trọng đểmô hình hóa các biến ngẫu nhiên trong
+thời gian thực.
+Nó giúp chúng ta hiểu cách các yếu tốngẫu nhiên, cũng như các yếu tốquá trình xửlý (process
+components) tác động và tương tác với nhau trong phương trình và làm thếnào chúng tạo ra sựbiến
+đổi của biến ngẫu nhiên.
+Phương trình stochastics dạng Ito là một phương trình vi phân stochastics sửdụng đểmô hình hóa
+và mô tảsựbiến đổi của biến ngẫu nhiên theo thời gian. Phương trình này thường được biểu diễn dưới
+dạng:
+dX = a(X, t)dt + b(X, t)dW
+(8)
+Trong đó:
+• dX là thay đổi infinitesimal (vô cực nhỏ) của biến ngẫu nhiên X theo thời gian. Nó biểu thịsự
+biến đổi ngẫu nhiên của biến X trong một khoảng rất nhỏcủa thời gian dt.
+• a(X, t)dt là thành phần xác định (deterministic component) của sựbiến đổi của X. Nó phụthuộc
+vào giá trịhiện tại của X và thời gian t. Thành phần này mô tảsựthay đổi trung bình hoặc sự
+biến đổi xác định của X theo thời gian.
+• b(X, t)dW là thành phần ngẫu nhiên (stochastic component) của sựbiến đổi của X. Nó phụthuộc
+vào giá trịhiện tại của X và thời gian t, cũng như vào dạng ngẫu nhiên dW. Thành phần này mô
+tảsựbiến đổi ngẫu nhiên của X dưới tác động của dạng ngẫu nhiên dW
+• dW là dạng ngẫu nhiên Wiener. Nó thường được mô tảlà một biến ngẫu nhiên liên tục và không
+thểdựđoán, với tính chất ∆W = Z
+√
+dt, trong đó Z là một biến ngẫu nhiên theo phân phối Gauss.
+6
+AI VIETNAM
+aivietnam.edu.vn
+Chúng ta sẽxét một ví dụvềviệc sửdụng Ito interpretation đểgiải quyết một bài toán cụthểtrong
+tài chính. Giảsửchúng ta muốn mô hình hóa giá cổphiếu trong thời gian thực và dựđoán sựbiến đổi
+của nó.
+Phương trình stochastics dạng itô cho giá cổphiếu có thểđược biểu diễn như sau:
+dS = µSdt + σSdW
+(9)
+Trong đó:
+• S là giá cổphiếu
+• µ là tỷsuất lợi nhuận kỳvọng hàng ngày.
+• σ là biến động thịtrường (volatility)
+• dW là phần còn lại, là dạng ngẫu nhiên của biến đổi giá cổphiếu theo thời gian.
+Ito interpretation cho phương trình này sẽgiải thích các thành phần của nó như sau:
+• µSdt mô tảsựthay đôỉtrung bình của giá cổphiếu theo thời gian.
+• σSdW mô tảbiến động ngẫu nhiên của giá cổphiếu dưới tác động của dạng ngẫu nhiên dW
+Sửdụng Ito interpretation, chúng ta hiểu rằng sựbiến đổi của giá cổphiếu không chỉdo lợi nhuận
+kỳvọng µSdt mà còn do yếu tốbiến động thịtrường ngẫu nhiên σSdW.
+Dựa vào phương trình này và Ito interpretation, chúng ta có thểmô hình hóa và dựđoán giá cổ
+phiếu trong tương lai dưới tác động của cảyếu tốlợi nhuận kỳvọng và biến động thịtrường, giúp người
+giao dịch và nhà đầu tư hiểu rõ các yếu tốquyết định giá cổphiếu và đưa ra quyết định thông minh
+trong thịtrường tài chính.
+8
+Drift function
+Drift function là một hàm sốmô tảthành phần xác định và xác định hướng thay đổi trung bình của
+biến ngẫu nhiên theo thời gian. Drift function thường được ký hiệu bằng a(X, t) trong phương trình ito:
+dX = a(X, t)dt + ...
+(10)
+Trong phương trình này, a(X, t) là drift function, chịu trách nhiệm cho sựthay đổi trung bình của
+biến X trong khoảng thời gian dt. Drift function có thểthay đổi theo giá trịhiện tại của X và thời gian
+t và có thểcó một sựphụthuộc phức tạp vào các yếu tốkhác nhau.
+Drift function là một phần quan trọng trong việc mô hình hóa các hiện tượng ngẫu nhiên và dự
+đoán sựbiến đổi của các biến ngẫu nhiên. Nó cung cấp thông tin vềhướng diễn ra của sựbiến đổi của
+biến ngẫu nhiên và là một phần quan trọng trong việc hiểu và mô hình hóa các hiện tượng thực tế.
+9
+Fokker-Planck equation
+Fokker-Planck equation là một loại phương trình vi phân riêng phần parabol (partial differential equa-
+tion) trong lý thuyết xác suất và quá trình ngẫu nhiên. Phương trình này mô tảcách phân phối xác
+suất của một quá trình stochastics (ngẫu nhiên) thay đổi theo thời gian.
+Cụthể, Fokker-Planck equation xuất hiện trong bối cảnh mô hình hóa sựbiến đổi của một hệthống
+có tính chất ngẫu nhiên, ví dụ, trong lý thuyết tài chính, vật lý thống kê và vật lý động lượng. Phương
+trình này giúp dựđoán cách mật độxác suất của hệthống thay đổi theo thời gian.
+7
+AI VIETNAM
+aivietnam.edu.vn
+Fokker-Planck equation có dạng tổng quát như sau:
+∂p(x, t)
+∂t
+= −∂
+∂x [ f(x, t)p(x, t) ] + ∂2
+∂x2
+ g(x, t)2
+2
+p(x, t)
+
+(11)
+Trong đó:
+•
+∂p(x,t)
+∂t
+là đạo hàm riêng của mật độxác suất p(x, t) theo thời gian t. Nó mô tảcách mật độxác
+suất thay đổi theo thời gian.
+•
+∂
+∂x là đạo hàm riêng theo x. Phần này mô tảcách mật độxác suất thay đổi theo không gian (vị
+trí x)
+• f(x, t) là drift function, miêu tảcách giá trịtrung bình của biến ngẫu nhiên x(t) thay đổi theo
+thời gian t. f(x, t) là một hàm của x và t và được sửdụng đểmô tảsựthay đổi trung bình của
+quá trình.
+•
+∂2
+∂x2 là đạo hàm riêng theo hai vịtrí x. Phần này liên quan đến độlớn của biến thểngẫu nhiên
+(nhiễu) và mô tảcách sựbiến đổi ngẫu nhiên của x(t) phân tán trong không gian (ví trí x). Hàm
+g(x, t) thường đo lường mức độcủa biến ngẫu nhiên, và g(x,t)2
+2
+chính là phần diffusion
+Phương trình này mô tảcách mật độxác suất thay đổi theo thời gian do tác động của các thành
+phần xác định và ngẫu nhiên. Fokker-Planck equation là một công cụquan trọng đểnghiên cứu và dự
+đoán hành vi của các hệthống phức tạp trong điền kiện ngẫu nhiên.
+10
+Ornstein-Uhlenbeck processes
+Ornstein-Uhlenbeck processes là một quá trình stochastics (ngẫu nhiên) thường được sửdụng trong lý
+thuyết xác suất và thống kê đểmô hình hóa sựbiến đổi và trạng thái cân bằng của các hệthống có sự
+phản hồi trởlại. Cụthể, các OU process có xu hướng trởvềmột giá trịtrung bình cốđịnh dưới tác
+động của nhiễu ngẫu nhiên. Chúng có nhiều ứng dụng trong nhiều lĩnh vực như tài chính, vật lý, sinh
+học và điều khiển tựđộng.
+OU process có thểbao gồm nhiều các biến thểnhư OU phi tuyến tính, OU colored noise hoặc các
+biến thểkhác nhằm mô tảcác hiện tượng phức tạp hơn.
+Một OU process cơ bản có dạng sau:
+dXt = θ(µ −Xt)dt + σdWt
+(12)
+Trong đó:
+• Xt là OU process, biểu thịsựbiến đổi của hệthống tại thời điểm t.
+• θ là hệsốphản hồi, đo lường mức độmà Xt trởvềgiá trịtrung bình µ
+• µ là giá trịtrung bình của process.
+• σ là độlớn của biến thểnoise, thường dựa trên quá trình Wiener Wt
+8
+AI VIETNAM
+aivietnam.edu.vn
+Hình 6: Các biến thểOU process có thểđiều chỉnh các thành phần này đểthích nghi với các tình huống
+cụthểhoặc đểmô hình biến đổi phức tạp hơn trong thời gian. Chúng có thểđược sửdụng đểmô hình
+hóa các quá trình ngẫu nhiên có cấu trúc phản hồi và trạng thái cân bằng trong nhiều ứng dụng khác
+nhau.
+11
+Monte Carlo method
+Phương pháp Monte Carlo là một phương pháp toán học và thống kê dựa trên việc sửdụng sốngẫu
+nhiên đểgiải các vấn đềcó thểcó sựngẫu nhiên trong quá trình tính toán. Phương pháp này được đặt
+tên theo sòng bài Monte Carlo ởMonaco, nơi có trò chơi roulette với tính ngẫu nhiên tương tự.
+Cụthể, phương pháp Monte Carlo được sửdụng đểxấp xỉgiá trịcủa một biểu thức toán học bằng
+cách thực hiện một loạt các mẫu ngẫu nhiên và tính toán giá trịtrung bình của chúng. Phương pháp
+này được ứng dụng rộng rãi trong nhiều lĩnh vực như vật lý, thống kê, tài chính.
+Các bước cơ bản của phương pháp Monte Carlo là:
+• Xác định vấn đề: Chọn một vấn đềcần giải và biểu diễn nó dưới dạng một biểu thức toán học
+hoặc mô hình.
+• Tạo sốngẫu nhiên: Sinh ra một loạt các sốngẫu nhiên theo một phân phối xác định
+• Áp dụng mẫu ngẫu nhiên: Sửdụng các sốngẫu nhiên đểđưa vào biểu thức hoặc mô hình đã chọn
+và tính giá trịtương ứng.
+• Tính toán giá trịtrung bình: lấy trung bình của tất cảcác giá trịđã tính từcác mẫu đểxấp xỉ
+giá trịcuối cùng của biểu thức hoặc mô hình.
+Phương pháp Monte Carlo thường được sửdụng khi không thểtính toán chính xác giá trịmong
+muốn một cách trực tiếp, nhưng có thểdễdàng tạo ra các mẫu ngẫu nhiên và tính toán xấp xỉ.
+12
+Boundary conditions
+Điều kiện biên (Boundary conditions) là các điều kiện được áp dụng tại ranh giới của miền không gian
+khi giải một vấn đềtoán học hoặc vật lý. Các điều kiện biên quy định cách giải phương trình hay hệ
+phương trình trong miền không gian cụthểđó.
+Trong trường hợp phương trình Fokker-Planck (FPE), điều kiện biên có thểbao gồm các điều kiện
+vềphân phối xác suất tại các ranh giới của miền không gian. Cụthể:
+• Đối với phương trình FPE mô tảquá trình lan truyền xác suất, điều kiện biên có thểxác định
+phân phối xác suất tại các giới hạn của không gian chúng ta quan tâm.
+• Ví dụ, nếu không gian của biến xác suất là R, điều kiện biên có thểlà p(∞, t) = 0 và p(−∞, t) = 0,
+giảđịnh rằng xác suất tại ∞và −∞là không có.
+9
+AI VIETNAM
+aivietnam.edu.vn
+• Đối với các phương trình FPE tương ứng với time-reversed process, điều kiện khởi tạo tại t = T
+là quan trọng.
+• Nếu p(x, T) được xác định là phân phối xác suất ổn định của reverse process, điều kiện khởi tạo
+có thểđặt ra giảđịnh nó có sẵn và có thểlà một phân phối xác suất đã biết từcác điều kiện khác
+của vấn đề.
+Điều kiện biên có thểthay đổi tùy thuộc vào bối cảnh cụthểvà vấn đềmà chúng ta đang xem xét.
+Trong nhiều trường hợp, chúng được xác định đểđảm bảo tính duy nhất và ổn định của giải pháp.
+13
+Effect of diffusion on Gaussian mixture
+Một chút mởrộng cho quá trình diffusion 1D, chúng ta sửdụng một điều kiện ban đầu là gaussian
+mixture gồm M mixture components.
+p0(x) =
+M
+X
+j=1
+wj
+1
+q
+2πs2
+j
+exp
+(
+−[x −µj]2
+2s2
+j
+)
+(13)
+Trong đó:
+• µj là trung bình của thành phần thứj trong hỗn hợp gaussian.
+• sj là độlệch chuẩn của thành phần thứj trong gaussian mixture.
+• wj là trọng sốcủa thành phần thứj, sao cho PM
+j=1 wj = 1
+Transition Probability cho Quá Trình Diffusion 1D:
+p(x, t|x0, 0) =
+1
+√
+2πσ2t
+exp
+
+−(x −x0)2
+2σ2t
+
+.
+(14)
+Tích Phân đểTính Xác Suất Tại Thời Điểm t:
+p(x, t) =
+Z ∞
+−∞
+p(x, t|x0, 0)p0(x0) dx0
+=
+M
+X
+j=1
+wj
+1
+q
+2π(s2
+j + σ2t)
+exp
+(
+−[x −µj]2
+2(s2
+j + σ2t)
+)
+.
+(15)
+Trong đó:
+• p(x, t) là xác suất phân phối tại vịtrí x và thời điểm t sau quá trình diffusion từđiều kiện ban
+đầu là Gaussian Mixture p0(x).
+• Đoạn tích phân trên là tích phân qua tất cảcác điều kiện ban đầu có thể, mỗi điều kiện ban đầu
+được đánh trọng sốbởi p0(x0).
+• Kết quảlà một tổng của các Gaussian với trung bình µj và độlệch chuẩn (s2
+j + σ2t), nghĩa là tất
+cảcác thành phần trong mixture được "lan truyền" và có phương sai tăng lên sau mỗi khoảng
+thời gian t.
+10
+AI VIETNAM
+aivietnam.edu.vn
+Phần II: Denoising Diffusion Probabilistic
+Models (DDPM)
+DDPM là một phương pháp đểtạo ra dữliệu mới, chẳng hạn như hình ảnh, âm thanh, hoặc văn bản,
+một cách tựnhiên. Bao gồm hai quá trình chính là Forward Diffusion và Reverse Diffusion. Trong đó:
+• Quá trình Phân tán - Forward Diffusion: Bắt đầu từdữliệu thực, mô hình áp dụng một
+chuỗi các bước tạo nhiễu ngẫu nhiên, dần dần thêm nhiễu vào dữliệu ban đầu cho đến khi toàn
+bộcấu trúc của dữliệu gốc biến mất, đểlại chỉmột mẫu nhiễu.
+• Quá trình Khửnhiễu - Reverse Diffusion: Đây là quá trình ngược lại, trong đó mô hình học
+cách loại bỏdần dần nhiễu khỏi mẫu nhiễu, với mục tiêu cuối cùng là tái tạo dữliệu gốc. Quá
+trình này được thực hiện thông qua một loạt các bước, với mỗi bước cốgắng phục hồi một phần
+của cấu trúc dữliệu ban đầu từdữliệu bịnhiễu.
+Bên cạnh đó, đểtạo ra được một dữliệu mới từDDPM thì chúng ta cần phải làm cho mô hình học
+cách thực hiện quá trình khửnhiễu một cách hiệu quả. Mô hình được huấn luyện đểdựđoán nhiễu và
+loại bỏnó, từđó phục hồi dữliệu gốc từmẫu nhiễu. Sau khi huấn luyện, mô hình có thểsửdụng quá
+trình khửnhiễu đểtạo ra dữliệu mới. Bắt đầu từnhiễu ngẫu nhiên, mô hình thực hiện quá trình khử
+nhiễu đểtạo ra mẫu dữliệu mới mà không cần dựa trên dữliệu gốc.
+Hình 7: DDPM được sửdụng trong nhiều ứng dụng khác nhau, từtạo hình ảnh đến tạo văn bản và âm
+thanh. Một trong những ưu điểm chính của DDPM là khảnăng tạo ra dữliệu có chất lượng cao và tự
+nhiên.
+14
+Forward Diffusion
+Ởphần này chúng ta sẽtìm hiểu vềForward Diffusion - bước đầu tiên trong DDPM. Quá trình này
+là quá trình phá vỡhình ảnh gốc bằng cách thêm dần các noise vào tại các thời điểm từ[x0 : xT ] và
+giảsửrằng chúng ta sửdụng Normal Distribution đểsinh ra các hình ảnh nhiễu tại các thời điểm từ
+[x0 : xT ]. Công thức của Normal Distribution cho từng thời điểm x được định nghĩa như sau:
+q(xt|xt−1) = N(xt;
+p
+1 −βtxt−1, βtI)
+(16)
+Trong đó:
+11
+AI VIETNAM
+aivietnam.edu.vn
+• q(xt|xt−1): Là Conditional Distribution của dữliệu tại thời điểm t, với dữliệu tại thời điểm t
+trước đó
+• N(xt; √1 −βtxt−1, βtI): Là Công thức phân phối chuẩn (Normal Distribution). I là ma trận đơn
+vị, điều này có nghĩa là noise được thêm vào tại các thời điểm T đều là độc lập xuyên suốt các
+chiều không gian của dữliệu.
+• √1 −βtxt−1: Mean của Normal Distribution cho thời điểm t hiện tại.
+• βt: Tham sốđiều khiển sốlượng noise được thêm vào tại mỗi thời điểm T.
+• βtI: Covariance Matrix của noise được thêm vào.
+Như vậy, ta có công thức tổng quan cho Normal Distribution với thời điểm [x0 : xT ] là:
+q(x1:T |x0) =
+T
+Y
+t=1
+q(xt|xt−1)
+(17)
+Hình 8: Forward Diffusion được mô tảdưới dạng một chuỗi Markov, trong đó size của từng bước được
+xác định thông qua variance schedule. Điểm đặc biệt của Markovian process chính là khảnăng thu được
+mẫu tại bất kỳkhoảng thời gian nào một cách chính xác mà không cần trải qua các bước trung gian.
+Bên cạnh đó, variance schedule được thiết kếmột cách tỉmỉ, nhằm đảm bảo mẫu sẽdần biến đổi thành
+white noise khi đạt đến bước thời gian T.
+14.1
+Basic of diffusion
+Trước tiên chúng ta có quá trình diffusion một chiều trên đường thẳng sốthực. Sửdụng phương trình
+vi phân stochastic (SDE) đểmô tảquá trình này:
+˙x = σ η(t)
+(18)
+Trong đó:
+• σ là một hằng sốdương
+• η(t) là Gaussian white noise
+12
+AI VIETNAM
+aivietnam.edu.vn
+Đểgiải thích ý nghĩa của biểu thức trên chúng ta cần định nghĩa nó dưới dạng giới hạng ∆t nhỏ
+của quá trình rời rạc, trong đó x(t + ∆t) được tính dựa trên x(t) và một sốr được rút ra từphân phối
+chuẩn (normal distribution) với mean 0 và variance 1. Đây là một ví dụcơ bản của Euler Maruyama.
+Tiếp theo xem xét sựthay đổi của mật độxác suất p(x, t) tức xác suất hệthống ởvịtrí x tại thời
+điểm t, theo thời gian. Nó đềcập đến diffusion equation:
+x(t + ∆t) = x(t) + σ
+√
+∆t r
+(19)
+thểhiện rằng mật độxác suất p(x, t) thay đổi theo thời gian theo cách được mô tảbởi phương trình
+trên.
+Diffusion equation còn được gọi là heat equation - mô tảcách mật độxác suất p(x, t) thay đổi theo
+thời gian trong một quá trình diffusion. Cụthể, nó cho biết cách độdày của xác suất tại một vịtrí x
+thời gian t thay đổi theo thời gian.
+Diffusion equation là một phương trình quan trọng trong lý thuyết xác suất và quá trình ngẫu nhiên,
+nó có thểđược xuất phát từmột loạt các quy tắc cơ bản vềsựbiến đổi ngẫu nhiên. Bây giờchúng ta
+sẽtìm hiểu cách mà phương trình này được tạo ra.
+Bước đầu tiên là suy ra một biểu thức cho sựbiến đổi xác suất p(x, t) theo thời gian t khi không có
+sựtương tác hoặc mật độxác suất ban đầu tại các vịtrí khác. Một cách tựnhiên, nó sẽthay đổi theo
+cường độbiến đổi ngẫu nhiên (σ) và tỷlệđộdày không gian (∂2p(x,t)
+∂x2
+). Dựa vào điều này chúng ta sẽ
+mô tảdiffusion equation thông qua hệsốnhiệt D = σ2/2 với D là một diffusion constant.
+∂p(x, t)
+∂t
+= σ2
+2
+∂2p(x, t)
+∂x2
+.
+(20)
+Phương trình này mô tảsựbiến đổi của mật độxác suất p(x, t) theo thời gian t và vịtrí không gian
+x trong diffusion process. Nó cho biết tốc độbiến đổi của xác suất tại một thời diểm t bằng một nửa
+của bình phương độdày không gian và cường độbiến đổi theo thời gian.
+Đểgiải diffusion equation này với một điều kiện cụthểlà p(x, 0) = δ(x −x0), trong đó δ(x) là một
+hàm delta dirac. Điều này có nghĩa là chúng ta đang xem xét một trường hợp trong đó chúng ta biết
+chính xác rằng vịtrí ban đầu là tại x0
+Với điều kiện ban đầu p(x, 0) = δ(x −x0). Công thức cho heat kernel được áp dụng đểgiải phương
+trình với điều kiện này. Và chúng ta sẽcó:
+p(x, t|x0, 0) =
+1
+√
+2πσ2t
+exp
+
+−(x −x0)2
+2σ2t
+
+.
+(21)
+Công thức này cho biết xác suất hệthống ởvịtrí x tại thời điểm t, khi ta đã biết rằng hệthống
+ban đầu ởvịtrí x0 tại thời điểm 0.
+Nói cách khác, heat kernel cho biết cách xác suất của sựdi chuyển của hệthống từvịtrí x0 tại thời
+điểm 0 đến vịtrí x tại thời điểm t phụthuộc vào sựphân tán không gian và thời gian (σ2 và t). Nó là
+một biểu thức quan trọng trong lý thuyết diffusion.
+Lưu ý: Một câu hỏi đặt ra là liệu heat kernel có được dùng đểgiải diffusion equation với điều kiện
+p(x, 0) cụthểhay không?. Một cách rõ ràng hơn vềvai trò của heat kernel ởđây đó là:
+• Base diffusion equation: mô tảcách mật độxác suất p(x, t) thay đổi theo thời gian và không
+gian trong diffusion process. Nó là một phương trình cơ bản trong lý thuyết xác suất và quá trình
+ngẫu nhiên.
+• Công thức heat kernel: Công thức heat kernel không phải là một cách đểgiải diffusion equation,
+mà là một cách biểu diễn mật độxác suất p(x, t) tại một thời điểm t sau một khoảng thời gian
+từđiểm ban đầu có thông tin cụthể(biểu thịbằng hàm delta dirac).
+13
+AI VIETNAM
+aivietnam.edu.vn
+• Tại sao sửdụng heat kernel?: Heat kernel được sửdụng đểbiểu diễn mật độxác suất trong
+trường hợp cụthểkhi chúng ta đã biết một điểm cụthểmà fist step ởđó. Nó cho biết xác suất
+sẽxuất hiện ởcác vịtrí khác nhau sau một khoảng thời gian t dựa trên điểm ban đầu đã biết.
+Trong bối cảnh của diffusion nó sẽgiúp làm mịn hình ảnh và mô tảsựlan truyền của dữliệu.
+Kết luận: Vềcơ bản, heat kernel không giúp giải phương trình diffusion mà là một công cụđểbiểu
+diễn kết quảphương trình diffusion cho một điều kiện ban đầu cụthểvà nó có thểđược sửdụng để
+tính toán xác suất của sựdi chuyển của hệthống trong không gian và thời gian.
+Cuối cùng đểtính toán mật độxác suất p(x, t) dựa trên xác suất ban đầu p0(x0) và heat kernel
+p(x, t|x0, 0). Đểlàm điều này, chúng ta tính tích phân qua tất cảcác vịtrí ban đầu có thểx0 bằng cách
+sửdụng heat kernel. Điều này cho phép chúng ta tính toán mật độxác suất cuối cùng p(x, t) tại mọi
+vịtrí x và thời điểm t dựa trên mật độxác suất ban đầu p0(x0). Công thức này giúp hiểu cách mật độ
+xác suất thay đổi theo thời gian và không gian trong quá trình diffusion.
+p(x, t) =
+Z ∞
+−∞
+p(x, t|x0, 0)p0(x0) dx0 .
+(22)
+Trong đó:
+• p(x, t) là mật độxác suất của hệthống tại vịtrí x tại thời điểm t.
+• p(x, t|x0, 0) là heat kernel. Cho biết xác suất di chuyển từvịtrí ban đầu x0 tại thời điểm 0 đến vị
+trí x tại thời điểm t, dựa trên sựphân tán không gian và thời gian.
+• p0(x0) là mật độxác suất ban đầu tại vịtrí x0 tại thời điểm 0.
+14.2
+Basics of stochastic differential equations (SDEs)
+Diffusion là một ví dụđơn giản vềquá trình ngẫu nhiên được điều chỉnh bởi SDE - một phương trình
+mô tảsựbiến đổi của một biến ngẫu nhiên x(t) theo thời gian t có dạng:
+˙x = f(x, t) + g(x, t) η(t)
+(23)
+Trong đó:
+• ˙x là đạo hàm riêng theo thời gian của x(t).
+• f(x, t) là drift function, miêu tảsựbiến đổi trung bình của x(t) theo thời gian.
+• g(x, t) là hàm nhiễu hoặc diffusion, miêu tảsựbiến đổi ngẫu nhiên của x(t).
+• η(t) là Gaussian white noise.
+Áp dụng phương trình itô đểtheo dõi các biến đổi ngẫu nhiên của phương trình trên là sựhạn chế
+của quá trình rời rạc khi ta giảm bước thời gian ∆t về0. Với ∆t rất nhỏchúng ta miêu tảcách giá trị
+x(t) biến đổi ngẫu nhiên trong thời gian ngắn ∆t dưới tác động của biến ngẫu nhiên.
+x(t + ∆t) = x(t) + f(x(t), t)∆t + g(x, t)
+√
+∆t r
+(24)
+Trong đó:
+• x(t + ∆t) là giá trịcủa biến ngẫu nhiên x tại thời điểm t + ∆t
+• x(t) là giá trịcủa biến ngẫu nhiên x tại thời điểm t.
+14
+AI VIETNAM
+aivietnam.edu.vn
+• f(x(t), t)∆t là thành phần drift. Nó miêu tảcách giá trịtrung bình của x(t) thay đổi theo thời
+gian t. f(x(t), t) là một hàm của x và t được sửdụng đểmô tảsựthay đổi trung bình của quá
+trình.
+• g(x, t)
+√
+∆t r là thành phần "nhiễu" hoặc diffusion. g(x, t) là một hàm x và t đo lường mức độ
+của biến ngẫu nhiên trong quá trình.
+√
+∆t là căn bậc hai của ∆t, và r là một sốngẫu nhiên được
+lấy mẫu từnormal distribution (r ∼N(0, 1)).
+Công thức trên là một dạng tổng quát của Euler-Maruyama.
+Thường thì phương trình Fokker-Planck equation (FPE) khó có thểđược giải một cách chính xác
+hoặc khá khó khăn đểcó được giải pháp chính xác cho p(x, t) (mật độxác suất). Nên chúng ta sẽcung
+cấp phương trình SDE cho OU process, nó mô tảcách x(t) biến đổi theo thời gian. Trong trường hợp
+một chiều, phương trình SDE có dạng:
+˙x = 1
+τ [µ −x] + σ
+r
+2
+τ η(t) .
+(25)
+Trong đó:
+• τ là tham sốliên quan đến tốc độtrung bình trởvề
+• µ là giá trịtrung bình mà quá trình trung bình trởvề
+• σ là độlớn của biến ngẫu nhiên.
+• η(t) là white gaussian noise.
+Công thức cho p(x, t|x0, 0) là một biểu thức phụthuộc vào x, x0, t và miêu tảcách mật độxác suất
+thay đổi theo thời gian cho OU process khi ta biết rằng tại t = 0 đã có giá trịx0. Công thức này là
+heat kernel của OU process.
+p(x, t|x0, 0) =
+1
+p
+2πs(t)2 exp
+
+−[x −µ(t)]2
+2s(t)2
+
+(26)
+Trong công thức này:
+• µ(t) là giá trịtrung bình tại thời điểm t và được tính như sau:
+µ(t) := x0e−t/τ + µ
+
+1 −e−t/τ
+(27)
+• s(t)2 là phương sai tại thời điểm t và được tính như sau:
+s(t)2 := σ2 
+1 −e−2t/τ
+(28)
+OU process có một đặc điểm quan trọng đó là khi thời gian tăng lên, mật độxác suất p(x, t) ít phụ
+thuộc vào p0(x), tức là giá trịban đầu p0(x) mất dần ảnh hưởng vào quá trình tiến đến trạng thái ổn
+định pss(x).
+p(x, t) =
+Z ∞
+−∞
+p(x, t|x0, 0)p0(x0) dx0 .
+(29)
+Trong đó:
+15
+AI VIETNAM
+aivietnam.edu.vn
+• p(x, t) là mật độxác suất tại thời điểm t cho OU process. Nó miêu tảxác suất mà biến x(t) có
+giá trịx tại thời điểm t, khi chúng ta đã biết mật độxác suất ban đầu p0(x0) tại t = 0.
+• p(x, t|x0, 0) là heat kernel của OU process, đã được tính toán trước đó và miêu tảcách mật độ
+xác suất thay đổi theo thời gian từt = 0 đến t khi biết rằng tại t = 0, x đã có giá trịx0.
+• p0(x0) là mật độxác suất ban đầu tại t = 0, tức là mật độxác suất ban đầu của biến x(t) tại
+t = 0. Nó là điều kiện ban đầu cho quá trình.
+Tích phân này có nghĩa là chúng ta đang tính toán mật độxác suất p(x, t) bằng cách tích phân trên
+tất cảcác giá trịcó thểcó của x0 từâm vô vùng đến dương vô cùng. Điều này có nghĩa rằng chúng ta
+xem xét mọi giá trịban đầu có thểcho x tại t = 0 (từâm vô cùng đến dương vô cùng) và tính xác suất
+mà x(t) sẽcó giá trịx tại thời điểm t sau khi đã biết mật độxác suất ban đầu p0(x0) tại t = 0
+Tới đây chúng ta có thểthấy rằng OU process có khảnăng quên dần đi điều kiên ban đầu. Khi thời
+gian t tăng lên vô cùng, heat kernel p(x, t|x0, 0) của OU process tiến đến phân phối ổn định pss(x) mà
+chúng ta đã xác định trước đó.
+Điều quan trọng ởđây là p(x, t|x0, 0) không còn phụthuộc mạnh và x0 khi t lớn. Nó nghĩa là dù
+ban đầu x có giá trịnào tại t = 0, khi t tăng lên đủlớn, mật độxác suất p(x, t) tại thời điểm t không
+còn quá phụthuộc vào giá trịban đầu x0. Thay vào đó, nó tiến gần đến một phân phối ổn định pss(x)
+với giá trịtrung bình µ và phương sai σ2
+Ở3 công thức trên chúng ta đã giải phương trình OU process và tính toán heat kernel tại thời điểm
+t cụthể. Và chúng ta đã thấy cách mật độxác suất tiền gần đến giá trịổn định khi thời gian dài. Cuối
+cùng chúng ta nhận thấy rằng OU process có khảnăng quên dần đi điều kiện ban đầu khi thời gian
+tăng lên với một sốlý do.
+Trước tiên chúng ta nhắc lại công thức 12 như sau:
+dXt = θ(µ −Xt)dt + σdWt
+• Tính Chất Hồi Quy: OU process có tính chất hồi quy vềgiá trịtrung bình dài hạn. Điều này
+có nghĩa là, không phụthuộc vào giá trịkhởi tạo, quá trình sẽdần dần hội tụvềmột giá trịtrung
+bình cốđịnh qua thời gian. Do đó, ảnh hưởng của điều kiện ban đầu giảm dần theo thời gian. Từ
+phương trình, ta thấy rằng khi Xt lớn hơn µ thì θ(µ −Xt) sẽâm dẫn đến việc giảm Xt vềphía µ
+và ngược lại. Điều này cho thấy quá trình có tính hồi quy.
+• SựCân Bằng Giữa Xu Hướng và Nhiễu: Trong OU process, có một sựcân bằng giữa xu
+hướng hồi quy vềgiá trịtrung bình và ảnh hưởng của nhiễu ngẫu nhiên. Khi thời gian trôi đi,
+ảnh hưởng của nhiễu ngẫu nhiên trởnên quan trọng hơn so với điều kiện ban đầu.
+• Decay Factor: Trong công thức của OU process, có một hệsốgiảm dần liên quan đến thời gian,
+điều này làm cho ảnh hưởng của điều kiện ban đầu giảm đi theo cấp sốnhân khi thời gian tăng
+lên. hệsốgiảm dần được thểhiện thông qua θ. Giá trịlớn của θ có nghĩa là hệsốgiảm dần nhanh,
+làm cho ảnh hưởng của điều kiện ban đầu giảm nhanh theo thời gian.
+• Tính Dừng: OU process là một quá trình dừng, nghĩa là các đặc trưng thống kê của nó (như kỳ
+vọng và phương sai) không thay đổi theo thời gian. Điều này giúp quá trình trởnên ít phụthuộc
+vào điều kiện ban đầu khi thời gian tăng lên.
+14.3
+More general SDEs
+Bây giờchúng ta sẽcùng tìm hiểu vềphương trình vi phân ngẫu nhiên (SDE) đa biến và phương trình
+Fokker-Planck tương ứng. Quay trởlại với SDE, với x(t) là một vector N-chiều (x(t) ∈RN) ta có:
+16
+AI VIETNAM
+aivietnam.edu.vn
+˙x = f(x, t) + g(x, t) η(t)
+(30)
+Trong đó:
+• f(x, t) là một hàm ánh xạvector từx và thời gian t sang một vector trong RN
+• g(x, t) là một ma trận N × M (trong đó N là sốchiều của x và M là sốchiều của vector noise
+η(t)). Ma trận này phụthuộc vào x và t.
+• η(t) là một vector M chiều của các thành phần gaussian noise độc lập
+Tiếp theo chúng ta sẽcó Euler-Maruyama đa biến với:
+x(t + ∆t) = x(t) + f(x(t), t)∆t + g(x(t), t)
+√
+∆t r
+(31)
+Trong đó r là một vector r = (r1, ..., rM)T với mỗi thành phần ri được lấy mẫu từphân phối chuẩn.
+Công thức Fokker-Planck cho phương trình SDE đa biến có dạng:
+∂p(x, t)
+∂t
+=
+N
+X
+j=1
+−∂
+∂xj
+[ fj(x, t)p(x, t) ] +
+N
+X
+j=1
+N
+X
+k=1
+∂2
+∂xj∂xk
+[ Djk(x, t)p(x, t) ]
+(32)
+Trong đó:
+• D(x, t) là một ma trận N × N gọi là "diffusion tensor". Các phần tửcủa ma trận này được tính
+như sau:
+Djk(x, t) = 1
+2
+M
+X
+ℓ=1
+σjℓ(x, t)σkℓ(x, t) .
+• σjℓ(x, t) là các phần tửcủa ma trận g(x, t). Ma trận này chứa thông tin vềbiến đổi của mỗi thành
+phần của x do nhiễu.
+Cuối cùng, chúng ta sẽtập trung vào trường hợp đơn giản hơn trong đó g(x, t) không còn là một
+ma trận N × M mà chỉlà một hàm sốg(x, t) và M = N (tức sốchiều của nhiễu và sốchiều của x bằng
+nhau). Điều này đồng nghĩa với việc mỗi chiều của x có nhiễu riêng của nó (không có sựkết nối) và tất
+cảcác nhiễu có cùng độlớn g(x,t).
+Phương trình Fokker-Planck đơn giản lại như sau:
+∂p(x, t)
+∂t
+= −∇· [ f(x, t)p(x, t) ] + ∇2
+ g(x, t)2
+2
+p(x, t)
+
+= −∇·
+
+f(x, t)p(x, t) −∇
+ g(x, t)2
+2
+p(x, t)
+ 
+.
+(33)
+14.4
+What SDEs should we use to corrupt samples
+Ởphần này chúng ta sẽthảo luận vềviệc lựa chọn stochastics process đểbiến đổi mẫu từmột phân
+phối cốđịnh sang mẫu từphân phối mục tiêu.
+Chúng ta có 3 lưu ý cần xem xét:
+• Mục tiêu là tìm một quá trình ngẫu nhiên đơn giản đủđểtính toán mật độxác suất p(t) một
+cách chính xác khi t đủlớn. Điều này quan trọng vì quá trình ngược (reverse diffusion) sẽchuyển
+chúng ta từp(x, t) vềphân phối mục tiêu. Khi chúng ta biết phân phối p(x, t) sau một thời gian
+đủlớn, chúng ta biết cách lấy mẫu từphân phối này đểtạo ra các mẫu reverse diffusion từphân
+phối mục tiêu.
+17
+AI VIETNAM
+aivietnam.edu.vn
+• Mục tiêu là làm cho p(x, t) (với t đủlớn) trởthành một phân phối dễlấy mẫu (ví dụ: phân phối
+gauss). Điều này làm cho việc tạo ra các mẫu reverse diffusion từp(x,t) trởnên dễdàng.
+• Chúng ta muốn mẫu bịbiến đổi mạnh, tức là không còn dấu vết của mẫu ban đầu. Điều này đòi
+hỏi việc chúng ta phải đưa rất nhiều nhiễu vào các mẫu. Điều này có thểđạt được thông qua việc
+sửdụng hệsốnhiễu lớn hoặc thông qua việc biến đổi trong một khoảng thời gian rất dài. Tuy
+nhiên, việc định nghĩa "lớn" khác nhau cho từng tập dữliệu. Vì vậy, đểtránh phải điều chỉnh
+tham sốnhiễu một cách thủcông sau khi nhận thấy rằng chúng ta chưa làm cho mẫu bịbiến đổi
+đủ"nhiều", một giải pháp là sửdụng nhiễu tăng lên theo cấp sốmũ (exponential) theo thời gian.
+Như vậy chúng ta sẽcó đủnhiễu.
+Việc lựa chọn stochastics process:
+• Cần loại bỏquá trình ngẫu nhiên tiềm năng vì hầu hết các phương trình Fokker-Planck không
+thểđược giải chính xác. Các quá trình được mô tảởtrên đã được đưa qua quá trình biến đổi
+ngẫu nhiên và OU process.
+• Cảhai quá trình biến đổi ởtrong thời gian dài (long time limit), chuyển đổi mẫu thành các mẫu
+từphân phối gauss. Việc này đảm bảo rằng p(x, t) (với t đủlớn) trởthành một phân phối dễlấy
+mẫu. (có thểlấy mẫu từphân phối gauss)
+14.5
+Variance Exploding SDE (VE SDE)
+Phần này chúng ta sẽtìm hiểu vềVariance Exploding (VE) trong SDE và cách xây dựng phân phối
+chuyển đổi (transition probability) tương ứng.
+Phương trình SDE cho VE được xác định bởi:
+˙x =
+r
+d[σ2(t)]
+dt
+η(t)
+(34)
+Với σ2(t) là một hàm tăng dần và x(t) thuộc không gian RN. Phương trình này mô tảmột quá trình
+nhiễu trong đó mức độnhiễu tăng lên theo thời gian.
+Phân phối chuyển đổi cho quá trình VE mô tảxác suất của VE khi thời gian tiến đến t, dựa trên
+giá trịban đầu x0 tại t = 0. Và sau đó công thức được phân rã thành tích của N phân phối Gauss 1D.
+p(x, t|x(0), 0) =
+1
+hp
+2πσ2(t)
+iN exp
+(
+−
+
+x −x(0)2
+2σ2(t)
+)
+=
+N
+Y
+j=1
+1
+p
+2πσ2(t)
+exp
+
+
+
+
+
+−
+h
+xj −x(0)
+j
+i2
+2σ2(t)
+
+
+
+
+
+.
+(35)
+Hàm σ2(t) quyết định cách biến thiên của mức độnhiễu theo thời gian. Đểtăng quá trình diffusion
+chúng ta có thểđểcho quá trình nhiễu tăng theo cấp sốmũ:
+σ2(t) := σ2
+min
+σ2
+max
+σ2
+min
+t/T
+= σ2
+min exp
+ t
+T log
+σ2
+max
+σ2
+min
+
+(36)
+Trong đó T là thời gian chúng ta áp dụng quá trình nhiễu trên các mẫu. Điều quan trọng không
+phải là việc đặt tham sốmà là việc hàm σ2(t) tăng theo cấp sốmũ theo thời gian. Điều này sẽgiúp cho
+sựbiến đổi mạnh hơn theo thời gian.
+18
+AI VIETNAM
+aivietnam.edu.vn
+14.6
+Variance Preserving SDE (VP SDE)
+Ởphần này chúng ta sẽtìm hiểu vềVariance Preserving (VP) trong SDE.
+Phương trình SDE cho VP được định nghĩa bởi:
+˙x = −β(t)
+2 x +
+p
+β(t) η(t)
+(37)
+Trong đó, β(t) là một hàm tăng dần và x(t) thuộc không gian RN. Phương trình này mô tảmột
+quá trình nhiễu trong đó mức độnhiễu đểduy trì phương sai ban đầu.
+Phân phối chuyển đổi p(x, t|x0, 0) VP cho biết xác suất đểquá trình nhiễu đang tiến đến một giá
+trịx tại thời điểm t dựa trên giá trịban đầu x0 tại thời điểm t = 0
+p(x, t|x(0), 0) =
+1
+hp
+2πσ2(t)
+iN exp
+(
+−[x −µ(t)]2
+2 σ2(t)
+)
+=
+N
+Y
+j=1
+1
+p
+2πσ2(t)
+exp
+(
+−[xj −µj(t)]2
+2 σ2(t)
+)
+(38)
+Với
+µ(t) := x(0)e−1
+2
+R t
+0 β(s)ds
+σ2(t) := 1 −e−
+R t
+0 β(s)ds .
+(39)
+Trong đó
+• x là một vector N chiều, biểu thịtọa độcủa quá trình nhiễu tại thời điểm t.
+• x(0) là giá trịban đầu của quá trình nhiễu tại t = 0
+• t là thời gian của quá trình nhiễu.
+Biểu thức này dựa trên phân phối gauss và có thểđược chia thành N phần độc lập, mỗi thành phần
+biểu thịmột chiều của vector x.
+• Mẫu từng chiều xj của vector x (với j từ1 đến N) được mô tảbằng một phân phối gauss 1D với
+giá trịtrung bình µj(t) và phương sai σ2(t).
+• µj(t) là giá trịtrung bình tại thời điểm t cho chiều thứj của vector x. Nó được tính bằng cách
+áp dụng một hàm mũ giảm dần của thời gian lên giá trịban đầu x(0) tại t=0.
+• σ2(t) là phương sai tại thời điểm t cho chiều thứj của vector x. Nó giảm dần theo thời gian, làm
+cho mức độnhiễu trong quá trình nhiễu giảm dần dến khi đạt giá trịổn định (steady-state).
+Tổng cộng, biểu thức này giúp xác định các chiều riêng lẻcủa quá trình nhiễu biến đổi và tương
+tác với thời gian. Khi thời gian tiến đến đủlâu (t tiến đến vô cùng), phân phối sẽhội tụđến một phân
+phối gauss tiêu chuẩn với trung bình 0 và phương sai 1 độc lập cho mỗi chiều.
+p(x, t) t→∞
+−−−→pss(x) =
+1
+√
+2π
+N exp
+
+−x2
+2
+
+=
+N
+Y
+j=1
+1
+√
+2π exp
+(
+−
+x2
+j
+2
+)
+(40)
+19
+AI VIETNAM
+aivietnam.edu.vn
+Còn một điểm chú ý nữa là hàm β(t) quyết định cách biến đổi của mức độnhiễu theo thời gian.
+Bên cạnh việc tăng nhiễu theo cấp sốmũ, hàm này có thểđược chọn đểtăng một cách tuyến tính:
+β(t) := βmin + (βmax −βmin) t
+T
+(41)
+Trong đó T là thời gian áp dụng quá trình nhiễu trên các mẫu. Điều quan trọng là β(t) tăng tuyến
+tính thay vì tăng mũ theo thời gian. Điều này đảm bảo rằng cuối cùng, mức độnhiễu không giảm và
+làm cho sựbiến đổi được duy trì.
+Bên cạnh đó chúng ta còn có phương trình sub-VP tương tựVP như sau:
+˙x = −β(t)
+2 x +
+r
+β(t)
+h
+1 −e−2
+R t
+0 β(s)dsi
+η(t)
+(42)
+15
+Reverse diffusion
+15.1
+Reversing 1D diffusion
+Trước tiên chúng ta sẽtìm hiểu vềreverse 1D. Ởphần trước quá trình forward chúng ta thấy rằng
+diffusion khiến noise được khuếch tán dần ra (theo thời gian) và làm thay đổi mẫu ban đầu. Tại đây
+chúng ta sẽkỳvọng reverse lại quá trình diffusion thì mẫu của chúng ta sẽtrởvềnhư cũ.
+˙x = x0 −x
+T −t + σ η(t)
+(43)
+Công thức trên (OU process) phản ảnh một quá trình trong đó biến ngẫu nhiên x tiếp tục được tái
+tạo vềmột giá trịx0 theo thời gian. Thành phần x0−x
+T−t tạo ra sựhồi phục vềgiá trịx0, và σ η(t) thêm
+nhiễu đểtạo sựbiến động ngẫu nhiên.
+Nói cách khác, quá trình trên nén một Gaussian cho đến khi nó trởthành Delta Dirac Function với
+centered x0 tạthời điểm T. Đây cũng là một xác suất chuyển đổi (transition probability) của quá trình
+reverse.
+q(x, t|x0, 0) =
+1
+p
+2πσ2(T −t)
+exp
+
+−(x −x0)2
+2σ2(T −t)
+
+.
+(44)
+Trong đó xác suất chuyển đổi q(x, t|x0, 0) là xác suất đểOU process chuyển từgiá trịban đầu x0
+tại thời điểm 0 đến giá trịx tại thời điểm t - được định nghĩa bởi hàm Gaussian, xác suất chuyển đổi
+giảm theo thời gian và tập trung xung quanh giá trịx0. Điều này phản ánh khảnăng của quá trình
+OU hồi phục vềtrung bình và giảm thiểu biến động ngẫu nhiên theo thời gian.
+Note: Ký hiệu q là đểtránh nhầm lẫn với quá trình forward diffusion (p).
+Vì Reverse process được điều chỉnh bởi SDE nên chúng ta sẽáp dụng Eurler-Maruyama đểbiểu
+diễn nó.
+x(t + ∆t) = x(t) + x0 −x
+T −t ∆t + σ
+√
+∆t r .
+(45)
+Trong đó Euler-Maruyama x(t + ∆t) = x(t) + x0−x
+T−t ∆t + σ
+√
+∆t r mô phỏng cách mỗi bước thời gian,
+giá trịx thay đổi. Thành phần tái tạo x0−x
+T−t ∆t đảm bảo rằng giá trịx hồi phục vềx0 dần dần theo thời
+gian. Nhiễu σ
+√
+∆t r tăng cường biến động ngẫu nhiên, thểhiện sựkhông chắc chắn trong quá trình
+reverse.
+Tóm lại, OU process và xác suất chuyển đổi giúp mô tảcác quá trình trong đó các giá trịcó xu
+hướng hồi phục vềgiá trịtrung bình với biến động ngẫu nhiên. Các bước Euler-Maruyama được sử
+dụng đểmô phỏng sốliệu và thu thập thông tin vềquá trình reverse.
+20
+AI VIETNAM
+aivietnam.edu.vn
+15.2
+Reversing more general stochastic processes
+Ta có Forward process được mô tảbời SDE
+˙x = f(x, t) + g(t) η(t)
+Trong đó f(x, t) là drift function, g(t) là thành phần nhiễu và η(t) là white noise (gauss).
+Với Reverse process chúng ta sẽđảo ngược thời gian được tạo ra cho Forward process từthời điểm
+t = 0 đến t = T. Time-reversed SDE được định nghĩa:
+˙x = −f(x, T −t) + g(T −t)2 ∂
+∂x log p(x, T −t) + g(T −t) η(t) .
+(46)
+Tại đây chúng ta tìm hiểu một chút vềmối quan hệgiữa forward process và reversed process. Nếu
+p(x, t) đại diện cho phân phối xác suất của forward process tại thời điểm t, thì q(x, t) là phân phối xác
+suất của reverse process thỏa mãn q(x, t) = p(x, T −t). Mối quan hệnày có nghĩa là phân phối xác suất
+tiến triển theo thời gian theo một cách tương tự. Chỉlà hai hướng ngược nhau.
+Mởrộng sang N-dim Ito-interpreted SDEs bao gồm một vector x và vector noise η(t). Reversed
+process cho N-dim có dạng:
+˙x = −f(x, T −t) + g(T −t)2 ∇x log p(x, T −t) + g(T −t) η(t) .
+(47)
+Phần này chúng ta đã xác định reversed process của một stochastics process do một loại phương
+trình vi phân ngẫu nhiên điều khiển.
+Bây giờchúng ta sẽchứng minh mối quan hệgiữa forward và reverse process trên:
+q(x, t) = p(x, T −t)
+Áp dụng kiến thức vềlý thuyết xác suất vào phương trình Fokker-Planck (FPE). Ta có Forward
+process được xác định bởi:
+∂p(x, t)
+∂t
+= −∇· [ f(x, t)p(x, t) ] + ∇2
+ g(x, t)2
+2
+p(x, t)
+
+= −∇·
+
+f(x, t)p(x, t) −∇
+ g(x, t)2
+2
+p(x, t)
+ 
+.
+(48)
+Giảsửp(x, t) là phân phối xác suất của forward process với điều kiện ban đầu p(x, 0) = p0(x). Xác
+định FPE cho reversed process bằng cách thay t bằng T −t trong FPE cho forward process.
+∂q(x, t)
+∂t
+= −∇·
+
+f(x, T −t)q(x, t) −∇
+ g(x, T −t)2
+2
+q(x, t)
+ 
+(49)
+Điều này giống với FPE cho forward process, chỉlà chúng ta thay đổi thời gian từt thành T −t. Vì
+p(x, 0) = p0(x), giảsửrằng q(x, T) sẽlà phân phối xác suất của quá trình đảo ngược.
+Đểxác định mối quan hệnày chính xác, cần áp dụng điều kiện biên phù hợp cho q(x, t) tại t = T.
+Điều này có thểđược thực hiện thông qua điều kiện biên hoặc điều kiện khởi tạo phù hợp.
+Dựa vào đối sốđiều kiện biên và điều kiện khởi tạo, có thểchứng minh được mối quan hệtrên. (Để
+chứng minh cụthểhơn còn phải phụthuộc vào chi tiết bài toán cụthể).
+21
+AI VIETNAM
+aivietnam.edu.vn
+15.3
+Score functions
+Score function là một khái niệm quan trọng trong reverse process. Được định nghĩa như sau:
+s(x, t) := ∇x p(x, t) .
+(50)
+Trong đó s(x, t) là score function, một vector được tính bằng đạo hàm gradient của p(x, t) theo x.
+Vai trò của Score function:
+• Khi ta muốn thực thi reverse process trên một nhiễu nào đó và chuyển đổi nó thành một mẫu từ
+phân phối mục tiêu (target distribution).
+• Tuy nhiên, vấn đềchính trong phương pháp này là chúng ta không biết chính xác giá trịcủa
+p(x,t). Nếu chúng ta biết, chúng ta có thểlấy mẫu trực tiếp từnó thay vì thực hiện quá trình
+reverse.
+Tuy chúng ta không biết p(x, t) nhưng chúng ta có thểhọc được score function. Quan trọng hơn,
+việc học score function thậm chí là dễhơn so với việc học trực tiếp p(x, t), vì nhiệm vụnày yêu cầu học
+một normalization factor => đây là một điều tương đối khó khăn.
+15.4
+Examples of score functions
+Score function liên kết một vector field với mỗi time step của stochastics process. Mỗi vector chỉhướng
+xác suất tăng dần.
+15.4.1
+1D diffusion from a point mass
+Xét quá trình 1D diffusion với điều kiện ban đầu là Delta Function tại x0. Nói cách khác, ta xem xét
+sựlan truyền của một phân phối Delta tại x0 theo thời gian.
+1D Diffusion with Delta Function Initial Condition
+p(x, t) =
+1
+√
+2πσ2t
+exp
+
+−(x −x0)2
+2σ2t
+
+.
+(51)
+Trong đó:
+• p(x, t) là xác suất phân phối tại vịtrí x và thời điểm t cho quá trình 1D diffusion.
+• x0 là vịtrí ban đầu của Delta Function.
+• σ là tham sốđặc trưng cho độrộng của phân phối.
+Score Function for the 1D Diffusion
+s(x, t) = ∂
+∂x log p(x, t) = −(x −x0)
+σ2t
+.
+(52)
+Trong đó:
+• s(x, t) là score function cho quá trình 1D diffusion, được tính bằng cách lấy đạo hàm riêng theo
+x của logarithm của p(x,t).
+• Score function mô tảsựthay đổi của logarithm của phân phôí theo x tại mỗi điểm x và thời điểm
+t.
+• Trong trường hợp này, score function cho biết càng xa khỏi vịtrí x0 càng có trịtuyệt đối lớn hơn,
+với độrộng của phân phối σ và thời gian t làm mẫu số. Điều này phản ánh sựlan truyền rộng và
+chậm của phân phối trong thời gian.
+22
+AI VIETNAM
+aivietnam.edu.vn
+15.4.2
+1D OU process from a point mass
+Trong 1D OU process với điều kiện ban đầu là Delta function tại x0 .
+1D OU Process with Delta Function Initial Condition
+p(x, t) =
+1
+p
+2πs(t)2 exp
+
+−[x −µ(t)]2
+2s(t)2
+
+.
+(53)
+Trong đó:
+• p(x, t) là xác suất phân phối tại x và thời điểm t cho 1D OU process.
+• x0 là vịtrí ban đầu của Delta Function.
+• µ(t) và s(t) là giá trịkỳvọng và độlệch chuẩn của OU process tại thời điểm t.
+Score Function for the 1D OU Process
+s(x, t) = ∂
+∂x log p(x, t) = −[x −µ(t)]
+s(t)2
+.
+(54)
+Trong đó:
+• s(x, t) là score function cho 1D OU process, được tính bằng cách lấy đạo hàm riêng theo x của
+logarithm của p(x, t).
+• Score function mô tảsựthay đổi của logarithm của phân phối theo x tại mỗi điểm x và thời điểm
+t.
+• Trong trường hợp này, score function cho biết càng xa khỏi giá trịkỳvọng µ(t), càng có giá trị
+tuyệt đối lớn hơn, với độlệch chuẩn s(t) làm mẫu số. Điều này phản ánh tính chất của OU process,
+nơi xác suất của sựbiến động ngẫu nhiên tăng lên khi x cách xa giá trịkỳvọng.
+15.4.3
+1D diffusion from a Gaussian mixture
+Ta có 1D Gaussian mixture với M mixture components:
+p0(x) =
+M
+X
+j=1
+wj
+1
+q
+2πs2
+j
+exp
+(
+−[x −µj]2
+2s2
+j
+)
+(55)
+Xác Suất Sau Quá Trình Diffusion
+p(x, t) =
+Z ∞
+−∞
+p(x, t|x0, 0)p0(x0) dx0
+=
+M
+X
+j=1
+wj
+1
+q
+2π(s2
+j + σ2t)
+exp
+(
+−[x −µj]2
+2(s2
+j + σ2t)
+)
+.
+(56)
+Trong đó:
+• p(x, t) là xác suất phân phối tại vịtrí x và thời điểm t sau quá trình diffusion từđiều kiện ban
+đầu là hỗn hợp Gaussian p0(x0).
+• Đoạn tích phân trên là tích phân qua tất cảcác điều kiện ban đầu có thể, mỗi điều kiện ban đầu
+được đánh trọng sốbởi p0(x0).
+23
+AI VIETNAM
+aivietnam.edu.vn
+• Kết quảlà một tổng của các Gaussian với trung bìnhµj và độlệch chuẩn s2
+j + σ2t.
+Score Function Tương Ứng
+s(x) = ∂
+∂x log p(x, t) = −
+1
+p(x, t)
+M
+X
+j=1
+wj
+(x −µj)
+s2
+j + σ2t
+1
+q
+2π(s2
+j + σ2t)
+exp
+(
+−[x −µj]2
+2(s2
+j + σ2t)
+)
+.
+(57)
+Trong đó:
+• s(x) là score function, là đạo hàm riêng theo x của logarit của xác suất p(x, t).
+• Tổhợp của các thành phần của s(x) là tổng trọng sốcủa các đạo hàm riêng theo x của các thành
+phần Gaussian trong mixture.
+• Score function thường được sửdụng trong các mô hình generative đểhọc xác suất và tạo dữliệu
+mới
+15.5
+Learning the score function
+Bây giờchúng ta sẽthửước lượng tham sốθ của score function sθ(x, t) trong bối cảnh của mô hình
+generative.
+Hàm Mục Tiêu Ban Đầu
+J(θ)
+?:= 1
+2
+Z
+dxdt [sθ(x, t) −∇x log p(x, t)]2 .
+(58)
+Trong đó:
+• J(θ) là hàm mục tiêu ban đầu dựa trên việc so sánh score function xấp xỉsθ(x, t) với đạo hàm
+của log xác suất p(x, t) theo x
+• Tuy nhiên, hàm này không ưu tiên bất kỳgiá trịcụthểnào của x hơn các giá trịkhác.
+Đểgiải quyết điều này chúng ta cần một sựđiều chỉnh nhỏlà:
+J(θ)
+?:= 1
+2
+Z
+dxdt p(x, t) [sθ(x, t) −∇x log p(x, t)]2 .
+(59)
+Trong đó:
+• Trọng sốp(x, t) giúp ưu tiên việc xấp xỉscore function cho các giá trịx mà có xác suất cao.
+• Tuy nhiên, việc ước lượng đạo hàm của logp(x, t) có thểkhó khăn do phụthuộc mạnh mẽvào
+p(x, 0) (xác suất ban đầu).
+Thêm Trọng SốTheo Thời Gian
+Jnaive(θ) := 1
+2
+Z
+dxdt λ(t) p(x, t) [sθ(x, t) −∇x log p(x, t)]2 .
+(60)
+Trọng sốthời gian λ(t) được thêm vào đểcó thểxửlý sựthay đổi vềquy mô của độlệch từscore
+function chính xác. Trọng sốnày giúp xửlý việc quy mô của độlệch có thểthay đổi theo thời gian.
+Vấn Đềvới Hàm Mục Tiêu Điều Chỉnh
+• Khó khăn trong việc ước lượng đạo hàm của logp(x, t) do phụthuộc mạnh mẽvào p(x, 0).
+24
+AI VIETNAM
+aivietnam.edu.vn
+• Không biết phân phối mục tiêu, điều này là lý do chính trong quá trình học của model.
+Giải Pháp: Hàm Mục Tiêu Thay ThếMột hàm mục tiêu thay thếđược giới thiệu đểgiải quyết
+vấn đềước lượng đạo hàm với việc sửdụng xác suất chuyển tiếp p(x, t|x(0), 0) đểgiảm khảnăng khó
+khăn trong việc ước lượng đạo hàm của logp(x, t).
+Hàm mục tiêu mới là:
+Jmod(θ) := 1
+2
+Z
+dxdx(0)dt p(x, t|x(0), 0)p(x(0))
+h
+sθ(x, t) −∇x log p(x, t|x(0), 0)
+i2
+.
+(61)
+Điều này dẫn đến hai hàm mục tiêu là giống nhau, tính theo θ với một hằng sốcộng.
+Sau đây là quá trình tính đạo hàm của hai hàm naive và mod theo bộtham sốθ.
+∇θJnaive(θ) =
+Z
+dxdt p(x, t) [sθ(x, t) −∇x log p(x, t)] · ∇θsθ(x, t)
+=
+Z
+dxdt p(x, t)
+
+sθ(x, t) −∇xp(x, t)
+p(x, t)
+
+· ∇θsθ(x, t)
+=
+Z
+dxdt [ p(x, t) sθ(x, t) −∇xp(x, t) ] · ∇θsθ(x, t)
+=
+Z
+dxdx(0)dt p(x(0))
+h
+p(x, t|x(0), 0) sθ(x, t) −∇xp(x, t|x(0), 0)
+i
+· ∇θsθ(x, t)
+=
+Z
+dxdx(0)dt p(x, t|x(0), 0)p(x(0))
+h
+sθ(x, t) −∇x log p(x, t|x(0), 0)
+i
+· ∇θsθ(x, t)
+(62)
+∇θJmod(θ) =
+Z
+dxdx(0)dt p(x, t|x(0), 0)p(x(0))
+h
+sθ(x, t) −∇x log p(x, t|x(0), 0)
+i
+· ∇θsθ(x, t) .
+(63)
+Đạo hàm của Jmod(θ) được tính tương tựnhư Jnaive(θ) nhưng sửdụng xác suất chuyển tiếp có điều
+kiện p(x, t|x(0), 0) thay vì xác suất p(x, t). Cuối cùng biểu thức cho cảhai đạo hàm là giống nhau, chỉ
+khác nhau ởmột hằng sốcộng.
+Việc xây dựng hàm mục tiêu J(θ) đểtối ưu hóa trong bối cảnh ước lượng đạo hàm của xác suất
+chuyển tiếp.
+J(θ) := 1
+2
+Z
+dxdx(0)dt p(x, t|x(0), 0)p(x(0))
+h
+sθ(x, t) −∇x log p(x, t|x(0), 0)
+i2
+= 1
+2Et
+n
+λ(t) Ex(0)Ex|x(0)
+h
+∥sθ(x, t) −∇x log p(x, t|x(0), 0) ∥2
+2
+i o
+.
+(64)
+Trong đó:
+• Hàm mục tiêu J(θ) là một hàm của bộtham sốθ.
+• Nó bao gồm một phần tích phân trên không gian x và x(0) cũng như qua thời gian t.
+• p(x, t|x(0), 0) là xác suất chuyển tiếp có điều kiện, p(x(0)) là xác suất ban đầu, và sθ(x, t) là hàm
+điểm sốđược tham sốhóa.
+Giải thích biểu thức:
+• Phần đầu của J(θ) tính tổng trung bình của bình phương sựchênh lệch giữa score function thực
+tếvà đạo hàm của log xác suất chuyển tiếp có điều kiện theo x(0).
+25
+AI VIETNAM
+aivietnam.edu.vn
+• Phần thứhai của J(θ) diễn giải lại phần đầu với kỳvọng theo thời gian t và các kỳvọng xác suất
+ban đầu và xác suất chuyển tiếp có điều kiện theo x(0) và x.
+Chúng ta có một sốchú ý sau:
+• E là ký hiệu cho kỳvọng theo thời gian t và Ex(0) và Ex|x(0) là ký hiệu cho kỳvọng theo xác suất
+ban đầu và xác suất chuyển tiếp có điều kiện.
+• λ(t) là một hệsốtrọng sốcó thểthay đổi theo thời gian, giúp điều chỉnh độquan trọng của các
+khoảng thời gian khác nhau trong việc ước lượng gradient.
+• ||.||2 là norm L2 và ∥sθ(x, t) −∇x log p(x, t|x(0), 0) ∥2
+2
+là bình phương của khoảng cách giữa hai
+vector.
+• Việc sửdụng đạo hàm của log xác xuất chuyển tiếp có điều kiện thay vì xác suất chuyển tiếp trực
+tiếp giúp giảm độphức tạp khi tính đạo hàm.
+15.6
+Approximating the objective function using samples
+Đểtính xấp xỉcho objective function chúng ta sửdụng kỳvọng và Monte Carlo.
+• Khi hàm mục tiêu được viết dưới dạng kỳvọng, nó gợi ý vềmột chiến lược rõ ràng đểxấp xỉnó
+bằng cách sửdụng mẫu (Monte Carlo).
+• Đưa ra một mẫu x(0) từphân phối mục tiêu.
+Các bước xấp xỉ:
+• Lấy một mẫu thời gian t theo phân phối đồng đều từkhoảng [0, T].
+• Sửdụng kiến thức vềxác suất chuyển tiếp đểlấy mẫu x gần bằng với xác suất p(x, t|x(0), 0)
+• Sửdụng kiến thức vềxác suất chuyển tiếp đểđánh giá ∇x log p(x, t|x(0), 0)
+Ta có Approximating the objective function:
+J(θ) ≈1
+2λ(t)
+h
+sθ(x, t) −∇x log p(x, t|x(0), 0)
+i2
+.
+(65)
+Nếu có một Batch S, ta có thểxấp xỉhàm mục tiêu bằng cách lặp lại quy trình với mỗi mẫu và xây
+dựng hàm xấp xỉnhư sau:
+J(θ) ≈1
+2S
+S
+X
+j=1
+λ(tj)
+h
+sθ(xj, tj) −∇x log p(xj, t|x(0)
+j , 0)
+i2
+.
+(66)
+Trong trường hợp cụthểcủa quá trình ngẫu nhiên, log xác suất chuyển tiếp (transition probability)
+có dạng đơn giản, giúp giảm độphức tạp khi tính toán đạo hàm.
+p(x, t|x(0), 0) =
+1
+hp
+2πσ2(t)
+iN exp
+(
+−
+
+x −x(0)2
+2σ2(t)
+)
+,
+(67)
+∇x log p(x, t|x(0), 0) = −
+
+x −x(0)
+σ2(t)
+.
+- Hết -
+26

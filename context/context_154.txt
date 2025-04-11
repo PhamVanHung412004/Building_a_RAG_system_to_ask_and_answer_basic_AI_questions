@@ -1,0 +1,759 @@
+Model Generalization
+Year 2023
+Quang-Vinh Dinh
+Ph.D. in Computer Science
+AI VIETNAM
+All-in-One Course
+Cifar-10 dataset
+(complex dataset)
+airplane
+automobile
+bird
+cat
+deer
+dog
+frog
+horse
+ship
+truck
+Network Training
+Color images
+Resolution=32x32
+Training set: 50000 samples
+Testing set: 10000 samples
+Model Generalization
+Cifar-10   
+ Dataset
+AI VIETNAM
+All-in-One Course
+(3x3) Convolution
+padding=‘same’
+stride=1 + ReLU
+(2x2) max pooling
+Dense Layer-10
++ Softmax
+Flatten
+Dense Layer-512
++ ReLU
+input
+(3,32,32)
+(32,16,16)
+(64,8,8)
+(256,2,2)
+output
+(128,4,4)
+Data Normalization
+(convert to 0-mean 
+and 1-deviation)
+ത𝑋= 𝑋−𝜇
+𝜎
+𝜇= 1
+𝑛෍
+𝑖
+𝑋𝑖
+𝜎=
+1
+𝑛෍
+𝑖
+𝑋𝑖−𝜇2
+Aim to reduce this gap 
+Adam lr=1e-3 ; He Init
+2
+Training
+Testing
+1
+2
+3
+4
+Robustly fit
+Overfit
+3
+Model Generalization
+❖ Trick 1: ‘Learn hard ’ – randomly add noise to training data
+AI VIETNAM
+All-in-One Course
+4
+Model Generalization
+❖ Trick 1: ‘Learn hard ’ – randomly add noise to training data
+AI VIETNAM
+All-in-One Course
+Speed-limit 
+sign detection
+5
+Model Generalization
+❖ Trick 1: ‘Learn hard ’ – randomly add noise to training data
+AI VIETNAM
+All-in-One Course
+In PyTorch
+Add noise
+6
+Model Generalization
+❖ Trick 1: ‘Learn hard ’ – randomly add noise to training data
+AI VIETNAM
+All-in-One Course
+In PyTorch
+Add noise
+val_accuracy increases 
+from ~78% to ~80%
+7
+Network Training
+❖ Solution 2: Batch normalization
+AI VIETNAM
+AI-in-One Course
+𝑋= 𝑋1, … , 𝑋𝑚
+𝑚 is mini-batch size
+𝜇= 1
+𝑚෍
+𝑖=1
+𝑚
+𝑋𝑖
+𝜎2 = 1
+𝑚෍
+𝑖=1
+𝑚
+𝑋𝑖−𝜇2
+෠𝑋𝑖= 𝑋𝑖−𝜇
+𝜎2 + 𝜖
+𝑌𝑖= 𝛾෠𝑋𝑖+ β
+Input data for a node in batch normalization layer
+Compute mean and variance
+Normalize 𝑋𝑖
+Scale and shift ෠𝑋𝑖
+𝜖 is a very small value
+𝛾 and β are two learning parameters
+Batch Normalization
+Do not need bias when using BN
+𝜇 and 𝜎 are updated in forward pass
+𝛾 and β are updated in backward pass
+8
+Network Training
+❖ Trick 2: Batch normalization
+AI VIETNAM
+All-in-One Course
+𝑋= 𝑋1, … , 𝑋𝑚
+𝑚 is mini-batch size
+𝜇= 1
+𝑚෍
+𝑖=1
+𝑚
+𝑋𝑖
+𝜎2 = 1
+𝑚෍
+𝑖=1
+𝑚
+𝑋𝑖−𝜇2
+෠𝑋𝑖= 𝑋𝑖−𝜇
+𝜎2 + 𝜖
+𝑌𝑖= 𝛾෠𝑋𝑖+ β
+Input data for a node in batch normalization layer
+Compute mean and variance
+Normalize 𝑋𝑖
+Scale and shift ෠𝑋𝑖
+𝜖 is a very small value
+𝛾 and β are two learning parameters
+Batch Normalization
+𝛾=
+𝜎2 + 𝜖 and β = 𝜇
+What if
+8
+Network Training
+Trick 2: Batch normalization
+𝑋= 𝑋1, … , 𝑋𝑚
+𝑚 is mini-batch size
+𝜇= 1
+𝑚෍
+𝑖=1
+𝑚
+𝑋𝑖
+𝜎2 = 1
+𝑚෍
+𝑖=1
+𝑚
+𝑋𝑖−𝜇2
+෠𝑋𝑖= 𝑋𝑖−𝜇
+𝜎2 + 𝜖
+𝑌𝑖= 𝛾෠𝑋𝑖+ β
+Input data for a node in batch normalization layer
+Compute mean and variance
+Normalize 𝑋𝑖
+Scale and shift ෠𝑋𝑖
+𝜖 is a very small value
+𝛾 and β are two learning parameters
+𝑋𝑈=
+1
+3
+9
+4
+6
+7
+𝑋𝑉=
+6
+4
+7
+5
+6
+2
+𝜇𝑉= 5.0
+𝜎𝑉
+2 = 1.63
+𝜖= 10−5
+𝛾𝑉= 1.0
+β𝑉= 0.0
+𝜇𝑈= 5.0
+𝜎𝑈
+2 = 2.64
+𝛾𝑈= 1.0
+β𝑈= 0.0
+෡𝑈=
+−1.51
+−0.75
+1.51
+−0.37
+0.37
+0.75
+෠𝑉=
+0.61
+−0.61
+1.22
+0.0
+0.61
+−1.83
+𝑌𝑈=
+−1.51
+−0.75
+1.51
+−0.37
+0.37
+0.75
+𝑌𝑉=
+0.61
+−0.61
+1.22
+0.0
+0.61
+−1.83
+𝛾 and β are updated in training process
+10
+Network Training
+W
+H
+C
+…
+B
+❖ Trick 2: Batch normalization for 2D data
+Compute C means of H*W*B values
+Compute C variances of H*W*B values
+AI VIETNAM
+All-in-One Course
+11
+Network Training
+𝜖= 10−5
+AI VIETNAM
+All-in-One Course
+𝜇= [2.0, 3.0]
+𝜎2 = [4.0, 3.7]
+𝑋=  
+, 
+෠𝑌= …
+batch-size = 2
+sample_shape = (2, 2, 2)
+sample 1 sample 2
+6 4
+5 2
+0 5
+3 0
+2 3
+0 2
+1 4
+3 0
+෠𝑋=  
+, 
+sample 1 sample 2
+1.6 
+0.5
+1.1 
+−0.5
+1.6 
+−1.1
+−1.1 
+0.5
+−0.5 1.1
+0.5 
+−1.1
+−0.5 
+0.0
+−1.6 
+−0.5
+𝛾= 1.0
+β = 0.0
+Batch-Norm Layer
+12
+Network Training
+❖ Trick 2: Batch normalization
+AI VIETNAM
+All-in-One Course
+𝑋= 𝑋1, … , 𝑋𝑚
+𝑚 is mini-batch size
+𝜇= 1
+𝑚෍
+𝑖=1
+𝑚
+𝑋𝑖
+𝜎2 = 1
+𝑚෍
+𝑖=1
+𝑚
+𝑋𝑖−𝜇2
+෠𝑋𝑖= 𝑋𝑖−𝜇
+𝜎2 + 𝜖
+𝑌𝑖= 𝛾෠𝑋𝑖+ β
+Input data for a node in batch normalization layer
+Compute mean and variance
+Normalize 𝑋𝑖
+Scale and shift ෠𝑋𝑖
+𝜖 is a very small value
+𝛾 and β are two learning parameters
+Backward
+𝑋𝑖
+𝜇
+𝜎2
+෠𝑋𝑖
+𝑌𝑖
+𝛽
+𝛾
+𝜕𝐿
+𝜕𝑌𝑖
+13
+𝑋𝑖
+𝜇
+𝜎2
+෠𝑋𝑖
+𝑌𝑖
+𝛽
+𝛾
+𝜇= 1
+𝑚෍
+𝑖=1
+𝑚
+𝑋𝑖
+𝜎2 = 1
+𝑚෍
+𝑖=1
+𝑚
+𝑋𝑖−𝜇2
+෠𝑋𝑖= 𝑋𝑖−𝜇
+𝜎2 + 𝜖
+𝑌𝑖= 𝛾෠𝑋𝑖+ β
+𝜕𝐿
+𝜕𝛾= ෍
+𝑖=1
+𝑚𝜕𝐿
+𝜕𝑌𝑖
+෠𝑋𝑖
+𝜕𝐿
+𝜕β = ෍
+𝑖=1
+𝑚𝜕𝐿
+𝜕𝑌𝑖
+𝜕𝐿
+𝜕෠𝑋𝑖
+= 𝜕𝐿
+𝜕𝑌𝑖
+𝛾
+𝜕𝐿
+𝜕𝜎2 = ෍
+𝑖=1
+𝑚𝜕𝐿
+𝜕෠𝑋𝑖
+𝜕෠𝑋𝑖
+𝜕𝜎2 = ෍
+𝑖=1
+𝑚𝜕𝐿
+𝜕෠𝑋𝑖
+𝑋𝑖−𝜇−1
+2
+𝜎2 + 𝜖
+−3
+2
+𝜕𝐿
+𝜕𝜇= ෍
+𝑖=1
+𝑚𝜕𝐿
+𝜕෠𝑋𝑖
+−1
+𝜎2 + 𝜖
+−𝜕𝐿
+𝜕𝜎2
+1
+𝑚෍
+𝑖=1
+𝑚
+2 𝑋𝑖−𝜇
+𝜕𝐿
+𝜕𝑋𝑖
+= 𝜕𝐿
+𝜕෠𝑋𝑖
+𝜕෠𝑋𝑖
+𝜕𝑋𝑖
++ 𝜕𝐿
+𝜕𝜇
+𝜕𝜇
+𝜕𝑋𝑖
++ 𝜕𝐿
+𝜕𝜎2
+𝜕𝜎2
+𝜕𝑋𝑖
+𝜕෠𝑋𝑖
+𝜕𝑋𝑖
+=
+1
+𝜎2 + 𝜖
+𝜕𝜇
+𝜕𝑋𝑖
+= 1
+𝑚
+𝜕𝜎2
+𝜕𝑋𝑖
+= 2 𝑋𝑖−𝜇
+𝑚
+𝜕𝐿
+𝜕𝑌𝑖
+14
+Model Generalization
+❖ Trick 2: Batch normalization
+AI VIETNAM
+All-in-One Course
+𝑋= 𝑋1, … , 𝑋𝑚
+𝑚 is mini-batch size
+𝜇= 1
+𝑚෍
+𝑖=1
+𝑚
+𝑋𝑖
+𝜎2 = 1
+𝑚෍
+𝑖=1
+𝑚
+𝑋𝑖−𝜇2
+෠𝑋𝑖= 𝑋𝑖−𝜇
+𝜎2 + 𝜖
+𝑌𝑖= 𝛾෠𝑋𝑖+ β
+Input data for a node in batch normalization layer
+Compute mean and variance
+Normalize 𝑋𝑖
+Scale and shift ෠𝑋𝑖
+𝜖 is a very small value
+𝛾 and β are two learning parameters
+mini-batch 1
+mini-batch 2
+𝜇1, 𝜎1  ≠
+𝜇2, 𝜎2
+very
+likely
+Add noise to the output of BN layers
+15
+Model Generalization
+❖ Trick 2: Batch normalization
+(3x3) Convolution
+padding=‘same’
+stride=1 + ReLU
+(2x2) max pooling
+Dense Layer-10
++ Softmax
+Flatten
+Dense Layer-512
++ ReLU
+Batch 
+normalization
+input
+(3,32,32)
+(32,16,16)
+(64,8,8)
+(128,4,4)
+(256,2,2)
+output
+val_accuracy increases from ~80.9% to ~84%
+16
+Model Generalization
+❖ Trick 3: Dropout
+AI VIETNAM
+All-in-One Course
+layer 𝑖
+layer 𝑗
+Apply dropout 50% to layer 𝑖
+~50% nodes randomly selected in the 𝑖𝑡ℎ layer are 
+set to zeros (kind of noise adding)
+17
+Model Generalization
+❖ Trick 3: Dropout
+AI VIETNAM
+All-in-One Course
+Apply dropout 50% to layer 𝑖
+~50% nodes randomly selected in 
+the 𝑖𝑡ℎ layer are set to zeros
+𝑎= 𝐷⨀𝜎𝑍
+𝜕𝐿
+𝜕𝜎= 𝜕𝐿
+𝜕𝑎
+𝜕𝑎
+𝜕𝜎= 𝜕𝐿
+𝜕𝑎× 𝐷
+18
+Overfitting
+AI VIETNAM
+All-in-One Course
+Dropout
+Given a dropping rate r
+Randomly sets input units to 0 with 
+a frequency of r
+Only applying in training mode
+𝑠𝑐𝑎𝑙𝑒=
+1
+1 −𝑟
+19
+Model Generalization
+❖ Trick 3: Dropout
+AI VIETNAM
+All-in-One Course
+Apply dropout 50% to layer 𝑖
+~50% nodes randomly selected in 
+the 𝑖𝑡ℎ layer are set to zeros
+https://deepnotes.io/dropout
+20
+Model Generalization
+❖ Trick 3: Dropout
+AI VIETNAM
+All-in-One Course
+Dropout
+val_accuracy 
+increases from 
+~84% to ~86.6%
+input
+(3,32,32)
+(32,16,16)
+(64,8,8)
+(128,4,4)
+(256,2,2)
+output
+dropout 30%
+dropout 30%
+dropout 30%
+dropout 30%
+Model Generalization
+❖ Trick 4: Kernel regularization
+AI VIETNAM
+All-in-One Course
+𝐿= 𝑐𝑟𝑜𝑠𝑠𝑒𝑛𝑡𝑟𝑜𝑝𝑦 + 𝜆𝑊2
+𝐿2regularization
+Prevent network from 
+focusing on specific features
+In PyTorch
+Smaller weights 
+→ simpler models
+22
+Model Generalization
+❖ Trick 4: Kernel regularizer
+AI VIETNAM
+All-in-One Course
+val_accuracy 
+increases from 
+~86.6% to ~87.5%
+Dropout
+(3x3) Convolution
+padding=‘same’
+stride=1 + ReLU +
+kernel regularization
+input
+(3,32,32)
+(32,16,16)
+(64,8,8)
+(128,4,4)
+(256,2,2)
+output
+dropout 30%
+dropout 30%
+dropout 30%
+dropout 30%
+23
+Model Generalization
+❖ Trick 5: Data augmentation
+AI VIETNAM
+All-in-One Course
+Data distribution
+Training data
+Testing data
+Image
+Image
+A perfect case: Have unlimited training
+A normal case
+Training data cover the whole distribution
+But, impractical!!!
+Model Generalization
+❖ Trick 5: Data augmentation
+AI VIETNAM
+All-in-One Course
+horizontal 
+flip
+rotate
+crop and 
+resize
+Data distribution
+Training data
+Testing data
+Image
+Augmented training data
+Increase data by altering the training data
+25
+Model Generalization
+❖ Trick 5: Data augmentation
+AI VIETNAM
+All-in-One Course
+Horizontal flip + crop-and-resize
+val_accuracy reaches to ~90.6%
+26
+Model Generalization
+❖ What we have
+AI VIETNAM
+All-in-One Course
+Horizontal flip + crop-and-resize
+val_accuracy reaches to ~90.6%
+Batch normalization
+Dropout
+Kernel regularization
+Data augmentation
+train_accuracy reaches to ~92%
+Idea: try to increase train_accuracy, 
+expect val_accuracy increases too
+Increase model capacity
+27
+Optimization
+❖ Learning rate
+28
+Optimization
+❖ Learning rate
+29
+Model Generalization
+❖ Trick 6: Reduce learning rate
+AI VIETNAM
+All-in-One Course
+𝜂= 𝜂0 × 𝛾𝑒𝑝𝑜𝑐ℎ
+30
+Model Generalization
+❖ Trick 6: Reduce learning rate
+AI VIETNAM
+All-in-One Course
+val_accuracy reaches to ~90.6%
+train_accuracy reaches to ~98%
+31
+Model Generalization
+❖ Discussion: Predict training and test accuracy when using more data augmentation 
+AI VIETNAM
+All-in-One Course
+horizontal 
+flip
+rotate
+crop and 
+resize
+Add noise
+32
+Model Generalization
+❖ Trick 7: Increase model capacity (and use more data augmentation)
+AI VIETNAM
+All-in-One Course
+input
+(3,32,32)
+(64,16,16)
+(128,8,8)
+(256,4,4)
+(512,2,2)
+output
+val_accuracy reaches to ~93%
+train_accuracy reaches to ~96%
+33
+Model Generalization
+❖ Trick 8: Using skip-connection
+AI VIETNAM
+All-in-One Course
+input
+(3,32,32)
+(64,16,16)
+(128,8,8)
+(256,4,4)
+(512,2,2)
+output
++
++
++
++
+(3x3) Convolution
+padding=‘same’
+stride=1 + ReLU
+(2x2) max pooling
+Dense Layer-10
++ Softmax
+Flatten
+Dense Layer-512
++ ReLU
+(3x3) Convolution
+padding=‘same’
+stride=2 + ReLU
+34
+Model Generalization
+❖ Trick 8: Using skip-connection
+AI VIETNAM
+All-in-One Course
+val_accuracy reaches to ~93%
+train_accuracy reaches to ~97%
+35
+Model Generalization
+❖ Increase model capacity once more 
+AI VIETNAM
+All-in-One Course
+input
+(3,32,32)
+(128,16,16)
+(256,8,8)
+(512,4,4)
+(1024,2,2)
+output
++
++
++
++
+(3x3) Convolution
+padding=‘same’
+stride=1 + ReLU
+(2x2) max pooling
+Dense Layer-10
++ Softmax
+Flatten
+Dense Layer-512
++ ReLU
+(3x3) Convolution
+padding=‘same’
+stride=2 + ReLU
+36
+Model Generalization
+❖ Increase model capacity once more 
+AI VIETNAM
+All-in-One Course
+val_accuracy reaches to ~94.5%
+train_accuracy reaches to ~98.3%
+37
+Summary
+❖ How to increase validation accuracy
+AI VIETNAM
+All-in-One Course
+Add noise
+Trick 1: ‘Learn hard ’ – randomly 
+add noise to training data
+෠𝑋𝑖= 𝑋𝑖−𝜇
+𝜎2 + 𝜖
+Trick 2: 
+Using Batch Normalization
+Trick 3: Using Dropout
+𝐿= 𝐶𝐸 + 𝜆𝑊2
+𝐿2regularization
+Trick 4: Kernel regularization
+Trick 5: Data augmentation
+(*) Use Pretrained Models

@@ -1,5 +1,0 @@
-AI VIETNAM aivietnam.edu.vn
-(c) [EOS] token
-(d) Final token
-11. Trong các vector database như Faiss, kỹ thuật nào thường được sử dụng để tối ưu hiệu quả tìm
-kiếm trên dữ liệu đa chiều?

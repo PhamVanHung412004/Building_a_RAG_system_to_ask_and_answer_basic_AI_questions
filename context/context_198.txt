@@ -1,0 +1,307 @@
+Object Detection
+TA Hùng An
+AI VIETNAM
+All-in-One Course
+Nội dung
+1.
+Một số thao tác EDA data cho bài bài toán Object Detection 
+2.
+Intersection Over Union
+3.
+Non Maximum Suppression
+4.
+Mean Average Precision
+5.
+VOC2007 Dataset
+6.
+YOLO-v1
+7.
+Faster-RCNN
+AI VIETNAM
+All-in-One Course
+1 - Một số thao tác EDA data 
+Khi tiếp cận một bài toán AI nói chung hay bài toán Object Detection nói riêng thì việc tìm hiểu và nắm bắt được 
+dữ liệu là một điều quan trọng để có được chiến lược tiếp cận bài toán và xây dựng model một cách hiệu quả
+AI VIETNAM
+All-in-One Course
+1 - Một số thao tác EDA data 
+1 - Khảo sát thông tin của ảnh trong bộ dữ liệu 
+AI VIETNAM
+All-in-One Course
+Một trong những thông tin cơ bản và cần ưu tiên nắm bắt đó là kích thước của ảnh.
+ Chúng ta cần biết được toàn bộ ảnh trong dataset có cùng chung kích thước hay không 
+1 - Một số thao tác EDA data 
+2 - Thống kê số lượng bounding box (đối tượng cần phát hiện) trong ảnh
+AI VIETNAM
+All-in-One Course
+Thông tin cần tìm hiểu trong dataset đó là số lượng bounding box trong một ảnh (mật độ xuất hiện).
+Đây là thông tin hữu ích để chúng ta biết được dữ liệu bài toán có phải là một dạng “Crowded Scenes” hay không? 
+1 - Một số thao tác EDA data 
+3 - Thống kê về kích thước của bounding box
+AI VIETNAM
+All-in-One Course
+Thông tin về kích thước của bounding box trong dataset giúp chúng ta thống kê được phân phối về kích thước của đối 
+tượng trong ảnh. Với những số liệu này chúng ta có thể đưa ra được kết luận được việc xử lý “small object” hay không? 
+1 - Một số thao tác EDA data 
+3 - Thống kê về kích thước của bounding box
+AI VIETNAM
+All-in-One Course
+Đối với việc thống kê thì chúng ta cần thể hiện số liệu dưới dạng chart để có được cái nhìn tổng quan hơn.
+1 - Một số thao tác EDA data 
+4 - Thống kê số lượng Object trong từng class
+AI VIETNAM
+All-in-One Course
+Việc xử lý dữ liệu mất cân bằng không chỉ là vấn đề của bài toán Classification mà cũng là vấn đề của bài toán Detection.
+2 - Intersection Over Union 
+Với Bounding Box màu đỏ là Ground Truth và Bounding Box màu xanh là kết quả dự đoán của model.
+Chúng ta hãy nhận xét kết quả dự đoán của 3 model tương ứng với 3 ảnh bên dưới.
+AI VIETNAM
+All-in-One Course
+Cần một metric để có thể đánh giá được đâu là model tốt nhất 
+trong 3 model trên.
+2 - Intersection Over Union 
+AI VIETNAM
+All-in-One Course
+IOU là một metric phù hợp để đánh giá model khi:
+-
+Dự đoán là sai khi model không dự đoán được đối tượng bên trong vùng 
+Ground Truth.
+-
+Kết quả dự đoán tràn (overflow) khỏi vùng Ground Truth. 
+Intersection Over Union (IOU) là chỉ số đánh giá độ chính xác của model Object Detection trên một bộ dữ liệu cụ thể. 
+Được xác định bởi tỷ lệ giữa vùng “overlap" và vùng “combine" giữa kết quả dự đoán của model và Ground Truth.
+2 - Intersection Over Union 
+Intersection Over Union (IOU) là chỉ số đánh giá độ chính xác của model Object Detection trên một bộ dữ liệu cụ thể. 
+Được xác định bởi tỷ lệ giữa vùng “overlap" và vùng “combine" giữa kết quả dự đoán của model và Ground Truth
+AI VIETNAM
+All-in-One Course
+3 - Non Maximum Suppression 
+Non Maximum Suppression (NMS) là một bước hậu xử lý mà hầu hết các thuật toán Object Detection sau này 
+đều sử dụng. Mục tiêu của NMS là  lựa chọn một bounding box thích hợp nhất cho đối tượng. 
+AI VIETNAM
+All-in-One Course
+3 - Non Maximum Suppression 
+NMS tính theo 2 tiêu chí:
+-
+Objectiveness score được trả về bởi model 
+-
+Overlap hoặc IOU giữa các bounding box.
+AI VIETNAM
+All-in-One Course
+Đầu tiên NMS lựa chọn bounding box có scores cao nhất 
+(Lựa chọn bounding box màu xanh cho 2 đối tượng 
+cls-chó và cls-người)
+Sau đó loại bỏ những bounding box overlap với nó.
+(Loại bỏ các bounding màu vàng và màu đỏ)
+3 - Non Maximum Suppression 
+NMS tính theo 2 tiêu chí:
+-
+Objectiveness score được trả về bởi model 
+-
+Overlap hoặc IOU giữa các bounding box.
+AI VIETNAM
+All-in-One Course
+3 - Non Maximum Suppression 
+Các bước xử lý của NMS:
+1.
+Lựa chọn bounding box với score cao nhất
+2.
+Sau đó so sánh IOU giữa bounding box đã chọn 
+và các bounding còn lại
+3.
+Loại bỏ các bounding box có IOU lớn hơn 50%
+4.
+Tiếp tục với bounding box có score lớn hơn
+5.
+Lặp lại các bước từ 2-4
+AI VIETNAM
+All-in-One Course
+3 - Non Maximum Suppression 
+AI VIETNAM
+All-in-One Course
+4 - Mean Average Precision 
+Average Precision - AP là giá trị trung bình trên nhiều IOU. AP@[0.5:0.95] tương ứng cho AP trung bình cho IOU 
+từ 0.5 đến 0.95 với step là 0.05. Đối với tập dữ liệu COCO AP là mức trung bình trên 9 mức IOU 
+(AP@[0.5:0.05:0.95]) bắt đầu từ 0.05 đến 0.95 với step là 0.05 
+AI VIETNAM
+All-in-One Course
+4 - Mean Average Precision 
+Mean Average Precision - mAP là mức trung bình của AP. Được tính theo 2 bước:
+1.
+Tính Average Precision cho mỗi class
+2.
+Tính mAP
+AI VIETNAM
+All-in-One Course
+Yolo-V3 mAP
+5 - VOC2007 Dataset
+AI VIETNAM
+All-in-One Course
+●
+Person: person
+●
+Animal: bird, cat, cow, dog, 
+horse, sheep
+●
+Vehicle: aeroplane, bicycle, 
+boat, bus, car, motorbike, train
+●
+Indoor: bottle, chair, dining 
+table, potted plant, sofa, 
+tv/monitor
+5 - VOC2007 Dataset
+AI VIETNAM
+All-in-One Course
+5 - VOC2007 Dataset
+AI VIETNAM
+All-in-One Course
+bounding_boxes
+https://www.kaggle.com/datasets/aladdinpersson/pascalvoc-yolo
+class_id
+bounding_boxes
+class_id
+5 - VOC2007 Dataset
+AI VIETNAM
+All-in-One Course
+Model
+x1, y1, w1, h1
+x2, y2, w2, h2
+image
+ground truth
+x1, y1, w1, h1
+x2, y2, w2, h2
+prediction
+loss function 
+(minimize)
+6 - Yolo v1
+AI VIETNAM
+All-in-One Course
+YOLO sử dụng một mạng neural duy nhất cho toàn bộ quá trình: dự đoán bounding box và xác suất của lớp trực tiếp 
+từ hình ảnh đầy đủ trong một lần đánh giá.
+6 - Yolo v1
+AI VIETNAM
+All-in-One Course
+6 - Yolo v1
+AI VIETNAM
+All-in-One Course
+YOLOv1 output 7x7x30:
+●
+2 boxes for each grid cell
+○
+each box contain: x, y, w, h, and confidence score
+●
+20 classes of VOC dataset
+Output
+6 - Yolo v1
+AI VIETNAM
+All-in-One Course
+Output
+6 - Yolo v1
+AI VIETNAM
+All-in-One Course
+Yolo Loss
+6 - Yolo v1
+AI VIETNAM
+All-in-One Course
+Yolo Loss
+6 - Yolo v1
+AI VIETNAM
+All-in-One Course
+Yolo Loss
+6 - Yolo v1
+AI VIETNAM
+All-in-One Course
+Yolo Loss
+6 - Yolo v1
+AI VIETNAM
+All-in-One Course
+1.
+Phạt lỗi vị trí (x, y) của bounding box.
+2.
+Phạt lỗi bounding box sai height và width. 
+3.
+Kéo giá trị confidence gần 1 khi có object trong cell đó.
+4.
+Kéo giá trị confidence gần 0 khi không có object trong cell đó.
+5.
+hàm loss classification đơn giản.
+6 - Yolo v1
+AI VIETNAM
+All-in-One Course
+YOLO chuyển đổi việc phát hiện đối tượng thành một vấn đề hồi quy đơn lẻ, trực tiếp từ điểm ảnh hình ảnh đến tọa 
+độ bounding box và xác suất của lớp.
+6 - Yolo v1
+AI VIETNAM
+All-in-One Course
+Trong quá trình dự đoán, YOLO chỉ yêu cầu một lần đánh giá mạng trên mỗi hình ảnh.
+6 - Yolo v1
+AI VIETNAM
+All-in-One Course
+Hạn chế về ràng buộc không gian: YOLO áp đặt ràng buộc không gian mạnh mẽ trên dự đoán bounding box, hạn 
+chế số lượng đối tượng gần kề mà nó có thể dự đoán. Khó khăn với các đối tượng nhỏ, trong nhóm/cụm.
+6 - Yolo v1
+AI VIETNAM
+All-in-One Course
+-
+Lỗi vị trí xảy ra khi YOLO dự đoán bounding box không 
+chính xác xung quanh đối tượng. Điều này có thể bao 
+gồm việc bounding box, quá nhỏ, hoặc không đúng vị trí.
+-
+YOLO sử dụng một phương pháp hồi quy trực tiếp từ 
+điểm ảnh hình ảnh đến tọa độ bounding box và xác suất 
+của lớp, điều này có thể làm tăng khả năng xuất hiện lỗi 
+vị trí.
+-
+Lỗi nền xảy ra khi một hệ thống phát hiện sai phần nền 
+của hình ảnh là một đối tượng. YOLO có xu hướng gây 
+ra ít kết quả false positives do lỗi nền, nhờ cách tiếp cận 
+toàn cục khi xét toàn bộ hình ảnh.
+6 - Yolo v1
+AI VIETNAM
+All-in-One Course
+ YOLO còn được sử dụng để tăng cường phát hiện cho Fast R-CNN bằng cách loại bỏ phát hiện nền, có một sự tăng 
+hiệu suất đáng kể. Cách tiếp cận kết hợp này cho thấy sức mạnh bổ sung của hai mô hình.
+6 - Yolo v1
+AI VIETNAM
+All-in-One Course
+ YOLO còn được sử dụng để tăng cường phát hiện cho Fast R-CNN bằng cách loại bỏ phát hiện nền, có một sự tăng 
+hiệu suất đáng kể. Cách tiếp cận kết hợp này cho thấy sức mạnh bổ sung của hai mô hình.
+AI VIETNAM
+All-in-One Course
+7 - Faster-RCNN
+1.
+Region proposal network (RPN)
+AI VIETNAM
+All-in-One Course
+7 - Faster-RCNN
+2.
+Faster R-CNN (RPN + Fast R-CNN)
+Input: 600x1000x3
+Output:
+class: NxC
+bbox: NxC*4
+AI VIETNAM
+All-in-One Course
+Feature Extractor
+7 - Faster-RCNN
+AI VIETNAM
+All-in-One Course
+Region Proposal Network
+7 - Faster-RCNN
+AI VIETNAM
+All-in-One Course
+Classifier
+7 - Faster-RCNN
+AI VIETNAM
+All-in-One Course
+Loss function
+7 - Faster-RCNN
+Nội dung
+AI VIETNAM
+All-in-One Course
+Nội dung
+AI VIETNAM
+All-in-One Course
+Nội dung
+AI VIETNAM
+All-in-One Course

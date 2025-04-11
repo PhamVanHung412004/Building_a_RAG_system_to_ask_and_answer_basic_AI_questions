@@ -1,0 +1,177 @@
+VAE-based
+Image Colorization
+Nhu-Tai Do
+Ph.D. in Computer Science
+AI VIETNAM
+All-in-One Course
+Year 2024
+➢VAE Revision
+➢Image Colorization Overview
+➢VAE-based Image Colorization Model
+➢Implementation
+Outline
+Source: Deshpande, A., Lu, J., Yeh, M. C., Jin Chong, M., & Forsyth, D (2017). 
+Learning Diverse Image Colorization.
+In Proceedings of the IEEE conference on CVPR (pp. 6837-6845).
+Implementation
+❖ Review
+7
+AI VIETNAM
+All-in-One Course
+➢VAE Revision
+➢Image Colorization Overview
+➢VAE-based Image Colorization Model
+➢Implementation
+Outline
+Source: Deshpande, A., Lu, J., Yeh, M. C., Jin Chong, M., & Forsyth, D (2017). 
+Learning Diverse Image Colorization.
+In Proceedings of the IEEE conference on CVPR (pp. 6837-6845).
+Implementation
+❖ Review
+7
+AI VIETNAM
+All-in-One Course
+Implementation
+❖ Review
+7
+AI VIETNAM
+All-in-One Course
+MDN Training
+VAE Training
+Colorful Image Colorization (2016) – Richard Zhang
+Implementation
+❖ Review
+7
+AI VIETNAM
+All-in-One Course
+Inference
+Implementation
+❖ Review
+7
+AI VIETNAM
+All-in-One Course
+Basic components 
+in an AI project
+Data Processing
+Model
+Loss Function, Optimizer
+Trainer
+Inference
+Implementation
+❖ Data
+7
+AI VIETNAM
+All-in-One Course
+VAE Training
+MDN Training
+Implementation
+❖ Data
+7
+AI VIETNAM
+All-in-One Course
+7
+MDN Training
+VAE Training
+7
+MDN Training
+VAE Training
+Implementation
+❖ Data: Preprocess
+7
+AI VIETNAM
+All-in-One Course
+Implementation
+❖ Data: Postprocess
+7
+AI VIETNAM
+All-in-One Course
+Implementation
+❖ Models: CVAE
+7
+AI VIETNAM
+All-in-One Course
+Implementation
+❖ Models: CVAE – Encoder Block
+7
+AI VIETNAM
+All-in-One Course
+Implementation
+❖ Models: CVAE – Conditional Encoder Block
+7
+AI VIETNAM
+All-in-One Course
+Implementation
+❖ Models: CVAE – Decoder Block
+7
+AI VIETNAM
+All-in-One Course
+Implementation
+❖ Models: CVAE – Forward
+7
+AI VIETNAM
+All-in-One Course
+Implementation
+❖ Models: Mixture Density Network
+7
+AI VIETNAM
+All-in-One Course
+Implementation
+❖ Models: Mixture Density Network
+7
+AI VIETNAM
+All-in-One Course
+Implementation
+❖ Loss Function: VAE Loss
+7
+AI VIETNAM
+All-in-One Course
+Implementation
+❖ Gaussian Mixture Models (GMM)
+7
+AI VIETNAM
+All-in-One Course
+Source: angusturner.github.io/generative_models
+•
+A mean μ: center of the distribution.
+•
+A covariance Σ: width of the distribution. 
+•
+A mixing probability π: magnitude of the 
+distribution
+Implementation
+❖ Loss Function: MDN Loss
+7
+AI VIETNAM
+All-in-One Course
+Implementation
+❖ Training: Train CVAE
+7
+AI VIETNAM
+All-in-One Course
+Implementation
+❖ Training: Train MDN
+7
+AI VIETNAM
+All-in-One Course
+Implementation
+❖ Training: Inference
+7
+AI VIETNAM
+All-in-One Course
+➢VAE Revision
+➢Image Colorization Overview
+➢VAE-based Image Colorization Model
+➢Implementation
+Outline
+Summary
+✓Studied Variantional Autoencoder
+✓Studied Image Colorization Overview
+✓Studied VAE-based Image Colorization
+GMM
+Pretrained 
+VGG Model
+MDN Model
+VAE
+Decoder
+Conditional 
+VAE Encoder

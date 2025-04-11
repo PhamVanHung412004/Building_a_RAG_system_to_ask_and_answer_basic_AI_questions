@@ -1,0 +1,456 @@
+NLP Project
+Neural Machine Translation
+Year 2023
+AI VIET NAM
+Nguyen Quoc Thai
+AI VIETNAM
+All-in-One Course
+1
+2
+Ø Introduction
+Ø NMT using Transformer
+Ø NMT using Pre-trained LMs
+Outline
+3
+Introduction
+Translate a sentence w(s) in a source language (input) to a sentence w(t) in the 
+target language (output)
+!
+4
+Introduction
+Translate a sentence w(s) in a source language (input) to a sentence w(t) in the 
+target language (output)
+!
+Automatic Speech 
+Recognition (ASR)
+translation of spoken 
+language into text
+Natural Language 
+Understanding (NLU)
+a computer’s ability to 
+understand language
+q Syntax
+q Semantics
+q Phonology
+q Pragmatics
+q Morphology
+Natural Language 
+Generation (NLG)
+generate natural 
+language by a computer
+5
+Introduction
+Translate a sentence w(s) in a source language (input) to a sentence w(t) in the 
+target language (output)
+!
+Ø Can be formulated as an optimization problem:
+!𝑤(") = argmax
+$(")
+𝜃( 𝑤(%), 𝑤(&))
+Where 𝜃is a scoring function over source and target sentences
+Ø Requires two components:
+q Learning algorithm to compute parameters of 𝜃
+q Decoding algorithm for computing the best translation !𝑤(")
+6
+Introduction
+1950
+1980
+1990
+2015
+2007
+7
+Introduction
+Evaluating translation quality
+!
+Ø Human judgement
+q Given: machine translation output
+q Given: source / reference translation
+q Task: assess the quality of machine translation output
+Ø Different translations of “A Vinay le gusta Python”
+8
+Introduction
+Evaluating translation quality
+!
+Ø Two main criteria:
+q Adequacy: Translation w(t) should adequately reflect the linguistic content of w(s)
+q Fluency: Translation w(t) should  be fluent text in the target language
+Ø Different translations of “A Vinay le gusta Python”
+9
+Introduction
+Evaluating translation quality
+!
+Ø Two main criteria:
+q Adequacy: Translation w(t) should adequately reflect the linguistic content of w(s)
+q Fluency: Translation w(t) should  be fluent text in the target language
+Ø Adequacy and fluency:
+Adequacy
+5
+All meaning
+4
+Most meaning
+3
+Much meaning
+2
+Little meaning
+1
+None
+Fluency
+5
+Flawless English
+4
+Good English
+3
+Non-native English
+2
+Disfluent English
+1
+Incomprehensible
+10
+Introduction
+Evaluating Metrics
+!
+Ø Manual evaluation is most accurate, but expensive
+Ø Automated evaluation metrics:
+q Compare system hypothesis with reference translations
+q BLEU Score (BiLingual Evaluation Understudy): Modified n-gram Precision
+q SacreBLEU Score (A Call for Clarity in Reporting BLEU Scores)
+11
+Introduction
+Evaluating Metrics
+!
+Precision and Recall of words
+Ø Precision:
+correct
+output −length = 3
+6 = 50%
+Ø F-measure:
+P x R
+(P + R)/2 =
+0.5 x 0.43
+(0.5 + 0.43)/2 = 46%
+System A
+A
+officials
+responsibility
+of
+airport
+safety
+Reference
+A
+officials
+are
+responsible
+for
+airport
+security
+Ø Recall:
+correct
+reference −length = 3
+7 = 43%
+12
+Introduction
+Evaluating Metrics
+!
+Precision and Recall of words
+System A
+A
+officials
+responsibility
+of
+airport
+safety
+Reference
+A
+officials
+are
+responsible
+for
+airport
+security
+System B
+airport
+security
+A
+officials
+are
+responsible
+Metric
+System A
+System B
+Precision
+50%
+100%
+Recall
+43%
+86%
+F-measure
+46%
+92,5%
+v Flaw: no penalty for reordering
+13
+Introduction
+Evaluating Metrics
+!
+BLEU
+v N-gram overlap between machine translation output and reference translation
+v Compute precision for n-grams of size 1 to 4
+v Add brevity penalty (for too short translations)
+BLEU = min 1, output −length
+reference −length
+>
+'()
+*
+precision)
+)/*
+v Typically computed over the entire corpus, not single sentences
+14
+Introduction
+Evaluating Metrics
+!
+BLEU
+System A
+A
+officials
+responsibility
+of
+airport
+safety
+Reference
+A
+officials
+are
+responsible
+for
+airport
+security
+System B
+airport
+security
+A
+officials
+are
+responsible
+Metric
+System A
+System B
+Precision (1 gram)
+3/6
+6/6
+Precision (2 gram)
+Precision (3 gram)
+Precision (4 gram)
+Brevity penalty
+BLEU
+1-gram
+15
+Introduction
+Evaluating Metrics
+!
+BLEU
+System A
+A
+officials
+responsibility
+of
+airport
+safety
+Reference
+A
+officials
+are
+responsible
+for
+airport
+security
+System B
+airport
+security
+A
+officials
+are
+responsible
+Metric
+System A
+System B
+Precision (1 gram)
+3/6
+6/6
+Precision (2 gram)
+1/5
+4/5
+Precision (3 gram)
+0/4
+2/4
+Precision (4 gram)
+0/3
+1/4
+Brevity penalty
+6/7
+6/7
+BLEU
+0
+0.52
+2 -gram
+16
+Introduction
+Evaluating Metrics
+!
+BLEU
+logBLEU = min 1 −r
+c , 0 + B
+,()
+-
+w,logp,
+r: reference-length, c: output (candidate)-length
+n: n-gram (1,2,3,4), wn: weight of n-gram
+uniform weights wn=1/n
+pn: precision n-gram
+SacreBLEU (A Call for Clarity in Reporting BLEU)
+17
+Introduction
+Evaluating Metrics
+!
+18
+Ø Introduction
+Ø NMT using Transformer
+Ø NMT using Pre-trained LMs
+Outline
+19
+NMT using Transformer
+Sequence to Sequence
+!
+v A single neural network is used to translate from source to target
+v Architecture: Encoder-Decoder
+v Encoder: Convert source sentence (input) into a vector/matrix (State)
+v Decoder: Convert encoding into a sentence in target language (output)
+Input
+State
+Encoder
+Output
+Decoder
+Thought Vector 
+Capture all information of input sentence
+20
+NMT using Transformer
+Transformer Model
+!
+21
+NMT using Transformer
+Training
+!
+t
+_ôi
+đi
+l
+_àm
+ENCODER
+DECODER
+<start>
+I
+go
+to
+work
+I
+go
+_earn
+work
+<end>
+I
+go
+to
+work
+<end>
+Prediction
+Target
+Loss
+22
+NMT using Transformer
+Training
+!
+Input Sequence (Source)
+ENCODER
+DECODER
+Output  Sequence (Target)
+How to choose “Best candidate”
+23
+NMT using Transformer
+Greedy Decoding
+!
+24
+Ø Introduction
+Ø NMT using Transformer
+Ø NMT using Pre-trained LMs
+Outline
+25
+NMT using Pre-trained LMs
+Pre-trained LMs
+!
+26
+NMT using Pre-trained LMs
+Pre-trained LMs
+!
+Source
+27
+NMT using Pre-trained LMs
+Pre-trained LMs
+!
+28
+NMT using Pre-trained LMs
+Pre-trained LMs: BERT
+!
+v BERT: An encoder-only model
+v Maps an input sequence to a contextualized sequence:  𝒇𝜽𝑩𝑬𝑹𝑻: 𝑿𝟏:𝒏⟶H𝑿𝟏:𝒏
+29
+NMT using Pre-trained LMs
+Pre-trained LMs: BERT
+!
+30
+NMT using Pre-trained LMs
+Pre-trained LMs: GPT2
+!
+v GPT2: A decoder-only model, use uni-directional (causal) self-attention
+v Maps an input sequence to a “next word” logit vector sequence:  
+𝒇𝜽𝑮𝑷𝒀𝟐: 𝑿𝟎:𝒎4𝟏⟶𝑳𝟏:𝒎
+31
+NMT using Pre-trained LMs
+Pre-trained LMs: GPT2
+!
+32
+NMT using Pre-trained LMs
+Encoder-Decoder with BERT and GPT2
+!
+33
+NMT using Pre-trained LMs
+BERT for Encoder
+!
+34
+NMT using Pre-trained LMs
+BERT for Decoder
+!
+35
+NMT using Pre-trained LMs
+GPT2 for Decoder
+!
+36
+NMT using Pre-trained LMs
+Experiment
+!
+v Dataset: IWSLT’15 English-Vietnamese
+Training: 133 317
+Validation: 1 553
+Test: 1 269
+Experiment
+Model
+ScareBLEU
+#1
+Standard Transformer (Greedy Search)
+24.66 55.9/30.3/18.5/11.8
+#2
+BERT-to-BERT (Greedy Search)
+25.41 53.8/31.8/19.8/12.3
+#3
+BERT-to-GPT2 (Greedy Search)
+23.56 49.1/28.5/18.4/12.0
+Thanks!
+Any questions?
+37

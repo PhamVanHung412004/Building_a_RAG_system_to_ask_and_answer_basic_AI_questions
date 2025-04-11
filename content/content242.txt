@@ -1,3 +1,0 @@
-• Entropy(Mild)= 1.
-• Entropy(Hot)= 0.
-7

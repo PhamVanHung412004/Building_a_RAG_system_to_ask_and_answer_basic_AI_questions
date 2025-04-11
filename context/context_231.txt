@@ -1,0 +1,1238 @@
+1
+AI VIETNAM
+All-in-One Course
+1
+AI VIETNAM
+All-in-One Course
+Object Detection
+(Part 1: Traditional Algorithms)
+Year 2023
+AI VIETNAM
+All-in-One Course
+Vinh Dinh Nguyen - PhD in Computer Science
+Hung-An & Minh-Duc Bui - TA
+2
+AI VIETNAM
+All-in-One Course
+2
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Introduction to Object Detection
+Ø Applications of Object Detection
+Ø Object Detection Milestones
+Ø Traditional Object Detectors
+Ø CNNs for Image Classification
+Ø Image Classifier to Object Detectors with CNN 
+Ø CNN Limitations and Spatial Outputs
+Ø Assignment
+3
+AI VIETNAM
+All-in-One Course
+3
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Introduction to Object Detection
+Ø Applications of Object Detection
+Ø Object Detection Milestones
+Ø Traditional Object Detectors
+Ø CNNs for Image Classification
+Ø Image Classifier to Object Detectors with CNN 
+Ø CNN Limitations and Spatial Outputs
+Ø Assignment
+4
+AI VIETNAM
+All-in-One Course
+4
+Vinh Dinh Nguyen- PhD in Computer Science
+What is an Object Detection?
+The objective of object detection is to develop computational models and techniques that 
+provide one of the most basic pieces of information needed by computer vision 
+applications: 
+What objects are where?
+5
+AI VIETNAM
+All-in-One Course
+5
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Introduction to Object Detection
+Ø Applications of Object Detection
+Ø Object Detection Milestones
+Ø Traditional Object Detectors
+Ø CNNs for Image Classification
+Ø Image Classifier to Object Detectors with CNN 
+Ø CNN Limitations and Spatial Outputs
+Ø Assignment
+6
+AI VIETNAM
+All-in-One Course
+6
+Vinh Dinh Nguyen- PhD in Computer Science
+Object Detection for Businesses
+Retail 
+Industrial Use Cases
+Transportation
+Autonomous Vehicle
+…
+Medical
+7
+AI VIETNAM
+All-in-One Course
+7
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Introduction to Object Detection
+Ø Applications of Object Detection
+Ø Object Detection Milestones
+Ø Traditional Object Detectors
+Ø CNNs for Image Classification
+Ø Image Classifier to Object Detectors with CNN 
+Ø CNN Limitations and Spatial Outputs
+Ø Assignment
+8
+AI VIETNAM
+All-in-One Course
+8
+Vinh Dinh Nguyen- PhD in Computer Science
+Object Detection Milestones
+Shaoxi Li et al. “Survey on 
+Deep 
+Learning-Based 
+Marine Object Detection”, 
+2021
+9
+AI VIETNAM
+All-in-One Course
+9
+Vinh Dinh Nguyen- PhD in Computer Science
+Object Detection Milestones
+Z. Zou, K. Chen, Z. Shi, Y. Guo and J. Ye, "Object Detection in 20 Years: A Survey," in Proceedings of the IEEE, vol. 111, no. 3, pp. 257-276, March 2023, doi: 
+10.1109/JPROC.2023.3238524.
+10
+AI VIETNAM
+All-in-One Course
+10
+Vinh Dinh Nguyen- PhD in Computer Science
+Object Detection Milestones
+Z. Zou, K. Chen, Z. Shi, Y. Guo and J. Ye, "Object Detection in 20 Years: A Survey," in Proceedings of the IEEE, vol. 111, no. 3, pp. 257-276, March 
+2023, doi: 10.1109/JPROC.2023.3238524.
+11
+AI VIETNAM
+All-in-One Course
+11
+Vinh Dinh Nguyen- PhD in Computer Science
+Object Detection Milestones
+Z. Zou, K. Chen, Z. Shi, Y. Guo and J. Ye, "Object Detection in 20 Years: A Survey," in Proceedings of the IEEE, vol. 111, no. 3, pp. 257-276, March 
+2023, doi: 10.1109/JPROC.2023.3238524.
+12
+AI VIETNAM
+All-in-One Course
+12
+Vinh Dinh Nguyen- PhD in Computer Science
+Object Detection Milestones
+Z. Zou, K. Chen, Z. Shi, Y. Guo and J. Ye, "Object Detection in 20 Years: A Survey," in Proceedings of the IEEE, vol. 111, no. 3, pp. 257-276, March 
+2023, doi: 10.1109/JPROC.2023.3238524.
+13
+AI VIETNAM
+All-in-One Course
+13
+Vinh Dinh Nguyen- PhD in Computer Science
+Object Detection Milestones
+Z. Zou, K. Chen, Z. Shi, Y. Guo and J. Ye, "Object Detection in 20 Years: A Survey," in Proceedings of the IEEE, vol. 111, no. 3, pp. 257-276, March 
+2023, doi: 10.1109/JPROC.2023.3238524.
+14
+AI VIETNAM
+All-in-One Course
+14
+Vinh Dinh Nguyen- PhD in Computer Science
+Object Detection Milestones
+Z. Zou, K. Chen, Z. Shi, Y. Guo and J. Ye, "Object Detection in 20 Years: A Survey," in Proceedings of the IEEE, vol. 111, no. 3, pp. 257-276, March 
+2023, doi: 10.1109/JPROC.2023.3238524.
+15
+AI VIETNAM
+All-in-One Course
+15
+Vinh Dinh Nguyen- PhD in Computer Science
+Object Detection: Transformer
+arXiv:2306.04670 [cs.CV]
+arXiv:2306.04670 [cs.CV]
+16
+AI VIETNAM
+All-in-One Course
+16
+Vinh Dinh Nguyen- PhD in Computer Science
+Object Detection: Transformer
+arXiv:2306.04670 [cs.CV]
+An overview of the Detection 
+Transformer (DETR) and its 
+modifications proposed by recent 
+methods to improve performance 
+and training convergence. 
+17
+AI VIETNAM
+All-in-One Course
+17
+Vinh Dinh Nguyen- PhD in Computer Science
+Well-known Object Detection Datasets
+Z. Zou, K. Chen, Z. Shi, Y. Guo and J. Ye, "Object 
+Detection in 20 Years: A Survey," in 
+Proceedings of the IEEE, vol. 111, no. 3, pp. 
+257-276, 
+March 
+2023, 
+doi: 
+10.1109/JPROC.2023.3238524.
+18
+AI VIETNAM
+All-in-One Course
+18
+Vinh Dinh Nguyen- PhD in Computer Science
+Traditional Vs. Deep Learning
+19
+AI VIETNAM
+All-in-One Course
+19
+Vinh Dinh Nguyen- PhD in Computer Science
+Object Detection Milestones
+Milestones: Traditional Detectors
+Viola Jones Detectors, SVM + HOG & DPM
+Milestones: CNN based Two-stage Detectors
+RCNN, SPPNet, Faster RCNN, Faster RCNN,.. 
+Milestones: CNN based One-stage Detectors
+YOLO, SSD, RetinaNet, CornerNet, Center Net,..
+Milestones: Transformer for OD
+DETR, D-DETR, DINO,…
+20
+AI VIETNAM
+All-in-One Course
+20
+Vinh Dinh Nguyen- PhD in Computer Science
+Object Detection Milestones
+Z. Zou, K. Chen, Z. Shi, Y. Guo and J. Ye, "Object Detection in 20 Years: A Survey," in Proceedings of the IEEE, vol. 111, no. 3, pp. 257-276, March 
+2023, doi: 10.1109/JPROC.2023.3238524.
+21
+AI VIETNAM
+All-in-One Course
+21
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Introduction to Object Detection
+Ø Applications of Object Detection
+Ø Object Detection Milestones
+Ø Traditional Object Detectors
+Ø CNNs for Image Classification
+Ø Image Classifier to Object Detectors with CNN 
+Ø CNN Limitations and Spatial Outputs
+Ø Assignment
+22
+AI VIETNAM
+All-in-One Course
+22
+Vinh Dinh Nguyen- PhD in Computer Science
+Traditional Detectors
+Slides windows of differents sizes across image. 
+At each location match window to face model
+Feature
+Extract
+Feature
+Match Face 
+Model
+Features: 
+How to extract feature?
+Which features represent face well?
+Classifier:
+How to build a model and classify features as face or not?
+23
+AI VIETNAM
+All-in-One Course
+23
+Vinh Dinh Nguyen- PhD in Computer Science
+What are good features?
+Interest Point (Edge, Corners, SIFT,..)
+Facial Components (Templates)?
+≠
+Discriminative Face / None Face
+•
+Extreme Fast to Compute
+•
+Millions of windows in an image 
+The key aspect in face recognition is 
+detecting relevant features in human face 
+like eyes, eyebrows, nose, lips. So how do we 
+detect these features in real time/in an 
+image ?
+24
+AI VIETNAM
+All-in-One Course
+24
+Vinh Dinh Nguyen- PhD in Computer Science
+Methods for Face Detection
+Knowledge Based
+•Rule based (Ex: X must have eyes, x must have a nose)
+•Too many rules and variables with this method
+Feature Based
+Locate and extract structural features in the face
+Find a differential between facial and non facial regions in an image
+Appearance Based
+Learn the characteristics of a face. Example: CNN’s
+Accuracy depends on training data (which can be scarce)
+Template
+Using predefined templates for edge detection. Quick and easy
+A trade off for speed over accuracy
+25
+AI VIETNAM
+All-in-One Course
+25
+Vinh Dinh Nguyen- PhD in Computer Science
+Viola Jones Detectors : Haar Feature
+P. Viola and M. Jones, "Rapid object detection using a boosted cascade of simple features," Proceedings of the 2001 IEEE Computer Society Conference on Computer Vision and Pattern Recognition. CVPR 2001, 
+Kauai, HI, USA, 2001, pp. I-I, doi: 10.1109/CVPR.2001.990517.
+Viola-Jones uses 24*24 as base window size and calculates the above features all over the image shifting by 1 PX (Template + Feature).
+There are over 160,000 possible feature combinations that can fit into a 24x24 pixel image, and over 250,000 for a 28x28 image
+Running on a 700MHz Pentium III CPU, the detector was tens or even hundreds of times faster than other algorithms in its time under 
+comparable detection accuracy
+26
+AI VIETNAM
+All-in-One Course
+26
+Vinh Dinh Nguyen- PhD in Computer Science
+Viola Jones Detectors : Haar Feature
+https://towardsdatascience.com/face-detection-with-haar-cascade-727f68dafd08
+White region
+Dark region
+27
+AI VIETNAM
+All-in-One Course
+27
+Vinh Dinh Nguyen- PhD in Computer Science
+Viola Jones Detectors : Intergral Image
+•The value of the integral image at point 1 is the sum of the pixels in rectangle A
+•The value at point 2 is A + B
+•The value at point 3 is A + C
+•The value at point 4 is A + B + C + D.
+•Therefore, the sum of pixels in region D can simply be computed as : 4+1−(2+3).
+Raster Scanning
+28
+AI VIETNAM
+All-in-One Course
+28
+Vinh Dinh Nguyen- PhD in Computer Science
+Viola Jones Detectors : Intergral Image
+The trick is to compute an “integral image.”  Every 
+pixel is the sum of its neighbors to the upper left.
+Sequentially compute using:
+29
+AI VIETNAM
+All-in-One Course
+29
+Vinh Dinh Nguyen- PhD in Computer Science
+Viola Jones Detectors : Intergral Image
+A
+B
+C
+D
+Solution is found using:
+A + D – B - C
+What if the position of the box lies 
+between pixels?
+Use bilinear interpolation.
+30
+AI VIETNAM
+All-in-One Course
+30
+Vinh Dinh Nguyen- PhD in Computer Science
+Viola Jones Detectors : Haar Feature
+⨂
+=
+Haar Filters
+Haar Features
+31
+AI VIETNAM
+All-in-One Course
+31
+Vinh Dinh Nguyen- PhD in Computer Science
+Haar Features for Multiple Scales
+Compute Haar Features at different scales to detect faces of 
+different sizes
+As stated previously there can be approximately 160,000 + 
+feature values within a detector at 24*24 base resolution 
+which need to be calculated. But it is to be understood that 
+only a few set of features will be useful among all these 
+features to identify a face.
+Can we create a good classifier using just a small subset of all possible 
+features?
+Feature detecting a vertical edge is useful detecting a nose but 
+irrelevant detecting a lip.
+32
+AI VIETNAM
+All-in-One Course
+32
+Vinh Dinh Nguyen- PhD in Computer Science
+AdaBoost: FOREST OF STUMP
+1
+2
+3
+4
+Influence
+33
+AI VIETNAM
+All-in-One Course
+33
+Vinh Dinh Nguyen- PhD in Computer Science
+Adaboost for Face Detection
+The goal of using the AdaBoost algorithm is to extract the best features from n features
+34
+AI VIETNAM
+All-in-One Course
+34
+Vinh Dinh Nguyen- PhD in Computer Science
+AdaBoost for Feature+Classifier Selection
+Want to select the single rectangle feature and 
+threshold that best separates positive (faces) 
+and negative (non-faces) training examples, in 
+terms of weighted error
+θt is a threshold for classifier ht
+35
+AI VIETNAM
+All-in-One Course
+35
+Vinh Dinh Nguyen- PhD in Computer Science
+AdaBoost for Feature+Classifier selection
+This feature combination can yield 100% detection rate and 50% false positive rate
+A 200-feature classifier can yield 95% detection rate and a false positive rate of 1 in 14084
+The AdaBoost algorithm for classifier learning. Each round t of 
+boosting selects one feature from the 180,000 potential feature
+36
+AI VIETNAM
+All-in-One Course
+36
+Vinh Dinh Nguyen- PhD in Computer Science
+Find the best threshold and polarity for each 
+feature, and return error.
+Re-weight the examples:
+Incorrectly classified -> more weight
+Correctly classified -> less weight
+{x1,…xn}
+For T rounds:
+36
+NOTE: Our code 
+uses equal weights
+for all samples
+sum over training samples
+meaning we will 
+construct T weak 
+classifiers
+Normalize weights
+AdaBoost Algorithm 
+modified by Viola 
+Jones
+37
+AI VIETNAM
+All-in-One Course
+37
+Vinh Dinh Nguyen- PhD in Computer Science
+The Cascade Classifier
+In an image, most of the image is a non-face region
+The key idea is to reject sub-windows that do not contain faces 
+while identifying regions that do. Since the task is to identify 
+properly the face, we want to minimize the false negative rate, i.e 
+the sub-windows that contain a face and have not been identified as 
+such.
+A series of classifiers are applied to every sub-window. These 
+classifiers are simple decision trees :
+•if the first classifier is positive, we move on to the second
+•if the second classifier is positive, we move on to the third.
+•Any negative result at some point leads to a rejection of the 
+sub-window as potentially containing a face
+38
+AI VIETNAM
+All-in-One Course
+38
+Vinh Dinh Nguyen- PhD in Computer Science
+SVM and HOG for Object Detection
+39
+AI VIETNAM
+All-in-One Course
+39
+Vinh Dinh Nguyen- PhD in Computer Science
+Support Vector Machine
+0
+1
+2
+3
+4
+5
+6
+x
+1
+y
+-2
+-1
+2
+3
+4
+5
+6
+7
+8
+Yes
+No
+𝑤!X+ b = 0
+𝑤!X+ b = 1
+𝑤!X+ b = -1
+Max 
+!
+"
+! such that Y * (𝑤#X+ b) ≥1
+Support Vector
+min $
+! W !
+!+ C ∑%
+& 𝜀% such that Y * (𝑤#X+ b) ≥1- 𝜀% 
+Allow for miss classification
+𝜀" is a distance measure of the data points from their corresponding blue line.
+𝜀# > 1
+𝑑=
+&
+'!()!= 
+&
+* !
+Slack variable in SVM
+miss-classification
+𝜀$ = 0
+𝜀% < 1
+𝑑= .!
+* !
+C controls how much weight should set on the misclassification data
+40
+AI VIETNAM
+All-in-One Course
+40
+Vinh Dinh Nguyen- PhD in Computer Science
+Histogram of Oriented Gradient
+40
+An image gradient is a directional change in the intensity or color in an image. The gradient of the image is one of the 
+fundamental building blocks in image processing. For example, the Canny edge detector uses image gradient  for edge detection.
+41
+AI VIETNAM
+All-in-One Course
+41
+Vinh Dinh Nguyen- PhD in Computer Science
+Histogram of Oriented Gradient
+An image gradient is a directional change in the intensity or color in an image. The gradient of the image is one of the 
+fundamental building blocks in image processing. For example, the Canny edge detector uses image gradient  for edge detection.
+42
+AI VIETNAM
+All-in-One Course
+42
+Vinh Dinh Nguyen- PhD in Computer Science
+Histogram of Oriented Gradient
+In the case of the HOG feature descriptor,  the input image is of size 64 x 128 x 3 = 24576 and  the output feature vector is of length 3780
+Step 1: preprocessing and compute gradient 
+43
+AI VIETNAM
+All-in-One Course
+43
+Vinh Dinh Nguyen- PhD in Computer Science
+Histogram of Oriented Gradient
+Step 2: Calculate Histogram of Gradients in 8×8 cells
+44
+AI VIETNAM
+All-in-One Course
+44
+Vinh Dinh Nguyen- PhD in Computer Science
+Histogram of Oriented Gradient
+Step 3: Compute Histogram of Oriented Gradient
+45
+AI VIETNAM
+All-in-One Course
+45
+Vinh Dinh Nguyen- PhD in Computer Science
+Histogram of Oriented Gradient
+Step 4: 16×16 Block Normalization
+Gradients for highlighted Bock (having 36 features):
+V = [a1, a2, a3, .., a36] 
+Root of the sum of squares:
+𝑘=
+𝑎#
+$ + 𝑎$
+$ + 𝑎%
+ $+…+ 𝑎%'
+$
+Normalized vector = 
+(!
+) ,
+("
+) ,
+(#
+) , … ,
+(#$
+)
+Normalized vectors created for all 105 blocks, having 
+36 features each image Feature Descriptor: 1 x 3780 
+matrix
+46
+AI VIETNAM
+All-in-One Course
+46
+Vinh Dinh Nguyen- PhD in Computer Science
+SVM + HOG
+Image pyramids
+Sliding Window
+Advanced techniques:
+non-maxima suppression
+47
+AI VIETNAM
+All-in-One Course
+47
+Vinh Dinh Nguyen- PhD in Computer Science
+SVM + HOG
+Image pyramids
+Smaller objects
+Larger objects
+Sliding Window – Location
+Image Pyramid - Scale
+48
+AI VIETNAM
+All-in-One Course
+48
+Vinh Dinh Nguyen- PhD in Computer Science
+SVM + HOG
+Non-maxima suppression
+49
+AI VIETNAM
+All-in-One Course
+49
+Vinh Dinh Nguyen- PhD in Computer Science
+SVM + HOG
+Non-maxima suppression
+Hard NMS
+Soft NMS
+50
+AI VIETNAM
+All-in-One Course
+50
+Vinh Dinh Nguyen- PhD in Computer Science
+SVM + HOG
+Non-maxima suppression
+Hard NMS
+Soft NMS
+51
+AI VIETNAM
+All-in-One Course
+51
+Vinh Dinh Nguyen- PhD in Computer Science
+Traditional Detectors: Summary 
+Most traditional object detection algorithms like Viola–Jones, and Histogram of Oriented Gradients (HOG)are relied on extracting 
+handcrafted features like edges, corners, gradients from the image and classical machine learning algorithms. 
+The traditional computer vision approaches were in 
+the game until 2010.
+From 2012, a new era of convolutional neural 
+networks 
+started 
+when 
+AlexNet 
+(an 
+image 
+classification network) won the ImageNet Visual 
+Recognition challenge 2012. The accuracy of 84.7% 
+as compared to the second-best with an accuracy of 
+73.8%.
+52
+AI VIETNAM
+All-in-One Course
+52
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Introduction to Object Detection
+Ø Applications of Object Detection
+Ø Object Detection Milestones
+Ø Traditional Object Detectors
+Ø CNNs for Image Classification
+Ø Image Classifier to Object Detectors with CNN 
+Ø CNN Limitations and Spatial Outputs
+Ø Assignment
+53
+AI VIETNAM
+All-in-One Course
+53
+Vinh Dinh Nguyen- PhD in Computer Science
+Convolutional Neural Network
+https://poloclub.github.io/cnn-explainer/
+54
+AI VIETNAM
+All-in-One Course
+54
+Vinh Dinh Nguyen- PhD in Computer Science
+Convolutional Neural Network
+Image Classifier (IF)
+55
+AI VIETNAM
+All-in-One Course
+55
+Vinh Dinh Nguyen- PhD in Computer Science
+LetNet for IF
+‘Hello World’ in the domain of Convolution Neural Networks
+It was introduced by Yann LeCun, Léon Bottou, Yoshua Bengio, and Patrick Haffner in 1998
+handwritten and machine-printed character recognition
+56
+AI VIETNAM
+All-in-One Course
+56
+Vinh Dinh Nguyen- PhD in Computer Science
+AlexNet for IF
+New: Overlapping Max Pooling
+Max pooling
+(2x2)
+Stride 2
+Overlap 
+max- pooling
+(2x2)
+Stride 1
+This overlapping nature of pooling helped 
+reduce the top-1 error rate by 0.4% and 
+top-5 error rate by 0.3% respectively when 
+compared to using non-overlapping pooling 
+windows of size 2×2 with a stride of 2 that 
+would give same output dimensions.
+57
+AI VIETNAM
+All-in-One Course
+57
+Vinh Dinh Nguyen- PhD in Computer Science
+AlexNet: Summary
+58
+AI VIETNAM
+All-in-One Course
+58
+Vinh Dinh Nguyen- PhD in Computer Science
+ZFNet for IF
+By visualizing the convolutional network, ZFNet become the Winner of ILSVLC 2013 in image classification by fine-tuning the AlexNet invented in 2012
+ZFNet was invented by Rob Fergus and Matthew D. Zeiler
+59
+AI VIETNAM
+All-in-One Course
+59
+Vinh Dinh Nguyen- PhD in Computer Science
+VGGNet for IF
+The full name of VGG is the Visual Geometry Group, which belongs to the 
+Department of Science and Engineering of Oxford University.
+The original purpose of VGG's research on the depth of convolutional 
+networks is to understand how the depth of convolutional networks affects 
+the accuracy and accuracy of large-scale image classification and 
+recognition.
+60
+AI VIETNAM
+All-in-One Course
+60
+Vinh Dinh Nguyen- PhD in Computer Science
+VGG16Net for IF
+61
+AI VIETNAM
+All-in-One Course
+61
+Vinh Dinh Nguyen- PhD in Computer Science
+GoogleLeNet for IF
+There are a total of 22 layers, It is already a very deep model 
+compared with previous AlexNet, ZFNet, and VGGNet
+62
+AI VIETNAM
+All-in-One Course
+62
+Vinh Dinh Nguyen- PhD in Computer Science
+GoogleLeNe for IF
+New: 1×1 convolution is used as a dimension reduction module to reduce the computation
+Number of parameters =28x28 (size of the input image)x 
+5x5(size of filter) x 192 (channels) x 32(no of filters) 
+= 120,422,400 operations
+28x28x192
+192
+28x28x32
+32
+Conv (5,5)
+Same, 32 filters
+28x28x192
+192
+28x28x16
+16
+Conv (1,1)
+Same, 16 filters
+28x28x32
+32
+Conv (5,5)
+Same, 32 filters
+Number of parameters =28 x 28 x 16  x 192  + 28 x 28 x 32  
+x 5 x 5 x 16  ~ 12.4M
+5x5 convolution using 1x1 bottleneck convolution
+5x5 convolution without using 1x1 bottleneck convolution
+As the authors said that the idea of the name “Inception” comes from famous internet meme below: WE NEED TO GO DEEPER
+63
+AI VIETNAM
+All-in-One Course
+63
+Vinh Dinh Nguyen- PhD in Computer Science
+GoogLeNet for IF
+New: Inception Module
+Inception V1 Module
+Inception V1 Optimizated
+64
+AI VIETNAM
+All-in-One Course
+64
+Vinh Dinh Nguyen- PhD in Computer Science
+Residual Network (ResNet) for IF
+The Residual Blocks idea was created by this design to address the issue of the vanishing/exploding gradient
+65
+AI VIETNAM
+All-in-One Course
+65
+Vinh Dinh Nguyen- PhD in Computer Science
+Residual Network (ResNet) for IF
+A novel architecture called Residual Network was launched by Microsoft Research 
+experts in 2015 with the proposal of ResNet.
+66
+AI VIETNAM
+All-in-One Course
+66
+Vinh Dinh Nguyen- PhD in Computer Science
+Residual Network (ResNet34) for IF
+New: Skip Connection
+The VGG-19-inspired 34-layer plain network architecture used by 
+ResNet is followed by the addition of the shortcut connection
+The intuition is that learning f(x) = 0 
+has to be easy for the network.
+67
+AI VIETNAM
+All-in-One Course
+67
+Vinh Dinh Nguyen- PhD in Computer Science
+Image Classification vs. Object Detection
+68
+AI VIETNAM
+All-in-One Course
+68
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Introduction to Object Detection
+Ø Applications of Object Detection
+Ø Object Detection Milestones
+Ø Traditional Object Detectors
+Ø CNNs for Image Classification
+Ø Image Classifier to Object Detectors with CNN 
+Ø CNN Limitations and Spatial Outputs
+Ø Assignment
+69
+AI VIETNAM
+All-in-One Course
+69
+Vinh Dinh Nguyen- PhD in Computer Science
+Image Classifier To Object Detector
+Step 1: Input Image
+Step 2: Construct Image Pyramid
+Step 3: Run sliding window at each scale of image 
+pyramid
+Step 3.1: For each step of sliding window, extract ROI
+Step 3.2: Take ROI and pass it through CNN for 
+classification
+Step 3.3: if min probability test passes, record class label 
+and bounding box location
+Step 4: Appy NMS
+Step 5: Return Result
+Code: https://colab.research.google.com/drive/1EtxlG4XRgrs0F7N8ivHQ6JZvVRboQx-8?usp=sharing
+70
+AI VIETNAM
+All-in-One Course
+70
+Vinh Dinh Nguyen- PhD in Computer Science
+Ideas for Detection using CNN
+AlexNet/VGG
+Conv and Pool Layers
+As Feature Extractors
+Feature Maps
+Get Class scores
+Using Softmax
+Crop + Resize with Sliding Window + Image Pyramid
+Get Bounding boxes
+Using L2 loss
+(x1, y1, x2, y2)
+Image Credit - http://host.robots.ox.ac.uk/pascal/VOC/voc2012/examples/index.html
+Sliding Window – Location
+Image Pyramid - Scale
+For example, to process an image of 800x800, if the sliding 
+window size is 224, we will end up with 
+331,776 crops.
+71
+AI VIETNAM
+All-in-One Course
+71
+Vinh Dinh Nguyen- PhD in Computer Science
+Ideas for Detection using CNN
+72
+AI VIETNAM
+All-in-One Course
+72
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Introduction to Object Detection
+Ø Applications of Object Detection
+Ø Object Detection Milestones
+Ø Traditional Object Detectors
+Ø CNNs for Image Classification
+Ø Image Classifier to Object Detectors with CNN 
+Ø CNN Limitations and Spatial Outputs
+Ø Assignment
+73
+AI VIETNAM
+All-in-One Course
+73
+Vinh Dinh Nguyen- PhD in Computer Science
+Image Classifier To Object Detector
+74
+AI VIETNAM
+All-in-One Course
+74
+Vinh Dinh Nguyen- PhD in Computer Science
+Problems: CNN Input Size Constraints
+How to solve?
+75
+AI VIETNAM
+All-in-One Course
+75
+Vinh Dinh Nguyen- PhD in Computer Science
+ConvNets input size constraints – FC as Conv
+Feature Maps
+Weights/Filter
+FV
+Image
+FC Layers
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+Pooled
+Feature Maps
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+H
+V
+H
+V
+Pool
+What does it mean?
+6x6
+3x3
+6x6
+2x2
+3x3
+9x1
+3x3
+3x3
+8x8
+3x3
+8x8
+2x2
+4x4
+2x2
+16x1
+3x3
+3x3
+76
+AI VIETNAM
+All-in-One Course
+76
+Vinh Dinh Nguyen- PhD in Computer Science
+ConvNets input size constraints – FC as Conv
+Feature Maps
+Weights/Filter
+Image
+FC Layers
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+H
+V
+H
+V
+1. Does this make sense? -> yes
+2. If so, what does this mean? -> Represents the computations on different portions of the image.
+Spatial output
+Same Localization CNN
+77
+AI VIETNAM
+All-in-One Course
+77
+Vinh Dinh Nguyen- PhD in Computer Science
+ConvNets input size constraints – FC as Conv
+CNN
+78
+AI VIETNAM
+All-in-One Course
+78
+Vinh Dinh Nguyen- PhD in Computer Science
+ConvNets and Sliding Window Efficiency
+Localization CNN
+BBox
+Confidence scores
+H
+V
+Localization CNN
+1
+2
+2
+2
+2
+2
+79
+AI VIETNAM
+All-in-One Course
+79
+Vinh Dinh Nguyen- PhD in Computer Science
+ConvNets and Sliding Window Efficiency
+80
+AI VIETNAM
+All-in-One Course
+80
+Vinh Dinh Nguyen- PhD in Computer Science
+Spatial Ouput for Image Pyramids
+H
+V
+H
+V
+81
+AI VIETNAM
+All-in-One Course
+81
+Vinh Dinh Nguyen- PhD in Computer Science
+Spatial Outputs: Summary
+With Spatial Outputs, we can detect different objects at different locations of the image. Below figure shows a 2x3 Spatial Output for a sample 
+image.
+82
+AI VIETNAM
+All-in-One Course
+82
+Vinh Dinh Nguyen- PhD in Computer Science
+OverFeat: Integrated Recognition, Localization and 
+Detection using Convolutional Networks
+245x245
+281x317
+317x389
+389x461
+425x497
+461x569
+2x3
+3x5
+5x7
+6x7
+7x10
+Sliding Window Crop FC as Conv (No input size constraint) + Spatial Output + Image Pyramid 
+Resolution = 36
+Smaller objects
+Larger objects
+If you want to detect even smaller objects, use even bigger image pyramids. Trade-off, increase in computation
+How to modify localization framework to convert FC as Conv?
+1. Use the same localization network,
+without using the Sliding Window crops
+at different locations.
+2. No input size constraint, be able to
+use the Image pyramids.
+3. Use Image Pyramids, we will get the
+Spatial Output, which will give us
+detections at different locations of the
+image.
+4. The
+entire
+network
+is
+using
+Convolution operations, it is way more
+efficient than taking crops.
+83
+AI VIETNAM
+All-in-One Course
+83
+Vinh Dinh Nguyen- PhD in Computer Science
+Overfeat Classification
+OverFeat: Integrated Recognition, Localization and Detection using Convolutional Networks – Sermanet et al
+84
+AI VIETNAM
+All-in-One Course
+84
+Vinh Dinh Nguyen- PhD in Computer Science
+Overfeat Classification
+85
+AI VIETNAM
+All-in-One Course
+85
+Vinh Dinh Nguyen- PhD in Computer Science
+N layer Conv – M Feature Maps
+86
+AI VIETNAM
+All-in-One Course
+86
+Vinh Dinh Nguyen- PhD in Computer Science
+Overfeat Classification
+OverFeat: Integrated Recognition, Localization and Detection using Convolutional Networks – Sermanet et al
+First 5 Layers of
+AlexNet (Modified)
+Feature Map
+245x245
+5x5
+Fully Connected layer implemented as a convolution layer
+Conv 
++ 
+Pool Layers
+Output
+Feature Map
+From Conv+Pool
+x256
+256*4096
+x4096
+x4096
+xC
+1x1
+1x1
+1x1
+1x1
+1x1
+Feature Map Outputs
+Filters
+Final output
+For C Classes
+4096*
+4096
+4096*
+C
+5x5
+87
+AI VIETNAM
+All-in-One Course
+87
+Vinh Dinh Nguyen- PhD in Computer Science
+Overfeat Classification
+88
+AI VIETNAM
+All-in-One Course
+88
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Introduction to Object Detection
+Ø Applications of Object Detection
+Ø Object Detection Milestones
+Ø Traditional Object Detectors
+Ø CNNs for Image Classification
+Ø Image Classifier to Object Detectors with CNN 
+Ø CNN Limitations and Spatial Outputs
+Ø Assignment
+89
+AI VIETNAM
+All-in-One Course

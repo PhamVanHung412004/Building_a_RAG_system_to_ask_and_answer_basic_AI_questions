@@ -1,0 +1,206 @@
+AI VIET NAM – WE ARE ONE TEAM – CLASS OF AIO2024
+SUMMARY
+of
+Decision Tree for Regression
+Ngày 21 tháng 2 năm 2024
+Date of publication:
+15/02/2024
+Authors:
+AIO
+Sources:
+Data
+sources
+(if
+any):
+Keywords:
+Decision Tree, Regression, Overfitting, Underfitting, Pruning Solution,
+Tree Complexity Penalty, Cross validation
+Summary by:
+Bùi Nhật Linh
+I. Tổng quát:
+1. Giới thiệu vềDecision Tree for Regression:
+•
+Decision Tree for Regression là một mô hình máy học có giám sát (supervised learning
+machine algorithm) được sửdụng đểhuấn luyện (training), hồi quy (regresses) dữliệu/
+kết quảđầu ra liên tục (continuous outputs) hay các biến định lượng (regression taks)
+thành nhóm dữliệu có cùng điều kiện.
+•
+Mô hình này cho ra kết quảdựbáo có độchính xác cao nhằm dựbáo kết quảtheo
+phạm vi giá trịcho trước của các outputs trong tập training set (range).
+Hình 1: Ví dụvềkết quảmong muốn dựđoán
+2. So sánh với Decision Tree for Classification:
+(a) Giống nhau:
+1
+AI VIETNAM
+aivietnam.edu.vn
+• Vềcấu trúc cây: Mô hình Decision Tree for Regression bao gồm cấu trúc Root-node,
+Terminal nodes, và Leaf nodes. Đồng thời, mô hình này bắt đầu bằng việc xác định
+cấu trúc tương tựnhư Mô hình Decision Tree for Classification
+• Vềmục tiêu: phân loại nhóm dữliệu
+(b) Khác nhau:
+• Mô hình Decision Tree for Regression áp dụng cho dữliệu/ kết quảđầu ra liên tục
+(continuous outputs).
+• Đểxác định các nodes, Mô hình này cần đánh giá lỗi/chênh lệch (Residual Error)
+từđó tính tổng lỗi/chênh lệch theo Phương pháp Sum of Squared Error đểso sánh
+lần lượt các outputs.
+• Mô hình Decision Tree for Regression sửdụng Phương pháp chặt nhánh cây (Prun-
+ning Solution) nhằm hạn chếviệc kết quảcủa mô hình toán áp dụng cho dữliệu
+thực tếvà đưa các kết quảcó độlệch lớn (Overfitting)
+• Ngoài ra, mục tiêu của Mô hình Decision Tree for Regression mang tính chất dựbáo
+trong khi Mô hình Decision Tree for Classification mang tính chất phân loại
+3. Các vấn đềsau khi thực hiện áp dụng mô hình vào dữliệu cần dựđoán:
+• Underfitting: là hiện tượng kết quảđộchênh lệch của mô hình được huấn luyện và kết
+quảđộchênh lệch của dữliệu cần dựđoán đạt giá trịmức cao giống nhau, do mô hình
+chưa được huấn luyện đầy đủ. Cần xem lại cấu trúc của mô hình (tăng thêm độphức
+tạp) đểcó thểhuấn luyện các tập dữliệu khó và tăng thêm dữliệu huấn luyện đểtăng
+hiệu suất của mô hình.
+• Overfitting: là hiện tượng kết quảcủa mô hình được huấn luyện quá tốt (độchênh lệch
+thấp) nhưng khi áp dụng vào dữliệu cần dựđoán thì mô hình đạt hiêu suất kém (độ
+chênh lệch cao) do mô hình đã học quát sát với dữliệu huấn luyện và không có khảnăng
+tổng quát hóa các dữliệu cần dựđoán. Cần sửdụng một sốcác phương pháp tránh
+overfitting như tăng độđa dạng của dữliệu, giảm thiểu độphức tạp của mô hình
+4. Giải pháp tỉa cành cây – Pruning solution:
+• Pruning solution được áp dụng đối với trường hợp mô hình huấn luyện bịoverfitting khi
+sửdụng mô hình Decision Tree bằng cách hạn chếkích thước, chiều sâu của mô hình
+này.
+5. Độphức tạp của cây – Tree complexity method:
+• Phương pháp Tree complexity như là phương pháp nomarlizing các kết quảSSR (trên
+thực tếcó nhiều phương pháp normalization khác). Đồng thời, phương pháp cũng tính
+độphức tạp của mô hình Decision Tree.
+6. Cross validation – Tập huấn tập dữliệu lẫn nhau:
+Là một phương pháp tập huấn tệp dữliệu trong trường hợp tập dữliệu (training set) không
+được đa dạng vềsốlượng. Phương pháp này áp dụng cho k sốtập dữliệu đã được xáo trộn.
+II.
+Thực hiện xác định mô hình Decision Tree:
+1. Bối cảnh trường hợp áp dụng mô hình:
+• Các nhà khoa học nghiên cứu ra một loại vaccine và thửnghiệm trên các mẫu bệnh nhân
+bao gồm các yếu tố: Liều lượng dùng cốđịnh (Unit), Tuổi (Age), Giới tính (Sex), và độ
+hiệu quảcủa vaccine (Effect).
+Câu hỏi: hãy thiết lập mô hình toán Decision Tree for Regression đểdựđoán xem nếu
+áp dụng loại vaccine trên cho các mẫu bệnh nhân khác thì kết quả(Effect) như thếnào?
+(Chú ý: Effect được coi là outputs, các data inputs của từng yếu tốUnit, Age, Giới tính
+được gọi là samples)
+AI VIETNAM
+aivietnam.edu.vn
+Hình 2: Bối cảnh áp dụng thuật toán
+2. Các trình tựthực hiện tạo lập mô hình Decision Tree:
+(a) Xác định nodes:
+• Bước 1: Giảđịnh Root node:
+Giảđịnh các trường hợp Root node lần lượt theo từng yếu tố, cụthể: Liều lượng
+dùng cốđịnh (Unit), Tuổi (Age), và Giới tính (Sex).
+• Xác định Terminal nodes theo giảđịnh Root node:
+Sau khi xác định Root node, đặt các điều kiện cụthểđểphân nhánh sao cho đạt
+được hiệu quảcao nhất. Ví dụ, các terminal nodes nên bắt đầu từ8 -> 20 nodes
+(samples) hoặc độsâu (depth) của các cây <= 3
+Việc phân nhánh các Terminal nodes được thực hiện với lần lượt samples còn lại
+trong một điều kiện cụthể. Đồng thời, đểphân nhánh cần thực hiện việc tính tổng
+giá trịtrung bình các outputs -> đánh giá lỗi/chênh lệch (Residual Error) giữa các
+samples -> tính tổng lỗi/chênh lệch theo công thức Sum of Squared Error của các
+lỗi/chênh lệch.
+• Bước 3: Xác định Final Root node:
+Sau khi tính tổng lỗi/chênh lệch các Terminal nodes theo từng giảđịnh Root node,
+giảđịnh Root node nào có giá trịlớn hơn sẽđược chọn làm Final Root node
+• Bước 4: Xác định Terminal node theo Final Root node:
+Việc xác định Terminal node theo Final Root node được xác định giống như các
+bước 2 -3. Trong đó, bước 3 sẽxác định các Final Terminal Nodes
+• Bước 5: Xác định Leaf nodes: có thểđược xác định khi không thểtách thêm
+(b) Phương thức tính toán:
+• Công thức tính trung bình:
+ˆY =
+Pn
+i=1 Xi
+n
+– ˆY Trung bình cộng
+– Xi: Giá trịcác outputs trong 1 khoảng điều kiện
+– n: Sốlượng các outputs trong 1 khoảng điều kiện
+• Công thức tính độchênh lệch/lỗi:
+ResidualError = (Y i −ˆY )2
+– Residual Error: Độchênh lệch/ lỗi giữa các outputs
+– Yi: Giá trịcủa outputs
+– ˆY: Giá trịcủa average
+AI VIETNAM
+aivietnam.edu.vn
+• Công thức tính Tổng giá trịchênh lệch/lỗi:
+SSR =
+n
+X
+i=1
+ResidualError
+– SSR: Tổng các chênh lệch/lỗi của các samples
+– Residual error: Độchênh lệch/lỗi giữa các samples
+• Công thức tính Tree score:
+Tree Score = SSR + αT
+– SSR: Tổng các chênh lệch/lỗi của các samples
+– α: Tham sốđiều chỉnh được sửdụng thông qua phương pháp cross validation
+– T: Tổng sốcác Terminal nodes và Leaf nodes
+(c) Thực hiện áp dụng vào bối cảnh trường hợp:
+• Giảđịnh yếu tốUnit là Root node:
+Hình 3: Biểu thịyếu tốUnit là trên biểu đổ
+– Tại đây lần lượt tính Residual Error và SSR giữa outputs với từng, cụthểnhư
+sau:
+Hình 4: Tính Residual Error và SSR
+– Với hình trên, lựa chọn từng output từtrái sang phải đểtính Residual Error và
+SSR. Sau khi đã tính hết các SSR, kết quảđược biểu thịnhư sau:
+AI VIETNAM
+aivietnam.edu.vn
+Hình 5: Biểu thịcác SSR lên biểu đồ
+– Lựa chọn SSR có giá thấp nhất tương ứng với output có giá trị14.5, tổng sốnode
+<= 7 và => 20, và độsâu <= 3. Theo đó, lần lượt các bước, mô hình Decision
+Tree được xác định như sau:
+Hình 6: Biểu thịcác SSR lên biểu đồ
+Tính SSR trong tiêu chí này là 19.000
+• Giảđịnh Age/Sex là Root node:
+Thực hiện tương tựcác bước như trường hợp của Unit, các mô hình và kết quảSSR
+được biểu thịnhư sau:
+Hình 7: Decision Tree dựa theo tiêu chính Age
+AI VIETNAM
+aivietnam.edu.vn
+Hình 8: Decision Tree dựa theo tiêu chính Sex
+• Như vậy sau khi có các kết quảSSR ứng với từng yếu tố, lựa chọn Age là Root node
+• Thực hiện các bước tương tựđểxác định Terminal Nodes và Leaf node, kết quảcuối
+cùng được biểu thịnhư sau:
+Hình 9: Final Decision Tree
+III. Xửlý Overfitting trong mô hình Decision Tree:
+1. Pruning Solution:
+Xét trường hợp Unit là Root node và có tạo ra cây Decision Tree bao gồm đẩy đủcấu trúc
+như sau:
+Hình 10: Mô hình Decision Tree trong trường hợp Unit là Root node
+AI VIETNAM
+aivietnam.edu.vn
+Sau khi áp dụng mô hình này lên một tập dữliệu cần dựbáo, nhận thấy độchênh lệch ởmức
+cao. Do đó, giải pháp áp dụng Pruning Solution được tiến hành đểgiảm thiểu Overfitting
+lần lượt:
+Hình 11: Các mô hình Decision Tree trước và sau khi Pruned
+2. Độphức tạp của cây (Tree complexity penalty):
+• Sau khi áp dụng giải pháp tỉa cành cây (Pruning solution), giải pháp sẽcho ra kết quả
+SSR tương ứng với từng mô hình cây. Tuy nhiên, kết quảSSR không đủđểxác xác định
+mô hình cây nào phù hợp do càng tỉa cành cây kết quảSSR càng lớn. Do đó, việc áp
+dụng Tree complexity penalty được thực hiện như sau:
+• Giảsửα = 10.000, tính giá trịTree score tương ứng với các cây như sau:
+Hình 12: Tree complexity score ứng với từng cây
+Như vậy, cây có giá trịTree score nhỏnhất là 35.494 được sẽđược lựa chọn làm mô hình
+Decision Tree.
+AI VIETNAM
+aivietnam.edu.vn
+3. Cách tìm α Ởví dụtrên đã set α= 10.000 nhằm mục đích trực quan hóa cách áp dụng
+phương pháp Tree complexity penalty. Ởmục này, việc xác định α sẽđược thực hiện theo
+các bước như sau:
+• Bước 1: Đặt α= 0 tương ứng với cây ban đầu
+• Bước 2: Lần lượt tăng α từ0 cho tới một điểm giá trịαi mà tại đó giá trịTree score của
+cây ban đầu cao hơn cây tiếp theo
+• Bước 3: Tăng từgiá trịα tới giá trịαi1,αi2,αi3,.. mà tại đó các giá trịTree score của
+các cây tiếp theo cao hơn cây liền kề.
+• Bước 4: Tập hợp các giá trịα đã tính tại bước 2, bước 3
+• Bước 5: Áp dụng phương pháp Cross validation như sau:
+– Xáo trộn dữliệu trong tập training set, chia dữliệu thành các k-fold dữliệu, và các
+k-splits. Mỗi split sẽbao gồm: 1 fold testing (các fold testing sẽđược thay đổi lần
+lượt theo từng split) và k-1 fold training set.
+Hình 13: Phương pháp Cross validation
+– Với mỗi Split, trên các tập k-1 fold, xác định mô hình Decision Tree tương ứng với
+từng α như đã tập hợp tại Bước 4. Với từng mô hình cây, tính giá trịcác Tree score
+trên bộfold testing theo từng α
+– Tập hợp các giá trịTree Score của từng Split. Tính giá trịtrung bình theo từng α
+chọn α với giá trịtrung bình nhỏnhất
+AI VIETNAM
+aivietnam.edu.vn
+Hình 14: Lựa chọn α

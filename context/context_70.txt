@@ -1,0 +1,485 @@
+Module 9 - Exercise
+Text to Image 
+Synthesis using DCGAN
+Year 2023
+AI VIET NAM
+Nguyen Quoc Thai
+AI VIETNAM
+All-in-One Course
+1
+2
+Objective
+Text to Image Synthesis using DCGAN
+!
+This small bird has a pink 
+breast and crown, and black 
+primaries and secondaries
+G
+Generator
+Text 
+Embedding
+D
+Discriminator
+0/1
+Fake/Real
+3
+Ø Introduction
+Ø DCGAN
+Ø Text to Image Synthesis using DCGAN
+Outline
+4
+Introduction
+Text to Image
+!
+This small bird has a pink 
+breast and crown, and black 
+primaries and secondaries
+5
+Introduction
+Text to Image
+!
+The flower has petals that 
+are bright pinkish purple 
+with while stigma
+6
+Introduction
+The milestones of text-to-image models and large models
+!
+Source
+7
+Ø Introduction
+Ø DCGAN
+Ø Text to Image Synthesis using DCGAN
+Outline
+8
+DCGAN
+GAN (Generative Adversarial Networks)
+!
+Random Noise
+G
+Generator
+Generated Image
+9
+DCGAN
+GAN (Generative Adversarial Networks)
+!
+Random Noise
+G
+Generator
+D
+Discriminator
+Generated Image
+Real Image
+0/1
+Fake/Real
+10
+DCGAN
+GAN Training – Update G
+!
+Random Noise (z)
+G
+Generator
+D
+Discriminator
+Generated Image
+Real Image
+0/1
+Fake/Real
+Loss
+Function
+Update G
+𝐿! z = −log(D(G(z)))
+11
+DCGAN
+GAN Training – Update D
+!
+G
+Generator
+D
+Discriminator
+Generated Image
+Real Image (x) 
+0/1
+Fake/Real
+Loss
+Function
+Update G
+𝐿! z = −log(D(G(z)))
+Update D
+𝐿" z, x = −log D x
+−log 1 −D G z
+Random Noise (z)
+12
+DCGAN
+Deep Convolution GAN (DCGAN)
+!
+G
+Generator
+D
+Discriminator
+Generated Image
+Real Image 
+0/1
+Fake/Real
+Loss
+Function
+Update G
+Update D
+Random Noise (z)
+CNN
+CNN
+13
+DCGAN
+DCGAN Generator
+!
+G
+Generator
+Generated Image
+Random Noise (z)
+CNN
+Project and reshape
+Decov
+Decov
+Decov
+Decov
+4x4x1024
+8x8x512
+16x16x256
+32x32x128
+64x64x3
+14
+DCGAN
+DCGAN Discriminator
+!
+Cov
+Cov
+Cov
+Cov
+4x4x1024
+8x8x512
+16x16x256
+32x32x128
+64x64x3
+D
+Discriminator
+Generated Image
+Real Image 
+0/1
+Fake/Real
+CNN
+1
+15
+Ø Introduction
+Ø DCGAN
+Ø Text to Image Synthesis using DCGAN
+Outline
+16
+Text to Image Synthesis
+Example
+!
+The flower has petals that 
+are bright pinkish purple 
+with while stigma
+17
+Text to Image Synthesis
+Approach
+!
+The flower has petals that are bright 
+pinkish purple with while stigma
+Random Noise (z)
+G
+Generator
+D
+Discriminator
+Generated Image
+Real Image
+0/1
+Fake/Real
+18
+Text to Image Synthesis
+GANs with Join Distributions
+!
+Random Noise
+(z)
+G
+Generator
+Generated Image
+Text 
+Embedding
+Project and reshape
+Decov
+Decov
+Decov
+Decov
+4x4x1024
+8x8x512
+16x16x256
+32x32x128
+Random Noise
+(z)
+Text 
+Embedding
+64x64x3
+19
+Text to Image Synthesis
+GANs with Join Distributions
+!
+Random Noise
+(z)
+Text 
+Embedding
+G
+Generator
+D
+Discriminator
+Generated Image
+Real Image
+0/1
+Fake/Real
+20
+Text to Image Synthesis
+GANs with Join Distributions
+!
+Text 
+Embedding
+Cov
+Cov
+Cov
+Cov
+4x4x1024
+8x8x512
+16x16x256
+32x32x128
+64x64x3
+D
+Discriminator
+Generated Image
+Real Image 
+0/1
+Fake/Real
+1
+21
+Text to Image Synthesis
+GANs with Join Distributions
+!
+The flower has petals that are bright pinkish purple with while stigma
+G
+Generator
+D
+Discriminator
+Generated Image
+Real Image
+0/1
+Fake/Real
+Random Noise
+(z)
+Text 
+Embedding
++ Text Embedding
++ Text Embedding
+22
+Text to Image Synthesis
+GANs with Join Distributions
+!
+G
+Generator
+D
+Discriminator
+Generated Image
+Real Image (x)
+0/1
+Fake/Real
+Random Noise
+(z)
+Text 
+Embedding
+(e)
++ Text Embedding
++ Text Embedding
+Loss
+Function
+Update D
+𝐿" z, x
+= −log D x, e
+−log 1 −D G z, e
+23
+Text to Image Synthesis
+GANs with Join Distributions
+!
+G
+Generator
+D
+Discriminator
+Generated Image
+Real Image (x)
+0/1
+Fake/Real
+Random Noise
+(z)
+Text 
+Embedding
+(e)
++ Text Embedding
++ Text Embedding
+Loss
+Function
+Update D
+𝐿" z, x
+= −log D x, e
+−log 1 −D G z, e
+Real images match the text content?
+24
+Text to Image Synthesis
+Matching-aware Discriminator (GAN-CLS)
+!
+D
+Discriminator
+Generated Image
+Real Image
+0/1
+Fake/Real
++ Text Embedding
++ Real & Fake 
+Text Embedding
+Loss
+Function
+Update D
+𝐿" z, x = −log D x, e
+−
+log 1 −D G z, e
++ log 1 −D G x, e#
+2
+Unmatched
+25
+Text to Image Synthesis
+Matching-aware Discriminator (GAN-CLS)
+!
+G
+Generator
+D
+Discriminator
+Generated Image
+Real Image
+0/1
+Fake/Real
+Random Noise
+(z)
+Text 
+Embedding
++ Text Embedding
++ Real & Fake 
+Text Embedding
+Loss
+Function
+Update G
+Update D
+26
+Text to Image Synthesis
+Generator
+!
+G
+Generator
+D
+Discriminator
+Generated Image
+Real Image
+0/1
+Fake/Real
+Random Noise
+(z)
+Text 
+Embedding
++ Text Embedding
++ Real & Fake 
+Text Embedding
+Loss
+Function
+Update G
+Update D
+𝐿! z = −log D G z, e
+27
+Text to Image Synthesis
+Generator – Pixel-wise Matching Loss
+!
+G
+Generator
+D
+Discriminator
+Generated Image
+Real Image
+0/1
+Fake/Real
+Random Noise
+(z)
+Text 
+Embedding
++ Text Embedding
++ Real & Fake 
+Text Embedding
+Loss
+Function
+Update G
+Update D
+𝐿! z = −log D G z, e
+−𝛼L$ G z, e , x
+28
+Text to Image Synthesis
+Generator – Feature Matching Loss
+!
+G
+Generator
+D
+Discriminator
+Generated Image
+Real Image
+0/1
+Fake/Real
+Random Noise
+(z)
+Text 
+Embedding
++ Text Embedding
++ Real & Fake 
+Text Embedding
+Loss
+Function
+Update G
+Update D
+𝐿! z = −log D G z, e
+−𝛼L$ G z, e , x −βL% D x , D G z
+29
+Summary
+G
+Generator
+D
+Discriminator
+Generated Image
+Real Image
+0/1
+Fake/Real
+Random 
+Noise
+(z)
+Text 
+Embedding
++ Text Embedding
+Loss
+Function
+Update G
+Update D
+X1
+X2
+…
+Xn
+Encoder
+(BERT)
+Pooling Layer
+Sentence
+Embedding
++ Real & Fake 
+Text Embedding
++ Text Embedding
+Optimization
+Thanks!
+Any questions?
+30

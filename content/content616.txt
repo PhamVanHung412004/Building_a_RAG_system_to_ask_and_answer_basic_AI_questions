@@ -1,5 +1,0 @@
-arange (0 , 10)
-6 print ( data )
-7
-8 # replace odd numbers by -1
-9

@@ -1,2 +1,0 @@
-. 12
-6.1 Tìm kiếm phần tử với điều kiện - where() . . 

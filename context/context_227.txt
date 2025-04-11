@@ -1,0 +1,577 @@
+Extra Class
+YOLO – V1
+Year 2023
+Nguyen Quoc Thai
+AI VIETNAM
+All-in-One Course
+1
+2
+CONTENT
+(1) – Object Detection
+(2) – YOLO V1
+(3) – VOC Dataset
+1 – Object Detection
+!
+3
+Object Detection
+CAT
+DOG
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1
+1
+0
+0
+0
+0
+0
+0
+1
+1
+1
+0
+2
+2
+0
+0
+1
+1
+1
+0
+2
+2
+0
+0
+1
+1
+1
+2
+2
+2
+0
+0
+1
+1
+1
+1
+2
+2
+0
+1
+1
+1
+1
+1
+2
+2
+0
+0
+0
+0
+0
+0
+0
+0
+0
+DOG – 0.98 CAT – 0.87
+Image Segmentation
+Object Detection
+Assign labels, bounding boxes 
+to objects in the image
+1 – Object Detection
+!
+4
+Naïve Object Detection
+Bounding Box
+A rectangular (Describe the 
+spatial location of an object)
+1280
+853
+(330 , 300)
+224
+224
+As a small image (224x224)
+1 – Object Detection
+!
+5
+Naïve Object Detection
+DOG – 0.87
+Bounding Box
+Label
+Stage 1: Region Proposal
+Stage 2: Classification
+Stage 3: Post-Processing
+2 – YOLO V1
+!
+6
+YOLO – V1
+You Only Look Once
+Unified, Real-Time Object Detection
+(1) A single neural network for 
+localization and for classification
+(2) Need to inference only once
+(3) Looks at the entire image each 
+time leading to less false positives
+2 – YOLO V1
+!
+7
+Unified Detection
+❖Split into a S x S grid
+❖For each grid square, generate B 
+bounding boxes
+❖For each bounding box, 5 predictions:
+(x, y, w, h, confidence)
+2 – YOLO V1
+!
+8
+Unified Detection
+❖Split into a S x S grid
+❖For each grid square, generate B 
+bounding boxes
+❖For each bounding box, 5 predictions:
+(x, y, w, h, confidence)
+- (x, y): the center of the box relative 
+to the bounds of the grid
+- ℎ=
+!!"#
+"$%&'(
+- 𝑤=
+#!"#
+$$%&'(
+- confidence score
+Pr Object ∗IOU%&'(
+)&*)+
+2 – YOLO V1
+!
+9
+Unified Detection – Demo
+❖Split into a S x S grid
+❖For each grid square, generate B 
+bounding boxes
+❖For each bounding box, 5 predictions:
+(x, y, w, h, confidence)
+- (x, y): the center of the box relative 
+to the bounds of the grid
+- ℎ=
+!!"#
+"$%&'(
+- 𝑤=
+#!"#
+$$%&'(
+- confidence score
+Pr Object ∗IOU%&'(
+)&*)+
+IoU = Area of Overlap
+Area of Union =
+2 – YOLO V1
+!
+10
+Unified Detection
+❖Split into a S x S grid
+❖For each grid square, generate B 
+bounding boxes
+❖For each bounding box, 5 predictions: 
+(x, y, w, h, confidence)
+❖C: conditional class probabilities:
+Pr(Class,|Object)
+2 – YOLO V1
+!
+11
+Unified Detection
+❖Split into a S x S grid
+❖For each grid square, generate B bounding boxes
+❖For each bounding box, 5 predictions: (x, y, w, h, confidence)
+❖C: conditional class probabilities: Pr(Class,|Object)
+YOLO is a regression algorithm
+X
+Y
+W * H * 3
+Width
+Height
+RGB Values
+S * S * (B*5 + C)
+(B*5 + C)
+predictions + class 
+predicted distribution for a 
+gird block
+2 – YOLO V1
+!
+12
+Network Design – Demo
+For VOC Dataset
+B = 2, C=20
+5*B + C = 30
+2 – YOLO V1
+!
+13
+Inference
+❖Use a threshold to filter out bouding 
+boxes with low P(Object)
+❖Multiply the conditional class 
+probabilities and the individual box 
+confidence predictions
+𝐏𝐫𝐂𝐥𝐚𝐬𝐬𝐢𝐎𝐛𝐣𝐞𝐜𝐭∗𝐏𝐫𝐎𝐛𝐣𝐞𝐜𝐭∗𝐈𝐎𝐔𝐩𝐫𝐞𝐝
+𝐭𝐫𝐮𝐭𝐡= 𝐏𝐫𝐂𝐥𝐚𝐬𝐬𝐢∗𝐈𝐎𝐔𝐩𝐫𝐞𝐝
+𝐭𝐫𝐮𝐭𝐡
+2 – YOLO V1
+!
+14
+Non-maximal Suppresion
+❖Discard bounding box with high overlap (keep the bounding box with highest confidence)
+2 – YOLO V1
+!
+15
+Non-maximal Suppresion – Demo
+❖Discard bounding box with high overlap (keep the bounding box with highest confidence)
+❖Pr Class, ∗IOU%&'(
+)&*)+
+3 – VOC Dataset 
+!
+16
+Object Detection Dataset Format
+(0, 0)
+(0, 0)
+(0, 0)
+COCO
+YOLO
+VOC
+(𝑥567, 𝑦567, 𝑥589, 𝑦589)
+(𝑥:;7<;=, 𝑦:;7<;=, 𝑤𝑖𝑑𝑡ℎ, ℎ𝑒𝑖𝑔ℎ𝑡)
+(𝑥567, 𝑦567, 𝑤𝑖𝑑𝑡ℎ, ℎ𝑒𝑖𝑔ℎ𝑡)
+3 – VOC Dataset
+!
+17
+Pascal VOC Detection Dataset
+§ Person: person
+§ Animal: bird, cat, cow, dog, 
+horse, sheep
+§ Vehicle: aeroplane, bicycle, 
+boat, bus, car, motorbike, train
+§ Indoor: bottle, chair, dining 
+table, potted plant, sofa, 
+tv/monitor
+3 – VOC Dataset
+!
+18
+Pascal VOC Detection Dataset
+3 – VOC Dataset
+!
+19
+Pascal VOC Detection Dataset
+3 – VOC Dataset
+!
+20
+Pascal VOC Detection Dataset
+Image with 1 bounding box
+Image with 2 bounding boxes
+3 – VOC Dataset
+!
+21
+Rescale Bounding Box
+(0, 0)
+(0, 0)
+x
+y
+w
+h
+0.8
+0.6
+5.1
+6.2
+1
+1
+rescale
+0.8
+0.6
+w
+h
+3 – VOC Dataset
+!
+22
+Output Format
+3 – VOC Dataset
+!
+23
+Output Shape
+3 – VOC Dataset
+!
+24
+Target for Training
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1
+0
+1
+0.8
+0.6
+5.1
+6.2
+For example, we have 2 classes: cat and dog.
+cat      dog
+bounding box (x, y, w, h)
+conf
+0
+0
+0
+0
+0
+0
+0
+For each object, only 1 grid cell is responsible for 
+the prediction.
+3 – VOC Dataset
+!
+25
+Output Example
+3 – VOC Dataset
+!
+26
+Ground Truth Example
+1
+0
+1
+0.8
+0.6
+5.1
+6.2
+0
+0
+0
+0
+0
+0
+0
+cell 1
+cell 2
+cat    dog
+bounding box (x, y, w, h)
+conf
+3 – VOC Dataset
+!
+27
+Localization loss
+1
+0
+1
+0.8
+0.6
+5.1
+6.2
+0
+0
+0
+0
+0
+0
+0
+bounding box (x, y, w, h)
+The localization loss measures the errors in the
+predicted boundary box locations and sizes. We only
+count the box responsible for detecting the object.
+0.8
+0.2
+0.8
+0.7
+0.65
+3.1
+7.2
+0.45
+0.55
+0.2
+0.35
+0.2
+0.5
+1.2
+cat      dog
+cell 1
+conf
+cell 2
+cell 1
+cell 2
+ℒ>?: = 𝜆:@@=A[(0.8 −0.7)B + (0.6 −0.65)B
++( 5.1 −
+3.1)B+( 6.2 −
+7.2)B]
+𝜆!""#$ = 5
+3 – VOC Dataset
+!
+28
+Why we use Square Root for width and height in localization loss
+width_gt
+width_pred
+Error 
+normal
+Square 
+Root Error
+5.5
+5.0
+0.5
+0.11
+1.0
+0.5
+0.5
+0.29
+The difference between a small box is much 
+more significant than a large box.
+3 – VOC Dataset
+!
+29
+Confidence loss
+If an object is detected in the box, the confidence loss
+(measuring the objectness of the box) is:
+1
+0
+1
+0.8
+0.6
+5.1
+6.2
+0
+0
+0
+0
+0
+0
+0
+bounding box
+0.8
+0.2
+0.8
+0.7
+0.65
+3.1
+7.2
+0.45
+0.55
+0.2
+0.35
+0.2
+0.5
+1.2
+cat      dog
+cell 1
+conf
+cell 2
+cell 1
+cell 2
+ℒ?CD = (1 −0.8)B+𝜆7??CD(0.0 −0.2)B
+𝜆!""#$ = 0.5
+3 – VOC Dataset
+!
+30
+Classification loss
+If an object is detected, the classification loss at each cell is
+the squared error of the class conditional probabilities for
+each class:
+1
+0
+1
+0.8
+0.6
+5.1
+6.2
+0
+0
+0
+0
+0
+0
+0
+bounding box
+0.8
+0.2
+0.8
+0.7
+0.65
+3.1
+7.2
+0.45
+0.55
+0.2
+0.35
+0.2
+0.5
+1.2
+cat      dog
+cell 1
+conf
+cell 2
+cell 1
+cell 2
+ℒ:>E = (1 −0.8)B+(0 −0.2)B
+3 – VOC Dataset
+!
+31
+Total Loss Function
+1. penalize bad localization of center of cells
+2. penalize the bounding box with inaccurate height and
+width. The square root is present so that errors in small
+bounding boxes are more penalizing than errors in big
+bounding boxes.
+3. make confidence score equal to the IoU between the
+object and the prediction when there is one object
+4. make confidence score close to 0 when there are no
+object in the cell
+5. a simple classification loss (not explained in the article)
+1
+2
+3
+4
+5
+Thanks!
+Any questions?
+32

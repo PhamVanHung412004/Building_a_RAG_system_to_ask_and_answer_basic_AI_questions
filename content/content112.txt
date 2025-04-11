@@ -1,6 +1,0 @@
-read_csv ( DATASET_PATH )
-3
-4 messages = df[’ Message ’]. values . tolist ()
-5 labels = df[’ Category ’]. values . tolist ()
-6
-4

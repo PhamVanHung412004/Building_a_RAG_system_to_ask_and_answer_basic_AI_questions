@@ -1,2 +1,0 @@
-Hình 8: So sánh VMamba và các model Transformer và CNN khác dưới nhiều size ảnh khác nhau.
-6

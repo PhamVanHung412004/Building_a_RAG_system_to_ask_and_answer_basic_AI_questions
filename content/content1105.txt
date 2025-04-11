@@ -1,4 +1,0 @@
-Tuy vậy, chiến lược này lại dẫn đến hiệu suất mô hình
-không được tốt.
-Hình 10: Minh họa chiến lược one-to-one và one-to-many label assignemnts.
-9

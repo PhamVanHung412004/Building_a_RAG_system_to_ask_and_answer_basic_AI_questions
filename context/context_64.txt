@@ -1,0 +1,460 @@
+Introduction Reinforcement to 
+Learning and Q-Learning
+Nguyen-Thuan Duong – TA
+Extra Class: RL
+Year 2024
+AI VIETNAM
+All-in-One Course
+(TA Session)
+2
+➢Introduction
+➢Reinforcement Learning
+➢Bellman Equation
+➢Monte Carlo and TD Learning
+➢Q-Learning
+➢Demo
+➢Question
+Outline
+AI VIETNAM
+All-in-One Course
+(TA Session)
+3
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Introduction
+4
+Introduction
+❖ Getting Started
+AI VIETNAM
+All-in-One Course
+(TA Session)
+5
+Introduction
+❖ Unsupervised vs Supervised vs Reinforcement Learning
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Unspervised Learning is 
+used to train machines 
+using labeled data.
+Supervised Learning uses 
+unlabeled data to train 
+machines.
+Reinforcement Learning 
+uses an agent and an 
+environment to produce 
+actions and rewards.
+6
+Introduction
+❖ Algorithms
+AI VIETNAM
+All-in-One Course
+(TA Session)
+K-Mean Clustering
+PCA
+DBSCAN
+Linear Regession
+Logistic Regression
+SVM
+KNN
+Monte Carlo
+Q-Learning
+Deep Q-Learning
+SARSA
+Unsupervised Learning
+Supervised Learning
+Reinforcement Learning
+7
+Introduction
+❖ Training data
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Unsupervised Learning
+Supervised Learning
+Reinforcement Learning
+Input data is labeled
+Input data is not labeled
+No need input data
+8
+Introduction
+❖ Applications
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Unsupervised Learning
+Supervised Learning
+Reinforcement Learning
+9
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Reinforcement Learning
+10
+10
+Reinforcement Learning
+❖ Getting Started 
+AI VIETNAM
+All-in-One Course
+(TA Session)
+•
+Reinforcement learning is a framework for solving control tasks (also called decision problems) 
+•
+By building agents that learn from the environment by interacting with it through trial and error. 
+•
+And receiving rewards (positive or negative) as unique feedback.
+Learning from 
+interactions with the 
+environment comes 
+from our natural 
+experiences.
+11
+11
+Reinforcement Learning
+❖ Getting Started 
+AI VIETNAM
+All-in-One Course
+(TA Session)
+1. Agent receives state 𝑺𝟎 from environment.
+2. Base on 𝑆0, Agent take a action 𝑨𝟎
+3. Environment goes to next state 𝑺𝟏
+4. Environment give some rewards 𝑹𝟏 to the Agent
+12
+12
+Reinforcement Learning
+❖ Environment
+AI VIETNAM
+All-in-One Course
+(TA Session)
+The environment for testing RL algorithms is often games  
+13
+13
+Reinforcement Learning
+❖ Observation / State Space 
+AI VIETNAM
+All-in-One Course
+(TA Session)
+State s: is a complete description of 
+the state of the world.
+Observation o: is a partial description 
+of the state.
+14
+14
+Reinforcement Learning
+❖ Reward
+AI VIETNAM
+All-in-One Course
+(TA Session)
+The goal is maximizing the expected return (expected cumulative reward).
+𝑅= 𝑟𝑡+ 𝑟𝑡+1 + 𝑟𝑡+2 + 𝑟𝑡+3 + ⋯
+𝑅= ෍
+𝑘=0
+𝑛
+𝑟𝑡+𝑘+1
+15
+15
+Reinforcement Learning
+❖ Discounting
+AI VIETNAM
+All-in-One Course
+(TA Session)
+𝑅= 𝑟𝑡+ 𝛾𝑟𝑡+1 + 𝛾2𝑟𝑡+2 + 𝛾3𝑟𝑡+3 + ⋯
+𝑅= ෍
+𝑘=0
+𝑛
+𝛾𝑘𝑟𝑡+𝑘+1
+It’s also reasonable to prefer rewards now to rewards later
+16
+16
+Reinforcement Learning
+❖ Exploration / Exloitation trade-off
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Exploration
+Exploitation
+Exploitation
+Exploration
+17
+17
+Reinforcement Learning
+❖ Appoachs for solving RL problem
+AI VIETNAM
+All-in-One Course
+(TA Session)
+The Policy π is the brain of our Agent, it’s the function that tells us what action to take given the 
+state we are in. So it defines the agent’s behavior at a given time.
+This Policy is the function we want to learn, our goal is to find the optimal policy π*, the policy that 
+maximizes expected return when the agent acts according to it. We find this π* through training.
+18
+18
+Reinforcement Learning
+❖ How to find optimal policy 𝝅∗
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Directly, by teaching the agent to learn which 
+action to take, given the current state.
+Policy-Based Methods
+Value-Based Methods
+Indirectly, teach the agent to learn which state is 
+more valuable and then take the action that leads 
+to the more valuable states
+19
+19
+Reinforcement Learning
+❖ Policy-based methods
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Deterministic: action a0 = π s0
+Stochastic: 𝜋𝐴|𝑠0 = 𝑃𝐴|𝑠0
+Policy 𝜋 is a Neural Network
+20
+20
+Reinforcement Learning
+❖ Value-based methods
+AI VIETNAM
+All-in-One Course
+(TA Session)
+We learn a value function that maps a state to the expected 
+value of being at that state.
+𝑉𝜋𝑠: value of a state is the expected discounted return the agent can 
+get if it starts in that state, and then acts according to our policy.
+21
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Bellman Equation
+22
+22
+Bellman Equation
+❖ Getting Started
+AI VIETNAM
+All-in-One Course
+(TA Session)
+23
+23
+Bellman Equation
+❖ Getting Started
+AI VIETNAM
+All-in-One Course
+(TA Session)
+24
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Monte Carlo
+25
+25
+Monte Carlo
+❖ Getting Started
+AI VIETNAM
+All-in-One Course
+(TA Session)
+•
+Monte Carlo is a strategy to train our value function function. 
+•
+It use experience to solve the RL problem.
+•
+Monte Carlo uses an entire episode of experience before learning.
+•
+So it requires a complete episode of interaction before updating our value function.
+26
+26
+Monte Carlo
+❖ Training
+AI VIETNAM
+All-in-One Course
+(TA Session)
+•
+Initialize value function to zero for each state
+•
+Learning rate (lr) is 0.1 and our discount rate is 1 (= no discount)
+•
+The mouse explores the environment and takes random actions
+27
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Temporal Difference
+28
+28
+Temporal Difference
+❖ Getting Started 
+AI VIETNAM
+All-in-One Course
+(TA Session)
+•
+The idea with TD is to update at each step.
+•
+Estimate 𝐺𝑡 by 𝑅𝑡+1 and discounted value of next state.
+29
+29
+Temporal Difference
+❖ Training
+AI VIETNAM
+All-in-One Course
+(TA Session)
+•
+Initialize value function to zero for each state
+•
+Learning rate (lr) is 0.1 and our discount rate is 1 (= no discount)
+•
+The mouse explores the environment and takes random actions (going to the left)
+30
+30
+Monte Carlo vs TD Learning
+❖ Summary
+AI VIETNAM
+All-in-One Course
+(TA Session)
+31
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Q-Learning
+32
+32
+Q-Learning
+❖ Getting Started 
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Q-learning is a value-based methods.
+Q-learning is a simple Reinforcemen Learning algorithm
+Q-learning uses a TD approach to train its action-value 
+function. 
+Q-Learning is the algorithm we use to train our Q-function, an 
+action-value function that determines the value of being at a 
+particular state and taking a specific action at that state.
+33
+33
+Q-Learning
+❖ Getting Started
+AI VIETNAM
+All-in-One Course
+(TA Session)
+•
+The Q-function uses a Q-table that has the value of each state-action pair. 
+•
+Given a state and action, our Q-function will search inside its Q-table to output the value.
+•
+Q(s, a) is the the value by starting from s and take action a.
+34
+34
+Q-Learning
+❖ Getting Started 
+AI VIETNAM
+All-in-One Course
+(TA Session)
+35
+35
+Q-Learning
+❖ Training
+AI VIETNAM
+All-in-One Course
+(TA Session)
+•
+Initialize Q(s, a) = 0 for each s, a pair
+•
+Select action and observe an experience (s, a, r, s’). 
+•
+Update 𝑄𝑠, 𝑎←𝑄𝑠, 𝑎+ 𝛼[𝑟+ 𝛾𝒎𝒂𝒙𝑄(𝑠′, 𝑎′) −𝑄𝑠, 𝑎]
+36
+36
+Q-Learning
+❖ Training step 2
+AI VIETNAM
+All-in-One Course
+(TA Session)
+37
+37
+Q-Learning
+❖ Training step 3
+AI VIETNAM
+All-in-One Course
+(TA Session)
+38
+38
+Q-Learning
+❖ Training step 4
+AI VIETNAM
+All-in-One Course
+(TA Session)
+39
+39
+Q-Learning
+❖ Rules
+AI VIETNAM
+All-in-One Course
+(TA Session)
+•
+You’re a mouse in this tiny maze. You always start at the same starting point.
+•
+The goal is to eat the big pile of cheese at the bottom right-hand corner and avoid the poison. After all, who doesn’t 
+like cheese?
+•
+The episode ends if we eat the poison, eat the big pile of cheese, or if we take more than five steps.
+•
+The learning rate is 0.1
+•
+The discount rate (gamma) is 0.99
+•
++0: Going to a state with no cheese in it.
+•
++1: Going to a state with a small cheese in it.
+•
++10: Going to the state with the big pile of cheese.
+•
+-10: Going to the state with the poison and thus dying.
+•
++0 If we take more than five steps.
+40
+40
+Q-Learning
+❖ Training
+AI VIETNAM
+All-in-One Course
+(TA Session)
+𝑙𝑟= 0.1
+𝛾= 0.99
+41
+41
+Q-Learning
+❖ Training
+AI VIETNAM
+All-in-One Course
+(TA Session)
+𝛼= 0.1
+𝛾= 0.99
+42
+42
+Q-Learning
+❖ Training
+AI VIETNAM
+All-in-One Course
+(TA Session)
+𝛼= 0.1
+𝛾= 0.99
+43
+43
+Q-Learning
+❖ Training
+AI VIETNAM
+All-in-One Course
+(TA Session)
+At the end of the training, we’ll get an estimate of the optimal Q-function.
+44
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Demo
+?
+45
+Question
+AI VIETNAM
+All-in-One Course
+(TA Session)
+46

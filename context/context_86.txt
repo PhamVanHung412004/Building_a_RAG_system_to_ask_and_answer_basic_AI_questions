@@ -1,0 +1,2112 @@
+1
+AI VIETNAM
+All-in-One Course
+1
+AI VIETNAM
+All-in-One Course
+Object Detection
+(Part 2: CNN-based Algorithms)
+Year 2023
+Vinh Dinh Nguyen - PhD in Computer Science
+Hung-An & Minh-Duc Bui - TA
+AI VIETNAM
+All-in-One Course
+2
+AI VIETNAM
+All-in-One Course
+2
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø CNN Limitations
+Ø Region Based Convolutional Neural Networks
+Ø Spatial Pyramid Pooling
+Ø Fast R-CNN
+Ø Faster RCNN
+Ø Object Detection with Transformers: Motivation
+3
+AI VIETNAM
+All-in-One Course
+3
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø CNN Limitations
+Ø Region Based Convolutional Neural Networks
+Ø Spatial Pyramid Pooling
+Ø Fast R-CNN
+Ø Faster RCNN
+Ø Object Detection with Transformers: Motivation
+4
+AI VIETNAM
+All-in-One Course
+4
+Vinh Dinh Nguyen- PhD in Computer Science
+Object Detection Milestones
+Milestones: Traditional Detectors
+Viola Jones Detectors, SVM + HOG & DPM
+Milestones: CNN based Two-stage Detectors
+RCNN, SPPNet, Faster RCNN, Faster RCNN,.. 
+Milestones: CNN based One-stage Detectors
+YOLO, SSD, RetinaNet, CornerNet, Center Net,..
+Milestones: Transformer for OD
+DETR, D-DETR, DINO,…
+5
+AI VIETNAM
+All-in-One Course
+5
+Vinh Dinh Nguyen- PhD in Computer Science
+Convolutional Neural Network’s Limitations
+We need to focus on object only, not entire image
+6
+AI VIETNAM
+All-in-One Course
+6
+Vinh Dinh Nguyen- PhD in Computer Science
+Classification Pipeline
+Feature Extractor
+HOG/SIFT/CNN/Etc
+Classifier
+SVM/
+FC+
+Softmax
+Etc
+0.8
+0.1
+0.02
+0.03
+0.02
+0.03
+Fully Connected Layers
+For Classification
+Conv and Pool Layers
+As Feature Extractors
+7
+AI VIETNAM
+All-in-One Course
+7
+Vinh Dinh Nguyen- PhD in Computer Science
+Classification
+AlexNet/VGG
+Conv and Pool Layers
+As Feature Extractors
+Feature Maps
+Fully Connected Layers
+For Classification
+Get Class Scores
+Using Softmax
+Image Credit - http://host.robots.ox.ac.uk/pascal/VOC/voc2012/examples/index.html
+Cat                0.8
+Dog               0.1
+Rhino           0.02
+Hippo           0.02
+Elephant      0.02
+Mouse          0.04
+8
+AI VIETNAM
+All-in-One Course
+8
+Vinh Dinh Nguyen- PhD in Computer Science
+Ideas for Localization using ConvNets
+AlexNet/VGG
+Get Class Scores
+Using Softmax
+Case #1 – Only one object per image
+Image Credit - http://host.robots.ox.ac.uk/pascal/VOC/voc2012/examples/index.html
+Get Bounding boxes
+Using L2 loss
+(x1, y1, x2, y2)
+X1, y1
+X2, y2
+Human
+Car
+Dog
+Cat
+Bicycle
+etc
+Human
+Car
+Dog
+Cat
+Bicycle
+etc
+10
+X0, y0
+w
+h
+9
+AI VIETNAM
+All-in-One Course
+9
+Vinh Dinh Nguyen- PhD in Computer Science
+Bounding Box Regression Training
+Image Credit - http://host.robots.ox.ac.uk/pascal/VOC/voc2012/examples/index.html
+600
+800
+200
+250
+600
+400
+(x1,y1) = (200, 250)
+(x2,y2) = (600, 400)
+x1
+y1
+x2
+y2
+L2 Loss
+Expected
+200
+250
+600
+400
+Prediction
+0
+0
+800
+600
+(200-0)2
+(250-0)2
+(600-800)2
+(400-600)2
+100
+150
+700
+450 (200-100)2
+(250-150)2
+(600-700)2
+(400-450)2
+210
+245
+590
+405 (200-210)2
+(250-245)2
+(600-590)2
+(400-405)2
+200
+250
+600
+400 (200-200)2
+(250-250)2
+(600-600)2
+(400-400)2
+182500
+32500
+250
+0
+10
+AI VIETNAM
+All-in-One Course
+10
+Vinh Dinh Nguyen- PhD in Computer Science
+BBox General Properties
+Image Credits - see Notes
+11
+AI VIETNAM
+All-in-One Course
+11
+Vinh Dinh Nguyen- PhD in Computer Science
+About Bounding Boxes
+500
+300
+600
+300
+12
+AI VIETNAM
+All-in-One Course
+12
+Vinh Dinh Nguyen- PhD in Computer Science
+Ideas for Localization using ConvNets
+AlexNet/VGG
+Get Class scores
+Using Softmax
+C class scores
+Get Bounding boxes
+Using L2 loss
+(x1, y1, x2, y2)
+Image Credit - http://host.robots.ox.ac.uk/pascal/VOC/voc2012/examples/index.html
+Classifier
+BBox Regressor
+13
+AI VIETNAM
+All-in-One Course
+13
+Vinh Dinh Nguyen- PhD in Computer Science
+Combining Results
+Image Credit - http://host.robots.ox.ac.uk/pascal/VOC/voc2012/examples/index.html
+0.95 - Boat
+0.02 - Person
+0.03 - TV
+Class
+Conf
+Bbox coordinates
+Person
+0.02
+380
+200
+430
+400
+Boat
+0.95
+210
+245
+590
+405
+TV
+0.03
+700
+10
+790
+100
+Person
+Boat
+TV
+Person
+Boat
+TV
+FC  Softmax
+x1   y1    x2    y2
+14
+AI VIETNAM
+All-in-One Course
+14
+Vinh Dinh Nguyen- PhD in Computer Science
+Region Proposal Methods 
+Edge Density
+Image Segmentation
+Jan Hosang, Rodrigo Benenson, Bernt Schiele, “How good are detection proposals, really?”, 2014
+15
+AI VIETNAM
+All-in-One Course
+15
+Vinh Dinh Nguyen- PhD in Computer Science
+Edge Boxes & Selective Search
+15
+Zitnick, C.L., Dollár, P. (2014). Edge Boxes: Locating Object Proposals from 
+Edges. 
+How to Apply Edge Boxes and Selective 
+Search for CNN?
+16
+AI VIETNAM
+All-in-One Course
+16
+Vinh Dinh Nguyen- PhD in Computer Science
+Region Proposal Algorithms
+Region proposal algorithms identify prospective objects in an image using segmentation. In segmentation, we group adjacent regions which are 
+similar to each other based on some criteria such as color, texture etc. 
+Segmentation Result
+RBG Image
+Can we use segmented parts in this image as region proposals? The answer is no and there are two reasons why we cannot do that
+1.Most of the actual objects in the original image contain 2 or more segmented parts
+2.Region proposals for occluded objects such as the plate covered by the cup or the cup filled with coffee 
+cannot be generated using this method
+17
+AI VIETNAM
+All-in-One Course
+17
+Vinh Dinh Nguyen- PhD in Computer Science
+Selective Search
+Selective search uses oversegments from Felzenszwalb and Huttenlocher’s method as an initial seed. An oversegmented image looks like this.
+1.
+Add all bounding boxes corresponding to segmented parts to the list of regional proposals
+2.
+Group adjacent segments based on similarity
+3.
+Go to step 1
+Selective Search uses 4 similarity measures based on 
+color, texture, size and shape compatibility.
+18
+AI VIETNAM
+All-in-One Course
+18
+Vinh Dinh Nguyen- PhD in Computer Science
+Selective Search
+Selective search uses oversegments from Felzenszwalb and Huttenlocher’s method as an initial seed. An oversegmented image looks like this.
+1.
+Add all bounding boxes corresponding to segmented parts to the list of regional proposals
+2.
+Group adjacent segments based on similarity
+3.
+Go to step 1
+Dogs: top 250 region proposals
+https://learnopencv.com/selective-search-for-object-detection-cpp-python/
+Breakfast Table: top 200 region proposals
+19
+AI VIETNAM
+All-in-One Course
+19
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø CNN Limitations
+Ø Region Based Convolutional Neural Networks
+Ø Spatial Pyramid Pooling
+Ø Fast R-CNN
+Ø Faster RCNN
+Ø Object Detection with Transformers: Motivation
+20
+AI VIETNAM
+All-in-One Course
+20
+Vinh Dinh Nguyen- PhD in Computer Science
+R-CNN
+Ross Girshick, et al. from UC Berkeley titled “Rich feature hierarchies for accurate object detection and semantic segmentation.”
+21
+AI VIETNAM
+All-in-One Course
+21
+Vinh Dinh Nguyen- PhD in Computer Science
+RCNN - Region proposals with CNNs
+227x227
+AlexNet/VGG
+Get Bounding boxes,
+per class
+(x1, y1, x2, y2)
+Selective Search
+6x6x256=
+9216
+fc6
+4096
+fc7
+4096
+6x6
+x256
+Rich feature hierarchies for accurate object detection and semantic segmentation - Ross Girshick, Jeff Donahue, Trevor Darrell, Jitendra Malik
+Regions
+Localization CNN
+Get Class scores
+Using Softmax
+C class scores
+22
+AI VIETNAM
+All-in-One Course
+22
+Vinh Dinh Nguyen- PhD in Computer Science
+RCNN - Region proposals with CNNs
+Rich feature hierarchies for accurate object detection and semantic segmentation - Ross Girshick, Jeff Donahue, Trevor Darrell, Jitendra Malik
+227x227
+AlexNet/VGG
+Get Class scores
+Using SVM
+Linear SVM per class
+Get Bounding boxes,
+per class
+(x1, y1, x2, y2)
+Selective Search
+6x6x256=
+9216
+fc6
+4096
+fc7
+4096
+6x6
+x256
+2000 
+Cropped &
+Warped 
+regions
+Localization CNN
+Get Class scores
+Using Softmax
+C class scores
+23
+AI VIETNAM
+All-in-One Course
+23
+Vinh Dinh Nguyen- PhD in Computer Science
+RCNN - Region proposals with CNNs
+Rich feature hierarchies for accurate object detection and semantic segmentation - Ross Girshick, Jeff Donahue, Trevor Darrell, Jitendra Malik
+AlexNet/VGG
+Get Class scores
+Using SVM
+Linear SVM per class
+Get Bounding boxes, 
+per class
+(x1, y1, x2, y2)
+SS/EB
+2000
+Region 
+Proposals
+Pre Trained
+On ImageNet
+Fine Tune using Log Loss 
+(Training Only)
+fc6 fc7
+Classical CV
+Stage 1
+CNN
+Stage 2
+Finetune
+On Region Proposals
+VOC 07
+W/O FT
+W FT
+pool5
+44.2
+47.3
+fc6
+46.2
+53.1
+fc7
+44.7
+54.2
+Alex Net
+•
+Before finetune: 44%
+•
+After finetune: 54%
+•
+Adding bounding box regression: 58%
+•
+VGG: 66% 
+24
+AI VIETNAM
+All-in-One Course
+24
+Vinh Dinh Nguyen- PhD in Computer Science
+RCNN - Region proposals with CNNs
+AlexNet/VGG
+Get Class scores
+Using SVM
+Linear SVM per class
+Get Bounding boxes, 
+per class
+(x1, y1, x2, y2)
+SS/EB
+2000
+Region 
+Proposals
+Pre Trained
+On ImageNet &
+Finetuned
+On Region Proposals
+Fine Tune using Log Loss 
+(Training Only)
+fc6 fc7
+Classical CV
+Stage 1
+CNN
+Stage 2
+• Why don’t we need the sliding window & image pyramid?
+• Didn’t we end up with too many inputs to the localization 
+network?
+25
+AI VIETNAM
+All-in-One Course
+25
+Vinh Dinh Nguyen- PhD in Computer Science
+RCNN - Region proposals with CNNs
+26
+AI VIETNAM
+All-in-One Course
+26
+Vinh Dinh Nguyen- PhD in Computer Science
+RCNN - Region proposals with CNNs
+1.It consumes a huge amount of time, storage, and 
+computation power.
+2.It has a complex multi-stage training pipeline(3 stage — 
+Log loss, SVM, and BBox Regressor’s L2 loss).
+Why not consider running the CNN just once per image and 
+then find a way to share that computation across the ~2000 
+proposals?
+27
+AI VIETNAM
+All-in-One Course
+27
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø CNN Limitations
+Ø Region Based Convolutional Neural Networks
+Ø Spatial Pyramid Pooling
+Ø Fast R-CNN
+Ø Faster RCNN
+Ø Object Detection with Transformers: Motivation
+28
+AI VIETNAM
+All-in-One Course
+28
+Vinh Dinh Nguyen- PhD in Computer Science
+Spatial Pyramid Matching
+Histograms of Images - Bins
+29
+AI VIETNAM
+All-in-One Course
+29
+Vinh Dinh Nguyen- PhD in Computer Science
+Spatial Pyramid Matching
+Bag of Visual Words – K Means Clustering
+30
+AI VIETNAM
+All-in-One Course
+30
+Vinh Dinh Nguyen- PhD in Computer Science
+Spatial Pyramid Matching
+…
+3
+12
+…
+48
+63
+31
+AI VIETNAM
+All-in-One Course
+31
+Vinh Dinh Nguyen- PhD in Computer Science
+Spatial Pyramid Matching
+8x8
+Feature Maps
+12x12
+Feature Maps
+3x16 = 48
+3x4 = 12
+3x1 = 3
+8x12
+Feature Maps
+12x8
+Feature Maps
+Total features: 3x21
+Provide the same features
+Any Size and Aspect Ratio
+32
+AI VIETNAM
+All-in-One Course
+32
+Vinh Dinh Nguyen- PhD in Computer Science
+Spatial Pyramid Pooling
+8x8
+Feature Maps
+16x1
+4x1
+1x1
+21x1
+• Identifying features
+• K-means clustering
+• Codebooks
+• Histograms
+Just Max-Pool
+16x256
+4x256
+1x256
+21x256
+x256
+33
+AI VIETNAM
+All-in-One Course
+33
+Vinh Dinh Nguyen- PhD in Computer Science
+Spatial Pyramid Pooling
+21x256
+34
+AI VIETNAM
+All-in-One Course
+34
+Vinh Dinh Nguyen- PhD in Computer Science
+Alex/VGG
+-Last Pool
+Feature Maps
+Get Class scores
+Using Softmax
+Get Bounding boxes
+Using L2 loss
+(x1, y1, x2, y2)
+x256
+1x1x4096 1x1x4096
+245x245
+1x1xC
+1x1x4xC
+S
+P
+P
+Replace last pooling layer by SPP
+ILSVRC 2014: ranked #3 in image 
+classification
+SPPNet = SPP + Overfeat for Classification
+35
+AI VIETNAM
+All-in-One Course
+35
+Vinh Dinh Nguyen- PhD in Computer Science
+RCNN – Two stage-based methods
+AlexNet/VGG
+Get Class scores
+Using SVM.
+Linear SVM per class
+Get Bounding 
+boxes, per class
+Using L2 loss
+(x1, y1, x2, y2)
+SS/EB
+2000
+Region Proposals
+Pre Trained
+On ImageNet
++ Finetuned
+On Region Proposals
+Fine Tune using Log 
+Loss (Training Only)
+36
+AI VIETNAM
+All-in-One Course
+36
+Vinh Dinh Nguyen- PhD in Computer Science
+SPP – Two stage-based methods
+Alex/VGG
+-Last Pool
+Get Class scores
+Using SVM
+Linear SVM per class
+Get Bounding boxes, 
+per class
+Using L2 loss
+(x1, y1, x2, y2)
+SS/EB
+Region Proposals
+S
+P
+P
+Fine Tune using Log Loss 
+(Training Only)
+Pre Trained
+On ImageNet
+Region Of Interest Proposals – ROI Proposal
+3. How to train the BBox regressor
+SS/EB
+1. How do you translate ROI proposals 
+onto the Feature Maps
+2. How do you pool the ROI proposals from the Feature Map
+37
+AI VIETNAM
+All-in-One Course
+37
+Vinh Dinh Nguyen- PhD in Computer Science
+Subsampling Ratio
+3x3 Pool
+Stride = 3
+3x3 Pool
+Stride = 3
+2x2 Pool
+Stride = 2
+18x18
+6x6
+2x2
+1x1
+3x3 Pool
+Stride = 3
+18x18
+6x6
+3x3 Pool
+Stride = 1
+5x5
+2x2 Pool
+Stride = 2
+3x3
+1. How do you translate ROI proposals onto the Feature Maps
+Subsampling ratio = 1/18
+Subsampling ratio = 1/6
+38
+AI VIETNAM
+All-in-One Course
+38
+Vinh Dinh Nguyen- PhD in Computer Science
+AlexNet Subsampling Ratio
+13x13
+Feature Maps
+2. How do you pool the ROI 
+proposals from the Feature Map
+s
+Spatial Pyramid Pooling
+Level 1, Level 2, Level 3
+6x6 grid. It is impossible
+How to solve
+39
+AI VIETNAM
+All-in-One Course
+39
+Vinh Dinh Nguyen- PhD in Computer Science
+SPP on Region Proposals
+43x58 - Feature Map
+688
+Aspect ratio 3:4
+Three level in Practice - {6x6, 3x3, 2x2, 1x1}
+40
+AI VIETNAM
+All-in-One Course
+40
+Vinh Dinh Nguyen- PhD in Computer Science
+BBox Regression Training
+y
+0,0
+3. How to train the BBox regressor
+x
+dw
+dh
+dx
+dy
+BBox Reg
+dx,   dy,  dw,  dh 
+xg, yg, wg, hg 
+Ground Truth
+x, y, w, h 
+ROI Centre/W/H
+Higher Layers/
+ConvNets
+(x + dx – xg )2 = 0
+41
+AI VIETNAM
+All-in-One Course
+41
+Vinh Dinh Nguyen- PhD in Computer Science
+SPP – 2 Stage Network - Inference
+Alex/VGG
+-Last Pool
+Get Class scores
+Using SVM
+Linear SVM per class
+Get Bounding boxes, 
+per class
+Using L2 loss
+(x1, y1, x2, y2)
+SS/EB
+Region Proposals
+S
+P
+P
+Fine Tune using Log Loss 
+(Training Only)
+Pre Trained
+On ImageNet
+ILSVRC 2014: ranked #2 in object detection
+2000 Computations
+Old: 0.7s; New: 0.9s
+Just 1 computation
+Old: 9s; New: 0.3s
+42
+AI VIETNAM
+All-in-One Course
+42
+Vinh Dinh Nguyen- PhD in Computer Science
+Speed-up: SPP vs RCNN=>Fast RCNN
+Alex/VGG
+-Last Pool
+Get Class scores
+Using SVM
+Linear SVM per class
+Get Bounding boxes, 
+per class
+Using L2 Loss 
+Smooth L1 loss
+(x, y, h, w)
+SS/EB
+Region Proposals
+S
+P
+P
+1L
+ROI
+P
+O
+O
+L
+Fine Tune using Log 
+Loss (Training Only)
++ Softmax for 
+Classification
+Pre Trained
+On ImageNet
+if |a-b|<1,     (a-b)2/2 
+else,               |a-b| - 1/2
+Single Scale, no Image Pyramid
+conv3
+3 Stage to 1 Stage
+FC + 
+Soft
+max
+Basic Shapes
+Complex 
+Shapes
+FT ROI
+43
+AI VIETNAM
+All-in-One Course
+43
+Vinh Dinh Nguyen- PhD in Computer Science
+Fast R-CNN
+Fast R-CNN, which was developed a year later after R-CNN, solves these issues very efficiently and is about 146 times faster than the R-
+CNN during the test time.
+New terminology
+44
+AI VIETNAM
+All-in-One Course
+44
+Vinh Dinh Nguyen- PhD in Computer Science
+Sub-Sampling Ratio & Roi Projection
+The idea of ROI projection is that we get the coordinates of the bounding box from the ROI proposal and we need to project them onto the 
+feature maps by projecting the ROI proposal with respect to the subsampling ratio.
+45
+AI VIETNAM
+All-in-One Course
+45
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø CNN Limitations
+Ø Region Based Convolutional Neural Networks
+Ø Spatial Pyramid Pooling
+Ø Fast R-CNN
+Ø Faster RCNN
+Ø Object Detection with Transformers: Motivation
+46
+AI VIETNAM
+All-in-One Course
+46
+Vinh Dinh Nguyen- PhD in Computer Science
+Alex/VGG
+-Last Pool
+Get Class scores
+Using SVM
+Linear SVM per class
+Get Bounding boxes, 
+per class
+Using L2 Loss 
+Smooth L1 loss
+(x, y, h, w)
+SS/EB
+Region Proposals
+S
+P
+P
+1L
+ROI
+P
+O
+O
+L
+Fine Tune using Log 
+Loss (Training Only)
++ Softmax for 
+Classification
+Pre Trained
+On ImageNet
+if |a-b|<1,     (a-b)2/2 
+else,               |a-b| - 1/2
+Single Scale, no Image Pyramid
+conv3
+3 Stage to 1 Stage
+FC + 
+Soft
+max
+Basic Shapes
+Complex 
+Shapes
+FT ROI
+RCNN -> SPPNet -> Fast RCNN
+47
+AI VIETNAM
+All-in-One Course
+47
+Vinh Dinh Nguyen- PhD in Computer Science
+Pretrained
+Alex/VGG
+-Last Pool
+Get Bounding boxes, 
+per class
+Using Smooth L1 loss
+(x, y, h, w)
+SS/EB
+R
+O
+I
+P
+O
+O
+L
+Fine Tune using Log 
+Loss + Softmax for 
+Classification
+RCNN -> SPPNet -> Fast RCNN
+48
+AI VIETNAM
+All-in-One Course
+48
+Vinh Dinh Nguyen- PhD in Computer Science
+Fast R-CNN
+So why don’t we reuse those same CNN results for region proposals instead of 
+running a separate selective search algorithm?
+49
+AI VIETNAM
+All-in-One Course
+49
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø CNN Limitations
+Ø Region Based Convolutional Neural Networks
+Ø Spatial Pyramid Pooling
+Ø Fast R-CNN
+Ø Faster RCNN
+Ø Object Detection with Transformers: Motivation
+50
+AI VIETNAM
+All-in-One Course
+50
+Vinh Dinh Nguyen- PhD in Computer Science
+Criteria for replacing SS
+Pretrained
+Alex/VGG
+-Last Pool
+Get Bounding boxes, per class
+Using Smooth L1 loss
+(x, y, h, w)
+SS/EB
+R
+O
+I
+P
+O
+O
+L
+Fine Tune using Log Loss + 
+Softmax for Classification
+< 2000 Region Proposals
+As fast as SS or better
+As Accurate as SS or better
+Should be able to propose Overlapping ROIs with different Aspect Ratios and Scale
+Role of Region Proposals
+51
+AI VIETNAM
+All-in-One Course
+51
+Vinh Dinh Nguyen- PhD in Computer Science
+Overlapping ROIs
+Anchor Boxes Solution
+From the image, we see a lot of objects overlapping each other. We see a car, a bicycle, a person holding 
+a television, and a dog inside this television. The selective search could solve this problem but we end up 
+with a huge number of ROIs. We need to think of an idea that efficiently solves this.
+52
+AI VIETNAM
+All-in-One Course
+52
+Vinh Dinh Nguyen- PhD in Computer Science
+Anchor Boxes
+Any object in the image can be detected using boxes of 
+3 different scales and 3 different aspect ratios.
+This could be a technique that can be used to solve our 
+purpose of replacing the region proposer.
+53
+AI VIETNAM
+All-in-One Course
+53
+Vinh Dinh Nguyen- PhD in Computer Science
+Solutions for Replace Region Propsals
+Removing Selective Search and applying a sliding window on top of the Feature Maps. But with this, we end detecting mostly objects of a single 
+scale.
+Pretrained
+Alex/VGG
+-Last Pool
+Get Bounding boxes, per class
+Using Smooth L1 loss
+(x, y, h, w)
+Dense Sampling
+R
+O
+I
+P
+O
+O
+L
+Fine Tune using Log Loss + 
+Softmax for Classification
+Fast RCNN + Sliding Window
+54
+AI VIETNAM
+All-in-One Course
+54
+Vinh Dinh Nguyen- PhD in Computer Science
+Solutions for Replace Region Propsals
+To take care of multiple scales, we have to use Image Pyramids at the input. But using images of 5 different scales (by which almost every 
+object can be detected) makes the network 4 times slower.
+Pretrained
+Alex/VGG
+-Last Pool
+Get Bounding boxes, 
+per class
+Using Smooth L1 loss
+(x, y, w, h)
+Dense Sampling
+R
+O
+I
+P
+O
+O
+L
+Fine Tune using Log 
+Loss + Softmax for 
+Classification
+Fast RCNN + Sliding Window + Image Pyramid
+55
+AI VIETNAM
+All-in-One Course
+55
+Vinh Dinh Nguyen- PhD in Computer Science
+Solutions for Replace Region Propsals
+Pretrained
+Alex/VGG
+-Last Pool
+Get Bounding boxes, per class
+Using Smooth L1 loss
+(x, y, h, w)
+Dense Sampling with 
+feature pyramid
+R
+O
+I
+P
+O
+O
+L
+Fine Tune using Log Loss + 
+Softmax for Classification
+Fast RCNN + Feature Pyramid
+• At least 40x60x9 =~ 20,000 proposals -> time consuming.
+• Backpropagating through those many proposals is difficult/time consuming
+(800x600)
+40x60
+Another option is to use sliding windows of different sizes (9, as shown above) on the Feature Map. This concept 
+is called the Feature Pyramid. This involves the use of sliding windows of 9 different sizes on top of the feature 
+maps.
+56
+AI VIETNAM
+All-in-One Course
+56
+Vinh Dinh Nguyen- PhD in Computer Science
+Fast RCNN + Neural Network
+Pretrained
+Alex/VGG
+-Last Pool
+Get Bounding boxes, 
+per class
+Using Smooth L1 loss
+(x, y, h, w)
+R
+O
+I
+P
+O
+O
+L
+Fine Tune using Log 
+Loss + Softmax for 
+Classification
+OverFeat [-Classifier-NMS]
+Pretrained
+Alex/VGG
+-Last Pool
+Get Bounding boxes, 
+per class
+Using Smooth L1 loss
+(x, y, h, w)
+R
+O
+I
+P
+O
+O
+L
+Fine Tune using Log 
+Loss + Softmax for 
+Classification
+Simple CNN BBox Regressor
+57
+AI VIETNAM
+All-in-One Course
+57
+Vinh Dinh Nguyen- PhD in Computer Science
+Solutions for Replace Region Propsals
+Consider using a simple CNN BBox regressor in place of Selective Search to get the approximate region proposals of the image which could 
+further be fed to the underlying Fast R-CNN architecture. This is the core idea behind Faster R-CNN. 
+RPN: Region Proposal Network
+58
+AI VIETNAM
+All-in-One Course
+58
+Vinh Dinh Nguyen- PhD in Computer Science
+Fast RCNN + RPN
+Pretrained
+Alex/VGG
+-Last Pool
+Get Bounding boxes, 
+per class
+Using Smooth L1 loss
+(x, y, h, w)
+R
+O
+I
+P
+O
+O
+L
+Fine Tune using Log 
+Loss + Softmax for 
+Classification
+RPN
+Pretrained
+Alex/VGG
+-Last Pool
+< 2000 Region Proposals
+As fast as SS or better
+As Accurate as SS or better
+59
+AI VIETNAM
+All-in-One Course
+59
+Vinh Dinh Nguyen- PhD in Computer Science
+Ideas for Localization using ConvNets
+AlexNet/VGG
+Get Class Scores
+Using Softmax
+Case #1 – Only one object per image
+Image Credit - http://host.robots.ox.ac.uk/pascal/VOC/voc2012/examples/index.html
+Get Bounding boxes
+Using L2 loss
+(x1, y1, x2, y2)
+X1, y1
+X2, y2
+Human
+Car
+Dog
+Cat
+Bicycle
+etc
+Human
+Car
+Dog
+Cat
+Bicycle
+etc
+10
+X0, y0
+w
+h
+0,0
+800, 0
+0, 600
+60
+AI VIETNAM
+All-in-One Course
+60
+Vinh Dinh Nguyen- PhD in Computer Science
+BBox Regression - Relative
+y
+0,0
+x
+BBox Reg
+dx, dy, dh, dw 
+Higher Layers/
+ConvNets
+x, y, h, w 
+Reference Box
+ROI reference
+Bbox deltas
+Predicted
+Expected
+x
+y
+h
+w
+dx
+dy
+dh
+dw
+x
+y
+h
+w
+x
+y
+h
+w
+160 240 150 150
+18
+-22
+-30 -125
+178
+218
+120
+25
+180
+220
+120
+30
+61
+AI VIETNAM
+All-in-One Course
+61
+Vinh Dinh Nguyen- PhD in Computer Science
+Sliding  Window as Reference Box
+y
+0,0
+x
+BBox Reg
+dx, dy, dw, dh 
+Higher Layers/
+ConvNets
+x, y, w, h 
+Reference Box
+62
+AI VIETNAM
+All-in-One Course
+62
+Vinh Dinh Nguyen- PhD in Computer Science
+Sliding  Window as Reference Box
+y
+0,0
+x
+BBox Reg
+dx, dy, dw, dh 
+Higher Layers/
+ConvNets
+x, y, w, h 
+Reference Box
+63
+AI VIETNAM
+All-in-One Course
+63
+Vinh Dinh Nguyen- PhD in Computer Science
+Sliding  Window as Reference Box
+y
+0,0
+x
+x, y, w, h 
+Reference Box
+BBox Reg
+BBox Reg
+BBox Reg
+64
+AI VIETNAM
+All-in-One Course
+64
+Vinh Dinh Nguyen- PhD in Computer Science
+Sliding  Window as Reference Box
+y
+0,0
+x
+x, y, w, h 
+Reference Box
+BBox Reg 1:1
+BBox Reg 1:2
+BBox Reg 2:1
+65
+AI VIETNAM
+All-in-One Course
+65
+Vinh Dinh Nguyen- PhD in Computer Science
+Square ROI to Rectangular Proposal
+x
+y
+0,0
+BBox Reg 2:1
+dx, dy, dw, dh 
+x, y, w, h 
+Ground Truth
+x, y, w, h 
+ROI Centre/W/H
+Higher Layers/
+ConvNets
+x, y, w, h 
+Tall Box Centre/W/H
+ROI reference
+Bbox deltas
+Predicted
+Expected
+x
+y
+h
+w
+dx
+dy
+dh
+dw
+x
+y
+h
+w
+x
+y
+h
+w
+160 240 130
+65
+18
+-22
+-10
+-32
+178
+218
+120
+33
+180
+220
+120
+30
+66
+AI VIETNAM
+All-in-One Course
+66
+Vinh Dinh Nguyen- PhD in Computer Science
+Square ROI to Rectangular Proposal
+x
+y
+0,0
+BBox Reg 1:1
+dx, dy, dw, dh 
+x, y, w, h 
+Ground Truth
+x, y, w, h 
+ROI Centre/W/H
+Higher Layers/
+ConvNets
+x, y, w, h 
+Square Box Centre/W/H
+67
+AI VIETNAM
+All-in-One Course
+67
+Vinh Dinh Nguyen- PhD in Computer Science
+Square ROI to Rectangular Proposal
+x
+y
+0,0
+BBox Reg 1:2
+dx, dy, dw, dh 
+x, y, w, h 
+Ground Truth
+x, y, w, h 
+ROI Centre/W/H
+Higher Layers/
+ConvNets
+x, y, w, h 
+Wide Box Centre/W/H
+68
+AI VIETNAM
+All-in-One Course
+68
+Vinh Dinh Nguyen- PhD in Computer Science
+Multiple BBox Reg using Reference Boxes
+BBox Reg 1:1
+60x40
+BBox Reg 1:2
+BBox Reg 2:1
+BBox Reg
+BBox Reg
+BBox Reg
+BBox Reg
+BBox Reg
+BBox Reg
+This is different from Feature Pyramid
+These boxes are called Anchor Boxes
+69
+AI VIETNAM
+All-in-One Course
+69
+Vinh Dinh Nguyen- PhD in Computer Science
+Bigger Objects?
+x
+y
+0,0
+BBox Reg
+dx, dy, dw, dh 
+x, y, w, h 
+Ground Truth
+x, y, w, h 
+SW Centre/W/H
+Higher Layers/
+ConvNets
+x, y, w, h 
+Tall Box Centre/W/H
+70
+AI VIETNAM
+All-in-One Course
+70
+Vinh Dinh Nguyen- PhD in Computer Science
+Bigger Objects?
+y
+0,0
+x
+x, y, w, h 
+Reference Box
+BBox Reg 1:1
+BBox Reg 1:2
+BBox Reg 2:1
+71
+AI VIETNAM
+All-in-One Course
+71
+Vinh Dinh Nguyen- PhD in Computer Science
+Multiple BBox Reg using Anchor Boxes
+BBox Reg
+60x40
+BBox Reg
+BBox Reg
+BBox Reg
+BBox Reg
+BBox Reg
+BBox Reg
+BBox Reg
+BBox Reg
+128sq
+256sq
+512sq
+1:1, 1:2. 2:1
+72
+AI VIETNAM
+All-in-One Course
+72
+Vinh Dinh Nguyen- PhD in Computer Science
+Fast RCNN + RPN
+Pretrained
+Alex/VGG
+-Last Pool
+Get Bounding boxes, 
+per class
+Using Smooth L1 loss
+(x, y, h, w)
+R
+O
+I
+P
+O
+O
+L
+Fine Tune using Log 
+Loss + Softmax for 
+Classification
+RPN
+Pretrained
+Alex/VGG
+-Last Pool
+< 2000 Region Proposals
+As fast as SS or better
+As Accurate as SS or better
+x9
+73
+AI VIETNAM
+All-in-One Course
+73
+Vinh Dinh Nguyen- PhD in Computer Science
+How to reduce number of proposals?
+x
+y
+0,0
+BBox Reg
+dx, dy, dw, dh 
+Higher Layers/
+ConvNets
+Classifier
+FG          BG
+74
+AI VIETNAM
+All-in-One Course
+74
+Vinh Dinh Nguyen- PhD in Computer Science
+Faster RCNN – Training Anchor Boxes - Labelling
+y
+0,0
+x
+BBox Reg 1:1
+BBox Reg 1:2
+BBox Reg 2:1
+75
+AI VIETNAM
+All-in-One Course
+75
+Vinh Dinh Nguyen- PhD in Computer Science
+Fast RCNN + RPN
+Pretrained
+Alex/VGG
+-Last Pool
+Get Bounding boxes, 
+per class
+Using Smooth L1 loss
+(x, y, h, w)
+R
+O
+I
+P
+O
+O
+L
+Fine Tune using Log 
+Loss + Softmax for 
+Classification
+RPN
+Pretrained
+Alex/VGG
+-Last Pool
+x9
+FG/BG
+< 2000 Region Proposals
+As fast as SS or better
+As Accurate as SS or better
+76
+AI VIETNAM
+All-in-One Course
+76
+Vinh Dinh Nguyen- PhD in Computer Science
+Faster RCNN – Training Anchor Boxes -
+Labelling
+BBox Reg 1:1
+BBox Reg 1:2
+BBox Reg 2:1
+77
+AI VIETNAM
+All-in-One Course
+77
+Vinh Dinh Nguyen- PhD in Computer Science
+Fast RCNN + RPN = Faster RCNN
+Pretrained
+Alex/VGG
+-Last Pool
+Get Bounding boxes, 
+per class
+Using Smooth L1 loss
+(x, y, h, w)
+R
+O
+I
+P
+O
+O
+L
+Fine Tune using Log 
+Loss + Softmax for 
+Classification
+RPN
+Pretrained
+Alex/VGG
+-Last Pool
+x9
+FG/BG
+< 2000 Region Proposals
+As fast as SS or better ?
+As Accurate as SS or better ?
+3x3
+1x1
+1x1
+Dense Sampling
+Sparse Sampling
+Different Image Sizes?
+Unchanged – Fast RCNN
+78
+AI VIETNAM
+All-in-One Course
+78
+Vinh Dinh Nguyen- PhD in Computer Science
+Faster & Accurate than SS?
+Time in ms
+mAP
+------
+66.9
+69.9
+79
+AI VIETNAM
+All-in-One Course
+79
+Vinh Dinh Nguyen- PhD in Computer Science
+Faster RCNN - Training
+Pretrained
+Alex/VGG
+-Last Pool
+Get Bounding boxes, 
+per class
+Using Smooth L1 loss
+(x, y, h, w)
+R
+O
+I
+P
+O
+O
+L
+Fine Tune using Log 
+Loss + Softmax for 
+Classification
+RPN
+x9
+FG/BG
+Fast RCNN
+Pretrained
+Alex/VGG
+-Last Pool
+3x3
+1x1
+1x1
+1. Train RPN using ConvNet1
+2. Train Fast-RCNN using ConvNet2 
+& RPN Proposals
+Unshared
+3. Fine-Tune RPN using ConvNet2
+4. Fine-Tune Fast-RCNN using 
+ConvNet2 & new RPN Proposals
+Shared
+Joint Training done later.
+80
+AI VIETNAM
+All-in-One Course
+80
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø CNN Limitations
+Ø Region Based Convolutional Neural Networks
+Ø Spatial Pyramid Pooling
+Ø Fast R-CNN
+Ø Faster RCNN
+Ø Object Detection with Transformers: Motivation
+81
+AI VIETNAM
+All-in-One Course
+81
+Vinh Dinh Nguyen- PhD in Computer Science
+Transformer Motivation for OD
+English
+Vietnamese
+I watch movie
+Tôi xem phim
+1.9 0.1
+-1.5 1.5
+1.6 -1.6
+0.0 2.0
+1.2 1.2
+1.7 1.8
+Input
+Output
+Word embeddeding
+Encoder 
+Decoder 
+Transformer Encoder 
+82
+AI VIETNAM
+All-in-One Course
+82
+Vinh Dinh Nguyen- PhD in Computer Science
+Word Embedding Using Neural Network
+1
+0
+0
+Sum
+× 1.87
+1.87
+f(x)= x
+0
+× -1.45
+× -0.78
+× 2.21
+I
+watch
+movie
+[EOS]
+× 0.09
+× 1.50
+× -0.27
+× -0.64
+Sum
+0.09
+f(x)= x
+0
+1
+0
+Sum
+× 1.87
+−0.78
+f(x)= x
+0
+× -1.45
+× -0.78
+× 2.21
+I
+watch
+movie
+[EOS]
+× 0.09
+× 1.50
+× -0.27
+× -0.64
+Sum
+0.27
+f(x)= x
+83
+AI VIETNAM
+All-in-One Course
+83
+Vinh Dinh Nguyen- PhD in Computer Science
+Word Ordering
+Peter eats fish 
+Fish eats Vinh 
+Positional Encoding
+84
+AI VIETNAM
+All-in-One Course
+84
+Vinh Dinh Nguyen- PhD in Computer Science
+Word Ordering
+Peter eats fish 
+https://machinelearningmastery.com/a-gentle-introduction-to-positional-encoding-in-transformer-models-part-1/
+85
+AI VIETNAM
+All-in-One Course
+85
+Vinh Dinh Nguyen- PhD in Computer Science
+Word Ordering
+0.0
+1.0
+-0.9
+0.4
+Positional Encoding
+1.87
+1.09
+-1.68
+0.67
+86
+AI VIETNAM
+All-in-One Course
+86
+Vinh Dinh Nguyen- PhD in Computer Science
+Relationship Among Words: Idea
+The pizza came out of the oven and it tasted good!
+Seft-attention works by seeing how similar each word is to all of the words in the sentense, including itself
+The pizza came out of the oven and it tasted good!
+If we looked at a lot of sentenses abut pizza and the word it was more commonly associated with pizza than oven
+87
+AI VIETNAM
+All-in-One Course
+87
+Vinh Dinh Nguyen- PhD in Computer Science
+Relationship Among Words: Detail
+× 1.1
+× 2.8
+−1.0
+× 0.6
+× 2.4
+3.7
+Query (Q)
+× −1.4
+× 0.5
+1.9
+× −1.7
+× 0.9
+-4.7
+Key(k)
+× −1.4
+× 0.5
+× −1.7
+× 0.9
+−0.2
+-1.9
+Key(k)
+Dot product: Calculate similarities between 
+the Query and the Keys
+88
+AI VIETNAM
+All-in-One Course
+88
+Vinh Dinh Nguyen- PhD in Computer Science
+Relationship Among Words: Detail
+3.7
+-1.0
+Query (Q)
+1.9
+-4.7
+Key(k)
+−0.2
+-1.9
+Key(k)
+Dot product: Calculate 
+similarities between 
+the Query and the Keys
+11.7
+Dot product: Calculate 
+similarities between 
+the Query and the Keys
+−2.6
+’I’ is much more similar to itself 
+than it is to the word ‘watch’ 
+Softmax Function
+0.0
+1.0
+89
+AI VIETNAM
+All-in-One Course
+89
+Vinh Dinh Nguyen- PhD in Computer Science
+Relationship Among Words: Detail
+3.7
+-1.0
+Query (Q)
+Dot product: Calculate 
+similarities between 
+the Query and the Keys
+11.7
+Dot product: Calculate 
+similarities between 
+the Query and the Keys
+−2.6
+’I’ and ‘Watch’ relative to their similarity to ’I’, are the the self-attention values for ’I’
+Softmax Function
+0.0
+1.0
+2.5
+-2.1
+Share the same weights
+90
+AI VIETNAM
+All-in-One Course
+90
+Vinh Dinh Nguyen- PhD in Computer Science
+Relationship Among Words: Detail
+× 1.1
+× −2.8
+−1.0
+× 0.6
+× 2.4
+3.7
+Query (Q)
+× −1.4
+× 0.5
+1.9
+× −1.7
+× 0.9
+-4.7
+Key(k)
+× −1.4
+× 0.5
+× −1.7
+× 0.9
+−0.2
+-1.9
+Key(k)
+1.5
+-2.7
+Query (Q)
+× −2.8
+× 0.6
+× 1.1
+× 2.4
+91
+AI VIETNAM
+All-in-One Course
+91
+Vinh Dinh Nguyen- PhD in Computer Science
+Relationship Among Words: Detail
+Word and 
+Position
+Encoding
+Q,K and V
+2.5
+−2.1
+Q,K and V
+2.8
+−2.2
+Pay attention: Self-attention values for each word 
+contain input from all of the other words
+Self-Attention
+Word and 
+Position
+Encoding
+Self-Attention
+Stack of Self-Attentions to capture different 
+relationship among the words im complicated 
+sentenses and pagraphs
+The pizza came out of the oven and it tasted good!
+92
+AI VIETNAM
+All-in-One Course
+92
+Vinh Dinh Nguyen- PhD in Computer Science
+Residual Connections
+Q,K and V
+2.8
+−2.2
+Position
+Encoding
+Self-Attention
+Residual Connection
+Transformer Encoders:
+ Encode the input
+Word 
+embedding
+Q,K and V
+2.5
+−2.1
+Position
+Encoding
+Self-Attention
+Residual Connection
+Word 
+embedding
+Encode words into numbers
+Encode the position of the words
+Encode the relationship of words
+Easy to train
+−1.01
+4.37
+−1.43
+0.82
+93
+AI VIETNAM
+All-in-One Course
+93
+Vinh Dinh Nguyen- PhD in Computer Science
+Transformer Encoders
+0
+0
+0
+f(x)= x
+1
+Tôi
+xem
+phim
+[EOS]
+2.70
+−0.34
+Position Encoding
+Word embedding
+Q,K and V
+−2.8
+−2.3
+−0.1
+−2.6
+Self-Attention
+Residual Connection
+Transformer Encoder-Decoder
+Transformer Decoder
+Don’t watch movie
+Watch movie
+Encoder-
+Decoder 
+Attention
+Keep tracking 
+significant words
+94
+AI VIETNAM
+All-in-One Course
+94
+Vinh Dinh Nguyen- PhD in Computer Science
+Encoder-Decoder Attention
+Transformer Decoder
+x1.5
+x0.3
+0.9
+x1.5
+x −1.0
+x −0.3
+2.6
+Query
+−4.5
+2.1
+Keys
+−0.5
+1.4
+Dot product
+9.5
+Dot product
+4.1
+Softmax
+1.0
+0.0
+Decoder determine what should be the first translated word.
+Keys
+95
+AI VIETNAM
+All-in-One Course
+95
+Vinh Dinh Nguyen- PhD in Computer Science
+Encoder-Decoder Attention
+1.0
+0.0
+6
+1.0
+0.0
+3.1
+x1.5
+x0.3
+0.9
+x1.5
+x −1.0
+x −0.3
+2.6
+Query
+Transformer Decoder
+96
+AI VIETNAM
+All-in-One Course
+96
+Vinh Dinh Nguyen- PhD in Computer Science
+Encoder-Decoder Attention
+Q,K and V
+6
+3.1
+Residual Connection
+Residual Connection
+5.9
+0.5
+97
+AI VIETNAM
+All-in-One Course
+97
+Vinh Dinh Nguyen- PhD in Computer Science
+Decoder Output
+5.9
+0.5
+x-0.6
+x-2.0
+-0.6
+5.1
+x0.8
+x-0.9
+1.4
+5.7
+x-0.1
+x-1.1
+2.5
+-3.6
+x-1.0
+x1.6
+2.5
+-4.6
+Softmax function
+1
+0
+0
+0
+Tôi
+xem
+phim
+[EOS]
+Translation is correct, but the Decoder does not stop until it outputs an [EOS] token.
+98
+AI VIETNAM
+All-in-One Course
+98
+Vinh Dinh Nguyen- PhD in Computer Science
+Vision Transformer
+An Image is Worth 16*16 Words: Transformers for Image Recognition at Scale," 
+published at ICLR 2021.
+1.Split an image into patches
+2.Flatten the patches
+3.Produce lower-dimensional linear embeddings from the flattened patches
+4.Add positional embeddings
+5.Feed the sequence as an input to a standard transformer encoder
+6.Pretrain the model with image labels (fully supervised on a huge dataset)
+7.Finetune on the downstream dataset for image classification
+The ViT model represents an input image as a series of image patches, like the series of word 
+embeddings used when using transformers to text, and directly predicts class labels for the image.
+99
+AI VIETNAM
+All-in-One Course
+99
+Vinh Dinh Nguyen- PhD in Computer Science
+Vision Transformer
+An Image is Worth 16*16 Words: Transformers for Image Recognition at Scale," 
+published at ICLR 2021.
+1.Split an image into patches
+2.Flatten the patches
+3.Produce lower-dimensional linear embeddings from the flattened patches
+4.Add positional embeddings
+5.Feed the sequence as an input to a standard transformer encoder
+6.Pretrain the model with image labels (fully supervised on a huge dataset)
+7.Finetune on the downstream dataset for image classification
+The ViT model represents an input image as a series of image patches, like the series of word 
+embeddings used when using transformers to text, and directly predicts class labels for the image.
+100
+AI VIETNAM
+All-in-One Course
+101
+AI VIETNAM
+All-in-One Course

@@ -1,0 +1,144 @@
+AI VIET NAM – Course 2024
+K-Nearest Neighbors (KNN)
+Hoàng-Nguyên Vũ
+Ngày 10 tháng 2 năm 2024
+1. Tóm lược:
+• K-nearest neighbor là một trong những thuật toán supervised-learning đơn giản nhất
+trong Machine Learning. Khi training, thuật toán này gần như không học gì từdữliệu
+training (hay còn được biết tới tên gọi là lazy learning), mọi tính toán được thực hiện khi
+mô hình cần dựđoán kết quảcủa dữliệu mới cần dựđoán. K-nearest neighbor có thểáp dụng
+được vào cảhai loại của bài toán Supervised learning là Classification và Regression.
+2. Tổng quan vềMachine Learning (ML) :
+• Nhìn chung, hiện nay có 4 nhóm phổbiến trong Machine Learning bao gồm: Supervise
+Learning, Unsupervise Learning, Semi-Supervise Learning và Reinforcement Learning
+– Supervise Learning:
+∗Là mô hình dựđoán kết quả(output) dựa trên tập dữliệu huấn luyện (training
+data) được gán nhãn (label). Các bài toán phổbiến của Supervise Learning bao
+gồm: Regression (áp dụng cho dựđoán giá trịcontinuous) và Classification (áp
+dụng cho bài toán phân loại)
+1
+AI VIETNAM
+aivietnam.edu.vn
+– Unsupervise Learning:
+∗Khác với Supervise Learning mô hình Unsupervise dựđoán kết quả(output) dựa
+trên tập dữliệu huấn luyện (training data) được không gán nhãn (label). Các bài
+toán phổbiến của Unsupervise Learning bao gồm: Clustering Ví dụ: phân nhóm
+khách hàng dựa trên hành vi mua hàng. và Association Ví dụ: khán giảxem phim
+Spider Man thường có xu hướng xem thêm phim Bat Man, dựa vào đó tạo ra một
+hệthống gợi ý khách hàng (Recommendation System), thúc đẩy nhu cầu mua sắm.
+– Semi-Supervise Learning:
+∗Semi-supervsied learning là một phương pháp sửdụng kết hợp cảdữliệu có nhãn
+và dữliệu không nhãn trong quá trình huấn luyện mô hình học máy. Ví dụ: Các
+bài toán khi chúng ta có một lượng lớn dữliệu X nhưng chỉmột phần nhỏtrong
+chúng được gán nhãn, phần còn lại đều chưa được gán nhãn, lúc này ta sẽáp dụng
+kỹthuật này ở2 Step:
+· Step 1: Tạo mô hình ML với tập data đã được label với tập data chưa label để
+tạo ra kết quảoutput là Pseudo Label Dataset
+· Step 2: Sửdụng Pseudo Label Dataset ởbước trên xây dựng mô hình ML khác
+và thực hiện dựđoán
+AI VIETNAM
+aivietnam.edu.vn
+– Reinforcement Learning:
+∗Là mô hình giúp cho một hệthống tựđộng xác định hành vi dựa trên hoàn cảnh
+đểđạt được lợi ích cao nhất (maximizing the performance). Hiện tại, Reinforcement
+learning chủyếu được áp dụng vào Lý Thuyết Trò Chơi (Game Theory), bao gồm
+State và Action kèm với Reward cho mỗi action tương ứng đểmô hình có thểcập
+nhật lại một cách tựđộng.
+3. K-Nearest Neightboor (KNN) :
+- Như đã trình bày ởtrên, KNN là là một trong những thuật toán supervised-learning đơn
+giản nhất trong Machine Learning, có thểáp dụng được vào cảhai loại của bài toán Supervised
+learning là Classification và Regression.
+- Các bước đểthực hiện thuật giải KNN như sau:
+• Bước 1: Chọn K lân cận đểthực hiện bước voting
+• Bước 2:
+Tính khoảng cách của data input với các data trong có trong tập data train, có
+các cách tính khoảng cách như: Minkowski, Euclid, Manhattan, ... tùy mục đích sửdụng mà
+chúng ta sửdụng cách tính khoảng cách, thông dụng nhất là cách tính Euclid
+AI VIETNAM
+aivietnam.edu.vn
+• Bước 3: Sau khi tính khoảng cách từdata input tới toàn bộdata trong tập training, chọn
+ra K lân cận với khoảng cách ngắn nhất, với K được chọn ởbước số1
+• Bước 4: Thực hiện Voting, kết quảsẽtheo label có tỉlệvoting cao nhất
+4. Làm thếnào đểlụa chọn K phù hợp ?
+• Làm thếnào đểxác định mô hình hiệu quả?
+- Trên thực tế, nếu chúng ta chỉquan tâm đến độchính xác của mô hình (accurancy) càng
+cao thì càng tốt thì quan điểm này chưa chính xác.
+- Ví dụ: Bài toán nhận dạng ung thư phổi, giảsửmô hình Machine Learning sau khi chúng
+ta xây dựng xong đạt được độhiệu quảlà 99% trên tập data kiểm thử, điều này đồng nghĩa
+với 100 bức ảnh thì mô hình dựđoán đúng 99 tấm ảnh và 1 ảnh dựđoán sai. Trường hợp
+khác, mình bạn học viên khác xây dựng hàm rất đơn giản, cứtấm ảnh nào đưa vào bạn kết
+luận không mắc bệnh. Vậy nếu như khách hàng kiểm thửvới data của họchỉvới 0.1% trong
+sốđó là mắc bệnh vậy thì mô hình bạn học viên không dùng Machine Learning hoạt động
+hiệu quảhơn với độchính xác 99.9% so với mô hình Machine Learning đạt 99%. Vậy thì điều
+này không hợp lý, nên chúng ta cần có thước đo đểxác định mô hình có đang hiệu quảhay
+không, cụthểlà Confusion Matrix
+AI VIETNAM
+aivietnam.edu.vn
+- Precision: Trong tất cảcác bệnh nhân mà mô hình dựđoán bịbệnh, tỉlệbệnh thật sự
+là bao nhiêu ?
+- Recall: Trong tất cảcác bệnh nhân thật sựbịcancer, chương trình dựđoán đúng được
+bao nhiêu trường hợp ?
+• Giá trịK như thếnào là phù hợp ?
+– Nếu K là sốlẻ: Khi K là sốlẻkhi thực hiện voting chúng ta luôn thu vềkết quả
+voting luôn tồn tại sốvoting cao hơn nên kết quảsẽkhông khiến chúng ta gặp khó khăn
+trong việc kết luận.
+- Ví dụtrên dễnhận thấy khi K = 3, kết quảdựđoán sẽlà màu xanh vì sốsao xanh là
+2 lớn hơn sao đỏ
+– Nếu K là sốchẳn : Khi K là sốchẳn khi thực hiện voting chúng ta sẽcó thểthu về
+kết quảvoting mà sốvoting cho mỗi phân loại đều bằng nhau. Lúc này ảnh hưởng đến
+kết quảdựđoán không hiệu quả.
+- Ví dụtrên dễnhận thấy khi K = 4, kết quảdựđoán sẽlà màu xanh hoặc vì sốsao
+xanh và sao đỏbằng nhau nên mô hình dựđoán bên nào cũng đúng. Dẫn đến kết quả
+không hiệu quả.
+- Đểkhắc phục, chúng ta sẽxét thêm trọng số(Weight), có thểhiểu khi trường hợp
+trên xảy ra, mô hình sẽxét trọng sốcủa các sốphiếu voting, trọng sốởbài này được
+tính bằng: uniform weight, distance weight, và customize weight. Nếu không định nghĩa
+mặc định mô hình cho rằng mọi phiếu bầu đềcó trọng sốbằng nhau ứng với uniform
+weight. Còn khi chúng ta xét distance weight, mô hình sẽcăn cứphân loại có distance
+AI VIETNAM
+aivietnam.edu.vn
+ngắn nhất và đưa ra kết luận, cụthểtrong ví dụngôi sao đỏsẽlà kết quảcuối cùng, vì
+khoảng cách từinput đến sao đỏngắn hơn sao xanh
+5. KNN trong bài toán regression?
+• Đối với bài toán regression, chúng ta cũng làm giống với bài toán phân loại nhưng điểm khác
+biệt là sau khi chọn K lân cận thì chúng ta thực hiện bước tính trung bình đểcho ra kết quả
+dựđoán
+6. Các giải thuật trong KNN
+• Brute Force:
+– Ý tưởng của giải thuật brute force hay thường gọi là quét cạn, đơn giản là chúng ta sẽ
+tính khoảng cách từinput data đến tất cảcác data trong tập training. Dễthấy, nếu tập
+training của chúng ta càng lớn, thì việc tính toán sẽmất rất nhiều thời gian dẫn đến
+giải thuật này không hiệu quảvới lượng data lớn.
+AI VIETNAM
+aivietnam.edu.vn
+• K-D Tree:
+– Đểkhắc phục hạn chếcủa giải thuật brute force, K-D Tree dựa trên ý tưởng của giải
+thuật vềcây quyết định (Decision Tree), đểcải thiện hiệu năng trong việc tính toán như
+sau:
+∗Bước 1: Chọn ngẫu nhiên 1 feature, ví dụhình trên, chúng ta lấy trục feature Ox
+∗Bước 2: Tính giá trịtrung vị(median) của feature X, ởđây ta thu được điểm A
+∗Bước 3: Khi chọn được điểm A, chúng ta có thểdễdàng chia tập data thành {B,
+C, D} và {E, F}
+∗Bước 4: Tiếp tục làm tương tựvới các tập data sau khi phân nhánh nhỏhơn, ta
+sẽthu vềcây quyết định như ví dụ
+– Khi đã có cây quyết định, chúng ta có thểdễdàng đưa ra kết luận dựa vào các nút gốc
+và nút lá
+• Ball Tree:
+– Cũng giống với K-D Tree nhưng đối với Ball Tree, hướng tiếp cận của tác giảgiải thuật
+sẽhơi khác, cụthểtác giảthiết kếgiải thuật như sau:
+AI VIETNAM
+aivietnam.edu.vn
+∗Bước 1: Lựa chọn 1 điểm bất kỳtrong training data
+∗Bước 2: Tìm điểm xa nhất đối với điểm vừa xác định
+∗Bước 3: Tìm điểm xa nhất đối với điểm tìm được ởbước 2
+∗Bước 4: Nối 2 đường thẳng giữa 2 điểm ởbước 2 và 3
+∗Bước 5: Chiếu tất cảcác điểm data còn lại lên đường ởbước 4
+∗Bước 6: Xác định giá trịtrung vị, lúc này chúng ta có thểdễdàng chia tập data
+thành các phần nhỏhơn
+∗Bước 7: Tìm các điểm centroid đơn giản bằng cách tính trung bình giữa các điểm
+data trong từng nhóm data sau khi phân nhỏ
+∗Bước 8: Lặp lại cho đến khi kết thúc tập dữliệu train
+– Sau khi xây dựng được các bước trên, chúng ta vẫn thu vềđược 1 cây quyết định dựa
+theo các điểm centroid, lúc này khi thực hiện dựđoán, các bước tương tựgiống với K-D
+Tree
+- Hết -

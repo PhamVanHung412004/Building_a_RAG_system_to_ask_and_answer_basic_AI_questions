@@ -1,5 +1,0 @@
-File
-name.txt sẽ được output ra sau khi khởi tạo đối tượng thuộc lớp ImageDownloader và gọi tới hàm
-export_filename().
-Nếu muốn tải folder data về lưu trữ, chúng ta có thể zip folder data về drive:
-34

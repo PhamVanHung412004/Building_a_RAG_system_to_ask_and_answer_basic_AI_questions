@@ -1,0 +1,622 @@
+Exercise Class
+Pretrained Models
+Image Retrieval using Vector DB
+Year 2023
+Nguyen Quoc Thai
+AI VIETNAM
+All-in-One Course
+1
+2
+CONTENT
+(1) – Pretrained Models
+(2) – Flower Classification
+(3) – Image Retrieval
+(4) – Image Retrieval with Vector Database
+1 – Pretrained Models
+!
+3
+Pretrained Models
+Large Dataset
+(ImageNet,..)
+MODEL
+(ResNet, VGG)
+Pretrained Model
+Trained
+❖A model created by some one else to solve a similar problem
+1 – Pretrained Models
+!
+4
+Pretrained Models
+❖Training: 1,281,167 images. Validation: 50,000 images. Testing: 100,000 images
+❖Object classes: 1,000
+1 – Pretrained Models
+!
+5
+ResNet18
+3x3 conv, 64
+3x3 conv, 64
++
+64-d
+relu
+relu
+2 strides to 
+down-sample
+1x1 conv, 128
+Stride: 2
+2 strides to 
+down-sample
+2 strides to 
+down-sample
+1x1 conv, 256
+Stride: 2
+1x1 conv, 512
+Stride: 2
+Source
+1 – Pretrained Models
+!
+6
+ResNet
+Source
+1 – Pretrained Models
+!
+7
+Training with Pretrained Models
+Train from scratch
+Transfer learning
+Fine Tuning
+Fine Tuning (As Initilization)
+1 – Pretrained Models
+!
+8
+Train from Scratch
+Large Dataset
+(ImageNet)
+Small Dataset
+(CIFAR10,…)
+Model (ResNet18)
+Feature 
+Extraction
+Use the same architecture
+Classifier
+Model (ResNet18)
+Feature 
+Extraction
+New Classifier
+Initialize and train a new model
+1 – Pretrained Models
+!
+9
+Transfer Learning (Feature Extractor)
+Large Dataset
+(ImageNet)
+Small Dataset
+(CIFAR10,…)
+Model (ResNet18)
+Feature 
+Extraction
+Classifier
+Model (ResNet18)
+Feature 
+Extraction
+New Classifier
+Freeze FE block and train only new classifier block
+Copy Weights
+1 – Pretrained Models
+!
+10
+Fine Tuning
+Large Dataset
+(ImageNet)
+Small Dataset
+(CIFAR10,…)
+Model (ResNet18)
+Feature 
+Extraction
+Classifier
+Model (ResNet18)
+Feature 
+Extraction
+New Classifier
+Freeze a part of FE and train the rest + new classifier block
+Copy Weights
+Initilization
+1 – Pretrained Models
+!
+11
+Fine Tuning (As Initialization)
+Large Dataset
+(ImageNet)
+Small Dataset
+(CIFAR10,…)
+Model (ResNet18)
+Feature 
+Extraction
+Classifier
+Model (ResNet18)
+Feature 
+Extraction
+New Classifier
+Train a new model
+Initialize Weights
+1 – Pretrained Models
+!
+12
+Transfer Learning and Fine Tuning using Pretrained Models
+Model
+Prediction
+Model
+Prediction
+Features
+Model
+Prediction
+Model
+Prediction
+Fine-tune some (all) layers 
+on downstream task
+❖Transfer Learning
+❖Fine Tuning
+1 – Pretrained Models
+!
+13
+Transfer Learning and Fine Tuning using Pretrained Models
+Similar Dataset
+Different Dataset
+Small Dataset
+Transfer Learning
+Highest Level Features
+Transfer Learning
+Lower Level features
+Large Dataset
+Fine Tuning
+Fine Tuning
+General Features: Edges…
+Specific Features
+2 – Flower Classification
+!
+14
+Flower Dataset - Demo
+❖Folder Structure
+2 – Flower Classification
+!
+15
+Preprocessing - Demo
+❖Training : Validation : Testing = 0.9 : 0.1 : 0.1
+2 – Flower Classification
+!
+16
+Preprocessing - Demo
+❖Transform
+2 – Flower Classification
+!
+17
+Dataloader - Demo
+❖Batch size: 256
+2 – Flower Classification
+!
+18
+Model – Train from Scratch - Demo
+2 – Flower Classification
+!
+19
+Model – Train from Scratch - Demo
+❖Testing: 73.11%
+2 – Flower Classification
+!
+20
+Model – Transfer Learning - Demo
+❖Weight: ImageNet1K
+2 – Flower Classification
+!
+21
+Model – Transfer Learning - Demo
+❖Testing: 86.98%
+2 – Flower Classification
+!
+22
+Model – Fine Tuning - Demo
+❖Freeze the first 50 layers
+2 – Flower Classification
+!
+23
+Model – Fine Tuning - Demo
+❖Testing: 93.13%
+2 – Flower Classification
+!
+24
+Model – Fine Tuning (As Initilization) - Demo
+❖Unfreeze all layers
+2 – Flower Classification
+!
+25
+Model – Fine Tuning (As Initilization) - Demo
+❖Testing: 95.27%
+2 – Flower Classification
+!
+26
+Comparing
+Model
+Accuracy
+Base
+73.11
+Transfer
+86.98
+Fine-Tune
+93.11
+Initilization
+95.27
+3 – Image Retrieval
+!
+27
+Database
+Query Image
+Image Database
+Search for
+Similar images
+3 – Image Retrieval
+!
+28
+Image Similarity 
+Similarity/
+Distance Function
+Similarity Score / 
+Distance
+MSE
+L1 – Distance
+L2 – Distance
+Cosine Similarity
+Normalized Cross-Correlation
+3 – Image Retrieval
+!
+29
+L1 Distance
+1
+0
+A
+2
+2
+B
+(0,0)
+A
+B
+|xB – xA|
+|yB – yA|
+❖Compute L1 distance of 2 vectors
+L1 = $
+!"#
+$
+|x! −y!|
+3 – Image Retrieval
+!
+30
+L1 Distance
+❖Compute L1 distance of 2 vectors
+L1 = $
+!"#
+$
+|x! −y!|
+3
+2
+1
+2
+4
+1
+3
+1
+4
+0
+2
+0
+Database vectors
+1
+1
+1
+Query vector
+id: 0 - L1 = 3
+id: 1 - L1 = 4
+id: 2 - L1 = 5
+id: 3 - L1 = 1
+Sort
+0
+2
+0
+3
+2
+1
+2
+4
+1
+3
+1
+4
+Database vectors
+id: 3 - L1 = 1
+id: 0 - L1 = 3
+id: 1 - L1 = 4
+id: 2 - L1 = 5
+3 – Image Retrieval
+!
+31
+Cosine Similarity
+1
+0
+A
+2
+2
+B
+(0,0)
+A
+B
+❖Compute Cosine Similarity of 2 vectors
+C𝑜𝑠(𝐴, 𝐵) =
+𝐴1 𝐵
+𝐴
+𝐵
+3 – Image Retrieval
+!
+32
+Cosine Similarity
+❖Compute Cosine Similarity of 2 vectors
+C𝑜𝑠(𝐴, 𝐵) =
+𝐴1 𝐵
+𝐴
+𝐵
+3
+2
+1
+2
+4
+1
+3
+1
+4
+0
+2
+0
+Database vectors
+1
+1
+1
+Query vector
+id: 0 - Cs = 0.93
+id: 1 - Cs = 0.88
+id: 2 - Cs = 0.91
+id: 3 - Cs = 0.58
+Sort
+3
+2
+1
+3
+1
+4
+2
+4
+1
+0
+2
+0
+Database vectors
+id: 0 - Cs = 0.93
+id: 2 - Cs = 0.91
+id: 3 - Cs = 0.58
+id: 1 - Cs = 0.88
+3 – Image Retrieval
+!
+33
+Naïve Approach
+Flatten
+Flatten
+Similarity/
+Distance Function
+Similarity Score / 
+Distance
+MSE
+L1 – Distance
+L2 – Distance
+Cosine Similarity
+Normalized Cross-Correlation
+3 – Image Retrieval
+!
+34
+Naïve Approach
+3
+2
+1
+0
+0
+3
+0
+3
+3
+1
+1
+0
+3
+1
+4
+1
+1
+0
+2
+4
+1
+1
+0
+4
+1
+0
+3
+0
+3
+0
+3
+4
+4
+3
+3
+4
+Example: size 9 x 9 image
+3
+2
+1
+0
+0
+3
+...
+...
+...
+...
+3
+4
+4
+3
+3
+4
+Flatten into a vector with 9 x 9 = 81 dimension
+dim = 81
+3
+2
+...
+...
+...
+3
+4
+0
+3
+...
+...
+...
+1
+0
+Similar
+Vector
+Different
+Vector
+Similarity / Distance Function
+3 – Image Retrieval
+!
+35
+Naïve Approach – Data Preparation – Demo
+86
+86
+128
+128
+3 – Image Retrieval
+!
+36
+Naïve Approach – L1 Distance – Demo
+Query image
+3 – Image Retrieval
+!
+37
+Naïve Approach – L1 Distance – Demo
+3 – Image Retrieval
+!
+38
+Naïve Approach – L1 Distance – Demo
+3 – Image Retrieval
+!
+39
+Naïve Approach – Cosine Similarity– Demo
+Query image
+3 – Image Retrieval
+!
+40
+Naïve Approach – Cosine Similarity– Demo
+3 – Image Retrieval
+!
+41
+Naïve Approach – Cosine Similarity– Demo
+3 – Image Retrieval
+!
+42
+Using Pretrained Model
+Feature Extractor
+(ResNet18)
+Feature Extractor
+(ResNet18)
+Similarity/
+Distance Function
+Similarity Score / 
+Distance
+MSE
+L1 – Distance
+L2 – Distance
+Cosine Similarity
+Normalized Cross-Correlation
+3 – Image Retrieval
+!
+43
+Using Pretrained Model
+Feature Extractor
+Vector
+Matrix
+Pretraied Model (ResNet18)
+3 – Image Retrieval
+!
+44
+Using Pretrained Model – Demo
+❖Load pretrained ResNet18 model
+3 – Image Retrieval
+!
+45
+Using Pretrained Model – Demo
+❖Feature Extraction
+3 – Image Retrieval
+!
+46
+Using Pretrained Model – Demo
+❖Result
+4 – IR with Vector Databasse
+!
+47
+Database
+4 – IR with Vector Databasse
+!
+48
+Vector Database
+4 – IR with Vector Databasse
+!
+49
+Indexing
+Feature 
+Extractor
+(ResNet18)
+Feature 
+Extractor
+(ResNet18)
+Feature 
+Extractor
+(ResNet18)
+Clustering
+Indexing
+4 – IR with Vector Databasse
+!
+50
+PyMilvus
+4 – IR with Vector Databasse
+!
+51
+Zilliz Cloud
+4 – IR with Vector Databasse
+!
+52
+Connect a Database – Demo
+4 – IR with Vector Databasse
+!
+53
+Create a Collection – Demo
+4 – IR with Vector Databasse
+!
+54
+Insert Entities – Demo
+4 – IR with Vector Databasse
+!
+55
+Indexing – Demo
+4 – IR with Vector Databasse
+!
+56
+Searching – Demo
+Thanks!
+Any questions?
+57

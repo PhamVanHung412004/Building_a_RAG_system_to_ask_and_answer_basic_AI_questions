@@ -1,0 +1,434 @@
+TOOLFORMER: 
+LANGUAGE MODELS CAN TEACH 
+THEMSELVES TO USE TOOLS
+Timo Schick
+Jane Dwivedi-Yu
+Roberto Dessì†
+Roberta Raileanu
+Maria Lomeli
+Luke Zettlemoyer
+Nicola Cancedda
+Thomas Scialom
+Meta AI Research
+†Universitat Pompeu Fabr
+9 Feb 2023
+arxiv.org/pdf/2302.04761.pdf
+• Clarify the researcher's ideas
+• Experiments & My comments
+• Implement (code)
+TABLE OF CONTENTS
+CLARIFY THE RESEARCHER'S IDEAS
+Key steps for question answering tool
+Sampling 
+API Calls
+Executing 
+API Calls
+Filtering API 
+Calls
+Model 
+Finetuning
+Inference
+APPROACH
+Datasetof plain texts (C)
+𝐶= {𝑥1, … , 𝑥𝐶}
+API call (c)
+𝑐= (𝑎𝑐, 𝑖𝑐)
+𝑎𝑐: name of API
+𝑖𝑐: corresponding input
+Linearized sequences of API (e)  
+𝑒𝑐= < 𝐴𝑃𝐼> 𝑎𝑐𝑖𝑐</𝐴𝑃𝐼>
+𝑒𝑐, 𝑟= < 𝐴𝑃𝐼> 𝑎𝑐𝑖𝑐→𝑟</𝐴𝑃𝐼>
+r:  API result
+“ [”, “]”, “->” instead of “<API>”, “</API>”, “→” (special 
+tokens) to work without modifying LM’s vocabulary
+Finetuning language 
+model M on C*
+Dataset with API Calls (C*)
+𝐶∗= {𝑥∗1, … , 𝑥∗𝐶}
+C* contains the exact same texts as C
+APPROACH
+STEP BY STEP
+• Sampling API Calls
+• Executing API Calls
+• Filtering API Calls
+• Model Finetuning
+• Inference
+SAMPLING API CALLS
+• Sequence 𝑥= 𝑥1, … , 𝑥𝑛
+• Prompt P(x)
+• 𝑝𝑀= 𝑝𝑀𝑧𝑛+1 𝑧1, … , 𝑧𝑛probability that M assigns to token 𝑧𝑛+1 as a continuation for 
+the sequence 𝑧1, … , 𝑧𝑛➔For each i ∈{1, . . . , n} ➔𝑝𝑖= 𝑝𝑀< 𝐴𝑃𝐼> 𝑃𝑋, 𝑥1:𝑖−1
+probability that M assigns to starting an API call at position i
+• Sampling threshold τ𝑠➔keep all positions I = {i| 𝑝𝑖> τ𝑠} ➔k candidate positions ➔
+keep top k positions
+• For each position i ∈I ➔m API calls 𝑐𝑖
+1, … , 𝑐𝑖
+𝑚➔
+[P(x), 𝑥1, … , 𝑥𝑖−1, <API> 𝑟𝑒𝑠𝑝𝑜𝑛𝑠𝑒𝑓𝑜𝑟𝐴𝑃𝐼</𝐴𝑃𝐼>]
+• M does not generate </API> ➔discard example
+Sampling 
+API Calls
+Executing 
+API Calls
+Filtering 
+API Calls
+PROMPT P(X)
+• Question Answering (2)
+• Calculator (5)
+• Wikipedia Search (3)
+• Machine Translation System (3)
+• Calendar (5)
+EXECUTING API CALLS
+• How this is done depends entirely on the API itself
+• Calling another neural network
+• Executing a Python script
+• Using a retrieval system to perform search over a large corpus
+• API call 𝑐𝑖➔single text sequence 𝑟𝑖
+Sampling 
+API Calls
+Executing 
+API Calls
+Filtering 
+API Calls
+FILTERING API CALLS
+• At position i in sequence 𝑥= 𝑥1, … , 𝑥𝑛➔API call 𝑐𝑖➔
+response 𝑟𝑖➔𝑒𝑐𝑖, 𝑟𝑖
+• A sequence of weights 𝑤𝑖𝑖∈𝑁
+• z ≜𝑒𝑐𝑖, 𝑟𝑖as a prefix instead of inserting it at position i 
+• Over the tokens 𝑥1, … , 𝑥𝑛➔weighted cross entropy loss for M 
+𝐿𝑖𝑧= −σ𝑗=𝑖
+𝑛
+𝑤𝑗−𝑖∙𝑙𝑜𝑔𝑝𝑀(𝑥𝑗|𝑧, 𝑥1:𝑗−1)
+Sampling 
+API Calls
+Executing 
+API Calls
+Filtering 
+API Calls
+FILTERING API CALLS
+• Weighted cross entropy loss 𝐿𝑖𝑧= −σ𝑗=𝑖
+𝑛
+𝑤𝑗−𝑖∙𝑙𝑜𝑔𝑝𝑀(𝑥𝑗|𝑧, 𝑥1:𝑗−1)
+• Consider 3 cases:
+• (a) doing no API call 
+• (b) doing an API call and providing the response
+• (c) doing an API call, but not providing the response
+• Efficiency of API call ➔compare (b) with (c) or (a) 
+• 𝐿𝑖
+𝐵𝑧< 𝐿𝑖
+𝐴𝑧or 𝐿𝑖
+𝐵𝑧< 𝐿𝑖
+𝐶𝑧➔𝐿𝑖
+𝐵𝑧< min(𝐿𝑖
+𝐴𝑧, 𝐿𝑖
+𝐶𝑧)
+Sampling 
+API Calls
+Executing 
+API Calls
+Filtering 
+API Calls
+FILTERING API CALLS
+• Weighted cross entropy loss 𝐿𝑖𝑧= −σ𝑗=𝑖
+𝑛
+𝑤𝑗−𝑖∙𝑙𝑜𝑔𝑝𝑀(𝑥𝑗|𝑧, 𝑥1:𝑗−1)
+• Efficiency of API call ➔𝐿𝑖
+𝐵𝑧< min(𝐿𝑖
+𝐴𝑧, 𝐿𝑖
+𝐶𝑧)
+• Empty sequence 𝜀➔
+• 𝐿𝑖
++ = 𝐿𝑖𝑒𝑐𝑖, 𝑟𝑖
+• 𝐿𝑖
+−= min(𝐿𝑖(𝜀), 𝐿𝑖(𝑒𝑐𝑖, 𝜀))
+• Filtering threshold 𝜏𝑓➔keep API that 𝐿𝑖
+−−𝐿𝑖
++≥𝜏𝑓
+Sampling 
+API Calls
+Executing 
+API Calls
+Filtering 
+API Calls
+MODEL FINETUNING
+• LM Dataset C ➔LM Dataset with API Calls C*
+• Original input 𝑥= 𝑥1, … , 𝑥𝑛➔new input 𝑥∗= 𝑥1:𝑖−1, 𝑒𝑐𝑖, 𝑟𝑖, 𝑥𝑖:𝑛
+• Finetune M on C*, then based on its feedback 𝑒𝑐𝑖, 𝑟𝑖, M will learn 
+to decide when and how to use which tool can help predict future 
+tokens.
+INFERENCE
+• 𝑥∗= 𝑥1:𝑖−1, 𝑒𝑐𝑖, 𝑟𝑖, 𝑥𝑖:𝑛
+• 𝑒𝑐, 𝑟= < 𝐴𝑃𝐼> 𝑎𝑐𝑖𝑐→𝑟</𝐴𝑃𝐼>
+• Finetuned M ➔generated text t ➔regular decoding, when M
+produces the “→” token ➔interrupt decoding ➔M produces
+</API> token ➔continue decoding.
+Fine-tuning
+Inference
+TOOLS
+• Question Answering
+• QA system based on another LM - Atlas retrieval-augmented LM fine-tuned on Natural Questions
+• Calculator
+• Simple numeric calculations - four operations, rounded to two decimal places
+• Wikipedia Search
+• Search engine, given a search term, extract from comprehensive information and returns short
+text - a BM25 retriever that indexes the Wikipedia dump from KILT
+• Machine Translation System
+• Detect source language using the fast-Text classifier, translate into English from any language
+using multilingual machine translation model - 600M parameter NLLB (200 languages)
+• Calendar
+• Query, return the current date without taking any inputs, provide temporal context for predictions that
+require some awareness of time
+EXPERIMENTS & MY COMMENTS
+Finetuning 
+M on C*
+API call (c)
+𝑐= (𝑎𝑐, 𝑖𝑐)
+Linearized sequences of API (e)  
+𝑒𝑐= < 𝐴𝑃𝐼> 𝑎𝑐𝑖𝑐</𝐴𝑃𝐼>
+𝑒𝑐, 𝑟= < 𝐴𝑃𝐼> 𝑎𝑐𝑖𝑐→𝑟</𝐴𝑃𝐼>
+Dataset (C*)
+𝐶∗= {𝑥∗1, … , 𝑥∗𝐶}
+Dataset (C)
+𝐶= {𝑥1, … , 𝑥𝐶}
+Subset of CCNet
+GPT-J
+more likely
+to be helpful
+Computational cost ➔define heuristics
+Default:  τ𝑠= 0.05, τ𝑓= 1.0, 𝑘= 5, 𝑚= 5
+Calculator, machine translation: τ𝑠= 0.0, τ𝑓= 0.5, 𝑘= 20, 𝑚= 10
+obtaining C* from C
+Make sure that API is actually helpful ➔weighting function
+• GPT-J: w/o finetuning 
+• GPT-J + CC: finetuned on C
+• Toolformer: GPT-J finetuned on C*
+• Toolformer (disabled): disable API calls (decode)
+batch size: 128
+learning rate: 1·10−5
+linear warmup: first 10% of training
+Filtering threshold 𝜏𝑓➔keep API that 𝐿𝑖
+−−𝐿𝑖
++= 𝜏𝑓
+DOWNSTREAM TASKS 
+• SETUP
+• prompted zero shot setup - instructed to solve but do not provide any
+in-context examples
+• greedy decoding - selects the word with the highest probability as the
+next word 𝑤𝑡= 𝑎𝑟𝑔𝑚𝑎𝑥
+𝑤
+𝑃(𝑤|𝑤1:𝑡−1), but one modification
+• Standard: the most likely token ➔Modification: the k most likely
+tokens ➔that 𝑤𝑡= <API> ➔k = 10
+• one API call/input ➔does not get stuck in a loop in case API call not
+providing the response
+DOWNSTREAM TASKS 
+Standard:the most likely token ➔Modification: the k most likely tokens ➔that 𝑤𝑡= <API> ➔k = 10
+increasing k ➔model doing API calls for more examples
+k = 1 ➔model is calibrated to some extent ➔decide to call 
+APIs (better perform) instead of NOT call APIs (badly perform). 
+higher values of k ➔lose this calibration
+EVALUATE MODELS
+• Considering the following criterions:
+• The factual and commonsense knowledge contained in pretrained language models
+(on SQuAD, Google RE and T-REx subsets of the LAMA)
+• Performance on specific tasks when compared with other models
+• Mathematical reasoning abilities on ASDiv, SVAMP, MAWPS
+• Question Answering on Web Questions, Natural Questions,TriviaQA
+• Multilingual Question Answering on MLQA
+• Calendar API’s utility on TEMPLAMA, generated DATESET
+• Language modeling performance on WikiText, CCNet not used in training (10,000)
+• Ability to ask external tools for help affects performance using GPT-J and GPT-2 family
+(124M, 355M, 775M, 1.6B) for tools: question answering, calculator,Wikipedia search.
+DOWNSTREAM TASKS 
+The factual and commonsense knowledge on SQuAD, Google RE and T-REx subsets of the LAMA
+Task: complete a short statement with a missing fact (e.g., a date or a place)
+LAMA was designed to evaluate masked language models ➔filter out mask token is not the final token. 
+Lenient evaluation criteria instead of exact match, the correct word is in the top five predicted words.
+LAMA is based on statements (Wikipedia), prevent Toolformer from using the Wikipedia Search API
+question answering tool 
+(98.1%);  a different tool 
+(0.7%) or no tool (1.2%)
+DOWNSTREAM TASKS 
+Performance on specific tasks
+Mathematical reasoning abilities on ASDiv, SVAMP, MAWPS
+Lenient evaluation criterion, output is a number ➔check for the first predicted number
+Surmise: finetuned on many examples of API calls and their results ➔improving mathematical capabilities
+calculator tool 
+(97.9%)
+Operations: “+”, “−”, “∗”, “/”
+Heuristic filters for CCNet & 
+processing criterions
+•
+window of 100 tokens
+➔>= 3
+numbers, one is the result of the
+operation of the other two.
+•
+“=”, “equals”, “equal to”, “total 
+of”, “average of” + a number 
+•
+>= 3 numbers (random 1%)
+DOWNSTREAM TASKS 
+Performance on specific tasks
+Question Answering on Web Questions, Natural Questions,TriviaQA
+Lenient evaluation criteria instead of exact match, the correct word is in the top 20 predicted words.
+Question-answering tool:  Atlas model finetuned on  Natural Questions. Atlas large (obtaining C*),  Atlas-
+xxl (Inference) ➔task solving is trivial ➔disable question-answering tool
+Wikipedia 
+search (99.3%)
+Simplicity (not a good match)
+Inability to interact with itself, 
+reformulating or browsing through 
+the top results ➔future work
+DOWNSTREAM TASKS 
+Performance on specific tasks
+Multilingual Question Answering on MLQA
+Machine translation tool: NLLB 600M (training & inference), fastText classifier (source language detection)
+Text chunks (multilingual language) ➔target language (English)
+Preprocessing:
+•
+Text chunks size: 10 tokens
+•
+Middle text chunk is in a language other than English (fastText classifier, confidence > 0.8)
+•
+Any text chunks only numbers or special symbols
+Input: 近年来，科学家们根据蛋白质的结构创作了音乐，作为更好地向公众普及科学的创造性方式，但由此产
+生的歌曲并不总是悦耳En un estudio que aparece el 29 de septiembre en la revista Heliyon, los
+investigadores utilizan el estilo de los géneros musicales existentes para guiar la estructura de las
+canciones proteicas y hacerlas más musicales 研究人员以肖邦的幻想即兴曲和其他古典作品的风格为指导，
+将蛋白质转化为具有巨大音乐性的歌曲
+DOWNSTREAM TASKS 
+Performance on specific tasks
+Multilingual Question Answering on MLQA
+Input ➔API calls (Machine translation tool) ➔近年来，科学家们根据蛋白质的结构创作了音乐，作为更好地
+向公众普及科学的创造性方式，但由此产生的歌曲并不总是悦耳<API> response of API </API> En un
+estudio que aparece el 29 de septiembre en la revista Heliyon, los investigadores utilizan el estilo de los
+géneros musicales existentes para guiar la estructura de las canciones proteicas y hacerlas más
+musicales <API> response of API </API> 研究人员以肖邦的幻想即兴曲和其他古典作品的风格为指导，将蛋
+白质转化为具有巨大音乐性的歌曲<API> response of API </API>
+<API> response of API </API>
+近年来，科学家们根据蛋白质的结构创作了音乐，作为更好地向公众普及科学的创造性方式，但由此产生的歌
+曲并不总是悦耳<API> response of API </API> En un estudio que aparece el 29 de septiembre en la
+revista Heliyon, los investigadores utilizan el estilo de los géneros musicales existentes para guiar la
+estructura de las canciones proteicas y hacerlas más musicales 研究人员以肖邦的幻想即兴曲和其他古典作
+品的风格为指导，将蛋白质转化为具有巨大音乐性的歌曲
+DOWNSTREAM TASKS 
+Performance on specific tasks
+Multilingual Question Answering on MLQA
+Input ➔API calls (Machine translation tool) ➔近年来，科学家们根据蛋白质的结构创作了音乐，作为更好地
+向公众普及科学的创造性方式，但由此产生的歌曲并不总是悦耳<API> response of API </API> En un
+estudio que aparece el 29 de septiembre en la revista Heliyon, los investigadores utilizan el estilo de los
+géneros musicales existentes para guiar la estructura de las canciones proteicas y hacerlas más
+musicales <API> response of API </API> 研究人员以肖邦的幻想即兴曲和其他古典作品的风格为指导，将蛋
+白质转化为具有巨大音乐性的歌曲<API> response of API </API>
+<API> response of API </API>
+近年来，科学家们根据蛋白质的结构创作了音乐，作为更好地向公众普及科学的创造性方式，但由此产生的歌
+曲并不总是悦耳En un estudio que aparece el 29 de septiembre en la revista Heliyon, los investigadores
+utilizan el estilo de los géneros musicales existentes para guiar la estructura de las canciones proteicas y
+hacerlas más musicales <API> response of API </API> 研究人员以肖邦的幻想即兴曲和其他古典作品的风格
+为指导，将蛋白质转化为具有巨大音乐性的歌曲
+DOWNSTREAM TASKS 
+Performance on specific tasks
+Multilingual Question Answering on MLQA
+Input ➔API calls (Machine translation tool) ➔近年来，科学家们根据蛋白质的结构创作了音乐，作为更好地
+向公众普及科学的创造性方式，但由此产生的歌曲并不总是悦耳<API> response of API </API> En un
+estudio que aparece el 29 de septiembre en la revista Heliyon, los investigadores utilizan el estilo de los
+géneros musicales existentes para guiar la estructura de las canciones proteicas y hacerlas más
+musicales <API> response of API </API> 研究人员以肖邦的幻想即兴曲和其他古典作品的风格为指导，将蛋
+白质转化为具有巨大音乐性的歌曲<API> response of API </API>
+<API> response of API </API>
+近年来，科学家们根据蛋白质的结构创作了音乐，作为更好地向公众普及科学的创造性方式，但由此产生的歌
+曲并不总是悦耳En un estudio que aparece el 29 de septiembre en la revista Heliyon, los investigadores
+utilizan el estilo de los géneros musicales existentes para guiar la estructura de las canciones proteicas y
+hacerlas más musicales 研究人员以肖邦的幻想即兴曲和其他古典作品的风格为指导，将蛋白质转化为具有巨
+大音乐性的歌曲<API> response of API </API>
+DOWNSTREAM TASKS 
+Performance on specific tasks
+Multilingual Question Answering on MLQA
+Context in English, question in Arabic, German, Spanish, Hindi, Vietnamese, Simplified Chinese ➔
+understand paragraph and question. Percentage of times that correct word is in the top 10 predicted words.
+Machine translation tool 
+(63.8-94.9%), Hindi (7.3%)
+*Distribution shift: CCNet compared to GPT-J’s 
+original pretraining data
+*Multilingual aspect: OPT and GPT-3 fail to
+provide answers in English with language
+differences between context and question.
+Context
+and
+question
+in
+English
+➔
+best
+performance (GPT-3)
+DOWNSTREAM TASKS 
+Performance on specific tasks
+Calendar API’s utility
+TEMPLAMA (Wikidata) contains
+cloze queries about facts
+that change with time.
+DATESET generated through a series of templates, but
+populated using a combination of random dates/durations.
+Randomly 500 “current dates” ➔randomly within four-year
+range “past date” and “future date” ➔fill templates
+Assumption: The calendar date is created document date.
+Extract from the URL, if present. Otherwise, filter out and
+leave ~18%.
+DOWNSTREAM TASKS 
+Performance on specific tasks
+Calendar API’s utility on TEMPLAMA, generated DATESET
+Lenient evaluation criteria instead of exact match, the correct word is in the top five predicted words.
+Mostly to Wikipedia search and question 
+answering, calendar (0.2%) for TEMPLAMA. 
+But calendar (54.8%) for DATESET.
+A little help (exact date) because of specific 
+and rare on TEMPLAMA
+The best action: query current date (calendar), 
+then query question answering with this date. 
+But two API calls per example &  
+Independently sampled API calls on training.
+DOWNSTREAM TASKS 
+Language modeling performance on WikiText, CCNet not used in training (10,000)
+Original pretraining data for GPT-J is more similar
+to WikiText than randomly subset of CCNet. 
+Training on C* compared to C does not lead to an 
+increase in perplexity when API calls are disabled 
+at inference time.
+Ability to ask external tools for help affects performance using GPT-J and GPT-2 family (124M, 355M,
+775M, 1.6B) for tools: question answering, calculator,Wikipedia search engine
+Leverage the provided tools at models ~775M. Smaller models achieve similar performance w/ and
+w/o tools. But achieve difference for QA benchmarks (Wikipedia search engine mainly be used).
+When the model size grows, it can solve tasks without API calls. So, it also can make good use of the
+provided API. And the gap between model predictions with and without API calls remains high.
+DOWNSTREAM TASKS 
+Ability to ask external tools for help affects performance using GPT-J and GPT-2 family (124M, 355M, 775M, 1.6B)
+for tools: question answering, calculator,Wikipedia search engine
+LIMITATIONS
+Generated independently tools ➔limitation in using tools in chain (output of one as input for
+another)
+NOT allow to use tool in an interactive way (search engines) ➔Solution: take advantage of
+possible results or refine search query by itself
+LMs - sensitive to a prompt ➔sensitive to exact wording (input when deciding to call APIs)
+Sample-inefficient (tool-dependent): million results but few thousand useful calls ➔Solution:
+iteratively apply our approach, similar to bootstrapping approaches
+API calls ➔NOT consider computational cost for tool-dependent
+My confused
+Lenient evaluation criteria instead of exact match (tool-dependent), the correct word is in
+the top k predicted words ➔what happened in case they used exact match? It too bad?
+C* was obtained from C (C* contains the exact same texts as C) and their assumption that
+finetuning M on C* exposes it to the same content as on C ➔Why is this true in case there
+are response of API calls in C* while not in C? Mabe the reason is that when obtaining C*
+from C, they filtered alters the distribution of training and assume that the remaining
+examples are close enough to the original distribution so that M’s language modeling
+abilities remain unaffected? But how?
+They used the weighting function to make sure that API calls happen close to where the
+information provided by the API is actually helpful for the model BUT I can find more
+clearly explaination for this function nowhere in their paper.
+IMPLEMENT (CODE)
+• lucidrains/toolformer-pytorch: Implementation of Toolformer, Language Models That
+Can Use Tools, by MetaAI (github.com)
+• conceptofmind/toolformer(github.com) - Tool Former Source Code: LLM using API
+(youtube.com)
+• xrsrke/toolformer: Implementation of Toolformer: Language Models Can Teach
+Themselves to Use Tools (github.com)

@@ -1,2 +1,0 @@
-optim . Adam ( list ( filter (
-7 lambda p: p. requires_grad , self . model . 

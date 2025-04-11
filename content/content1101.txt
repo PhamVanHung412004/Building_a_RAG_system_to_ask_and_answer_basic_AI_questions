@@ -1,6 +1,0 @@
-YOLOv9
-YOLOv9 [9] được giới thiệu vào năm 2024 bởi Chien-Yao Wang, I-Hau Yeh, và Hong-Yuan Mark
-Liao. Mô hình này cải thiện độ chính xác và tốc độ so với YOLOv8 và giới thiệu nhiều kỹ thuật
-mới như Programmable Gradient Information (PGI) và Generalized Efficient Layer Aggregation
-Network (GELAN).
-7

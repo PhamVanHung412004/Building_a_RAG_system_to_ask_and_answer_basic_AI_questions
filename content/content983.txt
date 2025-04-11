@@ -1,8 +1,0 @@
-AI VIETNAM aivietnam.edu.vn
-(c) Mô-đun RAG:Một cách hệ thống, giải pháp RAG bao gồm nhiều cấu phần, mỗi cấu phần thực
-hiện các chức năng khác nhau. Mô-đun RAG được thiết kế với các mô đun chức năng nhằm cải
-thiện chất lượng của các cấu phần thuộc hệ thống RAG. Một cách tổng quan, RAG cơ bản là một
-giải pháp thuộc RAG nâng cao, RAG nâng cao là một trường hợp của Mô-đun RAG với các chức
-năng cố định. Các mô đun RAG bao gồm tìm kiếm (Search), bộ nhớ (Memory), kết hợp (Fusion),
-(Routing), (Predict), (Task Adaptable Module). Các mô đun này được sắp xếp để giải quyết các
-vấn đề cụ thể.

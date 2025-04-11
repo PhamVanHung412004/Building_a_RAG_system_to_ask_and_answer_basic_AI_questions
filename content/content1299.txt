@@ -1,9 +1,0 @@
-AI VIET NAM – AIO COURSE 2023
-Project: Reinforcement Learning From Human
-Feedback
-Quoc-Thai Nguyen và Quang-Vinh Dinh
-PR-Team: Đăng-Nhã Nguyễn, Minh-Châu Phạm và Hoàng-Nguyên Vũ
-Ngày 1 tháng 4 năm 2024
-Phần I. Giới thiệu
-Hình 1: Ứng dụng ChatGPT được cải tiến dựa vào mô hình học tăng cường từ phản hồi người dùng.
-Hình 2: Ví dụ minh hoạ tóm tắt văn bản sử dụng mô hình học tăng cường từ phản hồi người dùng.

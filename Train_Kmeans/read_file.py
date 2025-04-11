@@ -1,4 +1,4 @@
-from package import pd
+import pandas as pd
 class Read_File:
     def __init__(self, path : str) -> None:
         '''

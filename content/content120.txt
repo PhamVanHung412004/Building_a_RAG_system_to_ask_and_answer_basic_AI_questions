@@ -1,4 +1,0 @@
-Theo đó, chúng ta thực thi đoạn code sau để khởi tạo và thực hiện việc huấn luyện mô
-hình Naive Bayes:
-1 model = GaussianNB ()
-8

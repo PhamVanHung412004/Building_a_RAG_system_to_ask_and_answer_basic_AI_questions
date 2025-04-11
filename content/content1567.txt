@@ -1,2 +1,0 @@
-Ta thấy mypy thật tiện lợi phải không?
-4

@@ -1,8 +1,0 @@
-AI VIETNAM (AIO2024) aivietnam.edu.vn
-III. Câu hỏi trắc nghiệm
-1. RAG là viết tắt của cụm từ nào sau đây trong ngữ cảnh mô hình ngôn ngữ lớn (LLM)?
-(a) Randomized Augmentation Generator.
-(b) Retrieval Augmented Generation.
-(c) Recurrent Adaptive Generator.
-(d) Recursive Algorithmic Generator.
-2. 

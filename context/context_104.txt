@@ -1,0 +1,1152 @@
+Convolutional Neural Network
+Year 2023
+Quang-Vinh Dinh
+Ph.D. in Computer Science
+AI VIETNAM
+All-in-One Course
+Motivation and 
+Introduction to CNN
+➢MLP Limitation
+➢From MLP to CNN
+➢Feature Map Down-sampling
+➢Some Examples
+➢Application to Cifar10
+Outline
+Fashion-MNIST dataset
+T-shirt
+Trouser
+Pullover
+Dress
+Coat
+Sandal
+Shirt
+Sneaker
+Bag
+Ankle
+Boot
+Grayscale images
+Resolution=28x28
+Training set: 60000 samples
+Testing set: 10000 samples
+MLP for Fashion-MNIST
+AI VIETNAM
+All-in-One Course
+❖ ReLU, He and Adam
+784 Nodes
+Input layer
+Output
+1
+𝑧1
+𝑧2
+𝑧10
+Softmax 
+activation
+Input
+1
+ReLU 
+activation
+256 Nodes
+Hidden layer 1
+Fully 
+connect
+Fully 
+connect
+10 Nodes
+Output layer
+…
+…
+…
+Case 1
+2
+MLP for Fashion-MNIST
+AI VIETNAM
+All-in-One Course
+❖ ReLU, He and Adam
+Case 1
+3
+MLP for Fashion-MNIST
+AI VIETNAM
+All-in-One Course
+❖ ReLU, He and Adam
+Case 1
+Test Accuracy: ~89%
+Adam with learning rate of 1e-4
+Perform reasonably
+4
+Cifar-10 dataset
+airplane
+automobile
+bird
+cat
+deer
+dog
+frog
+horse
+ship
+truck
+Color images
+Resolution=32x32
+Training set: 50000 samples
+Testing set: 10000 samples
+MLP for Cifar-10
+AI VIETNAM
+All-in-One Course
+❖ ReLU, He and Adam
+3072 Nodes
+Input layer
+Output
+1
+𝑧1
+𝑧2
+𝑧10
+Softmax 
+activation
+Input
+1
+ReLU 
+activation
+256 Nodes
+Hidden layer 1
+Fully 
+connect
+Fully 
+connect
+10 Nodes
+Output layer
+…
+…
+…
+Case 2
+6
+MLP for Cifar-10
+AI VIETNAM
+All-in-One Course
+❖ ReLU, He and Adam
+Case 2
+7
+MLP for Cifar-10
+AI VIETNAM
+All-in-One Course
+❖ ReLU, He and Adam
+Case 2
+Perform disappointedly 
+Test Accuracy: ~53%
+8
+MLP for Cifar-10
+AI VIETNAM
+All-in-One Course
+❖ ReLU, He and Adam: add more layers
+3072 Nodes
+Input layer
+Output
+1
+𝑧1
+𝑧2
+𝑧10
+Softmax 
+activation
+Input
+1
+ReLU 
+activation
+256 Nodes
+Hidden layer 1
+Fully 
+connect
+Fully 
+connect
+1
+ReLU 
+activation
+256 Nodes
+Hidden layer 2
+Fully 
+connect
+10 Nodes
+Output layer
+…
+…
+…
+…
+Case 3
+9
+MLP for Cifar-10
+AI VIETNAM
+All-in-One Course
+❖ ReLU, He and Adam
+Case 3
+MLP for Cifar-10
+AI VIETNAM
+All-in-One Course
+❖ ReLU, He and Adam
+Case 3
+Still Perform poorly 
+Test Accuracy: ~53%
+11
+MLP for Cifar-10
+AI VIETNAM
+All-in-One Course
+❖ ReLU, He and Adam
+3072 Nodes
+Input layer
+Output
+1
+𝑧1
+𝑧2
+𝑧10
+Softmax 
+activation
+Input
+1
+ReLU 
+activation
+256 Nodes
+Hidden layer 1
+Fully 
+connect
+Fully 
+connect
+1
+ReLU 
+activation
+256 Nodes
+Hidden layer 2
+10 Nodes
+Output layer
+…
+…
+…
+…
+…
+Case 4
+12
+MLP for Cifar-10
+AI VIETNAM
+All-in-One Course
+❖ ReLU, He and Adam
+Case 4
+13
+MLP for Cifar-10
+AI VIETNAM
+All-in-One Course
+❖ ReLU, He and Adam: Using 3 hidden layers
+Case 4
+Perform even worse 
+Test Accuracy: ~52%
+14
+➢MLP Limitation
+➢From MLP to CNN
+➢Feature Map Down-sampling
+➢Some Examples
+➢Application to Cifar10
+Outline
+From MLP to CNN
+❖ Multi-layer Perceptron
+AI VIETNAM
+All-in-One Course
+28
+28
+784
+1
+. . .
+. . .
+Fully connect
+activation
+1
+. . .
+activation
+Flatten data
+Problem: Remove spatial information of the data
+                Inefficiently have a large amount of parameters 
+15
+From MLP to CNN
+❖ Problem of flattening data
+AI VIETNAM
+All-in-One Course
+𝑣1 𝑣2 𝑣3
+𝑣4 𝑣5 𝑣6
+𝑣7 𝑣8 𝑣9
+Data
+Spatial Information
+𝑣1 
+𝑣2 
+𝑣3
+𝑣4 
+𝑣5 
+𝑣6
+𝑣7 
+𝑣8 
+𝑣9
+𝑣1
+𝑣2
+𝑣3
+𝑣4
+𝑣5
+𝑣6
+𝑣7
+𝑣8
+𝑣9
+Flattened Data
+𝑣1
+𝑣2
+𝑣3
+𝑣4
+𝑣5
+𝑣6
+𝑣7
+𝑣8
+𝑣9
+Remove spatial information of the data
+16
+From MLP to CNN
+AI VIETNAM
+All-in-One Course
+𝑣1 
+𝑣2 
+𝑣3
+𝑣4 
+𝑣5 
+𝑣6
+𝑣7 
+𝑣8 
+𝑣9
+𝑚1
+𝑚2
+𝑚3
+𝑚4
+1
+1
+𝑣1
+𝑣2
+𝑣3
+𝑣4
+𝑣5
+𝑣6
+𝑣7
+𝑣8
+𝑣9
+𝑧1
+1
+𝑤1
+𝑤2
+𝑤3
+𝑤4
+𝑤5
+𝑤6
+𝑤7
+𝑤8
+𝑤9
+𝑏
+MLP
+10 parameters
+𝑚1
+𝑚2
+𝑚3
+𝑚4
+Feature Map
+𝑤1
+𝑤2
+𝑤3
+𝑤4
+𝑏
+𝑣1 
+𝑣2 
+𝑣3
+𝑣4 
+𝑣5 
+𝑣6
+𝑣7 
+𝑣8 
+𝑣9
+*
+Convolution (=Correlation)
+𝑤1
+𝑤2
+𝑤3
+𝑤4
+𝑏
+Kernel of parameters
+CNN
+5 parameters
+𝑚1 = 𝑣1𝑤1 + 𝑣2𝑤2 + 𝑣4𝑤3 + 𝑣5𝑤4 + 𝑏
+17
+From MLP to CNN
+AI VIETNAM
+All-in-One Course
+𝑚11
+𝑚12
+𝑚13
+𝑚14
+𝑤11
+𝑤12
+𝑤13
+𝑤14
+𝑏1
+𝑣1 
+𝑣2 
+𝑣3
+𝑣4 
+𝑣5 
+𝑣6
+𝑣7 
+𝑣8 
+𝑣9
+*
+Feature Map 1
+CNN
+10 parameters
+𝑚21
+𝑚22
+𝑚23
+𝑚24
+𝑤21 𝑤22
+𝑤23
+𝑤24
+𝑏2
+*
+Feature Map 2
+Kernel 1
+Kernel 2
+Kernel 1  ≠ Kernel 2
+𝑣1
+𝑣2
+𝑣3
+𝑣4
+𝑣5
+𝑣6
+𝑣7
+𝑣8
+𝑣9
+𝑧1
+1
+MLP
+20 parameters
+𝑧2
+18
+Global vs. Local?
+Parameter size?
+From MLP to CNN
+❖ Understand convolution
+AI VIETNAM
+All-in-One Course
+𝑤1
+𝑤2
+𝑤3
+𝑤4
+𝑏
+𝑣1 
+𝑣2 
+𝑣3
+𝑣4 
+𝑣5 
+𝑣6
+𝑣7 
+𝑣8 
+𝑣9
+*
+(Channel=1, Height=3, Width=3)
+Shape=(1,3,3)
+Shape=(1,2,2)
+#parameters (+bias) = 5
+#channels of data     =     #channels of kernel
+must
+19
+Convolution
+❖ How many cases?
+0
+0
+1
+2
+2
+1
+2
+2
+1
+2
+0
+2
+0
+2
+1
+0
+1
+1
+1
+0
+1
+0
+0
+0
+1
+Data D
+0.0 0.1 -0.1
+0.0 0.1
+-0.2
+0.0 0.1
+0.0
+Kernel K
+Bias b = 0.0
+0
+0
+1
+2
+2
+1
+2
+2
+1
+2
+0
+2
+0
+2
+1
+0
+1
+1
+1
+0
+1
+0
+0
+0
+1
+0
+0
+1
+2
+2
+1
+2
+2
+1
+2
+0
+2
+0
+2
+1
+0
+1
+1
+1
+0
+1
+0
+0
+0
+1
+0
+0
+1
+2
+2
+1
+2
+2
+1
+2
+0
+2
+0
+2
+1
+0
+1
+1
+1
+0
+1
+0
+0
+0
+1
+0
+0
+1
+2
+2
+1
+2
+2
+1
+2
+0
+2
+0
+2
+1
+0
+1
+1
+1
+0
+1
+0
+0
+0
+1
+0
+0
+1
+2
+2
+1
+2
+2
+1
+2
+0
+2
+0
+2
+1
+0
+1
+1
+1
+0
+1
+0
+0
+0
+1
+0
+0
+1
+2
+2
+1
+2
+2
+1
+2
+0
+2
+0
+2
+1
+0
+1
+1
+1
+0
+1
+0
+0
+0
+1
+0
+0
+1
+2
+2
+1
+2
+2
+1
+2
+0
+2
+0
+2
+1
+0
+1
+1
+1
+0
+1
+0
+0
+0
+1
+0
+0
+1
+2
+2
+1
+2
+2
+1
+2
+0
+2
+0
+2
+1
+0
+1
+1
+1
+0
+1
+0
+0
+0
+1
+0
+0
+1
+2
+2
+1
+2
+2
+1
+2
+0
+2
+0
+2
+1
+0
+1
+1
+1
+0
+1
+0
+0
+0
+1
+20
+Convolution
+❖ Example
+AI VIETNAM
+All-in-One Course
+0
+0
+1
+2
+2
+1
+2
+2
+1
+2
+0
+2
+0
+2
+1
+0
+1
+1
+1
+0
+1
+0
+0
+0
+1
+Data D
+0.0 0.1 -0.1
+0.0 0.1
+-0.2
+0.0 0.1
+0.0
+Kernel K
+Output
+Bias b = 0.0
+𝑚1
+𝑚1 = −0.1
+𝑚1 = 0×0.0 + 0×0.1 + 1×−0.1 +
+1×−0.2 + 2×0.0 + 2×0.1 +
+0×0.0 + 2×0.0 + 0×0.1
+Data size = 5×5
+Kernel size = 3×3
+Stride = 1
+21
+Convolution
+❖ Example
+AI VIETNAM
+All-in-One Course
+0
+0
+1
+2
+2
+1
+2
+2
+1
+2
+0
+2
+0
+2
+1
+0
+1
+1
+1
+0
+1
+0
+0
+0
+1
+Data D
+0.0 0.1 -0.1
+0.0 0.1
+-0.2
+0.0 0.1
+0.0
+Kernel K
+-0.1 -0.1 -0.2
+-0.2 0.1
+0.3
+-0.3 0.1
+0.3
+Output
+Bias b = 0.0
+Data size = 5×5
+Kernel size = 3×3
+Stride = 1
+𝑆𝑜= 𝑆𝐷−𝐾
+𝑆
++ 1
+22
+Convolution
+❖ Example
+AI VIETNAM
+All-in-One Course
+0
+0
+1
+2
+2
+1
+2
+2
+1
+2
+0
+2
+0
+2
+1
+0
+1
+1
+1
+0
+1
+0
+0
+0
+1
+Data D
+0.0 0.1 -0.1
+0.0 0.1
+-0.2
+0.0 0.1
+0.0
+Kernel K
+Bias b = 0.0
+𝑚1 = −0.1
+Output
+𝑚1
+𝑚1 = 0×0.0 + 0×0.1 + 1×−0.1 +
+1×−0.2 + 2×0.0 + 2×0.1 +
+0×0.0 + 2×0.0 + 0×0.1
+Data size = 5×5
+Kernel size = 3×3
+Stride = 2
+23
+Convolution
+❖ Example
+AI VIETNAM
+All-in-One Course
+0
+0
+1
+2
+2
+1
+2
+2
+1
+2
+0
+2
+0
+2
+1
+0
+1
+1
+1
+0
+1
+0
+0
+0
+1
+Data D
+0.0 0.1 -0.1
+0.0 0.1
+-0.2
+0.0 0.1
+0.0
+Kernel K
+-0.1 -0.2
+0.1
+0.3
+Output
+Bias b = 0.0
+Data size = 5×5
+Kernel size = 3×3
+Stride = 2
+24
+𝑆𝑜= 𝑆𝐷−𝐾
+𝑆
++ 1
+Convolutional Neural Network
+❖ Understand convolution
+AI VIETNAM
+All-in-One Course
+Input Data
+(3,32,32)
+Convolve with 
+1 kernel (3,5,5)
+Feature map
+(1,28,28)
+Input Data
+(3,32,32)
+Convolve with 
+4 kernels (3,5,5)
+Feature maps
+(4,28,28)
+25
+Convolutional Neural Network
+❖ A stack of convolutions
+AI VIETNAM
+All-in-One Course
+Input Data
+(3,32,32)
+Convolve with 
+4 kernels (3,5,5)
+Feature maps
+(4,28,28)
+Convolve with 
+5 kernels (4,7,7)
+Feature maps
+(5,22,22)
+Convolve with 
+6 kernels (5,5,5)
+Feature maps
+(6,18,18)
+26
+Convolutional Neural Network
+❖ A stack of pairs of convolution+activation
+AI VIETNAM
+All-in-One Course
+Input Data
+(3,32,32)
+Convolve with 
+4 kernels (3,5,5)
+Feature maps
+(4,28,28)
+Convolve with 
+5 kernels (4,7,7)
+Feature maps
+(5,22,22)
+Convolve with 
+6 kernels (5,5,5)
+Feature maps
+(6,18,18)
++activation
++activation
++activation
+27
+Convolutional Neural Network
+❖ Convolution layer in PyTorch
+AI VIETNAM
+All-in-One Course
+nn.Conv2d(in_channels, out_channels, kernel_size)
+Input Data
+(1,32,32)
+Convolve with 
+4 kernels (1,5,5)
+Feature maps
+(4,28,28)
+Input Data
+(3,32,32)
+Convolve with 
+4 kernels (3,5,5)
+Feature maps
+(4,28,28)
+28
+Convolutional Neural Network
+❖ Convolution layer in PyTorch
+AI VIETNAM
+All-in-One Course
+nn.Conv2d(in_channels, out_channels, kernel_size)
+nn.ReLU()
+Input Data
+(1,32,32)
+Feature map
+(1,28,28)
+Convolve with 
+1 kernel (1,5,5)
++activation
+Input Data
+(3,32,32)
+Feature map
+(1,28,28)
+Convolve with 
+1 kernel (3,5,5)
++activation
+demo
+29
+Fashion-MNIST dataset
+T-shirt
+Trouser
+Pullover
+Dress
+Coat
+Sandal
+Shirt
+Sneaker
+Bag
+Ankle
+Boot
+Convolutional 
+Neural Network
+Grayscale images
+Resolution=28x28
+Training set: 60000 samples
+Testing set: 10000 samples
+Convolutional Neural Network
+❖ Apply for Fashion-MNIST dataset
+AI VIETNAM
+All-in-One Course
+(1,28,28)
+(32,22,22)
+(64,16,16)
+(128,10,10)
+(256,4,4)
+Flatten data
+10 nodes
+4096 nodes
+31
+Convolutional Neural Network
+❖ Apply for Fashion-MNIST dataset
+AI VIETNAM
+All-in-One Course
+(1,28,28)
+(32,22,22)
+(64,16,16)
+(128,10,10)
+(256,4,4)
+10 nodes
+4096 nodes
+32 different 
+kernels (7x7)
+64 different 
+kernels (7x7)
+128 different 
+kernels (7x7)
+Flatten data
+256 different 
+kernels (7x7)
+32
+demo
+Simple Convolutional Neural Network
+Convolutional Neural Network
+❖ Apply for Cifar-10 dataset
+AI VIETNAM
+All-in-One Course
+(3,32,32)
+(?,?,?)
+(?,?,?)
+(?,?,?)
+(?,?,?)
+10 nodes
+? nodes
+32 different 
+kernels (7x7)
+64 different 
+kernels (7x7)
+128 different 
+kernels (7x7)
+Flatten data
+256 different 
+kernels (7x7)
+demo
+34
+➢MLP Limitation
+➢From MLP to CNN
+➢Feature Map Down-sampling
+➢Some Examples
+➢Application to Cifar10
+Outline
+Convolutional Neural Network
+❖ Apply for Fashion-MNIST dataset: case 1
+AI VIETNAM
+All-in-One Course
+(1,28,28)
+(32,22,22)
+(64,16,16)
+(128,10,10)
+(256,4,4)
+10 nodes
+4096 nodes
+32 different 
+kernels (7x7)
+64 different 
+kernels (7x7)
+128 different 
+kernels (7x7)
+Flatten data
+256 different 
+kernels (7x7)
+128 nodes
+35
+Convolutional Neural Network
+❖ Apply for Fashion-MNIST dataset: case 1
+AI VIETNAM
+All-in-One Course
+37
+Test Accuracy: ~88%
+Convolutional Neural Network
+❖ Apply for Cifar-10 dataset: case 2
+AI VIETNAM
+All-in-One Course
+(3,32,32)
+(32,26,26)
+(64,20,20)
+(128,14,14)
+(256,8,8)
+10 nodes
+8*8*256 nodes
+32 different 
+kernels (7x7)
+64 different 
+kernels (7x7)
+128 different 
+kernels (7x7)
+Flatten data
+256 different 
+kernels (7x7)
+128 nodes
+38
+Convolutional Neural Network
+❖ Apply for Cifar-10 dataset: case 2
+AI VIETNAM
+All-in-One Course
+40
+Test Accuracy: ~69%
+Test Accuracy from MLP: ~53%
+Further Reading
+AI VIETNAM
+All-in-One Course
+❖ Reading
+https://cs231n.github.io/convolutional-networks/
+https://towardsdatascience.com/a-comprehensive-guide-to-convolutional-neural-networks-
+the-eli5-way-3bd2b1164a53
+https://stanford.edu/~shervine/teaching/cs-230/cheatsheet-convolutional-neural-networks
+41

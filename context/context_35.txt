@@ -1,0 +1,894 @@
+Quantization + Pruning
+Bach-Hoang Ngo
+AI VIETNAM
+All-in-One Course
+Year 
+Motivation
+2
+AI VIETNAM
+All-in-One Course
+Improve the 
+efficiency of NN
+Design Efficient 
+Architectures
+Design Hardware
+Quantization
+Pruning
+Our focus!
+3
+Summary
+AI VIETNAM
+All-in-One Course
+Symmetric
+Uniform
+Non-
+Uniform
+Balance
+Block-wise
+Quantization
+Asymmetric
+Inference
+Simulated
+Integer 
+Only
+Quantization
+▪
+Floating Point
+▪
+Quantization
+▪
+Quantization Aware Training
+▪
+Post Training Quantization
+AI VIETNAM
+All-in-One Course
+5
+Quantization Aware Training
+AI VIETNAM
+All-in-One Course
+Naïve Quantization -> degradation in model accuracy
+QAT -> Simulating the quantization effects during training
+6
+Quantization Aware Training
+AI VIETNAM
+All-in-One Course
+Forward pass
+7
+Quantization Aware Training
+AI VIETNAM
+All-in-One Course
+1.1
+2.2
+-1.7
+3.6
+Weight (FP)
+1
+2
+-2
+2
+Quantized Weight 
+Forward pass
+8
+Quantization Aware Training
+AI VIETNAM
+All-in-One Course
+1.1
+2.2
+-1.7
+3.6
+Weight (FP)
+1
+2
+-2
+2
+Quantized Weight 
+Backward 
+pass
+0.1
+0.2
+-0.2
+0.1
+Non differentiable
+Forward pass
+9
+Quantization Aware Training
+AI VIETNAM
+All-in-One Course
+1.1
+2.2
+-1.7
+3.6
+Weight (FP)
+1.1
+2.2
+-1.7
+3.6
+Quantized Weight 
+Backward 
+pass
+0.1
+0.2
+-0.2
+0.1
+Non differentiable
+0.1
+0.2
+-0.2
+0.1
+Quantization
+▪
+Floating Point
+▪
+Quantization
+▪
+Quantization Aware Training
+▪
+Post Training Quantization
+AI VIETNAM
+All-in-One Course
+11
+Post-Training Quantization
+AI VIETNAM
+All-in-One Course
+12
+Post Training Quantization
+AI VIETNAM
+All-in-One Course
+Symmetric
+Uniform
+Non-
+Uniform
+Balance
+Block-wise
+Quantization
+Asymmetric
+Inference
+Simulated
+Integer 
+Only
+13
+Post-Training Quantization
+AI VIETNAM
+All-in-One Course
+Feature
+PTQ (Post-Training 
+Quantization)
+QAT (Quantization-Aware 
+Training)
+Model Size Reduction
+Effective in reducing model 
+size
+Can achieve similar or 
+slightly better size reduction 
+compared to PTQ
+Inference Speed
+Improves inference speed 
+due to lower precision 
+calculations
+Can lead to even faster 
+inference speed compared to 
+PTQ
+Accuracy
+May experience larger 
+accuracy degradation
+Generally preserves 
+accuracy better than PTQ
+Training Complexity
+Simpler to implement, 
+requires minimal 
+modification
+More complex to implement, 
+requires modifying training 
+loop
+14
+Quantization Memory
+AI VIETNAM
+All-in-One Course
+7B LLM -> OOM
+4bit quantization -> OK
+15
+Quantization Speed
+AI VIETNAM
+All-in-One Course
+7B LLM -> 67s
+4bit quantization -> 5.5s
+Pruning
+▪
+What is Pruning?
+▪
+Unstructured vs. Structured pruning
+▪
+When to prune?
+▪
+Lottery Ticket Hypothesis
+AI VIETNAM
+All-in-One Course
+17
+What is pruning
+AI VIETNAM
+All-in-One Course
+18
+What is pruning
+AI VIETNAM
+All-in-One Course
+Pruning
+19
+Research on Pruning
+AI VIETNAM
+All-in-One Course
+20
+Main Questions 
+AI VIETNAM
+All-in-One Course
+Where to prune?
+When to prune?
+How to prune?
+Pruning
+▪
+What is Pruning?
+▪
+Unstructured vs. Structured pruning
+▪
+When to prune?
+▪
+Lottery Ticket Hypothesis
+AI VIETNAM
+All-in-One Course
+22
+Unstructured Pruning
+AI VIETNAM
+All-in-One Course
+Original Network
+Pruned Network
+Cut connection
+What does this mean?
+23
+Unstructured Pruning
+AI VIETNAM
+All-in-One Course
+1
+3
+4
+0.4
+0.8
+0.9
+6.2
+-8.7
+-4.3
+2.5
+5.1
+6.7
+9.9
+1.0
+2.4
+1.1
+27.5
+12.4
+31.1
+This is connection!
+24
+Unstructured Pruning
+AI VIETNAM
+All-in-One Course
+1
+3
+4
+0.4
+0.8
+0.9
+0
+-8.7
+-4.3
+2.5
+5.1
+6.7
+0
+0
+2.4
+1.1
+-12.1
+8.4
+24.9
+This is connection!
+25
+Unstructured Pruning
+AI VIETNAM
+All-in-One Course
+*
+=
+Need for Special Software!!!
+1
+1
+1
+0
+1
+1
+1
+1
+1
+0
+0
+1
+0.4
+0.8
+0.9
+6.2
+-8.7
+-4.3
+2.5
+5.1
+6.7
+9.9
+1.0
+2.4
+0.4
+0.8
+0.9
+0
+-8.7
+-4.3
+2.5
+5.1
+6.7
+0
+0
+2.4
+26
+Structured Pruning
+AI VIETNAM
+All-in-One Course
+Pruned Network
+27
+Structured Pruning
+AI VIETNAM
+All-in-One Course
+1
+3
+4
+0.4
+0.8
+0.9
+0
+-8.7
+-4.3
+2.5
+0
+6.7
+9.9
+1.0
+0
+0
+Prune a layer!
+28
+Structured Pruning
+AI VIETNAM
+All-in-One Course
+Prune a whole filter
+x
+29
+Structured vs. Unstructured
+AI VIETNAM
+All-in-One Course
+Unstructured
+Structured
+High sparsity with 
+minor accuracy drop
+Yes
+Hard
+Speedup w/o specific 
+hardware
+Hard
+Yes
+Speedup w/o specific 
+software
+Hard 
+Yes
+Really compressed with 
+significant acceleration
+Hard
+Yes
+Structure coupling
+No
+Yes
+Pruning
+▪
+What is Pruning?
+▪
+Unstructured vs. Structured pruning
+▪
+How & when to prune?
+▪
+Lottery Ticket Hypothesis
+AI VIETNAM
+All-in-One Course
+31
+How To Prune?
+AI VIETNAM
+All-in-One Course
+Magnitude-based Pruning
+1.2
+2.4
+-5.6
+3.2
+-4.1
+1.0
+0.8
+4.4
+-2.2
+0.8
+1.0
+1.2
+2.2
+2.4
+3.2
+4.1
+4.4
+5.6
+Prune Ratio: 40%
+32
+How To Prune?
+AI VIETNAM
+All-in-One Course
+Magnitude-based Pruning
+1.2
+2.4
+-5.6
+3.2
+-4.1
+1.0
+0.8
+4.4
+-2.2
+0.8
+1.0
+1.2
+2.2
+2.4
+3.2
+4.1
+4.4
+5.6
+1.2
+2.4
+-5.6
+3.2
+-4.1
+1.0
+0.8
+4.4
+-2.2
+Prune Ratio: 40%
+33
+How To Prune?
+AI VIETNAM
+All-in-One Course
+Magnitude-based Pruning
+1.2
+2.4
+-5.6
+3.2
+-4.1
+1.0
+0.8
+4.4
+-2.2
+0.8
+1.0
+1.2
+2.2
+2.4
+3.2
+4.1
+4.4
+5.6
+0.0
+2.4
+-5.6
+3.2
+-4.1
+0.0
+0.0
+4.4
+0.0
+Prune Ratio: 40%
+34
+How To Prune?
+AI VIETNAM
+All-in-One Course
+L2 Norm Pruning
+2
+4
+1
+-8
+6
+9
+1
+-4
+-5
+9
+8
+7
+ 
+�=1
+�
+ �� 2
+9.21
+11.57
+14.79
+2
+4
+1
+-8
+6
+9
+1
+-4
+-5
+9
+8
+7
+35
+How To Prune?
+AI VIETNAM
+All-in-One Course
+L2 Norm Pruning
+2
+4
+1
+-8
+6
+9
+1
+-4
+-5
+9
+8
+7
+ 
+�=1
+�
+ �� 2
+9.21
+11.57
+14.79
+0
+0
+0
+0
+6
+9
+1
+-4
+-5
+9
+8
+7
+36
+When to prune?
+AI VIETNAM
+All-in-One Course
+Random 
+Network
+Prune
+Pruned 
+Network
+Train
+Pruned 
+Network
+Random 
+Network
+Prune & 
+train
+Pruned 
+Network
+Random 
+Network
+Pretrain
+Pretrained 
+Network
+Prune
+Pruned 
+Network
+Prune before training
+Prune during training
+Prune after training
+37
+Prune Before Training
+AI VIETNAM
+All-in-One Course
+Random 
+Network
+Prune
+Pruned 
+Network
+Train
+Pruned 
+Network
+Prune before training
+Simplest Method: 
+Random Pruning!
+38
+Prune Before Training
+AI VIETNAM
+All-in-One Course
+Random 
+Network
+Prune
+Pruned 
+Network
+Train
+Pruned 
+Network
+Prune before training
+Gradient Descent
+0.8
+0.2
+0.1
+More important!
+Less important
+��
+��
+39
+SNIP
+AI VIETNAM
+All-in-One Course
+0.8
+0.2
+0.1
+�2(�; �)
+��=
+ ��(�; �) 
+ �=1
+�
+ ��(�; �)  
+�3(�; �)
+�1(�; �)
+�1 =
+0.8
+0.8 + 0.2 + 0.1 = 0.73 
+�1 =
+0.2
+0.8 + 0.2 + 0.1   = 0.18
+�1 =
+0.1
+0.8 + 0.2 + 0.1 = ?  
+0.8
+0.2
+0.1
+Pruning
+Prune this!
+40
+QUIZ TIME!!!
+AI VIETNAM
+All-in-One Course
+41
+QUIZ TIME!!!
+AI VIETNAM
+All-in-One Course
+Câu 1: Mục tiêu của việc pruning trong mạng nơ-ron là gì?
+A) Tăng khả năng giải thích của mô hình
+B) Giảm kích thước model và nguồn lực tính toán
+C) Cải thiện dữ liệu huấn luyện
+D) Tối đa hóa số lớp
+Câu 2: Unstructured pruning nhắm vào mục tiêu nào sau đây?
+A) Toàn bộ các lớp
+B) Kiến trúc cụ thể
+C) Các trọng số trong một lớp
+D) Đặc điểm đầu vào của dữ liệu
+42
+QUIZ TIME!!!
+AI VIETNAM
+All-in-One Course
+Câu 3: Structured pruning được đặc trưng bởi việc loại bỏ:
+A) Trọng số ngẫu nhiên
+B) Toàn bộ nơ-ron hoặc kênh
+C) Điểm dữ liệu đầu vào
+D) Tốc độ học
+Câu 4: Magnitude Pruning thường liên quan đến:
+A) Tỉa các trọng số gần giá trị trung bình nhất
+B) Tỉa các trọng số được cập nhật gần đây nhất
+C) Tỉa trọng số dựa trên mã màu
+D) Tỉa các trọng số có độ lớn nhỏ nhất
+43
+QUIZ TIME!!!
+AI VIETNAM
+All-in-One Course
+Bài 5: Thách thức chính trong việc áp dụng các phương pháp 
+pruning là:
+A) Làm cho mô hình lớn hơn
+B) Duy trì hiệu suất mô hình trong khi giảm độ phức tạp
+C) Tăng số lượng tham số
+D) Đơn giản hóa kiến trúc mô hình một cách không cần thiết
+44
+When to prune?
+AI VIETNAM
+All-in-One Course
+Random 
+Network
+Prune
+Pruned 
+Network
+Train
+Pruned 
+Network
+Random 
+Network
+Prune & 
+train
+Pruned 
+Network
+Prune before training
+Prune during training
+45
+Prune During Training
+AI VIETNAM
+All-in-One Course
+Random 
+Network
+Prun e& 
+train
+Pruned 
+Network
+Prune during training
+Update Weights + Mask
+Weights
+Mask of Weight
+46
+Prune During Training
+AI VIETNAM
+All-in-One Course
+Neural Network
+Prune x% for all layers
+Learn the suitable % for each layer
+Prune During Training
+Other Methods
+47
+When to prune?
+AI VIETNAM
+All-in-One Course
+Random 
+Network
+Prune
+Pruned 
+Network
+Train
+Pruned 
+Network
+Random 
+Network
+Prune & 
+train
+Pruned 
+Network
+Random 
+Network
+Pretrain
+Pretrained 
+Network
+Prune
+Pruned 
+Network
+Prune before training
+Prune during training
+Prune after training
+48
+When to prune?
+AI VIETNAM
+All-in-One Course
+Random 
+Network
+Pretrain
+Pretrained 
+Network
+Prune
+Pruned 
+Network
+Prune after training
+Train from 
+Scratch
+Fine-tune
+Pruned 
+Network
+Pruned 
+Network
+49
+Iterative Magnitude Pruning
+AI VIETNAM
+All-in-One Course
+Prune �
+1
+�  
+Prune �
+1
+�  
+Iterative Pruning
+50
+Iterative Magnitude Pruning
+AI VIETNAM
+All-in-One Course
+Prune
+Prune
+Prune
+Pruning
+▪
+What is Pruning?
+▪
+Unstructured vs. Structured pruning
+▪
+How & When to prune?
+▪
+Lottery Ticket Hypothesis
+AI VIETNAM
+All-in-One Course
+52
+Lottery Ticket Hypothesis
+AI VIETNAM
+All-in-One Course
+53
+Lottery Ticket Hypothesis
+AI VIETNAM
+All-in-One Course
+Acc: 95%
+Acc: 96%
+Weight: 10%
+Acc: 81%
+Weight: 10%
+Acc: 82%
+Weight: 10%
+Acc: 70%
+Weight: 10%
+Larger Models ~ Buy more tickets
+54
+Lottery Ticket Hypothesis
+AI VIETNAM
+All-in-One Course
+55
+Iterative Magnitude Pruning
+AI VIETNAM
+All-in-One Course
+Prune �
+1
+�  
+Prune �
+1
+�  
+Iterative Pruning
+Retrain from scratch
+Retrain from scratch
+56
+Identify the winning ticket
+AI VIETNAM
+All-in-One Course
+Step 1: Randomly initialize a network
+Step 2: Train the network for j iteration
+Step 3: Prune p% of the parameters
+Step 4: Reset the parameters to their original values
+Step 5: Retrain from scratch
+Step 6: Loop
+Step 7: Achieve Winning Ticket
+57
+Further research
+AI VIETNAM
+All-in-One Course
+Early Bird Ticket: 1909.11957.pdf (arxiv.org)
+Mathematical Proof: 2002.00585.pdf (arxiv.org)
+58
+Summary
+AI VIETNAM
+All-in-One Course
+Pruning
+Where?
+How?
+When?
+Structured
+Unstructured
+Magnitude
+Norm
+Gradient
+Before
+During
+After
+59
+Pruning
+AI VIETNAM
+All-in-One Course

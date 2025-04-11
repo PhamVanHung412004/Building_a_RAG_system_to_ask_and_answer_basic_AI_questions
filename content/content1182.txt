@@ -1,3 +1,0 @@
-AI VIETNAM aivietnam.edu.vn
-533 for module in self . output_blocks :
-534 h = torch . 

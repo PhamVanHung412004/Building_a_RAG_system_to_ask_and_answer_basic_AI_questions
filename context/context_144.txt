@@ -1,0 +1,203 @@
+AI VIETNAM
+All-in-One Course
+Mixup Augmentation
+AI VIETNAM
+All-in-One Course
+Outline
+Data augmentation
+Mixup
+Manifold Mixup
+Cutmix
+AI VIETNAM
+All-in-One Course
+Data Augmentation
+AI VIETNAM
+All-in-One Course
+Data Augmentation
+AI VIETNAM
+All-in-One Course
+Data 
+Augmentation
+AI VIETNAM
+All-in-One Course
+Data Augmentation
+goal is to maximize the performance using the same model & same dataset
+AI VIETNAM
+All-in-One Course
+Data Augmentation
+AI VIETNAM
+All-in-One Course
+Mixup
+AI VIETNAM
+All-in-One Course
+Mixup
+AI VIETNAM
+All-in-One Course
+Mixup formulation
+The mixup hyper-parameter α controls the strength of 
+interpolation between feature-target pair
+AI VIETNAM
+All-in-One Course
+Smoother feature space
+AI VIETNAM
+All-in-One Course
+Mixup 
+AI VIETNAM
+All-in-One Course
+Manifold Mixup
+AI VIETNAM
+All-in-One Course
+Manifold Mixup 
+- Train on hidden states which are randomly interpolated between examples.  
+- Then train these interpolated hidden states to lead to lower conﬁdence outputs.  
+- This also forces the model to learn representations which permit consistent interpolations. 
+90% blue, 
+10% red
+vs. 
+10% blue,
+90% red
+High error!
+50% red, 
+50% blue
+vs. 
+50% blue,
+50% red
+Low error!
+AI VIETNAM
+All-in-One Course
+Manifold Mixup 
+Should be 
+low 
+confidence, 
+since 
+there’s no 
+data here.  
+Should be low 
+confidence 
+because it’s 
+pretty close to 
+both classes.    
+AI VIETNAM
+All-in-One Course
+Manifold Mixup 
+- On each update, pick a random layer uniformly (including the input).  
+-Sample lambda ~ Beta(alpha, alpha)
+-Mix between two random examples from the minibatch at that layer with rate lambda.  
+-Mix the labels for those two examples accordingly (soft label).
+None 
+Input Mixup
+Manifold Mixup
+AI VIETNAM
+All-in-One Course
+Manifold Mixup 
+AI VIETNAM
+All-in-One Course
+Manifold Mixup 
+-Encourage most of the hidden space to correspond to low conﬁdence classiﬁcations.  
+-Encourage real data’s representations to be concentrated into local regions.  
+AI VIETNAM
+All-in-One Course
+Manifold Mixup 
+AI VIETNAM
+All-in-One Course
+Manifold Mixup 
+AI VIETNAM
+All-in-One Course
+Cutmix
+AI VIETNAM
+All-in-One Course
+Cutmix
+AI VIETNAM
+All-in-One Course
+Cutmix
+AI VIETNAM
+All-in-One Course
+Cutmix
+AI VIETNAM
+All-in-One Course
+Cutmix
+AI VIETNAM
+All-in-One Course
+Feature/Technique
+Mixup
+Manifold Mixup
+CutMix
+Basic Concept
+Combines two or more input images and 
+their labels linearly.
+Similar to Mixup, but mixes hidden 
+representations at various layers of the network.
+Cuts and pastes patches from one image onto 
+another, mixing the labels accordingly.
+Data Augmentation
+Operates at the input level (pixel values).
+Operates at both input and hidden layers within 
+the network.
+Operates at the input level with a focus on spatial 
+regions.
+Primary Goal
+Encourages linear behavior between 
+training examples.
+Encourages learning more robust features across 
+different tasks.
+Aims at improving localization and understanding of 
+spatial context.
+Label Mixing
+Labels are mixed in a linear fashion 
+according to the mix ratio.
+Labels are mixed based on the level at which 
+mixing occurs.
+Labels are mixed proportionally to the area of the 
+patches involved.
+Image Mixing
+Linear interpolation of pixel values.
+Interpolation of features at different network 
+layers.
+Physical combination of image patches.
+Impact on Training
+Helps in generalizing to unseen data by 
+smoothing the decision boundary.
+Promotes learning of more generalizable and 
+robust intermediate features.
+Enhances the ability of the model to localize and 
+recognize objects within a varied context.
+Use Cases
+Generally used in image classiﬁcation 
+tasks.
+Useful in tasks requiring deeper feature 
+understanding and abstraction.
+Particularly beneﬁcial in object detection and 
+classiﬁcation tasks.
+AI VIETNAM
+All-in-One Course
+Technique
+Advantages
+Disadvantages
+Traditional Data 
+Augmentation
+- Realistic modiﬁcations (rotation, ﬂipping, scaling)
+-  Simple to implement
+ - Improves generalization and reduces overﬁtting
+- Limited to predeﬁned variations 
+- Can be computationally ineﬃcient 
+- May not represent actual data distribution
+Mixup
+- Enhances regularization, favoring linear behavior between training examples
+ - Improves generalization to unseen data
+ - Robustness to label noise
+- Generates potentially unrealistic synthetic samples
+ - Complexity in interpretation of mixed images and labels
+Manifold Mixup
+- Encourages learning of abstract and robust features 
+- Versatile (applicable at multiple network layers)
+- Potentially better regularization than Mixup
+- More complex implementation 
+- Additional computational overhead
+- Risk of over-smoothing decision boundaries
+CutMix
+- Enhances spatial context learning and object localization
+- Robust to occlusion
+- Balanced regularization (mix of dropout and Mixup)
+- Can introduce artiﬁcial artifacts 
+- Complex label handling based on patch area 
+- Risk of feature misalignment in cut-and-paste

@@ -1,0 +1,132 @@
+AI VIET NAM – Course 2024
+Decision Tree
+Xuân Hiệp
+Ngày 15 tháng 2 năm 2024
+1. Cây quyết định cho bài toán Phân Loại:
+1.1 Entropy:
+Hình 1: Ví dụlấy một quảbóng bất kỳtừmột tập hợp
+• Đểnắm bắt được cách vận dụng Cây quyết định cho bài toán phân loại ta cần tìm
+hiểu vềEnrtropy, một khái niệm mới thường được nhắc đến mỗi khi nhắc đến Cây
+quyết định.
+• Đầu tiên, ta cùng xem qua 1 ví dụđơn giản:
+– Theo hình 1, ta có một tập hợp gồm 10 quảbóng, trong đó gồm 9 quảđỏvà 1 quả
+xanh. Ta gọi E là phép kiểm thửlấy 1 quảbóng bất kỳtừtập hợp. Ta đưa ra 2 phép
+kiểm thử:
+– A: Lấy 1 quảbóng màu đỏ
+– B: Lấy 1 quảbóng màu xanh
+– Từđó, xác suất của A và B tương ứng là P(A)=0.9, P(B)=0.1
+– Theo kết quảtrên, khi ta lấy 1 quảbóng từtập hợp, khảnăng lấy được quảbóng
+đỏsẽrất cao và lấy bóng xanh sẽrất thấp. Tuy nhiên, dù rất nhỏ, vẫn sẽcó trường
+hợp ta lấy được bóng xanh. Từđó, ta có khái niệm Surprise, cho ta thấy mức độ
+ngạc nhiên với 1 phép kiểm thửvà có giá trịtỷlệnghịch với xác xuất. Công thức
+tính được như sau:
+S(E) =
+1
+P(E)
+1
+AI VIETNAM
+aivietnam.edu.vn
+Hình 2: Khoảng giá trịcủa Surpise
+– Từhình 2, ta thấy được giá trịS ∈[1, ∞], từđó xác xuất càng lớn thì S càng nhỏ
+và khi P(E)=1 thì S(E)=1. Ta thấy trường hợp này rõ ràng rất vô lý với khái niệm
+Surprise, dó đó, ta cần chuẩn hóa lại với công thức sau (S ∈[0, ∞]):
+S(E) = log(
+1
+P(E)) = −log(P(E))
+Hình 3: Ví dụtung 1 đồng xu
+– Tiếp theo, ta cùng xem qua 1 ví dụkhác:
+– Theo hình 3, ta tung 1 đồng xu và quy đổi sựkiện tung đồng xu vềdạng số(Head -
+1 và Tail - 0).
+– Ta có: P(H)=P(T)=0.5. Vậy sau n lần tung, tổng giá trịxác suất là:
+P(H) ∗n ∗1 + P(T) ∗n ∗1
+– Tổng quát hơn, đối với các thực nghiệm thực tế, ta gọi Xi ∈{0,1} ứng với các trường
+AI VIETNAM
+aivietnam.edu.vn
+hợp thực nghiệm. Khi đó tổng giá trịxác suất:
+X
+i
+XiP(Xi) = X1 ∗P(X1) + X2 ∗P(X2)
+– Ta có S(E)= -log(P(E)). Do đó, ta giá trịtrung bình Surprise là:
+E(S) = −
+X
+P(X) ∗log(P(X))
+– Từđó ta gọi giá trịtrung bình Surprise, (hay còn gọi là Entropy) là công thức đo
+mức độkhông tinh khiết (Impurity) của dữliệu.
+Hình 4: Khoảng giá trịcủa Entropy
+– Theo hình 4, ta thấy với 1 tập hợp gồm 2 loại (ví dụbóng đỏ, bóng xanh) thì giá trị
+Entropy cao nhất khi P(đỏ)=P(xanh).
+1.2 Information Gain:
+• Dùng đo lường việc giảm độkhông tinh khiết và cũng là yếu tốquyết định thuộc tính
+nào nên được chọn làm nút gốc cho Cây quyết định. Ta có công thức sau:
+IG(S, F) = E(S) −
+X
+f∈F
+|Sf|
+|S| ∗E(Sf)
+Trong đó:
+• E(S) là entropy tổng với S là tập hợp gốc ban đầu
+• Sf là các tập hợp con tách từS với sốlượng dữliệu khác nhau. Từđó, ta tính entropy
+cho các tập con E(Sf) với các trọng số|Sf|
+|S| tương ứng
+• Khi Infomation Gain tăng thì Entropy sẽgiảm. Đây là tiêu chí đểquyết định việc
+chọn đặc trưng nào đểphân nhánh. Ta cần tính Infomation Gain của tất cảcác nhánh
+có thểxảy ra và chọn nhánh có Infomation Gain lớn nhất. Quá trình này được lặp lại
+nhiều lần cho đến khi các nhánh chỉchứa 1 loại dữliệu duy nhất.
+AI VIETNAM
+aivietnam.edu.vn
+1.3 Cây quyết định với dữliệu rời rạc:
+Hình 5: Tính Information Gain với dữliệu rời rạc
+• Đầu tiên, ta tính entropy của tập hợp gốc (cột Play Tennis). Trong bảng dữliệu, ngoài
+cột Play Tennis, ta có 4 cột, mỗi cột lại bao gồm các giá trịthông tin khác nhau. Đểxây
+dựng Cây quyết định, ta phải tính Information Gain cho tất cảcác trường hợp có
+thểcó từgiá trịthông tin của các cột.
+• Trong ví dụtrên, ta chọn cột Wind (Weak, Strong), cột Outlook (Sunny, Overcast, Rain).
+Đểđơn giản bài toán, ta tách nhánh theo dạng cây nhịphân với từng giá trịcủa mỗi
+cột. Ta tính tương tựvới các cột khác, từđó, ta có Information Gain=0.226 lớn nhất
+(Ứng với của cột Outlook và Option 2)
+Hình 6: Cây quyết định với dữliệu rời rạc
+AI VIETNAM
+aivietnam.edu.vn
+• Sau khi xây dựng xong cây quyết định, ta có thểthửvới 1 sample đơn giản:
+< outlook = Sunny, temperature = Hot, humidity = High, Wind = Weak >
+• Sau khi kiểm tra, kết quảtrảvềlà Play Tennis=No (Không chơi Tennis)
+1.4 Cây quyết định với dữliệu liên tục:
+Hình 7: Dữliệu liên tục
+• Đểxây dựng Cây quyết định, ta tạo điều kiện phân nhánh, ta lấy giá trịtrung bình
+của 2 giá trịPetal Length kếtiếp nhau trong bảng. Sau đó, ta tính Information Gain
+theo từng điều kiện phân nhánh đã tạo.
+Hình 8: Cây quyết định với dữliệu liên tục
+AI VIETNAM
+aivietnam.edu.vn
+• Theo hình 7, với Mean ∈{1.1, 1.5} ta được Gain cao nhất. Do đó, ta chọn Mean=1.1
+làm điều kiện phân nhánh. Làm tương tựvới các bước tiếp theo, ta được cây quyết định
+như hình 8. Ta thửví dụvới Petal Length=1.5, theo Cây quyết định sẽcho ra Class 0
+1.5 Cây quyết định với bảng dữliệu có nhiều cột
+Hình 9: Cây quyết định với dữliệu nhiều cột
+• Tương tựvới dữliệu 1 cột, ta làm tuần tựcác bước, lấy Mean cho tất cảcác cột, tính
+Information Gain theo tất cảcác giá trịMean, lấy Gain lớn nhất và xây dựng Cây
+quyết định như hình 9
+2. Decision Tree cho bài toán Hồi Quy:
+Hình 10: Bảng dữliệu cho bài toán Hồi quy
+• Với bài toán này, ta mong muốn nhóm các Experience gần nhau lại, đểtìm giá trịMean tốt
+nhất mô tảđược các giá trịExperience. Đầu tiên, ta tính Mean của các giá trịExperience.
+Sau đó, ta áp dụng công thức Mean Squared Error đểthấy được sựchênh lệch dữliệu với
+giá trịMean. Độchênh lệch càng thấp thì các giá trịExperience càng gần Mean, khi đó, giá
+trịSalary dựđoán được sẽcàng chính xác.
+AI VIETNAM
+aivietnam.edu.vn
+• Công thức Mean Squared Error (L là tổng sốgiá trịvà Li là giá trịthứi):
+mseL = 1
+|L| ∗
+X
+i
+(Li −Mean)2
+Hình 11: Xây dựng cây quyết định cho bài toán Hồi quy
+• Đểchọn điều kiện phân nhánh tốt nhất, tách bảng dữliệu theo các giá trịlẻ, sau đó tính giá
+trịMean tổng theo dữliệu.
+Hình 12: Cây quyết định cho bài toán Hồi quy
+AI VIETNAM
+aivietnam.edu.vn
+• Sau khi tìm được điều kiện với Mean tốt nhất, ta xây dựng cây quyết định theo điều kiện
+phân nhánh hình 11
+- Hết -

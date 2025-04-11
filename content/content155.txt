@@ -1,4 +1,0 @@
-AI VIETNAM aivietnam.edu.vn
-Để giải thích ý nghĩa của biểu thức trên chúng ta cần định nghĩa nó dưới dạng giới hạng∆t nhỏ
-của quá trình rời rạc, trong đóx(t + ∆t) được tính dựa trênx(t) và một sốr được rút ra từ phân phối
-chuẩn (normal distribution) với mean 0 và variance 1. Đây là một ví dụ cơ bản của Euler Maruyama.

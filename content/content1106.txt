@@ -1,5 +1,0 @@
-AI VIETNAM (AIO2024) aivietnam.edu.vn
-Để khắc phục trình trạng của hai cách nêu trên, YOLOv10 cài đặt một chiến lược huấn
-luyện mới là sự kết hợp của one-to-one và one-to-many, mang tên Dual label assignments.
-Chiến lược này được minh họa theo như hình sau:
-Hình 11: Minh họa chiến lược Dual label assignments. Ảnh: [10].

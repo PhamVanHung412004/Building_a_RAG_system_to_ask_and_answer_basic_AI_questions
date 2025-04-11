@@ -1,0 +1,1536 @@
+AI VIET NAM – COURSE 2023
+Time-series Forecasting Project
+(MLP, RNN, LSTM, Bi-LSTM, and XGBoost)
+Ngày 8 tháng 12 năm 2023
+Giới thiệu vềdata time-series project cho việc dựđoán nhiệt độdầu của máy biến áp
+điện :
+Phân phối nguồn điện là quá trình chuyển giao và phân phối năng lượng điện từcác nhà máy điện
+đến người sửdụng cuối cùng. Đây là một phần quan trọng trong hệthống điện đểđảm bảo cung cấp
+điện ổn định và đáng tin cậy cho người dân và các doanh nghiệp. Nhưng việc dựđoán nhu cầu tiếp
+theo của một khu vực cụthểlà khó khăn, vì nó thay đổi theo các ngày trong tuần, ngày lễ, mùa, thời
+tiết, nhiệt độ, v.v. Tuy nhiên, không có phương pháp hiện tại nào có thểthực hiện dựđoán dài hạn
+dựa trên dữliệu thưc tếvới độchính xác cao. Bất kỳkết quảdựđoán sai lầm nào có thểgây hại cho
+máy biến áp điện. Do đó, hiện tại, không có một phương pháp hiệu quảđểdựđoán việc sửdụng điện
+trong tương lai, do đó các nhà quản lý phải đưa ra dựđoán dựa trên kinh nghiệm, mà khi đó kết qua
+dựđoán thường cao hơn nhiều so với nhu cầu thực tế. Điều này gây lãng phí điện và giảm giá trịcủa
+thiết bị. Thông qua quá trình nghiên cứu, người ta nhận thấy rằng nhiệt độdầu có thểphản ánh tình
+trạng của máy biến áp điện. Một trong những chiến lược hiệu quảnhất là dựđoán làm thếnào nhiệt
+độdầu của máy biến áp điện là an toàn và tránh lãng phí không cần thiết. Do đó, đểgiải quyết vấn đề
+này, công ty Phát triển Khoa học và Công nghệGuowang Fuda của Bắc Kinh đã xây dựng hệt thống
+thu thập dữliệu trong 2 năm vềnhiệt độdầu của máy biến áp điện. Dựa trên bộdữliệu Electricity
+Transformer Dataset (ETDataset dataset ), chúng ta có thểphát triển các phương pháp dựđoán nhiệt
+độdầu của bộmáy áp điện và khảnăng chịu tải tối đa của nó.
+Bộdữliệu ETDataset (ETTH1, hình 1) bao gồm 7 thông tin như sau: the recorded date, high useful
+load (HUFL), high useless load (HULL), middle useful load (MUFL), middle useLess load (MULL), low
+useful load (LUFL), low useLlss load (LULL), và oil temperature (OT).
+Hình 1: Một vài sample data từtập dữliệu ETTH1
+Trong project này chúng ta sẽsửdụng các giải thuật multilayer perceptron(MLP), recurrent neural
+network (RNN), long-short term memory (LSTM), Bidirectional LSTM (Bi-LSTM) và XGBoost đểdữ
+1
+AI VIETNAM
+aivietnam.edu.vn
+đoán nhiệt độdầu của máy biến áp. ETTh1 dataset được tổchức thành 3 trường hợp khác nhau để
+đánh giá đểđánh giá độchính xác của các giải thuật cho bài toán dựđoán time-series data:
+• Case study 1 (Multivariate to Multivariate):
+1. Input: HUFL, HULL, MUFL, MULL, LUFL, LULL và OT
+2. Output: HUFL, HULL, MUFL, MULL, LUFL, LULL và OT
+• Case study 2 (Multivariate to Univariate):
+1. Input: HUFL, HULL, MUFL, MULL, LUFL, LULL và OT
+2. Output: OT
+• Case study 3 (Univariate to Univariate):
+1. Input: OT
+2. Output: OT
+Hình 2 thểhiện kết quảcủa các giải thuật ứng với 3 case study bên trên. Đểhoàn thành được
+project này, AIVN thừa nhận rằng người đọc đã nắm vững và biết cách sửdụng PyTorch đểcài đặt
+các giải thuật MLP, RNN, LSTM, Bi-LSTM và XGBoost
+Hình 2: Kết quảdựđoán OT ứng với 3 trường hợp case study
+Thực hành 1: (Tải dataset và import các thư viện cần thiết)
+Hãy cài đặt đoạn chương trình sau đểtải dữliệu ETTh1 vềmáy tính:
+1 !curl -o ETTh1.csv https :// raw. githubusercontent .com/zhouhaoyi/ETDataset/main/ETT -
+small/ETTh1.csv
+Hãy cài đặt đoạn chương trình sau đểimport các thư viện cần thiết:
+1 import os
+2 import
+time
+3 import
+numpy as np
+4 import
+polars as pl
+5 from
+torch.utils.data
+import
+TensorDataset , DataLoader
+6 import
+torch
+7 import
+torch.nn as nn
+8 import
+torch.nn.functional as F
+9 import
+seaborn as sns
+10 import
+matplotlib.pyplot as plt
+11 import
+seaborn as sns
+12 import
+plotly.express as px
+13 from
+xgboost
+import
+XGBRegressor
+2
+AI VIETNAM
+aivietnam.edu.vn
+Thực hành 2: (Data Exloration) hãy cài đặt đoạn chương trình sau đểphân tích tổng quan dữliệu
+của tập dataset ETTh1:
+1 train_df = pl.read_csv(file_path)
+2 columns_to_plot = train_df.columns
+3
+4 num_columns = 3
+5 num_rows = int(np.ceil(len( columns_to_plot ) / num_columns))
+6 grid_layout = (num_rows , num_columns)
+7
+8 fig , axes = plt.subplots (* grid_layout , figsize =(16 , 12))
+9
+10 axes = axes.flatten ()
+11
+12 for i, column in enumerate( columns_to_plot ):
+13
+sns.histplot(train_df[column], kde=True , ax=axes[i],
+14
+color=’green ’, stat="density", linewidth =0)
+15
+axes[i]. set_title(column)
+16 plt.tight_layout ()
+17 plt.show ()
+Hình 3 thểhiện kết quảthưc hiện bước data exploration phân tích data distribution of từng feature
+trong tập dữliệu ETTh1.
+Hình 3: Kết quảphân tích data distribution của từng feature trên tập dữliệu ETTh1
+Thực hành 3: (Data Preparation) Hãy cài đặt lại đoạn chương trình bên dưới đểthực hiện bước tổ
+chức tập dữliệu ETTh1 cho 3 trường hợp cần so sánh: multivariate to multivariate, multivariate to
+univariate, và univariate to univariate.
+1 class
+TimeSeriesDataLoader :
+2
+def
+__init__(self , file_path , input_size , label_size , offset , train_size , val_size
+, date_column=None , target_name=None , features_type =’M’, batch_size =64):
+3
+AI VIETNAM
+aivietnam.edu.vn
+3
+if offset < label_size:
+4
+print(f"Offset
+will be change
+from {offset} to {label_size}")
+5
+offset = label_size
+6
+7
+self.input_size = input_size
+8
+self.label_size = label_size
+9
+self.offset = offset
+10
+self.train_size = train_size
+11
+self.val_size = val_size
+12
+self.target_name = target_name
+13
+self.features_type = features_type
+14
+self.batch_size = batch_size
+15
+16
+# Load the data
+17
+self.df = pl.read_csv(file_path)
+18
+if date_column is not None: self.df = self.df.drop(’date ’)
+19
+20
+# Determine
+in_variable
+and
+out_variable
+based on features_type
+21
+if features_type == ’S’:
+22
+self.in_variable = 1
+23
+self.out_variable = 1
+24
+elif
+features_type == ’M’:
+25
+self.in_variable = len(self.df.columns)
+26
+self.out_variable = len(self.df.columns)
+27
+elif
+features_type == ’MS’:
+28
+self.in_variable = len(self.df.columns)
+29
+self.out_variable = 1
+30
+else:
+31
+raise
+ValueError("Invalid
+features_type . Choose
+from ’S’ for Univariate -to
+-Univariate , ’M’ for Multivariate -to -Multivariate , ’MS’ for Multivariate -to -
+Univariate.")
+32
+33
+# Preprocess
+the data
+34
+self.X_train , self.y_train = self. __create_dataset (0, int(train_size * len(
+self.df)))
+35
+print(f’{self.X_train.shape = }’)
+36
+print(f’{self.y_train.shape = }’)
+37
+self.X_val , self.y_val = self. __create_dataset (int(train_size * len(self.df)),
+int(( train_size + val_size) * len(self.df)))
+38
+print(f’{self.X_val.shape = }’)
+39
+print(f’{self.y_val.shape = }’)
+40
+self.X_test , self.y_test = self. __create_dataset (int(( train_size + val_size) *
+len(self.df)), None)
+41
+print(f’{self.X_test.shape = }’)
+42
+print(f’{self.y_test.shape = }’)
+43
+44
+# Convert to PyTorch
+DataLoaders
+45
+self.train_loader = self. __create_dataloader (self.X_train , self.y_train)
+46
+self.val_loader = self. __create_dataloader (self.X_val , self.y_val)
+47
+self.test_loader = self. __create_dataloader (self.X_test , self.y_test)
+48
+49
+def
+__create_dataset (self , start_idx , end_idx):
+50
+if end_idx is None:
+51
+end_idx = len(self.df) - self.label_size - self.offset
+52
+53
+start_idx += self.input_size + self.offset
+54
+55
+features = []
+56
+labels = []
+57
+4
+AI VIETNAM
+aivietnam.edu.vn
+58
+for idx in range(start_idx , end_idx):
+59
+feature_start_idx = idx - self.input_size - self.offset
+60
+feature_end_idx = feature_start_idx + self.input_size
+61
+62
+label_start_idx = idx - 1
+63
+label_end_idx = label_start_idx + self.label_size
+64
+65
+if self.features_type == ’S’:
+66
+feature = self.df.select(self.target_name)[ feature_start_idx :
+feature_end_idx ]
+67
+label = self.df.select(self.target_name)[ label_start_idx : label_end_idx
+]
+68
+elif self.features_type == ’M’:
+69
+feature = self.df[ feature_start_idx : feature_end_idx ]
+70
+label = self.df[ label_start_idx : label_end_idx ]
+71
+elif self.features_type == ’MS’:
+72
+feature = self.df[ feature_start_idx : feature_end_idx ]
+73
+label = self.df.select(self.target_name)[ label_start_idx : label_end_idx
+]
+74
+else:
+75
+raise
+ValueError("Invalid
+features_type . Choose
+from ’S’, ’M’, ’MS ’.")
+76
+77
+features.append(feature.to_numpy ())
+78
+labels.append(label.to_numpy ())
+79
+self.out_features = label.columns
+80
+self.in_features = label.columns
+81
+82
+return np.array(features), np.array(labels)
+83
+84
+def
+__create_dataloader (self , X, y):
+85
+X_tensor = torch.tensor(X, dtype=torch.float32)
+86
+y_tensor = torch.tensor(y, dtype=torch.float32)
+87
+dataset = TensorDataset(X_tensor , y_tensor)
+88
+return
+DataLoader(dataset , batch_size=self.batch_size , shuffle=True)
+3.1 Tổchức dữliệu cho trường hợp multivariate to multivariate:
+1
+2 features_type=’M’
+3 sub_dir = ’multi2multi ’
+4 os.makedirs(os.path.join(weight_dir , sub_dir), exist_ok=True)
+5 multi2multi_loader = TimeSeriesDataLoader (file_path ,
+6
+input_size=input_size ,
+7
+label_size=label_size ,
+8
+offset=offset ,
+9
+train_size=train_size ,
+10
+val_size=val_size ,
+11
+target_name=target_name ,
+12
+features_type =features_type ,
+13
+date_column=date_column)
+Question 1: Hãy cho biết shape của tập X_train và y_train
+a)
+self.X_train.shape = (11762 , 336, 7)
+self.y_train.shape = (11762 , 96, 1)
+b)
+self.X_train.shape = (11762 , 336, 7)
+self.y_train.shape = (11762 , 96, 7)
+c)
+self.X_train.shape = (11782 , 336, 7)
+5
+AI VIETNAM
+aivietnam.edu.vn
+self.y_train.shape = (11782 , 96, 1)
+d)
+self.X_train.shape = (11792 , 336, 7)
+self.y_train.shape = (11792 , 96, 1)
+3.2 Tổchức dữliệu cho trường hợp multivariate to univariate:
+1
+2 ffeatures_type =’MS’
+3 sub_dir = ’multi2uni ’
+4 os.makedirs(os.path.join(weight_dir , sub_dir), exist_ok=True)
+5 multi2uni_loader = TimeSeriesDataLoader (file_path ,
+6
+input_size=input_size ,
+7
+label_size=label_size ,
+8
+offset=offset ,
+9
+train_size=train_size ,
+10
+val_size=val_size ,
+11
+target_name=target_name ,
+12
+features_type =features_type ,
+13
+date_column=date_column)
+Question 2: Hãy cho biết shape của tập X_train và y_train
+a)
+self.X_train.shape = (11762 , 336, 7)
+self.y_train.shape = (11762 , 96, 1)
+b)
+self.X_train.shape = (11772 , 336, 7)
+self.y_train.shape = (11772 , 96, 1)
+c)
+self.X_train.shape = (11782 , 336, 7)
+self.y_train.shape = (11782 , 96, 1)
+d)
+self.X_train.shape = (11792 , 336, 7)
+self.y_train.shape = (11792 , 96, 1)
+3.2 Tổchức dữliệu cho trường hợp univariate to univariate:
+1 features_type=’S’
+2 sub_dir = ’uni2uni ’
+3 os.makedirs(os.path.join(weight_dir , sub_dir), exist_ok=True)
+4 uni2uni_loader = TimeSeriesDataLoader (file_path ,
+5
+input_size=input_size ,
+6
+label_size=label_size ,
+7
+offset=offset ,
+8
+train_size=train_size ,
+9
+val_size=val_size ,
+10
+target_name=target_name ,
+11
+features_type =features_type ,
+12
+date_column=date_column)
+Question 3: Hãy cho biết shape của tập X_train và y_train
+a)
+self.X_train.shape = (11762 , 336, 7)
+self.y_train.shape = (11762 , 96, 1)
+b)
+self.X_train.shape = (11772 , 336, 7)
+self.y_train.shape = (11772 , 96, 1)
+c)
+self.X_train.shape = (11762 , 336, 1)
+6
+AI VIETNAM
+aivietnam.edu.vn
+self.y_train.shape = (11762 , 96, 1)
+d)
+self.X_train.shape = (11792 , 336, 7)
+self.y_train.shape = (11792 , 96, 1)
+Thực hành 4: (Training Model Preparation) Hãy cài đặt lại đoạn chương trình bên dưới đểđịnh nghĩa
+các mô hình MLP, RNN, LSTM, và Bi-LSTM.
+1 import
+torch
+2 import
+torch.nn as nn
+3
+4 class
+ModelManager:
+5
+def
+__init__(self , model , train_loader , val_loader=None , lr =0.001 ,
+patience =100):
+6
+self.model = model
+7
+self.train_loader = train_loader
+8
+self.val_loader = val_loader
+9
+self.patience = patience
+10
+self.best_loss = float(’inf’)
+11
+self.counter = 0
+12
+self.criterion = nn.L1Loss ()
+13
+self.optimizer = torch.optim.Adam(model.parameters (), lr=lr)
+14
+15
+def train(self , num_epochs , save_dir=’.’):
+16
+os.makedirs(save_dir , exist_ok=True)
+17
+save_path = os.path.join(save_dir , f’best -{ self.model.__class__.__name__ }.pth’
+)
+18
+for epoch in range(num_epochs):
+19
+start_time = time.time ()
+20
+self.model.train ()
+# Set the model to training
+mode
+21
+total_train_loss = 0
+22
+23
+for inputs , targets in self.train_loader:
+24
+# Forward
+pass
+25
+outputs = self.model(inputs)
+26
+loss = self.criterion(outputs , targets)
+27
+total_train_loss += loss.item ()
+28
+29
+# Backward
+pass and
+optimization
+30
+self.optimizer.zero_grad ()
+31
+loss.backward ()
+32
+self.optimizer.step ()
+33
+34
+avg_train_loss = total_train_loss / len(self.train_loader)
+35
+36
+# Validate
+the model
+37
+val_loss = self.evaluate(loader=self.val_loader)
+38
+39
+# Check for early
+stopping
+40
+if self. early_stopping (val_loss , save_path):
+41
+print(f"Early
+stopping at epoch {epoch + 1}")
+42
+return
+43
+44
+print(f’Epoch [{ epoch + 1}/{ num_epochs }], ’
+45
+f’time: {int(time.time () - start_time)}s, ’
+46
+f’loss: { avg_train_loss :.4f}, ’
+47
+f’val_loss: {val_loss :.4f}’)
+48
+49
+self.load_model(save_path)
+50
+51
+def
+evaluate(self , loader):
+7
+AI VIETNAM
+aivietnam.edu.vn
+52
+self.model.eval ()
+# Set the model to evaluation
+mode
+53
+total_loss = 0
+54
+55
+with
+torch.no_grad ():
+56
+for inputs , targets in loader:
+57
+outputs = self.model(inputs)
+58
+loss = self.criterion(outputs , targets)
+59
+total_loss += loss.item ()
+60
+61
+avg_loss = total_loss / len(loader)
+62
+return
+avg_loss
+63
+64
+def
+early_stopping (self , val_loss , save_path):
+65
+if val_loss < self.best_loss:
+66
+self.best_loss = val_loss
+67
+self.counter = 0
+68
+self.save_model(save_path)
+69
+else:
+70
+self.counter += 1
+71
+return
+self.counter
+>= self.patience
+72
+73
+def
+save_model(self , save_path):
+74
+torch.save(self.model.state_dict (), save_path)
+75
+print(f’Model
+saved to {save_path}’)
+76
+77
+def
+load_model(self , load_path):
+78
+self.model. load_state_dict (torch.load(load_path))
+79
+print(f’Model
+loaded
+from {load_path}’)
+80
+81
+def
+predict(self , input_data):
+82
+self.model.eval ()
+# Set the model to evaluation
+mode
+83
+84
+if isinstance(input_data , DataLoader):
+85
+# If input_data is a DataLoader , iterate
+through
+batches
+and
+concatenate
+predictions
+86
+predictions = []
+87
+with
+torch.no_grad ():
+88
+for inputs , _ in input_data:
+89
+outputs = self.model(inputs)
+90
+predictions.append(outputs)
+91
+predictions = torch.cat(predictions , dim =0)
+92
+else:
+93
+# Assume
+input_data is a single
+input
+tensor
+94
+with
+torch.no_grad ():
+95
+predictions = self.model(input_data).unsqueeze (0)
+96
+97
+return
+predictions
+98
+99
+def plot(self , y, yhat , feature_names =None , save_dir=’.’, save_plots=True ,
+num_elements=None):
+100
+if feature_names is None:
+101
+feature_names = [f’Feature {i + 1}’ for i in range(y.shape [2])]
+102
+103
+if num_elements is not None:
+104
+y = y[: num_elements]
+105
+yhat = yhat [: num_elements]
+106
+107
+for
+feature_index , feature_name in enumerate( feature_names ):
+108
+plt.figure(figsize =(10 , 5))
+109
+8
+AI VIETNAM
+aivietnam.edu.vn
+110
+plt.plot(y[:, :, feature_index ]. flatten (), label=’y’, linestyle=’-’)
+111
+plt.plot(yhat[:, :, feature_index ]. flatten (), label=’y_hat ’, linestyle=’--
+’)
+112
+113
+plt.title(feature_name )
+114
+plt.xlabel(’Time Step ’)
+115
+plt.ylabel(’Values ’)
+116
+plt.legend ()
+117
+118
+if save_plots:
+119
+# Create the save
+directory if it doesn ’t exist
+120
+os.makedirs(os.path.join(save_dir , self.model.__class__.__name__),
+exist_ok=True)
+121
+122
+# Save the plot
+123
+save_path = os.path.join(save_dir , self.model.__class__.__name__ , f’{
+feature_name }.png’)
+124
+plt.savefig(save_path)
+125
+126
+plt.show ()
+127
+plt.close ()
+# Close the plot to avoid
+overlapping in saved
+images
+128
+129 class
+MachineLearningModelManager ( ModelManager ):
+130
+def
+__init__(self , model , xtrain , ytrain , xval , yval):
+131
+self.model = model
+132
+self.xtrain = xtrain
+133
+self.ytrain = ytrain
+134
+self.xval = xval
+135
+self.yval = yval
+136
+137
+def
+preprocessing(self , x):
+138
+return x.reshape(x.shape [0],
+-1)
+139
+140
+def
+save_model(self , save_path):
+141
+import
+pickle
+142
+with open(save_path , ’wb’) as model_file:
+143
+pickle.dump(self.model , model_file)
+144
+print(f’Model
+saved to {save_path}’)
+145
+146
+def train(self , save_dir=’.’):
+147
+self.model.fit(self.preprocessing (self.xtrain),
+148
+self.preprocessing (self.ytrain),
+149
+eval_set =[( self. preprocessing (self.xval), self. preprocessing (
+self.yval))])
+150
+save_path = os.path.join(save_dir , f’best -{ self.model.__class__.__name__ }.pkl’
+)
+151
+self.save_model(save_path=save_path)
+152
+153
+def
+predict(self , x):
+154
+return
+self.model.predict(self. preprocessing (x))
+155
+156
+def
+evaluate(self , x, y):
+157
+from
+sklearn.metrics
+import
+mean_absolute_error
+158
+# print(self.preprocessing (y).shape)
+159
+# print(self.predict(self. preprocessing (x)).shape)
+160
+return
+mean_absolute_error (self. preprocessing (y), self.predict(self.
+preprocessing(x)))
+161
+162
+def plot(self , y, yhat , feature_names =None , save_dir=’.’, save_plots=True ,
+num_elements=None):
+9
+AI VIETNAM
+aivietnam.edu.vn
+163
+yhat = yhat.reshape(y.shape [0], y.shape [1],
+-1)
+164
+super ().plot(y, yhat , feature_names =feature_names , save_dir=save_dir ,
+save_plots=save_plots , num_elements= num_elements )
+4.1 Xây dựng training model cho giải thuật MLP
+1
+2 class MLP(nn.Module):
+3
+def
+__init__(self , input_size , hidden_size , output_size , ahead):
+4
+super(MLP , self).__init__ ()
+5
+self.fc1 = nn.Linear(input_size , hidden_size)
+6
+self.relu = nn.ReLU ()
+7
+self.fc2 = nn.Linear(hidden_size , output_size * ahead)
+# Adjust for output
+sequence
+length
+8
+self.ahead = ahead
+9
+self.output_size = output_size
+10
+11
+def
+forward(self , x):
+12
+# Flatten
+the input
+13
+x = x.view(x.size (0), -1)
+# Reshape
+from [batch , lag , features] to [batch ,
+lag * features]
+14
+x = self.fc1(x)
+15
+x = self.relu(x)
+16
+x = self.fc2(x)
+17
+return x.view(-1, self.ahead , self.output_size)
+# Reshape to [batch , ahead ,
+features]
+4.2 Xây dựng training model cho giải thuật RNN
+1
+2 class RNN(nn.Module):
+3
+def
+__init__(self , input_size , hidden_size , output_size , num_layers , ahead):
+4
+super(RNN , self).__init__ ()
+5
+self.hidden_size = hidden_size
+6
+self.num_layers = num_layers
+7
+self.ahead = ahead
+8
+self.output_size = output_size
+9
+10
+# RNN Layer - can be replaced
+with nn.LSTM or nn.GRU
+11
+self.rnn = nn.RNN(input_size , hidden_size , num_layers , batch_first=True)
+12
+13
+# Output
+layer
+14
+self.fc = nn.Linear(hidden_size , output_size * ahead)
+15
+16
+def
+forward(self , x):
+17
+# Initialize
+hidden
+state
+18
+h0 = torch.zeros(self.num_layers , x.size (0), self.hidden_size).to(x.device)
+19
+20
+# Forward
+propagate
+RNN
+21
+out , _ = self.rnn(x, h0)
+22
+23
+# Get the last time step ’s output for each
+sequence
+24
+out = out[:, -1, :]
+25
+26
+# Pass
+through
+the linear
+layer and
+reshape
+27
+out = self.fc(out).view(-1, self.ahead , self.output_size)
+28
+return out
+4.3 Xây dựng training model cho giải thuật Bi-LSTM
+1 class
+LSTM(nn.Module):
+2
+def
+__init__(self , input_size , hidden_size , output_size , num_layers , ahead):
+3
+super(LSTM , self).__init__ ()
+10
+AI VIETNAM
+aivietnam.edu.vn
+4
+self.hidden_size = hidden_size
+5
+self.num_layers = num_layers
+6
+self.ahead = ahead
+7
+self.output_size = output_size
+8
+9
+# LSTM
+Layer
+10
+self.lstm = nn.LSTM(input_size , hidden_size , num_layers , batch_first=True)
+11
+12
+# Output
+layer
+13
+self.fc = nn.Linear(hidden_size , output_size * ahead)
+14
+15
+def
+forward(self , x):
+16
+# Initialize
+hidden and cell
+states
+17
+h0 = torch.zeros(self.num_layers , x.size (0), self.hidden_size).to(x.device)
+18
+c0 = torch.zeros(self.num_layers , x.size (0), self.hidden_size).to(x.device)
+19
+20
+# Forward
+propagate
+LSTM
+21
+out , _ = self.lstm(x, (h0 , c0))
+22
+23
+# Get the last time step ’s output for each
+sequence
+24
+out = out[:, -1, :]
+25
+26
+# Pass
+through
+the linear
+layer and
+reshape
+27
+out = self.fc(out).view(-1, self.ahead , self.output_size)
+28
+return out
+4.4 Xây dựng training model cho giải thuật LSTM
+1 class
+BiLSTM(nn.Module):
+2
+def
+__init__(self , input_size , hidden_size , output_size , num_layers , ahead):
+3
+super(BiLSTM , self).__init__ ()
+4
+self.hidden_size = hidden_size
+5
+self.num_layers = num_layers
+6
+self.ahead = ahead
+7
+self.output_size = output_size
+8
+9
+# BiLSTM
+Layer
+10
+self.lstm = nn.LSTM(input_size , hidden_size , num_layers , batch_first=True ,
+bidirectional=True)
+11
+12
+# Output
+layer
+13
+# Output
+size is doubled
+because
+BiLSTM has two hidden
+states for each
+layer
+14
+self.fc = nn.Linear(hidden_size * 2, output_size * ahead)
+15
+16
+def
+forward(self , x):
+17
+# Initialize
+hidden and cell
+states
+18
+h0 = torch.zeros(self.num_layers * 2, x.size (0), self.hidden_size).to(x.device
+)
+# 2 for
+bidirection
+19
+c0 = torch.zeros(self.num_layers * 2, x.size (0), self.hidden_size).to(x.device
+)
+20
+21
+# Forward
+propagate
+BiLSTM
+22
+out , _ = self.lstm(x, (h0 , c0))
+23
+24
+# Get the last time step ’s output for each
+sequence
+25
+out = out[:, -1, :]
+26
+27
+# Pass
+through
+the linear
+layer and
+reshape
+28
+out = self.fc(out).view(-1, self.ahead , self.output_size)
+29
+return out
+11
+AI VIETNAM
+aivietnam.edu.vn
+Thực hành 5: (MLP Training and Performance Evaluation) Hãy cài đặt lại đoạn chương trình bên
+dưới huấn luyện và đánh giá performance của giải thuật MLP ứng với 3 case study.
+5.1 Case study 1 (multivariate to multivariate):
+1 MLP_multi2multi = MLP(input_size= multi2multi_loader .in_variable*input_size ,
+2
+hidden_size=hidden_size ,
+3
+output_size= multi2multi_loader .out_variable ,
+4
+ahead=label_size)
+5 MLP_multi2multi_manager = ModelManager (model=MLP_multi2multi ,
+6
+train_loader= multi2multi_loader .train_loader ,
+7
+val_loader= multi2multi_loader .val_loader ,
+8
+lr=learning_rate ,
+9
+patience=patience)
+10 MLP_multi2multi_manager .train(num_epochs=num_epochs ,
+11
+save_dir=os.path.join(weight_dir , sub_dir))
+12 results.append ({
+13
+"Name": MLP_multi2multi_manager .model.__class__.__name__ ,
+14
+"Type": sub_dir ,
+15
+"MAE": MLP_multi2multi_manager .evaluate(loader= multi2multi_loader .test_loader)
+16 })
+17 results [-1]
+Question 4: Hãy cho biết kết quảMAE sau khi thực hiện huấn luyện mô hình MLP
+a) 2.47
+b) 2.57
+c) 2.67
+d) 2.77
+5.2 Case study 2 (multivariate to univariate):
+1 MLP_multi2uni = MLP(input_size= multi2uni_loader .in_variable*input_size ,
+2
+hidden_size=hidden_size ,
+3
+output_size= multi2uni_loader .out_variable ,
+4
+ahead=label_size)
+5 MLP_multi2uni_manager = ModelManager(model=MLP_multi2uni ,
+6
+train_loader= multi2uni_loader .train_loader ,
+7
+val_loader= multi2uni_loader .val_loader ,
+8
+lr=learning_rate ,
+9
+patience=patience)
+10 MLP_multi2uni_manager .train(num_epochs=num_epochs ,
+11
+save_dir=os.path.join(weight_dir , sub_dir))
+12 results.append ({
+13
+"Name": MLP_multi2uni_manager .model.__class__.__name__ ,
+14
+"Type": sub_dir ,
+15
+"MAE": MLP_multi2uni_manager .evaluate(loader= multi2uni_loader .test_loader)
+16 })
+17 results [-1]
+Question 5: Hãy cho biết kết quảMAE sau khi thực hiện huấn luyện mô hình MLP cho case study
+trên
+a) 2.47
+b) 2.57
+c) 2.67
+d) 3.08
+5.3 Case study 3 (univariate to univariate):
+1 MLP_uni2uni = MLP(input_size=uni2uni_loader .in_variable*input_size ,
+12
+AI VIETNAM
+aivietnam.edu.vn
+2
+hidden_size=hidden_size ,
+3
+output_size=uni2uni_loader .out_variable ,
+4
+ahead=label_size)
+5 MLP_uni2uni_manager = ModelManager(model=MLP_uni2uni ,
+6
+train_loader= uni2uni_loader .train_loader ,
+7
+val_loader= uni2uni_loader .val_loader ,
+8
+lr=learning_rate ,
+9
+patience=patience)
+10 MLP_uni2uni_manager .train(num_epochs=num_epochs ,
+11
+save_dir=os.path.join(weight_dir , sub_dir))
+12 results.append ({
+13
+"Name": MLP_uni2uni_manager .model.__class__.__name__ ,
+14
+"Type": sub_dir ,
+15
+"MAE": MLP_uni2uni_manager .evaluate(loader= uni2uni_loader .test_loader)
+16 })
+17 results [-1]
+Question 6: Hãy cho biết kết quảMAE sau khi thực hiện huấn luyện mô hình MLP cho case study
+trên
+a) 2.47
+b) 2.57
+c) 2.29
+d) 3.08
+Thực hành 6: (RNN Training and Performance Evaluation) Hãy cài đặt lại đoạn chương trình bên
+dưới huấn luyện và đánh giá performance của giải thuật RNN ứng với 3 case study.
+6.1 Case study 1 (multivariate to multivariate):
+1 RNN_multi2multi = RNN(input_size= multi2multi_loader .in_variable ,
+2
+hidden_size=hidden_size ,
+3
+output_size= multi2multi_loader .out_variable ,
+4
+ahead=label_size ,
+5
+num_layers=num_layers)
+6 RNN_multi2multi_manager = ModelManager (model=RNN_multi2multi ,
+7
+train_loader= multi2multi_loader .train_loader ,
+8
+val_loader= multi2multi_loader .val_loader ,
+9
+lr=learning_rate ,
+10
+patience=patience)
+11 RNN_multi2multi_manager .train(num_epochs=num_epochs ,
+12
+save_dir=os.path.join(weight_dir , sub_dir))
+13 results.append ({
+14
+"Name": RNN_multi2multi_manager .model.__class__.__name__ ,
+15
+"Type": sub_dir ,
+16
+"MAE": RNN_multi2multi_manager .evaluate(loader= multi2multi_loader .test_loader)
+17 })
+18 results [-1]
+Question 7: Hãy cho biết kết quảMAE sau khi thực hiện huấn luyện mô hình RNN
+a) 2.21
+b) 2.57
+c) 2.67
+d) 2.77
+6.2 Case study 2 (multivariate to univariate):
+1 RNN_multi2uni = RNN(input_size= multi2uni_loader .in_variable ,
+2
+hidden_size=hidden_size ,
+13
+AI VIETNAM
+aivietnam.edu.vn
+3
+output_size= multi2uni_loader .out_variable ,
+4
+ahead=label_size ,
+5
+num_layers=num_layers)
+6 RNN_multi2uni_manager = ModelManager(model=RNN_multi2uni ,
+7
+train_loader= multi2uni_loader .train_loader ,
+8
+val_loader= multi2uni_loader .val_loader ,
+9
+lr=learning_rate ,
+10
+patience=patience)
+11 RNN_multi2uni_manager .train(num_epochs=num_epochs ,
+12
+save_dir=os.path.join(weight_dir , sub_dir))
+13 results.append ({
+14
+"Name": RNN_multi2uni_manager .model.__class__.__name__ ,
+15
+"Type": sub_dir ,
+16
+"MAE": RNN_multi2uni_manager .evaluate(loader= multi2uni_loader .test_loader)
+17 })
+18 results [-1]
+Question 8: Hãy cho biết kết quảMAE sau khi thực hiện huấn luyện mô hình RNN cho case study
+trên
+a) 2.47
+b) 2.57
+c) 2.67
+d) 2.63
+6.3 Case study 3 (univariate to univariate):
+1 RNN_uni2uni = RNN(input_size=uni2uni_loader .in_variable ,
+2
+hidden_size=hidden_size ,
+3
+output_size=uni2uni_loader .out_variable ,
+4
+ahead=label_size ,
+5
+num_layers=num_layers)
+6 RNN_uni2uni_manager = ModelManager(model=RNN_uni2uni ,
+7
+train_loader= uni2uni_loader .train_loader ,
+8
+val_loader= uni2uni_loader .val_loader ,
+9
+lr=learning_rate ,
+10
+patience=patience)
+11 RNN_uni2uni_manager .train(num_epochs=num_epochs ,
+12
+save_dir=os.path.join(weight_dir , sub_dir))
+13 results.append ({
+14
+"Name": RNN_uni2uni_manager .model.__class__.__name__ ,
+15
+"Type": sub_dir ,
+16
+"MAE": RNN_uni2uni_manager .evaluate(loader= uni2uni_loader .test_loader)
+17 })
+18 results [-1]
+Question 9: Hãy cho biết kết quảMAE sau khi thực hiện huấn luyện mô hình RNN cho case study
+trên
+a) 2.47
+b) 2.8
+c) 2.29
+d) 3.08
+Thực hành 7: (LSTM Training and Performance Evaluation) Hãy cài đặt lại đoạn chương trình bên
+dưới huấn luyện và đánh giá performance của giải thuật LSTM ứng với 3 case study.
+7.1 Case study 1 (multivariate to multivariate):
+1 LSTM_multi2multi = LSTM(input_size= multi2multi_loader .in_variable ,
+14
+AI VIETNAM
+aivietnam.edu.vn
+2
+hidden_size=hidden_size ,
+3
+output_size= multi2multi_loader .out_variable ,
+4
+ahead=label_size ,
+5
+num_layers=num_layers)
+6 LSTM_multi2multi_manager = ModelManager (model=LSTM_multi2multi ,
+7
+train_loader= multi2multi_loader .train_loader ,
+8
+val_loader= multi2multi_loader .val_loader ,
+9
+lr=learning_rate ,
+10
+patience=patience)
+11 LSTM_multi2multi_manager .train(num_epochs=num_epochs ,
+12
+save_dir=os.path.join(weight_dir , sub_dir))
+13 results.append ({
+14
+"Name": LSTM_multi2multi_manager .model.__class__.__name__ ,
+15
+"Type": sub_dir ,
+16
+"MAE": LSTM_multi2multi_manager .evaluate(loader= multi2multi_loader .test_loader)
+17 })
+18 results [-1]
+Question 10: Hãy cho biết kết quảMAE sau khi thực hiện huấn luyện mô hình LSTM
+a) 2.29
+b) 2.57
+c) 2.67
+d) 3.18
+7.2 Case study 2 (multivariate to univariate):
+1 LSTM_multi2uni = LSTM(input_size= multi2uni_loader .in_variable ,
+2
+hidden_size=hidden_size ,
+3
+output_size= multi2uni_loader .out_variable ,
+4
+ahead=label_size ,
+5
+num_layers=num_layers)
+6 LSTM_multi2uni_manager = ModelManager(model=LSTM_multi2uni ,
+7
+train_loader= multi2uni_loader .train_loader ,
+8
+val_loader= multi2uni_loader .val_loader ,
+9
+lr=learning_rate ,
+10
+patience=patience)
+11 LSTM_multi2uni_manager .train(num_epochs=num_epochs ,
+12
+save_dir=os.path.join(weight_dir , sub_dir))
+13 results.append ({
+14
+"Name": LSTM_multi2uni_manager .model.__class__.__name__ ,
+15
+"Type": sub_dir ,
+16
+"MAE": LSTM_multi2uni_manager .evaluate(loader= multi2uni_loader .test_loader)
+17 })
+18 results [-1]
+Question 11: Hãy cho biết kết quảMAE sau khi thực hiện huấn luyện mô hình LSTM cho case
+study trên
+a) 2.47
+b) 2.57
+c) 2.67
+d) 3.18
+7.3 Case study 3 (univariate to univariate):
+1 LSTM_uni2uni = LSTM(input_size=uni2uni_loader .in_variable ,
+2
+hidden_size=hidden_size ,
+3
+output_size=uni2uni_loader .out_variable ,
+4
+ahead=label_size ,
+5
+num_layers=num_layers)
+15
+AI VIETNAM
+aivietnam.edu.vn
+6 LSTM_uni2uni_manager = ModelManager (model=LSTM_uni2uni ,
+7
+train_loader= uni2uni_loader .train_loader ,
+8
+val_loader= uni2uni_loader .val_loader ,
+9
+lr=learning_rate ,
+10
+patience=patience)
+11 LSTM_uni2uni_manager .train(num_epochs=num_epochs ,
+12
+save_dir=os.path.join(weight_dir , sub_dir))
+13 results.append ({
+14
+"Name": LSTM_uni2uni_manager .model.__class__.__name__ ,
+15
+"Type": sub_dir ,
+16
+"MAE": LSTM_uni2uni_manager .evaluate(loader= uni2uni_loader .test_loader)
+17 })
+18 results [-1]
+Question 12: Hãy cho biết kết quảMAE sau khi thực hiện huấn luyện mô hình LSTM cho case
+study trên
+a) 2.47
+b) 2.56
+c) 2.29
+d) 3.08
+Thực hành 8: (Bi-LSTM Training and Performance Evaluation) Hãy cài đặt lại đoạn chương trình
+bên dưới huấn luyện và đánh giá performance của giải thuật Bi-LSTM ứng với 3 case study.
+8.1 Case study 1 (multivariate to multivariate):
+1 BiLSTM_multi2multi = BiLSTM(input_size= multi2multi_loader .in_variable ,
+2
+hidden_size=hidden_size ,
+3
+output_size= multi2multi_loader .out_variable ,
+4
+ahead=label_size ,
+5
+num_layers=num_layers)
+6 BiLSTM_multi2multi_manager = ModelManager(model=BiLSTM_multi2multi ,
+7
+train_loader= multi2multi_loader .train_loader
+,
+8
+val_loader= multi2multi_loader .val_loader ,
+9
+lr=learning_rate ,
+10
+patience=patience)
+11 BiLSTM_multi2multi_manager .train(num_epochs=num_epochs ,
+12
+save_dir=os.path.join(weight_dir , sub_dir))
+13 results.append ({
+14
+"Name": BiLSTM_multi2multi_manager .model.__class__.__name__ ,
+15
+"Type": sub_dir ,
+16
+"MAE": BiLSTM_multi2multi_manager .evaluate(loader= multi2multi_loader .test_loader)
+17 })
+18 results [-1]
+Question 13: Hãy cho biết kết quảMAE sau khi thực hiện huấn luyện mô hình Bi-LSTM
+a) 2.29
+b) 2.56
+c) 2.67
+d) 2.77
+8.2 Case study 2 (multivariate to univariate):
+1 BiLSTM_multi2uni = BiLSTM(input_size= multi2uni_loader .in_variable ,
+2
+hidden_size=hidden_size ,
+3
+output_size= multi2uni_loader .out_variable ,
+4
+ahead=label_size ,
+16
+AI VIETNAM
+aivietnam.edu.vn
+5
+num_layers=num_layers)
+6 BiLSTM_multi2uni_manager = ModelManager (model=BiLSTM_multi2uni ,
+7
+train_loader= multi2uni_loader .train_loader ,
+8
+val_loader= multi2uni_loader .val_loader ,
+9
+lr=learning_rate ,
+10
+patience=patience)
+11 BiLSTM_multi2uni_manager .train(num_epochs=num_epochs ,
+12
+save_dir=os.path.join(weight_dir , sub_dir))
+13 results.append ({
+14
+"Name": BiLSTM_multi2uni_manager .model.__class__.__name__ ,
+15
+"Type": sub_dir ,
+16
+"MAE": BiLSTM_multi2uni_manager .evaluate(loader= multi2uni_loader .test_loader)
+17 })
+18 results [-1]
+Question 14: Hãy cho biết kết quảMAE sau khi thực hiện huấn luyện mô hình Bi-LSTM cho case
+study trên
+a) 2.47
+b) 2.57
+c) 2.67
+d) 2.74
+8.3 Case study 3 (univariate to univariate):
+1 BiLSTM_uni2uni = BiLSTM(input_size= uni2uni_loader .in_variable ,
+2
+hidden_size=hidden_size ,
+3
+output_size= uni2uni_loader .out_variable ,
+4
+ahead=label_size ,
+5
+num_layers=num_layers)
+6 BiLSTM_uni2uni_manager = ModelManager(model=BiLSTM_uni2uni ,
+7
+train_loader= uni2uni_loader .train_loader ,
+8
+val_loader= uni2uni_loader .val_loader ,
+9
+lr=learning_rate ,
+10
+patience=patience)
+11 BiLSTM_uni2uni_manager .train(num_epochs=num_epochs ,
+12
+save_dir=os.path.join(weight_dir , sub_dir))
+13 results.append ({
+14
+"Name": BiLSTM_uni2uni_manager .model.__class__.__name__ ,
+15
+"Type": sub_dir ,
+16
+"MAE": BiLSTM_uni2uni_manager .evaluate(loader= uni2uni_loader .test_loader)
+17 })
+18 results [-1]
+Question 15: Hãy cho biết kết quảMAE sau khi thực hiện huấn luyện mô hình Bi-LSTM cho case
+study trên
+a) 2.47
+b) 2.56
+c) 2.29
+d) 3.08
+Thực hành 9: (XGboost Training and Performance Evaluation) Hãy cài đặt lại đoạn chương trình bên
+dưới huấn luyện và đánh giá performance của giải thuật XGBoost ứng với 3 case study.
+9.1 Case study 1 (multivariate to multivariate):
+1 XGBoost_multi2multi = XGBRegressor (** xgboost_config )
+2 XGBoost_multi2multi_manager = MachineLearningModelManager (model=XGBoost_multi2multi ,
+3
+xtrain= multi2multi_loader .
+X_train ,
+17
+AI VIETNAM
+aivietnam.edu.vn
+4
+ytrain= multi2multi_loader .
+y_train ,
+5
+xval= multi2multi_loader .
+X_val ,
+6
+yval= multi2multi_loader .
+y_val)
+7 XGBoost_multi2multi_manager .train(save_dir=os.path.join(weight_dir , sub_dir))
+8 results.append ({
+9
+"Name": XGBoost_multi2multi_manager .model.__class__.__name__ ,
+10
+"Type": sub_dir ,
+11
+"MAE": XGBoost_multi2multi_manager .evaluate(x= multi2multi_loader .X_test , y=
+multi2multi_loader .y_test)
+12 })
+13 results [-1]
+Question 16: Hãy cho biết kết quảMAE sau khi thực hiện huấn luyện mô hình XGBoost
+a) 2.29
+b) 2.56
+c) 2.02
+d) 2.5
+18

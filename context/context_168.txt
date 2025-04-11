@@ -1,0 +1,411 @@
+Retrieval Augmented Generation
+Bach-Hoang Ngo
+AI VIETNAM
+All-in-One Course
+Year 
+LLMs
+2
+AI VIETNAM
+All-in-One Course
+Not up-to-date information
+3
+AI VIETNAM
+All-in-One Course
+Not up-to-date information
+4
+AI VIETNAM
+All-in-One Course
+Private data?
+5
+AI VIETNAM
+All-in-One Course
+Personal data
+Enterprise data
+Confidential data
+Retraining with more data?
+6
+AI VIETNAM
+All-in-One Course
+NVIDIA  A100
+2048   x
+Training Llama 2
+1.29 ->  4.10 $ / 1h
+Llama 2 – 7B ~ 240k $
+Llama 2 – 70B ~ 2.2M $
+-
+Risk of worse performance.
+-
+Cannot update in real-time.
+-
+Carbon Emission.
+-
+Hallucination
+How does the Mamba network work?
+Retraining with more data?
+7
+AI VIETNAM
+All-in-One Course
+Llama 3 numbers
+1.29 ->  4.10 $ / 1h
+Llama 2 – 7B ~ 1.7M $
+Llama 2 – 70B ~ 8.3M $
+Hallucination
+8
+AI VIETNAM
+All-in-One Course
+Retrieval Augmented Generation
+▪
+Overview
+▪
+Ingestion
+▪
+Retrieval
+▪
+Generation
+AI VIETNAM
+All-in-One Course
+10
+Overview
+AI VIETNAM
+All-in-One Course
+Here are some context 
+information
+----------------------
+…. 
+----------------------
+Answer the question:
+User questions
+Answer
+Prompt
+11
+Overview
+AI VIETNAM
+All-in-One Course
+Documents
+Database
+User Query
+Retriever
+Generator 
+(LLM)
+Answer
+12
+Overview
+AI VIETNAM
+All-in-One Course
+Documents
+Database
+User Query
+Retriever
+Generator 
+(LLM)
+Answer
+Ingestion
+13
+Overview
+AI VIETNAM
+All-in-One Course
+Documents
+Database
+User Query
+Retriever
+Generator 
+(LLM)
+Answer
+Retrieval
+14
+Overview
+AI VIETNAM
+All-in-One Course
+Documents
+Database
+User Query
+Retriever
+Generator 
+(LLM)
+Answer
+Augmentation
+15
+Learn by Project
+AI VIETNAM
+All-in-One Course
+AIO Documents
+Database
+AI questions
+Retriever
+Generator 
+(LLM)
+Answer
+Building a Chatbot from AIO Documents!!
+16
+Tools
+AI VIETNAM
+All-in-One Course
+Quantization
+▪
+Overview
+▪
+Ingestion
+▪
+Retrieval
+▪
+Generation
+▪
+Evaluation
+AI VIETNAM
+All-in-One Course
+18
+Data Collecting
+AI VIETNAM
+All-in-One Course
+19
+Read PDF files
+AI VIETNAM
+All-in-One Course
+Llama Parse
+20
+Read PDF files
+AI VIETNAM
+All-in-One Course
+Using llama-index
+21
+Text Splitter
+AI VIETNAM
+All-in-One Course
+Model
+Context Window
+gpt-4-turbo
+gpt-3.5-turbo
+Claude 3 - opus
+Mistral-7b
+Llama-7b
+22
+Text Splitter
+AI VIETNAM
+All-in-One Course
+23
+Text Splitter
+AI VIETNAM
+All-in-One Course
+-------------------
+-------------------
+-------------------
+-------------------
+-------------------
+-------------------
+-------------------
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+Text Splitter
+24
+Text Splitter
+AI VIETNAM
+All-in-One Course
+25
+Semantic Splitter
+AI VIETNAM
+All-in-One Course
+26
+Why Embedding?
+AI VIETNAM
+All-in-One Course
+Aspect
+Embedding Search
+Keyword Search
+Search Method
+Uses vectors to represent the 
+semantic meaning of words
+Relies on exact keyword 
+matching
+Understanding Context
+Understands the intent and 
+context of queries
+Focuses on the presence of 
+specific keywords
+Handling Synonyms
+Can identify and match 
+synonyms and related terms
+Typically requires explicit 
+listing of synonyms
+Query Flexibility
+Allows natural language 
+queries
+Best with specific, well-
+defined keyword queries
+Computational Demand
+More computationally 
+intensive
+Less computationally 
+demanding
+27
+Embedding Models
+AI VIETNAM
+All-in-One Course
+-------------------
+-------------------
+-------------------
+-------------------
+-------------------
+-------------------
+-------------------
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+Text 
+Splitter
+Embedding 
+Model
+Embeddings
+28
+Embedding Models
+AI VIETNAM
+All-in-One Course
+29
+Embedding Models
+AI VIETNAM
+All-in-One Course
+Documents
+Documents
+Documents
+User query
+Which embedding model to use?
+30
+Embedding Models
+AI VIETNAM
+All-in-One Course
+MTEB Leaderboard - a Hugging Face Space by mteb
+31
+Vector database
+AI VIETNAM
+All-in-One Course
+----------------
+----------------
+----------------
+----------------
+---------
+--------
+-------
+Text 
+Splitt
+er
+Embe
+dding 
+Model
+Embeddings
+Vector database
+32
+Vector database
+AI VIETNAM
+All-in-One Course
+33
+Vector database
+AI VIETNAM
+All-in-One Course
+Vector DB Comparison (superlinked.com)
+Quantization
+▪
+Overview
+▪
+Ingestion
+▪
+Retrieval
+▪
+Generation
+▪
+Evaluation
+AI VIETNAM
+All-in-One Course
+35
+Vector Search
+AI VIETNAM
+All-in-One Course
+36
+Vector Search
+AI VIETNAM
+All-in-One Course
+37
+Keyword Search
+AI VIETNAM
+All-in-One Course
+38
+Hybrid Search
+AI VIETNAM
+All-in-One Course
+BM25 Retriever
+Vector Retriever
++
+Results
+39
+QUIZ TIME!!!
+AI VIETNAM
+All-in-One Course
+40
+Reranking
+AI VIETNAM
+All-in-One Course
+41
+Reranking  - Model based
+AI VIETNAM
+All-in-One Course
+42
+Reranking – LLM based
+AI VIETNAM
+All-in-One Course
+43
+Query Rewritting
+AI VIETNAM
+All-in-One Course
+44
+Query Rewritting
+AI VIETNAM
+All-in-One Course
+Quantization
+▪
+Overview
+▪
+Ingestion
+▪
+Retrieval
+▪
+Generation
+▪
+Evaluation
+AI VIETNAM
+All-in-One Course
+46
+LLM Benchmarks
+AI VIETNAM
+All-in-One Course
+47
+LLM Benchmarks - MMLU
+AI VIETNAM
+All-in-One Course
+48
+GSM8K + MATH
+AI VIETNAM
+All-in-One Course
+49
+HumanEval
+AI VIETNAM
+All-in-One Course
+50
+Chatbot Arena
+AI VIETNAM
+All-in-One Course
+Chat with Open Large Language Models (lmsys.org)
+51
+VMLU (Vietnamese)
+AI VIETNAM
+All-in-One Course

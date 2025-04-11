@@ -1,7 +1,0 @@
-AI VIETNAM aivietnam.edu.vn
-• UserProxyAgentcó vai trò gửi yêu cầu tạo sinh đến AssistantAgent và thực thi code nhận được
-để kiểm tra code đã chạy được hay chưa.
-Thông qua hội thoại giữa hai agent này, ta sẽ có được một đoạn code theo yêu cầu đã được kiểm
-tra thông qua trình thực thi. Tổng quan, pipeline của project như sau:
-Hình 2: Pipeline của project.
-1. 

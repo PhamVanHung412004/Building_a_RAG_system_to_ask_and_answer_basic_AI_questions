@@ -1,3 +1,0 @@
-Có rất nhiều cách thiết kế hệ thống truy vấn hình ảnh khác nhau, tuy nhiên về mặt tổng
-quát sẽ có pipeline như sau:
-1

@@ -1,0 +1,1105 @@
+Deep Architectures for 
+POS Tagging and NER
+Year 2024
+Quang-Vinh Dinh
+Ph.D. in Computer Science
+AI VIETNAM
+All-in-One Course
+➢Quick Review
+➢POS Tagging Using Different Models
+➢Named Entity Recognition
+➢Step-by-step Examples
+➢PyTorch Implementation
+Outline
+Quiz 1
+❖ Choose the correct code segment?
+Logits
+Probabilities
+Sample 1
+Sample 2
+One-hot label
+Loss
+0.2
+0.1
+1.2
+3.6
+-2.5
+-0.2
+0.2163
+0.1957
+0.588
+0.9776
+0.0022
+0.0218
+0
+0
+1
+1
+0
+0
+Cross Entropy Loss
+𝐿= −෍
+𝑖
+𝑦𝑖𝑙𝑜𝑔ො𝑦𝑖
+−𝑙𝑜𝑔0.588 = 0.531
+−𝑙𝑜𝑔0.9776 = 0.2429
+Softmax
+ℒ𝑜𝑠𝑠= 0.531 + 0.2429
+2
+     
+= 0.2777
+N_classes = 3
+Ignore_index = 0
+Logits
+Probabilities
+Sample 1
+Sample 2
+One-hot label
+0.2
+0.1
+1.2
+3.6
+-2.5
+-0.2
+0.2163
+0.1957
+0.588
+0.9776
+0.0022
+0.0218
+0
+0
+1
+1
+0
+0
+N_classes = 3
+Sample 3
+-1.3
+1.5
+0.5
+0.0426
+0.6999
+0.2575
+0
+1
+0
+Softmax
+𝐿= −෍
+𝑖
+𝑦𝑖𝑙𝑜𝑔ො𝑦𝑖
+−𝑙𝑜𝑔0.588 = 0.531
+−𝑙𝑜𝑔0.6999 = 0.3568
+Loss
+ℒ𝑜𝑠𝑠= 0.531 + 0.3568
+2
+     
+= 0.4439
+ignore
+Cross Entropy Loss
+Quiz 2
+❖ Loss function
+1
+2
+4
+5
+7
+8
+3
+6
+9
+Axis 0
+Axis 1
+Axis 2
+Three dimensions includes 
+ - batch_size N 
+ - sequence_length L 
+ - num_classes C
+if the y shape is (N,)
+the Z shape is (?)
+if the y shape is (N, C)
+the Z shape is (?)
+if the Z shape is (N, L, C)
+the y shape is (?)
+PyTorch
+softmax
+. . .
+. . .
+. . .
+➢Quick Review
+➢POS Tagging Using Different Models
+➢Named Entity Recognition
+➢Step-by-step Examples
+➢PyTorch Implementation
+Outline
+Designing a Model for 
+POS Tagging
+Doc
+Label
+i want a dog
+[0, 1, 2, 0]
+books are expensive
+[0, 1, 2]
+index
+word
+0
+[UNK]
+1
+[pad]
+2
+a
+3
+are
+4
+books
+5
+dog
+6
+expensive
+7
+i
+8
+want
+vocab size = 9
+sequence length = 4
+building 
+dictionary
+0
+[-0.1882,  0.5530,  …,  0.7013]
+1
+[1.7840, -0.8278, …,  1.3586]
+2
+[1.0281, -1.9094,  …,  0.4211]
+3
+[-1.3083, -0.0987,  …, -0.3680]
+4
+[0.2293,  1.3255,  …,  2.0501]
+5
+[0.4058, -0.6624, …,  0.7203]
+6
+[0.5582,  0.0786, …,  0.6902]
+7
+[0.4309, -1.3067, …,  1.5977]
+8
+[0.3058, -0.7624, …,  0.6203]
+Dictionary
+Embedding
+i
+want
+a
+dog
+7
+8
+2
+5
+sample 1
+[0.4058, -0.6624, …,  0.7203]
+[0.3058, -0.7624, …,  0.6203]
+[1.0281, -1.9094,  …,  0.4211]
+[0.4058, -0.6624, …,  0.7203]
+sample 1 _ Embedding
+shape=(1, 4, 4)
+        (N, seq_len, embed_dim) 
+shape=(1, 4, 4)
+           (N, C, seq_len) 
+Label
+Meaning
+0
+Noun/Pronoun
+1
+Verb
+2
+Others
+Vectorization and Embedding
+A 
+sample
+Vectorization
+& 
+Embedding
+Output
+???
+Model
+Model Pipeline
+Designing a Model 
+for POS Tagging
+A 
+sample
+Vectorization
+& 
+Embedding
+Output
+???
+shape=(N, seq_len, embed_dim) 
+shape=(N, C, seq_len) 
+V1
+V2
+Vn
+W𝑇V1 + b
+W𝑇V2 + b
+W𝑇Vn + b
+softmax
+[0.4058, -0.6624, …,  0.7203]
+[0.3058, -0.7624, …,  0.6203]
+[0.4058, -0.6624, …,  0.7203]
+. . .
+. . .
+. . .
+. . .
+. . .
+W
+b
+shared
+Using MLP
+shape=(N, C, seq_len)   
+(N, seq_len, embed_dim) 
+Linear
+Designing a Model 
+for POS Tagging
+A 
+sample
+Vectorization
+& 
+Embedding
+Output
+???
+shape=(N, seq_len, embed_dim) 
+shape=(N, C, seq_len) 
+[0.4058, -0.6624, …,  0.7203]
+[0.3058, -0.7624, …,  0.6203]
+[0.4058, -0.6624, …,  0.7203]
+. . .
+Using CNN
+softmax
+. . .
+. . .
+. . .
+This pipeline is wrong. 
+Let’s find out!
+E
+Designing a Model 
+for POS Tagging
+A 
+sample
+Vectorization
+& 
+Embedding
+Output
+???
+shape=(N, seq_len, embed_dim) 
+shape=(N, C, seq_len) 
+softmax
+[0.4058, -0.6624, …,  0.7203]
+[0.3058, -0.7624, …,  0.6203]
+[0.4058, -0.6624, …,  0.7203]
+. . .
+. . .
+. . .
+Using CNN
+shape=(N, C, seq_len)   
+(N, seq_len, embed_dim E) 
+(N, embed_dim E, seq_len) 
+. . .
+E
+https://pytorch.org/docs/stable/generated/torch.nn.Conv1d.html
+Designing a Model 
+for POS Tagging
+A 
+sample
+Vectorization
+& 
+Embedding
+Output
+???
+shape=(N, seq_len, embed_dim) 
+shape=(N, C, seq_len) 
+softmax
+. . .
+. . .
+. . .
+Using RNN
+RNN Cell
+h0
+h1
+hn
+[0.4058, -0.6624, …,  0.7203]
+[0.3058, -0.7624, …,  0.6203]
+[0.4058, -0.6624, …,  0.7203]
+. . .
+. . .
+. . .
+shape=(N, C, seq_len)   
+(N, seq_len, embed_dim) 
+(N, seq_len, C) 
+Designing a Model 
+for POS Tagging
+Using RNN: Implementation
+shape=(N, C, seq_len)   
+softmax
+(N, seq_len, embed_dim) 
+. . .
+. . .
+. . .
+RNN Cell
+h0
+h1
+hn
+[0.4058, -0.6624, …,  0.7203]
+[0.3058, -0.7624, …,  0.6203]
+[0.4058, -0.6624, …,  0.7203]
+. . .
+. . .
+(N, seq_len, C) 
+. . .
+Designing a Model 
+for POS Tagging
+. . .
+Using RNN + Linear
+[0.4058, -0.6624, …,  0.7203]
+[0.3058, -0.7624, …,  0.6203]
+[0.4058, -0.6624, …,  0.7203]
+. . .
+RNN Cell
+h0
+h1
+hn
+. . .
+(N, seq_len, H) 
+Linear
+(H, C)
+softmax
+. . .
+. . .
+. . .
+(N, seq_len, embed_dim) 
+shape=(N, C, seq_len)   
+(N, seq_len, C) 
+Similar to LSTM/GRU
+Designing a 
+Model for 
+POS Tagging
+Using Transformer
+softmax
+. . .
+. . .
+. . .
+Transformer Block
+. . .
+. . .
+shape=(N, C, seq_len)   
+(N, seq_len, ?) 
+(N, seq_len, C) 
+Input
+Multi-head 
+Attention
+Add & 
+Norm
+Feed 
+Forward
+Add & 
+Norm
+Output
+(N, seq_len, embed_dim) 
+(N, seq_len, embed_dim) 
+Transformer Block
+[0.4058, -0.6624, …,  0.7203]
+[0.3058, -0.7624, …,  0.6203]
+[0.4058, -0.6624, …,  0.7203]
+Designing a Model 
+for POS Tagging
+Using Transformer
+shape=(N, C, seq_len)   
+softmax
+(N, seq_len, C) 
+. . .
+. . .
+. . .
+Transformer Block
+. . .
+(N, seq_len, C) 
+. . .
+[0.4058, -0.6624, …,  0.7203]
+[0.3058, -0.7624, …,  0.6203]
+[0.4058, -0.6624, …,  0.7203]
+Designing a Model 
+for POS Tagging
+Using Transformer + Linear
+(N, seq_len, embed_dim) 
+. . .
+Transformer Block
+[0.4058, …,  0.7203]
+[0.3058, …,  0.6203]
+[0.4058, …,  0.7203]
+Linear
+(H, C)
+(N, seq_len, embed_dim) 
+shape=(N, C, seq_len)   
+softmax
+. . .
+. . .
+(N, seq_len, C) 
+. . .
+. . .
+Classifier
+BERT
+10271
+66455
+15031
+11424
+10192
+10393
+17446
+10135
+18745
+Token2id
+it
+has
+force
+today
+work
+our
+on
+bearing
+no
+𝑜𝑢𝑡0
+…
+𝑜𝑢𝑡𝑛−2
+𝑜𝑢𝑡𝑛−3
+𝑜𝑢𝑡2
+𝑜𝑢𝑡1
+…
+…
+𝑜𝑢𝑡𝑛−1
+PRP
+VBZ
+NN
+IN
+NN
+PRP$
+IN
+NN
+DT
+It has no bearing on our workforce today
+Predict
+Input_ids
+Pre-trained
+Text input
+Tokenize
+Tokens
+PRP
+VBZ
+NN
+NN
+NN
+PRP$
+IN
+NN
+DT
+CrossEntropyLoss
+Label
+POS Tagging Using 
+Pre-trained Models
+➢Quick Review
+➢POS Tagging Using Different Models
+➢Named Entity Recognition
+➢Step-by-step Examples
+➢PyTorch Implementation
+Outline
+Conll2003 Dataset for Part-of-Speed Tagging
+Num_classes = 47
+Train
+Val
+Test
+14041
+3250
+3453
+0
+“
+Quotation mask
+1
+space
+2
+#
+Hash
+3
+$
+Dolla
+4
+(
+Opening parenthesis
+5
+)
+Closing parenthesis
+6
+,
+Comma
+7
+.
+Dot
+8
+:
+Colon
+9
+``
+Apostrophe
+10
+CC
+Coordinating 
+conjunction
+11
+CD
+Cardinal number
+12
+DT
+Determiner
+13
+EX
+Existential there
+14
+FW
+Foreign word
+15
+IN
+Preposition or 
+subordinating 
+conjunction
+16
+JJ
+Adjective
+17
+JJR
+Adjective, comparative
+18
+JJS
+Adjective, superlative
+19
+LS
+List item marker
+20
+MD
+Modal
+21
+NN
+Noun, singular or mass
+22
+NNP
+Proper noun, singular
+23
+NNP
+S
+Proper noun, plural
+24
+NNS
+Noun, plural
+25
+NN|S
+YM
+Noun or Symbol 
+26
+PDT
+Predeterminer
+27
+POS
+Possessive ending
+28
+PRP
+Personal pronoun
+29
+PRP$
+Possessive pronoun
+30
+RB
+Adverb
+31
+RBR
+Adverb, comparative
+32
+RBS
+Adverb, superlative
+33
+RP
+Particle
+34
+SYM
+Symbol
+35
+TO
+to
+36
+UH
+Interjection
+37
+VB
+Verb, base form
+38
+VBD
+Verb, past tense
+39
+VBG
+Verb, gerund or present participle
+40
+VBN
+Verb, past participle
+41
+VBP
+Verb, non-3rd person singular 
+present
+42
+VBZ
+Verb, 3rd person singular present
+43
+WDT
+Wh-determiner
+44
+WP
+Wh-pronoun
+45
+WP$
+Possessive wh-pronoun
+46
+WRB
+Wh-adverb
+[ "Cup", "qualifying", "round", ",", "second", "leg", "soccer", "matches", "on", "Thursday"]
+[ 22, 39, 30, 6, 16, 21, 21, 24, 15, 22, ]
+[ ”NNP", ”VBG", ”RB", ",", ”JJ", ”NN", ”NN", ”NNS", ”IN", ”NNP"]
+Example
+Input tokens
+Label
+Label-encoded
+Conll2003 Dataset for Part-of-Speed Tagging
+Num_classes = 47
+Part-of-speed Tagging 
+PRP
+it
+has
+no
+force
+work
+our
+on
+bearing
+today
+VBZ
+PRP$
+IN
+NN
+DT
+NN
+NN
+NN
+Personal 
+pronoun
+Verb 
+3rd
+Determiner
+Noun
+singular
+Noun
+singular
+Noun
+singular
+Noun
+singular
+Preposition
+Possessive 
+pronoun
+PRP
+Text
+tokenize
+token2id
+Label
+padding
+Preprocessing
+Label
+Input_ids
+Shape=(113,)
+Shape=(113,)
+Outputs
+Shape=(113, 47)
+Model
+Shape=(113,47)
+Softmax
+Loss
+Index
+Label
+0
+<unk>
+1
+NN
+2
+IN
+3
+NNP
+…
+…
+43
+LS
+44
+FW
+45
+UH
+46
+SYM
+Update
+Custom Dataset 
+in Pytorch
+__init__(self, …) function: 
+   Khởi tạo các thuộc tính/biến
+__len__(self) function: 
+   Trả về độ dài của dataset
+__getitem__(selfm idx) function: 
+Xử lý một sample và trả về x và y
+Create a Custom Dataset
+➢Quick Review
+➢POS Tagging Using Different Models
+➢Named Entity Recognition
+➢Step-by-step Examples
+➢PyTorch Implementation
+Outline
+Conll2003 dataset for Named-Entity Recognition
+Num_classes = 9
+Train
+Val
+Test
+14041
+3250
+3453
+0
+O
+Out-of-class
+1
+B-PER
+Begin-Person
+2
+I-PER
+In-Person
+3
+B-ORG
+Begin-Organization
+4
+I-ORG
+In-Organization
+5
+B-LOC
+Begin-Location
+6
+I-LOC
+In-Location
+7
+B-MISC
+Begin-Miscellaneous
+8
+I-MISC
+In-Miscellaneous
+["BCH", "in", "the", "hive", "of", "Chilean", "pensions" ]
+Input tokens
+Label
+Label-encoded
+[ 3, 0, 0, 0, 0, 7, 0 ]
+[”B-ORG", ”O", ”O", ”O", ”O", ”B-MISC", ”O" ]
+Example
+Named Entity Recognition
+❖ Introduction
+Tokenizer
+BERT
+Classifier
+We are exploring the topic of deep learning
+2065
+2180
+1996
+…
+3607
+1999
+2760
+2057
+2024
+11131
+…
+1997
+2784
+4083
+out_0
+out_7
+out_1
+…
+out_8
+out_0
+out_6
+out_1
+…
+out_7
+12
+41
+40
+12
+15
+16
+24
+We (DT)
+are (VBP)
+exploring (VPN)
+the (DT)
+topic (NN)
+of (IN)
+deep (JJ)
+learning (NNS)
+POS Tagging
+Named Entity Recognition
+mapping
+mapping
+France won the World Cup in Russia in 2018
+6
+0
+0
+7
+8
+0
+6
+0
+0
+France (LOC)
+won
+World Cup (MISC)
+the
+in
+Russia (LOC)
+in
+2018
+Step-by-step Examples
+Named Entity 
+Recognition
+Doc
+Label
+karpathy is working in openai
+[0, 4, 4, 4, 2]
+geoffrey hinton is from canada
+[0, 1, 4, 4, 2]
+index
+word
+0
+[UNK]
+1
+[pad]
+2
+is
+3
+canada
+4
+from
+5
+geoffrey
+6
+hinton
+7
+in
+8
+karpathy
+9
+openai
+10
+working
+vocab size = 11
+sequence length = 5
+  num of classes = 5+1
+building 
+dictionary
+0
+[-1.5755,  0.0146,  0.2361,  0.3852]
+1
+[0.2267, -1.1683,  0.0791, -1.3988]
+2
+[0.5303,  0.7931, -1.1894,  0.1906]
+3
+[0.0649, -0.0649,  2.3004,  0.3508]
+4
+[0.4401, -0.1977,  1.1706, -0.4241]
+5
+[-0.9880,  1.1651, -0.7740, -0.5781]
+6
+[-0.1220,  0.3313,  0.6327, -0.3742]
+7
+[-0.1117,  1.2757, -0.3398,  0.5976]
+8
+[0.7109, -1.2178, -1.5470, -1.2587]
+9
+[-0.4392,  0.5843, -0.7790,  0.2032]
+10
+[-0.2059,  1.3111, -1.2398, -1.0455]
+Dictionary
+Embedding
+karpathy
+is
+working
+in
+openai
+8
+2
+10
+7
+9
+Sample 1
+[0.7109, -1.2178, -1.5470, -1.2587]
+[0.5303,  0.7931, -1.1894,  0.1906]
+[-0.2059,  1.3111, -1.2398, -1.0455]
+[-0.1117,  1.2757, -0.3398,  0.5976]
+[-0.4392,  0.5843, -0.7790,  0.2032]
+Sample 1 _ Embedding
+ID
+Meaning
+0
+B-Person
+1
+I-Person
+2
+B-Org./Location
+3
+I-Org./Location
+4
+Others
+5
+<padding>
+Label Codes
+Named Entity 
+Recognition
+Doc
+Label
+karpathy is working in openai
+[0, 4, 4, 4, 2]
+geoffrey hinton is from canada
+[0, 1, 4, 4, 2]
+vocab size = 12
+sequence length = 5
+  num of classes = 5+1
+karpathy
+is
+working
+in
+openai
+8
+2
+10
+7
+9
+Sample 1
+[0.7109, -1.2178, -1.5470, -1.2587]
+[0.5303,  0.7931, -1.1894,  0.1906]
+[-0.2059,  1.3111, -1.2398, -1.0455]
+[-0.1117,  1.2757, -0.3398,  0.5976]
+[-0.4392,  0.5843, -0.7790,  0.2032]
+Sample 1 _ Embedding
+(N, seq_len, embed_dim)
+ID
+Meaning
+0
+B-Person
+1
+I-Person
+2
+B-Org./Location
+3
+I-Org./Location
+4
+Others
+5
+<padding>
+Label Codes
+Model
+shape=(N, C, seq_len)   
+. . .
+(CNN, RNN, Transformer, …)
+Let’s design a 
+concrete model!
+Transformer Block
+RNN Cell
+h0
+h1
+hn
+. . .
+input
+output
+Conv Layer
+input
+output
+[0.7109, -1.2178, -1.5470, -1.2587]
+[0.5303,  0.7931, -1.1894,  0.1906]
+[-0.2059,  1.3111, -1.2398, -1.0455]
+[-0.1117,  1.2757, -0.3398,  0.5976]
+[-0.4392,  0.5843, -0.7790,  0.2032]
+Input: Sample 1 _ Embedding
+(N, seq_len, embed_dim)
+Output
+shape=(N, C, seq_len)   
+. . .
+Which ones are feasible?
+input
+output
+1
+2
+3
+[0.7109, -1.2178, -1.5470, -1.2587]
+[0.5303,  0.7931, -1.1894,  0.1906]
+[-0.2059,  1.3111, -1.2398, -1.0455]
+[-0.1117,  1.2757, -0.3398,  0.5976]
+[-0.4392,  0.5843, -0.7790,  0.2032]
+Input: Sample 1 _ Embedding
+(N, seq_len, embed_dim)
+Output
+(N, C, seq_len)   
+karpathy
+is
+working
+in
+openai
+8
+2
+10
+7
+9
+Sample 1
+[0.7109, -1.2178, -1.5470, -1.2587]
+[0.5303,  0.7931, -1.1894,  0.1906]
+[-0.2059,  1.3111, -1.2398, -1.0455]
+[-0.1117,  1.2757, -0.3398,  0.5976]
+[-0.4392,  0.5843, -0.7790,  0.2032]
+Input: Sample 1 _ Embedding
+(N, seq_len, embed_dim)
+Conv Layer
+. . .
+Output
+(N, C, seq_len)   
+. . .
+karpathy
+is
+working
+in
+openai
+8
+2
+10
+7
+9
+Sample 1
+RNN Cell
+h0
+h1
+hn
+. . .
+. . .
+. . .
+(N, seq_len, C)   
+E
+Designing a Model 
+for POS Tagging
+Using Transformer
+shape=(N, C, seq_len)   
+softmax
+(N, seq_len, C) 
+. . .
+. . .
+. . .
+Transformer Block
+. . .
+(N, seq_len, C) 
+. . .
+[0.4058, -0.6624, …,  0.7203]
+[0.3058, -0.7624, …,  0.6203]
+[0.4058, -0.6624, …,  0.7203]

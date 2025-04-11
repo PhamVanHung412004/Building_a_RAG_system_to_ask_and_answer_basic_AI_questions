@@ -1,0 +1,946 @@
+1
+AI VIETNAM
+All-in-One Course
+1
+Stable Diffusion: Clearly Explained
+Vinh Dinh Nguyen
+PhD in Computer Science
+2
+AI VIETNAM
+All-in-One Course
+2
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Objective
+Ø Introduction to Stable Diffusion
+Ø Stable Diffusion: Motivation
+Ø Stable Diffusion: Clearly Explained
+Ø Stable Diffusion: Demo with API
+Ø Summary
+Outline
+3
+AI VIETNAM
+All-in-One Course
+3
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Objective
+Ø Introduction to Stable Diffusion
+Ø Stable Diffusion: Motivation
+Ø Stable Diffusion: Clearly Explained
+Ø Stable Diffusion: Demo with API
+Ø Summary
+Outline
+4
+AI VIETNAM
+All-in-One Course
+4
+Vinh Dinh Nguyen- PhD in Computer Science
+History of Generative AI in Vision Domain
+5
+AI VIETNAM
+All-in-One Course
+5
+Vinh Dinh Nguyen- PhD in Computer Science
+Objective
+1
+• Principle of Diffusion models
+2
+• Model score function of images with UNet model
+3
+• Understanding prompt through contextualized word embedding
+4
+• Let text influence image through cross attention
+5
+• Improve efficiency by adding an autoencoder
+6
+• Latent Diffusion Models in Pytorch
+Topics discussed
+Prerequisites
+1
+•Basics of probability and statistic (multivariate, gaussian, conditional 
+probability, likelihood, Bayers’ rule)
+2
+•Basic of Pytorch and Neural Network
+3
+•How the attention mechanism work
+4
+•How convolution layers work
+6
+AI VIETNAM
+All-in-One Course
+6
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Objective
+Ø Introduction to Stable Diffusion
+Ø Stable Diffusion: Motivation
+Ø Stable Diffusion: Clearly Explained
+Ø Stable Diffusion: Demo with API
+Ø Summary
+Outline
+7
+AI VIETNAM
+All-in-One Course
+7
+Vinh Dinh Nguyen- PhD in Computer Science
+What is a generative model?
+A generative model learns a probability distribution of the data set such that we can then sample from the distribution to create new instances of data. 
+For example, if we have many pictures of cats and we train a generative model on it, we then sample from this distribution to create new images of cats
+8
+AI VIETNAM
+All-in-One Course
+8
+Vinh Dinh Nguyen- PhD in Computer Science
+What is a generative model?
+Imagine you’re a researcher, and you want to generate thousands of fake identities. Each fake identity, is made up of variables, representing 
+the characteristics of a person (Age, Height).
+You can ask the Statistics Department of the Government to give you statistics about the age and the height of the population and then sample 
+from these distributions.
+To generate fake identities that 
+make sense, you need the joint 
+distribution, otherwise you may 
+end up with an unreasonable pair 
+of (Age, Height)
+9
+AI VIETNAM
+All-in-One Course
+9
+Vinh Dinh Nguyen- PhD in Computer Science
+What is a Diffusion Model?
+10
+AI VIETNAM
+All-in-One Course
+10
+Vinh Dinh Nguyen- PhD in Computer Science
+What is a Diffusion Model?
+11
+AI VIETNAM
+All-in-One Course
+11
+Vinh Dinh Nguyen- PhD in Computer Science
+The diffusion model : Forward Process
+A forward diffusion process to prepare training samples and a reverse diffusion process to generate 
+the images
+As the name “diffusion” suggests, this process is just like dropping a drop of ink into the water — 
+the ink droplet gradually diffuses in water, until you can no longer see that it was previously a drop of 
+ink. The noise patterns added to the images are random, just like ink particles diffuse randomly into 
+water particles, but the amount of noise can be controlled
+12
+AI VIETNAM
+All-in-One Course
+12
+Vinh Dinh Nguyen- PhD in Computer Science
+The diffusion model : Reverse Process
+In the reverse diffusion process, a noise predictor is trained to predict the noise added to the original image so that the model can remove 
+the predicted noise from the noisy image to get a clearer image (in the latent space). You can think of this process as looking at a partially 
+diffused ink droplet in water and trying to predict the location it dropped earlier.
+This reverse diffusion process is done gradually through multiple steps 
+to remove the noise. The more denoising steps are done, the clearer 
+the image becomes.
+During this reverse diffusion process for getting a clearer image, researchers wanted to control how the image looks through a process 
+called conditioning
+13
+AI VIETNAM
+All-in-One Course
+13
+Vinh Dinh Nguyen- PhD in Computer Science
+Introduction to Stable Diffusion
+Stable Diffusion is a text-to-image deep learning model, 
+based on diffusion models.
+Introduced in 2022, developed by the CompViz Group at 
+LMU Munich. https://github.com/Stability-AI/stablediffusion
+14
+AI VIETNAM
+All-in-One Course
+14
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Objective
+Ø Introduction to Stable Diffusion
+Ø Stable Diffusion: Motivation
+Ø Stable Diffusion: Clearly Explained
+Ø Stable Diffusion: Demo with API
+Ø Summary
+Outline
+15
+AI VIETNAM
+All-in-One Course
+15
+Vinh Dinh Nguyen- PhD in Computer Science
+Diffusion Model: Limitations
+Since the latent variables have the same dimension (size of the vector) as the original data, if we want to perform many steps to denoise an 
+image, that would result in a lot of steps through the Unet, which can be very slow if the matrix representing our data/latent is large. What if we 
+could “compress” our data before running it through the forward/reverse process (UNet)?
+16
+AI VIETNAM
+All-in-One Course
+16
+Vinh Dinh Nguyen- PhD in Computer Science
+Stable Diffusion: Motivation
+This is emphasized when dealing with large image sizes and a high number of diffusion steps (T). The time required for denoising the image 
+from Gaussian noise during sampling can become prohibitively long. To address this issue, a group of researchers proposed a novel approach 
+called Stable Diffusion, originally known as Latent Diffusion Model (LDM).
+17
+AI VIETNAM
+All-in-One Course
+17
+Vinh Dinh Nguyen- PhD in Computer Science
+Stable Diffusion: Motivation
+This is emphasized when dealing with large image sizes and a high number of diffusion steps (T). The time required for denoising the image 
+from Gaussian noise during sampling can become prohibitively long. To address this issue, a group of researchers proposed a novel approach 
+called Stable Diffusion, originally known as Latent Diffusion Model (LDM).
+18
+AI VIETNAM
+All-in-One Course
+18
+Vinh Dinh Nguyen- PhD in Computer Science
+Stable Diffusion: Motivation
+What and Why?
+19
+AI VIETNAM
+All-in-One Course
+19
+Vinh Dinh Nguyen- PhD in Computer Science
+Text encoder:  text input to embeddings
+Imagine you want to have a foreign artist draw a painting for 
+you but you don’t speak their language, you’ll probably use 
+Google Translate or a human translator to translate what you 
+want to them. It’s the same with image-generation models — 
+machine learning models don’t understand text directly, 
+so they need a text encoder to translate your text instructions 
+into numbers that they can understand
+These numbers are not just random numbers — they’re 
+called text embeddings, which are high-dimensional vectors 
+that can capture the semantic meaning of the texts (i.e. the 
+relationship between words and their context).
+Stable diffusion v1 uses CLIP, which is a GPT-based model by 
+OpenAI. (The original stable diffusion research paper uses 
+BERT, another transformer model; Stable diffusion V2 uses 
+OpenClip, a larger version of CLIP)
+What and Why?
+20
+AI VIETNAM
+All-in-One Course
+20
+Vinh Dinh Nguyen- PhD in Computer Science
+CLIP (Contrastive Language–Image Pre-training)
+ClipText for text encoding.
+Input: text.
+Output: 77 token embeddings vectors, each in 768 
+dimensions.
+21
+AI VIETNAM
+All-in-One Course
+21
+Vinh Dinh Nguyen- PhD in Computer Science
+Stable Diffusion: Motivation
+Stable Diffusion is a latent diffusion model, in which we don’t learn the distribution p(x) of our data set of images, but rather, the distribution of 
+a latent representation of our data by using a Variational Autoencoder.
+This allows us to reduce the computation we need to perform the steps needed to generate a sample, because each data will not be 
+represented by a 512x512 image, but its latent representation, which is 64x64
+What and Why?
+22
+AI VIETNAM
+All-in-One Course
+22
+Vinh Dinh Nguyen- PhD in Computer Science
+What is Auto-encoder
+23
+AI VIETNAM
+All-in-One Course
+23
+Vinh Dinh Nguyen- PhD in Computer Science
+What is Auto-encoder
+Anology with file compression
+24
+AI VIETNAM
+All-in-One Course
+24
+Vinh Dinh Nguyen- PhD in Computer Science
+What’s the problem with Autoencoders?
+The code learned by the model makes no sense. That is, the model can just assign any vector to the inputs without the numbers 
+in the vector representing any pattern. The model doesn’t capture any semantic relationship between the data.
+25
+AI VIETNAM
+All-in-One Course
+25
+Vinh Dinh Nguyen- PhD in Computer Science
+Introducing the Variational Autoencoder
+The variational autoencoder, instead of learning a code, learns a “latent space”. The latent space represents the parameters of 
+a (multivariate) distribution.
+Sampling the latent space. 
+Why?
+Umar Jamil - https://github.com/hkproj/vae-from-scratch-notes
+26
+AI VIETNAM
+All-in-One Course
+26
+Vinh Dinh Nguyen- PhD in Computer Science
+Sampling the latent space
+Just like when you use Python to generate a random number between 1 and 100, you’re sampling from a uniform 
+(pseudo)random distribution between 1 and 100. In the same way, we can sample from the latent space in order to generate a 
+random vector, give it to the decoder and generate new data.
+27
+AI VIETNAM
+All-in-One Course
+27
+Vinh Dinh Nguyen- PhD in Computer Science
+Why is it called latent space?
+Why is it called latent space?
+28
+AI VIETNAM
+All-in-One Course
+28
+Vinh Dinh Nguyen- PhD in Computer Science
+Why is it called latent space?
+Plato’s allegory of the cave
+29
+AI VIETNAM
+All-in-One Course
+29
+Vinh Dinh Nguyen- PhD in Computer Science
+Basic Math Concepts
+Math is fun
+30
+AI VIETNAM
+All-in-One Course
+30
+Vinh Dinh Nguyen- PhD in Computer Science
+Kullback-Leibler Divergence
+KL allows you to measure the distance 
+between two probability distributions
+p(x): mean = 0 & std = 1
+q(x): mean = 1 & std = 3
+KL(p || q) = 0.7097
+31
+AI VIETNAM
+All-in-One Course
+31
+Vinh Dinh Nguyen- PhD in Computer Science
+Kullback-Leibler Divergence
+KL allows you to measure the distance 
+between two probability distributions
+p(x): mean = -4 & std = 3.1
+q(x): mean = -4 & std = 3
+KL(p || q) = 0.0011
+32
+AI VIETNAM
+All-in-One Course
+32
+Vinh Dinh Nguyen- PhD in Computer Science
+Overview of the Model
+We can define the likelihood of our data as the marginalization over the joint probability with respect to the latent variable
+Is intractable because we would need to evaluate this integral over all latent variables Z.
+We don’t have a ground truth 𝑝(𝒛|𝒙) … which is also what we’re trying to find!
+we can use the Chain 
+rule of probability
+Intractable problem = a problem that can be solved in theory (e.g. given 
+large but finite resources, especially time), but for which in practice any 
+solution takes too many resources to be useful, is known as an intractable 
+problem.
+33
+AI VIETNAM
+All-in-One Course
+33
+Vinh Dinh Nguyen- PhD in Computer Science
+A chicken and egg problem
+Question: When you can not find what you want?
+Answer: We try to approximate it
+34
+AI VIETNAM
+All-in-One Course
+34
+Vinh Dinh Nguyen- PhD in Computer Science
+Any Solution?
+35
+AI VIETNAM
+All-in-One Course
+35
+Vinh Dinh Nguyen- PhD in Computer Science
+Math is fun
+This is the integral over the domain of a probability distribution which is always 
+equal to 1
+36
+AI VIETNAM
+All-in-One Course
+36
+Vinh Dinh Nguyen- PhD in Computer Science
+Math is fun
+employee
+37
+AI VIETNAM
+All-in-One Course
+37
+Vinh Dinh Nguyen- PhD in Computer Science
+Math is fun
+38
+AI VIETNAM
+All-in-One Course
+38
+Vinh Dinh Nguyen- PhD in Computer Science
+Maximizing the ELBO
+When we have a function we want to maximize, we usually take the gradient and adjust the weights of the model so that they move 
+along the gradient direction.
+When we have a function we want to minimize, we usually take the gradient, and adjust the weights of the model so that they move 
+against the gradient direction.
+39
+AI VIETNAM
+All-in-One Course
+39
+Vinh Dinh Nguyen- PhD in Computer Science
+Maximizing the ELBO
+We need a new estimator
+40
+AI VIETNAM
+All-in-One Course
+40
+Vinh Dinh Nguyen- PhD in Computer Science
+The reparameterization trick
+41
+AI VIETNAM
+All-in-One Course
+41
+Vinh Dinh Nguyen- PhD in Computer Science
+The reparameterization trick
+42
+AI VIETNAM
+All-in-One Course
+42
+Vinh Dinh Nguyen- PhD in Computer Science
+A new estimator
+43
+AI VIETNAM
+All-in-One Course
+43
+Vinh Dinh Nguyen- PhD in Computer Science
+VAE: Example Network
+44
+AI VIETNAM
+All-in-One Course
+44
+Vinh Dinh Nguyen- PhD in Computer Science
+Stable Diffusion: Example
+Paradise 
+Cosmic Beach
+Pirate Ship
+Input
+Output
+Input
+Output
+45
+AI VIETNAM
+All-in-One Course
+45
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Objective
+Ø Introduction to Stable Diffusion
+Ø Stable Diffusion: Motivation
+Ø Stable Diffusion: Clearly Explained
+Ø Stable Diffusion: Demo with API
+Ø Summary
+Outline
+46
+AI VIETNAM
+All-in-One Course
+46
+Vinh Dinh Nguyen- PhD in Computer Science
+The Components of Stable Diffusion
+Paradise 
+Cosmic Beach
+Input
+Output
+Text 
+Understander
+Image Generator
+Paradise 
+Cosmic Beach
+Input
+Output
+Text
+Encoder
+Image Generator
+Transformer language model: CLIP
+47
+AI VIETNAM
+All-in-One Course
+47
+Vinh Dinh Nguyen- PhD in Computer Science
+Image Generator
+Paradise 
+Cosmic Beach
+Input
+Output
+Text
+Encoder
+Transformer language 
+model: CLIP
+Image Generator
+48
+AI VIETNAM
+All-in-One Course
+48
+Vinh Dinh Nguyen- PhD in Computer Science
+Stable Diffusion: Model
+Image Decoder
+ClipText for text encoding.
+Input: text
+Output: 77 token embeddings 
+vectors, each in 768 dimensions.
+UNet + Scheduler to gradually process/diffuse information 
+in the information (latent) space.
+Input: text embeddings and a starting multi-dimensional 
+array (structured lists of numbers, also called a tensor) 
+made up of noise.
+Output: A processed information array
+Autoencoder Decoder that paints the final 
+image using the processed information 
+array.
+Input: The processed information array 
+(dimensions: (4,64,64))
+Output: The resulting image (dimensions: 
+(3, 512, 512) which are (red/green/blue, 
+width, height))
+77x768
+77 tokens
+Input
+Text
+Tokens embedding
+4x64x64
+Generated Image
+Process mage information Tensor
+Paradise 
+Cosmic
+Beach
+3x512x512
+49
+AI VIETNAM
+All-in-One Course
+49
+Vinh Dinh Nguyen- PhD in Computer Science
+Stable Diffusion: Model
+Image 
+Decoder
+(Autoencoder 
+decoder)
+77x768
+77 tokens
+Input
+Text
+Tokens embedding
+4x64x64
+Generated Image
+Process mage information Tensor
+Paradise 
+Cosmic
+Beach
+Random 
+Image 
+Information 
+Tensor
+1
+2
+3
+50
+AI VIETNAM
+All-in-One Course
+50
+Vinh Dinh Nguyen- PhD in Computer Science
+Image Decoder: Visualization
+51
+AI VIETNAM
+All-in-One Course
+51
+Vinh Dinh Nguyen- PhD in Computer Science
+Diffusion Process: Where
+52
+AI VIETNAM
+All-in-One Course
+52
+Vinh Dinh Nguyen- PhD in Computer Science
+Laten Feature: Visualization
+53
+AI VIETNAM
+All-in-One Course
+53
+Vinh Dinh Nguyen- PhD in Computer Science
+Forward Diffusion: Image Generation
+Pickup an image
+Generate some 
+random noise
+Pickup an amount of noise
+Add noise to the image in 
+that amount
+0
+1
+2
+3
+54
+AI VIETNAM
+All-in-One Course
+54
+Vinh Dinh Nguyen- PhD in Computer Science
+Diffusion Training: Noise Predictor
+Noisy image
+Noisy Amount
+3
+14
+7
+42
+2
+21
+Noise sample
+55
+AI VIETNAM
+All-in-One Course
+55
+Vinh Dinh Nguyen- PhD in Computer Science
+Update the Unet (back probagation)
+Diffusion Training: Noise Predictor
+Pickup a training sample
+1
+Noisy Amount: 7
+2
+Predict the noise
+UNet Prediction
+Actual noise(Label)
+3
+Compare to actual noise
+4
+56
+AI VIETNAM
+All-in-One Course
+56
+Vinh Dinh Nguyen- PhD in Computer Science
+Reverse Diffusion (Denoising)
+Noise Amount: 2
+Predicted Noise 
+sample 1
+Slightly de-noised Image
+Subtract predicted 
+noise from image
+Noise Amount: 1
+Predicted Noise 
+sample 2
+Subtract predicted 
+nose from image
+Generates images without using any text data
+How text is incorporated in the process in order to 
+control what type of image the model generates
+57
+AI VIETNAM
+All-in-One Course
+57
+Vinh Dinh Nguyen- PhD in Computer Science
+Speed Boost
+• Speed Boost: Diffusion on Compressed (Latent) Data Instead of the Pixel Image
+The Stable Diffusion paper runs the diffusion process not on the pixel images themselves, but on a compressed version of the image
+Input Image
+Output Image
+Auto-encoder
+58
+AI VIETNAM
+All-in-One Course
+58
+Vinh Dinh Nguyen- PhD in Computer Science
+Forwarding Process
+• Speed Boost: Diffusion on Compressed (Latent) Data Instead of the Pixel Image
+The Stable Diffusion paper runs the diffusion process not on the pixel images themselves, but on a compressed version of the image
+Input Image
+Image Encoder
+Generate training samples with different amounts of noise added to their compressed/latent version 
+59
+AI VIETNAM
+All-in-One Course
+59
+Vinh Dinh Nguyen- PhD in Computer Science
+Reverse Process
+Input Image
+Image Encoder
+Generate training samples with different amounts of noise added to their compressed/latent version 
+Image Decoder
+Generated Image
+60
+AI VIETNAM
+All-in-One Course
+60
+Vinh Dinh Nguyen- PhD in Computer Science
+LDM/Stable Diffusion
+The text prompts describing what image the model should generate
+61
+AI VIETNAM
+All-in-One Course
+61
+Vinh Dinh Nguyen- PhD in Computer Science
+LDM/Stable Diffusion
+62
+AI VIETNAM
+All-in-One Course
+62
+Vinh Dinh Nguyen- PhD in Computer Science
+What is Self-Attention?
+63
+AI VIETNAM
+All-in-One Course
+63
+Vinh Dinh Nguyen- PhD in Computer Science
+What is Self-Attention?
+64
+AI VIETNAM
+All-in-One Course
+64
+Vinh Dinh Nguyen- PhD in Computer Science
+What is Self-Attention?
+65
+AI VIETNAM
+All-in-One Course
+65
+Vinh Dinh Nguyen- PhD in Computer Science
+The Text Encoder: 
+A Transformer Language Model
+Takes the text prompt and 
+produces token embeddings
+Larger/better language models have a significant effect on the quality of image 
+generation models
+66
+AI VIETNAM
+All-in-One Course
+66
+Vinh Dinh Nguyen- PhD in Computer Science
+How CLIP is trained
+Image
+Caption
+The early Stable Diffusion models just plugged in the pre-trained ClipText model released by OpenAI
+67
+AI VIETNAM
+All-in-One Course
+67
+Vinh Dinh Nguyen- PhD in Computer Science
+How CLIP is trained
+68
+AI VIETNAM
+All-in-One Course
+68
+Vinh Dinh Nguyen- PhD in Computer Science
+Feeding Text Information Into The Image 
+Generation Process
+69
+AI VIETNAM
+All-in-One Course
+69
+Vinh Dinh Nguyen- PhD in Computer Science
+Noise predictor with Text Input
+Noise Amount: 2
+Prompt text information (token embeddings)
+Predicted Noise Sample
+70
+AI VIETNAM
+All-in-One Course
+70
+Vinh Dinh Nguyen- PhD in Computer Science
+Diffusion Training: Noise Predictor
+Noisy image
+Noisy Amount
+3
+14
+7
+42
+2
+21
+Noise sample
+Text Promt
+71
+AI VIETNAM
+All-in-One Course
+71
+Vinh Dinh Nguyen- PhD in Computer Science
+Unet Noise predictor (without text)
+Noise compressed image 
+(latents)
+Noise Amount: 3
+Noise amount embedding
+Predicted noise sample
+72
+AI VIETNAM
+All-in-One Course
+72
+Vinh Dinh Nguyen- PhD in Computer Science
+Unet Noise predictor (with text)
+Noise compressed 
+image (latents)
+Noise Amount: 3
+Text Embeeding
+Predicted noise sample
+73
+AI VIETNAM
+All-in-One Course
+73
+Vinh Dinh Nguyen- PhD in Computer Science
+Latent Diffusion Loss: Discussion
+74
+AI VIETNAM
+All-in-One Course
+74
+Vinh Dinh Nguyen- PhD in Computer Science
+Local Network Deployment: Real Device 
+Flask Rest API and Mobile
+75
+AI VIETNAM
+All-in-One Course
+75
+Vinh Dinh Nguyen- PhD in Computer Science
+Stable Diffusion Inference Process
+There are mainly three main components in latent diffusion:
+1.An autoencoder (VAE).
+2.A U-Net.
+3.A text-encoder, e.g. CLIP’s Text Encoder.
+76
+AI VIETNAM
+All-in-One Course
+76
+Vinh Dinh Nguyen- PhD in Computer Science
+VAE: Implementation
+During latent diffusion training, the encoder converts a 512*512*3 image into a low dimensional latent representation of image of size say 
+64*64*4 for the forward diffusion process
+77
+AI VIETNAM
+All-in-One Course
+77
+Vinh Dinh Nguyen- PhD in Computer Science
+Unet: Implementation
+The Unet that takes in the noisy latents (x) and predicts the noise. We use a conditional model that also takes in the timestep (t) and our text 
+embedding as guidance.
+78
+AI VIETNAM
+All-in-One Course
+78
+Vinh Dinh Nguyen- PhD in Computer Science
+The Text-encoder: Implementation
+The text-encoder transforms the input prompt into an embedding space that goes as input to the U-Net
+79
+AI VIETNAM
+All-in-One Course
+79
+Vinh Dinh Nguyen- PhD in Computer Science
+Achitecture (Text-To-Image)
+80
+AI VIETNAM
+All-in-One Course
+80
+Vinh Dinh Nguyen- PhD in Computer Science
+Achitecture (Image-To-Image)
+81
+AI VIETNAM
+All-in-One Course
+81
+Vinh Dinh Nguyen- PhD in Computer Science
+Achitecture (In-painting)
+82
+AI VIETNAM
+All-in-One Course
+82
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Objective
+Ø Introduction to Stable Diffusion
+Ø Stable Diffusion: Motivation
+Ø Stable Diffusion: Clearly Explained
+Ø Stable Diffusion: Demo with API
+Ø Summary
+Outline
+83
+AI VIETNAM
+All-in-One Course
+83
+Vinh Dinh Nguyen- PhD in Computer Science
+Stable Diffusion with API
+84
+AI VIETNAM
+All-in-One Course
+84
+Vinh Dinh Nguyen- PhD in Computer Science
+Stable Diffusion with API
+85
+AI VIETNAM
+All-in-One Course
+85
+Vinh Dinh Nguyen- PhD in Computer Science
+Stable Diffusion with API
+86
+AI VIETNAM
+All-in-One Course
+86
+Vinh Dinh Nguyen- PhD in Computer Science
+Stable Diffusion with API
+87
+AI VIETNAM
+All-in-One Course
+87
+Vinh Dinh Nguyen- PhD in Computer Science
+Write a simple text2img sampling function
+88
+AI VIETNAM
+All-in-One Course
+88
+Vinh Dinh Nguyen- PhD in Computer Science
+Stable Diffusion: Implementation
+89
+AI VIETNAM
+All-in-One Course
+89
+Vinh Dinh Nguyen- PhD in Computer Science
+Encoder Implementation
+Input: 512x512
+Output: 64x64 
+90
+AI VIETNAM
+All-in-One Course
+90
+Vinh Dinh Nguyen- PhD in Computer Science
+Encoder Implementation
+Input: 64x64
+Output: 512x512
+91
+AI VIETNAM
+All-in-One Course
+91
+Vinh Dinh Nguyen- PhD in Computer Science
+Self-attention Implementation
+92
+AI VIETNAM
+All-in-One Course
+92
+Vinh Dinh Nguyen- PhD in Computer Science
+CLIP Implementation
+93
+AI VIETNAM
+All-in-One Course
+93
+Vinh Dinh Nguyen- PhD in Computer Science
+Unet Implementation
+94
+AI VIETNAM
+All-in-One Course
+94
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Objective
+Ø Introduction to Stable Diffusion
+Ø Stable Diffusion: Motivation
+Ø Stable Diffusion: Clearly Explained
+Ø Stable Diffusion: Demo with API
+Ø Summary
+Outline
+95
+AI VIETNAM
+All-in-One Course
+95
+Vinh Dinh Nguyen- PhD in Computer Science
+Summary
+1
+• Principle of Diffusion models.
+2
+• Model score function of images with UNet model
+3
+• Understanding prompt through contextualized word embedding
+4
+• Let text influence image through cross attention
+5
+• Improve efficiency by adding an autoencoder
+96
+AI VIETNAM
+All-in-One Course

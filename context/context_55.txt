@@ -1,0 +1,611 @@
+AI VIET NAM – COURSE 2024
+Data Structure – Exercise
+Ngày 8 tháng 6 năm 2024
+I. Câu hỏi tựluận
+1. Cho một list các sốnguyên num_list và một sliding window có kích thước size k di
+chuyển từtrái sang phải. Mỗi lần dịch chuyển 1 vịtrí sang phải có thểnhìn thấy
+đươc k sốtrong num_list và tìm sốlớn nhất trong k sốnày sau mỗi lần trượt k phải
+lớn hơn hoặc bằng 1
+Input: num_list = [3, 4, 5, 1, -44 , 5 ,10, 12 ,33, 1] với k=3
+Output: [5, 5, 5, 5, 10, 12, 33, 33]
+Ví dụ:
+[3, 4, 5], 1, -44 , 5 ,10, 12 ,33, 1 => max 5
+3, [4, 5, 1], -44 , 5 ,10, 12 ,33, 1 => max 5
+3, 4, [5, 1, -44] , 5 ,10, 12 ,33, 1 => max 5
+3, 4, 5, [1, -44 , 5] ,10, 12 ,33, 1 => max 5
+3, 4, 5, 1, [-44 , 5 ,10], 12 ,33, 1 => max 10
+3, 4, 5, 1, -44 , [5 ,10, 12] ,33, 1 => max 12
+3, 4, 5, 1, -44 , 5 ,[10, 12 ,33], 1 => max 33
+3, 4, 5, 1, -44 , 5 ,10, [12 ,33, 1] => max 33
+2. Thực hiện theo các yêu cầu sau.
+Viết function trảvềmột dictionary đếm sốlượng chữxuất hiện trong một từ, với key là chữcái
+và value là sốlần xuất hiện
+• Input: một từ
+• Output: dictionary đếm sốlần các chữxuất hiện
+• Note: Giảsửcác từnhập vào đều có các chữcái thuộc [a-z] hoặc [A-Z]
+1 # Examples
+2 string = ’Happiness ’
+3 count_chars(string)
+4 >> {’H’: 1, ’a’: 1, ’e’: 1, ’i’: 1, ’n’: 1, ’p’: 2, ’s’: 2}
+5
+6 string = ’smiles ’
+7 count_chars(string)
+8 >> {’e’: 1, ’i’: 1, ’l’: 1, ’m’: 1, ’s’: 2}
+1
+AI VIETNAM
+aivietnam.edu.vn
+3. Thực hiện theo các yêu cầu sau .
+Viết function đọc các câu trong một file txt, đếm sốlượng các từxuất hiện và trảvềmột dictionary
+với key là từvà value là sốlần từđó xuất hiện.
+• Input: Đường dẫn đến file txt
+• Output: dictionary đếm sốlần các từxuất hiện
+• Note:
+– Giảsửcác từtrong file txt đều có các chữcái thuộc [a-z] hoặc [A-Z]
+– Không cần các thao tác xửlý string phức tạp nhưng cần xửlý các từđều là viết
+thường
+– Các bạn dùng lệnh này đểdownload
+!gdown https://drive.google.com/uc?id=1IBScGdW2xlNsc9v5zSAya548kNgiOrko
+1 # Examples
+2 !gdown
+https :// drive.google.com/uc?id=1 IBScGdW2xlNsc9v5zSAya548kNgiOrko
+3 file_path = ’/content/P1_data.txt’
+4 word_count(file_path)
+5 >>{’a’: 7,
+6
+’again ’: 1,
+7
+’and’: 1,
+8
+’are’: 1,
+9
+’at’: 1,
+10
+’be’: 1,
+11
+’become ’: 2,
+12
+...}
+4. Khoảng cách Levenshtein.
+Viết chương trình tính khoảng cách chỉnh sửa tối thiểu Levenshtein. Khoảng cách Levenshtein thể
+hiện khoảng cách khác biệt giữa 2 chuỗi ký tự. Khoảng cách Levenshtein giữa chuỗi S và chuỗi T
+là sốbước ít nhất biến chuỗi S thành chuỗi T thông qua 3 phép biến đổi là:
+• Xoá một ký tự
+• Thêm một ký tự
+• Thay thếký tựnày bằng ký tựkhác
+Khoảng cách này được sửdụng trong việc tính toán sựgiống và khác nhau giữa 2 chuỗi, như
+chương trình kiểm tra lỗi chính tảcủa winword spellchecker. Ví dụ: Khoảng cách Levenshtein
+giữa 2 chuỗi "kitten" và "sitting" là 3, vì phải dùng ít nhất 3 lần biến đổi. Trong đó:
+• kitten -> sitten (thay "k" bằng "s")
+• sitten -> sittin (thay "e" bằng "i")
+• sittin -> sitting (thêm ký tự"g")
+Đểhiểu rõ vềthuật toán, chúng ta lấy ví dụ, khoảng cách cần tính giữa hai từsource: ’yu’ và
+target: ’you’. Chi phí thực hiện cho các phép biến đổi bao gồm: xoá một ký tự, thêm một ký tự
+và thay thếký tựnày thành ký tựkhác đều là 1 (Nếu 2 ký tựgiống nhau thì chi phí thực hiện là
+0).
+2
+AI VIETNAM
+aivietnam.edu.vn
+Các bước thực hiện như sau:
+• Bước 1: Xây dựng ma trận lưu trữcó sốhàng là M và sốcột là N. Trong đó M là sốlượng
+các ký tựtrong từsource + 1, N là sốlượng các ký tựtrong từtarget + 1. Vì vậy với ví dụ
+’yu’ và ’you’, ta có ma trận được biểu diễn như hình 1. Ký hiệu ’#’ đại diện cho chuỗi rỗng.
+Gọi là ma trận D.
+Hình 1: Khởi tạo ma trận D
+• Bước 2: Hoàn thiện hàng và cột đầu tiên. Với hàng đầu tiên, các giá trịđại diện cho chuỗi
+bắt đầu là chuỗi ’#’ và phép biến đổi là thêm (insert) từchuỗi ’#’ thành ’#’, ’#y’, ’#yo’,
+’#you’ lần lượt là 0, 1, 2, 3 tương ứng với ô D[0, 0], D[0, 1], D[0, 2], D[0, 3]. Với cột đầu tiên,
+các giá trịđại diện cho chuỗi ’#’, ’#y’, ’#yu’ và phép biến đổi là xoá (delete) đểthu được
+chuỗi ’#’ lần lượt là: 0, 1, 2 tương ứng với ô D[0, 0], D[1, 0], D[2, 0]. Ta được hình 2.
+Hình 2: Sốphép biến đổi cho hàng đầu tiên (thêm) và cột đầu tiên (xoá).
+• Bước 3. Tính toán các giá trịvới các ô còn lại trong ma trận. Bắt đầu từD[1, 1] được tính
+dựa vào 3 ô phía trước là D[0, 1], D[1, 0], D[0, 0] như sau:
+D[1, 1] =
+
+
+
+D[0, 1] + del_cost(source[1]) = 1 + 1 = 2
+D[1, 0] + ins_cost(target[1]) = 1 + 1 = 2
+D[0, 0] + sub_cost(source[1], target[1]) = 0 + 0 = 0
+(1)
+Vì vậy D[1, 1] = 0 ta được ma trận D như sau:
+3
+AI VIETNAM
+aivietnam.edu.vn
+Hình 3: Giá trịtại D[1, 1].
+Tiếp theo chúng ta tính D[2, 1], D[1, 2]:
+D[2, 1] =
+
+
+
+D[1, 1] + del_cost(source[2]) = 0 + 1 = 1
+D[2, 0] + ins_cost(target[1]) = 2 + 1 = 3
+D[1, 0] + sub_cost(source[2], target[1]) = 1 + 1 = 2
+(2)
+D[1, 2] =
+
+
+
+D[0, 2] + del_cost(source[1]) = 2 + 1 = 3
+D[1, 1] + ins_cost(target[2]) = 0 + 1 = 1
+D[0, 1] + sub_cost(source[1], target[2]) = 1 + 1 = 2
+(3)
+Vì vậy D[2, 1] = 1, D[1, 2] = 1 ta được ma trận D như sau:
+Hình 4: Giá trịtại D[2, 1], D[1, 2].
+Cuối cùng, chúng ta tính D[1, 3], D[2, 2], D[2, 3]:
+D[1, 3] =
+
+
+
+D[0, 3] + del_cost(source[1]) = 3 + 1 = 4
+D[1, 2] + ins_cost(target[3]) = 1 + 1 = 2
+D[0, 2] + sub_cost(source[1], target[3]) = 2 + 1 = 3
+(4)
+D[2, 2] =
+
+
+
+D[1, 2] + del_cost(source[2]) = 1 + 1 = 2
+D[2, 1] + ins_cost(target[2]) = 1 + 1 = 2
+D[1, 1] + sub_cost(source[2], target[2]) = 0 + 1 = 1
+(5)
+D[2, 3] =
+
+
+
+D[1, 3] + del_cost(source[2]) = 2 + 1 = 3
+D[2, 2] + ins_cost(target[3]) = 1 + 1 = 2
+D[1, 2] + sub_cost(source[2], target[3]) = 1 + 0 = 1
+(6)
+4
+AI VIETNAM
+aivietnam.edu.vn
+Vì vậy D[1, 3] = 2, D[2, 2] = 1, D[2, 3] = 1 ta được ma trận như sau:
+Hình 5: Giá trịtại D[1, 3], D[2, 2], D[2, 3].
+• Bước 4: Sau khi hoàn thành ma trận, chúng ta đi tìm đường đi từô cuối cùng D[2, 3] có giá
+trịlà 1. Vì vậy khoảng cách chỉnh sửa từsource: ’yu’ sang thành target: ’you’ là 1. Đầu tiên
+ký tự’y’ giữnguyên sau đó thực hiện 1 phép thêm ký tự’o’ vào sau ký tự’y’ và cuối cùng
+ký tự’u’ được giũ nguyên. Minh hoạcác bước quay lui đểtìm đường đi ngắn nhất tưng ứng
+mũi tên vàng trong hình sau:
+Hình 6: Quay lui, tìm các bước thực hiện chỉnh sửa từsource ’yu’ sang target: ’you’.
+5
+AI VIETNAM
+aivietnam.edu.vn
+II. Câu hỏi trắc nghiệm
+• Đọc tựluận trước đểnắm được idea tổng quát (sẽkhông yêu cầu nhưng khuyến khích các
+bạn tựlàm tựluận) và các bài này sẽđược giải trong buổi TA.
+• Các bạn phải làm phần trắc nghiệm
+– Các câu hỏi có ký hiệu (Code): là câu hỏi yêu cầu các bạn phải trực tiếp code vào
+phần bịkhuyết đểcó thểchọn được đáp án đúng
+– Lưu ý: Đối với dạng câu hỏi (Code) trong file hint luôn có 1 test casse bắt đầu với
+từkhóa assert nếu các bạn chạy không báo lỗi có nghĩa các bạn đã vượt qua được test
+case này và chạy lệnh tiếp theo đểtrảlời câu hỏi trắc nghiệm
+– Lưu ý: Đọc kỹcác code gợi ý và code ví dụmẫu ởtựluận có thểsẽcó ích cho các
+bạn khi làm trắc nghiệm
+Câu hỏi 1:(Code) Hoàn thành chương trình sau với mô tảbài toán từcâu I.1. Đầu ra của chương trình
+dưới đây là gì?
+1 def
+max_kernel(num_list , k):
+2
+result = []
+3
+4
+# Your Code Here
+5
+6
+# End Code Here
+7
+8
+return
+result
+9
+10 assert
+max_kernel ([3 , 4 , 5 , 1 , -44], 3) == [5, 5, 5]
+11 num_list = [3, 4, 5, 1,
+-44 , 5
+,10, 12
+,33, 1]
+12 k = 3
+13 print(max_kernel(num_list , k))
+a) [5, 5, 5, 5, 10, 12, 33, 33]
+b) [2, 5, 3, 4, 1, 10, 3, 3]
+c) [0, 9, 5, 1, 0, 12, 3, 33]
+d) Raise an Error
+Câu hỏi 2:(Code) Hoàn thành chương trình sau với mô tảbài toán từcâu I.2. Đầu ra của chương trình
+dưới đây là gì?
+1 def
+character_count (word):
+2
+character_statistic = {}
+3
+4
+# Your Code Here
+5
+6
+# End Code Here
+7
+return
+character_statistic
+8
+9 assert
+character_count ("Baby") == {’B’: 1, ’a’: 1, ’b’: 1, ’y’: 1}
+10 print( character_count (’smiles ’))
+a) ’s’: 2, ’m’: 1, ’i’: 1, ’l’: 1, ’e’: 1
+b) ’s’: 0, ’m’: 1, ’i’: 1, ’l’: 1, ’e’: 8
+c) ’s’: 4, ’m’: 1, ’i’: 2, ’l’: 1, ’e’: 1
+d) Raise a Error
+6
+AI VIETNAM
+aivietnam.edu.vn
+Câu hỏi 3:(Code) Hoàn thành chương trình sau với mô tảbài toán từcâu I.3. Đầu ra của chương trình
+dưới đây là gì?
+1 !gdown
+https :// drive.google.com/uc?id=1 IBScGdW2xlNsc9v5zSAya548kNgiOrko
+2
+3 def
+count_word(file_path):
+4
+counter = {}
+5
+6
+# Your Code Here
+7
+8
+# End Code Here
+9
+10
+return
+counter
+11 file_path = ’/content/P1_data.txt’
+12 result = count_word(file_path)
+13 assert
+result[’who’] == 3
+14 print(result[’man’])
+a) 4
+b) 5
+c) 6
+d) 9
+Câu hỏi 4:(Code) Hoàn thành chương trình sau với mô tảbài toán từcâu I.4. Đầu ra của chương trình
+dưới đây là gì?
+1 def
+levenshtein_distance (token1 , token2):
+2
+# Your Code Here
+3
+4
+# End Code Here
+5
+6
+return
+distance
+7
+8 assert
+levenshtein_distance ("hi", "hello") == 4.0
+9 print( levenshtein_distance ("hola", "hello"))
+a) 1.0
+b) 2.0
+c) 3.0
+d) 4.0
+Câu hỏi 5:(Code) Hoàn thành chương trình sau. Đầu ra của chương trình dưới đây là gì?
+1 def
+check_the_number (N):
+2
+list_of_numbers = []
+3
+result = ""
+4
+for i in range(1, 5):
+5
+#Your code here
+6
+#Su dung
+append
+them i vao trong
+list_of_number
+7
+if N in list_of_numbers :
+8
+results = "True"
+9
+if N not in list_of_numbers :
+10
+results = "False"
+11
+return
+results
+12
+13 N = 7
+14 assert
+check_the_number (N) == "False"
+15
+7
+AI VIETNAM
+aivietnam.edu.vn
+16 N = 2
+17 results = check_the_number (N)
+18 print(results)
+a) True ==
+b) False
+c) None
+d) Raise an Error
+Câu hỏi 6:(Code) Hãy hoàn thành chương trình dưới đây. Đầu ra của chương trình là gì?
+1 def
+my_function(data , max , min):
+2
+result = []
+3
+for i in data:
+4
+#Your code here
+5
+#Neu i < min thi them min vao result
+6
+elif i > max:
+7
+result.append(max)
+8
+else:
+9
+result.append(i)
+10
+return
+result
+11 my_list = [5, 2, 5, 0, 1]
+12 max = 1
+13 min = 0
+14 assert
+my_function(max = max , min = min , data = my_list) == [1, 1, 1, 0, 1]
+15 my_list = [10, 2, 5, 0, 1]
+16 max = 2
+17 min = 1
+18 print(my_function(max = max , min = min , data = my_list))
+a) [10, 2, 5, 1, 1]
+b) [0, 2, 2, 0, 0]
+c) [2, 2, 2, 1, 1] ==
+d) Raise an Error
+8
+AI VIETNAM
+aivietnam.edu.vn
+Câu hỏi 7:(code) Hãy hoàn thành chương trình dưới đây. Đầu ra của chương trình là gì?
+1 def
+my_function(x, y):
+2
+#Your code here
+3
+#Su dung
+extend de noi y vao x
+4
+#return x
+5
+6 list_num1 = [’a’, 2, 5]
+7 list_num2 = [1, 1]
+8 list_num3 = [0, 0]
+9
+10 assert
+my_function(list_num1 , my_function(list_num2 , list_num3)) == [’a’, 2, 5, 1, 1,
+0, 0]
+11
+12 list_num1 = [1, 2]
+13 list_num2 = [3, 4]
+14 list_num3 = [0, 0]
+15
+16 print(my_function(list_num1 , my_function(list_num2 , list_num3)))
+a) [1, 2, 3, 4, 0, 0] ==
+b) [1, 2, [3, 4, 0, 0]]
+c) [[1, 2, 3, 4, 0, 0]]
+d) Raise an Error
+Câu hỏi 8:(code) Hãy hoàn thành chương trình tìm phần tửcó giá trịnhỏnhất trong một list dưới
+đây. Đầu ra của chương trình là gì?
+1 def
+my_function(n):
+2
+#Your code here
+3
+4 my_list = [1, 22, 93,
+-100]
+5 assert
+my_function(my_list) ==
+-100
+6
+7 my_list = [1, 2, 3,
+-1]
+8 print(my_function(my_list))
+a) None
+b) Raise an Error
+c) -1 ==
+d) 3
+Câu hỏi 9:(code) Hãy hoàn thành chương trình tìm phần tửcó giá trịlớn nhất trong một list dưới
+đây. Đầu ra của chương trình là gì?
+1 def
+my_function(n):
+2
+#Your code here
+3
+4 my_list = [1001 , 9, 100, 0]
+5 assert
+my_function(my_list) == 1001
+6
+7 my_list = [1, 9, 9, 0]
+8 print(my_function(my_list))
+a) None
+b) Raise an Error
+c) 0
+d) 9 ==
+9
+AI VIETNAM
+aivietnam.edu.vn
+Câu hỏi 10:(code) Hãy hoàn thành chương trình dưới đây. Đầu ra của chương trình là gì?
+1 def
+My_function(integers , number = 1):
+2
+return any(#Your code here: Thuc hien
+duyet
+tung phan tu trong
+integers , so sanh
+tung phan tu voi number , neu bang nhau tra ve True , khac nhau tra ve false
+3
+#vi du: integers = [1, 2, 3], number = 2, ban se tao ra list [False ,
+True , False] )
+4
+5 my_list = [1, 3, 9, 4]
+6 assert
+My_function(my_list ,
+-1) == False
+7
+8 my_list = [1, 2, 3, 4]
+9 print(My_function(my_list , 2))
+a) 1
+b) 4
+c) True ==
+d) False
+Câu hỏi 11:(code) Hãy hoàn thành chương trình dưới đây. Đầu ra của chương trình là gì?
+1 def
+my_function(list_nums = [0, 1, 2]):
+2
+var = 0
+3
+for i in list_nums:
+4
+var += i
+5
+return #Your code here: Tra ve gia tri trung
+binh cua list bang cach chia var cho
+so luong
+phan tu trong
+list_mums
+6
+7 assert
+my_function ([4, 6, 8]) == 6
+8 print(my_function ())
+a) 1.0 ==
+b) 2.0
+c) Raise an Error
+d) A and C
+Câu hỏi 12:(code) Hãy hoàn thành chương trình dưới đây. Đầu ra của chương trình dưới đây là gì?
+1 def
+my_function(data):
+2
+var = []
+3
+for i in data:
+4
+#Your code here
+5
+#Neu i chia het cho 3 thi them i vao list var
+6
+return var
+7
+8 assert
+my_function ([3, 9, 4, 5]) == [3, 9]
+9 print(my_function ([1, 2, 3, 5, 6]))
+a) [3, 6] ==
+b) [1, 2, 3, 5, 6]
+c) a and d
+d) [5, 1]
+Câu hỏi 13:(code) Hãy hoàn thành chương trình sau đây thực hiện tính giai thừa của 1 số. Đầu ra
+của chương trình dưới đây là gì?
+1 def
+my_function(y):
+2
+var = 1
+10
+AI VIETNAM
+aivietnam.edu.vn
+3
+while(y > 1):
+4
+#Your code here
+5
+return var
+6 assert
+my_function (8) == 40320
+7 print(my_function (4))
+a) 0
+b) 20
+c) 24 ==
+d) Raise an Error
+Câu hỏi 14:(code) Hãy hoàn thành chương trình đảo ngược chuỗi dưới đây. Đầu ra của chương trình
+là gì?
+1 def
+my_function(x):
+2
+#your code here
+3
+4 x = ’I can do it’
+5 assert
+my_function(x)=="ti od nac I"
+6
+7 x = ’apricot ’
+8 print(my_function(x))
+a) apricot
+b) tocirpa ==
+c) Raise a Error
+d) None
+Câu hỏi 15:(code) Hãy hoàn thành chương trình dưới đây. Đầu ra của chương trình là gì?
+1 def
+function_helper (x):
+2
+#Your code here
+3
+#Neu x>0 tra ve ’T’, nguoc lai tra ve ’N’
+4
+5 def
+my_function(data):
+6
+res = [ function_helper(x) for x in data]
+7
+return res
+8
+9 data = [10, 0,
+-10,
+-1]
+10 assert
+my_function(data) == [’T’, ’N’, ’N’, ’N’]
+11
+12 data = [2, 3, 5,
+-1]
+13 print(my_function(data))
+a) [’N’, ’T’, ’T’, ’N’]
+b) [’T’, ’N’, ’T’, ’N’]
+c) [’T’, ’T’, ’T’, ’N’] ==
+d) Raise an Error
+Câu hỏi 16:(code) Hãy hoàn thành chương trình dưới đây đểloại bỏnhững phần tửtrùng nhau. Đầu
+ra của chương trình là gì?
+1 def
+function_helper (x, data):
+2
+for i in data:
+3
+#Your code here
+4
+#Neu x == i thi return 0
+5
+return 1
+6
+7 def
+my_function(data):
+11
+AI VIETNAM
+aivietnam.edu.vn
+8
+res = []
+9
+for i in data:
+10
+if function_helper(i, res):
+11
+res.append(i)
+12
+13
+return res
+14
+15 lst = [10, 10, 9, 7, 7]
+16 assert
+my_function(lst)==[10 , 9, 7]
+17
+18 lst = [9, 9, 8, 1, 1]
+19 print(my_function(lst))
+a) [9, 8, 1] ==
+b) [1, 1, 1]
+c) [9, 9, 8, 1, 1]
+d) Raise an Error
+12

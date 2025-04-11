@@ -1,9 +1,0 @@
-AI VIET NAM – AIO Course
-Mamba for Vision
-Minh-Duc Bui và Quang-Vinh Dinh
-PR-Team: Đăng-Nhã Nguyễn, Minh-Châu Phạm và Hoàng-Nguyên Vũ
-Ngày 23 tháng 2 năm 2024
-1 Introduction
-Mamba, tên gọi khác là S6 (Structured State Space for Sequence Modeling withSelective Scan), là
-một kiến trúc mới xuất hiện gần đây. Điểm khác biệt chính giữa Mamba và các mô hình hiện tại như
-Transformer là Mamba không sử dụng cơ chế attention. 

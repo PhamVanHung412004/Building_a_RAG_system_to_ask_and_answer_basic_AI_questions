@@ -1,0 +1,2001 @@
+Chủ đề:
+Xử lý ảnh (Image Processing) 
+Nội dung chính
+Tổng quan về xử lý ảnh
+Những vấn đề trong xử lý ảnh
+●
+Xử lý ảnh
+○
+Làm việc trên ảnh như một ma trận số
+○
+Đầu vào: ảnh số ở đầu ra: ảnh số (ma trận) ‒ Hỗ trợ kiểm tra và 
+sửa đổi ảnh
+●
+Thị giác máy tính
+○
+Làm máy tính hiểu nội dung ảnh số và video số ‒ Ảnh và video 
+coi như dữ liệu đầu vào
+○
+Đầu ra: thông tin ngữ nghĩa, thông tin 3D
+Thị giác máy tính ?
+●
+Ảnh, video:
+○
+Nguồn dữ liệu dồi 
+dào, môi trường đa 
+dạng
+○
+Giàu thông tin
+=> Lĩnh vực thu hút nhiều 
+quan tâm đặc biệt trong 
+kỷ nguyên mới ..
+Ứng dụng thị giác máy tính
+Hiểu nội dung ảnh
+Ứng dụng thị giác máy tính
+Hiểu nội dung ảnh
+Ứng dụng thị giác máy tính
+OCR (Optical character recognition)
+Ứng dụng thị giác máy tính
+Phát hiện mặt người: được tích hợp trong hầu hết các camera để focus 
+tự động, cho phép có các bức ảnh đẹp
+Ứng dụng thị giác máy tính
+Ghép ảnh toàn cảnh
+Ứng dụng thị giác máy tính
+Camera giám sát:
+‒ Đếm số lượng khách hàng trong cửa hàng 
+‒ Phát hiện hành động bất thường
+‒ Đo mức độ hài lòng của khách hàng
+Phát hiện và nhận dạng đối tượng 
+Phát hiện mặt/mắt/người
+‒ Nhận dạng hoạt động
+‒ Phát hiện lỗi
+• Gán nhãn ảnh số
+• Phát hiện nhận dạng ký tự
+‒ Đọc card visit, CMT, biển số,...
+• Xây dựng đối tượng 3D từ ảnh 2D
+Một số topics trong CV
+Tổng quan các bài toán XLA
+●
+Khái niệm xử lý ảnh: là quá trình thao tác ảnh đầu vào nhằm cho ra 
+kết quả mong muốn.
+●
+Kết quả đầu ra của một quá trình xử lý ảnh có thể là một ảnh “tốt 
+hơn” hoặc là một kết luận
+1. Quá trình thu nhận và hình thành ảnh
+●
+Ống kính và điểm nhìn xác định phối cảnh
+●
+Độ mở ống kính, tốc độ đóng cửa sổ chập quyết định độ sáng của 
+ảnh
+●
+Độ mở, khoảng cách focal length quyết định độ sâu
+●
+Film hay cảm biến cho phép lưu ảnh
+Mô hình pin-hole camera
+Quá trình thu nhận ảnh
+◆Nguồn sáng chiếu vào đối tượng
+◆Phản xạ từ bề mặt đối tượng
+◆Hướng nhìn của camera 
+Ảnh hưởng tới 
+giá trị điểm 
+ảnh
+Quá trình hình thành ảnh số
+Lượng tử hóa
+Lấy mẫu
+◆Hình thành ảnh số là: ánh xạ miền màu liên tục (vô hạn) vào miền hữu 
+hạn (tập màu rời rạc)
+Hình thành ảnh số
+Hình thành ảnh số
+Quá trình hình thành ảnh
+(Số hóa – Digitization)
+Digitization = Sampling + Quantization 
+(Lấy mẫu + Lượng tử hóa)
+Ảnh 
+gốc
+Ảnh đã
+được số 
+hóa
+Quá trình lấy mẫu và lượng tử hóa
+◆Sampling (Lấy mẫu): Bị giới hạn (quy định) bởi kích thước của cảm biến 
+(kích thước của ma trận điểm ảnh trên cảm biến)
+◆Mức lượng tử hóa: bị hạn chế (quy định) bởi số mức ánh sáng định 
+nghĩa trong 1 giải liên tục
+Quá trình lấy mẫu và lượng tử hóa
+Ảnh gốc
+Lấy mẫu
+Mức sáng gốc
+trên đường AB
+Lượng tử hóa
+theo các mức
+Quá trình lấy mẫu và lượng tử hóa
+Ảnh liên tục
+Ảnh đã được số hóa
+Qua quá trình lấy mẫu và lượng tử 
+hóa
+Biểu diễn ảnh số
+Loại ảnh chính
+●
+Ảnh nhị phân:
+○
+I(x,y) ∈ {0,1} 
+○
+1 pixel: 1 bit
+●
+Ảnh đa mức xám:
+○
+I(x,y) ∈ [0..255]
+○
+1 pixel: 8 bits (1 byte)
+●
+Ảnh màu:
+○
+IR(x,y), IG(x,y), IB(x,y) ∈ [0..255] 
+○
+1 pixel: 24 bits (3 bytes )
+‒ Khác : ảnh đa phổ, ảnh độ sâu,...
+Biểu diễn ảnh nhị phân
+Ma trận: [ hàng x cột ]
+Giá trị: 0 | 1 (or 0 | 255)
+Biểu diễn ảnh nhị phân
+Ma trận: [ hàng x cột ]
+Giá trị: 0 ..  255
+Biểu diễn ảnh màu
+Vấn đề màu sắc trong ảnh
+• Hình thành ảnh 
+là do nguồn sáng 
+(gồm 1 chùm các 
+tia sáng chiếu 
+tới)
+Ánh sáng trắng
+•
+Dải quan sát được bởi mắt người (visible light)
+Cảm nhận được màu sắc
+•
+Là do đáp ứng bề mặt của vật liệu khác nhau với chùm sáng 
+chiếu tới
+Không gian màu sắc
+•
+Định nghĩa: Là không gian gồm các thành phần màu được kết 
+hợp để biểu diễn màu sắc
+•
+Các không gian màu thường sử dụng:
+•
+RGB, HSV, CMY ( Cyan, Megenta, Yellow) , etc
+•
+Tại sao có nhiều hơn một không gian màu (?)
+•
+Do đặc thù của ứng dụng (in ấn màu, hiển thị (monitor) màu)
+•
+Một số không gian màu độc lập hoặc phụ thuộc thiết bị
+•
+Một số không gian màu được cảm nhận tuyến tính, một số 
+khác không tuyến tính
+•
+etc
+Không gian màu RGB
+•
+Đây là không gian màu phổ biến, 
+được dùng trong các thiết bị 
+hiển thị
+•
+Điển hình của hệ thống phối
+màu cộng : chồng 3 kênh 
+R, G, B 🡪 tạo nên một màu
+•
+Không gian màu RGB
+thường không tuyến tính 
+với việc cảm nhận màu
+của mắt người 
+Không gian màu CMY (Cyan, Magenta, Yellow)
+•
+Thường sử dụng cho máy in , photocopy màu
+•
+Là không gian màu phụ thuộc thiết bị, 
+•
+Không tuyến tính với cảm nhận của mắt người, không trực 
+quan
+•
+Không độc lập với thiết bị
+•
+Điển hình của hệ thống 
+phối màu trừ
+Không gian màu HSV/HSL
+•
+Mô hình màu HSV(Hue, 
+Saturation, Value) và HSL(Hue, 
+Saturation, Lightness)
+•
+Mô hình màu này muốn sắp xếp 
+lại hệ màu RGB hay CMY theo 
+một cách dễ hình dung hơn.
+•
+Trong đó Hue là tông màu, 
+Saturation là sắc độ, Value là giá 
+trị cường độ sáng còn Lightness là 
+độ sáng (từ đen đến trắng)
+Không gian màu HSV/HSL
+•
+Hue (H) được mã hóa như 1 góc thay 
+đổi giữa 0 và 360
+•
+Saturation (S) được mã hóa như độ 
+dài của bán kính, giá trị từ 0 đến 1
+‒ S = 0: xám
+‒ S = 1: màu tinh khiết
+•
+Value (V) = MAX (Red, Green, Blue)
+Ví dụ minh hoạ
+R
+G
+B
+Không gian màu CIE Luv/Lab
+●
+Lab (thi thoảng gọi L*a*b*) dựa trên một nghiên cứu về thị giác 
+người
+○
+Độc lập với tất cả các công nghệ
+○
+Thể hiện màu sắc như mắt người nhìn thấy 
+●
+Màu được xác định bởi 3 giá trị
+○
+L (luminance) – độ sáng: từ 0% (black) đến 100% (white)
+○
+a* biểu diễn trục màu từ màu xanh lá (negative value, -127) 
+tới màu đỏ (positive value, +127)
+○
+b* biểu diễn trục màu từ xanh dương (negative value, -127) 
+tới vàng (positive value,+127)
+Không gian màu CIE Luv/Lab
+Biểu diễn ảnh màu
+ [182  114  112  112
+   92   92   93   98
+   85  108   82   97
+   90   98  101   89]
+ [163  108  100  100
+   85   86   84   89
+   77   95   79   90
+   85   92   87   76]
+◆Giá trị màu tại mỗi điểm ảnh, vùng ảnh
+Tọa độ Cột
+Tọa độ hàng
+I = [1:512 ,1:512, 1:3]
+p(64,160,1:3) = [205, 163, 182]
+160
+64
+Số hàng
+Số cột
+Số kênh màu
+R(64:95,160:191,:) : 32 x 32 pixels
+ [205  203  188  181
+  186  194  182  188
+  181  187  191  194
+  195  192  189  183]
+Thay đổi độ phân giải ảnh
+◆Độ phân giải (Resolution)
+[512 x 512]
+[384 x 384]
+[256 x 256]
+[128 x 128]
+[64 x 64]
+Thay đổi mức lượng tử hoá
+◆
+256 gray levels (8bits/pixel)     32 gray levels (5 bits/pixel)     16 gray levels (4 bits/pixel)
+◆
+8 gray levels (3 bits/pixel)         4 gray levels (2 bits/pixel)          2 gray levels (1 bit/pixel)
+Thay đổi mức lượng tử hoá
+Ảnh gốc
+16 mức 
+12 mức 
+7 mức
+Đặc điểm
+Ảnh gốc
+16 mức
+12 mức
+7 mức
+Độ phân giải
+[512 x 512 x 3]
+[512 x 512 x 3]
+[512 x 512 x 3]
+[512 x 512 x 3]
+Biểu diễn
+24 bits
+24 bits
+24 bits
+24 bits
+Kích thước
+768 K
+775 K
+769 K
+760 K
+Số lượng màu
+148279
+848
+468
+190
+Một số toán tử xử lý ảnh cơ bản 
+●Lược đồ ảnh, cân bằng sáng
+●Bộ lọc, tiền xử lý và khử nhiễu
+●Một số phương pháp nhị phân hóa ảnh
+●Chuyển đổi không gian màu
+Lược đồ xám của ảnh (Image histogram)
+●Là biểu diễn đồ thị sự phân bố màu sắc của các điểm ảnh ảnh số
+Lược đồ xám của ảnh (Image histogram)
+●Histogram
+○Phải chuẩn hóa bằng cách chia cho tổng số điểm ảnh trên ảnh
+Lược đồ xám của ảnh (Image histogram)
+●Histogram
+○Chỉ thông tin thống kê
+○Không có thông tin về mặt không gian của các điểm ảnh
+○Ảnh khác nhau có thể có histogram giống nhau
+Độ sáng (Brightness)
+●Là giá trị trung bình cường độ sáng trung bình của tất cả các điểm ảnh 
+trên ảnh: độ sáng/tối của ảnh
+Độ sáng (Brightness)
+●Độ tương phản của ảnh số thể hiện mức độ dễ dàng phân biệt của đối 
+tượng trong ảnh
+●Một số cách tính:
+○Độ lệch chuẩn các giá trị điểm ảnh
+○Khác biệt giữa giá trị lớn nhất và nhỏ nhất của điểm ảnh trên ảnh
+Độ tương phản
+Contrast vs histogram
+Tăng cường độ tương phản
+●
+Thay đổi giá trị điểm ảnh để có độ tương phản cao hơn 
+●
+Một số phương pháp:
+○
+Kéo giãn dải động ảnh (Linear stretching of intensity range):
+■
+Linear transform
+■
+Linear transform with saturation 
+■
+Piecewise linear transform
+●
+Biến đổi phi tuyến. VD: Gamma correction
+●
+Cân bằng histogram
+Giới thiệu về lọc ảnh
+●Ý nghĩa việc lọc ảnh (Image Filtering)
+○Hình thành ảnh mới sao cho những giá trị điểm ảnh đạt được hiệu 
+ứng nào đó từ ảnh gốc
+○Nhiều thông tin hữu ích sẽ được thu nhận thông qua quá trình lọc 
+ảnh như:
+■Làm nổi bật các đặc trưng trên ảnh: biên, góc, hình khối
+■Cải thiện/tăng cường chất lượng ảnh, khử nhiễu trong ảnh
+■Tạo hiệu ứng: ảnh độ phân giải cao, sửa ảnh (in-painting)
+Giới thiệu về lọc ảnh
+Super-resolution
+De-noising
+In-painting
+Một số minh họa “hiệu ứng” của lọc ảnh
+Quá trình lọc ảnh
+◆Thực hiện trong miền không gian:
+●Lọc ảnh là quá trình thực hiện toán tử trong một lưới (cửa sổ) theo 
+không gian các điểm ảnh
+●Ứng dụng: làm trơn, làm chi tiết hóa, đo thông số về cấu trúc 
+(texture), etc.
+◆Thực hiện trong miền tần số:
+●Lọc ảnh là quá trình biến đổi thành phần tần số trong ảnh
+●Ứng dụng: khử nhiễu, lấy mẫu, nén ảnh
+◆Bản chất của quá trình lọc ảnh là tính tích chập
+●Tích chập trong miền không gian là tích (vô hướng) trong miền 
+không tần số
+Tích chập (Convolution)
+Lọc ảnh bằng tích chập 2D
+2D convolution dịch cửa sổ theo cả hai chiều (x,y)
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Giả định rằng ta có một 
+filter(h[,]) có size là 3x3. và một 
+hình ảnh (f[,]) có size 7x7.
+Lọc ảnh bằng tích chập 2D
+•
+2D convolution dịch cửa sổ theo cả hai chiều (x,y)
+Giả định rằng ta có một 
+filter(h[,]) có size là 3x3. và một 
+hình ảnh (f[,]) có size 7x7.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Lọc ảnh bằng tích chập 2D
+•
+2D convolution dịch cửa sổ theo cả hai chiều (x,y)
+Giả định rằng ta có một 
+filter(h[,]) có size là 3x3. và một 
+hình ảnh (f[,]) có size 7x7.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Lọc ảnh bằng tích chập 2D
+•
+2D convolution dịch cửa sổ theo cả hai chiều (x,y)
+Giả định rằng ta có một 
+filter(h[,]) có size là 3x3. và một 
+hình ảnh (f[,]) có size 7x7.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Lọc ảnh bằng tích chập 2D
+•
+2D convolution dịch cửa sổ theo cả hai chiều (x,y)
+Giả định rằng ta có một 
+filter(h[,]) có size là 3x3. và một 
+hình ảnh (f[,]) có size 7x7.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Lọc ảnh bằng tích chập 2D
+•
+2D convolution dịch cửa sổ theo cả hai chiều (x,y)
+Giả định rằng ta có một 
+filter(h[,]) có size là 3x3. và một 
+hình ảnh (f[,]) có size 7x7.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Ví dụ về tích chập 2-D
+Ví dụ về tích chập 2-D
+Ví dụ về tích chập 2-D
+Ví dụ về tích chập 2-D
+Ví dụ về tích chập 2-D
+Ví dụ về tích chập 2-D
+Một số bộ lọc (Some kernels)
+●
+Nhân chập 2D
+○
+Chủ yếu được sử dụng để trích chọn đặc trưng trên ảnh
+○
+Được sử dụng như phép toán trong khối cơ sở của 
+mạng Neuron tích chập: Convolutional Neural Networks 
+(CNNs)
+●
+Mỗi bộ lọc có hiệu ứng riêng và hữu ích cho các nhiệm vụ cụ 
+thể như:
+○
+Làm mờ (lọc nhiễu)
+○
+Làm nét biên
+○
+Phát hiện cạnh
+○
+.....
+Sử dụng filter trung bình
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+90
+90
+90
+90
+90
+0
+0
+0
+0
+0
+90
+90
+90
+90
+90
+0
+0
+0
+0
+0
+90
+90
+90
+90
+90
+0
+0
+0
+0
+0
+90
+0
+90
+90
+90
+0
+0
+0
+0
+0
+90
+90
+90
+90
+90
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+90
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+Sử dụng filter trung bình
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+90
+90
+90
+90
+90
+0
+0
+0
+0
+0
+90
+90
+90
+90
+90
+0
+0
+0
+0
+0
+90
+90
+90
+90
+90
+0
+0
+0
+0
+0
+90
+0
+90
+90
+90
+0
+0
+0
+0
+0
+90
+90
+90
+90
+90
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+90
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+90
+90
+90
+90
+90
+0
+0
+0
+0
+0
+90
+90
+90
+90
+90
+0
+0
+0
+0
+0
+90
+90
+90
+90
+90
+0
+0
+0
+0
+0
+90
+0
+90
+90
+90
+0
+0
+0
+0
+0
+90
+90
+90
+90
+90
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+90
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+Sử dụng filter trung bình
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+90
+90
+90
+90
+90
+0
+0
+0
+0
+0
+90
+90
+90
+90
+90
+0
+0
+0
+0
+0
+90
+90
+90
+90
+90
+0
+0
+0
+0
+0
+90
+0
+90
+90
+90
+0
+0
+0
+0
+0
+90
+90
+90
+90
+90
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+90
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+10
+20
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+90
+90
+90
+90
+90
+0
+0
+0
+0
+0
+90
+90
+90
+90
+90
+0
+0
+0
+0
+0
+90
+90
+90
+90
+90
+0
+0
+0
+0
+0
+90
+0
+90
+90
+90
+0
+0
+0
+0
+0
+90
+90
+90
+90
+90
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+90
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+Sử dụng filter trung bình
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+90
+90
+90
+90
+90
+0
+0
+0
+0
+0
+90
+90
+90
+90
+90
+0
+0
+0
+0
+0
+90
+90
+90
+90
+90
+0
+0
+0
+0
+0
+90
+0
+90
+90
+90
+0
+0
+0
+0
+0
+90
+90
+90
+90
+90
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+90
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+10
+20
+30
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+90
+90
+90
+90
+90
+0
+0
+0
+0
+0
+90
+90
+90
+90
+90
+0
+0
+0
+0
+0
+90
+90
+90
+90
+90
+0
+0
+0
+0
+0
+90
+0
+90
+90
+90
+0
+0
+0
+0
+0
+90
+90
+90
+90
+90
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+90
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+Sử dụng filter trung bình
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+90
+90
+90
+90
+90
+0
+0
+0
+0
+0
+90
+90
+90
+90
+90
+0
+0
+0
+0
+0
+90
+90
+90
+90
+90
+0
+0
+0
+0
+0
+90
+0
+90
+90
+90
+0
+0
+0
+0
+0
+90
+90
+90
+90
+90
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+90
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+10
+20
+30
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+90
+90
+90
+90
+90
+0
+0
+0
+0
+0
+90
+90
+90
+90
+90
+0
+0
+0
+0
+0
+90
+90
+90
+90
+90
+0
+0
+0
+0
+0
+90
+0
+90
+90
+90
+0
+0
+0
+0
+0
+90
+90
+90
+90
+90
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+90
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+Sử dụng filter trung bình
+0
+10
+20
+30
+30
+50
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+90
+90
+90
+90
+90
+0
+0
+0
+0
+0
+90
+90
+90
+90
+90
+0
+0
+0
+0
+0
+90
+90
+90
+90
+90
+0
+0
+0
+0
+0
+90
+0
+90
+90
+90
+0
+0
+0
+0
+0
+90
+90
+90
+90
+90
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+90
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+Sử dụng filter trung bình
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+90
+90
+90
+90
+90
+0
+0
+0
+0
+0
+90
+90
+90
+90
+90
+0
+0
+0
+0
+0
+90
+90
+90
+90
+90
+0
+0
+0
+0
+0
+90
+0
+90
+90
+90
+0
+0
+0
+0
+0
+90
+90
+90
+90
+90
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+90
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+10
+20
+30
+30
+30
+20
+10
+0
+20
+40
+60
+60
+60
+40
+20
+0
+30
+60
+90
+90
+90
+60
+30
+0
+30
+50
+80
+80
+90
+60
+30
+0
+30
+50
+80
+80
+90
+60
+30
+0
+20
+30
+50
+50
+60
+40
+20
+10
+20
+30
+30
+30
+30
+20
+10
+10
+10
+10
+0
+0
+0
+0
+0
+Làm mờ bằng bộ lọc trung bình
+Một số ví dụ về lọc ảnh
+Dịch sang bên phải 1 pixel
+Một số ví dụ về lọc ảnh
+Làm mờ
+Áp dụng kết hợp 2 bộ lọc tăng độ chi tiết
+Một số ví dụ về lọc ảnh
+Bộ lọc Gaussian
+Gaussian filter
+Bộ lọc Gaussian
+●
+Bộ lọc thông thấp: loại bỏ các thành phần tương ứng tần số 
+cao trên ảnh
+○
+Ảnh trơn hơn
+○
+Tốt hơn bộ lọc trung bình
+●
+Nhâp chập Gauss với chính nó ta được một hàm Gauss
+○
+Lặp nhận chập với bộ lọc có kích thước nhỏ => thu được kết 
+quả như nhận chập với bộ lọc có kích thước lớn hơn.
+○
+Nhân chập 2 lần với bộ lọc Gauss có độ rộng σ giống như 
+nhận chập 1 lần với bộ lọc có độ rộng σ√𝟐: I*Gσ*Gσ =I*Gσ√2
+●
+Bộ lọc có thể phân tách được: Hàm Gauss 2D có thể được biểu 
+diễn như tích của 2 hàm 1D: 1 hàm theo x và 1 hàm theo y: Gσ
+(x,y)=Gσ(x).Gσ(y)
+Làm trơn ảnh với bộ lọc Gaussian
+Làm trơn ảnh với bộ lọc Box
+Làm trơn ảnh với bộ lọc Box
+Lọc ảnh với bộ lọc Sobel (tính đạo hàm)
+Nhị phân hoá ảnh
+•
+Chuyển từ ảnh xám 🡪 ảnh nhị phân (trắng/đen): quá trình nhị 
+phân hóa (phân đoạn ảnh)
+•
+3 Phương pháp
+•
+Tách ngưỡng xác định trước
+•
+Bó cụm
+•
+Tìm ngưỡng tự động
+Chuyển từ ảnh màu thành ảnh xám: value= 0.2126*R + 0.7152*G + 
+0.0722*B
+Tách ngưỡng cố định
+•
+Giả sử ảnh I có kích thước m × n, hai số Min, Max và 
+ngưỡng θ khi đó: Kỹ thuật tách ngưỡng được thể hiện 
+ 
+for (i = 0; i < m; i + +) 
+      for (j = 0; j < n; j + +) 
+             I [i, j] = I [i, j] > = θ? Max : Min; 
+•
+Ứng dụng:  
+•
+Nếu Min = 0, Max = 1 kỹ thuật chuyển ảnh thành ảnh đen 
+trắng được ứng dụng khi quét và nhận dạng văn bản. 
+•
+Có thể xảy ra sai sót nền thành ảnh hoặc ảnh thành nền 
+dẫn đến ảnh bị đứt nét hoặc dính.
+Tách ngưỡng cố định
+• Ngưỡng cố định được xác định bởi:
+• Tìm được do thống kê 
+• Do người dùng cung cấp
+• Ví dụ:
+- Các khái niệm, quá trình hình thành ảnh số
+- Các kỹ thuật phân tích, xử lý hình ảnh
+Tổng kết buổi học

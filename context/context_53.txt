@@ -1,0 +1,1654 @@
+Introduction to KNN
+Year 2023
+Quang-Vinh Dinh
+Ph.D. in Computer Science
+AI VIETNAM
+All-in-One Course
+Machine Learning
+Definition
+AI VIETNAM
+All-in-One 2023
+1
+Machine Learning
+Supervised learning
+Data
+AI VIETNAM
+All-in-One 2023
+Input and output 
+data are provided
+Training data
+Cats
+Dogs
+From Cat-Dog dataset
+2
+Machine Learning
+Supervised learning
+Data
+AI VIETNAM
+All-in-One 2023
+Machine 
+learning model
+Training 
+data
+Used to teach
+Training phase
+Machine 
+learning modelThis is a catThis is a dog
+Testing phase
+Testing data (≠training data)
+Machine 
+learning model
+Make decision
+Cat or Dog?
+From Cat-Dog dataset
+3
+K-Nearest Neighbors
+AI VIETNAM
+All-in-One Course
+Overview
+From TA Thái
+4
+K-Nearest Neighbors
+Procedure
+5
+1. Initialize the value of k
+2. Iterate from 1 to total number of training
+data points. Calculate the distance between test
+data and each row of training dataset.
+3. Sort the calculated distances in ascending
+order based on distance values
+4. Get top k rows from the sorted array
+5. Get the most frequent class of these rows
+6. Return the predicted class
+Data processing 
+and select K
+Compute distances
+Sort distances
+Get top K data 
+points
+Vote and return 
+majority
+K-NN 
+Algorithm
+Prepare data 
+and select K
+Compute distances 
+between a testing 
+point and points in 
+training data
+Take the K nearest 
+neighbors
+Voting
+Output
+category 1
+category 2
+Training data
+category 1
+Test data
+category 2
+?
+?
+6
+KNN
+Example
+AI VIETNAM
+All-in-One Course
+7
+New input data
+x_test = 2.4
+k=1
+y_test = 1
+k=3
+y_test = 0
+KNN
+Example
+AI VIETNAM
+All-in-One Course
+9
+New input data
+x_test = (2.4, 0.8)
+K = 1
+K = 3
+11
+Example (1)
+Unnormalized 
+2D data
+Example (2)
+Unnormalize
+d 2D data
+12
+Training Data 1
+Training Data 2
+Data normalization
+𝑑=
+𝑥1
+𝑡𝑒𝑠𝑡−𝑥1
+𝑡𝑟𝑎𝑖𝑛2 + 𝑥2
+𝑡𝑒𝑠𝑡−𝑥2
+𝑡𝑟𝑎𝑖𝑛
+𝑥1
+𝑥2
+𝑑
+𝑥1
+𝑥2
+𝑑
+𝑥= 𝑥−ҧ𝑥
+𝜎
+https://www.quora.com/Why-is-the-mean-of-normal-distribution-equal-to-zero
+13
+Example (3)
+normalized 
+2D data
+KNN
+Implementation
+15
+Text classification with KNN
+Vectorization with Bag of Words
+Text Representation
+❖Bag of words
+doc1 = “deep learning book” 
+doc2 = “machine learning algorithm”
+doc3 = “learning ai from scratch” 
+doc4 = “ai vietnam” 
+Corpus
+[‘deep’, ‘learning’, ‘book’] 
+[‘machine’, ‘learning’, ‘algorithm’]
+[‘learning’, ‘ai’, ‘from’, ‘scratch’] 
+[‘ai’, ‘vietnam’] 
+Tokenization
+Vocabulary = 
+deep
+learning
+book
+machine
+algorithm
+ai
+from
+scratch
+vietnam
+👉Given a string = “vietnam machine learning deep learning book”
+deep
+learning
+book
+machine
+algorithm
+ai
+from
+scratch
+vietnam
+BoW
+1
+2
+1
+1
+0
+0
+0
+0
+1
+Binary BoW
+1
+1
+1
+1
+0
+0
+0
+0
+1
+AI VIETNAM
+All-in-One 2023
+17
+Doc
+Label
+góp gió gặt bão
+1
+có làm mới có ăn
+1
+đất lành chim đậu
+1
+ăn cháo đá bát
+0
+gậy ông đập lưng ông
+0
+qua cầu rút ván
+0
+Training data
+Test data
+negative (0)
+positive (1)
+?
+?
+doc_0
+doc_1
+doc_2
+doc_3
+doc_4
+doc_5
+bát
+0
+0
+0
+1
+0
+0
+bão
+1
+0
+0
+0
+0
+0
+chim
+0
+0
+1
+0
+0
+0
+cháo
+0
+0
+0
+1
+0
+0
+có
+0
+2
+0
+0
+0
+0
+cầu
+0
+0
+0
+0
+0
+1
+gió
+1
+0
+0
+0
+0
+0
+góp
+1
+0
+0
+0
+0
+0
+gậy
+0
+0
+0
+0
+1
+0
+gặt
+1
+0
+0
+0
+0
+0
+làm
+0
+1
+0
+0
+0
+0
+lành
+0
+0
+1
+0
+0
+0
+lưng
+0
+0
+0
+0
+1
+0
+mới
+0
+1
+0
+0
+0
+0
+qua
+0
+0
+0
+0
+0
+1
+rút
+0
+0
+0
+0
+0
+1
+ván
+0
+0
+0
+0
+0
+1
+ông
+0
+0
+0
+0
+2
+0
+ăn
+0
+1
+0
+1
+0
+0
+đá
+0
+0
+0
+1
+0
+0
+đất
+0
+0
+1
+0
+0
+0
+đập
+0
+0
+0
+0
+1
+0
+đậu
+0
+0
+1
+0
+0
+0
+Tokenization
+Vocabulary 
+bát
+bão
+chim
+cháo
+có
+cầu
+gió
+góp
+gậy
+gặt
+làm
+lành
+lưng
+mới
+qua
+rút
+ván
+ông
+ăn
+đá
+đất
+đập
+đậu
+BoW vectors
+‘qua’  ‘cầu’
+‘góp’  ‘gió’  ‘gặt’  ‘bão’
+‘có’  ’làm’  ’mới’  ’có’
+‘đất’  ’lành’
+’chim’  ‘đậu’
+‘ăn’  ‘cháo’  ‘đá’ ‘bát’
+‘gậy’  ‘ông’
+‘đập’  ‘lưng’  ‘ông’
+‘rút’  ‘ván’
+gậy ông đập lưng ông
+‘ăn’
+18
+0
+0.5
+1
+1.5
+2
+2.5
+3
+3.5
+4
+0
+0.5
+1
+1.5
+2
+0
+0.5
+1
+1.5
+2
+2.5
+3
+3.5
+4
+0
+0.5
+1
+1.5
+2
+0
+0.5
+1
+1.5
+2
+2.5
+3
+3.5
+4
+0
+0.5
+1
+1.5
+2
+0
+0.5
+1
+1.5
+2
+2.5
+3
+3.5
+4
+0
+0.5
+1
+1.5
+2
+Compute distance 
+between test vector 
+and training vectors
+Select K 
+(K=3)
+Output
+Take the K 
+nearest neighbors 
+and Voting
+Training 
+vectors
+Doc
+Label
+Distance
+góp gió gặt bão
+1
+2.645
+có làm mới có ăn
+1
+2.449
+đất lành chim đậu
+1
+2.236
+ăn cháo đá bát
+0
+2.236
+gậy ông đập lưng ông
+0
+3.162
+qua cầu rút ván
+0
+2.645
+positive
+negative
+test point
+positive
+negative
+test point
+positive
+negative
+positive
+negative
+test point
+Không làm cạp 
+đất mà ăn
+Test text
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1
+0
+0
+0
+0
+0
+0
+0
+1
+0
+1
+0
+0
+Vocab
+Transform
+19
+Text classification with KNN
+TF-IDF vectorizer (extension)
+Doc
+Label
+góp gió gặt bão
+0
+có làm mới có ăn
+0
+đất lành chim đậu
+0
+ăn cháo đá bát
+1
+gậy ông đập lưng ông
+1
+qua cầu rút ván
+1
+doc_0
+doc_1
+doc_2
+doc_3
+doc_4
+doc_5
+bát
+0
+0
+0
+1
+0
+0
+bão
+1
+0
+0
+0
+0
+0
+chim
+0
+0
+1
+0
+0
+0
+cháo
+0
+0
+0
+1
+0
+0
+có
+0
+2
+0
+0
+0
+0
+cầu
+0
+0
+0
+0
+0
+1
+gió
+1
+0
+0
+0
+0
+0
+góp
+1
+0
+0
+0
+0
+0
+gậy
+0
+0
+0
+0
+1
+0
+gặt
+1
+0
+0
+0
+0
+0
+làm
+0
+1
+0
+0
+0
+0
+lành
+0
+0
+1
+0
+0
+0
+lưng
+0
+0
+0
+0
+1
+0
+mới
+0
+1
+0
+0
+0
+0
+qua
+0
+0
+0
+0
+0
+1
+rút
+0
+0
+0
+0
+0
+1
+ván
+0
+0
+0
+0
+0
+1
+ông
+0
+0
+0
+0
+2
+0
+ăn
+0
+1
+0
+1
+0
+0
+đá
+0
+0
+0
+1
+0
+0
+đất
+0
+0
+1
+0
+0
+0
+đập
+0
+0
+0
+0
+1
+0
+đậu
+0
+0
+1
+0
+0
+0
+Training data
+Test data
+negative (0)
+positive (1)
+?
+?
+Doc-term matrix
+𝐼𝐷𝐹𝑡= 𝑙𝑜𝑔
+𝑁+ 1
+𝐷𝐹𝑡+ 1 + 1
+Smothing
+IDF vector
+2.25
+2.25
+2.25
+2.25
+1.84
+2.25
+2.25
+2.25
+2.25
+2.25
+2.25
+2.25
+2.25
+2.25
+2.25
+2.25
+2.25
+1.84
+1.84
+2.25
+2.25
+2.25
+2.25
+𝑙𝑜𝑔6 + 1
+1 + 1 + 1
+𝑙𝑜𝑔6 + 1
+2 + 1 + 1
+Clean 
+data
+Build 
+Doc-Term 
+matrix
+Compute 
+IDF 
+vector
+N = number of documents
+20
+doc_0
+doc_1
+doc_2
+doc_3
+doc_4
+doc_5
+bát
+0
+0
+0
+1
+0
+0
+bão
+1
+0
+0
+0
+0
+0
+chim
+0
+0
+1
+0
+0
+0
+cháo
+0
+0
+0
+1
+0
+0
+có
+0
+2
+0
+0
+0
+0
+cầu
+0
+0
+0
+0
+0
+1
+gió
+1
+0
+0
+0
+0
+0
+góp
+1
+0
+0
+0
+0
+0
+gậy
+0
+0
+0
+0
+1
+0
+gặt
+1
+0
+0
+0
+0
+0
+làm
+0
+1
+0
+0
+0
+0
+lành
+0
+0
+1
+0
+0
+0
+lưng
+0
+0
+0
+0
+1
+0
+mới
+0
+1
+0
+0
+0
+0
+qua
+0
+0
+0
+0
+0
+1
+rút
+0
+0
+0
+0
+0
+1
+ván
+0
+0
+0
+0
+0
+1
+ông
+0
+0
+0
+0
+2
+0
+ăn
+0
+1
+0
+1
+0
+0
+đá
+0
+0
+0
+1
+0
+0
+đất
+0
+0
+1
+0
+0
+0
+đập
+0
+0
+0
+0
+1
+0
+đậu
+0
+0
+1
+0
+0
+0
+Doc-term matrix
+𝑇𝐹(𝑡,𝑑) = 𝑙𝑜𝑔𝑐𝑜𝑢𝑛𝑡𝑡, 𝑑+ 1
+doc_0
+doc_1
+doc_2
+doc_3
+doc_4
+doc_5
+0.0
+0
+0
+0.69
+0
+0
+0.69
+0
+0
+0
+0
+0
+0
+0
+0.69
+0
+0
+0
+0
+0
+0
+0.69
+0
+0
+0
+1.09
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0.69
+0.69
+0
+0
+0
+0
+0
+0.69
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0.69
+0
+0.69
+0
+0
+0
+0
+0
+0
+0.69
+0
+0
+0
+0
+0
+0
+0.69
+0
+0
+0
+0
+0
+0
+0
+0.69
+0
+0
+0.69
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0.69
+0
+0
+0
+0
+0
+0.69
+0
+0
+0
+0
+0
+0.69
+0
+0
+0
+0
+1.09
+0
+0
+0.69
+0
+0.69
+0
+0
+0
+0
+0
+0.69
+0
+0
+0
+0
+0.69
+0
+0
+0
+0
+0
+0
+0
+0.69
+0
+0
+0
+0.69
+0
+0
+0
+TF matrix
+𝑙𝑜𝑔0 + 1
+𝑙𝑜𝑔1 + 1
+Compute TF 
+matrix
+21
+doc_0
+doc_1
+doc_2
+doc_3
+doc_4
+doc_5
+0.0
+0
+0
+0.69
+0
+0
+0.69
+0
+0
+0
+0
+0
+0
+0
+0.69
+0
+0
+0
+0
+0
+0
+0.69
+0
+0
+0
+1.09
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0.69
+0.69
+0
+0
+0
+0
+0
+0.69
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0.69
+0
+0.69
+0
+0
+0
+0
+0
+0
+0.69
+0
+0
+0
+0
+0
+0
+0.69
+0
+0
+0
+0
+0
+0
+0
+0.69
+0
+0
+0.69
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0.69
+0
+0
+0
+0
+0
+0.69
+0
+0
+0
+0
+0
+0.69
+0
+0
+0
+0
+1.09
+0
+0
+0.69
+0
+0.69
+0
+0
+0
+0
+0
+0.69
+0
+0
+0
+0
+0.69
+0
+0
+0
+0
+0
+0
+0
+0.69
+0
+0
+0
+0.69
+0
+0
+0
+TF matrix
+IDF vector
+2.25
+2.25
+2.25
+2.25
+1.84
+2.25
+2.25
+2.25
+2.25
+2.25
+2.25
+2.25
+2.25
+2.25
+2.25
+2.25
+2.25
+1.84
+1.84
+2.25
+2.25
+2.25
+2.25
+doc_0
+doc_1
+doc_2
+doc_3
+doc_4
+doc_5
+0.0
+0
+0
+0.52
+0
+0
+0.5
+0
+0
+0
+0
+0
+0
+0
+0.5
+0
+0
+0
+0
+0
+0
+0.52
+0
+0
+0
+0.62
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0.5
+0.5
+0
+0
+0
+0
+0
+0.5
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0.46
+0
+0.5
+0
+0
+0
+0
+0
+0
+0.47
+0
+0
+0
+0
+0
+0
+0.5
+0
+0
+0
+0
+0
+0
+0
+0.46
+0
+0
+0.47
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0.5
+0
+0
+0
+0
+0
+0.5
+0
+0
+0
+0
+0
+0.5
+0
+0
+0
+0
+0.6
+0
+0
+0.39
+0
+0.42
+0
+0
+0
+0
+0
+0.52
+0
+0
+0
+0
+0.5
+0
+0
+0
+0
+0
+0
+0
+0.46
+0
+0
+0
+0.5
+0
+0
+0
+0
+0
+0
+0
+2.02
+0
+0
+0
+0
+0
+1.56
+0
+0
+1.56
+0
+0
+0
+0
+1.28
+0
+0
+0
+0
+=
+=
+=
+𝐿2_𝑛𝑜𝑟𝑚(𝑣) =
+𝑣
+𝑣2
+2.02
+(2.022 + 1.562 + 1.562 + 1.282)
+1.56
+(2.022 + 1.562 + 1.562 + 1.282)
+TF-IDF Matrix
+Compute and 
+normalize TF-IDF 
+vectors
+𝑇𝐹𝐼𝐷𝐹(𝑡,𝑑) = 𝑇𝐹(𝑡,𝑑) × 𝐼𝐷𝐹𝑡
+x
+x
+x
+22
+Không làm cạp 
+đất mà ăn
+Test text
+Compute 
+TF
+Compute 
+TF-IDF
+Normalize
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0.61
+0
+0
+0
+0
+0
+0
+0
+0.5
+0
+0.61
+0
+0
+0
+0.5
+1
+1.5
+2
+2.5
+3
+3.5
+4
+0
+0.5
+1
+1.5
+2
+positive
+negative
+0
+0.5
+1
+1.5
+2
+2.5
+3
+3.5
+4
+0
+0.5
+1
+1.5
+2
+0
+0.5
+1
+1.5
+2
+2.5
+3
+3.5
+4
+0
+0.5
+1
+1.5
+2
+0
+0.5
+1
+1.5
+2
+2.5
+3
+3.5
+4
+0
+0.5
+1
+1.5
+2
+Compute distance 
+between test vector 
+and training vectors
+Select K 
+(K=3)
+Output
+Take the K 
+nearest neighbors 
+and Voting
+Test vector
+test point
+positive
+negative
+test point
+Training 
+vectors
+positive
+negative
+test point
+positive
+negative
+Doc
+Label
+Distance
+góp gió gặt bão
+1
+1.41
+có làm mới có ăn
+1
+1.01
+đất lành chim đậu
+1
+1.17
+ăn cháo đá bát
+0
+1.25
+gậy ông đập lưng ông
+0
+1.41
+qua cầu rút ván
+0
+1.41
+23
+Entropy
+Motivation
+AI VIETNAM
+All-in-One 2023
+p A = 9
+10 = 0.9
+A: Get a red ball
+B: Get a blue ball
+p B = 1
+10 = 0.1
+Experiment 1
+Got a red ball 
+E: Pick a ball from the basket
+Experiment 2
+Got a blue ball 
+Which experiment makes you more surprised?
+How to measure 
+the surprises?
+𝑆𝑢𝑟𝑝𝑟𝑖𝑠𝑒(𝐸) =
+1
+𝑝(𝐸)
+Observation
+𝑆𝑢𝑟𝑝𝑟𝑖𝑠𝑒(𝐸)
+𝑝(𝐸)
+Problem?
+Monotonic decrease of the function surprise(E) 
+𝑙𝑜𝑔𝑆𝑢𝑟𝑝𝑟𝑖𝑠𝑒(𝐸) = 𝑙𝑜𝑔
+1
+𝑝(𝐸)
+Information(𝑥) = −𝑙𝑜𝑔𝑝(𝑥)
+1
+𝑝(𝐸)
+−𝑙𝑜𝑔𝑝(𝐸)
+−𝑙𝑜𝑔𝑝(𝐸)
+In information theory
+= −𝑙𝑜𝑔𝑝(𝐸)
+25
+H 𝑋∶= −෍
+𝑥∈𝑋
+𝑝(𝑥) 𝑙𝑜𝑔𝑝(𝑥)
+Entropy: Average of information
+p X = 0 = 9
+10 = 0.9
+p X = 1 = 1
+10 = 0.1
+H 𝑋= −෍
+𝑥∈𝑋
+𝑝(𝑥) 𝑙𝑜𝑔𝑝(𝑥)
+p X = 0 = 5
+10 = 0.5
+p X = 1 = 5
+10 = 0.5
+H 𝑋= −෍
+𝑥∈𝑋
+𝑝(𝑥) 𝑙𝑜𝑔𝑝(𝑥)
+= −0.9𝑙𝑜𝑔0.9 −0.1𝑙𝑜𝑔0.1
+= 0.468
+= −0.5𝑙𝑜𝑔0.5 −0.5𝑙𝑜𝑔0.5
+= 1.0
+Entropy
+AI VIETNAM
+All-in-One 2023

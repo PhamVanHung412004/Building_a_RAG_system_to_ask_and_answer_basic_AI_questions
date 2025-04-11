@@ -1,4 +1,0 @@
-• size: số lượng phần tử trong mảng
-• ndim: số chiều của mảng
-Ví dụ chương trình dưới đây sẽ kiểm tra các thuộc tính của một mảng:
-2

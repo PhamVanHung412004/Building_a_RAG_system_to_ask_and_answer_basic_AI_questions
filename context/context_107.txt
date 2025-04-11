@@ -1,0 +1,466 @@
+Chủ đề:
+Tổng quan về xử lý ngôn ngữ tự 
+nhiên 
+Mục đích buổi học
+●
+Học viên tiếp cận được các khái niệm cơ bản trong xử lý 
+ngôn ngữ tự nhiên
+●
+Nắm được các nhóm bài toán trong lĩnh vực xử lý ngôn ngữ 
+tự nhiên
+Nội dung chính
+NLP là gì?
+Các bài toán cơ bản trong NLP 
+Giới thiệu về NLP
+Mục tiêu của NLP
+NLP là lĩnh vực nghiên cứu và ứng dụng nhằm giúp máy tính
+có thể hiểu và sinh ngôn ngữ tự nhiên.
+Mục tiêu của NLP
+Hiểu và sinh ngôn ngữ là các nhiệm vụ khó
+Sinh ra các văn bản có nghĩa như tiểu thuyết, trả lời câu hỏi,...
+Mục tiêu của NLP
+Tại sao xử lý ngôn ngữ tự nhiên khó?
+-
+Nhập nhằng (ambiguity).
+-
+Phụ thuộc ngữ cảnh.
+-
+Phụ thuộc văn hóa, vùng miền.
+-
+Phụ thuộc vào background knowledge.
+Mục tiêu của NLP
+Tại sao xử lý ngôn ngữ tự nhiên khó?
+-
+Khối lượng dữ liệu khổng lồ phi cấu trúc (unstructured) và 
+bán cấu trúc (semi structure) với những thách thức mới
+Lược sử phát triển của NLP
+Lược sử phát triển của NLP
+Ví dụ về dịch máy (Machine Translation)
+Giai đoạn 1: Rule Based Machine Translation (RBMT)
+Lược sử phát triển của NLP
+Ví dụ về dịch máy (Machine Translation)
+Giai đoạn 2: Statistical Machine Translation (SMT)
+Lược sử phát triển của NLP
+Ví dụ về dịch máy (Machine Translation)
+Giai đoạn 3: Neural Machine Translation (NMT)
+Các bài toán cơ bản 
+của NLP
+Các mức xử lý ngôn ngữ
+Việc xử lý và nghiên cứu ngôn ngữ có thể được thực hiện theo 
+các mức:
+-
+Từ vựng (Lexical).
+-
+Cú pháp (Syntactic).
+-
+Ngữ nghĩa (Semantic).
+-
+Ngữ dụng (Pragmatic).
+Các bài toán cơ bản cho NLP
+Xử lý từ (Word Processing)
+-
+Tokenizing.
+-
+Word segmentation.
+Các bài toán cơ bản cho NLP
+Xử lý cú pháp (Syntactic Processing)
+●
+Morphology analysis
+○
+Word stemming.
+○
+Stop word processing.
+●
+Part of Speech (POS) Tagging.
+●
+Syntactic Parsing
+○
+Syntactic tree generation.
+○
+Dependency parsing
+Các bài toán cơ bản cho NLP
+Xử lý mức độ ngữ dụng (Pragmatic Processing)
+Chưa được xử lý nhiều, bài toán liên quan có:
+●
+Xử lý sắc thái ngôn ngữ
+○
+Language affection
+Các bài toán cơ bản cho NLP
+Ví dụ về Core NLP problems:
+Các bài toán cơ bản cho NLP
+Ví dụ về Core NLP problems:
+Các bài toán cơ bản cho NLP
+Ví dụ về Core NLP problems:
+Các bài toán cơ bản cho NLP
+Ví dụ về Core NLP problems:
+Các bài toán cơ bản cho NLP
+Ví dụ về Core NLP problems: Mô hình ngôn ngữ
+Các bài toán cơ bản cho NLP
+Ví dụ về Core NLP problems: Mô hình ngôn ngữ
+Các bài toán cơ bản cho NLP
+Ví dụ về Core NLP problems: Mô hình ngôn ngữ
+Các bài toán cơ bản cho NLP
+Ví dụ về Core NLP problems: Mô hình ngôn ngữ
+Các bài toán cơ bản cho NLP
+Ví dụ về Core NLP problems: Mô hình ngôn ngữ
+Các bài toán cơ bản cho NLP
+Tài nguyên ngôn ngữ (Language Resources) là các tài nguyên
+phục vụ cho việc xử lý các bài toán NLP trên máy tính:
+●
+Các corpora (đơn hoặc đa ngữ).
+●
+Dictionaries, Thesaurus, WordNet
+●
+TreeBank (e.g PEN Tree banks).
+●
+Core NLP (e.g Stanford Core NLP).
+●
+Tools, Libraries for text and document processing/mining 
+(NLTK, Spacy, …).
+Các ứng dụng của 
+NLP
+Các bài toán ứng dụng
+Các bài toán ứng dụng
+Các bài toán ứng dụng
+Ví dụ:
+1. Sentiment Analysis (phân tích cảm xúc).
+2. Recommender Systems (hệ tư vấn).
+3. Question Answering and Chatbot (hỏi đáp và hội thoại tự động)
+4. Information Extraction (trích chọn thông tin).
+5. Document Classification (phân loại văn bản).
+6. Topic Modeling (mô hình chủ đề).
+7. Information Retrieval (tìm kiếm thông tin).
+8. OCR (nhận dạng chữ in).
+Các bài toán ứng dụng
+Ví dụ: Phân tích/Phân loại cảm xúc (Sentiment Analysis)
+●
+Google Cloud (https://cloud.google.com/natural-language): for 
+document and sentence level
+●
+Document level
+Các bài toán ứng dụng
+Ví dụ: Phân tích/Phân loại cảm xúc (Sentiment Analysis)
+●
+Sentence level
+Các bài toán ứng dụng
+Ví dụ: Phân tích/Phân loại cảm xúc (Sentiment Analysis)
+Các bài toán ứng dụng
+Ví dụ: Hỏi đáp tự động (Question/ Answering Systems)
+Các bài toán ứng dụng
+Ví dụ: Hỏi đáp tự động (Question/ Answering Systems)
+IR-based question answering.
+Các bài toán ứng dụng
+Ví dụ: Hỏi đáp tự động (Question/ Answering Systems)
+Community based question answering (www.quora.com)
+Các bài toán ứng dụng
+Ví dụ: Hỏi đáp tự động (Question/ Answering Systems)
+Community based question answering (www.quora.com)
+Các bài toán ứng dụng
+Ví dụ: Hội thoại, Chatbot, Personal Assistant
+(Alexa, Google Assistant, Google DiaglogFlow, MS Bot Framework).
+Các bài toán ứng dụng
+Ví dụ: Trích rút thông tin (Information Extraction - IE)
+Các bài toán ứng dụng
+Ví dụ: Phân lớp văn bản ((Text Classification)
+(eg, phân loại văn bản theo chủ đề, phát hiện spam mail, …)
+Các bài toán ứng dụng
+Ví dụ:  Topic modeling (Mô hình chủ đề)
+Bài toán đặt ra là đối với 1 tập các văn bản (documents) cần xác 
+định được:
+1. Các topic (chủ đề) ẩn trong tập các văn bản.
+2. Phân cụm các văn bản theo các chủ đề nêu trên.
+Thường chủ đề được xác định bởi 1 tập các từ khóa và tần suất.
+Các kỹ thuật phổ biến:
+• LSA (Latent Semantic Analysis)
+• LDA (Latent Dirichlet Allocation).
+• NMF (Non-negative Matrix 
+Factorization).
+Các bài toán ứng dụng
+Ví dụ:  Nhận dạng chữ in (Optical Character Recognition – OCR)
+Mô hình Ngôn ngữ
+và Kỹ thuật xử lý
+Tiếp cận chung giải bài toán NLP
+Các bước giải quyết bài toán NLP:
+●
+Bước 1: Mô hình hóa bài toán (problem formulation).
+●
+Bước 2: Xác định mô hình (ngôn ngữ- model formulation).
+●
+Bước 3: Huấn luyện mô hình (Model training/learning).
+●
+Bước 4: Suy diễn dựa trên mô hình (Model-based inference).
+Tiếp cận chung giải bài toán NLP
+Bài toán Phân lớp văn bản (Text Classification)
+Là các bài toán học có giám sát (Supervised learning) trên texts.
+Tiếp cận chung giải bài toán NLP
+Bài toán Phân cụm văn bản (Document Clustering)
+Là các bài toán học có không giám sát (upervised learning) trên 
+texts. Ví dụ: Topic modeling.
+Tiếp cận chung giải bài toán NLP
+Bài toán gán nhãn (ngữ nghĩa) chuỗi (Semantic Sequence Labelling)
+Ứng dụng: Name Entity, Information Extraction, Speech Recognition, …
+Tiếp cận chung giải bài toán NLP
+Bài toán gán nhãn (ngữ nghĩa) chuỗi (Semantic Sequence Labelling)
+Ứng dụng: Name Entity, Information Extraction, Speech Recognition, …
+Tiếp cận chung giải bài toán NLP
+Bài toán sinh văn bản (Text Generation)
+Ứng dụng: Machine translation, news generation, chatbot, QA systems…
+Tiếp cận chung giải bài toán NLP
+Bài toán sinh văn bản (Text Generation)
+Ứng dụng: Machine translation, news generation, chatbot, QA systems…
+Mô hình ngôn ngữ và kỹ thuật
+Knowledge/Rule based and Heuristics
+Sử dụng trong giai đoạn đầu (50-90) với symbolic AI
+Mô hình ngôn ngữ và kỹ thuật
+Knowledge/Rule based and Heuristics
+Sử dụng trong giai đoạn đầu (50-90) với symbolic AI
+Mô hình ngôn ngữ và kỹ thuật
+Knowledge/Rule based and Heuristics
+Sử dụng trong giai đoạn đầu (50-90) với symbolic AI
+Mô hình ngôn ngữ và kỹ thuật
+Knowledge/Rule based and Heuristics
+Sử dụng trong giai đoạn đầu (50-90) với symbolic AI
+Mô hình ngôn ngữ và kỹ thuật
+Knowledge/Rule based and Heuristics
+Sử dụng trong giai đoạn đầu (50-90) với symbolic AI
+Mô hình ngôn ngữ và kỹ thuật
+Mô hình ngôn ngữ thống kê (Statistical Language Models)
+Từ đầu những năm 90 và phổ biến cho đến tận gần đây
+Mô hình n-grams
+Mô hình ngôn ngữ và kỹ thuật
+Mô hình ngôn ngữ thống kê (Statistical Language Models)
+Từ đầu những năm 90 và phổ biến cho đến tận gần đây
+Văn phạm xác suất
+Mô hình ngôn ngữ và kỹ thuật
+Mô hình ngôn ngữ thống kê (Statistical Language Models)
+Từ đầu những năm 90 và phổ biến cho đến tận gần đây
+Mô hình ngôn ngữ và kỹ thuật
+Mô hình ngôn ngữ thống kê (Statistical Language Models)
+Từ đầu những năm 90 và phổ biến cho đến tận gần đây
+Bài toán phân lớp văn bản
+Mô hình ngôn ngữ và kỹ thuật
+Mô hình ngôn ngữ thống kê (Statistical Language Models)
+Từ đầu những năm 90 và phổ biến cho đến tận gần đây
+Bài toán phân cụm văn bản
+Input: Biểu diễn của văn bản dưới dạng vector các đặc trưng.
+Output: Các cụm văn bản
+Các phương pháp: K-means, K-median, Spectral clustering, Hierarchical
+clustering, matrix factorization, …
+Mô hình ngôn ngữ và kỹ thuật
+Mô hình ngôn ngữ Neural (Neural Language Models)
+Deep Learning vs. Traditional Machine Learning
+Mô hình ngôn ngữ và kỹ thuật
+Mô hình ngôn ngữ Neural (Neural Language Models)
+Deep Learning vs. Traditional Machine Learning
+Mô hình ngôn ngữ và kỹ thuật
+Mô hình ngôn ngữ Neural (Neural Language Models)
+Deep Learning vs. Traditional Machine Learning
+Mô hình ngôn ngữ và kỹ thuật
+Mô hình ngôn ngữ Neural (Neural Language Models)
+Deep Learning vs. Traditional Machine Learning
+Mô hình ngôn ngữ và kỹ thuật
+Mô hình ngôn ngữ Neural (Neural Language Models)
+Mô hình ngôn ngữ và kỹ thuật
+Mô hình ngôn ngữ Neural (Neural Language Models)
+Mô hình ngôn ngữ và kỹ thuật
+Mô hình ngôn ngữ Neural (Neural Language Models)
+Tách từ tiếng Việt
+●
+Mục đích: xác định ranh giới của các từ trong câu.
+●
+Là bước xử lý quan trọng đối với các hệ thống XLNNTN, đặc 
+biệt là đối với các ngôn ngữ đơn lập, ví dụ: âm tiết Trung Quốc, 
+âm tiết Nhật, âm tiết Thái, và tiếng Việt.
+●
+Với các ngôn ngữ đơn lập, một từ có thể có một hoặc nhiều 
+âm tiết.
+Vấn đề của bài toán tách từ là khử được sự nhập nhằng trong ranh 
+giới từ.
+Tách từ tiếng Việt
+Từ vựng
+●
+Tiếng Việt là ngôn ngữ không biến hình
+●
+Từ điển từ tiếng Việt (Vietlex): >40.000 từ, trong đó:
+○
+81.55% âm tiết là từ : từ đơn
+○
+15.69% các từ trong từ điển là từ đơn
+○
+70.72% từ ghép có 2 âm tiết
+○
+13.59% từ ghép ≥ 3 âm tiết
+○
+1.04% từ ghép ≥ 4 âm tiết
+Tách từ tiếng Việt
+Từ vựng
+●
+Tiếng Việt là ngôn ngữ không biến hình
+●
+Từ điển từ tiếng Việt (Vietlex): >40.000 từ
+Tách từ tiếng Việt
+Qui tắc cấu tạo từ tiếng Việt
+●
+Từ đơn: dùng một âm tiết làm một từ.
+○
+Ví dụ: tôi, bác, người, cây, hoa, đi, chạy, vì, đã, à, nhỉ, 
+nhé...
+●
+Từ ghép: tổ hợp (ghép) các âm tiết lại, giữa các âm tiết đó có 
+quan hệ về nghĩa với nhau.
+○
+Từ ghép đẳng lập. các thành tố cấu tạo có quan hệ bình 
+đẳng với nhau về nghĩa.
+■
+Ví dụ: chợ búa, bếp núc
+○
+Từ ghép chính phụ. các thành tố cấu tạo này phụ thuộc 
+vào thành tố cấu tạo kia. Thành tố phụ có vai trò phân loại, 
+chuyên biệt hoá và sắc thái hoá cho thành tố chính.
+■
+Ví dụ: tàu hoả, đường sắt, xấu bụng, tốt mã, ngay đơ, 
+thẳng tắp, sưng vù...
+Tách từ tiếng Việt
+Qui tắc cấu tạo từ tiếng Việt
+●
+Từ láy: các yếu tố cấu tạo có thành phần ngữ âm được lặp lại; 
+nhưng vừa lặp vừa biến đổi. Một từ được lặp lại cũng cho ta từ 
+láy.
+●
+Biến thể của từ: được coi là dạng lâm thời biến động hoặc 
+dạng "lời nói" của từ.
+○
+Rút gọn một từ dài thành từ ngắn hơn
+■
+ki-lô-gam → ki lô/ kí lô
+○
+Lâm thời phá vỡ cấu trúc của từ, phân bố lại yếu tố tạo từ 
+với những yếu tố khác ngoài từ chen vào. Ví dụ:
+■
+khổ sở → lo khổ lo sở
+■
+ngặt nghẽo → cười ngặt cười nghẽo
+■
+danh lợi + ham chuộng → ham danh chuộng lợi
+Tách từ tiếng Việt
+Qui tắc cấu tạo từ tiếng Việt
+●
+Các diễn tả gồm nhiều từ (vd, “bởi vì”) cũng được coi là 1 từ
+●
+Tên riêng: tên người và vị trí được coi là 1 đơn vị từ vựng
+●
+Các mẫu thường xuyên: số, thời gian
+Tách từ tiếng Việt
+Các hướng tiếp cận
+●
+Tiếp cận dựa trên từ điển
+●
+Tiếp cận dựa trên học máy
+●
+Kết hợp hai phương pháp trên.
+Tách từ dựa trên từ điển
+●
+Thuật toán so khớp từ dài nhất
+●
+Yêu cầu:
+○
+Từ điển
+○
+Chuỗi đầu vào đã tách các dấu câu và âm tiết
+●
+Tư tưởng: thuật toán tham lam
+○
+Ði từ trái sang phải hoặc từ phải sang trái, lấy các từ dài 
+nhất có thể, dừng lại khi duyệt hết
+○
+Độ phức tạp tính toán: O(n . V)
+■
+n: Số âm tiết trong chuỗi
+■
+V: Số từ trong từ điển
+Tách từ tiếng Việt
+Tách từ dựa trên từ điển
+●
+Ưu điểm:
+○
+Cài đặt đơn giản
+○
+Độ phức tạp tính toán hợp lý
+○
+Không yêu cầu dữ liệu huấn luyện
+●
+Nhược điểm:
+○
+Phụ thuộc vào từ điển
+○
+Chưa giải quyết được vấn đề nhập nhằng
+Tách từ tiếng Việt
+Cách tách từ đơn giản
+●
+Phát hiện các mẫu thông thường như tên riêng, chữ viết tắt, 
+số, ngày tháng, địa chỉ email, URL,... sử dụng biểu thức chính 
+quy
+●
+Chọn chuỗi âm tiết dài nhất từ vị trí hiện tại và có trong từ điển, 
+chọn cách tách có ít từ nhất
+●
+Hạn chế: có thể đưa ra cách phân tích không đúng.
+●
+Giải quyết: liệt kê tất, có 1 chiến lược để chọn cách tách tốt 
+nhất.
+Tách từ tiếng Việt
+Tách từ sử dụng biểu thức chính quy
+●
+là một khuôn mẫu được so sánh với một chuỗi
+●
+Các ký tự đặc biệt:
+○
+* - bất cứ chuỗi ký tự nào, kể cả không có gì
+○
+x – ít nhất 1 ký tự
+○
++ - chuỗi trong ngoặc xuất hiện ít nhất 1 lần
+●
+Ví dụ:
+○
+Email: x@x(.x)+
+○
+dir *.txt
+○
+‘*John’ -> ‘John’, ‘Ajohn’, “Decker John”
+●
+Biểu thức chính quy được sử dụng đặc biệt nhiều trong:
+○
+Phân tích cú pháp
+○
+Xác nhận tính hợp lệ của dữ liệu
+○
+Xử lý chuỗi
+○
+Trích rút thông tin
+Tách từ tiếng Việt
+Một số công cụ tách từ
+●
+JvnSegmenter (Nguyễn Cẩm Tú) : CRF
+○
+http://jvnsegmenter.sourceforge.net
+●
+VnTokenizer (Lê Hồng Phương)
+○
+https://github.com/phuonglh/vn.vitk
+●
+Dongdu (Lưu Anh Tuấn): SVM
+○
+http://viet.jnlp.org/dongdu
+●
+• Pyvi (Trần Việt Trung) : https://github.com/trungtv/pyvi
+●
+Từ điển từ:
+○
+http://tratu.coviet.vn/tu-dien-lac-viet.aspx
+○
+http://tratu.soha.vn/
+○
+https://www.informatik.uni-leipzig.de/~duc/Dict/
+○
+Tách từ tiếng Việt

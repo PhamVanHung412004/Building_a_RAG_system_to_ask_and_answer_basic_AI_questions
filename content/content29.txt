@@ -1,5 +1,0 @@
-Kỹ thuật RAG cải thiện mô hình ngôn ngữ lớn bằng cách nào ?
-(a) Truy vấn thêm các thông tin bên ngoài.
-(b) Dùng google search.
-(c) Cải thiện việc sai chính tả.
-(d) Bỏ dấu câu.

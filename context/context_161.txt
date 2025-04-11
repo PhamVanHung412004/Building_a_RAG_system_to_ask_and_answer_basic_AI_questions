@@ -1,0 +1,641 @@
+QLoRa: Efficient Fine-
+tuning of Quantized LLMs
+Link: https://arxiv.org/abs/2305.14314
+Nguyen-Thuan Duong
+Dinh-Thang Duong
+AI VIETNAM
+Seminar
+Tim Dettmers, Artidoro Pagnoni, Ari Holtzman, Luke 
+Zettlemoyer
+Outline
+2
+❖Abstract
+❖Introduction
+❖Background
+❖Methods
+❖Evaluation
+❖Conclusion
+❖Question
+AI VIETNAM
+Seminar
+Abstract
+3
+❖Content
+We present QLoRA, an efficient finetuning approach that reduces memory usage enough to finetune a 65B parameter model 
+on a single 48GB GPU while preserving full 16-bit finetuning task performance. QLoRA backpropagates gradients through a 
+frozen, 4-bit quantized pretrained language model into Low Rank Adapters~(LoRA). Our best model family, which we name 
+Guanaco, outperforms all previous openly released models on the Vicuna benchmark, reaching 99.3% of the performance 
+level of ChatGPT while only requiring 24 hours of finetuning on a single GPU. QLoRA introduces a number of innovations 
+to save memory without sacrificing performance: (a) 4-bit NormalFloat (NF4), a new data type that is information 
+theoretically optimal for normally distributed weights (b) double quantization to reduce the average memory footprint by 
+quantizing the quantization constants, and (c) paged optimziers to manage memory spikes. We use QLoRA to finetune more 
+than 1,000 models, providing a detailed analysis of instruction following and chatbot performance across 8 instruction 
+datasets, multiple model types (LLaMA, T5), and model scales that would be infeasible to run with regular finetuning (e.g. 
+33B and 65B parameter models). Our results show that QLoRA finetuning on a small high-quality dataset leads to state-of-
+the-art results, even when using smaller models than the previous SoTA. We provide a detailed analysis of chatbot 
+performance based on both human and GPT-4 evaluations showing that GPT-4 evaluations are a cheap and reasonable 
+alternative to human evaluation. Furthermore, we find that current chatbot benchmarks are not trustworthy to accurately 
+evaluate the performance levels of chatbots. A lemon-picked analysis demonstrates where Guanaco fails compared to 
+ChatGPT. We release all of our models and code, including CUDA kernels for 4-bit training.
+AI VIETNAM
+Seminar
+Introduction
+4
+❖Getting Started
+❖Applications
+❖Challenges
+AI VIETNAM
+Seminar
+Introduction
+5
+❖What is LLMs?
+AI VIETNAM
+Seminar
+LLMs (Large Language Models): Language models that were trained on a very large corpus of text. This made 
+them capable of performing various NLP tasks with high precision.
+Image Reference: https://wandb.ai/vincenttu/blog_posts/reports/A-Survey-of-Large-Language-Models--VmlldzozOTY2MDM1
+Introduction
+6
+❖What is LLMs?
+AI VIETNAM
+Seminar
+Image Reference: https://blogs.nvidia.com/blog/what-are-foundation-models/
+LLMs are often pretrained on a 
+vast majority of data and 
+designed to be adaptable to a 
+wide variety of tasks 
+(Foundation models).
+Introduction
+7
+❖What is LLMs?
+AI VIETNAM
+Seminar
+Transformers Paper: https://arxiv.org/abs/1706.03762
+Image Reference: https://heidloff.net/article/foundation-models-transformers-bert-and-gpt/
+Introduction
+8
+❖What is LLMs?
+AI VIETNAM
+Seminar
+Decoder
+<start> 
+I
+Decoder
+<start> I
+am
+Decoder
+<start> I am
+a
+Decoder
+<start> I am a
+chatbot
+Introduction
+9
+❖What is LLMs?
+AI VIETNAM
+Seminar
+Image Reference: https://huggingface.co/blog/evaluating-mmlu-leaderboard
+Introduction
+10
+❖What is LLMs?
+AI VIETNAM
+Seminar
+Write a python function that receive an 
+image and plot it using matplotlib 
+library.
+Prompt:
+Introduction
+11
+❖LLMs size over time
+AI VIETNAM
+Seminar
+Image Reference: https://www.marktechpost.com/wp-content/uploads/2023/10/Screenshot-2023-10-15-at-4.25.57-PM.png
+Introduction
+12
+❖Low-precision
+AI VIETNAM
+Seminar
+LLaMa-2 7B
+LLaMa-2 13B
+FP32 (32-bit)
+28GB
+FP16 (16-bit)
+LLaMa-2 70B
+Reference: https://docs.nvidia.com/ai-enterprise/workflows-generative-ai/0.1.0/sizing-guide.html
+48GB
+320GB
+14GB
+24GB
+160GB
+GPUs
+GPUs
+Load ONLY
+Background
+13
+❖Quantization
+❖LoRA
+AI VIETNAM
+Seminar
+Background
+14
+❖Float Point (FP)
+AI VIETNAM
+Seminar
+Float32
+(float)
+Sign
+Exponent
+Mantissa
+Float16
+(half)
+8 bits
+23 bits
+5 bits
+10 bits
+Float64
+(double)
+11 bits
+52 bits
+Bfloat16
+8 bits
+7 bits
+TensorFloat32
+(TF32)
+8 bits
+10 bits
+1 bit
+Background
+15
+❖What is Quantization ?
+AI VIETNAM
+Seminar
+Quantization refers to techniques for doing both computations 
+and memory accesses with lower precision data, usually int8 
+compared to floating point implementations.
+Reference: https://pytorch.org/docs/stable/quantization.html#introduction-to-quantization
+Reduce model 
+size
+Reduce memory 
+bandwidth
+Faster inference
+-10
+9
+-128
+127
+Real range
+Integer range
+Mapping
+Tensor Data
+dtype = FP16
+Compute
+dtype=int8
+α
+β
+αq
+βq
+-10
+9
+Real range
+Tensor Data
+dtype = FP16
+α
+β
+Mapping
+Quantize
+Dequantize
+Background
+16
+❖Int8 Quantization (Weight)
+AI VIETNAM
+Seminar
+Reference: https://arxiv.org/pdf/2004.09602.pdf
+0
+𝑥= 1
+𝑥𝑞=?
+-α
+α=4
+0
+127
+-127
+Scale (Symmetric) Quantization
+Quantize
+Dequantize
+Scale
+𝑥𝑞= 𝑐𝑙𝑖𝑝(𝑟𝑜𝑢𝑛𝑑𝑠∙𝑥)
+ො𝑥= 1
+𝑠𝑥𝑞
+𝑠= 2𝑏−1 −1
+𝛼
+𝑠= 28−1 −1
+4
+= 31.75
+𝑥𝑞= 𝑐𝑙𝑖𝑝(𝑟𝑜𝑢𝑛𝑑31.75 × 1 )
+= 32
+ො𝑥=
+1
+31.75 32 = 1.007874 …
+Background
+17
+❖Int8 Quantization (Weight)
+AI VIETNAM
+Seminar
+Reference: https://arxiv.org/pdf/2004.09602.pdf
+0
+β =-3
+α =4
+z
+127
+-128
+Affine (Asymmetric) Quantization
+𝑥= 1
+𝑥𝑞= ?
+Scale
+𝑠= 2𝑏−1
+𝛼−𝛽
+𝑧= −𝑟𝑜𝑢𝑛𝑑𝛽∙𝑠−2𝑏−1
+Quantize
+Dequantize
+𝑥𝑞= 𝑐𝑙𝑖𝑝(𝑟𝑜𝑢𝑛𝑑𝑠∙𝑥+ 𝑧)
+ො𝑥= 1
+𝑠(𝑥𝑞−𝑧)
+𝑠=
+28 −1
+4 −(−3) = 36.42
+𝑥𝑞= 𝑐𝑙𝑖𝑝(𝑟𝑜𝑢𝑛𝑑36.42 × 1 −19 ) = 17
+ො𝑥=
+1
+36.42 17 + 19) = 0.9882 …
+𝑧= −𝑟𝑜𝑢𝑛𝑑−3 × 36.42 −28−1
+= −19
+Background
+18
+❖Matrix Multiplication Quantization
+AI VIETNAM
+Seminar
+Reference: https://leimao.github.io/article/Neural-Networks-Quantization/#Floating-Point-Quantization
+𝑌𝑞,𝑖,𝑗
+= 𝑧𝑌+ 𝑠𝑌
+𝑠𝑏
+𝑏𝑞,𝑗−𝑧𝑏
++
+𝑠𝑌
+𝑠𝑋𝑠𝑊
+෍
+𝑘=1
+𝑝
+𝑋𝑞,𝑖,𝑘𝑊𝑞,𝑘,𝑗
+−
+𝑧𝑊෍
+𝑘=1
+𝑝
+𝑋𝑞,𝑖,𝑘
+−
+𝑧𝑋෍
+𝑘=1
+𝑝
+𝑊𝑞,𝑘,𝑗
++ 𝑝𝑧𝑋𝑧𝑊
+𝑌= 𝑋𝑊+ 𝑏
+𝑌𝑖,𝑗= ෍
+𝑘=1
+𝑝
+𝑋𝑖,𝑘𝑊𝑘,𝑗+ 𝑏𝑗
+𝑞𝑢𝑎𝑛𝑡𝑖𝑧𝑒𝑥, 𝑠, 𝑧= s ∙𝑥+ 𝑧
+𝑑𝑒𝑞𝑢𝑎𝑛𝑡𝑖𝑧𝑒𝑥, 𝑠, 𝑧= 1
+𝑥𝑥𝑞−𝑧
+Background
+19
+❖Activation Quantization
+AI VIETNAM
+Seminar
+𝑦𝑞= ൞
+𝑧𝑦
+𝑖𝑓𝑥𝑞< 𝑧𝑥
+𝑧𝑦+ 𝑠𝑦
+𝑠𝑥
+𝑥𝑞−𝑧𝑥
+𝑖𝑓𝑥𝑞≥𝑧𝑥
+Reference: https://leimao.github.io/article/Neural-Networks-Quantization/#Floating-Point-Quantization
+𝑦= 𝑅𝑒𝐿𝑈𝑥= ቊ0
+𝑖𝑓𝑥< 0
+𝑥
+𝑖𝑓𝑥≥0
+𝑦= 𝑑𝑒𝑞𝑢𝑎𝑛𝑡𝑖𝑧𝑒𝑥𝑞, 𝑠𝑥, 𝑧𝑥= 1
+𝑠𝑥
+𝑥𝑞−𝑧𝑥
+𝑦= 𝑑𝑒𝑞𝑢𝑎𝑛𝑡𝑖𝑧𝑒𝑦𝑞, 𝑠𝑦, 𝑧𝑦= 1
+𝑠𝑦
+𝑦𝑞−𝑧𝑦
+→1
+𝑠𝑥
+𝑥𝑞−𝑧𝑥= 1
+𝑠𝑦
+𝑦𝑞−𝑧𝑦
+→𝑦𝑞= 𝑠𝑦
+𝑠𝑥
+𝑥𝑞−𝑧𝑥
+Background
+20
+❖Quantization types
+AI VIETNAM
+Seminar
+Dynamic 
+Quantization
+Static/Post 
+Quantization
+Quantization aware 
+training
+Quantization
+Reference: https://pytorch.org/docs/stable/quantization.html#introduction-to-quantization
+CNN model
+RNN, LSTM
+Transformer
+Background
+21
+❖Dynamic Quantization
+AI VIETNAM
+Seminar
+Inference
+Weights
+Before Inference
+Weights
+𝑄𝑢𝑎𝑛𝑡
+Inputs
+Weights
+Activation
+𝑄𝑢𝑎𝑛𝑡
+Output
+Background
+22
+❖Static/Post Quantization
+AI VIETNAM
+Seminar
+Weights
+Before Inference
+𝑄𝑢𝑎𝑛𝑡
+Weights
+Samples
+Activation
+𝑄𝑢𝑎𝑛𝑡
+Inference
+Inputs
+Weights
+Activation
+Output
+{S, Z}
+{S, Z}
+{S: scale, Z: zero point}
+Background
+23
+❖Quantization aware training
+AI VIETNAM
+Seminar
+Inference
+Weights
+Training
+Weights
+𝐹𝑎𝑘𝑒_𝑄
+Inputs
+Activation
+𝐹𝑎𝑘𝑒_𝑄
+Weights
+Weights
+𝑄𝑢𝑎𝑛𝑡
+Inputs
+Activation
+𝑄𝑢𝑎𝑛𝑡
+Output
+Output
+{𝑠, 𝑧}
+{𝑠, 𝑧}
+{𝑠, 𝑧}
+{𝑠, 𝑧}
+𝑥= 𝑑𝑒𝑞𝑢𝑎𝑛𝑡𝑞𝑢𝑎𝑛𝑡𝑥, 𝑠𝑥, 𝑧𝑥, 𝑠𝑥, 𝑧𝑥+ ∆𝑥
+𝐹𝑎𝑘𝑒_𝑄
+Background
+24
+❖Quantization Types
+AI VIETNAM
+Seminar
+Types
+Data 
+requirements
+Inference 
+speed
+Performance 
+degradation
+Dynamic 
+Quantization
+No data
+Slow
+Low
+Static/Post 
+Quantization
+Unlabelled 
+representative 
+sample
+Fast
+High
+Quantization 
+aware training
+Labelled 
+training data
+Fast
+Low
+Background
+25
+❖Full Fine-tuning
+AI VIETNAM
+Seminar
+Layer Norm
+Layer Norm
+Feed forward
+Multi-Head Self-
+Attention
+⊕
+⊕
+N-layers
+𝑊𝐿𝑛−1
+𝑊𝐿𝑛−2
+𝑊𝐿𝑛−3
+𝑊𝐿0
+𝑊𝐿1
+𝑊𝐿2
+…
+Adam
+Weights
+Optimizer
+Trained 
+Model
+Full layers 
+fine-tuning
+Background
+26
+❖Fine-tuning a subset of parameters
+AI VIETNAM
+Seminar
+Layer Norm
+Layer Norm
+Feed forward
+Multi-Head Self-
+Attention
+⊕
+⊕
+N-layers
+𝑊𝐿𝑛−1
+𝑊𝐿𝑛−2
+𝑊𝐿𝑛−3
+𝑊𝐿0
+𝑊𝐿1
+𝑊𝐿2
+…
+Adam
+Weights
+Optimizer
+Trained 
+Model
+Frozen
+Frozen
+Frozen some 
+layers
+Background
+27
+❖LoRA: Low-rank Adaptation 
+AI VIETNAM
+Seminar
+Reference: https://arxiv.org/abs/2106.09685
+𝑊= 𝑊0 + ∆𝑊
+Normal training
+ℎ= 𝑊𝑥= 𝑊0𝑥+ ∆𝑊𝑥
+ℎ= 𝑊0𝑥+ 𝐵𝐴𝑥
+LoRA training
+𝑊0 ∈ℝ𝑑×𝑘
+∆𝑊∈ℝ𝑑×𝑘
+𝐵∈ℝ𝑑×𝑟, 𝐴∈ℝ𝑟×𝑘
+𝑟≪{𝑑, 𝑘}
+Trainable 
+parameters
+𝑑× 𝑘
+𝑟× 𝑑+ 𝑘
+*
+Background
+28
+❖Switch to another task
+AI VIETNAM
+Seminar
+Reference: https://arxiv.org/abs/2106.09685
+W
+*
+Task A
+Frozen
+W
+*
+Task B
+Frozen
+Background
+29
+❖LoRA: Low-rank Adaptatio of LLMs
+AI VIETNAM
+Seminar
+Reference: https://arxiv.org/abs/2106.09685
+𝐺𝑃𝑇3 𝐶𝑜𝑛𝑓𝑖𝑔= ቊ
+𝑙𝑎𝑦𝑒𝑟𝑠= 96
+𝑑𝑚𝑜𝑑𝑒𝑙= 12288
+𝑝𝑎𝑟𝑎𝑚𝑠: ~175𝐵
+𝑇𝑟𝑎𝑖𝑛𝑎𝑏𝑙𝑒𝑝𝑎𝑟𝑎𝑚𝑠
+= 2 × 𝑑𝑚𝑜𝑑𝑒𝑙× 𝑟× ෠𝐿𝐿𝑜𝑅𝐴
+𝑟= 4
+⇒𝑝𝑎𝑟𝑎𝑚𝑠
+= 2 × 12288 × 4 × 96 × 4 ~37.7𝑀
+Background
+30
+❖Result of LoRA in GPT-2/3
+AI VIETNAM
+Seminar
+Reference: https://arxiv.org/abs/2106.09685
+“This suggests that the low-rank adaptation matrix potentially amplifies the 
+important features for specific downstream tasks that were learned but not 
+emphasized in the general pre-training model.”
+Background
+31
+❖What is the optimal rank (r) for LoRA
+AI VIETNAM
+Seminar
+Reference: https://arxiv.org/abs/2106.09685
+Methods
+32
+❖Introduction
+AI VIETNAM
+Seminar
+❖QLoRA
+❖4-bit Quantization
+❖Double Quantization
+Methods
+33
+❖Introduction
+AI VIETNAM
+Seminar
+0
+𝑥= 1
+𝑥𝑞=?
+-α
+α=4
+0
+127
+-127
+QLoRA = Quantization + LoRA 
+Methods
+34
+❖QLoRa
+AI VIETNAM
+Seminar
+Methods
+35
+❖Block-wise k-bit Quantization
+AI VIETNAM
+Seminar
+Methods
+36
+❖4-bit NormalFloat Quantization
+AI VIETNAM
+Seminar
+Weights
+Normalize
+[-1, 1]
+Methods
+37
+❖Double Quantization (DQ) 
+AI VIETNAM
+Seminar
+Evaluation
+38
+AI VIETNAM
+Seminar
+Evaluation
+39
+❖Guanaco with QLoRA 
+AI VIETNAM
+Seminar
+Conclusion
+40
+AI VIETNAM
+Seminar
+Conclusion
+41
+AI VIETNAM
+Seminar
+•
+4-bit finetuning with LoRA replicate 
+16-bit full finetuning.
+•
+QLoRA + Guanaco – archive State-
+of-the-art performance AI chatbot.
+Advantages
+Limitations
+•
+Can not evaluation with difference bit 
+(such as 3-bit).
+•
+Cannot marger with difference 
+adapter
+42

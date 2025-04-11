@@ -1,0 +1,794 @@
+1
+Text Classification with Mamba - Project
+Year 2023
+TA Minh-Duc Bui
+STA Khai-Xuan Trinh
+2
+Outline
+1. Motivation
+2. State Space Models
+3. Mamba
+4. Coding
+3
+Outline
+1. Motivation
+2. State Space Models
+3. Mamba
+4. Coding
+4
+RNNs vs. Transformers
+RNNs
+•
+train stage: 𝑶(𝑵), non-parallelable
+•
+inference stage: 𝑶(𝑵)
+•
+𝑶𝟏per token
+Transformers
+•
+train stage: 𝑶(𝑵𝟐), parallelable
+•
+inference stage: 𝑶𝑵𝟐
+•
+𝑶𝑵per token
+Ideal Models
+•
+train stage: 𝑶(𝑵), parallelable
+•
+inference stage: 𝑶(𝑵)
+•
+𝑶𝟏per token
+5
+RNNs vs. Transformers
+Mamba Encoder
+Transformer Encoder
+6
+Mamba Block
+Norm
+Multi-Head
+Attention
+Norm
+MLP
++
++
+L x
+Linear
+Linear
+SSM
+Conv
+×
+Linear
+𝜎
+𝜎
+L x
+7
+Mamba Architecture
+Tokenizer
+Mamba Encoder
+MLP 
+Head
+Class
+Positive
+Negative
+tôi
+học
+AI
+tại
+AI
+VN
+8
+Outline
+1. Motivation
+2. State Space Models
+3. Mamba
+4. Coding
+9
+State Space Models (SSMs)
+What
+The SSMs are traditionally used
+in control theory to model a
+dynamic
+system
+via
+state
+variables.
+How
+Why
+•
+train stage: 𝑶(𝑵), parallelable
+•
+inference stage: 𝑶(𝑵)
+•
+𝑶𝟏per token
+Benefits
+•
+suitable for long-range tasks
+•
+faster training and inferencing
+•
+low computational cost
+•
+less memory
+10
+Discretize SSMs
+Discretize
+Continuous
+Recurrent
+11
+Discretize SSMs
+1
+2
+when     is small
+3
+12
+Example of Recurrent Representation
+Recurrent Representation
+13
+Example of Recurrent Representation
+ℎ0 =
+×
++
+×
+ℎ−1
+tôi
+𝑁× 𝐷
+𝑁× 𝐷
+𝑁× 1
+1 × 𝐷
+𝑁× 𝑁
+𝑁× 𝐷
+𝑦0 =
+×
+1 × 𝑁
+𝑁× 𝐷
+ℎ0
+=
+1 × 𝐷
+=
+𝑁× 𝐷
+𝐿: sequence len
+𝐷: hidden state
+𝑁: SSM dimension
+đi
+học
+𝑥
+input: 𝐿× 𝐷
+14
+Example of Recurrent Representation
+3 × 1
+3 × 3
+1 × 3
+2
+3
+1
+1
+2
+1
+2
+3
+2
+3
+4
+1
+1
+3
+5
+tôi
+𝐿: sequence len
+𝐷: hidden state
+𝑁: SSM dimension
+đi
+học
+input: 3 × 4
+1
+2
+1
+4
+5
+1
+7
+3
+4
+3
+2
+4
+3 × 1
+3 × 3
+1 × 3
+1
+5
+3
+0.5
+1
+6
+1
+2
+3
+2
+5
+4
+1
+3
+5
+𝐴
+𝐵
+1
+15
+Example of Recurrent Representation
+ℎ0 =
+×
++
+×
+ℎ−1
+tôi
+3 × 4
+3 × 4
+3 × 1
+1 × 4
+3 × 3
+3 × 4
+𝑦0 =
+×
+1 × 3
+3 × 4
+ℎ0
+=
+1 × 4
+=
+3 × 4
+𝐿: sequence len
+𝐷: hidden state
+𝑁: SSM dimension
+đi
+học
+input: 3 × 4
+1
+2
+1
+4
+5
+1
+7
+3
+4
+3
+2
+4
+1
+2
+1
+4
+𝑥0 (𝑡ô𝑖)
+2
+3
+1
+1
+2
+1
+2
+3
+2
+3
+4
+1
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+4
+2
+8
+3
+6
+3
+12
+1
+2
+1
+4
+2
+4
+2
+8
+3
+6
+3
+12
+1
+2
+1
+4
+1
+3
+5
+16
+32
+16
+64
+16
+Example of Recurrent Representation
+ℎ1 =
+×
++
+×
+ℎ0
+tôi
+3 × 4
+3 × 4
+3 × 1
+1 × 4
+3 × 3
+3 × 4
+𝑦1 =
+×
+1 × 3
+3 × 4
+ℎ1
+=
+1 × 4
+=
+3 × 4
+𝐿: sequence len
+𝐷: hidden state
+𝑁: SSM dimension
+đi
+học
+input: 3 × 4
+1
+2
+1
+4
+5
+1
+7
+3
+4
+3
+2
+4
+5
+1
+7
+3
+𝑥1 (đ𝑖)
+2
+3
+1
+1
+2
+1
+2
+3
+2
+3
+4
+1
+2
+4
+2
+8
+3
+6
+3
+12
+1
+2
+1
+4
+19
+20
+23
+42
+30
+31
+36
+69
+24
+39
+26
+79
+19
+20
+23
+42
+30
+31
+36
+69
+24
+39
+26
+79
+1
+3
+5
+229
+308
+261
+644
+17
+Example of Recurrent Representation
+tôi
+đi
+học
+1
+2
+1
+4
+5
+1
+7
+3
+4
+3
+2
+4
+SSM Block
+16
+32
+16
+64
+5
+1
+7
+3
+229
+308
+261
+644
+...
+18
+Discretize SSMs
+Recurrent Representation
+Learnable Params
+•
+𝐴, 𝐵, 𝐶, 𝐷,
+19
+Convolutional Representation of SSMs
+t=0
+t=1
+t=2
+t=k
+...
+...
+20
+Convolutional Representation of SSMs
+t=k
+21
+Example of Convolutional Representation
+𝑪ഥ𝑨𝟐ഥ𝑩
+𝑪ഥ𝑨ഥ𝑩
+𝑪ഥ𝑩
+tôi
+𝐿: sequence len
+𝐷: hidden state
+𝑁: SSM dimension
+đi
+học
+input: 𝐿× 𝐷
+𝟎
+𝟎
+𝑥0
+𝑥1
+𝑥2
+Kernel
+Input
+Output
+Padding
+22
+Example of Convolutional Representation
+𝑪ഥ𝑨𝟐ഥ𝑩
+𝑪ഥ𝑨ഥ𝑩
+𝑪ഥ𝑩
+tôi
+𝐿: sequence len
+𝐷: hidden state
+𝑁: SSM dimension
+đi
+học
+input: 𝐿× 𝐷
+𝟎
+𝟎
+𝑥0
+𝑥1
+𝑥2
+𝑦0
+Kernel
+Input
+Output
+Step 1
+𝑦0 = 𝑪ഥ𝑩𝑥0
+23
+Example of Convolutional Representation
+𝑪ഥ𝑨𝟐ഥ𝑩
+𝑪ഥ𝑨ഥ𝑩
+𝑪ഥ𝑩
+tôi
+𝐿: sequence len
+𝐷: hidden state
+𝑁: SSM dimension
+đi
+học
+input: 𝐿× 𝐷
+𝟎
+𝟎
+𝑥0
+𝑥1
+𝑥2
+𝑦0
+𝑦1
+Kernel
+Input
+Output
+Step 2
+𝑦1 = 𝑪𝑨𝑩𝑥0 + 𝑪ഥ𝑩𝑥1
+24
+Example of Convolutional Representation
+𝑪ഥ𝑨𝟐ഥ𝑩
+𝑪ഥ𝑨ഥ𝑩
+𝑪ഥ𝑩
+tôi
+𝐿: sequence len
+𝐷: hidden state
+𝑁: SSM dimension
+đi
+học
+input: 𝐿× 𝐷
+𝟎
+𝟎
+𝑥0
+𝑥1
+𝑥2
+𝑦0
+𝑦1
+𝑦2
+Kernel
+Input
+Output
+Step 3
+𝑦2 = 𝑪ഥ𝑨𝟐ഥ𝑩𝑥0 + 𝑪𝑨𝑩𝑥1 + 𝑪ഥ𝑩𝑥2
+25
+Example of Convolutional Representation
+worker 1
+worker 2
+worker 3
+𝑦0
+𝑦1
+𝑦2
+Can be computed in parallel!
+26
+SSMs is Ideal Models
+Recurrent
+Convolutional
+27
+SSMs is Ideal Models
+28
+The importance of the A matrix
+Convolutional
+SSMs still have some of the same issues as
+RNNs, like vanishing/exploding gradients.
+Recurrent
+solution
+The performance in the Sequencial MNIST
+increased from 60% to 98%.
+29
+30
+Outline
+1. Motivation
+2. State Space Models
+3. Mamba
+4. Coding
+31
+Mamba Motivation
+𝑄= 𝑋𝑊𝑄
+𝑊𝐾
+𝑊𝑉
+𝑋= {𝑥1, 𝑥2, 𝑥3, 𝑥4} ×
+×
+×
+𝑊𝑄
+𝐾= 𝑋𝑊𝐾
+𝑉= 𝑋𝑊𝑉
+𝐴𝑡𝑡𝑒𝑛𝑡𝑖𝑜𝑛𝑄, 𝐾, 𝑉= 𝑠𝑜𝑓𝑡𝑚𝑎𝑥
+𝑄𝐾𝑇
+𝑑𝑘
+𝑉
+A step back: Attention in Transformer
+32
+Mamba Motivation
+A step back: S4
+33
+Mamba Contribution #1: Selection Mechanism
+34
+Mamba Contribution #1: Selection Mechanism
+Compare S4 and Mamba (S6)
+35
+S4
+Mamba
+Mamba Contribution #1: Selection Mechanism
+36
+Convolutional
+Mamba becomes time-varying
+Mamba Contribution #1: Selection Mechanism
+37
+How does GPU work?
+Compute
+SRAM
+Compute
+SRAM
+...
+HBM
+Streaming Multiprocessors
+GPU 
+SRAM
+GPU HBM
+Main Memory
+(CPU DRAM)
+SRAM: 19 TB/s (20 MB)
+HBM: 1.5 TB/s (40 GB)
+DRAM: 12.8 GB/s (>1 TB)
+Memory Hierarchy with
+Bandwidth & Memory Size
+GPU
+38
+How does GPU work?
+Blog: Making Deep Learning Go Brrrr From First Principles
+Memory & Compute
+39
+How does GPU work?
+Blog: Making Deep Learning Go Brrrr From First Principles
+Memory & Compute
+40
+How does GPU work?
+Blog: Making Deep Learning Go Brrrr From First Principles
+NVIDIA A100 Tensor Core GPU
+Memory & Compute
+41
+Mamba Contribution #2: Hardware-aware Algorithm
+Kernel Fusion
+Blog: Making Deep Learning Go Brrrr From First Principles
+42
+Mamba Contribution #2: Hardware-aware Algorithm
+Recomputation
+43
+Mamba Contribution #2: Hardware-aware Algorithm
+9
+6
+7
+10
+8
+7
+9
+15
+22
+32
+40
+47
+𝑥0
+𝑥1
+𝑥2
+𝑥3
+𝑥4
+𝑥5
+ℎ0
+ℎ1
+ℎ2
+ℎ3
+ℎ4
+ℎ5
+Initial array
+Pre-fix sum
+Model input
+Scan output
+Prefix-sum
+Parallel Scan
+Recurrent
+Parallel Scan
+44
+Mamba Contribution #2: Hardware-aware Algorithm
+Parallel Scan
+Mamba Encoder
+Transformer Encoder
+45
+Mamba Block
+Norm
+Multi-Head
+Attention
+Norm
+MLP
++
++
+L x
+Linear
+Linear
+SSM
+Conv
+×
+Linear
+𝜎
+𝜎
+L x
+46
+Mamba Architecture
+Tokenizer
+Mamba Encoder
+MLP 
+Head
+Class
+Positive
+Negative
+tôi
+học
+AI
+tại
+AI
+VN
+47
+Mamba Arch. & Transformer Arch.
+Mamba
+ViT
+48
+Outline
+1. Motivation
+2. State Space Models
+3. Mamba
+4. Coding
+Custom Trainer
+(MambaTrainer)
+Mamba Model
+(MambaTextClassification)
+49
+Coding
+Mamba Backbone
+Mamba Head
+(MambaClassificationHead)
+Custom Trainer
+(MambaTrainer)
+Mamba Model
+(MambaTextClassification)
+50
+Coding
+Mamba Backbone
+Mamba Head
+(MambaClassificationHead)
+Custom Trainer
+(MambaTrainer)
+Mamba Model
+(MambaTextClassification)
+51
+Coding
+Mamba Backbone
+Mamba Head
+(MambaClassificationHead)
+Custom Trainer
+(MambaTrainer)
+Mamba Model
+(MambaTextClassification)
+52
+Coding
+Mamba Backbone
+Mamba Head
+(MambaClassificationHead)
+53
+Coding
+Custom Trainer
+(MambaTrainer)
+Mamba Model
+(MambaTextClassification)
+Mamba Backbone
+Mamba Head
+(MambaClassificationHead)
+54
+Summary
+Thanks!
+Any questions?
+55

@@ -1,0 +1,357 @@
+Extra Class
+Naïve Object Detection
+Year 2023
+Nguyen Quoc Thai
+AI VIETNAM
+All-in-One Course
+1
+2
+CONTENT
+(1) – Object Detection
+(2) – Naïve Object Detection (as Classification)
+1 – Object Detection
+!
+3
+Image Classification
+MODEL
+(LeNet, ResNet,…)
+Pretrained Model
+Class: CAT
+1 – Object Detection
+!
+4
+Image Classification using ResNet18
+3x3 conv, 64
+3x3 conv, 64
++
+64-d
+relu
+relu
+2 strides to 
+down-sample
+1x1 conv, 128
+Stride: 2
+2 strides to 
+down-sample
+2 strides to 
+down-sample
+1x1 conv, 256
+Stride: 2
+1x1 conv, 512
+Stride: 2
+Source
+Classifier
+1 – Object Detection
+!
+5
+Image Classification using ResNet18
+Feature Extractor
+Vector
+Matrix
+Pretraied Model (ResNet18)
+Task
+1 – Object Detection
+!
+6
+Image Segmentation
+MODEL
+CAT
+DOG
+UNet
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1
+1
+0
+0
+0
+0
+0
+0
+1
+1
+1
+0
+2
+2
+0
+0
+1
+1
+1
+0
+2
+2
+0
+0
+1
+1
+1
+2
+2
+2
+0
+0
+1
+1
+1
+1
+2
+2
+0
+1
+1
+1
+1
+1
+2
+2
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1 – Object Detection
+!
+7
+Image Segmentation using UNet
+Output
+Segmentation
+Map
+Input
+Image
+1 – Object Detection
+!
+8
+Object Detection
+CAT
+DOG
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1
+1
+0
+0
+0
+0
+0
+0
+1
+1
+1
+0
+2
+2
+0
+0
+1
+1
+1
+0
+2
+2
+0
+0
+1
+1
+1
+2
+2
+2
+0
+0
+1
+1
+1
+1
+2
+2
+0
+1
+1
+1
+1
+1
+2
+2
+0
+0
+0
+0
+0
+0
+0
+0
+0
+DOG – 0.98 CAT – 0.87
+Image Segmentation
+Object Detection
+Assign labels, bounding boxes 
+to objects in the image
+1 – Object Detection
+!
+9
+Object Detection
+DOG – 0.87
+Bounding Box
+Label
+1 – Object Detection
+!
+10
+Object Detection
+Bounding Box
+A rectangular (Describe the 
+spatial location of an object)
+1280
+853
+(330 , 300)
+224
+224
+As a small image (224x224)
+2 – Naïve Object Detection
+!
+11
+Naïve Object Detection (as Classification)
+1280
+853
+(0, 0)
+224
+224
+2 – Naïve Object Detection
+!
+12
+Naïve Object Detection (as Classification)
+1280
+853
+224
+224
+224 x 224
+ResNet18
+Classifier
+Trained on Dog label
+(0, 0)
+2 – Naïve Object Detection
+!
+13
+Naïve Object Detection (as Classification)
+1280
+853
+(30 , 0)
+224 x 224
+ResNet18
+Classifier
+Step = 30
+2 – Naïve Object Detection
+!
+14
+Naïve Object Detection (as Classification)
+1280
+853
+(0 , 30)
+224 x 224
+ResNet18
+Classifier
+Step = 30
+2 – Naïve Object Detection
+!
+15
+Naïve Object Detection (as Classification)
+1280
+853
+ResNet18
+Classifier
+ResNet18
+ResNet18
+DOG – 0.1
+Classifier
+DOG – 0.9
+Classifier
+DOG – 0.1
+2 – Naïve Object Detection
+!
+16
+Naïve Object Detection (as Classification)
+1280
+853
+DOG – 0.9
+(330 , 300)
+224
+224
+2 – Naïve Object Detection
+!
+17
+Multi Objects
+2 – Naïve Object Detection
+!
+18
+Multi Objects
+Any way to 
+reduce the 
+overlapping 
+bounding 
+boxes
+2 – Naïve Object Detection
+!
+19
+Multi Objects
+Pros
+Cons
+Simple
+Hard to choose threshold
+Easy to implement
+Does not work well when 
+bounding box shape vary
+2 – Naïve Object Detection
+!
+20
+Multi Objects - IoU
+𝐼𝑜𝑈= 𝐴𝑟𝑒𝑎𝑜𝑓𝑂𝑣𝑒𝑟𝑙𝑎𝑝
+𝐴𝑟𝑒𝑎𝑜𝑓𝑈𝑛𝑖𝑜𝑛=
+2 – Naïve Object Detection
+!
+21
+Multi Objects - IoU
+2 – Naïve Object Detection
+!
+22
+Multi Objects – Filter Function
+Get the bounding 
+box with the 
+highest score.
+Filter the boxes 
+with IoU > 
+threshold
+Keep this!
+2 – Naïve Object Detection
+!
+23
+Multi Objects – Filter Function
+2 – Naïve Object Detection
+!
+24
+Multi Objects – Filter Function
+2 – Naïve Object Detection
+!
+25
+Multi Objects – Filter Function
+Thanks!
+Any questions?
+26

@@ -1,9 +1,0 @@
-AI VIETNAM (AIO2024) aivietnam.edu.vn
-II.II. Cài đặt và sử dụng pre-trained model
-Một cách nhanh chóng để sử dụng được YOLOv10 đó là sử dụng pre-trained model (mô hình đã
-được huấn luyện sẵn trên bộ dữ liệu COCO - một bộ dữ liệu rất lớn). Để sử dụng pre-trained
-model, các bạn làm như sau:
-1. Tải mã nguồn YOLOv10 từ GitHub:Để sử dụng YOLOv10, chúng ta cần tải mã
-nguồn (source code) của YOLOv10 về môi trường cài đặt code, mã nguồn của YOLOv10
-được công khai trên GitHub. Như vậy, các bạn sẽ thực hiện theo các bước sau:
-• Bước 1:Các bạn truy cập vào đường dẫn GitHub của YOLOv10 tại đây. 

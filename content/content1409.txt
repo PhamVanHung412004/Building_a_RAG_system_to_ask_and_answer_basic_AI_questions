@@ -1,6 +1,0 @@
-optimizer . zero_grad ()
-30
-31 loss = self . model ( gt_color , cond_gray )
-32 loss . backward ()
-33 losses . append ( loss . item ())
-34 self . 

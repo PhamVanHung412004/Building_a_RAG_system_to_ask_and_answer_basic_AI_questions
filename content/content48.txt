@@ -1,8 +1,0 @@
-AI VIETNAM (AIO2024) aivietnam.edu.vn
-Hình 12: Thư mục YOLOv10
-2. Cài đặt các thư viện cần thiết:Mã nguồn YOLOv10 được xây dựng bằng rất nhiều
-các thư viện Python khác nhau. Vì vậy, để có thể chạy được YOLOv10, ta cần tải các gói
-thư viện cần thiết mà YOLOv10 yêu cầu bằng cách sử dụng file setup có sẵn trong mã
-nguồn, các bạn có thể làm như sau:
-1 %cd yolov10
-2 ! pip install -q -r requirements . 

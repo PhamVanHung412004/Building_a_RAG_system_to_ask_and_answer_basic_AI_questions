@@ -1,4 +1,0 @@
-astype (" int ")
-29 cv2 . rectangle ( image , ( startX , startY ), (endX , endY ), 70 , 2)
-30 return image
-5

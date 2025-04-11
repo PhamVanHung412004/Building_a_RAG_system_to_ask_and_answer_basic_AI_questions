@@ -1,0 +1,827 @@
+1
+AI VIETNAM
+All-in-One Course
+1
+AI VIETNAM
+All-in-One Course
+Image Stitching: Panorama Image
+(Computer Vision Foundation)
+Year 2023
+Vinh Dinh Nguyen
+PhD in Computer Science
+AI VIETNAM
+All-in-One Course
+2
+AI VIETNAM
+All-in-One Course
+2
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Image Stitching/Panorama Image
+Ø Edge Detector
+Ø Blob Detector
+Ø SIFT detector
+Ø Image Transformation: 2D & 3D
+Ø Image stitching/panorama Techniques
+Ø Lane Detection Demo
+Outline
+3
+AI VIETNAM
+All-in-One Course
+3
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Image Stitching/Panorama Image
+Ø Edge Detector
+Ø Blob Detector
+Ø SIFT detector
+Ø Image Transformation: 2D & 3D
+Ø Image stitching/panorama Techniques
+Ø Lane Detection Demo
+Outline
+4
+AI VIETNAM
+All-in-One Course
+4
+Vinh Dinh Nguyen- PhD in Computer Science
+How to build a Panaroma
+We need to match (align) images
+5
+AI VIETNAM
+All-in-One Course
+5
+Vinh Dinh Nguyen- PhD in Computer Science
+How to build a Panaroma
+•
+Detect feature points in both images
+•
+Find corresponding pairs
+•
+Use these pairs to align images
+6
+AI VIETNAM
+All-in-One Course
+6
+Vinh Dinh Nguyen- PhD in Computer Science
+Problems
+Detect the same point independently in both images
+For each point correctly recognize the corresponding one
+Need to estimate transformation between images, despite 
+erroneous correspondences
+7
+AI VIETNAM
+All-in-One Course
+7
+Vinh Dinh Nguyen- PhD in Computer Science
+Characteristics of Good Features
+Feature points are used for: 
+•
+Motion tracking
+•
+Image alignment
+•
+3D reconstruction
+•
+Object recognition
+•
+Indexing and database retrieval
+•
+Robot navigation
+8
+AI VIETNAM
+All-in-One Course
+8
+Vinh Dinh Nguyen- PhD in Computer Science
+Corners
+Limitations
+9
+AI VIETNAM
+All-in-One Course
+9
+Vinh Dinh Nguyen- PhD in Computer Science
+SIFT Detector: Motivation
+How would you recognize the following types of objects
+Template
+Find and Match “Interesting Points or Features”
+Scale Invariant Feature Transformation (SIFT): Image alignment and 2D object recognition
+Image credit: Professor Shree Nayar who is faculty in the Computer Science Department, School of Engineering and Applied Sciences, Columbia University.
+10
+AI VIETNAM
+All-in-One Course
+10
+Vinh Dinh Nguyen- PhD in Computer Science
+SIFT Detector: Interesting Point
+Image credit: Professor Shree Nayar who is faculty in the Computer Science Department, School of Engineering and Applied Sciences, Columbia University.
+Diffferent size, orientation, lighting, brighness, etc,…
+Interesting point:  (1) Rich content within the local window. (2) Well-define representation for mathing/comparing with other points. (3) 
+Well-define position in the image. (4) Should be invariant to image rotation and scaling. (5) Should be insenitve to lighting changes
+11
+AI VIETNAM
+All-in-One Course
+11
+Vinh Dinh Nguyen- PhD in Computer Science
+Are Line/Edges Interesting Point? 
+12
+AI VIETNAM
+All-in-One Course
+12
+Vinh Dinh Nguyen- PhD in Computer Science
+Are Blob Interesting?
+Blob has fixed position and definite size: location, 
+size, and orientation
+A Blob, in a sense, is anything that is considered a
+large object or anything bright in a dark background,
+in images, we can generalize it as a group of pixel
+values that forms a somewhat colony or a large
+object that is distinguishable from its background.
+13
+AI VIETNAM
+All-in-One Course
+13
+Vinh Dinh Nguyen- PhD in Computer Science
+Gaussian Filter: Review
+f
+𝑛!
+𝑛!*f
+Gaussian Filter is used to remove noise by smoothing
+Extremum of Derivative of Gaussian denotes an edge. 
+∇𝑛!
+∇𝑛!*f
+14
+AI VIETNAM
+All-in-One Course
+14
+Vinh Dinh Nguyen- PhD in Computer Science
+Gaussian Filter: Review
+Extremum of Derivative of Gaussian denotes an edge. 
+∇𝑛!
+∇𝑛!*f
+Zero crossing in 2nd derivative of Gaussian denote an Edge
+∇2𝑛!
+∇2𝑛!*f
+15
+AI VIETNAM
+All-in-One Course
+15
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø What is image stitching/panorama image
+Ø Edge Detector
+Ø Blob Detector
+Ø SIFT detector
+Ø Image Transformation: 2D & 3D
+Ø Image stitching/panorama Techniques
+Ø Lane Detection Demo
+Outline
+16
+AI VIETNAM
+All-in-One Course
+16
+Vinh Dinh Nguyen- PhD in Computer Science
+Edge Detection
+Discrete data
+Continuous data
+Kernel
+17
+AI VIETNAM
+All-in-One Course
+17
+Vinh Dinh Nguyen- PhD in Computer Science
+Edge Detection with Gaussian Filter
+The result of this convolution (Derivative filter ⋆h) is called the Derivative of 
+Gaussian
+18
+AI VIETNAM
+All-in-One Course
+18
+Vinh Dinh Nguyen- PhD in Computer Science
+Laplacian as Edge Detector
+19
+AI VIETNAM
+All-in-One Course
+19
+Vinh Dinh Nguyen- PhD in Computer Science
+Laplacian as Edge Detector
+f(x)
+𝜕f
+𝜕𝑥
+𝜕2f
+𝜕𝑥2
+Local extrema 
+indicate Edges
+Zero-crossing 
+indicate edges
+Laplacian: Sum of Pure Second Derivatives
+Edges are “zero-crossing” in Laplacian of image
+Laplacian does not provide directions of edges
+Kernel
+20
+AI VIETNAM
+All-in-One Course
+20
+Vinh Dinh Nguyen- PhD in Computer Science
+Laplacian of Gaussian
+21
+AI VIETNAM
+All-in-One Course
+21
+Vinh Dinh Nguyen- PhD in Computer Science
+Difference of Gaussians (DoG)
+Subtracting one Gaussian by another approximates the Laplacian of Gaussian
+This indicates while approximating the LoG, there is no actual derivative computation needed
+22
+AI VIETNAM
+All-in-One Course
+22
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø What is image stitching/panorama image
+Ø Edge Detector
+Ø Blob Detector
+Ø SIFT detector
+Ø Image Transformation: 2D & 3D
+Ø Image stitching/panorama Techniques
+Ø Lane Detection Demo
+Outline
+23
+AI VIETNAM
+All-in-One Course
+23
+Vinh Dinh Nguyen- PhD in Computer Science
+From Edges to Blobs
+Edge = ripple
+Blob = superposition of two ripples 
+24
+AI VIETNAM
+All-in-One Course
+24
+Vinh Dinh Nguyen- PhD in Computer Science
+From Edges to Blobs
+•We want to find the characteristic scale of the blob by convolving it with Laplacians at several scales and looking for the maximum 
+response 
+•However, Laplacian response decays as scale increases 
+Why does this happen?
+25
+AI VIETNAM
+All-in-One Course
+25
+Vinh Dinh Nguyen- PhD in Computer Science
+Scale normalization
+The response of a derivative of Gaussian filter to a perfect step edge decreases as σ increases 
+To keep response the same (scale-invariant), must multiply 
+Gaussian derivative by σ 
+Laplacian is the second Gaussian derivative, so it must be 
+multiplied by σ2
+26
+AI VIETNAM
+All-in-One Course
+26
+Vinh Dinh Nguyen- PhD in Computer Science
+Effect of Scale Normalization
+27
+AI VIETNAM
+All-in-One Course
+27
+Vinh Dinh Nguyen- PhD in Computer Science
+How to detect Blobs
+1D blob structure
+f(x)
+𝑛!
+𝜕2𝑛!
+𝜕𝑥2
+𝜕2𝑛!
+𝜕𝑥2 ∗𝑓(x)
+Blob c
+𝜎" 𝜕2𝑛!
+𝜕𝑥2 ∗𝑓(x)
+From Prof. Shree Nayar Lecture
+28
+AI VIETNAM
+All-in-One Course
+28
+Vinh Dinh Nguyen- PhD in Computer Science
+How to detect Blobs
+f(x)
+𝑛!
+𝜕2𝑛!
+𝜕𝑥2
+𝜕2𝑛!
+𝜕𝑥2 ∗𝑓(x)
+Blob c
+𝜎" 𝜕2𝑛!
+𝜕𝑥2 ∗𝑓(x)
+Find the peakè find this blob
+Still fail for blobs B and C
+From Prof. Shree Nayar Lecture
+29
+AI VIETNAM
+All-in-One Course
+29
+Vinh Dinh Nguyen- PhD in Computer Science
+How to detect Blobs
+f(x)
+𝑛!
+𝜕2𝑛!
+𝜕𝑥2
+𝜕2𝑛!
+𝜕𝑥2 ∗𝑓(x)
+Blob c
+𝜎" 𝜕2𝑛!
+𝜕𝑥2 ∗𝑓(x)
+Try to increase 𝜎 
+From Prof. Shree Nayar Lecture
+30
+AI VIETNAM
+All-in-One Course
+30
+Vinh Dinh Nguyen- PhD in Computer Science
+How to detect Blobs
+f(x)
+𝑛!
+𝜕2𝑛!
+𝜕𝑥2
+𝜕2𝑛!
+𝜕𝑥2 ∗𝑓(x)
+𝜎" 𝜕2𝑛!
+𝜕𝑥2 ∗𝑓(x)
+Local Extrema (x, 𝜎)  - Space Represent Blobs
+Try to increase 𝜎 
+x is the location of the blobs, and 𝜎is the scale of the blob. 
+Characteristic of Scale (𝜎) is proportional to the size of the blob
+Local extrema in (x, 𝜎) space
+From Prof. Shree Nayar Lecture
+31
+AI VIETNAM
+All-in-One Course
+31
+Vinh Dinh Nguyen- PhD in Computer Science
+Comparison of Laplacian-of-Gaussian and 
+Difference-of-Gaussian
+32
+AI VIETNAM
+All-in-One Course
+32
+Vinh Dinh Nguyen- PhD in Computer Science
+How to detect 1D Blobs
+From Prof. Shree Nayar Lecture
+33
+AI VIETNAM
+All-in-One Course
+33
+Vinh Dinh Nguyen- PhD in Computer Science
+How to detect 2D Blobs: Scale-Space
+From Prof. Shree Nayar Lecture
+34
+AI VIETNAM
+All-in-One Course
+34
+Vinh Dinh Nguyen- PhD in Computer Science
+How to detect 2D Blobs
+35
+AI VIETNAM
+All-in-One Course
+35
+Vinh Dinh Nguyen- PhD in Computer Science
+2D Blob Detection: Summary
+36
+AI VIETNAM
+All-in-One Course
+36
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø What is image stitching/panorama image
+Ø Edge Detector
+Ø Blob Detector
+Ø SIFT detector
+Ø Image Transformation: 2D & 3D
+Ø Image stitching/panorama Techniques
+Ø Lane Detection Demo
+Outline
+37
+AI VIETNAM
+All-in-One Course
+37
+Vinh Dinh Nguyen- PhD in Computer Science
+Bird’s-eye view of SIFT
+Scale-space extrema detection
+Keypoint localization and filtering
+Orientation assignment
+Generation of vector 
+representation for interest points
+https://www.researchgate.net/publication/331185020_A_novel_SIFT_architecture_and_ASIC_implementation_for_real_time_SOC_application/
+figures?lo=1
+38
+AI VIETNAM
+All-in-One Course
+38
+Vinh Dinh Nguyen- PhD in Computer Science
+Bird’s-eye view of SIFT
+Scale-space extrema detection
+Keypoint localization and filtering
+Orientation assignment
+Generation of vector 
+representation for interest points
+https://www.researchgate.net/publication/331185020_A_novel_SIFT_architecture_and_ASIC_implementation_for_real_time_SOC_application/
+figures?lo=1
+39
+AI VIETNAM
+All-in-One Course
+39
+Vinh Dinh Nguyen- PhD in Computer Science
+Scale-space extrema detection
+Automatic scale selection with Laplacian of Gaussian
+40
+AI VIETNAM
+All-in-One Course
+40
+Vinh Dinh Nguyen- PhD in Computer Science
+Scale-space extrema detection
+Applying DoG instead of computing LoG response map in each scale space
+41
+AI VIETNAM
+All-in-One Course
+41
+Vinh Dinh Nguyen- PhD in Computer Science
+Scale-space extrema detection
+However, just doing this does not guarantee that SIFT is scale-invariant because the 
+algorithm currently only looks at the image in one fixed scale. In order to observe 
+the image from many different scales, SIFT integrates the idea of Gaussian 
+Pyramid into this.
+Gaussian pyramid is a multi-scale representation of an image
+containing a properly re-sized(re-scaled) version of the original image
+by sampling with Gaussian blurring in order to avoid the aliasing issue
+42
+AI VIETNAM
+All-in-One Course
+42
+Vinh Dinh Nguyen- PhD in Computer Science
+Scale-space extrema detection
+Local extrema detection
+Local extrema (either maxima or minima) are detected by comparing a pixel (red circle) to its 26 neighbors (green) in 3×3 window at the current and
+adjacent (above and below) scales. More specifically, only a point DoG(x, y, σ) is selected if it is larger or smaller than all of its neighbors. The list of
+detected extremum (x, y, σ) is the keypoint candidates which will be processed later on in SIFT algorithm.
+43
+AI VIETNAM
+All-in-One Course
+43
+Vinh Dinh Nguyen- PhD in Computer Science
+Local Non-Maximal Suppression
+Differences of Gaussian
+Find extremum in vevy 
+3x3x3 grid
+Interest Point Candidates
+(includes weak extrema)
+Non-maximal suppression
+44
+AI VIETNAM
+All-in-One Course
+44
+Vinh Dinh Nguyen- PhD in Computer Science
+Keypoint localization and filtering
+Interest Point Candidates
+(includes weeak extrema)
+Interest Point Candidates
+(remove weak extrema)
+Blobs results
+Scale: 𝜎
+Taylor series expansion of
+scale
+space to get a more accurate location
+of extrema, and if the intensity at this
+extrema is less than a threshold value
+(0.03 as per the paper), it is rejected
+45
+AI VIETNAM
+All-in-One Course
+45
+Vinh Dinh Nguyen- PhD in Computer Science
+Keypoint localization and filtering
+Interest Point Candidates
+(includes weeak 
+extrema)
+Interest Point Candidates
+(remove weak extrema)
+Interest Point Visualization
+46
+AI VIETNAM
+All-in-One Course
+46
+Vinh Dinh Nguyen- PhD in Computer Science
+Sift Detector Example
+47
+AI VIETNAM
+All-in-One Course
+47
+Vinh Dinh Nguyen- PhD in Computer Science
+SIFT Scale Invariance
+48
+AI VIETNAM
+All-in-One Course
+48
+Vinh Dinh Nguyen- PhD in Computer Science
+Orientation Assignment
+Histogram of oriented gradient
+An orientation histogram with 36 bins
+covering 360 degrees is created
+49
+AI VIETNAM
+All-in-One Course
+49
+Vinh Dinh Nguyen- PhD in Computer Science
+Orientation Assignment
+Use the pricipal oritentation to undo the roration
+50
+AI VIETNAM
+All-in-One Course
+50
+Vinh Dinh Nguyen- PhD in Computer Science
+Keypoint descriptor
+For each sub-block, 8 bin orientation histogram is created.
+a 16x16 window around the keypoint is taken. It is divided into 16 sub-blocks of 4x4 size.
+51
+AI VIETNAM
+All-in-One Course
+51
+Vinh Dinh Nguyen- PhD in Computer Science
+SIFT Matching
+52
+AI VIETNAM
+All-in-One Course
+52
+Vinh Dinh Nguyen- PhD in Computer Science
+SIFT Matching
+53
+AI VIETNAM
+All-in-One Course
+53
+Vinh Dinh Nguyen- PhD in Computer Science
+SIFT Matching
+54
+AI VIETNAM
+All-in-One Course
+54
+Vinh Dinh Nguyen- PhD in Computer Science
+Image Stitching
+2x2 Image Transformation
+3x3 Image Transformation
+Compute Homography
+Dealing with Outlier: RANSAC
+Warping and Blending Images
+55
+AI VIETNAM
+All-in-One Course
+55
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø What is image stitching/panorama image
+Ø Edge Detector
+Ø Blob Detector
+Ø SIFT detector
+Ø Image Transformation: 2D & 3D
+Ø Image stitching/panorama Techniques
+Ø Lane Detection Demo
+Outline
+56
+AI VIETNAM
+All-in-One Course
+56
+Vinh Dinh Nguyen- PhD in Computer Science
+Image Manipulation
+𝐺𝑥, 𝑦= 𝑇𝑟(𝑓(𝑥, 𝑦)
+Image filtering: change range(brightness)
+𝐺𝑥, 𝑦= 𝑇𝑑(𝑓(𝑥, 𝑦)
+Image filtering: change domain(location)
+57
+AI VIETNAM
+All-in-One Course
+57
+Vinh Dinh Nguyen- PhD in Computer Science
+Global Warping/Transformation
+58
+AI VIETNAM
+All-in-One Course
+58
+Vinh Dinh Nguyen- PhD in Computer Science
+Transformation and Scaling (2D)
+P1 = (x1,y1)
+P2 = (x2,y2)
+Transformation 
+(T) can be a Matrix
+P2 = T*P1
+x2
+y2 = T x1
+y1
+x2
+y2 = a11
+a12
+a21
+a22
+x1
+y1
+x
+y
+x
+y
+P1 = (x1,y1)
+P2 = (x2,y2)
+S (Scaling) can be a 
+Matrix
+P2 = S*P1
+x2
+y2 = S x1
+y1
+x2
+y2 = a
+0
+0
+b
+x1
+y1
+x
+y
+x
+y
+59
+AI VIETNAM
+All-in-One Course
+59
+Vinh Dinh Nguyen- PhD in Computer Science
+2D Rotation
+60
+AI VIETNAM
+All-in-One Course
+60
+Vinh Dinh Nguyen- PhD in Computer Science
+Skew and Mirror
+61
+AI VIETNAM
+All-in-One Course
+61
+Vinh Dinh Nguyen- PhD in Computer Science
+Translation
+x2 = x1 + tx
+y2 = y1 + ty
+Can translation be expressed as 2x2 matrix? 
+62
+AI VIETNAM
+All-in-One Course
+62
+Vinh Dinh Nguyen- PhD in Computer Science
+Homogenous Coordinates 
+Every point on line L (except origin) represent the homogeneous coordinate of p(x,y)
+63
+AI VIETNAM
+All-in-One Course
+63
+Vinh Dinh Nguyen- PhD in Computer Science
+Translation (3D) 
+x2 = x1 + tx
+y2 = y1 + ty
+64
+AI VIETNAM
+All-in-One Course
+64
+Vinh Dinh Nguyen- PhD in Computer Science
+Scaling, Translation, Rotation, Skew
+Composition of these transformation (scaling + 
+skew + translation + rotation)?
+65
+AI VIETNAM
+All-in-One Course
+65
+Vinh Dinh Nguyen- PhD in Computer Science
+Affine Transformation
+66
+AI VIETNAM
+All-in-One Course
+66
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø What is image stitching/panorama image
+Ø Edge Detector
+Ø Blob Detector
+Ø SIFT detector
+Ø Image Transformation: 2D & 3D
+Ø Image stitching/panorama Techniques
+Ø Lane Detection Demo
+Outline
+67
+AI VIETNAM
+All-in-One Course
+67
+Vinh Dinh Nguyen- PhD in Computer Science
+Projective Transformation
+Mapping of one plane to another throught a point 
+A homography is a projective
+transformation between two
+planes. How to compute it?
+68
+AI VIETNAM
+All-in-One Course
+68
+Vinh Dinh Nguyen- PhD in Computer Science
+Homography Composition
+69
+AI VIETNAM
+All-in-One Course
+69
+Vinh Dinh Nguyen- PhD in Computer Science
+Computing Homograpy
+Given a set of matching features/points between image 1 and image 
+2, find the homography H that best “agrees” with the matches. How 
+many mininum pairs of  matching points?
+For a given pair i of corresponding points
+70
+AI VIETNAM
+All-in-One Course
+70
+Vinh Dinh Nguyen- PhD in Computer Science
+Computing Homograpy
+All corresponding points
+One corresponding point
+71
+AI VIETNAM
+All-in-One Course
+71
+Vinh Dinh Nguyen- PhD in Computer Science
+Constraint Least Square
+72
+AI VIETNAM
+All-in-One Course
+72
+Vinh Dinh Nguyen- PhD in Computer Science
+Deal with outlier: RANSAC
+How to compute the homography in the presence of outliers
+Random Sample Consensus
+1.
+Randomly choose s samples. Typically s is the mininum samples to 
+fit a model
+2.
+Fit the model to the randomly choosen samples
+3.
+Count the number M of data points (inliers)that fit the model 
+within a measure of error 𝜺
+4.
+Repeat steps 1-3 N times
+5.
+Choose the model that has the largest number M of inliers
+73
+AI VIETNAM
+All-in-One Course
+73
+Vinh Dinh Nguyen- PhD in Computer Science
+Warping Images
+Forward Warping
+backward Warping
+Result in holes
+74
+AI VIETNAM
+All-in-One Course
+74
+Vinh Dinh Nguyen- PhD in Computer Science
+Image Alignment Process
+75
+AI VIETNAM
+All-in-One Course
+75
+Vinh Dinh Nguyen- PhD in Computer Science
+Blending Images
+Seams still visible
+76
+AI VIETNAM
+All-in-One Course
+76
+Vinh Dinh Nguyen- PhD in Computer Science
+Blending Images
+77
+AI VIETNAM
+All-in-One Course
+77
+Vinh Dinh Nguyen- PhD in Computer Science
+Blending Images
+I#$%&' = w(I( + w"I"
+w( + w"
+78
+AI VIETNAM
+All-in-One Course
+78
+Vinh Dinh Nguyen- PhD in Computer Science
+Blending Images (Distance Transform)
+Pixels closer to the edge get lower weight
+The distance transform is an operator normally only applied to
+binary images. The result of the transform is a graylevel image
+that looks similar to the input image, except that the graylevel
+intensities of points inside foreground regions are changed to
+show the distance to the closest boundary from each point
+79
+AI VIETNAM
+All-in-One Course
+79
+Vinh Dinh Nguyen- PhD in Computer Science
+Distance Transform
+Euclidean
+City Block
+Chessboard
+Quasi-Euclidean
+80
+AI VIETNAM
+All-in-One Course
+80
+Vinh Dinh Nguyen- PhD in Computer Science
+Blending Images (Distance Transform)
+81
+AI VIETNAM
+All-in-One Course

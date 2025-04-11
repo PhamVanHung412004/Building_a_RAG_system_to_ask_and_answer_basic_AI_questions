@@ -1,0 +1,1225 @@
+Optimization Algorithms 
+in Deep Learning
+Year 2023
+Quang-Vinh Dinh
+PhD in Computer Science
+AI VIETNAM
+All-in-One Course
+➢Quick Introdution
+➢Stochastic Gradient Descent
+➢Adagrad
+➢RMSProp
+➢Momentum
+➢Adam
+➢Case studies
+Outline
+Optimization Algorithms
+AI VIETNAM
+All-in-One Course
+Overview
+1
+Optimization Algorithms
+Loss functions
+Discontinuous 
+Functions
+Continuous 
+Function
+From “Machine Learning Simplified”
+Continuous non-differentiable functions
+2
+Optimization Algorithms
+AI VIETNAM
+All-in-One Course
+Challenges
+Local minima
+Global minima
+Saddle points
+https://blog.paperspace.com/intro-
+to-optimization-in-deep-learning-
+gradient-descent/
+Optimization Algorithms
+AI VIETNAM
+All-in-One Course
+Challenges
+Local minima
+Global minima
+Saddle points
+https://vitalflux.com/local-
+global-maxima-minima-
+explained-examples/
+4
+Optimization Algorithms
+AI VIETNAM
+All-in-One Course
+Challenges: Local minima
+From “Machine Learning Simplified”
+5
+Optimization Algorithms
+AI VIETNAM
+All-in-One Course
+Challenges
+Saddle points
+https://www.wikiwand.com/en/Saddle_point
+6
+Optimization Algorithms
+AI VIETNAM
+All-in-One Course
+Challenges: Gradient vanishing
+sigmoid 𝑥=
+1
+1 + 𝑒−𝑥
+sigmoid′ 𝑥= sigmoid 𝑥
+1 −sigmoid 𝑥
+tanh′ 𝑥= 1 −tanh2(𝑥)
+tanh 𝑥= 𝑒𝑥−𝑒−𝑥
+𝑒𝑥+ 𝑒−𝑥
+7
+Optimization Algorithms
+AI VIETNAM
+All-in-One Course
+Learning rate
+From “Machine Learning Simplified”
+➢Quick Introdution
+➢Stochastic Gradient Descent
+➢Adagrad
+➢RMSProp
+➢Momentum
+➢Adam
+➢Case studies
+Outline
+Optimizers
+AI VIETNAM
+All-in-One Course
+Optimizer Selection
+https://www.kdnuggets.com/2019/06/gradient-descent-algorithms-cheat-sheet.html
+Define a way to update parameters
+9
+Đạo hàm=
+𝑇ℎ𝑎𝑦 đổ𝑖 𝑡ℎ𝑒𝑜 𝑦
+𝑇ℎ𝑎𝑦 đổ𝑖 𝑡ℎ𝑒𝑜 𝑥=
+∆𝑦 
+∆𝑥 
+𝑑
+𝑑𝑥 𝑓(𝑥) = lim
+∆𝑥→0
+𝑓𝑥+ ∆𝑥−𝑓(𝑥)
+∆𝑥
+∆𝑥 cần tiến về 0 để 
+đường tiếp tuyến tiến 
+về hàm f(x) trong vùng
+ lân cận tại x
+Đạo hàm cho hàm liên tục
+Derivative/Gradient
+AI VIETNAM
+All-in-One Course
+f(x)
+∆𝑥
+∆𝑦
+𝑥
+𝑦
+𝑥
+𝑥+ ∆𝑥
+10
+Tìm giá trị min
+𝑥
+𝑦
+𝑥op
+𝑥2
+𝐝
+𝐝𝐱 𝐟𝐱𝟐< 𝟎
+𝐝
+𝐝𝐱 𝐟𝐱𝟏> 𝟎
+𝑥1
+Quan sát: 𝑥op ở vị trí ngược hướng đạo hàm 
+tại 𝐱𝟏 và 𝐱𝟐 
+Cách xử lý việc di chuyển ngược hướng đạo 
+hàm cho 𝐱𝟏 và 𝐱𝟐 (để tìm 𝑥op) khác nhau 
+hình thành các thuật toán tối ưu hóa khác 
+nhau
+𝐱= 𝐱 − 𝜂𝐝
+𝐝𝐱 𝐟𝐱
+Cách cập nhật giá trị x đơn giản
+Đạo hàm tại x
+Trọng số
+Gradient-based Optimization
+AI VIETNAM
+All-in-One Course
+2
+11
+𝜃 value
+Cứ tiếp tục di chuyển ngược 
+hướng đạo hàm
+𝐝
+𝐝𝜃𝐟𝜃> 𝟎
+Dịch chuyển 𝜃 về phía trái
+𝐉𝜃
+𝜃 value
+Di chuyển 𝜽 ngược hướng đạo hàm
+𝐝
+𝐝𝜽f 𝜃> 𝟎
+Dịch chuyển 𝜃 
+về phía trái
+𝐉𝜃
+Optimization
+❖ A cue to optimize a function
+3
+𝐉𝜃
+Khởi tạo giá trị 𝜽
+𝐝
+𝐝𝜽𝐉𝜃> 𝟎
+Dịch chuyển 𝜃 
+về phía trái
+𝜃 value
+𝐝
+𝐝𝜽𝐟𝜃> 𝟎
+Dịch chuyển 𝜃 
+về phía trái
+𝐝
+𝐝𝜃𝐟𝜃< 𝟎
+Dịch chuyển 𝜃 
+về phía phải
+12
+Gradient-based Optimization
+AI VIETNAM
+All-in-One Course
+❖ Square function
+𝑓𝑥= 𝑥2
+−100 ≤𝑥≤100
+𝑥∈ℕ
+Gradient-based Optimization
+AI VIETNAM
+All-in-One Course
+❖ Square function
+Compute 
+derivative at x
+Move x 
+opposite to dx
+Initialize x
+𝑓𝑥= 𝑥2
+−100 ≤𝑥≤100
+𝑥∈ℕ
+𝑥𝑡= 𝑥𝑡−1 −𝜂𝑓′(𝑥𝑡−1)
+Optimization
+AI VIETNAM
+All-in-One Course
+❖ Square function
+−100 ≤𝑥≤100
+𝑥∈ℕ
+𝑥𝑡= 𝑥𝑡−1 −𝜂𝑓′(𝑥𝑡−1)
+𝑓𝑥= 𝑥2
+𝑥0 = 70.0
+𝜂= 0.1
+𝑓′ 𝑥0 = 140.0
+𝑥1 = 𝑥0 −𝜂𝑓′ 𝑥0 = 56.0
+f ′ x1 = 112.0
+𝑥2 = 𝑥1 −𝜂𝑓′ 𝑥1 = 44.8
+f ′ x2 = 89.6
+𝑥3 = 𝑥2 −𝜂𝑓′ 𝑥2 = 35.84
+f ′ x3 = 71.68
+𝑥4 = 𝑥3 −𝜂𝑓′ 𝑥3 = 28.672
+Optimization
+AI VIETNAM
+All-in-One Course
+❖ Square function
+𝑥𝑡= 𝑥𝑡−1 −𝜂𝑓′(𝑥𝑡−1)
+𝑓𝑥= 𝑥2
+𝑥10 = 6.012
+𝜂= 0.1
+𝑓′ 𝑥10 = 12.02
+𝑥11 = 𝑥10 −𝜂𝑓′ 𝑥10 = 4.81
+f ′ x11 = 9.62
+𝑥12 = 𝑥11 −𝜂𝑓′ 𝑥11 = 3.84
+f ′ x12 = 7.69
+𝑥13 = 𝑥12 −𝜂𝑓′ 𝑥12 = 3.078
+f ′ x13 = 6.15
+𝑥14 = 𝑥13 −𝜂𝑓′ 𝑥13 = 2.46
+Keep doing
+Optimization
+AI VIETNAM
+All-in-One Course
+❖ Square function
+𝑥𝑡= 𝑥𝑡−1 −𝜂𝑓′(𝑥𝑡−1)
+𝑓𝑥= 𝑥2
+𝑥30 = 0.069
+𝜂= 0.1
+𝑓′ 𝑥30 = 0.138
+𝑥31 = 𝑥30 −𝜂𝑓′ 𝑥30 = 0.055
+f ′ x31 = 0.11
+𝑥32 = 𝑥31 −𝜂𝑓′ 𝑥31 = 0.044
+f ′ x32 = 0.88
+𝑥33 = 𝑥32 −𝜂𝑓′ 𝑥32 = 0.035
+f ′ x34 = 0.071
+𝑥34 = 𝑥33 −𝜂𝑓′ 𝑥33 = 0.028
+Keep doing
+Optimization
+AI VIETNAM
+All-in-One Course
+❖ Square function
+𝑓𝑥= 𝑥2
+𝑥𝑡= 𝑥𝑡−1 −𝜂𝑓′(𝑥)
+𝑥1000 ≈10−38
+Optimized successfully!
+Optimization
+❖ Square function
+𝑥0 = 99.0
+𝜂= 0.1
+𝑥𝑡= 𝑥𝑡−1 −𝜂𝑓′(𝑥)
+𝑓𝑥= 𝑥2
+19
+Optimization
+❖ Square function
+𝑥0 = 99.0
+𝜂= 0.001
+𝑥𝑡= 𝑥𝑡−1 −𝜂𝑓′(𝑥)
+𝑓𝑥= 𝑥2
+Discussion
+Optimization
+❖ Square function
+𝑥0 = 99.0
+𝜂= 0.8
+𝑥𝑡= 𝑥𝑡−1 −𝜂𝑓′(𝑥)
+𝑓𝑥= 𝑥2
+Discussion
+Optimization
+❖ Square function
+𝑥0 = 99.0
+𝜂= 1. 1
+𝑥𝑡= 𝑥𝑡−1 −𝜂𝑓′(𝑥)
+𝑓𝑥= 𝑥2
+Discussion
+Optimization Algorithms
+AI VIETNAM
+All-in-One Course
+Stochastic gradient descent
+23
+𝜃𝑡= 𝜃𝑡−1 −𝜂𝛻𝜃𝐿
+1-sample
+m-sample
+N-sample
+Optimization
+AI VIETNAM
+All-in-One Course
+❖ Optimization: 2D function
+−100 ≤𝑥, 𝑦≤100
+𝑥, 𝑦∈ℕ
+𝑓𝑥, 𝑦= 𝑥2 + 𝑦2
+7
+24
+Optimization
+AI VIETNAM
+All-in-One Course
+❖ Optimization: 2D function
+−100 ≤𝑥, 𝑦≤100
+𝑥, 𝑦∈ℕ
+𝑓𝑥, 𝑦= 𝑥2 + 𝑦2
+𝑥= 𝑥−𝜂𝜕𝑓(𝑥, 𝑦)
+𝜕𝑥
+𝑦= 𝑦−𝜂𝜕𝑓(𝑥, 𝑦)
+𝜕𝑦
+𝑥0 = 6.0
+𝜂= 0.1
+𝑦0 = 9.0
+𝜕𝑓(𝑥0, 𝑦0)
+𝜕𝑥
+= 12
+𝜕𝑓(𝑥0, 𝑦0)
+𝜕y
+= 18
+𝑥1 = 4.8
+𝑦1 = 7.2
+𝜕𝑓(𝑥1, 𝑦1)
+𝜕𝑥
+= 9.6
+𝜕𝑓(𝑥1, 𝑦1)
+𝜕y
+= 14.4
+𝑥2 = 3.84
+𝑦2 = 5.75
+𝜕𝑓(𝑥2, 𝑦2)
+𝜕𝑥
+= 7.68
+𝜕𝑓(𝑥2, 𝑦2)
+𝜕y
+= 11.51
+𝑥3 = 3.07
+𝑦3 = 4.608
+𝜕𝑓(𝑥3, 𝑦3)
+𝜕𝑥
+= 6.14
+𝜕𝑓(𝑥3, 𝑦3)
+𝜕y
+= 9.21
+𝑥4 = 2.45
+𝑦4 = 3.68
+Gradient-based Optimization
+AI VIETNAM
+All-in-One Course
+❖ Another Square function
+Compute 
+derivative at x
+Move x 
+opposite to dx
+Initialize x
+−100 ≤𝑥≤100
+𝑥∈ℕ
+𝑓𝑥= 9𝑥2
+5
+𝑥𝑡= 𝑥𝑡−1 −𝜂𝑓′(𝑥)
+26
+Optimization
+AI VIETNAM
+All-in-One Course
+❖ Another Square function
+−100 ≤𝑥≤100
+𝑥∈ℕ
+𝑥𝑡= 𝑥𝑡−1 −𝜂𝑓′(𝑥𝑡−1)
+𝑓𝑥= 9𝑥2
+𝑥0 = 70.0
+𝜂= 0.1
+𝑓′ 𝑥0 = 1260.0
+𝑥1 = 𝑥0 −𝜂𝑓′ 𝑥0 = −56.0
+f ′ x1 = −1008.0
+𝑥2 = 𝑥1 −𝜂𝑓′ 𝑥1 = 44.8
+f ′ x2 = 806.4
+𝑥3 = 𝑥2 −𝜂𝑓′ 𝑥2 = −35.84
+f ′ x3 = −645.12
+𝑥4 = 𝑥3 −𝜂𝑓′ 𝑥3 = 28.672
+Optimization
+AI VIETNAM
+All-in-One Course
+❖ Another Square function
+−100 ≤𝑥≤100
+𝑥∈ℕ
+𝑓𝑥= 9𝑥2
+Optimization
+❖ Another Square function
+𝑥0 = 99.0
+𝜂= 0.1
+𝑥𝑡= 𝑥𝑡−1 −𝜂𝑓′(𝑥)
+𝑓𝑥= 9𝑥2
+Observation?
+Gradient-based Optimization
+AI VIETNAM
+All-in-One Course
+❖ Square function
+Compute 
+derivative at x
+Move x 
+opposite to dx
+Initialize x
+−100 ≤𝑥≤100
+𝑥∈ℕ
+𝑓𝑥= 20𝑥2
+5
+𝑥𝑡= 𝑥𝑡−1 −𝜂𝑓′(𝑥)
+31
+Optimization
+AI VIETNAM
+All-in-One Course
+❖ Square function
+−100 ≤𝑥≤100
+𝑥∈ℕ
+𝑥𝑡= 𝑥𝑡−1 −𝜂𝑓′(𝑥𝑡−1)
+𝑓𝑥= 20𝑥2
+𝑥0 = 2.0
+𝜂= 0.1
+𝑓′ 𝑥0 = 80.0
+𝑥1 = 𝑥0 −𝜂𝑓′ 𝑥0 = −6.0
+f ′ x1 = −240.0
+𝑥2 = 𝑥1 −𝜂𝑓′ 𝑥1 = 18.0
+f ′ x2 = 720.0
+𝑥3 = 𝑥2 −𝜂𝑓′ 𝑥2 = −54.0
+f ′ x3 = −2160.0
+𝑥4 = 𝑥3 −𝜂𝑓′ 𝑥3 = 162.0
+Optimization
+❖ Square function
+𝑥0 = 2.0
+𝜂= 0.1
+𝑥𝑡= 𝑥𝑡−1 −𝜂𝑓′(𝑥)
+𝑓𝑥= 20𝑥2
+Observation?
+Gradient-based Optimization
+❖ For composite function
+6
+AI VIETNAM
+All-in-One Course
+34
+𝑥
+𝑓
+𝑑
+𝑑𝑥𝑓𝑥
+𝑥
+𝑓
+𝑔
+𝑑
+𝑑𝑓𝑔𝑓
+𝑑
+𝑑𝑥𝑓𝑥
+𝑑
+𝑑𝑥𝑔𝑓𝑥
+=
+𝑑
+𝑑𝑓𝑔𝑓
+∗
+𝑑
+𝑑𝑥𝑓𝑥
+𝑓𝑥= 𝑥2 + 3𝑥
+𝑔𝑥= 𝑥3 + 𝑥+ 2
+𝑔𝑓𝑥
+Gradient-based Optimization
+❖ For composite function
+AI VIETNAM
+All-in-One Course
+Select an appropriate 
+value for learning rate
+𝑥0 = 3.0
+𝜂= 0.01
+𝑔′ 𝑥0 = 8757.0
+𝑥1 = −84.0
+𝑥0 = 3.0
+𝜂= 0.0001
+𝑔′ 𝑥0 = 8757.0
+𝑥1 = 2.1243
+𝑥0 = 3.0
+𝜂= 0.001
+𝑔′ 𝑥0 = 8757.0
+𝑥1 = −5.757
+𝑥0 = 3.0
+𝜂= 0.0005
+𝑔′ 𝑥0 = 8757.0
+𝑥1 = −1.3785
+𝑥0 = 3.0
+𝜂= 0.0005
+𝑥𝑡= 𝑥𝑡−1 −𝜂𝑓′(𝑥)
+Optimization
+❖ Composite function
+Observation?
+Gradient-based 
+Optimization
+❖ Another function
+𝑓𝑥= log(𝑥2)
+𝑥𝑡= 𝑥𝑡−1 −𝜂𝑓′(𝑥𝑡−1)
+𝑥0 = 9.0
+𝜂= 10.0
+𝑓′ 𝑥0 = 0.22
+𝑥1 = 𝑥0 −𝜂𝑓′ 𝑥0 = 6.77
+f ′ x1 = 0.295
+𝑥2 = 𝑥1 −𝜂𝑓′ 𝑥1 = 3.82
+f ′ x2 = 0.52
+𝑥3 = 𝑥2 −𝜂𝑓′ 𝑥2 = −1.39
+f ′ x3 = −1.429
+𝑥4 = 𝑥3 −𝜂𝑓′ 𝑥3 = 12.89
+𝑥0 = 9.0
+𝜂= 10.0
+𝑥𝑡= 𝑥𝑡−1 −𝜂𝑓′(𝑥)
+Optimization
+❖ Another function
+Observation?
+❖ Another function
+Gradient-based Optimization
+AI VIETNAM
+All-in-One Course
+𝑥0 = −1.5
+𝜂= 0.2
+𝑥𝑡= 𝑥𝑡−1 −𝜂𝑓′(𝑥)
+❖ Another function
+Gradient-based Optimization
+AI VIETNAM
+All-in-One Course
+𝑥0 = −1.5
+𝜂= 0.2
+𝑥𝑡= 𝑥𝑡−1 −𝜂𝑓′(𝑥)
+➢Quick Introdution
+➢Stochastic Gradient Descent
+➢Adagrad
+➢RMSProp
+➢Momentum
+➢Adam
+➢Case studies
+Outline
+Adaptive Learning Rate
+Learning rate decay
+42
+AI VIETNAM
+All-in-One Course
+Iteration 𝑖
+Period 𝑝
+Reduction rate 𝑘
+𝑖𝑓 𝑖%𝑝== 0:
+𝜂= 0.2
+𝜂= 𝜂/𝑘
+𝑥0 = −1.5
+𝜂= 0.2
+𝑥𝑡= 𝑥𝑡−1 −𝜂𝑓′(𝑥)
+Adaptive 
+Learning Rate
+Learning rate decay
+Adaptive Learning Rate
+Learning rate decay
+𝜂= 𝜂0 × 𝜆
+𝑠
+𝑘
+initial_learning_rate * decay_rate ^ (step / decay_steps)
+𝜂0 = 0.2
+𝑘= 5
+𝜆= 0.9
+𝜂0 = 0.2
+𝑘= 1
+𝜆= 0.9
+torch.optim.lr_scheduler
+𝑥0 = −1.5
+𝜂= 0.2
+𝑥𝑡= 𝑥𝑡−1 −𝜂𝑓′(𝑥)
+Adaptive 
+Learning Rate
+Learning rate decay
+𝜂= 𝜂0 × 𝜆
+𝑠
+𝑘
+Adaptive Learning Rate
+AI VIETNAM
+All-in-One Course
+Adagrad (one variable functions)
+46
+𝑠𝑡= 𝑠𝑡−1 + 𝑔𝑡
+2
+𝑥𝑡= 𝑥𝑡−1 −
+𝜂
+𝑠𝑡+ 𝜖𝑔𝑡
+𝑔𝑡= 𝑓′(𝑥𝑡−1)
+Using derivative values
+𝑠0 = 0.1
+∈= 10−7
+(or s0 = 0.0)
+Adaptive 
+Learning 
+Rate
+Adagrad 
+(one variable functions)
+𝑠0 = 0.0
+𝜖= 10−7
+𝜂= 0.5
+Adaptive 
+Learning 
+Rate
+Adagrad 
+(one variable functions)
+𝑠0 = 0.0
+𝜖= 10−7
+𝜂= 0.5
+Adaptive Learning Rate
+Adagrad (one variable functions)
+𝑠𝑡= 𝑠𝑡−1 + 𝑔𝑡
+2
+𝑥𝑡= 𝑥𝑡−1 −
+𝜂
+𝑠𝑡+ 𝜖𝑔𝑡
+𝑔𝑡= 𝑓′(𝑥𝑡−1)
+Using derivative values
+𝑠0 = 0.1
+𝜖= 10−7
+𝜂= 𝜂0 × 𝜆
+𝑠
+𝑘
+𝜂0 = 0.2
+𝑘= 1
+𝜆= 0.9
+AI VIETNAM
+All-in-One Course
+Learning rate decay
+Differences?
+Adaptive Learning Rate
+AI VIETNAM
+All-in-One Course
+❖ Optimization: 2D function
+imagine
+−100 ≤𝑥, 𝑦≤100
+𝑥, 𝑦∈ℕ
+𝑓𝑥, 𝑦= 𝑥2 + 𝑦2
+𝑓𝑥, 𝑦
+𝑓𝑥, 𝑦
+Adaptive Learning Rate
+AI VIETNAM
+All-in-One Course
+51
+𝑠𝑡,𝑥= 𝑠𝑡−1,𝑥+ 𝑔𝑡,𝑥
+2
+𝑥𝑡= 𝑥𝑡−1 −
+𝜂
+𝑠𝑡,𝑥+ 𝜖𝑔𝑡,𝑥
+𝑔𝑡,𝑥= 𝜕𝑓(𝑥, 𝑦)
+𝜕𝑥
+Adagrad (2D function)
+𝑠𝑡,𝑦= 𝑠𝑡−1,𝑦+ 𝑔𝑡,𝑦
+2
+𝑦𝑡= 𝑦𝑡−1 −
+𝜂
+𝑠𝑡,𝑦+ 𝜖𝑔𝑡,𝑦
+𝑔𝑡,𝑦= 𝜕𝑓(𝑥, 𝑦)
+𝜕𝑥
+Adagrad
+𝑠𝑡= 𝑠𝑡−1 + 𝑔𝑡
+2
+𝜃𝑡= 𝜃𝑡−1 −
+𝜂
+𝑠𝑡+ 𝜖𝑔𝑡
+𝑔𝑡= 𝛻𝜃𝐿
+Adaptive 
+Learning 
+Rate
+Adagrad: Limitation
+𝑠0 = 0.0
+𝜖= 10−7
+𝜂= 0.1
+𝑠𝑡= 𝑠𝑡−1 + 𝑔𝑡
+2
+𝜃𝑡= 𝜃𝑡−1 −
+𝜂
+𝑠𝑡+ 𝜖𝑔𝑡
+𝑔𝑡= 𝛻𝜃𝐿
+current 
+summation
+expected 
+summation
+1.0
+-1.0
+How to Use historical Data
+AI VIETNAM
+All-in-One Course
+Moving average
+53
+3
+8
+6
+5
+1
+9
+0
+8
+4
+5.5
+7.0
+5.5
+3.0
+8.0
+4.5
+4.0
+6.0
+4.0
+7
+𝑘= 2
+𝑆𝑀𝐴𝑡= 𝑠𝑡−1 + 𝑠𝑡−2 + ⋯+ 𝑠𝑡−𝑘
+𝑘
+3
+8
+6
+5
+1
+9
+0
+8
+4
+5.5
+5.8
+5.4
+3.2
+7.0
+3.5
+5.8
+4.9
+5.1
+7
+3.0
+𝐸𝑀𝐴𝑡= 𝜌𝐸𝑀𝐴𝑡−1 + (1 −𝜌)𝑠𝑡
+How to Use historical Data
+AI VIETNAM
+All-in-One Course
+Exponentially weighted averages
+54
+3
+8
+6
+5
+1
+9
+0
+8
+4
+5.5
+5.8
+5.4
+3.2
+7.0
+3.5
+5.8
+4.9
+5.1
+7
+3.0
+𝑉𝑡= 𝜌𝑉𝑡−1 + (1 −𝜌)𝑠𝑡
+𝑉1 = 𝜌𝑉0 + (1 −𝜌)𝑠1
+𝑉2 = 𝜌𝑉1 + (1 −𝜌)𝑠2
+𝑉3 = 𝜌𝑉2 + (1 −𝜌)𝑠3
+𝑉3 = 𝜌𝜌𝑉1 + (1 −𝜌)𝑠2 + (1 −𝜌)𝑠3
+𝑉3 = 𝜌𝜌𝜌𝑉0 + (1 −𝜌)𝑠1 + (1 −𝜌)𝑠2 + (1 −𝜌)𝑠3
+Given 𝑉0 = 0, we have
+𝑉3 = 𝜌𝜌(1 −𝜌)𝑠1 + (1 −𝜌)𝑠2 + (1 −𝜌)𝑠3
+𝑉3 = 𝜌2 (1 −𝜌)𝑠1 + 𝜌(1 −𝜌)𝑠2 + (1 −𝜌)𝑠3
+How to Use historical Data
+AI VIETNAM
+All-in-One Course
+Exponentially weighted averages
+𝑉3 = 𝜌2 (1 −𝜌)𝑠1 + 𝜌(1 −𝜌)𝑠2 + (1 −𝜌)𝑠3
+With 𝜌= 0.9
+𝑉3 = 0.081𝑠1 + 0.09𝑠2 + 0.1𝑠3
+With 𝜌= 0.98
+𝑉3 = 0.0392𝑠1 + 0.0196𝑠2 + 0.02𝑠3
+With 𝜌= 0.5
+𝑉3 = 0.125𝑠1 + 0.25𝑠2 + 0.5𝑠3
+prediction
+Actual
+𝑡
+𝑦
+3
+8
+6
+5
+1
+9
+0
+8
+4
+5.5
+5.8
+5.4
+3.2
+7.0
+3.5
+5.8
+4.9
+5.1
+7
+3.0
+𝑉𝑡= 𝜌𝑉𝑡−1 + (1 −𝜌)𝑠𝑡
+data
+EWA
+Example
+Optimization Algorithms
+AI VIETNAM
+All-in-One Course
+56
+𝜌= 0.9
+Exponentially weighted averages
+𝜌= 0.9
+Optimization Algorithms
+Exponentially weighted averages
+𝜌= 0.5
+𝜌= 0.98
+𝑉𝑡= 𝜌𝑉𝑡−1 + (1 −𝜌)𝑠𝑡
+Back to Adaptive Learning Rate
+AI VIETNAM
+All-in-One Course
+Adagrad
+𝑠𝑡= 𝑠𝑡−1 + 𝑔𝑡
+2
+𝑥𝑡= 𝑥𝑡−1 −
+𝜂
+𝑠𝑡+ 𝜖𝑔𝑡
+𝑔𝑡= 𝑓′(𝑥𝑡−1)
+𝑉𝑡= 𝜌𝑉𝑡−1 + (1 −𝜌)𝑠𝑡
+Exponentially weighted averages
+How to apply to adagrad
+expected 
+summation
+-1.0
+1.0
+Back to Adaptive Learning Rate
+AI VIETNAM
+All-in-One Course
+Adagrad
+𝑠𝑡= 𝜌𝑠𝑡−1 + (1 −𝜌)𝑔𝑡
+2
+𝑥𝑡= 𝑥𝑡−1 −
+𝜂
+𝑠𝑡+ 𝜖𝑔𝑡
+𝑔𝑡= 𝑓′(𝑥𝑡−1)
+How to apply to adagrad
+expected 
+summation
+RMSProp
+-1.0
+1.0
+𝜂= 0.1
+Back to Adaptive Learning Rate
+AI VIETNAM
+All-in-One Course
+𝑠𝑡= 𝜌𝑠𝑡−1 + (1 −𝜌)𝑔𝑡
+2
+𝑥𝑡= 𝑥𝑡−1 −
+𝜂
+𝑠𝑡+ 𝜖𝑔𝑡−1
+𝑔𝑡= 𝑓′(𝑥𝑡−1)
+For square function
+RMSProp
+𝑓𝑥= 𝑥2
+𝑠𝑡= 𝜌𝑠𝑡−1 + (1 −𝜌)𝑔𝑡
+2
+𝑥𝑡= 𝑥𝑡−1 −
+𝜂
+𝑠𝑡+ 𝜖𝑔𝑡
+𝑔𝑡= 𝑓′(𝑥𝑡−1)
+For square function
+RMSProp
+𝑥0 = 9.0
+𝜂= 0.1
+𝑓′ 𝑥0 = 18.0
+𝑥1 = 9.0 −
+0.1
+𝑠1 +∈𝑓′ 𝑥0 = 8.6837
+𝑓𝑥= 𝑥2
+𝜌= 0.9
+∈= 10−7
+𝑠1 = 32.4
+𝑠0 = 0.0
+𝑓′ 𝑥1 = 17.36
+𝑥2 = 8.458
+𝑠2 = 59.3
+𝑓′ 𝑥2 = 16.916
+𝑥2 = 8.27
+𝑠3 = 82.0
+61
+Back to Adaptive Learning Rate
+AI VIETNAM
+All-in-One Course
+𝑠𝑡= 𝜌𝑠𝑡−1 + (1 −𝜌)𝑔𝑡
+2
+𝑥𝑡= 𝑥𝑡−1 −
+𝜂
+𝑠𝑡+ 𝜖𝑔𝑡
+𝑔𝑡= 𝑓′(𝑥𝑡−1)
+For square function
+RMSProp
+𝑥0 = 9.0
+𝜂= 0.4
+𝜌= 0.9
+𝜖= 10−7
+𝑠0 = 0.0
+Back to Adaptive Learning Rate
+AI VIETNAM
+All-in-One Course
+𝑠𝑡= 𝜌𝑠𝑡−1 + (1 −𝜌)𝑔𝑡
+2
+𝑥𝑡= 𝑥𝑡−1 −
+𝜂
+𝑠𝑡+ 𝜖𝑔𝑡
+𝑔𝑡= 𝑓′(𝑥𝑡−1)
+For another function
+RMSProp
+𝑥0 = −3.5
+𝜂= 0.1
+𝜌= 0.9
+𝜖= 10−7
+𝑠0 = 0.0
+-1.0
+1.0
+Adaptive Learning Rate
+AI VIETNAM
+All-in-One Course
+64
+𝑠𝑡= 𝜌𝑠𝑡−1 + (1 −𝜌)𝑔𝑡
+2
+𝜃𝑡= 𝜃𝑡−1 −
+𝜂
+𝑠𝑡+ 𝜖𝑔𝑡,𝑖
+𝑔𝑡= 𝛻𝜃𝐿
+Generalization
+𝑠𝑡= 𝜌𝑠𝑡−1 + (1 −𝜌)𝑔𝑡
+2
+𝑥𝑡= 𝑥𝑡−1 −
+𝜂
+𝑠𝑡+ 𝜖𝑔𝑡
+𝑔𝑡= 𝑓′(𝑥𝑡−1)
+RMSProp (One variable Function)
+RMSProp (Multi-variable Function)
+➢Quick Introdution
+➢Stochastic Gradient Descent
+➢Adagrad
+➢RMSProp
+➢Momentum
+➢Adam
+➢Case studies
+Outline
+A common limitation so far
+𝑠𝑡= 𝑠𝑡−1 + 𝑔𝑡
+2
+𝜃𝑡= 𝜃𝑡−1 −
+𝜂
+𝑠𝑡+∈𝑔𝑡
+𝑔𝑡= 𝛻𝜃𝐿
+Adaptive 
+Learning 
+Rate
+𝜃𝑡= 𝜃𝑡−1 −𝜂𝛻𝜃𝐿
+Using Momentum
+SGD
+𝑣𝑡= 𝜌𝑣𝑡−1 + (1 −𝜌)𝛼𝛻𝜃𝐿
+𝜃𝑡= 𝜃𝑡−1 −𝑣𝑡
+Genevieve B. Orr
+𝜃𝑡= 𝜃𝑡−1 −𝜂𝛻𝜃𝐿
+SGD + Momentum
+𝑣𝑡= 𝑚𝑣𝑡−1 −𝜂𝛻𝜃𝐿
+𝜃𝑡= 𝜃𝑡−1 + 𝑣𝑡
+𝑓𝑥= 𝑥2
+SGD + Momentum
+𝑣𝑡= 𝑚𝑣𝑡−1 −𝜂𝛻𝜃𝐿
+𝜃𝑡= 𝜃𝑡−1 + 𝑣𝑡
+𝑓𝑥= 𝑥2
+𝑥0 = 90.0
+𝜂= 0.1
+𝑓′ 𝑥0 = 180.0
+𝑥1 = 𝑥0 + 𝑣1 = 72.0
+f ′ x1 = 144.0
+𝑥2 = 𝑥1 + 𝑣2 = 41.4
+f ′ x2 = 82.8
+𝑥3 = 𝑥2 + 𝑣3 = 5.58
+f ′ x3 = 11.16
+𝑥4 = 𝑥3 + 𝑣4 = −27.77
+𝑚= 0.9
+𝑣0 = 0.0
+𝑣1 = −18.0
+𝑣2 = −30.59
+𝑣3 = −35.82
+𝑣4 = −33.354
+f ′ x4 = −55.54
+𝑥5 = 𝑥4 + 𝑣5 = −52.23
+𝑣5 = −24.46
+SGD + 
+Momentum
+𝑣𝑡= 𝑚𝑣𝑡−1 −𝜂𝛻𝜃𝐿
+𝜃𝑡= 𝜃𝑡−1 + 𝑣𝑡
+𝑥0 = 90.0
+𝜂= 0.03
+𝑚= 0.0
+𝑣0 = 0.0
+SGD + 
+Momentum
+𝑣𝑡= 𝑚𝑣𝑡−1 −𝜂𝛻𝜃𝐿
+𝜃𝑡= 𝜃𝑡−1 + 𝑣𝑡
+𝑥0 = 90.0
+𝜂= 0.01
+𝑚= 0.9
+𝑣0 = 0.0
+SGD + Momentum
+AI VIETNAM
+All-in-One Course
+Mimic a ball rolling
+SGD + 
+Momentum
+𝑣𝑡= 𝑚𝑣𝑡−1 −𝜂𝛻𝜃𝐿
+𝜃𝑡= 𝜃𝑡−1 + 𝑣𝑡
+𝑥0 = −3.2
+𝜂= 0.1
+𝑚= 0.9
+𝑣0 = 0.0
+What about 
+RSMProp+Momentum
+SGD + Momentum
+𝑣𝑡= 𝑚𝑣𝑡−1 −𝜂𝛻𝜃𝐿
+𝜃𝑡= 𝜃𝑡−1 + 𝑣𝑡
+SGD
+𝜃𝑡= 𝜃𝑡−1 −𝜂𝛻𝜃𝐿
+𝑠𝑡= 𝜌𝑠𝑡−1 + (1 −𝜌)𝑔𝑡
+2
+𝜃𝑡= 𝜃𝑡−1 −
+𝜂
+𝑠𝑡+ 𝜖𝑔𝑡
+𝑔𝑡= 𝛻𝜃𝐿
+RMSProp
+𝑣𝑡= 𝜌𝑣𝑡−1 −(1 −𝜌)𝛼𝛻𝜃𝐿
+𝜃𝑡= 𝜃𝑡−1 + 𝑣𝑡
+?
+What about 
+RSMProp+Momentum
+SGD + Momentum
+𝑚𝑡= 𝜌𝑚𝑡−1 −𝜂𝛻𝜃𝐿
+𝜃𝑡= 𝜃𝑡−1 + 𝑚𝑡
+𝑣𝑡= 𝛽2𝑣𝑡−1 + (1 −𝛽2)𝑔𝑡
+2
+𝜃𝑡= 𝜃𝑡−1 −
+𝜂
+𝑣𝑡+ 𝜖𝑔𝑡
+𝑔𝑡= 𝛻𝜃𝐿
+RMSProp
+𝜃𝑡= 𝜃𝑡−1 −
+𝜂
+𝑣𝑡+ 𝜖𝑚𝑡
+𝑔𝑡= 𝛻𝜃𝐿
+𝑚𝑡= 𝛽1𝑚𝑡−1 + (1 −𝛽1)𝑔𝑡
+𝑣𝑡= 𝛽2𝑣𝑡−1 + (1 −𝛽2)𝑔𝑡
+2
+Simpler version of Adam
+𝑚𝑡= 𝜌𝑚𝑡−1 −(1 −𝜌)𝛼𝛻𝜃𝐿
+𝜃𝑡= 𝜃𝑡−1 + 𝑚𝑡
+𝑚𝑡= 𝛽1𝑚𝑡−1 + (1 −𝛽1)𝛻𝜃𝐿
+𝜃𝑡= 𝜃𝑡−1 −𝜂𝑚𝑡
+idea equivalence
+What about 
+RSMProp+Momentum
+𝜃𝑡= 𝜃𝑡−1 −
+𝜂
+𝑣𝑡
+1 −𝛽2
+𝑡+ 𝜖
+×
+𝑚𝑡
+1 −𝛽1
+𝑡
+𝑔𝑡= 𝛻𝜃𝐿
+𝑚𝑡= 𝛽1𝑚𝑡−1 + (1 −𝛽1)𝑔𝑡
+𝑣𝑡= 𝛽2𝑣𝑡−1 + (1 −𝛽2)𝑔𝑡
+2
+Adam
+𝑣𝑡= 𝛽2𝑣𝑡−1 + (1 −𝛽2)𝑔𝑡
+2
+𝜃𝑡= 𝜃𝑡−1 −
+𝜂
+𝑣𝑡+ 𝜖𝑔𝑡
+𝑔𝑡= 𝛻𝜃𝐿
+RMSProp
+SGD + Momentum
+𝑚𝑡= 𝜌𝑚𝑡−1 −𝜂𝛻𝜃𝐿
+𝜃𝑡= 𝜃𝑡−1 + 𝑚𝑡
+𝑚𝑡= 𝜌𝑚𝑡−1 −(1 −𝜌)𝛼𝛻𝜃𝐿
+𝜃𝑡= 𝜃𝑡−1 + 𝑚𝑡
+𝑚𝑡= 𝛽1𝑚𝑡−1 + (1 −𝛽1)𝛻𝜃𝐿
+𝜃𝑡= 𝜃𝑡−1 −𝜂𝑚𝑡
+idea equivalence
+Further reading
+https://optimization.cbe.cornell.edu/index.php?title=Adam
+➢Quick Introdution
+➢Stochastic Gradient Descent
+➢Adagrad
+➢RMSProp
+➢Momentum
+➢Adam
+➢Case studies
+Outline
+T-shirt
+Trouser
+Pullover
+Dress
+Coat
+Sandal
+Shirt
+Sneaker
+Bag
+Ankle
+Boot
+Image Data
+Fashion-MNIST dataset
+Grayscale images
+Resolution=28x28
+Training set: 60000 samples
+Testing set: 10000 samples
+784 Nodes
+Input layer
+1
+𝑧1
+𝑧10
+Softmax 
+activation
+Fully 
+connect
+10 Nodes
+Output layer
+28
+28
+784
+flatten data
+. . .
+. . .
+Fully 
+connect
+128 Nodes
+Hidden layer
+1
+. . .
+Fully 
+connect
+128 Nodes
+Hidden layer
+1
+. . .
+Case study 1
+AI VIETNAM
+All-in-One Course
+Fashion-MNIST
+SGD
+AdaGrad
+Adam
+AdamW
+76
+airplane
+automobile
+bird
+cat
+deer
+dog
+frog
+horse
+ship
+truck
+Image Data
+Cifar-10 dataset
+Color images
+Resolution=32x32
+Training set: 50000 samples
+Testing set: 10000 samples
+3072 Nodes
+Input layer
+1
+𝑧1
+𝑧10
+Softmax 
+activation
+Fully 
+connect
+10 Nodes
+Output layer
+32
+32
+3072
+flatten data
+. . .
+. . .
+Fully 
+connect
+128 Nodes
+Hidden layer
+1
+. . .
+Fully 
+connect
+128 Nodes
+Hidden layer
+1
+. . .
+Case study 2
+AI VIETNAM
+All-in-One Course
+Cifar10-MNIST
+SGD
+AdamW
+Case Studies
+AI VIETNAM
+All-in-One Course
+Results
+http://manjeetdahiya.com/posts/exponential-weighted-average/
+https://towardsdatascience.com/complete-guide-to-adam-optimization-1e5f29532c3d
+Bias Correction
+Adam
+Further Reading
+80
+https://stats.stackexchange.com/questions/232741/why-is-it-important-to-include-
+a-bias-correction-term-for-the-adam-optimizer-for
+https://optimization.cbe.cornell.edu/index.php?title=Adam

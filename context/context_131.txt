@@ -1,0 +1,326 @@
+NLP Project
+Low-Resource
+Neural Machine Translation
+Year 2023
+AI VIET NAM
+Nguyen Quoc Thai
+AI VIETNAM
+All-in-One Course
+1
+2
+Ø Introduction
+Ø Pre-trained LMs: mBART50, mT5
+Ø Back-Translation
+Outline
+3
+Introduction
+Translate a sentence w(s) in a source language (input) to a sentence w(t) in the 
+target language (output)
+!
+4
+Introduction
+Translate a sentence w(s) in a source language (input) to a sentence w(t) in the 
+target language (output)
+!
+Ø Can be formulated as an optimization problem:
+!𝑤(") = argmax
+$(")
+𝜃( 𝑤(%), 𝑤(&))
+Where 𝜃is a scoring function over source and target sentences
+Ø Requires two components:
+q Learning algorithm to compute parameters of 𝜃
+q Decoding algorithm for computing the best translation !𝑤(")
+5
+Introduction
+Translate a sentence w(s) in a source language (input) to a sentence w(t) in the 
+target language (output)
+!
+Source 
+sentence
+Target 
+sentence
+Train a model
+6
+Introduction
+Low-resource Machine Translation
+!
+Source 
+sentence
+Target 
+sentence
+Train a model
+Language Pair
+Parallel Sentence
+En-De
+800M
+En-Ko
+500M
+En-Vi
+0.17M
+De-Vi
+0.05M
+7
+Introduction
+Low-resource Machine Translation
+!
+Source
+8
+Ø Introduction
+Ø Pre-trained LMs: mBART50, mT5
+Ø Back-Translation
+Outline
+9
+Pre-trained LMs
+Pre-trained LMs
+!
+10
+Pre-trained LMs
+Pre-trained LMs
+!
+Source
+11
+Pre-trained LMs
+Pre-trained LMs
+!
+Ø BERT and GPT: a great catalyst for NLU
+Ø But, less successful for sequence-to-sequence tasks: machine translation, text 
+summarization,…
+Missing tokens are predicted independently,
+soBERT
+cannot
+easily
+be
+used
+for
+generation
+Tokens can only condition on leftward
+context, so it cannot learn bidirectional
+interactions
+12
+Pre-trained LMs
+BART
+!
+Ø BART (Denoising Sequence-to-Sequence Pre-Training for Natural Language 
+Generation, Translation and Comprehension.
+13
+Pre-trained LMs
+BART
+!
+Ø BART (Denoising Sequence-to-Sequence Pre-Training for Natural Language 
+Generation, Translation and Comprehension.
+Ø Fine-Tuning
+Classification Task
+Machine Translation Task
+14
+Pre-trained LMs
+BART
+!
+Ø mBART: Multilingual Denoising Pre-Training
+15
+Pre-trained LMs
+BART
+!
+Ø mBART50: Multilingual Translation with Extensible Multilingual Pretraining
+16
+Pre-trained LMs
+BART
+!
+Ø mBART50
+Ø PhoMT Dataset
+17
+Pre-trained LMs
+BART
+!
+Ø mBART50
+Ø PhoMT Dataset
+18
+Pre-trained LMs
+T5
+!
+Ø T5 (Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer)
+Ø Every task, one format!
+Ø [“Task-specific prefix]: [Input text]” => “[Output text]”
+19
+Pre-trained LMs
+T5
+!
+Ø Baseline Objective
+20
+Pre-trained LMs
+T5
+!
+Ø Different Attention Mask Patterns
+21
+Pre-trained LMs
+T5
+!
+Ø Transformer Architecture Variants
+22
+Pre-trained LMs
+T5
+!
+Ø Different Unsupervised Objectives
+23
+Pre-trained LMs
+T5
+!
+Ø Multi-task Learning
+24
+Pre-trained LMs
+T5
+!
+Ø Multi-task Learning
+25
+Pre-trained LMs
+T5
+!
+Ø Multi-task Learning
+26
+Pre-trained LMs
+T5
+!
+Ø Multi-task Learning
+27
+Pre-trained LMs
+T5
+!
+Ø Multi-task Learning
+28
+Pre-trained LMs
+T5
+!
+Ø mT5: A Massively Multilingual Pre-trained Text-to-Text Transformer
+29
+Pre-trained LMs
+Pre-trained LMs
+!
+# MBart50TokenizerFast.from_pretrained(model_name, 
+src_lang="en_XX",tgt_lang = "vi_VN")
+model_name = "facebook/mbart-large-50-many-to-many-mmt" 
+tokenizer = MBart50TokenizerFast.from_pretrained(model_name)
+model = AutoModelForSeq2SeqLM.from_pretrained(model_name)
+# prefix: translate English to Vietnamese
+model_name = ”google/mt5-base" 
+tokenizer = T5TokenizerFast.from_pretrained(model_name)
+model = AutoModelForSeq2SeqLM.from_pretrained(model_name)
+30
+Ø Introduction
+Ø Pre-trained LMs: mBART50, mT5
+Ø Back-Translation
+Outline
+31
+Back-Translation
+Back-Translation Technique
+!
+Bilingual Data
+(En-Vi)
+Train En-Vi Model
+(mBART50)
+Bilingual Data
+(En-Vi)
+Train En-Vi Model
+(mBART50)
+Train Vi-En Model
+(mBART50)
+Synthetic Data
+(Vi-En)
+Merge
+32
+Back-Translation
+Back-Translation with Monolingual Dataset
+!
+Bilingual Data
+(En-Vi)
+Train En-Vi Model
+(mBART50)
+Train Vi-En Model
+(mBART50)
+Synthetic Data
+(Vi-En)
+Merge
+Bilingual Data
+(En-Vi)
+Train En-Vi Model
+(mBART50)
+Train Vi-En Model
+(mBART50)
+Synthetic Data
+(Vi-En)
+Merge
+Monolingual
+(Vi)
+Crawl,…
+33
+Back-Translation
+Data Selection
+!
+Bilingual Data
+(En-Vi)
+Train En-Vi Model
+(mBART50)
+Train Vi-En Model
+(mBART50)
+Synthetic Data
+(Vi-En)
+Merge
+Monolingual
+(Vi)
+Crawl,…
+Domain Mismatch
+Bilingual En-Vi
+Monolingual Vi
+News
+Medical
+Law
+News
+Cosine Similarity
+TF-IDF
+34
+Back-Translation
+Data Selection
+!
+Bilingual Data
+(En-Vi)
+Train En-Vi Model
+(mBART50)
+Train Vi-En Model
+(mBART50)
+Synthetic Data
+(Vi-En)
+Merge
+Monolingual
+(Vi)
+Crawl,…
+Synthetic Data Filtering
+Cosine Similarity
+Round-Trip BLEU
+Reference
+35
+Back-Translation
+Experiment
+!
+v Dataset: IWSLT’15 English-Vietnamese
+Training: 133 317
+Validation: 1 553
+Test: 1 269
+Experiment
+Model
+ScareBLEU
+#1
+Standard Transformer (Greedy Search)
+24.66
+#2
+BERT-to-BERT (Greedy Search)
+25.41
+#3
+BERT-to-GPT2 (Greedy Search)
+23.56
+#4
+mBART50
+34.87
+#5
+Back-Translation (Monolingual)
+35.22
+Thanks!
+Any questions?
+36

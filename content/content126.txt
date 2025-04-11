@@ -1,5 +1,0 @@
-AI VIETNAM (AIO2024) aivietnam.edu.vn
-(a) Để tăng kích thước dữ liệu.
-(b) Để giảm nhiễu và chuẩn hóa dữ liệu.
-(c) Để thay đổi nội dung email.
-(d) Để mã hóa email.

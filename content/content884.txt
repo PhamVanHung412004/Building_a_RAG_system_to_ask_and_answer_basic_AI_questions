@@ -1,5 +1,0 @@
-AI VIETNAM aivietnam.edu.vn
-1 !zip -r /content/drive/MyDrive/data.zip data
-Kết quả cuối cùng chúng ta được bộ dữ liệu ảnh với nhiều class như sau:
-Hình 32: Dataset chứa tất cả các class được khai báo trong category
-35

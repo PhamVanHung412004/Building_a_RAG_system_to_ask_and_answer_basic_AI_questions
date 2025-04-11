@@ -1,0 +1,997 @@
+XGBoost
+AI VIETNAM
+All-in-One Course
+(TA Session)
+3. Review Bagging
+2. Review Decision Tree
+1. Review Ensemble Learning
+Outline
+AI VIETNAM
+All-in-One Course
+4. Review Random Forest
+5. Review Boosting 
+6. Review Gradient Boosting 
+7. Review XGBoost Basics
+8. Problem 1-2
+9.   Problem 3-4
+Review Ensemble Learning
+AI VIETNAM
+All-in-One Course
+Review Ensemble Learning
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Introduction
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Review Decision Tree
+●
+Root Node: The initial node at the beginning of a decision 
+tree, where the entire population or dataset starts dividing 
+based on various features or conditions.
+●
+Decision Nodes: Nodes resulting from the splitting of root 
+nodes are known as decision nodes. These nodes represent 
+intermediate decisions or conditions within the tree.
+●
+Leaf Nodes: Nodes where further splitting is not possible, 
+often indicating the final classification or outcome. Leaf nodes 
+are also referred to as terminal nodes.
+●
+Pruning: The process of removing or cutting down specific 
+nodes in a decision tree to prevent overfitting and simplify the 
+model.
+●
+Branch / Sub-Tree: A subsection of the entire decision tree is 
+referred to as a branch or sub-tree. It represents a specific 
+path of decisions and outcomes within the tree.
+●
+Parent and Child Node: In a decision tree, a node that is 
+divided into sub-nodes is known as a parent node, and the 
+sub-nodes emerging from it are referred to as child nodes. 
+The parent node represents a decision or condition, while the 
+child nodes represent the potential outcomes or further 
+decisions based on that condition
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Review Decision Tree
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Review Decision Tree
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Review Bagging
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Review Random Forest
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Review Random Forest
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Review Boosting
+AI VIETNAM
+All-in-One Course
+Review Boosting
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Review Boosting
+- T: total iterations
+- ht: weak learner 
+- αt: learning rate
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Review Gradient Boosting
+Advantages
+Disadvantages
+High Predictive Accuracy
+Computational Intensity
+Feature Importance
+Hyperparameter Tuning
+Ensemble Learning
+Black-Box Model
+Gradient descent + boosting
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Review Gradient Boosting
+Advantages
+Disadvantages
+High Predictive Accuracy
+Computational Intensity
+Feature Importance
+Hyperparameter Tuning
+Ensemble Learning
+Black-Box Model
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Adaboost
+Gradient Boost
+An additive model where shortcomings of previous 
+models are identified by high-weight data points.
+An additive model where shortcomings of previous 
+models are identified by the gradient.
+The trees are usually grown as decision stumps.
+The trees are grown to a greater depth usually ranging 
+from 8 to 32 terminal nodes.
+Each classifier has different weights assigned to the 
+final prediction based on its performance.
+All classifiers are weighed equally and their predictive 
+capacity is restricted with learning rate to increase 
+accuracy.
+It gives weights to both classifiers and observations 
+thus capturing maximum variance within data.
+It builds trees on previous classifier’s residuals thus 
+capturing variance in data.
+Review Gradient Boosting
+Compare GD vs GB (loss)
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Review Gradient Boosting
+Compare GD vs GB (training)
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Review Gradient Boosting
+First and Second derivative 
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Review XGBoost Basics
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Review XGBoost Basics
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Review XGBoost Basics
+Offers simultaneous 
+processing and 
+distributed 
+computation for 
+handling vast 
+datasets
+An open source 
+gradient-boosting 
+framework
+Versatile for various 
+domains and 
+extensive datasets:
+Utilizes 
+regularization to 
+manage the 
+intricacy of the 
+weak learners
+Employs weighted 
+quantile sketch for 
+expedited training
+Compatible with multiple 
+loss functions, including 
+classiﬁcation and 
+regression
+Block-based system: 
+promotes concurrent 
+learning, optimal caching, 
+and effective 
+multi-threading
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Review XGBoost Basics
+α*R(x)2   + 𝛾*T  + L(f(x), data)
+- α : Control degree of regularization
+- R(x): Regularization function
+- 𝛾 : Control degree of regularization based on number of leaf nodes
+- T: number of leaf nodes
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Review XGBoost Basics
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Review XGBoost Basics
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Regression
+Classification
+Problem 1-2
+Problem 1: Regression
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Regularization
+Step0: lambda=0, depth=1,  lr=0.3
+Step1: Initialize model with a constant value
+  - f0 = mean(Y) = (50+70+80+85)/4 = 71.25
+Step2: Compute Similarity Score
+  
+SC = (-21.25 + -1.25 + 8.75 + 13.75)^2/(4) = 0
+.
+X
+Y
+y-f0
+23
+50
+-21.25
+24
+70
+-1.25
+26
+80
+8.75
+27
+85
+13.75
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Regularization
+Step0: lambda=0, depth=1, lr=0.3
+Step1: Initialize model with a constant value
+  - f0 = mean(Y) = (50+70+80+85)/4 = 71.25
+Step2: Compute Similarity Score
+  
+SC = (-21.25 + -1.25 + 8.75 + 13.75)^2/(4) = 0
+.
+X
+Y
+y-f0
+23
+50
+-21.25
+24
+70
+-1.25
+26
+80
+8.75
+27
+85
+13.75
+Step3: Take average of x0 and x1
+-
+(23+24)/2 = 23.5
+X < 23.5
+-21.25
+-1.25, 8.75, 
+13.75
+SC = 0
+SC = 451.5625
+SC = 150.5208
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Regularization
+Step0: lambda=0, depth=1, lr=0.3
+Step1: Initialize model with a constant value
+  - f0 = mean(Y) = (50+70+80+85)/4 = 71.25
+Step2: Compute Similarity Score
+  
+SC = (-21.25 + -1.25 + 8.75 + 13.75)^2/(4) = 0
+.
+X
+Y
+y-f0
+23
+50
+-21.25
+24
+70
+-1.25
+26
+80
+8.75
+27
+85
+13.75
+Step3: Take average of x0 and x1
+-
+(24+26)/2 = 25
+X < 25
+-21.25, -1.25
+8.75, 13.75
+SC = 0
+SC = 253.125
+SC = 253.125
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Regularization
+Step0: lambda=0, depth=1
+Step1: Initialize model with a constant value
+  - f0 = mean(Y) = (50+70+80+85)/4 = 71.25
+Step2: Compute Similarity Score
+  
+SC = (-21.25 + -1.25 + 8.75 + 13.75)^2/(4) = 0
+.
+ 
+X
+Y
+y-f0
+23
+50
+-21.25
+24
+70
+-1.25
+26
+80
+8.75
+27
+85
+13.75
+Step3: Take average of x0 and x1
+-
+(26+27)/2 = 26.5
+X < 26.5
+-21.25, 
+-1.25, 8.75
+13.75
+SC = 0
+SC = 63.0208
+SC = 189.0625
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Regularization
+X < 23.5
+-21.25
+-1.25, 8.75, 
+13.75
+SC = 0
+SC = 451.5625
+SC = 150.5208
+X < 25
+-21.25, -1.25
+8.75, 13.75
+SC = 0
+SC = 253.125
+SC = 253.125
+X < 26.5
+-21.25, 
+-1.25, 8.75
+13.75
+SC = 0
+SC = 63.0208
+SC = 189.0625
+Step4: Calculate the Gain.
+Gain = Left SC + Right SC - Root SC
+Gain = 451.5625 + 150.5208 - 0 = 602.0833
+Gain = 63.0208 + 189.0625 - 0 = 252.0833
+Gain = 253.125 + 253.125 - 0 = 506.25 
+The Best Gain = 602.0833
+Select X < 23.5
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Regularization
+Step 5: Calculate the Gain.
+Gain = Left SC + Right SC - Root SC
+X
+Y
+23
+50
+24
+70
+25
+?
+26
+80
+27
+85
+X < 23.5
+-21.25
+-1.25, 8.75, 
+13.75
+SC = 0
+SC = 451.5625
+SC = 150.5208
+The Best Gain = 602.0833
+Select X < 23.5
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Regularization
+Step 5: Calculate the Gain.
+Gain = Left SC + Right SC - Root SC
+X
+Y
+23
+50
+24
+70
+25
+?
+26
+80
+27
+85
+The Best Gain = 602.0833
+Select X < 23.5
+X < 23.5
+-21.25
+-1.25, 8.75, 
+13.75
+SC = 0
+O = -21.25
+O = 7.0833 
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Regularization
+Step 5: Calculate the Gain.
+Gain = Left SC + Right SC - Root SC
+X
+Y
+23
+50
+24
+70
+25
+73.375
+26
+80
+27
+85
+ f0 = mean(Y) = (50+70+80+85)/4 = 71.25
+Lr = 0.3
+71.25
+*
++ LR
+X < 23.5
+-21.25
+-1.25, 8.75, 
+13.75
+SC = 0
+O = -21.25
+O = 7.0833 
+The Best Gain = 602.0833
+Select X < 23.5
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Regularization
+Step 5: Calculate the Gain.
+Gain = Left SC + Right SC - Root SC
+ f0 = mean(Y) = (50+70+80+85)/4 = 71.25
+Lr = 0.3
+71.25
+*
++ LR
+X
+Y
+y-f0
+yhat
+y-yhat
+23
+50
+-21.25
+64.875
+-14.875
+24
+70
+-1.25
+73.375
+-3.375
+26
+80
+8.75
+73.375
+6.625
+27
+85
+13.75
+73.375
+11.625
+X < 23.5
+-21.25
+-1.25, 8.75, 
+13.75
+SC = 0
+O = -21.25
+O = 7.0833 
+The Best Gain = 602.0833
+Select X < 23.5
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Problem 1-2
+Problem 2: Classification
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Step0: lambda=0, depth=1,  lr=0.3
+Step1: Initialize model with a constant probability
+  - f0 = 0.5
+Step2: Compute Similarity Score
+  
+SC = (-0.5+-0.5+0.5+0.5)^2/(denominator) = 0
+X
+Y
+Y-cat
+y-f0
+23
+False
+0
+-0.5
+24
+False
+0
+-0.5
+26
+True
+1
+0.5
+27
+True
+1
+0.5
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Problem 1-2
+Step0: lambda=0, depth=1,  lr=0.3
+Step1: Initialize model with a constant probability
+  - f0 = 0.5
+Step2: Compute Similarity Score
+  
+SC = (-0.5+-0.5+0.5+0.5)^2/(denominator) = 0
+Step3: Take average of x0 and x1
+-
+(23+24)/2 = 23.5
+X < 23.5
+-0.5
+-0.5, 0.5, 0.5
+SC = 0
+SC = 1.0
+SC = 0.33333
+X
+Y
+Y-cat
+y-f0
+23
+False
+0
+-0.5
+24
+False
+0
+-0.5
+26
+True
+1
+0.5
+27
+True
+1
+0.5
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Problem 1-2
+Step0: lambda=0, depth=1,  lr=0.3
+Step1: Initialize model with a constant probability
+  - f0 = 0.5
+Step2: Compute Similarity Score
+  
+SC = (-0.5+-0.5+0.5+0.5)^2/(denominator) = 0
+Problem 1-2
+Step3: Take average of x0 and x1
+-
+(24+26)/2 = 25
+X < 25
+-0.5, -0.5
+0.5, 0.5
+SC = 0
+SC = 2.0
+SC = 2.0
+X
+Y
+Y-cat
+y-f0
+23
+False
+0
+-0.5
+24
+False
+0
+-0.5
+26
+True
+1
+0.5
+27
+True
+1
+0.5
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Step0: lambda=0, depth=1,  lr=0.3
+Step1: Initialize model with a constant probability
+  - f0 = 0.5
+Step2: Compute Similarity Score
+  
+SC = (-0.5+-0.5+0.5+0.5)^2/(denominator) = 0
+Problem 1-2
+Step3: Take average of x0 and x1
+-
+(26+27)/2 = 26.5
+X < 26.5
+-0.5, -0.5, 
+0.5
+0.5
+SC = 0
+SC = 0.333
+SC = 1.0
+X
+Y
+Y-p
+y-f0
+23
+False
+0
+-0.5
+24
+False
+0
+-0.5
+26
+True
+1
+0.5
+27
+True
+1
+0.5
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Problem 1-2
+Step4: Calculate the Gain.
+Gain = Left SC + Right SC - Root SC
+Gain = 1.0 + 0.33 - 0 = 1.33
+The Best Gain = 4
+Select X < 25
+X < 23.5
+-0.5
+-0.5, 0.5, 0.5
+SC = 0
+SC = 1.0
+SC = 0.33
+X < 25
+-0.5, -0.5
+0.5, 0.5
+SC = 0
+SC = 2.0
+SC = 2.0
+X < 26.5
+-0.5, -0.5, 
+0.5
+0.5
+SC = 0
+SC = 0.33
+SC = 1.0
+Gain = 0.33 + 1.0  - 0 = 1.33
+Gain = 2.0 + 2.0  - 0 = 4
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Problem 1-2
+Step 5: Calculate the Gain.
+Gain = Left SC + Right SC - Root SC
+The Best Gain = 4
+Select X < 25
+X
+Y-p
+23
+0
+24
+0
+25.8
+?
+26
+1
+27
+1
+X < 25
+-0.5, -0.5
+0.5, 0.5
+SC = 0
+SC = 2.0
+SC = 2.0
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Problem 1-2
+Step 5: Calculate the Gain.
+Gain = Left SC + Right SC - Root SC
+The Best Gain = 4
+Select X < 25
+X
+Y-p
+23
+0
+24
+0
+25.8
+?
+26
+1
+27
+1
+X < 25
+-0.5, -0.5
+0.5, 0.5
+SC = 0
+O = -2.0
+O = 2.0
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Problem 1-2
+Step 5: Calculate the Gain.
+Gain = Left SC + Right SC - Root SC
+The Best Gain = 4
+Select X < 25
+X
+Y-p
+23
+0
+24
+0
+25.8
+?
+26
+1
+27
+1
+X < 25
+-0.5, -0.5
+0.5, 0.5
+SC = 0
+O = -2.0
+O = 2.0
+log(0.5/(1-0.5)) = 0
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Problem 1-2
+Step 5: Calculate the Gain.
+Gain = Left SC + Right SC - Root SC
+The Best Gain = 4
+Select X < 25
+X
+Y-p
+23
+0
+24
+0
+25.8
+?
+26
+1
+27
+1
+X < 25
+-0.5, -0.5
+0.5, 0.5
+SC = 0
+O = -2.0
+O = 2.0
+0
+*
++ LR
+Log prediction = 0 + 0.3 * (2.0)     
+= 0.6
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Problem 1-2
+Step 5: Calculate the Gain.
+Gain = Left SC + Right SC - Root SC
+The Best Gain = 4
+Select X < 25
+X
+Y
+23
+0
+24
+0
+25.8
+0.6457
+26
+1
+27
+1
+X < 25
+-0.5, -0.5
+0.5, 0.5
+SC = 0
+O = -2.0
+O = 2.0
+0
+*
++ LR
+Log prediction = 0 + 0.3 * (2.0)     
+= 0.6
+Probability = e^(0.6) / (1+e^(0.6)) = 0.6457
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Problem 1-2
+Step 5: Calculate the Gain.
+Gain = Left SC + Right SC - Root SC
+The Best Gain = 4
+Select X < 25
+X
+Y-p
+y-f0
+yhat
+y-yhat
+23
+0
+-0.5
+0.3543
+-0.3543
+24
+0
+-0.5
+0.3543
+-0.3543
+26
+1
+0.5
+0.6457
+0.3543
+27
+1
+0.5
+0.6457
+0.3543
+X < 25
+-0.5, -0.5
+0.5, 0.5
+SC = 0
+O = -2.0
+O = 2.0
+0
+*
++ LR
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Problem 3-4
+Problem 3: Regression
+- Task: Dự đoán diện tích rừng bị cháy (area)
+- Samples: 510
+- Features: 13, input 12, target: 1
+XGBoost
+Inputs
+Output
+(X, Y, month, day, …)
+(area)
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Problem 3-4
+Problem 3: Regression
+Start
+Import libraries
+Load dataset
+Encode Categorical Data
+Train test split
+Train
+Evaluation
+End
+Categorical 
+Data
+True
+False
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Problem 3-4
+Problem 3: Regression
+- ['month', 'day', 'rain']
+- Number of categories in month: 12
+- Number of categories in day: 7
+- Number of categories in rain: 2
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Problem 3-4
+Problem 3: Regression
+- Task: Dự đoán diện tích rừng bị cháy (area)
+- Samples: 510
+- Features: 13, input 12, target: 1
+Number of training samples: 357
+Number of val samples: 153
+70%
+30%
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Problem 3-4
+Problem 3: Regression
+- Build Model: XGBoost
+- Evaluation: MAE, MSE
+Evaluation results on test set:
+Mean Absolute Error: 1.0922937068201708
+Mean Squared Error: 1.8814015748734487
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Problem 3-4
+Problem 4: Classification
+- Task: Phân loại chất lượng rượu vang (Target)
+- Samples: 178
+- Features: 14, input 13, target: 1
+XGBoost
+Inputs
+Output
+(alcohol, malic_acid, ash …)
+(Target)
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Problem 3-4
+Problem 4: Classification
+Start
+Import libraries
+Load dataset
+Encode Categorical Data
+Train test split
+Train
+Evaluation
+End
+Categorical 
+Data
+True
+False
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Problem 3-4
+Problem 4: Classification
+-
+Không có Categorical feature
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Problem 3-4
+Problem 4: Classification
+- Task: Phân loại chất lượng rượu vang (Target)
+- Samples: 178
+- Features: 14, input 13, target: 1
+Number of training samples: 124
+Number of val samples: 54
+70%
+30%
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Problem 3-4
+Problem 4: Classification
+- Build Model: XGBoost
+- Evaluation: Accuracy
+Train ACC: 1.0
+Test ACC: 0.9814814814814815
+AI VIETNAM
+All-in-One Course
+(TA Session)

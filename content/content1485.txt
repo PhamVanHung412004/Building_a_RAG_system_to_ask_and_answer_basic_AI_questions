@@ -1,7 +1,0 @@
-AI VIETNAM aivietnam.edu.vn
-Mô hình học đa tác vụ (Multi-Task Learning)là phương pháp huấn luyện cho một mô hình
-nhưng có thể giải quyết cho nhiều bài toán khác nhau. Ví dụ, chúng ta huấn luyện một mô hình với
-đầu vào là một hình ảnh và đầu ra giải quyết cho hai bài toán khác nhau như: semantic segmentation
-và depth-image prediction được mô tả như Hình 1.
-Các phương pháp huấn luyện các mô hình MTL có thể được chia thành 2 nhóm:
-1. 

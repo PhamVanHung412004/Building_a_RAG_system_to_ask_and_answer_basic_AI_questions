@@ -1,0 +1,1055 @@
+Extra Class
+Advanced CNN
+Year 2023
+Nguyen Quoc Thai
+AI VIETNAM
+All-in-One Course
+1
+2
+CONTENT
+(1) – Review: CNN
+(2) – Batch Normalization
+(3) – Dropout
+(4) – Skip Connection
+1 – Review: CNN
+!
+3
+Convolutional Layer
+Input: M x N
+Kernel: K x O
+Bias
+1
+0
+0
+0
+0
+0
+0
+0
+0
+3
+1
+1
+0
+0
+3
+1
+2
+0
+0
+0
+3
+4
+2
+3
+0
+0
+3
+0
+0
+2
+0
+0
+0
+0
+0
+0
+0
+0
+3
+1
+1
+3
+1
+2
+0
+3
+4
+2
+3
+3
+0
+0
+2
+1
+1
+1
+1
+1
+1
+0
+1
+0
+Shape: (M+2P) x (N+2Q)
+Padding: (P, Q)
+Stride: (S, T)
+7
+8
+15
+13
+M + 2P −K
+S
++ 1 x N + 2Q −O
+T
++ 1
+1 – Review: CNN
+!
+4
+Pooling Layer
+Input: 6 x 6
+Output: 3 x 3
+Kernel Size: 2
+Stride: 2
+3
+2
+1
+0
+0
+3
+0
+3
+3
+1
+1
+0
+3
+1
+4
+1
+1
+0
+2
+4
+1
+1
+0
+4
+1
+0
+3
+0
+3
+0
+3
+4
+4
+3
+3
+4
+3
+3
+3
+4
+4
+4
+4
+4
+4
+Input: 6 x 6
+Output: 2 x 3
+Kernel Size: (3, 2)
+Stride: 2
+3
+2
+1
+0
+0
+3
+0
+3
+3
+1
+1
+0
+3
+1
+4
+1
+1
+0
+2
+4
+1
+1
+0
+4
+1
+0
+3
+0
+3
+0
+3
+4
+4
+3
+3
+4
+2
+1.7
+0.8
+1.8
+1.6
+1.3
+❖Max Pooling
+❖Average Pooling
+1 – Review: CNN
+!
+5
+Multiple Input – Output Channels
+8
+13
+8
+12
+2
+2
+1
+4
+1
+0
+0
+4
+0
+3
+3
+4
+0
+4
+1
+2
+1
+0
+1
+0
+1
+0
+0
+1
+0
+1
+1
+0
+1
+0
+1
+1
+1
+0
+12
+21
+12
+21
+Bias
+1
+Input Channel #1
+Kernel Channel #1
+Kernel Channel #2
+Bias
+1
+0
+0
+2
+1
+4
+1
+3
+1
+4
+3
+1
+4
+2
+4
+2
+0
+Input Channel #2
+1
+1
+0
+0
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+Kernel Channel #1
+15
+19
+23
+18
+6
+5
+14
+5
+12
+14
+17
+15
+25
+36
+30
+37
++ 
+= 
++ 
+= 
+Kernel Channel #2
+1 – Review: CNN
+!
+6
+LeNet Model
+1 – Review: CNN
+!
+7
+TextCNN Model
+2 – Batch Normalization
+!
+8
+Data Normalization
+1
+1
+2
+4
+❖Compute mean and variance
+𝜇= 1
+m %
+!"#
+$
+X!
+𝜎% = 1
+m %
+!"#
+$
+(X!−𝜇)%
+❖Normalize Xi
++X! = X! −𝜇
+𝜎%
+𝜇= 2
+𝜎% = 1.5
+- 0.817
+𝜎= 1.224
+0
+X& = 1 −2
+1.224
+2 – Batch Normalization
+!
+9
+Data Normalization
+1
+1
+2
+4
+𝜇= 1
+m %
+!"#
+$
+X!
+𝜎% = 1
+m %
+!"#
+$
+(X!−𝜇)%
++X! = X! −𝜇
+𝜎%
+𝜇= 2
+𝜎% = 1.5
+- 0.817
+- 0.817
+0.000
+𝜎= 1.224
+0
+X& = 2 −2
+1.224
+❖Compute mean and variance
+❖Normalize Xi
+2 – Batch Normalization
+!
+10
+Data Normalization
+1
+1
+2
+4
+𝜇= 1
+m %
+!"#
+$
+X!
+𝜎% = 1
+m %
+!"#
+$
+(X!−𝜇)%
++X! = X! −𝜇
+𝜎%
+𝜇= 2
+𝜎% = 1.5
+- 0.817
+- 0.817
+0.000
+1.634
+𝜎= 1.224
+0
+X& = 4 −2
+1.224
+❖Compute mean and variance
+❖Normalize Xi
+2 – Batch Normalization
+!
+11
+Batch Normalization
+𝜇= 1
+m %
+!"#
+$
+X!
+𝜎% = 1
+m %
+!"#
+$
+(X!−𝜇)%
++X! = X! −𝜇
+𝜎% + 𝜖
+❖Compute mean and variance
+❖Normalize Xi
+❖Get batch data (m: batch size)
+X = {X#, X%, … , X$}
+❖Scale and shift +X!
+Y! = 𝛾+X! + 𝛽
+𝜖is a very small 
+value (1e-05)
+𝛾and 𝛽are two 
+learning parameters
+2
+2
+1
+4
+1
+0
+0
+4
+0
+3
+3
+4
+𝜖= 1e'(
+𝛾= 1
+𝛽= 0
+2 – Batch Normalization
+!
+12
+Batch Normalization
+𝜇= 1
+m %
+!"#
+$
+X!
+𝜎% = 1
+m %
+!"#
+$
+(X!−𝜇)%
++X! = X! −𝜇
+𝜎% + 𝜖
+❖Compute mean and variance
+❖Normalize Xi
+❖Get batch data (m: batch size)
+X = {X#, X%, … , X$}
+❖Scale and shift +X!
+Y! = 𝛾+X! + 𝛽
+𝜖is a very small 
+value (1e-05)
+𝛾and 𝛽are two 
+learning parameters
+2
+2
+1
+4
+1
+0
+0
+4
+0
+3
+3
+4
+2.25
+2.5
+1.25
+1.479
+1.118
+1.639
+mean
+variance
+𝜖= 1e'(
+𝛾= 1
+𝛽= 0
+2 – Batch Normalization
+!
+13
+Batch Normalization
+𝜇= 1
+m %
+!"#
+$
+X!
+𝜎% = 1
+m %
+!"#
+$
+(X!−𝜇)%
++X! = X! −𝜇
+𝜎% + 𝜖
+❖Compute mean and variance
+❖Normalize Xi
+❖Get batch data (m: batch size)
+X = {X#, X%, … , X$}
+❖Scale and shift +X!
+Y! = 𝛾+X! + 𝛽
+𝜖is a very small 
+value (1e-05)
+𝛾and 𝛽are two 
+learning parameters
+2
+4
+0
+3
+- 0.169
+1.183
+-1.521
+0.507
+.X𝟎=
+2 −2.25
+1.479" + 1e#$
+2
+2
+1
+4
+1
+0
+0
+4
+0
+3
+3
+4
+2.25
+2.5
+1.25
+1.479
+1.118
+1.639
+mean
+variance
+𝜖= 1e'(
+𝛾= 1
+𝛽= 0
+2 – Batch Normalization
+!
+14
+Batch Normalization
+𝜇= 1
+m %
+!"#
+$
+X!
+𝜎% = 1
+m %
+!"#
+$
+(X!−𝜇)%
++X! = X! −𝜇
+𝜎% + 𝜖
+❖Compute mean and variance
+❖Normalize Xi
+❖Get batch data (m: batch size)
+X = {X#, X%, … , X$}
+❖Scale and shift +X!
+Y! = 𝛾+X! + 𝛽
+𝜖is a very small 
+value (1e-05)
+𝛾and 𝛽are two 
+learning parameters
+2
+4
+0
+3
+- 0.169
+1.183
+-1.521
+0.507
+- 0.169
+1.183
+-1.521
+0.507
+.X𝟎=
+2 −2.25
+1.479" + 1e#$
+Y% = 1 ∗−0.169 + 0
+2
+2
+1
+4
+1
+0
+0
+4
+0
+3
+3
+4
+2.25
+2.5
+1.25
+1.479
+1.118
+1.639
+mean
+variance
+𝜖= 1e'(
+𝛾= 1
+𝛽= 0
+2 – Batch Normalization
+!
+15
+Batch Normalization
+𝜇= 1
+m %
+!"#
+$
+X!
+𝜎% = 1
+m %
+!"#
+$
+(X!−𝜇)%
++X! = X! −𝜇
+𝜎% + 𝜖
+❖Compute mean and variance
+❖Normalize Xi
+❖Get batch data (m: batch size)
+X = {X#, X%, … , X$}
+❖Scale and shift +X!
+Y! = 𝛾+X! + 𝛽
+𝜖is a very small 
+value (1e-05)
+𝛾and 𝛽are two 
+learning parameters
+2
+2
+1
+4
+1
+0
+0
+4
+0
+3
+3
+4
+2.25
+2.5
+1.25
+1.479
+1.118
+1.639
+mean
+variance
+- 0.169 - 0.447 - 0.153
+1.183
+- 1.342 - 0.763
+-1.521
+- 1.342 - 0.763
+0.507
+0.447
+1.677
+- 0.169 - 0.447 - 0.153
+1.183
+- 1.342 - 0.763
+-1.521
+- 1.342 - 0.763
+0.507
+0.447
+1.677
++X!
+Y!
+𝜖= 1e'(
+𝛾= 1
+𝛽= 0
+2 – Batch Normalization
+!
+16
+Batch Normalization - Demo
+𝜇= 1
+m %
+!"#
+$
+X!
+𝜎% = 1
+m %
+!"#
+$
+(X!−𝜇)%
++X! = X! −𝜇
+𝜎% + 𝜖
+❖Compute mean and variance
+❖Normalize Xi
+❖Get batch data (m: batch size)
+X = {X#, X%, … , X$}
+❖Scale and shift +X!
+Y! = 𝛾+X! + 𝛽
+𝜖is a very small 
+value (1e-05)
+𝛾and 𝛽are two 
+learning parameters
+2 – Batch Normalization
+!
+17
+Batch Normalization - Demo
+2 – Batch Normalization
+!
+18
+Normalization during Inference
+𝜇= 1
+m %
+!"#
+$
+X!
+𝜎% = 1
+m %
+!"#
+$
+(X!−𝜇)%
++X! = X! −𝜇
+𝜎% + 𝜖
+❖Compute mean and variance
+❖Normalize Xi
+❖Get batch data (m: batch size)
+X = {X#, X%, … , X$}
+❖Scale and shift +X!
+Y! = 𝛾+X! + 𝛽
+𝜖is a very small 
+value (1e-05)
+𝛾and 𝛽are two 
+learning parameters
+2
+2
+1
+How to compute mean and 
+variance with a sample?
+𝜇)*): estimated mean of the studied population
+𝜎%)*): estimated standard-deviation of the studied
+population
+computed using all the (𝜇_batch , σ_batch) determined 
+during training
+2 – Batch Normalization
+!
+19
+Normalization during Inference
++X! =
+X! −𝜇)*)
+𝜎%)*) + 𝜖
+❖Normalize Xi
+❖Scale and shift +X!
+Y! = 𝛾+X! + 𝛽
+𝜖is a very small 
+value (1e-05)
+𝛾and 𝛽are two 
+learning parameters
+2
+2
+1
+How to compute mean and 
+variance with a sample?
+2.25
+2.5
+1.25
+1.479
+1.118
+1.639
+𝜇)*)
+𝜎)*)
+- 0.169
+- 0.447
+- 0.153
+- 0.035
+- 0.129
+- 0.027
++X!
+Y!
+𝛾= 0.5
+𝛽= 0.05
+2 – Batch Normalization
+!
+20
+MNIST using Batch Normalization
+❖MNIST dataset
+Ø Images: 70.000
+Ø Class: 10
+Ø Image Size: 28 x 28
+2 – Batch Normalization
+!
+21
+MNIST using Batch Normalization - Demo
+❖MNIST dataset
+Ø Preprocessing
+2 – Batch Normalization
+!
+22
+MNIST using Batch Normalization - Demo
+❖MNIST dataset
+Ø Base Model
+2 – Batch Normalization
+!
+23
+MNIST using Batch Normalization - Demo
+❖MNIST dataset
+Ø Model with BatchNorm Layer
+2 – Batch Normalization
+!
+24
+MNIST using Batch Normalization
+❖MNIST dataset
+Ø Training
+Ø Evaluation
+w/o BN: 97.53
+w BN: 97.85
+3 – Dropout
+!
+25
+Dropout
+❖Removing units at random during the forward pass and putting them all back during test
+❖Probability of an element to be zeroed (P)
+Hidden Layer
+Output Layer
+Input Layer
+Without Dropout
+With Dropout
+3 – Dropout
+!
+26
+Dropout - Demo
+Initial
+Updated
+3 – Dropout
+!
+27
+MNIST using Dropout - Demo
+❖MNIST dataset
+Ø Model with Dropout Layer
+3 – Dropout
+!
+28
+MNIST using Dropout
+❖MNIST dataset
+Ø Training
+Ø Evaluation
+w/o Dropout: 97.53
+w Dropout: 97.58
+3 – Dropout
+!
+29
+MNIST using Dropout - Demo
+❖Probability of an element to be zeroed (P)
+3 – Dropout
+!
+30
+MNIST using Dropout
+❖Probability of an element to be zeroed (P)
+4 – Skip Connection
+!
+31
+Degradation Problem
+The deeper model doesn’t perform as well as the shallow one
+https://arxiv.org/pdf/1512.03385.pdf
+4 – Skip Connection
+!
+32
+Degradation Problem
+input
+Loss
+target
+output
+4 – Skip Connection
+!
+33
+Skip Connection
+input
+Loss
+target
+output
+block 1
+block 2
+block 3
+block 4
++
++
++
++
+4 – Skip Connection
+!
+34
+Skip Connection Example
+Input
+140
+0
+5
+8
+47
+175
+133
+203
+217
+-12.1794
+-2.7855
+6.7117
+-14.4943
+-105.878 -17.4401
+-67.1033
+-84.1202 29.6049
+0 0
+6.7117
+0 0
+0
+0 0
+29.6049
+0.2087
+1.9920
+-1.4108
+0.2087
+2.4680
+4.0437
+0.2087
+8.0747
+-6.9349
+Conv2d
+ReLU
+Conv2d
+140.2087
+1.9920
+3.5892
+8.2087
+49.4680
+179.0437
+133.2087
+211.0747 210.0651
++
+ReLU
+140.2087
+1.9920
+3.5892
+8.2087
+49.4680
+179.0437
+133.2087
+211.0747 210.0651
+4 – Skip Connection
+!
+35
+Skip Connection Variants
++
+Identity Shortcut
+Conv2d
+in_channels=3
+out_channels=10
+kernel_size=3
+stride=1
+padding=1
+ReLU
+Projection Shortcut
+input
+feature
+map
+ReLU
+[128, 3, 64, 64]
+[128, 10, 64, 64]
+[128, 10, 64, 64]
+Conv2d
+in_channels=10
+out_channels=3
+kernel_size=3
+stride=1
+padding=1
+[128, 3, 64, 64]
++
+Conv2d
+in_channels=3
+out_channels=10
+kernel_size=3
+stride=1
+padding=1
+ReLU
+input
+feature
+map
+ReLU
+[128, 10, 64, 64]
+[128, 10, 64, 64]
+Conv2d
+in_channels=10
+out_channels=3
+kernel_size=3
+stride=2
+padding=1
+[128, 3, 32, 32]
+Conv2d
+in_channels=3
+out_channels=3
+kernel_size=3
+stride=2
+padding=1
+[128, 3, 64, 64]
+[128, 3, 64, 64]
+[128, 3, 32, 32]
+[128, 3, 32, 32]
+[128, 3, 64, 64]
+[128, 3, 32, 32]
+4 – Skip Connection
+!
+36
+Skip Connection Variants
++
++
+Short Skip Connection 
+(ResNet, …)
+Long Skip Connection 
+(UNet, …)
+4 – Skip Connection
+!
+37
+Implementation – No Skip Connection
+Conv2d
+ReLU
+Conv2d
+input
+feature
+map
+ReLU
+4 – Skip Connection
+!
+38
+Implementation – Skip Connection
+Conv2d
+ReLU
+Conv2d
+input
+feature
+map
+ReLU
++
+4 – Skip Connection
+!
+39
+MNIST using Skip Connection - Demo
+Thanks!
+Any questions?
+40

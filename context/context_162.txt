@@ -1,0 +1,634 @@
+AI VIET NAM – AI COURSE 2023
+Video Classification Project
+Minh-Duc Bui và Quang-Vinh Dinh
+Ngày 2 tháng 5 năm 2024
+Phần I: Giới thiệu
+Video classification là một bài toán quan trọng trong thịgiác máy tính và trí tuệnhân tạo, liên quan
+đến việc tựđộng phân loại và gán nhãn các video dựa trên nội dung.
+Các ứng dụng của video classification rất đa dạng, từan ninh và giám sát, cải thiện các hệthống gợi
+ý nội dung trên nền tảng xem video như YouTube hay Netflix, đến phân tích hành vi người dùng và
+hỗtrợcác phương tiện tựlái. Đểđạt được hiệu quảcao, các model phân loại video cần được train trên
+các bộdữliệu lớn, đa dạng và thường phải xửlý các thách thức như biến động của môi trường, sựthay
+đổi góc quay, và sựđa dạng vềhành vi và tương tác trong video.
+Hình 1: Minh họa kiến trúc Video Vision Transformer (ViViT) cho bài toán video classification.
+Trong project này, ta sẽtriển khai một sốmodel phân loại video từcơ bản đến nâng cao.
+1
+AI VIETNAM
+aivietnam.edu.vn
+Phần II: Nội dung
+1. Giới thiệu Video data
+• Video data: Video là chuỗi của các frame theo thời gian, ví dụmột video có T frame và mỗi
+frame có kích thước (3 x W x H) thì video sẽcó kích thước (T x 3 x W x H) (tensor 4 chiều).
+• Đặc điểm: Video có kích thước rất lớn, ví dụmột video thông thường có khoảng 30 frame,
+khi kích thước mỗi frame là (3 x 640 x 480) thì dung lượng của video (khi chưa nén) xấp xỉ
+1.5GB/phút, khi kích thước mỗi frame là (3 x 1920 x 1080) thì dung lượng xấp xỉ10GB/phút.
+Video có kích thước rất lớn khi so sánh với các loại data khác như ảnh, âm thanh, hoặc
+text. Vì thế, trong các bài toán video classification, ta thường dùng video có kích thước nhỏ,
+(T x 3 x 112 x 112) hoặc (T x 3 x 224 x 224) cùng với sốlượng frame T nhỏ(ví dụ16 FPS).
+Đối với các trường hợp video có tính thống nhất từđầu đến cuối, tức label của video sẽgiống
+nhau dù ta chỉnhìn vào 1 phần ngắn của video thì ta có thểchia video thành nhiều clip
+ngắn và train model. Ví dụta có 1 video 30s phân loại các hoạt động thểthao, ta có thể
+chia video thành các clip ngắn (5s) rồi train model. Khi inference thực tế, ta sẽchia video
+thành nhiều clip ngắn rồi predict trên các clip ngắn này, kết quảcuối cùng sẽđược tổng hợp
+lại (tham khảo hình 2).
+Hình 2: Minh họa cách chia video thành các clip ngắn khi train và cách inference sau khi đã train model.
+• Thách thức: các bài toán vềvideo luôn có độphức tạp rất cao do nhiều tính chất từvideo,
+một sốthách thức vềvideo như:
+– Chỉmột phần nhỏcủa đối tượng (quyết định label) xuất hiện trong video,
+– Video tại các vịtrí đông người,
+– Các hành động chính (quyết định label) chỉdiễn ra trong một khoảng thời gian ngắn
+trong toàn bộvideo,
+– Video có độphân giải thấp.
+2
+AI VIETNAM
+aivietnam.edu.vn
+2. Dataset RWF2000 - bài toán violence detection
+RWF2000 là dataset vềbài toán violence detection (phát hiện hành vi bạo lực), cụthểta sẽphân
+loại video dựa vào 2 class fight hoặc non-fight behaviour tương ứng với có hoặc không có hành
+vi bạo lực trong video. Dataset bao gồm 2000 video, mỗi video dài 5s và được quay ở30 frame
+(FPS), tổng cộng ta có 300.000 frame.
+Hình 3: Một sốsample từRWF2000.
+3
+AI VIETNAM
+aivietnam.edu.vn
+3. Cấu trúc data và dataset class
+Data bao gồm 2 folder chính là train và val, trong mỗi folder chính sẽcó 2 subfolder tương ứng
+với 2 class là Fight and NonFight. Trong mỗi class bao gồm các folder chứa video, mỗi folder chứa
+30 frame của video đó.
+VideoDataset Class:
+• __init__: Hàm khởi tạo nhận vào root_dir (đường dẫn tới thư mục chứa dataset), phase để
+chỉđịnh tập dữliệu là train hoặc val, transform đểáp dụng các biến đổi cho các frame, và
+n_frames đểchỉđịnh sốlượng frame sẽđược lấy từmỗi video.
+• _load_videos: Hàm load tất cảcác đường dẫn đến frame của các video. Hàm duyệt qua từng
+thư mục trong train hoặc val, lấy đường dẫn của từng frame trong mỗi video, sau đó sắp xếp
+theo thứtựsố. Nếu n_frames được chỉđịnh, hàm sẽlấy các frame theo uniform distribution
+bằng cách sửdụng hàm _uniform_sample.
+• _uniform_sample: Hàm chọn ra n_frames từdanh sách frames theo uniform distribution.
+• __getitem__: Trảvềdata và label tương ứng khi chỉđịnh index. Các frame được transform
+(nếu có), và stack lại đểtạo thành một tensor 4 chiều (C, T, H, W).
+1 class
+VideoDataset(Dataset):
+2
+def
+__init__(self , root_dir , phase="train", transform=None , n_frames=
+None):
+3
+"""
+4
+Args:
+5
+root_dir (string): Directory
+with all the videos (each
+video as
+a subdirectory of frames).
+6
+transform (callable , optional): Optional
+transform to be applied
+on a sample.
+7
+n_frames (int , optional): Number of frames to sample
+from each
+video , uniformly. If None , use all frames.
+8
+"""
+9
+self.root_dir = root_dir
+10
+self.transform = transform
+4
+AI VIETNAM
+aivietnam.edu.vn
+11
+self.n_frames = n_frames
+12
+self.phase = phase
+13
+self.videos , self.labels = self._load_videos ()
+14
+15
+def
+_load_videos(self):
+16
+videos , labels = [], []
+17
+class_id = 0
+18
+19
+video_folders = os.listdir(os.path.join(self.root_dir , self.phase))
+20
+21
+for folder in video_folders :
+22
+video_paths = os.listdir(os.path.join(self.root_dir , self.phase ,
+folder))
+23
+24
+for
+video_path in video_paths:
+25
+video_folder = os.path.join(
+26
+self.root_dir , self.phase , folder , video_path
+27
+)
+28
+frames = sorted(
+29
+(os.path.join(video_folder , f) for f in os.listdir(
+video_folder)),
+30
+key=lambda f: int(
+31
+"".join(filter(str.isdigit , os.path.basename(f)))
+32
+),
+33
+)
+34
+35
+if self.n_frames:
+36
+frames = self. _uniform_sample (frames , self.n_frames)
+37
+38
+videos.append(frames)
+39
+labels.append(class_id)
+40
+41
+class_id += 1
+42
+43
+return videos , labels
+44
+45
+def
+_uniform_sample (self , frames , n_frames):
+46
+"""
+47
+Helper
+method to uniformly
+sample
+n_frames
+from the frames
+list.
+48
+"""
+49
+stride = max(1, len(frames) // n_frames)
+50
+sampled = [frames[i] for i in range (0, len(frames), stride)]
+51
+return
+sampled [: n_frames]
+52
+53
+def
+__len__(self):
+54
+return len(self.videos)
+55
+56
+def
+__getitem__(self , idx):
+57
+video_frames = self.videos[idx]
+58
+label = self.labels[idx]
+59
+images = []
+60
+for
+frame_path in video_frames:
+61
+image = Image.open(frame_path).convert("RGB")
+62
+if self.transform:
+63
+image = self.transform(image)
+64
+images.append(image)
+65
+66
+# Stack
+images
+along new
+dimension (sequence
+length)
+67
+data = torch.stack(images , dim =0)
+5
+AI VIETNAM
+aivietnam.edu.vn
+68
+69
+# Rearrange to have the shape (C, T, H, W)
+70
+data = data.permute (1, 0, 2, 3)
+71
+return data , label
+72
+Sau đó ta sẽtạo dataloader đểtrain model:
+1 BATCH_SIZE = 16
+2 MAX_LEN = 15
+3 IMAGE_SIZE = 224
+4
+5
+6 transform = transforms.Compose(
+7
+[
+8
+transforms.Resize (( IMAGE_SIZE , IMAGE_SIZE)),
+9
+transforms.ToTensor (),
+10
+]
+11 )
+12
+13 # Load
+dataset
+14 train_dataset = VideoDataset(
+15
+root_dir="./ dataset/rwf -2000", phase="train", transform=transform ,
+n_frames=MAX_LEN
+16 )
+17
+18 val_dataset = VideoDataset (
+19
+root_dir="./ dataset/rwf -2000", phase="val", transform=transform ,
+n_frames=MAX_LEN
+20 )
+21
+22 # Count
+number of cpus
+23 cpus = os.cpu_count ()
+24 print(f"Number of cpus: {cpus}")
+25
+26 # Create
+data
+loaders
+27 train_loader = DataLoader(
+28
+train_dataset , batch_size=BATCH_SIZE , num_workers=cpus , shuffle=True
+29 )
+30 val_loader = DataLoader(
+31
+val_dataset , batch_size=BATCH_SIZE , num_workers=cpus , shuffle=False
+32 )
+33
+6
+AI VIETNAM
+aivietnam.edu.vn
+4. Model video classification
+Trong phần này, ta sẽdùng một sốmodel khác nhau đểgiải quyết bài toán video classification.
+• Single-frame: Single-frame hoạt động bằng cách dùng 2D model bất kì (resnet18) đểpredict
+trên mỗi frame và tổng hợp kết quảcuối cùng (average). Model single-frame được mô tảnhư
+hình sau, lưu ý, ta chỉcần dùng 1 model (share weight) đểpredict trên các frame.
+1 class
+Model(nn.Module):
+2
+def
+__init__(self , num_classes =2):
+3
+super(Model , self).__init__ ()
+4
+self.resnet = resnet18(pretrained=True)
+5
+self.resnet.fc = nn.Sequential(nn.Linear(self.resnet.fc.
+in_features , 512))
+6
+self.fc1 = nn.Linear (512 , 128)
+7
+self.fc2 = nn.Linear (128 ,
+num_classes)
+8
+9
+def
+forward(self , x_3d):
+10
+# (bs , C, T, H, W) -> (bs , T, C, H, W)
+11
+x_3d = x_3d.permute (0, 2, 1, 3, 4)
+12
+13
+logits = []
+14
+for t in range(x_3d.size (1)):
+15
+out = self.resnet(x_3d[:, t, :, :, :])
+16
+17
+x = self.fc1(out)
+18
+x = F.relu(x)
+19
+x = self.fc2(x)
+20
+21
+logits.append(x)
+22
+23
+# mean
+pooling
+24
+logits = torch.stack(logits , dim =0)
+25
+logits = torch.mean(logits , dim =0)
+26
+return
+logits
+• Late Fusion: Late fusion hoạt động bằng cách dùng 2D model (share weight) đểbiến đổi
+7
+AI VIETNAM
+aivietnam.edu.vn
+mỗi frame thành feature vector, sau đó ta sẽtổng hợp các feature vector này và đưa vào
+MLP head đểđưa ra prediction cuối cùng. Model late fusion được mô tảnhư hình sau, ta
+có thểconcat hoặc tính average của các feature vector sau khi qua CNN, khi concat thì kích
+thước sẽrất lớn nên ta sẽtính average các vector.
+đểtiết kiệm tài nguyên tính toán và tránh việc kích thước vec
+1 class
+Model(nn.Module):
+2
+def
+__init__(self , num_classes =2):
+3
+super(Model , self).__init__ ()
+4
+self.resnet = resnet18(pretrained=True)
+5
+self.resnet.fc = nn.Sequential(nn.Linear(self.resnet.fc.
+in_features , 512))
+6
+self.fc1 = nn.Linear (512 , 128)
+7
+self.fc2 = nn.Linear (128 ,
+num_classes)
+8
+9
+def
+forward(self , x_3d):
+10
+# (bs , C, T, H, W) -> (bs , T, C, H, W)
+11
+x_3d = x_3d.permute (0, 2, 1, 3, 4)
+12
+13
+features = []
+14
+for t in range(x_3d.size (1)):
+15
+out = self.resnet(x_3d[:, t, :, :, :])
+16
+features.append(out)
+17
+18
+# average
+pooling
+19
+out = torch.mean(torch.stack(features), 0)
+20
+21
+x = self.fc1(out)
+22
+x = F.relu(x)
+23
+x = self.fc2(x)
+24
+return x
+25
+• Early Fusion: Early fusion sẽkết hợp các input frame đểtạo thành tensor có kích thước
+(3*T x H x W) và dùng model 2D (cần thay đổi layer conv đầu tiên đểphù hợp với input).
+8
+AI VIETNAM
+aivietnam.edu.vn
+Model early fusion được mô tảnhư hình sau:
+1 class
+Model(nn.Module):
+2
+def
+__init__(self , num_classes =2, num_input_channel =48):
+3
+super(Model , self).__init__ ()
+4
+self.resnet = resnet18(pretrained=True)
+5
+self.resnet.conv1 = nn.Conv2d(
+6
+num_input_channel , 64, kernel_size =7, stride =2, padding =3,
+bias=False
+7
+)
+8
+self.resnet.fc = nn.Sequential(nn.Linear(self.resnet.fc.
+in_features , 512))
+9
+self.fc1 = nn.Linear (512 , 128)
+10
+self.fc2 = nn.Linear (128 ,
+num_classes)
+11
+12
+def
+forward(self , x_3d):
+13
+# (bs , C, T, H, W)
+14
+# concatenate
+all C and T dimensions to make it (bs , C*T, H, W)
+15
+x_3d = x_3d.permute (0, 2, 1, 3, 4).contiguous ()
+16
+x_3d = x_3d.view(
+17
+x_3d.size (0), x_3d.size (1) * x_3d.size (2), x_3d.size (3),
+x_3d.size (4)
+18
+)
+19
+20
+out = self.resnet(x_3d)
+21
+22
+x = self.fc1(out)
+23
+x = F.relu(x)
+24
+x = self.fc2(x)
+25
+return x
+26
+• CNN-LSTM: Đối với model CNN-LSTM, ta sẽdùng 2D model (share weight) đểextract
+9
+AI VIETNAM
+aivietnam.edu.vn
+feature từmỗi frame độc lập và dùng các feature đó đểđưa vào LSTM, mỗi frame sẽtương
+ứng với mỗi input của model LSTM. Model được mô tảnhư hình sau:
+1 class
+Model(nn.Module):
+2
+def
+__init__(self , num_classes =2):
+3
+super(Model , self).__init__ ()
+4
+self.resnet = resnet18(pretrained=True)
+5
+self.resnet.fc = nn.Sequential(nn.Linear(self.resnet.fc.
+in_features , 512))
+6
+self.lstm = nn.LSTM(input_size =512 ,
+hidden_size =389 ,
+num_layers
+=3)
+7
+self.fc1 = nn.Linear (389 , 128)
+8
+self.fc2 = nn.Linear (128 ,
+num_classes)
+9
+10
+def
+forward(self , x_3d):
+11
+# (bs , C, T, H, W) -> (bs , T, C, H, W)
+12
+x_3d = x_3d.permute (0, 2, 1, 3, 4)
+13
+14
+hidden = None
+15
+for t in range(x_3d.size (1)):
+16
+x = self.resnet(x_3d[:, t, :, :, :])
+17
+out , hidden = self.lstm(x.unsqueeze (0), hidden)
+18
+19
+x = self.fc1(out[-1, :, :])
+20
+x = F.relu(x)
+21
+x = self.fc2(x)
+22
+return x
+23
+• 3D CNN: Ta cũng có thểsửdụng các model chuyên dành cho data 3D đểgiải quyết bài
+toán video classification. Do đoạn code tạo model rất lớn nên sẽkhông được bao gồm trong
+file này (tham khảo tại đây). Sau đây là kiến trúc model S3D mà ta sẽsửdụng:
+10
+AI VIETNAM
+aivietnam.edu.vn
+• Video ViT (ViViT): Transformer vẫn luôn là backbone được sửdụng rộng rãi trong nhiều
+các bài toán hiện tại. ViViT là một trong những model đầu tiên sửdụng kiến trúc Vision
+Transformer (ViT) đểáp dụng vào bài toán video classification. Model ViViT được mô tả
+như hình sau, lưu ý các block Spatial Transformer Encoder là các block share weight.
+1 from
+transformers
+import
+VivitConfig , VivitForVideoClassification
+2
+3 class
+Model(nn.Module):
+4
+def
+__init__(self , num_classes =2, image_size =224 ,
+num_frames =15):
+11
+AI VIETNAM
+aivietnam.edu.vn
+5
+super(Model , self).__init__ ()
+6
+cfg = VivitConfig ()
+7
+cfg.num_classes = num_classes
+8
+cfg.image_size = image_size
+9
+cfg.num_frames = num_frames
+10
+11
+self.vivit = VivitForVideoClassification . from_pretrained (
+12
+"google/vivit -b-16x2 -kinetics400",
+13
+config=cfg ,
+14
+ignore_mismatched_sizes =True ,
+15
+)
+16
+17
+def
+forward(self , x_3d):
+18
+# (bs , C, T, H, W) -> (bs , T, C, H, W)
+19
+x_3d = x_3d.permute (0, 2, 1, 3, 4)
+20
+21
+out = self.vivit(x_3d)
+22
+23
+return out.logits
+24
+12
+AI VIETNAM
+aivietnam.edu.vn
+Phần III: Câu hỏi trắc nghiệm
+1. Đâu là một cách xửlý video có kích thước lớn?
+(a) Sửdụng toàn bộframe trong video.
+(b) Chia video thành nhiều clip ngắn và train model.
+(c) Bỏqua các frame không quan trọng.
+(d) Sửdụng video với tốc độkhung hình cao.
+2. RWF2000 là dataset cho bài toán gì?
+(a) Phát hiện hành vi bạo lực.
+(b) Phân loại động vật.
+(c) Nhận diện khuôn mặt.
+(d) Dựđoán thời tiết.
+3. Đâu là đặc điểm của data trong video classification?
+(a) Video là chuỗi của các frame theo không gian.
+(b) Mỗi frame thường có kích thước nhỏ.
+(c) Video là chuỗi của các frame theo thời gian.
+(d) Video không chứa dữliệu âm thanh.
+4. Trong VideoDataset, hàm _uniform_sample dùng đểlàm gì?
+(a) Đểsắp xếp các frames theo thứtựsố.
+(b) Đểchuyển đổi các frame sang RGB.
+(c) Đểlấy mẫu đều các frame từdanh sách.
+(d) Đểkết nối với GPU cho việc training nhanh hơn.
+5. Đâu là kiến trúc sửdụng đểchuyển đổi mỗi frame thành feature vector trong late fusion?
+(a) CNN
+(b) LSTM
+(c) MLP
+(d) RNN
+6. Trong early fusion, các frame được kết hợp như thếnào trước khi đưa vào model?
+(a) Tất cảcác frames được nén lại thành một frame.
+(b) Các frames được giữnguyên và xửlý độc lập.
+(c) Các frames được đưa vào LSTM như là các input độc lập.
+(d) Các frame được kết hợp đểtạo thành tensor có kích thước (3*T x H x W).
+7. Single-frame model hoạt động dựa trên nguyên tắc nào?
+(a) Tổng hợp các feature vector từmỗi frame.
+(b) Dùng 2D model đểpredict trên mỗi frame và tổng hợp kết quả.
+(c) Xửlý từng frame với một mạng LSTM.
+13
+AI VIETNAM
+aivietnam.edu.vn
+(d) Kết hợp tất cảframes thành một tensor 3D.
+8. Trong VideoDataset, __getitem__ trảvềgì?
+(a) Chỉmột tensor của các frames.
+(b) Một cặp gồm data và label.
+(c) Một danh sách các đường dẫn đến frame.
+(d) Kết quảcủa mô hình đã được train.
+9. Trong quá trình training, việc xáo trộn (shuffle) dữliệu trong train_loader có mục đích gì?
+(a) Giảm dung lượng dữliệu cần xửlý.
+(b) Tăng tốc độtraining của model.
+(c) Ngăn ngừa model học theo thứtựdữliệu, giúp generalization tốt hơn.
+(d) Tăng độchính xác của model trên dữliệu validation.
+10. Đâu là lợi ích của việc sửdụng pre-trained models như trong single-frame model?
+(a) Giảm thời gian inference.
+(b) Giảm độchính xác của model.
+(c) Giúp model có khảnăng transfer learning.
+(d) Giảm sốlượng layers cần thiết trong mô hình.
+- Hết -
+14

@@ -1,0 +1,614 @@
+A Survey on Multimodal 
+Large Language Models 
+Link: https://arxiv.org/abs/2306.13549
+Dinh-Thang Duong
+Nguyen-Thuan Duong
+AI VIETNAM
+Seminar
+Shukang Yin, Chaoyou Fu, Sirui Zhao, Ke Li, Xing Sun, Tong 
+Xu, Enhong Chen
+Abstract
+2
+❖Content
+Multimodal Large Language Model (MLLM) recently has been a new rising research hotspot, which 
+uses powerful Large Language Models (LLMs) as a brain to perform multimodal tasks. The surprising 
+emergent capabilities of MLLM, such as writing stories based on images and OCR-free math reasoning, 
+are rare in traditional methods, suggesting a potential path to artificial general intelligence. In this paper, 
+we aim to trace and summarize the recent progress of MLLM. First of all, we present the formulation of 
+MLLM and delineate its related concepts. Then, we discuss the key techniques and applications, 
+including Multimodal Instruction Tuning (M-IT), Multimodal In-Context Learning (M-ICL), Multimodal Chain 
+of Thought (M-CoT), and LLM-Aided Visual Reasoning (LAVR). Finally, we discuss existing challenges 
+and point out promising research directions. In light of the fact that the era of MLLM has only just begun, 
+we will keep updating this survey and hope it can inspire more research. An associated GitHub link 
+collecting the latest papers is available at https://github.com/BradyFU/Awesome- 
+Multimodal-Large-Language-Models. 
+AI VIETNAM
+Seminar
+Introduction
+3
+❖Introduction
+AI VIETNAM
+Seminar
+Textual Input
+Textual Output
+GPT3.5: 
+Unimodal LLM
+Introduction
+4
+❖Introduction
+AI VIETNAM
+Seminar
+Textual Input
+Visual Input
+GPT4: 
+Multimodal LLM
+Textual Output
+Introduction
+5
+❖What is LLMs?
+AI VIETNAM
+Seminar
+LLMs (Large Language Models): Are language models that were trained on a very large corpus of text. This 
+made them capable of performing various NLP tasks with high precision.
+Image Reference: https://wandb.ai/vincenttu/blog_posts/reports/A-Survey-of-Large-Language-Models--VmlldzozOTY2MDM1
+Introduction
+6
+❖What is LLMs?
+AI VIETNAM
+Seminar
+Image Reference: https://blogs.nvidia.com/blog/what-are-foundation-models/
+LLMs are often pretrained on a 
+vast majority of data and 
+designed to be adaptable to a 
+wide variety of tasks 
+(Foundation models).
+Introduction
+7
+❖What is LLMs?
+AI VIETNAM
+Seminar
+Transformers Paper: https://arxiv.org/abs/1706.03762
+Image Reference: https://heidloff.net/article/foundation-models-transformers-bert-and-gpt/
+Introduction
+8
+❖What is LLMs?
+AI VIETNAM
+Seminar
+Decoder
+<start> 
+I
+Decoder
+<start> I
+am
+Decoder
+<start> I am
+a
+Decoder
+<start> I am a
+chatbot
+Introduction
+9
+❖What is LLMs?
+AI VIETNAM
+Seminar
+Write a python function that receive an 
+image and plot it using matplotlib 
+library.
+Prompt:
+Introduction
+10
+❖What is LLMs?
+AI VIETNAM
+Seminar
+Image Reference: https://huggingface.co/blog/evaluating-mmlu-leaderboard
+Introduction
+11
+❖What is multimodality?
+AI VIETNAM
+Seminar
+Image 
+Classification 
+Model
+‘Car’
+Input
+Output
+Sentiment 
+Analysis 
+Model
+‘Positive’
+“The today’s 
+weather is 
+very nice”
+Introduction
+12
+❖What is multimodality?
+AI VIETNAM
+Seminar
+Image 
+Classification 
+Model
+‘Car’
+Input
+Output
+Involve processing and integrating only one 
+type of data => Unimodal
+Introduction
+13
+❖What is multimodality?
+AI VIETNAM
+Seminar
+Input:
+-
+Image (Context)
+-
+Text (Question)
+Output:
+-
+Text (Answer)
+Involve processing and integrating 
+multi type of data => Multimodal 
+Image Reference: https://paperswithcode.com/task/visual-question-answering
+Introduction
+14
+❖What is M-LLMs
+AI VIETNAM
+Seminar
+Multimodal Large Language Models (M-LLMs): 
+uses powerful Large Language Model as a brain 
+to perform multimodal tasks, which may involve 
+processing multi types of data.
+Introduction
+15
+❖What is M-LLMs
+AI VIETNAM
+Seminar
+Image Reference: https://www.infoq.com/news/2023/09/next-gpt-multimodal/
+Introduction
+16
+❖M-LLMs Applications
+AI VIETNAM
+Seminar
+Object 
+Localization
+Reference: https://arxiv.org/pdf/2309.17421.pdf
+Introduction
+17
+❖M-LLMs Applications
+AI VIETNAM
+Seminar
+Object Counting
+Reference: https://arxiv.org/pdf/2309.17421.pdf
+Introduction
+18
+❖M-LLMs Applications
+AI VIETNAM
+Seminar
+OCR-Free eKYC
+Reference: https://arxiv.org/pdf/2309.17421.pdf
+Introduction
+19
+❖M-LLMs Applications
+AI VIETNAM
+Seminar
+Knowledge-based 
+Visual Question Answering
+Reference: https://arxiv.org/pdf/2309.17421.pdf
+Introduction
+20
+❖M-LLMs Applications
+AI VIETNAM
+Seminar
+Caption Anything
+Reference: https://github.com/ttengwang/Caption-Anything?tab=readme-ov-file
+Introduction
+21
+❖M-LLMs Challenges
+AI VIETNAM
+Seminar
+M-LLMs
+Instruction: Complete the below 
+task
+Input: Describe the image
+Modality Bridging ?
+Methods
+22
+❖M-LLMs Taxonomy
+AI VIETNAM
+Seminar
+M-LLMs
+(Multimodal Large 
+Language Models)
+M-IT 
+(Instruction Tuning)
+M-CoT 
+(Chain-of-Thought)
+LAVR 
+(LLM-Aided Visual 
+Reasoning)
+M-ICL 
+(In-context Learning)
+Methods
+23
+❖M-LLMs Taxonomy
+AI VIETNAM
+Seminar
+M-LLMs
+(Multimodal Large 
+Language Models)
+M-IT 
+(Instruction Tuning)
+M-CoT 
+(Chain-of-Thought)
+LAVR 
+(LLM-Aided Visual 
+Reasoning)
+M-ICL 
+(In-context Learning)
+Methods
+24
+❖M-IT: Introduction
+AI VIETNAM
+Seminar
+Common prompting: General or standard 
+questions or statement used to initiate a 
+response or interaction. 
+https://huggingface.co/datasets/Dahoas/synthetic-hh-rlhf-prompts
+Methods
+25
+❖M-IT: Instruction-following data
+AI VIETNAM
+Seminar
+Instruction 
+Prompting: Specific, 
+directive statements or 
+questions that guide 
+the LLMs to perform a 
+particular action.
+Methods
+26
+❖M-IT: Instruction-following data
+AI VIETNAM
+Seminar
+������
+Positive
+Neutral
+Negative
+Instruction: Given a sentence, classify its 
+sentiment into one of three classes: positive, 
+negative, neutral
+Input: What is the weather like today?
+Output: Neutral
+Input: I feel bad
+Output: 
+Methods
+27
+❖M-IT
+AI VIETNAM
+Seminar
+M-LLMs
+Instruction Tuning on 
+many tasks
+Methods
+28
+❖M-IT: Instruction-following data with image
+AI VIETNAM
+Seminar
+Methods
+29
+❖M-IT: Introduction
+AI VIETNAM
+Seminar
+Methods
+30
+❖M-IT template for multimodal instruction data
+AI VIETNAM
+Seminar
+❖
+{instruction}: A textual description of 
+the task.
+❖
+{<image>, <text>}: Input of the data 
+sample.
+❖
+{output}: Output if the data sample.
+❖
+<BOS>: The start input token.
+❖
+<EOS>: The end input token.
+31
+Methods
+❖M-IT Taxonomy
+Methods
+32
+❖M-IT Demo: LLaVA
+AI VIETNAM
+Seminar
+Reference: https://arxiv.org/abs/2304.08485
+Methods
+33
+❖M-IT Demo: LLaVA
+AI VIETNAM
+Seminar
+Reference: https://arxiv.org/abs/2304.08485
+Methods
+34
+❖M-IT Demo: LLaVA
+AI VIETNAM
+Seminar
+Reference: https://arxiv.org/abs/2304.08485
+Methods
+35
+❖M-IT Demo: LLaVA 1.5
+AI VIETNAM
+Seminar
+Methods
+36
+❖M-LLMs Taxonomy
+AI VIETNAM
+Seminar
+M-LLMs
+(Multimodal Large 
+Language Models)
+M-IT 
+(Instruction Tuning)
+M-CoT 
+(Chain-of-Thought)
+LAVR 
+(LLM-Aided Visual 
+Reasoning)
+M-ICL 
+(In-context Learning)
+Methods
+37
+❖M-ICL: Introduction
+AI VIETNAM
+Seminar
+### Instruction: Classify the sentiment of the text 
+below in terms of positive, negative or neutral.
+### Text: “This food is delicious!”
+### Response:
+LLM
+(Parameters Freezed)
+“Positive”
+Zero-shot Prompting
+Methods
+38
+❖M-ICL: Introduction
+AI VIETNAM
+Seminar
+### Instruction: Classify the sentiment of the text 
+below in terms of positive, negative or neutral.
+### Text: “This food is delicious!”
+### Response: “Positive”
+### Text: “It’s raining outside. I bet we cannot go 
+swimming today.”
+### Response: “Negative”
+### Text: “Despite the bad service, this restaurant 
+serves very tasty dishes.”
+### Response: “Neutral”
+### Text: “The new employee is getting so mean, that 
+is not a proper manner as a beginner.”
+### Response: 
+LLM
+(Parameters Freezed)
+“Negative”
+Few-shot Prompting
+Methods
+39
+❖M-ICL: Introduction
+AI VIETNAM
+Seminar
+1,999 × 730
+In-context learning: A prompt engineering technique that give a list of input-output pairs for a specific task. At the 
+end of the prompt, we give the test sample for the final result.
+Image Reference: https://ai.stanford.edu/blog/understanding-incontext/
+Methods
+40
+❖M-ICL query structure example
+AI VIETNAM
+Seminar
+❖
+{instruction}: A textual description of 
+the task.
+❖
+<image>: A place-holder to represent 
+an image.
+❖
+{response}: A response (answer) to the 
+task related to {instruction} and 
+<image>.
+❖
+<BOS>: The start input token.
+❖
+<EOS>: The end input token.
+Methods
+41
+❖M-ICL Demo: OpenFlamingo
+AI VIETNAM
+Seminar
+Reference: https://arxiv.org/abs/2308.01390
+Methods
+42
+❖M-ICL Demo: OpenFlamingo
+AI VIETNAM
+Seminar
+This is an image 
+of shopping mall.
+This is an image of 
+an Ancient Town.
+This is an image of 
+???
+Methods
+43
+❖M-ICL Demo: OpenFlamingo
+AI VIETNAM
+Seminar
+Methods
+44
+❖M-LLMs Taxonomy
+AI VIETNAM
+Seminar
+M-LLMs
+(Multimodal Large 
+Language Models)
+M-IT 
+(Instruction Tuning)
+M-CoT 
+(Chain-of-Thought)
+LAVR 
+(LLM-Aided Visual 
+Reasoning)
+M-ICL 
+(In-context Learning)
+Methods
+45
+❖M-CoT: Introduction
+AI VIETNAM
+Seminar
+Image Reference: https://www.promptingguide.ai/techniques/cot
+46
+Methods
+❖M-CoT Taxonomy
+Methods
+47
+❖M-CoT Demo: MM-CoT
+AI VIETNAM
+Seminar
+Reference: https://arxiv.org/abs/2302.00923
+Methods
+48
+❖M-CoT Demo: MM-CoT
+AI VIETNAM
+Seminar
+Reference: https://arxiv.org/abs/2302.00923
+Methods
+49
+❖M-CoT Demo: MM-CoT
+AI VIETNAM
+Seminar
+Input Image
+Methods
+50
+❖M-CoT Demo: MM-CoT
+AI VIETNAM
+Seminar
+Input Image
+Methods
+51
+❖M-CoT Demo: MM-CoT
+AI VIETNAM
+Seminar
+Input Image
+Methods
+52
+❖M-CoT Demo: MM-CoT
+AI VIETNAM
+Seminar
+Input Image
+Methods
+53
+❖M-CoT Demo: MM-CoT
+AI VIETNAM
+Seminar
+Input Image
+Methods
+54
+❖M-LLMs Taxonomy
+AI VIETNAM
+Seminar
+M-LLMs
+(Multimodal Large 
+Language Models)
+M-IT 
+(Instruction Tuning)
+M-CoT 
+(Chain-of-Thought)
+LAVR 
+(LLM-Aided Visual 
+Reasoning)
+M-ICL 
+(In-context Learning)
+Methods
+55
+❖LAVR: Introduction
+AI VIETNAM
+Seminar
+Tool-augmented LLMs: Refer to a 
+cutting-edge approach where LLMs are 
+equipped with the capability to interact 
+with external tools or interfaces to 
+extend their functionality beyond mere 
+text generation  
+Input
+Output
+Input
+Output
+Tool Input
+Tool Output
+Execute 
+Tool
+Call external 
+tool
+Append tool 
+result
+Large Language Models (LLMs)
+Tool-augmented LLMs
+Methods
+56
+❖LAVR: Introduction
+AI VIETNAM
+Seminar
+Methods
+57
+❖LAVR: Introduction
+AI VIETNAM
+Seminar
+Reference: https://gpt4tools.github.io/
+Methods
+58
+❖LAVR: GPT4Tools Demo
+AI VIETNAM
+Seminar
+Reference: https://gpt4tools.github.io/
+Methods
+59
+❖LAVR: GPT4Tools Demo
+AI VIETNAM
+Seminar
+Reference: https://gpt4tools.github.io/
+Methods
+60
+❖LAVR: GPT4Tools Demo
+AI VIETNAM
+Seminar
+Reference: https://gpt4tools.github.io/
+Methods
+61
+❖LAVR: GPT4Tools Demo
+AI VIETNAM
+Seminar
+Reference: https://gpt4tools.github.io/
+Conclusion
+62
+❖Content
+AI VIETNAM
+Seminar
+❖
+Performed a survey of the existing M-LLMs literature.
+❖
+Main directions: M-IT, M-ICL, M-CoT and LAVR. 
+❖
+Applications: Knowledge-based VQA, OCR-Free eKYC…
+❖
+Limitation:
+➢
+Still limited in perception capabilities, leading to wrong visual information.
+➢
+The reasoning chain of MLLMs are still fragile in some cases.
+➢
+The instruction-following ability needs upgrading.
+➢
+The object hallucination issues.
+➢
+Parameter-efficient training is needed. 
+63

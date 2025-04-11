@@ -1,0 +1,1059 @@
+Scene Text Recognition
+Dinh-Thang Duong – TA
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Project
+Year 2023
+Outline
+2
+Ø Introduction
+Ø Prepare datasets
+Ø Text Detection
+Ø Text Recognition
+Ø End-to-End Pipeline
+Ø Question
+Outline
+AI VIETNAM
+All-in-One Course
+(TA Session)
+3
+Introduction
+v Getting Started
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Iphone Live Text: Text Extraction 
+on Images Feature
+https://support.apple.com/en-vn/guide/iphone/iphcf0b71b0e/ios
+4
+Introduction
+v Getting Started
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Given an image with textual 
+information inside, how can we 
+use ML algorithms to extract 
+them?
+5
+Introduction
+v Getting Started
+AI VIETNAM
+All-in-One Course
+(TA Session)
+?
+How to build a program to automatically detect 
+and recognize text inside an image? 
+6
+Introduction
+v Getting Started
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Object Detection
+7
+Introduction
+v Getting Started
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Image Text 
+Transcribe
+• BEWARE
+• ALLIGATOR
+• TEETH
+8
+Introduction
+v Scene Text Recognition
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Scene Text Recognition (STR): A task in Computer Vision 
+that aims to automatically locate and recognize textual 
+content within natural scenes. It serves as a foundational 
+component for numerous applications, including 
+navigation aids, information retrieval systems…
+9
+Introduction
+v Scene Text Recognition I/O
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Input
+Scene Text 
+Recognition 
+Model
+Output
+Essex
+County
+Council
+Libraries
+10
+10
+Introduction
+v Scene Text Recognition I/O
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Example of a STR result:
+•
+([263.30096435546875, 193.81906127929688, 
+415.0815124511719, 286.1605529785156], 
+'text', 0.9180512428283691, ['not’]
+•
+([119.19277954101562, 287.2218322753906, 
+433.1628723144531, 389.69293212890625], 
+'text', 0.8851116895675659, ['ddisturb’]
+•
+([133.73980712890625, 189.6825408935547, 
+235.85116577148438, 281.9341735839844], 
+'text', 0.8539453148841858, ['ddo’])
+•
+([133.2864990234375, 89.10581970214844, 
+414.71649169921875, 183.2499542236328], 
+'text', 0.3512883484363556, ['pleaase'])
+11
+11
+Introduction
+v Scene Text Recognition I/O
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Input
+Scene Text 
+Recognition 
+Model
+Output
+Essex
+County
+Council
+Libraries
+Text 
+Detection 
+Model
+Text 
+Recognition 
+Model
+12
+12
+Introduction
+v Text Detection I/O
+AI VIETNAM
+All-in-One Course
+(TA Session)
+text
+text
+text
+text
+Input
+Text 
+Detection 
+Model
+Output
+Objective: Get the coodinate (x1, y1, x2, y2) of all text on input image.
+13
+13
+Introduction
+v Text Recognition I/O
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Input
+Text 
+Recognition 
+Model
+“STRATEGY”
+Output
+Objective: Transcribe the text within input image into string.
+14
+14
+Introduction
+v STR Approach
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Text Detection
+Text 
+Recognition
+•
+RESERVED
+•
+FOR
+•
+CLUB
+•
+SECRETARY
+1. Two-stage Approach
+2. End-to-End Approach (Text Spotting)
+End-to-End 
+Model
+RESERVED
+FOR
+CLUB
+SECRETARY
+15
+15
+Introduction
+v STR Approach: Two-stage
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Text Detection
+Text 
+Recognition
+•
+RESERVED
+•
+FOR
+•
+CLUB
+•
+SECRETARY
+Two-stage Approach: Handle Text Detection and Text Recognition separately. 
+•
+YOLO
+•
+SSD
+•
+Mask R-CNN
+•
+DBNet
+•
+PANet
+•
+…
+•
+CRNN
+•
+Transformers
+16
+16
+Introduction
+v STR Approach: End-to-End (Text Spotting)
+AI VIETNAM
+All-in-One Course
+(TA Session)
+End-to-End 
+Model
+RESERVED
+FOR
+CLUB
+SECRETARY
+End-to-End Approach: Handle both Text Detection and Text Recognition in a single, unfied 
+process, from the intial input.
+17
+17
+Introduction
+v STR Approach: End-to-End (Text Spotting) Example
+AI VIETNAM
+All-in-One Course
+(TA Session)
+SPTS: https://arxiv.org/abs/2112.07917
+18
+18
+Introduction
+v Challenges
+AI VIETNAM
+All-in-One Course
+(TA Session)
+•
+Variety of font sizes
+•
+Complex Background
+•
+Combination of Orientations: 
+Horizontal, Multi-oriented, 
+Curve.
+•
+…
+TotalText: https://arxiv.org/abs/1710.10400
+19
+19
+Introduction
+v Challenges
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Incidental Scene Text refers to text that 
+appears in the scene without the user having 
+taken any specific prior action to cause its 
+appearance or improve its positioning / 
+quality in the frame.
+Incidental Scene Text Challenge: https://rrc.cvc.uab.es/?ch=4
+20
+20
+Introduction
+v Project Description
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Description: Given ICDAR2003 dataset (download here), build a Scene Text Recognition model using YOLOv8 and 
+CRNN.
+21
+21
+Introduction
+v Project Pipeline
+AI VIETNAM
+All-in-One Course
+(TA Session)
+ICDAR2003
+Build Detection 
+Dataset
+Build Recognition 
+Dataset
+Train 
+YOLOv8
+Train 
+CRNN
+Input Image
+Text 
+Detection
+Text 
+Recognition
+•
+RESERVED [bbox]
+•
+FOR [bbox]
+•
+CLUB [bbox]
+•
+SECRETARY [bbox]
+Output
+22
+22
+Prepare datasets
+v ICDAR2003
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Dataset structure
+ICDAR2003 Datasets: Created for the ICDAR 2003 
+Robust Reading competitions organised by Prof Simon 
+Lucas and his team. 
+ICAD2003: http://www.iapr-tc11.org/mediawiki/index.php/ICDAR_2003_Robust_Reading_Competitions
+23
+23
+Prepare datasets
+v ICDAR2003
+AI VIETNAM
+All-in-One Course
+(TA Session)
+•
+locations.xml is for the Text Locating 
+problem.
+•
+words.xml is for the Robust Reading 
+competition - this tags each image with 
+the bounding rectangles of each word 
+in the image together with the text in 
+each rectangle.
+•
+segmentation.xml - like words.xml, 
+except that each word is also given its 
+segmentation points.
+Images folders
+24
+24
+Prepare datasets
+v ICDAR2003
+AI VIETNAM
+All-in-One Course
+(TA Session)
+This is the file we need
+25
+25
+Prepare datasets
+v Project Pipeline
+AI VIETNAM
+All-in-One Course
+(TA Session)
+ICDAR2003
+Build Detection 
+Dataset
+Build Recognition 
+Dataset
+Train 
+YOLOv8
+Train 
+CRNN
+Input Image
+Text 
+Detection
+Text 
+Recognition
+•
+RESERVED [bbox]
+•
+FOR [bbox]
+•
+CLUB [bbox]
+•
+SECRETARY [bbox]
+Output
+26
+26
+Prepare datasets
+v Create prepare dataset function
+AI VIETNAM
+All-in-One Course
+(TA Session)
+27
+27
+Prepare datasets
+v Create prepare dataset function
+AI VIETNAM
+All-in-One Course
+(TA Session)
+<tagset>: root tag cotaning <image> tag
+<image>: image tag containing label information.
+<imageName>: name of the image.
+<resolution>: resolution of the image.
+<taggedRectangles>: containing each bounding 
+box of a text within the image.
+<taggedRectangle>: text detection label.
+<tag>: text recognition label.
+28
+28
+Prepare datasets
+v Create prepare dataset function
+AI VIETNAM
+All-in-One Course
+(TA Session)
+29
+29
+Prepare datasets
+v Create prepare dataset function
+AI VIETNAM
+All-in-One Course
+(TA Session)
+30
+30
+Prepare datasets
+v Create prepare dataset function
+AI VIETNAM
+All-in-One Course
+(TA Session)
+<image> is like a list:
+ 
+<image>[0]: <imageName>
+ 
+<image>[1]: <resolution>
+ 
+<image>[2]: <taggedRectangles>
+31
+31
+Prepare datasets
+v Create prepare dataset function
+AI VIETNAM
+All-in-One Course
+(TA Session)
+32
+32
+Prepare datasets
+v Create prepare dataset function
+AI VIETNAM
+All-in-One Course
+(TA Session)
+33
+33
+Prepare datasets
+v Create prepare dataset function
+AI VIETNAM
+All-in-One Course
+(TA Session)
+34
+34
+Text Detection
+v Project Pipeline
+AI VIETNAM
+All-in-One Course
+(TA Session)
+ICDAR2003
+Build Detection 
+Dataset
+Build Recognition 
+Dataset
+Train 
+YOLOv8
+Train 
+CRNN
+Input Image
+Text 
+Detection
+Text 
+Recognition
+•
+RESERVED [bbox]
+•
+FOR [bbox]
+•
+CLUB [bbox]
+•
+SECRETARY [bbox]
+Output
+35
+35
+Text Detection
+v Text Detection I/O
+AI VIETNAM
+All-in-One Course
+(TA Session)
+text
+text
+text
+text
+Input
+Text 
+Detection 
+Model
+Output
+Objective: Get the coodinate (x1, y1, x2, y2) of all text on input image.
+36
+36
+Text Detection
+v YOLOv8
+AI VIETNAM
+All-in-One Course
+(TA Session)
+37
+37
+Text Detection
+v Step 1: Import libraries
+AI VIETNAM
+All-in-One Course
+(TA Session)
+38
+38
+Text Detection
+v Step 2: Normalize bounding box
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Height
+Width
+Center
+YOLO format
+(x_center, y_center, width, height)
+(0, 0)
+X
+y
+(x_center, y_center)
+39
+39
+Text Detection
+v Step 2: Normalize bounding box
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Current bounding box is not been normalized yet
+Format: [class_id, x_center, y_center, width, height]
+40
+40
+Text Detection
+v Step 2: Normalize bounding box
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Format: [class_id, x_center, y_center, 
+width, height]
+41
+41
+Text Detection
+v Step 2: Normalize bounding box
+AI VIETNAM
+All-in-One Course
+(TA Session)
+42
+42
+Text Detection
+v Step 3: Train, val, test split
+AI VIETNAM
+All-in-One Course
+(TA Session)
+43
+43
+Text Detection
+v Step 4: Prepare YOLO data structure
+AI VIETNAM
+All-in-One Course
+(TA Session)
+In order to train YOLOv8, we have to organize a folder 
+structure like this:
+- train: for train data
+- val: for validation data
+- test: for test data
+- data.yml: for metadata 
+44
+44
+Text Detection
+v Step 4: Prepare YOLO data structure
+AI VIETNAM
+All-in-One Course
+(TA Session)
+45
+45
+Text Detection
+v Step 4: Prepare YOLO data structure
+AI VIETNAM
+All-in-One Course
+(TA Session)
+46
+46
+Text Detection
+v Step 4: Prepare YOLO data structure
+AI VIETNAM
+All-in-One Course
+(TA Session)
+•
+names: list of class names.
+•
+nc: number of classes.
+•
+path: path to root folder.
+•
+test: path to test folder.
+•
+train: path to train folder.
+•
+val: path to val folder.
+47
+47
+Text Detection
+v Step 4: Prepare YOLO data structure
+AI VIETNAM
+All-in-One Course
+(TA Session)
+48
+48
+Text Detection
+v Step 5: Training
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Load pretrained model: yolov8s
+Start training
+49
+49
+Text Detection
+v Step 5: Training
+AI VIETNAM
+All-in-One Course
+(TA Session)
+50
+50
+Text Detection
+v Step 6: Evaluation
+AI VIETNAM
+All-in-One Course
+(TA Session)
+51
+51
+Text Detection
+v Step 6: Evaluation
+AI VIETNAM
+All-in-One Course
+(TA Session)
+52
+52
+Text Recognition
+v Project Pipeline
+AI VIETNAM
+All-in-One Course
+(TA Session)
+ICDAR2003
+Build Detection 
+Dataset
+Build Recognition 
+Dataset
+Train 
+YOLOv8
+Train 
+CRNN
+Input Image
+Text 
+Detection
+Text 
+Recognition
+•
+RESERVED [bbox]
+•
+FOR [bbox]
+•
+CLUB [bbox]
+•
+SECRETARY [bbox]
+Output
+53
+53
+Text Recognition
+v Text Recognition I/O
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Input
+Text 
+Recognition 
+Model
+“STRATEGY”
+Output
+Objective: Transcribe the text within input image into string.
+54
+Text Recognition
+v CRNN
+AI VIETNAM
+All-in-One Course
+(TA Session)
+CRNN (Convolutional Recurrent Neural Network): A type of neural 
+network that combines CNNs and RNNs to process images with 
+sequential data, particularly effective for tasks like STR and OCR. 
+CRNN: https://arxiv.org/pdf/1507.05717.pdf
+55
+Text Recognition
+v CRNN
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Consider each feature vector 
+as a token for RNN model.
+Each predicted Y_i is 
+represented character 
+inside X_i if exists
+56
+Text Recognition
+v CRNN
+AI VIETNAM
+All-in-One Course
+(TA Session)
+https://viblo.asia/p/tim-hieu-bai-toan-ocr-voi-crnn-va-ctc-loss-ocr-from-scratch-with-pytorch-p1-OeVKBA905kW
+57
+x1
+x2
+x3
+x4
+x5
+x6
+x7
+b
+-
+o
+-
+o
+o
+k
+Input X
+Alignment
+“blank” token: ‘-’ 
+b
+o
+o
+k
+b
+-
+o
+-
+o
+o
+k
+b
+-
+o
+-
+o
+k
+b
+o
+o
+k
+b
+o
+o
+k
+Merge repeat characters
+Remove blank token
+CTC Loss
+v Connectionist Temporal Classification (CTC)
+AI VIETNAM
+All-in-One Course
+(TA Session)
+58
+b
+-
+o
+-
+o
+o
+k
+-
+-
+b
+o
+-
+o
+k
+-
+b
+o
+o
+-
+o
+k
+b
+o
+o
+-
+o
+k
+k
+Many alignments lead to the same output
+b
+o
+o
+k
+CTC Loss
+v Connectionist Temporal Classification (CTC)
+AI VIETNAM
+All-in-One Course
+(TA Session)
+59
+Text Recognition
+v Step 1: Import libraries
+AI VIETNAM
+All-in-One Course
+(TA Session)
+60
+Text Recognition
+v Step 2: Prepare dataset structure
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Cropped 
+Images
+61
+Text Recognition
+v Step 2: Prepare dataset structure
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Image samples
+Labels.txt file
+62
+Text Recognition
+v Step 2: Prepare dataset structure
+AI VIETNAM
+All-in-One Course
+(TA Session)
+63
+Text Recognition
+v Step 2: Prepare dataset structure
+AI VIETNAM
+All-in-One Course
+(TA Session)
+64
+Text Recognition
+v Step 3: Read dataset
+AI VIETNAM
+All-in-One Course
+(TA Session)
+65
+Text Recognition
+v Step 4: Create vocabulary
+AI VIETNAM
+All-in-One Course
+(TA Session)
+66
+Text Recognition
+v Step 5: Create encode/decode function
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Hello World
+Encode
+[6, 5, 7, 16, 21, 75, 3, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+67
+Text Recognition
+v Step 5: Create encode/decode function
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Hello World
+Decode
+[6, 5, 7, 16, 21, 75, 3, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+68
+Text Recognition
+v Step 6: Create data preprocessing function
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Our dataset is complicated, so we should do data augmentation for better generalization
+69
+Text Recognition
+v Step 6: Create data preprocessing function
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Training data after transfomation (data augmentaiton)
+70
+Text Recognition
+v Step 7: Create pytorch datasets
+AI VIETNAM
+All-in-One Course
+(TA Session)
+71
+Text Recognition
+v Step 8: Create dataloader
+AI VIETNAM
+All-in-One Course
+(TA Session)
+72
+Text Recognition
+v Step 9: Create model
+AI VIETNAM
+All-in-One Course
+(TA Session)
+73
+Text Recognition
+v Step 9: Create model
+AI VIETNAM
+All-in-One Course
+(TA Session)
+74
+Text Recognition
+v Step 9: Create model
+AI VIETNAM
+All-in-One Course
+(TA Session)
+75
+Text Recognition
+v Step 10: Create training and evaluate function
+AI VIETNAM
+All-in-One Course
+(TA Session)
+76
+Text Recognition
+v Step 10: Create training and evaluate function
+AI VIETNAM
+All-in-One Course
+(TA Session)
+77
+Text Recognition
+v Step 11: Training 
+AI VIETNAM
+All-in-One Course
+(TA Session)
+78
+Text Recognition
+v Step 11: Training 
+AI VIETNAM
+All-in-One Course
+(TA Session)
+79
+Text Recognition
+v Step 12: Evaluation 
+AI VIETNAM
+All-in-One Course
+(TA Session)
+80
+Text Recognition
+v Step 13: Save model 
+AI VIETNAM
+All-in-One Course
+(TA Session)
+81
+Text Recognition
+v Step 12: Evaluation 
+AI VIETNAM
+All-in-One Course
+(TA Session)
+82
+82
+End-to-End Pipeline
+v Project Pipeline
+AI VIETNAM
+All-in-One Course
+(TA Session)
+ICDAR2003
+Build Detection 
+Dataset
+Build Recognition 
+Dataset
+Train 
+YOLOv8
+Train 
+CRNN
+Input Image
+Text 
+Detection
+Text 
+Recognition
+•
+RESERVED [bbox]
+•
+FOR [bbox]
+•
+CLUB [bbox]
+•
+SECRETARY [bbox]
+Output
+83
+End-to-End Pipeline
+v Step 1: Import libaries
+AI VIETNAM
+All-in-One Course
+(TA Session)
+84
+End-to-End Pipeline
+v Step 2: Load model
+AI VIETNAM
+All-in-One Course
+(TA Session)
+85
+End-to-End Pipeline
+v Step 2: Load model
+AI VIETNAM
+All-in-One Course
+(TA Session)
+86
+End-to-End Pipeline
+v Step 2: Load model
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Load CRNN model
+87
+End-to-End Pipeline
+v Step 3: Create text detection, text recognition, decode function
+AI VIETNAM
+All-in-One Course
+(TA Session)
+88
+End-to-End Pipeline
+v Step 4: Create visualization function
+AI VIETNAM
+All-in-One Course
+(TA Session)
+89
+End-to-End Pipeline
+v Step 5: Create predict function
+AI VIETNAM
+All-in-One Course
+(TA Session)
+90
+End-to-End Pipeline
+v Step 6: Test
+AI VIETNAM
+All-in-One Course
+(TA Session)
+91
+End-to-End Pipeline
+v Final Results
+AI VIETNAM
+All-in-One Course
+(TA Session)
+?
+92
+Question
+AI VIETNAM
+All-in-One Course
+(TA Session)
+93

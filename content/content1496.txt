@@ -1,2 +1,0 @@
-init . xavier_normal_ (m. weight )
-51 nn. 

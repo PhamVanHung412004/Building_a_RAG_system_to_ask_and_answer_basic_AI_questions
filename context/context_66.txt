@@ -1,0 +1,382 @@
+Self-supervised and Semi-supervised Learning
+January 8, 2024
+Module
+Graduate School of Data Science
+Chonnam National University
+Ph.D. Ngo Ba Hung
+Email: ngohung@jnu.ac.kr
+Facebook: https://www.facebook.com/hung.ngo.7121
+2
+Topic 1: Self-supervised Learning
+Overview
+Supervised Learning
+Semi-supervised Learning
+supervised learning provides a set of input-output pairs.
+The entire dataset to be trained on samples has the
+corresponding labels.
+Semi-supervised learning provides a small set of input-output
+pairs.
+The model trained on small labeled data is tested on the large
+unlabeled data (the unlabeled data is also used during training).
+3
+Topic 1: Self-supervised Learning
+Overview
+Unsupervised Learning
+Self-supervised Learning
+Unsupervised learning only input data has no corresponding
+labels.
+Using method for exploiting extracted representations (samples
+having the similar features are grouped (clustered) together,
+but samples having the different features keep far from each
+other.
+(K-NN, K-Mean, K-Medoids methods)
+Self-supervised learning is categorized into to unsupervised
+learning because no labels were given.
+4
+❑Families of SSL
+⚫Deep Metric Learning
+▪SimCLR
+▪NNCLR
+▪SCL
+⚫Self-distillation
+▪SimSIAM
+▪BYOL
+▪DINO, DINO v2
+⚫Canonical Correlation Analysis
+▪VICReg
+▪BarlowTwins
+▪SWAV
+▪EMP-SSL
+Topic 1: Self-supervised Learning
+Overview
+5
+❑SimCLR*
+⚫Concept of contrastive learning
+Topic 1: Self-supervised Learning
+Deep Metric Learning
+Mathematic explanation
+and its formulation:
+*Chen, T., Kornblith, S., Norouzi, M., & Hinton, G. A simple framework for contrastive learning of visual representations. In International conference on machine learning. PMLR, 2020.
+6
+❑SimCLR*
+⚫Image transformation
+⚫Getting representation
+Topic 1: Self-supervised Learning
+Deep Metric Learning
+*Chen, T., Kornblith, S., Norouzi, M., & Hinton, G. A simple framework for contrastive learning of visual representations. In International conference on machine learning. PMLR, 2020.
+7
+❑SimCLR*
+⚫Projection head
+▪ℎ𝑖and ℎ𝑗are passed through a series of non-linear layers
+Dense Relu Dense
+Topic 1: Self-supervised Learning
+Deep Metric Learning
+*Chen, T., Kornblith, S., Norouzi, M., & Hinton, G. A simple framework for contrastive learning of visual representations. In International conference on machine learning. PMLR, 2020.
+8
+❑SimCLR*
+⚫Calculation of cosine similarity
+⚫Calculate the probability of two similarity images
+Topic 1: Self-supervised Learning
+Deep Metric Learning
+*Chen, T., Kornblith, S., Norouzi, M., & Hinton, G. A simple framework for contrastive learning of visual representations. In International conference on machine learning. PMLR, 2020.
+9
+❑Simple Siamese network (SimSIAM)*
+⚫Architecture
+⚫Pseudo code of SimSIAM
+Topic 1: Self-supervised Learning
+Self-distillation
+*Chen, Xinlei, and Kaiming He. "Exploring simple siamese representation learning." Proceedings of the IEEE/CVF conference on computer vision and pattern recognition (CVPR). 2021.
+and
+augmented images of an input image
+Encoder uses ResNet backbone network
+Projection uses multi-layer perceptron (MLP)
+10
+❑Simple Siamese network (SimSIAM)*
+⚫Output of the encoder
+⚫Output of the predictor
+⚫Minimize the negative cosine similarity
+Topic 1: Self-supervised Learning
+Self-distillation
+*Chen, Xinlei, and Kaiming He. "Exploring simple siamese representation learning." Proceedings of the IEEE/CVF conference on computer vision and pattern recognition (CVPR). 2021.
+(
+)
+(
+)
+1
+1
+p
+h f x
+(
+)
+(
+)
+2
+2
+p
+h f x
+(
+)
+1
+1
+z
+f x
+(
+)
+2
+2
+z
+f x
+11
+❑Simple Siamese network (SimSIAM)*
+⚫Output of the encoder
+⚫Output of the predictor
+⚫Minimize the negative cosine similarity
+Topic 1: Self-supervised Learning
+Self-distillation
+*Chen, Xinlei, and Kaiming He. "Exploring simple siamese representation learning." Proceedings of the IEEE/CVF conference on computer vision and pattern recognition (CVPR). 2021.
+(
+)
+(
+)
+1
+1
+p
+h f x
+(
+)
+(
+)
+2
+2
+p
+h f x
+(
+)
+1
+1
+z
+f x
+(
+)
+2
+2
+z
+f x
+12
+❑SimSIAM*
+⚫Summary
+Topic 1: Self-supervised Learning
+Self-distillation
+*Chen, Xinlei, and Kaiming He. "Exploring simple siamese representation learning." Proceedings of the IEEE/CVF conference on computer vision and pattern recognition (CVPR). 2021.
+Stop gradient
+13
+Topic 1: Self-supervised Learning
+*Chen, Xinlei, and Kaiming He. "Exploring simple siamese representation learning." Proceedings of the IEEE/CVF conference on computer vision and pattern recognition (CVPR). 2021.
+Implementation
+❑Implementation
+⚫Dataset
+▪CIFAR-10
+–
+4,000 images (labeled)
+–
+56,000 image (unlabeled)
+⚫
+Code 
+⚫
+Data prepare
+14
+Topic 1: Self-supervised Learning
+*Chen, Xinlei, and Kaiming He. "Exploring simple siamese representation learning." Proceedings of the IEEE/CVF conference on computer vision and pattern recognition (CVPR). 2021.
+Implementation
+❑Implementation
+⚫Optimizer
+⚫Training
+15
+Topic 1: Self-supervised Learning
+*Chen, Xinlei, and Kaiming He. "Exploring simple siamese representation learning." Proceedings of the IEEE/CVF conference on computer vision and pattern recognition (CVPR). 2021.
+Implementation
+❑Implementation
+⚫Training
+16
+Topic 1: Self-supervised Learning
+*Chen, Xinlei, and Kaiming He. "Exploring simple siamese representation learning." Proceedings of the IEEE/CVF conference on computer vision and pattern recognition (CVPR). 2021.
+Implementation
+❑Implementation
+⚫Results
+17
+Topic 1: Self-supervised Learning
+Extension 
+❑CLIP - Contrastive Language-Image Pre-training
+*Radford, Alec, et al. "Learning transferable visual models from natural language supervision." International conference on machine learning. PMLR, 2021.
+18
+Topic 1: Self-supervised Learning
+*Xuefeng Hu, Ke Zhang, Lu Xia, Albert Chen, Jiajia Luo, Yuyin Sun, Ken Wang, et.al; Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision (WACV), 2024.
+Extension 
+❑ReCLIP
+19
+❑Barlow Twins*
+⚫Self-Supervised Learning via Redundancy Reduction
+▪Architecture
+Topic 1: Self-supervised Learning
+Method 
+Canonical Correlation Analysis
+*Zbontar, J., Jing, L., Misra, I., LeCun, Y., & Deny, S. Barlow twins: Self-supervised learning via redundancy reduction. In International Conference on Machine Learning. 2021, PMLR.
+20
+❑Barlow Twins*
+⚫Self-Supervised Learning via Redundancy Reduction
+▪Operation
+– Invariance term
+» Make the embedding from different image views
+(augmentation versions) of the same image close each other
+– Redundancy reduction term
+Topic 1: Self-supervised Learning
+Method 
+Canonical Correlation Analysis
+*Zbontar, J., Jing, L., Misra, I., LeCun, Y., & Deny, S. Barlow twins: Self-supervised learning via redundancy reduction. In International Conference on Machine Learning. 2021, PMLR.
+Deal with the on-diagonal terms
+Deal with the off-diagonal terms
+As close as possible to one
+As close as possible to zero
+21
+❑Barlow Twins*
+⚫Self-Supervised Learning via Redundancy Reduction
+Topic 1: Self-supervised Learning
+Method 
+Canonical Correlation Analysis
+*Zbontar, J., Jing, L., Misra, I., LeCun, Y., & Deny, S. Barlow twins: Self-supervised learning via redundancy reduction. In International Conference on Machine Learning. 2021, PMLR.
+Department of Multimedia Engineering
+Dongguk University
+Semi-supervise Learning (SSL)
+January 8, 2024
+Ph.D. Ba Hung Ngo    
+Module
+23
+Method 
+FixMatch*
+Topic 2: Semi-supervised Learning
+*Sohn, Kihyuk, et al. "Fixmatch: Simplifying semi-supervised learning with consistency and confidence." Advances in neural information processing systems 33 (NeurIPS), 2020.
+Data Setting:
+Training Procedure:
+24
+Method 
+FixMatch*
+Topic 2: Semi-supervised Learning
+*Sohn, Kihyuk, et al. "Fixmatch: Simplifying semi-supervised learning with consistency and confidence." Advances in neural information processing systems 33 (NeurIPS), 2020.
+❑Data Augmentation
+Strong 
+Augmented
+Weakly 
+Augmented
+25
+❑Model Training and Loss Functions
+⚫Supervised Learning
+Method 
+FixMatch*
+Topic 2: Semi-supervised Learning
+*Sohn, Kihyuk, et al. "Fixmatch: Simplifying semi-supervised learning with consistency and confidence." Advances in neural information processing systems 33 (NeurIPS), 2020.
+26
+❑Model Training and Loss Functions
+⚫Unsupervised Learning
+▪Pseudo labeling
+▪Consistency regularization 
+Method 
+FixMatch*
+Topic 2: Semi-supervised Learning
+*Sohn, Kihyuk, et al. "Fixmatch: Simplifying semi-supervised learning with consistency and confidence." Advances in neural information processing systems 33 (NeurIPS), 2020.
+27
+Method 
+FixMatch*
+Topic 2: Semi-supervised Learning
+*Sohn, Kihyuk, et al. "Fixmatch: Simplifying semi-supervised learning with consistency and confidence." Advances in neural information processing systems 33 (NeurIPS), 2020.
+❑Implementation
+⚫Dataset
+▪CIFAR-10
+–
+60,000 color images
+–
+10 classes
+–
+50,000 training images (labeled)
+–
+10,000 training images (unlabeled)
+28
+Method 
+FixMatch*
+Topic 2: Semi-supervised Learning
+*Sohn, Kihyuk, et al. "Fixmatch: Simplifying semi-supervised learning with consistency and confidence." Advances in neural information processing systems 33 (NeurIPS), 2020.
+❑Implementation
+⚫Dataset
+▪CIFAR-10
+–
+4,000 images (labeled)
+–
+56,000 image (unlabeled)
+⚫
+Code
+29
+Method 
+FixMatch*
+Topic 2: Semi-supervised Learning
+*Sohn, Kihyuk, et al. "Fixmatch: Simplifying semi-supervised learning with consistency and confidence." Advances in neural information processing systems 33 (NeurIPS), 2020.
+❑Implementation
+⚫
+Data preparation
+⚫
+Data Loader
+30
+Method 
+FixMatch*
+Topic 2: Semi-supervised Learning
+*Sohn, Kihyuk, et al. "Fixmatch: Simplifying semi-supervised learning with consistency and confidence." Advances in neural information processing systems 33 (NeurIPS), 2020.
+❑Implementation
+⚫
+Data transformation
+31
+Method 
+FixMatch*
+Topic 2: Semi-supervised Learning
+*Sohn, Kihyuk, et al. "Fixmatch: Simplifying semi-supervised learning with consistency and confidence." Advances in neural information processing systems 33 (NeurIPS), 2020.
+❑Implementation
+⚫
+Model selection
+32
+Method 
+FixMatch*
+Topic 2: Semi-supervised Learning
+*Sohn, Kihyuk, et al. "Fixmatch: Simplifying semi-supervised learning with consistency and confidence." Advances in neural information processing systems 33 (NeurIPS), 2020.
+❑Implementation
+⚫
+Model
+33
+Method 
+FixMatch*
+Topic 2: Semi-supervised Learning
+*Sohn, Kihyuk, et al. "Fixmatch: Simplifying semi-supervised learning with consistency and confidence." Advances in neural information processing systems 33 (NeurIPS), 2020.
+❑Implementation
+⚫
+Load data
+34
+Method 
+FixMatch*
+Topic 2: Semi-supervised Learning
+*Sohn, Kihyuk, et al. "Fixmatch: Simplifying semi-supervised learning with consistency and confidence." Advances in neural information processing systems 33 (NeurIPS), 2020.
+❑Implementation
+⚫
+Training
+35
+Method 
+FixMatch*
+Topic 2: Semi-supervised Learning
+*Sohn, Kihyuk, et al. "Fixmatch: Simplifying semi-supervised learning with consistency and confidence." Advances in neural information processing systems 33 (NeurIPS), 2020.
+❑Implementation
+⚫
+Training
+▪On labeled data
+36
+Method 
+DASH*
+Topic 2: Semi-supervised Learning
+*Xu, Yi, et al. "Dash: Semi-supervised learning with dynamic thresholding." International Conference on Machine Learning. PMLR, 2021.
+❑Semi-Supervised Learning with Dynamic Thresholding
+37
+THANK YOU

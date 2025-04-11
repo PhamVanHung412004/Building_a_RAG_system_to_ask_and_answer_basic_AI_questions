@@ -1,0 +1,154 @@
+Object Detection
+TA Hùng An
+AI VIETNAM
+All-in-One Course
+DERT: End-to-End Object Detection 
+with Transformers
+2
+AI VIETNAM
+All-in-One Course
+simplicity: simplify the object detection pipeline by removing the need for intermediate 
+steps like proposal generation and NMS
+end-to-end: predict the final set of objects (and their bounding boxes) in a single step
+fully differentiable: can be entirely trained in a single pass of gradient descent, which 
+usually comes with significant speed and simplicity
+DERT: End-to-End Object Detection 
+with Transformers
+3
+AI VIETNAM
+All-in-One Course
+CNN
+Transformer
+Classifier
+Label Tools
+4
+AI VIETNAM
+All-in-One Course
+1- Universal Data Tool
+Universal Data Tool là một web/desktop app cho phép chỉnh sửa và đánh nhãn image, text, audio, 
+document và cho phép xem và chỉnh sửa lại ngay trên giao diện.
+Label Tools
+5
+AI VIETNAM
+All-in-One Course
+2- Computer Vision Annotation Tool (CVAT)
+Label Tools
+6
+AI VIETNAM
+All-in-One Course
+3- Label Studio
+Label Tools
+7
+AI VIETNAM
+All-in-One Course
+4- CleanVision
+YOLOv2
+8
+AI VIETNAM
+All-in-One Course
+YOLOv2
+9
+AI VIETNAM
+All-in-One Course
+YOLOv3
+10
+AI VIETNAM
+All-in-One Course
+YOLOv3 uses a variant of Darknet, which originally has 53 layer network trained on
+ImageNet. For the task of detection, 53 more layers are stacked onto it, giving us a 106 layer
+fully convolutional underlying architecture for YOLOv3. The detections are made at three
+layers 82nd, 94th and 106th layer.
+YOLOv3
+11
+AI VIETNAM
+All-in-One Course
+YOLOv4
+12
+AI VIETNAM
+All-in-One Course
+YOLOv5
+13
+AI VIETNAM
+All-in-One Course
+YOLOv6
+14
+AI VIETNAM
+All-in-One Course
+YOLOv6
+15
+AI VIETNAM
+All-in-One Course
+YOLOv7
+16
+AI VIETNAM
+All-in-One Course
+17
+AI VIETNAM
+All-in-One Course
+YOLOv8
+18
+AI VIETNAM
+All-in-One Course
+YOLOv8
+19
+AI VIETNAM
+All-in-One Course
+PaddleDectection
+●
+PaddleDetection
+is
+an
+end-to-end
+object detection development kit based
+on PaddlePaddle.
+●
+Providing over 30 model algorithm
+and over 300 pre-trained models.
+●
+Task:
+object
+detection,
+instance
+segmentation,
+keypoint
+detection,
+multi-object tracking.
+●
+Offer
+high-
+performance
+&
+light-
+weight industrial SOTA models on
+servers and mobile devices, champion
+solution and cutting-edge algorithm.
+20
+AI VIETNAM
+All-in-One Course
+PaddleDectection
+21
+AI VIETNAM
+All-in-One Course
+Detectron2
+●
+Detectron2 is Facebook AI Research next
+generation library that provides SoTA
+detection and segmentation algorithms.
+●
+It is the successor of Detectron and
+maskrcnn-benchmark.
+●
+Support a number of computer vision
+research
+projects
+and
+production
+applications in Facebook.
+22
+AI VIETNAM
+All-in-One Course
+Detectron2
+23
+AI VIETNAM
+All-in-One Course
+Detectron2

@@ -1,0 +1,1036 @@
+Imbalanced Data
+Quang-Vinh Dinh
+Ph.D. in Computer Science
+Year 2024
+AI VIETNAM
+All-in-One Course
+➢Introduction
+➢Examples and Discussion
+➢Metrics
+➢Case Study
+Outline
+Introduction
+❖Imbalanced Data vs. Balanced Data
+AI VIETNAM
+All-in-One Course
+Negative
+100000
+Positive
+200
+Negative
+50100
+Postive
+50100
+Imbalanced Data
+Balanced Data
+Introduction
+❖Cat-Dog dataset
+AI VIETNAM
+All-in-One Course
+cats_and_dogs
+train
+validation
+cat
+dog
+cat
+dog
+2
+VGG16
+https://neurohive.io/en/popular-networks/vgg16/
+(3x3) Convolution
+padding=‘same’
+stride=1 + ReLU
+(2x2) max pooling
+Dense Layer
++ ReLU
+(4096) 
+Dense Layer
++ Softmax
+(1000) 
+3
+Introduction
+AI VIETNAM
+All-in-One Course
+Correct prediction
+#𝑐𝑎𝑡= 1245
+#𝑑𝑜𝑔= 1236
+cats_and_dogs
+train
+validation
+cat
+dog
+cat
+dog
+6000 images
+6000 images
+1500 images
+1500 images
+cats_and_dogs
+train
+validation
+cat
+dog
+cat
+dog
+1000 images
+11000 images
+1500 images
+1500 images
+Correct prediction
+#𝑐𝑎𝑡= 1052
+#𝑑𝑜𝑔= 1443
+approximately
+4
+Introduction
+❖Why?
+AI VIETNAM
+All-in-One Course
+Correct prediction (1)
+#𝑐𝑎𝑡= 1245
+#𝑑𝑜𝑔= 1236
+Correct prediction (2)
+#𝑐𝑎𝑡= 1052
+#𝑑𝑜𝑔= 1443
+5
+➢Introduction
+➢Examples and Discussion
+➢Metrics
+➢Case Study
+Outline
+Imbalanced Data 
+❖Lie/Truth classification
+AI VIETNAM
+All-in-One Course
+Feature
+Label
+Output
+-log(1-ො𝑦)
+with y = 0
+-log(ො𝑦)
+with y = 1
+𝑃(ො𝑦) = −log(ො𝑦)
+if y = 1 
+𝑃(ො𝑦) = −log(1 −ො𝑦)
+if y = 0 
+ො𝑦
+ො𝑦
+L(. ) = −𝑦logො𝑦−1 −𝑦log 1 −ො𝑦
+Binary cross-entropy
+𝑒𝑟𝑟𝑜𝑟
+𝑒𝑟𝑟𝑜𝑟
+6
+-log(1-ො𝑦)
+with y = 0
+-log(ො𝑦)
+with y = 1
+ො𝑦
+ො𝑦
+𝑒𝑟𝑟𝑜𝑟
+𝑒𝑟𝑟𝑜𝑟
+Feature
+Label
+Output
+𝐿(ො𝑦) = −log(ො𝑦)
+if y = 1 
+𝐿(ො𝑦) = −log(1 −ො𝑦)
+if y = 0 
+L(y, ො𝑦) = −𝑦logො𝑦−1 −𝑦log 1 −ො𝑦
+Binary cross-entropy
+Imbalanced Data 
+❖ Lie/Truth classification
+AI VIETNAM
+All-in-One Course
+Imbalanced Data 
+❖Lie/Truth classification
+AI VIETNAM
+All-in-One Course
+Feature
+Label
+Output
+-log(1-ො𝑦)
+with y = 0
+-log(ො𝑦)
+with y = 1
+𝑃(ො𝑦) = −log(ො𝑦)
+if y = 1 
+𝑃(ො𝑦) = −log(1 −ො𝑦)
+if y = 0 
+ො𝑦
+ො𝑦
+L(. ) = −𝑦logො𝑦−1 −𝑦log 1 −ො𝑦
+Binary cross-entropy
+After a period of time
+𝑒𝑟𝑟𝑜𝑟
+𝑒𝑟𝑟𝑜𝑟
+8
+Feature
+Label
+Output
+Imbalanced Data 
+❖Lie/Truth classification
+AI VIETNAM
+All-in-One Course
+-log(1-ො𝑦)
+with y = 0
+-log(ො𝑦)
+with y = 1
+𝑃(ො𝑦) = −log(ො𝑦)
+if y = 1 
+𝑃(ො𝑦) = −log(1 −ො𝑦)
+if y = 0 
+ො𝑦
+ො𝑦
+L(. ) = −𝑦logො𝑦−1 −𝑦log 1 −ො𝑦
+Binary cross-entropy
+A special context
+𝑒𝑟𝑟𝑜𝑟
+𝑒𝑟𝑟𝑜𝑟
+9
+Feature
+Label
+Output
+Imbalanced Data 
+❖Lie/Truth classification
+AI VIETNAM
+All-in-One Course
+-log(1-ො𝑦)
+with y = 0
+-log(ො𝑦)
+with y = 1
+𝑃(ො𝑦) = −log(ො𝑦)
+if y = 1 
+𝑃(ො𝑦) = −log(1 −ො𝑦)
+if y = 0 
+ො𝑦
+ො𝑦
+P = −𝑦logො𝑦−1 −𝑦log 1 −ො𝑦
+Binary cross-entropy
+a more severe context!
+𝑒𝑟𝑟𝑜𝑟
+𝑒𝑟𝑟𝑜𝑟
+𝑙𝑜𝑠𝑠𝑦=1 = 2.039 
+𝑙𝑜𝑠𝑠𝑦=0 = 1.204 
+idea
+Model
+input (mini-batch)
+#C0
+#C1
+loss
+approximately
+optimizer update
+For C0
+For C1
+11
+idea
+Model
+input (mini-batch)
+#C0
+#C1
+optimizer update
+loss
+For C0
+For C1
+12
+solution 1
+Model
+input (mini-batch)
+#C0
+#C1
+optimizer update
+loss
+For C0
+For C1
+Feature
+Label
+Output
+fixed
+fixed
+fixed
+how?
+13
+solution 2
+Model
+input (mini-batch)
+#C0
+#C1
+loss
+optimizer update
+For C0
+For C1
+Feature
+Label
+Output
+fixed
+fixed
+fixed
+how?
+14
+Imbalanced Data
+❖Approach 1: Data manipulation
+AI VIETNAM
+All-in-One Course
+Positive 
+(1000 samples)
+Negative 
+(11000 samples)
+Original Data
+Positive
+(1000 samples)
+Undersampling Data
+Negative
+(1000 samples)
+Positive
+(11000 samples)
+Oversampling Data
+Negative
+(11000 samples)
+15
+solution 3
+Model
+input (mini-batch)
+#C0
+#C1
+optimizer update
+loss
+For C0
+For C1
+fixed
+fixed
+fixed
+y0 & y1
+L(. ) = −𝑦logො𝑦−1 −𝑦log 1 −ො𝑦
+Binary cross-entropy
+𝐿(ො𝑦) = −log(ො𝑦)
+if y = 1 
+𝐿(ො𝑦) = −log(1 −ො𝑦)
+if y = 0 
+how?
+16
+Feature
+Label
+Output
+Imbalanced Data 
+❖Lie/Truth classification
+AI VIETNAM
+All-in-One Course
+-log(1-ො𝑦)
+with y = 0
+-log(ො𝑦)
+with y = 1
+y
+ො𝑦
+ො𝑦
+y
+Signal from 
+class 0
+Signal from 
+class 1
+Signal balancing
+Balanced Signal 
+(class 1)
+Balanced Signal 
+(class 0)
+L(. ) = −𝛼1𝑦logො𝑦−𝛼2 1 −𝑦log 1 −ො𝑦
+Class-weighted Binary cross-entropy
+Imbalanced Data 
+❖Imbalance data
+AI VIETNAM
+All-in-One Course
+Imbalance Case: 
+- 100000 easy samples vs 100 hard samples
+easy samples  
+loss=0.1
+hard samples
+loss=2.3  
+Easy samples loss = 100000*0.1 = 10000
+Hard samples loss = 100*2.3 = 230
+Loss = Easy samples loss + Hard samples loss
+Easy samples loss : Hard samples loss = 10000:230 ≈43
+BCE không tốt cho trường hợp data bị 
+imbalance nặng
+How to solve it!!!
+18
+𝑦= −𝑙𝑜𝑔(𝑝𝑡)
+𝑦= (1 −𝑝𝑡)0
+𝑦= (1 −𝑝𝑡)1
+𝑦= (1 −𝑝𝑡)2
+𝑦= (1 −𝑝𝑡)3
+𝑦= (1 −𝑝𝑡)4
+Designing a Function
+f(ො𝑦) = -log(1-ො𝑦)
+with y = 0
+loss
+ො𝑦
+f(ො𝑦) = -log(ො𝑦)
+with y = 1
+ො𝑦
+loss
+(a)
+(b)
+Given 0 ≤𝑘≤1
+if f ො𝑦∗k
+where k approaches 1
+→f ො𝑦∗k reduces slightly
+if f ො𝑦∗k
+where k approaches 0
+→f ො𝑦∗k reduces 
+                  significantly
+f ො𝑦= 1 −ො𝑦𝛾
+f ො𝑦= ො𝑦𝛾
+Designing a 
+Function
+f(ො𝑦) = -log(1-ො𝑦)
+with y = 0
+loss
+ො𝑦
+f(ො𝑦) = -log(ො𝑦)
+with y = 1
+ො𝑦
+loss
+(a)
+(b)
+Given 0 ≤𝑘≤1
+if f ො𝑦∗k
+where k approaches 1
+→f ො𝑦∗k reduces slightly
+if f ො𝑦∗k
+where k approaches 0
+→f ො𝑦∗k reduces 
+                  significantly
+Reducing significantly for 
+the correct part
+Reducing slightly for the 
+incorrect part
+f ො𝑦= 1 −ො𝑦𝛾
+f ො𝑦= ො𝑦𝛾
+𝑓ො𝑦= −ො𝑦𝛾log 1 −ො𝑦
+𝑓ො𝑦= −1 −ො𝑦𝛾logො𝑦
+f(ො𝑦) = -log(1-ො𝑦)
+with y = 0
+f ො𝑦= ො𝑦𝛾
+f(ො𝑦) = -log(ො𝑦)
+with y = 1
+f ො𝑦= 1 −ො𝑦𝛾
+𝑙𝑜𝑠𝑠𝑦=1:  2.039 
+0.458 
+0.111 
+0.028 
+0.007 
+Applying to our Problem
+L(y, ො𝑦, 𝛾) = −𝑦1 −ො𝑦𝛾logො𝑦−1 −𝑦ො𝑦𝛾log 1 −ො𝑦
+Focal Loss for Dense Object Detection, ICCV, 2017.
+𝑙𝑜𝑠𝑠𝑦=1:  2.039 
+0.458 
+0.111 
+0.028 
+0.007 
+Combine with Class Weight
+L(. ) = −𝛼1𝑦1 −ො𝑦𝛾logො𝑦−𝛼2 1 −𝑦ො𝑦𝛾log 1 −ො𝑦
+Focal Loss for Dense Object Detection, ICCV, 2017.
+solution 5
+Parameter 
+Space
+Optimal Region
+solution 5
+convergence 1
+solution 5
+convergence 2
+solution 5
+Using
+Pretrained
+Model
+solution 5
+Model
+input (mini-batch)
+#C0
+#C1
+optimizer update
+loss
+For C0
+For C1
+Super Big 
+Dataset
+pretraining (~transfer learning)
+fixed
+fixed
+fixed
+29
+Exploitation of Pretrained Models
+❖As Initialization
+AI VIETNAM
+All-in-One Course
+ImageNet dataset 
+(1.2 million images 
+of 1000 categories)
+Feature 
+Extraction
+Classifier
+Large 
+dataset
+Feature 
+Extraction
+New 
+Classifier
+Small 
+dataset
+Copy FE and its 
+pretrained weights
+Pretrained Model
+Our Model
+Train the whole new model using a small dataset
+30
+Will be trained with the small dataset
+Exploitation of Pretrained Models
+❖Use the pretrained weights 
+as an initialization
+AI VIETNAM
+All-in-One Course
+31
+Imbalanced Data
+❖Approach 2: Loss Functions
+AI VIETNAM
+All-in-One Course
+Total loss
+Negative loss
+Positive loss
+Total loss
+Pay more attention to samples from 
+an under-represented class
+A higher loss → higher optimization
+𝑤𝑐= 𝑁
+2𝑁𝑐
+Class weight 
+Focal loss
+FL(pt) = −𝛼𝑡(1 −𝑝𝑡)𝛾log(pt)
+𝛼𝑡balances losses using a number of
+samples in a class 
+𝛾helps the loss funcion focus on 
+‘hard’  samples 
+32
+Imbalanced Data
+❖Solution 6
+AI VIETNAM
+All-in-One Course
+AutoBalance: Optimized Loss Functions for Imbalanced Data, 2022 
+https://arxiv.org/pdf/2201.01212.pdf
+33
+➢Introduction
+➢Examples and Discussion
+➢Metrics
+➢Case Study
+Outline
+Metrics
+❖Confusion matrix
+AI VIETNAM
+All-in-One Course
+Predictions
+Wrong
+Predictions
+Correct
+Predictions
+Model
+Positive data
+Negative data
+Found Data
+Unfound Data
+Wrongly
+Discovered Data
+Correctly
+Undiscovered Data
+34
+Predictions
+Wrong
+Predictions
+Correct
+Predictions
+Model
+Positive data
+Negative data
+Found Data
+Unfound Data
+Wrongly
+Discovered Data
+Correctly
+Undiscovered Data
+Precision
+Found 
+Data
+Unfound 
+Data
+Recall
+Precision=1?
+Recall=1?
+1
+2
+Wrong
+Predictions
+Correct
+Predictions
+Metrics
+❖Precision and recall
+Prediction
+Result
+True Positive (TP): A correct positive detection 
+False Positive (FP): A wrong positive detection 
+False Negative (FN): A wrong negative detection
+True Negative (TN): A correct negative detection
+Label
+Precision =
+TP
+TP + FP =
+Số dự đoán chính xác
+Tổng số lần dự đoán positive
+Recall =
+TP
+TP + FN =
+Số dự đoán chính xác
+Tổng số ground truth cho positive
+Precision
+Found 
+Data
+Unfound 
+Data
+Recall
+Wrong
+Predictions
+Correct
+Predictions
+AI VIETNAM
+All-in-One Course
+36
+Metrics
+AI VIETNAM
+All-in-One Course
+Actual:
+NEGATIVE
+Actual:
+POSITIVE
+Predicted:
+NEGATIVE
+Predicted:
+POSITIVE
+❖ Quiz
+Fill TP, FP, TN, FN into appropriate cells
+37
+Metrics
+AI VIETNAM
+All-in-One Course
+❖ Precision
+𝑃𝑟𝑒𝑐𝑖𝑠𝑖𝑜𝑛=
+𝑇𝑃
+𝑇𝑃+ 𝐹𝑃=
+𝑇𝑃
+𝑎𝑙𝑙 𝑝𝑜𝑠𝑖𝑡𝑖𝑣𝑒 𝑑𝑒𝑐𝑖𝑠𝑖𝑜𝑛𝑠
+❖ Recall
+𝑅𝑒𝑐𝑎𝑙𝑙=
+𝑇𝑃
+𝑇𝑃+ 𝐹𝑁=
+𝑇𝑃
+𝑎𝑙𝑙 𝑝𝑜𝑠𝑖𝑡𝑖𝑣𝑒 𝑠𝑎𝑚𝑝𝑙𝑒𝑠
+Accuracy =
+TP + TN
+TP + TN + FP + FN
+❖ Accuracy
+Metrics
+AI VIETNAM
+All-in-One Course
+Accuracy = 145/165
+Precision: When it predicts yes, how often is it 
+correct?
+TP/predicted yes = 95/105 = 0.9
+Recall: When it's actually yes, how often does it 
+predict yes?
+TP/actual yes = 95/105 = 0.90
+n = 165
+Predicted:
+NEGATIVE
+Predicted:
+POSITIVE
+Actual:
+NEGATIVE
+TN=50
+FP=10
+60
+Actual:
+POSITIVE
+FN=10
+TP=95
+105
+60
+105
+❖ Precision
+𝑃𝑟𝑒𝑐𝑖𝑠𝑖𝑜𝑛=
+𝑇𝑃
+𝑇𝑃+ 𝐹𝑃=
+𝑇𝑃
+𝑎𝑙𝑙 𝑝𝑜𝑠𝑖𝑡𝑖𝑣𝑒 𝑑𝑒𝑐𝑖𝑠𝑖𝑜𝑛𝑠
+❖ Recall
+𝑅𝑒𝑐𝑎𝑙𝑙=
+𝑇𝑃
+𝑇𝑃+ 𝐹𝑁=
+𝑇𝑃
+𝑎𝑙𝑙 𝑝𝑜𝑠𝑖𝑡𝑖𝑣𝑒 𝑠𝑎𝑚𝑝𝑙𝑒𝑠
+Accuracy =
+TP + TN
+TP + TN + FP + FN
+❖ Accuracy
+39
+Metrics
+AI VIETNAM
+All-in-One Course
+Accuracy = 145/165
+Precision: When it predicts yes, how often is it 
+correct?
+TP/predicted yes = 85/85 = 1.0
+Recall: When it's actually yes, how often does it 
+predict yes?
+TP/actual yes = 85/105 = 0.81
+n = 165
+Predicted:
+NEGATIVE
+Predicted:
+POSITIVE
+Actual:
+NEGATIVE
+TN=60
+FP=0
+60
+Actual:
+POSITIVE
+FN=20
+TP=85
+105
+80
+85
+❖ Precision
+𝑃𝑟𝑒𝑐𝑖𝑠𝑖𝑜𝑛=
+𝑇𝑃
+𝑇𝑃+ 𝐹𝑃=
+𝑇𝑃
+𝑎𝑙𝑙 𝑝𝑜𝑠𝑖𝑡𝑖𝑣𝑒 𝑑𝑒𝑐𝑖𝑠𝑖𝑜𝑛𝑠
+❖ Recall
+𝑅𝑒𝑐𝑎𝑙𝑙=
+𝑇𝑃
+𝑇𝑃+ 𝐹𝑁=
+𝑇𝑃
+𝑎𝑙𝑙 𝑝𝑜𝑠𝑖𝑡𝑖𝑣𝑒 𝑠𝑎𝑚𝑝𝑙𝑒𝑠
+Accuracy =
+TP + TN
+TP + TN + FP + FN
+❖ Accuracy
+40
+Metrics
+AI VIETNAM
+All-in-One Course
+Accuracy = 145/165
+Precision: When it predicts yes, how often is it 
+correct?
+TP/predicted yes = 105/125 = 0.84
+Recall: When it's actually yes, how often does it 
+predict yes?
+TP/actual yes = 105/105 = 1.0
+n = 165
+Predicted:
+NEGATIVE
+Predicted:
+POSITIVE
+Actual:
+NEGATIVE
+TN=40
+FP=20
+60
+Actual:
+POSITIVE
+FN=0
+TP=105
+105
+60
+105
+❖ Precision
+𝑃𝑟𝑒𝑐𝑖𝑠𝑖𝑜𝑛=
+𝑇𝑃
+𝑇𝑃+ 𝐹𝑃=
+𝑇𝑃
+𝑎𝑙𝑙 𝑝𝑜𝑠𝑖𝑡𝑖𝑣𝑒 𝑑𝑒𝑐𝑖𝑠𝑖𝑜𝑛𝑠
+❖ Recall
+𝑅𝑒𝑐𝑎𝑙𝑙=
+𝑇𝑃
+𝑇𝑃+ 𝐹𝑁=
+𝑇𝑃
+𝑎𝑙𝑙 𝑝𝑜𝑠𝑖𝑡𝑖𝑣𝑒 𝑠𝑎𝑚𝑝𝑙𝑒𝑠
+Accuracy =
+TP + TN
+TP + TN + FP + FN
+❖ Accuracy
+41
+Metrics
+AI VIETNAM
+All-in-One Course
+❖ Combine precision and recall
+2
+F1
+=
+1
+precision +
+1
+recall
+F1 = precision + recall
+2
+Metrics
+❖F1 Score
+Accuracy =
+TP + TN
+TP + TN + FP + FN
+Precision =
+TP
+TP + FP
+Recall =
+TP
+TP + FN
+F1 = 2 ∗Precision ∗Recall
+Precision + Recall
+2
+F1
+=
+1
+precision +
+1
+recall
+F1 = 2
+1
+1
+precision +
+1
+recall
+= 2 precion ⋅recall
+precision + recall
+Precision
+Recall
+F1
+1
+1
+1
+0.1
+0.1
+0.1
+0.5
+0.5
+0.5
+1
+0.1
+0.182
+0.3
+0.8
+0.36
+AI VIETNAM
+All-in-One Course
+Example 
+❖Cat-Dog dataset
+AI VIETNAM
+All-in-One Course
+Validation data (3000 samples)
+n=3000
+Predicted:
+NEGATIVE
+Predicted:
+POSITIVE
+Actual:
+NEGATIVE
+TN=1489
+FP=11
+1500
+Actual:
+POSITIVE
+FN=679
+TP=821
+1500
+2168
+832
+=
+821 
+821 + 679 ≈0.547
+Recall =
+TP 
+TP + FN
+Precision =
+TP 
+TP + FP =
+821 
+821 + 11 ≈0.987
+F1 = 2 ∗Recall ∗Precision
+Recall + Precision
+= 2 ∗0.547 ∗0.987 
+0.547 ∗0.987
+≈0.704
+Correct prediction
+#𝑐𝑎𝑡 = 821
+#𝑑𝑜𝑔= 1489
+46
+Cat
+(1500 samples)
+Dog
+(1500 samples)
+Cat is of the positive class
+➢Introduction
+➢Examples and Discussion
+➢Metrics
+➢Case Study
+Outline
+Experiments
+❖Cat-Dog dataset
+AI VIETNAM
+All-in-One Course
+cats_and_dogs
+train
+validation
+cat
+dog
+cat
+dog
+47
+Experiments
+❖Cat-Dog dataset
+AI VIETNAM
+All-in-One Course
+Cat
+(1000 samples)
+Imbalanced Data 1
+Dog
+(11000 samples)
+Imbalanced Data 2
+Cat
+(500 samples)
+Dog
+(11000 samples)
+Balanced Data
+Cat
+(11000 samples)
+Dog
+(11000 samples)
+Validation data (3000 samples)
+48
+VGG16
+https://neurohive.io/en/popular-networks/vgg16/
+(3x3) Convolution
+padding=‘same’
+stride=1 + ReLU
+(2x2) max pooling
+Dense Layer
++ ReLU
+(4096) 
+Dense Layer
++ Softmax
+(1000) 
+50
+Experiments
+❖Cat-Dog dataset: Results from the TF codes
+AI VIETNAM
+All-in-One Course
+Balanced Data
+Cat
+(11000 samples)
+Dog
+(11000 samples)
+Validation data (3000 samples)
+𝐿𝑏= 𝐿𝑐+ 𝐿𝑑
+𝐿𝑏= 𝐿𝑐+ 100 × 𝐿𝑑
+𝐿𝑏= 𝐿𝑐+ 1000 × 𝐿𝑑
+Correct prediction
+Correct prediction
+Correct prediction
+#𝑐𝑎𝑡= 1445
+#𝑑𝑜𝑔= 1436
+#𝑐𝑎𝑡= 1076
+#𝑑𝑜𝑔= 1499
+#𝑐𝑎𝑡= 670
+#𝑑𝑜𝑔= 1498
+Balanced Loss
+Imbalanced Loss 1
+Imbalanced Loss 2
+𝐹1 = 0.96
+𝐹1 = 0.835
+𝐹1 = 0.617
+Experiments
+❖Cat-Dog dataset
+Cat
+(1000 samples)
+Imbalanced Data 1
+Dog
+(11000 samples)
+Validation data (3000 samples)
+𝐿𝑏= 𝐿𝑐+ 𝐿𝑑
+𝐿𝑏= 6 × 𝐿𝑐+ 0.55 × 𝐿𝑑
+Correct prediction
+Correct prediction
+#𝑐𝑎𝑡= 1082
+#𝑑𝑜𝑔= 1483
+#𝑐𝑎𝑡= 1163
+#𝑑𝑜𝑔= 1379
+Balanced Loss
+Imbalanced Loss
+𝐹1 = 0.833
+𝐹1 = 0.835
+Focal loss
+#𝑐𝑎𝑡= 1210
+#𝑑𝑜𝑔= 1447
+𝐹1  = 0.876
+Oversampling Data
+#𝑐𝑎𝑡= 1167
+#𝑑𝑜𝑔= 1438
+𝐹1 = 0.855
+FL pt = −𝛼𝑡(1 −𝑝𝑡)𝛾log(pt)
+𝛾= 2.0
+𝛼𝑡= 0.5
+Results from the TF codes
+Experiments
+❖Cat-Dog dataset
+Validation data (3000 samples)
+Imbalanced Data 2
+Cat
+(500 samples)
+Dog
+(11000 samples)
+𝐿𝑏= 𝐿𝑐+ 𝐿𝑑
+Correct prediction
+#𝑐𝑎𝑡= 821
+#𝑑𝑜𝑔= 1489
+Balanced Loss
+𝐹1 = 0.704
+𝐿𝑏= 11.5 × 𝐿𝑐+ 0.52 × 𝐿𝑑
+Correct prediction
+#𝑐𝑎𝑡= 1123
+#𝑑𝑜𝑔= 1309
+Imbalanced Loss
+𝐹1 = 0.798
+Correct prediction
+Focal Loss
+#𝑐𝑎𝑡= 1210
+#𝑑𝑜𝑔= 1447
+𝐹1  = 0.876
+FL pt = −𝛼𝑡(1 −𝑝𝑡)𝛾log(pt)
+𝛾= 2.0
+𝛼𝑡= 0.5
+Correct prediction
+Oversampling
+#𝑐𝑎𝑡= 1159
+#𝑑𝑜𝑔= 1386
+𝐹1 = 0.836
+Results from the TF codes
+Experiments
+❖Cat-Dog dataset: Using Resnet and Pytorch
+AI VIETNAM
+All-in-One Course
+Cat
+(1000 samples)
+Imbalanced Data 1
+Dog
+(11000 samples)
+Using the pretrained model
+𝐹1 = 0.96
+Focal Loss
+𝐹1 =? ? ?
+Normal cross-entropy
+𝐹1 = 0.67
+Class weight
+𝐹1 = 0.75
+54

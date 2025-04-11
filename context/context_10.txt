@@ -1,0 +1,330 @@
+Module 9 - Exercise
+Image Inpainting Using DDPMs
+Year 2023
+AI VIET NAM
+Nguyen Quoc Thai
+AI VIETNAM
+All-in-One Course
+1
+2
+Objectives
+Image Inpainting using Denoising Diffusion Probabilistic Model
+!
+3
+Ø Introduction
+Ø Denoising Diffusion Probabilistic Model
+Ø Image Inpainting using DDPM
+Outline
+4
+Introduction
+What is Image Inpainting?
+!
+Ø Image Inpainting is to fill missing parts of image
+Ø Important Point: Fill in the hole with
+§ Visually realistic
+§ Semantically plausible
+Image Inpainting
+5
+Introduction
+Different Masking Techniques
+!
+Random Box Mak
+Center Box Mask
+Irregular Mask
+Free-Form Mask
+Hybrid Mask
+6
+Introduction
+Two main approach
+!
+Ø Patch Pasting
+§ Search similar patches to hole-surrounding areas
+§ PatchMatch, Scene Completion,…
+Ø Deep Learning Methods
+§ Learn how to fill the hole using large scale dataset
+§ GLCIC, Gated Conv, Generative Models,…
+7
+Introduction
+PatchMatch
+!
+Ø Search similar patch to the hole surrounding areas in an input image
+Ø Paste the searched patch to the hole
+Ø Loop
+8
+Introduction
+PatchMatch
+!
+Initialization
+Propagation
+Search
+9
+Introduction
+Scene Completion
+!
+Ø Search the image similar to an input from large scale image database
+Ø Search similar patch and paste it to the input’s hole
+Original Image
+Input
+Scene Matches
+Output
+10
+Introduction
+Deep Learning Methods
+!
+Ø Generate the contents of the hole using CNNs from the large dataset
+Ø Encoder-Decoder CNN
+11
+Introduction
+Deep Learning Methods
+!
+Ø Global and Locally Consistent Image Completion
+12
+Introduction
+Deep Learning Methods
+!
+Ø Diffusion Models
+13
+Ø Introduction
+Ø Denoising Diffusion Probabilistic Model
+Ø Image Inpainting using DDPM
+Outline
+14
+DDPMs
+Objectives
+!
+Ø Destroy structure in a data distribution through an iterative forward diffusion process
+15
+DDPMs
+Objectives
+!
+Ø Destroy structure in a data distribution through an iterative forward diffusion process
+Ø Learn a reverse diffusion process that restores structure in data
+Model
+16
+DDPMs
+Objectives
+!
+Model
+17
+DDPMs
+Forward Diffusion Process
+!
+𝑧~ 𝒩(0, 1)
+Pure Noise
+18
+DDPMs
+Forward Diffusion Process
+!
+Pure Noise
+𝑧~ 𝒩(0, 1)
+Regulated by a schedule 
+𝛽
+x0
+x100
+x200
+x300
+T=300 (timestep)
+19
+DDPMs
+Forward Diffusion Process
+!
+Ø Linear Noise Schedule
+𝛽!"#$" = 0.0001
+𝛽%&' = 0.02
+20
+DDPMs
+Forward Diffusion Process
+!
+Ø Noise Schedule
+21
+DDPMs
+Forward Diffusion Process
+!
+Ø Noise Schedule
+Linear Schedule
+Cosine Schedule
+22
+DDPMs
+Forward Diffusion Process
+!
+x()*
+x(
+q(x!|x!"#)
+x+
+x,
+q(x! x!"# = 𝒩x!;
+1 −β!x!"#, β!I
+Normal distribution
+Mean
+Output
+Variance
+23
+DDPMs
+Forward Diffusion Process
+!
+x()*
+x(
+q(x!|x!"#)
+x+
+x,
+q(x! x!"# = 𝒩x!;
+1 −β!x!"#, β!I
+=
+1 −𝛽$𝑥$"# +
+𝛽$𝜖
+=
+2𝛼$𝑥% +
+1 −2𝛼$𝜖
+𝛼$ = 1 −𝛽$
+2𝛼$ = 4
+&'#
+$
+𝑎&
+𝒩𝜇, σ( = 𝜇+ 𝜎9 𝜖
+24
+DDPMs
+Forward Diffusion Process
+!
+x()*
+x(
+q(x!|x!"#)
+x+
+x,
+q(x! x!"# = 𝒩x!;
+1 −β!x!"#, β!I
+=
+2𝛼$𝑥% +
+1 −2𝛼$𝜖
+𝛼$ = 1 −𝛽$
+2𝛼$ = 4
+&'#
+$
+𝑎&
+𝒩𝜇, σ( = 𝜇+ 𝜎9 𝜖
+q(x! x% = 𝒩x!;
+2𝛼$𝑥%,
+1 −2𝛼$I
+25
+DDPMs
+Reverse Diffusion Process
+!
+x()*
+x(
+q(x!"#|x!, x%)
+x+
+x,
+26
+DDPMs
+Reverse Diffusion Process
+!
+x()*
+x(
+q(x!"#|x!, x%)
+x+
+x,
+Unet Model
+Unet Model
+Unet Model
+27
+DDPMs
+Reverse Diffusion Process
+!
+x()*
+x(
+q(x!"#|x!, x%)
+x+
+x,
+Unet Model
+Unet Model
+Unet Model
+Timestep Embedding
+Timestep Embedding
+Timestep Embedding
+Sinusoidal 
+Embedding
+28
+DDPMs
+Reverse Diffusion Process
+!
+Ø UNet Model with Self-Attention
+29
+DDPMs
+Reverse Diffusion Process
+!
+Ø UNet Model with Self-Attention
+Ø Adaptive Group Normalization
+AdaGN(h, y = y)GroupNorm(h + y*)
+Conv
+GroupNorm
+…
+y)
+y)
++
+∗
+30
+DDPMs
+Reverse Diffusion Process
+!
+𝐪(𝐱𝐭"𝟏𝐱𝐭, 𝐱𝟎= 𝓝𝐱𝐭"𝟏; I𝛍𝐱𝐭, 𝐱𝟎, K𝛃𝐭
+0µ x(, x+ =
+2α()*β(
+1 −2α(
+x+ +
+α( 1 −2α()*
+1 −2α(
+x(
+6β( = 1 −2α()*
+1 −2α(
+β(
+31
+DDPMs
+Training
+!
+32
+DDPMs
+Sampling
+!
+33
+Ø Introduction
+Ø Denoising Diffusion Probabilistic Model
+Ø Image Inpainting using DDPM
+Outline
+34
+Image Painting using DDPMs
+CelebA Dataset
+!
+35
+Image Painting using DDPMs
+Center Box Mask
+!
+Masking
+36
+Image Painting using DDPMs
+Approach
+!
+Model
+37
+Image Painting using DDPMs
+Reverse Diffusion Model
+!
+x()*
+x(
+x+
+x,
+Unet Model
+Unet Model
+Unet Model
+Timestep Embedding
+Timestep Embedding
+Timestep Embedding
+Keep
+38
+Image Painting using DDPMs
+Experiment
+!
+Inpainting
+39
+Summary
+Thanks!
+Any questions?
+40

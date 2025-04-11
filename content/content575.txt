@@ -1,3 +1,0 @@
-Daily AI Exercise (AIO) aivietnam.edu.vn
-Trong ví dụ này vòng lặp while sẽ chạy miễn là i nhỏ hơn 10. Mỗi lần vòng lặp chạy, giá trị của i được
-tăng lên một đơn vị. 

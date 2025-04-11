@@ -1,9 +1,0 @@
-AI VIETNAM aivietnam.edu.vn
-14 PAL: Program-aided Language Models
-Điểm đặc biệt của PAL là việc giải quyết vấn đề được chuyển giao cho trình thông dịch, như
-Python, giúp tận dụng sức mạnh tính toán và độ chính xác cao của máy tính. Được đề xuất trong
-bài báo "PAL: Program-aided Language Models" Gao et al., 2023, phương pháp này tập trung vào
-việc phân tách vấn đề thành các bước có thể thực thi, giải phóng LLM khỏi trách nhiệm giải quyết
-vấn đề mà thay vào đó, giao cho trình thông dịch. Qua việc áp dụng PAL trong 13 nhiệm vụ suy
-luận toán học, biểu tượng, và thuật toán từ các bài kiểm tra khó như BIG-Bench Hard và các tiêu
-chuẩn khác.

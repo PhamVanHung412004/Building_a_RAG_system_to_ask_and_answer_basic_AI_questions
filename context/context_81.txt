@@ -1,0 +1,1286 @@
+Multi-layer Perception
+Initialization (Advanced)
+Year 2023
+Quang-Vinh Dinh
+Ph.D. in Computer Science
+AI VIETNAM
+All-in-One Course
+➢Case Studies
+➢Gradient Vanishing
+➢Gradient Explosion
+➢Xavier Glorot Initialization
+➢Kaiming He Initialization
+Outline
+28
+28
+784
+Normalization
+784 Nodes 
++ ReLU
+Output
+1
+𝑧1
+𝑧10
+Softmax 
+activation
+Fully 
+connect
+10 Nodes
+Output layer
+. . .
+. . .
+Fully 
+connect
+256 Nodes
++ ReLU
+1
+. . .
+flatten
+Image = Image −𝑚𝑒𝑎𝑛
+std
+Normalize(𝑚𝑒𝑎𝑛, std)
+𝑋∈0, 255
+1
+28
+28
+784
+Normalization
+784 Nodes 
++ ReLU
+Output
+1
+𝑧1
+𝑧10
+Softmax 
+activation
+Fully 
+connect
+10 Nodes
+Output layer
+. . .
+. . .
+Fully 
+connect
+256 Nodes
++ ReLU
+1
+. . .
+flatten
+Image = Image −𝑚𝑒𝑎𝑛
+std
+Normalize(𝑚𝑒𝑎𝑛, std)
+𝑋∈−1, 1
+2
+Experimental Results
+AI VIETNAM
+All-in-One Course
+ReLU + [0, 255]
+ReLU + [-1, 1]
+3
+28
+28
+784
+Normalization
+784 Nodes 
++ Sigmoid
+Output
+1
+𝑧1
+𝑧10
+Softmax 
+activation
+Fully 
+connect
+10 Nodes
+Output layer
+. . .
+. . .
+Fully 
+connect
+256 Nodes
++ Sigmoid
+1
+. . .
+flatten
+Image = Image −𝑚𝑒𝑎𝑛
+std
+Normalize(𝑚𝑒𝑎𝑛, std)
+𝑋∈0, 255
+4
+28
+28
+784
+Normalization
+784 Nodes 
++ Sigmoid
+Output
+1
+𝑧1
+𝑧10
+Softmax 
+activation
+Fully 
+connect
+10 Nodes
+Output layer
+. . .
+. . .
+Fully 
+connect
+256 Nodes
++ Sigmoid
+1
+. . .
+flatten
+Image = Image −𝑚𝑒𝑎𝑛
+std
+Normalize(𝑚𝑒𝑎𝑛, std)
+𝑋∈−1, 1
+5
+Experimental Results
+AI VIETNAM
+All-in-One Course
+Sigmoid + [0, 255]
+Sigmoid + [-1, 1]
+6
+➢Case Studies
+➢Gradient Vanishing
+➢Gradient Explosion
+➢Xavier Glorot Initialization
+➢Kaiming He Initialization
+Outline
+Gradient Vanishing
+AI VIETNAM
+All-in-One Course
+Large weight initialization
+𝑋
+Layer 1
+1
+w1
+b1
+z1
+z3
+s
+1
+w2
+b2
+z2
+Layer 2
+b3
+w3
+ො𝑦0
+ො𝑦1
+Softmax
+Cross 
+Entropy
+7
+Gradient Vanishing
+AI VIETNAM
+All-in-One Course
+Large weight initialization
+2.4
+Layer 1
+1
+6.74
+0.0
+z1
+z4
+s
+1
+9.808
+0.0
+z3
+Layer 2
+0.0
+13.3
+ො𝑦0
+ො𝑦1
+Softmax
+Cross 
+Entropy
+𝐿w1
+′
+= 9 ∗10−7
+𝐿w2
+′
+= −0.972
+𝜂𝐿w1
+′
+= 9 ∗10−9
+with 𝜂= 0.01
+𝐿b1
+′
+= 4 ∗10−7
+𝜂𝐿b1
+′
+= 4 ∗10−9
+8
+𝑋
+Layer 1
+s
+1
+w1
+b1
+1
+w2
+b2
+s
+1
+w3
+b3
+s
+1
+w4
+b4
+s
+1
+w5
+b5
+z1
+z2
+z3
+z4
+z5
+z6
+w6
+b6
+ො𝑦0
+ො𝑦1
+Softmax
+Cross Entropy
+𝑦
+Layer 2
+Layer 3
+Layer 4
+Layer 5
+Loss 
+Computation
+s
+Sigmoid function
+Gradient Vanishing
+AI VIETNAM
+All-in-One Course
+MLP with 5 layers
+2.4
+Layer 1
+s
+1
+0.919
+0.0
+1
+−0.812
+0.0
+s
+1
+1.471
+0.0
+s
+1
+−0.776
+0.0
+s
+1
+−0.309
+0.0
+z1
+z2
+z3
+z4
+z5
+z6
+1.133
+0.0
+−0.118
+0.433
+Softmax
+1.0066
+0
+Layer 2
+Layer 3
+Layer 4
+Layer 5
+Loss 
+Computation
+s
+Sigmoid function
+Gradient Vanishing
+AI VIETNAM
+All-in-One Course
+MLP with 5 layers
+2.4
+s
+1
+0.919
+0.0
+1
+−0.812
+0.0
+s
+1
+1.471
+0.0
+s
+1
+−0.776
+0.0
+s
+1
+−0.309
+0.0
+z1
+z2
+z3
+z4
+z5
+z6
+1.133
+0.0
+−0.118
+0.433
+Softmax
+1.0066
+0
+Gradient Vanishing
+AI VIETNAM
+All-in-One Course
+𝐿w3
+′
+= −0.012
+𝐿b3
+′
+= −0.039
+𝐿w1
+′
+= −0.002
+𝐿w2
+′
+= −0.011
+𝐿b2
+′
+= −0.012
+𝐿b1
+′
+= 0.0009
+𝐿w4
+′
+= 0.133
+𝐿b4
+′
+= 0.216
+Derivative values are too small
+b1 = b1 −𝜂𝐿b1
+′
+= 9 ∗10−6
+= 0.919 −0.01 ∗(−0.0002)
+= 0.919002
+w1 = w1 −𝜂𝐿w1
+′
+MLP with 5 layers
+𝑋
+Layer 1
+s
+1
+w1
+b1
+1
+w2
+b2
+s
+1
+w3
+b3
+s
+1
+w5
+b5
+z1
+z2
+z3
+z5
+z6
+w6
+b6
+ො𝑦0
+ො𝑦1
+Softmax
+Cross Entropy
+𝑦
+Layer 2
+Layer 3
+Layer 8
+Loss 
+Computation
+s
+Sigmoid function
+Gradient Vanishing
+AI VIETNAM
+All-in-One Course
+. . . . .
+MLP with 8 layers
+𝑋
+s
+1
+1
+s
+1
+s
+1
+z1
+z2
+z3
+z5
+z6
+ො𝑦0
+ො𝑦1
+Softmax
+Cross Entropy
+𝑦
+Layer 8
+Loss 
+Computation
+Gradient Vanishing
+AI VIETNAM
+All-in-One Course
+. . . . .
+𝐿w1
+′
+= 7 ∗10−7
+𝐿b1
+′
+= 3 ∗10−7
+𝜂𝐿w1
+′
+= 7 ∗10−9
+𝜂𝐿b1
+′
+= 3 ∗10−9
+Derivative values 
+are super small
+−0.358
+0.0
+−1.683
+0.0
+−0.1407
+0.0
+MLP with 8 layers
+Gradient Explosion
+AI VIETNAM
+All-in-One Course
+Large weight initialization 
+and large learning rate
+2.4
+Layer 1
+1
+2.68
+0.0
+z1
+z4
+p
+1
+−3.27
+0.0
+z3
+Layer 2
+0.0
+1.58
+ො𝑦0
+ො𝑦1
+Softmax
+Cross 
+Entropy
+𝐿w1
+′
+= 99.2
+𝐿w2
+′
+= −54.6
+𝜂𝐿w1
+′
+= 99
+with 𝜂= 10
+𝐿b1
+′
+= 4.86
+𝜂𝐿b1
+′
+= 48.6
+s
+PReLU function
+14
+➢Case Studies
+➢Gradient Vanishing
+➢Gradient Explosion
+➢Xavier Glorot Initialization
+➢Kaiming He Initialization
+Outline
+Mean
+AI VIETNAM
+All-in-One Course
+𝑋= {2, 8, 5, 4, 1, 4}
+Given the data
+𝑁= 6
+Data
+𝐸𝑋= ෍
+𝑖=1
+𝑁
+𝑋𝑖𝑃𝑋(𝑋𝑖)
+Formula
+𝑋= {𝑋1, … , 𝑋𝑁}
+𝐸𝑋= 2 × 1
+6 + 8 × 1
+6 + 5 × 1
+6 + 4 × 2
+6 + 1 × 1
+6
+= 2
+6 + 8
+6 + 5
+6 + 8
+6 + 1
+6 = 4
+𝑃𝑋𝑋= 2 = 1
+6
+𝑃𝑋𝑋= 8 = 1
+6
+𝑃𝑋𝑋= 5 = 1
+6
+𝑃𝑋𝑋= 4 = 2
+6
+𝑃𝑋𝑋= 1 = 1
+6
+15
+Mean
+AI VIETNAM
+All-in-One Course
+𝐸𝑋𝑌= ෍
+𝑖=1
+𝑁
+෍
+𝑗=1
+𝑁
+𝑋𝑖𝑌𝑗𝑃(𝑋𝑖, 𝑌𝑗)
+= ෍
+𝑖=1
+𝑁
+෍
+𝑗=1
+𝑁
+𝑋𝑖𝑌𝑗𝑃(𝑋𝑖)𝑃(𝑌𝑗)
+= ෍
+𝑖=1
+𝑁
+𝑋𝑖𝑃(𝑋𝑖) ෍
+𝑗=1
+𝑁
+𝑌𝑗𝑃(𝑌𝑗)
+= 𝐸𝑋𝐸𝑌
+Data
+𝐸𝑋= ෍
+𝑖=1
+𝑁
+𝑋𝑖𝑃𝑋(𝑋𝑖)
+Formula
+𝑋= {𝑋1, … , 𝑋𝑁}
+16
+Variance
+AI VIETNAM
+All-in-One Course
+𝐸𝑋= ෍
+𝑖=1
+𝑁
+𝑋𝑖𝑃𝑋(𝑋𝑖)
+𝑣𝑎𝑟(𝑋) = 𝐸
+𝑋−𝐸𝑋
+2
+mean
+variance
+𝜎=
+𝑣𝑎𝑟(𝑋)
+Standard 
+deviation
+Formula
+= ෍
+𝑖=1
+𝑁
+𝑋𝑖−𝐸𝑋
+2𝑃𝑋(𝑋𝑖)
+𝑋= {5, 3 6, 7, 4}
+Example:
+𝐸𝑋= 5 × 1
+5 + 3 × 1
+5 + 6 × 1
+5 + 7 × 1
+5 + 4 × 1
+5
+      
+= 5
+𝑣𝑎𝑟(𝑋) = 1
+5 [ 5 −5 2 + 3 −5 2 + 6 −5 2+
+7 −5 2 + 4 −5 2]
+𝜎=
+𝑣𝑎𝑟(𝑋) = 1.41
+= 1
+5(0+4+1+4+1)=2
+17
+Variance
+AI VIETNAM
+All-in-One Course
+𝐸𝑋= ෍
+𝑖=1
+𝑁
+𝑋𝑖𝑃𝑋(𝑋𝑖)
+𝑣𝑎𝑟(𝑋) = 𝐸
+𝑋−𝐸𝑋
+2
+mean
+variance
+𝜎=
+𝑣𝑎𝑟(𝑋)
+Standard 
+deviation
+Formula
+= ෍
+𝑖=1
+𝑁
+𝑋𝑖−𝐸𝑋
+2𝑃𝑋(𝑋𝑖)
+𝑣𝑎𝑟𝑋= ෍
+𝑖=1
+𝑁
+𝑋𝑖−𝐸𝑋
+2𝑃𝑋(𝑋𝑖)
+= ෍
+𝑖=1
+𝑁
+𝑋𝑖
+2 −2𝑋𝑖𝐸𝑋+ 𝐸𝑋2 𝑃𝑋(𝑋𝑖)
+= ෍
+𝑖=1
+𝑁
+𝑋𝑖
+2𝑃𝑋(𝑋𝑖) −෍
+𝑖=1
+𝑁
+2𝑋𝑖𝐸𝑋𝑃𝑋𝑋𝑖
+= 𝐸𝑋2 −2𝐸𝑋
+෍
+𝑖=1
+𝑁
+𝑋𝑖𝑃𝑋𝑋𝑖
++ 𝐸𝑋2
+= 𝐸𝑋2 −𝐸𝑋
+2
++ ෍
+𝑖=1
+𝑁
+𝐸𝑋2𝑃𝑋(𝑋𝑖)
+18
+Variance
+AI VIETNAM
+All-in-One Course
+𝑣𝑎𝑟𝑋𝑌= 𝐸𝑋2𝑌2 −𝐸𝑋𝑌
+2
+= 𝐸𝑋2 𝐸𝑌2 −𝐸𝑋𝐸𝑌
+2
+= 𝑣𝑎𝑟𝑋+ 𝐸𝑋
+2
+𝑣𝑎𝑟𝑌+ 𝐸𝑌
+2 −𝐸𝑋𝐸𝑌
+2
+= 𝑣𝑎𝑟𝑋𝑣𝑎𝑟𝑌+ 𝑣𝑎𝑟𝑋
+𝐸𝑌
+2 + 𝑣𝑎𝑟𝑌
+𝐸𝑌
+2
+𝑣𝑎𝑟𝑋= 𝐸𝑋2 −𝐸𝑋
+2
+19
+Initialization Methods
+AI VIETNAM
+All-in-One Course
+Uniform Distribution
+𝑋~𝑈𝑎, 𝑏
+𝑓𝑥=
+1
+𝑏−𝑎
+𝐸𝑋= 𝑎+ 𝑏
+2
+𝑣𝑎𝑟𝑋= 𝑏−𝑎2
+12
+Xavier Initialization
+1
+𝑏−𝑎
+20
+Initialization Methods
+AI VIETNAM
+All-in-One Course
+Uniform Distribution
+𝑋~𝑈𝑎, 𝑏
+𝑓𝑥=
+1
+𝑏−𝑎
+𝐸𝑋= 𝑎+ 𝑏
+2
+𝑣𝑎𝑟𝑋= 𝑏−𝑎2
+12
+1
+𝑏−𝑎
+𝐸𝑋= න
+−∞
+∞
+𝑥𝑓𝑥𝑑𝑥= න
+𝑎
+𝑏
+𝑥
+1
+𝑏−𝑎𝑑𝑥
+=
+𝑥2
+2(𝑏−𝑎) |𝑎𝑏= 𝑏2 −𝑎2
+2(𝑏−𝑎) = 𝑎+ 𝑏
+2
+21
+Initialization Methods
+AI VIETNAM
+All-in-One Course
+Uniform Distribution
+𝑋~𝑈𝑎, 𝑏
+𝑓𝑥=
+1
+𝑏−𝑎
+𝐸𝑋= 𝑎+ 𝑏
+2
+𝑣𝑎𝑟𝑋= 𝑏−𝑎2
+12
+1
+𝑏−𝑎
+𝑣𝑎𝑟𝑋= 𝐸
+𝑋−𝐸𝑋
+2
+= න
+−∞
+∞
+𝑥−𝐸𝑋
+2𝑓𝑥𝑑𝑥
+= න
+𝑎
+𝑏
+𝑥−𝑎+ 𝑏
+2
+2
+1
+𝑏−𝑎𝑑𝑥
+=
+1
+𝑏−𝑎න
+𝑎
+𝑏
+𝑥2𝑑𝑥−න
+𝑎
+𝑏
+2𝑥𝑎+ 𝑏
+2
+𝑑𝑥+ න
+𝑎
+𝑏𝑎+ 𝑏
+2
+2
+𝑑𝑥
+=
+1
+𝑏−𝑎
+𝑥3
+3 |𝑎𝑏−𝑥2(𝑎+ 𝑏)
+2
+|𝑎𝑏+ 𝑎+ 𝑏
+2
+2
+𝑥|𝑎𝑏
+=
+1
+𝑏−𝑎
+𝑏3 −𝑎3
+3
+−(𝑏2 −𝑎2)(𝑎+ 𝑏)
+2
++ 𝑎+ 𝑏
+2
+2
+(𝑏−𝑎)
+= 𝑎2 + 𝑎𝑏+ 𝑏2
+3
+−𝑎2 + 2𝑎𝑏+ 𝑏2
+2
++ 𝑎2 + 2𝑎𝑏+ 𝑏2
+4
+= 4 𝑎2 + 𝑎𝑏+ 𝑏2 −3 𝑎2 + 2𝑎𝑏+ 𝑏2
+12
+= 𝑏−𝑎2
+12
+Initialization Methods
+AI VIETNAM
+All-in-One Course
+𝑋~𝑵𝜇, 𝜎2 
+Gaussian Distribution
+𝑓𝑥=
+1
+𝜎2𝜋
+𝑒−1
+2
+𝑥−𝜇
+𝜎
+2
+Xavier Initialization
+23
+tanh 𝑥= 𝑒𝑥−𝑒−𝑥
+𝑒𝑥+ 𝑒−𝑥= 1 −
+2
+𝑒2𝑥+ 1 =
+2
+𝑒−2𝑥+ 1 −1
+tanh′ 0 = 1 −𝑡𝑎𝑛ℎ2 0 = 1
+tanh 0 = 0
+tanh′′ 0 = 1 −𝑡𝑎𝑛ℎ2 0
+′
+tanh(3) 0 = −2𝑡𝑎𝑛ℎ0 tanh′ 0
+′
+tanh 𝑥= 𝑓0 + 𝑓′ 0 𝑥+ 𝑓′′ 0
+2!
+𝑥2 + 𝑓(3) 0
+3!
+𝑥3 + ⋯
+= 𝑥−𝑥3
+3! + ⋯
+tanh 𝑥≈𝑥
+= −2𝑡𝑎𝑛ℎ0 tanh′ 0 = 0
+= −2 tanh′ 0 tanh′ 0 + tanh′′ 0 𝑡𝑎𝑛ℎ0
+= −2
+Maclaurin series
+𝑓𝑥= ෍
+𝑛=0
+∞
+𝑓(𝑛) 0 𝑥𝑛
+𝑛!
+= 𝑓0 + 𝑓′ 0 𝑥+ 𝑓′′ 0
+2!
+𝑥2 + 𝑓(3) 0
+3!
+𝑥3 + ⋯
+Tính giá trị xấp xỉ hàm f(x) cho những giá trị 
+𝑥 ≈0 
+sigmoid 𝑥= 𝑓0 + 𝑓′ 0 𝑥+ 𝑓′′ 0
+2!
+𝑥2 + 𝑓(3) 0
+3!
+𝑥3 + ⋯
+= 1
+2 + 𝑥
+4 + ⋯
+sigmoid 𝑥≈1
+2 + 𝑥
+4
+sigmoid′ 0 = sigmoid 0
+1 −sigmoid 0
+= 1
+4
+sigmoid 0 = 1
+2
+sigmoid′′ 0 = sigmoid 0
+1 −sigmoid 0
+′
+sigmoid 𝑥=
+1
+1 + 𝑒−𝑥
+= sigmoid′ 0 −2 sigmoid 0 sigmoid′ 0 = 0
+Maclaurin series
+𝑓𝑥= ෍
+𝑛=0
+∞
+𝑓(𝑛) 0 𝑥𝑛
+𝑛!
+= 𝑓0 + 𝑓′ 0 𝑥+ 𝑓′′ 0
+2!
+𝑥2 + 𝑓(3) 0
+3!
+𝑥3 + ⋯
+Tính giá trị xấp xỉ hàm f(x) cho những giá trị 
+𝑥 ≈0 
+Initialization Methods
+AI VIETNAM
+All-in-One Course
+Xavier Initialization
+𝑎𝑖= activation(𝑧𝑖)
+𝑥0
+𝑥1
+𝑥𝑛
+𝑧𝑖
+𝑎𝑖
+…
+𝑤0
+𝑤1
+𝑤𝑛
+𝐸𝑋= 0
+𝐸𝑊= 0
+𝑏= 0
+𝑧𝑖= (𝑥1𝑤1 + ⋯+ 𝑥𝑛𝑤𝑛+ 𝑏)
+var(𝑧𝑖) = var(𝑥1𝑤1 + ⋯+ 𝑥𝑛𝑤𝑛+ 𝑏)
+= 𝑛var(𝑥𝑖𝑤𝑖) = 𝑛var(𝑥𝑖)var(𝑤𝑖)
+activation = tanh
+𝑎𝑖= tanh 𝑧𝑖≈𝑧𝑖
+var(𝑎𝑖) = var(𝑧𝑖)
+var(X) ≈var(𝐚)
+iid
+var(𝑥𝑖) ≈var(𝑎𝑖)
+nvar(𝑤𝑖) ≈1
+var(𝑤𝑖) ≈1
+𝑛
+Uniform Distribution
+𝑋~𝑈𝑎, 𝑏
+𝑓𝑥=
+1
+𝑏−𝑎
+𝐸𝑋𝑌= 𝐸𝑋𝐸𝑌
+𝑣𝑎𝑟𝑋𝑌= 𝑣𝑎𝑟𝑋𝑣𝑎𝑟𝑌+
+𝑣𝑎𝑟𝑋
+𝐸𝑌
+2 +
+𝑣𝑎𝑟𝑦
+𝐸𝑋
+2
+𝑣𝑎𝑟𝑋= 𝑏−𝑎2
+12
+Initialization Methods
+AI VIETNAM
+All-in-One Course
+Xavier Initialization
+Uniform Distribution
+𝑋~𝑈𝑎, 𝑏
+𝑓𝑥=
+1
+𝑏−𝑎
+𝐸𝑋𝑌= 𝐸𝑋𝐸𝑌
+𝑣𝑎𝑟𝑋𝑌= 𝑣𝑎𝑟𝑋𝑣𝑎𝑟𝑌+
+𝑣𝑎𝑟𝑋
+𝐸𝑌
+2 +
+𝑣𝑎𝑟𝑦
+𝐸𝑋
+2
+𝑣𝑎𝑟𝑋= 𝑏−𝑎2
+12
+𝑊𝑖~𝑈−
+3
+𝑛,
+3
+𝑛
+𝑥0
+𝑥1
+𝑥𝑛
+𝑧𝑖
+𝑎𝑖
+…
+var(𝑤𝑖) ≈1
+𝑛
+𝑣𝑎𝑟𝑤𝑖= 𝑟2
+3
+𝑤𝑖~𝑈−𝑟, 𝑟
+activation = tanh
+27
+Initialization Methods
+AI VIETNAM
+All-in-One Course
+𝑊𝑖~𝑁0, 1
+𝑛
+Xavier Initialization
+𝑋~𝑁0, 𝜎2
+Gaussian Distribution
+𝐸𝑋𝑌= 𝐸𝑋𝐸𝑌
+𝑣𝑎𝑟𝑋𝑌= 𝑣𝑎𝑟𝑋𝑣𝑎𝑟𝑌+
+𝑣𝑎𝑟𝑋
+𝐸𝑌
+2 +
+𝑣𝑎𝑟𝑦
+𝐸𝑋
+2
+𝑥0
+𝑥1
+𝑥𝑛
+𝑧𝑖
+𝑎𝑖
+…
+var(𝑤𝑖) ≈1
+𝑛
+𝜎2 = 1
+𝑛
+𝑤𝑖~𝑁0, 𝜎2
+activation = tanh
+𝜎= 1
+𝑛
+28
+Initialization Methods
+AI VIETNAM
+All-in-One Course
+𝑊𝑖𝑗~𝑈−
+3
+𝑛,
+3
+𝑛
+𝑊𝑖𝑗~𝑵0, 1
+𝑛
+Uniform Distribution
+Gaussian Distribution
+Xavier Initialization
+activation = tanh
+29
+Initialization Methods
+AI VIETNAM
+All-in-One Course
+Xavier Initialization
+𝑎𝑖= activation(𝑧𝑖)
+𝑥0
+𝑥1
+𝑥𝑛
+𝑧𝑖
+𝑎𝑖
+…
+𝑤0
+𝑤1
+𝑤𝑛
+𝐸𝑋= 0
+𝐸𝑊= 0
+𝑏= 0
+𝑧𝑖= (𝑥1𝑤1 + ⋯+ 𝑥𝑛𝑤𝑛+ 𝑏)
+var(𝑧𝑖) = var(𝑥1𝑤1 + ⋯+ 𝑥𝑛𝑤𝑛+ 𝑏)
+= 𝑛var(𝑥𝑖𝑤𝑖) = 𝑛var(𝑥𝑖)var(𝑤𝑖)
+activation = sigmoid
+𝑎𝑖= sigmoid 𝑧𝑖≈1
+2 + 𝑧𝑖
+4
+16var(𝑎𝑖) = var(𝑧𝑖)
+var(X) ≈var(𝐚)
+iid
+var(𝑥𝑖) ≈var(𝑎𝑖)
+nvar(𝑤𝑖) ≈16
+var(𝑤𝑖) ≈16
+𝑛
+Uniform Distribution
+𝑋~𝑈𝑎, 𝑏
+𝑓𝑥=
+1
+𝑏−𝑎
+𝐸𝑋𝑌= 𝐸𝑋𝐸𝑌
+𝑣𝑎𝑟𝑋𝑌= 𝑣𝑎𝑟𝑋𝑣𝑎𝑟𝑌+
+𝑣𝑎𝑟𝑋
+𝐸𝑌
+2 +
+𝑣𝑎𝑟𝑦
+𝐸𝑋
+2
+𝑣𝑎𝑟𝑋= 𝑏−𝑎2
+12
+Initialization Methods
+AI VIETNAM
+All-in-One Course
+Xavier Initialization
+Uniform Distribution
+𝑋~𝑈𝑎, 𝑏
+𝑓𝑥=
+1
+𝑏−𝑎
+𝐸𝑋𝑌= 𝐸𝑋𝐸𝑌
+𝑣𝑎𝑟𝑋𝑌= 𝑣𝑎𝑟𝑋𝑣𝑎𝑟𝑌+
+𝑣𝑎𝑟𝑋
+𝐸𝑌
+2 +
+𝑣𝑎𝑟𝑦
+𝐸𝑋
+2
+𝑣𝑎𝑟𝑋= 𝑏−𝑎2
+12
+𝑊𝑖~𝑈−4 3
+𝑛, 4 3
+𝑛
+𝑥0
+𝑥1
+𝑥𝑛
+𝑧𝑖
+𝑎𝑖
+…
+var(𝑤𝑖) ≈16
+𝑛
+𝑣𝑎𝑟𝑤𝑖= 𝑟2
+3
+𝑤𝑖~𝑈−𝑟, 𝑟
+activation = sigmoid
+31
+Initialization Methods
+AI VIETNAM
+All-in-One Course
+𝑊𝑖~𝑁0, 16
+𝑛
+Xavier Initialization
+𝑋~𝑁0, 𝜎2
+Gaussian Distribution
+𝐸𝑋𝑌= 𝐸𝑋𝐸𝑌
+𝑣𝑎𝑟𝑋𝑌= 𝑣𝑎𝑟𝑋𝑣𝑎𝑟𝑌+
+𝑣𝑎𝑟𝑋
+𝐸𝑌
+2 +
+𝑣𝑎𝑟𝑦
+𝐸𝑋
+2
+𝑥0
+𝑥1
+𝑥𝑛
+𝑧𝑖
+𝑎𝑖
+…
+var(𝑤𝑖) ≈16
+𝑛
+𝜎2 = 1
+𝑛
+𝑤𝑖~𝑁0, 𝜎2
+activation = sigmoid
+32
+Initialization Methods
+AI VIETNAM
+All-in-One Course
+Kaiming He Initialization
+𝑎𝑖= activation(𝑧𝑖)
+𝑥0
+𝑥1
+𝑥𝑛
+𝑧𝑖
+𝑎𝑖
+…
+𝑤0
+𝑤1
+𝑤𝑛
+𝐸𝑋= 0
+𝐸𝑊= 0
+𝑏= 0
+𝑧𝑖= (𝑥1𝑤1 + ⋯+ 𝑥𝑛𝑤𝑛+ 𝑏)
+var(𝑧𝑖) = var(𝑥1𝑤1 + ⋯+ 𝑥𝑛𝑤𝑛+ 𝑏)
+= 𝑛var(𝑥𝑖𝑤𝑖) = 𝑛var(𝑥𝑖)var(𝑤𝑖)
+Uniform Distribution
+𝑋~𝑈𝑎, 𝑏
+𝑓𝑥=
+1
+𝑏−𝑎
+𝐸𝑋𝑌= 𝐸𝑋𝐸𝑌
+𝑣𝑎𝑟𝑋𝑌= 𝑣𝑎𝑟𝑋𝑣𝑎𝑟𝑌+
+𝑣𝑎𝑟𝑋
+𝐸𝑌
+2 +
+𝑣𝑎𝑟𝑦
+𝐸𝑋
+2
+𝑣𝑎𝑟𝑋= 𝑏−𝑎2
+12
+var(X) ≈var(𝐚)
+iid
+var(𝑥𝑖) ≈var(𝑎𝑖)
+nvar(𝑤𝑖) ≈2
+var(𝑤𝑖) ≈2
+𝑛
+activation = relu
+𝑎𝑖= 𝑚𝑎𝑥0, 𝑧𝑖
+2var(𝑎𝑖) = var(𝑧𝑖)
+Initialization Methods
+AI VIETNAM
+All-in-One Course
+Uniform Distribution
+𝑋~𝑈𝑎, 𝑏
+𝑓𝑥=
+1
+𝑏−𝑎
+𝐸𝑋𝑌= 𝐸𝑋𝐸𝑌
+𝑣𝑎𝑟𝑋𝑌= 𝑣𝑎𝑟𝑋𝑣𝑎𝑟𝑌+
+𝑣𝑎𝑟𝑋
+𝐸𝑌
+2 +
+𝑣𝑎𝑟𝑦
+𝐸𝑋
+2
+𝑣𝑎𝑟𝑋= 𝑏−𝑎2
+12
+𝑊𝑖~𝑈−
+6
+𝑛,
+6
+𝑛
+𝑥0
+𝑥1
+𝑥𝑛
+𝑧𝑖
+𝑎𝑖
+…
+var(𝑤𝑖) ≈2
+𝑛
+𝑣𝑎𝑟𝑤𝑖= 𝑟2
+3
+𝑤𝑖~𝑈−𝑟, 𝑟
+activation = he
+He Initialization
+34
+Initialization Methods
+AI VIETNAM
+All-in-One Course
+𝑊𝑖~𝑁0, 2
+𝑛
+𝑋~𝑁0, 𝜎2
+Gaussian Distribution
+𝐸𝑋𝑌= 𝐸𝑋𝐸𝑌
+𝑣𝑎𝑟𝑋𝑌= 𝑣𝑎𝑟𝑋𝑣𝑎𝑟𝑌+
+𝑣𝑎𝑟𝑋
+𝐸𝑌
+2 +
+𝑣𝑎𝑟𝑦
+𝐸𝑋
+2
+𝑥0
+𝑥1
+𝑥𝑛
+𝑧𝑖
+𝑎𝑖
+…
+var(𝑤𝑖) ≈2
+𝑛
+𝜎2 = 1
+𝑛
+𝑤𝑖~𝑁0, 𝜎2
+He Initialization
+activation = he
+35
+Summary
+Recommendation
+AI VIETNAM
+All-in-One Course
+Data Preparation
+Data 
+Normalization
+Model (Network) 
+Construction
+Parameter 
+Initialization
+Optimizer 
+Selection
+Loss function 
+Selection
+Metric Selection
+[-1, 1]
+or z-score
+ReLU Activation
+Batch norm
+Glorot uniform 
+or He normal
+Adam
+36
+Further Reading
+AI VIETNAM
+All-in-One Course
+https://www.deeplearning.ai/ai-notes/initialization/index.html
+https://towardsdatascience.com/the-dying-relu-problem-clearly-explained-42d0c54e0d24
+Dying ReLU
+Initialization
+37

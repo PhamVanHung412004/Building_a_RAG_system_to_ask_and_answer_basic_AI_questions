@@ -1,6 +1,0 @@
-AI VIETNAM aivietnam.edu.vn
-4 Visual Mamba
-Sau khi Vim được công bố chỉ 1 ngày thì ta tiếp tục có bài paper thứ 2 sử dụng Mamba vào data dạng
-ảnh mang tên Visual Mamba (VMamba). Xuất phát từ Swin Transformer (một model cải tiến của ViT)
-các tác giả đã thay thế Transformer block bằng Visual State Space (VSS) block (hình 4).
-Hình 4: Kiến trúc VMamba và VSS Block.

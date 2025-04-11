@@ -1,4 +1,0 @@
-eps . item ()
-35
-36 returns = torch . tensor ( returns )
-37 returns = ( returns - returns . 

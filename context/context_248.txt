@@ -1,0 +1,2297 @@
+1
+AI VIETNAM
+All-in-One Course
+1
+AI VIETNAM
+All-in-One Course
+Decision Tree for Classification
+Year 2023
+Vinh Dinh Nguyen
+PhD in Computer Science
+AI VIETNAM
+All-in-One Course
+2
+AI VIETNAM
+All-in-One Course
+2
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Introduction to Tree
+Ø Decision Tree
+Ø Decision Tree with Gini
+Ø Decision Tree with Entropy
+Ø Several Examples
+Outline
+3
+AI VIETNAM
+All-in-One Course
+3
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Introduction to Tree
+Ø Decision Tree
+Ø Decision Tree with Gini
+Ø Decision Tree with Entropy
+Ø Several Examples
+Outline
+4
+AI VIETNAM
+All-in-One Course
+4
+Vinh Dinh Nguyen- PhD in Computer Science
+Sample Decision Tree
+A decision tree predicting the survival of a passenger on the Titanic using the sex, age, and siblings or spouses onboard attributes
+Milborrow S (2011) Titanic decision tree. https://commons.wikimedia. org/wiki/File:CART_tree_titanic_survivors.png. Accessed Mar 2019
+5
+AI VIETNAM
+All-in-One Course
+5
+Vinh Dinh Nguyen- PhD in Computer Science
+Sample Decision Tree
+6
+AI VIETNAM
+All-in-One Course
+6
+Vinh Dinh Nguyen- PhD in Computer Science
+Sample Decision Tree
+7
+AI VIETNAM
+All-in-One Course
+7
+Vinh Dinh Nguyen- PhD in Computer Science
+Basic Tree Terminology
+Root node / the first node of the tree
+Leaf Nodes/ 
+Not connected to deeper nodes
+Internal Node / connect to deeper nodes
+Internal Node
+8
+AI VIETNAM
+All-in-One Course
+8
+Vinh Dinh Nguyen- PhD in Computer Science
+Basic Tree Terminology
+9
+AI VIETNAM
+All-in-One Course
+9
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Introduction to Tree
+Ø Decision Tree
+Ø Decision Tree with Gini
+Ø Decision Tree with Entropy
+Ø Several Examples
+Outline
+10
+AI VIETNAM
+All-in-One Course
+10
+Vinh Dinh Nguyen- PhD in Computer Science
+Decision Tree From Dataset
+Love Math
+Love Art
+Age
+Love AI
+Yes
+Yes
+7
+No
+Yes
+No
+12
+No
+No
+Yes
+18
+Yes
+No
+Yes
+35
+Yes
+Yes
+Yes
+38
+Yes
+Yes
+No
+50
+No
+No
+No
+83
+No
+The StatQuest Illustrated Guide To Machine Learning, Josh Starmer PhD
+Love Art
+Age < 12.5
+Not love AI
+Not love AI
+Love AI
+Yes
+No
+Yes
+No
+11
+AI VIETNAM
+All-in-One Course
+11
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Build a Decision Tree
+•Step-1: Begin the tree with the root node, says S, which contains the complete
+dataset.
+•Step-2: Find the best attribute in the dataset using Attribute Selection
+Measure (ASM).
+•Step-3: Divide the S into subsets that contains possible values for the best
+attributes.
+•Step-4: Generate the decision tree node, which contains the best attribute.
+•Step-5: Recursively make new decision trees using the subsets of the dataset
+created in step -3. Continue this process until a stage is reached where you
+cannot further classify the nodes and called the final node as a leaf node.
+12
+AI VIETNAM
+All-in-One Course
+12
+Vinh Dinh Nguyen- PhD in Computer Science
+Decision Tree in Simple Concepts
+13
+AI VIETNAM
+All-in-One Course
+13
+Vinh Dinh Nguyen- PhD in Computer Science
+Decision Tree Motivation
+KNN Limitations
+K = 3
+KNN has some drawbacks and challenges, such as computational
+expense, slow speed, for large datasets
+Class A
+Class B
+Điều kiện
+Sai
+Đúng
+Điều kiện
+Điều kiện
+Decision 
+Tree Idea
+Data cần 
+phân loại
+Full dataset
+Sub-dataset
+Sub-dataset
+Sub-dataset
+Sub-dataset
+Sub-dataset
+Sub-dataset
+Dự đoán class A
+Dự đoán class B
+Dự đoán class A
+Dự đoán class B
+Full dataset
+Data cần 
+phân loại
+14
+AI VIETNAM
+All-in-One Course
+14
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Build Decision Tree
+No.
+Love 
+Math
+Love Art
+Age
+Love 
+AI
+1
+Yes
+Yes
+7
+No
+2
+Yes
+No
+12
+No
+3
+No
+Yes
+18
+Yes
+4
+No
+Yes
+35
+Yes
+5
+Yes
+Yes
+38
+Yes
+6
+Yes
+No
+50
+No
+7
+No
+No
+83
+No
+How to select the first node in the tree
+Love Math
+Love Art
+Age
+??
+Which one is a Root Node
+15
+AI VIETNAM
+All-in-One Course
+15
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Build Decision Tree
+No.
+Love 
+Math
+Love Art
+Age
+Love 
+AI
+1
+Yes
+Yes
+7
+No
+2
+Yes
+No
+12
+No
+3
+No
+Yes
+18
+Yes
+4
+No
+Yes
+35
+Yes
+5
+Yes
+Yes
+38
+Yes
+6
+Yes
+No
+50
+No
+7
+No
+No
+83
+No
+How to select the first node in the tree
+Vì hiện tại chúng ta chưa
+biết chọn thông tin nào làm
+root node. Nên cách đơn
+giản là giảsửlấy thông tin
+“love math” làm root node.
+Love Math
+Love AI
+Love AI
+Yes
+No
+1
+3
+Thích
+Không thích
+Yes
+No
+2
+1
+Đểcho công bằng, chúng ta cũng nên thửchọn
+thêm Love Art hoặc Age làm root node nhé.
+16
+AI VIETNAM
+All-in-One Course
+16
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Build Decision Tree
+How to select the first node in the tree
+Love Art
+Love AI
+Love AI
+Yes
+No
+3
+1
+Thích
+Không thích
+Yes
+No
+0
+3
+Chọn Love Art như là 
+root node.
+No.
+Love 
+Math
+Love Art
+Age
+Love 
+AI
+1
+Yes
+Yes
+7
+No
+2
+Yes
+No
+12
+No
+3
+No
+Yes
+18
+Yes
+4
+No
+Yes
+35
+Yes
+5
+Yes
+Yes
+38
+Yes
+6
+Yes
+No
+50
+No
+7
+No
+No
+83
+No
+17
+AI VIETNAM
+All-in-One Course
+17
+Vinh Dinh Nguyen- PhD in Computer Science
+Review Two Approaches
+Love Art
+Love AI
+Love AI
+Yes
+No
+3
+1
+Thích
+Không thích
+Yes
+No
+0
+3
+Love Math
+Love AI
+Love AI
+Yes
+No
+1
+3
+Thích
+Không thích
+Yes
+No
+2
+1
+Do you have any comments on these 
+two simple trees.
+18
+AI VIETNAM
+All-in-One Course
+18
+Vinh Dinh Nguyen- PhD in Computer Science
+Review Two Approaches
+Love Art
+Love AI
+Love AI
+Yes
+No
+3
+1
+Thích
+Không thích
+Yes
+No
+0
+3
+Love Math
+Love AI
+Love AI
+Yes
+No
+1
+3
+Thích
+Không thích
+Yes
+No
+2
+1
+Do you have any comments on these 
+two simple trees.
+Impurity
+Purity
+19
+AI VIETNAM
+All-in-One Course
+19
+Vinh Dinh Nguyen- PhD in Computer Science
+What is an Impurity
+Impurity
+Set 1
+1
+1
+1
+1
+1
+Set 2
+1
+1
+2
+1
+1
+Set 3
+1
+2
+4
+6
+7
+Impurity Score
+Set 1
+Thấp
+Set 2
+Trung Bình
+Set 3
+Cao
+1
+1
+1
+1
+1
+1
+1
+1
+1
+2
+1
+4
+6
+7
+2
+Set 1
+Set 2
+Set 3
+20
+AI VIETNAM
+All-in-One Course
+20
+Vinh Dinh Nguyen- PhD in Computer Science
+Review Two Approaches
+Love Art
+Love AI
+Love AI
+Yes
+No
+3
+1
+Thích
+Không thích
+Yes
+No
+0
+3
+Love Math
+Love AI
+Love AI
+Yes
+No
+1
+3
+Thích
+Không thích
+Yes
+No
+2
+1
+Which tree is better choice?
+Impurity
+Purity
+21
+AI VIETNAM
+All-in-One Course
+21
+Vinh Dinh Nguyen- PhD in Computer Science
+Review Two Approaches
+Love Art
+Love AI
+Love AI
+Yes
+No
+3
+1
+Thích
+Không thích
+Yes
+No
+0
+3
+Love Math
+Love AI
+Love AI
+Yes
+No
+1
+3
+Thích
+Không thích
+Yes
+No
+2
+1
+Can we compute the difference 
+between two tree in a numerical way?
+Impurity
+Purity
+22
+AI VIETNAM
+All-in-One Course
+22
+Vinh Dinh Nguyen- PhD in Computer Science
+Evaluation Metrics
+GNI IMPURITY
+Entropy – Information Gain
+23
+AI VIETNAM
+All-in-One Course
+23
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Introduction to Tree
+Ø Decision Tree
+Ø Decision Tree with Gini
+Ø Decision Tree with Entropy
+Ø Several Examples
+Outline
+24
+AI VIETNAM
+All-in-One Course
+24
+Vinh Dinh Nguyen- PhD in Computer Science
+Evaluation Metrics
+GNI IMPURITY
+Entropy – Information Gain
+25
+AI VIETNAM
+All-in-One Course
+25
+Vinh Dinh Nguyen- PhD in Computer Science
+GINI Impurity
+It was developed by statistician and sociologist Corrado Gini.
+Consider a dataset D that contains samples from k classes. The probability of samples belonging to class i at a given node can be 
+denoted as pi. Then the Gini Impurity of D is defined as:
+26
+AI VIETNAM
+All-in-One Course
+26
+Vinh Dinh Nguyen- PhD in Computer Science
+GINI Impurity
+It was developed by statistician and sociologist Corrado Gini.
+Consider a dataset D that contains samples from k classes. The probability of samples belonging to class i at a given node can be 
+denoted as pi. Then the Gini Impurity of D is defined as:
+27
+AI VIETNAM
+All-in-One Course
+27
+Vinh Dinh Nguyen- PhD in Computer Science
+GINI Impurity
+It was developed by statistician and sociologist Corrado Gini.
+28
+AI VIETNAM
+All-in-One Course
+28
+Vinh Dinh Nguyen- PhD in Computer Science
+GINI Impurity
+It was developed by statistician and sociologist Corrado Gini.
+This figure shows that Gini impurity is maximum for the 50-50 sample (p1=0.5 ) and minimum for the homogeneous
+sample (p1=0 or p1=1)
+29
+AI VIETNAM
+All-in-One Course
+29
+Vinh Dinh Nguyen- PhD in Computer Science
+GINI Impurity
+Set 1
+1
+1
+1
+1
+1
+Set 2
+1
+1
+2
+1
+1
+Set 3
+1
+2
+4
+6
+7
+No of Unique Element
+Count of unique elements
+Probability
+Set 1
+1
+5
+5/5
+Set 2
+1,2
+4, 1
+4/5, 1/5
+Set 3
+1,2,4,6,7
+1,1,1,1,1
+1/5,1/5,1/5,1/5,1/5,1/5
+30
+AI VIETNAM
+All-in-One Course
+30
+Vinh Dinh Nguyen- PhD in Computer Science
+GINI Impurity
+Set 1
+1
+1
+1
+1
+1
+Set 2
+1
+1
+2
+1
+1
+Set 3
+1
+2
+4
+6
+7
+No of Unique Element
+Count of unique elements
+Probability
+Set 1
+1
+5
+5/5
+GINI= 1 - ∑!"#
+$
+p! %
+n = 1, p1 = 1
+Gini = 1 - [1!] = 0 
+31
+AI VIETNAM
+All-in-One Course
+31
+Vinh Dinh Nguyen- PhD in Computer Science
+GINI Impurity
+Set 1
+1
+1
+1
+1
+1
+Set 2
+1
+1
+2
+1
+1
+Set 3
+1
+2
+4
+6
+7
+No of Unique Element
+Count of unique elements
+Probability
+Set 3
+2
+4,1
+4/5, 1/5
+GINI= 1 - ∑!"#
+$
+p!
+%
+n = 2,  p1 = 4/5, p2 = 1/5
+Gini = 1 - [4/5!+1/5!] = 0.32 
+32
+AI VIETNAM
+All-in-One Course
+32
+Vinh Dinh Nguyen- PhD in Computer Science
+GINI Impurity
+Set 1
+1
+1
+1
+1
+1
+Set 2
+1
+1
+2
+1
+1
+Set 3
+1
+2
+4
+6
+7
+No of Unique Element
+Count of unique elements
+Probability
+Set 3
+1
+5
+5/5
+GINI= 1 - ∑!"#
+$
+p!
+%
+n = 5,  p1 = p2 = p3 = p4 = p5 = 1/5
+Gini = 1 - [1/5!+1/5! + 1/5!+ 1/5!+ 1/5!] = 0.8 
+33
+AI VIETNAM
+All-in-One Course
+33
+Vinh Dinh Nguyen- PhD in Computer Science
+Idea of GNI Impurity
+34
+AI VIETNAM
+All-in-One Course
+34
+Vinh Dinh Nguyen- PhD in Computer Science
+Gini Impurity for Leaf Nodes
+Love Math
+Love AI
+Love AI
+Yes
+No
+1
+3
+Thích
+Không thích
+Yes
+No
+2
+1
+GINI = 0.375
+GINI = 0.444
+Cách tính Gini Impurity cho Leaf Nodes
+1.
+Calculate the probabilties of all classess.
+2.
+Square the calculated probabilities
+3.
+Sum all the squared probabilities into a single integer
+4.
+Substract the single integer from 1
+Gini = 1 −'
+!"#
+$
+P!
+%
+35
+AI VIETNAM
+All-in-One Course
+35
+Vinh Dinh Nguyen- PhD in Computer Science
+Gini Impurity for Leaf Nodes
+Love Math
+Love AI
+Love AI
+Yes
+No
+1
+3
+Thích
+Không thích
+Yes
+No
+2
+1
+GINI = 0.375
+GINI = 0.444
+Gini = 1 – (the probability of Yes)2 – (the probability of No) 2
+GINI = 1 – [(1/4)2 + (3/4)2] = 0.375 
+GINI = 1 – [(2/3)2 + (1/3)2] = 0.444 
+Gini = 1 −(
+!"#
+$
+P!
+%
+36
+AI VIETNAM
+All-in-One Course
+36
+Vinh Dinh Nguyen- PhD in Computer Science
+Gini Impurity for Root/Internal Nodes
+Love Math
+Love AI
+Love AI
+Yes
+No
+1
+3
+Thích
+Không thích
+Yes
+No
+2
+1
+GINI = 0.375
+GINI = 0.444
+Cách tính Gini Impurity cho Root/Internal Nodes
+1.
+Loop over the leaf node, from k = 1 all the way to the K leaf nodes
+2.
+Find the gini impurity of the urrent k’th leaf
+3.
+Count the number of observations in the k’th leaf
+4.
+Divide by the total number of observation in the all leaf nodes
+5.
+The result of each leaf is summed for a final gini impurity
+37
+AI VIETNAM
+All-in-One Course
+37
+Vinh Dinh Nguyen- PhD in Computer Science
+Gini Impurity for Root/Internal Nodes
+Love Math
+Love AI
+Love AI
+Yes
+No
+1
+3
+Thích
+Không thích
+Yes
+No
+2
+1
+GINI = 0.375
+GINI = 0.444
+GINI = 0.405
+Total Impurity = Weight average of Gini Impurities for The leaves
+Total Impurity = 𝟒
+𝟕×0.375 + 𝟑
+𝟕×0.444 = 0.405 
+38
+AI VIETNAM
+All-in-One Course
+38
+Vinh Dinh Nguyen- PhD in Computer Science
+Gini Impurity for Leaf Nodes
+GINI= 1 - ∑!"#
+$
+p! %
+GINI = 0.375
+GINI = 0
+Gnini = 1 – (the probability of Yes)2 – (the probability of No) 2
+GINI = 1 – [(3/4)2 + (1/4)2] = 0.375
+GINI = 1 – [(3/3)2] = 0 
+Love Art
+Love AI
+Love AI
+Yes
+No
+3
+1
+Thích
+Không thích
+Yes
+No
+0
+3
+39
+AI VIETNAM
+All-in-One Course
+39
+Vinh Dinh Nguyen- PhD in Computer Science
+Gini Impurity for Root/Internal Nodes
+GINI = 0.214
+Total Impurity = Weight average of Gini Impurities for The leaves
+Total Impurity = 𝟒
+𝟕×0.375+ 𝟑
+𝟕×0 = 0.214 
+Love Art
+Love AI
+Love AI
+Yes
+No
+3
+1
+Thích
+Không thích
+Yes
+No
+0
+3
+GINI = 0.375
+GINI = 0
+40
+AI VIETNAM
+All-in-One Course
+40
+Vinh Dinh Nguyen- PhD in Computer Science
+What is a GINI of “AGE”?
+No.
+Love 
+Math
+Love Art
+Age
+Love 
+AI
+1
+Yes
+Yes
+7
+No
+2
+Yes
+No
+12
+No
+3
+No
+Yes
+18
+Yes
+4
+No
+Yes
+35
+Yes
+5
+Yes
+Yes
+38
+Yes
+6
+Yes
+No
+50
+No
+7
+No
+No
+83
+No
+41
+AI VIETNAM
+All-in-One Course
+41
+Vinh Dinh Nguyen- PhD in Computer Science
+Sort By Age
+Age
+Love 
+AI
+7
+No
+12
+No
+18
+Yes
+35
+Yes
+38
+Yes
+50
+No
+83
+No
+Age
+Love 
+AI
+7
+No
+12
+No
+18
+Yes
+35
+Yes
+38
+Yes
+50
+No
+83
+No
+Before
+After
+Age
+Love 
+AI
+7
+No
+12
+No
+18
+Yes
+35
+Yes
+38
+Yes
+50
+No
+83
+No
+Sort by Age
+(7 + 12)/2 = 9.5
+(18 + 12)/2 = 15
+(18 + 35)/2 = 26.5
+(38 + 35)/2 = 36.5
+(38 + 50)/2 = 44
+(50 + 83)/2 = 66.5
+Average of 
+two
+ adjacent 
+cells
+42
+AI VIETNAM
+All-in-One Course
+42
+Vinh Dinh Nguyen- PhD in Computer Science
+GINI IMPURITY FOR EACH OF AGE
+Age
+Love 
+AI
+7
+No
+12
+No
+18
+Yes
+35
+Yes
+38
+Yes
+50
+No
+83
+No
+(7 + 12)/2 = 9.5
+(18 + 12)/2 = 15
+(18 + 35)/2 = 26.5
+(38 + 35)/2 = 36.5
+(38 + 50)/2 = 44
+(50 + 83)/2 = 66.5
+GINI = ???
+Age < 9.5
+Love AI
+Love AI
+Yes
+No
+?
+?
+Yes
+No
+?
+?
+True
+False
+43
+AI VIETNAM
+All-in-One Course
+43
+Vinh Dinh Nguyen- PhD in Computer Science
+GINI IMPURITY FOR EACH OF AGE
+Age
+Love 
+AI
+7
+No
+12
+No
+18
+Yes
+35
+Yes
+38
+Yes
+50
+No
+83
+No
+(7 + 12)/2 = 9.5
+(18 + 12)/2 = 15
+(18 + 35)/2 = 26.5
+(38 + 35)/2 = 36.5
+(38 + 50)/2 = 44
+(50 + 83)/2 = 66.5
+GINI = 0.429
+Age < 9.5
+Love AI
+Love AI
+Yes
+No
+0
+1
+Yes
+No
+3
+3
+True
+False
+GINI IMPURITY
+GINI IMPURITY
+0
+0.5
+0.429
+TOTAL GINI IMPURITY
+44
+AI VIETNAM
+All-in-One Course
+44
+Vinh Dinh Nguyen- PhD in Computer Science
+GINI IMPURITY FOR EACH OF AGE
+Age
+Love 
+AI
+7
+No
+12
+No
+18
+Yes
+35
+Yes
+38
+Yes
+50
+No
+83
+No
+(7 + 12)/2 = 9.5
+(18 + 12)/2 = 15
+(18 + 35)/2 = 26.5
+(38 + 35)/2 = 36.5
+(38 + 50)/2 = 44
+(50 + 83)/2 = 66.5
+GINI = 0.342
+Age < 15
+Love AI
+Love AI
+Yes
+No
+0
+2
+Yes
+No
+3
+2
+True
+False
+GINI IMPURITY
+GINI IMPURITY
+0
+0.48
+0.342
+TOTAL GINI IMPURITY
+45
+AI VIETNAM
+All-in-One Course
+45
+Vinh Dinh Nguyen- PhD in Computer Science
+GINI IMPURITY FOR EACH OF AGE
+Age
+Love 
+AI
+7
+No
+12
+No
+18
+Yes
+35
+Yes
+38
+Yes
+50
+No
+83
+No
+(7 + 12)/2 = 9.5
+(18 + 12)/2 = 15
+(18 + 35)/2 = 26.5
+(38 + 35)/2 = 36.5
+(38 + 50)/2 = 44
+(50 + 83)/2 = 66.5
+0.429
+0.343
+0.476
+0.476
+0.343
+0.429
+GINI
+0.429
+0.343
+0.476
+0.476
+0.343
+0.429
+GINI
+GINI for each 
+threshold
+Best GINI
+46
+AI VIETNAM
+All-in-One Course
+46
+Vinh Dinh Nguyen- PhD in Computer Science
+GINI for Three Attributes
+Which attribute is in the first 
+node?
+Love Art is the best one
+47
+AI VIETNAM
+All-in-One Course
+47
+Vinh Dinh Nguyen- PhD in Computer Science
+First Node in The Tree: Love Art
+No.
+Love 
+Math
+Love Art
+Age
+Love 
+AI
+1
+Yes
+Yes
+7
+No
+2
+Yes
+No
+12
+No
+3
+No
+Yes
+18
+Yes
+4
+No
+Yes
+35
+Yes
+5
+Yes
+Yes
+38
+Yes
+6
+Yes
+No
+50
+No
+7
+No
+No
+83
+No
+IMPURITY
+PURITY
+48
+AI VIETNAM
+All-in-One Course
+48
+Vinh Dinh Nguyen- PhD in Computer Science
+First Node in The Tree: Love Art
+No.
+Love 
+Math
+Love Art
+Age
+Love 
+AI
+1
+Yes
+Yes
+7
+No
+2
+Yes
+No
+12
+No
+3
+No
+Yes
+18
+Yes
+4
+No
+Yes
+35
+Yes
+5
+Yes
+Yes
+38
+Yes
+6
+Yes
+No
+50
+No
+7
+No
+No
+83
+No
+Not easy to make 
+decision
+Easy to make 
+decision
+49
+AI VIETNAM
+All-in-One Course
+49
+Vinh Dinh Nguyen- PhD in Computer Science
+How to build a Tree
+No.
+Love 
+Math
+Love Art
+Age
+Love 
+AI
+1
+Yes
+Yes
+7
+No
+2
+Yes
+No
+12
+No
+3
+No
+Yes
+18
+Yes
+4
+No
+Yes
+35
+Yes
+5
+Yes
+Yes
+38
+Yes
+6
+Yes
+No
+50
+No
+7
+No
+No
+83
+No
+Love Art
+Love AI
+Love AI
+Yes
+No
+3
+1
+Thích
+Không thích
+Yes
+No
+0
+3
+GINI = 0.214
+Love Math
+Age < ??
+WHICH ONE IS THE NEXT INTERNODE? Love Math or Age
+50
+AI VIETNAM
+All-in-One Course
+50
+Vinh Dinh Nguyen- PhD in Computer Science
+How to build a Tree
+No.
+Love 
+Math
+Love Art
+Age
+Love 
+AI
+1
+Yes
+Yes
+7
+No
+2
+Yes
+No
+12
+No
+3
+No
+Yes
+18
+Yes
+4
+No
+Yes
+35
+Yes
+5
+Yes
+Yes
+38
+Yes
+6
+Yes
+No
+50
+No
+7
+No
+No
+83
+No
+Love Art
+Love AI
+Thích
+Không thích
+Yes
+No
+0
+3
+GINI = 0.214
+Love Math
+Giả sử chúng ta chọn “Love Math” là node kế tiếp, cần tính GINI trong 
+trường hợp này
+Love AI
+Love AI
+Thích
+Không thích
+Yes
+No
+1
+1
+Yes
+No
+2
+0
+GINI = 0.25
+51
+AI VIETNAM
+All-in-One Course
+51
+Vinh Dinh Nguyen- PhD in Computer Science
+How to build a Tree
+Love 
+Math
+Love Art
+Age
+Love 
+AI
+Yes
+Yes
+7
+No
+No
+Yes
+18
+Yes
+No
+Yes
+35
+Yes
+Yes
+Yes
+38
+Yes
+Love Art
+Love AI
+Thích
+Không thích
+Yes
+No
+0
+3
+GINI = 0.214
+Age < 12.5
+Dễ dàng đưa ra quyết định trong trường hợp này. Không cần phải tiếp 
+tục xây dựng Tree.
+Love AI
+Love AI
+Có
+Không
+Yes
+No
+0
+1
+Yes
+No
+3
+0
+GINI = 0
+12.5
+26.5
+36.5
+PURITY
+PURITY
+PURITY
+52
+AI VIETNAM
+All-in-One Course
+52
+Vinh Dinh Nguyen- PhD in Computer Science
+GINI = 0
+Final Tree
+Love Art
+Love AI
+Thích
+Không thích
+Yes
+No
+0
+3
+GINI = 0.214
+Age < 12.5
+Love AI
+Love AI
+Có
+Không
+Yes
+No
+0
+1
+Yes
+No
+3
+0
+GINI = 0
+PURITY
+PURITY
+PURITY
+Love Art
+Not Love AI
+Thích
+Không thích
+GINI = 0.214
+Age < 12.5
+Not Love AI
+Love AI
+có
+không
+53
+AI VIETNAM
+All-in-One Course
+53
+Vinh Dinh Nguyen- PhD in Computer Science
+Slides at The First Look
+54
+AI VIETNAM
+All-in-One Course
+54
+Vinh Dinh Nguyen- PhD in Computer Science
+Decision Tree: Prediction
+Love Art
+Not Love AI
+Thích
+Không thích
+Age < 12.5
+Not Love AI
+Love AI
+có
+Không
+Love 
+Math
+Love Art
+Age
+Love 
+AI
+Yes
+Yes
+15
+???
+Love Art
+Not Love AI
+Thích
+Không thích
+Age < 12.5
+Not Love AI
+Love AI
+có
+Không
+Love 
+Math
+Love Art
+Age
+Love 
+AI
+Yes
+Yes
+15
+Love 
+AI
+55
+AI VIETNAM
+All-in-One Course
+55
+Vinh Dinh Nguyen- PhD in Computer Science
+Overfitting in Tree
+Love Art
+Love AI
+Thích
+Không thích
+Yes
+No
+0
+3
+GINI = 0.214
+Age < 12.5
+Love AI
+Love AI
+Có
+Không
+Yes
+No
+0
+1
+Yes
+No
+3
+0
+GINI = 0
+PURITY
+PURITY
+PURITY
+Set limits on how trees grow!
+56
+AI VIETNAM
+All-in-One Course
+56
+Vinh Dinh Nguyen- PhD in Computer Science
+Pruning Algorithm
+Love Art
+Not Love AI
+Age < 12.5
+Not Love AI
+Love AI
+Love Art
+Not Love AI
+Love AI
+Love Art
+Set limits on how trees grow!
+57
+AI VIETNAM
+All-in-One Course
+57
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Introduction to Tree
+Ø Decision Tree
+Ø Decision Tree with Gini
+Ø Decision Tree with Entropy
+Ø Several Examples
+Outline
+58
+AI VIETNAM
+All-in-One Course
+58
+Vinh Dinh Nguyen- PhD in Computer Science
+Evaluation Metrics
+GNI IMPURITY
+Entropy – Information Gain
+59
+AI VIETNAM
+All-in-One Course
+59
+Vinh Dinh Nguyen- PhD in Computer Science
+What is Entropy
+Entropy is an information theory metric that measures the impurity or uncertainty in a group of observations (dataset)
+Very impure
+Less Impure
+Minimum Impurity
+Này là gì vậy? 
+Nhìn rối quá
+60
+AI VIETNAM
+All-in-One Course
+60
+Vinh Dinh Nguyen- PhD in Computer Science
+What is Entropy
+61
+AI VIETNAM
+All-in-One Course
+61
+Vinh Dinh Nguyen- PhD in Computer Science
+What is Entropy
+• Sample dataset
+Probability (P)
+Surprise (S)
+Inverse Relationship
+S = 1 / P
+62
+AI VIETNAM
+All-in-One Course
+62
+Vinh Dinh Nguyen- PhD in Computer Science
+What is Entropy
+62
+Radom Pickup 
+1 Color
+7/8 = 
+87.5%
+1/8 = 
+12.5%
+Surprise: High
+Surprise: low
+Prob. : High
+Prob. : Low
+63
+AI VIETNAM
+All-in-One Course
+63
+Vinh Dinh Nguyen- PhD in Computer Science
+Probability Vs Surprise
+Probability (P)
+Surprise (S)
+Inverse Relationship
+S = 1 / P
+64
+AI VIETNAM
+All-in-One Course
+64
+Vinh Dinh Nguyen- PhD in Computer Science
+Probability Vs Surprise
+65
+AI VIETNAM
+All-in-One Course
+65
+Vinh Dinh Nguyen- PhD in Computer Science
+Logs (Logarithms)
+66
+AI VIETNAM
+All-in-One Course
+66
+Vinh Dinh Nguyen- PhD in Computer Science
+Logs (Logarithms)
+0
+1
+2
+3
+4
+5
+6
+7
+8
+23
+20
+22
+21
+0
+1
+2
+3
+-1
+-3
+-2
+Log base 2 Axis
+22.3
+22.6
+22.7
+Ordinary number axis
+The log function is used to isolate the exponent
+log𝟐𝟐𝟑=3 chính là phần luỹthừa 
+cần có của 2 đểđạt được 8
+!
+" = 2
+!
+# = 2$!
+!
+% = 2$&
+8 time greater than 1
+8 time less than 1
+Nhận xét:  cả2 measurement đều thểhiện độlớn so với 1. Nhưng distance không đối xứng tại 1  
+Nhận xét:  cả2 measurement đều thểhiện độlớn so với 1. Nhưng distance đối xứng tại 1  
+67
+AI VIETNAM
+All-in-One Course
+67
+Vinh Dinh Nguyen- PhD in Computer Science
+Sample Dataset
+P = to get         = 1
+S = to get         = 1/P = 1
+We use the log of 1/P to calculate S
+68
+AI VIETNAM
+All-in-One Course
+68
+Vinh Dinh Nguyen- PhD in Computer Science
+Sample Dataset
+P = to get         = 1
+S = to get         = log2(1/1) = 0
+P = to get         = 0
+S = to get         = log2(1/0) = log2(1) – log2(0) = Undefined 
+69
+AI VIETNAM
+All-in-One Course
+69
+Vinh Dinh Nguyen- PhD in Computer Science
+Sample Dataset
+P = to get         = 0.9
+S = to get         = log2(1/0.9) = 0.15
+P = to get         = 0.1
+S = to get         = log2(1/0.1) = 3.32  
+70
+AI VIETNAM
+All-in-One Course
+70
+Vinh Dinh Nguyen- PhD in Computer Science
+Probability vs Surprise
+S = log2( 1 / P)
+71
+AI VIETNAM
+All-in-One Course
+71
+Vinh Dinh Nguyen- PhD in Computer Science
+S to get         = log2( 1 / 0.1) =3.32
+Sample Dataset
+P to get         = 9/10
+P to get         = 1/10
+P to get
+= 0.9 * 0.9 * 0.1
+S to get
+= S 
++ S 
+S 
++ 
+S to get         = log2( 1 / 0.9) =0.15
+Flip the coin 3 times
+log%
+#
+(.*×(.*×(.# = log%1 −log% 0.9×0.9×0.1
+                        = 0 - log% 0.9×0.9×0.1
+                        = 0 - log% 0.9 − log% 0.9  - log% 0.1
+                        = 0.15 + 0.15 + 3.32
+Gợi nhớ!
+72
+AI VIETNAM
+All-in-One Course
+72
+Vinh Dinh Nguyen- PhD in Computer Science
+Sample Dataset
+HOW MUCH SURPRISE 
+FROM GETTING YELLOW COLORS IN 100 TIMES
+Probability
+9/10
+1/10
+Surprise
+0.15
+3.32
+(0.9*100) * 0.15
+Expected number of yellows
+Total surprise from getting 
+Yellow
+73
+AI VIETNAM
+All-in-One Course
+73
+Vinh Dinh Nguyen- PhD in Computer Science
+Sample Dataset
+HOW MUCH SURPRISE 
+FROM GETTING BLUE COLORS IN 100 TIMES
+Probability
+9/10
+1/10
+Surprise
+0.15
+3.32
+(0.1*100) * 3.32
+Expected number of blues
+Total surprise from getting 
+Blue
+74
+AI VIETNAM
+All-in-One Course
+74
+Vinh Dinh Nguyen- PhD in Computer Science
+AVERAGE SURPRISE FOR 100 TIMES
+S_B = 
+S_Y = 
+Total Surprise= S_B + S_Y = (0.1 x 100) x 3.32 + (0.9 x 100) x 0.15 = 46.7 
+Total Surprise / 100 = (S_B + S_Y = (0.1 x 100) x 3.32 + (0.9 x 100) x 0.15 ) / 100 = 0.467 
+Total Surprise / 100 = (0.1 x 3.32) + (0.9 x 0.15 ) = 0.467 
+p(x)
+log( 1
+𝑝𝑥)
+Entropy = 
+Average = 
+75
+AI VIETNAM
+All-in-One Course
+75
+Vinh Dinh Nguyen- PhD in Computer Science
+Sample Dataset
+Entropy = 0.59
+Entropy = 0.44
+Entropy = 1.0
+Entropy = ∑
+p x log
+#
+, -
+=
+.
+/ log%
+/
+. +
+#
+/ log%7
+Entropy is highest when we have same 
+number of female and male panda
+Entropy is used to quantify the similarity or difference in the dataset 
+When we increase the 
+difference in the number of 
+male and femal panda. 
+Entropy is lower 
+76
+AI VIETNAM
+All-in-One Course
+76
+Vinh Dinh Nguyen- PhD in Computer Science
+Entropy and Probability
+77
+AI VIETNAM
+All-in-One Course
+77
+Vinh Dinh Nguyen- PhD in Computer Science
+Sample Dataset
+E= 0.65 
+E= 0 
+78
+AI VIETNAM
+All-in-One Course
+78
+Vinh Dinh Nguyen- PhD in Computer Science
+Information Gain (IG)
+DATASET
+E= 0.65 
+E= 0 
+E_after_slit = 0.65 * 0.6 + 0.4 * 0 = 0.39
+Gain = 0.61 = Einitial - E_after_slit 
+Maximum the information gain
+79
+AI VIETNAM
+All-in-One Course
+79
+Vinh Dinh Nguyen- PhD in Computer Science
+Example
+No.
+Love 
+Math
+Love Art
+Love 
+AI
+1
+Yes
+Yes
+No
+2
+Yes
+No
+No
+3
+No
+Yes
+Yes
+4
+No
+Yes
+Yes
+5
+Yes
+Yes
+Yes
+6
+Yes
+No
+No
+7
+No
+No
+No
+Love AI
+Not Love AI
+Entire Population
+Love Math is Yes
+Love Math is No
+Cần xác định Root node 
+nên là Love Math hay Love 
+Art?
+Giả sử ta chọn root node 
+là Love Math?
+Entrop𝑦_𝑏𝑒𝑓𝑜𝑟𝑒= −
+&
+' log
+&
+' −
+"
+' log
+"
+'  
+                = 0.985 
+Entropy = −
+&
+" log
+&
+" −
+!
+" log
+!
+"  
+                = 0.811
+Entropy = −
+&
+" log
+&
+" −
+!
+" log
+!
+"  
+                = 0.918
+Entropy()*+, =
+"
+' × 0.811+
+&
+' × 0.918 = 0.856
+𝐼𝑛𝑓𝑜𝑟𝑚𝑎𝑡𝑖𝑜𝑛𝐺𝑎𝑖𝑛= 0.985 - 0.856 = 0.129 
+80
+AI VIETNAM
+All-in-One Course
+80
+Vinh Dinh Nguyen- PhD in Computer Science
+Example
+No.
+Love 
+Math
+Love Art
+Love 
+AI
+1
+Yes
+Yes
+No
+2
+Yes
+No
+No
+3
+No
+Yes
+Yes
+4
+No
+Yes
+Yes
+5
+Yes
+Yes
+Yes
+6
+Yes
+No
+No
+7
+No
+No
+No
+Love AI
+Not Love AI
+Entire Population
+Love Art is Yes
+Love Art is No
+Cần xác định Root node 
+nên là Love Math hay Love 
+Art?
+Giả sử ta chọn root node 
+là Love Art?
+Entrop𝑦_𝑏𝑒𝑓𝑜𝑟𝑒= −
+&
+' log
+&
+' −
+"
+' log
+"
+'  
+                = 0.985 
+Entropy = −
+&
+" log
+&
+" −
+!
+" log
+!
+"  
+                = 0.811
+Entropy = −
+&
+& log
+&
+&  = 0
+Entropy()*+, =
+"
+' × 0.811+
+&
+' × 0= 0.463
+𝐼𝑛𝑓𝑜𝑟𝑚𝑎𝑡𝑖𝑜𝑛𝐺𝑎𝑖𝑛= 0.985 - 0.463 = 0.522
+81
+AI VIETNAM
+All-in-One Course
+81
+Vinh Dinh Nguyen- PhD in Computer Science
+Example
+𝐼𝑛𝑓𝑜𝑟𝑚𝑎𝑡𝑖𝑜𝑛𝐺𝑎𝑖𝑛 = 0.129
+Infformation Gain = 0.522
+Love Math is a Root Node
+Love Art is a Root Node
+Which attribute is in the first node?
+Maximum the information gain
+82
+AI VIETNAM
+All-in-One Course
+82
+Vinh Dinh Nguyen- PhD in Computer Science
+No.
+Love 
+Math
+Love Art
+Love 
+AI
+1
+Yes
+Yes
+No
+2
+Yes
+No
+No
+3
+No
+Yes
+Yes
+4
+No
+Yes
+Yes
+5
+Yes
+Yes
+Yes
+6
+Yes
+No
+No
+7
+No
+No
+No
+IMPURITY
+PURITY
+Example
+Continue to expand this tree using Entropy metric
+Entropy = 0.463
+Entropy = ???
+Entropy = ???
+83
+AI VIETNAM
+All-in-One Course
+83
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Introduction to Tree
+Ø Decision Tree
+Ø Decision Tree with Gini
+Ø Decision Tree with Entropy
+Ø Several Examples
+Outline
+84
+AI VIETNAM
+All-in-One Course
+84
+Vinh Dinh Nguyen- PhD in Computer Science
+Example
+age
+income
+student credit_rate
+This data set is used to predict whether a person will
+default on their credit card. There are two classes
+( default = 'yes', no_default = 'no' ):
+Default
+85
+AI VIETNAM
+All-in-One Course
+85
+Vinh Dinh Nguyen- PhD in Computer Science
+Example
+86
+AI VIETNAM
+All-in-One Course
+86
+Vinh Dinh Nguyen- PhD in Computer Science
+Example
+87
+AI VIETNAM
+All-in-One Course
+87
+Vinh Dinh Nguyen- PhD in Computer Science
+Example
+88
+AI VIETNAM
+All-in-One Course
+88
+Vinh Dinh Nguyen- PhD in Computer Science
+Iris Flower Classification
+89
+AI VIETNAM
+All-in-One Course
+89
+Vinh Dinh Nguyen- PhD in Computer Science
+Iris Flower Classification (Entropy)
+90
+AI VIETNAM
+All-in-One Course
+90
+Vinh Dinh Nguyen- PhD in Computer Science
+Iris Flower Classification (Gini)
+91
+AI VIETNAM
+All-in-One Course

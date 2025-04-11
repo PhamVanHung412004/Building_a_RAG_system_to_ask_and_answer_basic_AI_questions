@@ -1,5 +1,0 @@
-Hình 3: Minh hoạ đồ thị tương quan giữa surprise và log
-Như ta có thể thấy ở hình 3, với surprise=1
-P(E) thì surprise∈ [1,∞]. Nếu xác suất là0%
-thì mức độ ngạc nhiên sẽ là dương vô cùng và với xác suất là100% thì kết quả lại trả về
-mức độ ngạc nhiên là 1. 

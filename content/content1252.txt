@@ -1,9 +1,0 @@
-AI VIETNAM aivietnam.edu.vn
-c) Visual Question Answering
-d) Audio Generation
-Câu hỏi 8Mô hình nào sau đây có thể encode cho hình ảnh, văn bản, video?
-a) CLIP
-b) ViT
-c) Eva-CLIP ViT
-d) ImageBlind
-Câu hỏi 9Mô hình NExT-GPT sử dụng mô hình nào cho bước Output Generator?

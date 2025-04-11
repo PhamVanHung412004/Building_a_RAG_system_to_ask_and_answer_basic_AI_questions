@@ -1,0 +1,740 @@
+End-to-end Question Answering
+Dinh-Thang Duong - TA
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Project – P2
+Year 2024
+2
+➢Introduction
+➢Module: Reader
+➢Module: Retriever
+➢Question
+Outline
+AI VIETNAM
+All-in-One Course
+(TA Session)
+3
+Introduction
+AI VIETNAM
+All-in-One Course
+(TA Session)
+4
+Most famous 
+search 
+engines
+Introduction
+❖ Getting Started
+AI VIETNAM
+All-in-One Course
+(TA Session)
+5
+Introduction
+❖ Getting Started
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Answer from Google for the query question: Open-domain Question Answering
+6
+Introduction
+❖ What is Open-domain Question Answering?
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Open-domain Question Answering (ODQA): Refers to 
+the task of providing answers to questions over a broad 
+range of topics, leveraging vast corpora of unstructured 
+text without being restricted to a specific domain. 
+Image source: https://arxiv.org/pdf/2211.07886.pdf
+7
+Introduction
+❖ Open-domain Question Answering I/O
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Question: Where is the 
+highest mountain in solar 
+system?
+ODQA 
+system
+Answer: Mars
+Input
+Output
+8
+Introduction
+❖ End-to-end Question Answering System I/O
+AI VIETNAM
+All-in-One Course
+(TA Session)
+9
+Introduction
+❖ Open-domain Question Answering I/O
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Image source: https://www.semanticscholar.org/paper/Training-a-Ranking-Function-for-Open-Domain-Htut-Bowman/2af0040b92c2ec3d07d09ed9a8eda6047fe3fed2/figure/0
+10
+10
+Introduction
+❖ Open-domain Question Answering Categories
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Corpus
+IR System
+Retriever
+Reader
+S
+E
+Selected 
+context
+Answer
+Question
+Related 
+context
+Question
+Ranked 
+contexts
+RC System
+Corpus
+IR System
+Retriever
+Generator
+Answer
+Question
+Related 
+context
+Question
+Ranked 
+contexts
+TG System
+Corpus
+IR System
+Retriever
+Question
+Related 
+context/answer
+Question
+Answer
+Generator
+Answer
+TG system
+Question
+(i)
+(ii)
+(iii)
+(iv)
+11
+11
+Introduction
+❖ End-to-end Question Answering System
+AI VIETNAM
+All-in-One Course
+(TA Session)
+End-to-end QA system consists of:
+1. Retriever
+2. Reader 
+12
+12
+Introduction
+❖Project Description
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Description: In this project, we will build an end -to-end QA system that can retrieve relevant contexts, extract 
+best answer for a given question. The domain of the question can be varied in different topics.
+Day 1
+Day 2
+13
+Module: Reader
+AI VIETNAM
+All-in-One Course
+(TA Session)
+14
+14
+Module: Reader
+❖ E2E QA Pipeline
+AI VIETNAM
+All-in-One Course
+(TA Session)
+15
+15
+Module: Reader
+❖Type of Reader
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Probability 
+over 
+predefined 
+classes
+I. Classification Approach
+Question, Context
+II. Extractive Approach 
+Reader
+S
+E
+Context
+Answer
+Question, Context
+Reader
+Answer
+Question, Context
+III. Generative Approach
+Reader
+Answer
+<sos> The answer is…
+16
+16
+Module: Reader
+❖Reader: Extractive Extraction
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Question: Where is the 
+highest mountain in solar 
+system?
+QA 
+(Reader) 
+•
+Start positions
+•
+End positions
+Input
+Output
+Context: The highest mountain 
+and volcano in the Solar System 
+is on the planet Mars. It is 
+called Olympus Mons and is 16 
+miles (24 kilometers) high 
+which makes it about three 
+times higher than Mt. Everest.
+17
+17
+Module: Reader
+❖ Model Design
+AI VIETNAM
+All-in-One Course
+(TA Session)
+The answer span starts from index 11 to 21 in context text
+18
+18
+Module: Reader
+❖ Model Design: LSTM and Transformer Encoder
+AI VIETNAM
+All-in-One Course
+(TA Session)
+LSTM-based
+Transformer Encoder-based
+https://towardsdatascience.com/how-to-answer-questions-with-machine-learning-6c21357a44fc
+19
+19
+Module: Reader
+❖Module Design: BERT
+AI VIETNAM
+All-in-One Course
+(TA Session)
+https://arxiv.org/abs/1810.04805
+20
+20
+Module: Reader
+❖From original BERT to BERT for QA
+AI VIETNAM
+All-in-One Course
+(TA Session)
+https://blog.paperspace.com/how-to-train-question-answering-machine-learning-models/
+21
+21
+Module: Reader
+❖BERT Input for QA
+AI VIETNAM
+All-in-One Course
+(TA Session)
+https://mccormickml.com/2020/03/10/question-answering-with-a-fine-tuned-BERT/
+22
+22
+Module: Reader
+❖BERT Architecture for QA
+AI VIETNAM
+All-in-One Course
+(TA Session)
+https://pub.towardsai.net/ask-and-you-shall-receive-using-bert-for-question-answering-with-the-world-happiness-report-3fa8bf4df536
+23
+23
+Module: Reader
+❖BERT Architecture for QA
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Speech and Language Processing. Daniel Jurafsky & James H. Martin. Copyright © 2023. All rights reserved. Draft of February 3, 2024.
+S
+E
+: Start token embedding
+: End token embedding
+i
+: Hidden state of i’th token
+⋅
+: Dot product
+24
+24
+Module: Reader
+❖BERT Output Start logits
+AI VIETNAM
+All-in-One Course
+(TA Session)
+https://mccormickml.com/2020/03/10/question-answering-with-a-fine-tuned-BERT/
+S
+25
+25
+Module: Reader
+❖BERT Output End logits
+AI VIETNAM
+All-in-One Course
+(TA Session)
+https://mccormickml.com/2020/03/10/question-answering-with-a-fine-tuned-BERT/
+E
+26
+26
+Module: Reader
+❖Step 1: Install and import libraries
+AI VIETNAM
+All-in-One Course
+(TA Session)
+27
+27
+Module: Reader
+❖Step 1: Install and import libraries
+AI VIETNAM
+All-in-One Course
+(TA Session)
+28
+28
+Module: Reader
+❖Step 2: Setup config
+AI VIETNAM
+All-in-One Course
+(TA Session)
+29
+29
+Module: Reader
+❖Step 3: Download dataset
+AI VIETNAM
+All-in-One Course
+(TA Session)
+SQuAD v2 dataset
+30
+30
+Module: Reader
+❖Step 3: Download dataset
+AI VIETNAM
+All-in-One Course
+(TA Session)
+31
+31
+Module: Reader
+❖Step 3: Download dataset
+AI VIETNAM
+All-in-One Course
+(TA Session)
+SQuAD v2 dataset samples
+32
+32
+Module: Reader
+❖Step 3: Download dataset
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Download SQuAD v2 dataset in here
+33
+33
+Module: Reader
+❖Step 3: Download dataset
+AI VIETNAM
+All-in-One Course
+(TA Session)
+34
+34
+Module: Reader
+❖Step 3: Download dataset
+AI VIETNAM
+All-in-One Course
+(TA Session)
+35
+35
+Module: Reader
+❖Step 4: Create tokenizer
+AI VIETNAM
+All-in-One Course
+(TA Session)
+[‘I’, ‘love’, ‘AIVN’]
+[5, 23, 17]
+36
+36
+Module: Reader
+❖Step 4: Create tokenizer
+AI VIETNAM
+All-in-One Course
+(TA Session)
+BERT Input format for QA
+https://huggingface.co/learn/nlp-course/chapter6/3b#using-the-question-answering-pipeline
+37
+37
+Module: Reader
+❖Step 4: Create tokenizer
+AI VIETNAM
+All-in-One Course
+(TA Session)
+38
+38
+Module: Reader
+❖Step 4: Create tokenizer
+AI VIETNAM
+All-in-One Course
+(TA Session)
+39
+39
+Module: Reader
+❖Step 4: Create tokenizer
+AI VIETNAM
+All-in-One Course
+(TA Session)
+[CLS] question [SEP] context [SEP]
+40
+40
+Module: Reader
+❖Step 5: Create preprocessing function
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Data samples 
+(context, question, 
+answer)
+Tokenization
+context, question
+Find start and end 
+positions
+answer
+Offset mapping
+Preprocessed inputs data:
+{
+‘input_ids’,
+‘attention_mask’,
+‘start_positions’
+‘end_positions’
+}
+41
+41
+Module: Reader
+❖Step 5: Create preprocessing function
+AI VIETNAM
+All-in-One Course
+(TA Session)
+42
+42
+Module: Reader
+❖Step 5: Create preprocessing function
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Finding start and end positions for each 
+sample
+43
+43
+Module: Reader
+❖Step 5: Create preprocessing function
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Finding start and end positions for each 
+sample
+44
+44
+Module: Reader
+❖Step 5: Create preprocessing function
+AI VIETNAM
+All-in-One Course
+(TA Session)
+45
+45
+Module: Reader
+❖Step 5: Create preprocessing function
+AI VIETNAM
+All-in-One Course
+(TA Session)
+46
+46
+Module: Reader
+❖Step 5: Create preprocessing function
+AI VIETNAM
+All-in-One Course
+(TA Session)
+47
+47
+Module: Reader
+❖Step 6: Training
+AI VIETNAM
+All-in-One Course
+(TA Session)
+48
+48
+Module: Reader
+❖Step 7: Test
+AI VIETNAM
+All-in-One Course
+(TA Session)
+49
+49
+Module: Reader
+❖Step 7: Test
+AI VIETNAM
+All-in-One Course
+(TA Session)
+50
+50
+Module: Reader
+❖Step 7: Test
+AI VIETNAM
+All-in-One Course
+(TA Session)
+51
+Module: Retriever
+AI VIETNAM
+All-in-One Course
+(TA Session)
+52
+52
+Module: Retriever
+❖ E2E QA Pipeline
+AI VIETNAM
+All-in-One Course
+(TA Session)
+53
+53
+Module: Retriever
+❖ Retriever I/O
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Question: Where is the highest 
+mountain in solar system?
+Retriever
+Input
+Output
+Top relevant 
+contexts
+54
+TR System
+User
+“Today news”
+Query
+Today news 
+articles
+Relevant Documents
+Text Retrieval (TR) (also called as Document Retrieval)1: A branch of Information Retrieval (IR) 
+where the system matching of some stated user search query against a set of texts.
+1: https://en.wikipedia.org/wiki/Document_retrieval
+2: https://nlp.stanford.edu/IR-book/html/htmledition/an-example-information-retrieval-problem-1.html
+Module: Retriever
+❖ Text Retrieval
+AI VIETNAM
+All-in-One Course
+(TA Session)
+55
+Query
+Relevant 
+Documents
+Search
+Module: Retriever
+❖ Text Retrieval
+AI VIETNAM
+All-in-One Course
+(TA Session)
+56
+Module: Retriever
+❖ Text Retriever Pipeline
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Corpus
+SQUAD_V2 Corpus
+Query (Question)
+’what is the official language 
+in Fiji’
+Retriever
+Relevant Questions
+57
+Module: Retriever
+❖ Idea
+AI VIETNAM
+All-in-One Course
+(TA Session)
+https://www.researchgate.net/figure/Sample-cosine-similarity-results_fig2_347682908
+Given two vectors, we can calculate the similarity 
+between them by using a similarity formula. E.g: L2 
+Distance, Cosine Similarity…
+58
+Module: Retriever
+❖ Idea
+AI VIETNAM
+All-in-One Course
+(TA Session)
+https://www.analyticsvidhya.com/blog/2020/03/pretrained-word-embeddings-nlp/
+Hello AIVN
+Embedding 
+model
+-0.027
+-0.001
+-0.345
+…
+-0.023
+59
+Module: Retriever
+❖ Idea
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Corpus
+Questions
+Embeddings
+A query question
+Query Embedding
+Similary 
+Calculation
+Top relevant 
+questions
+Input
+Output
+Top relevant 
+contexts
+60
+Module: Retriever
+❖ Vector Database
+AI VIETNAM
+All-in-One Course
+(TA Session)
+https://www.pinecone.io/learn/vector-database/
+Vector database: A database that can store 
+vectors (fixed-length lists of numbers) along 
+with other data items.
+61
+Module: Retriever
+❖ Vector Database
+AI VIETNAM
+All-in-One Course
+(TA Session)
+https://www.graft.com/blog/top-vector-databases-for-ai-projects
+62
+Module: Retriever
+❖ Faiss
+AI VIETNAM
+All-in-One Course
+(TA Session)
+https://www.youtube.com/watch?v=sKyvsdEv6rk
+63
+Module: Retriever
+❖ Faiss Pipeline
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Input 
+Question
+DistilBERT
+Question 
+Embedding
+Faiss
+Index
+DistilBERT
+Text 
+Dataset
+Most Similar 
+Embeddings
+Search 
+Results
+64
+Module: Retriever
+❖ Step 1: Install and import libraries
+AI VIETNAM
+All-in-One Course
+(TA Session)
+65
+Module: Retriever
+❖ Step 1: Install and import libraries
+AI VIETNAM
+All-in-One Course
+(TA Session)
+66
+Module: Retriever
+❖ Step 2: Download dataset
+AI VIETNAM
+All-in-One Course
+(TA Session)
+67
+Module: Retriever
+❖ Step 2: Download dataset
+AI VIETNAM
+All-in-One Course
+(TA Session)
+68
+Module: Retriever
+❖ Step 3: Initialize model
+AI VIETNAM
+All-in-One Course
+(TA Session)
+69
+Module: Retriever
+❖ Step 4: Create get embedding function
+AI VIETNAM
+All-in-One Course
+(TA Session)
+https://www.pinecone.io/learn/vector-embeddings/
+70
+Module: Retriever
+❖ Step 4: Create get embedding function
+AI VIETNAM
+All-in-One Course
+(TA Session)
+71
+Module: Retriever
+❖ Step 4: Create get embedding function
+AI VIETNAM
+All-in-One Course
+(TA Session)
+72
+Module: Retriever
+❖ Step 4: Create get embedding function
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Hello AIVN
+Embedding 
+model
+-0.027
+-0.001
+-0.345
+…
+-0.023
+73
+Module: Retriever
+❖ Step 4: Create get embedding function
+AI VIETNAM
+All-in-One Course
+(TA Session)
+74
+Module: Retriever
+❖ Step 5: Search
+AI VIETNAM
+All-in-One Course
+(TA Session)
+75
+Module: Retriever
+❖ Step 5: Search with QA
+AI VIETNAM
+All-in-One Course
+(TA Session)
+?
+76
+Question
+AI VIETNAM
+All-in-One Course
+(TA Session)
+77

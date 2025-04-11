@@ -1,0 +1,672 @@
+BASIC PYTHON - VARIABLE
+Dinh-Tiem Nguyen và Quang-Vinh Dinh
+1
+Biến trong Python
+Biến trong Python là tên được sửdụng đểtham chiếu đến một vùng lưu trữdữliệu trong bộnhớ, tên
+của biến là cách chúng ta đặt cho vùng lưu trữđó đểcó thểtruy cập và thao tác với dữliệu trong
+chương trình của mình. Khi đặt tên biến sẽcó một sốquy tắc mà bạn cần chú ý:
+• Tên biến có thểchứa chữcái, số, dấu gạch dưới "_"nhưng không được là số. Ví dụ: ‘message_1‘,
+‘_massage‘ nhưng không thểđặt là ‘1_message‘.
+• Tên biến có thểgồm nhiều từ, nhưng mỗi từphải được viết liền, không được sửdụng khoảng
+trắng. Ví dụ‘fresh_apple‘ nhưng không thểđặt là ‘fresh apple‘
+• Không được đặt tên biến trùng với những từkhóa và tên hàm trong Python. Ví dụ: Không nên
+đặt tên biến là ‘list‘, ‘for‘, ‘from‘, ‘if‘, ‘is‘, ‘False‘...
+• Tên biến chỉcần ngắn thôi nhưng phải rõ ràng, nếu không thì có thểtạo tên dài hơn mà rõ ràng
+cũng được. Ví dụ: ‘student_name‘ với ‘s_n‘ thì nên dùng biến tên ‘student_name‘ vì khi đọc sẽ
+hiểu ngay.
+• Bạn cũng nên cẩn thận khi sửdụng tên biến chứa chữ‘l‘ và ‘o‘, vì nó giống số‘1‘ và ‘0‘ nên có
+thểgây ra nhầm lẫn nếu quan sát không kỹ.
+2
+Bài tập
+Viết chương trình với yêu cầu dưới đây, mỗi yêu cầu bạn sẽviết nó tại một cell trong file jupyter
+notebook.
+1. Bạn hãy tạo file và đặt tên file bất kỳnhưng tên phải được viết thường và mỗi từcách nhau bởi
+dấu gạch dưới ‘"_"‘, ví dụnhư ‘simple_message.ipynb‘. Sau đó hãy lập trình in chuỗi ‘"Hello
+world!"‘ ra màn hình.
+2. Gán một chuỗi ‘"Have a nice day!"‘ vào biến ‘message‘. Sau đó sửdụng câu lệnh ‘print‘ đểhiển
+thịbiến này ra màn hình.
+3.
+Bạn hãy tạo một chuỗi ‘"Let’s have Tet holidays!"‘ và gán vào biến với tên ‘1_message‘. Sau đó
+sửdụng câu lệnh ‘print‘ đểhiển thịbiến này ra màn hình. Nếu kết quảhiển thịthông báo lỗi,
+hãy xác định lỗi này là gì và sửa như thếnào? Sau đó chạy lại chương trình.
+BASIC PYTHON - STRING
+Dinh-Tiem Nguyen và Quang-Vinh Dinh
+1
+String
+String trong Python là một chuỗi các ký tự, giống như các từhoặc câu mà chúng ta viết. String có thể
+chứa chữcái, số, ký tựđặc biệt và khoảng trắng. Đểtạo một string trong Python, ta chỉcần đặt các
+ký tựvào trong dấu ngoặc kép. Có thểdùng dấu ngoặc kép đơn (’), ngoặc kép (") hoặc dùng ba dấu
+nháy đối với chuỗi dài, nhiều dòng ("""hoặc ”’). Ví dụ:
+1 page_name = "AI VIET NAM"
+2 user_name = ’Tom’
+3 greeting = """ Xin chào Tom!
+4
+Chào mừng bạn đến AI VIET NAM!"""
+2
+F-string
+F-string là một cách đặc biệt đểviết các chuỗi ký tựtrong Python. Nó giúp chúng ta dễdàng chèn các
+biến hoặc kết quảcủa các phép toán vào trong chuỗi. Chỉcần đặt chữ’f’ hoặc ’F’ trước dấu ngoặc kép
+của chuỗi, rồi đặt các biểu thức hoặc biến trong cặp dấu ngoặc nhọn .
+1 student_name = "Tom"
+2 class_name = "AI VIETNAM"
+3 message = f"{student_name} học lập trình tại {class_name}"
+4 print(message)
+Trong ví dụnày, student_name sẽđược thay thếbằng giá trịcủa biến student_name là "Tom", và
+class_name sẽđược thay thếbằng giá trịcủa biến class_name là "AI VIETNAM". Khi chúng ta chạy
+chương trình, kết quảsẽlà:
+1 Tom học lập trình tại AI VIETNAM
+3
+Chiều dài, chỉsốtrong chuỗi
+Chúng ta có thểsửdụng hàm len() đểđếm sốký tựtrong một chuỗi. Hàm này sẽtrảvềsốký tựcó
+trong chuỗi đó. ví dụ:
+All-in-One Course - 2024
+aivietnam.edu.vn
+1 class_name = "AI VIETNAM"
+2 length = len(class_name)
+3 print(f"Sốký tựtrong chuỗi là: {length}")
+"Trong ví dụnày, class_name là chuỗi ’Hello’. Khi chúng ta sửdụng len(class_name), Python sẽđếm
+sốký tựtrong chuỗi này. Kết quảsẽlà:
+1 Sốký tựtrong chuỗi là: 10
+Tương tự, các bạn có thểđếm sốký tựtrong bất kỳchuỗi nào theo cách trên. Tiếp theo chúng ta sẽ
+học cách truy cập phần tửtrong một chuỗi thông qua chỉsốindex. Theo chiều từtrái sang phải chỉsố
+bắt đầu từ0, có nghĩa là ký tựđầu tiên của chuỗi sẽcó chỉsốlà 0. Đối với chiều ngược lại, chỉsốbắt
+đầu từ-1, có nghĩa là ký tựcuối cùng của chuỗi sẽcó chỉsốlà -1. Ví dụ:
+1 class_name = "AI VIETNAM"
+2 print(f"Ký tựđầu tiên trong chuỗi là: {class_name [0]}")
+3 print(f"Ký tựcuối cùng trong chuỗi là: {class_name [ -1]}")
+Trong ví dụnày, class_name[0] sẽlấy ký tựđầu tiên trong chuỗi, và class_name[-1] sẽlấy ký tựcuối
+cùng trong chuỗi. Kết quảsẽlà:
+1 Ký tựđầu tiên trong chuỗi là: A
+2 Ký tựcuối cùng trong chuỗi là: M
+4
+Một sốphương thức biến đổi chuỗi
+Trong phần này, chúng ta sẽhọc vềba phương thức phổbiến đểbiến đổi chuỗi trong Python: lower(),
+upper(), và title(). Chúng ta sẽdùng chuỗi "tom Holland"đểminh họa.
+4.1
+lower()
+Phương thức lower() sẽchuyển tất cảcác ký tựtrong chuỗi thành chữthường.
+1 name = "tom
+Holland"
+2 lowercase_name = name.lower ()
+3 print( lowercase_name)
+1 =================
+Output
+================
+2 tom
+holland
+3 =========================================
+2
+All-in-One Course - 2024
+aivietnam.edu.vn
+Khi chúng ta dùng name.lower(), tất cảcác ký tựsẽđược chuyển thành chữthường. Kết quảsẽlà "tom
+holland"
+4.2
+upper()
+Phương thức upper() sẽchuyển tất cảcác ký tựtrong chuỗi thành chữhoa.
+1 name = "tom
+Holland"
+2 uppercase_name = name.upper ()
+3 print( uppercase_name)
+1 =================
+Output
+================
+2 TOM
+HOLLAND
+3 =========================================
+Trong ví dụnày, khi chúng ta dùng name.upper(), tất cảcác ký tựsẽđược chuyển thành chữhoa
+4.3
+title()
+Phương thức title() sẽchuyển chữcái đầu của mỗi từthành chữhoa và các ký tựcòn lại thành chữ
+thường.
+1 name = "tom
+Holland"
+2 titlecase_name = name.title ()
+3 print( titlecase_name)
+1 =================
+Output
+================
+2 Tom
+Holland
+3 =========================================
+Trong ví dụnày, khi chúng ta dùng name.title(), chữcái đầu của mỗi từsẽđược chuyển thành chữhoa
+và các chữcái còn lại thành chữthường.
+5
+Bài Tập
+Câu 1: Tạo một biến name gán giá trịlà tên một người, sau đó hiển thịra màn hình một thông báo
+chứa tên đó sửdụng f-string. Ví dụname = “Alice”, mình sẽin ra màn hình nội dung là “Alice is a great
+teacher!”
+Câu 2: Tạo một biến và gán giá trị“ms Taylor” cho nó, sau đó thực hiện in ra màn hình giá trịbiến đó
+được viết hoa ký tựđầu tiên mỗi từhoặc viết toàn bộbằng chữchữhoa, hoặc chữthường.
+1 Input: name = "ms Taylor"
+2 Output:
+3
+Title
+case: Ms Taylor
+4
+Upper
+case: MS TAYLOR
+5
+Lower
+case: ms taylor
+3
+BASIC PYTHON - FOR LOOP
+Dinh-Tiem Nguyen và Quang-Vinh Dinh
+1
+Giới thiệu
+Trong hầu hết các ngôn ngữlập trình, vòng lặp là một công cụquan trọng giúp thực hiện lặp đi lặp
+lại các tác vụmà không cần viết mã nhiều lần. Trong bài viết này chúng ta sẽtìm hiểu cách sửdụng
+vòng lặp for từcơ bản đến nâng cao, bao gồm cách sửdụng continue, break, vòng lặp lồng nhau và cách
+duyệt qua các cấu trúc dữliệu như string, list, tuple và dictionary.
+2
+Vòng lặp for cơ bản
+Sửdụng vòng lặp for là cách hiệu quảđểxửlý các tác vụlặp đi lặp lại, duyệt qua các phần tửcủa một
+danh sách, mảng, hoặc bất kỳtập hợp nào khác. Cú pháp sửdụng như sau:
+1 for
+variable in iterable:
+2
+# Body of for loop
+Trong đó:
+• variable là biến sẽnhận giá trịtừng phần tửtrong iterable qua mỗi lần lặp.
+• iterable là một đối tượng có thểlặp, ví dụnhư list, tuple, string, dictionary, hoặc range.
+Ví dụvòng lặp for sau sẽthực hiện hiển thịgiá trịcủa biến i 5 lần, mỗi lần lặp i sẽnhận 1 giá trịtrong
+range(5) từ0 đến 4:
+1 for i in range (5):
+2
+print(i)
+3
+4
+5
+6
+7 #Vòng lặp for với range
+=================
+Output
+================
+0
+1
+2
+3
+4
+==========================================
+Trong chương trình trên, chúng ta bắt đầu vòng lặp với lệnh for, trong đó range(3) sẽtạo ra một dãy
+sốtừ0 đến 4 (không bao gồm 5). Tức là, dãy sốnày sẽlà: [0, 1, 2, 3, 4], i là biến đếm, nó sẽlần lượt
+All-in-One Course - 2024
+aivietnam.edu.vn
+nhận giá trịtừtừng phần tửtrong dãy sốdo range(5) tạo ra. Lệnh print(i) là khối lệnh thực thi trong
+vòng lặp. Với mỗi giá trịcủa i trong range(5), lệnh này sẽin ra giá trịhiện tại của i.
+Chi tiết hoạt động từng bước của chương trình trên ta có thểhình dung như sau:
+• Bước đầu tiên: i nhận giá trịđầu tiên từrange(5), tức là 0, sau đó print(i) in ra giá trị0.
+• Bước thứhai: i nhận giá trịtiếp theo từrange(5), tức là 1, sau đó print(i) in ra giá trị1.
+• Bước thứ3 tương tự, i nhận giá trị2 và in ra 2.
+• Bước thứ4 i nhận giá trị3 và in ra 3
+• Bước thứ5 i nhận giá trị4 và in ra 4 và kết thúc vòng lặp.
+Như đã đềcập phía trên thì mọi kiểu dữliệu thuộc loại interable đều có thểdùng vòng lặp for. Theo
+định nghĩa Iterable là bất kỳđối tượng Python nào có khảnăng trảvềtừng phần tửcủa nó cùng một
+lúc, cho phép nó được lặp lại trong vòng lặp for. Dưới đây, chúng ta sẽsửdụng vòng lặp for với string,
+list, dictionary, tuple.
+Ví dụsửdụng vòng lặp for qua từng phần tửtrong string:
+1 for i in "AI VIETNAM":
+2
+print(i)
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12 #Vòng lặp for với string
+=================
+Output
+================
+A
+I
+V
+I
+E
+T
+N
+A
+M
+==========================================
+Ví dụsửdụng vòng lặp for qua từng phần tửtrong list:
+1 # Vòng lặp for với danh sách
+2 fruits = ["apple", "banana", "cherry"]
+3
+4 for fruit in fruits:
+5
+print(fruit)
+=================
+Output
+================
+apple
+banana
+cherry
+==========================================
+Ví dụsửdụng vòng lặp for qua từng phần tửtrong tuple:
+1 # Vòng lặp for với tuple
+2 numbers = (1, 2, 3)
+3
+4 for number in numbers:
+5
+print(number)
+=================
+Output
+================
+1
+2
+3
+==========================================
+Ví dụsửdụng vòng lặp for qua từng phần tửtrong dictionary:
+2
+All-in-One Course - 2024
+aivietnam.edu.vn
+1 # Vòng lặp for với từđiển
+2 student_scores = {
+3
+"Bông": 90,
+4
+"Hoa": 85,
+5
+"Mai": 78
+6
+}
+7 for student , score in student_scores .items
+():
+8
+print(f"{student }: {score}")
+=================
+Output
+================
+Bông: 90
+Hoa: 85
+Mai: 78
+==========================================
+3
+Vòng lặp for trong comprehension
+Comprehension là một loại cú pháp đểviết vòng lặp for ngắn gọn hơn đểtạo ra list, dictionary, set mới.
+Chúng ta sẽtìm hiểu vềcách sửdụng comprehension với list, dictionary còn các kiểu dữliệu khác thì
+tương tự.
+3.1
+List comprehension
+List comprehension cho phép chúng ta tạo ra một danh sách mới bằng cách áp dụng một biểu thức cho
+mỗi phần tửtrong một iterable.
+1 [expression
+for item in iterable if condition]
+Trong đó:
+• expression: Biểu thức được áp dụng cho mỗi phần tử.
+• item: Phần tửhiện tại từiterable.
+• iterable: Bất kỳđối tượng nào có thểlặp (như danh sách, chuỗi, range, v.v.).
+• condition: (Tùy chọn) Điều kiện đểlọc các phần tử.
+Ví dụ: Tạo danh sách bình phương của các sốchẵn từ0 đến 9
+1 squares = [x ** 2 for x in range (10) if x
+% 2 == 0]
+2 print(squares)
+=================
+Output
+================
+[0, 4, 16, 36, 64]
+==========================================
+3.2
+Dictionary comprehension
+Dictionary comprehension cho phép ta tạo ra một từđiển mới bằng cách áp dụng một biểu thức cho
+mỗi phần tửtrong một iterable.
+1 { key_expression: value_expression
+for item in iterable if condition}
+Trong đó:
+• key_expression: Biểu thức cho khóa.
+• value_expression: Biểu thức cho giá trị.
+• item, iterable, và condition: Tương tựnhư trong list comprehension.
+Ví dụ: Tạo dictionary với khóa là sốvà giá trịlà bình phương của sốđó.
+3
+All-in-One Course - 2024
+aivietnam.edu.vn
+1
+2 squares_dict = {x: x ** 2 for x in range
+(10)}
+3 print(squares_dict)
+=================
+Output
+================
+{0: 0, 1: 1, 2: 4, 3: 9, 4: 16, 5: 25, 6:
+36, 7: 49, 8: 64, 9: 81}
+==========================================
+4
+Vòng lặp for với continue
+Lệnh continue trong vòng lặp for được sửdụng để
+bỏqua các lần lặp cụthểvà tiếp tục với lần lặp
+tiếp theo. Khi gặp lệnh continue, vòng lặp sẽngay
+lập tức bỏqua các lệnh còn lại trong lần lặp hiện
+tại và chuyển sang lần lặp tiếp theo. Điều này hữu
+ích khi ta muốn bỏqua một sốđiều kiện nhất định
+mà không cần kết thúc hoàn toàn vòng lặp.
+Ví dụdưới đây minh họa việc sửdụng lệnh con-
+tinue trong vòng lặp for đểbỏqua việc in ra số
+2:
+1 # Vòng lặp for với lệnh continue
+2
+3 for i in range (5):
+4
+if i == 2:
+5
+continue
+6
+print(i)
+=================
+Output
+================
+0
+1
+3
+4
+==========================================
+Trong chương trình trên, vòng lặp for được khởi tạo với i nhận các giá trịtừrange(5), tức là [0, 1, 2,
+3, 4]. Khi i là 2, lệnh if i == 2 sẽđược thực thi vì điều kiện lúc đó là True, lệnh continue sẽđược thực
+thi, bỏqua phần còn lại của vòng lặp cho giá trịi hiện tại và chuyển sang giá trịtiếp theo của i.
+Dưới đây là chi tiết từng bước thực hiện:
+• Khi i là 0, điều kiện i == 2 là sai, lệnh print(i) sẽin ra 0.
+• Khi i là 1, điều kiện i == 2 là sai, lệnh print(i) sẽin ra 1.
+• Khi i là 2, điều kiện i == 2 là đúng, lệnh continue sẽđược thực thi và vòng lặp bỏqua việc in ra
+số2.
+• Khi i là 3, điều kiện i == 2 là sai, lệnh print(i) sẽin ra 3.
+• Khi i là 4, điều kiện i == 2 là sai, lệnh print(i) sẽin ra 4.
+• Sau khi đã duyệt hết các giá trịtrong range(5), vòng lặp kết thúc.
+5
+Vòng lặp for với break
+Lệnh break trong vòng lặp for được sửdụng đểkết thúc vòng lặp ngay lập tức, ngay cảkhi chưa hoàn
+thành vòng lặp. Khi gặp lệnh break, chương trình sẽthoát khỏi vòng lặp và tiếp tục thực hiện các lệnh
+sau vòng lặp. Chúng ta sẽsửdụng nó khi muốn dừng vòng lặp với một điều kiện cụthể.
+Ví dụdưới đây minh họa việc sửdụng lệnh break trong vòng lặp for đểkết thúc vòng lặp khi gặp số2:
+4
+All-in-One Course - 2024
+aivietnam.edu.vn
+1 # Vòng lặp for với lệnh break
+2 for i in range (5):
+3
+if i == 2:
+4
+break
+5
+print(i)
+=================
+Output
+================
+0
+1
+==========================================
+Vòng lặp for được khởi tạo với i nhận các giá trịtừrange(5), tức là [0, 1, 2, 3, 4]. Khi i là 2, lệnh if i
+== 2 sẽđược thực thi và lệnh break xảy ra đểkết thúc vòng lặp ngay lập tức và không in ra giá trị2
+hay các giá trịsau đó.
+• Khi i là 0, điều kiện i == 2 là sai, lệnh print(i) sẽin ra 0.
+• Khi i là 1, điều kiện i == 2 là sai, lệnh print(i) sẽin ra 1.
+• Khi i là 2, điều kiện i == 2 là đúng, lệnh break sẽđược thực thi và vòng lặp kết thúc.
+6
+Vòng lặp for lồng
+Vòng lặp lồng nhau là vòng lặp nằm bên trong một vòng lặp khác. Nó cho phép ta thực hiện các tác
+vụphức tạp hơn, chẳng hạn như duyệt qua các ma trận hoặc thực hiện các phép toán trên nhiều chiều
+dữliệu.
+Ví dụdưới đây minh họa việc sửdụng vòng lặp for lồng nhau đểduyệt qua các phần tửcủa một danh
+sách 2 chiều và in ra vịtrí cũng như giá trịcủa từng phần tử:
+1 # List 2 chiều
+2 matrix = [
+3
+[1, 2, 3],
+4
+[4, 5, 6],
+5
+[7, 8, 9]
+6 ]
+7
+8 # Vòng lặp for lồng nhau đểduyệt và in ra
+vịtrí và giá trịphần tử
+9 for i in range(len(matrix)):
+10
+for j in range(len(matrix[i])):
+11
+print(f"Vịtrí: ({i}, {j}), Giá tr
+ị: {matrix[i][j]}")
+=================
+Output
+================
+Vịtrí: (0, 0), Giá trị: 1
+Vịtrí: (0, 1), Giá trị: 2
+Vịtrí: (0, 2), Giá trị: 3
+Vịtrí: (1, 0), Giá trị: 4
+Vịtrí: (1, 1), Giá trị: 5
+Vịtrí: (1, 2), Giá trị: 6
+Vịtrí: (2, 0), Giá trị: 7
+Vịtrí: (2, 1), Giá trị: 8
+Vịtrí: (2, 2), Giá trị: 9
+==========================================
+5
+All-in-One Course - 2024
+aivietnam.edu.vn
+Đầu tiên là khởi tạo vòng lặp ngoài duyệt qua từng hàng của ma trận matrix, với i là chỉsốcủa hàng.
+Tiếp theo là vòng lặp trong với mỗi hàng i, vòng lặp for j in range(len(matrix[i])) sẽduyệt qua từng
+phần tửtrong hàng đó, với j là chỉsốcủa cột. Với mỗi phần tửmatrix[i][j], lệnh print(f"Vịtrí: (i, j),
+Giá trị: matrix[i][j]") sẽin ra vịtrí và giá trịcủa phần tửđó.
+Chi tiết từng bước được mô tảnhư sau:
+• Khi i là 0, j sẽlần lượt là 0, 1, 2, kết quảin ra là
+====================================
+Output
+=====================================
+Vịtrí: (0, 0), Giá trị: 1
+Vịtrí: (0, 1), Giá trị: 2
+Vịtrí: (0, 2), Giá trị: 3
+=================================================================================
+• Khi i là 1, j vẫn lần lượt là 0, 1, 2
+====================================
+Output
+=====================================
+Vịtrí: (1, 0), Giá trị: 4
+Vịtrí: (1, 1), Giá trị: 5
+Vịtrí: (1, 2), Giá trị: 6
+=================================================================================
+• Khi i là 2, j vẫn lần lượt là 0, 1, 2
+====================================
+Output
+=====================================
+Vịtrí: (2, 0), Giá trị: 7
+Vịtrí: (2, 1), Giá trị: 8
+Vịtrí: (2, 2), Giá trị: 9
+=================================================================================
+7
+Kết luận
+Trong bài viết này chúng ta đã tìm hiểu cách sửdụng vòng lặp for từcơ bản đến nâng cao. Đây là kiến
+thức cơ bản nhưng rất quan trọng mà chúng ta cần phải thành thạo nó. Mặc dù bài viết đã cốgắng bao
+quát các trường hợp sửdụng vòng lặp for, tuy nhiên khi các bạn lập trình sẽgặp nhiều trường hợp hơn
+nữa như việc kết hợp với thư viện tqdm, enumerate... nhưng vềbản chất thì nó vẫn không thay đổi. Hy
+vọng các bạn đã nắm được vòng lặp for và sẽsửdụng nó hiệu quảtrong quá trình viết code của mình.
+6
+BASIC PYTHON - WHILE LOOP
+Dinh-Tiem Nguyen và Quang-Vinh Dinh
+1
+Giới thiệu
+Trong hầu hết các ngôn ngữlập trình, vòng lặp là một cấu trúc cho phép ta thực thi một khối code
+nhiều lần. Trong Python, có hai loại vòng lặp chính là for và while. Bài viết này sẽtập trung vào vòng
+lặp while, giải thích cách hoạt động qua các ví dụcụthểđểcó thểdễdàng hiểu và áp dụng.
+1.1
+Vòng lặp while là gì?
+Vòng lặp while thực thi một khối mã liên tục miễn là điều kiện được chỉđịnh là đúng. Cú pháp của
+vòng lặp while như sau:
+1 while điều_kiện:
+2
+# Khối code
+trong
+while
+Vòng lặp while bắt đầu bằng việc kiểm tra điều kiện. Nếu điều kiện là True, khối code bên trong vòng
+lặp sẽđược thực thi. Sau khi khối code kết thúc, điều kiện sẽđược kiểm tra lại. Quá trình này tiếp tục
+cho đến khi điều kiện trởthành False.
+Ví dụchương trình in ra màn hình các sốtừ1 đến 5:
+1 i = 1
+2 while i <= 5:
+3
+print(i)
+4
+i += 1
+5
+6
+7 #ai vietnam
+=================
+Output
+================
+1
+2
+3
+4
+5
+==========================================
+Một ví dụkhác đểhiểu vòng lặp while, hãy tưởng tượng bạn đang chơi một trò chơi bật nhảy với một
+quảbóng. Bạn sẽtiếp tục nhảy và đập bóng xuống đất cho đến khi bạn mệt và không thểnhảy nữa.
+Ởđây, vòng lặp while hoạt động tương tựnhư việc bạn bật nhảy. Bạn sẽtiếp tục thực hiện một hành
+động (nhảy và đập bóng) cho đến khi một điều kiện nào đó không còn đúng nữa (bạn cảm thấy mệt và
+không thểnhảy tiếp).
+Daily AI Exercise (AIO)
+aivietnam.edu.vn
+1 has_energy = True
+2 jump_count = 0
+3
+4 while
+has_energy:
+5
+jump_count += 1
+6
+print(f"Jump {jump_count} time(s)")
+7
+# Giảsửsau 5 lần nhảy, bạn mệt và dừ
+ng lại
+8
+if jump_count == 5:
+9
+has_energy = False
+=================
+Output
+================
+Jump 1 time(s)
+Jump 2 time(s)
+Jump 3 time(s)
+Jump 4 time(s)
+Jump 5 time(s)
+==========================================
+has_energy là biến điều kiện. Mỗi lần vòng lặp chạy, bạn sẽnhảy một lần và tăng sốlần nhảy
+jump_count lên. Khi sốlần nhảy đạt đến 5, bạn cảm thấy mệt và đặt has_energy thành False, vòng
+lặp kết thúc.
+2
+Vòng lặp vô hạn
+Một vòng lặp vô hạn là một vòng lặp tiếp tục thực thi câu lệnh trong vòng lặp đến mãi mãi, vì điều
+kiện của vòng lặp luôn là True. Mặc dù chúng thường là điều cần tránh, nhưng cũng có những trường
+hợp chúng ta có thểtạo ra một vòng lặp vô hạn một cách cốý, chẳng hạn khi xây dựng các chương
+trình liên tục lắng nghe đầu vào hoặc chạy các tiến trình máy chủ.
+Ví dụVòng lặp vô hạn:
+1 while
+True:
+2
+print("This loop will run
+forever!")
+Trong ví dụtrên, điều kiện của vòng lặp while được đặt là True, có nghĩa là vòng lặp sẽchạy mãi mãi
+vì điều kiện luôn đúng. Bên trong vòng lặp, câu lệnh print("This loop will run forever!") được thực thi
+lặp đi lặp lại. Đểthoát khỏi vòng lặp, chúng ta cần phải dừng chương trình bằng cách kết thúc quá
+trình thực thi của nó. Trong hầu hết các môi trường phát triển, chúng ta có thểlàm điều này bằng
+cách nhấn Ctrl + C nếu chúng ta chạy chương trình bằng dòng lệnh hoặc nhấn nút stop trên công cụ
+lập trình.
+2
+Daily AI Exercise (AIO)
+aivietnam.edu.vn
+3
+Sửdụng break trong while
+Chúng ta có thểsửdụng lệnh break đểthoát khỏi vòng lặp ngay lập tức, bất kểđiều kiện của vòng lặp
+là gì. Sửdụng break khi chúng ta muốn dừng vòng lặp dựa trên một điều kiện khác xảy ra trong quá
+trình thực thi.
+Ví dụsửdụng break đểthoát khỏi vòng lặp:
+1 #ai vietnam
+2 i = 1
+3 while i <= 10:
+4
+print(i)
+5
+if i == 5:
+6
+break
+7
+i += 1
+=================
+Output
+================
+1
+2
+3
+4
+5
+==========================================
+Trong ví dụnày vòng lặp while sẽchạy miễn là i nhỏhơn hoặc bằng 10. Bên trong vòng lặp, giá trịcủa
+i được in ra và sau đó được tăng lên một đơn vị. Khi i đạt giá trị5, lệnh if i == 5: break sẽđược thực
+thi, làm cho vòng lặp dừng lại ngay lập tức. Các giá trịtừ1 đến 5 sẽđược in ra, sau đó vòng lặp kết
+thúc khi i bằng 5.
+4
+Sửdụng continue trong while
+Chúng ta có thểsửdụng lệnh continue đểbỏqua các lệnh còn lại của khối code trong vòng lặp và bắt
+đầu lần lặp tiếp theo. Continue thường được sửdụng khi chúng ta muốn bỏqua một sốbước trong
+vòng lặp dựa trên một điều kiện nào đó.
+Ví dụsửdụng continue đểbỏqua lần lặp của những trường hợp i chia hết cho 2:
+1 #ai vietnam
+2 i = 0
+3 while i < 10:
+4
+i += 1
+5
+if i % 2 == 0:
+6
+continue
+7
+print(i)
+=================
+Output
+================
+1
+3
+5
+7
+9
+==========================================
+3
+Daily AI Exercise (AIO)
+aivietnam.edu.vn
+Trong ví dụnày vòng lặp while sẽchạy miễn là i nhỏhơn 10. Mỗi lần vòng lặp chạy, giá trịcủa i được
+tăng lên một đơn vị. Nếu i là sốchẵn (i % 2 == 0), lệnh continue sẽđược thực thi, bỏqua câu lệnh
+print(i) và bắt đầu lần lặp tiếp theo. Kết quảchỉgồm các sốlẻtừ1 đến 9 được hiển thịra màn hình.
+5
+Sửdụng while với list
+Chúng ta cũng có thểsửdụng vòng lặp while đểduyệt qua các phần tửcủa một danh sách. Cachs này
+thường dùng khi chúng ta cần thực hiện các thao tác lặp lại trên các phần tửcủa danh sách mà không
+sửdụng vòng lặp for.
+Ví dụsửdụng while đểduyệt qua danh sách
+1 #ai vietnam
+2 fruits = ["apple", "banana", "cherry"]
+3 i = 0
+4 while i < len(fruits):
+5
+print(fruits[i])
+6
+i += 1
+=================
+Output
+================
+apple
+banana
+cherry
+==========================================
+Trong ví dụtrên, chúng ta có một danh sách fruits chứa các phần tửlà tên các loại trái cây. Vòng lặp
+while sẽchạy khi chỉsối nhỏhơn độdài của danh sách fruits. Trong mỗi lần lặp, phần tửtại vịtrí i
+trong danh sách fruits sẽđược in ra. Chỉsối sau đó được tăng lên một đơn vị, giúp duyệt qua các phần
+tửtiếp theo của danh sách. Khi i bằng độdài của danh sách, vòng lặp sẽkết thúc. Ngoài ra các bạn có
+thểthửvới dictionary, tuple...
+6
+Kết Luận
+Vòng lặp while là một công cụmạnh mẽtrong Python, cho phép ta thực thi một khối code nhiều lần
+dựa trên điều kiện nào đó. Tuy nhiên, chúng ta cần cẩn thận đểtránh vòng lặp vô hạn và sửdụng các
+lệnh break và continue một cách hợp lý đểkiểm soát luồng của vòng lặp.
+Hy vọng rằng qua bài viết này, các bạn đã hiểu rõ hơn vềvòng lặp while và cách sửdụng nó trong
+Python. Hãy thửáp dụng những gì các bạn đã học vào các bài tập và project trên lớp đểnắm vững
+kiến thức hơn!
+4

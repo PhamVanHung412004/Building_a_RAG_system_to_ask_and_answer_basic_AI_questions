@@ -1,5 +1,7 @@
-from package import np
-from package import faiss
+from package import (
+    numpy as np,
+    faiss
+)
 
 class Init_KMeans_FAISS:
     def __init__(self, dimen : int , number_clutesr : int, data : np.array) -> None:

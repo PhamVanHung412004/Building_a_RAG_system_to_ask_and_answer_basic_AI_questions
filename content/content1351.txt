@@ -1,5 +1,0 @@
-AI VIETNAM aivietnam.edu.vn
-18
-19 d)
-20 with st. form (" my_form "):
-21 col1 , col2 = st. 

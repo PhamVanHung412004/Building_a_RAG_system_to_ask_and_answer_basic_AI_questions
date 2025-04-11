@@ -1,6 +1,0 @@
-AI VIETNAM aivietnam.edu.vn
-Phần II: Câu Hỏi
-1. When loading a point cloud, what information might be included besides the 3D
-coordinates (XYZ)?
-(A). Color information (RGB). (B). Intensity values.
-(C). Normal vectors. (D). All of the above.

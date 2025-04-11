@@ -1,0 +1,386 @@
+AI CITY CHALLENGE 2024
+Track 2
+Xuan Khai Trinh
+AI VIETNAM
+Seminar
+Year 2024
+Outline
+AI VIETNAM
+Seminar
+▪
+Track 2 Problem
+▪
+Data Descriptions and Annotations
+▪
+EDA Data: BDD-PC-5K (External)
+▪
+EDA Data: WTS (Internal)
+▪
+Metrics
+▪
+Solution
+Outline
+AI VIETNAM
+Seminar
+▪
+Track 2 Problem
+▪
+Data Descriptions and Annotations
+▪
+EDA Data: BDD-PC-5K (External)
+▪
+EDA Data: WTS (Internal)
+▪
+Metrics
+▪
+Solution
+Track 2 Problem
+4
+AI VIETNAM
+Seminar
+Challenge Track 2: Traffic Safety Description and Analysis
+Track Problem: video captioning về các tình huống an toàn giao thông liên quan đến tai nạn cho người đi bộ.
+Outline
+AI VIETNAM
+Seminar
+▪
+Track 2 Problem
+▪
+Data Descriptions and Annotations
+▪
+EDA Data: BDD-PC-5K (External)
+▪
+EDA Data: WTS (Internal)
+▪
+Metrics
+▪
+Solution
+6
+AI VIETNAM
+Seminar
+WTS cung cấp số lượng video lớn nhất với các mô tả video dài chi tiết cùng với thông tin không gian 3D.
+Data Descriptions and Annotations
+7
+AI VIETNAM
+Seminar
+Video data format:
+1200 video với overhead view và vehicle view
+4861 video với vehicle view  
+Data Descriptions and Annotations
+8
+AI VIETNAM
+Seminar
+Annotation format:
+Data Descriptions and Annotations
+9
+AI VIETNAM
+Seminar
+BBox format:
+Data Descriptions and Annotations
+1
+AI VIETNAM
+Seminar
+Submission format: Mỗi video submit 5 phase và mỗi phase bao gồm 2 loại caption: pedestrian và vehicle.
+Lưu ý:
+ - Submit file JSON bao gồm tất cả video trong tập test.
+ - Submit đủ cả ”caption_pedestrian” and “caption_vehicle”
+Data Descriptions and Annotations
+Outline
+AI VIETNAM
+Seminar
+▪
+Track 2 Problem
+▪
+Data Descriptions and Annotations
+▪
+EDA Data: BDD-PC-5K (External)
+▪
+EDA Data: WTS (Internal)
+▪
+Metrics
+▪
+Solution
+12
+AI VIETNAM
+Seminar
+EDA Data: BDD-PC-5K (External)
+Phase: 0
+Pedestrian caption: The pedestrian, a male in his 30s, was standing still on a main road in an urban 
+area. He was wearing a gray T-shirt and black short pants. The weather was cloudy with bright visibility, 
+and the road surface was dry and level. The pedestrian's body was oriented in the same direction as 
+the vehicle that approached him. He was positioned diagonally to the right, in front of the vehicle. 
+Despite being unaware of the vehicle's presence, he closely watched the parked vehicle in his line of 
+sight. The relative distance between the pedestrian and the vehicle was far. The road had a one-way 
+traffic flow with three lanes and sidewalks on both sides. It was a weekday, and the pedestrian seemed 
+to have no awareness of the usual traffic volume on this road.
+Vehicle caption: The vehicle was moving at a constant speed of 10km/h. It was positioned behind a 
+pedestrian and was quite far away from them. The vehicle had a clear view of the pedestrian. It was 
+going straight ahead without any change in direction. The environment conditions indicated that the 
+pedestrian was a male in his 30s with a height of 160 cm. He was wearing a gray T-shirt and black 
+short pants. The event took place in an urban area on a weekday. The weather was cloudy but the 
+brightness was bright. The road surface was dry and level, made of asphalt. The traffic volume was 
+usual on the main road that had one-way traffic with three lanes. Sidewalks were present on both sides 
+of the road.
+[location] [attention] [behaviour] [context attribute]
+13
+AI VIETNAM
+Seminar
+EDA Data: BDD-PC-5K (External)
+14
+AI VIETNAM
+Seminar
+Phase: 1
+Pedes caption: A man in his 30s, with a height of 160 cm, dressed in a gray T-shirt and black 
+shorts, is standing still diagonally to the right in front of a vehicle on a bright, cloudy weekday. The 
+vehicle is traveling on a dry, level asphalt road, part of a main road with one-way traffic and three 
+lanes. The pedestrian's body is oriented in the same direction as the vehicle, with his line of sight 
+focused ahead in the direction of travel. Despite being far from the vehicle, he is closely watching 
+and is almost aware of its presence. The surroundings are urban, with both sides of the road having 
+sidewalks. The pedestrian seems to be waiting or observing something, possibly getting ready to 
+cross the road. The traffic volume is usual, and the road surface conditions are favorable for safe 
+movement. Overall, it appears to be a calm and routine situation in which the pedestrian and the 
+vehicle are momentarily sharing the road space.
+Vehicle caption: The vehicle is moving at a constant speed of 10km/h behind a pedestrian. The 
+pedestrian is far from the vehicle and is visible within the vehicle's field of view. The vehicle is going 
+straight ahead on a main road with one way and three lanes. The vehicle is in an urban environment 
+with usual traffic volume on a dry and level asphalt road surface. The pedestrian, a male in his 30s, 
+is wearing a gray T-shirt and black short pants. It is a weekday, and the weather is cloudy with 
+bright brightness. Both sides of the road have sidewalks.
+[location] [attention] [behaviour] [context attribute]
+EDA Data: BDD-PC-5K (External)
+15
+AI VIETNAM
+Seminar
+EDA Data: BDD-PC-5K (External)
+Outline
+AI VIETNAM
+Seminar
+▪
+Track 2 Problem
+▪
+Data Descriptions and Annotations
+▪
+EDA Data: BDD-PC-5K (External)
+▪
+EDA Data: WTS (Internal)
+▪
+Metrics
+▪
+Solution
+17
+AI VIETNAM
+Seminar
+EDA Data: WTS (Internal) 
+Bộ internal của WTS dataset sẽ cung cấp thêm overhead view - số lượng view tùy thuộc vào video dao động từ 1 
+tới 4.
+18
+AI VIETNAM
+Seminar
+EDA Data: WTS (Internal) 
+Bộ internal của WTS dataset sẽ cung cấp thêm overhead view - số lượng view tùy thuộc vào video dao động từ 1 
+tới 4.
+19
+AI VIETNAM
+Seminar
+EDA Data: WTS (Internal) 
+Bên cạnh đó để thuận tiện cho quá trình phân tích vị trí giữa xe và người đi đường, bộ dataset cũng cung cấp 3D 
+Gaze (chưa công bố).
+Outline
+AI VIETNAM
+Seminar
+▪
+Track 2 Problem
+▪
+Data Descriptions and Annotations
+▪
+EDA Data: BDD-PC-5K (External)
+▪
+EDA Data: WTS (Internal)
+▪
+Metrics
+▪
+Solution
+21
+AI VIETNAM
+Seminar
+Metrics 
+Metric 1: BLEU-4
+- N-gram:  các chuỗi gồm n kí tự (hoặc từ) liên tiếp trong bộ văn bản mẫu. 
+22
+AI VIETNAM
+Seminar
+Metrics 
+Metric 1: BLEU-4
+- Các bước để tính BLEU-4:
+   + Bước 1: Tokenize đầu vào thành từ/cụm từ.
+   + Bước 2: Tính Clipped Precision: 𝐶𝑃௡=
+𝐶𝑙𝑖𝑝(𝑠ố 𝑙ượ𝑛𝑔 𝑛−𝑔𝑟𝑎𝑚 𝑑ự đ𝑜á𝑛 đú𝑛𝑔)
+𝑡ổ𝑛𝑔 𝑠ố 𝑙ượ𝑛𝑔 𝑛−𝑔𝑟𝑎𝑚 𝑡𝑟𝑜𝑛𝑔 𝑐â𝑢 𝑑ự đ𝑜á𝑛
+Generated cation
+Target cation
+So sánh giữa Clipped Precision và Precision:
+𝐶𝑃ଵ=
+𝐶𝑙𝑖𝑝(𝑠ố 𝑙ượ𝑛𝑔 1 −𝑔𝑟𝑎𝑚 𝑑ự đ𝑜á𝑛 đú𝑛𝑔)
+𝑡ổ𝑛𝑔 𝑠ố 𝑙ượ𝑛𝑔 1 −𝑔𝑟𝑎𝑚 𝑡𝑟𝑜𝑛𝑔 𝑐â𝑢 𝑑ự đ𝑜á𝑛= 1
+6
+𝑃ଵ=
+𝑠ố 𝑙ượ𝑛𝑔 1 −𝑔𝑟𝑎𝑚 𝑑ự đ𝑜á𝑛 đú𝑛𝑔
+𝑡ổ𝑛𝑔 𝑠ố 𝑙ượ𝑛𝑔 1 −𝑔𝑟𝑎𝑚 𝑡𝑟𝑜𝑛𝑔 𝑐â𝑢 𝑑ự đ𝑜á𝑛= 6
+6 = 1
+Clipped Precision giúp giải quyết vấn đề lặp từ trong câu mô tả.
+23
+AI VIETNAM
+Seminar
+Metrics 
+Metric 1: BLEU-4
+   + Bước 3: Weighted Geometric Mean Precision:
+Weighted Geometric Mean Precisionே= ෑ
+𝑛=1
+𝑁
+𝐶𝑃௡
+௪೙ 
+    + Bước 4: Brevity Penalty: penalty cho câu mô tả có độ dài ngắn hơn câu mục tiêu:
+Brevity Penalty = ቊ
+1,              𝑛ế𝑢 𝑐 >  𝑟
+𝑒(ଵି𝑟
+𝑐),      𝑛ế𝑢 𝑐 ≤ 𝑟
+    + Bước 5: BLEU score:
+BLEUே= Brevity Penalty ×  Weighted Geometric Mean Precisionே
+24
+AI VIETNAM
+Seminar
+Metrics 
+Metric 2: METEOR
+- Các bước để tính METEOR:
+   + Bước 1: Xác định tập hợp các ánh xạ giữa các unigram của câu mô tả và câu mục tiêu.
+   + Bước 2: Precision: 𝑃 =  
+𝑠ố 𝑙ượ𝑛𝑔 𝑢𝑛𝑖−𝑔𝑟𝑎𝑚 𝑑ự đ𝑜á𝑛 đú𝑛𝑔
+𝑡ổ𝑛𝑔 𝑠ố 𝑙ượ𝑛𝑔 𝑢𝑛𝑖−𝑔𝑟𝑎𝑚 𝑡𝑟𝑜𝑛𝑔 𝑐â𝑢 𝑑ự đ𝑜á𝑛
+   + Bước 3: Recall:     𝑅 =  
+𝑠ố 𝑙ượ𝑛𝑔 𝑢𝑛𝑖−𝑔𝑟𝑎𝑚 𝑑ự đ𝑜á𝑛 đú𝑛𝑔
+𝑡ổ𝑛𝑔 𝑠ố 𝑙ượ𝑛𝑔 𝑢𝑛𝑖−𝑔𝑟𝑎𝑚 𝑡𝑟𝑜𝑛𝑔 𝑐â𝑢 𝑚ụ𝑐 𝑡𝑖ê𝑢   
+   + Bước 4: F-score:   𝐹௠௘௔௡ =  
+10𝑃𝑅
+𝑅 + 9𝑃 
+25
+AI VIETNAM
+Seminar
+Metrics 
+Metric 2: METEOR
+   + Bước 5: Chunk Penalty: 
+p =  0.5(
+𝑐
+௨೘)ଷ 
+trong đó:  c là số lượng chunks (tập hợp các unigram liền kề) và 𝑢௠ là số lượng unigram đã được map trong câu 
+mục tiêu.
+Lưu ý: để tính chunk penalty, ta cần tìm cách map unigram để số lượng chunks là ít nhất.
+2 cách map chunks khác nhau
+   + Bước 6: METEOR score: 
+M =  𝐹௠௘௔௡(1 −𝑝) 
+26
+AI VIETNAM
+Seminar
+Metrics 
+Metric 3: ROUGE-L
+- Các bước để tính ROUGE-L:
+   + Bước 1: Rouge-L Precision:    𝑃 =  
+𝐿𝐶𝑆(𝑔𝑒𝑛, 𝑟𝑒𝑓)
+𝑡ổ𝑛𝑔 𝑠ố 𝑙ượ𝑛𝑔 𝑢𝑛𝑖−𝑔𝑟𝑎𝑚 𝑡𝑟𝑜𝑛𝑔 𝑐â𝑢 𝑑ự đ𝑜á𝑛
+   + Bước 3: Rouge-L F1-Score:   𝐹ଵ = 2(
+𝑃×𝑅
+𝑃+𝑅)  
+   + Bước 2: Rouge-L Recall:        𝑅 =  
+𝐿𝐶𝑆(𝑔𝑒𝑛, 𝑟𝑒𝑓)
+𝑡ổ𝑛𝑔 𝑠ố 𝑙ượ𝑛𝑔 𝑢𝑛𝑖−𝑔𝑟𝑎𝑚 𝑡𝑟𝑜𝑛𝑔 𝑐â𝑢 𝑚ụ𝑐 𝑡𝑖ê𝑢   
+Trong đó LCS là dãy con chung dài nhất (không yêu cầu các từ phải liên tiếp nhưng vẫn theo thứ tự) giữa câu mô 
+tả và câu mục tiêu.
+27
+AI VIETNAM
+Seminar
+Metrics 
+Metric 4: CIDEr
+- Metric CIDEr cải tiến so với các metric đã được đề cập ở việc nó có thể tận dụng nhiều câu mô tả mục tiêu khác 
+nhau của cùng 1 bức ảnh. 
+- Các bước để tính CIDEr:
+   + Bước 1: Áp dụng kĩ thuật stemming (tối giản một từ thành từ gốc của nó).
+      Ví dụ: “fishes”, “fishing”, “fished” → ”fish”
+   + Bước 2: Gọi n-gram 𝜔௞ là tập hợp của một hoặc nhiều từ. 𝛺 là bộ vocabulary bao gồm tất cả n-grams. Giả sử 
+ta cần đánh giá câu mô tả dự đoán 𝑐௜ với tập hợp những câu mô tả mục tiêu 𝑆௜= {𝑠௜ଵ, . . . , 𝑠௜௠} của ảnh 𝐼௜. Ta cần 
+tính trọng số TF-IDF:
+𝑔௞(𝑠௜௝) =
+ℎ௞(𝑠௜௝)
+∑ఠ೗∈𝛺ℎ௟(𝑠௜௝)      𝑙𝑜𝑔(
+|𝐼|
+∑ூ೛∈𝐼𝑚𝑖𝑛(1, ∑𝑞ℎ௞(𝑠௣௤) ) )
+                                                      
+Số lần n-gram 𝜔௞ xuất hiện trong câu 
+𝑠௜௝
+Tổng số n-grams trong câu 𝑠௜௝
+Term Frequency: đặt trọng số cao 
+nếu n-gram xuất hiện thường 
+xuyên trong câu 𝑠௜௝
+Nếu n-gram 𝜔௞ xuất hiện trong câu mô tả mục 
+tiêu trên các ảnh trong bộ dataset thì cho bằng 1
+Inverse Document Frequency: 
+giảm trọng nếu n-gram xuất hiện 
+thường xuyên trên toàn bộ dataset
+28
+AI VIETNAM
+Seminar
+Metrics 
+Metric 4: CIDEr
+   + Bước 3: Tính CIDEr Score cho từng n-gram có độ dài n:
+𝐶𝐼𝐷𝐸𝑟௡(𝑐௜, 𝑆௜) = 1
+𝑚෍
+𝑗
+𝑔௡(𝑐௜) ∙𝑔௡(𝑠௜௝) 
+||𝑔௡(𝑐௜)|| ||𝑔௡(𝑠௜௝)||
+trong đó: 𝑔௡(𝑐௜) là vector có trọng số 𝑔௞(𝑐௜) của các n-gram 𝜔௞ có độ dài n.
+   + Bước 4: Tính trung bình CIDEr Score cho tất cả n-gram:
+𝐶𝐼𝐷𝐸𝑟(𝑐௜, 𝑆௜) = ෍
+𝑛=1
+𝑁
+𝑤௡𝐶𝐼𝐷𝐸𝑟௡(𝑐௜, 𝑆௜)
+trong đó: ta có thể chọn 𝑤௡=
+1
+𝑁 và 𝑁= 4
+                                                      
+Outline
+AI VIETNAM
+Seminar
+▪
+Track 2 Problem
+▪
+Data Descriptions and Annotations
+▪
+EDA Data: BDD-PC-5K (External)
+▪
+EDA Data: WTS (Internal)
+▪
+Metrics
+▪
+Solution
+30
+AI VIETNAM
+Seminar
+Solution
+Solution 1: Image hoặc Video Retrieval 
+- Sử dụng CLIP hoặc LanguageBind để lấy embedding của video hoặc ảnh
+- Tạo Faiss index để lưu trữ vector thuận tiện cho quá trình retrieval
+- Thực hiện video-video hoặc image-image retrieval để lấy ra caption gần giống nhất video cần caption.
+ 
+31
+AI VIETNAM
+Seminar
+Solution
+Solution 2: Kết hợp với VTF-PAR
+- Một trong những điểm yếu của phương pháp số 1 là không sử dụng thông tin vị trí của người cần caption. 
+- Do đó ta có thể sử dụng VTF-PAR để trích xuất một số thông tin về người để kết hợp hỗ trợ quá trình retrieval 
+32
+AI VIETNAM
+Seminar
+Solution
+Solution 3: Zero shot Multimodal LLM với few shot LLM để rewrite lại kết quả
+- Ở phương pháp này chúng ta sẽ áp dụng kĩ thuật zero shot cho 1 số multimodal LLM (LLaVA) để tạo ra prompt 
+cho từng segment.
+- Sau đó kết hợp với retrieval để thực hiện few shot LLM hỗ trợ rewrite để sinh ra kết quả cuối cùng.

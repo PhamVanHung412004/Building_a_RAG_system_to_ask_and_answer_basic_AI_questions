@@ -1,0 +1,461 @@
+EDA AND PIPELINE
+AICITY CHALLENGE
+CVPRW-Track 5
+AI VIETNAM
+Seminar
+Year 
+2024
+Outline
+AI VIETNAM
+Seminar
+▪EDA Data Track 5
+▪Top model 2023
+▪Basic Baseline
+Outline
+AI VIETNAM
+Seminar
+▪EDA Data Track 5
+▪Top model 2023
+▪Baseline Basic
+Tổng quan về bộ dữ liệu
+10 FPS
+1920x1080
+20s/video
+100 video
+Ấn Độ
+EDA
+AI VIETNAM
+Seminar
+ANNOTATION
+EDA
+AI VIETNAM
+Seminar
+Chú thích label
+1. motorbike: bounding box của xe máy
+2. DHelmet: bounding box của người lái xe. Nếu người đó đội mũ
+3. DNoHelmet: bounding box của người lái xe. Nếu người đó không đội mũ
+4. P1Helmet: bounding box của người ngồi sau thứ nhất. Nếu người đó đội mũ
+5. P1NoHelmet: bounding box của người ngồi sau thứ nhất. Nếu người đó không đội mũ
+6. P2Helmet: bounding box của người ngồi sau thứ 2. Nếu người đó đội mũ
+7. P2NoHelmet: bounding box của người ngồi sau thứ hai. Nếu người đó không đội mũ
+8. P0Helmet: bounding box của trẻ em ngồi trước người lái. Nếu người đó đội mũ
+9. P0NoHelmet: bounding box của trẻ em ngồi trước người lái. Nếu người đó không đội mũ
+NOTE: Năm nay bổ sung thêm P0
+EDA
+AI VIETNAM
+Seminar
+Phân phối nhãn
+EDA
+AI VIETNAM
+Seminar
+Ground Truth Format
+〈video_id〉, 〈frame〉, 〈bb_left〉, 〈bb_top〉, 〈bb_width〉, 〈bb_height〉, 
+〈class〉
+•
+〈video_id〉 số thứ tự của video bắt đầu từ 1.
+•
+〈frame〉 số thứ tự frame trong video, bắt đầu từ 1.
+•
+〈bb_left〉 là tọa độ x của điểm trên cùng bên trái của bounding box.
+•
+〈bb_top〉 là tọa độ y của điểm trên cùng bên trái của bounding box.
+•
+〈bb_width〉 chiều rộng của bounding box.
+•
+〈bb_height〉chiều cao của bounding box.
+•
+〈class〉 id nhãn dán của object.
+EDA
+AI VIETNAM
+Seminar
+Trường hợp bình thường
+EDA
+AI VIETNAM
+Seminar
+Video 2
+Video 7
+Abnormal Case (Trường hợp bất thường)
+EDA
+AI VIETNAM
+Seminar
+Sương mù
+Bị chói
+Bị nhiễu
+Đông xe
+Nhiều 
+người
+Khó nhìn
+Không có gì 
+bất thường
+32
+13
+13
+5
+8
+20
+31
+Cách phân loại các trường hợp:
+- Dễ: Video được đánh giá “Không có gì bất thường”
+- Bình thường: Video gặp 1 - 2 tiêu chí bất thường
+- Khó: Video gặp 1 trong các tiêu chí: bị nhiễu, giật, có sương 
+mù; hoặc gặp 3 tiêu chí bất thường trở lên
+Abnormal Case (Trường hợp bất thường)
+EDA
+AI VIETNAM
+Seminar
+Video 10: Nhiều dây điện
+Video 14: Sương mù, chói do đèn xe
+Abnormal Case (Trường hợp bất thường)
+EDA
+AI VIETNAM
+Seminar
+Video 23: Sương mù
+Video 27: Đông 
+xe
+Abnormal Case (Trường hợp bất thường)
+EDA
+AI VIETNAM
+Seminar
+Video 39: Biển hiệu chắn
+Video 56: Nhiễu
+FAQ của AICITY CHALLENGE
+-
+Các đối tượng bé hơn 40px sẽ không được đánh nhãn
+-
+Các vùng bị làm mờ cũng không được đánh nhãn
+EDA
+AI VIETNAM
+Seminar
+Outline
+AI VIETNAM
+Seminar
+▪EDA Data Track 5
+▪Top model 2023
+▪Pipeline Basic
+PIPELINE TOP 1 2023
+AI VIETNAM
+Seminar
+Cách tiếp cận data
+-
+Phân tích data nhận thấy có sự khó khăn trong khi detect trong điều 
+kiện thời tiết xấu
+PIPELINE TOP 1 2023
+AI VIETNAM
+Seminar
+Cách tiếp cận data
+-
+Thống kế các nhãn và nhận ra sự mất cân bằng về dữ liệu
+PIPELINE TOP 1 2023
+AI VIETNAM
+Seminar
+Cách tiếp cận data
+-
+Thể hiện nhãn dán thông qua ảnh để nhận xét về nhãn dán từ đó tìm ra 
+phương pháp PRM
+PIPELINE TOP 1 2023
+AI VIETNAM
+Seminar
+Tổng quan về pipeline
+-
+Đầu tiên dùng 2 mô hình DETA để detect các class và ensemble bằng  
+NMS
+-
+Dùng Detectron 2 để nhận diện người
+-
+Dùng PRM (Passenger Recall Module) dùng để xác định P2
+-
+Sau đó dùng CRM (Category Refine Module) đảm bảo các object khi ra 
+xa khỏi camera vẫn đảm bảo độ chính xác 
+PIPELINE TOP 1 2023
+AI VIETNAM
+Seminar
+-
+Dùng 2 mô hình DETA để phát hiện 
+class
+-
+Dùng NMS để ensemble
+PIPELINE TOP 1 2023
+AI VIETNAM
+Seminar
+Dùng Detectron2 để detect person
+PIPELINE TOP 1 2023
+AI VIETNAM
+Seminar
+PRM
+Xây dựng kỹ thuật để tìm kiếm P2:
+-
+Khi detect người cùng với xe gắn lại với sau
+-
+Dùng SORT để tracking từ đó đoán  hướng 
+di chuyển của xe để từ đó để xác định P2
+-
+Sau khi có P2 thì dùng ResNet để detect
+có mũ bảo hiểm hay không
+PIPELINE TOP 1 2023
+AI VIETNAM
+Seminar
+CRM
+Dùng SORT để trackid các class, chọn class c 
+có số lượng lớn nhất trong trackid
+nếu số lượng lớn hơn 50% 
+thì đổi tất cả class trong trackid thành class c 
+PIPELINE TOP 1 2023
+AI VIETNAM
+Seminar
+KẾT QUẢ THỰC NGHIỆM
+Sau khi dùng PRM độ chính xác của mô hình tăng lên đáng kể.
+PIPELINE TOP 1 2023
+AI VIETNAM
+Seminar
+Nhược điểm đối với pipeline top1 đối với data năm nay
+Vì sử dụng PRM để tìm kiếm P2 nên sẽ bị fix cứng bởi số người có trên 1 xe 
+Năm nay bổ sung thêm P0 sẽ khiến cho PRM bị sai lệch.
+PIPELINE TOP 1 2023
+AI VIETNAM
+Seminar
+PIPELINE TOP 2 2023
+AI VIETNAM
+Seminar
+PIPELINE TOP 2 2023
+AI VIETNAM
+Seminar
+Cách tiếp cận data
+-
+Thể hiện các điều kiện môi trường gặp của bộ dữ liệu
+AI VIETNAM
+Seminar
+PIPELINE TOP 2 2023
+AI VIETNAM
+Seminar
+Cách tiếp cận data
+-
+Lên kế hoạch về data augmentation
+AI VIETNAM
+Seminar
+PIPELINE TOP 2 2023
+AI VIETNAM
+Seminar
+Cách tiếp cận data
+-
+Gộp các label để thực hiện cho bước detector
+AI VIETNAM
+Seminar
+Họ gộp người lái xe cùng với xe máy thành 1
+Class duy nhất motorbike 
+Sau đó họ cắt bbox trả về chỉ lưu chọn các
+Bbox có độ lớn >= 40 và scale up bbox lên
+1.5% hoặc 50 pixel
+ Lấy được confidence score thông qua mô hình 
+(the first rank) 
+PIPELINE TOP 2 2023
+AI VIETNAM
+Seminar
+AI VIETNAM
+Seminar
+Detector
+-
+Dùng 5 model yolov8 với size ảnh khác nhau 
+sau 
+-
+Ensemble bằng WBF thì thấy được là 5 model 
+với size 320, 384, 448, 512, 576 có acc cao 
+nhất
+-
+Tính second rank bằng cách merge
+PIPELINE TOP 2 2023
+AI VIETNAM
+Seminar
+AI VIETNAM
+Seminar
+IDENTIFIER
+-
+Tìm ra một cof max để loại bỏ 
+những label có cof nhỏ hơn
+-
+Lấy cof ở Detector và Identifier để 
+tính cof cho đối tượng
+PIPELINE TOP 2 2023
+AI VIETNAM
+Seminar
+AI VIETNAM
+Seminar
+Heuristic Process và Ranking Process
+KẾT QUẢ THỰC NGHIỆM
+PIPELINE TOP 2 2023
+AI VIETNAM
+Seminar
+PIPELINE TOP 3 2023
+AI VIETNAM
+Seminar
+PIPELINE TOP 3 2023
+AI VIETNAM
+Seminar
+1. Object Detection Module
+-
+Gồm hai module dùng cho head detection và helmets 
+of motorcyclists detection chịu trách nhiệm detec tất 
+cả object trong khung hình
+-
+Dùng  one-stage methods : EfficientDet 
+-
+Đối với model  helmets of motorcyclists detection là 
+model đầu tiên dùng để detec 7 object bao gồm 
+motorbike, driver, and passenger. Nhưng do 
+imbalance giữa các lớp object nên model cho hiệu 
+suất kém ở các lớp nhỏ 
+-
+Đối với model head detection là model thứ hai dùng 
+output bổ sung cho model đầu giúp cải thiện hiệu 
+suất tổng thể
+PIPELINE TOP 3 2023
+AI VIETNAM
+Seminar
+1. Object Detection Module
+Helmet Detection for Motorcyclists:
+-
+EfficientDet dùng backbone là EfficientNet và feature 
+network là BiFPN
+-
+Baseline chạy thử nghiệm trên 3 biến thể lớn nhất 
+EfficiencyDet (D5, D6 và D7) với các input khác nhau (512 → 
+1024) để đạt hiệu suất tốt nhất
+ 
+Head Detection :
+-
+EfficientDet vẫn đạt được hiệu quả
+-
+Module chỉ train head detection model, không kết hợp 
+pseudo-labeling 
+PIPELINE TOP 3 2023
+AI VIETNAM
+Seminar
+1. Object Detection Module
+Helmet Detection for Motorcyclists:
+-
+EfficientDet dùng backbone là EfficientNet và feature 
+network là BiFPN
+-
+Baseline chạy thử nghiệm trên 3 biến thể lớn nhất 
+EfficiencyDet (D5, D6 và D7) với các input khác nhau (512 → 
+1024) để đạt hiệu suất tốt nhất
+ 
+Head Detection :
+-
+EfficientDet vẫn đạt được hiệu quả
+-
+Module chỉ train head detection model, không kết hợp 
+pseudo-labeling 
+PIPELINE TOP 3 2023
+AI VIETNAM
+Seminar
+1. Object Detection Module
+Data Augmentation:
+-
+Dùng kĩ thuật TTA
+-
+Tổng hợp thông qua Weighted boxes fusion (WBF) 
+Assembling predicted boxes and pseudolabeling:
+-
+Dùng ensemble và pseudolabeling để cải thiện hiệu suất 
+EfficiencyDet D6(rudeuce variance và 5382 bias)
+-
+Esembling các kết quả từ các model tốt nhất để 
+pseudolabeling, sau đó train model EfficiencyDet trong một 
+vài epoch với pseudolabeling này và chọn model đó làm 
+model cuối cùng. Để tránh loại bỏ rare object sử dụng very low 
+threshold với WBF
+PIPELINE TOP 3 2023
+AI VIETNAM
+Seminar
+2.  Object Association Module 
+-
+Association output từ object detection để khớp object motor 
+tương ứng với object head và human → ID tracking duy nhất cho 
+mỗi nhóm
+-
+Sau khi gán các object output từ module trước, association sẽ 
+xác định tất các cặp human-motor và human-head và liên kết 
+chúng với nhau. Thực hiện bằng cách tính toán overlap area và 
+vị trí tương ứng của bounding boxes với motor
+-
+Output là danh sách các motor được đính kèm human và head 
+tương ứng
+PIPELINE TOP 3 2023
+AI VIETNAM
+Seminar
+3.   Post-processing For Tracking Module
+-
+Thách thức đối với object detection model là phát hiện 
+chính xác số lượng người trên xe (số lượng vượt quá 2) 
+do góc camera khi tiếp xúc xe nên việc phân biệt cá thể 
+trên xe chưa đạt hiệu suất tốt
+-
+Do sự mất cân bằng của tập training dataset (5500 :70) → 
+phân loại sai thành class driver
+-
+Quá trình post-processing sẽ tracking tất cả motor và 
+dùng Selection Sort để gán lại từng human’s box trên xe 
+máy trong khi vẫn giữ lại class Helmet hoặc NoHelmet → 
+ﬁnal output
+PIPELINE TOP 3 2023
+AI VIETNAM
+Seminar
+3.   Post-processing For Tracking Module
+-
+Module dựa trên SORT algorithm. Ngoài ra, còn tích hợp 
+Kalman Filter (KF) kết hợp module Selection SORT để cải thiện 
+output detection
+-
+Selection SORT không chỉ cập nhật ID mà còn cập nhật thuộc 
+tính bổ sung cho object trong mỗi frame để xác định lại vị trí 
+của người trên xe
+PIPELINE TOP 2 2023
+AI VIETNAM
+Seminar
+3.   Post-processing For Tracking Module
+Quy trình cụ thể:
+(1)
+Direction detection:
+PIPELINE TOP 3 2023
+AI VIETNAM
+Seminar
+3.   Post-processing For Tracking Module
+(2) P1_P2_Checking: xác định số lượng người 
+trên xe
+PIPELINE TOP 3 2023
+AI VIETNAM
+Seminar
+3.   Post-processing For Tracking Module
+( 3)  Đặt lại lớp đúng cho các đối tượng con người dựa trên kết 
+quả từ thuật toán Kiểm tra P1 P2 và thuật toán phát hiện hướng.:
+ 
+PIPELINE TOP 2 2023
+AI VIETNAM
+Seminar
+3.   Post-processing For Tracking Module
+-
+Dựa vào output của giai đoạn trước thuật toán 
+gán lại chính xác class human 
+-
+Các human boxes được sắp xếp theo tọa độ để 
+có vị trí tương đối so với xe
+-
+Dựa vào thuật toán 3 để gán lại class thích hợp 
+trong suốt thời gian ID xe đó trong video
+ 
+PIPELINE TOP 3 2023
+AI VIETNAM
+Seminar
+KẾT QUẢ THỰC NGHIỆM
+PIPELINE TOP 3 2023
+AI VIETNAM
+Seminar
+Outline
+AI VIETNAM
+Seminar
+▪EDA Data Track 5
+▪Top model 2023
+▪Pipeline Basic
+PIPELINE cơ bản
+AI VIETNAM
+Seminar

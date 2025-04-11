@@ -1,4 +1,0 @@
-AI VIETNAM aivietnam.edu.vn
-3. IRIS CLASSIFICATION
-Cho một tập dữ liệu huấn luyện phân loại hoa Iris dựa vào chiều dài cánh hoa như bảng dữ liệu bên
-dưới. 

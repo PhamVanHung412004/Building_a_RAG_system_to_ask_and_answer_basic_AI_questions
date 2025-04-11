@@ -1,4 +1,0 @@
-AI VIETNAM aivietnam.edu.vn
-Hình 2: Hình so sánh point cloud qua các phương pháp sampling a) original point cloud, b) voxel grid
-sampling và c) farthest point sampling.
-thay thế bằng điểm đại diện này.

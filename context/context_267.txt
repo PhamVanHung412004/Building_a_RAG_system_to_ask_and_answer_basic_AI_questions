@@ -1,0 +1,276 @@
+AIO2024
+aivietnam.edu.vn
+HƯỚNG DẪN TRIỂN KHAI VÀ ĐÓNG GÓI
+DỰÁN PYTHON VỚI POETRY
+Dinh-Tiem Nguyen và Quang-Vinh Dinh
+1
+Mởđầu
+Làm thếnào đểxây dựng các package, library như math, numpy, tensorflow, pytorch? Làm thếnào để
+tái sửdụng code trong dựán? Trong bài viết này sẽhướng dẫn cách triển khai xây dựng một package
+đơn giản với Poetry, sau đó phát hành nó trên nền tảng chia sẻpackage nổi tiếng PyPI.
+Yêu cầu:
+• Máy tính đã cài đặt python
+• Đã biết cơ bản vềcách tạo và quản lí môi trường trong python
+Hình 1: Pipline xây dựng package
+2
+Cài đặt thư viện Poetry
+Poetry là một công cụquản lý các package, library phụthuộc trong môi trường riêng biệt đểphát triển
+các dựán python, đặc biệt là nó cung cấp các chức năng thuận tiện cho việc xây dựng package python
+và phát hành lên nền tảng PyPI.
+Có một sốcách khác nhau đểcài Poetry, trong hướng dẫn này sửdụng cách cài đặt thông qua pipx -
+một công cụđểcài đặt và quản lí các package, library python( không phải là các package, library như
+numpy, pandas mà bạn hay dùng đểimport khi viết code đâu, mà nó là các package có thểsửdụng từ
+dòng lệnh như Python, Poetry...) . Đểcài đặt pipx, bạn xem hướng dẫn chi tiết tại đây. Đối với hệđiều
+hành window, các bạn cài đặt qua lệnh sau:
+1 py -m pip
+install
+--user pipx
+Tiếp theo chúng ta sẽcài đặt poetry với lệnh sau:
+1 pipx
+install
+poetry
+Sau khi cài đặt hoàn tất, ta có thểxác minh cài đặt thành công không qua lệnh sau:
+1 poetry
+--version
+Nếu bạn thấy kết quảtương tựnhư Poetry (version 1.8.2) thì tức là đã cài đặt thành công rồi đó.
+1
+AIO2024
+aivietnam.edu.vn
+3
+Thiết lập dựán
+Đểtạo một dựán mới với Poetry ta sẽsửdụng lệnh poetry new, ví dụchúng ta tạo dựán xây dựng
+package tính giai thừa có tên aio2024, ta sẽsửdụng lệnh sau:
+1 poetry new aio2024
+Sau khi thực thi lệnh trên, ta sẽnhận được một thư mục dựán có tên là aio2024 với cấu trúc sau:
+1 |
+pyproject.toml
+2 |
+README.md
+3 |
+4 |---aio2024
+5 |
+__init__.py
+6 |
+7 |---tests
+8
+__init__.py
+Trong thư mục aio2024 chứa các tệp và package được sửdụng với các mục đích khác nhau:
+• aio2024 : Ta sẽviết code đểtạo package ởtrong thư mục này
+• tests : Ta sẽviết code kiểm thửởđây
+• pyproject.toml : Là file chứa thông tin cấu hình package chúng ta đang xây dựng
+• README.md : Là file mô tảpackage mà chúng ta đang xây dựng, hướng dẫn cài đặt... được viết
+bằng Markdown
+Đó chính là cấu trúc tiêu chuẩn của một dựán xây dựng package với Poetry. Nếu ta có một dựán từ
+trước mà muốn đóng gói lại với Poetry thì cần phải tổchức lại code theo cấu trúc này.
+Vì file pyproject.toml chứa các thông tin quan trọng nên chúng ta sẽcùng tìm hiểu nội dung của file
+này:
+1 [tool.poetry]
+2 name = "aio2024"
+3 version = "0.1.0"
+4 description = ""
+5 authors = ["NguyenDinhTiem <nguyendinhtiem1999@gmail .com >"]
+6 readme = "README.md"
+7 packages = [{ include = "aio2024"}]
+8
+9 [tool.poetry.dependencies]
+10 python = "^3.12"
+11
+12
+13 [build -system]
+14 requires = ["poetry -core"]
+15 build -backend = "poetry.core.masonry.api"
+Phần đầu tiên trong file là [tool.poetry], trong phần này chứa thông tin:
+• name : Tên của thư mục dựán
+• version : Phiên bản mà chúng ta đang phát triển
+• description : Mô tảngắn vềpackage
+• authors : Thông tin vềtác giả, nhóm phát triển package
+• readme : Tệp đểviết các mô tả, hướng dẫn chi tiết vềpackage
+2
+AIO2024
+aivietnam.edu.vn
+• packages : Vịtrí, tên của package, nơi mà chứa các file code của package.
+Lưu ý: packages = [{include = "aio2024"}] đây là thông tin vịtrí của package, theo mặc định thì
+poetry sẽlấy tên theo tool.poetry.name nhưng trong một sốtrường hợp dựán có tên thư mục dựán
+và tên package khác nhau, nên chúng ta cần chỉđịnh lại tên của package. Nếu không sẽbịlỗi khi build
+package.
+Tiếp theo là phần [tool.poetry.dependencies] chứa thông tin vềphiên bản python và các package, library
+tương thích với package chúng ta xây dựng. Ví dụpackage chúng ta đang xây dựng cần sửdụng python,
+streamlit thì chúng sẽđược liệt kê tại đây.
+Phần cuối của file là [build-system], phần này chứa một sốthông tin vềcác phụthuộc đểthực hiện
+đóng gói package. Ta sẽđểcác giá trịtheo mặc định.
+Theo mặc định phiên bản python Poetry sẽsửdụng đểtạo môi trường cho dựán là phiên bản python
+trên môi trường chung của máy tính. Ta có thểxem thông tin môi trường bằng cách điều hướng đến
+thư mục dựán vừa tạo và dùng lệnh sau:
+1 =============== Input ======================
+2 cd aio2024
+3 poetry env info
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14 ==========================================
+=================
+Output
+=================
+Virtualenv
+Python:
+3.12.2
+Implementation : CPython
+Path:
+NA
+Executable:
+NA
+Base
+Platform:
+win32
+OS:
+nt
+Python:
+3.12.2
+Path:
+C:\ Python312
+Executable: C:\ Python312\python.exe
+==========================================
+Chúng ta có thểkích hoạt môi trường trong Poetry bằng lệnh sau:
+1 poetry
+shell
+Môi trường này hoạt động tương tựnhư môi trường trong anaconda. Nhưng điều thú vịlà không như
+Anaconda có thểkích hoạt môi trường ởmọi nơi, môi trường trong Poetry chỉcó thểkích hoạt tại trong
+chính vịtrí thư mục dựán.
+Đểcài đặt một package hay library cho dựán, ta sẽsửdụng lệnh sau
+1 poetry add
+name_package
+Ta cũng có thểcài nhiều package bằng cách thêm nó vào phần [tool.poetry.dependencies] sau đó sử
+dụng lệnh sau đểcài đặt:
+1 poetry
+install
+4
+Xây dựng và public package
+4.1
+Xây dựng package
+Chúng ta sẽxây dựng package với hai module, module1 là math.py chứa class MyMath với thuộc tính
+là một sốtựnhiên value và một phương thức factorial() đểtính giai thừa cho value. Module thứ2 là
+cat.py, chúng ta sẽxây dựng class Cat với thuộc tính name và phương thức describe().
+3
+AIO2024
+aivietnam.edu.vn
+1 #math.py
+2 class
+MyMath:
+3
+def
+__init__(self , value:int) -> None:
+4
+self.value = value
+5
+def
+factorial(self) -> int:
+6
+if self.value == 0:
+7
+return 1
+8
+else:
+9
+return
+self.value * MyMath(self.value - 1).factorial ()
+10
+11 #cat.py
+12 class Cat:
+13
+def
+__init__(self , name):
+14
+self.__name = name
+15
+16
+def
+describe(self):
+17
+print(self.__name)
+4.2
+Đóng gói và Xuất bản package
+4.2.1
+Đóng gói
+Chúng ta đóng gói package đểcung cấp cho các nhóm phát triển khác trong dựán hoặc đểđăng tải trực
+tuyến cho cộng đồng python sửdụng. Trong Poetry chúng ta có thểthực hiện điều này rất dễdàng.
+Đầu tiên chúng ta đóng gói lại dựán bằng lệnh sau:
+1 =============== Input ======================
+2 poetry
+build
+3
+4
+5
+6
+7
+8 ==========================================
+=================
+Output
+=================
+Building
+aio2024
+(0.1.0)
+- Building
+sdist
+- Built aio2024 -0.1.0. tar.gz
+- Building
+wheel
+- Built aio2024 -0.1.0 -py3 -none -any.whl
+==========================================
+Việc đóng gói này sẽsửdụng các cấu hình mà chúng ta thiết lập trong file pyproject.toml. Vậy là quá
+trình đóng gói package của chúng ta đã thành công.
+4.2.2
+Xuất bản package
+Tiếp theo, đểđăng tải lên PyPI, ta sẽtruy cập vào trang web pypi.org và tiến hành đăng nhập, nếu
+chưa có tài khoản chúng ta sẽcần phải đăng ký một tài khoản mới.
+Sau khi đăng nhập thành công, ta sẽtạo một API token tại phần Account settings (1) hoặc tại link
+https://pypi.org/manage/account/token/. Sau đó tại phần API tokens chọn Add API tokens(2)phần
+Scope chúng ta chọn Entire account (all projects) như hình trên(3).
+Lưu ý: Trước khi tạo token PyPI sẽyêu cầu chúng ta xác thực Two factor authentication (2FA). Chúng
+ta cần làm theo thông báo đó đểbật xác thực 2FA, sau đó mới có thểtạo token được.
+(4)Cuối cùng chúng ta sẽnhấn vào button create token, một đoạn mã chứa thông tin vềtoken xuất
+hiện, ta cần copy lại và lưu vào một tệp nào đó trên máy tính của chúng ta đểcó thểxem lại khi cần.
+Vì đoạn mã này chỉxuất hiện một lần duy nhất khi chúng ta tạo token trên PyPI.
+Tiếp theo ta sẽthêm tài khoản PyPI vào Poetry với lệnh sau:
+1 poetry
+config http -basic.foo <username > <password >
+Trong đó username là tên đăng nhập, password là mật khẩu của tài khoản PyPI mà chúng ta đã tạo.
+Tiếp theo chúng ta thêm thông tin token của tài khoản bằng lệnh:
+4
+AIO2024
+aivietnam.edu.vn
+Hình 2: Tạo PyPI API token
+1 poetry
+config pypi -token.pypi <my -token >
+Trong đó my-token là token ta đã tạo ởphía trên.
+Cuối cùng chúng ta đẩy package của chúng ta lên nền tảng PyPI bằng lệnh:
+1 =============== Input ======================
+2 poetry
+publish
+3
+4
+5
+6
+7 ==========================================
+=================
+Output
+=================
+Publishing
+aio2024
+(0.1.0) to PyPI
+- Uploading
+aio2024 -0.1.0 -py3 -none -any.
+whl 100%
+- Uploading
+aio2024 -0.1.0. tar.gz 100%
+==========================================
+Vậy là package của chúng ta đã được đăng tải lên PyPI, ngay lúc này cảcộng đồng Python có thểsử
+dụng packge của chúng ta thông qua cú pháp pip install, thật là tuyệt vời ông mặt trời phải không?
+Hình 3: Package được đăng tải lên PyPI
+5

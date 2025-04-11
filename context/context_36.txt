@@ -1,0 +1,889 @@
+Model Quantization
+Bach-Hoang Ngo
+AI VIETNAM
+All-in-One Course
+Year 2024
+Motivation
+2
+AI VIETNAM
+All-in-One Course
+Outline
+▪
+Motivation
+▪
+Floating Point
+▪
+Uniform Quantization
+▪
+Non-Uniform Quantization
+AI VIETNAM
+All-in-One Course
+Outline
+▪
+Motivation
+▪
+Floating Point
+▪
+Uniform Quantization
+▪
+Non-Uniform Quantization
+AI VIETNAM
+All-in-One Course
+Motivation
+5
+AI VIETNAM
+All-in-One Course
+Motivation
+6
+AI VIETNAM
+All-in-One Course
+VRAM Usage: Model Size * 2 (Loading with FP16)
+Model 
+Size 
+VRAM Usage
+GPT3
+175B
+350 GB
+Bloom 
+176B
+352GB
+Llama-2-70B
+70B
+140GB
+Mistral
+7B 
+14GB
+Motivation
+7
+AI VIETNAM
+All-in-One Course
+Motivation
+8
+AI VIETNAM
+All-in-One Course
+Improve the 
+efficiency of 
+NN
+Design Efficient 
+Architectures
+Design Hardware
+Quantization
+Pruning
+Our focus!
+Quantization
+9
+AI VIETNAM
+All-in-One Course
+Floating Point
+Integer
+-0.2
+1
+0.3
+0.1
+-0.6
+-0.7
+1.2
+0.4
+0
+1
+3
+2
+1
+0
+0
+3
+2
+1
+Quantization
+32 bit
+8 bit
+Quantization
+10
+AI VIETNAM
+All-in-One Course
+Quantization
+11
+AI VIETNAM
+All-in-One Course
+Quantization
+▪
+Motivation
+▪
+Floating Point
+▪
+Uniform Quantization
+▪
+Non-Uniform Quantization
+AI VIETNAM
+All-in-One Course
+13
+Representing numbers
+AI VIETNAM
+All-in-One Course
+Representing Real Numbers: Decimal
+102
+10−1
+100
+101
+10−2
+10−3
+.
+�2
+�−1
+�0
+�1
+�−2
+�−3
+.
+1
+4
+3
+2
+5
+6
+.
+14
+Representing numbers
+AI VIETNAM
+All-in-One Course
+Representing Real Numbers: Decimal
+10�
+10−1
+100
+10�−1
+10−2
+10−�
+.
+��
+�−1
+�0
+��
+�−2
+�−3
+.
+…
+…
+…
+…
+�=  
+�=−�
+�
+10�  ∗��
+15
+Representing numbers
+AI VIETNAM
+All-in-One Course
+2�
+2−1
+20
+2�−1
+2−2
+2−�
+.
+��
+�−1
+�0
+��
+�−2
+�−3
+.
+…
+…
+…
+…
+�=  
+�=−�
+�
+2�  ∗��
+Representing Real Numbers: Binary
+16
+Fixed-point
+AI VIETNAM
+All-in-One Course
+Where to put the point?
+0  0  0  0  0  1  0  1  0  1  1  1  1  1  0  0  1  1  0  1  0  0  0  1  1
+More Precision
+Better Range
+12345678.9101112
+00000000.0000121
+12300000.0000000
+redundant
+redundant
+Any way to make the point moving?
+17
+Fixed-point
+AI VIETNAM
+All-in-One Course
+Where to put the point?
+12300000.0000000
+1.23 * 107
+00000000.0000121
+1.21 * 10−5
+For Binary
+11000000.0000000
+1.1 * 27
+00000000.0000011
+1.1 * 2−6
+(−1)�  ∗�  ∗2�
+Indicates where to 
+put the point
+18
+Floating Point
+AI VIETNAM
+All-in-One Course
+(−1)�  ∗�  ∗2�
+S
+exp
+frac
+E = exp - bias
+Bias = 2�−1 −1
+Leading 1
+Sign bit
+19
+Floating Point
+AI VIETNAM
+All-in-One Course
+(−1)�  ∗�  ∗2�
+S
+8 bits
+23 bits
+FP32
+S
+5 bits
+10 bits
+S
+8 bits
+7 bits
+FP16
+bfloat 16
+20
+Floating Point
+AI VIETNAM
+All-in-One Course
+Data type
+Range 
+Precision
+FP32
+1.18 x 10^-38 to 3.40 
+x 10^38
+6 – 9 decimal digits
+FP16
+4.88 x 10^-4 to 6.55 x 
+10^4
+5 – 6 decimal digits
+Bfloat16
+1.18 x 10^-38 to 3.40 
+x 10^38
+3 decimal digits
+Quantization
+▪
+Motivation
+▪
+Floating Point
+▪
+Uniform Quantization
+▪
+Non-Uniform Quantization
+AI VIETNAM
+All-in-One Course
+22
+Uniform Quantization
+AI VIETNAM
+All-in-One Course
+�(�) = ��� �
+� −�
+Scaling Factor
+Zero Value
+23
+Uniform Quantization
+AI VIETNAM
+All-in-One Course
+Example
+�= 1/127,   �= 0
+24
+Dequantization
+AI VIETNAM
+All-in-One Course
+�(�) = ��� �
+� −�
+→�(�) + �= ��� �
+� 
+→�  ≈�∗(�(�) + �)
+25
+Scaling Factor
+AI VIETNAM
+All-in-One Course
+�= �−�
+2�−1
+�:  ������� ������
+ �,  � : ��������� ����
+�:  ��� ����ℎ
+�= �−�
+255
+For 8-bit quantization
+How to find � ��� � ?
+�(�) = ��� �
+� −�
+26
+Calibration
+AI VIETNAM
+All-in-One Course
+Calibration: the process of choosing the clipping range 
+Simple approach: Choosing the min/max of the signal
+Assymetric Quantization
+�= ����
+�= ����
+� ! = 0
+Symetric Quantization
+−�= �
+= max ( ���� ,   ���� )
+�= 0 
+27
+Uniform Quantization
+AI VIETNAM
+All-in-One Course
+Symmetric Quantization
+Asymmetric Quantization
+�(�) = ��� �
+� 
+�(�) = ��� �
+� −�
+28
+Symmetric Quantization
+AI VIETNAM
+All-in-One Course
+�(�) = ��� �
+� 
+For symmetry S = absmax(r)/127
+29
+Symmetric Quantization
+AI VIETNAM
+All-in-One Course
+0.3
+0.6
+-0.3
+-0.5
+0.0
+0.7
+-0.8
+0.2
+Absolute max: 0.8
+Scale: 
+1
+�=
+127
+0.8 =   158.75
+�(�) = ��� �
+� 
+48
+95
+-48
+-79
+0
+111
+-127
+32
+Quantize
+30
+Symmetric Quantization
+AI VIETNAM
+All-in-One Course
+Absolute max: 0.8
+Scale: 
+1
+�=
+127
+0.8 =   158.75
+�=  �(�)  ∗�
+48
+95
+-48
+-79
+0
+111
+-127
+32
+Dequantize
+0.30
+0.49
+-0.30
+-0.49
+0.0
+0.69
+-0.8
+0.20
+31
+Asymmetric Quantization
+AI VIETNAM
+All-in-One Course
+�(�) = ��� �
+� −� 
+����  →−128
+−128 = ��� ����
+� −�
+�= ��� ����
+� + 128
+�= �−�
+255
+Calculate zero point
+32
+Asymmetric Quantization
+AI VIETNAM
+All-in-One Course
+33
+Symmetric Quantization
+AI VIETNAM
+All-in-One Course
+0.3
+0.6
+-0.3
+-0.5
+0.0
+0.7
+-0.8
+0.2
+max: 0.7, min: -0.8
+Scale: 
+1
+�=
+255
+0.7−(−0.8) = 170  
+�(�) = ��� �
+�   −�
+59
+110
+-43
+-77
+8
+127
+-128
+42
+Quantize
+Zero point: �= ��� 
+����
+����� + 128 =−8 
+34
+Symmetric Quantization
+AI VIETNAM
+All-in-One Course
+Dequantize
+0.30
+0.60
+-0.30
+-0.50
+0.0
+0.70
+-0.80
+0.20
+59
+110
+-43
+-77
+8
+127
+-128
+42
+max: 0.7, min: -0.8
+Scale: 
+1
+�=
+255
+0.7−(−0.8) = 170  
+ �= �∗(�(�) + �)
+Zero point: �= ��� 
+����
+����� + 128 =−8 
+35
+Asymmetric vs. Symmetric
+AI VIETNAM
+All-in-One Course
+36
+Asymmetric vs. Symmetric
+AI VIETNAM
+All-in-One Course
+Feature
+Symmetric 
+Quantization
+Asymmetric 
+Quantization
+Implementation
+Simple 
+Implementation
+More complex
+Computational cost
+Simpler calculation 
+Slightly higher
+Efficiency for non-
+uniform distributions
+Less efficient
+More efficient
+37
+Calibration
+AI VIETNAM
+All-in-One Course
+Is choosing max/min values a good option?
+38
+Calibration
+AI VIETNAM
+All-in-One Course
+Choose max absolute value -> vulnerable to 
+outliers.
+- Entropy: KL divergence to minimize 
+information loss.
+- Percentile: Set a range to a percentile of the 
+distribution. 
+39
+Calibration
+AI VIETNAM
+All-in-One Course
+0.3
+0.6
+-0.3
+-0.5
+0.0
+0.7
+-99
+0.2
+Outlier
+0
+1
+0
+-1
+0
+1
+-127
+0
+Quantization
+0.0
+0.77
+0.0
+-0.77
+0.00
+0.77
+-99
+0.00
+Dequantization
+40
+Calibration
+AI VIETNAM
+All-in-One Course
+Percentile Quantization
+41
+Calibration
+AI VIETNAM
+All-in-One Course
+0.3
+0.6
+-0.3
+-0.5
+0.0
+0.7
+-99
+0.2
+Outlier
+65
+127
+-65
+-108
+0
+127
+-128
+43
+Quantization
+0.30
+0.59
+-0.30
+0.50
+0.00
+0.59
+-0.59
+0.19
+Dequantization
+42
+QUIZ TIME!!!
+AI VIETNAM
+All-in-One Course
+43
+QUIZ TIME!!!
+AI VIETNAM
+All-in-One Course
+Câu 1: Quá trình quantization là gì?
+A) Chuyển đổi giá trị từ dạng phân số sang số nguyên
+B) Chuyển đổi giá trị liên tục thành giá trị rời rạc / giảm số 
+bit để biểu diễn 1 giá trị. 
+C) Tăng độ chính xác của dữ liệu số
+D) Giảm tốc độ xử lý của hệ thống số
+Câu 2 Trong machine learning, quantization thường 
+được sử dụng để:
+A) Tăng độ phức tạp của mô hình
+B) Tăng độ chính xác của mô hình
+C) Giảm kích thước và yêu cầu tính toán của mô hình
+D) Tăng số lượng lớp trong mạng neural
+44
+QUIZ TIME!!!
+AI VIETNAM
+All-in-One Course
+4) Phương pháp quantization nào cung cấp các đặc tính sau:
+•Dễ dàng triển khai (easy to implement) hơn.
+•Khoảng cách bằng nhau (equal spacing) giữa các mức lượng hóa.
+A) Lượng hóa đồng nhất (Uniform quantization)
+B) Lượng hóa không đồng nhất (Non-uniform quantization)
+C) Cả hai lượng hóa đồng nhất và không đồng nhất
+D) Không phải lượng hóa đồng nhất cũng không phải không đồng nhất
+5) Loại lượng hóa nào phù hợp hơn cho các tín hiệu có hầu hết các 
+giá trị tập trung ở phía dương, xét về cả tính đơn giản và hiệu quả?
+a) Lượng hóa đối xứng (Symmetric quantization)
+b) Lượng hóa không đối xứng (Non-symmetric quantization)
+c) Cả hai đều hoạt động tốt như nhau.
+d) Không phương pháp nào phù hợp.
+45
+QUIZ TIME!!!
+AI VIETNAM
+All-in-One Course
+Câu 5: Quá trình hiệu chỉnh (calibration) trong quantization được 
+sử dụng để làm gì?
+a) Tăng độ chính xác của mô hình sau quantization
+b) Giảm kích thước của mô hình mà không cần quantization
+c) Xác định phạm vi giá trị tối ưu cho các tham số để giảm thiểu lỗi 
+quantization
+d) Tăng tốc độ tính toán của mô hình mà không ảnh hưởng đến kích 
+thước mô hình
+Quantization
+▪
+Motivation
+▪
+Floating Point
+▪
+Uniform Quantization
+▪
+Non-Uniform Quantization
+AI VIETNAM
+All-in-One Course
+47
+Non-uniform Quantization
+AI VIETNAM
+All-in-One Course
+Lots of data in 
+this area
+Step increase linearly
+-> Many data points get 
+quantized into 1 bin
+48
+Non-uniform Quantization
+AI VIETNAM
+All-in-One Course
+Fewer values
+Still the same 
+number of bins
+49
+Non-uniform Quantization
+AI VIETNAM
+All-in-One Course
+Uniform quantization
+Non-uniform quantization
+�(�) = ��,  �� �∈ Δ�,  Δi+1)
+50
+Non-uniform Quantization
+AI VIETNAM
+All-in-One Course
+�(�) = ��,  �� �∈ Δ�,  Δi+1)
+Balance Quantization
+51
+Non-uniform Quantization
+AI VIETNAM
+All-in-One Course
+Block-wise Quantization
+52
+Non-uniform Quantization
+AI VIETNAM
+All-in-One Course
+Feature
+Uniform 
+Quantization
+Non-uniform 
+Quantization
+Spacing
+Equally spaced levels
+Unequally spaced 
+levels (based on 
+signal characteristics)
+Simplicity
+Simple and 
+straightforward
+More complex
+Efficiency (uniform 
+distribution)
+Efficient
+Less efficient for 
+uniform distributions
+Efficiency (non-
+uniform distribution)
+May waste bits, poor 
+accuracy for non-
+uniform distributions
+More efficient and 
+accurate for non-
+uniform distributions
+Complexity
+Low
+High
+53
+Inferencing Quantized Models
+AI VIETNAM
+All-in-One Course
+54
+Simulated Quantization
+AI VIETNAM
+All-in-One Course
+Simulated Quantization
+55
+Simulated Quantization
+AI VIETNAM
+All-in-One Course
+Simulated Quantization
+-64
+32
+-16
+96
+-48
+112
+-12
+60
+-56
+32
+50
+16
+16
+32
+44
+-0.5
+0.25
+0.12
+0.75
+-0.37
+0.88
+-0.09
+0.47
+-0.44
+0.25
+0.39
+0.12
+0.12
+0.25
+0.34
+Range [-1, 1], S = 1/127
+56
+Simulated Quantization
+AI VIETNAM
+All-in-One Course
+-0.5
+0.25
+0.12
+0.75
+-0.37
+0.88
+-0.09
+0.47
+-0.44
+0.25
+0.39
+0.12
+0.12
+0.25
+0.34
+Range [-1, 1], S = 1/127
+MatMul
+-0.01
+0.04
+0.15
+0.30
+0.10
+-0.04
+- Reduce Model Size
+- Slow inference time
+57
+Inferencing Quantized Models
+AI VIETNAM
+All-in-One Course
+58
+Integer Only
+AI VIETNAM
+All-in-One Course
+-64
+32
+-16
+96
+-48
+112
+-12
+60
+-56
+32
+50
+16
+16
+32
+44
+�1 = 1/127
+�2 = 1/127
+Int8
+Int8
+MatMul
+-192
+704
+2464
+4928
+1720
+-736
+Int32
+59
+Integer Only
+AI VIETNAM
+All-in-One Course
+-192
+704
+2464
+4928
+1720
+-736
+Int32
+Dequantize
+������32 ∗�1 ∗�2 = ����16
+-0.01
+0.04
+0.15
+0.30
+0.10
+-0.04
+FP16
+60
+Integer Only
+AI VIETNAM
+All-in-One Course
+All operations -> Using low-
+precision integer arithmetic
+- Latency
+- Power consumption
+- Area efficiency
+61
+Inferencing Quantized Models
+AI VIETNAM
+All-in-One Course
+62
+Summary
+AI VIETNAM
+All-in-One Course
+Symmetric
+Uniform
+Non-Uniform
+Balance
+Block-wise
+Quantization
+Asymmetric
+Inference
+Simulated
+Integer Only
+63
+Quantization
+AI VIETNAM
+All-in-One Course

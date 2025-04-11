@@ -1,0 +1,1000 @@
+1
+AI VIETNAM
+All-in-One Course
+1
+AI VIETNAM
+All-in-One Course
+K-Nearest Neighbors
+Year 2023
+Vinh Dinh Nguyen
+PhD in Computer Science
+AI VIETNAM
+All-in-One Course
+2
+AI VIETNAM
+All-in-One Course
+2
+Ø Overview Machine Learning
+Ø KNN Motivation
+Ø KNN for Classification
+Ø How to Select k in KNN
+Ø KNN for Regression
+Ø KNN with Brute force
+Ø KNN with K-D Tree
+Ø KNN with Ball Tree
+Outline
+3
+AI VIETNAM
+All-in-One Course
+3
+Ø Overview Machine Learning
+Ø KNN Motivation
+Ø KNN for Classification
+Ø How to Select k in KNN
+Ø KNN for Regression
+Ø KNN with Brute force
+Ø KNN with K-D Tree
+Ø KNN with Ball Tree
+Outline
+4
+AI VIETNAM
+All-in-One Course
+4
+Machine Learning 
+5
+AI VIETNAM
+All-in-One Course
+5
+Supervised Learning
+6
+AI VIETNAM
+All-in-One Course
+6
+Unsupervised Learning
+7
+AI VIETNAM
+All-in-One Course
+7
+Semi-supervised Learning
+8
+AI VIETNAM
+All-in-One Course
+8
+Semi-supervised Learning
+9
+AI VIETNAM
+All-in-One Course
+9
+Machine Learning 
+10
+AI VIETNAM
+All-in-One Course
+10
+Supervised Learning Review
+11
+AI VIETNAM
+All-in-One Course
+11
+Supervised Learning Review
+•Identifying the function: The first step is to 
+identify the function such as linear or non-linear 
+function.
+•Identifying the parameters of the function in 
+case this is linear function
+12
+AI VIETNAM
+All-in-One Course
+12
+Supervised Learning Review
+•Identifying the function: The first step is to 
+identify the function such as linear or non-linear 
+function.
+•Identifying the parameters of the function in 
+case this is linear function
+13
+AI VIETNAM
+All-in-One Course
+13
+Supervised Learning Review
+It takes long time learning and less time 
+classifying data
+14
+AI VIETNAM
+All-in-One Course
+14
+Supervised Learning Review
+It takes long time learning and less time 
+classifying data
+15
+AI VIETNAM
+All-in-One Course
+15
+Ø Overview Machine Learning
+Ø KNN Motivation
+Ø KNN for Classification
+Ø How to Select k in KNN
+Ø KNN for Regression
+Ø KNN with Brute force
+Ø KNN with K-D Tree
+Ø KNN with Ball Tree
+Outline
+16
+AI VIETNAM
+All-in-One Course
+16
+Lazy Motivation
+• Just store dataset without learning from it
+• Start classifying data when it receive Test data
+• It takes less time learning
+17
+AI VIETNAM
+All-in-One Course
+17
+Lazy Motivation
+Measure the similar feature (distance)
+18
+AI VIETNAM
+All-in-One Course
+18
+Lazy Motivation
+Two students are going to take the final exam
+Study Hard
+Laziness
+19
+AI VIETNAM
+All-in-One Course
+19
+Lazy Motivation
+Study hard
+Laziness
+Two students are get good results
+20
+AI VIETNAM
+All-in-One Course
+20
+Lazy Motivation
+Study hard
+Laziness
+21
+AI VIETNAM
+All-in-One Course
+21
+Lazy Motivation
+22
+AI VIETNAM
+All-in-One Course
+22
+Lazy Motivation
+• Just store Data set without learning from it
+• Start classifying data when it receive Test data
+• It takes less time learning
+23
+AI VIETNAM
+All-in-One Course
+23
+Lazy Learning, Instance-based Learning
+• One of the most simplest algorithms
+24
+AI VIETNAM
+All-in-One Course
+24
+Ø Overview Machine Learning
+Ø KNN Motivation
+Ø KNN for Classification
+Ø How to Select k in KNN
+Ø KNN for Regression
+Ø KNN with Brute force
+Ø KNN with K-D Tree
+Ø KNN with Ball Tree
+Outline
+25
+AI VIETNAM
+All-in-One Course
+25
+26
+AI VIETNAM
+All-in-One Course
+26
+Motivation
+Given dataset with known categories
+27
+AI VIETNAM
+All-in-One Course
+27
+Motivation
+What is a category of a new image?
+Look for K nearest neighbors
+28
+AI VIETNAM
+All-in-One Course
+28
+Motivation
+What is a category of a new image?
+Look for K-nearest neighbors
+29
+AI VIETNAM
+All-in-One Course
+29
+K-nearest Neighbor
+30
+AI VIETNAM
+All-in-One Course
+30
+K-nearest Neighbor
+Select K-Nearest neighbors
+STEP 1
+K = 5
+How to find 5 nearest neighbors
+31
+AI VIETNAM
+All-in-One Course
+31
+K-nearest Neighbor
+Calculate the similiar feature (distance) 
+between test point and all data point
+STEP 2
+32
+AI VIETNAM
+All-in-One Course
+32
+K-nearest Neighbor
+STEP 2: Euclidean Distance
+33
+AI VIETNAM
+All-in-One Course
+33
+K-nearest Neighbor
+STEP 2: Other Distances
+34
+AI VIETNAM
+All-in-One Course
+34
+K-nearest Neighbor
+STEP 2: Other Distances
+35
+AI VIETNAM
+All-in-One Course
+35
+K-nearest Neighbor
+STEP 3: Findout 5 nearest neighbors based on distance metrics
+36
+AI VIETNAM
+All-in-One Course
+36
+K-nearest Neighbor
+STEP 4: Voting the label and predict an output
+37
+AI VIETNAM
+All-in-One Course
+37
+Iris Flower Classification
+38
+AI VIETNAM
+All-in-One Course
+38
+Iris Flower Classification
+Load dataset
+Euclidean 
+distance 
+computation
+39
+AI VIETNAM
+All-in-One Course
+39
+Iris Flower Classification
+Compute 
+and return k 
+nearest 
+neighbors
+40
+AI VIETNAM
+All-in-One Course
+40
+Iris Flower Classification
+Voting the 
+distance to find 
+the predicted 
+result
+41
+AI VIETNAM
+All-in-One Course
+41
+Iris Flower Classification
+Testing Phase
+42
+AI VIETNAM
+All-in-One Course
+42
+Ø Overview Machine Learning
+Ø KNN Motivation
+Ø KNN for Classification
+Ø How to Select k in KNN
+Ø KNN for Regression
+Ø KNN with Brute force
+Ø KNN with K-D Tree
+Ø KNN with Ball Tree
+Outline
+43
+AI VIETNAM
+All-in-One Course
+43
+44
+AI VIETNAM
+All-in-One Course
+44
+How to select k in K-NN
+Accuracy
+Classification
+Report
+45
+AI VIETNAM
+All-in-One Course
+45
+Error Analysis
+• Cancer classification => Train Logistic Regression => You got 1% error 
+on  the the test test => 99% accuracy.
+• How about the case if only 0.5% of patient have cancer on the Test 
+set.
+Logistic Regression
+Simple Algorithm
+What is the accuracy?
+Accuracy: 99%
+46
+AI VIETNAM
+All-in-One Course
+46
+Error Analysis
+Precision:
+Trong tất cả các bệnh nhân mà chương trình dự đoán bị cancer, tỉ lệ cancer thật sự là bao nhiêu?
+Recall: 
+Trong tất cả các bệnh nhân thật sự bị cancer, chương trình dự đoán đúng được bao nhiêu trường hợp?
+Confusion Matrix
+47
+AI VIETNAM
+All-in-One Course
+47
+Error Analysis
+Precision (P) 
+Recall (R)
+Average
+F1 Score
+Algorithm 1
+0.5
+0.4
+0.45
+0.444
+Algorithm 2
+0.7
+0.1
+0.4
+0.175
+Algorithm 3
+0.02
+1.0
+0.51
+0.0392
+48
+AI VIETNAM
+All-in-One Course
+48
+How to select k in K-NN
+Bạn có thắc mắc gì chỗ này không?
+49
+AI VIETNAM
+All-in-One Course
+49
+49
+How to select k in K-NN
+50
+AI VIETNAM
+All-in-One Course
+50
+50
+How to select k in K-NN
+51
+AI VIETNAM
+All-in-One Course
+51
+51
+How to select k in K-NN
+52
+AI VIETNAM
+All-in-One Course
+52
+K-NN with Bruce-force
+Did you find any difference between the two graphs?
+‘Brute-force’ algorithm, same dataset, same distance metric
+53
+AI VIETNAM
+All-in-One Course
+53
+KNN Review
+1.Load the data
+2.Initialize the value of k
+3.For getting the predicted class, iterate from 1 to total number of training data points
+4.Calculate the distance between test data and each row of training dataset. Distance
+metrics: Euclidean distance, Manhattan distance, Minkowski distance, Chebyshev,
+cosine, Hamming Distance etc.
+5.Sort the calculated distances in ascending order based on distance values
+6.Get top k rows from the sorted array
+7.Get the most frequent class of these rows
+8.Return the predicted class
+Which step might cause the problem? And Why?
+54
+AI VIETNAM
+All-in-One Course
+54
+In case of Odd k values, it takes the majority. For even k rows, majority classes are selected. If it happens to have two or 
+more classes having majority. Those two or more major class distances will go to the distance metric loop again and 
+check which class has the lowest distance metric and that class is chosen as the majority class.
+K-NN with Bruce-force
+Modified 
+KNN
+Sklearn
+Library
+Sklearn
+Library
+Result
+55
+AI VIETNAM
+All-in-One Course
+55
+55
+Discussion
+56
+AI VIETNAM
+All-in-One Course
+56
+56
+Discussion
+57
+AI VIETNAM
+All-in-One Course
+57
+57
+Discussion
+58
+AI VIETNAM
+All-in-One Course
+58
+58
+Discussion
+59
+AI VIETNAM
+All-in-One Course
+59
+59
+Discussion
+Uniform 
+weight
+60
+AI VIETNAM
+All-in-One Course
+60
+60
+Discussion
+Distance 
+weight
+61
+AI VIETNAM
+All-in-One Course
+61
+61
+Discussion
+Customize 
+weight
+62
+AI VIETNAM
+All-in-One Course
+62
+62
+Discussion
+Classification
+Report
+63
+AI VIETNAM
+All-in-One Course
+63
+Ø Overview Machine Learning
+Ø KNN Motivation
+Ø KNN for Classification
+Ø How to Select k in KNN
+Ø KNN for Regression
+Ø KNN with Brute force
+Ø KNN with K-D Tree
+Ø KNN with Ball Tree
+Outline
+64
+AI VIETNAM
+All-in-One Course
+64
+64
+65
+AI VIETNAM
+All-in-One Course
+65
+65
+Average, Median,…
+KNN for Regression
+66
+AI VIETNAM
+All-in-One Course
+66
+66
+KNN for Regression
+Calculate the prediction
+Find the K nearest neighbors
+Calculate the distance
+Choose a value for K
+67
+AI VIETNAM
+All-in-One Course
+67
+Issue Review
+Bạn có thắc mắc gì chỗ này không?
+68
+AI VIETNAM
+All-in-One Course
+68
+Ø Overview Machine Learning
+Ø KNN Motivation
+Ø KNN for Classification
+Ø How to Select k in KNN
+Ø KNN for Regression
+Ø KNN with Brute force
+Ø KNN with K-D Tree
+Ø KNN with Ball Tree
+Outline
+69
+AI VIETNAM
+All-in-One Course
+69
+KNN with Brute Force
+70
+AI VIETNAM
+All-in-One Course
+70
+KNN with Brute Force
+1. Find distance of each point in the dataset
+2. The point with lowest distance would be nears
+New datapoint
+71
+AI VIETNAM
+All-in-One Course
+71
+Ø Overview Machine Learning
+Ø KNN Motivation
+Ø KNN for Classification
+Ø How to Select k in KNN
+Ø KNN for Regression
+Ø KNN with Brute force
+Ø KNN with K-D Tree
+Ø KNN with Ball Tree
+Outline
+72
+AI VIETNAM
+All-in-One Course
+72
+KNN with K-D Tree
+1. Pick any one feature at random
+2. Find median
+3. Split dataset in approximate equal halves
+4. Pick next feature and repeat step #2,3
+5. Continue until all data points are partitioned
+X = 1, 2, 3, 5, 7, 8; median = 4
+1
+1
+Left
+Right
+Y = 2, 4, 6; median  = 4
+Y = 3, 6, 8; median = 6
+2
+3
+2
+3
+73
+AI VIETNAM
+All-in-One Course
+73
+KNN with K-D Tree
+X = 1, 2, 3, 5, 7, 8; mean = 4
+1
+2
+3
+Left bottom
+Left top
+X = 1; median = 1
+X = 2; median = 2
+4
+4
+5
+5
+74
+AI VIETNAM
+All-in-One Course
+74
+KNN with K-D Tree
+X = 1, 2, 3, 5, 7, 8; mean = 4
+1
+2
+3
+4
+4
+5
+5
+Right top
+X = 8; median = 8
+X = 7; median = 7
+6
+7
+Right bottom
+6
+7
+75
+AI VIETNAM
+All-in-One Course
+75
+KNN with K-D Tree
+New data point: (6,5)
+1
+2
+3
+4
+4
+5
+5
+6
+7
+6
+7
+New datapoint
+x ≥4
+y ≥4
+y ≥6
+x ≥6
+x ≥1
+x ≥8
+x ≥7
+76
+AI VIETNAM
+All-in-One Course
+76
+KNN with K-D Tree
+New data point: (6,5)
+1
+2
+3
+4
+4
+5
+5
+6
+7
+6
+7
+New datapoint
+x ≥4
+y ≥4
+y ≥6
+x ≥6
+x ≥1
+x ≥8
+x ≥7
+(6,5)
+2.83
+Minimum distance = 2.83
+77
+AI VIETNAM
+All-in-One Course
+77
+KNN with K-D Tree
+New data point: (6,5)
+1
+2
+3
+4
+4
+5
+5
+6
+7
+6
+7
+New datapoint
+x ≥4
+y ≥4
+y ≥6
+x ≥6
+x ≥1
+x ≥8
+x ≥7
+(6,5)
+2.83
+Minimum distance = 2.83
+1.41
+Minimum distance = 1.41
+78
+AI VIETNAM
+All-in-One Course
+78
+KNN with K-D Tree
+New data point: (6,5)
+1
+2
+3
+4
+4
+5
+5
+6
+7
+6
+7
+New datapoint
+x ≥4
+y ≥4
+y ≥6
+x ≥6
+x ≥1
+x ≥7
+x ≥8
+(6,5)
+Minimum distance = 2.83
+Minimum distance = 1.41
+2
+(5,6) is the nearest point
+79
+AI VIETNAM
+All-in-One Course
+79
+KNN with K-D Tree
+New data point: (6,8)
+1
+2
+3
+4
+4
+5
+5
+6
+7
+6
+7
+New datapoint
+x ≥4
+y ≥4
+y ≥6
+x ≥6
+x ≥1
+x ≥8
+x ≥7
+What is the nearest 
+neighbor?
+80
+AI VIETNAM
+All-in-One Course
+80
+KNN with K-D Tree
+(X,Y)
+(X,Y)
+(X,Y)
+(X,Y)
+(X,Y)
+(X,Y)
+(X,Y)
+(X,Y)
+(X,Y)
+(X,Y)
+(X,Y)
+(X,Y)
+(X,Y)
+(X,Y)
+(X,Y)
+81
+AI VIETNAM
+All-in-One Course
+81
+Ø Overview Machine Learning
+Ø KNN Motivation
+Ø KNN for Classification
+Ø How to Select k in KNN
+Ø KNN for Regression
+Ø KNN with Brute force
+Ø KNN with K-D Tree
+Ø KNN with Ball Tree
+Outline
+82
+AI VIETNAM
+All-in-One Course
+82
+KNN with Ball Tree
+1. Take any point
+2. Find a point farthest to that point
+3. Find a point farthest to this fatherst point
+4. Project all points on the line joining 
+farthest points
+5. Find the median to divide the space into 
+two halves
+6. Find the centroid in each half
+7. Draw ball (cirlce of radius equal to the 
+distance to the farthest point in that half)
+83
+AI VIETNAM
+All-in-One Course
+83
+KNN with Ball Tree
+1. Take any point
+2. Find a point farthest to that point
+3. Find a point farthest to this fatherst point
+4. Project all points on the line joining 
+farthest points
+5. Find the median to divide the space into 
+two halves
+6. Find the centroid in each half
+7. Draw ball (cirlce of radius equal to the 
+distance to the farthest point in that half)
+84
+AI VIETNAM
+All-in-One Course
+84
+KNN with Ball Tree
+1. Take any point
+2. Find a point farthest to that point
+3. Find a point farthest to this fatherst point
+4. Project all points on the line joining 
+farthest points
+5. Find the median to divide the space into 
+two halves
+6. Find the centroid in each half
+7. Draw ball (cirlce of radius equal to the 
+distance to the farthest point in that half)
+5.66
+85
+AI VIETNAM
+All-in-One Course
+85
+KNN with Ball Tree
+1. Take any point
+2. Find a point farthest to that point
+3. Find a point farthest to this farthest point
+4. Project all points on the line joining 
+farthest points
+5. Find the median to divide the space into 
+two halves
+6. Find the centroid in each half
+7. Draw ball (cirlce of radius equal to the 
+distance to the farthest point in that half)
+8.49
+86
+AI VIETNAM
+All-in-One Course
+86
+KNN with Ball Tree
+1. Take any point
+2. Find a point farthest to that point
+3. Find a point farthest to this farthest point
+4. Project all points on the line joining 
+farthest points
+5. Find the median to divide the space into 
+two halves
+6. Find the centroid in each half
+7. Draw ball (cirlce of radius equal to the 
+distance to the farthest point in that half)
+87
+AI VIETNAM
+All-in-One Course
+87
+KNN with Ball Tree
+1. Take any point
+2. Find a point farthest to that point
+3. Find a point farthest to this farthest point
+4. Project all points on the line joining 
+farthest points
+5. Find the median to divide the space into 
+two halves
+6. Find the centroid in each half
+7. Draw ball (cirlce of radius equal to the 
+distance to the farthest point in that half)
+88
+AI VIETNAM
+All-in-One Course
+88
+KNN with Ball Tree
+1. Take any point
+2. Find a point farthest to that point
+3. Find a point farthest to this farthest point
+4. Project all points on the line joining 
+farthest points
+5. Find the median to divide the space into 
+two halves
+6. Find the centroid in each half
+7. Draw ball (cirlce of radius equal to the 
+distance to the farthest point in that half)
+(2.45, 4.25)
+(6.75, 6.0)
+89
+AI VIETNAM
+All-in-One Course
+89
+KNN with Ball Tree
+1. Take any point
+2. Find a point farthest to that point
+3. Find a point farthest to this farthest point
+4. Project all points on the line joining 
+farthest points
+5. Find the median to divide the space into 
+two halves
+6. Find the centroid in each half
+7. Draw ball (cirlce of radius equal to the 
+distance to the farthest point in that half)
+(2.45, 4.25)
+(6.75, 6.0)
+90
+AI VIETNAM
+All-in-One Course
+90
+KNN with Ball Tree
+1. Take any point
+2. Find a point farthest to that point
+3. Find a point farthest to this farthest point
+4. Project all points on the line joining 
+farthest points
+5. Find the median to divide the space into 
+two halves
+6. Find the centroid in each half
+7. Draw ball (cirlce of radius equal to the 
+distance to the farthest point in that half)
+(2.45, 4.25)
+(6.75, 6.0)
+1
+2
+3
+1
+2
+3
+91
+AI VIETNAM
+All-in-One Course
+91
+KNN with Ball Tree
+(6.75, 6.0)
+1
+2
+3
+1
+2
+3
+4
+5
+6
+7
+4
+5
+6
+7
+92
+AI VIETNAM
+All-in-One Course
+92
+KNN with Ball Tree
+(6.75, 6.0)
+1
+2
+3
+1
+2
+3
+4
+5
+6
+7
+4
+5
+6
+7
+New datapoint (8,5)
+(6.5, 3.5)
+Nearest neighbor is (8,3)
+93
+AI VIETNAM
+All-in-One Course

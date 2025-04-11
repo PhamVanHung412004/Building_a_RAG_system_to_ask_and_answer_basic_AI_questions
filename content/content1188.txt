@@ -1,2 +1,0 @@
-shape ) * y_t -
-56 get_index_from_list ( self . 

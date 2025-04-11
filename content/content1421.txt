@@ -1,3 +1,0 @@
-show ()
-Kết quả thực nghiệm mô hình sau khi huấn luyện
-Hình 8: Kết quả thực nghiệm mô hình sau khi huấn luyện.

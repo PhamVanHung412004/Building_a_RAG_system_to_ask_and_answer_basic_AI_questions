@@ -1,5 +1,0 @@
-parameters ()
-8 )), ** optimizers )
-9 self . model . set_loss ( mse_loss )
-10 self . model . set_new_noise_schedule ( device )
-22

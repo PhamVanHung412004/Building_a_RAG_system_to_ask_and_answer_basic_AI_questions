@@ -1,0 +1,380 @@
+1
+Year 2023
+TA Minh-Duc Bui
+Graph Neural Network – Exercise
+2
+Outline
+1. Objective
+2. From MLP to GNN
+3. Coding
+4. Experiment on Caltech-101 and PACS Datasets
+3
+Outline
+1. Objective
+2. From MLP to GNN
+3. Coding
+4. Experiment on Caltech-101 and PACS Datasets
+4
+Objective
+To utilize GNNs (Graph Neural Networks) for 
+any problem, three sequential questions need to 
+be addressed:
+•
+What is a node?
+•
+What is an edge?
+•
+Can we incorporate an auxiliary loss 
+function?
+How does GNN operate?
+5
+Objective
+To utilize GNNs (Graph Neural Networks) for 
+any problem, three sequential questions need to 
+be addressed:
+•
+What is a node?
+•
+What is an edge?
+•
+Can we incorporate an auxiliary loss 
+function?
+Node: image
+Edge: images of the same class
+Auxiliary loss: yes (because it’s the groundtruth) 
+6
+Objective
+How does GNN operate?
+•
+There are hard and easy samples for each 
+class. 
+•
+Leverage easy samples to “provide” 
+information for hard samples.
+Hard sample
+Hard sample
+Easy sample
+Easy sample
+Easy sample
+7
+Objective
+Examples of hard samples
+Out-of-Distribution
+Out Of Distribution Generalization in Computer Vision: https://www.ood-cv.org/
+8
+Outline
+1. Objective
+2. From MLP to GNN
+3. Coding
+4. Experiment on Caltech-101 and PACS Datasets
+9
+From MLP to GNN
+sample 1
+sample 2
+sample 3
+1 batch
+sample 1
+MLP
+Sample-view
+Batch-view
+10
+From MLP to GNN
+Feature space
+Backbone
+ResNet
+ViT
+... 
+MLP
+3 × 512
+3 × 512
+Dimensional Reduction
+(e.g., PCA, t-SNE)
+3 × 2
+Feature space
+dog
+cat
+Decision boundary
+11
+t-SNE Visualization
+From MLP to GNN
+Feature space
+12
+Communicate-able?
+Feature space
+dog
+cat
+Decision boundary
+From MLP to GNN
+MLP
+13
+Communicate-able?
+Feature space
+dog
+cat
+Decision boundary
+From MLP to GNN
+MLP
+14
+How to communicate?
+?
+?
+?
+Edge Network
+Aggregation 
+Node Network
+From MLP to GNN
+15
+GNN = MLP + Message Passing (MP)
+GNN
+S.t.
+MLP
+GNN models in forms of Eq. 1 degrade to an MLP with a series 
+of FF layers after removing all the MP operations:
+(1)
+➜nn.Linear()
+16
+Backbone
+MLP
+GNN
+Backbone
+GNN
+ResNet
+VGG
+MobileNet
+ViT
+Swin
+... 
+From MLP to GNN
+17
+Outline
+1. Objective
+2. From MLP to GNN
+3. Coding
+4. Experiment on Caltech-101 and PACS Datasets
+18
+GCN
+Edge Network
+Node Network
+GCN
+Input = init_node_feat (bs, hidden_dim)
+Output = logits_gnn (bs, hidden_dim)
+edge_feat (bs, bs): correlation matrix after normalizing
+edge_sim (bs, bs): correlation matrix before normalizing (for loss 
+function)
+19
+GCN
+Edge Network
+Node Network
+Edge Network
+20
+Edge Network
+[1 2 3]
+[2 6 6]
+[1 2 3]
+[0 0 0]
+[1 4 3]
+[2 6 6]
+[1 4 3]
+[0 0 0]
+0
+3
+3
+0
+0
+4
+4
+0
+0
+1
+1
+0
+0.5075
+0.7161
+0.7161
+0.5075
+CNN + Norm + Act
+21
+1.5075
+0.7161
+0.7161
+1.5075
+0.8487
+0.1513
+0.1513
+0.8487
+Edge Network
+GCN
+Edge Network
+Node Network
+Node Network
+23
+Add GCN into Existing Code
+24
+Add GCN into Existing Code
+25
+Create Label for Edge Network
+1
+5
+3
+1
+1
+0
+0
+1
+0
+1
+0
+0
+0
+0
+1
+0
+1
+0
+0
+1
+labels
+edge_gt
+26
+27
+Quiz
+1. Đâu là lưu ý khi áp dụng GNN vào các bài toán bất 
+kì?
+A. Label là gì?
+B. Độ lớn dataset
+C. Độ phức tạp của model
+D. Edge là gì?
+2. Đâu là lưu ý khi áp dụng GNN vào các bài toán bất 
+kì?
+A. Label là gì?
+B. Node là gì?
+C. Số lượng param
+D. Loss là gì?
+3. Đâu là lưu ý khi áp dụng GNN vào các bài toán bất 
+kì?
+A. Có cần hàm loss phụ trợ hay không?
+B. Model có tính toán song song hay không?
+C. Loss là gì?
+D. Loại hàm loss của model hiện tại.
+4. Sau khi chắc chắn GNN có thể sử dụng, điều gì ta cần cân 
+nhắc tiếp theo là phù hợp nhất?
+A. Không cần gì
+B. Độ lớn của model sau khi thêm GNN
+C. Hiểu rõ cách GNN tổng hợp thông tin
+D. Tốc độ của model sau khi thêm GNN
+5. Nếu input của GNN có shape [batch_size, dim_1] và 
+output có shape [batch_size, dim_2] thì nhận định nào sau 
+đây là SAI:
+A. dim_2 có thể bằng dim_1* 2
+B. dim_2 có thể bằng số lượng class
+C. dim_1 và dim_2 không bắt buộc bằng nhau
+D. dim_1 và dim_ 2 phải bằng nhau
+28
+Outline
+1. Objective
+2. From MLP to GNN
+3. Coding
+4. Experiment on Caltech-101 and PACS Datasets
+29
+The Caltech-101 Dataset
+Caltech-101
+consists
+of
+pictures
+of
+objects belonging to 101 classes.
+Each image is labeled with a single
+object.
+Each class contains roughly 40 to 800
+images, totaling around 9k images.
+Images are of variable sizes, with typical
+edge lengths of 200-300 pixels.
+30
+The Caltech101 Dataset
+Best Val Acc
+MLP
+86.75
+GNN
+91.76 (↑5.01)
+31
+The PACS Dataset
+PACS is an image dataset for domain
+generalization.
+It consists of four domains, namely
+• Photo (1,670 images),
+• Art Painting (2,048 images),
+• Cartoon (2,344 images) and
+• Sketch (3,929 images).
+Each domain contains seven categories.
+32
+MLP vs. GNN
+Best Val Acc
+MLP
+54.58
+GNN
+66.46 (↑11.8)
+photo2art
+Use 1 domain for training
+33
+Best Val Acc
+MLP
+54.58
+GNN
+66.46 (↑11.8)
+Best Val Acc
+MLP
+22.12
+GNN
+29.35 (↑7.23)
+Best Val Acc
+MLP
+70.15
+GNN
+85.62 (↑15.47)
+Best Val Acc
+MLP
+26.6
+GNN
+31.44 (↑4.48)
+photo2art
+photo2sketch
+photo2all
+photo_cartoon2art
+MLP vs. GNN
+34
+Use all domains for training and testing
+Best Val Acc
+MLP
+90.40
+GNN
+91.35 (↑0.95)
+MLP vs. GNN
+all2all
+35
+Limitations
+•
+Require clean data
+•
+Require batch size > 1
+•
+Slower training and inference
+(computational expensive)
+Feature space
+dog
+cat
+Decision boundary
+36
+Summary
+To utilize GNNs (Graph Neural Networks) for any 
+problem, three sequential questions need to be 
+addressed:
+•
+What is a node?
+•
+What is an edge?
+•
+Can we incorporate an auxiliary loss function?
+How does GNN operate?
+Thanks!
+Any questions?
+37

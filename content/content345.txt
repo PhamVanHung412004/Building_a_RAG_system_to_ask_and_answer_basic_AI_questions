@@ -1,7 +1,0 @@
-AI VIETNAM aivietnam.edu.vn
-2. Dataset RWF2000 - bài toán violence detection
-RWF2000 là dataset về bài toán violence detection (phát hiện hành vi bạo lực), cụ thể ta sẽ phân
-loại video dựa vào 2 class fight hoặc non-fight behaviour tương ứng với có hoặc không có hành
-vi bạo lực trong video. Dataset bao gồm 2000 video, mỗi video dài 5s và được quay ở 30 frame
-(FPS), tổng cộng ta có 300.000 frame.
-Hình 3: Một số sample từ RWF2000.

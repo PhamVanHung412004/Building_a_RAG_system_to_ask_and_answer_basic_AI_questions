@@ -1,0 +1,1030 @@
+1
+AI VIETNAM
+All-in-One Course
+1
+AI VIETNAM
+All-in-One Course
+Face Detection and Identification
+(Computer Vision Foundation)
+Year 2023
+Vinh Dinh Nguyen
+PhD in Computer Science
+AI VIETNAM
+All-in-One Course
+2
+AI VIETNAM
+All-in-One Course
+2
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Applications of Face Detection
+Ø Face Detection in Computer Vision
+Ø Haar Feature
+Ø Integral Image
+Ø Adaboost For Face Detection
+Ø Cascade Classifier
+Ø Face Recognition
+Outline
+3
+AI VIETNAM
+All-in-One Course
+3
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Applications of Face Detection
+Ø Face Detection in Computer Vision
+Ø Haar Feature
+Ø Integral Image
+Ø Adaboost For Face Detection
+Ø Cascade Classifier
+Ø Face Recognition
+Outline
+4
+AI VIETNAM
+All-in-One Course
+4
+Vinh Dinh Nguyen- PhD in Computer Science
+What is Face Detection
+Locate human faces in images
+1. Application of face detection
+2. Haar feature for face detection
+3. Intergral Image
+4. Cascade Classifier
+5
+AI VIETNAM
+All-in-One Course
+5
+Vinh Dinh Nguyen- PhD in Computer Science
+Applications of Face Detection
+Security Use Case of Face Recognition
+A Face Attendance System
+Healthcare Application
+Face Recognition in Retail
+Face Recognition in Finance
+Automatic Camera Settings
+6
+AI VIETNAM
+All-in-One Course
+6
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Applications of Face Detection
+Ø Face Detection in Computer Vision
+Ø Haar Feature
+Ø Integral Image
+Ø Adaboost For Face Detection
+Ø Cascade Classifier
+Ø Face Recognition
+Outline
+7
+AI VIETNAM
+All-in-One Course
+7
+Vinh Dinh Nguyen- PhD in Computer Science
+Face Detection in Computer Vision
+Slides windows of differents sizes across image. 
+At each location match window to face model
+Feature
+Extract
+Feature
+Match Face 
+Model
+Features: 
+How to extract feature?
+Which features represent face well?
+Classifier:
+How to build a model and classify features as face or not?
+8
+AI VIETNAM
+All-in-One Course
+8
+Vinh Dinh Nguyen- PhD in Computer Science
+What are good features?
+Interest Point (Edge, Corners, SIFT,..)
+Facial Components (Templates)?
+≠
+Discriminative Face / None Face
+•
+Extreme Fast to Compute
+•
+Millions of windows in an image 
+The key aspect in face recognition is
+detecting relevant features in human face
+like eyes, eyebrows, nose, lips. So how do we
+detect these features in real time/in an
+image ?
+9
+AI VIETNAM
+All-in-One Course
+9
+Vinh Dinh Nguyen- PhD in Computer Science
+Methods for Face Detection
+Knowledge Based
+•Rule based (Ex: X must have eyes, x must have a nose)
+•Too many rules and variables with this method
+Feature Based
+Locate and extract structural features in the face
+Find a differential between facial and non facial regions in an image
+Appearance Based
+Learn the characteristics of a face. Example: CNN’s
+Accuracy depends on training data (which can be scarce)
+Template
+Using predefined templates for edge detection. Quick and easy
+A trade off for speed over accuracy
+10
+AI VIETNAM
+All-in-One Course
+10
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Applications of Face Detection
+Ø Face Detection in Computer Vision
+Ø Haar Feature
+Ø Integral Image
+Ø Adaboost For Face Detection
+Ø Cascade Classifier
+Ø Face Recognition
+Outline
+11
+AI VIETNAM
+All-in-One Course
+11
+Vinh Dinh Nguyen- PhD in Computer Science
+Haar Feature
+P. Viola and M. Jones, "Rapid object detection using a boosted cascade of simple features," Proceedings of the 2001 IEEE Computer Society Conference on Computer Vision and Pattern Recognition. CVPR 2001, 
+Kauai, HI, USA, 2001, pp. I-I, doi: 10.1109/CVPR.2001.990517.
+Viola-Jones uses 24*24 as base window size and calculates the above features all over the image shifting by 1 PX (Template + Feature).
+There are over 160,000 possible feature combinations that can fit into a 24x24 pixel image, and over 250,000 for a 28x28 image
+12
+AI VIETNAM
+All-in-One Course
+12
+Vinh Dinh Nguyen- PhD in Computer Science
+Haar Feature
+https://towardsdatascience.com/face-detection-with-haar-cascade-727f68dafd08
+White region
+Dark region
+13
+AI VIETNAM
+All-in-One Course
+13
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Applications of Face Detection
+Ø Face Detection in Computer Vision
+Ø Haar Feature
+Ø Integral Image
+Ø Adaboost For Face Detection
+Ø Cascade Classifier
+Ø Face Recognition
+Outline
+14
+AI VIETNAM
+All-in-One Course
+14
+Vinh Dinh Nguyen- PhD in Computer Science
+Intergral Image
+•The value of the integral image at point 1 is the sum of the pixels in rectangle A
+•The value at point 2 is A + B
+•The value at point 3 is A + C
+•The value at point 4 is A + B + C + D.
+•Therefore, the sum of pixels in region D can simply be computed as : 4+1−(2+3).
+Raster Scanning
+15
+AI VIETNAM
+All-in-One Course
+15
+Vinh Dinh Nguyen- PhD in Computer Science
+Haar Feature
+⨂
+=
+Haar Filters
+Haar Features
+16
+AI VIETNAM
+All-in-One Course
+16
+Vinh Dinh Nguyen- PhD in Computer Science
+Haar Features for Multiple Scales
+Compute Haar Features at different scales to detect faces of 
+different sizes
+As stated previously there can be approximately 160,000 +
+feature values within a detector at 24*24 base resolution
+which need to be calculated. But it is to be understood that
+only a few set of features will be useful among all these
+features to identify a face.
+Can we create a good classifier using just a small subset of all possible
+features?
+Feature detecting a vertical edge is useful detecting a nose but 
+irrelevant detecting a lip.
+17
+AI VIETNAM
+All-in-One Course
+17
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Applications of Face Detection
+Ø Face Detection in Computer Vision
+Ø Haar Feature
+Ø Integral Image
+Ø Adaboost For Face Detection
+Ø Cascade Classifier
+Ø Face Recognition
+Outline
+18
+AI VIETNAM
+All-in-One Course
+18
+Vinh Dinh Nguyen- PhD in Computer Science
+Sample Dataset
+CHEST PAIN
+GOOD BLOOD 
+CIRCULATION
+BLOCKED
+ARTERIES
+WEIGHT
+HEART 
+DISEASE
+NO
+NO
+NO
+125
+NO
+YES
+YES
+YES
+180
+YES
+YES
+YES
+NO
+210
+NO
+YES
+NO
+YES
+167
+YES
+19
+AI VIETNAM
+All-in-One Course
+19
+Vinh Dinh Nguyen- PhD in Computer Science
+Sample Dataset
+STRONG CLASSIFIER
+WEAK CLASSIFIER
+20
+AI VIETNAM
+All-in-One Course
+20
+Vinh Dinh Nguyen- PhD in Computer Science
+RANDOM FOREST
+• Each tree in the random forest has equal votes(weights) on the final decision
+21
+AI VIETNAM
+All-in-One Course
+21
+Vinh Dinh Nguyen- PhD in Computer Science
+AdaBoost: FOREST OF STUMP
+• Stump are not equally weighted in the final decision.
+• Stump that create more error will have less contribution in the final decision
+22
+AI VIETNAM
+All-in-One Course
+22
+Vinh Dinh Nguyen- PhD in Computer Science
+Random Forest
+Tree are indepently created
+23
+AI VIETNAM
+All-in-One Course
+23
+Vinh Dinh Nguyen- PhD in Computer Science
+AdaBoost: FOREST OF STUMP
+1
+2
+3
+4
+Influence
+24
+AI VIETNAM
+All-in-One Course
+24
+Vinh Dinh Nguyen- PhD in Computer Science
+Heart Disease Dataset
+Chest Pain
+Blocked Arteries
+Patient Weight
+Heart Disease
+Yes
+Yes
+205
+Yes
+No
+Yes
+180
+Yes
+Yes
+No
+210
+Yes
+Yes
+Yes
+167
+Yes
+No
+Yes
+156
+No
+No
+Yes
+125
+No
+Yes
+No
+168
+No
+Yes
+Yes
+172
+No
+Important of sample = Sample weight = 1 / number of samples = 1/8
+25
+AI VIETNAM
+All-in-One Course
+25
+Vinh Dinh Nguyen- PhD in Computer Science
+1st Stump in the Tree
+26
+AI VIETNAM
+All-in-One Course
+26
+Vinh Dinh Nguyen- PhD in Computer Science
+Compute Gini Index For Chest Pain
+CHEST PAIN
+HEART DISEASE
+HEART DISEASE
+YES
+NO
+3
+2
+YES
+NO
+1
+2
+Gini index = 5/8 * (1 – (3/5)^2 – (2/5)^2) + 3/8* (1 - (1/3)^2 - (2/3)^2) = 0.57
+Yes
+No
+27
+AI VIETNAM
+All-in-One Course
+27
+Vinh Dinh Nguyen- PhD in Computer Science
+GINI INDEX FOR BLOCKED ARTERIES
+BLOCKED ARTERIES
+HEART DISEASE
+HEART DISEASE
+YES
+NO
+3
+3
+YES
+NO
+1
+1
+Gini index = 6/8 * (1 – (3/6)^2 – (3/6)^2) + 2/8* (1 - (1/2)^2 - (1/2)^2) = 0.5
+Yes
+No
+28
+AI VIETNAM
+All-in-One Course
+28
+Vinh Dinh Nguyen- PhD in Computer Science
+Gini Index for Heart Disease
+PATIENT WEIGHT > 170
+HEART DISEASE
+HEART DISEASE
+YES
+NO
+3
+1
+YES
+NO
+1
+3
+Gini index = =4/8 * (1-(1/4)^2 - (3/4)^2) + 4/8* (1-(1/4)^2 -(3/4)^2) =  0.375
+192.5
+195
+188.5
+140.5
+161.5
+146.5
+170
+29
+AI VIETNAM
+All-in-One Course
+29
+Vinh Dinh Nguyen- PhD in Computer Science
+Amount of Say
+How was this stump contribute to the final decision (classification)?
+PATIENT WEIGHT > 170
+HEART DISEASE
+HEART DISEASE
+YES
+NO
+3
+1
+YES
+NO
+1
+3
+YES
+NO
+Amount 
+of Say
+30
+AI VIETNAM
+All-in-One Course
+30
+Vinh Dinh Nguyen- PhD in Computer Science
+Amount of Say: Patient Weight
+• Total error is equal to the sum of the weights of the incorrect classified
+• Amount of say = 1/2*log((1-2/8) / (2/8)) = 0.55
+31
+AI VIETNAM
+All-in-One Course
+31
+Vinh Dinh Nguyen- PhD in Computer Science
+Amount of say: Chest Pain
+• Total error is equal to the sum of the weights of the incorrect classified
+• Amount of say = 1/2*log((1-3/8) / (3/8)) = 0.25
+log(Odds) = log(
+! "#$%&'&()(*+ %, (-.%$$/.* 0$/1(.*(%-
+#$%&'&()(*+ %, (-.%$$/.* 0$/1(.*(%-  )
+32
+AI VIETNAM
+All-in-One Course
+32
+Vinh Dinh Nguyen- PhD in Computer Science
+Amout of Say: Blocked Arteries
+• Total error is equal to the sum of the weights of the incorrect classified
+• Amount of say = 1/2*log((1-4/8) / (4/8)) = 0
+33
+AI VIETNAM
+All-in-One Course
+33
+Vinh Dinh Nguyen- PhD in Computer Science
+Assumptions
+Known: weight cho các sample dự đoán sai được sử dụng để tính “Amount of Say” cho từng 
+stump hiện tại. 
+Unknown: Tiếp theo, chúng ta cần làm thế nào để sử dụng thông tin các weight của sample dự 
+đoán sai này để xây dựng stump tiếp và khắc phục các dự đoán sai này
+34
+AI VIETNAM
+All-in-One Course
+34
+Vinh Dinh Nguyen- PhD in Computer Science
+Idea: Improved Bootstrapped Dataset
+Create new dataset
+Incorrect
+Incorrect
+This new stump can handel incorrect classification
+35
+AI VIETNAM
+All-in-One Course
+35
+Vinh Dinh Nguyen- PhD in Computer Science
+How to build next Stump
+Increase the sample weights of samples that were incorrectly classified and decrease
+sample weights of samples that were correctly classified. Label {-1, 1}
+New sample weight = 1/8 * e^{0.55} = 0.22
+36
+AI VIETNAM
+All-in-One Course
+36
+Vinh Dinh Nguyen- PhD in Computer Science
+How to build next Stump
+Increase the sample weights of samples that were incorrectly classified and decrease the sample
+weights of samples that were correctly classified. Label {-1, 1}
+New sample weight = 1/8 * e^{-0.55} = 0.07
+37
+AI VIETNAM
+All-in-One Course
+37
+Vinh Dinh Nguyen- PhD in Computer Science
+How to build next Stump
+Increase the sample weights of samples that were incorrectly classified and keep the sample
+weights of samples that were correctly classified. Label {0, 1}
+New sample weight = 1/8 * e^{0.55*1} = 0.22
+38
+AI VIETNAM
+All-in-One Course
+38
+Vinh Dinh Nguyen- PhD in Computer Science
+How to build next Stump
+Increase the sample weights of samples that were incorrectly classified and keep the sample
+weights of samples that were correctly classified. Label {0, 1}
+New sample weight = 1/8 * e^{0.55*0} = 0.125
+39
+AI VIETNAM
+All-in-One Course
+39
+Vinh Dinh Nguyen- PhD in Computer Science
+New Sample Weight
+Chest Pain
+Blocked Arteries
+Patient Weight
+Heart Diease
+Sample Weight
+New Weight
+Normal Weight
+Yes
+Yes
+205
+Yes
+1/8
+0.07
+0.08
+No
+Yes
+180
+Yes
+1/8
+0.07
+0.08
+Yes
+No
+210
+Yes
+1/8
+0.07
+0.08
+Yes
+Yes
+167
+Yes
+1/8
+0.22
+0.25
+No
+Yes
+156
+No
+1/8
+0.07
+0.08
+No
+Yes
+125
+No
+1/8
+0.07
+0.08
+Yes
+No
+168
+No
+1/8
+0.07
+0.08
+Yes
+Yes
+172
+No
+1/8
+0.22
+0.25
+Sum
+~1.0
+0.86
+~1.0
+Update
+40
+AI VIETNAM
+All-in-One Course
+40
+Vinh Dinh Nguyen- PhD in Computer Science
+New Sample Weight
+Chest Pain
+Blocked Arteries
+Patient Weight
+Heart Diease
+New Weight
+Yes
+Yes
+205
+Yes
+0.08
+No
+Yes
+180
+Yes
+0.08
+Yes
+No
+210
+Yes
+0.08
+Yes
+Yes
+167
+Yes
+0.25
+No
+Yes
+156
+No
+0.08
+No
+Yes
+125
+No
+0.08
+Yes
+No
+168
+No
+0.08
+Yes
+Yes
+172
+No
+0.25
+Sum
+~1.0
+41
+AI VIETNAM
+All-in-One Course
+41
+Vinh Dinh Nguyen- PhD in Computer Science
+AdaBoost: FOREST OF STUMPS
+IMPROVE ERROR
+IMPROVE ERROR
+IMPROVE ERROR
+42
+AI VIETNAM
+All-in-One Course
+42
+Vinh Dinh Nguyen- PhD in Computer Science
+New Dataset
+43
+AI VIETNAM
+All-in-One Course
+43
+Vinh Dinh Nguyen- PhD in Computer Science
+New Dataset
+Random [0,1] to select samples
+44
+AI VIETNAM
+All-in-One Course
+44
+Vinh Dinh Nguyen- PhD in Computer Science
+New Dataset
+Chest 
+Pain
+Blocked
+Arteries
+Patient
+Weight
+Heart
+Diease
+Normal
+Weight
+Range
+Yes
+Yes
+205
+Yes
+0.08
+[0-0.08]
+No
+Yes
+180
+Yes
+0.08
+(0.08-0.16]
+Yes
+No
+210
+Yes
+0.08
+(0.16-0.24]
+Yes
+Yes
+167
+Yes
+0.25
+(0.24-0.495]
+No
+Yes
+156
+No
+0.08
+(0.495-0.575]
+No
+Yes
+125
+No
+0.08
+(0.575-0.655]
+Yes
+No
+168
+No
+0.08
+(0.655-0.735]
+Yes
+Yes
+172
+No
+0.25
+(0.735-1.0]
+Sum
+~1.0
+45
+AI VIETNAM
+All-in-One Course
+45
+Vinh Dinh Nguyen- PhD in Computer Science
+New Dataset
+Random [0,1] 
+to select 
+samples
+Old dataset
+New dataset
+Ý tưởng: các sample bịphân loại sai, sẽđược được nhiều 
+hơn vào dataset mới
+CONTINUE TO BUILD
+THE NEXT STUMP
+46
+AI VIETNAM
+All-in-One Course
+46
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Classify The Final Result
+https://hastie.su.domains/Papers/samme.pdf
+47
+AI VIETNAM
+All-in-One Course
+47
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Classify The Final Result
+https://hastie.su.domains/Papers/samme.pdf
+SAMME — Stagewise Additive 
+Modeling using a Multi-class 
+Exponential loss function
+48
+AI VIETNAM
+All-in-One Course
+48
+Vinh Dinh Nguyen- PhD in Computer Science
+Adaboost for Face Detection
+The goal of using the AdaBoost algorithm is to extract the best features from n features
+49
+AI VIETNAM
+All-in-One Course
+49
+Vinh Dinh Nguyen- PhD in Computer Science
+AdaBoost for feature+classifier selection
+Want to select the single rectangle feature and
+threshold that best separates positive (faces)
+and negative (non-faces) training examples, in
+terms of weighted error
+θt is a threshold for classifier ht
+50
+AI VIETNAM
+All-in-One Course
+50
+Vinh Dinh Nguyen- PhD in Computer Science
+AdaBoost for feature+classifier selection
+This feature combination can yield 100% detection rate and 50% false positive rate
+A 200-feature classifier can yield 95% detection rate and a false positive rate of 1 in 14084
+51
+AI VIETNAM
+All-in-One Course
+51
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Applications of Face Detection
+Ø Face Detection in Computer Vision
+Ø Haar Feature
+Ø Integral Image
+Ø Adaboost For Face Detection
+Ø Cascade Classifier
+Ø Face Recognition
+Outline
+52
+AI VIETNAM
+All-in-One Course
+52
+Vinh Dinh Nguyen- PhD in Computer Science
+The Cascade Classifier
+In an image, most of the image is a non-face region
+The key idea is to reject sub-windows that do not contain faces
+while identifying regions that do. Since the task is to identify
+properly the face, we want to minimize the false negative rate, i.e
+the sub-windows that contain a face and have not been identified as
+such.
+A series of classifiers are applied to every sub-window. These
+classifiers are simple decision trees :
+•if the first classifier is positive, we move on to the second
+•if the second classifier is positive, we move on to the third.
+•Any negative result at some point leads to a rejection of the
+sub-window as potentially containing a face
+53
+AI VIETNAM
+All-in-One Course
+53
+Vinh Dinh Nguyen- PhD in Computer Science
+Data Preparation
+https://towardsdatascience.com/understanding-face-detection-with-the-viola-jones-object-detection-framework-c55cc2a9da14
+54
+AI VIETNAM
+All-in-One Course
+54
+Vinh Dinh Nguyen- PhD in Computer Science
+AdaBoost Algorithm + the Cascade Classifier
+In their paper, Viola & Jones (2001) mentioned that their
+Cascade Classifier has 38 stages (38 strong classifiers) that
+are made up of over 6000 features
+55
+AI VIETNAM
+All-in-One Course
+55
+Vinh Dinh Nguyen- PhD in Computer Science
+Dicussion
+56
+AI VIETNAM
+All-in-One Course
+56
+Vinh Dinh Nguyen- PhD in Computer Science
+Dicussion
+57
+AI VIETNAM
+All-in-One Course
+57
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Applications of Face Detection
+Ø Face Detection in Computer Vision
+Ø Haar Feature
+Ø Integral Image
+Ø Adaboost For Face Detection
+Ø Cascade Classifier
+Ø Face Recognition
+Outline
+58
+AI VIETNAM
+All-in-One Course
+58
+Vinh Dinh Nguyen- PhD in Computer Science
+Face Recognition/Identification
+Input Image
+Face Detection
+Face Recognition/
+Identification
+Dr. Vinh 
+Nguyen
+59
+AI VIETNAM
+All-in-One Course
+59
+Vinh Dinh Nguyen- PhD in Computer Science
+Data Preparation
+…
+7500 features
+7500 features
+7500 features
+2
+1
+n
+Dataset
+Vinh
+Obama
+Label
+60
+AI VIETNAM
+All-in-One Course
+60
+Vinh Dinh Nguyen- PhD in Computer Science
+KNN Review
+61
+AI VIETNAM
+All-in-One Course
+61
+Vinh Dinh Nguyen- PhD in Computer Science
+KNN for Face Recognition
+62
+AI VIETNAM
+All-in-One Course
+62
+Vinh Dinh Nguyen- PhD in Computer Science
+Face Recognition with KNN
+Data preparation in 10 seconds (Demo)
+Collect new faces and store to the database
+Play Video
+63
+AI VIETNAM
+All-in-One Course
+63
+Vinh Dinh Nguyen- PhD in Computer Science
+Face Recognition with KNN
+Provide instant detection and indentification 
+after 10 seconds
+Play Video
+64
+AI VIETNAM
+All-in-One Course
+64
+Vinh Dinh Nguyen- PhD in Computer Science
+SVM Review
+0
+1
+2
+3
+4
+5
+6
+x
+1
+y
+-2
+-1
+2
+3
+4
+5
+6
+7
+8
+Yes
+No
+𝑤2X+ b = 0
+𝑤2X+ b = 1
+𝑤2X+ b = -1
+Max 
+!
+"
+! such that Y * (𝑤#X+ b) ≥1
+Support Vector
+min $
+! W !
+!+ C ∑%
+& 𝜀% such that Y * (𝑤#X+ b) ≥1- 𝜀%
+Allow for miss classification
+𝜀3 is a distance measure of the data points from their corresponding blue line.
+𝜀! > 1
+𝑑=
+&
+'!()!= 
+&
+* !
+Slack variable in SVM
+miss-classification
+𝜀4 = 0
+𝜀5 < 1
+𝑑= .!
+* !
+C controls how much weight should set on the misclassification data
+65
+AI VIETNAM
+All-in-One Course
+65
+Vinh Dinh Nguyen- PhD in Computer Science
+SVM for Face Recognition
+66
+AI VIETNAM
+All-in-One Course
+66
+Vinh Dinh Nguyen- PhD in Computer Science
+Decision Tree Review
+KNN Limitations
+K = 3
+KNN has some drawbacks and challenges, such as computational
+expense, slow speed, for large datasets
+Class A
+Class B
+Điều kiện
+Sai
+Đúng
+Điều kiện
+Điều kiện
+Decision 
+Tree Idea
+Data cần 
+phân loại
+Full dataset
+Sub-dataset
+Sub-dataset
+Sub-dataset
+Sub-dataset
+Sub-dataset
+Sub-dataset
+Dự đoán class A
+Dự đoán class B
+Dự đoán class A
+Dự đoán class B
+Full dataset
+Data cần 
+phân loại
+67
+AI VIETNAM
+All-in-One Course
+67
+Vinh Dinh Nguyen- PhD in Computer Science
+Decision Tree for Face Recognition
+68
+AI VIETNAM
+All-in-One Course

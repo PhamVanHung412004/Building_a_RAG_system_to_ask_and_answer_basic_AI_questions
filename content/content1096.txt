@@ -1,7 +1,0 @@
-AI VIETNAM (AIO2024) aivietnam.edu.vn
-- Điểm mới: Sử dụng anchor boxes, mạng Darknet-19, và tăng training data để tăng độ
-chính xác.
-- Ưu điểm: Tăng độ chính xác và khả năng nhận diện nhiều object trong 1 cell.
-- Nhược điểm: Phức tạp hơn, cần nhiều tài nguyên tính toán, và khó detect các object
-nhỏ.
-II.IV. 

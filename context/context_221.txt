@@ -1,0 +1,2079 @@
+From Text Generation
+to Machine Translation
+Year 2024
+Quang-Vinh Dinh
+Ph.D. in Computer Science
+AI VIETNAM
+All-in-One Course
+➢Text Generation Using Transformer
+➢An improved Approach to Text Generation
+➢Machine Translation Using RNN
+➢Machine Translation Using Transformer
+Outline
+Self-Supervision Using Text Data
+❖ Encode the sequential relationship
+natural language processing is a branch of artificial intelligence
+natural
+language
+X
+y
+Text Model
+natural
+language
+language
+ො𝑦
+𝑦
+loss
+update
+1
+RNN Cell
+RNN Cell
+ho
+h1
+Wih
+Whh
+bih
+Wih
+Whh
+bih
+h1
+h2
+bhh
+bhh
+ai
+học
+đi
+4
+3
+đi
+học
+ai
+data
+ai
+Model
+Output
+Loss
+optimizer
+Label
+Linear
+đi
+học
+input
+ai
+label
+Using all the features
+Implementation Using RNN
+2
+Copus
+Vocab
+Id
+Text
+0
+Ăn quả nhớ kẻ trồng cây
+1
+Có chí thì nên
+Tokenizer
+Ăn
+quả
+cây
+trồng
+kẻ
+nhớ
+có
+chí
+thì
+nên
+Token
+Id
+<unk>
+0
+<pad>
+1
+<sos>
+2
+chí
+3
+cây
+4
+có
+5
+kẻ
+6
+nhớ
+7
+nên
+8
+quả
+9
+thì 
+10
+trồng
+11
+ăn
+12
+Build vocab
+<unk>
+<pad>
+<sos>
+Special tokens
+Add
+Example
+vocab_size = 13
+Id
+Text
+0
+Ăn quả nhớ kẻ trồng cây
+1
+Có chí thì nên
+Input tokens
+Target token
+<sos>
+Ăn
+<sos> Ăn
+quả
+<sos> Ăn quả
+nhớ
+<sos> Ăn quả nhớ
+kẻ
+<sos> Ăn quả nhớ kẻ
+trồng
+<sos> Ăn quả nhớ kẻ trồng
+cây
+<sos> 
+Có
+<sos> Có
+chí
+<sos> Có chí
+thì
+<sos> Có chí thì 
+nên
+Next token prediction dataset
+4
+Token
+Id
+<unk>
+0
+<pad>
+1
+<sos>
+2
+chí
+3
+cây
+4
+có
+5
+kẻ
+6
+nhớ
+7
+nên
+8
+quả
+9
+thì 
+10
+trồng
+11
+ăn
+12
+vocab_size = 13
+Id
+Text
+0
+Ăn quả nhớ kẻ trồng cây
+1
+Có chí thì nên
+Input tokens
+Target token
+<sos>
+Ăn
+<sos> Ăn
+quả
+<sos> Ăn quả
+nhớ
+<sos> Ăn quả nhớ
+kẻ
+<sos> Ăn quả nhớ kẻ
+trồng
+<sos> Ăn quả nhớ kẻ trồng
+cây
+<sos> 
+Có
+<sos> Có
+chí
+<sos> Có chí
+thì
+<sos> Có chí thì 
+nên
+Next token prediction dataset
+data_x_ids
+data_y_ids
+[2, 1, 1, 1, 1, 1]
+12
+[2, 12, 1, 1, 1, 1]
+9
+[2, 12, 9, 1, 1, 1]
+7
+[2, 12, 9, 7, 1, 1]
+6
+[2, 12, 9, 7, 6, 1]
+11
+[2, 12, 9, 7, 6, 11]
+4
+[2, 1, 1, 1, 1, 1]
+5
+[2, 5, 1, 1, 1, 1]
+3
+[2, 5, 3, 1, 1, 1]
+10
+[2, 5, 3, 10, 1, 1]
+8
+padding
+Vocab
+Training data
+Example
+4
+sequence_length = 6
+Token
+Id
+<unk>
+0
+<pad>
+1
+<sos>
+2
+chí
+3
+cây
+4
+có
+5
+Token
+Id
+kẻ
+6
+nhớ
+7
+nên
+8
+quả
+9
+thì 
+10
+trồng
+11
+ăn
+12
+Id
+Text
+0
+Ăn quả nhớ kẻ trồng cây
+1
+Có chí thì nên
+Input tokens
+Target token
+<sos>
+Ăn
+<sos> Ăn
+quả
+<sos> Ăn quả
+nhớ
+<sos> Ăn quả nhớ
+kẻ
+<sos> Ăn quả nhớ kẻ
+trồng
+<sos> Ăn quả nhớ kẻ trồng
+cây
+<sos> 
+Có
+<sos> Có
+chí
+<sos> Có chí
+thì
+<sos> Có chí thì 
+nên
+Next token prediction dataset
+data_x_ids
+data_y_ids
+[2, 1, 1, 1, 1, 1]
+12
+[2, 12, 1, 1, 1, 1]
+9
+[2, 12, 9, 1, 1, 1]
+7
+[2, 12, 9, 7, 1, 1]
+6
+[2, 12, 9, 7, 6, 1]
+11
+[2, 12, 9, 7, 6, 11]
+4
+[2, 1, 1, 1, 1, 1]
+5
+[2, 5, 1, 1, 1, 1]
+3
+[2, 5, 3, 1, 1, 1]
+10
+[2, 5, 3, 10, 1, 1]
+8
+padding
+Vocab
+Training data
+Example
+4
+sequence_length = 6
+data_x_ids
+[2, 1, 1, 1, 1, 1]
+Model
+(RNN / Transformer)
+predictions
+[…, …, … … …, … ]
+Token
+Id
+<unk>
+0
+<pad>
+1
+<sos>
+2
+chí
+3
+cây
+4
+có
+5
+kẻ
+6
+nhớ
+7
+nên
+8
+quả
+9
+thì 
+10
+trồng
+11
+ăn
+12
+vocab_size = 13
+sequence_length = 6
+?
+Example
+data_x_ids
+[2, 1, 1, 1, 1, 1]
+Model
+(RNN / Transformer)
+predictions
+[…, …, … … …, … ]
+Token
+Id
+<unk>
+0
+<pad>
+1
+<sos>
+2
+chí
+3
+cây
+4
+có
+5
+kẻ
+6
+nhớ
+7
+nên
+8
+quả
+9
+thì 
+10
+trồng
+11
+ăn
+12
+vocab_size = 13
+sequence_length = 6
+Example
+Training
+data_x_ids
+[2, 1, 1, 1, 1, 1]
+[2, 12, 1, 1, 1, 1]
+[2, 12, 9, 1, 1, 1]
+[2, 12, 9, 7, 1, 1]
+[2, 12, 9, 7, 6, 1]
+[2, 12, 9, 7, 6, 11]
+[2, 1, 1, 1, 1, 1]
+[2, 5, 1, 1, 1, 1]
+[2, 5, 3, 1, 1, 1]
+[2, 5, 3, 10, 1, 1]
+Model
+(RNN / Transformer)
+data_y_ids
+12
+9
+7
+6
+11
+4
+5
+3
+10
+8
+predicted ids
+12
+9
+7
+6
+12
+4
+5
+3
+9
+8
+CrossEntropy
+Loss
+Update params
+Example
+AI VIETNAM
+All-in-One Course
+5
+Input tokens
+Target token
+<sos> Có chí thì 
+nên
+Input ids
+Target ids
+[2, 5, 3, 10]
+[8]
+Embedding 
+layer
+2
+5
+3
+10
+𝑋1 = −0.7521
+1.6487
+−0.3925
+−1.4036
+𝑋2 = −0.7581
+1.0783
+0.8008
+1.6806
+𝑋3 = −0.7279
+−0.5594
+−0.7688
+0.7624
+𝑋4 = −0.8371
+−0.9224
+1.8113
+0.1606
+0.3035
+−0.2523
+0.2980
+0.4578
+−0.1187
+0.1524
+0.3399
+−0.1687
+0.2860
+0.1057
+−0.3626
+−0.1773
+−0.3885
+−0.1275
+−0.2669
+−0.4838
+𝑾𝒉𝒉
+−0.2863
+0.1249
+−0.0660
+−0.3629
+𝑏𝑖ℎ
+𝑾𝒊𝒉
+−0.2982
+0.4811
+−0.3363
+−0.2582
+−0.2982
+−0.4126
+0.2025
+−0.3409
+0.4497
+−0.4959
+0.1790
+0.2653
+0.1666
+−0.3912
+0.4155
+−0.2021
+0.0117
+−0.3415
+−0.4242
+−0.2753 
+𝑏ℎℎ
+ℎ0
+ℎ1
+ℎ2
+ℎ3
+𝑋1
+0
+0
+0
+0
+𝒃𝒊𝒉
+ℎ4
+𝑋4
+𝑋3
+𝑋2
+RNN
+𝒃𝒉𝒉
+𝑾𝒊𝒉
+𝑾𝒉𝒉
+𝑾𝒊𝒉
+𝑾𝒊𝒉
+𝑾𝒊𝒉
+𝒃𝒉𝒉
+𝒃𝒉𝒉
+𝒃𝒉𝒉
+ℎ1 = −0.7409
+−0.4739
+−0.5055
+−0.6786
+ℎ2 = 0.2170
+−0.9590
+0.6681
+−0.6519
+ℎ3 = 0.4735
+−0.2915
+−0.4692
+−0.1583
+ℎ4 = 0.8327
+−0.8839
+0.2449
+0.6446
+Linear (16, 13)
+Flatten
+𝑾𝒉𝒉
+𝑾𝒉𝒉
+𝑾𝒉𝒉
+𝒃𝒊𝒉
+𝒃𝒊𝒉
+𝒃𝒊𝒉
+Feed Forward
+6
+sequence_length = 4
+hidden_dim = 4
+FC
+Probability
+0.1121
+0.1334
+0.0742
+0.0896
+0.0648
+0.0569
+0.0956
+0.0744
+0.0751
+0.0809
+0.0636
+0.0490
+0.0304
+Target
+0
+0
+0
+0
+0
+0
+0
+0
+1
+0
+0
+0
+0
+CrossEntropyLoss (L)
+Loss
+0.0896
+−0.0079
+0.0049
+−0.0619
+−0.0204
+−0.0960
+−0.1445
+0.0827
+0.0843
+0.0819
+−0.0518
+−0.1736
+0.0201
+−0.0723
+−0.1252
+0.0291
+𝛁𝑾𝒉𝒉𝑳
+𝛁𝑾𝒊𝒉𝑳
+0.0187
+−0.1285
+−0.2816
+−0.0437
+−0.1589
+0.1600
+0.0904
+0.1782
+−0.0991
+−0.1825
+0.1933
+0.2889
+−0.0988
+−0.0411
+0.1014
+−0.0192
+−0.0235
+0.1788
+0.3628
+0.0449
+𝛁𝑏ℎℎ𝑳
+−0.0235
+0.1788
+0.3628
+0.0449
+𝛁𝑏𝑖ℎ𝑳
+2.5884
+backward
+backward
+Back-Propagation
+data_x_ids
+[2, 1, 1, 1, 1, 1]
+Model
+(Transformer)
+predictions
+[…, …, … … …, … ]
+Token
+Id
+<unk>
+0
+<pad>
+1
+<sos>
+2
+chí
+3
+cây
+4
+có
+5
+kẻ
+6
+nhớ
+7
+nên
+8
+quả
+9
+thì 
+10
+trồng
+11
+ăn
+12
+vocab_size = 13
+sequence_length = 6
+Example
+Embedding
+Multi-head 
+Attention
+Add & Norm
+Feed Forward
+Add & Norm
+Masked 
+Multi-head 
+Attention
+Add & Norm
+Multi-head 
+Attention
+Add & Norm
+Feed Forward
+Add & Norm
+Linear
+Softmax
+N
+×
+Embedding
+𝐷0
+𝐷2
+𝐷𝑛
+𝑌0
+𝑌2
+𝑌𝑛
+a word 
+vector
+…
+…
+𝐷1
+𝑌1
+a word 
+vector
+a word 
+vector
+a word 
+vector
+N
+×
+đi
+học
+3
+4
+index
+word
+0
+[UNK]
+1
+[pad]
+2
+ai
+3
+đi
+4
+học
+…
+…
+Embedding
+index
+Embedding
+0
+[-0.188, …,  0.7013]
+1
+[1.7840…,  1.3586]
+2
+[1.0281, …,  0.4211]
+3
+[-1.308,  …, -0.3680]
+4
+[0.2293,  …,  2.0501]
+…
+…
+Transformer Encoder
+Multi-head 
+Self-Attention
+Add & 
+Norm
+Linear
+(3, 4)
+ReLU
+Add & 
+Norm
+Linear
+(4, 3)
+Feed Forward
+Encoder 
+in Pytorch
+(N, 2, 3)
+(N, 2, 3)
+15
+đi
+học
+3
+4
+Embedding
+Multi-head 
+Self-Attention
+Add & 
+Norm
+Linear
+(3, 4)
+ReLU
+Add & 
+Norm
+Linear
+(4, 3)
+Feed Forward
+Encoder 
+in Pytorch
+(N, 2, 3)
+(N, 2, 3)
+[0.69,  0.72, -1.41]
+[0.21,  1.10, -1.31]
+[0.97, 0.39, -1.37]
+[0.58, 0.82, -1.40]
+Transformer Encoder
+16
+Embedding
+Multi-head 
+Attention
+Add & Norm
+Feed Forward
+Add & Norm
+Masked 
+Multi-head 
+Attention
+Add & Norm
+Multi-head 
+Attention
+Add & Norm
+Feed Forward
+Add & Norm
+Linear
+Softmax
+N
+×
+Embedding
+𝐷0
+𝐷2
+𝐷𝑛
+𝑌0
+𝑌2
+𝑌𝑛
+a word 
+vector
+…
+…
+𝐷1
+𝑌1
+a word 
+vector
+a word 
+vector
+a word 
+vector
+N
+×
+đi
+học
+ai
+3
+4
+2
+index
+word
+0
+[UNK]
+1
+[pad]
+2
+ai
+3
+đi
+4
+học
+…
+…
+Embedding
+index
+Embedding
+0
+[-0.188, …,  0.7013]
+1
+[1.7840…,  1.3586]
+2
+[1.0281, …,  0.4211]
+3
+[-1.308,  …, -0.3680]
+4
+[0.2293,  …,  2.0501]
+…
+…
+Transformer Encoder
+Masked 
+Multi-head 
+Self-Attention
+Add & 
+Norm
+Linear
+(3, 4)
+ReLU
+Add & 
+Norm
+Linear
+(4, 3)
+Feed Forward
+Masked Encoder 
+in Pytorch
+(N, 3, 3)
+(N, 3, 3)
+17
+đi
+học
+ai
+3
+4
+2
+Embedding
+Masked 
+Multi-head 
+Self-Attention
+Add & 
+Norm
+Linear
+(3, 4)
+ReLU
+Add & 
+Norm
+Linear
+(4, 3)
+Feed Forward
+Masked Encoder 
+in Pytorch
+(N, 3, 3)
+(N, 3, 3)
+[0.69,  0.72, -1.41]
+[0.21,  1.10, -1.31]
+[-0.88,  0.60, -0.31]
+[0.97, 0.39, -1.37]
+[0.58, 0.82, -1.40]
+[-0.85, 1.40, -0.54]
+Transformer Encoder
+18
+𝑋= −0.1 
+0.1 
+0.3
+ 0.4 −1.1 −0.3
+𝑊𝑄=
+−0.35 
+0.51 
+0.50
+ 0.36 −0.47 −0.29
+−0.51 −0.14 −0.56
+𝑊𝐾=
+−0.49 
+−0.68 0.18
+−0.44 
+−0.46 0.18
+ 0.07 
+−0.10 0.44
+𝑊𝑉=
+−0.41 
+0.39 −0.65
+−0.40 −0.07 −0.34
+−0.55 −0.13 −0.29
+𝑊𝑂=
+−0.36 −0.08 0.32
+ 0.27 
+0.05 0.15
+−0.05 −0.28 0.05
+𝑄= 𝑋𝑊𝑄= −0.1 
+0.1 
+0.3
+ 0.4 −1.1 −0.3
+−0.35 
+0.51 
+0.50
+ 0.36 −0.47 −0.29
+−0.51 −0.14 −0.56
+𝐾= 𝑋𝑊𝐾= −0.1 
+0.1 
+0.3
+ 0.4 −1.1 −0.3
+−0.49 
+−0.68 
+0.18
+−0.44 
+−0.46 
+0.18
+ 0.07 
+−0.10 
+0.44
+𝑉= 𝑋𝑊𝑉= −0.1 
+0.1 
+0.3
+ 0.4 −1.1 −0.3
+−0.41 
+0.39 −0.65
+−0.40 −0.07 −0.34
+−0.55 −0.13 −0.29
+head = 1
+Masked Multi-
+head Attention
+𝑀= 0 
+−∞
+0 
+0
+= −0.08 −0.14 −0.24
+−0.39 0.77 0.69
+= 0.02 −0.01 0.13
+0.27 0.27 −0.26
+= −0.16 −0.08 −0.05
+−0.02 −0.02 0.05
+12
+approximately
+Masked Multi-head Attention
+AI VIETNAM
+All-in-One Course
+❖ Example 
+𝑌= 𝐴𝑊𝑂= −0.16 −0.08 −0.05
+ 0.12 
+0.08 
+0.06
+−0.36 −0.08 0.32
+ 0.27 
+0.05 0.15
+−0.05 −0.28 0.05
+=
+0.03 0.02 −0.06
+−0.02 −0.02 0.05
+𝐴= 𝑠𝑜𝑓𝑡𝑚𝑎𝑥𝑄𝐾𝑇
+𝑑
++ 𝑀𝑉
+= 𝑠𝑜𝑓𝑡𝑚𝑎𝑥
+−0.08 −0.14 −0.24
+−0.39 
+0.77 
+0.69
+ 0.02 
+0.27
+−0.01 
+0.27
+ 0.13 −0.26
+1
+𝑑
++ 0 
+−∞
+0 
+0
+−0.16 −0.08 −0.05
+−0.02 −0.02 
+0.05
+=
+1.0 
+0.0
+0.52 0.48
+−0.16 −0.08 −0.05
+−0.02 −0.02 
+0.05 = −0.16 −0.08 −0.05
+ 0.12 
+0.08 0.06
+= 𝑠𝑜𝑓𝑡𝑚𝑎𝑥
+−0.019 
+0.002
+ 0.043 
+−0.046 + 0 
+−∞
+0 
+0
+−0.16 −0.08 −0.05
+−0.02 −0.02 
+0.05
+n
+d
+n
+d
+d
+d
+n
+n
+n
+n
+n
+𝑑𝑞
+𝑑𝑘
+𝑑𝑣
+𝑑𝑞
+𝑑𝑘
+𝑑𝑣
+𝑊𝑞
+𝑊𝑘
+𝑊𝑣
+Q
+K
+V
+𝑄𝐾𝑇
+Z
+𝑑𝑞= 𝑑𝑘= 𝑑𝑣
+Embedding size
+Sequence length
+Input
+𝑑𝑣
+0
+−∞
+−∞
+−∞
+−∞
+0
+0
+−∞
+−∞
+−∞
+0
+0
+0
+−∞
+−∞
+0
+0
+0
+0
+−∞
+0
+0
+0
+0
+0
+𝑀𝑎𝑠𝑘
+Softmax
+A
+n
+n
+Masked-Attention
+Training process
+14
+Embedding
+Multi-head 
+Attention
+Add & Norm
+Feed Forward
+Add & Norm
+Masked 
+Multi-head 
+Attention
+Add & Norm
+Multi-head 
+Attention
+Add & Norm
+Feed Forward
+Add & Norm
+Linear
+Softmax
+N
+×
+Embedding
+N
+×
+(N, 2, 3)
+Multi-head 
+Self-Attention
+Add & 
+Norm
+Linear
+(3, 4)
+ReLU
+Add & 
+Norm
+Linear
+(4, 3)
+Feed Forward
+(N, 2, 3)
+query
+value
+key
+20
+Transformer in PyTorch
+AI VIETNAM
+All-in-One Course
+❖ Transformer Encoder 
+(N, 2, 3)
+Masked 
+Multi-head 
+Self-Attention
+Add & 
+Norm
+(N, 3, 3)
+Masked 
+Multi-head 
+Self-Attention
+query
+value
+key
+query
+value
+key
+Add & 
+Norm
+Linear
+(3, 4)
+ReLU
+Add & 
+Norm
+Linear
+(4, 3)
+Feed Forward
+(N, 2, 3)
+Multi-head 
+Self-Attention
+Add & 
+Norm
+Linear
+(3, 4)
+ReLU
+Add & 
+Norm
+Linear
+(4, 3)
+Feed Forward
+(N, 2, 3)
+Masked 
+Multi-head 
+Self-Attention
+Add & 
+Norm
+(N, 3, 3)
+Masked 
+Multi-head 
+Self-Attention
+query
+value
+key
+query
+value
+key
+query
+value
+key
+Add & 
+Norm
+Linear
+(3, 4)
+ReLU
+Add & 
+Norm
+Linear
+(4, 3)
+Feed Forward
+Positional 
+Embedding
+Output Embedding
++
+Masked 
+Multi-head 
+Self-Attention
+Add & Norm
+Feed Forward
+Add & Norm
+Linear
+Decoder
+N×
+Text Generation
+AI VIETNAM
+All-in-One Course
+❖ Architecture
+interesting
+Learning AI is
+Text Encoding
+Softmax
+Dataset
+(x, y)
+19
+data_x_ids
+[2, 1, 1, 1, 1, 1]
+Model
+(Transformer)
+predictions
+[…, …, … … …, … ]
+Token
+Id
+<unk>
+0
+<pad>
+1
+<sos>
+2
+chí
+3
+cây
+4
+có
+5
+kẻ
+6
+nhớ
+7
+nên
+8
+quả
+9
+thì 
+10
+trồng
+11
+ăn
+12
+vocab_size = 13
+sequence_length = 6
+Example
+Input tokens
+Target token
+<sos> Có chí thì 
+nên
+Input ids
+Target ids
+[2, 5, 3, 10]
+[8]
+Embedding layer
+𝑋1 = −0.7521
+1.6487
+−0.3925
+−1.4036
+𝑋2 = −0.7581
+1.0783
+0.8008
+1.6806
+𝑋3 = −0.7279
+−0.5594
+−0.7688
+0.7624
+𝑋4 = −0.8371
+−0.9224
+1.8113
+0.1606
+Masked Multi-
+Head Attention
+Feed Forward
+Add & Norm
+Add & Norm
+Linear
+2
+5
+3
+10
+0.3035
+−0.2523
+0.2980
+0.4578
+−0.1187
+0.1524
+0.3399
+−0.1687
+0.2860
+0.1057
+−0.3626
+−0.1773
+−0.3885
+−0.1275
+−0.2669
+−0.4838
+𝑾𝒌_𝒑𝒓𝒐𝒋
+0.0782
+0.0014
+−0.3432
+0.4192
+−0.4400
+−0.1861
+−0.2917
+−0.0992
+−0.2154
+−0.0346
+−0.1711
+0.4302
+−0.2993
+−0.3388
+−0.3946
+0.1558
+𝑾𝒐_𝒑𝒓𝒐𝒋
+−0.2863
+0.0117
+−0.4376
+0.1541
+0.1249
+−0.3415
+−0.3184
+−0.4663
+−0.0660
+−0.4242
+0.4998
+−0.3284
+−0.3629
+−0.2753
+0.0944
+−0.1664
+𝑾𝒗_𝒑𝒓𝒐𝒋
+Linear (fc2)
+Feed Forward
+Linear (fc1)
+ReLU
+Transformer
+−0.2982
+0.4811
+−0.3363
+−0.2582
+−0.2982
+−0.4126
+0.2025
+−0.3409
+0.4497
+−0.4959
+0.1790
+0.2653
+0.1666
+−0.3912
+0.4155
+−0.2021
+𝑾𝒒_𝒑𝒓𝒐𝒋
+𝑾𝒇𝒄_𝟏
+0.2792
+−0.3735
+0.1161
+0.2610
+−0.1278
+0.1783
+0.2583
+0.2628
+−0.2853
+0.3870
+0.0907
+0.1870
+−0.1712
+−0.4707
+−0.1781
+−0.0879
+−0.1324
+0.3196
+0.0073
+−0.4541
+0.0535
+0.4297
+−0.0299
+−0.1845
+−0.0883
+−0.0495
+0.1202
+0.4211
+−0.1490
+−0.1119
+0.1401
+0.1948
+−0.3125
+−0.2288
+−0.2465
+−0.0035
+−0.2126
+0.2581
+−0.3489
+−0.2689
+−0.0558
+−0.1608
+−0.2871
+−0.3029
+0.3420
+−0.0709
+0.2636
+−0.3307
+0.0511
+−0.3517
+0.1697
+0.1447
+−0.0916
+0.2366
+0.2975
+−0.1736
+0.1463
+0.2679
+0.1852
+−0.0712
+−0.1347
+0.1289
+0.0895
+−0.2035
+𝐖𝐟𝐜_𝟐
+Linear
+Linear
+Linear
+Scaled Dot-Product 
+Attention
+Linear
+V
+K
+Q
+Masked Multi-Head Attention
+Decoder
+➢Text Generation Using Transformer
+➢An improved Approach to Text Generation
+➢Machine Translation Using RNN
+➢Machine Translation Using Transformer
+Outline
+RNN Cell
+RNN Cell
+ho
+h1
+Wih
+Whh
+bih
+Wih
+Whh
+bih
+h1
+h2
+bhh
+bhh
+ai
+học
+đi
+4
+3
+học
+đi
+học
+input
+đi
+học
+ai
+data
+học
+ai
+label
+ai
+học
+Model
+Output
+Loss
+optimizer
+Label
+An improved approach
+34
+*Linear can be added (where?)
+RNN Cell
+RNN Cell
+ho
+h1
+Wih
+Whh
+bih
+Wih
+Whh
+bih
+h1
+h2
+bhh
+bhh
+ai
+học
+đi
+4
+3
+học
+[-0.88,  0.81,  0.77]
+[-1.27,  0.84,  0.04]
+Embedded Input
+[0.25,   0.05,  0.17]
+[-0.11,  0.35,  0.22]
+[0.44, -0.22, -0.42]
+[0.38,  0.36, -0.01]
+[-0.08,  0.68, -0.08, -0.53]
+[-0.30,  0.77, -0.15, -0.58]
+Output
+[-0.30,  0.77, -0.15, -0.58]
+Hidden
+[0.38, -0.06,  0.37, -0.19]
+[-0.16,  0.42,  0.08, -0.02]
+[-0.36, -0.01,  0.17,  0.39]
+[-0.43,  0.09,  0.33,  0.03]
+Wih
+[-0.47,  0.13,  0.46, -0.15]
+bih
+Whh
+[0.43,  0.16,  0.34, -0.39]
+bhh
+seq_len = 2
+An improved approach
+*Linear can be added
+hidden_dim = vocab_size = 4
+RNN Cell
+RNN Cell
+ho
+h1
+h2
+Wxh
+Whh
+bxh
+Wxh
+Whh
+bxh
+h1
+h2
+bhh
+bhh
+Whh
+bhh
+ai
+học
+đi
+4
+3
+học
+RNN Cell
+h3
+Wxh
+bxh
+h2
+Whh
+bhh
+<eos>
+2
+ai
+đi
+học
+ai
+<eos>
+Training
+Loss
+ai
+học
+<eos>
+label
+Add more special tokens
+seq_len = 3
+36
+RNN Cell
+RNN Cell
+ho
+h1
+h3
+Wxh
+Whh
+bxh
+Wxh
+Whh
+bxh
+h1
+h3
+bhh
+bhh
+Whh
+bhh
+ai
+học
+<sos>
+4
+1
+RNN Cell
+h4
+Wxh
+bxh
+h4
+Whh
+bhh
+<eos>
+2
+ai
+RNN Cell
+h2
+Wxh
+bxh
+Whh
+h2
+bhh
+đi
+3
+học
+đi
+<sos>
+đi
+học
+ai
+<eos>
+Training
+Loss
+ai
+<eos>
+học
+đi
+label
+seq_len = 4
+37
+➢Text Generation Using Transformer
+➢An improved Approach to Text Generation
+➢Machine Translation Using RNN
+➢Machine Translation Using Transformer
+Outline
+IWSLT'15 English-Vietnamese data
+133K
+sentences
+Train
+1K3
+sentences
+Val
+1K3
+sentences
+Test
+Ref: https://nlp.stanford.edu/projects/nmt/
+En - sequence
+Vi - sequence
+Over 15,000 scientists go to San Francisco every year for that .
+Mỗi năm , hơn 15,000 nhà khoa học đến San Francisco để tham dự hội nghị này .
+Neural Machine 
+Translation
+Dataset
+(N, 2, 3)
+Multi-head 
+Self-Attention
+Add & 
+Norm
+Linear
+(3, 4)
+ReLU
+Add & 
+Norm
+Linear
+(4, 3)
+Feed Forward
+(N, 2, 3)
+Masked 
+Multi-head 
+Self-Attention
+Add & 
+Norm
+(N, 3, 3)
+Masked 
+Multi-head 
+Self-Attention
+query
+value
+key
+query
+value
+key
+query
+value
+key
+Add & 
+Norm
+Linear
+(3, 4)
+ReLU
+Add & 
+Norm
+Linear
+(4, 3)
+Feed Forward
+Source sequences
+good morning <eos>
+ai books <eos>
+Target sequences
+<sos> chào buổi sáng <eos>
+<sos> sách ai <eos> <pad>
+RNN /
+Transformer Encoder
+Source sequences
+good morning <eos>
+ai books <eos>
+Input encoder
+[5, 6, 2]
+[3, 4, 2]
+en vocab
+vi vocab
+Target sequences
+<sos> chào buổi sáng <eos>
+<sos> sách ai <eos> <pad>
+Input decoder
+[2, 6, 5, 8]
+[2, 7, 3, 4]
+Embedding
+hidden
+state
+Encoder
+Embedding
+RNN /
+Transformer Decoder
+FC
+Decoder
+Training phase
+Teacher forcing
+Decoder
+[2]
+[7]
+Decoder
+[2, 7]
+Decoder
+[2, 6, 4]
+[3]
+[4]
+<sos>
+sách
+ai
+<eos>
+<sos> sách
+<sos> sách ai
+Stop
+Inference phase
+Label
+[6, 5, 8, 3]
+[7, 3, 4, 1]
+Multi-Head 
+Attention
+Feed Forward
+Add & Norm
+Add & Norm
+Multi-Head 
+Attention
+Feed Forward
+Add & Norm
+Add & Norm
+Embedding
+Masked Multi-
+Head Attention
+Add & Norm
+Embedding
+Input encoder
+[5, 6, 2]
+[3, 4, 2]
+Input decoder
+[2, 6, 5, 8]
+[2, 7, 3, 4]
+Linear (fc2)
+Feed Forward
+Linear (fc1)
+ReLU
+Linear
+Linear
+Linear
+Scaled Dot-Product 
+Attention
+Linear
+V
+K
+Q
+Multi-Head Attention
+Linear
+𝑊𝑓𝑐1
+𝑊𝑓𝑐2
+𝑊𝑞_𝑝𝑟𝑜𝑗
+𝑊𝑘_𝑝𝑟𝑜𝑗
+𝑊𝑣_𝑝𝑟𝑜𝑗
+𝑊𝑜_𝑝𝑟𝑜𝑗
+𝑊𝑞_𝑝𝑟𝑜𝑗
+𝑊𝑘_𝑝𝑟𝑜𝑗
+𝑊𝑣_𝑝𝑟𝑜𝑗
+𝑊𝑜_𝑝𝑟𝑜𝑗
+𝑊𝑓𝑐1
+𝑊𝑓𝑐2
+𝑊𝑞_𝑝𝑟𝑜𝑗
+𝑊𝑘_𝑝𝑟𝑜𝑗
+𝑊𝑣_𝑝𝑟𝑜𝑗
+𝑊𝑜_𝑝𝑟𝑜𝑗
+𝑊𝑐𝑙𝑠
+Predict
+[5, 3, 5, 1]
+[1, 3, 3, 3]
+Label
+[6, 5, 8, 3]
+[7, 3, 4, 1]
+CrossEntropyLoss
+2.31
+Transformer
+(PyTorch)
+Decoder FFN
+Encoder FFN
+Decoder Attention
+Decoder Masked Attention
+Encoder Attention
+Classifer
+Source sequences
+good morning <eos>
+ai books <eos>
+Target sequences
+<sos> chào buổi sáng <eos>
+<sos> sách ai <eos> <pad>
+Embedding
+Encoder
+ℎ0
+ℎ1
+ℎ3
+ℎ2
+𝑥1
+𝑥2
+𝑥3
+zero_init
+RNN
+Embedding
+ℎ0
+ℎ1
+ℎ3
+ℎ2
+𝑥1
+𝑥2
+𝑥3
+FC
+Decoder
+RNN
+𝑥4
+ℎ4
+Input 
+encoder
+[5, 6, 2]
+[3, 4, 2]
+Predict
+[1, 1, 1, 6]
+[1, 1, 1, 1]
+Label
+[6, 5, 8, 3]
+[7, 3, 4, 1]
+−0.2961
+−0.2180
+…
+−0.2338
+0.1020
+…
+−0.3464
+−0.2248
+…
+0.1258
+−0.3808
+…
+−0.1759
+−0.2444
+…
+−0.2802
+−0.2382
+…
+…
+−0.1447
+−0.3950
+…
+0.0096
+−0.2789
+…
+0.4081
+0.0771
+…
+0.0638
+−0.3592
+…
+−0.0283
+−0.2766
+…
+0.3423
+−0.0810
+𝑾𝒉𝒉
+𝑊ℎℎ
+𝑊𝑖ℎ
+𝑊ℎℎ
+𝑊ℎℎ
+𝑊𝑖ℎ
+𝑊𝑖ℎ
+𝑊𝑖ℎ
+𝑊𝑖ℎ
+𝑊𝑖ℎ
+𝑊𝑖ℎ
+𝑊ℎℎ
+𝑊ℎℎ
+𝑊ℎℎ
+𝑊ℎℎ
+0.3195
+−0.2901
+…
+0.1251
+−0.0851
+…
+0.3672
+0.1360
+…
+−0.2746
+0.1654
+…
+0.2166
+−0.1650
+…
+−0.2060
+0.1245
+…
+…
+0.1259
+−0.1406
+. . .
+−0.2435
+−0.2435
+. . .
+−0.4049
+−0.3194
+…
+−0.2108
+−0.2783
+…
+0.2335
+−0.3172]
+…
+0.2433
+0.2775
+𝑾𝒊𝒉
+−0.3609
+−0.2455
+…
+0.1689
+−0.1555
+…
+−0.4061
+0.2732
+…
+−0.3316
+0.3044
+…
+−0.0040
+−0.3105
+…
+−0.0822
+−0.2349
+…
+…
+0.0591
+−0.1057
+. . .
+−0.1856
+−0.0818
+. . .
+−0.2847
+−0.4029
+…
+0.2139
+0.1033
+…
+0.1671
+−0.2004
+…
+−0.2668
+0.1354
+𝑾𝒊𝒉
+−0.1213
+0.2520
+…
+−0.1249
+−0.3887
+…
+0.2917
+−0.3131
+…
+−0.0576
+−0.0032
+…
+0.2534
+0.3055
+…
+0.2255
+−0.4063
+…
+…
+−0.0720
+−0.1979
+. . .
+0.2052
+0.1853
+. . .
+0.1515
+0.3834
+…
+0.1959
+−0.4053
+…
+−0.3354
+0.0918
+…
+−0.0357
+−0.2009
+𝑾𝒉𝒉
+CrossEntropyLoss
+2.33
+Input 
+decoder
+[2, 6, 5, 8]
+[2, 7, 3, 4]
+RNN
+Model
+Ref: https://arxiv.org/pdf/1910.10683.pdf
+T5: Text-to-Text Transfer Transformer
+Original transformer 
+Encoder-Decoder model pre-trained on a multi-task mixture of unsupervised 
+and supervised tasks
+Unsupervised
+Supervised
+seq2seq 
+input-output mapping
+Predict masked spans

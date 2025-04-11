@@ -1,5 +1,0 @@
-Phương pháp này giảm bớt sự cần thiết của việc tạo ví dụ minh họa thủ công, mở ra khả năng áp
-dụng rộng rãi trong việc giải quyết các bài toán suy luận phức tạp mà không cần tới sự can thiệp
-thủ công từ người dùng. Auto-CoT hứa hẹn sẽ cải thiện hiệu suất và khả năng tự học của LLMs,
-đặc biệt trong các tác vụ đòi hỏi suy luận nhiều bước.
-10

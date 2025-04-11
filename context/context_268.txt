@@ -1,0 +1,665 @@
+Chủ đề:
+Xử lý ảnh (Computer vision) Các kỹ 
+thuật trích xuất đặt trưng 
+Nội dung chính 
+Giới thiệu
+Các phương pháp phát hiện biên
+Phát hiện đường thẳng
+Giới thiệu
+• Một số ứng dụng:
+• So sánh khác biệt giữa hai ảnh
+• Phát hiện đối tượng/object
+• Theo bám đối tượng
+• Làm khớp (stitching/panorama) và tạo ảnh 3-D
+Điểm góc (Conner)
+🡺 Robot navigation
+• Vai trò của các local features:
+• Cô đọng hóa nguồn thông tin từ ảnh
+• Đưa vào mô hình để xử lý
+Điểm đặc trưng
+ Mật độ biên
+   Điểm đặc trưng
+🡺 So sánh ảnh
+🡺 Đặc trưng đối tượng   🡺 xoay/dịch chuyển
+Giới thiệu
+• Vai trò của các local features:
+• Không chỉ được quan sát/trích chọn không gian (spatial) 
+và thời gian (temporal)
+• Ứng dụng
+• Nhận dạng hoạt động, tương tác người - máy (HCI)
+• Theo bám đối tượng
+• Thực tại ảo (virtual reality)
+Một số ứng dụng
+•Automatic Panorama
+Một số ứng dụng
+●
+Nhận diện các vật thể giống nhau
+Giới thiệu về trích xuất biên
+•
+Điểm biên: Một điểm ảnh được coi là điểm biên nếu có sự thay đổi 
+nhanh hoặc đột ngột về mức xám (hoặc màu).
+•
+Ví dụ, trong ảnh nhị phân, điểm đen được gọi là điểm biên nếu lân 
+cận của nó có ít nhất một điểm trắng.
+•
+Đường biên còn gọi là đường bao (boundary): Là tập hợp các 
+điểm biên liên tiếp.
+•
+Ý nghĩa của đường biên
+•
+Đường biên là một loại đặc trưng cục bộ tiêu biểu trong phân 
+tích, nhận dạng ảnh.
+•
+Người ta sử dụng biên làm phân cách các vùng xám (hoặc 
+màu) cách biệt. Ngược lại, người ta cũng sử dụng các vùng ảnh 
+để tìm phân cách.
+•
+Các phương pháp tìm biên
+•
+Các phương pháp phát hiện biên trực tiếp
+•
+Phát hiện biên gián tiếp
+Khó khăn của bài toán phát hiện biên
+Khó khăn của bài toán phát hiện biên
+◆Một cách lý tưởng (ảnh đen trắng) thì đồ thị sự biến 
+thiên mức xám của các điểm ảnh khi qua biên như 
+sau:
+◆Đối với các ảnh đa mức xám thì đồ thị có dạng
+Phát hiện biên trực tiếp
+◆Phương pháp này chủ yếu dựa vào sự biến thiên độ sáng của điểm 
+ảnh để làm nổi biên bằng kỹ thuật đạo hàm. 
+●Nếu lấy đạo hàm bậc nhất của f(x,y) ta có phương pháp Gradient
+●Nếu lấy đạo hàm bậc hai của f(x,y) ta có phương pháp Laplace 
+◆3 kỹ thuật tiêu biểu:
+●Kỹ thuật phát hiện biên Gradient
+●Kỹ thuật phát hiện biên Laplace
+●Kỹ thuật Canny
+Phát hiện biên trực tiếp - Kỹ thuật gradient
+◆Gradient là một vectơ có các thành phần biểu thị tốc độ thay 
+đổi mức xám của điểm ảnh (theo hai hướng x,y đối với ảnh 
+2 chiều) tức là: 
+◆Độ mạnh (rõ nét) của một cạnh thường được xác định 
+bằng độ lớn của dốc
+Minh họa kết quả phép lấy đạo hàm
+◆
+◆
+Tín hiệu gốc
+Kết quả tính đạo hàm
+Kỹ thuật gradient - phép tính lấy đạo hàm trong ảnh
+◆Với biên độ G(m,n) tại điểm (m,n) được tính: 
+◆Để giảm độ phức tạp tính toán, G(m,n) được tính gần 
+đúng như sau: 
+◆Một số toán tử Gradient tiêu biểu như toán tử Prewitt, 
+Sobel, Robert đẳng hướng (Isometric), 
+Kỹ thuật gradient - kết quả tính đạo hàm
+Kỹ thuật gradient - kết quả tính đạo hàm
+Kỹ thuật gradient - kết quả tính đạo hàm
+Kỹ thuật gradient - Bộ lọc Prewitt
+◆Kỹ thuật này sử dụng 2 bộ lọc nhập chập xấp xỉ 
+đạo hàm theo 2 hướng x  và y là:
+◆Bước 1: Tính I ⊗ Hx và I ⊗ Hy 
+◆Bước 2: Tính (I ⊗ Hx + I ⊗ Hy)
+Kỹ thuật gradient - Bộ lọc Prewitt - ví dụ
+Ảnh gốc
+Cửa sổ Prewitt
+Kỹ thuật gradient - Bộ lọc Prewitt - ví dụ
+Kỹ thuật gradient - Bộ lọc Sobel
+◆Tương tự như kỹ thuật Prewitt, nhưng kỹ thuật Sobel 
+sử dụng 2 mặt nạ nhân chập theo 2 hướng x, y là:
+◆Ngoài ra để phát hiện biên theo đường chéo ta sử 
+dụng 2 mặt nạ:
+Kỹ thuật gradient - La bàn
+Kỹ thuật sử dụng 8 bộ lọc theo 8 hướng chính trên la bàn 0o, 45o, 90o, 
+135o, 180o, 225o, 270o, 315o
+Kỹ thuật phát hiện biên Laplace
+●Các phương pháp đánh giá gradient ở trên làm việc khá tốt 
+khi mà độ sáng thay đổi rõ nét.
+●Khi mức xám thay đổi chậm, miền chuyển tiếp trải rộng, là 
+phương pháp cho hiệu quả hơn là sử dụng đạo hàm bậc hai 
+Laplace.
+●Toán tử Laplace được định nghĩa như sau:
+●Khai triển toán tử rồi áp dụng xấp xỉ rời rạc
+Kỹ thuật phát hiện biên Laplace
+Tương đương với việc sử dụng ma trận
+Kỹ thuật phát hiện biên Laplace
+●
+Thực tế người ta có thể sử dụng một số ma trận biến thể để xấp xỉ 
+rời rạc đạo hàm bậc 2
+Kỹ thuật phát hiện biên Laplace
+●
+Do toán tử Laplace là toán tử đạo hàm nên nó làm nổi bật các 
+vùng không liên tục của cấp xám, đồng thời làm yếu đi các vùng 
+phẳng.
+●
+Điều này dẫn đến ảnh kết quả sau khi áp dụng toán tử Laplace sẽ 
+không giữ lại được các chi tiết ban đầu của ảnh.
+●
+Do đó, để khôi phục các chỉ tiết của ảnh gốc, người ta thường 
+cộng ảnh kết quả với ảnh gốc để cho ra ảnh rõ nét (là ảnh vẫn giữ 
+nguyên những chi tiết ban đầu nhưng các cạnh được làm nổi bật 
+lên).
+●
+Nếu toán tử Laplace có hệ số tâm là âm thì chúng ta sẽ lấy ảnh 
+gốc trừ đi ảnh kết quả sau khi áp dụng toán tử Laplace thay vì 
+cộng.
+Kỹ thuật phát hiện biên Canny
+●
+Đây là kỹ thuật cổ điển nhưng đến nay vẫn rất hiệu quả và được 
+sử dụng rộng rãi
+●
+Có khả năng đưa ra đường biên mảnh và phát hiện chính xác với 
+ảnh có nhiễu
+●
+Sau khi áp dụng, ảnh có thể được mã hoá thành các đường cong 
+với công thức toán học
+Kỹ thuật phát hiện biên Canny
+●
+Bước 1: Làm trơn ảnh (ma trận đầu vào Gaussian): Giúp loại bỏ 
+bớt nhiễu đầu vào
+●
+Bước 2: Tính gradient bằng ma trận 
+Prewitt
+GX = B⛒HX
+Gy = B⛒Hy
+○
+Có thể dùng các phép phát hiện bậc 
+một khác (gradient đơn giản, 
+Sobel..)
+○
+Kết quả là 2 ảnh gradient theo hai 
+hướng x và y
+●
+Bước 3: Tính gradient hướng tại mỗi điểm (i, j)
+○
+Hướng sẽ được “nguyên hoá" để nằm trong 8 hướng [0…7]
+○
+Tương đương 8 điểm lân cận của 1 điểm ảnh
+●
+Bước 4: Loại bỏ những điểm không phải là cực đại
+để xóa bỏ những điểm không phải là biên (tức loại 
+bỏ 1 số cạnh dư thừa)
+●
+Xét (i, j), 0 là gradient hướng tại (i, j), G1, G2 là hai điểm lân cận 
+theo hướng θ. 
+●
+Nếu G(i,j) > G1, và G(i,j) > G2 thì mớii giũ lại (i,j) ((i,j) là cực đại địa 
+phương) 
+●
+Ngược lại thì xóa (i,j) vì (i,j) là điểm nền
+Kỹ thuật phát hiện biên Canny
+Bước 5: Phân ngưỡng để tìm biên
+●
+Điểm có gradient lớn hơn thường có khả năng là biên cao hơn 
+điểm có gradient nhỏ hơn
+●
+Việc chọn ngưỡng để phân loại là rất khó.
+●
+Canny sử dụng phân ngưỡng với độ trễ
+●
+Có hai ngưỡng cao và thấp
+●
+Giả định là biên quan trọng thường nằm trong những đường liên 
+tục trong bức ảnh.
+Kỹ thuật phát hiện biên Canny
+●
+Nếu I(x,y) > ngưỡng cao thì giữ lại điểm biên này
+●
+Nếu I(x,y) < ngưỡng thấp thì loại bỏ điểm này.
+●
+Nếu ngưỡng thấp < I(x,y) < ngưỡng cao thì so sánh I(x,y) với giá 
+trị của 8 điểm lân cận. Neu 1 trong 8 điểm lân cận > ngưỡng cao 
+thì ta giữ lại điểm biên này. Ngược lại thì bỏ điểm biên này.
+Kỹ thuật phát hiện biên Canny
+Kỹ thuật phát hiện biên Canny
+●
+Là phương pháp lọc phát hiện biên dựa vào trung bình cục bộ
+●
+Xác định biên không theo sự biến đổi mà dựa vào trung bình giá trị 
+các điểm lân cận
+●
+Với cửa sổ mxn với tâm là (i,J) thì nếu
+→ điểm ảnh l(i,j) sẽ là điểm biên và ngược lại sẽ là điểm nền
+Kỹ thuật phát hiện biên cục bộ
+Áp dụng bộ lọc cho các ảnh
+Các phương pháp phát hiện biên gián tiếp
+◆Phân vùng ảnh dựa vào phép xử lý kết cấu đối tượng, 
+cụ thể là dựa vào sự biến thiên nhỏ và đồng đều của 
+các điểm ảnh thuộc một đối tượng. 
+◆Dựa trên các vùng, đòi hỏi áp dụng lý thuyết về xử lý 
+kết cấu đối tượng phức tạp và khó cài đặt. 
+• Với điểm P thì 
+• Các điểm P0, P2, P4, P6 (trên, dưới, phải, trái) là các 
+4-láng giềng của điểm P
+• Các điểm P0, P1, P2, P3, P4, P5, P6, P7 (các điểm ở cả 8 
+hướng) là các 8-láng giềng của P.
+•
+Các điểm 4 và 8-láng giềng 
+39
+Chu tuyến của một đối tượng ảnh
+◆Chu tuyến của một đối tượng ảnh là dãy các điểm 
+của đối tượng ảnh P1,…,Pn sao cho 
+●Pi và Pi+1 là các 8-láng giềng của nhau (i=1,...,n-1) 
+●P1 là 8-láng giềng của Pn, 
+●∀i ∃Q không thuộc đối tượng ảnh và Q là 4-láng giềng 
+của Pi (hay nói cách khác ∀i thì Pi là biên 4). Kí hiệu 
+<P1P2..Pn>
+Hình bên biểu diễn chu tuyến 
+của ảnh, trong đó, P là điểm 
+khởi đầu chu tuyến. 
+40
+Khái niệm đường bao trong ảnh
+Đường bao ngoài
+Đường bao trong
+Các thuật toán dò biên trên một vùng  đều bao gồm các  bước sau: 
+(1) Xác định điểm biên xuất phát 
+(2) Dự báo và xác định điểm biên tiếp theo 
+(3) Lặp bước 2 cho đến khi gặp điểm xuất phát 
+41
+Thuật toán dò biên tổng quát 
+◆Bước 1: Xác định cặp nền-vùng (đen-trắng) xuất phát: 
+Duyệt ảnh lần lượt từ trên xuống dưới và từ trái sang phải 
+điểm đem đầu tiên gặp được cùng với điểm trắng trước 
+đó (theo hướng 4) để tạo nên cặp nền vùng xuất phát
+◆Bước 2: Xác định cặp nền-vùng tiếp theo 
+◆Bước 3: Lựa chọn điểm biên vùng 
+◆Bước 4: Nếu gặp lại cặp xuất phát thì dừng, nếu không 
+quay lại  bước 2.
+42
+3. Phân tích đặc điểm hình dạng dựa trên biên
+◆Giả sử các điểm biên  đã được phát hiện 
+◆Đường biên phân tách đối tượng (khỏi nền) được 
+hình thành trên cơ sở liên kết các điểm biên (edge 
+Linking). Một số thuật toán :
+●Thông qua xử lý cục bộ
+●Xử lý ở mức vùng
+●Xử lý toàn cục
+◆ Trích chọn các đặc trưng trên đường biên (bao) 🡺 
+phân tích đặc điểm hình khối của đối tượng
+43
+Thông qua xử lý cục bộ
+◆Giả sử các điểm biên đã được phát hiện
+◆Phân tích đặc điểm của điểm biên và các điểm lân 
+cận
+◆Các điểm có độ giống 
+nhau cao (dựa trên 
+biên độ và hướng của
+gradient) 🡺 liên kết với 
+nhau
+44
+Thông qua xử lý ở mức vùng
+45
+46
+Thông qua xử lý toàn cục
+◆Giả sử đã có kết quả phát hiện biên (là các pixel rời rạc)
+◆Biết được phương trình hình học của đối tượng cần tìm (đường 
+thẳng, đường tròn, đường ellipise)
+◆Thực hiện các thuật toán fitting model (làm khớp)
+●Hough transform
+●RANSAC
+47
+Thuật toán Hough transform
+●
+Mối quan hệ giữa không gian ảnh (x, y) và không gian Hough (m, b)
+○
+Một đường thẳng trong ảnh tương ứng với một điểm trong không 
+gian Hough
+○
+Để chuyển từ không gian ảnh sang không gian Hough:
+■
+cho một tập hợp các điểm (x, y), tìm tất cả các (m, b) sao cho 
+y = mx + b.
+48
+Thuật toán Hough transform
+●
+Mối liên kết giữa không gian ảnh (x, y) và không gian Hough (m, b)
+○
+Một đường thẳng trong ảnh tương ứng với một điểm trong 
+không gian Hough 
+○
+Để chuyển từ không gian ảnh sang không gian Hough: 
+■
+ cho một tập hợp các điểm (x, y), tìm tất cả các (m, b) sao 
+cho y = mx + b
+○
+Một điểm (X, Yo) trong không gian ảnh được ánh xạ vào đâu?
+■
+A: các nghiệm của phương trình b = -Xom + Yo
+■
+đây là một đường trong không gian Hough
+49
+Thuật toán Hough transform
+Tìm đường thẳng tốt nhất qua 1 tập hợp các điểm
+50
+51
+Vấn đề: các tham số [m, b] không bị giới hạn
+→ Đổi sang hệ toạ độ cực
+52
+Thuật toán Hough transform
+Vấn đề về nhiễu trong tập hợp điểm
+53
+Ví dụ minh họa
+54
+Nhận xét về Hough Transform
+Lợi:
+●
+Ổn định với các giá trị ngoại lai: Biến đổi Hough là ổn định với các giá trị ngoại lai 
+vì mỗi điểm bầu chọn độc lập, và đóng góp của các điểm riêng lẻ có thể được kết 
+hợp để tìm ra những đường thẳng hoặc hình dạng phù hợp nhất.
+●
+Khá hiệu quả: Biến đổi Hough thường nhanh hơn so với việc thử tất cả các bộ 
+tham số, làm cho nó là một phương pháp hiệu quả để phát hiện đường và hình 
+dạng trong hình ảnh.
+Bất lợi:
+●
+Nhạy cảm với nhiễu: Biến đổi Hough có thể nhạy cảm với nhiễu trong hình ảnh, 
+dẫn đến việc phát hiện sai hoặc không chính xác kết quả.
+●
+Không thích hợp cho nhiều tham số:
+○
+Biến đổi Hough trở nên ít thực tế khi xử lý nhiều hơn một số tham số (ví dụ: 
+hình dạng có số chiều cao) vì kích thước lưới yêu cầu cho không gian tham 
+số tăng theo cấp số nhân, dẫn đến phức tạp tính toán.
+Ứng dụng phổ biến:
+●
+Đường thẳng, đường tròn, eclipse…
+●
+Nhận diện một số đối tượng trong hình ảnh
+●
+Nhận dạng loại đối tượng
+55
+Biểu diễn đường bao
+◆Quy tắc Encode các hướng
+Phát hiện góc
+•
+Ngoài các biên thì corners (góc) và interest point (điểm quan tâm) 
+cũng cần được quan tâm
+•
+Một trong những thuật toán mạnh mẽ trong việc tìm kiếm các 
+corners cũng như các image features nhằm phục vụ cho các bài 
+toán như image matching, image stitching for panorama,... là thuật 
+toán của Harris (Harris corner detector - HCD)
+•
+Được phát triển lần đầu vào năm 1988, Chris Harris and Mike 
+Stephens dựa vào sự biến đổi cường độ sáng tại vùng lân cận để 
+phát hiện các góc cạnh
+Harris corner detection
+•
+Thuật toán Harris phát biểu: một vùng nhỏ xung quanh các đặc trưng 
+sẽ có 1 sự thay đổi lớn về cường độ sáng nếu một window dịch 
+chuyển 1 đoạn (u,v) từ điểm (x,y) theo bất kì hướng nào.
+•
+Chúng ta có công thức tính lượng thay đổi cường độ sáng khi dịch 
+chuyển 1 đoạn [u, v] như sau:
+Trong đó:
+W: Cửa sổ w có thể coi = 1 
+để cho đơn giản trong việc 
+tính toán nhưng để chuẩn 
+xác hơn cho kết quả đầu ra 
+ta có thể coi đây như một 
+mặt nạ Gauss(3x3, 5x5, ...)
+I(x, y): Cường độ sáng tại điểm x, y
+I(x + u, y + v): Cường độ sáng sau khi dịch chuyển cử
+sổ đến điểm (x + u, y + v)
+Harris corner detection
+•
+Ở đây ta sẽ áp dụng biến đổi Taylor để rút gọn lại biểu thức, ta có:
+•
+f(x + u, y + v) ≈ f(x, y) + ufx(x, y) + vfy(x, y)
+•
+Suy ra
+Harris corner detection
+•
+Đến đây ta coi
+•
+Như vậy cuối cùng ta có sự thay đổi cường độ sáng:
+•
+Như vậy cuối cùng ta có sự thay đổi cường độ sáng:
+●
+Trong đó: det(M) = AB - C^2 = λ1λ2, trace(M) = λ1 + λ2, λ1, λ2 là các 
+giá trị bản địa của M tương ứng với độ cong của hàm địa phương 
+quyết định xem điểm này có phải là corners hay không.
+Harris corner detection
+Harris corner detection 
+Đạo hàm 1 chiều 1 
+tập các điểm (dx, 
+dy) ta thu được:
+Ở đây ta có thể 
+nhận ra được sự 
+khác nhau giữa các 
+image features theo 
+các hướng đạo 
+hàm bậc 1 và đạo 
+hàm bậc 2.
+Harris corner detection - giải thích
+Ví dụ minh họa
+Giá trị cornerness score
+Các điểm local  maximal
+Các điểm góc sau NMS
+Kết quả các điểm harris corner
+Đặc điểm của Harris corner
+Đặc điểm của Harris  corner
+• Bất biến một phần theo cường độ điểm ảnh
+Đặc điểm của Harris corner
+• Không bất biến theo scale (tỉ lệ)
+Phát hiện/ tìm features
+• Sau khi đã tìm được góc, cạnh hay các điểm cần quan 
+tâm, điều tiếp theo cần làm là biểu diễn nó.
+• Với bài toán ghép ảnh, ta cần tìm những điểm chung trong 
+2 tấm ảnh để ghép chúng vào
+• Việc biểu diễn các điểm quan tâm theo cách đơn giản và 
+thông minh sẽ giúp các mô hình ghép ảnh rất nhiều
+• Một số cách biểu diễn/miêu tả điểm quan tâm:
+• Sift
+• Hog
+• Suft
+• …
+Biểu diễn SIFT (Scale-Invariant Feature Transform)
+•
+Điểm đặc biệt của SIFT nằm ngay trong cái tên của nó 
+Scale-Invariant, tức là nó sẽ đưa ra các kết quả ổn định với những 
+scale của ảnh khác nhau, bên cạnh đó cũng có thể nói giải thuật 
+này có tính rotation-invariant.
+•
+Trong bài báo khoa học "Distinctive Image Features from 
+Scale-Invariant Keypoints", SIFT được đặc tả rõ nét dưới bốn giai 
+đoạn(stages) chính sau:
+❖
+Scale-space extrema 
+detection.
+❖
+Keypoint localization.
+❖
+Orientation 
+assignment.
+❖
+Keypoint descriptor.
+Biểu diễn SIFT (Scale-Invariant Feature Transform)
+Scale-space extrema detection
+•
+Scale-space filtering được sử dụng để giải quyết vấn đề này. SIFT 
+tính DoG (Difference of Gaussians) trên từng pixel bằng cách lấy 
+diff của Gaussian Blur với 2 \sigma khác nhau
+Biểu diễn SIFT (Scale-Invariant Feature Transform)
+Keypoint localization
+•
+Với mỗi scale, so sáng từng pixel bới 8 láng giềng và 9 pixels tương 
+ứng của scale trên và scale dưới. Từ đó có thể tìm ra các potential 
+keypoints dựa trên local maxima và local minima
+•
+Sau khi đã tìm được potential keypoints của ảnh, ta cần lọc, loại 
+bảo những keypoints có độ tương phản thấp hay những edge 
+keypoints và giữ lại những điểm cần thiết hơn
+•
+Sử dụng ngưỡng
+(threshold) để lọc
+là một phương pháp
+không tồi.
+Biểu diễn SIFT (Scale-Invariant Feature Transform)
+ Orientation assignment
+•
+Một hoặc nhiều orientation (hướng) sẽ được gắn cho từng vị trí 
+keypoint dựa trên image gradient. Các phép tính sau đó trên ảnh sẽ 
+tương ứng với từng orientation, scale và vị trí từng feature.
+Biểu diễn SIFT (Scale-Invariant Feature Transform)
+ Keypoint descriptor
+•
+SIFT sẽ tính Keypoint descriptor bằng cách lấy 16x16 
+neighborhood(điểm liền kề) của keypoint đó, rồi chia thành 16 
+sub-blocks với kích thước 4x4. Với mỗi sub-block, ta sẽ tạo được 8 
+bin oritation (như hình dưới). Do đó tất cả sẽ có 128 bin giá trị 
+tương ứng với 1 vector biểu hiện cho keypoint descriptor.
+Biểu diễn HOG (Histogram of Oriented Gradients)
+•
+HOG là viết tắt của Histogram of Oriented 
+Gradient - một loại “feature descriptor”. Mục 
+đích của “feature descriptor” là trừu tượng 
+hóa đối tượng bằng cách trích xuất ra 
+những đặc trưng của đối tượng đó và bỏ đi 
+những thông tin không hữu ích. Vì vậy, HOG 
+được sử dụng chủ yếu để mô tả hình dạng 
+và sự xuất hiện của một đối tượng trong 
+ảnh.
+•
+Thông thường gồm 5 bước:
+•
+Tiền xử lý
+•
+Tính gradient
+•
+Tính vector đặc trưng cho từng cells
+•
+Chuẩn hóa
+•
+Tính vector đặc trưng HoG
+Biểu diễn HOG (Histogram of Oriented Gradients)
+Tiền xử lý
+•
+Trong bài toán này, để thuận tiện cho việc chia đều hình ảnh thành 
+các khối, ô và tính toán đặc trưng ở các bước tiếp theo, chúng ta 
+cần resize kích thước tất cả các hình ảnh trong tập dữ liệu về một 
+kích thước chung.
+Biểu diễn HOG (Histogram of Oriented Gradients)
+Tính Gradient
+•
+Đây là bước đầu tiên, được thực hiện bằng hai phép nhân chập 
+ảnh gốc với 2 chiều, tương ứng với các toán tử lấy đạo hàm theo 
+hai hướng Ox và Oy. Trong đó, 2 hướng tương ứng đó là:
+●
+Sau bước này, kết quả thu được sẽ là:
+Biểu diễn HOG (Histogram of Oriented Gradients)
+Tính vector đặc trưng cho từng ô (cells)
+•
+Để tính toán vector đặc trưng cho từng ô (cell), chúng ta cần chia 
+hình ảnh thành các block, mỗi block lại chia đều thành các cell. Để 
+xác định được số block, chúng ta sẽ sử dụng công thức sau:
+Biểu diễn HOG (Histogram of Oriented Gradients)
+Tính vector đặc trưng cho từng ô (cells)
+•
+Tiếp theo, tiến hành tính toán đặc trưng HOG tại mỗi cell sử dụng không 
+gian hướng 9 bin, trường hợp “unsigned-HOG”. Hướng gradient sẽ chạy 
+trong khoảng 0 độ đến 180 độ, trung bình 20 độ mỗi bin.
+•
+Tại mỗi cell, xây dựng một biểu đồ cường độ gradient bằng cách vote các 
+pixel vào biểu đồ. Trọng số vote của mỗi pixel phụ thuộc hướng và cường 
+độ gradient (được tính toán từ bước 2) của pixel đó. Ví dụ:
+Biểu diễn HOG (Histogram of Oriented Gradients)
+Chuẩn hóa khối (blocks)
+•
+Để tăng cường hiệu năng nhận dạng, các histogram cục bộ sẽ 
+được chuẩn hóa về độ tương phản bằng cách tính một ngưỡng 
+cường độ trong một khối và sử dụng giá trị đó để chuẩn hóa 
+tất cả các ô trong khối. Kết quả sau 
+bước chuẩn hóa sẽ là một vector đặc 
+trưng có tính bất biến cao hơn đối với 
+các thay đổi về điều kiện ánh sáng.
+•
+Đầu tiên, hãy xem xét ảnh hưởng của 
+việc chuẩn hóa tới các vector gradient 
+trong ví dụ sau:
+Dễ dàng thấy được, trường hợp thứ 
+ba hiển thị độ tương phản gia tăng.
+Biểu diễn HOG (Histogram of Oriented Gradients)
+Biểu diễn HOG (Histogram of Oriented Gradients)
+Chuẩn hóa khối (blocks)
+•
+Có nhiều phương pháp có thể được dùng để chuẩn hóa khối. Gọi v 
+là vector cần chuẩn hóa chứa tất cả các histogram của mội khối. 
+ǁv(k)ǁ là giá trị chuẩn hóa của v theo các chuẩn k=1, 3 và e là một 
+hằng số nhỏ. Khi đó, các giá trị chuẩn hóa có thể tính bằng một 
+trong những công thức sau:
+●
+Ghép các vector đặc trưng khối sẽ thu 
+được vector đặc trưng R-HOG cho ảnh. 
+Số chiều vector đặc trưng ảnh tính theo 
+công thức :
+Biểu diễn HOG (Histogram of Oriented Gradients)
+Tính toán vector đặc trưng HOG
+•
+Với mỗi hình ảnh kích thước 64x128, chia 
+thành các block 16x16 chồng nhau, sẽ có 7 
+block ngang và 15 block dọc, nên sẽ có 7x15 
+= 105 blocks.
+•
+Mỗi block gồm 4 cell. Khi áp dụng biểu đồ 
+9-bin cho mỗi cell, mỗi block sẽ được đại diện 
+bởi một vector có kích thước 36x1.
+•
+Vì vậy, khi nối tất cả các vector trong một 
+block lại với nhau, ta sẽ thu được vector đặc 
+trưng HOG của ảnh có kích thước 105x36x1 
+= 3780x1.
+Ứng dụng: ghép ảnh
+Quy trình:
+•
+B1: tìm feature points ở cả 2 hình
+Sản phẩm: ghép ảnh
+Quy trình:
+•
+B1: tìm feature points ở cả 2 hình
+•
+B2: Tìm các cặp giống nhau
+Sản phẩm: ghép ảnh
+Quy trình:
+•
+B1: tìm feature points ở cả 2 hình
+•
+B2: Tìm các cặp giống nhau
+•
+B3: Từ các cặp đó, đặt khớp 2 hình ảnh
+Các bước xử lý chi tiết
+●
+Tìm các key points
+Các bước xử lý chi tiết
+●
+Tìm các key 
+points
+Các bước xử lý chi tiết
+●
+Xây dựng biểu diễn SIFT
+Các bước xử lý chi tiết
+●
+Xây dựng biểu diễn SIFT
+Các bước xử lý chi tiết
+●
+So sánh và tìm cặp điểm
+Các bước xử lý chi tiết
+●
+So sánh và tìm cặp điểm
+○
+Có thể sử dụng khoảng cách Euclid vì các descriptors 
+chỉ là vector
+Các bước xử lý chi tiết
+●
+Tìm các tham số biến đổi phù hợp
+Các bước xử lý chi tiết
+●
+Tìm các tham số biến đổi phù hợp
+○
+Biến đổi 2D: affine transformation
+Kết quả
+Kết quả
+-
+Các kĩ thuật trích xuất đặc trưng ảnh: biên, góc, …
+-
+Các ứng dụng của việc trích xuất đặc trưng ảnh
+Tổng kết buổi học

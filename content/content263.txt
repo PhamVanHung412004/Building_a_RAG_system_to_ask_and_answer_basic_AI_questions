@@ -1,4 +1,0 @@
-AI VIETNAM aivietnam.edu.vn
-Hình 3: Minh họa về tương tác giữa hai agent - UserProxyAgent (Trình thực thi code) và AssistantAgent
-(LLM tạo sinh code).
-4. 

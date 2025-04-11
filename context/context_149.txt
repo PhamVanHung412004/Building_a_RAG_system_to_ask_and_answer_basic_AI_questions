@@ -1,0 +1,69 @@
+All-in-One Course 2023
+aivietnam.edu.vn
+Study Guide: Module 10 - Week 2
+Point Cloud: Techniques and Applications
+1. Thứ4 (Ngày 24/04/2024)
+Point Cloud and basic techniques to process
+• Instructor: Tuan Dang
+• TA: Phuc Pham
+• Prerequisite:
+– Linear Algebra
+– Basic (numpy)
+– Basic Computer Vision
+• Content:
+– Concepts of Point Cloud
+– Data Acquisition, Sensors
+– Camera Pinhole Model
+– Noise Removal
+– Sampling Techniques
+– Surface Normal
+– Surface Curvature
+– Search on Point Cloud
+– Data Structure for Efficient Search
+– Registration
+– Point Cloud Example Codes
+References:
+1 Open3D
+2 Point Cloud Analysis
+2. Thứ6 (Ngày 26/04/2024) Point Cloud and basic techniques to process
+• Instructor: Tuan Dang
+• TA: Phuc Pham
+• Prerequisite:
+– Pytorch
+– CNN
+– Basic Computer Vision
+• Content:
+– Overview
+– Handcraft Feature Exatraction
+– 3D Convolutional Operator
+– Voxel-based methods
+1
+All-in-One Course 2023
+aivietnam.edu.vn
+– Point-based methods
+– Pointnet/Pointnet++
+– Point Transformer
+– Diffusion: Point Cloud Generation
+– Point Cloud Graph Neural Network
+– Hand-on Project
+References: Papers presented in PPT
+3. Thứ7 (Ngày 20/04/2024)
+(Extra class) Multimodal Large Language Models
+• Phụtrách: TA Nguyễn Quốc Thái
+• Nội dung:
+- Giới thiệu vềmô hình ngôn ngữlớn (LLMs - Large Language Models).
+- Giới thiệu vềmô hình ngôn ngữlớn đa phương thức (MLLMs - Multimodal Large
+Language Models).
+- Giới thiệu vềcác thành phần cơ bản trong kiến trúc của MLLMs.
+- Tổng quan vềcác mô hình MLLMs phổbiến:
+(a) BLIP-2
+(b) MiniGPT-4 / MiniGPT-V2
+(c) NexT-GPT
+- Huấn luyện mô hình BLIP- cho bài toán Visual Question Answering (VQA).
+• Tài liệu tham khảo:
+- Paper: MM-LLMs: Recent Advances in MultiModal Large Language Models
+- BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and
+Large Language Models
+- MiniGPT-4
+- NExT-GPT
+2

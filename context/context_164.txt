@@ -1,0 +1,1675 @@
+Machine Learning
+Softmax Regression
+Year 2023
+Nguyen Quoc Thai
+AI VIETNAM
+All-in-One Course
+1
+2
+CONTENT
+(1) – Background
+(2) – Softmax Regression
+(3) – Code
+1 – Background
+Linear Regression
+!
+3
+Level
+Salary
+0
+8
+1
+15
+2
+18
+3
+22
+4
+26
+5
+30
+6
+38
+7
+47
+Data
+Visualization
+y = 6x + 7
+y = f(x): linear function
+Modeling
+y = wx + b
+Find w and b to fit 
+the data
+1 – Background
+!
+4
+Linear Regression
+4) Compute derivative
+5) Update parameters
+1) Pick a sample (𝑥, 𝑦) from training data   
+2) Compute the output &𝑦
+3) Compute loss
+!𝑦= 𝑤𝑥+ 𝑏
+𝐿= (!𝑦−𝑦)!
+𝜕𝐿
+𝜕𝑤= 2𝑥(!𝑦−𝑦)
+𝜕𝐿
+𝜕𝑏= 2(!𝑦−𝑦)
+𝑤= 𝑤−𝜂𝜕𝐿
+𝜕𝑤
+𝑏= 𝑏−𝜂𝜕𝐿
+𝜕𝑏
+𝜂is learning rate
+4) Compute derivative
+5) Update parameters
+1) Pick a sample (𝑥, 𝑦) from training data   
+2) Compute output &𝑦
+3) Compute loss
+!𝑦= 𝜽"𝒙= 𝒙"𝜽
+𝐿= (!𝑦−𝑦)!
+∇#L = 2𝒙(!𝑦−𝑦)
+𝜽= 𝜽−𝜂∇#L
+𝜂is learning rate
+Traditional
+Basic Python
+Vectorized
+Numpy
+1 – Background
+!
+5
+Logistic Regression
+Data #1
+Hours
+Pass
+0.25
+???
+4.5
+???
+Learning
+Prediction
+Day
+Hours
+Pass
+1
+0.5
+0
+2
+1.0
+0
+3
+1.5
+1
+2
+2.0
+0
+1
+2.5
+0
+2
+3.0
+1
+1
+3.5
+1
+2
+4.0
+1
+!
+6
+Logistic Regression
+Data #1
+Visualization
+Modeling
+y = f(x)
+Find a function to 
+fit the data
+Sigmoid function
+Day
+Hours
+Pass
+1
+0.5
+0
+2
+1.0
+0
+3
+1.5
+1
+2
+2.0
+0
+1
+2.5
+0
+2
+3.0
+1
+1
+3.5
+1
+2
+4.0
+1
+1 – Background
+1 – Background
+!
+7
+Sigmoid Function
+𝜎(𝑧) =
+1
+1 + 𝑒$%
+𝑧∈−∞
++ ∞
+𝜎(z) ∈0
+1
+∀𝑧!𝑧" ∈𝑎𝑏and 𝑧! ≤𝑧"
+→𝜎(𝑧!) ≤𝜎(𝑧")
+𝑧
++∞
+−∞
+𝑧!
+𝑧"
+𝜎
+𝜎!
+𝜎"
+Sigmoid function
+Property
+1 – Background
+!
+8
+Sigmoid Function
+𝜎(𝑧) =
+1
+1 + 𝑒$%
+𝑧= 𝜽"𝒙
+𝑧= 𝜽"𝒙
+𝑧∈−∞
++ ∞
+𝜎(𝑧) ∈0
+1
+𝑥
+𝑧
+𝑥
+𝑧
+𝑧
+𝜎
+𝑧
+𝜎
+1 – Background
+!
+9
+Logistic Regression using Gradient Descent
+𝜽! = [𝑏
+𝑤" 𝑤#]
+𝒙! = [1.
+1.0 0.5]
+𝜽! = [0.1
+0.2 0.1]
+𝒚= 0
+4) Compute derivative
+5) Update parameters
+1) Pick a sample (𝑥, 𝑦) from 
+training data   
+2) Compute output &𝑦
+3) Compute loss
+&𝑦= 𝜎(𝑧) =
+1
+1 + 𝑒$%
+𝐿(𝜽) = −ylog&y−(1−y)log(1−&y )
+∇&L = 𝐱(&y −𝑦)
+𝜽= 𝜽−𝜂∇&L
+𝜂is learning rate
+𝑧= 𝜽!𝒙
+𝜂= 0.1
+Data #1
+Day
+Hours
+Pass
+1
+0.5
+0
+2
+1.0
+0
+3
+1.5
+1
+2
+2.0
+0
+1
+2.5
+0
+2
+3.0
+1
+1
+3.5
+1
+2
+4.0
+1
+1 – Background
+!
+10
+Logistic Regression using Gradient Descent
+𝒚= 0
+Model
+𝑏
+𝑤B
+!𝑦= 𝜎(𝑧) =
+1
+1 + 𝑒!"
+𝑧= 𝑤𝑥+ 𝑏
+𝑧= 0.35
+)𝑦= 0.59
+𝜂= 0.1
+0.1
+0.2
+4) Compute derivative
+5) Update parameters
+1) Pick a sample (𝑥, 𝑦) from 
+training data   
+2) Compute output &𝑦
+3) Compute loss
+&𝑦= 𝜎(𝑧) =
+1
+1 + 𝑒$%
+𝐿(𝜽) = −ylog&y−(1−y)log(1−&y )
+∇&L = 𝐱(&y −𝑦)
+𝜂is learning rate
+𝑧= 𝜽!𝒙
+𝒙! = [1.
+1.0 0.5]
+𝜽! = [0.1
+0.2 0.1]
+0.1
+𝑤C
+𝜽= 𝜽−𝜂∇&L
+1 – Background
+!
+11
+Logistic Regression using Gradient Descent
+𝒚= 0
+Model
+Loss
+𝑦
+𝑦= 0
+𝑏
+𝑤B
+!𝑦= 𝜎(𝑧) =
+1
+1 + 𝑒!"
+𝑧= 𝑤𝑥+ 𝑏
+−ylog!y−(1−y)log(1−!y )
+𝑧= 0.35
+)𝑦= 0.59
+L = 0.883
+𝜂= 0.1
+0.1
+0.2
+4) Compute derivative
+5) Update parameters
+1) Pick a sample (𝑥, 𝑦) from 
+training data   
+2) Compute output &𝑦
+3) Compute loss
+&𝑦= 𝜎(𝑧) =
+1
+1 + 𝑒$%
+𝐿(𝜽) = −ylog&y−(1−y)log(1−&y )
+∇&L = 𝐱(&y −𝑦)
+𝜂is learning rate
+𝑧= 𝜽!𝒙
+𝒙! = [1.
+1.0 0.5]
+𝜽! = [0.1
+0.2 0.1]
+0.1
+𝑤C
+𝜽= 𝜽−𝜂∇&L
+1 – Background
+!
+12
+Logistic Regression using Gradient Descent
+𝒚= 0
+Model
+Loss
+𝑦
+𝑦= 0
+𝑏
+𝑤B
+!𝑦= 𝜎(𝑧) =
+1
+1 + 𝑒!"
+𝑧= 𝑤𝑥+ 𝑏
+−ylog!y−(1−y)log(1−!y )
+𝑧= 0.35
+)𝑦= 0.59
+L = 0.883
+∇!L = 𝐱()y −𝑦)
+=
+1
+1.0
+0.5
+0.59 =
+0.59
+0.59
+0.295
+=
+𝐿"
+#
+𝐿$#
+#
+𝐿$$
+#
+𝜂= 0.1
+0.1
+0.2
+4) Compute derivative
+5) Update parameters
+1) Pick a sample (𝑥, 𝑦) from 
+training data   
+2) Compute output &𝑦
+3) Compute loss
+&𝑦= 𝜎(𝑧) =
+1
+1 + 𝑒$%
+𝐿(𝜽) = −ylog&y−(1−y)log(1−&y )
+∇&L = 𝐱(&y −𝑦)
+𝜂is learning rate
+𝑧= 𝜽!𝒙
+𝒙! = [1.
+1.0 0.5]
+𝜽! = [0.1
+0.2 0.1]
+0.1
+𝑤C
+𝜽= 𝜽−𝜂∇&L
+1 – Background
+!
+13
+Logistic Regression using Gradient Descent
+𝒚= 0
+Model
+Loss
+𝑦
+𝑦= 0
+𝑏
+𝑤B
+!𝑦= 𝜎(𝑧) =
+1
+1 + 𝑒!"
+𝑧= 𝑤𝑥+ 𝑏
+−ylog!y−(1−y)log(1−!y )
+𝑧= 0.35
+)𝑦= 0.59
+L = 0.883
+∇!L = 𝐱()y −𝑦)
+=
+1
+1.0
+0.5
+0.59 =
+0.59
+0.59
+0.295
+=
+𝐿"
+#
+𝐿$#
+#
+𝐿$$
+#
+𝑏= 0.1 −𝜂0.59 = 0.041
+𝑤%= 0.2 −𝜂0.59 =0.141
+𝜂= 0.1
+0.1
+0.2
+4) Compute derivative
+5) Update parameters
+1) Pick a sample (𝑥, 𝑦) from 
+training data   
+2) Compute output &𝑦
+3) Compute loss
+&𝑦= 𝜎(𝑧) =
+1
+1 + 𝑒$%
+𝐿(𝜽) = −ylog&y−(1−y)log(1−&y )
+∇&L = 𝐱(&y −𝑦)
+𝜂is learning rate
+𝑧= 𝜽!𝒙
+𝒙! = [1.
+1.0 0.5]
+𝜽! = [0.1
+0.2 0.1]
+0.1
+𝑤C
+𝑤&= 0.1 −𝜂0.295
+=0.0706
+𝜽= 𝜽−𝜂∇&L
+1 – Background
+!
+14
+Logistic Regression using Gradient Descent
+𝒚= 0
+Model
+𝑏
+𝑤B
+!𝑦= 𝜎(𝑧) =
+1
+1 + 𝑒!"
+𝑧= 𝑤𝑥+ 𝑏
+𝑏= 0.1 −𝜂0.59 = 0.041
+𝑤%= 0.2 −𝜂0.59 =0.141
+𝜂= 0.1
+0.041
+0.141
+4) Compute derivative
+5) Update parameters
+1) Pick a sample (𝑥, 𝑦) from 
+training data   
+2) Compute output &𝑦
+3) Compute loss
+&𝑦= 𝜎(𝑧) =
+1
+1 + 𝑒$%
+𝐿(𝜽) = −ylog&y−(1−y)log(1−&y )
+∇&L = 𝐱(&y −𝑦)
+𝜂is learning rate
+𝑧= 𝜽!𝒙
+𝒙! = [1.
+1.0 0.5]
+𝜽! = [0.041
+0.141 0.0706]
+0.0706
+𝑤C
+𝑤&= 0.1 −𝜂0.295
+=0.0705
+𝜽= 𝜽−𝜂∇&L
+1 – Background
+!
+15
+Prediction
+Prediction
+Prediction
+&𝑦= 𝜎𝑧=
+1
+1 + 𝑒$% = 0.58
+𝑧= 𝑤𝑥+ 𝑏= 0.3417
+Prediction
+Threshold = 0.5
+𝑦*+,-: 1
+Day
+Hours
+Pass
+2
+0.25
+???
+1
+4.5
+???
+Day
+Hours
+Pass
+2
+0.25
+???
+1
+4.5
+???
+Model
+𝑏
+𝑤B
+0.041
+0.141
+0.0706
+𝑤C
+Prediction
+&𝑦= 𝜎𝑧=
+1
+1 + 𝑒$% = 0.622
+𝑧= 𝑤𝑥+ 𝑏= 0.5
+Threshold = 0.5
+𝑦*+,-: 1
+Model
+𝑏
+𝑤B
+0.041
+0.141
+0.0706
+𝑤C
+2 – Softmax Regression
+!
+16
+Problem
+𝑧
+𝜎
+𝜎(𝑧) =
+1
+1 + 𝑒$%
+𝑧∈−∞
++ ∞
+𝜎(z) ∈0
+1
+Sigmoid function
+Threshold
+2 – Softmax Regression
+!
+17
+Problem
+𝑧
+𝜎
+𝜎(𝑧) =
+1
+1 + 𝑒$%
+𝑧∈−∞
++ ∞
+𝜎(z) ∈0
+1
+Sigmoid function
+Threshold
+Hours
+Pass
+0.5
+0
+1.0
+0
+1.5
+1
+2.0
+1
+Hours
+Score
+0.5
+0
+1.0
+0
+1.5
+1
+2.0
+1
+2.5
+2
+3.0
+2
+3.5
+3
+4.0
+3
+Classes: {0, 1}
+Binary Classification
+Classes: {0, 1, 2, 3}
+Multi-class Classification
+2 – Softmax Regression
+!
+18
+Problem
+Hours
+Pass
+0.5
+0
+2.0
+1
+Hours
+Score
+0.5
+0
+1.5
+1
+3.0
+2
+4.0
+3
+Classes: {0, 1}
+Binary Classification
+Classes: {0, 1, 2, 3}
+Multi-class Classification
+Input 
+x=0.5
+P(0|X) = 0.3
+P(1|X) = 0.7
+Compute
+z
+Function
+&y = f(z)
+Sigmoid function
+Input 
+x=0.5
+P(0|X) = 0.3
+P(2|X) = 0.4
+Compute
+z
+Function
+&y = f(z)
+P(1|X) = 0.2
+P(3|X) = 0.1
+Class: 1
+Class: 2
+Softmax Function
+2 – Softmax Regression
+!
+19
+Softmax Function
+𝑧" = 1.0
+𝑧# = 3.0
+Softmax
+𝑓(𝑧") = 0.12
+𝑓(𝑧#) = 0.88
+Input
+Probability
+𝑧" = 1.0
+𝑧# = 2.0
+Softmax
+𝑓(𝑧") = 0.09
+𝑓(𝑧#) = 0.24
+Input
+Probability
+𝑧' = 3.0
+𝑓(𝑧') = 0.67
+𝑃! = 𝑓𝑧! =
+𝑒"=
+∑# 𝑒">
+0 ≤𝑓𝑧! ≤1
+*
+!
+𝑓𝑧! = 1
+1
+𝑥
+𝑧%
+𝑧"
+Sigmoid
+)y
+2 – Softmax Regression
+!
+20
+Parameters
+Hours
+Pass
+0.5
+0
+2.0
+1
+Classes: {0, 1}
+Binary Classification
+#feature: 1
+#class: 2
+1
+𝑥
+𝑧%
+𝑧"
+𝑧!
+Softmax
+)y' = 𝑃𝑦= 0
+)y% = 𝑃𝑦= 1
+Logistic Regression
+Softmax Regression
+𝐰
+b
+𝐰𝟎
+b𝟎
+w𝟏
+b𝟏
+1
+𝑥
+𝑧%
+𝑧"
+Sigmoid
+)y
+2 – Softmax Regression
+!
+21
+Loss Function
+Hours
+Pass
+0.5
+0
+2.0
+1
+Classes: {0, 1}
+Binary Classification
+#feature: 1
+#class: 2
+1
+𝑥
+𝑧%
+𝑧"
+𝑧!
+Softmax
+)y' = 𝑃𝑦= 0
+)y% = 𝑃𝑦= 1
+𝑦
+y = 0
+Logistic Regression
+How to 
+compute loss?
+𝑦
+y = 0
+Softmax Regression
+𝐿(𝜽) = −ylog&y−(1−y)log(1−&y )
+w
+b
+w*
+b*
+w"
+b"
+2 – Softmax Regression
+!
+22
+One-Hot Encoding
+Hours
+Pass
+0.5
+0
+2.0
+1
+Classes: {0, 1}
+Binary Classification
+#feature: 1
+#class: 2
+𝒚=
+𝑦.
+…
+𝑦/
+𝑦0 ∈0,1
+F
+0
+𝑦0 = 1
+C = #classes
+𝑦= 0 →𝒚= 1
+0
+𝑦= 1 →𝒚= 0
+1
+Hours
+Score
+0.5
+0
+1.5
+1
+3.0
+2
+Classes: {0, 1, 2}
+Multi-class Classification
+#feature: 1
+#class: 3
+𝑦= 0 →𝒚=
+1
+0
+0
+𝑦= 1 →𝒚=
+0
+1
+0
+𝑦= 2 →𝒚=
+0
+0
+1
+1
+𝑥
+𝑧%
+𝑧"
+Sigmoid
+)y
+2 – Softmax Regression
+!
+23
+Loss Function
+Hours
+Pass
+0.5
+0
+2.0
+1
+Classes: {0, 1}
+Binary Classification
+#feature: 1
+#class: 2
+1
+𝑥
+𝑧%
+𝑧"
+𝑧!
+Softmax
+)y' = 𝑃𝑦= 0
+)y% = 𝑃𝑦= 1
+𝑦
+y = 0
+Logistic Regression
+One-Hot 
+Encoding
+𝑦
+y = 0
+Softmax Regression
+L(𝛉) = −ylog&y−(1−y)log(1−&y )
+w
+b
+w*
+b*
+w"
+b"
+𝑦' = 1
+L(𝛉) = −𝑦"log(&y")−𝑦*log(&y*)
+𝑦% = 0
+= −O
++
+𝑦+log(&y,)
+2 – Softmax Regression
+!
+24
+Softmax Regression
+4) Compute derivative
+5) Update parameters
+1) Pick a sample from training data   
+2) Compute output )𝑦
+3) Compute loss (cross-entropy)
+𝐿𝜽= −𝒚(𝑙𝑜𝑔E𝒚
+∇!L = 𝒙)𝐲−𝒚(
+𝜽= 𝜽−𝜂∇!L
+𝜂is learning rate
+𝒛= 𝜽(𝒙
+E𝒚= 𝑒𝒛∅𝒅
+𝒅= 1 … 1 𝑒𝒛
+∅is 
+Hadamard
+division
+𝜃= [b*
+b"
+w*
+w"]
+𝒙! = [1
+0.5]
+Data #1
+𝒚= 0
+𝜂= 0.1
+Hours
+Pass
+0.5
+0
+1.0
+0
+1.5
+1
+2.0
+1
+𝜃= [0.1
+0.2
+0.3
+0.4]
+One-hot encoding for label
+𝑦= 0 →𝒚! = [1 0]
+𝑦= 1 →𝒚! = [0 1]
+2 – Softmax Regression
+!
+25
+Softmax Regression
+4) Compute derivative
+5) Update parameters
+1) Pick a sample from training data   
+2) Compute output )𝑦
+3) Compute loss (cross-entropy)
+𝐿𝜽= −𝒚(𝑙𝑜𝑔E𝒚
+∇!L = 𝒙)𝐲−𝒚(
+𝜽= 𝜽−𝜂∇!L
+𝜂is learning rate
+𝒛= 𝜽(𝒙
+E𝒚= 𝑒𝒛∅𝒅
+𝒅= 1 … 1 𝑒𝒛
+∅is 
+Hadamard
+division
+𝜃= [b*
+b"
+w*
+w"]
+𝒙! = [1
+0.5]
+𝜂= 0.1
+= [0.1
+0.2
+0.3
+0.4]
+𝑦= 0 →𝒚! = [1 0]
+L = −𝑦.log!𝑦. −𝑦1log!𝑦1
+𝑧* = 𝑤*𝑥+ 𝑏*
+0.3
+0.1
+𝑦
+𝑧" = 𝑤"𝑥+ 𝑏"
+0.4
+0.2
+&𝑦* =
+𝑒%!
+∑+-*
+"
+𝑒%"
+&𝑦" =
+𝑒%#
+∑+-*
+"
+𝑒%"
+𝑤%
+𝑏%
+𝑤!
+𝑏!
+𝒛% = 0.25
+𝒛! = 0.4
+=𝒚% = 0.46
+=𝒚! = 0.54
+𝒚= 1
+0
+2 – Softmax Regression
+!
+26
+Softmax Regression
+4) Compute derivative
+5) Update parameters
+1) Pick a sample from training data   
+2) Compute output )𝑦
+3) Compute loss (cross-entropy)
+𝐿𝜽= −𝒚(𝑙𝑜𝑔E𝒚
+∇!L = 𝒙)𝐲−𝒚(
+𝜽= 𝜽−𝜂∇!L
+𝜂is learning rate
+𝒛= 𝜽(𝒙
+E𝒚= 𝑒𝒛∅𝒅
+𝒅= 1 … 1 𝑒𝒛
+∅is 
+Hadamard
+division
+𝜃= [b*
+b"
+w*
+w"]
+𝒙! = [1
+0.5]
+𝜂= 0.1
+= [0.1
+0.2
+0.3
+0.4]
+𝑦= 0 →𝒚! = [1 0]
+L = −𝑦.log!𝑦. −𝑦1log!𝑦1
+𝑧* = 𝑤*𝑥+ 𝑏*
+0.3
+0.1
+𝑦
+𝑧" = 𝑤"𝑥+ 𝑏"
+0.4
+0.2
+&𝑦* =
+𝑒%!
+∑+-*
+"
+𝑒%"
+&𝑦" =
+𝑒%#
+∑+-*
+"
+𝑒%"
+𝑤%
+𝑏%
+𝑤!
+𝑏!
+𝒛% = 0.25
+𝒛! = 0.4
+=𝒚% = 0.46
+=𝒚! = 0.55
+𝒚= 1
+0
+𝐿= 0.77
+2 – Softmax Regression
+!
+27
+Softmax Regression
+4) Compute derivative
+5) Update parameters
+1) Pick a sample from training data   
+2) Compute output )𝑦
+3) Compute loss (cross-entropy)
+𝐿𝜽= −𝒚(𝑙𝑜𝑔E𝒚
+∇!L = 𝒙)𝐲−𝒚(
+𝜽= 𝜽−𝜂∇!L
+𝜂is learning rate
+𝒛= 𝜽(𝒙
+E𝒚= 𝑒𝒛∅𝒅
+𝒅= 1 … 1 𝑒𝒛
+∅is 
+Hadamard
+division
+𝜃= [b*
+b"
+w*
+w"]
+𝒙! = [1
+0.5]
+𝜂= 0.1
+= [0.1
+0.2
+0.3
+0.4]
+𝑦= 0 →𝒚! = [1 0]
+L = −𝑦.log!𝑦. −𝑦1log!𝑦1
+𝑧* = 𝑤*𝑥+ 𝑏*
+0.3
+0.1
+𝑦
+𝑧" = 𝑤"𝑥+ 𝑏"
+0.4
+0.2
+&𝑦* =
+𝑒%!
+∑+-*
+"
+𝑒%"
+&𝑦" =
+𝑒%#
+∑+-*
+"
+𝑒%"
+𝑤%
+𝑏%
+𝑤!
+𝑏!
+𝒛% = 0.25
+𝒛! = 0.4
+=𝒚% = 0.46
+=𝒚! = 0.54
+𝒚= 1
+0
+𝐿= 0.77
+∇!L = 𝐱)y −𝑦*
+= −0.54
+0.54
+−0.27
+0.27
+2 – Softmax Regression
+!
+28
+Softmax Regression
+4) Compute derivative
+5) Update parameters
+1) Pick a sample from training data   
+2) Compute output )𝑦
+3) Compute loss (cross-entropy)
+𝐿𝜽= −𝒚(𝑙𝑜𝑔E𝒚
+∇!L = 𝒙)𝐲−𝒚(
+𝜽= 𝜽−𝜂∇!L
+𝜂is learning rate
+𝒛= 𝜽(𝒙
+E𝒚= 𝑒𝒛∅𝒅
+𝒅= 1 … 1 𝑒𝒛
+∅is 
+Hadamard
+division
+𝜃= [b*
+b"
+w*
+w"]
+𝒙! = [1
+0.5]
+𝜂= 0.1
+= [0.1
+0.2
+0.3
+0.4]
+𝑦= 0 →𝒚! = [1 0]
+L = −𝑦.log!𝑦. −𝑦1log!𝑦1
+𝑧* = 𝑤*𝑥+ 𝑏*
+0.3
+0.1
+𝑦
+𝑧" = 𝑤"𝑥+ 𝑏"
+0.4
+0.2
+&𝑦* =
+𝑒%!
+∑+-*
+"
+𝑒%"
+&𝑦" =
+𝑒%#
+∑+-*
+"
+𝑒%"
+𝑤%
+𝑏%
+𝑤!
+𝑏!
+𝒛% = 0.25
+𝒛! = 0.4
+=𝒚% = 0.46
+=𝒚! = 0.54
+𝒚= 1
+0
+𝐿= 0.77
+∇!L = 𝐱)y −𝑦*
+= −0.54
+0.54
+−0.27
+0.27
+𝜽= 𝜽−𝜂𝐿𝜽
+#
+= 0.105
+0.194
+0.302
+0.397
+2 – Softmax Regression
+!
+29
+Softmax Regression
+4) Compute derivative
+5) Update parameters
+1) Pick a sample from training data   
+2) Compute output )𝑦
+3) Compute loss (cross-entropy)
+𝐿𝜽= −𝒚(𝑙𝑜𝑔E𝒚
+∇!L = 𝒙)𝐲−𝒚(
+𝜽= 𝜽−𝜂∇!L
+𝜂is learning rate
+𝒛= 𝜽(𝒙
+E𝒚= 𝑒𝒛∅𝒅
+𝒅= 1 … 1 𝑒𝒛
+∅is 
+Hadamard
+division
+𝜃= [b*
+b"
+w*
+w"]
+𝒙! = [1
+0.5]
+𝜂= 0.1
+= [0.1
+0.2
+0.3
+0.4]
+𝑦= 0 →𝒚! = [1 0]
+L = −𝑦.log!𝑦. −𝑦1log!𝑦1
+𝑧* = 𝑤*𝑥+ 𝑏*
+0.302
+0.105
+𝑦
+𝑧" = 𝑤"𝑥+ 𝑏"
+0.397
+0.194
+&𝑦* =
+𝑒%!
+∑+-*
+"
+𝑒%"
+&𝑦" =
+𝑒%#
+∑+-*
+"
+𝑒%"
+𝑤%
+𝑏%
+𝑤!
+𝑏!
+𝒛% = 0.257
+𝒛! = 0.393
+=𝒚% = 0.466
+=𝒚! = 0.534
+𝒚= 1
+0
+𝐿= 0.763
+𝜽= 𝜽−𝜂𝐿𝜽
+#
+= 0.105
+0.194
+0.302
+0.397
+2 – Softmax Regression
+!
+30
+Softmax Regression
+4) Compute derivative
+5) Update parameters
+1) Pick a sample from training data   
+2) Compute output )𝑦
+3) Compute loss (cross-entropy)
+𝐿𝜽= −𝒚(𝑙𝑜𝑔E𝒚
+∇!L = 𝒙)𝐲−𝒚(
+𝜽= 𝜽−𝜂∇!L
+𝜂is learning rate
+𝒛= 𝜽(𝒙
+E𝒚= 𝑒𝒛∅𝒅
+𝒅= 1 … 1 𝑒𝒛
+∅is 
+Hadamard
+division
+𝜃= [b*
+b"
+w*
+w"]
+𝒙! = [1
+1.0]
+Data #1
+𝒚= 0
+𝜂= 0.1
+Hours
+Pass
+0.5
+0
+1.0
+0
+1.5
+1
+2.0
+1
+𝜃= [0.1
+0.2
+0.3
+0.4]
+One-hot encoding for label
+𝑦= 0 →𝒚! = [1 0]
+𝑦= 1 →𝒚! = [0 1]
+2 – Softmax Regression
+!
+31
+Softmax Regression
+4) Compute derivative
+5) Update parameters
+1) Pick a sample from training data   
+2) Compute output )𝑦
+3) Compute loss (cross-entropy)
+𝐿𝜽= −𝒚(𝑙𝑜𝑔E𝒚
+∇!L = 𝒙)𝐲−𝒚(
+𝜽= 𝜽−𝜂∇!L
+𝜂is learning rate
+𝒛= 𝜽(𝒙
+E𝒚= 𝑒𝒛∅𝒅
+𝒅= 1 … 1 𝑒𝒛
+∅is 
+Hadamard
+division
+2 – Softmax Regression
+!
+32
+Softmax Regression
+4) Compute derivative
+5) Update parameters
+1) Pick a sample from training data   
+2) Compute output )𝑦
+3) Compute loss (cross-entropy)
+𝐿𝜽= −𝒚(𝑙𝑜𝑔E𝒚
+∇!L = 𝒙)𝐲−𝒚(
+𝜽= 𝜽−𝜂∇!L
+𝜂is learning rate
+𝒛= 𝜽(𝒙
+E𝒚= 𝑒𝒛∅𝒅
+𝒅= 1 … 1 𝑒𝒛
+∅is 
+Hadamard
+division
+2 – Softmax Regression
+!
+33
+Softmax Regression
+4) Compute derivative
+5) Update parameters
+1) Pick a sample from training data   
+2) Compute output )𝑦
+3) Compute loss (cross-entropy)
+𝐿𝜽= −𝒚(𝑙𝑜𝑔E𝒚
+∇!L = 𝒙)𝐲−𝒚(
+𝜽= 𝜽−𝜂∇!L
+𝜂is learning rate
+𝒛= 𝜽(𝒙
+E𝒚= 𝑒𝒛∅𝒅
+𝒅= 1 … 1 𝑒𝒛
+∅is 
+Hadamard
+division
+𝜃= [b*
+b"
+w*
+w"]
+𝒙! = [1
+1.0]
+𝜂= 0.1
+= [0.1
+0.2
+0.3
+0.4]
+𝑦= 0 →𝒚! = [1 0]
+L = −𝑦.log!𝑦. −𝑦1log!𝑦1
+𝑧* = 𝑤*𝑥+ 𝑏*
+0.3
+0.1
+𝑦
+𝑧" = 𝑤"𝑥+ 𝑏"
+0.4
+0.2
+&𝑦* =
+𝑒%!
+∑+-*
+"
+𝑒%"
+&𝑦" =
+𝑒%#
+∑+-*
+"
+𝑒%"
+𝑤%
+𝑏%
+𝑤!
+𝑏!
+𝒛% = 0.4
+𝒛! = 0.6
+=𝒚% = 0.45
+=𝒚! = 0.55
+𝒚= 1
+0
+2 – Softmax Regression
+!
+34
+Softmax Regression
+4) Compute derivative
+5) Update parameters
+1) Pick a sample from training data   
+2) Compute output )𝑦
+3) Compute loss (cross-entropy)
+𝐿𝜽= −𝒚(𝑙𝑜𝑔E𝒚
+∇!L = 𝒙)𝐲−𝒚(
+𝜽= 𝜽−𝜂∇!L
+𝜂is learning rate
+𝒛= 𝜽(𝒙
+E𝒚= 𝑒𝒛∅𝒅
+𝒅= 1 … 1 𝑒𝒛
+∅is 
+Hadamard
+division
+2 – Softmax Regression
+!
+35
+Softmax Regression
+4) Compute derivative
+5) Update parameters
+1) Pick a sample from training data   
+2) Compute output )𝑦
+3) Compute loss (cross-entropy)
+𝐿𝜽= −𝒚(𝑙𝑜𝑔E𝒚
+∇!L = 𝒙)𝐲−𝒚(
+𝜽= 𝜽−𝜂∇!L
+𝜂is learning rate
+𝒛= 𝜽(𝒙
+E𝒚= 𝑒𝒛∅𝒅
+𝒅= 1 … 1 𝑒𝒛
+∅is 
+Hadamard
+division
+𝜃= [b*
+b"
+w*
+w"]
+𝒙! = [1
+1.0]
+𝜂= 0.1
+= [0.1
+0.2
+0.3
+0.4]
+𝑦= 0 →𝒚! = [1 0]
+L = −𝑦.log!𝑦. −𝑦1log!𝑦1
+𝑧* = 𝑤*𝑥+ 𝑏*
+0.3
+0.1
+𝑦
+𝑧" = 𝑤"𝑥+ 𝑏"
+0.4
+0.2
+&𝑦* =
+𝑒%!
+∑+-*
+"
+𝑒%"
+&𝑦" =
+𝑒%#
+∑+-*
+"
+𝑒%"
+𝑤%
+𝑏%
+𝑤!
+𝑏!
+𝒛% = 0.4
+𝒛! = 0.6
+=𝒚% = 0.45
+=𝒚! = 0.55
+𝒚= 1
+0
+𝐿= 0.8
+2 – Softmax Regression
+!
+36
+Softmax Regression
+4) Compute derivative
+5) Update parameters
+1) Pick a sample from training data   
+2) Compute output )𝑦
+3) Compute loss (cross-entropy)
+𝐿𝜽= −𝒚(𝑙𝑜𝑔E𝒚
+∇!L = 𝒙)𝐲−𝒚(
+𝜽= 𝜽−𝜂∇!L
+𝜂is learning rate
+𝒛= 𝜽(𝒙
+E𝒚= 𝑒𝒛∅𝒅
+𝒅= 1 … 1 𝑒𝒛
+∅is 
+Hadamard
+division
+2 – Softmax Regression
+!
+37
+Softmax Regression
+4) Compute derivative
+5) Update parameters
+1) Pick a sample from training data   
+2) Compute output )𝑦
+3) Compute loss (cross-entropy)
+𝐿𝜽= −𝒚(𝑙𝑜𝑔E𝒚
+∇!L = 𝒙)𝐲−𝒚(
+𝜽= 𝜽−𝜂∇!L
+𝜂is learning rate
+𝒛= 𝜽(𝒙
+E𝒚= 𝑒𝒛∅𝒅
+𝒅= 1 … 1 𝑒𝒛
+∅is 
+Hadamard
+division
+𝜃= [b*
+b"
+w*
+w"]
+𝒙! = [1
+1.0]
+𝜂= 0.1
+= [0.1
+0.2
+0.3
+0.4]
+𝑦= 0 →𝒚! = [1 0]
+L = −𝑦.log!𝑦. −𝑦1log!𝑦1
+𝑧* = 𝑤*𝑥+ 𝑏*
+0.3
+0.1
+𝑦
+𝑧" = 𝑤"𝑥+ 𝑏"
+0.4
+0.2
+&𝑦* =
+𝑒%!
+∑+-*
+"
+𝑒%"
+&𝑦" =
+𝑒%#
+∑+-*
+"
+𝑒%"
+𝑤%
+𝑏%
+𝑤!
+𝑏!
+𝒛% = 0.4
+𝒛! = 0.6
+=𝒚% = 0.45
+=𝒚! = 0.55
+𝒚= 1
+0
+𝐿= 0.8
+∇!L = 𝐱)y −𝑦*
+= −0.55
+0.55
+−0.55
+0.55
+2 – Softmax Regression
+!
+38
+Softmax Regression
+4) Compute derivative
+5) Update parameters
+1) Pick a sample from training data   
+2) Compute output )𝑦
+3) Compute loss (cross-entropy)
+𝐿𝜽= −𝒚(𝑙𝑜𝑔E𝒚
+∇!L = 𝒙)𝐲−𝒚(
+𝜽= 𝜽−𝜂∇!L
+𝜂is learning rate
+𝒛= 𝜽(𝒙
+E𝒚= 𝑒𝒛∅𝒅
+𝒅= 1 … 1 𝑒𝒛
+∅is 
+Hadamard
+division
+2 – Softmax Regression
+!
+39
+Softmax Regression
+4) Compute derivative
+5) Update parameters
+1) Pick a sample from training data   
+2) Compute output )𝑦
+3) Compute loss (cross-entropy)
+𝐿𝜽= −𝒚(𝑙𝑜𝑔E𝒚
+∇!L = 𝒙)𝐲−𝒚(
+𝜽= 𝜽−𝜂∇!L
+𝜂is learning rate
+𝒛= 𝜽(𝒙
+E𝒚= 𝑒𝒛∅𝒅
+𝒅= 1 … 1 𝑒𝒛
+∅is 
+Hadamard
+division
+𝜃= [b*
+b"
+w*
+w"]
+𝒙! = [1
+1.0]
+𝜂= 0.1
+= [0.1
+0.2
+0.3
+0.4]
+𝑦= 0 →𝒚! = [1 0]
+L = −𝑦.log!𝑦. −𝑦1log!𝑦1
+𝑧* = 𝑤*𝑥+ 𝑏*
+0.3
+0.1
+𝑦
+𝑧" = 𝑤"𝑥+ 𝑏"
+0.4
+0.2
+&𝑦* =
+𝑒%!
+∑+-*
+"
+𝑒%"
+&𝑦" =
+𝑒%#
+∑+-*
+"
+𝑒%"
+𝑤%
+𝑏%
+𝑤!
+𝑏!
+𝒛% = 0.4
+𝒛! = 0.6
+=𝒚% = 0.45
+=𝒚! = 0.55
+𝒚= 1
+0
+𝐿= 0.8
+∇!L = 𝐱)y −𝑦*
+= −0.55
+0.55
+−0.55
+0.55
+𝜽= 𝜽−𝜂𝐿𝜽
+#
+= 0.105
+0.195
+0.305
+0.395
+2 – Softmax Regression
+!
+40
+Softmax Regression
+4) Compute derivative
+5) Update parameters
+1) Pick a sample from training data   
+2) Compute output )𝑦
+3) Compute loss (cross-entropy)
+𝐿𝜽= −𝒚(𝑙𝑜𝑔E𝒚
+∇!L = 𝒙)𝐲−𝒚(
+𝜽= 𝜽−𝜂∇!L
+𝜂is learning rate
+𝒛= 𝜽(𝒙
+E𝒚= 𝑒𝒛∅𝒅
+𝒅= 1 … 1 𝑒𝒛
+∅is 
+Hadamard
+division
+2 – Softmax Regression
+!
+41
+Prediction
+Hours
+Pass
+0.25
+???
+4.5
+???
+Prediction
+𝑦*+,-: 0
+𝑧* = 𝑤*𝑥+ 𝑏*
+0.305
+0.105
+𝑧" = 𝑤"𝑥+ 𝑏"
+0.394
+0.194
+&𝑦* =
+𝑒%!
+∑+-*
+"
+𝑒%"
+&𝑦" =
+𝑒%#
+∑+-*
+"
+𝑒%"
+𝑤%
+𝑏%
+𝑤!
+𝑏!
+2 – Softmax Regression
+!
+42
+Prediction
+Thanks!
+Any questions?
+43

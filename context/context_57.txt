@@ -1,0 +1,739 @@
+TA Minh-Duc Bui
+1
+Year 2023
+Video Classification - Project
+2
+Outline
+1. Overview of Video Data
+2. RWF2000 Dataset for Violence Detection Task
+3. Models for Video Classification Task
+4. Optional: Self-Supervised Learning for Video Data
+3
+Outline
+1. Overview of Video Data
+2. RWF2000 Dataset for Violence Detection Task
+3. Models for Video Classification Task
+4. Optional: Self-Supervised Learning for Video Data
+4
+Video Classification Overview
+A video is a sequence of images 
+4D tensor: 
+T x 3 x H x W 
+Video = 2D + Time
+5
+Video Classification Overview
+Input video:
+T x 3 x H x W 
+Swimming
+Running
+Jumping
+Standing
+6
+Video Classification Overview
+Swimming
+Running
+Jumping
+Standing
+Dog
+Cat
+Fish
+Bird
+videos: recognize actions
+images: recognize objects
+Solution: train on short clips: low fps and low 
+spatial resolution 
+e.g. T = 16, H=W=112 
+(3.2 seconds at 5 FPS, 588 KB)
+Videos are ~30 frames per second (fps) 
+Size of uncompressed video
+(3 bytes per pixel): 
+•SD (640 x 480): ~1.5 GB per minute 
+•HD (1920 x 1080): ~10 GB per minute
+7
+Video Classification Overview
+Videos are big!
+Input video:
+T x 3 x H x W 
+8
+Video Classification Overview
+EECS 498-007 / 598-005: Deep Learning for Computer Vision
+Original video: long, high FPS
+Training: Train model to classify short clips with low FPS
+Testing: Run model on different clips, average predictions
+9
+Outline
+1. Overview of Video Data
+2. RWF2000 Dataset for Violence Detection Task
+3. Models for Video Classification Task
+4. Optional: Self-Supervised Learning for Video Data
+Since all the videos are captured by surveillance
+cameras in public places, many may need better
+imaging quality due to dark environments, fast
+movement of objects, lighting blur, etc.
+10
+RWF2000 - Violence Detection
+Cheng, Ming, Kunjing Cai, and Ming Li. "RWF-2000: an open large scale video database for violence detection." 2020 25th International Conference on Pattern Recognition (ICPR). IEEE, 2021.
+Collected
+raw
+surveillance
+videos
+from
+YouTube, sliced them into clips within 5s at 30
+fps, and labeled each clip as Violent or Non-
+Violent.
+Finally, we have 2000 clips and 300,000 frames
+as a new data set for detecting real-world violent
+behavior under a surveillance camera.
+Challenges
+11
+RWF2000 - Violence Detection
+Cheng, Ming, Kunjing Cai, and Ming Li. "RWF-2000: an open large scale video database for violence detection." 2020 25th International Conference on Pattern Recognition (ICPR). IEEE, 2021.
+Only part of the person appears in the picture
+Crowds and chaos
+Low resolution
+Transient Action
+Challenges
+12
+Create Video Dataset
+13
+Create Video Dataset
+14
+Outline
+1. Overview of Video Data
+2. RWF2000 Dataset for Violence Detection Task
+3. Models for Video Classification Task
+4. Optional: Self-Supervised Learning for Video Data
+15
+From 2D to 3D CNNs
+https://animatedai.github.io/
+What is this?
+2D or 3D CNN?
+16
+Video Classification: Single-Frame CNN
+•
+Simple idea: train normal 2D CNN to classify video frames 
+independently!  (Average predicted probs at test-time) 
+•
+Often a solid baseline for video classification.
+Run 2D CNN on each 
+frame, and feed to MLP
+Problem: pooling is not 
+aware of the temporal order!
+CNN
+CNN
+CNN
+CNN
+VGG
+ResNet
+...
+MLP
+MLP
+MLP
+MLP
+Average Logits
+17
+Video Classification: Single-Frame CNN
+CNN
+CNN
+CNN
+CNN
+VGG
+ResNet
+...
+MLP
+MLP
+MLP
+MLP
+Average Logits
+18
+Video Classification: Single-Frame CNN
+#params
+Best Val Accuracy
+Single-Frame CNN
+11.5M
+72.8
+19
+Video Classification: Late Fusion
+Intuition: Get a high-level appearance 
+of each frame, and combine them
+Run 2D CNN on each frame, 
+concatenate features, and feed to MLP
+CNN
+CNN
+CNN
+CNN
+VGG
+ResNet
+...
+Average Logits
+MLP
+Problem: Hard to compare 
+low-level motion between 
+frames
+20
+Video Classification: Late Fusion
+CNN
+CNN
+CNN
+CNN
+VGG
+ResNet
+...
+Average Logits
+MLP
+21
+Video Classification: Late Fusion
+#params
+Best Val Accuracy
+Single-Frame CNN
+11.5M
+72.8
+Late Fusion
+11.5M
+73.0
+22
+Video Classification: Early Fusion
+Intuition: Get a high-level appearance 
+of each frame and combine them
+First 2D convolution collapses all 
+temporal information: 
+• Input: 3T x H x W 
+• Output: D x H x W
+Problem: Hard to compare low-level 
+motion between frames
+2D CNN
+MLP
+VGG
+ResNet
+...
+Input: 3T x H x W 
+23
+Video Classification: Early Fusion
+2D CNN
+MLP
+VGG
+ResNet
+...
+Input: 3T x H x W 
+24
+Video Classification: Early Fusion
+#params
+Best Val Accuracy
+Single-Frame CNN
+11.5M
+72.8
+Late Fusion
+11.5M
+73.0
+Early Fusion
+11.6M
+76.3
+25
+Video Classification: CNN-LSTM
+•
+Intuition: Get a high-level appearance 
+of each frame, and combine them
+•
+Recurrent Neural Networks are well 
+suited for processing sequences.
+Run 2D CNN on each frame, 
+concatenate features, and feed to LSTM
+CNN
+CNN
+CNN
+CNN
+VGG
+ResNet
+...
+LSTM
+LSTM
+LSTM
+LSTM
+MLP
+Problem: RNNs are sequential 
+and cannot be parallelized.
+Video Classification: CNN-LSTM
+CNN
+CNN
+CNN
+CNN
+VGG
+ResNet
+...
+LSTM
+LSTM
+LSTM
+LSTM
+MLP
+27
+Video Classification: CNN-LSTM
+#params
+Best Val Accuracy
+Single-Frame CNN
+11.5M
+72.8
+Late Fusion
+11.5M
+73.0
+Early Fusion
+11.6M
+76.3
+CNN-LSTM
+15.3M
+63.0
+CNN-Mamba
+16.4M
+83.0
+28
+Video Classification: 3D CNN
+Use 3D Convs to explicitly extract 
+features from the input video
+Computional expensive
+3D CNN
+MLP
+Input: T x 3 x H x W 
+A step back: Depthwise Separable 
+Convolution (in MobileNet)
+Video Classification: 3D CNN
+W
+H
+C
+...
+...
+...
+←𝑁→
+←𝐶→
+W
+H
+1
+←𝑁→
+1
+1
+C
+Standard Kernel
+Depthwise Kernel
+Pointwise Kernel
+Depthwise Separable 
+Convolution
+30
+Video Classification: 3D CNN
+https://animatedai.github.io/
+Depthwise Separable 
+Convolution
+Sep-Conv
+3x3x3
+=
+Conv
+1x3x3
+Conv
+3x1x1
+Sep-Conv
+7x7x7
+Stride 2
+1x3x3
+Max-Pool
+Stride 1,2,2
+Conv
+1x1x1
+Sep-Conv
+3x3x3
+1x3x3
+Max-Pool
+Stride 1,2,2
+Sep-Inc
+Sep-Inc
+3x3x3
+Max-Pool
+Stride 2,2,2
+Sep-Inc
+Sep-Inc
+Sep-Inc
+Sep-Inc
+3x3x3
+Max-Pool
+Stride 2,2,2
+Sep-Inc
+Sep-Inc
+Sep-Inc
+3x3x3
+Max-Pool
+Stride 2,2,2
+Conv
+1x1x1
+prediction
+S3D Model
+Video Classification: 3D CNN
+Conv
+1x1x1
+Conv
+1x1x1
+3x3x3
+Max-
+Pool
+Conv
+1x3x3
+Conv
+1x3x3
+Conv
+3x1x1
+Conv
+3x1x1
+Conv
+1x1x1
+Previous Layer
+Concat
+Conv
+1x1x1
+Sep-Inc
+32
+Video Classification: 3D CNN
+https://animatedai.github.io/
+Sep-Conv block in S3D
+Sep-Conv
+8x3x3
+=
+Conv
+1x3x3
+Conv
+8x1x1
+33
+Video Classification: S3D
+#params
+Best Val Accuracy
+Single-Frame CNN
+11.5M
+72.8
+Late Fusion
+11.5M
+73.0
+Early Fusion
+11.6M
+76.3
+CNN-LSTM
+15.3M
+63.0
+CNN-Mamba
+16.4M
+83.0
+3D CNN
+9.1M
+78.8
+34
+Video Classification: Video ViT (ViViT)
+A step back: Vision Transformer (ViT)
+1
+2
+3
+4
+5
+6
+7
+8
+9
+0
+Patch + Position
+Embedding
+*Extra learnable
+[class] embedding
+MLP 
+Head
+Class
+Bird
+Cat
+Dog
+...
+Linear Projection of Flattened Patches
+Transformer Encoder
+Transformer Encoder
+Norm
+Multi-Head
+Attention
+Norm
+MLP
++
++
+L x
+Embedded 
+Patches
+35
+Video Classification: Video ViT (ViViT)
+What are tokens in images?
+224
+224
+16
+16
+Linear 
+Projection
+196 
+tokens
+36
+Video Classification: Video ViT (ViViT)
+Arnab, Anurag, et al. "Vivit: A video vision transformer." Proceedings of the IEEE/CVF international conference on computer vision. 2021.
+•
+uniformly sample 𝑛! frames from the input
+•
+embed each 2D frame independently using the 
+same method as ViT
+•
+concatenate all these tokens together
+Uniform frame sampling 
+Tubelet embedding
+•
+fuse spatio-temporal information during tokenisation
+•
+extract non-overlapping, spatio-temporal “tubes” from the 
+input volume
+What are tokens in videos?
+37
+Video Classification: Video ViT (ViViT)
+Transformer Encoder
+Embed to 
+tokens
+1
+2
+3
+N
+cls
+0
+...
+Norm
+Multi-Head
+Attention
+Norm
+MLP
++
++
+L x
+MLP Head
+38
+Video Classification: Video ViT (ViViT)
+Arnab, Anurag, et al. "Vivit: A video vision transformer." Proceedings of the IEEE/CVF international conference on computer vision. 2021.
+Transformer Encoder
+Embed to 
+tokens
+1
+2
+3
+N
+0
+...
+Norm
+Multi-Head
+Attention
+Norm
+MLP
++
++
+L x
+MLP Head
+Spatial
+Temporal
+Spatial
+Temporal
+...
+Temporal
+Spatial
+...
+Temporal
+Spatial
+Spatial
+Fuse
+Temporal
+...
+Spatial
+Fuse
+Temporal
+Factorised Encoder
+Factorised Self-Attention
+Factorised Dot-Product
+39
+Video Classification: Video ViT (ViViT)
+Factorised Encoder
+Embed to tokens
+Spatial 
+Transformer 
+Encoder
+Spatial 
+Transformer 
+Encoder
+c
+l
+s
+0
+1
+N
+c
+l
+s
+0
+1
+N
+Spatial 
+Transformer 
+Encoder
+c
+l
+s
+0
+1
+N
+1
+2
+T
+c
+l
+s
+0
+Temporal Transformer Encoder
+...
+...
+...
+MLP 
+Head
+...
+...
+Positional + 
+Token Embedding
+Temporal + 
+Token Embedding
+40
+Video Classification: Video ViT (ViViT)
+#params
+Best Val Accuracy
+Single-Frame CNN
+11.5M
+72.8
+Late Fusion
+11.5M
+73.0
+Early Fusion
+11.6M
+76.3
+CNN-LSTM
+15.3M
+63.0
+CNN-Mamba
+16.4M
+83.0
+3D CNN
+9.1M
+78.8
+Video ViT (ViViT)
+86.5M
+84.8
+41
+42
+Quiz Time!!!
+1. Đâu là một cách xử lý video có kích thước 
+lớn?
+A.
+Sử dụng toàn bộ frame trong video.
+B. Chia video thành nhiều clip ngắn và train 
+model.
+C. Bỏ qua các frame không quan trọng.
+D. Sử dụng video với tốc độ khung hình cao.
+2. Đâu là đặc điểm của data trong video 
+classification?
+A. Video là chuỗi của các frame theo không 
+gian.
+B. Mỗi frame thường có kích thước nhỏ.
+C. Video là chuỗi của các frame theo thời 
+gian.
+D. Video không chứa dữ liệu âm thanh.
+3. Trong early fusion, các frame được kết hợp như 
+thế nào trước khi đưa vào model?
+A.
+Tất cả các frames được nén lại thành một 
+frame.
+B. Các frames được giữ nguyên và xử lý độc lập.
+C. Các frames được đưa vào LSTM như là các 
+input độc lập.
+D. Các frame được kết hợp để tạo thành tensor 
+có kích thước (3*T x H x W).
+43
+Quiz Time!!!
+4. Single-frame model hoạt động dựa trên 
+nguyên tắc nào?
+A. Tổng hợp các feature vector từ mỗi frame.
+B. Dùng 2D model để predict trên mỗi frame 
+và tổng hợp kết quả. 
+C. Xử lý từng frame với một mạng LSTM.
+D. Kết hợp tất cả frames thành một tensor 3D.
+5. Trong VideoDataset, hàm uniform_sample dùng 
+để làm gì?
+A. Để sắp xếp các frames theo thứ tự số.
+B. Để chuyển đổi các frame sang RGB.
+C. Để lấy mẫu đều các frame từ danh sách.
+D. Để kết nối với GPU cho việc training nhanh hơn.
+44
+Outline
+1. Overview of Video Data
+2. RWF2000 Dataset for Violence Detection Task
+3. Models for Video Classification Task
+4. Optional: Self-Supervised Learning for Video Data
+45
+Optional
+Self-Supervised Learning: VideoMAE
+A step back: Mask Autoencoder (MAE)
+He, K., Chen, X., Xie, S., Li, Y., Dollár, P., & Girshick, R. (2021). Masked Autoencoders Are Scalable Vision Learners. ArXiv. /abs/2111.06377
+46
+A step back: Mask Autoencoder (MAE)
+Optional
+Self-Supervised Learning: VideoMAE
+He, K., Chen, X., Xie, S., Li, Y., Dollár, P., & Girshick, R. (2021). Masked Autoencoders Are Scalable Vision Learners. ArXiv. /abs/2111.06377
+47
+VideoMAE
+Optional
+Self-Supervised Learning: VideoMAE
+Tong, Z., Song, Y., Wang, J., & Wang, L. (2022). VideoMAE: Masked Autoencoders are Data-Efficient Learners for Self-Supervised Video Pre-Training. ArXiv. /abs/2203.12602
+Reduce information leakage
+48
+VideoMAE
+Optional
+Self-Supervised Learning: VideoMAE
+Tong, Z., Song, Y., Wang, J., & Wang, L. (2022). VideoMAE: Masked Autoencoders are Data-Efficient Learners for Self-Supervised Video Pre-Training. ArXiv. /abs/2203.12602
+49
+Comparison on Something-Something dataset
+Optional
+Self-Supervised Learning: VideoMAE
+Tong, Z., Song, Y., Wang, J., & Wang, L. (2022). VideoMAE: Masked Autoencoders are Data-Efficient Learners for Self-Supervised Video Pre-Training. ArXiv. /abs/2203.12602
+50
+Video Classification: Video ViT (ViViT)
+#params
+Best Val Accuracy
+Single-Frame CNN
+11.5M
+72.8
+Late Fusion
+11.5M
+73.0
+Early Fusion
+11.6M
+76.3
+CNN-LSTM
+15.3M
+63.0
+CNN-Mamba
+16.4M
+83.0
+3D CNN
+9.1M
+78.8
+Video ViT (ViViT)
+86.5M
+84.8
+VideoMAE
+86.2M
+91.3
+51
+Summary
+T x 3 x H x W 
+Video = 2D + Time
+Solution: train on short clips: 
+low fps and low spatial 
+resolution 
+Videos are big!
+Tokens in Video Data
+Thanks!
+Any questions?
+52

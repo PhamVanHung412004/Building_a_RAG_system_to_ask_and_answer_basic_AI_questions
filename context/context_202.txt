@@ -1,0 +1,56 @@
+AI VIET NAM – COURSE 2023
+Performance Evaluation and Main Contributions Estimation
+(Research Module - Assignment 5)
+Ngày 3 tháng 12 năm 2023
+Ởbài tập tuần này, giảsửcác bạn đã hoàn thành việc xây dựng Research Plan đểcó bức tranh
+tổng thềvềresearch topic cũng như các research questions mà các ban cần giải quyết. Bên cạnh đó,
+các bạn cũng đã hoàn thành việc implement các idea, solutions đểgiải quyết các research questions
+trong Research Plan. Bài tập tuần này tập trung vào việc hỗtrợcác bạn đánh giá kết quảcủa các idea,
+solutions các bạn đềxuất có cải tiến performance của các phương pháp trước đó hay không. Song song
+đó, việc làm thếnào đểxác định idea, solutions mà các bạn đềxuất có đủcontributions đểsubmit vào
+các tạp chí/hội nghịquốc tếuy tín hay không?. Cuối cùng là các bạn cần chọn lưa được cụthểtạp
+chí/hội nghịmà các bạn dựđịnh submit vào.
+Lưu ý: sau khi hoàn thành bài tập và submit bài tập này, các bạn sẽnhận được feedback từđội
+ngũ TA research của AIVN trong vòng 1 tuần nhé!
+Câu hỏi 1 Title of your proposed method
+What is the title of your proposed idea or solution?
+Answer:
+’
+’
+Câu hỏi 2 Evaluation metrics
+Could you please specify which evaluation metrics you will use to assess the performance of your proposed
+idea or solution?
+Answer:
+’
+’
+Câu hỏi 3 Quantitative results
+Please describe result of your proposed ideas or solution by using the above evaluation metric (Question
+2) and provide explanation (if any)
+Answer:
+’
+’
+Câu hỏi 4 Qualitative results
+Please provide visualizations of the results of your proposed ideas or solutions
+1
+Answer:
+’
+’
+Câu hỏi 5 Comparison to Existing methods
+Please present a comparison between your proposed idea or solution and at least one existing method,
+utilizing the evaluation metrics mentioned above
+Answer:
+’
+’
+Câu hỏi 6 Significant and main contributions
+Please describe the news of your proposed idea or solution, which you believe emphasize your contribu-
+tions, differ from existing ones.
+Answer:
+’
+’
+Câu hỏi 7 Journal/Conference Selection
+Please specify the journal or conference to which you intend to submit this research topic in the future.
+Why do you select them?
+Answer:
+’
+’
+2

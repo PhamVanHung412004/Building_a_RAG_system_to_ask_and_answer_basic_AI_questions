@@ -1,0 +1,183 @@
+AI VIET NAM – AIO Course
+Mamba for Vision
+Minh-Duc Bui và Quang-Vinh Dinh
+PR-Team: Đăng-Nhã Nguyễn, Minh-Châu Phạm và Hoàng-Nguyên Vũ
+Ngày 23 tháng 2 năm 2024
+1
+Introduction
+Mamba, tên gọi khác là S6 (Structured State Space for Sequence Modeling with Selective Scan), là
+một kiến trúc mới xuất hiện gần đây. Điểm khác biệt chính giữa Mamba và các mô hình hiện tại như
+Transformer là Mamba không sửdụng cơ chếattention. Nhờvậy, Mamba có độphức tạp thấp hơn
+nhiều so với Transformer, chỉO(n) so với O(n2) của Transformer (với n là chiều dài sequence). Bên
+cạnh đó, Mamba cho độchính xác cao khi chiều dài sequence tăng (lên đến hàng triệu).
+Trong bài viết này, ta sẽtìm hiểu cách các nhà nghiên cứu đã áp dụng kiến trúc Mamba vào data dạng
+ảnh, thông qua các bài paper sau:
+1
+AI VIETNAM
+aivietnam.edu.vn
+Title
+Link
+Github
+Vision Mamba: Efficient Visual Representation Learning with Bidirectional State
+Space Model
+here
+here
+VMamba: Visual State Space Model
+here
+here
+U-Mamba: Enhancing Long-range Dependency for Biomedical Image Segmentation
+here
+here
+Swin-UMamba: Mamba-based UNet with ImageNet-based pretraining
+here
+here
+2
+Text vs. Image
+Điểm khác biệt chính giữa text và image chính là thông tin vềdimension, text chỉcó 1D trong khi image
+là 2D. Điều này gây ra khó khăn khi áp dụng các model từNLP (ví dụMamba, Transformer) sang CV.
+Hình 1: Pixel-level và Patch-level khi sửdụng mô hình Transformer cho data dạng ảnh.
+Hình 1 mô tả2 cách chuyển đổi từdata 2D sang data 1D. Nếu ta chia ảnh đầu vào theo pixel-level
+thì với ví dụnhư hình (ảnh 224x224) ta sẽcó hơn 50k token, nếu ánh xạtương ứng sang text là 1 câu
+có 50k từ. Điều này cực kì khó khăn đối với các GPU đểtính toán. Cách phổbiến được sửdụng đối
+với Transformer chính là chia ảnh đầu vào thành các patch nhỏ(ví dụ16x16 pixel), ảnh có kích thước
+224x224 sau khi chia sẽcó tổng cộng 14*14=196 patch (hoặc token). 196 token là hoàn toàn hợp lý so với
+50k và các GPU vẫn có thểhoạt động bình thường.
+2
+AI VIETNAM
+aivietnam.edu.vn
+3
+Vision Mamba
+Vision Mamba (Vim) là bài paper đầu tiên áp dụng Mamba vào data dạng ảnh. Các tác giảđã thay
+thếTransformer Encoder trong Vision Transformer (ViT) bằng Vision Mamba Encoder, và thay
+đổi kiến trúc SSM thành Bidirectional SSM (tương tựBidirectional LSTM). Kiến trúc của Vim và
+Vision Mamba Encoder được mô tảnhư hình 2. Từng Vision Mamba Encoder block sẽcó 2 block SSM là
+Forward SSM và Backward SSM. Giảsửta đánh sốcác token theo thứtựtừ1 đến N, thì Forward
+SSM sẽtính SSM theo chiều thuận từ1 đến N, Backward SSM sẽtính theo chiều ngược lại từN đến
+1. Tương tựtrong data dạng text, Forward là từđầu câu đến cuối câu, và Backward là từcuối câu đến
+đầu câu. Việc tính toán như vậy giúp model học được thông tin từ2 hướng khác nhau.
+Hình 2: Kiến trúc Vision Mamba (Vim) và Vision Mamba Encoder.
+Hình 3 mô tảkết quảgiữa Transformer (DeiT) và Vision Mamba (Vim). Ta thấy, Vim vượt trội hơn
+DeiT ởtất cảcác task bao gồm: image classification, object detection, và instance segmentation. Hơn
+nữa, khi kích thước ảnh đầu vào tăng, Vim outperform DeiT ởcảspeed và memory. Cụthể, Vim nhanh
+hơn và tiết kiệm bộnhớhơn DeiT lần lượt là 2.8x và 86.8%. Khi công nghệngày càng phát triển, kích
+thước ảnh 224x224 -> 512x512 dần trởnên lỗi thời, con người luôn muốn sửdụng ảnh có kích thước lớn
+hơn đểcác model có thểđạt độchính xác cao hơn. Điều này càng chứng tỏMamba sẽcó khảnăng cao
+trởthành backbone được sửdụng trong tương lai.
+Hình 3: Kết quảso sánh giữa Transformer (DeiT) và Vision Mamba.
+3
+AI VIETNAM
+aivietnam.edu.vn
+4
+Visual Mamba
+Sau khi Vim được công bốchỉ1 ngày thì ta tiếp tục có bài paper thứ2 sửdụng Mamba vào data dạng
+ảnh mang tên Visual Mamba (VMamba). Xuất phát từSwin Transformer (một model cải tiến của ViT)
+các tác giảđã thay thếTransformer block bằng Visual State Space (VSS) block (hình 4).
+Hình 4: Kiến trúc VMamba và VSS Block.
+Khác với Vim sửdụng Bidirectional, VMamba sửdụng Four-Directional (4 hướng) đểtính SSM và sử
+dụng tên gọi Cross-Scan. 4 hướng này bao gồm:
+1. trái->phải->trên->dưới
+2. phải->trái->dưới->trên
+3. trên->dưới->trái->phải
+4. dưới->trên->phải->trái
+Hình 5: So sánh giữa Attention (hình a) và Cross-Scan (hình b).
+4
+AI VIETNAM
+aivietnam.edu.vn
+Hình 5 mô tảcách hoạt động của Cross-Scan, và hình 6 mô tảcách tính toán với Cross-Scan trong SSM
+block. Cross-Scan giúp VMamba đạt được độphức tạp linear O(n) mà không bịmất bất kỳthông tin
+global nào. Ví dụ, token ởvịtrí chính giữa trong hình 5 được tổng hợp thông tin từtất cảcác token
+khác theo nhiều hướng khác nhau. Cross-Scan được tính toán thông qua 3 bước chính:
+1. Scan expand: các token đầu vào được chia thành 4 sequence khác nhau (theo 4 hướng).
+2. S6 block: 4 sequence được đưa vào S6 block đểtính toán.
+3. Scan merge: cuối cùng, 4 sequence sẽđược tổng hợp lại đểtiếp tục expand ởblock tiếp theo.
+Hình 6: Cách tính toán với Cross-Scan.
+Hình 7 so sánh kết quảgiữa VMamba và các model Transformer, CNN khác. Ta thấy VMamba là model
+sởhữu cả3 tính chất là:
+• Độphức tạp O(n) (Linear Complexity).
+• Tổng hợp thông tin global (Global ERF).
+• Tạo ra param phụthuộc vào input (Dynamic weights).
+Hình 7: So sánh VMamba và các model Transformer, CNN khác.
+5
+AI VIETNAM
+aivietnam.edu.vn
+Tương tựVim, các tác giảcủa VMamba cũng đánh giá backbone Mamba dưới nhiều size ảnh khác
+nhau (tham khảo hình 8). Ta thấy, VMamba vượt trội hơn hầu hết các model khác khi kích thước ảnh
+tăng dần.
+Hình 8: So sánh VMamba và các model Transformer và CNN khác dưới nhiều size ảnh khác nhau.
+6
+AI VIETNAM
+aivietnam.edu.vn
+5
+U-Mamba
+Hơn 1 tháng sau khi Mamba được công bố, các tác giảtại Đại học Toronto, Canada đã hưởng ứng trend
+này với bài paper: “U-Mamba: Enhancing Long-range Dependency for Biomedical Image Segmentation”,
+một bài paper vềbài toán Segmentation trong lĩnh vực Y Sinh. U-Mamba là model theo hướng encoder-
+decoder tương tựU-Net, nhưng các block nhỏtrong encoder và decoder được thay bằng CNN và SSM
+block (các tác giảgọi là U-Mamba block). Kiến trúc U-Mamba block và U-Mamba hoàn chỉnh được mô
+tảnhư hình 9.
+Hình 9: Kiến trúc U-Mamba block và model U-Mamba hoàn chỉnh.
+Sựkết hợp giữa CNN và SSM tạo nên hybrid CNN-SSM model, model hybrid này vừa có khảnăng
+tổng hợp thông tin local nhờvào CNN và thông tin global nhờvào SSM. Từđó giúp model tổng hợp
+được 2 khía cạnh khác nhau trong ảnh đầu vào.
+U-Mamba block hoạt động bằng cách đưa input đầu vào sang CNN block, sau đó output từCNN block
+này sẽđược đưa vào SSM block. Tùy thuộc vào CNN block thuộc phần encoder hay decoder thì sẽđược
+thiết kếkhác nhau. Đối với encoder, CNN block sẽcó tác dụng giảm kích thước feature map và tăng
+chiều sâu, ngược lại đối với decoder, CNN làm nhiệm vụtăng kích thước feature map và giảm chiều sâu.
+Bàn luận vềhybrid model: Các model CNN thuần túy (AlexNet, Resnet, VGG,...) là những model
+chỉdùng CNN đểtrích xuất thông tin, nói cách khác chỉtổng hợp được thông tin local. Ngược lại, các
+model Transformer (ViT) chỉtrích xuất thông tin global. Và Transformer cho performance vượt trội
+hơn CNN. Nhưng không vì thếmà ta khẳng định rằng thông tin global luôn luôn tốt hơn local, dẫn tới
+tình huống chỉtập trung vào global. Đây là một hiểu lầm phổbiến, cảthông tin local và global đều
+có những tính chất khác nhau, model mang cả2 thông tin này sẽcho performance cao hơn model chỉ
+mang 1 trong 2. Ví dụmột sốpaper vềTransformer sửdụng thông tin hybrid:
+7
+AI VIETNAM
+aivietnam.edu.vn
+• Neighborhood Attention Transformer
+• Dilated Neighborhood Attention Transformer
+• MaxViT: Multi-Axis Vision Transformer
+Hình 10 mô tảkết quảso sánh giữa U-Mamba và các model CNN, Transformer khác. Ta thấy U-Mamba
+vượt trội hoàn toàn so với các model này, khoảng cách rất lớn ≈10%.
+Hình 10: Bảng so sánh kết quảU-Mamba và các model khác trên dataset ảnh 2D.
+8
+AI VIETNAM
+aivietnam.edu.vn
+6
+Swin-UMamba
+Ngay sau khi U-Mamba được công bốđược chưa đầy 1 tháng thì các tác giảtại Chinese Academy of
+Sciences, Peng Cheng Laboratory, và một sốphòng Lab khác đã tiếp tục cải tiến U-Mamba và công
+bốSwin-UMamba. Swin-UMamba là sựkết hợp giữa việc tận dụng pretrained model (VMamba ởphần
+2) và kết hợp với kiến trức U-Net đểgiải quyết bài toán Medical image segmentation. Kiến trúc
+Swin-UMamba được mô tảnhư hình 11.
+Hình 11: Kiến trúc Swin-UMamba.
+Nhìn vào hình 11 ta thấy phần Encoder được sửdụng theo kiến trúc Swin Transformer với các Visual
+State Space (VSS) block tương tựbài paper Visual Mamba (VMamba). Chính vì tận dụng kiến trúc
+Encoder như VMamba như thế, ta có thểtận dụng pretrained VMamba đểkhởi tạo. Đối với phần
+Decoder, các tác giảđã thiết kếđơn giản như những model U-Net truyền thống: Transpose Convolution
++ Skip-Connection.
+Hình 12 mô tảkết quảcủa Swin-UMamba và các model Transformer-, Mamba-based khác. Ta thấy khi
+sửdụng pretrained model từVMamba thì performance đã tăng từ4->6%. Swin-UMamba dù sửdụng
+ít sốlượng parameter hơn so với U-Mamba ≈30->40\% nhưng vẫn cho kết quảcao hơn. Vềtổng quát,
+Swin-UMamba vượt trội hoàn toàn so với các model CNN, Transformer, và các model Mamba trước đó.
+9
+AI VIETNAM
+aivietnam.edu.vn
+Hình 12: Bảng so sánh kết quảSwin-UMamba và các model khác.
+7
+Conclusion
+Như vậy, trong bài viết này ta đã tìm hiểu vềkiến trúc Mamba được áp dụng cho data dạng ảnh thông
+qua nhiều bài toán khác nhau. Ta thấy rằng, các model Mamba-based này hoàn toàn vượt trội so với
+Transformer vềcả3 tiêu chí: tốc độ, tài nguyên tiết kiệm, và độchính xác cao. Các tiêu chí này đã
+đúng đối với data dạng text và dạng ảnh, vốn là 2 loại data phổbiến nhất. Từđó, ta có thểmường
+tượng được rằng Mamba cũng sẽtốt ởhầu hết các loại data còn lại.
+References
+[1] Gu, Albert, and Tri Dao. “Mamba: Linear-time sequence modeling with selective state spaces.” arXiv
+preprint arXiv:2312.00752 (2023)
+[2] Zhu, Lianghui, et al. “Vision mamba: Efficient visual representation learning with bidirectional state
+space model.” arXiv preprint arXiv:2401.09417 (2024).
+[3] Liu, Yue, et al. “Vmamba: Visual state space model.” arXiv preprint arXiv:2401.10166 (2024).
+[4] Ma, Jun, Feifei Li, and Bo Wang. “U-mamba: Enhancing long-range dependency for biomedical
+image segmentation.” arXiv preprint arXiv:2401.04722 (2024).
+[5] Liu, Jiarun, et al. “Swin-UMamba: Mamba-based UNet with ImageNet-based pretraining.” arXiv
+preprint arXiv:2402.03302 (2024).
+10

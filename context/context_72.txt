@@ -1,0 +1,402 @@
+AI VIET NAM – AI COURSE 2024
+Kiểm tra tuân thủđội mũ bảo vệvới YOLOv10
+Dinh-Thang Duong, Quang-Vinh Dinh
+Ngày 22 tháng 6 năm 2024
+I.
+Giới thiệu
+Object Detection (Tạm dịch: Phát hiện đối tượng) là một bài toán cổđiển thuộc lĩnh
+vực Computer Vision. Mục tiêu của bài toán này là tựđộng xác định vịtrí của các đối tượng
+trong một tấm ảnh. Đây là một trong những bài toán quan trọng và phức tạp trong Computer
+Vision, với ứng dụng rộng rãi từnhận diện khuôn mặt, nhận dạng biển sốxe, đến theo dõi đối
+tượng trong video và tựđộng lái xe.
+Hình 1: Chương trình phát hiện đối tượng có mang mũ bảo hiểm.
+Trong project này, chúng ta sẽxây dựng một chương trình phát hiện các nhân viên có đeo mũ
+bảo vệtrong công trường hay không? Mô hình mà chúng ta sửdụng sẽlà mô hình YOLOv10.
+Theo đó, Input và Output của chương trình là:
+• Input: Một tấm ảnh.
+• Output: Tọa độ(bounding box) của các nhân viên và phần mũ bảo hiểm.
+Tổng quan, các bước thực hiện trong project của chúng đểhoàn thiện hệthống Helmet Safety
+Detection bao gồm:
+1
+AI VIETNAM (AIO2024)
+aivietnam.edu.vn
+Hình 2: Tổng quan các bước thực hiện trong project.
+Luồng xửlý (pipeline) của chương trình Helmet Safety Detection mà chúng ta sẽxây dựng có
+dạng như sau:
+Hình 3: Pipeline của chương trình.
+2
+AI VIETNAM (AIO2024)
+aivietnam.edu.vn
+II.
+Cài đặt chương trình
+Trong phần này, chúng ta sẽtìm hiểu cách sửdụng YOLOv10 bao gồm việc sửdụng pre-trained
+model và huấn luyện (fine-tuning) YOLOv10 trên bộdữliệu Helmet Safety Detection.
+II.I.
+Chuẩn bịmôi trường lập trình
+Đểthuận tiện trong việc sửdụng YOLOv10, chúng ta sẽdùng Google Colab làm môi trường cài
+đặt và thực thi code. Các bước sửdụng Google Colab được thực hiện như sau (nếu các bạn đã
+biết cách kích hoạt GPU cho Google Colab thì có thểbỏqua phần này):
+• Bước 1: Truy cập vào đường dẫn sau: link. Nếu truy cập thành công, các bạn sẽthấy giao
+diện như hình dưới đây:
+Hình 4: Giao diện chính của Google Colab
+Sau đó, các bạn hãy đăng nhập bằng tài khoản Google của mình. Nếu đăng nhập thành
+công, một cửa sổmới sẽhiện lên như hình dưới đây:
+3
+AI VIETNAM (AIO2024)
+aivietnam.edu.vn
+Hình 5: Giao diện Google Colab sau khi đăng nhập thành công
+• Bước 2: Khởi tạo notebook mới. Notebook sẽlà giao diện đểta có thểviết các dòng lệnh
+Python. Đểtạo được notebook, các bạn thực hiện thao tác theo hình dưới đây:
+Hình 6: Khởi tạo notebook mới
+• Bước 3: Thay đổi runtime của notebook từCPU thành GPU.
+4
+AI VIETNAM (AIO2024)
+aivietnam.edu.vn
+Hình 7: Các bước kích hoạt GPU cho notebook mới trên Google Colab
+• Bước 4: Cuối cùng, đểcó thểthực thi các dòng lệnh Python, ta cần khởi động notebook.
+Các thao tác khởi động một notebook trong Google Colab sẽnhư hình sau:
+Hình 8: Khởi động một notebook có GPU trong Google Colab
+Sau khi thực hiện các bước trên, các bạn đã có một môi trường code Python với GPU miễn phí
+từGoogle.
+5
+AI VIETNAM (AIO2024)
+aivietnam.edu.vn
+II.II.
+Cài đặt và sửdụng pre-trained model
+Một cách nhanh chóng đểsửdụng được YOLOv10 đó là sửdụng pre-trained model (mô hình đã
+được huấn luyện sẵn trên bộdữliệu COCO - một bộdữliệu rất lớn). Đểsửdụng pre-trained
+model, các bạn làm như sau:
+1. Tải mã nguồn YOLOv10 từGitHub: Đểsửdụng YOLOv10, chúng ta cần tải mã
+nguồn (source code) của YOLOv10 vềmôi trường cài đặt code, mã nguồn của YOLOv10
+được công khai trên GitHub. Như vậy, các bạn sẽthực hiện theo các bước sau:
+• Bước 1: Các bạn truy cập vào đường dẫn GitHub của YOLOv10 tại đây. Nếu truy
+cập thành công, các bạn sẽthấy giao diện như hình dưới:
+Hình 9: Giao diện GitHub của YOLOv10
+• Bước 2: Tại trang GitHub của YOLOv10, các bạn chọn mục Code (có màu nền xanh
+dương như ảnh dưới) và chọn nút copy đường dẫn như ảnh minh họa dưới đây:
+6
+AI VIETNAM (AIO2024)
+aivietnam.edu.vn
+Hình 10: Copy đường dẫn đểtải mã nguồn YOLOv10
+• Bước 3: Quay lại Google Colab, các bạn khởi tạo một code cell sửdụng lệnh:
+!git clone <link> (trong đó <link> là đường dẫn GitHub đã copy ởbước 2).
+Nếu code cell thực thi thành công, ta kết quảsẽhiển thịnhư hình sau:
+Hình 11: Tải mã nguồn YOLOv10 sửdụng lệnh git clone
+Đểkiểm tra, các bạn có thểrefresh lại phần Files của Google Colab đểxem thư mục
+YOLOv10 đã xuất hiện hay chưa.
+7
+AI VIETNAM (AIO2024)
+aivietnam.edu.vn
+Hình 12: Thư mục YOLOv10
+2. Cài đặt các thư viện cần thiết: Mã nguồn YOLOv10 được xây dựng bằng rất nhiều
+các thư viện Python khác nhau. Vì vậy, đểcó thểchạy được YOLOv10, ta cần tải các gói
+thư viện cần thiết mà YOLOv10 yêu cầu bằng cách sửdụng file setup có sẵn trong mã
+nguồn, các bạn có thểlàm như sau:
+1 %cd yolov10
+2 !pip
+install -q -r requirements.txt
+3 !pip
+install -e .
+3. Tải trọng sốcủa pre-trained models: Các bạn tải file pretrained model tại đây và đặt
+file đã tải vào thư mục ./yolov10. Trên Google Colab, việc này có thểđược thực hiện
+thông qua lệnh wget như hình dưới đây:
+8
+AI VIETNAM (AIO2024)
+aivietnam.edu.vn
+Hình 13: Tải pretrained model sửdụng lệnh wget
+Đểkiểm tra xem file pretrained model đã được tải vềthành công hay chưa, các bạn refresh
+phần Files của Google Colab và tìm kiếm file có tên YOLOv10n.pt:
+Hình 14: File pretrained model
+9
+AI VIETNAM (AIO2024)
+aivietnam.edu.vn
+4. Khởi tạo mô hình: Đểkhởi tạo mô hình với trọng sốvừa tải về, các bạn chạy đoạn code
+sau:
+1 from
+ultralytics
+import
+YOLOv10
+2
+3 MODEL_PATH = ’yolov10n.pt’
+4 model = YOLOv10(MODEL_PATH)
+5. Tải ảnh cần dựđoán: Chúng ta sẽtest mô hình trên một ảnh bất kì. Các bạn có thểtự
+chọn ảnh của riêng mình hoặc sửdụng ảnh tại đây. Các bạn có thểchạy đoạn code sau để
+tải ảnh này vào colab tựđộng:
+1 !gdown ’1tr9PSRRdlC2pNir7jsYugpSMG -7 v32VJ ’ -O ’./ images/’
+6. Dựđoán: Đểchạy dựđoán cho ảnh đã tải về, các bạn truyền đường dẫn ảnh vào mô hình
+như đoạn code sau:
+1 IMG_PATH = ’./ images/HCMC_Street.jpg’
+2 result = model(source=IMG_PATH)[0]
+Hình 15: Ảnh cần dựđoán.
+7. Lưu kết quảdựđoán: Đểlưu lại ảnh đã được dựđoán, các bạn chạy đoạn code sau:
+1 result.save(’./ images/ HCMC_Street_predict .png’)
+10
+AI VIETNAM (AIO2024)
+aivietnam.edu.vn
+Hình 16: Kết quảdựđoạn của mô hình YOLOv10 phiên bản nano (yolov10n.pt).
+8. Dựđoán youtube video: Bên cạnh source vềảnh, các bạn cũng có thểinput source với
+các tham sốkhác nhau, đại diện cho các dữliệu đầu vòa khác nhau:
+Hình 17: Tổng hợp các kiểu dữliệu đầu vào YOLOv10 hỗtrợtrong việc thực hiện predict.
+Ví dụ, đểdựđoán với input là youtube video, các bạn chỉcần thay thếIMG_PATH
+11
+AI VIETNAM (AIO2024)
+aivietnam.edu.vn
+bằng đường dẫn youtube video như đoạn code sau:
+1 YOUTUBE_VIDEO_PATH = ’https :// youtu.be/wqPSsu7XQ74 ’
+2 video_result = model(source= YOUTUBE_VIDEO_PATH )
+Kết quảdựđoán sẽlà một video được lưu dưới dạng .avi trong thư mục: /content/yolov10
+/runs/detect/predict
+II.III.
+Huấn luyện YOLOv10 trên tập dữliệu mới
+Trong phần này, chúng ta sẽthực hiện huấn luyện mô hình YOLOv10 (fine-tuning) trên bộdữ
+liệu Helmet Safety Detection. Đểtránh sựnhầm lẫn, phần này sẽđược thực hiện ởmột file colab
+khác so với phần trước. Các bước thực hiện như sau:
+1. Tải bộdữliệu: Chúng ta sẽgiải quyết bài toán phát hiện các công nhân. Bộdữliệu được
+sửdụng trong bài toán này là Helmet Safety. Đểdễhình dung, các bạn có thểquan sát
+ảnh minh họa sau:
+Hình 18: Một vài mẫu dữliệu trong bộdữliệu vềHelmet Safety Detection.
+Đểtải bộdữliệu trên, các bạn hãy chạy đoạn code sau (link tải bộdữliệu tại đây):
+1 !gdown ’1 twdtZEfcw4ghSZIiPDypJurZnNXzMO7R ’
+Giải nén bộdữliệu vào folder datasets. Các bạn thực thi đoạn code sau:
+1 !gdown ’1 twdtZEfcw4ghSZIiPDypJurZnNXzMO7R ’
+2 !mkdir
+safety_helmet_dataset
+3 !unzip -q ’/content/ Safety_Helmet_Dataset .zip’ -d ’/content/
+safety_helmet_dataset ’
+12
+AI VIETNAM (AIO2024)
+aivietnam.edu.vn
+Hình 19: Thư mục chứa bộdữliệu
+Quan sát thư mục, có thểthấy bộdữliệu này đã được gán nhãn và đưa vào format cấu
+trúc dữliệu training theo yêu cầu của YOLO. Vì vậy, chúng ta sẽkhông cần thực hiện
+bước chuẩn bịdữliệu ởbài này.
+2. Cài đặt và import các thư viện cần thiết: Tương tựnhư phần trước, các bạn chạy
+các đoạn code sau đểcài đặt các gói thư viện đểsửdụng được YOLOv10:
+1 !git clone
+https :// github.com/THU -MIG/yolov10.git
+2 %cd yolov10
+3 !pip
+install -q -r requirements.txt
+4 !pip
+install -e .
+3. Khởi tạo mô hình YOLOv10: Chúng ta sẽkhởi tạo mộhình YOLOv10 với phiên
+bản nano (n) từtrọng sốđã được huấn luyện trên bộdữliệu COCO. Đểtải trọng số
+yolov10n.pt, các bạn chạy đoạn code sau:
+1 !wget
+https :// github.com/THU -MIG/yolov10/releases/download/v1.1/
+yolov10n.pt
+Sau đó, đểkhởi tạo mô hình từtrọng sốđã tải về, các bạn chạy đoạn code sau:
+13
+AI VIETNAM (AIO2024)
+aivietnam.edu.vn
+1 from
+ultralytics
+import
+YOLOv10
+2
+3 MODEL_PATH = ’yolov10n.pt’
+4 model = YOLOv10(MODEL_PATH)
+4. Huấn luyện mô hình: Chúng ta tiến hành huấn luyện YOLOv10 trên bộdữliệu Helmet
+Safety Detection với 50 epochs và kích thước ảnh là 640. Các bạn chạy đoạn code sau:
+1 YAML_PATH = ’../ safety_helmet_dataset /data.yaml ’
+2 EPOCHS = 50
+3 IMG_SIZE = 640
+4 BATCH_SIZE = 256
+5
+6 model.train(data=YAML_PATH ,
+7
+epochs=EPOCHS ,
+8
+batch=BATCH_SIZE ,
+9
+imgsz=IMG_SIZE)
+Hình 20: Quá trình huấn luyện mô mình YOLOv10.
+5. Đánh giá mô hình: Đểthực hiện đánh giá mô hình trên tập test, các bạn chạy đoạn code
+sau:
+14
+AI VIETNAM (AIO2024)
+aivietnam.edu.vn
+1 TRAINED_MODEL_PATH = ’runs/detect/train/weights/best.pt’
+2 model = YOLOv10( TRAINED_MODEL_PATH )
+3
+4 model.val(data=YAML_PATH ,
+5
+imgsz=IMG_SIZE ,
+6
+split=’test ’)
+Hình 21: Đánh giá mô hình sau khi huấn luyện trên tập test.
+6. OPTIONAL: Phần này sẽbàn luận thêm một vài vấn đềtrong YOLOv10 bao gồm một
+vài các tham sốtrong lệnh training, lệnh đánh giá mô hình và gán nhãn dữliệu.
+• Các tham sốtrong lệnh training: Dòng lệnh training tại bước 4 có mặc định sẵn
+một vài tham số, các tham sốnày các bạn có thểtùy chỉnh theo ý muốn của mình,
+với một sốtham sốcó giá trịkhác nhau sẽcho ra hiệu suất mô hình khác nhau. Sau
+đây là ý nghĩa cơ bản của một vài tham sốtrên:
+– img: Kích thước ảnh training, các ảnh train và test sẽđược resize lại vềkích
+thước bạn gán, mặc định là 640. Các bạn hoàn toàn có thểthửnghiệm trên các
+kích thước ảnh khác nhau.
+– batch: Khi thực hiện tính toán trong quá trình training, các mô hình có thểđọc
+một lúc toàn bộdữliệu train hoặc chia ra đọc theo từng batch. Với mặc định là
+64, bộdữliệu train sẽđược chia ra thành các batch có 64 mẫu dữliệu. Các bạn
+có thểcài đặt các giá trịkhác theo 2n(n ≥0).
+– epochs: Sốlần lặp qua bộdữliệu trong quá trình huấn luyện.
+– data: Thông tin bộdữliệu (file .yaml) mà bạn mong muốn training.
+– weights: File pretrained model sửdụng. Các bạn có thểtải và sửdụng các file
+pretrained model khác nhau trong danh sách này.
+• Gán nhãn dữliệu: Vì YOLOv10 là học có giám sát (supervised learning), tức các
+mẫu trong bộdữliệu training cần phải có labels tương ứng với từng mẫu. Vì vậy, để
+có thểcung cấp thêm dữliệu hoặc tạo ra một bộdữliệu mới, với các class mới. Ta cần
+phải thực hiện gán nhãn dữliệu, việc gán nhãn này sẽphải thực hiện thủcông. Trong
+bài hướng dẫn này, chúng ta sẽtìm hiểu cách sửdụng labelImg. Đểcài đặt labelImg
+15
+AI VIETNAM (AIO2024)
+aivietnam.edu.vn
+vềmáy tính, có rất nhiều cách khác nhau (các bạn có thểđọc file README.md trên
+trang GitHub của labelImg), ởđây chúng ta sẽchọn cách cài đặt với Anaconda:
+– Bước 1: Tải mã nguồn của labelImg tại trang GitHub sửdụng dòng lệnh sau
+(các dòng lệnh trong các bước ởđây sẽđược thực hiện trong cmd/terminal):
+1 $ git clone
+https :// github.com/heartexlabs/labelImg.git
+– Bước 2: Cài đặt Anaconda tại đây.
+– Bước 3: Sau khi đã cài đặt Anaconda, các bạn sẽkhởi tạo môi trường Anaconda
+bằng dòng lệnh sau:
+1 $ conda
+create -n labelimg_env
+python =3.9 -y
+– Bước 4: Kích hoạt môi trường ảo đã tạo ởbước 3 sửdụng lệnh:
+1 $ conda
+activate
+labelimg_env
+– Bước 5: Di chuyển vào thư mục mã nguồn của labelImg sửdụng lệnh sau:
+1 $ cd <path_to_labelImg_folder >
+– Bước 6: Thực hiện lần lượt các dòng lệnh:
+1 $ conda
+install
+pyqt =5
+2 $ conda
+install -c anaconda
+lxml
+3 $ pyrcc5 -o libs/resources.py resources.qrc
+– Bước 7: Khởi động giao diện của labelImg sửdụng lệnh:
+1 $ python
+labelImg.py
+Nếu thành công, các bạn sẽthấy một giao hiện màn hình như sau:
+16
+AI VIETNAM (AIO2024)
+aivietnam.edu.vn
+Vềsau, mỗi lần cần sửdụng labelImg, ta chỉcần kích hoạt môi trường đã tạo này và
+khởi động labelImg (tức chỉthực hiện bước 4 và bước 7).
+Bây giờ, giảsửta muốn gán nhãn một tập ảnh người (class person). Chúng ta sẽthực
+hiện các bước như sau (chuẩn bịsẵn một thư mục hình ảnh):
+– Bước 1: Truy cập vào thư mục data trong mã nguồn labelImg, sửa lại nội dung
+file predefined_classes.txt bằng tên của các class trong bộdữliệu của bạn,
+mỗi tên class sẽlà một hàng trong file:
+Hình 22: Nội dung trong file predefined_classes.txt. Mỗi hàng trong file tương ứng với mỗi
+tên class trong bộdữliệu.
+Các bạn sẽsửa lại nội dung file bằng tên của class trong bộdữliệu của mình, giả
+sửchỉcó class là person, vậy ta chỉsửa lại file thành như sau:
+Hình 23: Nội dung trong file predefined_classes.txt sau khi cập nhật.
+Đối với bộdữliệu Helmet Safety Dataset, ta sẽcó 3 class gồm (’head’, ’helmet’,
+’person’), các bạn có thểcoi ởtrong file data.yaml ởthư mục bộdữliệu:
+Hình 24: Nội dung file .yaml trong data Helmet Safety Detection.
+– Bước 2: Truy cập vào giao diện labelImg, các bạn hãy làm theo các bước theo
+hình sau:
+17
+AI VIETNAM (AIO2024)
+aivietnam.edu.vn
+Hình 25: Mởthư mục chứa ảnh cần gán nhãn và chuyển format nhãn thành YOLO
+– Bước 3: Nếu thành công, các bạn sẽthấy giao diện như sau:
+Hình 26: Giao diện sau khi chọn thư mục ảnh cần gán nhãn
+– Bước 4: Thực hiện gán nhãn. Các bạn làm theo hình dưới đây:
+18
+AI VIETNAM (AIO2024)
+aivietnam.edu.vn
+Hình 27: Quá trình gán nhãn
+Sau khi kết thúc gán nhãn cho một ảnh, các bạn save lại (CTRL + S) và di
+chuyển đi hình tiếp theo (phím D (Next Image) hoặc phím A (Prev Image)). Khi
+đã gán nhãn hết tất cảcác ảnh, các bạn có thểkiểm tra tại thư mục chứa ảnh
+của mình, nếu thấy các file .txt cho từng ảnh bạn đã gán nhãn, bạn đã gán nhãn
+thành công:
+Hình 28: Thư mục chứa ảnh sau khi gán nhãn
+Đây là công việc tưởng chừng nhẹnhàng nhưng lại hết sức quan trọng, vì nó sẽ
+ảnh hưởng rất lớn đến kết quảtừmô hình của bạn, vì vậy cần thật sựtập trung
+và cẩn trọng trong việc gán nhãn dữliệu.
+19
+AI VIETNAM (AIO2024)
+aivietnam.edu.vn
+III.
+Câu hỏi trắc nghiệm
+1. Trong một chương trình Helmet Safety Detection với chức năng dùng đểphát hiện người
+có đội mũ bảo vệhay không trong một ảnh, Input của chương trình là gì?
+(a) Mô hình Object Detection.
+(b) Bounding Box.
+(c) Ảnh bất kì.
+(d) Ảnh chứa người.
+2. Trong một chương trình Object Detection, Output của mô hình Object Detection là gì?
+(a) Ảnh chứa người.
+(b) Tọa độbounding box nếu có.
+(c) Tọa độbounding box và tên class nếu có.
+(d) Ảnh chứa bounding box nếu có.
+3. Trong các bước cài đặt và thực hiện huấn luyện YOLOv10, bước nào sau đây không nằm
+trong quy trình?
+(a) Tải pretrained model.
+(b) Cài đặt hàm huấn luyện.
+(c) Cài đặt thư viện ultralytics.
+(d) Tải bộdữliệu.
+4. Trong các bước sửdụng labelImg đểgán nhãn dữliệu huấn luyện YOLOv10, bước nào sau
+đây không nằm trong thao tác chính?
+(a) Đổi format label sang PascalVOC.
+(b) Chọn thư mục chứa ảnh.
+(c) Chọn thư mục lưu label.
+(d) Sửa tên class trong predefine_classes.txt
+5. Trong file cấu hình của bộdữliệu (file .yaml), trường thông tin nc có ý nghĩa gì?
+(a) Sốmẫu dữliệu trong dataset.
+(b) Sốlượng dataset.
+(c) Sốthứtựcủa dataset.
+(d) Sốlượng class.
+6. Lệnh nào sau đây dùng đểkích hoạt môi trường ảo tên yolo_env trong conda?
+(a) conda deactivate yolo_env
+(b) conda env deactivate yolo_env
+20
+AI VIETNAM (AIO2024)
+aivietnam.edu.vn
+(c) conda env activate yolo_env
+(d) conda activate yolo_env
+7. Cho hình ảnh cấu trúc cây thư mục (trong Google Colab) và đoạn lệnh sau:
+1 YAML_PATH = ’./ safety_helmet_dataset /data.yaml ’
+2 EPOCHS = 50
+3 IMG_SIZE = 640
+4
+5 model.train(data=YAML_PATH ,
+6
+epochs=EPOCHS ,
+7
+imgsz=IMG_SIZE)
+Giảsửcác bạn đang ởthư mục /content/yolov10, khi thực thi đoạn lệnh trên có xảy ra
+lỗi không?
+21
+AI VIETNAM (AIO2024)
+aivietnam.edu.vn
+(a) Có.
+(b) Không.
+8. Trong câu lệnh huấn luyện mô hình, tham sốEPOCHS có ý nghĩa là?
+(a) Tham sốmô hình quan trọng trong quá trình huấn luyện.
+(b) Được sửdụng đểchỉđịnh sốlần lặp lại quá trình huấn luyện.
+(c) Một biến sốngẫu nhiên trong quá trình huấn luyện mô hình.
+(d) Sốlần mà toàn bộdữliệu huấn luyện sẽđược sửdụng đểcập nhật các trọng sốcủa
+mô hình.
+9. Trong câu lệnh huấn luyện mô hình, tham sốBATCH_SIZE có ý nghĩa là?
+(a) Sốlần lặp lại quá trình huấn luyện mô hình.
+(b) Sốlượng tham sốcủa mô hình cần được cập nhật sau mỗi lượt huấn luyện.
+(c) Sốlượng mẫu dữliệu được sửdụng trong mỗi lần cập nhật gradient.
+(d) Thời gian tối đa cho mỗi lần huấn luyện mô hình.
+10. Trong ngữcảnh của project này, việc huấn luyện (training) mô hình còn được gọi với từ
+khóa là "fine-tuning", thuật ngữnày có thểđược hiểu như thếnào?
+(a) Quá trình điều chỉnh lại mô hình đã được huấn luyện trước đó trên một tập dữliệu
+mới đểcải thiện hiệu suất hoặc thích nghi với một tác vụcụthể.
+(b) Quá trình huấn luyện mô hình từđầu mà không sửdụng bất kỳtrọng sốnào từmô
+hình đã được huấn luyện trước đó.
+(c) Quá trình điều chỉnh siêu tham sốcủa mô hình đểtối ưu hóa độchính xác.
+(d) Quá trình lấy mẫu một cách ngẫu nhiên từtập dữliệu huấn luyện đểđảm bảo tính
+ngẫu nhiên và đại diện của dữliệu.
+- Hết -
+22

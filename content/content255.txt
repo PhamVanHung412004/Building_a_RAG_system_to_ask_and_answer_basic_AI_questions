@@ -1,8 +1,0 @@
-AI VIET NAM – AI COURSE 2023
-Multi-agent LLMs
-Dinh-Thang Duong, Nguyen-Thuan Duong và Quang-Vinh Dinh
-Ngày 5 tháng 5 năm 2024
-Phần I: Giới thiệu
-Multi-agent LLMslà một hướng phát triển liên quan đến mô hình ngôn ngữ lớn. Trong đó, ta ứng
-dụng LLMs kết hợp với cácagents có khả năng sử dụng một công cụ hoặc một chức năng bên ngoài
-nào đó, nhằm giải quyết bài toán của chúng ta. 

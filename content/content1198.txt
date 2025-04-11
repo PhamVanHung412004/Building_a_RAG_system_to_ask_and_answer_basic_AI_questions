@@ -1,5 +1,0 @@
-AI VIETNAM aivietnam.edu.vn
-69 )
-70 )
-71 print ("-" * 59)
-72 self . 

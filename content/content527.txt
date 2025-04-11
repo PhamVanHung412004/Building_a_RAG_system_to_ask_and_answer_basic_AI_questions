@@ -1,6 +1,0 @@
-glob (f"{ dir_path }/*. pdf ")
-83 assert len ( files ) > 0, f"No { self . file_type } files found in { dir_path
-}"
-84 else :
-85 raise ValueError (" file_type must be pdf ")
-7

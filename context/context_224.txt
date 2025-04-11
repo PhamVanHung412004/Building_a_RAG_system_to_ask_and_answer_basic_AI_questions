@@ -1,0 +1,361 @@
+NLP Course
+Parameter-Efficient Fine-Tuning
+Year 2023
+Nguyen Quoc Thai
+AI VIETNAM
+All-in-One Course
+CONTENT
+1
+Background
+2
+Adapter Tuning
+3
+Prefix Tuning
+4
+Prompt Tuning
+5
+Low-rank Adaptation
+2
+3
+1 – Background
+!
+Fine-Tuning
+Ø Pretrain a language model on task
+4
+1 – Background
+!
+Fine-Tuning
+Ø Pretrain a language model on task
+Ø Attach a small task specific layer
+5
+1 – Background
+!
+Fine-Tuning
+Ø Pretrain a language model on task
+Ø Attach a small task specific layer
+Ø Fine-tune the weights of full NN by 
+propagating gradients on a downstream 
+task
+6
+1 – Background
+!
+In-context Learning
+Ø Pretrain a language model based on “prompt” – demonstrates NLP tasks
+Ø No need to update the model weights at all
+7
+1 – Background
+!
+Model sizes are still growing?
+Source
+8
+1 – Background
+!
+Model sizes are still growing?
+Ø Model size scales almost two orders of magnitude quicker than single-GPU memory
+9
+1 – Background
+!
+Parameter-Efficient Fine-Tuning
+Ø Standard fine-tuning: make a new copy of the model for each task
+Ø Parameter-Efficiency: fine tuned a subset of the parameters for each task
+10
+1 – Background
+!
+Parameter-Efficient Fine-Tuning
+Source
+Ø Add a layer to adapt for downstream tasks
+11
+2 – Adapter Fine Tuning
+!
+Adapter Layers
+LMs
+LMs
+LMs
+Task 1
+Task 2
+Task N
+Ø Add a layer to adapt for downstream tasks
+12
+2 – Adapter Fine Tuning
+!
+Adapter Layers
++ Adapter 1
++ Adapter 2
++ Adapter N
+Task 1
+Task 2
+Task N
+LMs
+Ø Add adapter layers in between the 
+transformer layers of a large model
+13
+2 – Adapter Fine Tuning
+!
+Adapter Layers
+Source
+Ø Add adapter layers in between the 
+transformer layers of a large model
+14
+2 – Adapter Fine Tuning
+!
+Adapter Layers
+Source
+Ø Add adapter layers in between the 
+transformer layers of a large model
+Ø During fine-tuning, fix the original 
+model parameters and only tune the 
+adapter layers
+15
+2 – Adapter Fine Tuning
+!
+Adapter Layers
+Source
+Ø Add adapter layers in between the 
+transformer layers of a large model
+Ø During fine-tuning, fix the original 
+model parameters and only tune the 
+adapter layers
+Ø 3.6 % of parameters needed
+16
+2 – Adapter Fine Tuning
+!
+Adapter Layers
+Source
+17
+2 – Adapter Fine Tuning
+!
+Results on GLEU Benchmark
+Source
+Ø For prompt design, the discrete prompts is optimized manually
+Ø Optimization in discrete space is hard!
+18
+3 – Prefix Tuning
+!
+Prompt Design
+Ø Optimization in the continuous 
+embedding space
+Ø Learn an optimal prefix for each task
+19
+3 – Prefix Tuning
+!
+Prefix-Tuning: Optimizing Continuous Prompts for Generation
+Source
+Ø Optimization in the continuous 
+embedding space
+Ø Learn an optimal prefix for each task
+Ø Only 0.1% of parameters need to be 
+tuned
+20
+3 – Prefix Tuning
+!
+250K 
+parameters
+Prefix-Tuning: Optimizing Continuous Prompts for Generation
+Source
+Ø Prefix-Tuning using an autoregressive LM
+21
+3 – Prefix Tuning
+!
+Prefix-Tuning: Optimizing Contiunous Prompts for Generation
+Source
+Ø Prefix-Tuning using an encoder-decoder model
+22
+3 – Prefix Tuning
+!
+Prefix-Tuning: Optimizing Continuous Prompts for Generation
+Source
+Ø As the tunable prefix-length increases, performance increases, with diminishing returns
+Ø Optimal length for table to text is 10 tokens, for summarization it seems closer to 200 
+tokens
+23
+3 – Prefix Tuning
+!
+Prefix Length
+Source
+Ø Instead of tuning the prefix, tune a portion at the end of the input and before the output
+Ø Infix tuning is worse than prefix tuning, since input embeddings cannot attend to infix
+24
+3 – Prefix Tuning
+!
+Prefix Tuning and Infix Tuning
+Source
+Ø Prefix-tuning learn a sequence of prefixes 
+(are prepended at every transformer layer)
+Ø Prompt-tuning uses a single prompt 
+representation is prepended to the 
+embedded input
+25
+4 - Prompt Tuning
+From prefix-tuning to prompt-tuning
+!
+Ø Prepend virtual tokens to input
+Ø Pre-trained
+𝑃!! 𝑌𝑋
+Ø Fine-tuned
+𝑃!!;!#(𝑌|[𝑃; 𝑋])
+26
+4 - Prompt Tuning
+Prompt Tuning
+!
+fixed
+learnable
+27
+4 - Prompt Tuning
+Design Decision
+!
+Source
+Ø Prompt initialization method
+Ø Prompt length
+Ø Pre-training method
+Ø LM adaptation steps
+28
+4 - Prompt Tuning
+Design Decision: Prompt Initilization
+!
+Source
+Ø Random initialization
+Ø Sampled vocabulary: initialize each 
+prompt token to an embedding drawn 
+from the model’s vocabulary
+Ø Class label: initialize the prompt with 
+embeddings that enumerate the output 
+classes
+29
+4 - Prompt Tuning
+Design Decision: Prompt Length
+!
+Source
+Ø The shorter the prompt, the fewer 
+parameters must be tuned
+30
+4 - Prompt Tuning
+Design Decision: Pre-training Method
+!
+Source
+Ø Span Corruption: reconstructing 
+masked span in the input text
+Ø Span Corruption + Sentinel: prepend all 
+downstream targets with a sentinel
+Ø ” LM Adaptation”: as T5 objective 
+function
+31
+4 - Prompt Tuning
+Design Decision: Pre-training Method
+!
+Source
+Ø Longer adaptation provides additional 
+gains, up to 100K steps
+Ø At the largest model size, the gains 
+from adaptation are quite modest
+32
+4 - Prompt Tuning
+Comparing: model-tuning, prompt-tuning, prompt-design
+!
+Source
+33
+4 - Prompt Tuning
+Comparing: model-tuning, prompt-tuning, prompt-design
+!
+Source
+34
+5 – Low-Rank Adaptation
+Adapter Tuning and Prefix Tuning
+!
+Ø Adapter Tuning: High-quality, but adds 
+latency
+Ø No latency, but suboptimal quality
+35
+5 – Low-Rank Adaptation
+Low-Rank Adaptation (LoRA)
+!
+Pretrained 
+Weight
+𝑊∈𝑅"×"
+h = Wx
+x
+d
+h
+Ø Freezes the pretrained model weights and injects trainable rank decomposition 
+matrices into each layer of the Transformer architecture
+36
+5 – Low-Rank Adaptation
+Low-Rank Adaptation (LoRA)
+!
+Pretrained 
+Weight
+𝑊∈𝑅"×"
+h = Wx
+x
+d
+h
++
+𝐴= 𝒩(0, 𝜎!)
+𝐵= 0
+r
+Ø Freezes the pretrained model weights and injects trainable rank decomposition 
+matrices into each layer of the Transformer architecture
+Update 
+Weight
+∆𝑊∈𝑅"×"
+37
+5 – Low-Rank Adaptation
+Low-Rank Adaptation (LoRA)
+!
+Pretrained 
+Weight
+𝑊∈𝑅"×"
+h = Wx
+x
+d
+h
++
+𝐴= 𝒩(0, 𝜎!)
+𝐵= 0
+r
+Ø Freezes the pretrained model weights and injects trainable rank decomposition 
+matrices into each layer of the Transformer architecture
+Update 
+Weight
+∆𝑊∈𝑅"×"
+38
+5 – Low-Rank Adaptation
+Low-Rank Adaptation (LoRA)
+!
+Pretrained 
+Weight
+𝑊∈𝑅"×"
+h = Wx
+x
+d
+h
++
+𝐴= 𝒩(0, 𝜎!)
+𝐵= 0
+r
+Ø Freezes the pretrained model weights and injects trainable rank decomposition 
+matrices into each layer of the Transformer architecture
+After Training
+Merge 
+Weight
+∆𝑊𝑚𝑒𝑟𝑔𝑒∈𝑅!×!
+𝑊𝑚𝑒𝑟𝑔𝑒= 𝑊+ 𝐵𝐴
+39
+5 – Low-Rank Adaptation
+Low-Rank Adaptation (LoRA)
+!
+Ø Adapts the attention weights (query and value) of the Transformer self-attention sub-
+layer with LoRA
+40
+5 – Low-Rank Adaptation
+Result on the GLEU benchmark
+!
+6 - Experiment
+Source code
+!
+Reference
+Ø COS 597G (Fall 2022): Understanding Large Language Models
+Ø https://adapterhub.ml/blog/2022/09/updates-in-adapter-transformers-v3-1/
+Ø https://arxiv.org/pdf/2303.15647.pdf
+Thanks!
+Any questions?
+43

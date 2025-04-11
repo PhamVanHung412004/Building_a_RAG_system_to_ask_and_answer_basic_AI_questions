@@ -1,6 +1,0 @@
-AIO2024 aivietnam.edu.vn
-4. Cập nhật phần tử trong danh sách
-Một hay nhiều phần tử của một danh sách có thể được thay đổi giá trị thông qua giá trị chỉ mục, như
-ở ví dụ 4. data[1] = 4 nghĩa là cập nhật phần tử ở chỉ mục là 1 với giá trị là 4. Kỹ thuật slicing có thể
-được sử dụng để cập nhật nhiều phần tử trong một danh sách. Ví dụdata[::2] tiếp cận ba phần tử ở
-chỉ mục 0, 2, và 4; do đó,data[::2] = [1, 1, 1] cập nhật giá trị 1 cho ba phần tử ở chỉ mục 0, 2, và 4.

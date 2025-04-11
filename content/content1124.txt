@@ -1,3 +1,0 @@
-AI VIETNAM (AIO2024) aivietnam.edu.vn
-IV.III. Đánh giá
-Nhóm thực hiện đánh giá mô hình YOLO qua các phiên bản v8, v9 và v10. 

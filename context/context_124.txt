@@ -1,0 +1,1336 @@
+CNN Training
+How to increase training accuracy?
+Year 2023
+Quang-Vinh Dinh
+Ph.D. in Computer Science
+AI VIETNAM
+All-in-One Course
+➢Network Architectures
+➢Network Training
+➢Case Study
+➢Problem-Solving Approach
+Outline
+LeNet
+1994
+AlexNet
+2012
+Network-in-Network
+2013
+VGG
+2014
+Inception
+2014
+ResNet
+2015
+SqueezeNet
+2016
+MobileNets
+2017
+U-Net
+2015
+DenseNet
+2016
+EfficientNet
+2019
+ConvNext
+2022
+VGG16
+https://neurohive.io/en/popular-networks/vgg16/
+(3x3) Convolution
+padding=‘same’
+stride=1 + ReLU
+(2x2) max pooling
+Dense Layer
++ ReLU
+(4096) 
+Dense Layer
++ Softmax
+(1000) 
+2
+CNN Architectures
+AI VIETNAM
+All-in-One Course
+❖ VGG16 for ImageNet
+(3x3) Convolution
+padding=‘same’
+stride=1 + ReLU
+(2x2) max pooling
+Dense Layer
++ ReLU
+(4096) 
+Dense Layer
++ Softmax
+(1000) 
+Block-1
+Block-2
+Block-3
+Block-4
+Block-5
+Dense Block
+input
+(3,224,224)
+(64,112,112)
+(256,56,56)
+(512,7,7)
+(512,28,28)
+(512,14,14)
+output
+3
+CNN Architectures
+AI VIETNAM
+All-in-One Course
+❖ VGG16-like for Cifar-10
+Block-1
+Block-2
+Block-3
+Block-4
+Block-5
+Dense Block
+input
+(3,32,32)
+(64,16,16)
+(256,8,8)
+(512,1,1)
+(512,4,4)
+(512,2,2)
+output
+(3x3) Convolution
+padding=‘same’
+stride=1 + ReLU
+(2x2) max pooling
+Dense Layer
++ ReLU
+(256) 
+Dense Layer
++ Softmax
+(10) 
+5
+➢Network Architectures
+➢Network Training
+➢Case Study
+➢Problem-Solving Approach
+Outline
+Fashion-MNIST dataset
+T-shirt
+Trouser
+Pullover
+Dress
+Coat
+Sandal
+Shirt
+Sneaker
+Bag
+Ankle
+Boot
+Image Data
+Grayscale images
+Resolution=28x28
+Training set: 60000 samples
+Testing set: 10000 samples
+Network Training
+❖ Fashion-MNIST dataset
+AI VIETNAM
+All-in-One Course
+(3x3) Convolution
+padding=‘same’
+stride=1 + Sigmoid
+(2x2) max pooling
+Dense Layer-10
++ Softmax
+input
+(1,28,28)
+(64,14,14)
+(128,7,7)
+output
+Flatten
+(7,7,128)
+6272
+8
+Network Training
+❖ Fashion-MNIST dataset
+AI VIETNAM
+All-in-One Course
+X-data format
+(batch, channel, height, width)
+Data normalization [0,1]
+(3x3) Convolution with 64 filters, 
+stride=1, padding=‘same’
++ Sigmoid activation 
++ glorot_uniform initialization
+ 
+Adam optimizer and Cross-entropy loss
+(3x3) Convolution
+padding=‘same’
+stride=1 + Sigmoid
+(2x2) max pooling
+Network Training
+❖ Fashion-MNIST dataset
+AI VIETNAM
+All-in-One Course
+(3x3) Convolution
+padding=‘same’
+stride=1 + Sigmoid
+(2x2) max pooling
+Dense Layer-10
++ Softmax
+input
+(1,28,28)
+(64,14,14)
+(128,7,7)
+output
+Flatten
+10
+Cifar-10 dataset
+(more complex dataset)
+airplane
+automobile
+bird
+cat
+deer
+dog
+frog
+horse
+ship
+truck
+Network Training
+Color images
+Resolution=32x32
+Training set: 50000 samples
+Testing set: 10000 samples
+Network Training
+❖ Cifar-10 dataset
+(3x3) Convolution
+padding=‘same’
+stride=1 + Sigmoid
+(2x2) max pooling
+Dense Layer-10
++ Softmax
+input
+(3,32,32)
+(64,16,16)
+(128,8,8)
+output
+Flatten
+Data normalization [0,1]
+Glorot uniform initialization 
+Adam optimizer with lr=1e-3
+AI VIETNAM
+All-in-One Course
+12
+Network Training
+❖ Cifar-10 dataset
+AI VIETNAM
+All-in-One Course
+(3x3) Convolution
+padding=‘same’
+stride=1 + Sigmoid
+(2x2) max pooling
+Dense Layer-10
++ Softmax
+input
+(3,32,32)
+(64,16,16)
+(128,8,8)
+output
+Flatten
+(8,8,128)
+8192
+Accuracy: 69.3% - Val_accuracy: 64.5%
+Network Training
+❖ Cifar-10 dataset: 
+❖Adding more layers
+input
+(3,32,32)
+(64,16,16)
+(128,8,8)
+output
+(256,4,4)
+(3x3) Convolution
+padding=‘same’
+stride=1 + Sigmoid
+(2x2) max pooling
+Dense Layer-10
++ Softmax
+Flatten
+Data normalization [0,1]
+Glorot uniform initialization 
+Adam optimizer with lr=1e-3
+14
+Network Training
+❖ Cifar-10 dataset: 
+❖Adding more layers
+AI VIETNAM
+All-in-One Course
+(3x3) Convolution
+padding=‘same’
+stride=1 + Sigmoid
+(2x2) max pooling
+Dense Layer-10
++ Softmax
+Flatten
+input
+(3,32,32)
+(64,16,16)
+(128,8,8)
+output
+(256,4,4)
+Good news: Network accuracy 
+increases about 25%
+Accuracy: 93.8% - Val_accuracy: 68.7%
+15
+Network 
+Training
+Cifar-10 dataset: 
+❖ Keep adding more layers
+input
+(3,32,32)
+(64,16,16)
+(128,8,8)
+(256,4,4)
+output
+(3x3) Convolution
+padding=‘same’
+stride=1 + Sigmoid
+(2x2) max pooling
+Dense Layer-10
++ Softmax
+Flatten
+Data normalization [0,1]
+Glorot uniform initialization 
+Adam optimizer with lr=1e-3
+16
+Network Training
+❖ Cifar-10 dataset: 
+❖ Keep adding more layers
+AI VIETNAM
+All-in-One Course
+(3x3) Convolution
+padding=‘same’
+stride=1 + Sigmoid
+(2x2) max pooling
+Dense Layer-10
++ Softmax
+Flatten
+Dense Layer-512
++ Sigmoid
+The network does  
+not learn
+input
+(3,32,32)
+(64,16,16)
+(128,8,8)
+(256,4,4)
+output
+17
+Network Training
+❖ Cifar-10 dataset: 
+❖ Keep adding more layers
+AI VIETNAM
+All-in-One Course
+(3x3) Convolution
+padding=‘same’
+stride=1 + Sigmoid
+Dense Layer-512
++ Sigmoid
+sigmoid 𝑥=
+1
+1 + 𝑒−𝑥
+Values are too small
+Vanishing Problem
+input
+(3,32,32)
+(64,16,16)
+(128,8,8)
+(256,4,4)
+output
+18
+Network Training
+❖ Cifar-10 dataset: 
+❖ Keep adding more layers
+AI VIETNAM
+All-in-One Course
+(3x3) Convolution
+padding=‘same’
+stride=1 + ReLU
+Dense Layer-512
++ ReLU
+ReLU 𝑥= ቊ0 
+if 𝑥< 0
+𝑥 
+if 𝑥≥0
+nn.Conv2D(...), nn.Sigmoid()
+nn.Conv2D(...), nn.ReLU()
+input
+(3,32,32)
+(64,16,16)
+(128,8,8)
+(256,4,4)
+output
+Network 
+Training
+❖ Cifar-10 dataset: 
+❖  Use ReLU
+(3x3) Convolution
+padding=‘same’
+stride=1 + ReLU
+(2x2) max pooling
+Dense Layer-10
++ Softmax
+Flatten
+Dense Layer-512
++ ReLU
+input
+(3,32,32)
+(64,16,16)
+(128,8,8)
+(256,4,4)
+output
+Data normalization [0,1]
+Glorot uniform initialization 
+Adam optimizer with lr=1e-3
+Network Training
+❖ Cifar-10 dataset: 
+❖  Use ReLU
+AI VIETNAM
+All-in-One Course
+(3x3) Convolution
+padding=‘same’
+stride=1 + ReLU
+(2x2) max pooling
+Dense Layer-10
++ Softmax
+Flatten
+Dense Layer-512
++ ReLU
+Training Accuracy 
+reaches up to 99%
+Adding more layers; Hope reach to 100%
+input
+(3,32,32)
+(64,16,16)
+(128,8,8)
+(256,4,4)
+output
+21
+Network Training
+AI VIETNAM
+All-in-One Course
+(3x3) Convolution
+padding=‘same’
+stride=1 + ReLU
+(2x2) max pooling
+Dense Layer-10
++ Softmax
+Flatten
+Dense Layer-512
++ ReLU
+Use ReLU and add more layers
+input
+(3,32,32)
+(64,16,16)
+(128,8,8)
+(512,2,2)
+output
+(256,4,4)
+Data normalization [0,1]
+Glorot uniform initialization 
+Adam optimizer with lr=1e-3
+22
+Implementation
+Network Training
+AI VIETNAM
+All-in-One Course
+(3x3) Convolution
+padding=‘same’
+stride=1 + ReLU
+(2x2) max pooling
+Dense Layer-10
++ Softmax
+Flatten
+Dense Layer-512
++ ReLU
+Use ReLU and add more layers
+Network does not learn again
+input
+(3,32,32)
+(64,16,16)
+(128,8,8)
+(512,2,2)
+output
+(256,4,4)
+24
+Network Training
+❖ Summary of the current network
+AI VIETNAM
+All-in-One Course
+Data Normalization
+(scale to [0,1])
+Network Construction
+(Convs , ReLU, max 
+pooling, Dense layers)
+Parameter 
+Initialization
+(Glorot uniform)
+Cifar-10
+Dataset
+Training 
+(Adam and cross-
+entropy loss)
+Network does 
+not learn
+25
+Network Training
+❖ Solution 1: Observation
+AI VIETNAM
+All-in-One Course
+Data Normalization
+(scale to [0,1])
+Network Construction
+(Convs , ReLU, max 
+pooling, Dense layers)
+Parameter 
+Initialization
+(Glorot uniform)
+Training 
+(Adam and cross-
+entropy loss)
+MNIST
+Dataset
+The current network 
+performs excellently
+for MNIST dataset
+26
+Network Training
+❖ Solution 1: Idea
+AI VIETNAM
+All-in-One Course
+MNIST
+Dataset
+Cifar-10
+Dataset
+<
+complex
+Current 
+Network
+Current 
+Network
+Train (failed)
+Train (ok)
+How to reduce  the complexity 
+of the Cifar-10 dataset
+Data Normalization
+(scale to [0,1])
+0
+255
+0
+1
+Data Normalization
+(convert to 0-mean 
+and 1-deviation)
+𝑋=
+𝑋= 𝑋−𝜇
+𝜎
+𝜇= 1
+𝑛෍
+𝑖
+𝑋𝑖
+𝜎=
+1
+𝑛෍
+𝑖
+𝑋𝑖−𝜇2
+27
+Network Training
+AI VIETNAM
+All-in-One Course
+𝑌= 𝑎𝑋+ 𝑏
+ത𝑌= 𝑌−𝜇𝑌
+𝜎𝑌
+=
+𝑎𝑋+ 𝑏−1
+𝑛σ𝑖𝑎𝑋𝑖+ 𝑏
+1
+𝑛σ𝑖
+𝑎𝑋𝑖+ 𝑏−1
+𝑛σ𝑖𝑎𝑋𝑖+ 𝑏
+2
+=
+𝑎𝑋−1
+𝑛σ𝑖𝑎𝑋𝑖
+1
+𝑛σ𝑖𝑎𝑋𝑖−1
+𝑛σ𝑗𝑎𝑋𝑗
+2
+=
+𝑋−1
+𝑛σ𝑖𝑋𝑖
+1
+𝑛σ𝑖𝑋𝑖−1
+𝑛σ𝑗𝑋𝑗
+2
+=
+𝑋−𝜇𝑋
+1
+𝑛σ𝑖𝑋𝑖−𝜇𝑋2
+= ത𝑋
+ത𝑋= 𝑋−𝜇
+𝜎
+𝜇= 1
+𝑛෍
+𝑖
+𝑋𝑖
+𝜎=
+1
+𝑛෍
+𝑖
+𝑋𝑖−𝜇2
+This normalization helps 
+network to be invariant to 
+linear transformation
+𝑌= 𝑎𝑋+ 𝑏
+ത𝑌= 𝑌−𝜇𝑌
+𝜎𝑌
+= ത𝑋
+❖ Solution 1: Idea
+28
+Network Training
+Solution 1: 0-mean and unit-
+deviation normalization
+Data Normalization
+(convert to 0-mean 
+and 1-deviation)
+𝑋= 𝑋−𝜇𝑑
+𝜎𝑑
+𝜇𝑑 is the mean of dataset
+𝜎𝑑 is the deviation for the whole dataset
+Network Training
+❖ Solution 1: 0-mean and unit-deviation normalization
+AI VIETNAM
+All-in-One Course
+Data Normalization
+(convert to 0-mean 
+and 1-deviation)
+𝑋= 𝑋−𝜇𝑑
+𝜎𝑑
+𝜇𝑑 is the mean of dataset
+𝜎𝑑 is the deviation for the whole dataset
+Normalize each channel separately
+30
+Network Training
+❖ Solution 1 (extension): 
+    Normalize to [-1, 1]
+Normalize each channel separately
+epoch
+epoch
+31
+Network Training
+❖ Solution 2
+AI VIETNAM
+All-in-One Course
+Data Normalization
+(convert to 0-mean 
+and 1-deviation)
+Network Construction
+(Convs , ReLU, max 
+pooling, Dense layers)
+Parameter 
+Initialization
+(Glorot uniform)
+Training 
+(Adam and cross-
+entropy loss)
+MNIST
+Dataset
+𝑋= 𝑋−𝜇𝑑
+𝜎𝑑
+How to use the idea (from solution 1) to integrate to network
+Batch Normalization
+32
+Network Training
+❖ Solution 2: Batch normalization
+AI VIETNAM
+All-in-One Course
+𝑋= 𝑋1, … , 𝑋𝑚
+𝑚 is mini-batch size
+𝜇= 1
+𝑚෍
+𝑖=1
+𝑚
+𝑋𝑖
+𝜎2 = 1
+𝑚෍
+𝑖=1
+𝑚
+𝑋𝑖−𝜇2
+෠𝑋𝑖= 𝑋𝑖−𝜇
+𝜎2 + 𝜖
+𝑌𝑖= 𝛾෠𝑋𝑖+ β
+Input data for a node in batch normalization layer
+Compute mean and variance
+Normalize 𝑋𝑖
+Scale and shift ෠𝑋𝑖
+𝜖 is a very small value
+𝛾 and β are two learning parameters
+Batch Normalization
+Do not need bias when using BN*
+𝜇 and 𝜎 are updated in forward pass
+𝛾 and β are updated in backward pass
+33
+Network Training
+❖ Solution 2: Batch normalization
+AI VIETNAM
+All-in-One Course
+𝑋= 𝑋1, … , 𝑋𝑚
+𝑚 is mini-batch size
+𝜇= 1
+𝑚෍
+𝑖=1
+𝑚
+𝑋𝑖
+𝜎2 = 1
+𝑚෍
+𝑖=1
+𝑚
+𝑋𝑖−𝜇2
+෠𝑋𝑖= 𝑋𝑖−𝜇
+𝜎2 + 𝜖
+𝑌𝑖= 𝛾෠𝑋𝑖+ β
+Input data for a node in batch normalization layer
+Compute mean and variance
+Normalize 𝑋𝑖
+Scale and shift ෠𝑋𝑖
+𝜖 is a very small value
+𝛾 and β are two learning parameters
+Batch Normalization
+𝛾=
+𝜎2 + 𝜖 and β = 𝜇
+What if
+34
+Network Training
+Solution 2: Batch normalization
+𝑋= 𝑋1, … , 𝑋𝑚
+𝑚 is mini-batch size
+𝜇= 1
+𝑚෍
+𝑖=1
+𝑚
+𝑋𝑖
+𝜎2 = 1
+𝑚෍
+𝑖=1
+𝑚
+𝑋𝑖−𝜇2
+෠𝑋𝑖= 𝑋𝑖−𝜇
+𝜎2 + 𝜖
+𝑌𝑖= 𝛾෠𝑋𝑖+ β
+Input data for a node in batch normalization layer
+Compute mean and variance
+Normalize 𝑋𝑖
+Scale and shift ෠𝑋𝑖
+𝜖 is a very small value
+𝛾 and β are two learning parameters
+𝜇𝑈= 5.0
+𝜎𝑈= 2.64
+𝛾𝑈= 1.0
+β𝑈= 0.0
+෡𝑈=
+−1.51
+−0.75
+1.51
+−0.37
+0.37
+0.75
+𝑋𝑈=
+1
+3
+9
+4
+6
+7
+𝑋𝑉=
+6
+4
+7
+5
+6
+2
+𝜇𝑉= 5.0
+𝜎𝑣= 1.63
+𝜖= 10−5
+𝛾𝑉= 1.0
+β𝑉= 0.0
+෠𝑉=
+0.61
+−0.61
+1.22
+0.0
+0.61
+−1.83
+𝑌𝑈=
+−1.51
+−0.75
+1.51
+−0.37
+0.37
+0.75
+𝑌𝑉=
+0.61
+−0.61
+1.22
+0.0
+0.61
+−1.83
+𝛾 and β are updated in training process
+35
+Batch Normalization
+𝜇= 2.5
+𝜎2 = 6.58
+෠𝑋=
+1.75 
+0.97
+−0.97 
+0.58
+−0.97 
+1.75
+0.19 
+−0.58
+−0.19 −0.97
+−0.97 −0.58
+𝑋=
+7 5
+0 4 , 0 7
+3 1 , 2 0
+0 1
+෠𝑌=
+1.75 
+0.97
+−0.97 
+0.58
+−0.97 
+1.75
+0.19 
+−0.58
+−0.19 −0.97
+−0.97 −0.58
+sample 1
+sample 3
+sample 2
+batch-size = 3
+AI VIETNAM
+All-in-One Course
+𝜖= 10−5
+𝛾= 1.0
+β = 0.0
+𝜎𝑐=
+1
+𝑁× 𝐻× 𝑊෍
+𝑖=1
+𝑁
+෍
+𝑗=1
+𝐻
+෍
+𝑘=1
+𝑊
+𝐹𝑖𝑗𝑘−𝜇𝑐
+2
+𝜇𝑐=
+1
+𝑁× 𝐻× 𝑊෍
+𝑖=1
+𝑁
+෍
+𝑗=1
+𝐻
+෍
+𝑘=1
+𝑊
+𝐹𝑖𝑗𝑘
+https://arxiv.org/pdf/
+1803.08494.pdf
+36
+input_shape = (BS=3, C=1, H=2, W=2)
+Network Training
+𝜇= [2.0, 3.0]
+𝜎2 = [6.0, 8.67]
+෠𝑋=
+−0.94 
+1.41
+0.47 
+−0.94
+1.56 
+−0.39
+−1.17 
+0
+𝑋=  
+෠𝑌=
+−0.94 
+1.41
+0.47 
+−0.94
+1.56 
+−0.39
+−1.17 
+0
+batch-size = 1
+sample_shape = (BS=1, C=2, H=2, W=2)
+7 2
+0 3
+0 5
+3 0
+sample 1
+AI VIETNAM
+All-in-One Course
+𝛾= 1.0
+β = 0.0
+𝜖= 10−5
+37
+Network Training
+𝜖= 10−5
+AI VIETNAM
+All-in-One Course
+𝜇= [2.0, 3.0]
+𝜎2 = [4.0, 3.7]
+𝑋=  
+, 
+෠𝑌= …
+batch-size = 2
+sample_shape = (BS=2 , C=2, H=2, W=2)
+sample 1 sample 2
+6 4
+5 2
+0 5
+3 0
+2 3
+0 2
+1 4
+3 0
+෠𝑋=  
+, 
+sample 1 sample 2
+1.6 
+0.5
+1.1 
+−0.5
+1.6 
+−1.1
+−1.1 
+0.5
+−0.5 1.1
+0.5 
+−1.1
+−0.5 
+0.0
+−1.6 
+−0.5
+𝛾= 1.0
+β = 0.0
+Batch-Norm Layer
+38
+Network Training
+❖ Solution 2: Batch normalization
+AI VIETNAM
+All-in-One Course
+(3x3) Convolution
+padding=‘same’
+stride=1 + ReLU
+(2x2) max pooling
+Dense Layer-10
++ Softmax
+Flatten
+Dense Layer-512
++ ReLU
+Batch 
+normalization
+torch.nn.BatchNorm2d(num_features)
+num_features (int): C from an expected input of 
+                                size (N, C, H, W)
+input
+(3,32,32)
+(64,16,16)
+(128,8,8)
+(256,4,4)
+(512,2,2)
+output
+39
+Network Training
+❖ Solution 2: Batch normalization
+AI VIETNAM
+All-in-One Course
+(3x3) Convolution
+padding=‘same’
+stride=1 + ReLU
+(2x2) max pooling
+Dense Layer-10
++ Softmax
+Flatten
+Dense Layer-512
++ ReLU
+Batch 
+normalization
+conv = nn.Sequential(nn.Conv2d(3, 64, 3),
+ 
+      nn.ReLU(),
+ 
+      nn.BatchNorm2d(64))
+input
+(3,32,32)
+(64,16,16)
+(128,8,8)
+(256,4,4)
+(512,2,2)
+output
+40
+Network Training
+❖ Solution 2: Batch normalization
+AI VIETNAM
+All-in-One Course
+𝑋= 𝑋1, … , 𝑋𝑚
+𝑚 is mini-batch size
+𝜇= 1
+𝑚෍
+𝑖=1
+𝑚
+𝑋𝑖
+𝜎2 = 1
+𝑚෍
+𝑖=1
+𝑚
+𝑋𝑖−𝜇2
+෠𝑋𝑖= 𝑋𝑖−𝜇
+𝜎2 + 𝜖
+𝑌𝑖= 𝛾෠𝑋𝑖+ β
+Input data for a node in batch normalization layer
+Compute mean and variance
+Normalize 𝑋𝑖
+Scale and shift ෠𝑋𝑖
+𝜖 is a very small value
+𝛾 and β are two learning parameters
+Speed up training
+Reduce the dependence on initial weights
+Model Generalization
+41
+Network Training
+❖ Solution 3: Use more robust initialization
+AI VIETNAM
+All-in-One Course
+Data Normalization
+(convert to 0-mean 
+and 1-deviation)
+Network Construction
+(Convs , ReLU, max 
+pooling, Dense layers)
+Parameter 
+Initialization
+(Glorot uniform)
+Training 
+(Adam and cross-
+entropy loss)
+MNIST
+Dataset
+Glorot uniform initialization (2010)
+Understanding the difficulty of training deep feedforward neural networks
+http://proceedings.mlr.press/v9/glorot10a/glorot10a.pdf
+He initialization (2015)
+Delving Deep into Rectifiers: Surpassing Human-Level Performance on ImageNet Classification
+https://arxiv.org/pdf/1502.01852.pdf
+42
+Network Training
+❖ Solution 3: He Initialization
+AI VIETNAM
+All-in-One Course
+Glorot initialization (2010)
+nⱼ is #inputs in layer j
+Assuming activation functions are linear
+He initialization (2015)
+Taking activation function into account
+Adapt to ReLU activation
+𝑊~𝒩0, 1
+𝑛𝑗
+𝑊~𝒩0, 2
+𝑛𝑗
+Data normalization [0,1]
+He normal initialization 
+Adam optimizer with lr=1e-3
+43
+Network Training
+❖ Solution 3: He Initialization
+AI VIETNAM
+All-in-One Course
+Glorot initialization (2010)
+nⱼ is #inputs in layer j
+Assuming activation functions are linear
+He initialization (2015)
+Taking activation function into account
+Adapt to ReLU activation
+𝑊~𝒩0, 1
+𝑛𝑗
+𝑊~𝒩0, 2
+𝑛𝑗
+Data normalization [0,1]
+He normal initialization 
+Adam optimizer with lr=1e-3
+44
+Network Training
+❖ Solution 4: Using advanced activation
+AI VIETNAM
+All-in-One Course
+Data Normalization
+(convert to 0-mean 
+and 1-deviation)
+Network Construction
+(Convs , ReLU, max 
+pooling, Dense layers)
+Parameter 
+Initialization
+(Glorot uniform)
+Training 
+(Adam and cross-
+entropy loss)
+MNIST
+Dataset
+swish x = 𝑥∗
+1
+1 + 𝑒−𝑥
+2017
+ReLU 𝑥= ቊ0 
+if 𝑥< 0
+𝑥 
+if 𝑥≥0
+2010
+Sigmoid Linear Unit (SiLU)
+45
+https://arxiv.org/pdf/
+1702.03118.pdf
+Network Training
+❖ Solution 4: 
+    Using advanced activation
+swish x = 𝑥∗
+1
+1 + 𝑒−𝑥
+2017
+Sigmoid Linear Unit (SiLU)
+epoch
+epoch
+46
+https://arxiv.org/pdf/1702.03118.pdf
+Network Training
+❖ Solution 5: Skip connection
+AI VIETNAM
+All-in-One Course
+Data Normalization
+(convert to 0-mean 
+and 1-deviation)
+Network Construction
+(Convs , ReLU, max 
+pooling, Dense layers)
+Parameter 
+Initialization
+(Glorot uniform)
+Training 
+(Adam and cross-
+entropy loss)
+MNIST
+Dataset
+X
+Conv
+Conv
+Y
++
+X
+Conv
+Conv
+Y
++
+Conv
+Skip connection
+Improve gradient flow 
+in backward pass
+47
+❖ Solution 5: Skip connection
+(3x3) Convolution
+padding=‘same’
+stride=1 + ReLU
+(2x2) max 
+pooling
+Dense Layer-10
++ Softmax
+Flatten
+Dense Layer-512
++ ReLU
+(3x3) Convolution
+padding=‘same’
+stride=2 + ReLU
+Network Training
+AI VIETNAM
+All-in-One Course
+input
+(3,32,32)
+(64,16,16)
+(128,8,8)
+(512,2,2)
+output
+(256,4,4)
++
++
++
++
+48
+Network 
+Training
+❖ Solution 5: 
+    Skip connection
+X
+Conv
+Conv
+Conv
+Max
+pooling
++
+Conv
+There are several variants that use fully skip 
+connection, concatenation, long skip connection
+49
+Network Training
+❖ Solution 5: Skip connection
+AI VIETNAM
+All-in-One Course
+X
+Conv
+Conv
+Y
++
+X
+Conv
+Conv
+Y
++
+Conv
+Weight Layer 
+(Conv or Dense)
+Weight Layer 
+(Conv or Dense)
+relu
++
+F(x)
+x
+x
+F(x) + x
+relu
+50
+Network Training
+❖ Solution 5: Skip connection
+AI VIETNAM
+All-in-One Course
+Weight Layer 
+(Conv or Dense)
+Weight Layer 
+(Conv or Dense)
+relu
++
+F(x)
+x
+x
+F(x) + x
+relu
+Weight Layer + BN 
+(Conv or Dense)
+Weight Layer + BN 
+(Conv or Dense)
+relu
++
+F(x)
+x
+x
+F(x) + x
+relu
+Weight Layer
+(Conv or Dense)
+Weight Layer 
+(Conv or Dense)
+BN + relu
++
+F(x)
+x
+x
+F(x) + x
+relu
+BN + relu
+51
+Network Training
+❖ Solution 5: Skip connection
+https://arxiv.org/pdf/1608.06993v5.pdf
+52
+Network Training
+AI VIETNAM
+All-in-One Course
+❖ Solution 6: Reduce learning rate
+input
+(3,32,32)
+(64,16,16)
+(128,8,8)
+(512,2,2)
+output
+(256,4,4)
+(3x3) Convolution
+padding=‘same’
+stride=1 + ReLU
+(2x2) max pooling
+Dense Layer-10
++ Softmax
+Flatten
+Dense Layer-512
++ ReLU
+From “Machine Learning Simplified”
+53
+Network 
+Training
+Reduce learning rate
+input
+(3,32,32)
+(64,16,16)
+(128,8,8)
+(512,2,2)
+output
+(256,4,4)
+epoch
+epoch
+54
+Further Reading
+AI VIETNAM
+All-in-One Course
+https://theaisummer.com/skip-connections/
+Skip connection
+http://karpathy.github.io/2019/04/25/recipe/
+Trying to overfit Data 
+https://arxiv.org/pdf/1608.06993v5.pdf
+DenseNet
+55
+Summary
+❖ Train a CNN model
+❖ Try to overfit data
+AI VIETNAM
+All-in-One Course
+Data Normalization
+(convert to 0-mean 
+and 1-deviation)
+Network Construction
+(ReLU or better)
+Parameter 
+Initialization
+(He Init. or better)
+Training 
+(Adam or better)
+Dataset
+𝑋= 𝑋−𝜇𝑑
+𝜎𝑑
+X
+Conv
+Conv
+Y
++
+Skip connection
+መ𝑍𝑖= 𝑍𝑖−𝜇
+𝜎2 + 𝜖
+Batch normalization
+56

@@ -1,0 +1,1114 @@
+1
+AI VIETNAM
+All-in-One Course
+1
+AI VIETNAM
+All-in-One Course
+How to Write a Research Paper 3
+(Introduction and Related Work Sections)
+Year 2023
+Vinh Dinh Nguyen
+PhD in Computer Science
+AI VIETNAM
+All-in-One Course
+2
+AI VIETNAM
+All-in-One Course
+2
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø How to Write Related Work Section
+Ø How to Write Introduction Section
+Ø Assignment
+Outline
+3
+AI VIETNAM
+All-in-One Course
+3
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø How to Write Related Work Section
+Ø How to Write Introduction Section
+Ø Assignment
+Outline
+4
+AI VIETNAM
+All-in-One Course
+4
+Vinh Dinh Nguyen- PhD in Computer Science
+How Do Researcher Spend Their Time
+5
+AI VIETNAM
+All-in-One Course
+5
+Vinh Dinh Nguyen- PhD in Computer Science
+6
+AI VIETNAM
+All-in-One Course
+6
+Vinh Dinh Nguyen- PhD in Computer Science
+Schedule
+Week 1
+How to write the Proposed Method section
+Week 2
+How to write the Experimental Results section
+Week 3
+How to write  the Introduction and Related Work sections
+Week 4
+How to write  the Conclusion, Abstract and Title sections
+Trick and Tip 
+for Answering 
+the Reviewers 
+Comments or 
+Remarks
+How to write  
+the Reponse 
+Letter
+7
+AI VIETNAM
+All-in-One Course
+7
+Vinh Dinh Nguyen- PhD in Computer Science
+8
+AI VIETNAM
+All-in-One Course
+8
+Vinh Dinh Nguyen- PhD in Computer Science
+CASE STUDY: 
+STEREO MATCHING
+9
+AI VIETNAM
+All-in-One Course
+9
+Vinh Dinh Nguyen- PhD in Computer Science
+Experimental Results
+10
+AI VIETNAM
+All-in-One Course
+10
+Vinh Dinh Nguyen- PhD in Computer Science
+Experimental Results
+11
+AI VIETNAM
+All-in-One Course
+11
+Vinh Dinh Nguyen- PhD in Computer Science
+12
+AI VIETNAM
+All-in-One Course
+12
+Vinh Dinh Nguyen- PhD in Computer Science
+What You Need to Know
+How to find Research Papers
+Skills need to know
+How to read Research Papers
+How to Summary Research Papers
+13
+AI VIETNAM
+All-in-One Course
+13
+Vinh Dinh Nguyen- PhD in Computer Science
+How to find a research paper
+14
+AI VIETNAM
+All-in-One Course
+14
+Vinh Dinh Nguyen- PhD in Computer Science
+How to find a research paper
+15
+AI VIETNAM
+All-in-One Course
+15
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Read a Research Paper
+Step 1: 
+Read Paper Title and answer 
+the following questions?
+1.
+What is the research topic?
+2.
+Is it closed to your research interest?
+3.
+Is it a new research approach?
+4.
+General idea of what the research is 
+about
+5.
+Does the title use keywords that are 
+relevant to the topic? 
+6.
+Does the title catch your attention or 
+pique your interest in the research? 
+Decision
+16
+AI VIETNAM
+All-in-One Course
+16
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Read a Research Paper
+Step 2: 
+Look at the authors of the 
+paper 
+and 
+answer 
+the 
+following questions? 
+1.
+Who are the authors of the paper? 
+2.
+Are their main research topics?
+3.
+Do they have any related publications?
+4.
+Is there a corresponding author indicated, 
+and what are their contact details?
+Decision
+17
+AI VIETNAM
+All-in-One Course
+17
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Read a Research Paper
+Step 2: 
+Look at the authors of the 
+paper 
+and 
+answer 
+the 
+following questions? 
+1.
+Who are the authors of the paper? 
+2.
+Are their main research topics?
+3.
+Do they have any related publications?
+4.
+Is there a corresponding author indicated, 
+and what are their contact details?
+18
+AI VIETNAM
+All-in-One Course
+18
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Read a Research Paper
+Step 2: 
+Look at the authors of the 
+paper 
+and 
+answer 
+the 
+following questions? 
+1.
+Who are the authors of the paper? 
+2.
+Are their main research topics?
+3.
+Do they have any related publications?
+4.
+Is there a corresponding author indicated, 
+and what are their contact details?
+Decision
+19
+AI VIETNAM
+All-in-One Course
+19
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Read a Research Paper
+Step 3: 
+Read the abstract of the 
+paper 
+and 
+answer 
+the 
+following questions? 
+1.
+What methods or approaches were used in the 
+research?
+2.
+What are the most important findings or results of 
+the study?
+3.
+Which techniques that you known/or unknown?
+4.
+What conclusions or implications are drawn from 
+the findings? 
+5.
+What is the overall purpose or goal of the 
+research?
+Decision
+20
+AI VIETNAM
+All-in-One Course
+20
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Read a Research Paper
+Step 4: 
+Read the conclusion of the 
+paper 
+and 
+answer 
+the 
+following questions? 
+1.
+What are the main findings and results presented in 
+the conclusion? 
+2.
+How do the findings answer the research question or 
+address the research objectives?
+3.
+Are there any unexpected or surprising results 
+discussed in the conclusion?
+4.
+Do the conclusions align with the research hypothesis 
+or initial goals? 
+5.
+Are there any limitations or weaknesses of the study 
+mentioned in the conclusion?
+6.
+What are the practical implications of the findings?
+7.
+Are there any recommendations or suggestions for 
+future research provided?
+Decision
+21
+AI VIETNAM
+All-in-One Course
+21
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Read a Research Paper
+Step 4: 
+Read the conclusion of the 
+paper 
+and 
+answer 
+the 
+following questions? 
+Conclusion
+1.
+What are the main findings and results presented in 
+the conclusion? 
+2.
+How do the findings answer the research question or 
+address the research objectives?
+3.
+Are there any unexpected or surprising results 
+discussed in the conclusion?
+4.
+Do the conclusions align with the research hypothesis 
+or initial goals? 
+5.
+Are there any limitations or weaknesses of the study 
+mentioned in the conclusion?
+6.
+What are the practical implications of the findings?
+7.
+Are there any recommendations or suggestions for 
+future research provided?
+Decision
+22
+AI VIETNAM
+All-in-One Course
+22
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Read a Research Paper
+Step 5: 
+Read the introduction of the paper 
+and answer the following questions? 
+1.
+What is the overall purpose or goal of the research?
+2.
+What is the background or context of the research? 
+3.
+What are previous related research that has been done?
+4.
+What are the citation of each previous work (extremely 
+important for you)
+5.
+Is there a review of related work or literature in the 
+introduction?
+6.
+Are there any notable trends or debates in the field 
+mentioned?
+7.
+What is the theoretical framework or approach used in the 
+research?
+8.
+What is the scope and focus of the research?
+9.
+Does the introduction engage your interest and make you 
+want to continue reading the paper?
+Decision
+23
+AI VIETNAM
+All-in-One Course
+23
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Read a Research Paper
+Step 6: 
+Read the Experimental Results section of the 
+paper and answer the following questions? 
+1.
+What are the key findings or results presented in the 
+experimental results section?
+2.
+Do the results address the research question or hypothesis 
+posed in the introduction?
+3.
+Are there any unexpected or surprising results discussed in 
+the section?
+4.
+Are there any statistical analyses or tests mentioned, and if 
+so, what were the results?
+5.
+Do the results support or contradict the prior literature 
+discussed in the introduction?
+6.
+Are there any figures, tables, or visuals, and do they enhance 
+your understanding of the results?
+7.
+Which existing methods they mentioned for comparison?
+8.
+Which datasets they used for evaluation?
+9.
+Which conditions they conducted for testing?
+Decision
+24
+AI VIETNAM
+All-in-One Course
+24
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Read a Research Paper
+Step 6: 
+Read the Experimental Results section of the 
+paper and answer the following questions? 
+1.
+What are the key findings or results presented in the 
+experimental results section?
+2.
+Do the results address the research question or hypothesis 
+posed in the introduction?
+3.
+Are there any unexpected or surprising results discussed in 
+the section?
+4.
+Are there any statistical analyses or tests mentioned, and if 
+so, what were the results?
+5.
+Do the results support or contradict the prior literature 
+discussed in the introduction?
+6.
+Are there any figures, tables, or visuals, and do they enhance 
+your understanding of the results?
+7.
+Which existing methods they mentioned for comparision?
+8.
+Which datasets they used for evaluation?
+9.
+Which conditions they coducted for testing?
+Decision
+25
+AI VIETNAM
+All-in-One Course
+25
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Read a Research Paper
+Step 6: 
+Read the Experimental Results section of the 
+paper and answer the following question? 
+1.
+What are the key findings or results presented in the 
+experimental results section?
+2.
+Do the results address the research question or 
+hypothesis posed in the introduction?
+3.
+Are there any unexpected or surprising results discussed 
+in the section?
+4.
+Are there any statistical analyses or tests mentioned, and 
+if so, what were the results?
+5.
+Do the results support or contradict the prior literature 
+discussed in the introduction?
+6.
+Are there any figures, tables, or visuals, and do they 
+enhance your understanding of the results?
+7.
+Which existing methods they mentioned for comparision?
+8.
+Which datasets they used for evaluation?
+9.
+Which conditions they coducted for testing?
+Decision
+26
+AI VIETNAM
+All-in-One Course
+26
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Read a Research Paper
+Step 7: 
+Read the Proposed Method section 
+of the paper and answer the 
+following questions? 
+1.
+What is the research problem or objective?
+2.
+What is the overall approach or framework used in the 
+method? 
+3.
+What data preprocessing or cleaning steps are involved?
+4.
+What specific techniques or algorithms are applied?
+5.
+Are there any assumptions made in the method?
+6.
+How are the parameters and hyperparameters chosen or 
+tuned? 
+7.
+How does the proposed method compare to existing 
+methods? 
+8.
+How reproducible is the method? 
+Decision
+27
+AI VIETNAM
+All-in-One Course
+27
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Read a Research Paper
+Step 7: 
+Read the Proposed Method section 
+of the paper and answer the 
+following questions? 
+1.
+What is the research problem or objective?
+2.
+What is the overall approach or framework used in the 
+method? 
+3.
+What data preprocessing or cleaning steps are involved?
+4.
+What specific techniques or algorithms are applied?
+5.
+Are there any assumptions made in the method?
+6.
+How are the parameters and hyperparameters chosen or 
+tuned? 
+7.
+How does the proposed method compare to existing 
+methods? 
+8.
+How reproducible is the method? 
+Decision
+28
+AI VIETNAM
+All-in-One Course
+28
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Read a Research Paper
+Step 7: 
+Read the Proposed Method section 
+of the paper and answer the 
+following questions? 
+1.
+What is the research problem or objective?
+2.
+What is the overall approach or framework used in the 
+method? 
+3.
+What data preprocessing or cleaning steps are involved?
+4.
+What specific techniques or algorithms are applied?
+5.
+Are there any assumptions made in the method?
+6.
+How are the parameters and hyperparameters chosen or 
+tuned? 
+7.
+How does the proposed method compare to existing 
+methods? 
+8.
+How reproducible is the method? 
+Decision
+29
+AI VIETNAM
+All-in-One Course
+29
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Read a Research Paper
+Step 8: 
+Read the Related Work section of the 
+paper and answer the following question? 
+1.
+What is the purpose of the "Related Work" section?
+2.
+What are the key research topics or areas covered in the 
+related work? 
+3.
+What are the most recent and relevant studies in the field?
+4.
+How does the paper's research question or problem 
+statement relate to the prior literature?
+5.
+Are there any gaps or limitations in the existing research that 
+the paper aims to address?
+6.
+What are the main findings or insights from the related work?
+7.
+How does the current research build upon or extend the 
+existing literature?  
+Decision
+30
+AI VIETNAM
+All-in-One Course
+30
+Vinh Dinh Nguyen- PhD in Computer Science
+Summary Research Paper
+1. Begin your summary with a brief introduction that includes the paper's title, authors, and publication
+information.
+2.In a few sentences, introduce the research question or problem the paper addresses
+3.Provide a concise overview of the methodology or approach used in the study, including the data
+sources, data collection and analysis methods, and any statistical techniques
+4.Highlight the primary findings or results of the research. Use clear and straightforward language to
+communicate these findings. If the paper includes figures, tables, or graphs, refer to them as needed.
+5.Conclude your summary with a closing statement that provides an overall assessment of the paper,
+such as its significance, relevance, or potential for future research
+31
+AI VIETNAM
+All-in-One Course
+31
+Vinh Dinh Nguyen- PhD in Computer Science
+Things You Need to Remember
+Remember, the related work section should provide a solid foundation for your research, 
+demonstrating that you are aware of existing work in your field and positioning your study in the 
+context of that work.
+32
+AI VIETNAM
+All-in-One Course
+32
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Write Related Work
+Clearly define the scope and objectives of your literature review. What specific topic or research question are you addressing? This will help you 
+identify the key themes and relevant studies to include.
+Step 1: Define the Scope for finding related research papers
+Robust Stereo Matching
+Stereo Matching Adverse Driving Condition
+Stereo Matching Transformer
+Stereo Matching using Deep Learning
+Stereo Matching with CNN
+Stereo Matching Survey
+33
+AI VIETNAM
+All-in-One Course
+33
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Write Related Work
+Conduct a comprehensive literature search using academic databases, journals, books, and other reputable sources. Use relevant keywords 
+and Boolean operators to refine your search.
+Step 2: Search for Relevant Literature
+34
+AI VIETNAM
+All-in-One Course
+34
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Write Related Work
+Organize the literature based on themes, topics, or methodologies. This can be done chronologically, conceptually, or by grouping studies that 
+share common characteristics.
+Step 3: Organize the Literature
+35
+AI VIETNAM
+All-in-One Course
+35
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Write Related Work
+Group related works based on common themes, topics, or methodologies. This helps in presenting a coherent and structured review.
+Step 3: Organize the Literature
+https://arxiv.org/pdf/2307.14071.pdf
+Deep Stereo Matching
+Robust Stereo Matching
+Real-time Stereo Matching
+36
+AI VIETNAM
+All-in-One Course
+36
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Write Related Work
+Group related works based on common themes, topics, or methodologies. This helps in presenting a coherent and structured review.
+Step 3: Organize the Literature
+https://arxiv.org/pdf/2307.14071.pdf
+Traditional Detection Methods
+Deep Learning Detection Methods 
+Transformer Detection Methods
+37
+AI VIETNAM
+All-in-One Course
+37
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Write Related Work
+Begin with a broad overview of the field or topic, providing context for your research. Gradually narrow down to the specific aspects that are 
+closely related to your work.
+Step 4: Start Broad, Then Narrow
+38
+AI VIETNAM
+All-in-One Course
+38
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Write Related Work
+Don't just summarize each paper; critically evaluate them. Discuss the strengths and weaknesses of each study and highlight any gaps in the 
+existing literature that your research aims to fill.
+Step 5: Critical Evaluation
+39
+AI VIETNAM
+All-in-One Course
+39
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Write Related Work
+Demonstrate how the field has progressed over time and how your research fits into this progression. This could involve discussing seminal 
+studies that laid the groundwork for current research.
+Step 6: Show Progression
+40
+AI VIETNAM
+All-in-One Course
+40
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Write Related Work
+Synthesize the information from different sources to provide a comprehensive overview. Show how the existing works contribute to the current 
+state of knowledge and identify any consensus or debates in the literature.
+Step 7: Synthesize Information
+41
+AI VIETNAM
+All-in-One Course
+41
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Write Related Work
+Clearly articulate how each work is related to your research. Highlight the aspects that are directly relevant to your study and explain how they 
+inform your research questions, objectives, or methodology.
+Step 8: Connect to Your Research
+42
+AI VIETNAM
+All-in-One Course
+42
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Write Related Work
+Ensure that you cite the most relevant and influential works in your field. This demonstrates a thorough understanding of the existing literature 
+and establishes the foundation for your own research.
+Step 9: Cite Key References
+Remember to cite 
+several 
+related 
+research 
+studies 
+published 
+in 
+the 
+journal to which you 
+plan to submit your 
+work
+43
+AI VIETNAM
+All-in-One Course
+43
+Vinh Dinh Nguyen- PhD in Computer Science
+How Do Reviewers Expect
+Comprehensiveness
+Reviewers look for evidence that the author has conducted a thorough 
+literature review. This includes covering seminal works, recent 
+publications, and key research in the field. A comprehensive review 
+demonstrates the author's familiarity with existing literature.
+Relevance
+The related work section should focus on studies directly related to the 
+research topic. Reviewers assess whether the cited works are relevant 
+to the research question or problem addressed in the paper.
+Critical Analysis
+Reviewers expect more than just a list of references. They look for a 
+critical analysis of the existing literature, highlighting strengths, 
+weaknesses, and limitations of prior work. This analysis helps in 
+positioning the author's research in the context of what is already 
+known.
+Identification of Gaps
+A good related work section identifies gaps or limitations in existing 
+research that the current study aims to address. Reviewers assess 
+whether the author convincingly argues for the need for their research 
+based on identified 
+Integration with the Research 
+Question
+Reviewers assess how well the related work section aligns with the 
+research question or problem statement. The section should build a 
+logical bridge between what is already known and the proposed 
+research.
+Up-to-Date References
+The inclusion of recent and up-to-date references is essential. 
+Reviewers check to see if the author has considered the most current 
+research in the field.
+44
+AI VIETNAM
+All-in-One Course
+44
+Vinh Dinh Nguyen- PhD in Computer Science
+Reviewers’ Comments
+Reviewer Comment: "The related work section seems limited in scope. Consider expanding your literature review to include more recent and 
+relevant studies in the field."
+Reviewer Comment: "Several seminal works are missing from your related work section. Please include references to [specific papers] as they 
+are critical to the understanding of the background."
+Reviewer Comment: "The related work needs more critical analysis. Rather than just summarizing each work, provide insights into how these 
+studies contribute or fall short in addressing the research gap."
+Reviewer Comment: "Several references in the related work section are outdated. Please update the literature review with more recent studies 
+to reflect the current state of the field."
+45
+AI VIETNAM
+All-in-One Course
+45
+Vinh Dinh Nguyen- PhD in Computer Science
+Reviewers’ Comments
+Reviewer Comment: "The organization of the related work section is confusing. Consider reordering the studies or grouping them by thematic 
+relevance to improve clarity for the reader."
+Reviewer Comment: "The related work section lacks a clear identification of research gaps. Please discuss the limitations of existing studies 
+and how your research fills these gaps."
+Reviewer Comment: "The related work appears biased towards a particular perspective. Ensure that you present a balanced view by including 
+studies that may have different findings or viewpoints."
+Reviewer Comment: "There is some redundancy between the introduction and related work sections. Clarify the distinct purpose of each section 
+to avoid repetition."
+Reviewer Comment: "The analysis of the related work is quite surface-level. Provide a more in-depth examination of methodologies, results, 
+and implications of the cited studies."
+46
+AI VIETNAM
+All-in-One Course
+46
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø How to Write Related Work Section
+Ø How to Write Introduction Section
+Ø Assignment
+Outline
+47
+AI VIETNAM
+All-in-One Course
+47
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Write an Introduction
+<<Paper’ title>>
+Abstract
+Keyword
+1. Introduction
+2. Related Work
+3. Proposed Method
+4. Experimental Results
+5. Conclusion
+References
+48
+AI VIETNAM
+All-in-One Course
+48
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Write an Introduction
+49
+AI VIETNAM
+All-in-One Course
+49
+Vinh Dinh Nguyen- PhD in Computer Science
+Q: How Does an Introduction Differ from a Literature Review?
+Answer: 
+•
+The introduction introduces your research question(s), purpose, objectives, or hypotheses. 
+•
+The literature review critically evaluates the existing research in greater detail, summarizing 
+and synthesizing important articles
+How to Write an Introduction
+50
+AI VIETNAM
+All-in-One Course
+50
+Vinh Dinh Nguyen- PhD in Computer Science
+Q: How Does an Introduction Differ from a Literature Review?
+Answer: 
+•
+The introduction introduces your research question(s), purpose, objectives, or hypotheses. 
+•
+The literature review critically evaluates the existing research in greater detail, summarizing 
+and synthesizing important articles
+How to Write an Introduction
+51
+AI VIETNAM
+All-in-One Course
+51
+Vinh Dinh Nguyen- PhD in Computer Science
+Q: How Does an Introduction Differ from a Literature Review?
+Answer: 
+•
+The introduction introduces your research question(s), purpose, objectives, or hypotheses. 
+•
+The literature review critically evaluates the existing research in greater detail, summarizing 
+and synthesizing important articles
+How to Write an Introduction
+52
+AI VIETNAM
+All-in-One Course
+52
+Vinh Dinh Nguyen- PhD in Computer Science
+Q: How Does an Introduction Differ from a Literature Review?
+Answer: 
+•
+The introduction introduces your research question(s), purpose, objectives, or hypotheses. 
+•
+The literature review critically evaluates the existing research in greater detail, summarizing 
+and synthesizing important articles
+How to Write an Introduction
+53
+AI VIETNAM
+All-in-One Course
+53
+Vinh Dinh Nguyen- PhD in Computer Science
+Q: How Does an Introduction Differ from a Literature Review?
+Answer: 
+•
+The introduction introduces your research question(s), purpose, objectives, or hypotheses. 
+•
+The literature review critically evaluates the existing research in greater detail, summarizing 
+and synthesizing important articles
+How to Write an Introduction
+54
+AI VIETNAM
+All-in-One Course
+54
+Vinh Dinh Nguyen- PhD in Computer Science
+Q: How Does an Introduction Differ from a Literature Review?
+Answer: 
+•
+The introduction introduces your research question(s), purpose, objectives, or hypotheses. 
+•
+The literature review critically evaluates the existing research in greater detail, summarizing 
+and synthesizing important articles
+How to Write an Introduction
+55
+AI VIETNAM
+All-in-One Course
+55
+Vinh Dinh Nguyen- PhD in Computer Science
+INTRODUCTION
+56
+AI VIETNAM
+All-in-One Course
+56
+Vinh Dinh Nguyen- PhD in Computer Science
+2. STRENGTH AND WEAKNESS OF EXISTING METHODS
+4. MAIN CONTRIBUTIONS OF YOUR PROPOSED METHOD
+1. BACKGROUND OF RESEARCH TOPICS/QUESTIONS
+3. RESULTS OF YOUR PROPOSED METHOD vs. SOTA METHODS
+How to Write an Introduction
+57
+AI VIETNAM
+All-in-One Course
+57
+Vinh Dinh Nguyen- PhD in Computer Science
+1. BACKGROUND OF RESEARCH TOPICS/QUESTIONS
+How to Write an Introduction
+58
+AI VIETNAM
+All-in-One Course
+58
+Vinh Dinh Nguyen- PhD in Computer Science
+2. STRENGTH AND WEAKNESS OF EXISTING METHODS
+How to Write an Introduction
+59
+AI VIETNAM
+All-in-One Course
+59
+Vinh Dinh Nguyen- PhD in Computer Science
+3. MAIN CONTRIBUTIONS OF YOUR PROPOSED METHOD
+How to Write an Introduction
+60
+AI VIETNAM
+All-in-One Course
+60
+Vinh Dinh Nguyen- PhD in Computer Science
+HOW TO WRITE INTRODUCTION SECTION
+4. RESULTS OF YOUR PROPOSED METHOD Vs. SOTA METHODS
+How to Write an Introduction
+61
+AI VIETNAM
+All-in-One Course
+61
+Vinh Dinh Nguyen- PhD in Computer Science
+62
+AI VIETNAM
+All-in-One Course
+62
+Vinh Dinh Nguyen- PhD in Computer Science
+INTRODUCTION FOR STEREO MATCHING TOPIC
+Left Image
+Right Image
+Cost 
+Computation
+Disparity Map
+Winner Take All
+How to Write an Introduction
+63
+AI VIETNAM
+All-in-One Course
+63
+Vinh Dinh Nguyen- PhD in Computer Science
+STEP 1
+BACKGROUND OF RESEARCH TOPICS/QUESTIONS
+Stereo vision plays an important role in many applications, such as 3-D tracking [1], 3-D driving
+environments [2], 3-D scanning [3], and 2-D and 3-D change detection [4]. Stereo information is
+effective for detecting vehicles and estimating distances to vehicles in driving conditions, as described
+in a comprehensive report [5]. However, stereo vision-based driving assistance is challenging under
+realistic conditions due to difficulties such as occlusion, textureless regions, illumination artifacts, flying
+snow, rain flare, rain blur, sun flare, or illumination differences, as described in the Heidelberg
+Collaboratory for image processing (HCI) data set [6].
+How to Write an Introduction
+64
+AI VIETNAM
+All-in-One Course
+64
+Vinh Dinh Nguyen- PhD in Computer Science
+STEP 2
+STRENGTH AND WEAKNESS OF EXISTING METHODS
+STEREO matching algorithm consists of four main steps: data cost, aggregation cost, optimization, and
+post processing; the data cost is the most important step among the four. Many algorithms have been
+proposed to produce a robust stereo data cost under various conditions. These include the Census
+and Rank transforms [1], adaptive normalized cross correlation (ANCC) [2], guided image filtering
+[3], and local density encoding (LDE) [4]. The main objective of those data costs is to extract more
+accurate and robust information from the local region. However, expert knowledge is required to
+develop those data costs under specific conditions. For example, Census works well when the gray-level
+changes monotonically; however, it fails in uniform regions or with larger illumination variations. ANCC
+can handle neither multiple illumination conditions nor non-Lambertian reflectance objects. Thus, those
+data costs cannot function well under conditions that vary from those for which they were designed.
+How to Write an Introduction
+65
+AI VIETNAM
+All-in-One Course
+65
+Vinh Dinh Nguyen- PhD in Computer Science
+STEP 3
+RESULTS OF YOUR PROPOSED METHOD Vs. SOTA METHODS
+• Many stereo methods are based on the assumption that the colors or
+intensities of the left and right images have similar values and perform
+very
+well-under
+controlled
+conditions
+[10]–[15];
+however,
+their
+performances degrade significantly in the presence of photometric or
+radiometric variations, including illumination direction, illuminant color,
+brightness differences, and image device changes. Fig. 2 shows the
+performance of the new method proposed in this paper with two
+conventional global and semiglobal stereo methods under rain flare
+conditions: semiglobal matching (SGM) [8] and belief propagation (BP)
+[10] using the sum of absolute
+How to Write an Introduction
+66
+AI VIETNAM
+All-in-One Course
+66
+Vinh Dinh Nguyen- PhD in Computer Science
+STEP 4
+MAIN CONTRIBUTIONS OF YOUR PROPOSED METHOD
+Recently, deep learning performed optimally in various applications, such as natural language processing, texture classification, and
+object recognition [5]–[7]. The performance of existing applications has been significantly increased, by 30% or more, through the use
+of the deep learning approach. Therefore, this paper investigates a deep learning strategy to improve the performance of existing
+stereo matching algorithms. The main contributions of this paper are as follows.
+1) This research is the first to apply a deep learning strategy- based unsupervised approach to develop a robust trans- formation
+function to compute stereo matching costs (it is different from the work in [8], which used supervised learning to develop a new data
+cost function).
+2) We investigate how a deep learning strategy can be ap- plied to calculate stereo data costs.
+3) The proposed transformation function outperforms existing state-of-the-art data costs using the KITTI benchmark [9] and the
+Middlebury [10] and HCI datasets [11].
+4) The proposed approach can improve the performance of existing stereo data costs without requiring their structures to be modified.
+How to Write an Introduction
+67
+AI VIETNAM
+All-in-One Course
+67
+Vinh Dinh Nguyen- PhD in Computer Science
+ENDING
+MAIN CONTRIBUTIONS OF YOUR PROPOSED METHOD
+The remainder of this paper is organized as follows. Section II provides a brief summary of existing stereo
+matching algorithms and their limitations. The proposed cost function for stereo matching is presented in Section
+III. Our experimental results are presented in Section IV. Finally, the conclusion and proposed future work are
+presented in Section V
+How to Write an Introduction
+68
+AI VIETNAM
+All-in-One Course
+68
+Vinh Dinh Nguyen- PhD in Computer Science
+How Do Reviewers Expect
+Clarity of Purpose
+Reviewers look for a clear statement of the research problem, 
+question, or hypothesis. The introduction should succinctly convey the 
+purpose and significance of the study.
+Background Information
+A good introduction provides sufficient background information to help 
+readers understand the context of the research. Reviewers assess 
+whether the background is relevant and well-balanced, offering enough 
+information without overwhelming the reader.
+Literature Review
+Reviewers examine the integration of the literature review into the 
+introduction. They look for a critical review of existing research, 
+demonstrating the author's understanding of the current state of the 
+field.
+Research Gap Identification
+The introduction should identify a gap in the existing literature that the 
+current study aims to address. Reviewers assess how well the author 
+justifies the need for their research based on identified gaps.
+Significance of the Study
+Reviewers assess how well the introduction communicates the broader 
+significance of the research. It should articulate why the study is 
+important and how it contributes to the field.
+ 
+Logical Flow
+The introduction should have a logical flow, guiding the reader from 
+the general context to the specific research question. Reviewers check 
+for coherence and smooth transitions between different components 
+of the introduction.
+69
+AI VIETNAM
+All-in-One Course
+69
+Vinh Dinh Nguyen- PhD in Computer Science
+Reviewers’ Comments
+Reviewer Comment: "The introduction is somewhat verbose. Consider condensing the background information and focusing on key points to 
+enhance clarity and conciseness."
+Reviewer Comment: "The research question and objectives are not clearly articulated. Please explicitly state your research aim and the specific 
+objectives guiding your study."
+Reviewer Comment: "The introduction lacks sufficient contextualization of the research problem. Provide more background information to help 
+readers understand the significance of the study."
+Reviewer Comment: "Integrate the literature review more seamlessly into the introduction to establish a stronger foundation for your research. 
+Connect the existing knowledge to the gap your study aims to address."
+Reviewer Comment: "There is some redundancy with the related work section. Ensure that the introduction and related work complement each 
+other without repeating information."
+70
+AI VIETNAM
+All-in-One Course
+70
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø How to Write Related Work Section
+Ø How to Write Introduction Section
+Ø Assignment
+Outline
+71
+AI VIETNAM
+All-in-One Course
+71
+Vinh Dinh Nguyen- PhD in Computer Science
+Assignment 3:
+• Requirements: Write The Related Work and 
+Introduction Sections
+• Research content: your interested research
+• Deadline: 03/02/2023
+• Submission to email: 
+aivnresearch@gmail.com
+72
+AI VIETNAM
+All-in-One Course
+72
+Vinh Dinh Nguyen- PhD in Computer Science
+PhD Life
+73
+AI VIETNAM
+All-in-One Course
+73
+Vinh Dinh Nguyen- PhD in Computer Science
+74
+AI VIETNAM
+All-in-One Course

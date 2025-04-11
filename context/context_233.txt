@@ -1,0 +1,840 @@
+1
+AI VIETNAM
+All-in-One Course
+1
+AI VIETNAM
+All-in-One Course
+Background Subtraction 
+(Computer Vision Foundation)
+Year 2023
+Vinh Dinh Nguyen
+PhD in Computer Science
+AI VIETNAM
+All-in-One Course
+2
+AI VIETNAM
+All-in-One Course
+2
+Vinh Dinh Nguyen- PhD in Computer Science
+People Counter at Suppermarket
+3
+AI VIETNAM
+All-in-One Course
+3
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Introduction to Computer Vision
+Ø Edge Detection Algorithm
+Ø Line Detection Algorithm 
+Ø Contour Detection Algorithm
+Ø Shape Detection Algorithm
+Ø Background Subtraction Algorithm
+Outline
+4
+AI VIETNAM
+All-in-One Course
+4
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Introduction to Computer Vision
+Ø Edge Detection Algorithm
+Ø Line Detection Algorithm 
+Ø Contour Detection Algorithm
+Ø Shape Detection Algorithm
+Ø Background Subtraction Algorithm
+Outline
+5
+AI VIETNAM
+All-in-One Course
+5
+Vinh Dinh Nguyen- PhD in Computer Science
+Computer Vision
+Help computers “see” and “understand” the content of digital
+images such as photographs and videos
+Computer Vision Market to Hit $58.29 Billion by 2030: Grand
+View Research, Inc. (Bloomberg)
+What is Computer Vision? How does computer vision work?
+6
+AI VIETNAM
+All-in-One Course
+6
+Vinh Dinh Nguyen- PhD in Computer Science
+Computer Vision History
+7
+AI VIETNAM
+All-in-One Course
+7
+Vinh Dinh Nguyen- PhD in Computer Science
+Computer Vision History
+8
+AI VIETNAM
+All-in-One Course
+8
+Vinh Dinh Nguyen- PhD in Computer Science
+Computer Vision Applications
+9
+AI VIETNAM
+All-in-One Course
+9
+Vinh Dinh Nguyen- PhD in Computer Science
+How Does Computer Vision Work
+https://www.turing.com/kb/all-you-need-to-know-about-computer-vision
+10
+AI VIETNAM
+All-in-One Course
+10
+Vinh Dinh Nguyen- PhD in Computer Science
+Image in Computer Vision
+Grayscale image
+Color image
+11
+AI VIETNAM
+All-in-One Course
+11
+Vinh Dinh Nguyen- PhD in Computer Science
+Read and Display Image Using OpenCV
+Color image
+Grayscale image
+12
+AI VIETNAM
+All-in-One Course
+12
+Vinh Dinh Nguyen- PhD in Computer Science
+Image Coordinate System: Grayscale Image
+x
+Grayscale image
+y
+13
+AI VIETNAM
+All-in-One Course
+13
+Vinh Dinh Nguyen- PhD in Computer Science
+Image Coordinate System: RGB Image
+x
+RGB image
+y
+14
+AI VIETNAM
+All-in-One Course
+14
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Introduction to Computer Vision
+Ø Edge Detection Algorithm
+Ø Line Detection Algorithm 
+Ø Contour Detection Algorithm
+Ø Shape Detection Algorithm
+Ø Background Subtraction Algorithm
+Outline
+15
+AI VIETNAM
+All-in-One Course
+15
+Vinh Dinh Nguyen- PhD in Computer Science
+Edge Detection: Canny Algorithm
+lower = 50 # Lower Threshold
+upper = 150 # Upper threshold
+lower = 250 # Lower Threshold
+upper = 300 # Upper threshold
+With edge detection, we can determine the
+objects on the image without other details
+16
+AI VIETNAM
+All-in-One Course
+16
+Vinh Dinh Nguyen- PhD in Computer Science
+Gaussian Filter
+17
+AI VIETNAM
+All-in-One Course
+17
+Vinh Dinh Nguyen- PhD in Computer Science
+Image Gradient
+An image gradient is defined as a directional change in image intensity
+Vertical change
+Horizontal change
+The gradient magnitude is used to measure how strong the change in image intensity is
+The gradient orientation is used to determine in which direction the change in intensity is pointing
+18
+AI VIETNAM
+All-in-One Course
+18
+Vinh Dinh Nguyen- PhD in Computer Science
+Image Gradient
+19
+AI VIETNAM
+All-in-One Course
+19
+Vinh Dinh Nguyen- PhD in Computer Science
+Image Gradient
+X-gradient
+Y-gradient
+Gradient magnitude
+Gradient Direction
+Gradient magnitude edges thicker than many edge detection. Next step is
+the make edges one pixel thick.
+20
+AI VIETNAM
+All-in-One Course
+20
+Vinh Dinh Nguyen- PhD in Computer Science
+Non-Maximal Suppression
+21
+AI VIETNAM
+All-in-One Course
+21
+Vinh Dinh Nguyen- PhD in Computer Science
+Non-Maximal Suppression
+22
+AI VIETNAM
+All-in-One Course
+22
+Vinh Dinh Nguyen- PhD in Computer Science
+Non-Maximal Suppression
+23
+AI VIETNAM
+All-in-One Course
+23
+Vinh Dinh Nguyen- PhD in Computer Science
+Non-Maximal Suppression
+24
+AI VIETNAM
+All-in-One Course
+24
+Vinh Dinh Nguyen- PhD in Computer Science
+Non-Maximal Suppression
+Check every pixel on the Gradient magnitude image and choose 2 neighbor of the pixel according to Gradient Direction. If center pixel is
+larger than the both neighbors then keep it, otherwise set the pixel to 0.
+Hãy cho biết kết quảkhi thực hiện Non-Maximal
+Suppression trên 2 ví dụtrên?
+25
+AI VIETNAM
+All-in-One Course
+25
+Vinh Dinh Nguyen- PhD in Computer Science
+Non-Maximal Suppression
+Gradient magnitude
+Gradient NMS
+26
+AI VIETNAM
+All-in-One Course
+26
+Vinh Dinh Nguyen- PhD in Computer Science
+Double threshold
+The double threshold step aims at identifying 3 kinds of pixels:
+strong, weak, and non-relevant
+Gradient NMS
+Double Threshold
+27
+AI VIETNAM
+All-in-One Course
+27
+Vinh Dinh Nguyen- PhD in Computer Science
+Edge Tracking by Hysteresis
+Based on the threshold results, the hysteresis consists of transforming weak pixels into strong ones
+Double Threshold
+Final Result
+28
+AI VIETNAM
+All-in-One Course
+28
+Vinh Dinh Nguyen- PhD in Computer Science
+Edge Detection: Sobel Algorithm
+Sobel in X-direction
+Sobel in Y-direction
+Sobel in XY-direction
+29
+AI VIETNAM
+All-in-One Course
+29
+Vinh Dinh Nguyen- PhD in Computer Science
+Canny Vs Sobel Edge Detection
+(a)
+(b)
+Which one is the result of Canny (or Sobel) algorithm?
+30
+AI VIETNAM
+All-in-One Course
+30
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Introduction to Computer Vision
+Ø Edge Detection Algorithm
+Ø Line Detection Algorithm 
+Ø Contour Detection Algorithm
+Ø Shape Detection Algorithm
+Ø Background Subtraction Algorithm
+Outline
+31
+AI VIETNAM
+All-in-One Course
+31
+Vinh Dinh Nguyen- PhD in Computer Science
+Line Detection: Hough Transform
+Input Image
+Line Detection Result
+32
+AI VIETNAM
+All-in-One Course
+32
+Vinh Dinh Nguyen- PhD in Computer Science
+Line Detection: Hough Transform
+Input Image
+Line Detection Result
+Line in the image space can be expressed with two variables
+y = ax + b
+ρ = x cos(θ) + y sin(θ)
+33
+AI VIETNAM
+All-in-One Course
+33
+Vinh Dinh Nguyen- PhD in Computer Science
+Line Detection: Hough Transform
+Input Image
+Line Detection Result
+The yellow dots in the Hough Space indicate that lines exist and are represented by the θ and ρ pairs.
+34
+AI VIETNAM
+All-in-One Course
+34
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Introduction to Computer Vision
+Ø Edge Detection Algorithm
+Ø Line Detection Algorithm 
+Ø Contour Detection Algorithm
+Ø Shape Detection Algorithm
+Ø Background Subtraction Algorithm
+Outline
+35
+AI VIETNAM
+All-in-One Course
+35
+Vinh Dinh Nguyen- PhD in Computer Science
+Contour Detection Algorithm
+Contour Approximation
+Contours detection is a process can be explained simply as a curve joining all the continuous points (along with the boundary), having 
+same colour or intensity
+36
+AI VIETNAM
+All-in-One Course
+36
+Vinh Dinh Nguyen- PhD in Computer Science
+Application of Contours in Computer Vision
+Motion Detection
+Unattended object detection
+Background / Foreground Segmentation
+37
+AI VIETNAM
+All-in-One Course
+37
+Vinh Dinh Nguyen- PhD in Computer Science
+Contour Tracing: Square Method
+•
+Every time you find yourself standing on a black pixel, turn left
+•
+Every time you find yourself standing on a white pixel, turn right,
+until you encounter the start pixel again.
+•
+The black pixels you walked over will be the contour of the pattern.
+38
+AI VIETNAM
+All-in-One Course
+38
+Vinh Dinh Nguyen- PhD in Computer Science
+Contour Tracing: Moore-Neighbor
+Moore neighborhood
+8-neighbors or indirect neighbors
+Every time you hit a black pixel, P, backtrack i.e. go back to the white pixel you were previously standing on, then,
+go around pixel P in a clockwise direction, visiting each pixel in its Moore neighborhood, until you hit a black pixel.
+The algorithm terminates when the start pixel is visited for a second time.
+The black pixels you walked over will be the
+contour of the pattern.
+39
+AI VIETNAM
+All-in-One Course
+39
+Vinh Dinh Nguyen- PhD in Computer Science
+Contour Tracing: Radial Sweep
+Moore neighborhood
+8-neighbors or indirect neighbors
+Every time you locate a new boundary pixel, make it your current pixel, P, and draw an imaginary line segment joining P to
+the previous boundary pixel. Then, rotate the segment about P in a clockwise direction until it hits a black pixel in P's Moore
+neighborhood. Rotating the segment is identical to checking each pixel in the Moore neighborhood of P.
+40
+AI VIETNAM
+All-in-One Course
+40
+Vinh Dinh Nguyen- PhD in Computer Science
+Contour Tracing: Theo Pavlidis
+41
+AI VIETNAM
+All-in-One Course
+41
+Vinh Dinh Nguyen- PhD in Computer Science
+Contour Tracing: Suzuki’s Contour
+Surroundness among connected components (b) and 
+among borders (c).
+Contour Detection using OpenCV: https://learnopencv.com/contour-detection-using-opencv-python-c/
+42
+AI VIETNAM
+All-in-One Course
+42
+Vinh Dinh Nguyen- PhD in Computer Science
+Contour Detection Algorithm
+RGB image
+Grayscale image
+Binary Image
+Inverse Binary Image
+Final Contour Result
+Interesting
+applications,
+such
+as
+image-foreground extraction, simple-
+image segmentation, detection and
+recognition.
+43
+AI VIETNAM
+All-in-One Course
+43
+Vinh Dinh Nguyen- PhD in Computer Science
+Contour Detection Algorithm
+RGB image
+Grayscale image
+Binary Image
+Contours are defined as the line joining
+all the points along the boundary of an
+image that are having the same intensity
+44
+AI VIETNAM
+All-in-One Course
+44
+Vinh Dinh Nguyen- PhD in Computer Science
+Contour Detection Algorithm
+RGB image
+Grayscale image
+Binary Image
+Inverse Binary Image
+45
+AI VIETNAM
+All-in-One Course
+45
+Vinh Dinh Nguyen- PhD in Computer Science
+Contour Detection Algorithm
+RGB image
+Grayscale image
+Binary Image
+Inverse Binary Image
+Final Contour Result
+46
+AI VIETNAM
+All-in-One Course
+46
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Introduction to Computer Vision
+Ø Edge Detection Algorithm
+Ø Line Detection Algorithm 
+Ø Contour Detection Algorithm
+Ø Shape Detection Algorithm
+Ø Background Subtraction Algorithm
+Outline
+47
+AI VIETNAM
+All-in-One Course
+47
+Vinh Dinh Nguyen- PhD in Computer Science
+Shape Detection Algorithm
+RGB image
+Grayscale image
+Binary Image
+Inverse Binary Image
+Contour Results
+Shape Detection
+48
+AI VIETNAM
+All-in-One Course
+48
+Vinh Dinh Nguyen- PhD in Computer Science
+Read and Display Image From Webcam
+49
+AI VIETNAM
+All-in-One Course
+49
+Vinh Dinh Nguyen- PhD in Computer Science
+Erosion and Dilation Technique
+Frame 1
+Frame 2
+Grayscale Image
+Grayscale Image
+Image Difference
+Binary image
+Erosion Image
+Dilation Image
+50
+AI VIETNAM
+All-in-One Course
+50
+Vinh Dinh Nguyen- PhD in Computer Science
+Erosion Technique
+50
+Image erode using square structuring 
+elemements sides of 11x11, 15x15, and 
+45x45
+51
+AI VIETNAM
+All-in-One Course
+51
+Vinh Dinh Nguyen- PhD in Computer Science
+Erosion Technique
+51
+Kernel
+Kernel
+52
+AI VIETNAM
+All-in-One Course
+52
+Vinh Dinh Nguyen- PhD in Computer Science
+Erosion Technique
+52
+https://towardsdatascience.com/image-processing-part-3-dbf103622909
+53
+AI VIETNAM
+All-in-One Course
+53
+Vinh Dinh Nguyen- PhD in Computer Science
+Dilation Technique
+Kernel
+54
+AI VIETNAM
+All-in-One Course
+54
+Vinh Dinh Nguyen- PhD in Computer Science
+Dilation Technique
+55
+AI VIETNAM
+All-in-One Course
+55
+Vinh Dinh Nguyen- PhD in Computer Science
+Dilation Technique
+56
+AI VIETNAM
+All-in-One Course
+56
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Introduction to Computer Vision
+Ø Edge Detection Algorithm
+Ø Line Detection Algorithm 
+Ø Contour Detection Algorithm
+Ø Shape Detection Algorithm
+Ø Background Subtraction Algorithm
+Outline
+57
+AI VIETNAM
+All-in-One Course
+57
+Vinh Dinh Nguyen- PhD in Computer Science
+Background Substraction
+Background subtraction is a widely used approach to detect moving objects in a sequence of frames from static cameras
+Why do we need to use 
+Background Subtraction?
+Given an image (mostly likely to be a video frame), we want to identify the foreground objects in that image!
+58
+AI VIETNAM
+All-in-One Course
+58
+Vinh Dinh Nguyen- PhD in Computer Science
+Background Substraction
+Background subtraction is a widely used approach to detect moving objects in a sequence of frames from static cameras
+Why do we need to use 
+Background Subtraction?
+Object detection and classification
+59
+AI VIETNAM
+All-in-One Course
+59
+Vinh Dinh Nguyen- PhD in Computer Science
+Background Substraction
+Background subtraction is a widely used approach to detect moving objects in a sequence of frames from static cameras
+Why do we need to use 
+Background Subtraction?
+60
+AI VIETNAM
+All-in-One Course
+60
+Vinh Dinh Nguyen- PhD in Computer Science
+Background Substraction
+61
+AI VIETNAM
+All-in-One Course
+61
+Vinh Dinh Nguyen- PhD in Computer Science
+Simple Approach
+1. Estimate the background for time t. 
+2. Subtract the estimated background from the input frame. 
+3. Apply a threshold T to the absolute difference to get the foreground mask.
+Prof. Birgi Tamersoy. The University of Texas at Austin
+how can we estimate the background?
+Time t
+Time t + 1
+Depending on the object structure, speed, frame rate 
+and global threshold, this approach may or may not 
+be useful 
+62
+AI VIETNAM
+All-in-One Course
+62
+Vinh Dinh Nguyen- PhD in Computer Science
+Simple Approach
+Depending on the object structure, speed, frame rate 
+and global threshold, this approach may or may not 
+be useful 
+63
+AI VIETNAM
+All-in-One Course
+63
+Vinh Dinh Nguyen- PhD in Computer Science
+Mean Filter
+The background is the mean of the previous n frames
+n = 10
+n = 20
+n = 50
+64
+AI VIETNAM
+All-in-One Course
+64
+Vinh Dinh Nguyen- PhD in Computer Science
+Median Filter
+Assuming that the background is more likely to appear in a scene, we can use the median of the previous n frames as the background model
+n = 10
+Mean Filter
+n = 50
+Median Filter
+n = 20
+65
+AI VIETNAM
+All-in-One Course
+65
+Vinh Dinh Nguyen- PhD in Computer Science
+Temporal Average Filter
+66
+AI VIETNAM
+All-in-One Course
+66
+Vinh Dinh Nguyen- PhD in Computer Science
+ 
+ 
+Dicussion
+Advantages: 
+– Extremely easy to implement and use! 
+– All pretty fast. 
+– Corresponding background models are not constant, they change over 
+time
+Disadvantages: 
+– Accuracy of frame differencing depends on object speed and frame rate! 
+– Mean and median background models have relatively high memory 
+requirements.
+– There is one global threshold, Th, for all pixels in the image 
+67
+AI VIETNAM
+All-in-One Course
+67
+Vinh Dinh Nguyen- PhD in Computer Science
+Quick Look at K-mean
+Advantages: 
+1. Select initial choice of K means
+2. Determine which sample belongs to which cluster
+∆!"= 1 if k = argmin x! −𝜇" #
+∆!"= 0 otherwise
+3. Define cost function
+J = ∑!$%
+&
+∑"$%
+'
+∆!" x! −𝜇" #
+4. Minimize the cost function based with respective to:
+()
+*! = −2 ∑!$%
+&
+∆!"(x! −𝜇")=−2 ∑!$%
+&
+∆!"(x! −𝜇") = 0
+∑!$%
+&
+∆!" x! = ∑!$%
+&
+∆!" 𝜇"
+𝜇" = 
+∑"#$
+%
+∆"! -"
+∑"#$
+%
+∆"!
+5. Go to step 2
+6. Do it until no further changes in assignment or until reach to maximum 
+number of iterations
+68
+AI VIETNAM
+All-in-One Course
+68
+Vinh Dinh Nguyen- PhD in Computer Science
+Quick look at Gaussian Mixture Model
+69
+AI VIETNAM
+All-in-One Course
+69
+Vinh Dinh Nguyen- PhD in Computer Science
+Quick look at Gaussian Mixture Model
+70
+AI VIETNAM
+All-in-One Course
+70
+Vinh Dinh Nguyen- PhD in Computer Science
+Quick look at Gaussian Mixture Model
+71
+AI VIETNAM
+All-in-One Course
+71
+Vinh Dinh Nguyen- PhD in Computer Science
+Quick look at Gaussian Mixture Model
+72
+AI VIETNAM
+All-in-One Course
+72
+Vinh Dinh Nguyen- PhD in Computer Science
+Quick look at Gaussian Mixture Model
+x1
+P(x|setosa)
+x1
+P(x|setosa)
+P(x|setosa) = ∑"$%
+'
+𝜋"Ν X|𝜇", ∑"
+𝜇%
+𝜇#
+𝜇.
+𝜎#
+𝜎%
+𝜎.
+Covariance Matrix
+0< 𝜋" < 1
+;
+"$%
+"
+𝜋" = 1
+Latent variable (binary): z"
+P(z"=1)= 𝜋"  
+P(z%=1)= 𝜋%  
+P(z#=1)= 𝜋#  
+P(z.=1)= 𝜋.  
+73
+AI VIETNAM
+All-in-One Course
+73
+Vinh Dinh Nguyen- PhD in Computer Science
+Quick look at Gaussian Mixture Model
+x1
+P(x|setosa)
+x1
+P(x|setosa)
+𝜇%
+𝜇#
+𝜇.
+𝜎#
+𝜎%
+𝜎.
+P(x| z"=1) = Ν X|𝜇", ∑"
+P(x| z%=1) = Ν X|𝜇", ∑%
+P(x) = ∑"$%
+"
+P(z"=1)P(x| z"=1)  
+P(z"=1|x) = P(x| /!=1)P(/!=1)
+1(3)
+P(X) =∏4$%
+&
+p(x4)
+For all samples
+ln(P(X)) =∏4$%
+&
+ln(p x4 )
+ln(P(X)) =∏4$%
+&
+ln(∑"$%
+'
+𝜋"Ν X|𝜇", ∑"
+)
+74
+AI VIETNAM
+All-in-One Course
+74
+Vinh Dinh Nguyen- PhD in Computer Science
+Quick look at Gaussian Mixture Model
+x1
+P(x|setosa)
+x1
+P(x|setosa)
+𝜇%
+𝜇#
+𝜇.
+𝜎#
+𝜎%
+𝜎.
+ln(P(X)) =∏4$%
+&
+ln(∑"$%
+'
+𝜋"Ν X|𝜇", ∑"
+)
+ln(P(X| 𝜋, 𝜇, ∑
+)) =∏4$%
+&
+ln(∑"$%
+'
+𝜋"Ν X|𝜇", ∑"
+)
+(ln(P(X| 5, *, ∑
+)
+(*!
+ = 0
+(ln(P(X| 5, *, ∑
+)
+( ∑!
+ = 0
+75
+AI VIETNAM
+All-in-One Course
+75
+Vinh Dinh Nguyen- PhD in Computer Science
+Background Subtraction With 
+Mixture of Gaussian (MOG) 
+76
+AI VIETNAM
+All-in-One Course
+76
+Vinh Dinh Nguyen- PhD in Computer Science
+Mixture of Gaussian (MOG) 
+Background Subtraction
+After
+background
+model
+estimation
+red
+distributions become the background model and
+black
+distributions
+are
+considered
+to
+be
+foreground
+77
+AI VIETNAM
+All-in-One Course
+77
+Vinh Dinh Nguyen- PhD in Computer Science
+Demo – BGS with MOG
+78
+AI VIETNAM
+All-in-One Course
+78
+Vinh Dinh Nguyen- PhD in Computer Science
+Assignment Dicussion
+79
+AI VIETNAM
+All-in-One Course

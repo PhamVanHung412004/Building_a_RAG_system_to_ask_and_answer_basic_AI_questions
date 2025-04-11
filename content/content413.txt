@@ -1,4 +1,0 @@
-AI VIETNAM aivietnam.edu.vn
-Hình 8: Kết quả classification của PointNet trên Shapenet
-35 total += labels . size (0)
-36 correct += ( predicted == labels ). 

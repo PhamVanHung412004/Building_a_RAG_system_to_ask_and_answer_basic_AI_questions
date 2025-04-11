@@ -1,5 +1,0 @@
-(*) Ta sẽ thực hiện kéo 2 cột: Country vào X-Axis và Population vào Y-Axis.
-Ứng với 2 thông số của biểu đồ cột mà chúng ta cần thực hiện trực quan hóa
-biểu đồ: Trục Ox (Trục ngang) thể hiện cho Quốc gia (Country) và Trục Oy
-(Trục dọc) thể hiện cho Dân số (Population)
-www.facebook.com/aivietnam.edu.vn 3

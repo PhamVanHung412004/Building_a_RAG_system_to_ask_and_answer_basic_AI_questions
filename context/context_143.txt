@@ -1,0 +1,906 @@
+1
+AI VIETNAM
+All-in-One Course
+1
+AI VIETNAM
+All-in-One Course
+How to do Research
+(Performance Evaluation, Journal/Conference Selection, Plan to 
+write a Scientific Research Paper)
+Year 2023
+Vinh Dinh Nguyen
+PhD in Computer Science
+AI VIETNAM
+All-in-One Course
+2
+AI VIETNAM
+All-in-One Course
+2
+Vinh Dinh Nguyen- PhD in Computer Science
+Schedule
+Week 1
+How to read Research Paper
+Week 2
+How to find Research Topic and Develop Research Questions
+Week 3
+Research Plan: Study and Implement Existing Algorithms
+This Week
+Performance Evaluation and Journal/Conference Selection, Plan to 
+Write a Research Paper
+Week 4
+Research Plan: Brainstorming Idea and Implementation
+How to write a Scientific Research Paper
+(4 weeks )
+Group Presentation
+(23/12/2023 & 30/12/2023)
+3
+AI VIETNAM
+All-in-One Course
+3
+Vinh Dinh Nguyen- PhD in Computer Science
+Evaluating the performance of a proposed method in research is a crucial step to assess its 
+effectiveness, robustness, and generalizability. The specific strategy you adopt will depend on the 
+nature of your research, the problem you are addressing, and the type of method you have developed
+Performance Evaluation Strategy
+Dataset Selection
+Define Clear Objectives 
+and Metrics
+Baseline Comparison
+Cross-Validation
+Parameter Tuning
+Visualization and 
+Analysis
+Robust Testing
+Real-world Validation
+Documentation and 
+Reproducibility 
+Peer Review
+4
+AI VIETNAM
+All-in-One Course
+4
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Performance Evaluation in Detail
+Ø Enough Contributions for Submission
+Ø How to Find Suitable Journal/Conference
+Ø Plan to Write a Scientific Research Paper
+Ø Assignment
+Outline
+5
+AI VIETNAM
+All-in-One Course
+5
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Performance Evaluation in Detail
+Ø Enough Contributions for Submission
+Ø How to Find Suitable Journal/Conference
+Ø Plan to Write a Scientific Research Paper
+Ø Assignment
+Outline
+6
+AI VIETNAM
+All-in-One Course
+6
+Vinh Dinh Nguyen- PhD in Computer Science
+Research Questions: Stereo Matching
+RQ1: How to improve the performance of existing stereo matching methods under various lighting conditions and complex material 
+properties? 
+RQ2: How to obtain a real-time processing for current state-of-the-art stereo matching-based deep learning methods?
+RQ3: How to design an automatically learning the network architecture, its activation functions, and its parameters from data ?
+Please select the simplest question to solve 
+In this 
+module
+7
+AI VIETNAM
+All-in-One Course
+7
+Vinh Dinh Nguyen- PhD in Computer Science
+Stereo Matching
+vNormal
+8
+AI VIETNAM
+All-in-One Course
+8
+Vinh Dinh Nguyen- PhD in Computer Science
+vChallenges
+Stereo Matching
+9
+AI VIETNAM
+All-in-One Course
+9
+Vinh Dinh Nguyen- PhD in Computer Science
+Challenges in Stereo Matching
+RQ1: How to improve the performance of existing stereo matching methods under various lighting conditions and complex material 
+properties? 
+10
+AI VIETNAM
+All-in-One Course
+10
+Vinh Dinh Nguyen- PhD in Computer Science
+Your Proposed Solution
+Indentify where you can improve the performance of 
+existing algorithms?
+11
+AI VIETNAM
+All-in-One Course
+11
+Vinh Dinh Nguyen- PhD in Computer Science
+Stereo Matching Cost
+Parametric Matching Costs
+Sampling-insensitive 
+absolute 
+difference of Birchfield and 
+Tomasi
+12
+AI VIETNAM
+All-in-One Course
+12
+Vinh Dinh Nguyen- PhD in Computer Science
+Stereo Matching Cost
+Normalized cross-correlation
+The zeromean sum of absolute 
+differences (ZSAD) s
+NCC is another window-based matching technique that is commonly used. NCC compensates for gain changes and is statistically the optimal 
+method for dealing with Gaussian noise. However, NCC tends to blur depth discontinuities more than many other matching costs because 
+outliers lead to high errors within the NCC calculation
+Parametric Matching Costs
+13
+AI VIETNAM
+All-in-One Course
+13
+Vinh Dinh Nguyen- PhD in Computer Science
+Stereo Matching Cost
+Zero-mean variant ZNCC
+Parametric Matching Costs
+Non-parametric Matching Costs
+Rank Filter
+The function T[] is defined to return 1 if its argument is true and 0 otherwise. The transformed images are matched with the absolute 
+difference. The Rank filter is known to be susceptible to noise in textureless areas.
+14
+AI VIETNAM
+All-in-One Course
+14
+Vinh Dinh Nguyen- PhD in Computer Science
+Stereo Matching Cost
+Non-parametric Matching Costs
+Soft Rank filter
+The Soft Rank filter was proposed by Zitnick  to reduce the problem of Rank filter by defining a linear, soft transition zone between 0 
+and 1 for values that are close together
+Census Filter
+15
+AI VIETNAM
+All-in-One Course
+15
+Vinh Dinh Nguyen- PhD in Computer Science
+Cosine similarity
+4
+31
+cs(ax, 𝑏y) =
+!".$%
+!"
+&%  =
+∑!
+" !(#&)#
+∑!
+" !$(#
+$ ∑!
+" &$)#
+$
+                    =
+!& ∑!
+" (#)#
+!$ ∑!
+" (#
+$ &$ ∑!
+" )#
+$
+                    =
+∑!
+" (#)#
+∑!
+" (#
+$ ∑!
+" )#
+$=cs(x, y)
+Cosine similarity (cs) được dùng để đo mức độ giống nhau/tương đồng giữa hai vector
+Gọi x và y là hai vector, cs được tính như sau
+cs(x, y) =
+".%
+"
+%  =
+∑!
+" (#)#
+∑!
+" (#
+$ ∑!
+" )#
+$
+Ví dụ:
+x = [4, 2, 1, 2]!
+y = [1, 2, 2, 0]!
+cs(x, y) =
+4∗678∗876∗878∗9
+4$78$76$78$ 6$78$78$79
+               =
+69
+8: ; = 69
+6: = 0.67
+cs(u, v) =
+<∗=74∗>78∗>74∗9
+<$74$78$74$ =$7>$7>$79
+               =
+>9
+699 <6 = >9
+;9 = 0.67
+                                            = cs(x, y)
+u = 2x = [8, 4, 2, 4]!
+v = 3y = [3, 6, 6, 0]!
+Tính chất 1: cs(x, y) = cs(ax, 𝑏y) 
+Tính chất 2: cs(x, y) ≠ cs(x + 𝑐, y + 𝑑) 
+16
+AI VIETNAM
+All-in-One Course
+16
+Vinh Dinh Nguyen- PhD in Computer Science
+⃗𝑥=  2 
+3 
+⃗𝑦=  4 
+2 
+⃗𝑦
+⃗𝑥
+𝛼
+Cosine Similarity 
+for Matching Cost
+cs(ax, 𝑏y) =
+!".$%
+!"
+&%  =
+∑!
+" !(#&)#
+∑!
+" !$(#
+$ ∑!
+" &$)#
+$
+                    =
+!& ∑!
+" (#)#
+!$ ∑!
+" (#
+$ &$ ∑!
+" )#
+$
+                    =
+∑!
+" (#)#
+∑!
+" (#
+$ ∑!
+" )#
+$=cs(x, y)
+Cosine similarity (cs) is used to measure the 
+similarity between two vectors
+Let x and y be two vectors, cs is defined as
+cs(x, y) =
+".%
+"
+%  =
+∑!
+" (#)#
+∑!
+" (#
+$ ∑!
+" )#
+$
+Property 1: cs(x, y) = cs(ax, 𝑏y); ab > 0
+Property 2: cs(x, y) ≠ cs(x + 𝑐, y + 𝑑) 
+⃗𝑣= 2 ∗⃗𝑦=  8 
+4 
+⃗𝑣
+𝑢= 3 ∗⃗𝑥=  6 
+9 
+𝑢
+16
+17
+AI VIETNAM
+All-in-One Course
+17
+Vinh Dinh Nguyen- PhD in Computer Science
+LTP Matching Cost
+18
+AI VIETNAM
+All-in-One Course
+18
+Vinh Dinh Nguyen- PhD in Computer Science
+LTP Matching Cost
+19
+AI VIETNAM
+All-in-One Course
+19
+Vinh Dinh Nguyen- PhD in Computer Science
+Stereo Matching Cost
+V. D. Nguyen, D. D. Nguyen, T. T. Nguyen, V. Q. Dinh and J. W. Jeon, "Support Local Pattern and its Application to Disparity Improvement and Texture Classification," in IEEE 
+Transactions on Circuits and Systems for Video Technology, vol. 24, no. 2, pp. 263-276, Feb. 2014, doi: 10.1109/TCSVT.2013.2254898.
+20
+AI VIETNAM
+All-in-One Course
+20
+Vinh Dinh Nguyen- PhD in Computer Science
+Stereo Matching Cost
+V. D. Nguyen, D. D. Nguyen, T. T. Nguyen, V. Q. Dinh and J. W. Jeon, "Support Local Pattern and its Application to Disparity Improvement and Texture Classification," in IEEE 
+Transactions on Circuits and Systems for Video Technology, vol. 24, no. 2, pp. 263-276, Feb. 2014, doi: 10.1109/TCSVT.2013.2254898.
+21
+AI VIETNAM
+All-in-One Course
+21
+Vinh Dinh Nguyen- PhD in Computer Science
+Evaluating the performance of a proposed method in research is a crucial step to assess its 
+effectiveness, robustness, and generalizability. The specific strategy you adopt will depend on the 
+nature of your research, the problem you are addressing, and the type of method you have developed
+Performance Evaluation Strategy
+Dataset Selection
+Define Clear Objectives 
+and Metrics
+Baseline Comparison
+Cross-Validation
+Parameter Tuning
+Visualization and 
+Analysis
+Robust Testing
+Real-world Validation
+Documentation and 
+Reproducibility 
+Peer Review
+22
+AI VIETNAM
+All-in-One Course
+22
+Vinh Dinh Nguyen- PhD in Computer Science
+Define Clear Objectives and Metrics 
+Evaluation Metric: Stereo Matching
+•Clearly articulate the objectives of your proposed method. What problem is it solving, and what are the desired outcomes?
+•Define appropriate evaluation metrics that align with your objectives. Common metrics include accuracy, precision, recall, F1 score, 
+mean squared error, etc.
+The KITTI Vision Benchmark Suite
+23
+AI VIETNAM
+All-in-One Course
+23
+Vinh Dinh Nguyen- PhD in Computer Science
+Define Clear Objectives and Metrics 
+Percentage of Bad Pixels: Measures the percentage of pixels with disparity errors exceeding a specified threshold. Common thresholds 
+include 1, 2, or 3 pixels.
+Root Mean Squared Error (RMSE): Calculates the square root of the average squared disparity errors across all pixels. It provides a 
+measure of the overall accuracy.
+Mean Absolute Error (MAE): Computes the average absolute disparity errors. It is less sensitive to outliers than RMSE.
+The "d1-bg" error is specifically defined as the percentage of disparity errors (in pixels) where the absolute disparity error is less than 1 
+pixel and the error occurs in regions classified as foreground or background
+24
+AI VIETNAM
+All-in-One Course
+24
+Vinh Dinh Nguyen- PhD in Computer Science
+Dataset Selection
+•Choose relevant and diverse datasets to evaluate your method. The datasets should be representative of the real-world scenarios your 
+method is intended to address.
+•Split the dataset into training, validation, and test sets. Ensure that the distribution of data in each set reflects the real-world scenario to 
+avoid biased evaluations.
+25
+AI VIETNAM
+All-in-One Course
+25
+Vinh Dinh Nguyen- PhD in Computer Science
+Dataset Selection
+Ground Truth Data: Stereo Matching
+Obtain or create a ground truth dataset with accurate depth information. This dataset should include stereo image pairs along with 
+corresponding depth maps acquired from a reliable source (e.g., depth sensors or manually annotated).
+26
+AI VIETNAM
+All-in-One Course
+26
+Vinh Dinh Nguyen- PhD in Computer Science
+Dataset Selection
+Ground Truth Data: Other research topics
+Object Detection
+Object Segmentation
+27
+AI VIETNAM
+All-in-One Course
+27
+Vinh Dinh Nguyen- PhD in Computer Science
+Baseline Comparison
+The KITTI Vision Benchmark Suite
+Establish a baseline performance by comparing your method against existing or well-known methods in the field. This provides 
+context for understanding the relative improvement of your proposed method.
+28
+AI VIETNAM
+All-in-One Course
+28
+Vinh Dinh Nguyen- PhD in Computer Science
+Baseline Comparison
+V. D. Nguyen, D. D. Nguyen, T. T. Nguyen, V. Q. Dinh and J. W. Jeon, "Support Local Pattern and its Application to Disparity Improvement and Texture Classification," in IEEE 
+Transactions on Circuits and Systems for Video Technology, vol. 24, no. 2, pp. 263-276, Feb. 2014, doi: 10.1109/TCSVT.2013.2254898.
+29
+AI VIETNAM
+All-in-One Course
+29
+Vinh Dinh Nguyen- PhD in Computer Science
+Baseline Comparison
+V. D. Nguyen, D. D. Nguyen, S. J. Lee and J. W. Jeon, "Local 
+Density Encoding for Robust Stereo Matching," in IEEE 
+Transactions on Circuits and Systems for Video Technology, 
+vol. 24, no. 12, pp. 2049-2062, Dec. 2014, doi: 
+10.1109/TCSVT.2014.2334053.
+30
+AI VIETNAM
+All-in-One Course
+30
+Vinh Dinh Nguyen- PhD in Computer Science
+Cross-Validation
+•Implement cross-validation to ensure robustness of your results. This helps in assessing the model's performance across 
+different subsets of the data and reduces the impact of dataset-specific characteristics.
+31
+AI VIETNAM
+All-in-One Course
+31
+Vinh Dinh Nguyen- PhD in Computer Science
+Have seen these cars
+Never seen. 
+But, still know it is a car
+For human beings generalization is the most natural thing possible. For example, we would definitely 
+recognize a car even if we didn’t see this car before
+32
+AI VIETNAM
+All-in-One Course
+32
+Vinh Dinh Nguyen- PhD in Computer Science
+It might be quite a challenge for an ML 
+model
+That’s why checking the algorithm’s ability to 
+generalize is an important task that requires a 
+lot of attention when building the model.
+To do that, we use Cross-Validation (CV)
+33
+AI VIETNAM
+All-in-One Course
+33
+Vinh Dinh Nguyen- PhD in Computer Science
+What is Cross-Validation?
+Cross-validation is a technique for evaluating a machine learning model and testing its performance. 
+Cross-validation a powerful tool for selecting the best model for the specific task.
+Common actions of cross-validation algorithms 
+Divide the dataset into two parts: one
+for training, other for testing
+Step 1
+Train the model on 
+the training set
+Step 2
+• Validate the model 
+on the test set
+Step 3
+Repeat 1-3 steps a couple of 
+times. This number depends on 
+the CV method that you are 
+using
+Step 4
+34
+AI VIETNAM
+All-in-One Course
+34
+Vinh Dinh Nguyen- PhD in Computer Science
+Cross-validation methods
+Hold-out
+Leave-one-out
+Stratified K-
+folds
+Leave-p-out
+K-folds
+Nested K-
+folds
+Repeated K-
+folds
+35
+AI VIETNAM
+All-in-One Course
+35
+Vinh Dinh Nguyen- PhD in Computer Science
+Parameter Tuning
+If your method has hyperparameters, perform a thorough parameter tuning process using techniques such as grid search or random search. This 
+ensures that your model is optimized for performance.
+A model hyperparameter is a characteristic of a model that is external to the model and whose value cannot be estimated from data. The value of 
+the hyperparameter has to be set before the learning process begins. For example, c in Support Vector Machines, k in k-Nearest Neighbors, the 
+number of hidden layers in Neural Networks.
+•Random Search. Define a search space as a bounded domain of 
+hyperparameter values and randomly sample points in that domain.
+•Grid Search. Define a search space as a grid of hyperparameter values and 
+evaluate every position in the grid.
+More advanced methods are sometimes used, such as Bayesian Optimization and Evolutionary Optimization.
+36
+AI VIETNAM
+All-in-One Course
+36
+Vinh Dinh Nguyen- PhD in Computer Science
+Visualization and Analysis
+Disparity Map Visualization
+Visualize the generated disparity maps to qualitatively assess the method's performance. Compare them against the ground truth disparity 
+maps to identify regions of accurate and inaccurate depth estimation.
+V. D. Nguyen, D. D. Nguyen, T. T. Nguyen, V. Q. Dinh and J. W. Jeon, "Support Local Pattern and its Application to Disparity Improvement and Texture Classification," in IEEE 
+Transactions on Circuits and Systems for Video Technology, vol. 24, no. 2, pp. 263-276, Feb. 2014, doi: 10.1109/TCSVT.2013.2254898.
+37
+AI VIETNAM
+All-in-One Course
+37
+Vinh Dinh Nguyen- PhD in Computer Science
+Visualization and Analysis
+•Use visualizations to understand the behavior of your method. This could include confusion matrices, ROC curves, learning curves, etc.
+•Conduct a detailed analysis of model errors to identify patterns or trends that may indicate areas for improvement.
+38
+AI VIETNAM
+All-in-One Course
+38
+Vinh Dinh Nguyen- PhD in Computer Science
+Robustness Testing
+V. D. Nguyen, D. D. Nguyen, T. T. Nguyen, V. Q. Dinh and J. W. Jeon, "Support Local Pattern and its Application to Disparity Improvement and Texture Classification," in IEEE 
+Transactions on Circuits and Systems for Video Technology, vol. 24, no. 2, pp. 263-276, Feb. 2014, doi: 10.1109/TCSVT.2013.2254898.
+•Evaluate the robustness of your method by testing it under various conditions, such as different input 
+data distributions, noise levels, or adversarial attacks.
+39
+AI VIETNAM
+All-in-One Course
+39
+Vinh Dinh Nguyen- PhD in Computer Science
+Robustness Testing
+•Evaluate the robustness of your method by testing it under various conditions, such as different input 
+data distributions, noise levels, or adversarial attacks.
+V. D. Nguyen, D. D. Nguyen, S. J. Lee and J. W. Jeon, "Local Density Encoding for Robust Stereo Matching," in IEEE Transactions on Circuits and Systems for Video 
+Technology, vol. 24, no. 12, pp. 2049-2062, Dec. 2014, doi: 10.1109/TCSVT.2014.2334053.
+40
+AI VIETNAM
+All-in-One Course
+40
+Vinh Dinh Nguyen- PhD in Computer Science
+Real-world Validation
+•If possible, validate your method in a real-world setting. This might involve deploying 
+your model in a relevant environment and monitoring its performance over time.
+V. D. Nguyen, D. T. Tran, J. Y. Byun and J. W. Jeon, "Real-Time Vehicle Detection Using an Effective Region Proposal-Based Depth and 3-Channel Pattern," in 
+IEEE Transactions on Intelligent Transportation Systems, vol. 20, no. 10, pp. 3634-3646, Oct. 2019, doi: 10.1109/TITS.2018.2877200.
+41
+AI VIETNAM
+All-in-One Course
+41
+Vinh Dinh Nguyen- PhD in Computer Science
+Computational Efficiency 
+Consider the computational efficiency of the stereo matching method. Evaluate the processing time and resource requirements, especially if 
+the method is intended for real-time applications.
+https://www.cvlibs.net/datasets/kitti/
+42
+AI VIETNAM
+All-in-One Course
+42
+Vinh Dinh Nguyen- PhD in Computer Science
+Parameter Sensitivity Analysis
+Parameter Sensitivity Analysis
+Conduct a sensitivity analysis on key parameters of 
+the stereo matching algorithm. Determine how 
+changes in parameters affect the overall performance.
+V. D. Nguyen, D. D. Nguyen, S. J. Lee and J. W. Jeon, "Local Density 
+Encoding for Robust Stereo Matching," in IEEE Transactions on 
+Circuits and Systems for Video Technology, vol. 24, no. 12, pp. 
+2049-2062, Dec. 2014, doi: 10.1109/TCSVT.2014.2334053.
+43
+AI VIETNAM
+All-in-One Course
+43
+Vinh Dinh Nguyen- PhD in Computer Science
+Documentation and Reproducibility
+Document your experimental setup, including code, parameters, and configurations, to 
+ensure that your experiments are reproducible. This is crucial for the scientific community to 
+validate and build upon your work.
+44
+AI VIETNAM
+All-in-One Course
+44
+Vinh Dinh Nguyen- PhD in Computer Science
+Peer Review
+Submit your work for peer review. The feedback from experts in your field can provide 
+valuable insights and help improve the rigor and quality of your evaluation.
+45
+AI VIETNAM
+All-in-One Course
+45
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Performance Evaluation in Detail
+Ø Enough Contributions for Submission
+Ø How to Find Suitable Journal/Conference
+Ø Plan to Write a Scientific Research Paper
+Ø Assignment
+Outline
+46
+AI VIETNAM
+All-in-One Course
+46
+Vinh Dinh Nguyen- PhD in Computer Science
+Enough Contributions for Submission?
+Getting your conference or journal paper accepted involves a combination 
+of factors, including the quality of your research, writing, and presentation
+47
+AI VIETNAM
+All-in-One Course
+47
+Vinh Dinh Nguyen- PhD in Computer Science
+Enough Contributions for Submission?
+Deciding whether a research paper represents a sufficient contribution for submission to a conference or journal involves assessing the 
+novelty, significance, and completeness of the work
+Novelty
+Clearly identify and articulate the novelty of your work. Consider 
+whether your research introduces new ideas, concepts, methods, or 
+applications that advance the current state of knowledge in the field.
+Literature Review
+Ensure that your paper provides a thorough literature review that 
+places your work in the context of existing research. Highlight the 
+gaps in the literature that your work addresses and explain how your 
+contribution fills these gaps.
+Research Question and Objectives
+Clearly state the research question or problem your paper 
+addresses and outline the specific objectives. Ensure that the 
+objectives align with the overall goal of making a meaningful 
+contribution to the field.
+Methodology
+Detail the methodology used in your research. Explain the 
+experimental setup, data collection process, and any novel 
+techniques or approaches employed. This section should be 
+comprehensive enough for others to replicate your work.
+48
+AI VIETNAM
+All-in-One Course
+48
+Vinh Dinh Nguyen- PhD in Computer Science
+Enough Contributions for Submission?
+Deciding whether a research paper represents a sufficient contribution for submission to a conference or journal involves assessing the 
+novelty, significance, and completeness of the work
+Results and Analysis
+Present your results in a clear and organized manner. Include 
+visualizations, statistical analyses, or other relevant methods to 
+support your findings. Discuss the implications of your results and 
+how they contribute to the field.
+Comparisons and Baselines
+If applicable, compare your results with existing methods, baselines, 
+or state-of-the-art approaches. Highlight the strengths and 
+weaknesses of your approach and explain how it advances beyond 
+the current state of the art.
+Discussion
+Provide a thorough discussion of your results, drawing connections 
+between your findings and the existing literature. Discuss any 
+unexpected outcomes, limitations, and potential future directions for 
+research in your area.
+Adherence to Guidelines
+Follow the submission guidelines provided by the conference or 
+journal rigorously. Ensure that your paper meets all formatting and 
+length requirements.
+49
+AI VIETNAM
+All-in-One Course
+49
+Vinh Dinh Nguyen- PhD in Computer Science
+New and Original Contribution
+In research, a new and original contribution refers to a novel idea, concept, method, insight, or 
+discovery that advances the current state of knowledge in a particular field
+Novel Insights or 
+Observations
+Innovative Approach or 
+Methodology
+Development of New 
+Theories or Models
+•Introducing a new and innovative research methodology or approach to solve a problem can be a significant 
+contribution. This could involve developing a new experimental technique, data analysis method, or computational 
+algorithm.
+•Providing new insights or observations that challenge existing theories or expand our understanding of a 
+phenomenon is a valuable contribution. This might involve uncovering unexpected patterns, relationships, or 
+trends in data.
+•Proposing a new theoretical framework or model that explains phenomena more accurately or comprehensively 
+than existing models contributes to the theoretical foundation of a field.
+50
+AI VIETNAM
+All-in-One Course
+50
+Vinh Dinh Nguyen- PhD in Computer Science
+New and Original Contribution
+In research, a new and original contribution refers to a novel idea, concept, method, insight, or 
+discovery that advances the current state of knowledge in a particular field
+Synthesis of Existing 
+Knowledge
+Creation of New Tools or 
+Technologies
+Application in a Novel 
+Context
+•Developing new tools, technologies, or instruments that enable researchers to explore, measure, or analyze 
+phenomena in ways not previously possible can be a groundbreaking contribution.
+•Integrating and synthesizing existing knowledge from disparate sources to generate a new conceptual 
+framework or theory can be a valuable contribution. This involves bringing together diverse ideas in a coherent 
+and meaningful way.
+•Applying existing theories, methods, or technologies to a new and unexplored context can be considered a 
+contribution, especially if it yields insights that were not apparent in the original context.
+51
+AI VIETNAM
+All-in-One Course
+51
+Vinh Dinh Nguyen- PhD in Computer Science
+New and Original Contribution
+In research, a new and original contribution refers to a novel idea, concept, method, insight, or 
+discovery that advances the current state of knowledge in a particular field
+Verification or Refutation 
+of Existing Findings
+Addressing an Unmet 
+Need or Problem
+Cross-Disciplinary 
+Connections
+•Identifying and addressing a previously unmet need or problem in a field can be a significant contribution. This 
+might involve solving practical challenges, improving efficiency, or addressing gaps in current knowledge.
+•Conducting rigorous experiments or studies to verify or refute existing findings is a valuable contribution. This 
+adds to the reliability and robustness of knowledge in a given area.
+•Making connections between seemingly unrelated fields and applying concepts or methods from one discipline to 
+another can lead to innovative solutions and contribute to the advancement of both fields.
+52
+AI VIETNAM
+All-in-One Course
+52
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Performance Evaluation in Detail
+Ø Enough Contributions for Submission
+Ø How to Find Suitable Journal/Conference
+Ø Plan to Write a Scientific Research Paper
+Ø Assignment
+Outline
+53
+AI VIETNAM
+All-in-One Course
+53
+Vinh Dinh Nguyen- PhD in Computer Science
+How to select a good conf./journal
+54
+AI VIETNAM
+All-in-One Course
+54
+Vinh Dinh Nguyen- PhD in Computer Science
+How to select a good conf./journal
+55
+AI VIETNAM
+All-in-One Course
+55
+Vinh Dinh Nguyen- PhD in Computer Science
+56
+AI VIETNAM
+All-in-One Course
+56
+Vinh Dinh Nguyen- PhD in Computer Science
+https://journalsuggester.springer.com/
+How to find a suitable journal
+57
+AI VIETNAM
+All-in-One Course
+57
+Vinh Dinh Nguyen- PhD in Computer Science
+How to find suitable journal
+https://research.com/
+58
+AI VIETNAM
+All-in-One Course
+58
+Vinh Dinh Nguyen- PhD in Computer Science
+POTENTIAL PREDATORY JOURNALS AND 
+PUBLISHERS
+https://beallslist.net/
+59
+AI VIETNAM
+All-in-One Course
+59
+Vinh Dinh Nguyen- PhD in Computer Science
+Open Access Vs Subscription-Based Journals
+60
+AI VIETNAM
+All-in-One Course
+60
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Performance Evaluation in Detail
+Ø Enough Contributions for Submission
+Ø How to Find Suitable Journal/Conference
+Ø Plan to Write a Scientific Research Paper
+Ø Assignment
+Outline
+61
+AI VIETNAM
+All-in-One Course
+61
+Vinh Dinh Nguyen- PhD in Computer Science
+Paper Publishing Process
+62
+AI VIETNAM
+All-in-One Course
+62
+Vinh Dinh Nguyen- PhD in Computer Science
+Research Paper Structure
+63
+AI VIETNAM
+All-in-One Course
+63
+Vinh Dinh Nguyen- PhD in Computer Science
+Journal/Conference Template
+64
+AI VIETNAM
+All-in-One Course
+64
+Vinh Dinh Nguyen- PhD in Computer Science
+Journal/Conference Template
+65
+AI VIETNAM
+All-in-One Course
+65
+Vinh Dinh Nguyen- PhD in Computer Science
+66
+AI VIETNAM
+All-in-One Course
+66
+Vinh Dinh Nguyen- PhD in Computer Science
+67
+AI VIETNAM
+All-in-One Course
+67
+Vinh Dinh Nguyen- PhD in Computer Science
+68
+AI VIETNAM
+All-in-One Course
+68
+Vinh Dinh Nguyen- PhD in Computer Science
+69
+AI VIETNAM
+All-in-One Course
+69
+Vinh Dinh Nguyen- PhD in Computer Science
+70
+AI VIETNAM
+All-in-One Course
+70
+Vinh Dinh Nguyen- PhD in Computer Science
+71
+AI VIETNAM
+All-in-One Course
+71
+Vinh Dinh Nguyen- PhD in Computer Science
+…
+…
+72
+AI VIETNAM
+All-in-One Course
+72
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Performance Evaluation in Detail
+Ø Enough Contributions for Submission
+Ø How to Find Suitable Journal/Conference
+Ø Assignment
+Outline
+73
+AI VIETNAM
+All-in-One Course
+73
+Vinh Dinh Nguyen- PhD in Computer Science
+Assignment 5
+• Requirement:
+oPerformance Evaluation and Journal/Conference Selection
+oSubmit to: aivnresearch@gmail.com
+• Deadline: 12:00 23/12/2023
+• Receiving Feedback: 1 week from TA Research Team of AIVN
+74
+AI VIETNAM
+All-in-One Course
+74
+Vinh Dinh Nguyen- PhD in Computer Science
+Assignment 5
+75
+AI VIETNAM
+All-in-One Course
+75
+Vinh Dinh Nguyen- PhD in Computer Science
+Assignment 5
+76
+AI VIETNAM
+All-in-One Course

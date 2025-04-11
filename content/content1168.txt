@@ -1,6 +1,0 @@
-proj_out = zero_module (nn. Conv1d ( channels , channels , 1))
-232
-233 def forward (self , x):
-234 return checkpoint ( self . _forward , (x ,) , self . parameters () , True )
-235
-13

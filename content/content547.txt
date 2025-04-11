@@ -1,5 +1,0 @@
-(b) Dùng để lập chỉ mục cho cơ sở dữ liệu.
-(c) Dùng để tìm kiếm tài liệu.
-(d) Dùng để tính toán độ tương đồng.
-- Hết -
-15

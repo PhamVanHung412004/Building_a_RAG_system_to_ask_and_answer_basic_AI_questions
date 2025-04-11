@@ -1,0 +1,561 @@
+NLP Exercise
+Part-of-Speech Tagging
+Medical Named Entity Recognition
+Year 2023
+AI VIET NAM
+Nguyen Quoc Thai
+AI VIETNAM
+All-in-One Course
+1
+2
+Ø Introduction
+Ø Part-of-Speech Tagging (POS)
+Ø Named Entity Recognition (NER)
+Ø Medical Named Entity Recognition
+Outline
+3
+Introduction
+Pre-trained Models for Text
+!
+Language Modeling 
+Architecture
+LM Head
+(Projection + softmax)
+LM Task
+Corpus
+Phase 1:
+Self-Supervised Training
+Language Modeling 
+Architecture
+Downstream Task 
+Head
+Downstream Task
+Task-specific 
+Data
+Phase 2:
+Downstream Task Fine-Tuning
+Trained
+4
+Introduction
+BERT: Encoder Model
+!
+❖Maps an input sequence to a contextualized sequence: 𝒇𝜽𝑩𝑬𝑹𝑻: 𝑿𝟏:𝒏⟶%𝑿𝟏:𝒏
+5
+Introduction
+BERT: Pre-Training
+!
+❖Masked LM (15% token):
+80%: replace with [MASK]
+10%: replace with a random word
+10%: keep unchanged
+❖Next Sentence Prediction (NSP)
+Classification Task
+2 Labels: IsNext and NotNext
+Use [SEP] [CLS] token
+6
+Introduction
+BERT: Input Representation
+!
+7
+Introduction
+BERT: Fine-Tuning
+!
+8
+Introduction
+BERT: Text Classification
+!
+❖Document-Level Text Classification
+BERT
+1
+1
+0
+0
+1
+1
+1
+1
+1
+1
+0
+0
+[CLS]
+x1
+x2
+x3
+Classifier
+9
+Introduction
+BERT: Text Classification
+!
+❖Token-Level Text Classification
+BERT
+1
+1
+0
+0
+1
+1
+1
+1
+1
+1
+0
+0
+[CLS]
+x1
+x2
+x3
+Classifier
+10
+Introduction
+Token-Level Text Classification
+!
+❖Input:
+Sequence n tokens: {w1, w2,…, wn}
+❖Ouput:
+Sequence n tokens: {y1, y2,…, yn}
+11
+Introduction
+Token-Level Text Classification
+!
+❖Input:
+Sequence n tokens: {w1, w2,…, wn}
+❖Ouput:
+Sequence n tokens: {y1, y2,…, yn}
+Part-of-Speech (POS) Tagging
+12
+Introduction
+Token-Level Text Classification
+!
+❖Input:
+Sequence n tokens: {w1, w2,…, wn}
+❖Ouput:
+Sequence n tokens: {y1, y2,…, yn}
+Named Entity Recognition (NER)
+13
+Ø Introduction
+Ø Part-of-Speech Tagging (POS)
+Ø Named Entity Recognition (NER)
+Ø Medical Named Entity Recognition
+Outline
+14
+POS Tagging
+Token-Level Text Classification
+!
+❖Assign a POS tag to each token in text
+He
+x1
+will
+x2
+back
+x3
+the
+x4
+bill
+x5
+NOUN
+AUX
+VERB
+DET
+NOUN
+PART OF SPEECH TAGGER
+y1
+y2
+y3
+y4
+y5
+15
+POS Tagging
+“Universal Dependencies” Tagset
+!
+Tag
+Description
+Example
+Open Class
+ADJ
+Adjective: noun modiﬁers describing properties
+red, young, awesome
+ADV
+Adverb: verb modiﬁers of time, place, manner
+very, slowly, home, yesterday
+NOUN
+words for persons, places, things, etc.
+algorithm, cat, mango, beauty
+VERB
+words for actions and processes
+draw, provide, go
+PROPN Proper noun: name of a person, organization, place, etc..
+Regina, IBM, Colorado
+INTJ
+Interjection: exclamation, greeting, yes/no response, etc.
+oh, um, yes, hello
+Closed Class Words
+ADP
+Adposition (Preposition/Postposition):
+marks a noun’s
+spacial, temporal, or other relation
+in, on, by under
+AUX
+Auxiliary: helping verb marking tense, aspect, mood, etc.,
+can, may, should, are
+CCONJ Coordinating Conjunction: joins two phrases/clauses
+and, or, but
+DET
+Determiner: marks noun phrase properties
+a, an, the, this
+NUM
+Numeral
+one, two, ﬁrst, second
+PART
+Particle: a preposition-like form used together with a verb
+up, down, on, off, in, out, at, by
+PRON
+Pronoun: a shorthand for referring to an entity or event
+she, who, I, others
+SCONJ
+Subordinating Conjunction: joins a main clause with a
+subordinate clause such as a sentential complement
+that, which
+Other
+PUNCT Punctuation
+˙, , ()
+SYM
+Symbols like $ or emoji
+$, %
+X
+Other
+asdf, qwfg
+16
+POS Tagging
+“Penn Treebank” Tagset
+!
+17
+POS Tagging
+Penn Tree Bank Dataset
+!
+❖Samples: 3914
+A
+lorillard
+spokewoman
+said
+,
+this
+is
+an
+old
+story
+.
+DT
+NNP
+NN
+VBD
+,
+DT
+VBZ
+DT
+JJ
+NN
+.
+There
+is
+no
+asvestos
+in
+our
+products
+now
+.
+EX
+VBZ
+DT
+NN
+IN
+PRP$
+NNS
+RB
+.
+18
+POS Tagging
+POS Tagging using Hidden Markov Model
+!
+He
+x1
+will
+x2
+back
+x3
+the
+x4
+bill
+x5
+NOUN
+AUX
+VERB
+DET
+NOUN
+PART OF SPEECH TAGGER
+y1
+y2
+y3
+y4
+y5
+Hidden
+Unseen
+19
+POS Tagging
+POS Tagging using Hidden Markov Model
+!
+p = [0.1, 0.7, 0.2]
+20
+POS Tagging
+POS Tagging using Pre-trained Model - Demo
+!
+BERT
+1
+1
+0
+0
+1
+1
+1
+1
+1
+1
+0
+0
+[CLS]
+x1
+x2
+x3
+FC
+768 D
+Penn Treebank: 46 D
+21
+POS Tagging
+POS Tagging using Spacy
+!
+22
+Ø Introduction
+Ø Part-of-Speech Tagging (POS)
+Ø Named Entity Recognition (NER)
+Ø Medical Named Entity Recognition
+Outline
+23
+Named Entity Recognition
+Example
+!
+24
+Named Entity Recognition
+Named Entity Recognition (NER) – Information Extraction
+!
+❖Mapping span of text into entity tag
+❖Four entity tags are most common
+❖Other entity: Date, Time, Price,…
+25
+Named Entity Recognition
+Span Recognition Problem
+!
+How to segment ?
+26
+Named Entity Recognition
+Span Recognition Problem
+!
+How to label ?
+27
+Named Entity Recognition
+BIO Tagger
+!
+BIO Label
+B-PER
+I-PER
+O
+B-ORG
+I-ORG
+I-ORG
+O
+O
+B-LOC
+O
+O
+Words
+Jane
+Villanueva
+of
+United
+Airlines
+Holding
+discussed
+the
+Chicago
+route
+.
+28
+Named Entity Recognition
+BIO Tagger
+!
+BIO Label
+B-PER
+I-PER
+O
+B-ORG
+I-ORG
+I-ORG
+O
+O
+B-LOC
+O
+O
+Words
+Jane
+Villanueva
+of
+United
+Airlines
+Holding
+discussed
+the
+Chicago
+route
+.
+B: token that begins a span
+I: tokens inside a span
+O: tokens outside of any span
+# of tags (where n is #entity types):
+1 O tag, 
+n B tags, 
+n I tags
+=> 2n+1 tags
+29
+Named Entity Recognition
+BIO Tagger Variants: IO, BIOES
+!
+Words
+IO Label
+BIO Label
+BIOES Label
+Jane
+I-PER
+B-PER
+B-PER
+Villanueva
+I-PER
+I-PER
+E-PER
+of
+O
+O
+O
+United
+I-ORG
+B-ORG
+B-ORG
+Airlines
+I-ORG
+I-ORG
+I-ORG
+Holding
+I-ORG
+I-ORG
+E-ORG
+discussed
+O
+O
+O
+the
+O
+O
+O
+Chicago
+I-LOC
+B-LOC
+S-LOC
+route
+O
+O
+O
+.
+O
+O
+O
+30
+Named Entity Recognition
+BIO Tagger Variants: IO, BIOES
+!
+I-Pr
+I-Pr
+O
+O
+O
+I-Or
+O
+O
+O
+I-Lo
+I-Lo
+I-Lo
+B-Pr
+I-Pr
+O
+O
+O
+B-Or
+O
+O
+O
+B-Lo
+I-Lo
+I-Lo
+B-Pr
+E-Pr
+O
+O
+O
+B-Or
+O
+O
+O
+B-Lo
+I-Lo
+E-Lo
+31
+Ø Introduction
+Ø Part-of-Speech Tagging (POS)
+Ø Named Entity Recognition (NER)
+Ø Medical Named Entity Recognition
+Outline
+32
+Medical NER
+NER Application for Medical Information Extraction
+!
+33
+Medical NER
+MACCROBAT2018
+!
+Standoff Format
+34
+Medical NER
+Medical NER using Pre-trained Model - Demo
+!
+BERT
+1
+1
+0
+0
+1
+1
+1
+1
+1
+1
+0
+0
+[CLS]
+x1
+x2
+x3
+FC
+768 D
+BIO Tags: 2N + 1
+Thanks!
+Any questions?
+35

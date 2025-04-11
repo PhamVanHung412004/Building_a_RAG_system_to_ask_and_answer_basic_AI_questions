@@ -1,0 +1,977 @@
+1
+AI VIETNAM
+All-in-One Course
+1
+AI VIETNAM
+All-in-One Course
+Lane Detection
+(Computer Vision Foundation)
+Year 2023
+Vinh Dinh Nguyen
+PhD in Computer Science
+AI VIETNAM
+All-in-One Course
+2
+AI VIETNAM
+All-in-One Course
+2
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Background Subtraction Assignment: Review
+Ø Grayscale Conversion
+Ø Image Blurring Techniques
+Ø Region of Interest (ROI)
+Ø Line Detection based on Hough Transform
+Ø Lane Detection Demo
+Outline
+3
+AI VIETNAM
+All-in-One Course
+3
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Background Subtraction Assignment: Review
+Ø Grayscale Conversion
+Ø Image Blurring Techniques
+Ø Region of Interest (ROI)
+Ø Line Detection based on Hough Transform
+Ø Lane Detection Demo
+Outline
+4
+AI VIETNAM
+All-in-One Course
+4
+Vinh Dinh Nguyen- PhD in Computer Science
+Assignment 1 Review
+5
+AI VIETNAM
+All-in-One Course
+5
+Vinh Dinh Nguyen- PhD in Computer Science
+Edge Detection: Canny Algorithm
+lower = 50 # Lower Threshold
+upper = 150 # Upper threshold
+lower = 250 # Lower Threshold
+upper = 300 # Upper threshold
+With edge detection, we can determine the
+objects on the image without other details
+6
+AI VIETNAM
+All-in-One Course
+6
+Vinh Dinh Nguyen- PhD in Computer Science
+1D Edge Detection
+Edge is a rapid change in image intensity in a small region
+f(x)
+Edge
+Edge
+Basic calculus: Derivative of a continous 
+functions represent the amount of 
+changes in the function
+f(x)
+𝜕f
+𝜕𝑥
+𝜕f
+𝜕𝑥
+Local Extrema to Indicate Edge
+Local Maxima to Indicate Edge
+7
+AI VIETNAM
+All-in-One Course
+7
+Vinh Dinh Nguyen- PhD in Computer Science
+2D Edge Detection
+I(x,y)
+Edge
+Edge
+Basic calculus: Partial derivatives of 2D 
+continuous function represents the amount 
+of changes along each dimension.
+∇𝐼=
+𝜕𝐼
+𝜕𝑥, 0
+∇𝐼= 0, 𝜕𝐼
+𝜕𝑦
+∇𝐼=
+𝜕𝐼
+𝜕𝑥, 𝜕𝐼
+𝜕𝑦
+Continuous case
+Discrete case
+Can be implemented 
+as Convolution
+8
+AI VIETNAM
+All-in-One Course
+8
+Vinh Dinh Nguyen- PhD in Computer Science
+Gaussian Filter
+9
+AI VIETNAM
+All-in-One Course
+9
+Vinh Dinh Nguyen- PhD in Computer Science
+Image Gradient
+An image gradient is defined as a directional change in image intensity
+Vertical change
+Horizontal change
+The gradient magnitude is used to measure how strong the change in image intensity is
+The gradient orientation is used to determine in which direction the change in intensity is pointing
+10
+AI VIETNAM
+All-in-One Course
+10
+Vinh Dinh Nguyen- PhD in Computer Science
+Image Gradient
+11
+AI VIETNAM
+All-in-One Course
+11
+Vinh Dinh Nguyen- PhD in Computer Science
+Image Gradient
+12
+AI VIETNAM
+All-in-One Course
+12
+Vinh Dinh Nguyen- PhD in Computer Science
+Image Gradient
+X-gradient
+Y-gradient
+Gradient magnitude
+Gradient Direction
+Gradient magnitude edges thicker than many edge detection. Next step is
+the make edges one pixel thick.
+13
+AI VIETNAM
+All-in-One Course
+13
+Vinh Dinh Nguyen- PhD in Computer Science
+Non-Maximal Suppression
+14
+AI VIETNAM
+All-in-One Course
+14
+Vinh Dinh Nguyen- PhD in Computer Science
+Non-Maximal Suppression
+15
+AI VIETNAM
+All-in-One Course
+15
+Vinh Dinh Nguyen- PhD in Computer Science
+Non-Maximal Suppression
+16
+AI VIETNAM
+All-in-One Course
+16
+Vinh Dinh Nguyen- PhD in Computer Science
+Non-Maximal Suppression
+17
+AI VIETNAM
+All-in-One Course
+17
+Vinh Dinh Nguyen- PhD in Computer Science
+Non-Maximal Suppression
+Check every pixel on the Gradient magnitude image and choose 2 neighbor of the pixel according to Gradient Direction. If center pixel is
+larger than the both neighbors then keep it, otherwise set the pixel to 0.
+Hãy cho biết kết quảkhi thực hiện Non-Maximal
+Suppression trên 2 ví dụtrên?
+18
+AI VIETNAM
+All-in-One Course
+18
+Vinh Dinh Nguyen- PhD in Computer Science
+Non-Maximal Suppression
+Gradient magnitude
+Gradient NMS
+19
+AI VIETNAM
+All-in-One Course
+19
+Vinh Dinh Nguyen- PhD in Computer Science
+Double threshold
+The double threshold step aims at identifying 3 kinds of pixels:
+strong, weak, and non-relevant
+Gradient NMS
+Double Threshold
+20
+AI VIETNAM
+All-in-One Course
+20
+Vinh Dinh Nguyen- PhD in Computer Science
+Edge Tracking by Hysteresis
+Based on the threshold results, the hysteresis consists of transforming weak pixels into strong ones
+Double Threshold
+Final Result
+21
+AI VIETNAM
+All-in-One Course
+21
+Vinh Dinh Nguyen- PhD in Computer Science
+Review Online Shape Detection
+22
+AI VIETNAM
+All-in-One Course
+22
+Vinh Dinh Nguyen- PhD in Computer Science
+Online Shape Detection
+RGB image
+Grayscale image
+Binary Image
+Inverse Binary Image
+Result
+23
+AI VIETNAM
+All-in-One Course
+23
+Vinh Dinh Nguyen- PhD in Computer Science
+Background Substraction
+24
+AI VIETNAM
+All-in-One Course
+24
+Vinh Dinh Nguyen- PhD in Computer Science
+Simple Approach
+1. Estimate the background for time t. 
+2. Subtract the estimated background from the input frame. 
+3. Apply a threshold T to the absolute difference to get the foreground mask.
+Prof. Birgi Tamersoy. The University of Texas at Austin
+how can we estimate the background?
+Time t
+Time t + 1
+Depending on the object structure, speed, frame rate 
+and global threshold, this approach may or may not 
+be useful 
+25
+AI VIETNAM
+All-in-One Course
+25
+Vinh Dinh Nguyen- PhD in Computer Science
+Simple Approach
+Depending on the object structure, speed, frame rate 
+and global threshold, this approach may or may not 
+be useful 
+26
+AI VIETNAM
+All-in-One Course
+26
+Vinh Dinh Nguyen- PhD in Computer Science
+Mean Filter
+The background is the mean of the previous n frames
+n = 10
+n = 20
+n = 50
+27
+AI VIETNAM
+All-in-One Course
+27
+Vinh Dinh Nguyen- PhD in Computer Science
+Median Filter
+Assuming that the background is more likely to appear in a scene, we can use the median of the previous n frames as the background model
+n = 10
+Mean Filter
+n = 50
+Median Filter
+n = 20
+28
+AI VIETNAM
+All-in-One Course
+28
+Vinh Dinh Nguyen- PhD in Computer Science
+Temporal Average Filter
+29
+AI VIETNAM
+All-in-One Course
+29
+Vinh Dinh Nguyen- PhD in Computer Science
+ 
+ 
+Dicussion
+Advantages: 
+– Extremely easy to implement and use! 
+– All pretty fast. 
+– Corresponding background models are not constant, they change over 
+time
+Disadvantages: 
+– Accuracy of frame differencing depends on object speed and frame rate! 
+– Mean and median background models have relatively high memory 
+requirements.
+– There is one global threshold, Th, for all pixels in the image 
+30
+AI VIETNAM
+All-in-One Course
+30
+Vinh Dinh Nguyen- PhD in Computer Science
+Quick Look at K-mean
+Advantages: 
+1. Select initial choice of K means
+2. Determine which sample belongs to which cluster
+∆!"= 1 if k = argmin x! −𝜇" #
+∆!"= 0 otherwise
+3. Define cost function
+J = ∑!$%
+&
+∑"$%
+'
+∆!" x! −𝜇" #
+4. Minimize the cost function based with respective to:
+()
+*! = −2 ∑!$%
+&
+∆!"(x! −𝜇")=−2 ∑!$%
+&
+∆!"(x! −𝜇") = 0
+∑!$%
+&
+∆!" x! = ∑!$%
+&
+∆!" 𝜇"
+𝜇" = 
+∑"#$
+%
+∆"! -"
+∑"#$
+%
+∆"!
+5. Go to step 2
+6. Do it until no further changes in assignment or until reach to maximum 
+number of iterations
+31
+AI VIETNAM
+All-in-One Course
+31
+Vinh Dinh Nguyen- PhD in Computer Science
+Quick look at Gaussian Mixture Model
+32
+AI VIETNAM
+All-in-One Course
+32
+Vinh Dinh Nguyen- PhD in Computer Science
+Quick look at Gaussian Mixture Model
+33
+AI VIETNAM
+All-in-One Course
+33
+Vinh Dinh Nguyen- PhD in Computer Science
+Quick look at Gaussian Mixture Model
+34
+AI VIETNAM
+All-in-One Course
+34
+Vinh Dinh Nguyen- PhD in Computer Science
+Quick look at Gaussian Mixture Model
+35
+AI VIETNAM
+All-in-One Course
+35
+Vinh Dinh Nguyen- PhD in Computer Science
+Quick look at Gaussian Mixture Model
+x1
+P(x|setosa)
+x1
+P(x|setosa)
+P(x|setosa) = ∑"$%
+'
+𝜋"Ν X|𝜇", ∑"
+𝜇%
+𝜇#
+𝜇.
+𝜎#
+𝜎%
+𝜎.
+Covariance Matrix
+0< 𝜋" < 1
+@
+"$%
+"
+𝜋" = 1
+Latent variable (binary): z"
+P(z"=1)= 𝜋"  
+P(z%=1)= 𝜋%  
+P(z#=1)= 𝜋#  
+P(z.=1)= 𝜋.  
+36
+AI VIETNAM
+All-in-One Course
+36
+Vinh Dinh Nguyen- PhD in Computer Science
+Quick look at Gaussian Mixture Model
+x1
+P(x|setosa)
+x1
+P(x|setosa)
+𝜇%
+𝜇#
+𝜇.
+𝜎#
+𝜎%
+𝜎.
+P(x| z"=1) = Ν X|𝜇", ∑"
+P(x| z%=1) = Ν X|𝜇", ∑%
+P(x) = ∑"$%
+"
+P(z"=1)P(x| z"=1)  
+P(z"=1|x) = P(x| /!=1)P(/!=1)
+1(3)
+P(X) =∏4$%
+&
+p(x4)
+For all samples
+ln(P(X)) =∏4$%
+&
+ln(p x4 )
+ln(P(X)) =∏4$%
+&
+ln(∑"$%
+'
+𝜋"Ν X|𝜇", ∑"
+)
+37
+AI VIETNAM
+All-in-One Course
+37
+Vinh Dinh Nguyen- PhD in Computer Science
+Quick look at Gaussian Mixture Model
+x1
+P(x|setosa)
+x1
+P(x|setosa)
+𝜇%
+𝜇#
+𝜇.
+𝜎#
+𝜎%
+𝜎.
+ln(P(X)) =∏4$%
+&
+ln(∑"$%
+'
+𝜋"Ν X|𝜇", ∑"
+)
+ln(P(X| 𝜋, 𝜇, ∑
+)) =∏4$%
+&
+ln(∑"$%
+'
+𝜋"Ν X|𝜇", ∑"
+)
+(ln(P(X| 5, *, ∑
+)
+(*!
+ = 0
+(ln(P(X| 5, *, ∑
+)
+( ∑!
+ = 0
+38
+AI VIETNAM
+All-in-One Course
+38
+Vinh Dinh Nguyen- PhD in Computer Science
+Mixture Model
+Intensity variation due to static scene (road), 
+and occasional moving objects (vehicles)
+Intuition: Pixels are background most of the time. We try to model the 
+distribution and then classify a pixel as a foreground or a background 
+based on this distribution.
+39
+AI VIETNAM
+All-in-One Course
+39
+Vinh Dinh Nguyen- PhD in Computer Science
+Gaussian Mixture Model
+Model by Gaussian 
+Distribution
+How about high dimensional GMM?
+Assump P(x) is made with K different Gaussians.
+1- Dimensional Gaussian
+40
+AI VIETNAM
+All-in-One Course
+40
+Vinh Dinh Nguyen- PhD in Computer Science
+Background Modeling with GMM
+• Given: A GMM for intensity/color variation at a pixel over time
+• Classify: Individual Gaussian as foreground or background
+Intuition: Pixels are background most of the time. That is, Gaussians with large supporting evidence (scale) 𝜔 and small 𝜎
+Large: 
+6
+7 = 𝐵𝑎𝑐𝑘𝑔𝑟𝑜𝑢𝑛𝑑
+Small: 
+6
+7 = 𝐹𝑜𝑟𝑒𝑔𝑟𝑜𝑢𝑛𝑑
+41
+AI VIETNAM
+All-in-One Course
+41
+Vinh Dinh Nguyen- PhD in Computer Science
+Change Detection Using GMM
+For each pixel:
+1. Compute pixel color histogram H using first N frames
+2. Normalize histogram: !𝐻=
+!
+"
+3. Model as !𝐻  mixture of K (3 to 5) Gaussians
+4. For each subsequent frame:
+       a. The pixel value X belongs to Gaussian k in GMM for which 𝑋−𝜇#  is minimum and 𝑋−𝜇#  < 2.5 𝜎𝑘
+       b. if 
+$
+% is large then classify pixel as background. Else classify as foreground
+       c. Update histogram H using new pixel intensity
+       d. if !𝐻 -
+!
+"  is large, we update !𝐻=
+!
+"  , and then refit GMM
+42
+AI VIETNAM
+All-in-One Course
+42
+Vinh Dinh Nguyen- PhD in Computer Science
+Background Subtraction With 
+Mixture of Gaussian (MOG) 
+43
+AI VIETNAM
+All-in-One Course
+43
+Vinh Dinh Nguyen- PhD in Computer Science
+Mixture of Gaussian (MOG) 
+Background Subtraction
+After
+background
+model
+estimation
+red
+distributions become the background model and
+black
+distributions
+are
+considered
+to
+be
+foreground
+44
+AI VIETNAM
+All-in-One Course
+44
+Vinh Dinh Nguyen- PhD in Computer Science
+Lane Detection Work Flow
+Read and  decode 
+video files into 
+frames 
+Covert to grayscle 
+image
+Noise Filtering
+Edge Detection
+ROI
+Line Detection 
+Hough Transform
+Lane Detection 
+Result
+45
+AI VIETNAM
+All-in-One Course
+45
+Vinh Dinh Nguyen- PhD in Computer Science
+Lane Detection Work Flow
+Read and  decode 
+video files into 
+frames 
+Covert to grayscle 
+image
+Noise Filtering
+Edge Detection
+ROI
+Line Detection 
+Hough Transform
+Lane Detection 
+Result
+46
+AI VIETNAM
+All-in-One Course
+46
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Background Subtraction Assignment: Review
+Ø Grayscale Conversion
+Ø Image Blurring Techniques
+Ø Region of Interest (ROI)
+Ø Line Detection based on Hough Transform
+Ø Lane Detection Demo
+Outline
+47
+AI VIETNAM
+All-in-One Course
+47
+Vinh Dinh Nguyen- PhD in Computer Science
+Color to Grayscale
+Original Image
+Grayscale Image
+(OpenCV) ITU-R 601-2 luma transform:  0.299 R + 0.587 G + 0.114 B
+Average-based method:  (R + G +  B) / 3
+The luminosity:  0.2126R+0.7152G+0.0722B
+Tại sao phải convert ảnh màu sang ảnh xám?
+48
+AI VIETNAM
+All-in-One Course
+48
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Background Subtraction Assignment: Review
+Ø Grayscale Conversion
+Ø Image Blurring Techniques
+Ø Region of Interest (ROI)
+Ø Line Detection based on Hough Transform
+Ø Lane Detection Demo
+Outline
+49
+AI VIETNAM
+All-in-One Course
+49
+Vinh Dinh Nguyen- PhD in Computer Science
+How Image Blurring Work
+Blur Image
+Original Image
+Edge Image
+Edge Image
+Gaussian Filter (5,5)
+No filter
+50
+AI VIETNAM
+All-in-One Course
+50
+Vinh Dinh Nguyen- PhD in Computer Science
+How Image Blurring Work
+Blurring an image is make the image less sharp. This can be done by smoothing the
+color transition between the pixels.
+Mean Filter (Average Filter/Box Filter)
+The greater value of kernel size, the greater _____ because the number of pixels
+involved is greater and the transition of colors become smoother.
+a = 3 and b = 3
+21x21
+31x31
+51
+AI VIETNAM
+All-in-One Course
+51
+Vinh Dinh Nguyen- PhD in Computer Science
+How Image Blurring Work
+The Gaussian smoothing operator is a 2-D convolution operator that is used to `blur'
+images and remove detail and noise.
+Gaussian Filter
+Approximation of 3 x 3 
+Gaussian kernel, 𝜎= 1
+21x21
+31x31
+Mean Filter
+Gaussian Filter
+52
+AI VIETNAM
+All-in-One Course
+52
+Vinh Dinh Nguyen- PhD in Computer Science
+How Image Blurring Work
+The Gaussian smoothing operator is a 2-D convolution operator that is used to `blur'
+images and remove detail and noise.
+Gaussian Filter
+Approximation of 3 x 3 
+Gaussian kernel, 𝜎= 1
+21x21
+31x31
+Mean Filter
+Gaussian Filter
+By changing the values in the kernel, 
+we can change the effect on the 
+image — blurring, sharpening, edge 
+detection, noise reduction, etc
+53
+AI VIETNAM
+All-in-One Course
+53
+Vinh Dinh Nguyen- PhD in Computer Science
+How Image Blurring Work
+The Gaussian smoothing operator is a 2-D convolution operator that is used to `blur'
+images and remove detail and noise.
+Gaussian Filter
+Approximation of 3 x 3 
+Gaussian kernel, 𝜎= 1
+21x21
+31x31
+Mean Filter
+Gaussian Filter
+A Gaussian blur is applied by convolving 
+the image with a Gaussian function.
+Weighted average of the pixel’s values and the 
+height of the curve at that point, the pixels in 
+the center of the group would contribute most 
+significantly to the resulting value
+54
+AI VIETNAM
+All-in-One Course
+54
+Vinh Dinh Nguyen- PhD in Computer Science
+How Image Blurring Work
+The Gaussian smoothing operator is a 2-D convolution operator that is used to `blur'
+images and remove detail and noise.
+Gaussian Filter
+Approximation of 3 x 3 
+Gaussian kernel, 𝜎= 1
+21x21
+31x31
+Mean Filter
+Gaussian Filter
+55
+AI VIETNAM
+All-in-One Course
+55
+Vinh Dinh Nguyen- PhD in Computer Science
+Gaussian Filter
+f
+𝑛7
+𝑛7*f
+56
+AI VIETNAM
+All-in-One Course
+56
+Vinh Dinh Nguyen- PhD in Computer Science
+How Image Blurring Work
+Blur Image
+Original Image
+Edge Image
+Edge Image
+Gaussian Filter (5,5)
+No filter
+57
+AI VIETNAM
+All-in-One Course
+57
+Vinh Dinh Nguyen- PhD in Computer Science
+Edge Detection
+Blur Image
+Edge Image
+Lane Detection Results
+Tại sao kết quả line detection lại không chính 
+xác?
+58
+AI VIETNAM
+All-in-One Course
+58
+Vinh Dinh Nguyen- PhD in Computer Science
+Edge Detection
+Blur Image
+Edge Image
+Ego-lane
+Lane Detection Results
+59
+AI VIETNAM
+All-in-One Course
+59
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Background Subtraction Assignment: Review
+Ø Grayscale Conversion
+Ø Blurring Techniques
+Ø Region of Interest (ROI)
+Ø Line Detection based on Hough Transform
+Ø Lane Detection Demo
+Outline
+60
+AI VIETNAM
+All-in-One Course
+60
+Vinh Dinh Nguyen- PhD in Computer Science
+Region of Interest
+Blur Image
+Edge Image
+Ego-lane
+Ego-lane
+61
+AI VIETNAM
+All-in-One Course
+61
+Vinh Dinh Nguyen- PhD in Computer Science
+Region of Interest
+Blur Image
+Edge Image
+Ego-lane
+Line Detections
+62
+AI VIETNAM
+All-in-One Course
+62
+Vinh Dinh Nguyen- PhD in Computer Science
+Region of Interest
+Blur Image
+Edge Image
+Region of Interest
+Ego-lane
+63
+AI VIETNAM
+All-in-One Course
+63
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Background Subtraction Assignment: Review
+Ø Grayscale Conversion
+Ø Blurring Techniques
+Ø Region of Interest (ROI)
+Ø Line Detection based on Hough Transform
+Ø Lane Detection Demo
+Outline
+64
+AI VIETNAM
+All-in-One Course
+64
+Vinh Dinh Nguyen- PhD in Computer Science
+Line Detection Clearly Explain
+Given a set of edge points or a binary image indicating edges, we want to find as many lines that connect these points in image space.
+65
+AI VIETNAM
+All-in-One Course
+65
+Vinh Dinh Nguyen- PhD in Computer Science
+Line Detection Clearly Explain
+Say we have 2 edge points (x1,y1) and (x2,y2). For each edge point at various gradient values (m=-0.5, 1.0, 1.5, etc.), we calculate
+the corresponding b values. The image below shows the various lines through an edge point in image space and the plot of these lines
+in parameter space. Points which are collinear in the cartesian image space will intersect at a point in (m,b) parameter space.
+All points on a line in image space intersect at a common point in parameter space. This common point (m, b) represents the line in image 
+space.
+Unfortunately, the slope, m, is undefined
+when the line is vertical (division by 0!).
+To overcome this, we use another
+parameter space, the Hough space.
+How it works - angle-distance 
+parameter space
+66
+AI VIETNAM
+All-in-One Course
+66
+Vinh Dinh Nguyen- PhD in Computer Science
+Line Detection Clearly Explain
+Phương trình đường thẳng cơ bản:
+Ý tưởng chung của việc phát hiện đường thẳng trong thuật toán 
+này là tạo mapping từ không gian ảnh (A) sang một không gian 
+mới (B) mà mỗi đường thẳng trong không gian (A) sẽ ứng với 
+một điểm trong không gian (B).
+Phương trình đường thẳng theo toạ đô cực:
+67
+AI VIETNAM
+All-in-One Course
+67
+Vinh Dinh Nguyen- PhD in Computer Science
+Line Detection Clearly Explain
+68
+AI VIETNAM
+All-in-One Course
+68
+Vinh Dinh Nguyen- PhD in Computer Science
+Line Detection Clearly Explain
+Phương trình đường thẳng cơ bản:
+At this point, it is easy to see that each different line through the point (xi,yi) corresponds to one of the points on the line in the (m,c) space.
+Lines through a point in the Cartesian domain
+69
+AI VIETNAM
+All-in-One Course
+69
+Vinh Dinh Nguyen- PhD in Computer Science
+Line in Image Space to Point in Hough Space
+Straight Line: Image Space
+Point (Hough Space)
+70
+AI VIETNAM
+All-in-One Course
+70
+Vinh Dinh Nguyen- PhD in Computer Science
+Mapping from Image space to Hough space
+It turns out that these points in (ρ, θ) space are forming a sinusoid
+71
+AI VIETNAM
+All-in-One Course
+71
+Vinh Dinh Nguyen- PhD in Computer Science
+Point in Image Space to Sine in Hough Space
+72
+AI VIETNAM
+All-in-One Course
+72
+Vinh Dinh Nguyen- PhD in Computer Science
+Point in Image Space to Sine in Hough Space
+73
+AI VIETNAM
+All-in-One Course
+73
+Vinh Dinh Nguyen- PhD in Computer Science
+Point in Image Space to Sine in Hough Space
+74
+AI VIETNAM
+All-in-One Course
+74
+Vinh Dinh Nguyen- PhD in Computer Science
+Mỗi đường thẳng khác nhau sẽ tạo thành một điểm sáng (nơi giao nhau của nhiều hình sin) trên không gian Hough. Dưới đây là sự 
+biểu diễn 2 đường thẳng trong không gian Hough.
+75
+AI VIETNAM
+All-in-One Course
+75
+Vinh Dinh Nguyen- PhD in Computer Science
+Summary in Line Detection
+To sum up, we observed following relations between Image space and Hough space:
+Straight line →Point
+Point →Sinusoid
+Multiple points on Straight line →Multiple sinusoids intersecting at a point
+Multiple lines →Multiple sinusoid with multiple points of intersection
+76
+AI VIETNAM
+All-in-One Course
+76
+Vinh Dinh Nguyen- PhD in Computer Science
+Lane Detection Clearly Explain
+http://homepages.inf.ed.ac.uk/amos/hough.html
+77
+AI VIETNAM
+All-in-One Course
+77
+Vinh Dinh Nguyen- PhD in Computer Science
+Line Detection: Hough Transform
+Input Image
+Line Detection Result
+78
+AI VIETNAM
+All-in-One Course
+78
+Vinh Dinh Nguyen- PhD in Computer Science
+Line Detection: Hough Transform
+Input Image
+Line Detection Result
+Line in the image space can be expressed with two variables
+y = ax + b
+ρ = x cos(θ) + y sin(θ)
+79
+AI VIETNAM
+All-in-One Course
+79
+Vinh Dinh Nguyen- PhD in Computer Science
+Line Detection: Hough Transform
+Input Image
+Line Detection Result
+The yellow dots in the Hough Space indicate that lines exist and are represented by the θ and ρ pairs.
+80
+AI VIETNAM
+All-in-One Course
+80
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Background Subtraction Assignment: Review
+Ø Grayscale Conversion
+Ø Blurring Techniques
+Ø Region of Interest (ROI)
+Ø Line Detection based on Hough Transform
+Ø Lane Detection Demo
+Outline
+81
+AI VIETNAM
+All-in-One Course
+81
+Vinh Dinh Nguyen- PhD in Computer Science
+Lane Detection Demo
+82
+AI VIETNAM
+All-in-One Course
+82
+Vinh Dinh Nguyen- PhD in Computer Science
+Research Challenges
+83
+AI VIETNAM
+All-in-One Course

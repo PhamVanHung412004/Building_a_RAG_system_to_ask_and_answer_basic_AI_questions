@@ -1,0 +1,269 @@
+Project
+-
+Signal Processing
+Music Genre Classification
+Year 2023
+Ø Giới thiệu – Bộ dữ liệu GTZAN
+Ø Phương pháp tiếp cận
+Ø Xử lý tín hiệu – Nền tảng
+Ø Music Genre Classification
+Outline
+Giới thiệu – Bộ dữ liệu GTZAN
+GTZAN Dataset thường 
+được xem như là bộ 
+“MNIST” 
+cho âm nhạc
+1000 bản nhạc
+10 thể loại
+30s/bài
+Phương pháp tiếp cận
+Chúng ta sẽ tăng 
+số lượng data 
+bằng cách phân 
+mỗi bản nhạc 
+thành 10 đoạn 
+nhỏ 3s
+Phương pháp tiếp cận
+f1
+Chiết xuất các 
+thuộc tính âm thanh
+f2
+f3
+fn
+f4
+Hidden 
+Layer 1
+Hidden 
+Layer 2
+Hidden 
+Layer n
+Output 
+Layer
+y1
+y2
+y3
+y10
+y4
+Softmax
+p1
+p2
+p3
+p10
+p4
+Class
+Probability
+max
+p3
+Prediction
+class: Rock
+Cross Entropy Loss
+Cross Entropy Loss
+1
+2
+3
+4
+Output layer
+prediction 
+value
+1%
+1%
+97%
+1%
+Apply Softmax to 
+get class probability
+3
+Case 1:
+Ground truth 
+is class 3
+Compute negative 
+log-likelihood
+-log(0.97) = 0.013
+the model predict 97% is class 3
+Case 2:
+Ground truth 
+is class 1
+1
+-log(0.01) = 2
+This is our Cross Entropy Loss
+Xử lý tín hiệu
+Nền tảng
+Year 2023
+Biểu đồ sóng (Waveform)
+Biểu diễn hình ảnh của 
+một tín hiệu âm thanh
+Hiển thị biên độ tín 
+hiệu theo thời gian
+Trục dọc biểu diễn 
+cường độ của âm 
+thanh.
+Trục ngang biểu diễn 
+thời gian
+Tốc độ lấy mẫu (Sampling Rate)
+Âm thanh là một tín 
+hiệu liên tục
+Máy tính cần tín hiệu 
+rời rạc để xử lý
+Sampling rate = 
+Số lượng điểm dữ liệu 
+lấy trong 1 giây
+22.050 điểm dữ liệu / 1s
+Nyquist-Shannon 
+Sampling Theorem
+MIR thường chọn
+sr = 22.050Hz
+sr = 44.100Hz
+Tốc độ lấy mẫu (Sampling Rate)
+8000 điểm dữ liệu / 1s
+Thông thường trong sử 
+lý giọng nói sr phù hợp
+sr = 8000 Hz
+sr = 16000 Hz
+SR càng lớn càng thể 
+hiện chính xác tín hiệu
+Tuy nhiên số lượng cần 
+xử lý rất lớn
+Tốc độ lấy mẫu (Sampling Rate)
+Chúng ta gần như 
+không thể nhận diện 
+được bài nhạc ở tốc độ 
+lấy mẫu này
+Tốc độ lấy mẫu (Sampling Rate)
+Ở tốc độ lấy mẫu này 
+chúng ta không còn 
+nghe được âm thanh 
+được nữa
+Biểu đồ phổ (Spectrogram)
+Ảnh phổ cho chúng ta 
+thấy bức tranh rõ hơn 
+về từng thành phần tần 
+số của âm thanh
+Rất tốt cho phân tích 
+chất giọng hoặc âm sắc
+Đối với phân tích 
+tiết tấu hoặc sắc thái 
+Waveform sẽ biểu diễn 
+đặc tính này tốt hơn
+Biểu đồ phổ (Spectrogram)
+Chúng ta có thể thấy 
+với sr = 8000, các 
+vùng tần số > 4000Hz 
+đã biến mất
+Điều này tuân theo
+Nyquist-Shannon 
+Sampling Theorem
+Biểu đồ phổ - Sampling rate = 8000 Hz
+Khi nghe bài nhạc 
+này ở sr = 8000Hz, 
+chúng ta sẽ nghe được 
+sự thiếu hụt những 
+âm thanh cao tầng 
+> 4000 Hz
+Năng lượng hiệu dụng (RMS-E)
+Âm lượng thực
+Âm lượng cảm nhận
+Bên phải có âm thực lớn hơn
+nhưng bên trái sẽ có cảm giác to hơn
+Thường được sử dụng trong chuẩn hoá 
+và nén file âm thanh
+Tần số cắt không (Zero-Crossing Rate)
+Tần số cắt không lớn cho thấy vị trí này 
+xuất hiện các âm thanh có tần số cao
+ZCR tăng đột ngột có thể cho 
+thấy sự xuất hiện của Nhiễu
+Phân tích giọng nói
+nguyên âm thường có ZCR thấp 
+còn phụ âm thường có ZCR cao hơn
+Spectral roll-off
+85% năng lượng nằm dưới đường này
+Giá trị roll-off nhỏ cho thấy âm thanh 
+tập trung nhiều ở vùng tần số thấp
+Giá trị roll-off lớn có thể giúp phân biệt sự 
+xuất hiện của nhạc cụ có tính hoà thanh cao
+Là một thuộc tính sử dụng khá 
+nhiều trong phân loại nhạc cụ
+Spectral Centroid
+Trọng tâm của âm thanh nằm tại đường này
+Cho thấy được độ 
+“tươi”/ “sáng” của âm thanh
+Giá trị Centroid thấp cho thấy âm thanh 
+tại vị trí này có cảm giác trầm, tối
+Giá trị Centroid cao cho thấy âm thanh 
+tại vị trí này có cảm giác tươi, sáng
+Spectral Bandwidth
+Thể hiện độ lớn của băng thông âm thanh
+Giá trị Bandwidth thấp cho thấy 
+âm thanh tại vị thí này “thuần”
+Giá trị Bandwidth lớn cho thấy âm thanh 
+tại vị thí này có mức độ hoà âm lớn
+Chroma
+Giá trị Chroma có thể cho 
+thấy được ngữ cảnh của 
+bản nhạc
+Là một thuộc tính cực kỳ 
+quan trọng trong bài toán 
+nhận diện hợp âm
+Harmonic/Percussive Source Separation 
+(HPSS)
+Trong phân tích âm nhạc chúng ta có thể phân tách âm thanh thành 2 thành phần chủ đạo
+HOÀ THANH  và  BỘ GÕ
+Harmonic/Percussive Source Separation 
+(HPSS)
+Hệ số Cepstral Tần số Mel (MFCC)
+Thường được sử dụng nhiều 
+trong phân tích giọng nói
+Là một công cụ rất quan 
+trọng trong sinh thiết học 
+giọng nói và bộ giả giọng
+Music Genre Classification - Project
+Phân mỗi bản nhạc 
+thành 10 đoạn 3s
+Trích xuất và tính 
+toán mean và var 
+của tất cả các 
+thuộc tính cho các 
+đoạn nhạc
+Chúng ta sẽ có tổng 
+cộng 60 features cho 
+mỗi đoạn nhạc
+Music Genre Classification - Project
+Sau khi phân đoạn và chiết xuất, tính toán các thuộc tính. Chúng ta sẽ có bộ dữ 
+liệu gồm 10000 đoạn nhạc với 60 thuộc tính đã được tính toán. Chúng ta sẽ lưu 
+trữ thông tin này trong file CSV và sữ dụng để huấn luyện mô hình.
+Chúng ta sẽ sử dụng mô hình Feed Forward Neural Network đơn giản cho bài 
+toán phân loại này với hàm loss Cross Entropy Loss và Adam Optimizer. 
+Music Genre Classification - Project
+f1
+Chiết xuất các 
+thuộc tính âm thanh
+f2
+f3
+fn
+f4
+Hidden 
+Layer 1
+Hidden 
+Layer 2
+Hidden 
+Layer n
+Output 
+Layer
+y1
+y2
+y3
+y10
+y4
+Softmax
+p1
+p2
+p3
+p10
+p4
+Class
+Probability
+max
+p3
+Prediction
+Cross Entropy Loss
+Music Genre Classification - Project
+Music Genre Classification - Project
+Music Genre Classification - Project

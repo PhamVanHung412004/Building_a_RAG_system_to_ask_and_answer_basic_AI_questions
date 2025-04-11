@@ -1,5 +1,0 @@
-abs ( x_pred - x_output ) * binary_mask ) / torch . nonzero (
-binary_mask , as_tuple = False ). size (0)
-14
-15 return loss
-6

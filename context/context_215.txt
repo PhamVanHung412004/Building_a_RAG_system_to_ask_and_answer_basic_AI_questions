@@ -1,0 +1,786 @@
+Support Vector Machine
+Dinh-Thang Duong – TA
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Exercise
+Year 2023
+Outline
+2
+➢Review
+➢Code Exercises
+➢Question
+Outline
+AI VIETNAM
+All-in-One Course
+(TA Session)
+3
+Review
+❖Introduction
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Support Vector Machine (SVM): A supervised-learning ML 
+algorithm that works by identifying the optimal hyperplane 
+that best separates data into different classes. 
+SVM was originally built for classification task (SVC) but was 
+later modified to fit for regression task (SVR) too.
+4
+Support Vector Machine
+❖Getting Started
+AI VIETNAM
+All-in-One Course
+(TA Session)
+How should we draw a line so that we can perfectly separate this dataset into 2 classes? 
+5
+Support Vector Machine
+❖Getting Started
+AI VIETNAM
+All-in-One Course
+(TA Session)
+There are many ways to draw the line
+Example 1
+Example 2
+6
+Support Vector Machine
+❖Getting Started
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Class -1
+Class 1
+With this line, we can now determine whether a new 
+data point belongs to Class -1 or Class 1 based on which 
+side of the line it falls on.
+This point is classified 
+as Class 1 since it lies 
+on right hand side of 
+the line.
+7
+Support Vector Machine
+❖Getting Started
+AI VIETNAM
+All-in-One Course
+(TA Session)
+However, in this situation, the result seems wrong since 
+the point is more closer to Class -1.
+=> This line is not really optimal.
+This point is classified 
+as Class 1 since it lies 
+on right hand side of 
+the line.
+What would be the best line?
+8
+Support Vector Machine
+❖Getting Started
+AI VIETNAM
+All-in-One Course
+(TA Session)
+This line looks awful because 
+the distances from points are 
+pretty close.
+This line looks better 
+since the distances to 
+nearest points are much 
+longer.
+9
+Support Vector Machine
+❖SVM idea
+AI VIETNAM
+All-in-One Course
+(TA Session)
+SVM idea: Find the line that best separates the data into 
+classes while maximizing the distances between nearest 
+points.
+Maximizing these!
+10
+Support Vector Machine
+❖Margin
+AI VIETNAM
+All-in-One Course
+(TA Session)
+The distance between the line and the nearest data point from 
+either of the two classes is called Margin.
+11
+Support Vector Machine
+❖Hard Margin SVM Idea
+AI VIETNAM
+All-in-One Course
+(TA Session)
+SVM idea: Find the line that best separates the data into 
+classes while maximizing the margin. This is called Hard 
+Margin SVM.
+max
+12
+Support Vector Machine
+❖Hard Margin SVM Problem
+AI VIETNAM
+All-in-One Course
+(TA Session)
+However, assume we have an outlier
+Using Hard Margin SVM, we might 
+have a line like this.
+Not a good classifier
+13
+Support Vector Machine
+❖Soft Margin SVM
+AI VIETNAM
+All-in-One Course
+(TA Session)
+To avoid this, we should allow 
+misclassifications.
+Not a good classifier
+How to avoid this case?
+Misclassification
+14
+Support Vector Machine
+❖Soft Margin SVM
+AI VIETNAM
+All-in-One Course
+(TA Session)
+However, when we have a new data point, we 
+might get it right.
+New Data Point 
+classified as Green
+15
+Support Vector Machine
+❖Soft Margin SVM
+AI VIETNAM
+All-in-One Course
+(TA Session)
+When we allow misclassifications, the distance between the 
+observations and the decision boundary is called Soft Margin 
+=> Soft Margin SVM (Support Vector Classifier).
+16
+Support Vector Machine
+❖Soft Margin SVM
+AI VIETNAM
+All-in-One Course
+(TA Session)
+To better have a sense of relation between data points and 
+Soft Margin, we draw two parallel lines to the Decision 
+Boundary on Support Vectors.
+Class -1
+Class 1
+Misclassification
+17
+Support Vector Machine
+❖Why “Support” Vector Machine
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Support Vectors
+We called “Support” Vector Classifier because the data 
+points on the edge and within the Soft Margin are called 
+Support Vectors.
+18
+Support Vector Machine
+❖SVM: Hyperplane
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Decision Boundary - Hyperplane
+The Decision Boundary (the red line) in SVM is also called 
+Hyperplane.
+19
+Support Vector Machine
+❖SVM: Hyperplane
+AI VIETNAM
+All-in-One Course
+(TA Session)
+In 2D space, decision 
+boundary is a line
+But in 3D, decision 
+boundary is instead a 
+plane
+2D
+line
+3D
+plane
+Higher
+Hyperplane
+20
+Support Vector Machine
+❖Hard Margin SVM: Prediction
+AI VIETNAM
+All-in-One Course
+(TA Session)
+𝑤∙𝑥+ 𝑏= 0
+How to use Hard Margin SVM for making prediction?
+X1
+X2
+X3
+X4
+X5
+X6
+…
+Xn
+W1
+W2
+W3
+W4
+W5
+W6
+…
+Wn
+b
+Y
+21
+Support Vector Machine
+❖Hard Margin SVM: Prediction
+AI VIETNAM
+All-in-One Course
+(TA Session)
+𝑤∙𝑥+ 𝑏= 0
+How to use Hard Margin SVM for making prediction?
+X1
+X2
+X3
+X4
+X5
+X6
+…
+Xn
+W1
+W2
+W3
+W4
+W5
+W6
+…
+Wn
+b
+Y
+𝑤∙𝑥+ 𝑏< −1
+𝑤∙𝑥+ 𝑏≥1
+22
+Support Vector Machine
+❖Hard Margin SVM: Prediction
+AI VIETNAM
+All-in-One Course
+(TA Session)
+With w = (1, -1) and b = -3 
+we get this hyperplane.
+Equation of Hyperplane
+𝑤∙𝑥+ 𝑏= 0
+•
+ℎ𝑥𝑖= ቊ+1 𝑖𝑓𝑤∙𝑥+ 𝑏≥1
+−1 𝑖𝑓𝑤∙𝑥+ 𝑏< −1
+•
+ℎ𝑥𝑖= 𝑠𝑖𝑔𝑛𝑤∙𝑥+ 𝑏
+Hypothesis Function h(x)
+We use the hypothesis function 
+to predict the class of a data 
+point.
+23
+Support Vector Machine
+❖Hard Margin SVM: Prediction
+AI VIETNAM
+All-in-One Course
+(TA Session)
+X1
+X2
+Y
+3
+4
+-1
+1
+4
+-1
+2
+3
+-1
+6
+-1
+1
+7
+-1
+1
+5
+-3
+1
+(1*3) + (-1*4) + (-3) = -7 < 0 
+(1*7) + (-1*-1) + (-3) = 5 > 0
+𝑦𝑝𝑟𝑒𝑑𝑖𝑐𝑡= +1
+𝑦𝑝𝑟𝑒𝑑𝑖𝑐𝑡= −1
+Classifying a data point using the 
+hyperplane.
+In this example, we use X1 and X2 to predict Y.
+With w = (1, -1) and b = -3, the equation of 
+hyperplane becomes:
+𝑤∙𝑥+ 𝑏= 𝑥1 −𝑥2 −3 = 0
+24
+Support Vector Machine
+❖Hard Margin SVM: Optimal Hyperplane
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Changing the value of 
+W and b gives us 
+different hyperplanes
+Find W and b such that 
+Hyperplane best 
+separates the data
+Hyperplane = 𝒘∙𝑥+ 𝒃= 0
+25
+Support Vector Machine
+❖Hard Margin SVM: Optimal Hyperplane
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Find W and b such that 
+Hyperplane best 
+separates the data
+Objective: max
+𝑤,𝑏
+2
+𝑤
+Objective: min
+𝑤,𝑏
+1
+2 𝑤2
+Constraints:
+•
+For y=1: 𝑤∙𝑥+ 𝑏≥1
+•
+For y=-1: 𝑤∙𝑥+ 𝑏≤−1
+=> y(𝑤∙𝑥+ 𝑏) ≥1
+2
+𝑤
+Compute w and b using sklearn
+Training phase
+x1
+x2
+y
+3
+4
+-1
+1
+4
+-1
+2
+3
+-1
+6
+-1
+1
+7
+-1
+1
+5
+-3
+1
+Support vectors
+Test phase
+x1
+x2
+8
+-2
+1
+3
+Linearly separable dataset
+𝑤𝑇∙𝑥𝑖+ 𝑏≤−1 𝑓𝑜𝑟𝑥𝑖ℎ𝑎𝑣𝑖𝑛𝑔𝑐𝑙𝑎𝑠𝑠−1
+𝑤𝑇∙𝑥𝑖+ 𝑏≥1 𝑓𝑜𝑟𝑥𝑖ℎ𝑎𝑣𝑖𝑛𝑔𝑐𝑙𝑎𝑠𝑠+ 1
+0.25 ∗8 + −0.25 ∗−2 + −0.75 = 1.75 > 1
+0.25 ∗1 + −0.25 ∗3 + −0.75 = −1.25 < −1
+27
+Support Vector Machine
+❖Soft Margin SVM: Optimal Hyperplane
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Find W and b such that Hyperplane 
+best separates the data
+Objective: min
+𝑤,𝑏
+1
+2 𝑤2 + 𝐶σ𝑖=1
+𝑚𝜁𝑖
+Constraint: yi 𝑤∙𝑥𝑖+ 𝑏≥1 −𝜁𝑖
+(𝜁𝑖≥0, 𝑖= 1,… , 𝑚)
+2
+𝑤
+28
+Support Vector Machine
+❖SVC Problem
+AI VIETNAM
+All-in-One Course
+(TA Session)
+1-Dimensional Space
+Can SVC handle this kind of data?
+29
+Support Vector Machine
+❖SVC Problem
+AI VIETNAM
+All-in-One Course
+(TA Session)
+In general, it is hard for Hard/Soft Margin Classifier to 
+handle this kind of data
+30
+Support Vector Machine
+❖Kernel SVM Idea
+AI VIETNAM
+All-in-One Course
+(TA Session)
+𝑥1
+𝑦
+Consider a 2-Dimensional space (with the same 
+data points from previous example).
+Now let’s make 𝒚= 𝒙𝟐
+31
+Support Vector Machine
+❖Kernel SVM Idea
+AI VIETNAM
+All-in-One Course
+(TA Session)
+𝑥1
+𝑦
+This is out data when we map from 1D to 2D
+32
+Support Vector Machine
+❖Kernel SVM Idea
+AI VIETNAM
+All-in-One Course
+(TA Session)
+𝑥1
+𝑦
+After mapping, now we can use a line to separate 
+our data into classes.
+33
+Support Vector Machine
+❖Kernel SVM Idea
+AI VIETNAM
+All-in-One Course
+(TA Session)
+𝑥1
+𝑦
+After mapping, now we can use a line to separate 
+our data into classes.
+Mapping from 1D to 2D
+Classify this as Orange
+34
+Support Vector Machine
+❖Kernel SVM Idea
+AI VIETNAM
+All-in-One Course
+(TA Session)
+𝑥1
+𝑦
+Kernel SVM Idea: Move the original data into 
+higher dimension, then find the best SVC on the 
+new data.
+Mapping from 1D to 2D
+Classify this as Orange
+35
+Support Vector Machine
+❖Kernel SVM Idea
+AI VIETNAM
+All-in-One Course
+(TA Session)
+𝑥1
+𝑦
+But why 𝑦= 𝑥2, can we use other equations, 
+how can we decide y?
+36
+Support Vector Machine
+❖Kernel
+AI VIETNAM
+All-in-One Course
+(TA Session)
+To decide the y, or to decide SVC in higher 
+dimensions, we use Kernel Functions.
+37
+Support Vector Machine
+❖Type of kernels
+AI VIETNAM
+All-in-One Course
+(TA Session)
+In general, we have some kernel types:
+•
+Linear
+•
+Polynomial
+•
+Radial Basis Function (RBF)
+•
+Sigmoid 
+Different results from different kernels using sklearn
+38
+Code Exercises
+❖Introduction
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Description: Build a Support Vector Classifier for Breast Cancer Recurrence Classification and a Support Vector 
+Regression for Auto Insurance Prediction. 
+39
+Code Examples
+❖BCR Prediction Step 1: Import libraries
+AI VIETNAM
+All-in-One Course
+(TA Session)
+40
+Code Examples
+❖BCR Prediction Step 2: Read dataset
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Detail information of the dataset here
+41
+Code Examples
+❖BCR Prediction Step 2: Read dataset
+AI VIETNAM
+All-in-One Course
+(TA Session)
+42
+Code Examples
+❖BCR Prediction Step 3: Dataset Information
+AI VIETNAM
+All-in-One Course
+(TA Session)
+43
+Code Examples
+❖BCR Prediction Step 4: Filling missing values
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Fill with the most appears value.
+X1
+X2
+X3
+1
+A
+yes
+1
+B
+yes
+2
+Y
+no
+5
+T
+yes
+1
+A
+yes
+1
+A
+yes
+44
+Code Examples
+❖BCR Prediction Step 4: Filling missing values
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Missing values are filled
+45
+Code Examples
+❖BCR Prediction Step 5: Encode categorical features
+AI VIETNAM
+All-in-One Course
+(TA Session)
+All features are categorical feature
+46
+Code Examples
+❖BCR Prediction Step 5: Encode categorical features
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Non-ranking features
+Ranking features
+47
+Code Examples
+❖BCR Prediction Step 5: Encode categorical features
+AI VIETNAM
+All-in-One Course
+(TA Session)
+•
+Non-ranking features: ['meonpause', 'node-caps', 'breast', 'breast-quad', 'irradiat’]
+•
+Ranking features: ['age', 'tumor-size', 'inv-nodes', 'deg-malig']
+48
+Code Examples
+❖BCR Prediction Step 5: Encode categorical features
+AI VIETNAM
+All-in-One Course
+(TA Session)
+For non-ranking features: Apply One-hot Encoding
+For ranking features: Apply Ordinal Encoding
+49
+Code Examples
+❖BCR Prediction Step 5: Encode categorical features
+AI VIETNAM
+All-in-One Course
+(TA Session)
+X1
+X2
+0
+yes
+1
+no
+2
+no
+3
+yes
+4
+yes
+5
+yes
+X1
+X2
+0
+1
+1
+0
+2
+0
+3
+1
+4
+1
+5
+1
+X1
+X2_Yes
+X2_No
+0
+1
+0
+1
+0
+1
+2
+0
+1
+3
+1
+0
+4
+1
+0
+5
+1
+0
+Encoding
+Ordinal Encoder
+Onehot Encoder
+50
+Code Examples
+❖BCR Prediction Step 5: Encode categorical features
+AI VIETNAM
+All-in-One Course
+(TA Session)
+X1
+Y
+0
+1
+1
+0
+2
+0
+3
+1
+4
+1
+5
+1
+51
+Code Examples
+❖BCR Prediction Step 6: Encode label
+AI VIETNAM
+All-in-One Course
+(TA Session)
+X1
+Y
+0
+yes
+1
+no
+2
+no
+3
+yes
+4
+yes
+5
+yes
+Label Encoder
+‘no’
+0
+‘yes’
+1
+52
+Code Implementation
+❖BCR Prediction Step 7: Normalization
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Using sklearn.preprocessing.StandardScaler() 
+to scale all values in dataset.
+53
+Code Examples
+❖BCR Prediction Step 8: Split train, val set
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Original Dataset
+Train Set
+Val set
+54
+Code Examples
+❖BCR Prediction Step 8: Train and evaluate SVM model
+AI VIETNAM
+All-in-One Course
+(TA Session)
+55
+Code Examples
+❖Auto Insurance Prediction Step 1: Import libraries
+AI VIETNAM
+All-in-One Course
+(TA Session)
+56
+Code Examples
+❖Auto Insurance Prediction Step 2: Read dataset
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Detail information of the dataset here
+57
+Code Examples
+❖Auto Insurance Prediction Step 3: Dataset information
+AI VIETNAM
+All-in-One Course
+(TA Session)
+58
+Code Examples
+❖Auto Insurance Prediction Step 4: Dataset Visualization
+AI VIETNAM
+All-in-One Course
+(TA Session)
+59
+Code Implementation
+❖Auto Insurance Prediction Step 5: Normalization
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Using sklearn.preprocessing.StandardScaler() 
+to scale all values in dataset.
+60
+Code Examples
+❖Auto Insurance Prediction Step 6: Split X, y and create train, val dataset
+AI VIETNAM
+All-in-One Course
+(TA Session)
+61
+Code Examples
+❖Auto Insurance Prediction Step 7: Train and evaluate SVM model
+AI VIETNAM
+All-in-One Course
+(TA Session)
+?
+62
+Question
+AI VIETNAM
+All-in-One Course
+(TA Session)
+63

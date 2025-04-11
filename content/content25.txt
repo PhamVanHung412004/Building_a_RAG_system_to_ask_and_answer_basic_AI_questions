@@ -1,2 +1,0 @@
-AI VIETNAM (AIO2024) aivietnam.edu.vn
-2 print (" Password / Enpoint IP for localtunnel is:", urllib . request . 

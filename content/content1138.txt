@@ -1,6 +1,0 @@
-data import Dataset
-9
-10 file_names = os. listdir (’./ img_align_celeba ’)
-11 img_paths = [’./ img_align_celeba /’ + file_name for file_name in file_names ]
-12
-3

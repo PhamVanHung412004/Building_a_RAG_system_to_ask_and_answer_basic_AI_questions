@@ -1,0 +1,427 @@
+1
+AI VIETNAM
+All-in-One Course
+1
+Deploy ML Models via a Web API On Local, Azure
+and PythonAnywhere Services By Examples
+Vinh Dinh Nguyen- PhD in Computer Science
+2
+AI VIETNAM
+All-in-One Course
+2
+Vinh Dinh Nguyen- PhD in Computer Science
+Objective
+1
+2
+3
+4
+5
+6
+Introduction to web server
+Introduction to Flask Rest API 
+Simple example by using client and server
+Deploy simple ML web API on local server
+Deploy ML web API on Azure
+Deploy ML web API on Python Anywhere
+3
+AI VIETNAM
+All-in-One Course
+3
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Limitations of Traditional Mobile-based ML Apps
+Ø What is a Rest API
+Ø Deploy ML API on Flask Server
+Ø Using ML API from Mobile Apps 
+Ø Deploy ML API on Azure Service
+Ø Deploy ML API on PythonAnyWhere Service
+Outline
+4
+AI VIETNAM
+All-in-One Course
+4
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Limitations of Traditional Mobile-based ML Apps
+Ø What is a Rest API
+Ø Deploy ML API on Flask Server
+Ø Using ML API from Mobile Apps 
+Ø Deploy ML API on Azure Service
+Ø Deploy ML API on PythonAnyWhere Service
+Outline
+5
+AI VIETNAM
+All-in-One Course
+5
+Vinh Dinh Nguyen- PhD in Computer Science
+ML App on Mobile Device
+6
+AI VIETNAM
+All-in-One Course
+6
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Limitations of Traditional Mobile-based ML Apps
+Ø What is a Rest API
+Ø Deploy ML API on Flask Server
+Ø Using ML API from Mobile Apps 
+Ø Deploy ML API on Azure Service
+Ø Deploy ML API on PythonAnyWhere Service
+Outline
+7
+AI VIETNAM
+All-in-One Course
+7
+Vinh Dinh Nguyen- PhD in Computer Science
+What is a Rest API?
+8
+AI VIETNAM
+All-in-One Course
+8
+Vinh Dinh Nguyen- PhD in Computer Science
+What is a Rest API?
+Ants and Bees Classification API
+Object classification results
+9
+AI VIETNAM
+All-in-One Course
+9
+Vinh Dinh Nguyen- PhD in Computer Science
+What is a API?
+URL endpoint: Is a URL link that represents the resources we want to 
+access. Resources can be text, images, documents or any data entry. 
+HTTP verb: Tells the server what we want to do with the URL endpoint resource. For example, a POST request means we want to create a 
+new survey template and a GET request means we want to view an existing survey template.
+Body message: Is an optional custom payload which contains a message with the properties and values we want to use to create or 
+update a given resource.
+An Application Programming Interface (API) is a way for two 
+computers to talk to each other over the web.
+10
+AI VIETNAM
+All-in-One Course
+10
+Vinh Dinh Nguyen- PhD in Computer Science
+What is a Rest?
+REST (REpresentational State Transfer)
+11
+AI VIETNAM
+All-in-One Course
+11
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Limitations of Traditional Mobile-based ML Apps
+Ø What is a Rest API
+Ø Deploy ML API on Flask Server
+Ø Using ML API from Mobile Apps 
+Ø Deploy ML API on Azure Service
+Ø Deploy ML API on PythonAnyWhere Service
+Outline
+12
+AI VIETNAM
+All-in-One Course
+12
+Vinh Dinh Nguyen- PhD in Computer Science
+Define Object Classification Module
+13
+AI VIETNAM
+All-in-One Course
+13
+Vinh Dinh Nguyen- PhD in Computer Science
+Define Flask Server Module
+14
+AI VIETNAM
+All-in-One Course
+14
+Vinh Dinh Nguyen- PhD in Computer Science
+Flask Server Deployment
+15
+AI VIETNAM
+All-in-One Course
+15
+Vinh Dinh Nguyen- PhD in Computer Science
+Sending and Receiving Request 
+Using Postman
+16
+AI VIETNAM
+All-in-One Course
+16
+Vinh Dinh Nguyen- PhD in Computer Science
+Deploy ML model as API
+ML model Development
+17
+AI VIETNAM
+All-in-One Course
+17
+Vinh Dinh Nguyen- PhD in Computer Science
+Deploy ML model as API
+API Development
+18
+AI VIETNAM
+All-in-One Course
+18
+Vinh Dinh Nguyen- PhD in Computer Science
+Deploy ML model as API
+API Testing
+19
+AI VIETNAM
+All-in-One Course
+19
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Limitations of Traditional Mobile-based ML Apps
+Ø What is a Rest API
+Ø Deploy ML API on Flask Server
+Ø Using ML API from Mobile Apps 
+Ø Deploy ML API on Azure Service
+Ø Deploy ML API on PythonAnyWhere Service
+Outline
+20
+AI VIETNAM
+All-in-One Course
+20
+Vinh Dinh Nguyen- PhD in Computer Science
+Flask Rest API and Mobile
+21
+AI VIETNAM
+All-in-One Course
+21
+Vinh Dinh Nguyen- PhD in Computer Science
+Internet Access Permission Configuration
+22
+AI VIETNAM
+All-in-One Course
+22
+Vinh Dinh Nguyen- PhD in Computer Science
+Retrofit Configuration
+Retrofit is an easy and fast library to retrieve and 
+upload data via a REST-based web service
+23
+AI VIETNAM
+All-in-One Course
+23
+Vinh Dinh Nguyen- PhD in Computer Science
+Retrofit Configuration
+24
+AI VIETNAM
+All-in-One Course
+24
+Vinh Dinh Nguyen- PhD in Computer Science
+Retrofit Configuration
+25
+AI VIETNAM
+All-in-One Course
+25
+Vinh Dinh Nguyen- PhD in Computer Science
+Simulator Deployment: 
+Flask Rest API and Mobile
+26
+AI VIETNAM
+All-in-One Course
+26
+Vinh Dinh Nguyen- PhD in Computer Science
+Local Network Deployment: 
+Flask Rest API and Mobile with ngrok
+https://ngrok.com/download
+27
+AI VIETNAM
+All-in-One Course
+27
+Vinh Dinh Nguyen- PhD in Computer Science
+Create Account in Ngrok
+ngrok config add-authtoken 69EL44epFLJ72q9H3esEP
+28
+AI VIETNAM
+All-in-One Course
+28
+Vinh Dinh Nguyen- PhD in Computer Science
+Setup Ngrok for Forwarding Request
+ngrok http http://127.0.0.1:5000
+29
+AI VIETNAM
+All-in-One Course
+29
+Vinh Dinh Nguyen- PhD in Computer Science
+Setup Ngrok for Forwarding Request
+30
+AI VIETNAM
+All-in-One Course
+30
+Vinh Dinh Nguyen- PhD in Computer Science
+Local Network Deployment: 
+Flask Rest API and Mobile
+31
+AI VIETNAM
+All-in-One Course
+31
+Vinh Dinh Nguyen- PhD in Computer Science
+Local Network Deployment: 
+Flask Rest API and Mobile
+32
+AI VIETNAM
+All-in-One Course
+32
+Vinh Dinh Nguyen- PhD in Computer Science
+Local Network Deployment: Real Device 
+Flask Rest API and Mobile
+33
+AI VIETNAM
+All-in-One Course
+33
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Limitations of Traditional Mobile-based ML Apps
+Ø What is a Rest API
+Ø Deploy ML API on Flask Server
+Ø Using ML API from Mobile Apps 
+Ø Deploy ML API on Azure Service
+Ø Deploy ML API on PythonAnyWhere Service
+Outline
+34
+AI VIETNAM
+All-in-One Course
+34
+Vinh Dinh Nguyen- PhD in Computer Science
+Web App in Flask
+Local address: http://127.0.0.1:5000/
+35
+AI VIETNAM
+All-in-One Course
+35
+Vinh Dinh Nguyen- PhD in Computer Science
+Web App in Flask
+Step 1: Create simple Flask project
+36
+AI VIETNAM
+All-in-One Course
+36
+Vinh Dinh Nguyen- PhD in Computer Science
+Web App in Flask
+Step 2: Go to the application folder and Create a virtual environment for the app
+37
+AI VIETNAM
+All-in-One Course
+37
+Vinh Dinh Nguyen- PhD in Computer Science
+Web App in Flask
+Step 3: Install the dependencies
+38
+AI VIETNAM
+All-in-One Course
+38
+Vinh Dinh Nguyen- PhD in Computer Science
+Web App in Flask
+Step 4: Run the app
+39
+AI VIETNAM
+All-in-One Course
+39
+Vinh Dinh Nguyen- PhD in Computer Science
+Web app On Azure
+Step 1: to host your application in Azure, you need to create Azure App Service web app in Azure.
+40
+AI VIETNAM
+All-in-One Course
+40
+Vinh Dinh Nguyen- PhD in Computer Science
+How to install the Azure CLI
+Install Azure CLI on macOS
+Install Azure CLI on Window
+https://learn.microsoft.com/en-us/cli/azure/install-azure-cli
+41
+AI VIETNAM
+All-in-One Course
+41
+Vinh Dinh Nguyen- PhD in Computer Science
+Create a Web app in Azure
+Step 2: Create the webapp and other resources, then deploy your code to Azure using az webapp up.
+42
+AI VIETNAM
+All-in-One Course
+42
+Vinh Dinh Nguyen- PhD in Computer Science
+Web App Services Management on Azure
+43
+AI VIETNAM
+All-in-One Course
+43
+Vinh Dinh Nguyen- PhD in Computer Science
+Web App Services Management on Azure
+44
+AI VIETNAM
+All-in-One Course
+44
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Limitations of Traditional Mobile-based ML Apps
+Ø What is a Rest API
+Ø Deploy ML API on Flask Server
+Ø Using ML API from Mobile Apps 
+Ø Deploy ML API on Azure Service
+Ø Deploy ML API on PythonAnyWhere Service
+Outline
+45
+AI VIETNAM
+All-in-One Course
+45
+Vinh Dinh Nguyen- PhD in Computer Science
+Web API on PythonAnyWhere
+46
+AI VIETNAM
+All-in-One Course
+46
+Vinh Dinh Nguyen- PhD in Computer Science
+Web API on PythonAnyWhere
+47
+AI VIETNAM
+All-in-One Course
+47
+Vinh Dinh Nguyen- PhD in Computer Science
+Web API on PythonAnyWhere
+48
+AI VIETNAM
+All-in-One Course
+48
+Vinh Dinh Nguyen- PhD in Computer Science
+Web API on PythonAnyWhere
+49
+AI VIETNAM
+All-in-One Course
+49
+Vinh Dinh Nguyen- PhD in Computer Science
+Web API on PythonAnyWhere
+50
+AI VIETNAM
+All-in-One Course
+50
+Vinh Dinh Nguyen- PhD in Computer Science
+Web API on PythonAnyWhere
+51
+AI VIETNAM
+All-in-One Course
+51
+Vinh Dinh Nguyen- PhD in Computer Science
+Web API on PythonAnyWhere
+52
+AI VIETNAM
+All-in-One Course
+52
+Vinh Dinh Nguyen- PhD in Computer Science
+Other Free Hosting Services
+53
+AI VIETNAM
+All-in-One Course
+53
+Vinh Dinh Nguyen- PhD in Computer Science
+Summary
+•
+How to build a simple ML server
+•
+How to connect ML API from mobile to local 
+server
+•
+How to connect ML API from mobile to Azure 
+server
+•
+How to connect ML API from PythonAnyWhere 
+Server
+54
+AI VIETNAM
+All-in-One Course
+54
+Vinh Dinh Nguyen- PhD in Computer Science
+55
+AI VIETNAM
+All-in-One Course

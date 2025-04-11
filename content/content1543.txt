@@ -1,7 +1,0 @@
-AI VIETNAM aivietnam.edu.vn
-(a) Discrete(4)
-(b) Discrete(5)
-(c) Discrete(6)
-(d) Discrete(7)
-6. Trong Reinforcement Learning, Policy là gì?
-(a) Hàm ánh xạ hành động sang điểm thưởng.

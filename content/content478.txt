@@ -1,2 +1,0 @@
-append ( str ( Path ( __file__ ). parent . parent ))
-12

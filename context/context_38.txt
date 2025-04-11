@@ -1,0 +1,1227 @@
+Logistic Regression
+Dinh-Thang Duong – TA
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Exercise
+Year 2023
+Outline
+2
+Ø Review
+Ø Titanic Survival Prediction
+Ø Sentiment Analysis
+Ø Question
+Outline
+AI VIETNAM
+All-in-One Course
+(TA Session)
+3
+Review
+v Introduction
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Problem Statement: Given a review, classify it into one 
+of the three classes: Positive, Negative or Neutral. 
+Input: “Delicious food for an affordable price. Nice 
+view. Fast service. We will definitely be visiting again.”
+Output: “Positive”
+Positive
+Negative
+“Delicious food for an 
+affordable price. Nice view. 
+Fast service. We will definitely 
+be visiting again.” 
+“Food was terrible with 
+unprofessional service. I will 
+never revisit this restaurant 
+again.”
+!
+"
+#
+$
+%
+&
+'
+Sentiment Analysis Problem
+4
+Review
+v Probabilistic Classifier
+AI VIETNAM
+All-in-One Course
+(TA Session)
+“Delicious food for an 
+affordable price. Nice view. 
+Fast service. We will 
+definitely be visiting again.”
+Probabilistic 
+Classifier
+𝑃𝑦= 0 𝑥= 0.3
+𝑃𝑦= 1 𝑥= 0.7
+Positive
+Input
+Output
+5
+Review
+v Logistic Regression
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Logistic Regression: A statistical method used for binary 
+classification and probability estimation. This is one of the 
+fundamental tools in ML and statistics that models the 
+relationship between one or more features and binary 
+outcome variable.
+https://en.wikipedia.org/wiki/Logistic_regression
+6
+Review
+v Logistic Regression
+AI VIETNAM
+All-in-One Course
+(TA Session)
+“Delicious food for an 
+affordable price. Nice view. 
+Fast service. We will 
+definitely be visiting again.”
+Logistic 
+Regression
+𝑃𝑦= 1 𝑥= 0.7
+𝑃𝑦= 0 𝑥= 1 −𝑃(𝑦= 1|𝑥)
+Positive
+Input
+Output
+7
+Review
+v Logistic Regression
+AI VIETNAM
+All-in-One Course
+(TA Session)
+“Delicious food for an 
+affordable price. Nice view. 
+Fast service. We will 
+definitely be visiting again.”
+Raw Text
+Features Vector 
+Representation
+𝒙𝟏
+𝒙𝟐
+𝒙𝟑
+…
+𝒙𝒏
+𝒙𝟏
+𝒙𝟐
+𝒙𝟑
+…
+𝒙𝒏
+𝒘𝟏
+𝒘𝟐
+𝒘𝟑
+…
+𝒘𝒏
+Features X
+Weights W
+X
+y
+𝑥(&)
+𝑦(&)
+𝑥(()
+𝑦(()
+𝑥())
+𝑦())
+…
+…
+𝑥(*)
+𝑦(*)
+Training Data
+learning
+When make a decision: 𝑧= 1
++,&
+*
+𝑤+𝑥+ + 𝑏= 𝑤5 𝑥+ 𝑏
+b
+The bias term
+8
+Review
+v Logistic Regression: Sigmoid function
+AI VIETNAM
+All-in-One Course
+(TA Session)
+When make a decision: 𝑧= 1
++,&
+*
+𝑤+𝑥+ + 𝑏= 𝑤5 𝑥+ 𝑏
+The value of this formula ranges from (−∞, +∞).
+=> Not introduce probability.
+To create probability, we will pass z to sigmoid function.
+𝜎𝑧=
+1
+1 + 𝑒-. =
+1
+1 + exp(−𝑧)
+9
+Review
+v Logistic Regression property
+AI VIETNAM
+All-in-One Course
+(TA Session)
+𝜎𝑧=
+1
+1 + 𝑒-. =
+1
+1 + exp(−𝑧)
+•
+𝑧= ∑+,&
+*
+𝑤+𝑥+ + 𝑏= 𝑤5 𝑥+ 𝑏
+•
+𝑃𝑦= 1 = 𝜎𝑧=
+&
+&/012(-.)
+•
+𝑃𝑦= 0 = 1 −𝜎𝑧= 1 −
+&
+&/012 -. =
+012(-.)
+&/012(-.)
+1 −𝜎𝑧=
+exp −𝑧
+1 + exp −𝑧=
+1
+1
+exp −𝑧+ 1
+=
+1
+1 + exp 𝑧= 𝜎−𝑧
+=> P y = 0 = 1 −𝜎𝑧= 𝜎−𝑧
+We need to make sure the sum of two cases = 1:
+10
+Review
+v Logistic Regression Prediction
+AI VIETNAM
+All-in-One Course
+(TA Session)
+𝑝𝑟𝑒𝑑𝑖𝑐𝑡𝑥= F1 𝑖𝑓𝑃𝑦= 1 𝑥> 𝑡ℎ𝑟𝑒𝑠ℎ𝑜𝑙𝑑
+0
+𝑜𝑡ℎ𝑒𝑟𝑤𝑖𝑠𝑒
+When making a prediction:
+11
+Review
+v Logistic Regression loss function
+AI VIETNAM
+All-in-One Course
+(TA Session)
+•
+𝑧= ∑+,&
+*
+𝑤+𝑥+ + 𝑏= 𝑤5 𝑥+ 𝑏
+•
+ŷ = 𝜎𝑧=
+&
+&/3!" =
+&
+&/012(-.)
+Now we want to measure how different between 
+ŷ (prediction) and y (true label) => 𝐿(ŷ, y)
+•
+𝑝𝑦𝑥= ŷ4 1 −ŷ &-4 (Bernoulli Distribution)
+•
+log 𝑝𝑦𝑥
+= log ŷ4 1 −ŷ &-4
+= log ŷ4) + log( 1 −ŷ &-4
+= ylog ŷ + 1 −𝑦log(1 −ŷ)
+•
+𝐿ŷ, 𝑦= −log 𝑝𝑦𝑥
+= −[𝑦𝑙𝑜𝑔ŷ + 1 −𝑦log 1 −ŷ ]
+=> Cross-entropy loss.
+Case 1 (Correct prediction): ŷ = 0.7 and 𝑦= 1
+ 𝐿ŷ, 𝑦= −log 𝑝𝑦𝑥
+= −[𝑦𝑙𝑜𝑔ŷ + 1 −𝑦log 1 −ŷ ]
+= −𝑙𝑜𝑔ŷ = −log 0.7 = 0.36
+Case 2 (Wrong prediction): ŷ = 0.7 and 𝑦= 0
+ 𝐿ŷ, 𝑦= −log 𝑝𝑦𝑥
+= −[𝑦𝑙𝑜𝑔ŷ + 1 −𝑦log 1 −ŷ ]
+= −𝑙𝑜𝑔1 −ŷ = −log 0.3 = 1.2
+12
+Review
+v Logistic Regression objective
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Our objective is to find the optimal weights and 
+bias (theta) that minimize the loss function:
+W𝜃= 𝑎𝑟𝑔min
+5
+1
+𝑛1
++,&
+*
+𝐿(ŷ+, 𝑦+)
+For each step, compute the gradient and update 
+the current theta:
+•
+∇5#𝐿=
+&
+6 𝑋+7 (ŷ+ −𝑦+)
+•
+𝜃8/& = 𝜃8 −𝜂∇5#𝐿
+Gradient Descent
+13
+Review
+v Logistic Regression objective
+AI VIETNAM
+All-in-One Course
+(TA Session)
+For each step, compute the gradient and update 
+the current theta:
+•
+∇5#𝐿=
+&
+6 𝑋+7 (ŷ+ −𝑦+)
+•
+𝜃8/& = 𝜃8 −𝜂∇5#𝐿
+•
+Stochastic GD: batch_size = 1
+•
+Mini-Batch GD: 1 < batch_size < N
+•
+Batch GD: batch_size = N
+# Given X and y
+4) Compute derivative
+5) Update parameters
+1) Pick a sample (𝒙, 𝑦) from training data   
+2) Compute output a𝑦
+3) Compute loss
+𝑧= 𝜽!𝒙= 𝒙!𝜽
+𝐿('𝑦, 𝑦) = −ylog'y−(1−y)log(1−'y )
+𝛻𝜽𝐿= 𝒙('𝑦−𝑦)
+𝜽= 𝜽−𝜂𝛻𝜽𝐿
+𝜂is learning rate
+'𝑦= 𝜎(𝑧) =
+1
+1 + 𝑒#$
+10
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Review
+v Training Logistic Regression
+𝒙=
+1
+𝑥%
+𝑥&
+=
+1
+1.4
+0.2
+Given 𝜽=
+𝑏
+𝑤%
+𝑤&
+=
+0.1
+0.5
+−0.1
+𝜂= 0.01
+1
+Model
+Input
+Label
+Loss
+𝒙
+𝜽=
+0.1
+0.5
+−0.1
+'𝑦= 𝜎𝜽!𝒙= 0.6856
+𝐿= 1.1573
+𝑦= 0
+3
+Dataset
+4) Compute derivative
+5) Update parameters
+1) Pick a sample (𝒙, 𝑦) from training data   
+2) Compute output a𝑦
+3) Compute loss
+𝑧= 𝜽!𝒙= 𝒙!𝜽
+𝐿('𝑦, 𝑦) = −ylog'y−(1−y)log(1−'y )
+𝛻𝜽𝐿= 𝒙('𝑦−𝑦)
+𝜽= 𝜽−𝜂𝛻𝜽𝐿
+'𝑦= 𝜎(𝑧) =
+1
+1 + 𝑒#$
+𝛻𝜽𝐿= 𝒙'𝑦−𝑦=
+1
+1.4
+0.2
+0.6856 =
+0.6856
+0.9599
+0.1371
+=
+𝐿'
+(
+𝐿)!
+(
+𝐿)"
+(
+4
+𝛉−ηL𝛉
+( =
+0.1
+0.5
+−0.1
+−η
+0.6856
+0.9599
+0.1371
+=
+0.093
+0.499
+−0.101
+5
+16
+Review
+v Logistic Regression
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Logistic Regression (LR)
+𝑧= 𝑏b +
+&
+cde
+f_hijklmin
+𝑏c𝑥c
+Sigmoid function
+Binary Cross Entropy:
+𝐿ŷ, 𝑦= −e
+o [𝑦log ŷ + 1 −𝑦log(1 −ŷ)]
+Gradient:
+∇p𝐿= 1
+𝑁𝑋q(ŷ −𝑦)
+𝑠𝑖𝑔𝑚𝑜𝑖𝑑𝑧=
+1
+1 + 𝑒rs
+17
+Review
+v Logistic Regression Implementation Pipeline
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Raw data
+Preprocessing
+Split dataset
+Train X, y
+predict()
+loss()
+gradient()
+update()
+if not end epoch
+Train X, y
+Test X, y
+Training Stage
+Data Processing Stage
+Model
+Trained 
+Model
+X
+predict()
+Evaluate
+y_hat
+y_true
+Evaluation Stage
+18
+Titanic Survival Prediction
+v Introduction
+AI VIETNAM
+All-in-One Course
+(TA Session)
+PassengerId
+Pclass
+Sex
+Age
+SibSp
+Parch
+Fare
+Embarked
+Title
+Survived
+1
+3
+0
+22
+1
+0
+7.25
+0
+0
+0
+2
+1
+1
+38
+1
+0
+71.2833
+1
+1
+1
+3
+3
+1
+26
+0
+0
+7.925
+0
+2
+1
+4
+1
+1
+35
+1
+0
+53.1
+0
+1
+1
+5
+3
+0
+35
+0
+0
+8.05
+0
+0
+0
+6
+3
+0
+28
+0
+0
+8.4583
+2
+0
+0
+7
+1
+0
+54
+0
+0
+51.8625
+0
+0
+0
+8
+3
+0
+2
+3
+1
+21.075
+0
+3
+0
+9
+3
+1
+27
+0
+2
+11.1333
+0
+1
+1
+Description: Given Titanic Survival dataset, build a Logistic Regression model to determine whether a passenger was 
+survived or not in the Titanic incident.
+19
+Titanic Survival Prediction
+v Dataset information
+AI VIETNAM
+All-in-One Course
+(TA Session)
+PassengerId
+Pclass
+Sex
+Age
+SibSp
+Parch
+Fare
+Embarked
+Title
+Survived
+1
+3
+0
+22
+1
+0
+7.25
+0
+0
+0
+2
+1
+1
+38
+1
+0
+71.2833
+1
+1
+1
+3
+3
+1
+26
+0
+0
+7.925
+0
+2
+1
+4
+1
+1
+35
+1
+0
+53.1
+0
+1
+1
+5
+3
+0
+35
+0
+0
+8.05
+0
+0
+0
+6
+3
+0
+28
+0
+0
+8.4583
+2
+0
+0
+7
+1
+0
+54
+0
+0
+51.8625
+0
+0
+0
+8
+3
+0
+2
+3
+1
+21.075
+0
+3
+0
+9
+3
+1
+27
+0
+2
+11.1333
+0
+1
+1
+Feature
+Description
+PassengerID
+Dataset Index
+Pclass
+Ticket class
+Sex
+Sex
+Age
+Age in years
+SibSp
+Number of passenger’s siblings / spouses 
+aboard the Titanic
+Parch
+Number of passenger’s parents / children 
+aboard the Titanic
+Fare
+Passenger fare
+Embarked
+Port of Embarkation
+Title
+Passenger title
+Survived
+Survival
+•
+Number of samples: 891
+•
+Number of features: 8
+•
+Number of classes: 2
+20
+Titanic Survival Prediction
+v Step 1: Import libraries and read dataset
+AI VIETNAM
+All-in-One Course
+(TA Session)
+21
+Titanic Survival Prediction
+v Step 2: Get dataset information
+AI VIETNAM
+All-in-One Course
+(TA Session)
+22
+Titanic Survival Prediction
+v Step 2: Get dataset information
+AI VIETNAM
+All-in-One Course
+(TA Session)
+23
+Titanic Survival Prediction
+v Step 3: Split X, y
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Pclass
+Sex
+Age
+SibSp
+Parch
+Fare
+Embarked
+Title
+3
+0
+22
+1
+0
+7.25
+0
+0
+1
+1
+38
+1
+0
+71.2833
+1
+1
+3
+1
+26
+0
+0
+7.925
+0
+2
+1
+1
+35
+1
+0
+53.1
+0
+1
+3
+0
+35
+0
+0
+8.05
+0
+0
+Survived
+0
+1
+1
+1
+0
+X
+y
+Split raw dataset to X, y
+v X: first 8 columns (except PassengerID)
+v y: last column
+24
+Titanic Survival Prediction
+v Step 3: Split X, y (add intercepts)
+AI VIETNAM
+All-in-One Course
+(TA Session)
+𝑧= 𝑏b +
+&
+cde
+f_hijklmin
+𝑏c𝑥c
+Currently our X only has n_features, thus 
+we need to add b (intercept)
+shape[1] == 8 means 8 
+features
+New shape of X after 
+adding intercepts:
+25
+Titanic Survival Prediction
+v Step 4: Split train, val, test set
+AI VIETNAM
+All-in-One Course
+(TA Session)
+26
+Titanic Survival Prediction
+v Step 4: Split train, val, test set
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Why we need test set?
+Train model on 
+training dataset
+Validate model on 
+val dataset
+Tune model for better 
+performance on val dataset
+We are training on val dataset too
+Best fit 
+model
+Validate model on 
+test dataset
+Final model performance score
+27
+Titanic Survival Prediction
+v Step 5: Normalization
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Using sklearn.preprocessing.StandardScaler() to 
+scale all values in dataset.
+Note: We only use the train set to fit the scaler.
+28
+Titanic Survival Prediction
+v Step 6: Training
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Define 
+hyperparameters
+Weight 
+Initialization
+𝜽
+Predict
+Compute Loss
+Compute Gradient
+Compute Accuracy
+update
+Start iteration
+End iteration ?
+End epoch ?
+Terminate
+False
+True
+True
+False
+29
+Titanic Survival Prediction
+v Step 6: Training
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Define essential hyperparameters and initialize weights
+30
+Titanic Survival Prediction
+v Step 6: Training
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Hypothesis function
+•
+𝑧= 𝑏+ + ∑,-%
+._01234516 𝑏,𝑥,
+•
+𝑦723 = ℎ𝑧= 𝑠𝑖𝑔𝑚𝑜𝑖𝑑𝑧=
+%
+%81#$
+31
+Titanic Survival Prediction
+v Step 6: Training
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Logistic Regression Loss (Cross-entropy)
+𝐿ŷ, 𝑦= −1
+𝑁)
+%&'
+(
+𝑦% log ŷ% + 1 −𝑦% log(1 −ŷ%)
+32
+Titanic Survival Prediction
+v Step 6: Training
+AI VIETNAM
+All-in-One Course
+(TA Session)
+è Can cause nan if log(0)
+Avoid prediction values too small by limiting the value range
+33
+Titanic Survival Prediction
+v Step 6: Training
+AI VIETNAM
+All-in-One Course
+(TA Session)
+•
+Gradient computation formula:
+∇5𝐿= 1
+𝑁𝑋7(ŷ −𝑦)
+•
+Weights update formula:
+𝜃= 𝜃−𝜂∇5𝐿
+34
+Titanic Survival Prediction
+v Step 6: Training
+AI VIETNAM
+All-in-One Course
+(TA Session)
+𝑎𝑐𝑐𝑢𝑟𝑎𝑐𝑦= 𝑡𝑟𝑢𝑒_𝑝𝑟𝑒𝑑𝑖𝑐𝑡𝑖𝑜𝑛𝑠
+𝑛_𝑠𝑎𝑚𝑝𝑙𝑒𝑠
+Accuracy Formula
+35
+Titanic Survival Prediction
+v Step 6: Training
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Line 6: Loop over number of epochs.
+Line 7, 8, 9, 10: Declare empty lists to stor 
+batche accuracies, losses of train and val sets.  
+36
+Titanic Survival Prediction
+v Step 6: Training
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Line 12: Loop over number of batches (based on 
+batch size).
+Line 13, 14: Get X and y data of current batch.
+37
+Titanic Survival Prediction
+v Step 6: Training
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Line 16: Do prediction on X_i and theta.
+Line 17: Compute the loss of y_hat and y_i.
+Line 18: Compute the gradient.
+Line 19: Update theta using the computed 
+gradient.
+38
+Titanic Survival Prediction
+v Step 6: Training
+AI VIETNAM
+All-in-One Course
+(TA Session)
+From line 20 to line 30: Compute and store 
+accuracies and losses on train and val sets.
+39
+Titanic Survival Prediction
+v Step 6: Training
+AI VIETNAM
+All-in-One Course
+(TA Session)
+From line 32 to line 35: Compute and store 
+batch accuracies and losses of train and val sets.
+40
+Titanic Survival Prediction
+v Step 6: Training (Visualization)
+AI VIETNAM
+All-in-One Course
+(TA Session)
+41
+Titanic Survival Prediction
+v Step 7: Evaluation
+AI VIETNAM
+All-in-One Course
+(TA Session)
+𝑎𝑐𝑐𝑢𝑟𝑎𝑐𝑦= 𝑡𝑟𝑢𝑒_𝑝𝑟𝑒𝑑𝑖𝑐𝑡𝑖𝑜𝑛𝑠
+𝑛_𝑠𝑎𝑚𝑝𝑙𝑒𝑠
+42
+Sentiment Analysis
+v Introduction
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Description: Given Twitter Sentiment Analysis, build a Logistic Regression model to determine whether a tweet (text) 
+has a positive sentiment or not.
+Positive
+Negative
+43
+Sentiment Analysis
+v Step 1: Import libraries
+AI VIETNAM
+All-in-One Course
+(TA Session)
+44
+Sentiment Analysis
+v Step 2: Read dataset
+AI VIETNAM
+All-in-One Course
+(TA Session)
+45
+Sentiment Analysis
+v Step 3: Get dataset information
+AI VIETNAM
+All-in-One Course
+(TA Session)
+46
+Sentiment Analysis
+v Step 4: Data preprocessing
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Raw Text: We love this! Would you go? #talk 
+#makememories #unplug #relax #iphone #smartphone #wifi
+#connect... http://fb.me/6N3LsUpCu
+Vector Representation: array([1.0, 4768.0, 1425.0])
+Data 
+Preprocessing
+47
+Sentiment Analysis
+v Step 4: Data preprocessing
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Raw Text: We love this! Would you go? #talk 
+#makememories #unplug #relax #iphone #smartphone #wifi
+#connect... http://fb.me/6N3LsUpCu
+Vector Representation: array([1.0, 4768.0, 1425.0])
+Data 
+Preprocessing
+0
+1
+2
+Bias
+Positive 
+Word Count
+Negative 
+Word Count
+Vector Representation Meaning
+48
+Sentiment Analysis
+v Step 4: Data preprocessing
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Raw Text
+Input
+Text Normalization
+Build frequency 
+dictionary
+Get Feature
+Vector 
+Representation
+Corpus 
+(Dataset)
+Output
+49
+Sentiment Analysis
+v Step 4: Data preprocessing
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Raw Text
+Input
+Text Normalization
+Normalized Text
+Output
+Retweet Acronym 
+Removal
+Hyperlinks 
+Removal
+Hashtags Removal
+Punctuation 
+Removal
+Tokenization
+50
+Sentiment Analysis
+v Step 4: Data preprocessing
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Retweet Acronym Removal: Remove 
+"RT” at the start of the string
+Hyperlinks Removal: Remove all 
+hyperlinks in the string.
+Hashtag Removal: Remove all hashtag symbols 
+"#".
+Tokenization: Tokenize the string into list of 
+tokens (list of words).
+51
+Sentiment Analysis
+v Step 4: Data preprocessing
+AI VIETNAM
+All-in-One Course
+(TA Session)
+52
+Sentiment Analysis
+v Step 4: Data preprocessing
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Raw Text: We love this! Would you go? #talk 
+#makememories #unplug #relax #iphone #smartphone #wifi
+#connect... http://fb.me/6N3LsUpCu
+Vector Representation: array([1.0, 4768.0, 1425.0])
+Data 
+Preprocessing
+0
+1
+2
+Bias
+Positive 
+Word Count
+Negative 
+Word Count
+Vector Representation Meaning
+Build a dictionary containing number of 
+occurences of each word in positive and 
+negative sentences.
+53
+Sentiment Analysis
+v Step 4: Data preprocessing
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Build a dictionary containing number of occurences of 
+each word in both pos and neg sentences:
+{
+ 
+(‘hello’, ‘pos’): 10,
+ 
+(‘hello’, ‘neg’): 0,
+ 
+(‘world’, ‘pos’): 30,
+ 
+(‘world’, ‘neg’): 5,
+ 
+(‘my’, ‘pos’): 25,
+ 
+(‘check’, ‘pos’): 50
+}
+Input: [hello, world, my, name, is, Thang]
+Get Feature
+Output: [1, 65, 5]
+54
+Sentiment Analysis
+v Step 4: Data preprocessing
+AI VIETNAM
+All-in-One Course
+(TA Session)
+55
+Sentiment Analysis
+v Step 4: Data preprocessing
+AI VIETNAM
+All-in-One Course
+(TA Session)
+defaultdict benefit: Assign a default value for non-existing 
+keys. For e.g., lambda: 0 will assign value 0 to keys excluded 
+from the dictionary.
+56
+Sentiment Analysis
+v Step 4: Data preprocessing
+AI VIETNAM
+All-in-One Course
+(TA Session)
+With frequency dictionary, we can create new 
+vector representation for raw texts as following:
+Input: [hello, world, my, name, is, Thang]
+{
+(‘hello’, ‘pos’): 10,
+(‘hello’, ‘neg’): 0,
+(‘world’, ‘pos’): 30,
+(‘world’, ‘neg’): 5,
+(‘my’, ‘pos’): 25,
+(‘check’, ‘pos’): 50
+}
++10
++0
+1
+10
+0
+(’hello’, ‘pos’): 10
+(’hello’, ‘neg’): 0
+57
+Sentiment Analysis
+v Step 4: Data preprocessing
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Raw Text: We love this! Would you go? #talk 
+#makememories #unplug #relax #iphone #smartphone #wifi
+#connect... http://fb.me/6N3LsUpCu
+Vector Representation: array([1.0, 4768.0, 1425.0])
+Data 
+Preprocessing
+58
+Sentiment Analysis
+v Step 5: Split train, val, test set
+AI VIETNAM
+All-in-One Course
+(TA Session)
+59
+Sentiment Analysis
+v Step 6: Normalization
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Using sklearn.preprocessing.StandardScaler() to 
+scale all values in dataset.
+Note: We only use the train set to fit the scaler.
+60
+Sentiment Analysis
+v Step 7: Training
+AI VIETNAM
+All-in-One Course
+(TA Session)
+61
+Sentiment Analysis
+v Step 7: Training
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Define essential functions and hyperparameters
+62
+Sentiment Analysis
+v Step 7: Training
+AI VIETNAM
+All-in-One Course
+(TA Session)
+63
+Sentiment Analysis
+v Step 7: Training (Visualization)
+AI VIETNAM
+All-in-One Course
+(TA Session)
+64
+Sentiment Analysis
+v Step 8: Evaluation
+AI VIETNAM
+All-in-One Course
+(TA Session)
+𝑎𝑐𝑐𝑢𝑟𝑎𝑐𝑦= 𝑡𝑟𝑢𝑒_𝑝𝑟𝑒𝑑𝑖𝑐𝑡𝑖𝑜𝑛𝑠
+𝑛_𝑠𝑎𝑚𝑝𝑙𝑒𝑠
+?
+65
+Question
+AI VIETNAM
+All-in-One Course
+(TA Session)
+66

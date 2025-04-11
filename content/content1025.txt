@@ -1,3 +1,0 @@
-(2023). Active retrieval augmented generation.
-Schick, T., Dwivedi-Yu, J., Dessi, R., Raileanu, R., Lomeli, M., Zettlemoyer, L., Cancedda, N., &
-Scialom, T. Toolformer: Language models can teach themselves to use tools. In: 2023.

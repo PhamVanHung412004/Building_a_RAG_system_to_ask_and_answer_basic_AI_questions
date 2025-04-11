@@ -1,0 +1,1714 @@
+NUMPY CƠ BẢN
+Dinh-Tiem Nguyen và Quang-Vinh Dinh
+AI VIET NAM - AIO 2024
+Mục lục
+1
+Mởđầu . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+2
+2
+Các phương pháp tạo mảng . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+2
+2.1
+Tạo mảng từdữliệu có sẵn . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+2
+2.2
+Tạo mảng 0-zero()
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+3
+2.3
+Tạo mảng 1-ones() . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+3
+2.4
+Tạo mảng với giá trịchỉđịnh . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4
+2.5
+Tạo mảng với arange() . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4
+2.6
+Tạo ma trận đơn vịvới eye()
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+5
+2.7
+Tạo mảng ngẫu nhiên - random . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+5
+3
+Các phương pháp truy cập mảng
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+6
+3.1
+Indexing . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+6
+3.2
+Slicing . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+7
+4
+Các phương pháp nối mảng . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+8
+4.1
+hstack . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+8
+4.2
+vstack . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+9
+4.3
+Concatenate . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+9
+5
+Các phương pháp thay đổi chiều của mảng . . . . . . . . . . . . . . . . . . . . . . . . .
+10
+5.1
+Slicing, expand_dims
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+10
+5.2
+reshape
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+11
+6
+Các phương pháp tìm kiếm và sắp xếp mảng . . . . . . . . . . . . . . . . . . . . . . . .
+12
+6.1
+Tìm kiếm phần tửvới điều kiện - where() . . . . . . . . . . . . . . . . . . . . . . . . . .
+12
+6.2
+Tìm giá trịlớn nhất và nhỏnhất . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+13
+6.3
+Tìm chỉsốcủa giá trịlớn nhất và nhỏnhất . . . . . . . . . . . . . . . . . . . . . . . . .
+14
+6.4
+Sắp xếp . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+15
+7
+Các phép toán trên mảng . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+16
+7.1
+Phép cộng - Addition . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+16
+7.2
+Phép trừ- Subtraction . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+17
+7.3
+Phép nhân - Multiplication
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+18
+7.4
+Phép chia - Division . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+19
+7.5
+Inner product . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+19
+7.6
+Matrix-matrix multiplication
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+20
+7.7
+Chuyển vị- Transpose . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+21
+7.8
+Summation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+22
+7.9
+Một sốhàm thông dụng khác . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+24
+8
+Broadcasting, function . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+25
+8.1
+Cơ chếBroadcasting . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+25
+8.2
+Tạo hàm . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+26
+9
+Kết Luận
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+28
+1
+AIO 2024
+aivietnam.edu.vn
+1
+Mởđầu
+NumPy là một thư viện mã nguồn mởtrong Python được sửdụng đểlàm việc với mảng (array)-cấu
+trúc dữliệu chính của numpy và cho phép thực hiện các thao tác toán học nhanh chóng và hiệu quả.
+Đểbắt đầu sửdụng NumPy, chúng ta cần phải cài đặt thư viện này trong môi trường Python qua cú
+pháp:
+1 pip
+install
+numpy
+Sau khi cài đặt xong, bạn có thểkiểm tra xem NumPy đã được cài đặt thành công hay chưa bằng cách
+mởPython interpreter (hoặc Jupyter Notebook) và nhập:
+1 import
+numpy as np
+2 print(np.__version__)
+Nếu NumPy được cài đặt thành công, bạn sẽthấy phiên bản của NumPy được in ra.
+2
+Các phương pháp tạo mảng
+2.1
+Tạo mảng từdữliệu có sẵn
+Hình 1: Minh họa mảng
+np.array là một hàm trong NumPy dùng đểtạo mảng (array) từdữliệu có sẵn như list hoặc tuple. Cú
+pháp:
+1 np.array(object)
+• object: Dữliệu đầu vào (list, tuple, hoặc các kiểu dữliệu khác).
+Ví dụsau sẽtạo một mảng NumPy từmột list gồm các sốnguyên [1, 2, 3, 4, 5].
+1 #aivietnam
+2 import
+numpy as np
+3 # Tạo mảng từlist
+4 list_data = [1, 2, 3, 4, 5]
+5 array_from_list = np.array(list_data)
+6 print( array_from_list )
+=================
+Output
+=================
+[1 2 3 4 5]
+==========================================
+Chúng ta có thểkiểm tra các thuộc tính cơ bản của array qua các phương thức sau:
+• Shape: kích thước của mảng, tức là sốphần tửtrong mỗi chiều của chúng.
+• dtype: kiểu dữliệu của các phần tửtrong mảng.
+• size: sốlượng phần tửtrong mảng
+• ndim: sốchiều của mảng
+Ví dụchương trình dưới đây sẽkiểm tra các thuộc tính của một mảng:
+2
+AIO 2024
+aivietnam.edu.vn
+1 #aivietnam
+2 import
+numpy as np
+3
+4 arr = np.array ([1, 2, 3, 4, 5])
+5 print("arr:", arr)
+6 print("Shape of arr:", arr.shape)
+7 print("Size of arr:", arr.size)
+8 print("Data type of arr:", arr.dtype)
+9 print("Number of dimensions of arr:",
+10
+arr.ndim)
+=================
+Output
+=================
+arr: [1 2 3 4 5]
+Shape of arr: (5,)
+Size of arr: 5
+Data type of arr: int64
+Number of dimensions of arr: 1
+==========================================
+2.2
+Tạo mảng 0-zero()
+Hình 2: Minh họa mảng 0
+np.zeros là hàm dùng đểtạo một mảng với tất cảcác phần tửđều là 0. Cú pháp:
+1 np.zeros(shape)
+Ví dụdưới đây sẽtạo một mảng 1 chiều với 5 phần tử, tất cảđều là 0.
+1 #aivietnam
+2 import
+numpy as np
+3
+4 # Tạo mảng 1 chiều với 5 phần tửđều là 0
+5 zeros_array = np.zeros (5)
+6 print(zeros_array)
+=================
+Output
+=================
+[0. 0. 0. 0. 0.]
+==========================================
+2.3
+Tạo mảng 1-ones()
+Hình 3: Minh họa mảng 1
+Tương tựvới zeros, hàm ones tạo mảng chứa toàn số1 với đầu vào là kích thước do người dùng chỉ
+định. Cú pháp:
+1 np.ones(shape)
+• shape: Kích thước của mảng (có thểlà một sốnguyên hoặc một tuple).
+Ví dụsau sẽtạo một mảng 2 chiều có kích thước 3x3 với tất cảcác phần tửđều là 1
+3
+AIO 2024
+aivietnam.edu.vn
+1 #aivietnam
+2 import
+numpy as np
+3
+4 # Tạo mảng 2 chiều 3x3 với tất cảcác phần
+tửđều là 1
+5 ones_array = np.ones ((3, 3))
+6 print(ones_array)
+=================
+Output
+=================
+[[1. 1. 1.]
+[1. 1. 1.]
+[1. 1. 1.]]
+==========================================
+2.4
+Tạo mảng với giá trịchỉđịnh
+Hình 4: Minh họa hàm full
+np.full là hàm dùng đểtạo một mảng với tất cảcác phần tửđều có cùng một giá trịxác định. Cú pháp:
+1 np.full(shape , fill_value)
+• shape: Kích thước của mảng (có thểlà một sốnguyên hoặc một tuple).
+• fill_value: Giá trịsẽđược gán cho tất cảcác phần tửcủa mảng.
+Ví dụsau sẽtạo một mảng NumPy 2 chiều, kích thước 2x3 với tất cảcác phần tửđều có giá trịlà 7.
+1 #aivietnam
+2 import
+numpy as np
+3
+4 # Tạo mảng 2 chiều 2x3 với tất cảcác phần
+tửđều có giá trịlà 7
+5 full_array = np.full ((2, 3), 7)
+6 print(full_array)
+=================
+Output
+=================
+[[7 7 7]
+[7 7 7]]
+==========================================
+2.5
+Tạo mảng với arange()
+Hình 5: Minh họa hàm arange
+np.arange là một hàm dùng đểtạo một mảng chứa các sốnguyên liên tiếp trong một khoảng xác định.
+Cú pháp:
+1 np.arange(start , stop , step)
+• start: Giá trịbắt đầu của dãy số( giá trịnày bao gồm trong mảng được tạo).
+4
+AIO 2024
+aivietnam.edu.vn
+• stop: Giá trịkết thúc của dãy số(giá trịnày không bao gôm trong mảng được tạo).
+• step: Khoảng cách giữa các giá trịtrong dãy số(mặc định là 1).
+Ví dụdưới đây sẽtạo một mảng chứa các sốnguyên từ0 đến 9.
+1 #aivietnam
+2 import
+numpy as np
+3
+4 # Tạo mảng chứa các sốnguyên từ0 đến 9
+5 arange_array = np.arange (0, 10)
+6 print(arange_array)
+=================
+Output
+=================
+[0 1 2 3 4 5 6 7 8 9]
+==========================================
+2.6
+Tạo ma trận đơn vịvới eye()
+np.eye là một hàm dùng đểtạo một ma trận đơn vị, trong đó các phần tửtrên đường chéo chính là 1
+và các phần tửcòn lại là 0. Cú pháp:
+1 np.eye(N)
+• N: Sốhàng và sốcột của ma trận (ma trận vuông).
+Ví dụsau sẽtạo một ma trận đơn vị3x3, với các phần tửtrên đường chéo chính là 1 và các phần tử
+còn lại là 0.
+1 #aivietnam
+2 import
+numpy as np
+3
+4 # Tạo ma trận đơn vị3x3
+5 eye_matrix = np.eye (3)
+6 print(eye_matrix)
+=================
+Output
+=================
+[[1. 0. 0.]
+[0. 1. 0.]
+[0. 0. 1.]]
+==========================================
+2.7
+Tạo mảng ngẫu nhiên - random
+np.random là một module trong NumPy cung cấp các hàm đểtạo mảng với các giá trịngẫu nhiên.
+Trong phần này, các ví dụvềrandom sẽsửdụng ramdom seed=2024 đểđảm bảo kết quảđầu ra có thể
+tái tạo lại.
+a)
+random.rand()
+np.random.rand tạo một mảng với các giá trịngẫu nhiên nằm trong khoảng từ0 đến 1. Cú pháp:
+1 np.random.rand(d0 , d1 , ..., dn)
+• d0, d1, ..., dn: Kích thước của mảng.
+Ví dụsau sẽtạo một mảng NumPy 2x3 với các giá trịngẫu nhiên từ0 đến 1.
+1 #aivietnam
+2 import
+numpy as np
+3 np.random.seed (2024)
+4
+5 # Tạo mảng 2x3 với các giá trịngẫu nhiên
+từ0 đến 1
+6 rand_array = np.random.rand(2, 3)
+7 print(rand_array)
+5
+AIO 2024
+aivietnam.edu.vn
+=================
+Output
+=================
+[[0.58801452
+0.69910875
+0.18815196]
+[0.04380856
+0.20501895
+0.10606287]]
+==========================================
+b)
+random.randint()
+np.random.randint tạo một mảng với các giá trịngẫu nhiên là sốnguyên trong một khoảng xác định.
+Cú pháp:
+1 np.random.randint(low , high=None , size=None)
+• low: Giá trịnhỏnhất (bao gồm trong mảng đầu ra).
+• high: Giá trịlớn nhất (không bao gồm trong mảng đầu ra).
+• size: Kích thước của mảng.
+Ví dụsau sẽtạo một mảng 3x3 với các sốnguyên ngẫu nhiên từ1 đến 10.
+1 #aivietnam
+2 import
+numpy as np
+3 np.random.seed (2024)
+4
+5 # Tạo mảng 3x3 với các sốnguyên ngẫu nhiê
+n từ1 đến 10
+6 randint_array = np.random.randint (1, 10,
+(3, 3))
+7 print( randint_array)
+=================
+Output
+=================
+[[9 1 1]
+[5 8 2]
+[4 3 1]]
+==========================================
+3
+Các phương pháp truy cập mảng
+3.1
+Indexing
+Indexing trong NumPy cho phép ta truy cập vào từng phần tửcủa mảng bằng cách sửdụng chỉsốcủa
+nó. Đểhiểu rõ hơn vềcách sửdụng indexing, chúng ta sẽthực hiện các ví dụsau đây.
+Ví dụ1: Chúng ta sẽtạo một mảng 1 chiều và truy cập vào phần tửđầu tiên và phần tửcuối cùng
+của mảng này.
+1 #aivietnam
+2 import
+numpy as np
+3
+4 # Tạo mảng 1 chiều
+5 arr1d = np.array ([1, 2, 3, 4, 5])
+6
+7 # Truy cập vào phần tửđầu tiên của arr1d
+8 first_element = arr1d [0]
+9 print("Phần tửđầu tiên của arr1d:",
+first_element)
+10
+11 # Truy cập vào phần tửcuối cùng của arr1d
+12 last_element = arr1d [-1]
+13 print("Phần tửcuối cùng của arr1d:",
+last_element)
+=================
+Output
+=================
+Phần tửđầu tiên của arr1d: 1
+Phần tửcuối cùng của arr1d: 5
+==========================================
+6
+AIO 2024
+aivietnam.edu.vn
+Ví dụ2: Chúng ta sẽtạo một mảng 2 chiều và truy cập vào một phần tửcụthểởhàng thứnhất và cột
+thứhai của mảng.
+1 #aivietnam
+2 import
+numpy as np
+3
+4 # Tạo mảng 2 chiều
+5 arr2d = np.array ([[1, 2, 3], [4, 5, 6]])
+6 print(arr2d)
+7
+8 # Truy cập vào phần tửởhàng thứnhất và
+cột thứhai của arr2d
+9 element_1_2 = arr2d [1, 1]
+10 print("Phần tửởhàng thứnhất và cột thứ
+hai của arr2d:", element_1_2)
+=================
+Output
+=================
+[[1 2 3]
+[4 5 6]]
+Phần tửởhàng thứnhất và cột thứhai của
+arr2d: 5
+==========================================
+3.2
+Slicing
+Hình 6: Minh họa slicing
+Slicing trong NumPy cho phép ta trích xuất một phần của mảng bằng cách chỉđịnh khoảng chỉmục.
+Đểhiểu rõ hơn vềcách sửdụng slicing, chúng ta sẽthực hiện các ví dụsau đây.
+Ví dụ1: Chúng ta sẽtạo một mảng 1 chiều và lấy ra một phần của mảng này từchỉsốthứnhất đến
+chỉsốthứtư.
+1 #aivietnam
+2 import
+numpy as np
+3
+4 # Tạo mảng 1 chiều
+5 arr1d = np.array ([1, 2, 3, 4, 5])
+6
+7 # Lấy ra một phần của arr1d từchỉsốthứ
+nhất đến chỉsốthứtư
+8 slice_arr1d = arr1d [1:4]
+9 print("arr1d:", arr1d)
+10 print("Sclicing
+arr1d từchỉsố1 đến 3:",
+slice_arr1d)
+=================
+Output
+=================
+arr1d: [1 2 3 4 5]
+Sclicing
+arr1d từchỉsố1 đến 3: [2 3 4]
+==========================================
+Ví dụ2: Chúng ta sẽtạo một mảng 2 chiều và lấy ra một phần của mảng này từhàng thứnhất đến
+hàng thứba và từcột thứhai đến cột cuối cùng.
+7
+AIO 2024
+aivietnam.edu.vn
+1 #aivietnam
+2 import
+numpy as np
+3
+4 # Tạo mảng 2 chiều
+5 arr2d = np.array ([[1, 2, 3], [4, 5, 6],
+[7, 8, 9]])
+6
+7 # Lấy ra một phần của arr2d từhàng thứ
+8 #nhất đến hàng thứba và từcột thứhai
+9 #đến cột cuối cùng
+10 slice_arr2d = arr2d [1:3, 1:]
+11 print("arr2d :\n", arr2d)
+12 print("Slicing
+arr2d từhàng 1 đến 2 và cộ
+t 1 đến cuối cùng:\n", slice_arr2d)
+=================
+Output
+=================
+arr2d:
+[[1 2 3]
+[4 5 6]
+[7 8 9]]
+Slicing
+arr2d từhàng 1 đến 2 và cột 1 đến
+cuối cùng:
+[[5 6]
+[8 9]]
+==========================================
+4
+Các phương pháp nối mảng
+1. Mô tả
+Trong các thư viện Numpy, Pytorch, Tensorflow các hàm hstack, vstack, và concatenate được sử
+dụng đểnối các array hoặc các tensor lại với nhau theo các hướng khác nhau. Trong bài tập này, chúng
+ta sẽtìm hiểu cách sửdụng ba hàm trên.
+4.1
+hstack
+Hình 7: Minh họa hstack
+Hàm hstack được sửdụng đểnối các array theo chiều ngang, tức là nối chúng thành một cấu trúc dữ
+liệu lớn hơn theo chiều thứhai. Quá trình này giúp kết hợp dữliệu từcác nguồn khác nhau hoặc mở
+rộng kích thước của cấu trúc dữliệu hiện có.
+Ví dụsau sửdụng hstack đểnối các array theo chiều ngang:
+1 #Numpy
+code
+2 import
+numpy as np
+3
+4 # Tạo hai mảng
+5 arr_1 = np.array ([1, 2, 3])
+6 arr_2 = np.array ([4, 5, 6])
+7
+8 # Nối hai mảng theo trục ngang (axis =0)
+9 arr_3 = np.hstack ((arr_1 , arr_2))
+10
+11 # In kết quả
+12 print("Mảng 1:\n", arr_1)
+13 print("Mảng 2:\n", arr_2)
+14 print("Mảng sau khi nối theo trục
+15 ngang :\n", arr_3)
+=================
+Output
+================
+Mảng 1:
+[1 2 3]
+Mảng 2:
+[4 5 6]
+Mảng sau khi nối theo trục ngang:
+[1 2 3 4 5 6]
+==========================================
+8
+AIO 2024
+aivietnam.edu.vn
+Lưu ý khi sửdụng hstack là các array hoặc tensor cần phải có cùng độdài trong chiều dọc (cùng số
+hàng). Nếu các array/tensor không có cùng độdài trong chiều dọc sẽgây ra lỗi khi thực thi chương
+trình.
+4.2
+vstack
+Hình 8: Minh họa vstack
+Hàm vstack trong NumPy, PyTorch được sửdụng đểnối các array hoặc tensor theo chiều dọc, tức là
+nối chúng thành một cấu trúc dữliệu lớn hơn theo chiều thứnhất. Quá trình này giúp kết hợp dữliệu
+từcác nguồn khác nhau hoặc mởrộng kích thước của cấu trúc dữliệu hiện có.
+Ví dụdưới đây sửdụng vstack đểnối các array theo chiều dọc.
+1 # Numpy
+code
+2 import
+numpy as np
+3 # Tạo hai array
+4 arr_1 = np.array ([1, 2, 3])
+5 arr_2 = np.array ([4, 5, 6])
+6 # Nối hai array
+theo chiều dọc
+7 arr_3 = np.vstack ((arr_1 , arr_2))
+8 # In kết quả
+9 print("Array 1:\n", arr_1)
+10 print("Array 2:\n", arr_2)
+11 print("Array sau khi nối theo chiều dọc:\n
+", arr_3)
+=================
+Output
+================
+Array 1:
+[1 2 3]
+Array 2:
+[4 5 6]
+Array sau khi nối theo chiều dọc:
+[[1 2 3]
+[4 5 6]]
+==========================================
+Lưu ý khi sửdụng vstack là các array hoặc tensor cần phải có cùng sốcột. Nếu các array/tensor không
+có cùng sốcột sẽgây ra lỗi khi thực thi chương trình.
+4.3
+Concatenate
+Hình 9: Minh họa concatenate
+Hàm concatenate được sửdụng đểnối các mảng theo chiều cụthể.
+Ví dụsau sẽtạo hai mảng từlist 2D là [[1 , 2 , 3] , [4 , 5 , 6]] và [[7 , 8 , 9] , [10 , 11 , 12]]. Sau đó sử
+dụng hàm concatenate đểnối theo trục ngang và trục dọc
+9
+AIO 2024
+aivietnam.edu.vn
+1 # Numpy
+code
+2 import
+numpy as np
+3 # Tạo hai array 2D
+4 arr_1 = np.array ([[1, 2, 3],
+5
+[4, 5, 6]])
+6 arr_2 = np.array ([[7, 8, 9],
+7
+[10, 11, 12]])
+8 # Nối hai array
+theo chiều dọc axis = 0
+9 arr_3 = np.concatenate ((arr_1 , arr_2),
+axis =0)
+10 # Nối hai array
+theo chiều ngang
+axis = 1
+11 arr_4 = np.concatenate ((arr_1 , arr_2),
+axis =1)
+12 # In kết quả
+13 print("Array 1:\n", arr_1)
+14 print("Array 2:\n", arr_2)
+15 print("Nối theo chiều dọc (axis =0):\n",
+arr_3)
+16 print("Nối theo chiều ngang (axis =1):\n",
+arr_4)
+=================
+Output
+================
+Array 1:
+[[1 2 3]
+[4 5 6]]
+Array 2:
+[[ 7
+8
+9]
+[10 11 12]]
+Nối theo chiều dọc (axis =0):
+[[ 1
+2
+3]
+[ 4
+5
+6]
+[ 7
+8
+9]
+[10 11 12]]
+Nối theo chiều ngang (axis =1):
+[[ 1
+2
+3
+7
+8
+9]
+[ 4
+5
+6 10 11 12]]
+==========================================
+Trong chương trình trên ta sửdụng np.concatenate đểnối hai array theo chiều dọc (axis=0) và chiều
+ngang (axis=1). Trong đó arr_1 và arr_2 là hai array 2D được tạo bằng NumPy. Tiếp theo, arr_3
+được tạo bằng cách nối arr_1 và arr_2 theo chiều dọc (axis=0), nghĩa là nối theo hàng. Cuối cùng
+arr_4 được tạo bằng cách nối arr_1 và arr_2 theo chiều ngang (axis=1), nghĩa là nối theo cột.
+Khi sửdụng concatenate các bạn cần lưu ý, đối với việc nối hai array, tensor 1D theo chiều 1 sẽgặp lỗi,
+lí do là vì các array, tensor 1D chỉcó 1 chiều là chiều 0. Chính vì vậy mầta cần chuyển đổi chúng sang
+dạng 2D trước khi nối chúng lại theo chiều 1. Một lựa chọn dễdàng hơn là sửdụng vstack.
+5
+Các phương pháp thay đổi chiều của mảng
+5.1
+Slicing, expand_dims
+Khi thực hiện tính toán với array, tensor, chúng ta sẽthường xuyên phải điều chỉnh sốchiều của chúng.
+Đểthêm một chiều mới, chúng ta sửdụng newaxis hoặc expand_dims.
+Hình 10: Minh họa cách thêm chiều dữliệu
+Ví dụsau đây thực hiện thêm một chiều mới vào array sửdụng newaxis:
+10
+AIO 2024
+aivietnam.edu.vn
+1 #Numpy
+code
+2 import
+numpy as np
+3 # Tạo một array 1D
+4 arr_1 = np.array ([1, 2, 3])
+5 # 1D -> 2D
+6 arr_2 = arr_1[np.newaxis , :]
+7 # 2D -> 5D
+8 arr_3 = arr_2[np.newaxis , :, np.newaxis ,
+:, np.newaxis]
+9 print("array 1: ", arr_1 , arr_1.shape)
+10 print("array 2: ", arr_2 , arr_2.shape)
+11 print("array 3:\n ", arr_3 , arr_3.shape)
+=================
+Output
+================
+array 1:
+[1 2 3] (3,)
+array 2:
+[[1 2 3]] (1, 3)
+array 3:
+[[[[[1]
+[2]
+[3]]]]] (1, 1, 1, 3, 1)
+==========================================
+Trong ví dụtrên, ta tạo một array 1D có giá trị[1, 2, 3]. Tiếp theo ta sửdụng np.newaxis đểthêm
+một chiều mới ởvịtrí 0, chuyển từarray 1D thành array 2D. Cuối cùng ta dụng np.newaxis đểthêm
+chiều mới, chuyển từarray 2D thành array 5D. Các chiều mới được thêm vào ởvịtrí 0, 2, và 4.
+Ởđây, dấu ":"Thểhiện chiều của array cũ, dấu hai chấm đầu tiên là chiều thứnhất, dấu hai chấm thứ
+hai là chiều thứ2 của array cũ. Ta có thểđặt dấu hai chấm này ởcác vịtrí khác nhau, tùy thuộc vào
+mục đích tạo array mới. "np.newaxis"là chiều mới ta muốn tạo, có thểđặt ởcác vịtrí khác nhau, ta
+cũng có thểthay thếnó bằng "None"hoặc "...".
+Ngoài ra ta cũng có thểsửdụng cách thứhai, np.expand_dims đểthêm chiều mới cho array.
+1 # Numpy
+code
+2 import
+numpy as np
+3 # Tạo một array 1D
+4 arr_1 = np.array ([1, 2, 3])
+5 # Thêm chiều mới, chuyển từ1D -> 2D
+6 arr_2 = np.expand_dims(arr_1 , axis =0)
+7 # Thêm nhiều chiều mới, chuyển từ2D -> 5D
+8 arr_3 = np.expand_dims(arr_2 ,
+9
+axis =(0, 2, 4))
+10 # In kết quả
+11 print("array 1:", arr_1 , arr_1.shape)
+12 print("array 2:", arr_2 , arr_2.shape)
+13 print("array 3:\n", arr_3 , arr_3.shape)
+=================
+Output
+================
+array 1: [1 2 3] (3,)
+array 2: [[1 2 3]] (1, 3)
+array 3:
+[[[[[1]
+[2]
+[3]]]]] (1, 1, 1, 3, 1)
+==========================================
+5.2
+reshape
+reshape là một hàm được sửdụng đểthay đổi hình dạng của một mảng mà không làm thay đổi dữ
+liệu bên trong nó. Kích thước mảng mới được chỉđịnh thông qua tham sốcủa hàm reshape.
+Cú pháp sửdụng reshape:
+1 np.reshape(input , newshape)
+Trong đó:
+• input: là mảng đầu vào.
+• newshape là hình dạng mới ta muốn chuyển đổi.
+Trong ví dụsau, ta sẽsửdụng reshape đểgiảm chiều array, tensor:
+11
+AIO 2024
+aivietnam.edu.vn
+Hình 11: Minh họa cách sửdụng hàm reshape
+1 # Numpy
+code
+2 import
+numpy as np
+3 # Tạo một array 2D
+4 arr_2D = np.array ([[1, 2, 3], [4, 5, 6]])
+5 # (2, 3) ->(3, 2)
+6 new_arr_2D = np.reshape(arr_2D , (3, 2))
+7
+8 # Chuyển từ2D -> 1D
+9 arr_1D = np.reshape(arr_2D ,
+10
+newshape =(6, ))
+11 print("array 2D:\n", arr_2D , arr_2D.shape)
+12 print("new array 2D :\n", new_arr_2D ,
+new_arr_2D.shape)
+13 print("array 1D:\n", arr_1D , arr_1D.shape)
+=================
+Output
+================
+array 2D:
+[[1 2 3]
+[4 5 6]] (2, 3)
+new array 2D :
+[[1 2]
+[3 4]
+[5 6]] (3, 2)
+array 1D:
+[1 2 3 4 5 6] (6,)
+==========================================
+Trong ví dụtrên, ta tạo một array 2D có 2 hàng và 3 cột. Sửdụng np.reshape đểthay đổi hình dạng
+của array từ2D thành 1D với hình dạng mới là (6,), nghĩa là một array có 6 phần tử. Ởđây 6= 2x3,
+bằng với sốphần tửcủa cũ, ta cần lưu ý khi thay đổi shape thì cần đảm bảo sốlượng phần tửkhông
+được thay đổi khi reshape.
+6
+Các phương pháp tìm kiếm và sắp xếp mảng
+6.1
+Tìm kiếm phần tửvới điều kiện - where()
+Hình 12: Minh họa where
+Hàm np.where được sửdụng đểtìm vịtrí của các phần tửtrong mảng thỏa mãn một điều kiện nhất
+định. Cú pháp:
+12
+AIO 2024
+aivietnam.edu.vn
+1 np.where(condition)
+• condition: Là một mảng boolean hoặc biểu thức trảvềmảng boolean.
+Đểhiểu rõ hơn vềcách sửdụng np.where, chúng ta sẽtạo một mảng và tìm các vịtrí của phần tửlớn
+hơn 2 và in ra giá trịcác phần tửđó.
+1 #aivietnam
+2 import
+numpy as np
+3 # Tạo mảng
+4 arr = np.array ([1, 2, 3, 4, 5])
+5 # Tìm vịtrí của các phần tửlớn hơn 2
+6 result = np.where(arr > 2)
+7 print("Vịtrí của các phần tửlớn hơn 2:",
+result)
+8 print("Giá trịcác phần tửtại vịtrí tìm
+được:", arr[result ])
+=================
+Output
+================
+Vịtrí của các phần tửlớn hơn 2:
+(array ([2, 3, 4]) ,)
+Giá trịcác phần tửtại vịtrí tìm được:
+[3 4 5]
+==========================================
+6.2
+Tìm giá trịlớn nhất và nhỏnhất
+Hàm np.max và np.min được sửdụng đểtìm giá trịlớn nhất và nhỏnhất trong mảng. Cú pháp:
+1 np.max(array , axis)
+2 np.min(array , axis)
+Đểhiểu rõ hơn vềcách sửdụng np.max và np.min, chúng ta sẽtạo một mảng và tìm giá trịlớn nhất
+và nhỏnhất trong mảng đó.
+1 #aivietnam
+2 import
+numpy as np
+3 # Tạo mảng
+4 arr = np.array ([1, 2, 3, 4, 5])
+5 # Tìm giá trịlớn nhất
+6 max_value = np.max(arr)
+7 print("Giá trịlớn nhất trong mảng:",
+max_value)
+8 # Tìm giá trịnhỏnhất
+9 min_value = np.min(arr)
+10 print("Giá trịnhỏnhất trong mảng:",
+min_value)
+=================
+Output
+================
+Giá trịlớn nhất trong mảng: 5
+Giá trịnhỏnhất trong mảng: 1
+==========================================
+Ngoài ra, chúng ta có thểtìm kiếm phần tửnhỏnhất, lớn nhất theo từng chiều cụthểđối với mảng
+nhiều chiều.
+1 #aivietnam
+2 import
+numpy as np
+3
+4 # Tạo mảng 2 chiều
+5 arr2d = np.array ([[1, 2, 3], [4, 5, 6]])
+6
+7 # Tìm giá trịlớn nhất theo từng chiều
+8 max_value_row = np.max(arr2d , axis =1)
+9 max_value_col = np.max(arr2d , axis =0)
+10 print("Giá trịlớn nhất theo hàng trong
+11 mảng 2 chiều:", max_value_row )
+12 print("Giá trịlớn nhất theo cột trong
+13 mảng 2 chiều:", max_value_col )
+14
+15 # Tìm giá trịnhỏnhất theo từng chiều
+16 min_value_row = np.min(arr2d , axis =1)
+17 min_value_col = np.min(arr2d , axis =0)
+18 print("Giá trịnhỏnhất theo hàng trong mả
+13
+AIO 2024
+aivietnam.edu.vn
+ng
+19 2 chiều:", min_value_row)
+20 print("Giá trịnhỏnhất theo cột trong
+21 mảng 2 chiều:", min_value_col)
+=================
+Output
+================
+Giá trịlớn nhất theo hàng trong mảng 2
+chiều: [3 6]
+Giá trịlớn nhất theo cột trong mảng 2
+chiều: [4 5 6]
+Giá trịnhỏnhất theo hàng trong mảng 2
+chiều: [1 4]
+Giá trịnhỏnhất theo cột trong mảng 2
+chiều: [1 2 3]
+==========================================
+6.3
+Tìm chỉsốcủa giá trịlớn nhất và nhỏnhất
+Hàm np.argmax và np.argmin được sửdụng đểtìm chỉsốcủa giá trịlớn nhất và nhỏnhất trong mảng.
+Cú pháp:
+1 np.argmax(array , axis)
+2 np.argmin(array , axis)
+• array: mảng đầu vào
+• axis: Chiều thực hiện tìm kiếm
+Đểhiểu rõ hơn vềcách sửdụng np.argmax và np.argmin, chúng ta sẽtạo một mảng và tìm chỉsốcủa
+giá trịlớn nhất và nhỏnhất trong mảng đó và tìm kiếm theo các chiều khác nhau.
+14
+AIO 2024
+aivietnam.edu.vn
+1 #aivietnam
+2 import
+numpy as np
+3
+4 # Tạo mảng 2 chiều
+5 arr2d = np.array ([[1, 2, 3], [4, 5, 6]])
+6
+7 # Tìm chỉsốcủa giá trịlớn nhất trong to
+àn bộmảng
+8 index_max2d = np.argmax(arr2d)
+9 print("Chỉsốcủa giá trịlớn nhất trong m
+ảng 2 chiều:", index_max2d)
+10
+11 # Tìm chỉsốcủa giá trịnhỏnhất trong to
+àn bộmảng
+12 index_min2d = np.argmin(arr2d)
+13 print("Chỉsốcủa giá trịnhỏnhất trong m
+ảng 2 chiều:", index_min2d)
+14
+15 # Tìm chỉsốcủa giá trịlớn nhất theo từ
+ng hàng
+16 index_max_row = np.argmax(arr2d , axis =1)
+17 print("Chỉsốcủa giá trịlớn nhất theo từ
+ng hàng trong mảng 2 chiều:",
+index_max_row)
+18
+19 # Tìm chỉsốcủa giá trịlớn nhất theo từ
+ng cột
+20 index_max_col = np.argmax(arr2d , axis =0)
+21 print("Chỉsốcủa giá trịlớn nhất theo từ
+ng cột trong mảng 2 chiều:",
+index_max_col)
+=================
+Output
+================
+Mảng 2 chiều ban đầu:
+[[1 2 3]
+[4 5 6]]
+Chỉsốcủa giá trịlớn nhất trong mảng 2
+chiều: 5
+Chỉsốcủa giá trịnhỏnhất trong mảng 2
+chiều: 0
+Chỉsốcủa giá trịlớn nhất theo từng hàng
+trong mảng 2 chiều: [2 2]
+Chỉsốcủa giá trịlớn nhất theo từng cột
+trong mảng 2 chiều: [1 1 1]
+==========================================
+6.4
+Sắp xếp
+Hàm np.sort được sửdụng đểsắp xếp các phần tửcủa mảng theo thứtựtăng dần. Cú pháp:
+1 np.sort(array , axis)
+• array: mảng cần sắp xếp
+• axis: Chiều được chọn đểsắp xếp, mặc định là -1, tức là sắp xếp theo chiều cuối cùng của mảng.
+Ví dụdưới đây sẽthực hiện sắp xếp mảng theo các chiều khác nhau.
+15
+AIO 2024
+aivietnam.edu.vn
+1 #aivietnam
+2 import
+numpy as np
+3
+4 # Tạo mảng 2 chiều
+5 arr2d = np.array ([[3, 1, 2], [6, 5, 4]])
+6 # Sắp xếp theo mặc định
+7 sorted_arr2d = np.sort(arr2d)
+8 print("Sắp xếp mảng theo mặc định:\n",
+sorted_arr2d)
+9 # Sắp xếp theo từng hàng
+10 sorted_arr2d_row = np.sort(arr2d , axis =1)
+11 print("Sắp xếp theo từng hàng:\n",
+sorted_arr2d_row )
+12 # Sắp xếp theo từng cột
+13 sorted_arr2d_col = np.sort(arr2d , axis =0)
+14 print("Sắp xếp theo từng cột:\n",
+sorted_arr2d_col )
+=================
+Output
+================
+Sắp xếp mảng theo mặc định:
+[[1 2 3]
+[4 5 6]]
+Sắp xếp theo từng hàng:
+[[1 2 3]
+[4 5 6]]
+Sắp xếp theo từng cột:
+[[3 1 2]
+[6 5 4]]
+==========================================
+7
+Các phép toán trên mảng
+NumPy cung cấp nhiều hàm và phép toán đểthực hiện các phép toán học phức tạp trên các mảng. Hiểu
+cách chuyển đổi các công thức toán học thành mã NumPy là rất quan trọng đểtận dụng sức mạnh của
+thư viện này
+7.1
+Phép cộng - Addition
+Phép cộng hai mảng được thực hiện theo cùng một nguyên tắc cơ bản, là phép cộng element-wise (theo
+từng phần tử). Phép cộng này được định nghĩa như sau: Cho hai array (hoặc tensor) A và B cùng kích
+thước, phép cộng giữa chúng (A + B) tạo ra một array mới C, với mỗi phần tửCi được tính bằng cách
+cộng phần tửAi với phần tửBi.
+Ci = Ai + Bi
+Hình 13: Minh họa Addition
+Trong ví dụdưới đây, ta thực hiện phép cộng các array bằng cách sửdụng toán tử"+"hoặc hàm add().
+16
+AIO 2024
+aivietnam.edu.vn
+1 #aivietnam
+2 import
+numpy as np
+3
+4 # Tạo hai array 1D
+5 arr_1 = np.array ([1, 2, 3, 4])
+6 arr_2 = np.array ([5, 6, 7, 8])
+7
+8 # Thực hiện phép cộng hai array
+9 # Cách 1: Sửdụng toán tử’+’
+10 arr_add_1 = arr_1 + arr_2
+11 # Cách 2: Sửdụng hàm np.add()
+12 arr_add_2 = np.add(arr_1 , arr_2)
+13 # In ra màn hình
+14 print(f"arr_1 = \n{arr_1}")
+15 print(f"arr_2 = \n{arr_2}")
+16 print("arr_1 + arr_2")
+17 print(f"arr_add_1 = \n{arr_add_1}")
+18 print(f"arr_add_2 = \n{arr_add_2}")
+=================
+Output
+================
+arr_1 =
+[1 2 3 4]
+arr_2 =
+[5 6 7 8]
+arr_1 + arr_2
+arr_add_1 =
+[ 6
+8 10 12]
+arr_add_2 =
+[ 6
+8 10 12]
+==========================================
+Kết quảthực hiện phép cộng sẽlà một array mới là [6, 8, 10, 12] với mỗi phần tửlà tổng của các phần
+tửtương ứng trong arr1 và arr2.
+7.2
+Phép trừ- Subtraction
+Tương tựnhư phép cộng array, tensor, phép trừcũng là một phép toán element-wise, tức là mỗi phần
+tửcủa array kết quảđược tính bằng cách trừphần tửtương ứng của array thứnhất cho phần tửtương
+ứng của array thứhai. Định nghĩa: Cho hai array cùng kích thước A và B, phép trừgiữa chúng (A−B)
+tạo ra một array mới C, với mỗi phần tửCi được tính bằng cách trừphần tửBi khỏi phần tửAi.
+Ci = Ai −Bi
+Hình 14: Minh họa Subtraction
+Ví dụphép trừhai array trong Numpy, chúng ta có thểsửdụng toán tử"-"hoặc hàm np.subtract()
+17
+AIO 2024
+aivietnam.edu.vn
+1 #aivietnam
+2 import
+numpy as np
+3 # Tạo hai array 1D
+4 arr_1 = np.array ([1, 2, 3, 4])
+5 arr_2 = np.array ([5, 6, 7, 8])
+6 print("arr_1:", arr_1)
+7 print("arr_2:", arr_2)
+8 # Hiệu hai array
+9 # Cách 1: Sửdụng toán tử’-’
+10 array_sub_1 = arr_1 - arr_2
+11 # Cách 2: Sửdụng hàm np.subtract ()
+12 array_sub_2 = np.subtract(arr_1 , arr_2)
+13 # In ra màn hình
+14 print("Cách 1\n", array_sub_1)
+15 print("Cách 2\n", array_sub_2)
+=================
+Output
+================
+arr_1: [1 2 3 4]
+arr_2: [5 6 7 8]
+Cách 1
+[-4 -4 -4
+-4]
+Cách 2
+[-4 -4 -4
+-4]
+==========================================
+7.3
+Phép nhân - Multiplication
+Phép nhân array được thực hiện theo nguyên tắc element-wise: Cho hai array cùng kích thước A và B,
+phép nhân giữa chúng (A · B) tạo ra một array mới C, với mỗi phần tửCij được tính bằng cách nhân
+phần tửAij với phần tửBij.
+Cij = Aij · Bij
+Hình 15: Minh họa Multiplication
+Đểthực hiện multiplication, ta sửdụng toán tử"*"hoặc hàm multiply.
+1 #aivietnam
+2 import
+numpy as np
+3
+4 # Tạo hai array 1D
+5 arr_1 = np.array ([1, 2, 3, 4])
+6 arr_2 = np.array ([5, 6, 7, 8])
+7 # In ra giá trịcủa hai array
+8 print("arr_1 :\n", arr_1)
+9 print("arr_2 :\n", arr_2)
+10 # Tích hai array
+11 # Cách 1: Sửdụng toán tử’*’
+12 result_mul_1 = arr_1 * arr_2
+13 # Cách 2: Sửdụng hàm np.multiply ()
+14 result_mul_2 = np.multiply(arr_1 , arr_2)
+15 # In ra màn hình
+16 print("Cách 1:\n", result_mul_1)
+17 print("Cách 2:\n", result_mul_2)
+=================
+Output
+================
+arr_1:
+[1 2 3 4]
+arr_2:
+[5 6 7 8]
+Cách 1:
+[ 5 12 21 32]
+Cách 2:
+[ 5 12 21 32]
+==========================================
+18
+AIO 2024
+aivietnam.edu.vn
+7.4
+Phép chia - Division
+Hình 16: Minh họa Division
+Phép chia mảng được thực hiện theo nguyên tắc element-wise. Cho hai mảng cùng kích thước A và B,
+phép chia giữa chúng (A ÷ B) tạo ra một mảng (hoặc tensor) mới C, với mỗi phần tửCij được tính
+bằng cách chia phần tửAij cho phần tửBij.
+Cij = Aij
+Bij
+Dểthực hiện phép chia mảng ta có thểsửdụng toán tử"/"hoặc hàm divide().
+1 #aivietnam
+2 import
+numpy as np
+3
+4 # Tạo hai array 1D
+5 arr_1 = np.array ([1, 2, 3, 4])
+6 arr_2 = np.array ([5, 6, 7, 8])
+7 # In ra giá trịcủa hai array
+8 print("arr_1 :\n", arr_1)
+9 print("arr_2 :\n", arr_2)
+10 # Chia hai array
+11 # Cách 1: Sửdụng toán tử’/’
+12 result_div_1 = arr_1 / arr_2
+13 # Cách 2: Sửdụng hàm np.divide ()
+14 result_div_2 = np.divide(arr_1 , arr_2)
+15 # In ra màn hình
+16 print("Cách 1:\n", result_div_1)
+17 print("Cách 2:\n", result_div_2)
+=================
+Output
+================
+arr_1:
+[1 2 3 4]
+arr_2:
+[5 6 7 8]
+Cách 1:
+[0.2
+0.33333333
+0.42857143
+0.5]
+Cách 2:
+[0.2
+0.33333333
+0.42857143
+0.5]
+==========================================
+7.5
+Inner product
+Phép tính tích vô hướng (inner product), còn được biết đến với tên gọi khác là dot product. Phép
+tích vô hướng giữa hai vector có thểđược tính đểđo lường sựtương quan hoặc hướng của chúng.
+Cho hai vectơ a = [a1, a2, . . . , an] và b = [b1, b2, . . . , bn] trong không gian Euclidean Rn, phép tích vô
+hướng của chúng được xác định bởi công thức:
+a · b = a1b1 + a2b2 + . . . + anbn
+Trong thư viện Numpy, hàm np.dot() được sửdụng đểthực hiện phép nhân ma trận, và nó cũng hỗ
+trợtích vô hướng cho các vectơ(array 1D). Cú pháp:
+19
+AIO 2024
+aivietnam.edu.vn
+Hình 17: Minh họa inner
+1 np.dot(a, b)
+Trong đó a, b là các array đểthực hiện phép nhân. Các chiều của a và b phải thích hợp đểthực hiện
+phép nhân (ví dụ, sốcột của a phải bằng sốhàng của b).
+1 #aivietnam
+2 import
+numpy as np
+3
+4 # Tạo hai array 1D
+5 arr_1 = np.array ([1, 2])
+6 arr_2 = np.array ([2, 3])
+7 # In ra giá trịcủa hai array
+8 print("arr_1 :\n", arr_1)
+9 print("arr_2 :\n", arr_2)
+10 # Sửdụng hàm np.dot()
+11 result_dot = np.dot(arr_1 , arr_2)
+12 # In ra màn hình
+13 print("Kết quảtích vô hướng arr_1 , arr_2
+:\n", result_dot)
+=================
+Output
+================
+arr_1:
+[1 2]
+arr_2:
+[2 3]
+Kết quảtích vô hướng arr_1 , arr_2:
+8
+==========================================
+7.6
+Matrix-matrix multiplication
+Trong toán học, phép nhân ma trận (matrix multiplication) thường được biểu diễn bằng dấu chấm (·)
+hoặc dấu nhân (×). GiảsửA là một ma trận có kích thước m × n (m hàng, n cột), và B là một ma
+trận có kích thước n × p (n hàng, p cột), thì ma trận kết quảC sẽcó kích thước m × p. Quy tắc này
+còn được biết đến như là quy tắc hàng-cột, vì mỗi phần tửcủa ma trận kết quảC được tính bằng cách
+lấy tổng của tích từng phần tửcủa hàng tương ứng của ma trận A và cột tương ứng của ma trận B.
+Phép nhân ma trận C = A × B có thểđược mô tảnhư sau:
+Cij =
+n
+X
+k=1
+Aik · Bkj
+Trong đó:
+• Cij là phần tửởhàng thứi và cột thứj của ma trận C.
+• Aik là phần tửởhàng thứi và cột thứk của ma trận A.
+• Bkj là phần tửởhàng thứk và cột thứj của ma trận B.
+• Phép toán Pn
+k=1 biểu diễn việc tính tổng qua tất cảcác giá trịcủa k từ1 đến n.
+Ví dụ:
+A11
+A12
+A21
+A22
+
+×
+B11
+B12
+B21
+B22
+
+=
+C11
+C12
+C21
+C22
+
+20
+AIO 2024
+aivietnam.edu.vn
+Trong trường hợp này, C11 = A11 · B11 + A12 · B21, C12 = A11 · B12 + A12 · B22, và tương tựcho các
+phần tửcòn lại của ma trận C.
+Hình 18: Minh họa phép nhân ma trận
+Trong thư viện Numpy, hàm np.matmul() được sửdụng đểthực hiện phép nhân ma trận. Hàm này
+cung cấp một cách linh hoạt đểthực hiện nhân ma trận giữa các mảng (hoặc tensor) Numpy. Sửdụng
+cú pháp:
+1 np.matmul(a, b, out=None)
+Trong đó các tham sốđược định nghĩa như sau:
+• a, b: Các ma trận(mảng) đểthực hiện phép nhân. Sốcột của ma trận a phải bằng sốhàng của
+ma trận b.
+• out: Mảng kết quả. Nếu được chỉđịnh, kết quảsẽđược lưu trữvào mảng này.
+1 #aivietnam
+2 import
+numpy as np
+3
+4 # Tạo 2 array 2D
+5 arr_1 = np.array ([[1, 2], [3, 4]])
+6 arr_2 = np.array ([[5, 6], [7, 8]])
+7
+8 # In ra giá trịcủa hai array
+9 print("arr_1 :\n", arr_1)
+10 print("arr_2 :\n", arr_2)
+11
+12 # Sửdụng hàm np.matmul ()
+13 result_matmul = np.matmul(arr_1 , arr_2)
+14
+15 # In ra màn hình
+16 print("Kết quảtích arr_1 , arr_2 :\n",
+result_matmul)
+=================
+Output
+================
+arr_1:
+[[1 2]
+[3 4]]
+arr_2:
+[[5 6]
+[7 8]]
+Kết quảtích arr_1 , arr_2:
+[[19 22]
+[43 50]]
+==========================================
+7.7
+Chuyển vị- Transpose
+Chuyển vị(Transpose) là một phép toán quan trọng trong đại sốtuyến tính, nó thực hiện thay đổi
+vịtrí của các hàng thành cột và ngược lại trong một ma trận. Kí hiệu của phép toán chuyển vịthường
+được biểu diễn bằng kí hiệu T hoặc là ⊺. Nếu A là một ma trận với các phần tửaij, thì chuyển vịcủa
+A, ký hiệu là AT hay A⊺, có kích thước là sốcột của A trởthành sốhàng của A và ngược lại. Cụthể,
+nếu A có kích thước m × n, thì AT có kích thước n × m.
+(AT )ij = Aji
+Ví dụ:
+Giảsửcó ma trận A như sau:
+21
+AIO 2024
+aivietnam.edu.vn
+Hình 19: Minh họa transpose
+A =
+1
+2
+3
+4
+5
+6
+
+Chuyển vịcủa A, ký hiệu là AT , sẽlà:
+AT =
+
+
+1
+4
+2
+5
+3
+6
+
+
+Một sốtính chất của phép chuyển vị:
+• Chuyển vịcủa một ma trận chuyển vịlại sẽcho ra ma trận ban đầu: (AT )T = A.
+• Chuyển vịcủa tổng hai ma trận bằng tổng chuyển vịcủa từng ma trận: (A + B)T = AT + BT .
+• Chuyển vịcủa tích hai ma trận bằng tích đảo ngược vịtrí của chuyển vịtừng ma trận: (AB)T =
+BT AT .
+Trong Numpy, chuyển vịcủa một mảng (array) có thểđược thực hiện bằng cách sửdụng hàm
+np.transpose() hoặc toán tửchuyển vị.T. Chuyển vịthay đổi vịtrí của các hàng thành cột và
+ngược lại trong array.
+1 #aivietnam
+2 import
+numpy as np
+3
+4 #Tạo array 2d
+5 arr_1 = np.array ([[1, 2], [3, 4]])
+6 # Chuyển vịarray
+7 # Cách 1: Sửdụng hàm np.transpose ()
+8 arr_transposed_1 = np.transpose(arr_1)
+9 # Cách 2: Sửdụng toán tửT
+10 arr_transposed_2 = arr_1.T
+11 # In ra màn hình
+12 print("array 1:\n", arr_1)
+13 print("array 1 sau khi chuyển vị, cách 1:\
+n", arr_transposed_1 )
+14 print("array 1 sau khi chuyển vị, cách 2:\
+n", arr_transposed_2 )
+=================
+Output
+================
+array 1:
+[[1 2]
+[3 4]]
+array 1 sau khi chuyển vị, cách 1:
+[[1 3]
+[2 4]]
+array 1 sau khi chuyển vị, cách 2:
+[[1 3]
+[2 4]]
+==========================================
+7.8
+Summation
+Hàm np.sum() được sửdụng đểtính tổng của các phần tửtrong mảng (array). Hàm này có thểđược
+áp dụng trên các mảng 1D, 2D hoặc có sốchiều cao hơn. Cú phắp:
+22
+AIO 2024
+aivietnam.edu.vn
+1 np.sum(a, axis=None , dtype=None , keepdims=False , initial =0, where=True)
+Trong đó:
+• a: Mảng đầu vào.
+• axis: (Tùy chọn) Chiều hoặc các chiều trên đó tổng sẽđược thực hiện. Mặc định là None, tức là
+tổng của tất cảcác phần tửtrong mảng.
+• dtype: (Tùy chọn) Kiểu dữliệu của kết quả.
+• keepdims: (Tùy chọn) Nếu là True, giữchiều của mảng kết quả(nếu có) giống với chiều của mảng
+đầu vào.
+• initial: (Tùy chọn) Giá trịkhởi tạo cho tổng.
+• where: (Tùy chọn) Một mảng Boolean chỉđịnh vịtrí các phần tửđược sửdụng trong phép toán.
+Hình 20: Minh họa sumation
+Trong ví dụsau, np.sum() được sửdụng đểtính tổng của mảng array. Tham sốsửdụng ởđây là mặc
+định khi tính tổng các phần tửtrong toàn bộarray, sửdụng tham sốaxis đểtính tổng theo cột hoặc
+hàng. Kết quảđược in ra màn hình bao gồm tổng của tất cảcác phần tử, tổng theo cột, và tổng theo
+hàng của mảng.
+1 #aivietnam
+2 import
+numpy as np
+3
+4 # Tạo mảng 2D
+5 arr = np.array ([[1, 2, 3],
+6
+[4, 5, 6]])
+7
+8 # Tính tổng của tất cảcác phần tử
+9 total_sum = np.sum(arr)
+10
+11 # Tính tổng theo cột
+12 column_sum = np.sum(arr , axis =0)
+13
+14 # Tính tổng theo hàng
+15 row_sum = np.sum(arr , axis =1)
+16
+17 # In ra màn hình
+18 print("Mảng:\n", arr)
+19 print("Tổng của tất cảcác phần tửtrong m
+ảng:\n", total_sum)
+20 print("Tổng theo cột:\n", column_sum)
+21 print("Tổng theo hàng:\n", row_sum)
+=================
+Output
+================
+Mảng:
+[[1 2 3]
+[4 5 6]]
+Tổng của tất cảcác phần tửtrong mảng:
+21
+Tổng theo cột:
+[5 7 9]
+Tổng theo hàng:
+[ 6 15]
+==========================================
+23
+AIO 2024
+aivietnam.edu.vn
+7.9
+Một sốhàm thông dụng khác
+a)
+Tính Trung Bình Cộng Các Phần TửTrong Mảng
+Trung bình = 1
+n
+n
+X
+i=1
+ai
+Đểtính trung bình cộng các phần tửtrong một mảng, ta sẽsửdụng hàm np.mean.
+1 #aivietnam
+2 import
+numpy as np
+3
+4 # Tạo mảng 1 chiều
+5 arr = np.array ([1, 2, 3, 4, 5])
+6
+7 # Tính trung bình cộng các phần tửmảng
+8 mean_value = np.mean(arr)
+9 print("Trung bình cộng các phần tửtrong m
+ảng:", mean_value)
+=================
+Output
+================
+Trung bình cộng các phần tửtrong mảng:
+3.0
+==========================================
+b)
+Tính Chuẩn Euclid của Vector
+∥v∥=
+v
+u
+u
+t
+n
+X
+i=1
+v2
+i
+Đểtính chuẩn Euclid (độdài) của một vector, ta sẽsửdụng hàm np.linalg.norm.
+1 #aivietnam
+2 import
+numpy as np
+3
+4 # Tạo vector
+5 vector = np.array ([1, 2, 3])
+6
+7 # Tính chuẩn Euclid của vector
+8 norm = np.linalg.norm(vector)
+9 print("Chuẩn Euclid của vector:", norm)
+=================
+Output
+================
+Chuẩn Euclid của vector:
+3.7416573867739413
+==========================================
+c)
+Giải hệphương trình tuyến tính
+Ax = b
+Đểgiải hệphương trình tuyến tính Ax = b, ta sẽsửdụng hàm np.linalg.solve.
+1 #aivietnam
+2 import
+numpy as np
+3
+4 # Tạo ma trận hệsốA
+5 A = np.array ([[3, 1], [1, 2]])
+6 # Tạo vector hằng sốb
+7 b = np.array ([9, 8])
+8 # Giải hệphương trình tuyến tính
+9 x = np.linalg.solve(A, b)
+10 print("Nghiệm của hệphương trình:", x)
+=================
+Output
+================
+Nghiệm của hệphương trình: [2. 3.]
+==========================================
+24
+AIO 2024
+aivietnam.edu.vn
+8
+Broadcasting, function
+8.1
+Cơ chếBroadcasting
+Hình 21: Minh họa Broadcasting
+Broadcasting cho phép thực hiện các phép toán trên các mảng có kích thước khác nhau. Khi thực hiện
+các phép toán, NumPy tựđộng mởrộng các mảng nhỏhơn đểchúng có cùng kích thước với mảng lớn
+hơn. Điều này giúp tiết kiệm bộnhớvà tối ưu hóa hiệu suất.
+Một sốquy tắc khi thực hiện broadcasting:
+• Nếu các mảng không có cùng sốchiều, mảng có sốchiều nhỏhơn sẽđược mởrộng với các chiều
+có kích thước 1 ởđầu.
+• Nếu kích thước của các chiều không khớp, mảng có kích thước 1 trong chiều đó sẽđược mởrộng
+đểkhớp với kích thước của mảng khác.
+• Nếu kích thước của bất kỳchiều nào không khớp và không phải là 1, sẽxảy ra lỗi.
+Đểhiểu rõ hơn vềcơ chếbroadcasting, chúng ta thực hiện một sốví dụdưới đây:
+Ví dụ1: Cộng một sốvô hướng vào mảng
+1 #aivietnam
+2 import
+numpy as np
+3
+4 # Tạo mảng 1 chiều
+5 arr = np.array ([1, 2, 3])
+6 # Cộng số2 vào từng phần tửcủa mảng
+7 result = arr + 2
+8 print("Kết quả:", result)
+=================
+Output
+================
+Kết quả: [3, 4, 5]
+==========================================
+Ví dụ2: Cộng hai mảng có kích thước khác nhau
+1 #aivietnam
+2 import
+numpy as np
+3
+4 # Tạo mảng 2 chiều
+5 arr2d = np.array ([[1, 2, 3], [4, 5, 6]])
+6 # Tạo mảng 1 chiều
+7 arr1d = np.array ([1, 2, 3])
+8 # Cộng hai mảng
+9 result = arr2d + arr1d
+10 print("array 2d:\n", arr2d)
+11 print("array 1d:\n", arr1d)
+12 print("Kết quả:\n", result)
+=================
+Output
+================
+array 2d:
+[[1 2 3]
+[4 5 6]]
+array 1d:
+[1 2 3]
+Kết quả:
+[[2 4 6]
+[5 7 9]]
+==========================================
+25
+AIO 2024
+aivietnam.edu.vn
+Ví dụ3: Nhân hai mảng có kích thước khác nhau
+1 #aivietnam
+2 import
+numpy as np
+3
+4 # Tạo mảng 3x1
+5 arr1 = np.array ([[1] , [2], [3]])
+6 # Tạo mảng 1x3
+7 arr2 = np.array ([10, 20, 30])
+8 # Nhân hai mảng
+9 result = arr1 * arr2
+10 print("array 1:\n", arr1)
+11 print("array 2:\n", arr2)
+12 print("Kết quả:\n", result)
+=================
+Output
+================
+array 1:
+[[1]
+[2]
+[3]]
+array 2:
+[10 20 30]
+Kết quả:
+[[10 20 30]
+[20 40 60]
+[30 60 90]]
+==========================================
+Ví dụ4: Broadcasting với mảng nhiều chiều
+1 #aivietnam
+2 import
+numpy as np
+3
+4 # Tạo mảng 3 chiều
+5 arr3d = np.array ([[[1 , 2, 3], [4, 5, 6]],
+[[7, 8, 9], [10, 11, 12]]])
+6
+7 # Tạo mảng 1 chiều
+8 arr1d = np.array ([1, 2, 3])
+9
+10 # Cộng hai mảng
+11 result = arr3d + arr1d
+12
+13 print("array 3d:\n", arr3d)
+14 print("array 1d:\n", arr1d)
+15 print("Kết quả:\n", result)
+=================
+Output
+================
+array 3d:
+[[[ 1
+2
+3]
+[ 4
+5
+6]]
+[[ 7
+8
+9]
+[10 11 12]]]
+array 1d:
+[1 2 3]
+Kết quả:
+[[[ 2
+4
+6]
+[ 5
+7
+9]]
+[[ 8 10 12]
+[11 13 15]]]
+==========================================
+8.2
+Tạo hàm
+a)
+apply_along_axis()
+np.apply_along_axis là hàm cho phép ta áp dụng một hàm tựđịnh nghĩa dọc theo một trục cụthể
+của mảng. Cú pháp:
+1 np. apply_along_axis (func , axis , arr)
+• func: Hàm sẽđược áp dụng lên các phần tửcủa mảng.
+• axis: Trục mà bạn muốn áp dụng hàm.
+• arr: Mảng muốn áp dụng hàm.
+Đểhiểu rõ hơn vềcách sửdụng np.apply_along_axis, chúng ta sẽviết một hàm tính tổng các phần tử
+trong mỗi hàng của mảng 2 chiều và sau đó áp dụng hàm này lên mảng.
+26
+AIO 2024
+aivietnam.edu.vn
+1 #aivietnam
+2 import
+numpy as np
+3
+4 # Định nghĩa hàm tính tổng
+5 def
+sum_of_elements (arr):
+6
+return np.sum(arr)
+7 # Tạo mảng 2 chiều
+8 arr2d = np.array ([[1, 2, 3], [4, 5, 6],
+[7, 8, 9]])
+9 # Áp dụng hàm tính tổng lên từng hàng của
+mảng
+10 result = np. apply_along_axis (
+sum_of_elements , axis=1, arr=arr2d)
+11 print("Tổng các phần tửtrong mỗi hàng:",
+result)
+=================
+Output
+================
+Tổng các phần tửtrong mỗi hàng: [ 6 15
+24]
+==========================================
+b)
+vectorize
+np.vectorize là một hàm cho phép vector hóa một hàm Python thuần túy, tức là biến nó thành một
+hàm có thểáp dụng trên từng phần tửcủa mảng. Cú pháp:
+1 np.vectorize(func)
+• func: Hàm sẽđược vector hóa.
+Ví dụ, chúng ta sẽviết một hàm chuyển đổi nhiệt độtừCelsius sang Fahrenheit và sau đó vector hóa
+hàm này.
+1 #aivietnam
+2 import
+numpy as np
+3
+4 # Định nghĩa hàm chuyển đổi nhiệt độ
+5 def
+celsius_to_fahrenheit (c):
+6
+return (c * 9/5) + 32
+7 # Vector hóa hàm celsius_to_fahrenheit
+8 vectorized_conversion = np.vectorize(
+celsius_to_fahrenheit )
+9 # Tạo mảng nhiệt độCelsius
+10 celsius = np.array ([0, 20, 37, 100])
+11 # Áp dụng hàm vector hóa lên mảng
+12 fahrenheit = vectorized_conversion (celsius
+)
+13 print("Chuyển đổi từCelsius
+sang
+Fahrenheit:", fahrenheit)
+=================
+Output
+================
+Chuyển đổi từCelsius
+sang
+Fahrenheit: [
+32.
+68.
+98.6 212. ]
+==========================================
+27
+AIO 2024
+aivietnam.edu.vn
+9
+Kết Luận
+Qua bài viết này, chúng ta đã làm quen với cách sửdụng NumPy, một thư viện mạnh mẽvà linh hoạt
+trong Python, giúp dễdàng thao tác và tính toán với các mảng số. Dưới đây là những kiến thức cơ bản
+nhưng quan trọng mà bạn cần nắm được:
+• Tạo Mảng: Chúng ta đã học cách tạo mảng khác nhau. Điều này giúp bạn có được các mảng dữ
+liệu cần thiết cho các phép tính toán sau này.
+• Truy Cập Mảng: Bằng cách sửdụng các phương pháp indexing và slicing, bạn có thểtruy cập và
+thao tác với từng phần tửhoặc một dãy phần tửtrong mảng một cách hiệu quả. Đây là kỹnăng
+cơ bản nhưng rất quan trọng đểlàm việc với dữliệu trong NumPy.
+• Tìm Kiếm và Sắp Xếp: Chúng ta đã tìm hiểu các phương pháp tìm kiếm và sắp xếp mảng, giúp
+bạn có thểxửlý và tổchức dữliệu một cách có hệthống và dễdàng hơn.
+• Các phương pháp nối mảng, thay đổi chiều của mảng
+• Broadcasting: Hiểu cơ chếbroadcasting giúp bạn thao tác với các mảng có kích thước khác nhau
+một cách dễdàng và trực quan, mà không cần phải lặp lại các phép toán thủcông.
+• Hàm Vector hóa và áp dụng trên các trục: Sửdụng các hàm np.vectorize và np.apply_along_axis
+giúp bạn tối ưu hóa và thực hiện các phép toán phức tạp trên mảng một cách nhanh chóng và
+hiệu quả.
+• Các phép toán trên mảng: Chúng ta đã học các hàm hỗtrợtính toán hiệu quảkhi làm việc với
+mảng.
+Những kiến thức này là nền tảng đểbạn có thểtiếp tục tìm hiểu và ứng dụng NumPy trong các bài
+toán phức tạp hơn, trong các lĩnh vực như khoa học dữliệu, trí tuệnhân tạo và học máy. Hy vọng bài
+viết đã cung cấp cho bạn một cái nhìn tổng quan và các công cụcần thiết đểbắt đầu với NumPy. Hãy
+thực hành, thực hành và thực hành đểthành thạo hơn bạn nhé!
+28

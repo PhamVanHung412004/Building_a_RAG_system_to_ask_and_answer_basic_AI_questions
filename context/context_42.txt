@@ -1,0 +1,2627 @@
+1
+AI VIETNAM
+All-in-One Course
+1
+AI VIETNAM
+All-in-One Course
+XGBoost
+Year 2023
+Vinh Dinh Nguyen
+PhD in Computer Science
+AI VIETNAM
+All-in-One Course
+2
+AI VIETNAM
+All-in-One Course
+2
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Regularization 
+Ø XGBoost For Regression
+Ø XGBoost For Classification
+Ø XGBoost: Mathematical Explanation
+Ø How To Fill Missing Values
+Ø Example 
+Outline
+3
+AI VIETNAM
+All-in-One Course
+3
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Regularization 
+Ø XGBoost For Regression
+Ø XGBoost For Classification
+Ø XGBoost: Mathematical Explanation
+Ø How To Fill Missing Values
+Ø Example 
+Outline
+4
+AI VIETNAM
+All-in-One Course
+4
+Vinh Dinh Nguyen- PhD in Computer Science
+Regularization
+Area (square feet)
+Price (k$)
+Overfitting
+High Variance
+5
+AI VIETNAM
+All-in-One Course
+5
+Vinh Dinh Nguyen- PhD in Computer Science
+Regularization
+Area (square feet)
+Price (k$)
+Overfitting
+High Variance
+Train data
+Test data
+6
+AI VIETNAM
+All-in-One Course
+6
+Vinh Dinh Nguyen- PhD in Computer Science
+Regularization
+Area (square feet)
+Price (k$)
+Overfiting line
+Just right Line
+Overfitting
+High Variance
+Train data
+Test data
+7
+AI VIETNAM
+All-in-One Course
+7
+Vinh Dinh Nguyen- PhD in Computer Science
+Regularization
+Area (square feet)
+Price (k$)
+Overfiting line
+Just right Line
+Price = Intercept + slope * area
+Overfitting
+High Variance
+Train data
+Test data
+8
+AI VIETNAM
+All-in-One Course
+8
+Vinh Dinh Nguyen- PhD in Computer Science
+Price = [Intercept + slope * area] + 𝝀*slope2
+Regularization
+9
+AI VIETNAM
+All-in-One Course
+9
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Regularization 
+Ø XGBoost For Regression
+Ø XGBoost For Classification
+Ø XGBoost: Mathematical Explanation
+Ø How To Fill Missing Values
+Ø Example 
+Outline
+10
+AI VIETNAM
+All-in-One Course
+10
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost For Regression
+Drug Weight (mg) 
+Drug Effectiveness
+-15
+-10
+-5
+0
+5
+10
+20
+40
+Drug Weight < 15
+-10.5
+Drug Weight < 30
+6.5, 7.5
+-8
+11
+AI VIETNAM
+All-in-One Course
+11
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost For Regression
+Step 1
+• Initialize the first prediction for drug effectiveness
+• Any number, for default, we set 1st prediction = 0.5
+Drug Effectiveness
+-15
+-10
+-5
+0
+5
+10
+20
+40
+Drug Weight (mg) 
+Prediction = 0.5
+Residual = error
+12
+AI VIETNAM
+All-in-One Course
+12
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost For Regression
+Step 1
+Drug Effectiveness
+-15
+-10
+-5
+0
+5
+10
+20
+40
+Drug Weight (mg) 
+-10.5, 6.5, 7.5, -7.5  
+-10.5
+6.5
+7.5
+- 7.5
+Start with single Leaf of residuals
+Compute Similarity Score
+SC = 
+[∑
+#$%&$%'&()*+,%)* ]!
+./ 0
+m: number of samples
+𝜆∶𝑟𝑒𝑔𝑢𝑙𝑎𝑟𝑖𝑧𝑎𝑡𝑖𝑜𝑛𝑝𝑎𝑟𝑎𝑚𝑒𝑡𝑒𝑟𝑠
+Prediction = 0.5
+13
+AI VIETNAM
+All-in-One Course
+13
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost For Regression
+Step 1
+Drug Effectiveness
+-15
+-10
+-5
+0
+5
+10
+20
+40
+Drug Weight (mg) 
+-10.5, 6.5, 7.5, -7.5  
+-10.5
+6.5
+7.5
+- 7.5
+Start with single Leaf of residuals
+Compute Similarity Score
+m = 4
+𝜆= 0
+SC = '12.4/5.4/6.4/ '5.4
+𝟐
+7
+=4
+SC = 
+[∑
+#$%&$%'&()*+,%)* ]!
+./ 0
+14
+AI VIETNAM
+All-in-One Course
+14
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost For Regression
+Drug Effectiveness
+-15
+-10
+-5
+0
+5
+10
+20
+40
+Drug Weight (mg) 
+-10.5, 6.5, 7.5, -7.5  
+-10.5
+6.5
+7.5
+- 7.5
+SC = 4
+What happens if we try to split residuals into two groups => 
+measure the similarity score
+Step 1
+15
+AI VIETNAM
+All-in-One Course
+15
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost For Regression
+Drug Effectiveness
+-15
+-10
+-5
+0
+5
+10
+20
+40
+Drug Weight (mg) 
+-10.5, 6.5, 7.5, -7.5  
+-10.5
+6.5
+7.5
+- 7.5
+SC = 4
+What happens if we try to split residuals into two groups =>
+measure the similarity score
+Step 1
+Build a tree on it
+16
+AI VIETNAM
+All-in-One Course
+16
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost For Regression
+Drug Effectiveness
+-15
+-10
+-5
+0
+5
+10
+20
+40
+Drug Weight (mg) 
+-10.5, 6.5, 7.5, -7.5  
+-10.5
+6.5
+7.5
+- 7.5
+SC = 4
+Please look at the two outputs with lowest drug weights
+Average = 15
+Drug weights < 15
+-10.5
+6.5, 7.5, -7.5
+SC = 4
+SC = 110.25
+SC = 14.08
+Step 1
+17
+AI VIETNAM
+All-in-One Course
+17
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost For Regression
+Drug Effectiveness
+-15
+-10
+-5
+0
+5
+10
+20
+40
+Drug Weight (mg) 
+-10.5, 6.5, 7.5, -7.5  
+-10.5
+6.5
+7.5
+- 7.5
+SC = 4
+How much better leaves cluster similar Residual than the root?
+Average = 15
+Drug weights < 15
+-10.5
+6.5, 7.5, -7.5
+SC = 4
+SC = 110.25
+SC = 14.08
+Step 1
+18
+AI VIETNAM
+All-in-One Course
+18
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost For Regression
+Drug Effectiveness
+-15
+-10
+-5
+0
+5
+10
+20
+40
+Drug Weight (mg) 
+-10.5, 6.5, 7.5, -7.5  
+-10.5
+6.5
+7.5
+- 7.5
+SC = 4
+Average = 15
+Drug weights < 15
+-10.5
+6.5, 7.5, -7.5
+SC = 4
+SC = 110.25
+SC = 14.08
+qStep 1
+Caculate the Gain.
+Gain = Left SC + Right SC - Root SC
+Gain = 120.33
+Residual rất khác 
+nhau, triệt tiêu lẫn 
+nhau, nên SC nhỏ
+Residual giống nhau hoặc không 
+triệt tiêu lẫn nhau, nên SC khá lơn
+19
+AI VIETNAM
+All-in-One Course
+19
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost For Regression
+Drug Effectiveness
+-15
+-10
+-5
+0
+5
+10
+20
+40
+Drug Weight (mg) 
+-10.5, 6.5, 7.5, -7.5  
+-10.5
+6.5
+7.5
+- 7.5
+SC = 4
+Average = 22.5
+Drug weights < 22.5
+-10.5, 6.5
+7.5, -7.5
+SC = 4
+SC = 8
+SC = 0
+Caculate the Gain.
+Gain = Left SC + Right SC - Root SC
+Gain = 4.0
+qStep 1
+Residual rất khác 
+nhau, triệt tiêu lẫn 
+nhau, nên SC nhỏ
+Residual giống nhau 
+hoặc không triệt tiêu 
+lẫn nhau, nên SC khá 
+lơn
+20
+AI VIETNAM
+All-in-One Course
+20
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost For Regression
+Drug Effectiveness
+-15
+-10
+-5
+0
+5
+10
+20
+40
+Drug Weight (mg) 
+-10.5, 6.5, 7.5, -7.5  
+-10.5
+6.5
+7.5
+- 7.5
+SC = 4
+Average = 30
+Drug weights < 30
+-10.5, 6.5, 7.5
+-7.5
+SC = 4
+SC = 4.05
+SC = 56.25
+Caculate the Gain.
+Gain = Left SC + Right SC - Root SC
+Gain = 56.33
+qStep 1
+Residual rất khác 
+nhau, triệt tiêu lẫn 
+nhau, nên SC nhỏ
+Residual giống nhau 
+hoặc không triệt tiêu lẫn 
+nhau, nên SC khá lơn
+21
+AI VIETNAM
+All-in-One Course
+21
+Vinh Dinh Nguyen- PhD in Computer Science
+Drug weights < 15
+-10.5
+6.5, 7.5, -7.5
+SC = 4
+SC = 110.25
+SC = 14.08
+Gain = 4
+Gain = 120.33
+≤
+We select 
+Drug weights < 15
+Gain = 56.25
+≤
+XGBoost For Regression
+qStep 1
+22
+AI VIETNAM
+All-in-One Course
+22
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost For Regression
+Drug weights < 15
+-10.5
+6.5, 7.5, -7.5
+SC = 4
+Stop
+Continue Split
+qStep 1
+Drug Effectiveness
+-15
+-10
+-5
+0
+5
+10
+20
+40
+Drug Weight (mg) 
+-10.5
+6.5
+7.5
+- 7.5
+Average = 15
+23
+AI VIETNAM
+All-in-One Course
+23
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost For Regression
+Drug weights < 15
+-10.5
+6.5, 7.5, -7.5
+SC = 4
+Stop
+Continue Split
+Drug weights < 22.5
+6.5
+7.5, -7.5
+SC = 14,8
+SC = 42.25
+SC = 0
+Caculate the Gain
+Gain = Left SC + Right SC - Root SC
+Gain = 28.17
+qStep 1
+Drug Effectiveness
+-15
+-10
+-5
+0
+5
+10
+20
+40
+Drug Weight (mg) 
+-10.5
+6.5
+7.5
+- 7.5
+Average = 15
+Average = 22.5
+24
+AI VIETNAM
+All-in-One Course
+24
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost For Regression
+Drug Effectiveness
+-15
+-10
+-5
+0
+5
+10
+20
+40
+Drug Weight (mg) 
+6.5
+7.5
+- 7.5
+Average =30
+Drug weights < 15
+-10.5
+6.5, 7.5, -7.5
+SC = 4
+Stop
+Continue Split
+Drug weights < 30
+6.5, 7.5
+-7.5
+SC = 14,8
+SC = 98
+SC = 56.25
+Caculate the Gain
+Gain = Left SC + Right SC - Root SC
+Gain = 140.17
+qStep 1
+25
+AI VIETNAM
+All-in-One Course
+25
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost For Regression
+Drug weights < 15
+-10.5
+6.5, 7.5, -7.5
+Gain = 120.33
+Stop
+Drug weights < 30
+6.5, 7.5
+-7.5
+SC = 140.7
+How to prune the tree to prevent 
+Overfitting ? Gain information
+𝛾= 130
+Drug Effectiveness
+-15
+-10
+-5
+0
+5
+10
+20
+40
+Drug Weight (mg) 
+6.5
+7.5
+- 7.5
+Average =30
+qStep 1
+26
+AI VIETNAM
+All-in-One Course
+26
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost For Regression
+Drug Effectiveness
+-15
+-10
+-5
+0
+5
+10
+20
+40
+Drug Weight (mg) 
+6.5
+7.5
+- 7.5
+Average = 22.5
+Drug weights < 15
+-10.5
+6.5, 7.5, -7.5
+Gain = 120.33
+Stop
+Drug weights < 30
+6.5, 7.5
+-7.5
+SC = 140.7
+How to prune the tree to prevent 
+Overfitting ? Gain information
+qStep 1
+𝛾= 130
+Difference = Gain - 𝛾
+If difference > 0, do not remove branch
+If difference < 0, remove branch
+27
+AI VIETNAM
+All-in-One Course
+27
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost For Regression
+Drug Effectiveness
+-15
+-10
+-5
+0
+5
+10
+20
+40
+Drug Weight (mg) 
+6.5
+7.5
+- 7.5
+Average = 22.5
+Drug weights < 15
+-10.5
+6.5, 7.5, -7.5
+Gain = 120.33
+Stop
+SC = 140.7
+How to prune the tree to prevent 
+Overfitting ? Gain information
+qStep 1
+𝛾= 150
+Difference = Gain - 𝛾
+If difference > 0, do not remove branch
+If difference < 0, remove branch
+28
+AI VIETNAM
+All-in-One Course
+28
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost For Regression
+Drug Effectiveness
+-15
+-10
+-5
+0
+5
+10
+20
+40
+Drug Weight (mg) 
+6.5
+7.5
+- 7.5
+Average = 22.5
+o.5
+How to prune the tree to prevent 
+Overfitting ? Gain information
+qStep 1
+𝛾= 150
+Difference = Gain - 𝛾
+If difference > 0, do not remove branch
+If difference < 0, remove branch
+29
+AI VIETNAM
+All-in-One Course
+29
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost For Regression
+qStep 1
+Drug Effectiveness
+-15
+-10
+-5
+0
+5
+10
+20
+40
+Drug Weight (mg) 
+-10.5, 6.5, 7.5, -7.5  
+-10.5
+6.5
+7.5
+- 7.5
+Start with single Leaf 
+of residuals
+Compute Similarity Score
+SC = 
+∑
+#$%&$%'&()*+,%)* !
+./ 0
+m = 4
+𝜆= 1
+SC = 
+'12.4/5.4/6.4/ '5.4
+!
+7/1
+=3.2
+30
+AI VIETNAM
+All-in-One Course
+30
+Vinh Dinh Nguyen- PhD in Computer Science
+Drug Effectiveness
+-15
+-10
+-5
+0
+5
+10
+20
+40
+Drug Weight (mg) 
+-10.5, 6.5, 7.5, -7.5  
+-10.5
+6.5
+7.5
+- 7.5
+SC = 3.2
+Please look at the two outputs with lowest drug weights
+Average = 15
+Drug weights < 15
+-10.5
+6.5, 7.5, -7.5
+SC = 3.2
+SC = 55.12
+SC = 10.56
+When 𝜆> 0, the  similarity score are smaller
+Inversely proportional to the number of residuals
+SC = 110.25
+SC = 14.8
+SC = 4
+qStep 1
+XGBoost For Regression
+𝜆= 1
+𝜆= 0
+31
+AI VIETNAM
+All-in-One Course
+31
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost For Regression
+Drug Effectiveness
+-15
+-10
+-5
+0
+5
+10
+20
+40
+Drug Weight (mg) 
+-10.5
+6.5
+7.5
+- 7.5
+Average = 15
+Drug weights < 15
+-10.5
+6.5, 7.5, -7.5
+SC = 55.12
+SC = 10.56
+SC = 110.25
+SC = 14.8
+Gain = 55.12 + 10.56 – 3.2 =  62.48
+Gain = 55.12 + 10.56 – 4 =  120.33
+Gain = 82.9
+Gain = 140.17
+𝜆= 1
+𝜆= 0
+The amount of decrease is invertly propotional to
+the number of Residual in the nodes
+32
+AI VIETNAM
+All-in-One Course
+32
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost For Regression
+Drug Effectiveness
+-15
+-10
+-5
+0
+5
+10
+20
+40
+Drug Weight (mg) 
+-10.5
+6.5
+7.5
+- 7.5
+Average = 15
+Drug weights < 15
+-10.5
+6.5, 7.5, -7.5
+SC = 55.12
+SC = 10.56
+SC = 110.25
+SC = 14.8
+Gain = 55.12 + 10.56 – 4 =  62.48
+Gain = 55.12 + 10.56 – 4 =  120.33
+Gain = 82.9
+Gain = 140.17
+𝜆= 1
+𝜆= 0
+The amount of decrease is invertly propotional to the number
+of Residual in the nodes
+𝜆> 0: easy to prune the tree
+Prevent overffiting
+Prunning 
+parameter: 
+𝛾= 130
+33
+AI VIETNAM
+All-in-One Course
+33
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost For Regression
+Drug Effectiveness
+-15
+-10
+-5
+0
+5
+10
+20
+40
+Drug Weight (mg) 
+-10.5
+6.5
+7.5
+- 7.5
+Average = 15
+SC = 65.3
+𝜆= 1
+SC = 21.12
+SC = 28.12
+Gain = 21.12 + 28.12 – 65.3 = -16.06
+Prunning 
+parameter: 
+𝛾= 0
+We will remove this 
+branch: -16.06- 𝛾 < 0  
+Setting 𝛾 = 0  do not 
+turn off prunning 
+SC = (6.5+7.5)2/(2+1) 
+= 65.3
+34
+AI VIETNAM
+All-in-One Course
+34
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Predict Value
+Drug weights < 15
+-10.5
+6.5, 7.5, -7.5
+Drug weights < 30
+6.5, 7.5
+-7.5
+-5.25
+Drug Effectiveness
+-15
+-10
+-5
+0
+5
+10
+20
+40
+Drug Weight (mg) 
+-10.5
+6.5
+7.5
+- 7.5
+Average = 15
+𝜆= 1
+When 𝜆 > 0, it will reduce the amount that 
+this indiviual observation add to the overal 
+prediction
+35
+AI VIETNAM
+All-in-One Course
+35
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Predict Value
+0.5
+Drug weights < 15
+-10.5
+6.5, 7.5, -7.5
+Drug weights < 30
+6.5, 7.5
+-7.5
+-10.5
+7
+-7.5
+output
+𝛼∗
+𝜆= 0
+𝛼= 0.3
+36
+AI VIETNAM
+All-in-One Course
+36
+Vinh Dinh Nguyen- PhD in Computer Science
+Building the Next Tree
+Keep bulding the Tree until the Residual are reach the predefined threshold. Or we reach to the 
+maximum number of Tree
+𝛼∗Next Tree Result
+37
+AI VIETNAM
+All-in-One Course
+37
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost for Regression
+Drug Weight (mg) 
+Drug Effectiveness
+-15
+-10
+-5
+0
+5
+10
+20
+40
+Drug Weight < 15
+-10.5
+Drug Weight < 30
+6.5, 7.5
+-8
+HOW TO FIND QUANTILES? => QUANTILE SKETCH APPROXIMATE SOLUTION
+38
+AI VIETNAM
+All-in-One Course
+38
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Regularization 
+Ø XGBoost For Regression
+Ø XGBoost For Classification
+Ø XGBoost: Mathematical Explanation
+Ø How To Fill Missing Values
+Ø Example 
+Outline
+39
+AI VIETNAM
+All-in-One Course
+39
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoot For Classification
+Drug Weight (mg) 
+Drug Effectiveness
+-15
+-10
+-5
+0
+5
+10
+10
+20
+Effectiviness
+Not effectiviness
+0.5
+First prediction
+50% chance of the 
+drug is effective
+40
+AI VIETNAM
+All-in-One Course
+40
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoot For Classification
+Drug Weight (mg) 
+Probability of Effectiveness
+1
+10
+20
+Effectiviness
+Not effectiviness
+0.5
+First prediction
+50% chance of the 
+drug is effective
+0
+Residual
+Weight < 15
+Weight < 5
+-0.5
+-0.5
+0.5, 0.5
+41
+AI VIETNAM
+All-in-One Course
+41
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoot For Classification
+Similarity Score for Classification:
+Similarity Score for Prediction (regression):
+Similarity Score = 
+∑#$%&'()*!
+"
+∑+,$-&.(% +,./)/&*&01! × 34+,$-&.(% +,./)/&*&01! 56
+Similarity Score = 
+∑#$%&'()*!
+"
+7(8/$, .9 ,$%&'()*56
+42
+AI VIETNAM
+All-in-One Course
+42
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost for Classification
+Drug Weight (mg) 
+Probability of Effectiveness
+1
+10
+20
+Effectiviness
+Not effectiviness
+0.5
+0
+-0.5, 0.5, 0.5, -0.5 
+SC = 0 
+First Tree
+𝜆= 0
+43
+AI VIETNAM
+All-in-One Course
+43
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost For Classification
+Drug Weight (mg) 
+Probability of Effectiveness
+1
+10
+20
+Effectiviness
+Not effectiviness
+0.5
+0
+-0.5, 0.5, 0.5, -0.5 
+SC = 0 
+𝜆= 0
+44
+AI VIETNAM
+All-in-One Course
+44
+Vinh Dinh Nguyen- PhD in Computer Science
+𝜆= 0
+XGBoost For Classification
+Drug Weight (mg) 
+Probability of Effectiveness
+1
+10
+20
+0.5
+0
+Weights < 15
+SC = 0 
+-0.5, 0.5, 0.5
+-0.5
+Average = 15
+SC = 0.33 
+SC = 1 
+Gain = 0.33 + 1 – 0 =1.33 
+Supposing that 
+weights < 15 
+is best threshold
+45
+AI VIETNAM
+All-in-One Course
+45
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost For Classification
+Drug Weight (mg) 
+Probability of Effectiveness
+1
+10
+20
+0.5
+0
+Weights < 15
+Weight < 10
+-0.5
+Average = 10
+-0.5, 0.5
+0.5
+SC = 0 
+SC = 1 
+SC = 0.33
+Gain = 0 + 1 – 0.33 = 0.66
+𝜆= 0
+46
+AI VIETNAM
+All-in-One Course
+46
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost for Classification
+Drug Weight (mg) 
+Probability of Effectiveness
+1
+10
+20
+0.5
+0
+Weights < 15
+Weight < 5
+-0.5
+-0.5
+0.5, 0.5
+SC = 1
+SC = 2 
+SC = 0.33
+Gain = 1 + 2 – 0.33 = 2.66
+Average = 5
+47
+AI VIETNAM
+All-in-One Course
+47
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost for Classification
+Drug Weight (mg) 
+Probability of Effectiveness
+1
+10
+20
+0.5
+0
+Weights < 15
+Weight < 5
+-0.5
+Average = 5
+-0.5
+0.5, 0.5
+How to estimate the minimum number of Residuals in each leaf 
+=> XGBoot Cover
+Select Weight < 5 is threshold 
+because ….
+Giả sử quy định depth level = 2, dừng xây dựng Tree
+By default: Mininmum XGBoot Cover is set to 1
+48
+AI VIETNAM
+All-in-One Course
+48
+Vinh Dinh Nguyen- PhD in Computer Science
+Similarity Score = 
+∑#$%&'()*!
+"
+7(8/$, .9 ,$%&'()*56
+Similarity Score = 
+∑#$%&'()*!
+"
+∑+,$-&.(% +,./)/&*&01! × 34+,$-&.(% +,./)/&*&01! 56
+What is a Cover
+Cover
+Similarity Score for Classification:
+Similarity Score for Prediction:
+49
+AI VIETNAM
+All-in-One Course
+49
+Vinh Dinh Nguyen- PhD in Computer Science
+What is a Cover
+Drug Weight (mg) 
+Probability of Effectiveness
+1
+10
+20
+0.5
+0
+Weights < 15
+Weight < 5
+-0.5
+Average = 5
+-0.5
+0.5, 0.5
+Cover = 0.5 *  (1- 0.5) = 0.25
+Mininmum XGBoot Cover is 1
+Cover = (0.5 *  (1- 0.5))*2 = 0.5 
+Delete
+Delete
+50
+AI VIETNAM
+All-in-One Course
+50
+Vinh Dinh Nguyen- PhD in Computer Science
+Xgboost for Classification
+Drug Weight (mg) 
+Probability of Effectiveness
+1
+10
+20
+0.5
+0
+Weights < 15
+-0.5, 0.5, 0.5
+-0.5
+Average = 15
+Cover = [(0.5 *  (1- 0.5)]*3 = 0.75
+Default mininmum XGBoot Cover is 1
+Cover = 0.25
+Delete
+Delete
+51
+AI VIETNAM
+All-in-One Course
+51
+Vinh Dinh Nguyen- PhD in Computer Science
+Xgboost for Classification
+Drug Weight (mg) 
+Probability of Effectiveness
+1
+10
+20
+0.5
+0
+-0.5, 0.5, 0.5, -0.5
+Average = 15
+Default mininmum XGBoot Cover is 1
+Cover = [(0.5 *  (1- 0.5)]*4 = 1
+Keep this node
+52
+AI VIETNAM
+All-in-One Course
+52
+Vinh Dinh Nguyen- PhD in Computer Science
+How to predict the value
+Drug Weight (mg) 
+Probability of Effectiveness
+1
+10
+20
+0.5
+0
+Weights < 15
+Weight < 5
+-0.5
+Average = 5
+-0.5
+0.5, 0.5
+Output Value = 
+∑"#$%&'()#
+∑*+#,%-'$ *+-.(.%)%/0# × 23*+#,%-'$ *+-.(.%)%/0# 45
+53
+AI VIETNAM
+All-in-One Course
+53
+Vinh Dinh Nguyen- PhD in Computer Science
+How to predict the value
+Drug Weight
+Drug Effectiveness
+No
+Yes
+Yes
+No
+2 Yes and 2 No => Probablity Yes = 2/4 = 1/2  = 0.5
+Log(odds) = log (Probablity Yes
+Probablity No)=0 
+Initial prediction is that the probability of drug effective is 50%
+Probability of Drug Effectiveness =
+e)-6(-&&$)
+1 + e)-6(-&&$)
+Probability of Drug Effectiveness =
+#!
+24#! = 0.5
+In XGBoost (or Gradient Boost), the initial prediction is that the log(odds) 
+54
+AI VIETNAM
+All-in-One Course
+54
+Vinh Dinh Nguyen- PhD in Computer Science
+How to predict the value
+Drug Weight (mg) 
+Probability of Effectiveness
+1
+10
+20
+0.5
+0
+Weights < 15
+Weight < 5
+-0.5
+Average = 5
+-0.5
+0.5, 0.5
+Output value = -0.5 / 0.25 = - 2
+Output value = -2
+Output value = 1.0 / 0.5 = 2
+𝜆= 0
+Output Value = 
+∑"#$%&'()#
+∑*+#,%-'$ *+-.(.%)%/0# × 23*+#,%-'$ *+-.(.%)%/0# 45
+P = 0.5
+Probability => Log(odds)
+Log(odds) = 0
+Tranformation formular for getting value at a leaf.
+55
+AI VIETNAM
+All-in-One Course
+55
+Vinh Dinh Nguyen- PhD in Computer Science
+How to predict the value
+P = 0.5
+𝛼∗
+Probability => Log(odds)
+Prediction = 0 + 0.3 * (-2) = -0.6 
+Log(odds) = 0
+Probability = 
+8!".$
+1/8!".$ = 0.35
+Probability =
+e)-6(-&&$)
+1 + e)-6(-&&$)
+9
+1'9 = odds
+Log(
+9
+1'9) = log(odds)
+𝛼 = 0.3
+New residual
+56
+AI VIETNAM
+All-in-One Course
+56
+Vinh Dinh Nguyen- PhD in Computer Science
+How to predict the value
+P = 0.5
+Log(odds) = 0
+New residual
+9
+1'9 = odds
+Log(
+9
+1'9) = log(odds)
+𝛼 = 0.3
+Log(odds) = Prediction = 0 + 0.3 * (2) = 0.6 
+Probability =
+e)-6(-&&$)
+1 + e)-6(-&&$)
+Probability = 
+8".$
+1/8".$ = 0.65
+𝛼∗
+Probability => Log(odds)
+Can we 
+change P?
+57
+AI VIETNAM
+All-in-One Course
+57
+Vinh Dinh Nguyen- PhD in Computer Science
+Build 2nd Tree
+P = 0.5
+∝∗
+Probability => Log(odds)
+Log(odds) = 0
+New residual
+New residual
+∝∗
+0.35
+0.65
+-0.35, 0.35, 0.35, -0.35 
+Similarity Score = 
+−0.35 + 0.35 + 0.35−0.35
+!
+2.:4× 1'2.:4 /2.64× 1'2.64 /2.64× 1'2.64 /2.:4× 1'2.:4
+Similarity Score = 
+∑<8=>?@AB#
+!
+∑9C8D>E@= 9CEFAF>B>GH# × 1'9C8D>E@= 9CEFAF>B>GH# /0
+58
+AI VIETNAM
+All-in-One Course
+58
+Vinh Dinh Nguyen- PhD in Computer Science
+Build 2nd Tree
+P = 0.5
+∝∗
+Probability => Log(odds)
+Log(odds) = 0
+New residual
+New residual
+∝∗
+0.35
+0.65
+-0.35, 0.35, 0.35, -0.35 
+Output Score = 
+−0.35 + 0.35 + 0.35−0.35
+2.:4× 1'2.:4 /2.64× 1'2.64 /2.64× 1'2.64 /2.:4× 1'2.:4 /0
+Output Score = 
+∑<8=>?@AB#
+∑9C8D>E@= 9CEFAF>B>GH# × 1'9C8D>E@= 9CEFAF>B>GH# /0
+59
+AI VIETNAM
+All-in-One Course
+59
+Vinh Dinh Nguyen- PhD in Computer Science
+Build 2nd Tree
+P = 0.5
+∝∗
+Probability => Log(odds)
+Log(odds) = 0
+New residual
+New residual
+Weights < 5
+Weight < 15
+0.35, 0.35
+-0.35
+-0.35
+∝∗
+60
+AI VIETNAM
+All-in-One Course
+60
+Vinh Dinh Nguyen- PhD in Computer Science
+Review Questions
+1. When do you stop to build the Tree
+2. What’s happen when 𝜆> 0 
+Similarity Score = 
+∑#$%&'()*!
+"
+∑+,$-&.(% +,./)/&*&01! × 34+,$-&.(% +,./)/&*&01! 56
+61
+AI VIETNAM
+All-in-One Course
+61
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Regularization 
+Ø XGBoost For Regression
+Ø XGBoost For Classification
+Ø XGBoost: Mathematical Explanation
+Ø How To Fill Missing Values
+Ø Example 
+Outline
+62
+AI VIETNAM
+All-in-One Course
+62
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost: Behind The Scenes
+Weights < 15
+Weight < 5
+-0.5
+-0.5
+0.5, 0.5
+weights < 15
+-10.5
+6.5, 7.5, -7.5
+weights < 30
+6.5, 7.5
+-7.5
+Classification
+Regression
+𝑆imilarity Score =
+∑Residual I
+Number of Residual + 𝜆
+𝑆imilarity Score =
+∑Residual I
+∑Ey> × 1 −Ey> + 𝜆
+Output Value =
+∑Residual
+Number of Residual + 𝜆
+Ouput value =
+∑Residual
+∑Ey> × 1 −Ey> + 𝜆
+63
+AI VIETNAM
+All-in-One Course
+63
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost: Behind The Scenes
+0
+10
+20
+30
+-10
+-5
+0
+5
+10
+Drug Weights (mg)
+Drug Effectiveness
+0
+5
+10
+30
+0
+1
+Drug Weights (mg)
+Effectiveness 
+Probability
+Regression
+Classification
+0.5
+Dự đoán ban đầu hiệu quả thuốc
+K
+>J1
+:
+ℒy>, Ey>
+y:
+yI
+y1
+y:
+yI
+y1
+K
+>J1
+:
+ℒy>, Ey>
+y:
+yI
+y1
+y1
+yI
+y:
+Sửdụng loss functions xây dựng cây
+ℒy>, Ey> = 1
+2 y> −Ey> I
+ℒy>, Ey> = −
+y>log Ey> +
+(1 −y>)log(1 −Ey>)
+Where
+Where
+64
+AI VIETNAM
+All-in-One Course
+64
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost: Behind The Scenes
+0
+10
+20
+30
+-10
+-5
+0
+5
+10
+Drug Weights (mg)
+Drug Effectiveness
+0
+5
+10
+30
+0
+1
+Drug Weights (mg)
+Effectiveness 
+Probability
+Regression
+Classification
+0.5
+Dự đoán ban đầu hiệu quả thuốc
+y:
+yI
+y1
+y:
+yI
+y1
+y:
+yI
+y1
+y1
+yI
+y:
+𝛾is a user definable penalty to encourse pruning
+'
+RST
+U
+ℒyR, +yR + 𝛾T + 𝜆PV
+XGBoost can prune even when 𝛾= 0 
+Pruning is excuted after the full tree built => It 
+plays no role in deriving the Optimal Output Values
+65
+AI VIETNAM
+All-in-One Course
+65
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost: Behind The Scenes
+0
+10
+20
+30
+-10
+-5
+0
+5
+10
+Drug Weights (mg)
+Drug Effectiveness
+0
+5
+10
+30
+0
+1
+Drug Weights (mg)
+Effectiveness 
+Probability
+Regression
+Classification
+0.5
+Dự đoán ban đầu hiệu quả thuốc
+y:
+yI
+y1
+y:
+yI
+y1
+y:
+yI
+y1
+y1
+yI
+y:
+𝛾is a user definable penalty to encourse pruning
+'
+RST
+U
+ℒyR, +yR + 𝛾T + 𝜆PV
+XGBoost can prune even when 𝛾= 0 
+Pruning is excuted after the full tree built => It 
+plays no role in deriving the Optimal Output Values
+Bỏ qua 𝜸 
+66
+AI VIETNAM
+All-in-One Course
+66
+Vinh Dinh Nguyen- PhD in Computer Science
+0
+10
+20
+30
+-10
+-5
+0
+5
+10
+Drug Weights (mg)
+Drug Effectiveness
+0
+5
+10
+30
+0
+1
+Drug Weights (mg)
+Effectiveness 
+Probability
+Regression
+Classification
+0.5
+Dự đoán ban đầu 
+hiệu quả thuốc
+y:
+yI
+y1
+y:
+yI
+y1
+y:
+yI
+y1
+y1
+yI
+y:
+XGBoost builds the new tree based on the loss 
+function:
+K
+>J1
+K
+ℒy>, y>
+2 + P + 1
+2 𝜆PI
+Mục tiêu: tìm giá trịdựđoán cho mỗi leaf (P)  
+của cây mới nhằm minimize hàm loss.
+Rigde Regression
+Regularization term
+1st New Tree
+XGBoost: Behind The Scenes
+67
+AI VIETNAM
+All-in-One Course
+67
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost Regression: Behind The Scenes
+0
+10
+20
+30
+-10
+-5
+0
+5
+10
+Drug Weights (mg)
+Drug Effectiveness
+Regression
+y:
+yI
+y1
+y:
+yI
+y1
+0.5
+Dự đoán ban đầu 
+hiệu quả thuốc
+-10.5, 6.5, 7.5
+Residual
+Chúng cần tìm giá trị đầu ra của nút lá này (giá trị P) bằng cách mininize loss 
+function (giả sử 𝜆 = 0) 
+"
+#$%
+&
+ℒy#, y#
+' + P + 1
+2 𝜆P!
+P value
+Loss function
+Giá trị P cần tìm là giá trị ứng với đạo hàm 
+của loss theo P bằng 0
+𝜆 = 0
+-2
+0
+2
+68
+AI VIETNAM
+All-in-One Course
+68
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost Regression: Behind The Scenes
+0
+10
+20
+30
+-10
+-5
+0
+5
+10
+Drug Weights (mg)
+Drug Effectiveness
+Regression
+y:
+yI
+y1
+y:
+yI
+y1
+0.5
+Dự đoán ban đầu 
+hiệu quả thuốc
+-10.5, 6.5, 7.5
+Residual
+Chúng cần tìm giá trị đầu ra của nút lá này (giá trị P) bằng cách mininize loss 
+function (giả sử 𝜆 = 0) 
+"
+#$%
+&
+ℒy#, y#
+' + P + 1
+2 𝜆P!
+P value
+Loss function
+Giá trị P cần tìm là giá trị ứng với đạo hàm 
+của loss theo P bằng 0
+𝜆 = 0
+-2
+0
+2
+69
+AI VIETNAM
+All-in-One Course
+69
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost: Behind The Scenes
+0
+10
+20
+30
+-10
+-5
+0
+5
+10
+Drug Weights (mg)
+Drug Effectiveness
+Regression
+y:
+yI
+y1
+y:
+yI
+y1
+0.5
+Dự đoán ban đầu 
+hiệu quả thuốc
+-10.5, 6.5, 7.5
+Residual
+Chúng cần tìm giá trị đầu ra của nút lá này (giá trị P) bằng cách mininize loss 
+function (giả sử 𝜆 = 0) 
+"
+#$%
+&
+ℒy#, y#
+' + P + 1
+2 𝜆P!
+P value
+Loss function
+Giá trị P cần tìm là giá trị ứng với đạo hàm 
+của loss theo P bằng 0
+𝜆 = 0
+𝜆 = 4
+-2
+0
+2
+Ý nghĩa Regularization: Tăng giá trị 𝜆, giá trị P 
+tiến về 0 
+0
+Whats happen if 𝜆 is 
+very large?
+70
+AI VIETNAM
+All-in-One Course
+70
+Vinh Dinh Nguyen- PhD in Computer Science
+P
+%92
+:
+ℒy%, y%
+; + P + 1
+2 𝜆P<
+ℒy>, Ey> + P  ≈ ℒy>, Ey> +
+?
+? LH% ℒy>, Ey>
+ P+ 
+1
+I
+?
+?H%
+& ℒy>, Ey>
+PI
+Rất khó để tìm optimalization, nên cũng ta sẽ sắp sỉ hàm loss bằng Second Order Tayler Appriximation
+ℒy>, Ey> + P ≈ ℒy>, Ey> +gP+ 
+1
+I hPI
+ℒy1, y1
+2 +g1P +
+1
+I h1PI+ ℒyI, yI
+2 +gIP +
+1
+I hIPI+…+ ℒyK, yK
+2 +gKP +
+1
+I hKPI+
+1
+I 𝜆PI
+Tìm giá trị P cần tìm sao cho đạo 
+hàm của loss function theo P bằng 0
+?
+?M
+𝑔1 + 𝑔I + ⋯+ 𝑔K P +
+1
+I h1 + h + ⋯+ hK + 𝜆PI  = 0
+XGBoost Regression: Behind The Scenes
+g (gradient) presents the first derivative of the loss function
+h (hessian) presents the second derivative of the loss function
+71
+AI VIETNAM
+All-in-One Course
+71
+Vinh Dinh Nguyen- PhD in Computer Science
+?
+?M
+𝑔1 + 𝑔I + ⋯+ 𝑔K P +
+1
+I h1 + h + ⋯+ hK + 𝜆PI  = 0
+𝑔1 + 𝑔I + ⋯+ 𝑔K  + h1 + h + ⋯+ hK𝜆P
+= 0 
+P
+=
+' N'/N&/⋯/N(
+P'/P&/⋯/P(/0 =
+' −(H''H')+−(H&'H&)+⋯/−(H('H()
+1/1/⋯/1/0
+ =
+=@Q ER C8=>?@AB
+K@Q8C ER =@Q C8=>?@AB/0
+𝑔> = 
+?
+? LH%
+1
+I y> −Ey> 2=-(y> −Ey>)  
+hi = 
+?!
+?H%
+&
+1
+I y> −Ey> 2=1
+XGBoost Regression: Output Value
+1
+2
+Output value af the leaf 
+(or terminal node)
+72
+AI VIETNAM
+All-in-One Course
+72
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost For Classification: Output Value
+0
+5
+10
+30
+0
+1
+Drug Weights (mg)
+Classification
+y:
+yI
+y1
+y1
+yI
+y:
+Effectiveness 
+Probability
+ℒy>, Ey> = −y>log Ey> + (1 −y>)log(1 −Ey>)
+ℒy>, log(odds) = −y>log(𝑜𝑑𝑑𝑠) + 𝑙𝑜𝑔(1 + 𝑒BES #**T )
+Convert probability to Log(odds)
+𝑔+= 
+*
+*U#N(#**T) ℒy>, log(odds) = −y> +
+))*+ ,--. )
+1/))*+ ,--. = −(y −Ey>)
+ℎ+ =
+𝑑2
+𝑑𝑙𝑜𝑔𝑜𝑑𝑑𝑠2 ℒy>, log(odds) =
+𝑒BES #**T )
+1 + 𝑒BES #**T ×
+1
+1 + 𝑒BES #**T = Ey>× 1 −Ey>
+P
+=
+' N'/N&/⋯/N(
+P'/P&/⋯/P(/0= 
+=@Q ER C8=>?@AB
+H'× 1'H' /H&× 1'H& /⋯/H/× 1'H/ /0=
+∑<8=>?@AB
+∑LH%× 1' LH% /0
+73
+AI VIETNAM
+All-in-One Course
+73
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost: Similarity Score
+P
+%92
+:
+ℒy%, y%
+; + P + 1
+2 𝜆P<
+ℒy>, Ey> + P  ≈ ℒy>, Ey> +
+?
+? LH% ℒy>, Ey>
+ P+ 
+1
+I
+?
+?H%
+& ℒy>, Ey>
+PI
+Rất khó để tìm optimalization, nên cũng ta sẽ sắp sỉ hàm 
+loss bằng Second Order Tayler Appriximation
+ℒy>, Ey> + P ≈ ℒy>, Ey> +gP+ 
+1
+I hPI
+𝑔1 + 𝑔I + ⋯+ 𝑔K P + 1
+2 h1 + h + ⋯+ hK + 𝜆PI
+Khác 
+nhau
+P value
+Loss function
+-2
+0
+2
+Cả (1) và (2) đều có cùng 
+optimization point P
+1
+2
+P
+= −𝑔! + 𝑔" + ⋯+ 𝑔#
+h! + h" + ⋯+ h# + 𝜆
+74
+AI VIETNAM
+All-in-One Course
+74
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost: Similarity Score
+P
+%92
+:
+ℒy%, y%
+; + P + 1
+2 𝜆P<
+Rất khó để tìm optimalization, nên cũng ta sẽ sắp sỉ hàm 
+loss bằng Second Order Tayler Appriximation
+-1 X 𝑔1 + 𝑔I + ⋯+ 𝑔K P + −1 X
+1
+I h1 + h + ⋯+ hK + 𝜆PI
+P value
+Loss function
+-2
+0
+2
+Cả (1) và (2) đều có cùng 
+optimization point P
+1
+P
+= −𝑔! + 𝑔" + ⋯+ 𝑔#
+h! + h" + ⋯+ h# + 𝜆
+Tìm min
+Tìm max
+Similarity Score
+ℒy>, Ey> + P  ≈ ℒy>, Ey> +
+?
+? LH% ℒy>, Ey>
+ P+ 
+1
+I
+?
+?H%
+& ℒy>, Ey>
+PI
+ℒy>, Ey> + P ≈ ℒy>, Ey> +gP+ 
+1
+I hPI
+2
+0
+Implementation Similarity Score
+75
+AI VIETNAM
+All-in-One Course
+75
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost: Similarity Score
+P
+%92
+:
+ℒy%, y%
+; + P + 1
+2 𝜆P<
+ℒy>, Ey> + P ≈ ℒy>, Ey> +
+?
+? LH% ℒy>, Ey>
+ P+ 
+1
+I
+?
+?H%
+& ℒy>, Ey>
+PI
+Rất khó để tìm optimalization, nên cũng ta sẽ sắp sỉ hàm 
+loss bằng Second Order Tayler Appriximation
+ℒy>, Ey> + P ≈ ℒy>, Ey> +gP+ 
+1
+I hPI
+-1 X 𝑔1 + 𝑔I + ⋯+ 𝑔K P + −1 X
+1
+I h1 + h + ⋯+ hK + 𝜆PI
+Khác 
+nhau
+P value
+Loss function
+-2
+0
+2
+Cả (1) và (2) đều có cùng 
+optimization point P
+1
+2
+Tìm min
+Tìm max
+Similarity Score
+P
+= −𝑔1 + 𝑔I + ⋯+ 𝑔K
+h1 + hI + ⋯+ hK + 𝜆
+Similarity Score = 1
+2
+𝑔1 + 𝑔I + ⋯+ 𝑔K 2
+h1 + hI + ⋯+ hK + 𝜆
+76
+AI VIETNAM
+All-in-One Course
+76
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost Regression: Similarity Score
+P
+%92
+:
+ℒy%, y%
+; + P + 1
+2 𝜆P<
+Rất khó để tìm optimalization, nên cũng ta sẽ sắp sỉ hàm 
+loss bằng Second Order Tayler Appriximation
+-1 X 𝑔1 + 𝑔I + ⋯+ 𝑔K P + −1 X
+1
+I h1 + h + ⋯+ hK + 𝜆PI
+Khác 
+nhau
+P value
+Loss function
+-2
+0
+2
+Cả (1) và (2) đều có cùng 
+optimization point P
+1
+2
+Tìm min
+Tìm max
+Similarity Score
+Similarity Score = 1
+2
+𝑔, + 𝑔- + ⋯+ 𝑔. 2
+h, + h- + ⋯+ h. + 𝜆
+𝑆imilarity Score =
+∑Residual -
+Number of Residual + 𝜆
+𝑔# = (
+()!
+%
+! y# −1y# 2=-(y# −1y#)  
+hi = (
+()!
+"
+%
+! y# −1y# 2=1
+ℒy>, Ey> + P ≈ ℒy>, Ey> +
+?
+? LH% ℒy>, Ey>
+ P+ 
+1
+I
+?
+?H%
+& ℒy>, Ey>
+PI
+ℒy>, Ey> + P ≈ ℒy>, Ey> +gP+ 
+1
+I hPI
+77
+AI VIETNAM
+All-in-One Course
+77
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost Classification: Similarity Score
+P
+%92
+:
+ℒy%, y%
+; + P + 1
+2 𝜆P<
+ℒy>, Ey> + P  ≈ ℒy>, Ey> +
+?
+? LH% ℒy>, Ey>
+ P+ 
+1
+I
+?
+?H%
+& ℒy>, Ey>
+PI
+Rất khó để tìm optimalization, nên cũng ta sẽ sắp sỉ hàm 
+loss bằng Second Order Tayler Appriximation
+ℒy>, y>
+2 + P  ≈ ℒy>, Ey> +gP+ 
+1
+I hPI
+-1 X 𝑔1 + 𝑔I + ⋯+ 𝑔K P + −1 X
+1
+I h1 + h + ⋯+ hK + 𝜆PI
+Khác 
+nhau
+P value
+Loss function
+-2
+0
+2
+Cả (1) và (2) đều có cùng 
+optimization point P
+1
+2
+Tìm min
+Tìm max
+Similarity Score
+Similarity Score = 1
+2
+−𝑔, + 𝑔- + ⋯+ 𝑔. 2
+h, + h- + ⋯+ h. + 𝜆
+𝑔3= −(yi −@y4)
+ℎ3 = @y4× 1 −@y4
+𝑆imilarity Score =
+∑Residual -
+∑@y4 × 1 −@y4
++ 𝜆
+78
+AI VIETNAM
+All-in-One Course
+78
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Regularization 
+Ø XGBoost For Regression
+Ø XGBoost For Classification
+Ø XGBoost: Mathematical Explanation
+Ø XGBoost: Optimization
+Ø Example 
+Outline
+79
+AI VIETNAM
+All-in-One Course
+79
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Handle Missing Value
+Dosage
+Drug Effectiveness
+10
+-7
+-3 
+21
+7
+25
+8
+5
+-5
+-2
+Dosage
+Drug Effectiveness
+Residual
+10
+-7
+-7.5
+-3 
+-3.5
+21
+7
+6.5
+25
+8
+7.5
+5
+-5
+-5.5
+-2
+-2.5
+Initial Prediction for Drug Effectiveness
+0.5
+Sparse-Aware Split Finding
+80
+AI VIETNAM
+All-in-One Course
+80
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Handle Missing Value
+Dosage
+Drug Effectiveness
+Residual
+5
+-5
+-5.5
+10
+-7
+-7.5
+21
+7
+6.5
+25
+8
+7.5
+Dosage
+Drug Effectiveness
+Residual
+-3
+-3.5
+-2
+-2.5
+Dosage < 7.5
+-5.5
+-7.5, 6.5, 7.5
+Table without missing values
+Table with missing values
+Build tree
+81
+AI VIETNAM
+All-in-One Course
+81
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Handle Missing Value
+Dosage
+Drug Effectiveness
+Residual
+5
+-5
+-5.5
+10
+-7
+-7.5
+21
+7
+6.5
+25
+8
+7.5
+Dosage
+Drug Effectiveness
+Residual
+-3
+-3.5
+-2
+-2.5
+Dosage < 7.5
+-5.5, -3.5, -2.5
+-7.5, 6.5, 7.5
+Compute Gain 
+Information Left
+Table without missing values
+Table with missing values
+82
+AI VIETNAM
+All-in-One Course
+82
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Handle Missing Value
+Dosage
+Drug Effectiveness
+Residual
+5
+-5
+-5.5
+10
+-7
+-7.5
+21
+7
+6.5
+25
+8
+7.5
+Dosage
+Drug Effectiveness
+Residual
+-3
+-3.5
+-2
+-2.5
+Compute Gain  
+Information Right
+Dosage < 7.5
+-5.5
+-7.5, 6.5, 7.5, -3.5, -2.5
+83
+AI VIETNAM
+All-in-One Course
+83
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Handle Missing Value
+Dosage
+Drug Effectiveness
+Residual
+5
+-5
+-5.5
+10
+-7
+-7.5
+21
+7
+6.5
+25
+8
+7.5
+Dosage
+Drug Effectiveness
+Residual
+-3
+-3.5
+-2
+-2.5
+Dosage < 15.5
+-5.5, -7.5
+6.5, 7.5
+84
+AI VIETNAM
+All-in-One Course
+84
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Handle Missing Value
+Dosage
+Drug Effectiveness
+Residual
+5
+-5
+-5.5
+10
+-7
+-7.5
+21
+7
+6.5
+25
+8
+7.5
+Dosage
+Drug Effectiveness
+Residual
+-3
+-3.5
+-2
+-2.5
+Dosage < 15.5
+-5.5, -7.5, -3.5, -2.5
+6.5, 7.5
+Compute Gain 
+Information Left
+85
+AI VIETNAM
+All-in-One Course
+85
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Handle Missing Value
+Dosage
+Drug Effectiveness
+Residual
+5
+-5
+-5.5
+10
+-7
+-7.5
+21
+7
+6.5
+25
+8
+7.5
+Dosage
+Drug Effectiveness
+Residual
+-3
+-3.5
+-2
+-2.5
+Compute Gain 
+Information Right
+Dosage < 15.5
+-5.5, -7.5
+6.5, 7.5, -3.5, -2.5
+86
+AI VIETNAM
+All-in-One Course
+86
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Handle Missing Value
+Dosage
+Drug Effectiveness
+Residual
+5
+-5
+-5.5
+10
+-7
+-7.5
+21
+7
+6.5
+25
+8
+7.5
+Dosage
+Drug Effectiveness
+Residual
+-3
+-3.5
+-2
+-2.5
+Dosage < 23
+-5.5, -7.5, 6.5
+7.5
+87
+AI VIETNAM
+All-in-One Course
+87
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Handle Missing Value
+Dosage
+Drug Effectiveness
+Residual
+5
+-5
+-5.5
+10
+-7
+-7.5
+21
+7
+6.5
+25
+8
+7.5
+Dosage
+Drug Effectiveness
+Residual
+-3
+-3.5
+-2
+-2.5
+Dosage < 23
+-5.5, -7.5, 6.5, -3.5, -2.5
+7.5
+Compute Gain 
+Information Left
+88
+AI VIETNAM
+All-in-One Course
+88
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Handle Missing Value
+Dosage
+Drug Effectiveness
+Residual
+5
+-5
+-5.5
+10
+-7
+-7.5
+21
+7
+6.5
+25
+8
+7.5
+Dosage
+Drug Effectiveness
+Residual
+-3
+-3.5
+-2
+-2.5
+Compute Gain 
+Information Right
+Dosage < 23
+-5.5, -7.5, 6.5
+7.5, -3.5, -2.5
+89
+AI VIETNAM
+All-in-One Course
+89
+Vinh Dinh Nguyen- PhD in Computer Science
+90
+AI VIETNAM
+All-in-One Course
+90
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Handle Missing Value
+Rẻ nhánh mặc định cho 
+tất cả các missing value 
+trong Dosage
+91
+AI VIETNAM
+All-in-One Course
+91
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Regularization 
+Ø XGBoost For Regression
+Ø XGBoost For Classification
+Ø XGBoost: Mathematical Explanation
+Ø How To Fill Missing Values
+Ø Example 
+Outline
+92
+AI VIETNAM
+All-in-One Course
+92
+Vinh Dinh Nguyen- PhD in Computer Science
+Sales Prediction
+93
+AI VIETNAM
+All-in-One Course
+93
+Vinh Dinh Nguyen- PhD in Computer Science
+Sales Prediction
+94
+AI VIETNAM
+All-in-One Course

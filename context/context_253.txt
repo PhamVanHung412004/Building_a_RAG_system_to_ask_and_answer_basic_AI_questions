@@ -1,0 +1,2405 @@
+Deep Architectures for 
+POS Tagging
+Year 2024
+Quang-Vinh Dinh
+Ph.D. in Computer Science
+AI VIETNAM
+All-in-One Course
+➢What We Have from Text Classification?
+➢Introduction to POS Tagging
+➢POS Tagging Using Classification
+➢Using Different Model Archectures
+➢PyTorch Implementation
+Outline
+NLP Applications
+AI VIETNAM
+All-in-One Course
+Practical Natural Language Processing by Sowmya Vajjala, 
+Bodhisattwa Majumder, Anuj Gupta, Harshit Surana
+1
+Applications of Text Analysis 
+AI VIETNAM
+All-in-One Course
+Image 
+classification
+Image Captioning
+Text classification
+Machine Translation
+Recognition
+POS Tagging
+Source: The Unreasonable Effectiveness of Recurrent Neural Networks
+2
+NLP Applications
+AI VIETNAM
+All-in-One Course
+https://mobidev.biz/blog/natural-language-processing-nlp-use-cases-business
+❖ Information Extraction
+3
+-
+50,000 movie review for sentiment analysis
+-
+Consist of:
++ 25,000 movie review for training
++ 25,000 movie review for testing
+-
+Label: positive – negative
+“A wonderful little production. <br /><br />The filming technique is very unassuming- very old-time-
+BBC fashion and gives a comforting, and sometimes discomforting, sense of realism to the entire 
+piece…..”
+positive
+“This show was an amazing, fresh & innovative idea in the 70's when it first aired. The first 7 or 8 
+years were brilliant, but things dropped off after that. By 1990, the show was not really funny anymore, 
+and it's continued its decline further to the complete waste of time it is today….”
+negative
+“I thought this was a wonderful way to spend time on a too hot summer weekend, sitting in the air 
+conditioned theater and watching a light-hearted comedy. The plot is simplistic, but the dialogue is 
+witty and the characters are likable (even the well bread suspected serial killer)….”
+positive
+“BTW Carver gets a very annoying sidekick who makes you wanna shoot him the first three minutes 
+he's on screen.”
+negative
+Text Classification
+AI VIETNAM
+All-in-One Course
+❖ IMDB dataset
+4
+Text Classification
+❖Simple approach
+AI VIETNAM
+All-in-One Course
+Output
+𝑧
+Sigmoid 
+activation
+Fully-connected layer
+Text 
+Sample
+Preprocessing
+(standardization & 
+vectorization)
+Embedding
+Preprocessing
+5
+Embedding
+-
+Example corpus
+sample1: ‘We are learning AI’
+sample2: ‘AI is a CS topic’
+(1) Build vocabulary from corpus
+We are learning AI
+we
+are
+learning
+ai
+Standardize
+AI is a CS topic
+ai
+is
+a
+cs
+topic
+index
+0
+1
+2
+3
+4
+5
+6
+7
+word
+[UNK]
+pad
+ai
+a
+are
+cs
+is
+learning
+6
+Embedding
+-
+Example corpus
+sample1: ‘We are learning AI’
+sample2: ‘AI is a CS topic’
+(1) Build vocabulary from corpus
+index
+0
+1
+2
+3
+4
+5
+6
+7
+word
+[UNK]
+pad
+ai
+a
+are
+cs
+is
+learning
+#different words are enormous
+How to represent ‘text’ effectively?
+Use a limited number of words
+Get data sample-by-sample
+7
+Embedding
+-
+Example corpus
+sample1: ‘We are learning AI’
+sample2: ‘AI is a CS topic’
+(1) Build vocabulary from corpus
+(2) Transform text into features
+We are learning AI
+we
+are
+learning
+ai
+Standardize
+0
+4
+7
+2
+1
+AI is a CS topic
+ai
+is
+a
+cs
+topic
+2
+6
+3
+5
+0
+Vectorization
+index
+0
+1
+2
+3
+4
+5
+6
+7
+word
+[UNK]
+pad
+ai
+a
+are
+cs
+is
+learning
+‘AI’
+‘We’
+‘are’
+‘learning’
+8
+Embedding
+-
+Example corpus
+sample1: ‘We are learning AI’
+sample2: ‘AI is a CS topic’
+(1) Build vocabulary from corpus
+(2) Transform text into features
+We are learning AI
+we
+are
+learning
+ai
+Standardize
+0
+4
+7
+2
+1
+AI is a CS topic
+ai
+is
+a
+cs
+topic
+2
+6
+3
+5
+0
+Vectorization
+index
+0
+1
+2
+3
+4
+5
+6
+7
+word
+[UNK]
+pad
+ai
+a
+are
+cs
+is
+learning
+Embedding Layer
+index
+word
+0
+[UNK]
+1
+[pad]
+2
+ai
+3
+a
+4
+are
+5
+cs
+6
+is
+7
+learning
+We are learning AI
+0
+4
+7
+2
+1
+Output
+𝑧
+Sigmoid 
+activation
+Fully-connected layer
+Embedding
+10
+index
+word
+0
+[UNK]
+1
+[pad]
+2
+ai
+3
+a
+4
+are
+5
+cs
+6
+is
+7
+learning
+Revisit input x
+Convert from text to numbers
+We are learning AI
+0
+4
+7
+2
+1
+A sample X
+X1: [-0.1882,  0.5530,  1.6267,  0.7013]
+X2: [ 0.2293,  1.3255,  0.1318,  2.0501]
+X3: [ 0.4309, -1.3067, -0.8823,  1.5977]
+X4: [ 1.0281, -1.9094,  0.3182,  0.4211]
+X5: [ 1.7840, -0.8278, -0.2701,  1.3586]
+A sample X 
+We
+are
+learning
+AI
+<pad>
+0
+4
+7
+2
+1
+11
+How to deal with this input?
+❖Simplest idea: Based on MLP
+❖Concatenate all the features
+AI VIETNAM
+All-in-One Course
+A sample X 
+We
+are
+learning
+AI
+<pad>
+0
+4
+7
+2
+1
+concatenated
+features
+MLP
+X1: [-0.1882,  0.5530,  1.6267,  0.7013]
+X2: [ 0.2293,  1.3255,  0.1318,  2.0501]
+X3: [ 0.4309, -1.3067, -0.8823,  1.5977]
+X4: [ 1.0281, -1.9094,  0.3182,  0.4211]
+X5: [ 1.7840, -0.8278, -0.2701,  1.3586]
+12
+Using RNN
+Word-1
+Word-2
+Word-500
+RNN Cell
+RNN Cell
+RNN Cell
+RNN Cell
+RNN Cell
+RNN Cell
+hidden_dim=64
+dim=2
+embed_dim = 128
+13
+Word-1
+Word-2
+Word-500
+LSTM Cell
+LSTM Cell
+LSTM Cell
+LSTM Cell
+LSTM Cell
+LSTM Cell
+hidden_dim=64
+dim=2
+embed_dim = 128
+Using LSTM
+Positional 
+Embedding
+Input Embedding
++
+Multi-head 
+Attention
+Add & Norm
+Feed Forward
+Add & Norm
+Linear
+Softmax
+N×
+Transformer Models for Text Classification
+15
+Bidirectional Encoder 
+Representations from Transformers
+AI VIETNAM
+All-in-One Course
+16
+Figures from the BERT paper
+➢What We Have from Text Classification?
+➢Introduction to POS Tagging
+➢POS Tagging Using Classification
+➢Using Different Model Archectures
+➢PyTorch Implementation
+Outline
+Conll2003 Dataset for Part-of-Speed Tagging
+Num_classes = 47
+Train
+Val
+Test
+14041
+3250
+3453
+0
+“
+Quotation mask
+1
+space
+2
+#
+Hash
+3
+$
+Dolla
+4
+(
+Opening parenthesis
+5
+)
+Closing parenthesis
+6
+,
+Comma
+7
+.
+Dot
+8
+:
+Colon
+9
+``
+Apostrophe
+10
+CC
+Coordinating 
+conjunction
+11
+CD
+Cardinal number
+12
+DT
+Determiner
+13
+EX
+Existential there
+14
+FW
+Foreign word
+15
+IN
+Preposition or 
+subordinating 
+conjunction
+16
+JJ
+Adjective
+17
+JJR
+Adjective, comparative
+18
+JJS
+Adjective, superlative
+19
+LS
+List item marker
+20
+MD
+Modal
+21
+NN
+Noun, singular or mass
+22
+NNP
+Proper noun, singular
+23
+NNP
+S
+Proper noun, plural
+24
+NNS
+Noun, plural
+25
+NN|S
+YM
+Noun or Symbol 
+26
+PDT
+Predeterminer
+27
+POS
+Possessive ending
+28
+PRP
+Personal pronoun
+29
+PRP$
+Possessive pronoun
+17
+30
+RB
+Adverb
+31
+RBR
+Adverb, comparative
+32
+RBS
+Adverb, superlative
+33
+RP
+Particle
+34
+SYM
+Symbol
+35
+TO
+to
+36
+UH
+Interjection
+37
+VB
+Verb, base form
+38
+VBD
+Verb, past tense
+39
+VBG
+Verb, gerund or present participle
+40
+VBN
+Verb, past participle
+41
+VBP
+Verb, non-3rd person singular 
+present
+42
+VBZ
+Verb, 3rd person singular present
+43
+WDT
+Wh-determiner
+44
+WP
+Wh-pronoun
+45
+WP$
+Possessive wh-pronoun
+46
+WRB
+Wh-adverb
+[ "Cup", "qualifying", "round", ",", "second", "leg", "soccer", "matches", "on", "Thursday"]
+[ 22, 39, 30, 6, 16, 21, 21, 24, 15, 22, ]
+[ ”NNP", ”VBG", ”RB", ",", ”JJ", ”NN", ”NN", ”NNS", ”IN", ”NNP"]
+Example
+Input tokens
+Label
+Label-encoded
+Conll2003 Dataset for Part-of-Speed Tagging
+Num_classes = 47
+Part-of-speed Tagging 
+PRP
+it
+has
+no
+force
+work
+our
+on
+bearing
+today
+VBZ
+PRP$
+IN
+NN
+DT
+NN
+NN
+NN
+Personal 
+pronoun
+Verb 
+3rd
+Determiner
+Noun
+singular
+Noun
+singular
+Noun
+singular
+Noun
+singular
+Preposition
+Possessive 
+pronoun
+PRP
+Text
+tokenize
+token2id
+Label
+padding
+Preprocessing
+Label
+Input_ids
+Shape=(113,)
+Shape=(273,)
+Outputs
+Shape=(113, 47)
+Model
+Shape=(113,47)
+Softmax
+Loss
+Index
+Label
+0
+<unk>
+1
+NN
+2
+IN
+3
+NNP
+…
+…
+43
+LS
+44
+FW
+45
+UH
+46
+SYM
+Update
+19
+Classifier
+BERT
+10271
+66455
+15031
+11424
+10192
+10393
+17446
+10135
+18745
+Token2id
+it
+has
+force
+today
+work
+our
+on
+bearing
+no
+𝑜𝑢𝑡0
+…
+𝑜𝑢𝑡𝑛−2
+𝑜𝑢𝑡𝑛−3
+𝑜𝑢𝑡2
+𝑜𝑢𝑡1
+…
+…
+𝑜𝑢𝑡𝑛−1
+PRP
+VBZ
+NN
+IN
+NN
+PRP$
+IN
+NN
+DT
+It has no bearing on our workforce today
+Predict
+Input_ids
+Pre-trained
+Text input
+Tokenize
+Tokens
+PRP
+VBZ
+NN
+NN
+NN
+PRP$
+IN
+NN
+DT
+CrossEntropyLoss
+Label
+POS Tagging 
+Overview 
+Using BERT
+20
+➢What We Have from Text Classification?
+➢Introduction to POS Tagging
+➢POS Tagging Using Classification
+➢Using Different Model Archectures
+➢PyTorch Implementation
+Outline
+Doc
+Label
+gậy ông đập lưng ông
+0
+có làm mới có ăn
+1
+Training data
+negative (0)
+positive (1)
+index
+word
+0
+[UNK]
+1
+[pad]
+2
+có
+3
+ông
+4
+gập
+5
+làm
+6
+lưng
+7
+mới
+vocab size = 8
+sequence length = 5
+building 
+dictionary
+gậy
+ông
+đập
+lưng
+ông
+4
+3
+0
+6
+3
+có
+làm
+mới
+có
+ăn
+2
+5
+7
+2
+0
+sample 1
+sample 2
+a 
+Sample
+vec.
+Output
+𝑧0
+Softmax
+Fully-connected layer
+𝑧1
+Embedding
+Step-by-Step Example: Text Classification
+1
+21
+Doc
+Label
+gậy ông đập lưng ông
+0
+có làm mới có ăn
+1
+Sample 1
+vec.
+Output
+𝑧0
+Softmax
+Fully-connected layer
+𝑧1
+Embedding
+Step-by-Step Example: Text Classification
+0
+[-0.1882,  0.5530]
+1
+[1.7840, -0.8278]
+2
+[1.0281, -1.9094]
+3
+[-1.3083, -0.0987]
+4
+[0.2293,  1.3255]
+5
+[0.4058, -0.6624]
+6
+[0.5582,  0.0786]
+7
+[0.4309, -1.3067]
+gậy
+ông
+đập
+lưng
+ông
+4
+3
+0
+6
+3
+sample 1
+Embedding 8x2 
+(Random initialization)
+[0.2293,  1.3255]
+[-1.3083, -0.0987]
+[-0.1882,  0.5530]
+[0.5582,  0.0786]
+[-1.3083, -0.0987]
+2
+parameter 
+22
+Doc
+Label
+gậy ông đập lưng ông
+0
+có làm mới có ăn
+1
+Sample 1
+vec.
+Output
+𝑧0
+Softmax
+Fully-connected layer
+𝑧1
+Embedding
+Step-by-Step Example: Text Classification
+0
+[-0.1882,  0.5530]
+1
+[1.7840, -0.8278]
+2
+[1.0281, -1.9094]
+3
+[-1.3083, -0.0987]
+4
+[0.2293,  1.3255]
+5
+[0.4058, -0.6624]
+6
+[0.5582,  0.0786]
+7
+[0.4309, -1.3067]
+Embedding
+[0.2293,  1.3255]
+[-1.3083, -0.0987]
+[-0.1882,  0.5530]
+[0.5582,  0.0786]
+[-1.3083, -0.0987]
+nn.Linear(10, 2)
+flatten
+𝑣0
+𝑣1
+𝑣2
+𝑣9
+…
+𝑧0
+Softmax
+𝑧1
+…
+nn.Linear(10, 2)
+3
+23
+Doc
+Label
+gậy ông đập lưng ông
+0
+có làm mới có ăn
+1
+Sample 1
+vec.
+Output
+𝑧0
+Softmax
+𝑧1
+Example 
+Text Classification
+0
+[-0.1882,  0.5530]
+1
+[1.7840, -0.8278]
+2
+[1.0281, -1.9094]
+3
+[-1.3083, -0.0987]
+4
+[0.2293,  1.3255]
+5
+[0.4058, -0.6624]
+6
+[0.5582,  0.0786]
+7
+[0.4309, -1.3067]
+Embedding
+[0.2293,  1.3255]
+[-1.3083, -0.0987]
+[-0.1882,  0.5530]
+[0.5582,  0.0786]
+[-1.3083, -0.0987]
+nn.Linear(10, 2)
+flatten
+𝑣0
+𝑣1
+𝑣2
+𝑣9
+…
+𝑧0
+Softmax
+𝑧1
+…
+nn.Linear(10, 2)
+[0.2108, -0.0074,  0.2760,  0.2325, -0.0518, -0.1876,  0.0194, 0.0378, 0.0210, 0.2982]
+[0.0284,  0.2968, -0.0260,  0.1251, -0.0282,  0.0175, -0.1817, 0.2483, 0.2338, 0.2985]
+W
+[-0.3049,  0.1028]
+b
+[-0.7875,  0.1221]
+z
+[0.28, 0.71]
+ෝ𝒚
+loss=1.27
+y = 0
+4
+Z = WTV + b
+Doc
+Label
+gậy ông đập lưng ông
+0
+có làm mới có ăn
+1
+Sample 1
+vec.
+Output
+𝑧0
+Softmax
+𝑧1
+Example 
+Text Classification
+0
+[-2.882e-01,  4.530e-01]
+1
+[1.7840, -0.8278]
+2
+[1.0281, -1.9094]
+3
+[-1.208,  1.300e-03]
+4
+[3.293e-01,  1.225]
+5
+[0.4058, -0.6624]
+6
+[6.582e-01, -2.140e-02]
+7
+[0.4309, -1.3067]
+update
+[3.293e-01,  1.225]
+[-1.208,  1.300e-03]
+[-2.882e-01,  4.530e-01]
+[6.582e-01, -2.140e-02]
+[-1.208,  1.300e-03]
+nn.Linear(10, 2)
+flatten
+𝑣0
+𝑣1
+𝑣2
+𝑣9
+…
+𝑧0
+Softmax
+𝑧1
+…
+[0.3108,  0.0926,  0.1760,  0.1325, -0.1518, -0.0876,  0.1194,  0.1378, -0.0790,  0.1982]
+[-0.0716,  0.1968,  0.0740,  0.2251,  0.0718, -0.0825, -0.2817,  0.1483, 0.3338,  0.3985]
+W
+[-0.2049,  0.0028]
+b
+5
+Embedding
+𝜃𝑡= 𝜃𝑡−1 −… 𝛻𝜃𝐿
+…
+25
+Doc
+Label
+gậy ông đập lưng ông
+0
+có làm mới có ăn
+1
+Sample 1
+vec.
+Output
+𝑧0
+Softmax
+𝑧1
+Example 
+Text Classification
+0
+[-2.882e-01,  4.530e-01]
+1
+[1.7840, -0.8278]
+2
+[1.0281, -1.9094]
+3
+[-1.208,  1.300e-03]
+4
+[3.293e-01,  1.225]
+5
+[0.4058, -0.6624]
+6
+[6.582e-01, -2.140e-02]
+7
+[0.4309, -1.3067]
+Embedding
+[3.293e-01,  1.225]
+[-1.208,  1.300e-03]
+[-2.882e-01,  4.530e-01]
+[6.582e-01, -2.140e-02]
+[-1.208,  1.300e-03]
+nn.Linear(10, 2)
+flatten
+𝑣0
+𝑣1
+𝑣2
+𝑣9
+…
+𝑧0
+Softmax
+𝑧1
+…
+[0.3108,  0.0926,  0.1760,  0.1325, -0.1518, -0.0876,  0.1194,  0.1378, -0.0790,  0.1982]
+[-0.0716,  0.1968,  0.0740,  0.2251,  0.0718, -0.0825, -0.2817,  0.1483, 0.3338,  0.3985]
+W
+[-0.2049,  0.0028]
+b
+[-0.0261, -0.5182]
+z
+[0.63, 0.37]
+ෝ𝒚
+loss=0.46
+y = 0
+6
+Feed sample 1 for 
+the second time
+▪Loss reduces
+▪ෝ𝒚0 increases 
+▪ෝ𝒚1 reduces
+Model is learning
+Doc
+Label
+i want a dog
+[0, 1, 2, 0]
+books are expensive
+[0, 1, 2]
+Label
+0: (pro)noun
+1: verb
+index
+word
+0
+a
+1
+are
+2
+books
+3
+dog
+4
+expensive
+5
+i
+6
+want
+vocab size = 7
+word-based classification
+building 
+dictionary
+dog
+3
+a word
+a 
+word
+vec.
+Output
+Softmax
+Fully-connected layer
+Embedding
+POS Tagging (1): One-Word Input
+1
+2: others
+want
+6
+a word
+books
+2
+a word
+expensive
+4
+a word
+𝑧0
+𝑧1
+𝑧2
+27
+Doc
+Label
+i want a dog
+[0, 1, 2, 0]
+books are expensive
+[0, 1, 2]
+dog
+3
+a word
+vec.
+Output
+Softmax
+Fully-connected layer
+Embedding
+POS Tagging (1): One-Word Input
+2
+0
+[-0.1882,  0.5530,  1.6267,  0.7013]
+1
+[1.7840, -0.8278, -0.2701,  1.3586]
+2
+[1.0281, -1.9094,  0.3182,  0.4211]
+3
+[-1.3083, -0.0987,  0.7647, -0.3680]
+4
+[0.2293,  1.3255,  0.1318,  2.0501]
+5
+[0.4058, -0.6624, -0.8745,  0.7203]
+6
+[0.5582,  0.0786, -0.6817,  0.6902]
+[-1.3083, -0.0987,  0.7647, -0.3680]
+𝑧0
+𝑧1
+𝑧2
+28
+Doc
+Label
+i want a dog
+[0, 1, 2, 0]
+books are expensive
+[0, 1, 2]
+vec.
+Output
+Softmax
+Fully-connected layer
+Embedding
+POS Tagging (1): One-Word Input
+3
+0
+[-0.1882,  0.5530,  1.6267,  0.7013]
+1
+[1.7840, -0.8278, -0.2701,  1.3586]
+2
+[1.0281, -1.9094,  0.3182,  0.4211]
+3
+[-1.3083, -0.0987,  0.7647, -0.3680]
+4
+[0.2293,  1.3255,  0.1318,  2.0501]
+5
+[0.4058, -0.6624, -0.8745,  0.7203]
+6
+[0.5582,  0.0786, -0.6817,  0.6902]
+[-1.3083, -0.0987,  0.7647, -0.3680]
+flatten
+𝑣0
+𝑣1
+𝑣2
+𝑣3
+𝑧0
+Softmax
+𝑧1
+…
+nn.Linear(4, 3)
+𝑧2
+𝑧0
+𝑧1
+𝑧2
+29
+Doc
+Label
+i want a dog
+[0, 1, 2, 0]
+books are expensive
+[0, 1, 2]
+vec.
+Output
+Softmax
+POS Tagging (1): 
+One-Word Input
+4
+0
+[-0.1882,  0.5530,  1.6267,  0.7013]
+1
+[1.7840, -0.8278, -0.2701,  1.3586]
+2
+[1.0281, -1.9094,  0.3182,  0.4211]
+3
+[-1.3083, -0.0987,  0.7647, -0.3680]
+4
+[0.2293,  1.3255,  0.1318,  2.0501]
+5
+[0.4058, -0.6624, -0.8745,  0.7203]
+6
+[0.5582,  0.0786, -0.6817,  0.6902]
+[-1.3083, -0.0987,  0.7647, -0.3680]
+flatten
+𝑣0
+𝑣1
+𝑣2
+𝑣3
+𝑧0
+Softmax
+𝑧1
+…
+nn.Linear(4, 3)
+𝑧2
+[0.3847, -0.4621,  0.1749, -0.0139]
+[-0.3024, -0.1529,  0.4329,  0.4254]
+[-0.4441,  0.4113,  0.0054, -0.3220]
+W
+[0.3548, -0.2819, -0.0579]
+b
+[0.0360, 0.3033, 0.6051]
+z
+[0.24, 0.32, 0.44]
+ෝ𝒚
+loss=1.404
+y = 0
+𝑧0
+𝑧1
+𝑧2
+Doc
+Label
+i want a dog
+[0, 1, 2, 0]
+books are expensive
+[0, 1, 2]
+vec.
+Output
+Softmax
+POS Tagging (1): 
+One-Word Input
+5
+0
+[-0.1882,  0.5530,  1.6267,  0.7013]
+1
+[1.7840, -0.8278, -0.2701,  1.3586]
+2
+[1.0281, -1.9094,  0.3182,  0.4211]
+3
+[-1.2083, -0.1987,  0.6647, -0.4680]
+4
+[0.2293,  1.3255,  0.1318,  2.0501]
+5
+[0.4058, -0.6624, -0.8745,  0.7203]
+6
+[0.5582,  0.0786, -0.6817,  0.6902]
+[-1.2083, -0.1987,  0.6647, -0.4680]
+flatten
+𝑣0
+𝑣1
+𝑣2
+𝑣3
+Softmax
+…
+nn.Linear(4, 3)
+𝑧0
+𝑧1
+𝑧2
+[0.2847, -0.5621,  0.2749, -0.1139]
+[-0.2024, -0.0529,  0.3329,  0.5254]
+[-0.3441,  0.5113, -0.0946, -0.2220]
+W
+[0.4548, -0.3819, -0.1579]
+b
+loss=1.404
+y = 0
+𝑧0
+𝑧1
+𝑧2
+Doc
+Label
+i want a dog
+[0, 1, 2, 0]
+books are expensive
+[0, 1, 2]
+vec.
+Output
+Softmax
+POS Tagging (1): 
+One-Word Input
+6
+0
+[-0.1882,  0.5530,  1.6267,  0.7013]
+1
+[1.7840, -0.8278, -0.2701,  1.3586]
+2
+[1.0281, -1.9094,  0.3182,  0.4211]
+3
+[-1.3083, -0.0987,  0.7647, -0.3680]
+4
+[0.2293,  1.3255,  0.1318,  2.0501]
+5
+[0.4058, -0.6624, -0.8745,  0.7203]
+6
+[0.5582,  0.0786, -0.6817,  0.6902]
+[-1.3083, -0.0987,  0.7647, -0.3680]
+flatten
+𝑣0
+𝑣1
+𝑣2
+𝑣3
+𝑧0
+Softmax
+𝑧1
+…
+nn.Linear(4, 3)
+𝑧2
+[0.2847, -0.5621,  0.2749, -0.1139]
+[-0.2024, -0.0529,  0.3329,  0.5254]
+[-0.3441,  0.5113, -0.0946, -0.2220]
+W
+[0.4548, -0.3819, -0.1579]
+b
+[0.4585, -0.1514,  0.1973]
+z
+[0.43, 0.23, 0.34]
+ෝ𝒚
+loss=0.838
+y = 0
+𝑧0
+𝑧1
+𝑧2
+Problem?
+Doc
+Label
+i want a dog
+[0, 1, 2, 0]
+books are quite expensive
+[0, 1, 2, 2]
+Label
+0: (pro)noun
+1: verb
+index
+word
+0
+a
+1
+are
+2
+books
+3
+dog
+4
+expensive
+5
+i
+6
+quite
+7
+want
+vocab size = 8
+sequence length = 4
+building 
+dictionary
+a 
+sample
+vec.
+Output
+Softmax
+Fully-connected layer
+Embedding
+POS Tagging (2): Sentence + MLP
+1
+2: others
+i
+want
+a
+dog
+5
+7
+0
+3
+books
+are
+quite
+expensive
+2
+1
+6
+4
+sample 1
+sample 2
+33
+Doc
+Label
+i want a dog
+[0, 1, 2, 0]
+books are quite expensive
+[0, 1, 2, 2]
+vocab size = 8
+sequence length = 4
+POS Tagging (2): Sentence + MLP
+i
+want
+a
+dog
+5
+7
+0
+3
+sample 1
+2
+0
+[-0.1882,  0.5530,  1.6267,  0.7013]
+1
+[1.7840, -0.8278, -0.2701,  1.3586]
+2
+[1.0281, -1.9094,  0.3182,  0.4211]
+3
+[-1.3083, -0.0987,  0.7647, -0.3680]
+4
+[0.2293,  1.3255,  0.1318,  2.0501]
+5
+[0.4058, -0.6624, -0.8745,  0.7203]
+6
+[0.5582,  0.0786, -0.6817,  0.6902]
+7
+[0.4309, -1.3067, -0.8823,  1.5977]
+[0.4058, -0.6624, -0.8745,  0.7203]
+[0.4309, -1.3067, -0.8823,  1.5977]
+[-0.1882,  0.5530,  1.6267,  0.7013]
+[-1.3083, -0.0987,  0.7647, -0.3680]
+vec.
+Output
+Softmax
+Fully-connected layer
+Embedding
+34
+Doc
+Label
+i want a dog
+[0, 1, 2, 0]
+books are quite expensive
+[0, 1, 2, 2]
+vocab size = 8
+sequence length = 4
+vec.
+Output
+Softmax
+3
+0
+[-0.1882,  0.5530,  1.6267,  0.7013]
+1
+[1.7840, -0.8278, -0.2701,  1.3586]
+2
+[1.0281, -1.9094,  0.3182,  0.4211]
+3
+[-1.3083, -0.0987,  0.7647, -0.3680]
+4
+[0.2293,  1.3255,  0.1318,  2.0501]
+5
+[0.4058, -0.6624, -0.8745,  0.7203]
+6
+[0.5582,  0.0786, -0.6817,  0.6902]
+7
+[0.4309, -1.3067, -0.8823,  1.5977]
+[0.4058, -0.6624, -0.8745,  0.7203]
+[0.4309, -1.3067, -0.8823,  1.5977]
+[-0.1882,  0.5530,  1.6267,  0.7013]
+[-1.3083, -0.0987,  0.7647, -0.3680]
+V1
+V2
+V4
+V3
+[0.3847, -0.4621,  0.1749, -0.0139]
+[-0.3024, -0.1529,  0.4329,  0.4254]
+[-0.4441,  0.4113,  0.0054, -0.3220]
+W
+[0.3548, -0.2819, -0.0579]
+b
+W𝑇V1 + b
+W𝑇V2 + b
+W𝑇V3 + b
+W𝑇V4 + b
+[0.58, 0.26, 0.16]
+[0.47, 0.44, 0.09]
+[0.35, 0.29, 0.36]
+[0.36, 0.22, 0.42]
+ෝ𝒚
+shape=(1,4,3)
+y = [0,1, 2, 0]  ; shape=(1,4) 
+[0.58, 0.47, 0.35, 0.36]
+[0.26, 0.44, 0.29, 0.22]
+[0.16, 0.22, 0.36, 0.42]
+Doc
+Label
+i want a dog
+[0, 1, 2, 0]
+books are quite expensive
+[0, 1, 2, 2]
+vocab size = 8
+sequence length = 4
+vec.
+Output
+Softmax
+4
+0
+[-0.1882,  0.5530,  1.6267,  0.7013]
+1
+[1.7840, -0.8278, -0.2701,  1.3586]
+2
+[1.0281, -1.9094,  0.3182,  0.4211]
+3
+[-1.3083, -0.0987,  0.7647, -0.3680]
+4
+[0.2293,  1.3255,  0.1318,  2.0501]
+5
+[0.4058, -0.6624, -0.8745,  0.7203]
+6
+[0.5582,  0.0786, -0.6817,  0.6902]
+7
+[0.4309, -1.3067, -0.8823,  1.5977]
+[0.4058, -0.6624, -0.8745,  0.7203]
+[0.4309, -1.3067, -0.8823,  1.5977]
+[-0.1882,  0.5530,  1.6267,  0.7013]
+[-1.3083, -0.0987,  0.7647, -0.3680]
+V1
+V2
+V4
+V3
+[0.3847, -0.4621,  0.1749, -0.0139]
+[-0.3024, -0.1529,  0.4329,  0.4254]
+[-0.4441,  0.4113,  0.0054, -0.3220]
+W
+[0.3548, -0.2819, -0.0579]
+b
+W𝑇V1 + b
+W𝑇V2 + b
+W𝑇V3 + b
+W𝑇V4 + b
+ෝ𝒚
+shape=(1,4,3)
+y = [0, 1, 2, 0]  
+loss
+Shape of logits = (N, C, d)
+shape=(1,3,4)
+Shape of target = (N, d)
+pytorch requirement
+Doc
+Label
+i want a dog
+[0, 1, 2, 0]
+books are quite expensive
+[0, 1, 2, 2]
+vocab size = 8
+sequence length = 4
+vec.
+Output
+Softmax
+5
+0
+[-0.1882,  0.5530,  1.6267,  0.7013]
+1
+[1.7840, -0.8278, -0.2701,  1.3586]
+2
+[1.0281, -1.9094,  0.3182,  0.4211]
+3
+[-1.3083, -0.0987,  0.7647, -0.3680]
+4
+[0.2293,  1.3255,  0.1318,  2.0501]
+5
+[0.4058, -0.6624, -0.8745,  0.7203]
+6
+[0.5582,  0.0786, -0.6817,  0.6902]
+7
+[0.4309, -1.3067, -0.8823,  1.5977]
+[0.4058, -0.6624, -0.8745,  0.7203]
+[0.4309, -1.3067, -0.8823,  1.5977]
+[-0.1882,  0.5530,  1.6267,  0.7013]
+[-1.3083, -0.0987,  0.7647, -0.3680]
+V1
+V2
+V4
+V3
+[0.3847, -0.4621,  0.1749, -0.0139]
+[-0.3024, -0.1529,  0.4329,  0.4254]
+[-0.4441,  0.4113,  0.0054, -0.3220]
+W
+[0.3548, -0.2819, -0.0579]
+b
+W𝑇V1 + b
+W𝑇V2 + b
+W𝑇V3 + b
+W𝑇V4 + b
+y = [0, 1, 2, 0]  
+loss
+shape=(1,3,4)
+Problem?
+Doc
+Label
+i want a dog
+[0, 1, 2, 0]
+books are expensive
+[0, 1, 2]
+index
+word
+0
+[UNK]
+1
+[pad]
+2
+a
+3
+are
+4
+books
+5
+dog
+6
+expensive
+7
+i
+8
+want
+vocab size = 9
+sequence length = 4
+building 
+dictionary
+a 
+sample
+vec.
+Output
+Softmax
+Fully-connected layer
+Embedding
+POS Tagging (3): Using Padding
+1
+Label
+0: (pro)noun
+1: verb
+2: others
+i
+want
+a
+dog
+7
+8
+2
+5
+books
+are
+expensive
+<pad>
+4
+3
+6
+1
+sample 1
+sample 2
+vec 1
+vec 2
+0
+1
+2
+0
+label 1
+0
+1
+2
+?
+label 2
+38
+Doc
+Label
+i want a dog
+[0, 1, 2, 0]
+books are expensive
+[0, 1, 2]
+index
+word
+0
+[UNK]
+1
+[pad]
+2
+a
+3
+are
+4
+books
+5
+dog
+6
+expensive
+7
+i
+8
+want
+vocab size = 9
+sequence length = 4
+building 
+dictionary
+a 
+sample
+vec.
+Output
+Softmax
+Fully-connected layer
+Embedding
+POS Tagging (3): Using Padding
+2
+i
+want
+a
+dog
+7
+8
+2
+5
+books
+are
+expensive
+<pad>
+4
+3
+6
+1
+sample 1
+sample 2
+vec 1
+vec 2
+0
+1
+2
+0
+label 1
+0
+1
+2
+3
+label 2
+Label
+0: (pro)noun
+1: verb
+2: others
+3: <pad>
+39
+Doc
+Label
+i want a dog
+[0, 1, 2, 0]
+books are expensive
+[0, 1, 2]
+vocab size = 9
+sequence length = 4
+POS Tagging (3): Using Padding
+i
+want
+a
+dog
+7
+8
+2
+5
+sample 1
+3
+0
+[-0.1882,  0.5530,  1.6267,  0.7013]
+1
+[1.7840, -0.8278, -0.2701,  1.3586]
+2
+[1.0281, -1.9094,  0.3182,  0.4211]
+3
+[-1.3083, -0.0987,  0.7647, -0.3680]
+4
+[0.2293,  1.3255,  0.1318,  2.0501]
+5
+[0.4058, -0.6624, -0.8745,  0.7203]
+6
+[0.5582,  0.0786, -0.6817,  0.6902]
+7
+[0.4309, -1.3067, -0.8823,  1.5977]
+8
+[0.3058, -0.7624, -0.7745,  0.6203]
+[0.4058, -0.6624, -0.8745,  0.7203]
+[0.3058, -0.7624, -0.7745,  0.6203]
+[1.0281, -1.9094,  0.3182,  0.4211]
+[0.4058, -0.6624, -0.8745,  0.7203]
+vec.
+Output
+Softmax
+Fully-connected layer
+Embedding
+40
+vec.
+Output
+Softmax
+4
+[0.4058, -0.6624, -0.8745,  0.7203]
+[0.3058, -0.7624, -0.7745,  0.6203]
+[1.0281, -1.9094,  0.3182,  0.4211]
+[0.4058, -0.6624, -0.8745,  0.7203]
+V1
+V2
+V4
+V3
+[-0.3875, -0.3519, -0.1275, -0.1719]
+[0.4391,  0.0455, -0.1566, -0.2897]
+[0.1777, -0.1178, -0.3101, -0.2451]
+[0.3730,  0.0996, -0.3004,  0.2219]
+W
+[0.3548, -0.2819, -0.0579, 0.5113]
+b
+W𝑇V1 + b
+W𝑇V2 + b
+W𝑇V3 + b
+W𝑇V4 + b
+[0.26, 0.09, 0.16, 0.49]
+[0.27, 0.13, 0.19, 0.41]
+[0.29, 0.15, 0.21, 0.35]
+[0.24, 0.13, 0.19, 0.44]
+ෝ𝒚
+shape=(1, 4, 4)
+             (N, d, C)   
+y = [0,1, 2, 0]  ; shape=(1,4) 
+Doc
+Label
+i want a dog
+[0, 1, 2, 0]
+books are expensive
+[0, 1, 2]
+vocab size = 9
+sequence length = 4
+0
+[-0.1882,  0.5530,  1.6267,  0.7013]
+1
+[1.7840, -0.8278, -0.2701,  1.3586]
+2
+[1.0281, -1.9094,  0.3182,  0.4211]
+3
+[-1.3083, -0.0987,  0.7647, -0.3680]
+4
+[0.2293,  1.3255,  0.1318,  2.0501]
+5
+[0.4058, -0.6624, -0.8745,  0.7203]
+6
+[0.5582,  0.0786, -0.6817,  0.6902]
+7
+[0.4309, -1.3067, -0.8823,  1.5977]
+8
+[0.3058, -0.7624, -0.7745,  0.6203]
+Label
+0: (pro)noun
+1: verb
+2: others
+3: <pad>
+vec.
+Output
+Softmax
+4
+[0.4058, -0.6624, -0.8745,  0.7203]
+[0.3058, -0.7624, -0.7745,  0.6203]
+[1.0281, -1.9094,  0.3182,  0.4211]
+[0.4058, -0.6624, -0.8745,  0.7203]
+V1
+V2
+V4
+V3
+[-0.3875, -0.3519, -0.1275, -0.1719]
+[0.4391,  0.0455, -0.1566, -0.2897]
+[0.1777, -0.1178, -0.3101, -0.2451]
+[0.3730,  0.0996, -0.3004,  0.2219]
+W
+[0.3548, -0.2819, -0.0579, 0.5113]
+b
+W𝑇V1 + b
+W𝑇V2 + b
+W𝑇V3 + b
+W𝑇V4 + b
+shape=(1, 4, 4)
+             (N, C, d)   
+y = [0, 1, 2, 0]  ; shape=(1,4) 
+Doc
+Label
+i want a dog
+[0, 1, 2, 0]
+books are expensive
+[0, 1, 2]
+Label
+0: (pro)noun
+1: verb
+2: others
+3: <pad>
+Shape of logits = (N, C, d)
+Shape of target = (N, d)
+pytorch requirement
+vocab size = 9
+sequence length = 4
+problem?
+vec.
+Output
+Softmax
+4
+[0.4058, -0.6624, -0.8745,  0.7203]
+[0.3058, -0.7624, -0.7745,  0.6203]
+[1.0281, -1.9094,  0.3182,  0.4211]
+[0.4058, -0.6624, -0.8745,  0.7203]
+V1
+V2
+V4
+V3
+[-0.3875, -0.3519, -0.1275, -0.1719]
+[0.4391,  0.0455, -0.1566, -0.2897]
+[0.1777, -0.1178, -0.3101, -0.2451]
+[0.3730,  0.0996, -0.3004,  0.2219]
+W
+[0.3548, -0.2819, -0.0579, 0.5113]
+b
+W𝑇V1 + b
+W𝑇V2 + b
+W𝑇V3 + b
+W𝑇V4 + b
+shape=(1, 4, 4)
+             (N, C, d)   
+y = [0, 1, 2, 0]  ; shape=(1,4) 
+Doc
+Label
+i want a dog
+[0, 1, 2, 0]
+books are expensive
+[0, 1, 2]
+Label
+0: (pro)noun
+1: verb
+2: others
+3: <pad>
+Shape of logits = (N, C, d)
+Shape of target = (N, d)
+pytorch requirement
+vocab size = 9
+sequence length = 4
+Logits
+Probabilities
+Sample 1
+Sample 2
+One-hot label
+Loss
+0.2
+0.1
+1.2
+3.6
+-2.5
+-0.2
+0.2163
+0.1957
+0.588
+0.9776
+0.0022
+0.0218
+0
+0
+1
+1
+0
+0
+Cross Entropy Loss
+𝐿= −෍
+𝑖
+𝑦𝑖𝑙𝑜𝑔ො𝑦𝑖
+−𝑙𝑜𝑔0.588 = 0.531
+−𝑙𝑜𝑔0.9776 = 0.2429
+Softmax
+ℒ𝑜𝑠𝑠= 0.531 + 0.2429
+2
+     
+= 0.2777
+N_classes = 3
+44
+Ignore_index = 0
+Logits
+Probabilities
+Sample 1
+Sample 2
+One-hot label
+0.2
+0.1
+1.2
+3.6
+-2.5
+-0.2
+0.2163
+0.1957
+0.588
+0.9776
+0.0022
+0.0218
+0
+0
+1
+1
+0
+0
+N_classes = 3
+Sample 3
+-1.3
+1.5
+0.5
+0.0426
+0.6999
+0.2575
+0
+1
+0
+Softmax
+𝐿= −෍
+𝑖
+𝑦𝑖𝑙𝑜𝑔ො𝑦𝑖
+−𝑙𝑜𝑔0.588 = 0.531
+−𝑙𝑜𝑔0.6999 = 0.3568
+Loss
+ℒ𝑜𝑠𝑠= 0.531 + 0.3568
+2
+     
+= 0.4439
+ignore
+Cross Entropy Loss
+45
+Optional Section for Wednesday
+Designing a Model for 
+POS Tagging
+Doc
+Label
+i want a dog
+[0, 1, 2, 0]
+books are expensive
+[0, 1, 2]
+index
+word
+0
+[UNK]
+1
+[pad]
+2
+a
+3
+are
+4
+books
+5
+dog
+6
+expensive
+7
+i
+8
+want
+vocab size = 9
+sequence length = 4
+building 
+dictionary
+0
+[-0.1882,  0.5530,  …,  0.7013]
+1
+[1.7840, -0.8278, …,  1.3586]
+2
+[1.0281, -1.9094,  …,  0.4211]
+3
+[-1.3083, -0.0987,  …, -0.3680]
+4
+[0.2293,  1.3255,  …,  2.0501]
+5
+[0.4058, -0.6624, …,  0.7203]
+6
+[0.5582,  0.0786, …,  0.6902]
+7
+[0.4309, -1.3067, …,  1.5977]
+8
+[0.3058, -0.7624, …,  0.6203]
+Dictionary
+Embedding
+i
+want
+a
+dog
+7
+8
+2
+5
+sample 1
+[0.4058, -0.6624, …,  0.7203]
+[0.3058, -0.7624, …,  0.6203]
+[1.0281, -1.9094,  …,  0.4211]
+[0.4058, -0.6624, …,  0.7203]
+sample 1 _ Embedding
+A 
+sample
+Vectorization
+& 
+Embedding
+Output
+???
+Model
+shape=(1, 4, 4)
+        (N, seq_len, embed_dim) 
+shape=(1, 4, 4)
+           (N, C, seq_len) 
+Label
+Meaning
+0
+Noun/Pronoun
+1
+Verb
+2
+Others
+Vectorization and Embedding
+Model Pipeline
+Designing a Model 
+for POS Tagging
+A 
+sample
+Vectorization
+& 
+Embedding
+Output
+???
+shape=(N, seq_len, embed_dim) 
+shape=(N, C, seq_len) 
+V1
+V2
+Vn
+W𝑇V1 + b
+W𝑇V2 + b
+W𝑇Vn + b
+shape=(N, C, seq_len)   
+softmax
+(N, seq_len, embed_dim) 
+[0.4058, -0.6624, …,  0.7203]
+[0.3058, -0.7624, …,  0.6203]
+[0.4058, -0.6624, …,  0.7203]
+. . .
+. . .
+. . .
+. . .
+. . .
+W
+b
+shared
+Using MLP
+Designing a Model 
+for POS Tagging
+A 
+sample
+Vectorization
+& 
+Embedding
+Output
+???
+shape=(N, seq_len, embed_dim) 
+shape=(N, C, seq_len) 
+softmax
+[0.4058, -0.6624, …,  0.7203]
+[0.3058, -0.7624, …,  0.6203]
+[0.4058, -0.6624, …,  0.7203]
+. . .
+. . .
+. . .
+. . .
+Using CNN
+This pipeline is wrong. 
+Let’s find out!
+Designing a Model 
+for POS Tagging
+A 
+sample
+Vectorization
+& 
+Embedding
+Output
+???
+shape=(N, seq_len, embed_dim) 
+shape=(N, C, seq_len) 
+shape=(N, C, seq_len)   
+softmax
+(N, seq_len, embed_dim) 
+[0.4058, -0.6624, …,  0.7203]
+[0.3058, -0.7624, …,  0.6203]
+[0.4058, -0.6624, …,  0.7203]
+. . .
+. . .
+. . .
+Using CNN
+(N, embed_dim, seq_len) 
+. . .
+Designing a Model 
+for POS Tagging
+A 
+sample
+Vectorization
+& 
+Embedding
+Output
+???
+shape=(N, seq_len, embed_dim) 
+shape=(N, C, seq_len) 
+shape=(N, C, seq_len)   
+softmax
+(N, seq_len, embed_dim) 
+. . .
+. . .
+. . .
+Using RNN
+RNN Cell
+h0
+h1
+hn
+[0.4058, -0.6624, …,  0.7203]
+[0.3058, -0.7624, …,  0.6203]
+[0.4058, -0.6624, …,  0.7203]
+. . .
+. . .
+(N, seq_len, C) 
+. . .
+Designing a Model 
+for POS Tagging
+Using RNN: Implementation
+shape=(N, C, seq_len)   
+softmax
+(N, seq_len, embed_dim) 
+. . .
+. . .
+. . .
+RNN Cell
+h0
+h1
+hn
+[0.4058, -0.6624, …,  0.7203]
+[0.3058, -0.7624, …,  0.6203]
+[0.4058, -0.6624, …,  0.7203]
+. . .
+. . .
+(N, seq_len, C) 
+. . .
+Designing a Model 
+for POS Tagging
+(N, seq_len, embed_dim) 
+. . .
+Using RNN + Linear
+[0.4058, -0.6624, …,  0.7203]
+[0.3058, -0.7624, …,  0.6203]
+[0.4058, -0.6624, …,  0.7203]
+. . .
+RNN Cell
+h0
+h1
+hn
+. . .
+(N, seq_len, H) 
+Linear
+(H, C)
+shape=(N, C, seq_len)   
+softmax
+. . .
+. . .
+(N, seq_len, C) 
+. . .
+Similar to LSTM/GRU
+Designing a 
+Model for 
+POS Tagging
+Using Transformer
+shape=(N, C, seq_len)   
+softmax
+(N, seq_len, ?) 
+. . .
+. . .
+. . .
+Transformer Block
+. . .
+(N, seq_len, C) 
+. . .
+Input
+Multi-head 
+Attention
+Add & 
+Norm
+Feed 
+Forward
+Add & 
+Norm
+Output
+(N, seq_len, embed_dim) 
+(N, seq_len, embed_dim) 
+Transformer Block
+[0.4058, -0.6624, …,  0.7203]
+[0.3058, -0.7624, …,  0.6203]
+[0.4058, -0.6624, …,  0.7203]
+Designing a Model 
+for POS Tagging
+Using Transformer
+shape=(N, C, seq_len)   
+softmax
+(N, seq_len, C) 
+. . .
+. . .
+. . .
+Transformer Block
+. . .
+(N, seq_len, C) 
+. . .
+[0.4058, -0.6624, …,  0.7203]
+[0.3058, -0.7624, …,  0.6203]
+[0.4058, -0.6624, …,  0.7203]
+Designing a Model 
+for POS Tagging
+Using Transformer + Linear
+shape=(N, C, seq_len)   
+softmax
+(N, seq_len, embed_dim) 
+. . .
+. . .
+. . .
+(N, seq_len, C) 
+. . .
+Transformer Block
+[0.4058, …,  0.7203]
+[0.3058, …,  0.6203]
+[0.4058, …,  0.7203]
+Linear
+(H, C)
+(N, seq_len, embed_dim) 
+. . .
+Classifier
+BERT
+10271
+66455
+15031
+11424
+10192
+10393
+17446
+10135
+18745
+Token2id
+it
+has
+force
+today
+work
+our
+on
+bearing
+no
+𝑜𝑢𝑡0
+…
+𝑜𝑢𝑡𝑛−2
+𝑜𝑢𝑡𝑛−3
+𝑜𝑢𝑡2
+𝑜𝑢𝑡1
+…
+…
+𝑜𝑢𝑡𝑛−1
+PRP
+VBZ
+NN
+IN
+NN
+PRP$
+IN
+NN
+DT
+It has no bearing on our workforce today
+Predict
+Input_ids
+Pre-trained
+Text input
+Tokenize
+Tokens
+PRP
+VBZ
+NN
+NN
+NN
+PRP$
+IN
+NN
+DT
+CrossEntropyLoss
+Label
+POS Tagging Using 
+Pre-trained Models

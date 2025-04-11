@@ -1,9 +1,0 @@
-AI VIETNAM aivietnam.edu.vn
-8. Câu nào sau đây mô tả đúng về kỹ thuật Parameter Efficient Fine-tuning (PEFT)?
-(a) Một kỹ thuật dùng để huấn luyện mô hình trên bộ dữ liệu cực lớn.
-(b) Một kỹ thuật liên quan đến việc cập nhật một phần nhỏ tham số của mô hình khi huấn luyện.
-(c) Một kỹ thuật huấn luyện dành riêng cho các mô hình có kích thước nhỏ (dưới 1 tỷ tham số).
-(d) Một kỹ thuật để tăng chi phí tính toán của mô hình.
-9. Mệnh đề sau đúng hay sai: "Low-Rank Adaptation (LoRA) là một kỹ thuật về PEFT"?
-(a) Đúng.
-(b) Sai.

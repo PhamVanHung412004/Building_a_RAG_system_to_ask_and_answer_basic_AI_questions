@@ -1,2 +1,0 @@
-in_layers [: -1] , self . in_layers [ -1]
-12

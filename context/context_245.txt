@@ -1,0 +1,939 @@
+1
+AI VIETNAM
+All-in-One Course
+1
+Introduction to Graph Neural Network
+(Node Classification: Cora Citation Dataset)
+Vinh Dinh Nguyen
+PhD in Computer Science
+2
+AI VIETNAM
+All-in-One Course
+2
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Objective
+Ø Introduction to Graph Data
+Ø Graph Data with Neural Network
+Ø Node Classification Problem: Cora Citation Dataset
+Ø Summary
+Outline
+3
+AI VIETNAM
+All-in-One Course
+3
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Objective
+Ø Introduction to Graph Data
+Ø Graph Data with Neural Network
+Ø Node Classification Problem: Cora Citation Dataset
+Ø Summary
+Outline
+4
+AI VIETNAM
+All-in-One Course
+4
+Vinh Dinh Nguyen- PhD in Computer Science
+Objective
+1
+• What is Graph Data Around Us
+2
+• Understand Graph Neural Network
+3
+• Understand Graph Convolutional Neural Network
+4
+• Node Classification with Cora Citation Dataset
+5
+AI VIETNAM
+All-in-One Course
+5
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Objective
+Ø Introduction to Graph Data
+Ø Graph Data with Neural Network
+Ø Node Classification Problem: Cora Citation Dataset
+Ø Summary
+Outline
+6
+AI VIETNAM
+All-in-One Course
+6
+Vinh Dinh Nguyen- PhD in Computer Science
+Applications of GNNs
+7
+AI VIETNAM
+All-in-One Course
+7
+Vinh Dinh Nguyen- PhD in Computer Science
+Graph Definition
+A graph represents the relations (edges) between a collection of entities (nodes).
+8
+AI VIETNAM
+All-in-One Course
+8
+Vinh Dinh Nguyen- PhD in Computer Science
+Graphs are everywhere 
+https://towardsdatascience.com/over-smoothing-issue-in-graph-neural-network-bddc8fbc2472
+9
+AI VIETNAM
+All-in-One Course
+9
+Vinh Dinh Nguyen- PhD in Computer Science
+Graph Definition
+To further describe each node, edge or the entire graph, we can store information in each of these pieces of the graph
+10
+AI VIETNAM
+All-in-One Course
+10
+Vinh Dinh Nguyen- PhD in Computer Science
+Graphs and where to find them
+Two types of data that you might not think could 
+be modeled as graphs:
+Social networks
+Graphs are all around us
+Image
+Text
+11
+AI VIETNAM
+All-in-One Course
+11
+Vinh Dinh Nguyen- PhD in Computer Science
+Image as Graphs
+Source: https://distill.pub/2021/gnn-intro/ 
+Another way to think of images is as graphs with regular structure, where each pixel represents a node and is 
+connected via an edge to adjacent pixels. Each non-border pixel has exactly 8 neighbors, and the information 
+stored at each node is a 3-dimensional vector representing the RGB value of the pixel.
+12
+AI VIETNAM
+All-in-One Course
+12
+Vinh Dinh Nguyen- PhD in Computer Science
+Text as Graphs
+We can digitize text by associating indices to each character, word, or token, and representing text as a 
+sequence of these indices. This creates a simple directed graph, where each character or index is a node and is 
+connected via an edge to the node that follows it.
+13
+AI VIETNAM
+All-in-One Course
+13
+Vinh Dinh Nguyen- PhD in Computer Science
+Other Graph Data
+Molecules as graphs
+Cafeine molecule
+Adjacency matrix
+Grap model
+14
+AI VIETNAM
+All-in-One Course
+14
+Vinh Dinh Nguyen- PhD in Computer Science
+Other Graph Data
+15
+AI VIETNAM
+All-in-One Course
+15
+Vinh Dinh Nguyen- PhD in Computer Science
+Other Graph Data
+16
+AI VIETNAM
+All-in-One Course
+16
+Vinh Dinh Nguyen- PhD in Computer Science
+Other Graph Data
+Summary statistics on graphs found in the real world. Numbers are dependent on 
+featurization decisions. 
+17
+AI VIETNAM
+All-in-One Course
+17
+Vinh Dinh Nguyen- PhD in Computer Science
+Tasks on Graph Data
+Graph-level task
+In a graph-level task, our goal is to predict the property of an entire graph. For example, for a molecule 
+represented as a graph, we might want to predict what the molecule smells like, or whether it will bind to a 
+receptor implicated in a disease.
+Input: graphs
+Output: labels for each graph, (e.g., "does the graph contain two rings?")
+Similar to image classification problems
+18
+AI VIETNAM
+All-in-One Course
+18
+Vinh Dinh Nguyen- PhD in Computer Science
+Tasks on Graph Data
+Node-level task
+Node-level tasks are concerned with predicting the identity or role of each node within a graph.
+Input: graph with unlabled nodes
+Output: graph node labels
+Similar to image segmentation problems
+19
+AI VIETNAM
+All-in-One Course
+19
+Vinh Dinh Nguyen- PhD in Computer Science
+Tasks on Graph Data
+Edge-level task
+Node-level tasks are concerned with predicting the 
+identity or role of each node within a graph.
+Similar to image scene understanding
+20
+AI VIETNAM
+All-in-One Course
+20
+Vinh Dinh Nguyen- PhD in Computer Science
+A Simple Graph
+x1
+x2
+…
+xn
+x1
+x2
+…
+xn
+Node information
+Edge information
+x1
+x2
+…
+xn
+x1
+x2
+…
+xn
+Paper Content
+Paper citation
+x1
+x2
+…
+xn
+x1
+x2
+…
+xn
+Personal Information
+Relationship
+21
+AI VIETNAM
+All-in-One Course
+21
+Vinh Dinh Nguyen- PhD in Computer Science
+Example
+Nodel level prediction
+?
+Does this student smoke?
+(unlable node)
+Next Youtube 
+Video?
+Edge level predictions
+(Link prediction)
+Graph Level 
+Predictions
+Is this molecule a suitable 
+drug?
+22
+AI VIETNAM
+All-in-One Course
+22
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Objective
+Ø Introduction to Graph Data
+Ø Graph Data with Neural Network
+Ø Node Classification Problem: Cora Citation Dataset
+Ø Summary
+Outline
+23
+AI VIETNAM
+All-in-One Course
+23
+Vinh Dinh Nguyen- PhD in Computer Science
+Graph Data with Neural Network
+G(V,E)
+So, how do we go about solving these different graph tasks with neural networks? 
+The first step is to think about how we will represent graphs to be compatible with 
+neural networks.
+24
+AI VIETNAM
+All-in-One Course
+24
+Vinh Dinh Nguyen- PhD in Computer Science
+Graph Data with Neural Network
+The goal of GNN is to transform node features to features that are aware of the graph structure
+25
+AI VIETNAM
+All-in-One Course
+25
+Vinh Dinh Nguyen- PhD in Computer Science
+Problem with Graph Data
+Difference in Size and Shape
+How to handel arbitrary input graph 
+shape?
+Isomorphism
+Permutaton invariant
+Cannot use adjacency 
+matrix as an input
+26
+AI VIETNAM
+All-in-One Course
+26
+Vinh Dinh Nguyen- PhD in Computer Science
+Problem with Graph Data
+Isomorphism
+Permutaton invariant
+Cannot use adjacency 
+matrix as an input
+Grid Structure
+Eulidean space
+Non-Euclidean 
+space
+Information between 
+nodes
+27
+AI VIETNAM
+All-in-One Course
+27
+Vinh Dinh Nguyen- PhD in Computer Science
+Fundamental Idea of GNNs
+Learning a for neural network suitable representation of graph data
+<Representation Learning>>
+GNN
+Node Level 
+Embedding
+Graph Knowledge
+Size 64
+Size 128
+Hyperparameters
+28
+AI VIETNAM
+All-in-One Course
+28
+Vinh Dinh Nguyen- PhD in Computer Science
+How do Graph Neural Network Work?
+Message passing layer
+Edge and Node 
+Information
+Node Level Embedding 
+Information
+1.Sample Neighborhood  2. Aggregation 3. Update
+29
+AI VIETNAM
+All-in-One Course
+29
+Vinh Dinh Nguyen- PhD in Computer Science
+How do Graph Neural Network Work?
+30
+AI VIETNAM
+All-in-One Course
+30
+Vinh Dinh Nguyen- PhD in Computer Science
+How do Graph Neural Network Work?
+https://arxiv.org/pdf/1812.08434.pdf
+31
+AI VIETNAM
+All-in-One Course
+31
+Vinh Dinh Nguyen- PhD in Computer Science
+Create a graph using NetworkX
+32
+AI VIETNAM
+All-in-One Course
+32
+Vinh Dinh Nguyen- PhD in Computer Science
+CNN Vs. GNN: Messsage Passing
+https://arxiv.org/pdf/1901.00596.pdf
+2D Convolution. Analogous to a graph, each pixel in an 
+image is taken as a node where neighbors are 
+determined by the filter size. The 2D convolution takes 
+the weighted average of pixel values of the red node 
+along with its neighbors. The neighbors of a node are 
+ordered and have a fixed size
+Graph Convolution. To get a hidden representation of 
+the red node, one simple solution of the graph 
+convolutional operation is to take the average value of 
+the node features of the red node along with its 
+neighbors. Different from image data, the neighbors of 
+a node are unordered and variable in size
+33
+AI VIETNAM
+All-in-One Course
+33
+Vinh Dinh Nguyen- PhD in Computer Science
+Message Passing: Behind the Scene
+3
+1
+4
+2
+5
+x1
+x2
+x3
+…
+x1
+x2
+x3
+…
+x1
+x2
+x3
+…
+x1
+x2
+x3
+…
+x1
+x2
+x3
+…
+Initial size: 64 features
+x1
+x2
+x3
+…
+x1
+x2
+x3
+…
+x1
+x2
+x3
+…
+x1
+x2
+x3
+…
+ℎ!
+(#)
+ℎ%
+(#)
+ℎ&
+(#)
+ℎ'
+(#)
+x1
+x2
+x3
+…
+ℎ!
+(#(!)
+AGGREGATE
+UPDATE
+3
+1
+4
+2
+5
+x1
+x2
+x3
+…
+x1
+x2
+x3
+…
+x1
+x2
+x3
+…
+x1
+x2
+x3
+…
+x1
+x2
+x3
+…
+128 features
+ℎ!
+(#(!)
+ℎ%
+(#)
+ℎ&
+(#)
+ℎ'
+(#)
+x1
+x2
+x3
+…
+ℎ!
+(#(')
+AGGREGATE
+UPDATE
+The local feature aggreation <=> CNN Kernvel
+x1
+x2
+x3
+…
+x1
+x2
+x3
+…
+x1
+x2
+x3
+…
+x1
+x2
+x3
+…
+x1
+x2
+x3
+…
+x1
+x2
+x3
+…
+x1
+x2
+x3
+…
+x1
+x2
+x3
+…
+x1
+x2
+x3
+…
+Structural and feature
+y
+34
+AI VIETNAM
+All-in-One Course
+34
+Vinh Dinh Nguyen- PhD in Computer Science
+Graph: Example
+https://towardsdatascience.com/over-smoothing-issue-in-graph-neural-network-bddc8fbc2472
+35
+AI VIETNAM
+All-in-One Course
+35
+Vinh Dinh Nguyen- PhD in Computer Science
+Computation Graph Representation
+x1
+x2
+x3
+…
+x1
+x2
+x3
+…
+x1
+x2
+x3
+…
+x1
+x2
+x3
+…
+x1
+x2
+x3
+…
+Initial size: 64 
+features
+Update
+Aggregate
+Aggregate
+Update
+Computationnal Graph 
+for Node v
+The number of layers 
+defined by how many 
+neighborhood nodes
+The number of MP-Layer 
+is a hyper parameters
+36
+AI VIETNAM
+All-in-One Course
+36
+Vinh Dinh Nguyen- PhD in Computer Science
+Graph: Example
+37
+AI VIETNAM
+All-in-One Course
+37
+Vinh Dinh Nguyen- PhD in Computer Science
+Over-smoothing in GNN
+Node 2 and node 3 have almost access to the same information -> We can predict that their embeddings will be slightly similar. 
+Node 1 and Node 4, they interact with each other but have different neighbors -> We may predict that their new embeddings will be different.
+Node 1
+Node 4
+Node 2
+Node 3
+38
+AI VIETNAM
+All-in-One Course
+38
+Vinh Dinh Nguyen- PhD in Computer Science
+Over-smoothing in GNN
+The computational graphs of nodes 1,4, and 2,3 are almost the same respectively
+Node 1
+Node 4
+Node 2
+Node 3
+39
+AI VIETNAM
+All-in-One Course
+39
+Vinh Dinh Nguyen- PhD in Computer Science
+Over-smoothing in GNN
+Graph Neural Networks, or GNNs, are really good at working 
+with data that is organized in a graph structure. But sometimes, 
+when we add more layers to a GNN architecture, it doesn’t 
+work as well as we would like. This is called over-smoothing.
+40
+AI VIETNAM
+All-in-One Course
+40
+Vinh Dinh Nguyen- PhD in Computer Science
+Why over-smoothing happens?
+Reason 1 → More number of layers (depth)
+Reason 2 → Default nature of GNNs
+41
+AI VIETNAM
+All-in-One Course
+41
+Vinh Dinh Nguyen- PhD in Computer Science
+How to detect over-smoothing?
+Metric 1: MAD(Mean Average Distance)
+MAD computes the Mean Average Distance (MAD) between 
+node representations (embeddings) in the graph
+42
+AI VIETNAM
+All-in-One Course
+42
+Vinh Dinh Nguyen- PhD in Computer Science
+How to detect over-smoothing?
+Metric 2 : MADGap
+It is based on the main hypothesis that when nodes interact, 
+they have access to either important information from nodes 
+of the same class or noise from nodes of other classes.
+43
+AI VIETNAM
+All-in-One Course
+43
+Vinh Dinh Nguyen- PhD in Computer Science
+Over-smoothing in GNN
+Imagine that we're dealing with a social network graph with thousands of nodes. Some new users just signed in to the 
+platform and subscribed to their friend's profiles. Our goal is to find topic suggestions to fill their feed.
+How to reduce the effect of over-smoothing.
+We encounter a trade-off between a low-
+efficiency model and a model with more depth 
+but 
+less 
+expressivity 
+in 
+terms 
+of 
+node 
+representations
+44
+AI VIETNAM
+All-in-One Course
+44
+Vinh Dinh Nguyen- PhD in Computer Science
+Over-smoothing in GNN
+Solution → Inserting nonlinear feedforward neural network layer(s) within each GNN layer.
+https://www.dgl.ai/blog/2022/11/28/ngnn.html
+45
+AI VIETNAM
+All-in-One Course
+45
+Vinh Dinh Nguyen- PhD in Computer Science
+Over-smoothing in GNN
+Solution → Inserting nonlinear feedforward neural network layer(s) within each GNN layer.
+https://www.dgl.ai/blog/2022/11/28/ngnn.html
+46
+AI VIETNAM
+All-in-One Course
+46
+Vinh Dinh Nguyen- PhD in Computer Science
+Over-smoothing in GNN
+Solution → Inserting nonlinear feedforward neural network layer(s) within each GNN layer.
+https://www.dgl.ai/blog/2022/11/28/ngnn.html
+47
+AI VIETNAM
+All-in-One Course
+47
+Vinh Dinh Nguyen- PhD in Computer Science
+Message Passing: Math is Fun
+x1
+x2
+x3
+…
+x1
+x2
+x3
+…
+x1
+x2
+x3
+…
+x1
+x2
+x3
+…
+x1
+x2
+x3
+…
+ℎ!"#$ = 𝑈𝑃𝐷𝐴𝑇𝐸(") ℎ!"#$, 𝐴𝐺𝐺𝑅𝐸𝐺𝐴𝑇𝐸(")
+ℎ'
+" , ∀𝑣∈Ν 𝑢
+x1
+x2
+x3
+…
+x1
+x2
+x3
+…
+x1
+x2
+x3
+…
+x1
+x2
+x3
+…
+ℎ!
+(#)
+ℎ%
+(#)
+ℎ&
+(#)
+ℎ'
+(#)
+x1
+x2
+x3
+…
+ℎ!
+(#(!)
+AGGREGATE
+UPDATE
+x1
+x2
+x3
+…
+x1
+x2
+x3
+…
+x1
+x2
+x3
+…
+x1
+x2
+x3
+…
+x1
+x2
+x3
+…
+Mean
+Max
+Neural Network
+Recurrent Neural Network
+Mean
+Max
+Normalization Sum
+Neural Network
+48
+AI VIETNAM
+All-in-One Course
+48
+Vinh Dinh Nguyen- PhD in Computer Science
+Message Passing: Variants
+49
+AI VIETNAM
+All-in-One Course
+49
+Vinh Dinh Nguyen- PhD in Computer Science
+Message Passing: Variants
+50
+AI VIETNAM
+All-in-One Course
+50
+Vinh Dinh Nguyen- PhD in Computer Science
+Local Network Deployment: Real Device 
+Flask Rest API and Mobile
+51
+AI VIETNAM
+All-in-One Course
+51
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Objective
+Ø Introduction to Graph Data
+Ø Graph Data with Neural Network
+Ø Node Classification Problem: Cora Citation Dataset
+Ø Summary
+Outline
+52
+AI VIETNAM
+All-in-One Course
+52
+Vinh Dinh Nguyen- PhD in Computer Science
+Node Classification Problem
+53
+AI VIETNAM
+All-in-One Course
+53
+Vinh Dinh Nguyen- PhD in Computer Science
+GNN: Node Classification
+Knowledge Graphs and Node Classification
+We have one large graph and not many individual graphs (like molecules)
+We infere on unlabeled nodes in this large graph and hence perform node-level predictions 
+--> We have to use different nodes of the graph depending on what we want to do
+Dataset Introduction:  Cora Citation Dataset in PyTorch Geometric
+The Cora dataset consists of 2708 scientific publications classified into one of seven classes. 
+Each publication in the dataset is described by a 0/1-valued word vector indicating the 
+absence/presence of the corresponding word from the dictionary. 
+•
+The dictionary consists of 1433 unique words. 
+•
+Nodes = Publications (Papers, Books ...) 
+•
+Edges = Citations Node Features = word vectors
+•
+7 Labels = Pubilcation 
+•
+type e.g. Neural_Networks, Rule_Learning, Reinforcement_Learning, Probabilistic_Methods...
+54
+AI VIETNAM
+All-in-One Course
+54
+Vinh Dinh Nguyen- PhD in Computer Science
+BoW Representation
+55
+AI VIETNAM
+All-in-One Course
+55
+Vinh Dinh Nguyen- PhD in Computer Science
+Cora Citation Dataset
+Cited
+Cited
+Cited
+Cited
+Cited
+Cited
+1433 words
+1433 words
+1433 words
+1433 words
+1433 words
+1433 words
+56
+AI VIETNAM
+All-in-One Course
+56
+Vinh Dinh Nguyen- PhD in Computer Science
+Cora Citation Dataset
+Cited
+Cited
+Cited
+Cited
+Cited
+Cited
+Embedding
+Embedding
+Embedding
+Embedding
+Embedding
+Embedding
+57
+AI VIETNAM
+All-in-One Course
+57
+Vinh Dinh Nguyen- PhD in Computer Science
+Visualize the node embeddings of the untrained 
+GCN network
+58
+AI VIETNAM
+All-in-One Course
+58
+Vinh Dinh Nguyen- PhD in Computer Science
+GNN: Node Classification
+Install Pytorch Geometric
+59
+AI VIETNAM
+All-in-One Course
+59
+Vinh Dinh Nguyen- PhD in Computer Science
+GNN: Node Classification
+Load Cora Dataset
+60
+AI VIETNAM
+All-in-One Course
+60
+Vinh Dinh Nguyen- PhD in Computer Science
+GNN: Node Classification MLP
+Define MLP
+Here, we first reduce the 1433-dimensional feature 
+vector 
+to 
+a 
+low-dimensional 
+embedding 
+(hidden_channels=16), while the second linear layer 
+acts as a classifier that should map each low-
+dimensional node embedding to one of the 7 classes.
+61
+AI VIETNAM
+All-in-One Course
+61
+Vinh Dinh Nguyen- PhD in Computer Science
+GNN: Node Classification MLP
+How to Train
+Here, we first reduce the 1433-dimensional 
+feature vector to a low-dimensional embedding 
+(hidden_channels=16), while the second linear 
+layer acts as a classifier that should map each 
+low-dimensional node embedding to one of the 7 
+classes.
+62
+AI VIETNAM
+All-in-One Course
+62
+Vinh Dinh Nguyen- PhD in Computer Science
+GNN: Node Classification GCN
+Define GCN
+63
+AI VIETNAM
+All-in-One Course
+63
+Vinh Dinh Nguyen- PhD in Computer Science
+GNN: Node Classification GCN
+Define GCN
+Dropout is only applied in the training step, but not for 
+predictions 
+We have 2 Message Passing Layers and one Linear 
+output layer 
+We use the softmax function for the classification 
+problem 
+The output of the model are 7 probabilities, one for 
+each class
+64
+AI VIETNAM
+All-in-One Course
+64
+Vinh Dinh Nguyen- PhD in Computer Science
+GNN: Node Classification GCN
+65
+AI VIETNAM
+All-in-One Course
+65
+Vinh Dinh Nguyen- PhD in Computer Science
+Summary
+1
+• What is Graph Data Around Us
+2
+• Understand Graph Neural Network
+3
+• Understand Graph Convolutional Neural Network
+4
+• Node Classification with Cora Citation Dataset
+66
+AI VIETNAM
+All-in-One Course

@@ -1,0 +1,128 @@
+Daily AI Exercise (AIO)
+Ngày 1 tháng 4 năm 2024
+Basic Python - Data Analysis with Visualization
+Hoàng-Nguyên Vũ
+1. Mô tả: Làm quen với thư viện PygWalker
+• Thư viện PygWalker là một thư viện Python mã nguồn mởgiúp bạn dễdàng
+chuyển đổi dữliệu thành các ứng dụng phân tích trực quan. Thư viện này cung
+cấp một bộcông cụmạnh mẽđểkhám phá, tóm tắt và trực quan hóa dữliệu của
+bạn, giúp bạn hiểu rõ hơn vềdữliệu và đưa ra quyết định sáng suốt hơn.
+• Điểm nổi bật của PyGWalker:
++ Tạo bảng điều khiển tương tác: PyGWalker cho phép bạn tạo các bảng
+điều khiển trực quan và dễsửdụng đểkhám phá dữliệu của bạn. Bạn có thể
+dễdàng thêm và loại bỏcác biểu đồ, thay đổi bộlọc và tương tác với dữliệu
+theo thời gian thực.
++ Hỗtrợnhiều loại biểu đồ: PyGWalker cung cấp nhiều loại biểu đồkhác
+nhau đểtrực quan hóa dữliệu của bạn, bao gồm biểu đồthanh, biểu đồ
+đường, biểu đồphân tán, biểu đồnhiệt, v.v.
++ Khảnăng lọc và nhóm dữliệu: PyGWalker cho phép bạn lọc dữliệu theo
+các tiêu chí cụthểvà nhóm dữliệu theo các trường khác nhau.
++ Tích hợp với Jupyter Notebook: PyGWalker có thểđược sửdụng trong
+Jupyter Notebook, cho phép bạn kết hợp phân tích dữliệu với mã Python
+khác.
++ Dễsửdụng: PyGWalker có API đơn giản và dễsửdụng, giúp bạn dễdàng
+bắt đầu.
+• Ứng dụng của PygWalker trong việc trực quan hóa dữliệu:
++ Khoa học dữliệu: PyGWalker có thểđược sửdụng đểkhám phá và phân
+tích dữliệu trong khoa học dữliệu.
++ Học máy: PyGWalker có thểđược sửdụng đểchuẩn bịdữliệu và đánh giá
+mô hình học máy.
++ Tài chính: PyGWalker có thểđược sửdụng đểphân tích dữliệu tài chính
+và thịtrường chứng khoán.
++ Tiếp thị: PyGWalker có thểđược sửdụng đểphân tích dữliệu khách hàng
+và chiến dịch tiếp thị.
+www.facebook.com/aivietnam.edu.vn
+1
+Daily AI Exercise (AIO)
+Ngày 1 tháng 4 năm 2024
+2. Cách cài đặt và sửdụng một sốtính năng:
+Đểcài đặt thư viện PygWalker, chúng ta có thểcài trên Google Colab, hoặc ởmáy cá
+nhân thông qua Jupyter Notebook. Cách cài đặt như sau:
+1. Cài đặt thư viện PygWalker:
++ Đểcài đặt thư PygWalker, chúng ta sửdụng câu lệnh sau ởGoogle Colab:
+1 !pip install
+pygwalker
++ Đểcài thư viện trên máy cá nhân và chạy với Jupyter Notebook, chúng ta
+sẽchạy thông qua Terminal đối với hệđiều hành MacOS và CMD đối với hệ
+điều hành Windows thông qua lệnh sau:
+1 pip
+install
+pandas
+2 pip
+install
+pygwalker
+Hình 1: Cài đặt PygWalker
++ Sau khi cài xong chúng ta khởi động jupyter notebook tại thư mục chứa
+project của chúng ta đểsửdụng, thông qua lệnh sau:
+1 jupyter
+notebook
+Hình 2: Khởi chạy Jupyter Notebook
++ Đểkhởi động thư viện PygWalker trong Colab/Jupyter Notebook, trước tiên
+ta cần phải có dataset đểthư viện có thểtrực quan hóa dữliệu. Sau khi
+chúng ta đã có data, đểkhởi tạo thư viện PygWalker như sau:
+1 import
+pygwalker as pyg
+2 import
+pandas as pd
+3 # FILE_PATH: đường dẫn tới tập tin CSV
+4 data = pd.read_csv(FILE_PATH)
+5 pyg.walk(data)
+www.facebook.com/aivietnam.edu.vn
+2
+Daily AI Exercise (AIO)
+Ngày 1 tháng 4 năm 2024
+Hình 3: Giao diện PygWalker
+2. Sửdụng một sốtính năng trực quan hóa:
++ Tạo biểu đồcột: Tạo biểu đồcột cho tập data mẫu trên đểthểhiện dân số
+(Population) theo quốc gia (Country).
+(*) Ta sẽthực hiện kéo 2 cột: Country vào X-Axis và Population vào Y-Axis.
+Ứng với 2 thông sốcủa biểu đồcột mà chúng ta cần thực hiện trực quan hóa
+biểu đồ: Trục Ox (Trục ngang) thểhiện cho Quốc gia (Country) và Trục Oy
+(Trục dọc) thểhiện cho Dân số(Population)
+www.facebook.com/aivietnam.edu.vn
+3
+Daily AI Exercise (AIO)
+Ngày 1 tháng 4 năm 2024
+Hình 4: Biểu đồcột thểhiện dân sốtheo quốc gia
++ Lấy Top 20 Quốc Gia có giảm dần theo dân số, và tô màu theo độ
+lớn của dân số:
+(*) Ta sẽthực hiện kéo 2 cột: Chúng ta cũng thực hiện tương tựbài trên
+nhưng chúng sẽthực hiện sắp xếp Population giảm dần và Limit 20 dòng.
+Đồng thời gắn Color là cột Population đểthư viện hiện hiện tô màu theo
+Population.
+Hình 5: Biểu đồcột thểhiện dân sốtheo quốc gia
++ Vẽbiểu đồhộp thểhiện phân phối dữliệu:
+www.facebook.com/aivietnam.edu.vn
+4
+Daily AI Exercise (AIO)
+Ngày 1 tháng 4 năm 2024
+Hình 6: Biểu đồhộp thểhiện dân sốtheo quốc gia
++ Vẽbản đồhộp thểhiện phân phối dữliệu:
+Hình 7: Bản đồthểhiện dân sốtheo quốc gia
+3. Bài tập: Hãy đọc dữliệu ởfile: advertising.csv và khởi chạy thư viện PygWalker sau
+đó thực hiện trực quan các biểu đồsau đây:
+• Câu 1: Vẽbiểu đồphân phối dữliệu cho 3 loại: TV, Radio, Paper và được Color
+theo độlớn của giá bán (Sales).
+www.facebook.com/aivietnam.edu.vn
+5
+Daily AI Exercise (AIO)
+Ngày 1 tháng 4 năm 2024
+Kết Quả:
+Hình 8: Biểu đồphân phối dữliệu cho 3 loại: TV, Radio, Paper
+• Câu 2: Vẽbiểu đồcột thểhiện doanh sốbán (Sales) ⩾10 của cả3 loại TV,
+Radio và Newspaper.
+Kết quả:
+Hình 9: Biểu đồdoanh sốbán hàng trên 10 sản phẩm cho 3 loại: TV, Radio, Paper
+• Câu 3: Hãy vẽbản đồbiểu diễn phân bốdân sốtheo thành phốcủa các nước
+thuộc các nước: Việt Nam, Hàn Quốc, Nhật Bản, Singapore và Thái Lan dựa
+theo dữliệu sau: Dữliệu dân sốthếgiới
+www.facebook.com/aivietnam.edu.vn
+6
+Daily AI Exercise (AIO)
+Ngày 1 tháng 4 năm 2024
+Kết quả:
+Hình 10: Bản đồthểhiện phân bốdân sốtheo thành phốcủa các nước thuộc các nước: Việt
+Nam, Hàn Quốc, Nhật Bản, Singapore và Thái Lan
+- Hết -
+www.facebook.com/aivietnam.edu.vn
+7

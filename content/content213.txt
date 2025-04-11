@@ -1,4 +1,0 @@
-Mặc dù Python không có các từ khóa cụ thể như
-private, protected, public giống như một số ngôn ngữ lập trình khác (ví dụ: Java, C++), nhưng nó
-cung cấp cách thức để đạt được điều này thông qua quy ước đặt tên.
-5

@@ -1,0 +1,1509 @@
+1
+AI VIETNAM
+All-in-One Course
+1
+Advanced Graph Neural Network
+(GCN, Graph Relational, Attention & Level-Prediction)
+Vinh Dinh Nguyen
+PhD in Computer Science
+2
+AI VIETNAM
+All-in-One Course
+2
+Vinh Dinh Nguyen- PhD in Computer Science
+Objective
+1
+• How to integrate edge feature to GNN
+2
+• Edge Weight in GNN
+3
+• Relational GNN
+4
+• Multidimensional Edge Feature
+4
+• Attention in GNN
+4
+• Graph-level prediction: Example and Code
+3
+AI VIETNAM
+All-in-One Course
+3
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Edge Feature in GNN
+Ø Edge Weight in GNN
+Ø Relational GNN
+Ø Multidimension Edge Feature
+Ø Attention in GNN
+Ø Example: Graph-Level Prediction
+Ø Summary
+Outline
+4
+AI VIETNAM
+All-in-One Course
+4
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Edge Feature in GNN
+Ø Edge Weight in GNN
+Ø Relational GNN
+Ø Multidimension Edge Feature
+Ø Attention in GNN
+Ø Example: Graph-Level Prediction
+Ø Summary
+Outline
+5
+AI VIETNAM
+All-in-One Course
+5
+Vinh Dinh Nguyen- PhD in Computer Science
+Edge Feature in GNN: Last But Not Least
+Why are edge 
+features important
+Love to watch movie
+Not Love to watch movie
+Does she love watching 
+movie?
+Age
+Weight
+Drink
+Age
+Weight
+Drink
+Age
+Weight
+Drink
+Age
+Weight
+Drink
+Age
+Weight
+Drink
+Node feature
+Node feature
+Node feature
+Node feature
+Node feature
+Binary information
+0-1
+Edge information
+6
+AI VIETNAM
+All-in-One Course
+6
+Vinh Dinh Nguyen- PhD in Computer Science
+Why are edge 
+features 
+important
+Love to watch movie
+Not Love to watch movie
+How do edge features 
+utilize in GNN? 
+Age
+Weight
+Drink
+Age
+Weight
+Drink
+Age
+Weight
+Drink
+Age
+Weight
+Drink
+Age
+Weight
+Drink
+Node feature
+Node feature
+Node feature
+Node feature
+Node feature
+Friend
+Friend Since
+Live together
+Yes
+9
+No
+Edge information
+Edge Feature in GNN: Last But Not Least
+7
+AI VIETNAM
+All-in-One Course
+7
+Vinh Dinh Nguyen- PhD in Computer Science
+Edge Feature in GNN
+How to use Edge Feature:
+ Hot Research Topic
+0
+1
+1
+0
+0
+1
+0
+0
+1
+0
+1
+0
+0
+0
+1
+0
+1
+0
+0
+0
+0
+0
+1
+0
+0
+Adjacency Matrix
+8
+AI VIETNAM
+All-in-One Course
+8
+Vinh Dinh Nguyen- PhD in Computer Science
+Node Embedding for Vinh Nguyen
+Where is the edge information used in this process?
+Age
+Weight
+Drink
+10
+20
+0
+Age
+Weight
+Drink
+30
+60
+1
+17
+25
+33
+45
+AGGERATE
+SUM + 
+Normalization
+50
+70
+11
+20
+Embedding Values
+Maching 
+Learning 
+Algorithm
+Update
+Transform
+ℎ!
+"#$ = 𝑈𝑃𝐷𝐴𝑇𝐸(") ℎ!
+"#$, 𝐴𝐺𝐺𝑅𝐸𝐺𝐴𝑇𝐸(")
+ℎ'
+" , ∀𝑣∈Ν 𝑢
+ℎ!"#$ = 𝐴𝐺𝐺𝑅𝐸𝐺𝐴𝑇𝐸(")
+ℎ'
+" , ∀𝑣∈Ν 𝑢
+10
+20
+0
+9
+AI VIETNAM
+All-in-One Course
+9
+Vinh Dinh Nguyen- PhD in Computer Science
+Node Embedding for Vinh Nguyen
+Where is the edge information used in this process?
+Age
+Weight
+Drink
+10
+20
+0
+Age
+Weight
+Drink
+30
+60
+1
+17
+25
+33
+45
+AGGERATE
+SUM + 
+Normalization
+50
+70
+11
+20
+Embedding Values
+Maching 
+Learning 
+Algorithm
+Update
+Transform
+10
+20
+0
+Binary approach: use directly when we select the node
+Adjacency Matrix
+ℎ()*+
+"#$ = 𝑈𝑃𝐷𝐴𝑇𝐸(") ℎ()*+
+"
+, AGGREGATE,∈. /012 𝑇𝑅𝐴𝑁𝑆𝐹𝑂𝑅𝑀(ℎ,
+")
+ℎ'012
+"#$ = AGGREGATE,∈. /012  𝑇𝑅𝐴𝑁𝑆𝐹𝑂𝑅𝑀(ℎ,
+")
+10
+AI VIETNAM
+All-in-One Course
+10
+Vinh Dinh Nguyen- PhD in Computer Science
+Example
+The ‘0’ of the adjacency matrix cancel the contribution of 
+all connected nodes, resulting a sum of just the 
+connected nodes.
+11
+AI VIETNAM
+All-in-One Course
+11
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Edge Feature in GNN
+Ø Edge Weight in GNN
+Ø Relational GNN
+Ø Multidimension Edge Feature
+Ø Attention in GNN
+Ø Example: Graph-Level Prediction
+Ø Summary
+Outline
+12
+AI VIETNAM
+All-in-One Course
+12
+Vinh Dinh Nguyen- PhD in Computer Science
+Edge Weight: Common Approach
+Adjacency Matrix: Describe the node connection
+Weighted Matrix: Describe the 
+”happy” information
+0.9
+0.5
+0.7
+0.6
+Activation Function
+Adjacency matrix:
+Normalization
+Node feature
+layer-specific 
+trainable 
+weight matrix
+New Embedding:
+13
+AI VIETNAM
+All-in-One Course
+13
+Vinh Dinh Nguyen- PhD in Computer Science
+You know, who you choose to be around you, let’s you know who you are.
+The Fast and the Furious: Tokyo Drift.
+GNN: Review
+14
+AI VIETNAM
+All-in-One Course
+14
+Vinh Dinh Nguyen- PhD in Computer Science
+GNN: Review
+In social networks, friend connections can be realized by a social graph.
+15
+AI VIETNAM
+All-in-One Course
+15
+Vinh Dinh Nguyen- PhD in Computer Science
+GNN: Review
+In speech recognition, the phoneme Yᵢand the acoustic model xᵢform an HMM (a graph for 
+speech recognition).
+16
+AI VIETNAM
+All-in-One Course
+16
+Vinh Dinh Nguyen- PhD in Computer Science
+GNN: Review
+Even on CNN, an input image can be modeled as a graph. For example, the graph for a 5 × 
+5 image. Each node represents a pixel and for the case of a 3 × 3 filter, every node is 
+connected to its eight immediate neighbors.
+17
+AI VIETNAM
+All-in-One Course
+17
+Vinh Dinh Nguyen- PhD in Computer Science
+GNN: Review
+In particular, when the relationships 
+between 
+neighboring 
+nodes 
+are 
+irregular and high dimensional, we 
+need to define them explicitly in order 
+to solve them efficiently. In CNN, we 
+work in a Euclidean space. How 
+weights are associated with the input 
+features (pixels) is well defined.
+But this is not the case for a graph. 
+For example, the graphs above are 
+the same even though it looks 
+different spatially.
+18
+AI VIETNAM
+All-in-One Course
+18
+Vinh Dinh Nguyen- PhD in Computer Science
+GNN: Review
+This leads us to the challenge of how a NN can process a graph directly.
+In general, neural 
+networks (NNs) takes an 
+input x to predict z.
+19
+AI VIETNAM
+All-in-One Course
+19
+Vinh Dinh Nguyen- PhD in Computer Science
+GNN: Review
+In GCN (Graph Convolutional Network), the input to the NN will be a graph. Also, instead of inferring a single z, 
+it infers the value zᵢfor each node i in the graph. And to make predictions for Zᵢ, GCN utilizes both Xᵢand its 
+neighboring nodes in the calculation.
+20
+AI VIETNAM
+All-in-One Course
+20
+Vinh Dinh Nguyen- PhD in Computer Science
+GNN: Review
+Graph Convolutional Networks (GCN)
+The general idea of GCN is to apply convolution over a graph. Instead of having a 2-D array as input, 
+GCN takes a graph as an input.
+21
+AI VIETNAM
+All-in-One Course
+21
+Vinh Dinh Nguyen- PhD in Computer Science
+GNN: Review
+Graph Convolutional Networks (GCN)
+That comes to the output of the hidden layer to 
+be σ(ÂHⁱWⁱ). If we ignore W for a second, for each 
+node in a hidden layer, ÂHⁱ sums up features on 
+each node with its neighbors.
+Diminishing or exploding problem in a NN
+In specific, GCN wants Â to be normalized 
+to maintain the scale of the output feature 
+vectors
+One possibility is to multiple Â with D̂⁻¹ where D̂ is the diagonal node degree 
+matrix of Â in measuring the degree of each node
+22
+AI VIETNAM
+All-in-One Course
+22
+Vinh Dinh Nguyen- PhD in Computer Science
+GNN: Review
+For an undirected graph, the degree of a node is counted as the number of times an edge terminates at that node. So 
+a self-loop will count twice. In our example, node 0 has 2 edges connecting to its neighbors plus a self-loop. Its degree 
+equals 4 (i.e. 2 + 2). For node 3, its degree equals 5 (3 + 2).
+23
+AI VIETNAM
+All-in-One Course
+23
+Vinh Dinh Nguyen- PhD in Computer Science
+GNN: Review
+Graph Convolu6onal Networks (GCN)
+The diagram summarizes the model discussed 
+so far. In this example, it has 3 hidden layers 
+and for each hidden layer, it computes its 
+output as σ(D̂⁻¹ÂHⁱWⁱ). The equation used to 
+compute a hidden layer output from the last 
+layer output is called the propagation rule.
+24
+AI VIETNAM
+All-in-One Course
+24
+Vinh Dinh Nguyen- PhD in Computer Science
+From CNN to GNN
+48
+109
+57
+17
+52
+126
+13
+13
+64
+0.12
+0.58
+1.17
+−0.44
+3.11
+−0.8
+5.11
+−0.31
+4.17
+0.12×48 + 0.58×109 + 1.17×57 -0.44×17 + 3.11×52 -0.8×126 + 
+5.11×13 -0.31×13 + 4.17×64 = 635.5 
+ROI
+Convolutional Operation
+Kernel
+635.5
+25
+AI VIETNAM
+All-in-One Course
+25
+Vinh Dinh Nguyen- PhD in Computer Science
+From CNN to GNN
+48
+109
+57
+17
+52
+126
+13
+13
+64
+0.12
+0.58
+1.17
+−0.44
+3.11
+−0.8
+5.11
+−0.31
+4.17
+ROI
+Kernel
+633
+.88
+48
+109
+57
+13
+13
+64
+17
+126
+0.12
+0.58
+1.17
+−0.8
+4.17
+−0.31
+5.11
+−0.44
+3.11
+0.12×48 + 0.58×109 + 1.17×57 -0.44×17 -
+0.8×126 + 5.11×13 -0.31×13 + 4.17×64 = 
+633.88 
+26
+AI VIETNAM
+All-in-One Course
+26
+Vinh Dinh Nguyen- PhD in Computer Science
+From CNN to GNN
+48
+109
+57
+17
+52
+126
+13
+13
+64
+0.12
+0.58
+1.17
+−0.44
+3.11
+−0.8
+5.11
+−0.31
+4.17
+ROI
+Kernel
+635
+.5
+48
+109
+57
+13
+13
+64
+17
+126
+0.12
+0.58
+1.17
+−0.8
+4.17
+−0.31
+5.11
+−0.44
+0.12×48 + 0.58×109 + 1.17×57 -0.44×17 + 
+3.11×52 -0.8×126 + 5.11×13 -0.31×13 + 
+4.17×64 = 635.5 
+3.11
+0.12×48 + 0.58×109 + 1.17×57 -0.44×17 -
+0.8×126 + 5.11×13 -0.31×13 + 4.17×64 = 
+633.88 
+27
+AI VIETNAM
+All-in-One Course
+27
+Vinh Dinh Nguyen- PhD in Computer Science
+From CNN to GNN
+Node 1
+Node 3
+Node 2
+3
+7
+5
+5
+8
+−1
+1
+1
+0
+1
+1
+1
+0
+1
+1
+Node 1
+Node 2
+Node 3
+Node 1
+Node 2
+Node 3
+3
+7
+8
+-1
+5
+5
+Adjacency matrix
+H: node feature
+Node 1
+Node 2
+Node 3
+3+8
+7+-1
+3+8+5
+7-1+5
+8+5
+-1+5
+Node 1
+Node 2
+Node 3
+N1 + N2
+N1 + N2 + N3
+N2 + N3
+What if information in one channel is more important than other channel?
+28
+AI VIETNAM
+All-in-One Course
+28
+Vinh Dinh Nguyen- PhD in Computer Science
+From CNN to GNN
+Node 1
+Node 3
+Node 2
+3
+7
+5
+5
+8
+−1
+1
+1
+0
+1
+1
+1
+0
+1
+1
+Node 1
+Node 2
+Node 3
+Node 1
+Node 2
+Node 3
+3
+7
+8
+-1
+5
+5
+Adjacency matrix
+H: node feature
+Node 1
+Node 2
+Node 3
+What if information in one channel is more important than other channel?
+W11
+W12
+W21
+W22
+W: weight matrix
+(3+8)W11 +
+ (7-1)W21
+(3+8)W12 +
+ (7-1)W22
+(3+8+5)W11+
+(7-1+5)W21
+(3+8+5)W12
++
+(7-1+5)W22
+(8+5) W11 +
+(-1+5)W21
+(8+5) W12 +
+(-1+5)W22
+29
+AI VIETNAM
+All-in-One Course
+29
+Vinh Dinh Nguyen- PhD in Computer Science
+From CNN to GNN
+Node 1
+Node 3
+Node 2
+3
+7
+5
+5
+8
+−1
+1
+1
+0
+1
+1
+1
+0
+1
+1
+Node 1
+Node 2
+Node 3
+Node 1
+Node 2
+Node 3
+3
+7
+8
+-1
+5
+5
+Adjacency matrix
+H: node feature
+Node 1
+Node 2
+Node 3
+What if information in one channel is more important than other channel?
+W11
+W21
+W: weight matrix
+(3+8)W11 + (7-1)W21
+(3+8+5)W11+ (7-1+5)W21
+(8+5) W11 + (-1+5)W21
+Finally, this is Graph Convolutional Neural Network
+30
+AI VIETNAM
+All-in-One Course
+30
+Vinh Dinh Nguyen- PhD in Computer Science
+From CNN to GNN
+Node 1
+Node 3
+Node 2
+3
+7
+5
+5
+8
+−1
+1
+1
+0
+1
+1
+1
+0
+1
+1
+Node 1
+Node 2
+Node 3
+Node 1
+Node 2
+Node 3
+3
+7
+8
+-1
+5
+5
+Adjacency matrix
+H: node feature
+Node 1
+Node 2
+Node 3
+W11
+W21
+W: weight matrix
+(3+8)W11 + (7-1)W21
+(3+8+5)W11+ (7-1+5)W21
+(8+5) W11 + (-1+5)W21
+Adjacency matrix:
+What if information in one node is more important than other node?
+Attention GNN
+31
+AI VIETNAM
+All-in-One Course
+31
+Vinh Dinh Nguyen- PhD in Computer Science
+Zachary’s karate club 
+There is a karate club that has two major stakeholders: the instructor (Mr. Hi) and the administrator. Unfortunately, the 
+dispute between them causes it to split into 2 clubs. The original members will need to choose a side and pick which one 
+to join. Their decisions will be based on how well they are connected with Mr. Hi or the administrator. This also includes 
+how well they are connected to members that are associated with them. The diagram below is the social graph in 
+representation connections between members.
+32
+AI VIETNAM
+All-in-One Course
+32
+Vinh Dinh Nguyen- PhD in Computer Science
+Zachary’s karate club 
+33
+AI VIETNAM
+All-in-One Course
+33
+Vinh Dinh Nguyen- PhD in Computer Science
+Zachary’s karate club 
+Input Feature X
+34
+AI VIETNAM
+All-in-One Course
+34
+Vinh Dinh Nguyen- PhD in Computer Science
+Zachary’s karate club 
+35
+AI VIETNAM
+All-in-One Course
+35
+Vinh Dinh Nguyen- PhD in Computer Science
+Different Types of Edge Connections
+1
+1
+2
+3
+1
+Friend
+Colleagues
+2
+Family
+3
+How to include 
+various types of 
+Edges in GNN
+Relational Graph
+Convolutional 
+Neural Network
+36
+AI VIETNAM
+All-in-One Course
+36
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Edge Feature in GNN
+Ø Edge Weight in GNN
+Ø Relational GNN
+Ø Multidimension Edge Feature
+Ø Attention in GNN
+Ø Example: Graph-Level Prediction
+Ø Summary
+Outline
+37
+AI VIETNAM
+All-in-One Course
+37
+Vinh Dinh Nguyen- PhD in Computer Science
+Relational GNN
+Various types of relationship: Edge conditions GNN
+38
+AI VIETNAM
+All-in-One Course
+38
+Vinh Dinh Nguyen- PhD in Computer Science
+Relational GNN
+Various types of relationship: Edge conditions GNN
+Friend
+Friend Adjacency Matrix
+39
+AI VIETNAM
+All-in-One Course
+39
+Vinh Dinh Nguyen- PhD in Computer Science
+Relational GNN
+Various types of relationship: Edge conditions GNN
+Colleague
+40
+AI VIETNAM
+All-in-One Course
+40
+Vinh Dinh Nguyen- PhD in Computer Science
+Relational GNN
+Various types of relationship: Edge conditions GNN
+Family
+41
+AI VIETNAM
+All-in-One Course
+41
+Vinh Dinh Nguyen- PhD in Computer Science
+GNN: Feature-wise Linear Modulation
+Transform
+Transform
+Friend
+Colleague
+Family
+How are edge 
+features use?
+42
+AI VIETNAM
+All-in-One Course
+42
+Vinh Dinh Nguyen- PhD in Computer Science
+GNN Edge Feature: Variants
+43
+AI VIETNAM
+All-in-One Course
+43
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Edge Feature in GNN
+Ø Edge Weight in GNN
+Ø Relational GNN
+Ø Multidimension Edge Feature
+Ø Attention in GNN
+Ø Example: Graph-Level Prediction
+Ø Summary
+Outline
+44
+AI VIETNAM
+All-in-One Course
+44
+Vinh Dinh Nguyen- PhD in Computer Science
+How 
+to 
+integrate 
+multi-dimensional 
+edge features to the 
+transformation of the 
+neighborhood 
+states?
+Love to watch movie
+Not Love to watch movie
+How do edge features 
+utilize in GNN? 
+Age
+Weight
+Drink
+Age
+Weight
+Drink
+Age
+Weight
+Drink
+Age
+Weight
+Drink
+Age
+Weight
+Drink
+Node feature
+Node feature
+Node feature
+Node feature
+Node feature
+Friend
+Friend Since
+Live together
+Yes
+9
+No
+Edge information
+Multidimensional Edge Feature
+45
+AI VIETNAM
+All-in-One Course
+45
+Vinh Dinh Nguyen- PhD in Computer Science
+Multidimensional Edge Features
+Message Passing in Neural Network
+What is the size 
+of this adjacency 
+matrix?
+46
+AI VIETNAM
+All-in-One Course
+46
+Vinh Dinh Nguyen- PhD in Computer Science
+Multidimensional Edge Features: MLP
+Age
+Weight
+Drink
+10
+20
+0
+Age
+Weight
+Drink
+30
+60
+1
+17
+25
+33
+45
+AGGERATE
+SUM + 
+Normalization
+50
+70
+11
+20
+Embedding Values
+Update
+Transform
+10
+20
+0
+Friend
+Friend Since
+Live together
+Yes
+9
+No
+47
+AI VIETNAM
+All-in-One Course
+47
+Vinh Dinh Nguyen- PhD in Computer Science
+Multidimensional Edge Features: PNAConv
+Age
+Weight
+Drink
+10
+20
+0
+Age
+Weight
+Drink
+30
+60
+1
+17
+25
+33
+45
+AGGERATE
+SUM + 
+Normalization
+50
+70
+11
+20
+Embedding Values
+Update
+Transform
+10
+20
+0
+Friend
+Friend Since
+Live together
+Yes
+9
+No
+48
+AI VIETNAM
+All-in-One Course
+48
+Vinh Dinh Nguyen- PhD in Computer Science
+Multidimensional Edge Features: Crystal GCN
+Age
+Weight
+Drink
+10
+20
+0
+Age
+Weight
+Drink
+30
+60
+1
+17
+25
+33
+45
+AGGERATE
+SUM + 
+Normalization
+50
+70
+11
+20
+Embedding Values
+Update
+Transform
+10
+20
+0
+Friend
+Friend Since
+Live together
+Yes
+9
+No
+Concatenatetion
+Learnable weight matrix
+49
+AI VIETNAM
+All-in-One Course
+49
+Vinh Dinh Nguyen- PhD in Computer Science
+Edge Feature Embedding: NENN
+Hierachical dual-level attention mechanism
+Nodel-level Attention
+Edge-level Attention
+Learn how important specific nodes and edges are for the new embedding 
+Edge feature are used in both layers to 
+generate new embeeding.
+50
+AI VIETNAM
+All-in-One Course
+50
+Vinh Dinh Nguyen- PhD in Computer Science
+Edge Feature Embedding: NENN
+Nodel-level Attention
+Edge-level Attention
+This approach iteratively updates node 
+and edge embeddings in order to 
+merge both information together  
+51
+AI VIETNAM
+All-in-One Course
+51
+Vinh Dinh Nguyen- PhD in Computer Science
+Edge Feature: How to Use
+52
+AI VIETNAM
+All-in-One Course
+52
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Edge Feature in GNN
+Ø Edge Weight in GNN
+Ø Relational GNN
+Ø Multidimension Edge Feature
+Ø Attention in GNN
+Ø Example: Graph-Level Prediction
+Ø Summary
+Outline
+53
+AI VIETNAM
+All-in-One Course
+53
+Vinh Dinh Nguyen- PhD in Computer Science
+Attention in Graph Neural Network
+Age
+Weight
+Drink
+Node feature
+Node feature
+Node feature
+Node feature
+Node feature
+h1
+h2
+h3
+h4
+h5
+Features per node
+How to use this feature matrix in GNN
+Adjacency Matrix
+54
+AI VIETNAM
+All-in-One Course
+54
+Vinh Dinh Nguyen- PhD in Computer Science
+GNN: Look at the 1st Layer
+h1
+h2
+h3
+h4
+h5
+Features per node [5,3]
+Learnable weight matrix [3,8]
+Adjacency matrix [5,5]
+Activation function
+h'1
+h'2
+h'3
+h'4
+h'5
+Embedding Features per node[1,8]: information of their own node feature and neigbor node features
+55
+AI VIETNAM
+All-in-One Course
+55
+Vinh Dinh Nguyen- PhD in Computer Science
+GNN: Look at the 1st Layer
+h1
+h2
+h3
+h4
+h5
+Features per node [5,3]
+Learnable weight matrix [3,8]
+Adjacency matrix [5,5]
+Activation function
+h'1
+h'2
+h'3
+h'4
+h'5
+Embedding Features per node[1,8]: information of their own node feature and neigbor node features
+Self loop for the 
+aggregation process
+56
+AI VIETNAM
+All-in-One Course
+56
+Vinh Dinh Nguyen- PhD in Computer Science
+GNN: Attention Mechanism
+Learn how important node J’s 
+features are for node I: attention 
+coefficient 
+e!"=a(Wh!, Wh")
+e#$
+e#%
+1
+2
+3
+The model should pay 
+more attention to node 2
+Only considering neighbor nodes
+For the word ‘play’, the word ‘children’ is more important 
+than the word ‘the’
+Attention mechanism
+57
+AI VIETNAM
+All-in-One Course
+57
+Vinh Dinh Nguyen- PhD in Computer Science
+GNN: Self-Attention Mechanism
+Wh1
+Wh1
+e12
+a12
+Leakly ReLU
+Softmax
+58
+AI VIETNAM
+All-in-One Course
+58
+Vinh Dinh Nguyen- PhD in Computer Science
+Local Network Deployment: Real Device 
+Flask Rest API and Mobile
+59
+AI VIETNAM
+All-in-One Course
+59
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Edge Feature in GNN
+Ø Edge Weight in GNN
+Ø Relational GNN
+Ø Multidimension Edge Feature
+Ø Attention in GNN
+Ø Example: Graph-Level Prediction
+Ø Summary
+Outline
+60
+AI VIETNAM
+All-in-One Course
+60
+Vinh Dinh Nguyen- PhD in Computer Science
+GNN: Graph Prediction
+Graph-level prediction
+Node-level prediction
+61
+AI VIETNAM
+All-in-One Course
+61
+Vinh Dinh Nguyen- PhD in Computer Science
+GNN: Graph Prediction
+Installing Pytorch Geometric and RDKit
+Background info on the Dataset
+Looking into the Dataset
+Visualizing molecules
+Implementing the Graph Neural Network
+62
+AI VIETNAM
+All-in-One Course
+62
+Vinh Dinh Nguyen- PhD in Computer Science
+GNN: Graph Prediction
+Installing Pytorch 
+Geometric and RDKit
+Background info on the 
+Dataset
+Looking into the Dataset
+Visualizing molecules
+Implementing the Graph 
+Neural Network
+63
+AI VIETNAM
+All-in-One Course
+63
+Vinh Dinh Nguyen- PhD in Computer Science
+GNN: Graph Prediction
+Installing Pytorch 
+Geometric and RDKit
+Background info on the 
+Dataset
+Looking into the Dataset
+Visualizing molecules
+Implementing the Graph 
+Neural Network
+ESOL is a small dataset consisting of water solubility data for 1128 compounds. The 
+dataset has been used to train models that estimate solubility directly from chemical 
+structures (as encoded in SMILES strings). Note that these structures don’t include 
+3D coordinates, since solubility is a property of a molecule and not of its particular 
+conformers.
+How are different molecules dissolving in water?
+Input
+Output
+64
+AI VIETNAM
+All-in-One Course
+64
+Vinh Dinh Nguyen- PhD in Computer Science
+GNN: Graph Prediction
+Installing Pytorch 
+Geometric and RDKit
+Background info on the 
+Dataset
+Looking into the Dataset
+Visualizing molecules
+Implementing the Graph 
+Neural Network
+65
+AI VIETNAM
+All-in-One Course
+65
+Vinh Dinh Nguyen- PhD in Computer Science
+GNN: Graph Prediction
+Installing Pytorch 
+Geometric and RDKit
+Background info on the 
+Dataset
+Looking into the Dataset
+Visualizing molecules
+Implementing the Graph 
+Neural Network
+66
+AI VIETNAM
+All-in-One Course
+66
+Vinh Dinh Nguyen- PhD in Computer Science
+GNN: Graph Prediction
+Installing Pytorch 
+Geometric and RDKit
+Background info on the 
+Dataset
+Looking into the Dataset
+Visualizing molecules
+Implementing the Graph 
+Neural Network
+67
+AI VIETNAM
+All-in-One Course
+67
+Vinh Dinh Nguyen- PhD in Computer Science
+GNN: Graph Prediction
+Installing Pytorch 
+Geometric and RDKit
+Background info on the 
+Dataset
+Looking into the Dataset
+Visualizing molecules
+Implementing the Graph 
+Neural Network
+68
+AI VIETNAM
+All-in-One Course
+68
+Vinh Dinh Nguyen- PhD in Computer Science
+GNN: Graph Prediction
+Installing Pytorch 
+Geometric and RDKit
+Background info on the 
+Dataset
+Looking into the Dataset
+Visualizing molecules
+Implementing the Graph 
+Neural Network
+69
+AI VIETNAM
+All-in-One Course
+69
+Vinh Dinh Nguyen- PhD in Computer Science
+GNN: Graph Prediction
+Installing Pytorch 
+Geometric and RDKit
+Background info on the 
+Dataset
+Looking into the Dataset
+Visualizing molecules
+Implementing the Graph 
+Neural Network
+70
+AI VIETNAM
+All-in-One Course
+70
+Vinh Dinh Nguyen- PhD in Computer Science
+GNN: Graph Prediction
+Installing Pytorch 
+Geometric and RDKit
+Background info on the 
+Dataset
+Looking into the Dataset
+Visualizing molecules
+Implementing the Graph 
+Neural Network
+71
+AI VIETNAM
+All-in-One Course
+71
+Vinh Dinh Nguyen- PhD in Computer Science
+Vision GNN: Read and Understand
+72
+AI VIETNAM
+All-in-One Course
+72
+Vinh Dinh Nguyen- PhD in Computer Science
+Vision GNN: Read and Understand
+The widely-used convolutional neural network and 
+transformer treat the image as a grid or sequence structure, 
+which is not flexible to capture irregular and complex 
+objects
+In this paper, we propose to represent the image as a graph 
+structure and introduce a new Vision GNN (ViG) 
+architecture to extract graph level feature for visual tasks
+73
+AI VIETNAM
+All-in-One Course
+73
+Vinh Dinh Nguyen- PhD in Computer Science
+Vision GNN: Read and Understand
+Illustration of the grid, sequence and graph representation of the image
+74
+AI VIETNAM
+All-in-One Course
+74
+Vinh Dinh Nguyen- PhD in Computer Science
+Vision GNN: Read and Understand
+The framework of the proposed ViG model
+75
+AI VIETNAM
+All-in-One Course
+75
+Vinh Dinh Nguyen- PhD in Computer Science
+Vision GNN: Read and Understand
+Visualization of the constructed graph 
+structure. The pentagram is the center 
+node, and the nodes with the same color 
+are its neighbors in the graph
+76
+AI VIETNAM
+All-in-One Course
+76
+Vinh Dinh Nguyen- PhD in Computer Science
+Example: CIFAR-10 Dataset
+The CIFAR-10 dataset consists of 60000 32x32 colour images in 10 classes, with 6000 images per class. There are 
+50000 training images and 10000 test images.
+77
+AI VIETNAM
+All-in-One Course
+77
+Vinh Dinh Nguyen- PhD in Computer Science
+Example: CIFAR-10 Dataset
+#params
+Eval Accuracy
+CNN (LeNet)
+5.6M
+70.34
+ViT
+5.6M
+48.29
+ViG
+5.7M
+74.93
+78
+AI VIETNAM
+All-in-One Course
+78
+Vinh Dinh Nguyen- PhD in Computer Science
+Example: CIFAR-10 Dataset
+CNN for Image Classification
+79
+AI VIETNAM
+All-in-One Course
+79
+Vinh Dinh Nguyen- PhD in Computer Science
+Example: CIFAR-10 Dataset
+Vision Transformer for Image 
+Classification
+80
+AI VIETNAM
+All-in-One Course
+80
+Vinh Dinh Nguyen- PhD in Computer Science
+Example: CIFAR-10 Dataset
+Vision GNN for Image Classification
+81
+AI VIETNAM
+All-in-One Course
+81
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Edge Feature in GNN
+Ø Edge Weight in GNN
+Ø Relational GNN
+Ø Multidimension Edge Feature
+Ø Attention in GNN
+Ø Example: Graph-Level Prediction
+Ø Summary
+Outline
+82
+AI VIETNAM
+All-in-One Course
+82
+Vinh Dinh Nguyen- PhD in Computer Science
+Summary
+1
+• How to integrate edge feature to GNN
+2
+• Edge Weight in GNN
+3
+• Relational GNN
+4
+• Multidimensional Edge Feature
+4
+• Attention in GNN
+4
+• Graph-level prediction
+83
+AI VIETNAM
+All-in-One Course

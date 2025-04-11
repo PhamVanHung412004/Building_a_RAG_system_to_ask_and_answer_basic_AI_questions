@@ -1,5 +1,0 @@
-float () , data [’
-category ’]. to( device )
-33 outputs , __ , __ = pointnet ( inputs . transpose (1 ,2) )
-34 _, predicted = torch . max ( outputs .data , 1)
-13

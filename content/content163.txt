@@ -1,9 +1,0 @@
-Do đó, ảnh hưởng của điều kiện ban đầu giảm dần theo thời gian. Từ
-phương trình, ta thấy rằng khiXt lớn hơnµ thì θ(µ − Xt) sẽ âm dẫn đến việc giảmXt về phíaµ
-và ngược lại. Điều này cho thấy quá trình có tính hồi quy.
-• Sự Cân Bằng Giữa Xu Hướng và Nhiễu: Trong OU process, có một sự cân bằng giữa xu
-hướng hồi quy về giá trị trung bình và ảnh hưởng của nhiễu ngẫu nhiên. Khi thời gian trôi đi,
-ảnh hưởng của nhiễu ngẫu nhiên trở nên quan trọng hơn so với điều kiện ban đầu.
-• Decay Factor: Trong công thức của OU process, có một hệ số giảm dần liên quan đến thời gian,
-điều này làm cho ảnh hưởng của điều kiện ban đầu giảm đi theo cấp số nhân khi thời gian tăng
-lên. hệ số giảm dần được thể hiện thông quaθ. 

@@ -1,0 +1,3608 @@
+1
+AI VIETNAM
+All-in-One Course
+1
+AI VIETNAM
+All-in-One Course
+Tree and Its Variants
+(Review & Discussion)
+Year 2023
+Vinh Dinh Nguyen
+PhD in Computer Science
+AI VIETNAM
+All-in-One Course
+2
+AI VIETNAM
+All-in-One Course
+2
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Decision Tree 
+Ø Random Forest
+Ø AdaBoost
+Ø Gradient Boosting
+Ø XGBoost
+Ø Example 
+Outline
+3
+AI VIETNAM
+All-in-One Course
+3
+Vinh Dinh Nguyen- PhD in Computer Science
+Decision Tree
+Random Forest
+Adaboost
+Gradient Boosting
+XGBoost
+Regularization
+Approximate Greed Algorithm
+Parallel Learning
+Weighted Quantile Sketching
+Sparsity-Aware Finding
+Cache-Aware Access
+Stumps are created sequentially.
+Different contribution of each 
+stump to the final prediction
+Tree are created independently
+Same contribution of each tree to 
+the final prediction
+Tree is created by using GNI or 
+Entropy metrics
+Made up of Gradient descent 
+and Boosting.
+Minimize the cost function of 
+the ensemble
+Evolution of Tree and Its Variant
+4
+AI VIETNAM
+All-in-One Course
+4
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Decision Tree 
+Ø Random Forest
+Ø AdaBoost
+Ø Gradient Boosting
+Ø XGBoost
+Ø Example 
+Outline
+5
+AI VIETNAM
+All-in-One Course
+5
+Vinh Dinh Nguyen- PhD in Computer Science
+Decision Tree Motivation
+Dữ liệu Test
+Full dataset
+40% tin tưởng phân loại class đỏ
+60% tin tưởng phân loại class xanh
+Kết quả dự đoán phân loại 
+class xanh
+Không tin tưởng vào kết quả dự đoán. 
+Tại sao?
+Dữ liệu Test
+Full dataset
+100% tin tưởng phân loại class xanh
+Kết quả dự đoán phân loại 
+class xanh
+Rất tin tưởng vào kết quả dự đoán.
+Tại sao?
+Case 1:
+Case 2:
+6
+AI VIETNAM
+All-in-One Course
+6
+Vinh Dinh Nguyen- PhD in Computer Science
+Decision Tree Motivation
+Điều kiện
+Sai
+Đúng
+Điều kiện
+Điều kiện
+Full dataset
+Sub-dataset
+Sub-dataset
+Sub-dataset
+Sub-dataset
+Sub-dataset
+Sub-dataset
+Dự đoán class A
+Dự đoán class B
+Dự đoán class A
+Dự đoán class B
+Chia Full dataset đầu vào 
+thành các tập con nhỏ hơn 
+với điều kiện cho trước, mà 
+ở đó chương trình tin tưởng 
+dự đoán đúng
+Làm thế nào để xác định 
+được điều kiện này là gì?
+7
+AI VIETNAM
+All-in-One Course
+7
+Vinh Dinh Nguyen- PhD in Computer Science
+Decision Tree Motivation
+Điều kiện
+Sai
+Đúng
+Điều kiện
+Điều kiện
+Full dataset
+Sub-dataset
+Sub-dataset
+Sub-dataset
+Sub-dataset
+Sub-dataset
+Sub-dataset
+Dự đoán class A
+Dự đoán class B
+Dự đoán class A
+Dự đoán class B
+Gini Impurity
+Entropy
+Utility Tool for Building Conditions 
+Question: Please show me! Minimum and 
+Maximum Values of Gini and Entropy?
+8
+AI VIETNAM
+All-in-One Course
+8
+Vinh Dinh Nguyen- PhD in Computer Science
+Gini and Entropy
+Gini Impurity
+Qualitative measurement:
+Quantitative measurement:
+Entropy
+Quantitative measurement:
+Qualitative measurement:
+Gini càng nhỏ thì dataset …
+Entropy càng lớn thì dataset …
+9
+AI VIETNAM
+All-in-One Course
+9
+Vinh Dinh Nguyen- PhD in Computer Science
+Decision Tree for Classification
+Why does Gini of “Love Math” equal to 0.214 ?
+Love Math
+Love AI
+Love AI
+Yes
+No
+3
+1
+Thích
+Không thích
+Yes
+No
+0
+3
+Entropy  = 0.81
+Entropy = 0
+Entropy = 0.463
+Why does entropy of “Love Math” equal to 0.463 ?
+GINI = 0.214
+Love Art
+Love AI
+Love AI
+Yes
+No
+3
+1
+Thích
+Không thích
+Yes
+No
+0
+3
+GINI = 0.375
+GINI = 0
+10
+AI VIETNAM
+All-in-One Course
+10
+Vinh Dinh Nguyen- PhD in Computer Science
+GINI Example
+No.
+Love Math
+Love Art
+Age
+Love AI
+1
+Yes
+Yes
+7
+No
+2
+Yes
+No
+12
+No
+3
+No
+Yes
+18
+Yes
+4
+No
+Yes
+35
+Yes
+5
+Yes
+Yes
+38
+Yes
+6
+Yes
+No
+50
+No
+7
+No
+No
+83
+No
+Which one is the root node?
+Love Math
+Love Art
+Age
+11
+AI VIETNAM
+All-in-One Course
+11
+Vinh Dinh Nguyen- PhD in Computer Science
+GINI Example
+Which attribute is in the first 
+node?
+Love Art is the best one
+Cho biết nguyên tắc 
+xây dựng cây bằng 
+Gini?
+12
+AI VIETNAM
+All-in-One Course
+12
+Vinh Dinh Nguyen- PhD in Computer Science
+GINI Solution
+13
+AI VIETNAM
+All-in-One Course
+13
+Vinh Dinh Nguyen- PhD in Computer Science
+Entropy Example
+No.
+Love 
+Math
+Love Art
+Love 
+AI
+1
+Yes
+Yes
+No
+2
+Yes
+No
+No
+3
+No
+Yes
+Yes
+4
+No
+Yes
+Yes
+5
+Yes
+Yes
+Yes
+6
+Yes
+No
+No
+7
+No
+No
+No
+Love AI
+Not Love AI
+Entire Population
+Love Math is Yes
+Love Math is No
+Cần xác định Root node 
+nên là Love Math hay Love 
+Art?
+Giả sử ta chọn root node 
+là Love Math?
+Entrop𝑦_𝑏𝑒𝑓𝑜𝑟𝑒= −
+!
+" log
+!
+" −
+#
+" log
+#
+"  
+                = 0.985 
+Entropy = −
+!
+# log
+!
+# −
+$
+# log
+$
+#  
+                = 0.811
+Entropy = −
+!
+# log
+!
+# −
+$
+# log
+$
+#  
+                = 0.918
+Entropy%&'() =
+#
+" × 0.811+
+!
+" × 0.918 = 0.856
+𝐼𝑛𝑓𝑜𝑟𝑚𝑎𝑡𝑖𝑜𝑛𝐺𝑎𝑖𝑛= 0.985 - 0.856 = 0.129 
+Information Gain là 
+gì? Tại sao phải tính
+14
+AI VIETNAM
+All-in-One Course
+14
+Vinh Dinh Nguyen- PhD in Computer Science
+Entropy Example
+𝐼𝑛𝑓𝑜𝑟𝑚𝑎𝑡𝑖𝑜𝑛𝐺𝑎𝑖𝑛 = 0.129
+Infformation Gain = 0.522
+Love Math is a Root Node
+Love Art is a Root Node
+Which attribute is in the first node?
+Cho biết nguyên tắc xây 
+dựng cây bằng Entropy?
+15
+AI VIETNAM
+All-in-One Course
+15
+Vinh Dinh Nguyen- PhD in Computer Science
+Decision Tree for Regression
+Can we still use Gini and Entropy for 
+building a tree-based Regression?
+Unit
+Age
+Sex
+Effect (%)
+10
+25
+Female
+98
+20
+73
+Male
+0
+35
+54
+Female
+100
+5
+12
+Male
+44
+…
+…
+…
+…
+Entropy:
+Gini Index:
+16
+AI VIETNAM
+All-in-One Course
+16
+Vinh Dinh Nguyen- PhD in Computer Science
+Decision Tree for Regression
+Gini Impurity
+Classification Problem
+Regression Problem
+Sum of Square Error (SSR)  
+Set 1
+78.5
+90.5
+55.6
+60.5
+70.5
+Set 2
+88.5
+80.5
+45.6
+60.5
+80.6
+Set 2
+98.5
+70.5
+65.6
+60.5
+79.5
+Qualitative measurement:
+Quantitative measurement:
+17
+AI VIETNAM
+All-in-One Course
+17
+Vinh Dinh Nguyen- PhD in Computer Science
+Output Value
+Condition
+[1, 1, 1]
+[2,2,1]
+Condition
+[1, 1, 1]
+[2,2,1]
+Classification Problem
+Regression Problem
+1. What is the output value of each leaf node?
+2. When shoud we stop building the tree?
+3. What are disadvantages of Decision Tree?
+4. Can DT obtain high performance in a 
+regression problem?
+Yes
+No
+Yes
+No
+18
+AI VIETNAM
+All-in-One Course
+18
+Vinh Dinh Nguyen- PhD in Computer Science
+Multiple Trees
+How to make the prediction based on 
+multiple tree?
+19
+AI VIETNAM
+All-in-One Course
+19
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Decision Tree 
+Ø Random Forest
+Ø AdaBoost
+Ø Gradient Boosting
+Ø XGBoost
+Ø Example 
+Outline
+20
+AI VIETNAM
+All-in-One Course
+20
+Vinh Dinh Nguyen- PhD in Computer Science
+ENSEMPLE LEARNING
+Ensemple Learning
+21
+AI VIETNAM
+All-in-One Course
+21
+Vinh Dinh Nguyen- PhD in Computer Science
+Ensemple Learning
+22
+AI VIETNAM
+All-in-One Course
+22
+Vinh Dinh Nguyen- PhD in Computer Science
+Homogeneous Approach
+23
+AI VIETNAM
+All-in-One Course
+23
+Vinh Dinh Nguyen- PhD in Computer Science
+Heterogeneous Approach
+Combine
+24
+AI VIETNAM
+All-in-One Course
+24
+Vinh Dinh Nguyen- PhD in Computer Science
+Ensemple Learning Techniques
+Ensemple Learning
+Bagging
+homogeneous weak learners
+Stacking
+Heterogeneous weak learners
+Boosting
+homogeneous weak learners
+Thông dụng ởcác cuộc thi vềAI
+25
+AI VIETNAM
+All-in-One Course
+25
+Vinh Dinh Nguyen- PhD in Computer Science
+Bagging-based Method
+26
+AI VIETNAM
+All-in-One Course
+26
+Vinh Dinh Nguyen- PhD in Computer Science
+Step to Random Forest
+CHEST PAIN
+GOOD BLOOD CIRCULATION
+BLOCKED
+ARTERIES
+WEIGHT
+HEART 
+DISEASE
+NO
+NO
+NO
+125
+NO
+YES
+YES
+YES
+180
+YES
+YES
+YES
+NO
+210
+NO
+YES
+NO
+YES
+167
+YES
+27
+AI VIETNAM
+All-in-One Course
+27
+Vinh Dinh Nguyen- PhD in Computer Science
+1st Step: Create a New Dataset
+CHEST PAIN
+GOOD BLOOD 
+CIRCULATION
+BLOCKED
+ARTERIES
+WEIGHT
+HEART 
+DISEASE
+NO
+NO
+NO
+125
+NO
+YES
+YES
+YES
+180
+YES
+YES
+YES
+NO
+210
+NO
+YES
+NO
+YES
+167
+YES
+CHEST 
+PAIN
+GOOD 
+BLOOD 
+CIRCULATION
+BLOCKED
+ARTERIES
+WEIGHT
+HEART 
+DISEASE
+YES
+YES
+YES
+180
+YES
+NO
+NO
+NO
+125
+NO
+YES
+NO
+YES
+167
+YES
+YES
+NO
+YES
+167
+YES
+Original DATA
+New DATA
+Chọn lựa ngẫu nhiên từ 
+dataset ban đầu
+28
+AI VIETNAM
+All-in-One Course
+28
+Vinh Dinh Nguyen- PhD in Computer Science
+1st Step: Create a New Dataset
+CHEST PAIN
+GOOD BLOOD 
+CIRCULATION
+BLOCKED
+ARTERIES
+WEIGHT
+HEART 
+DISEASE
+NO
+NO
+NO
+125
+NO
+YES
+YES
+YES
+180
+YES
+YES
+YES
+NO
+210
+NO
+YES
+NO
+YES
+167
+YES
+CHEST 
+PAIN
+GOOD 
+BLOOD 
+CIRCULATION
+BLOCKED
+ARTERIES
+WEIGHT
+HEART 
+DISEASE
+YES
+YES
+YES
+180
+YES
+NO
+NO
+NO
+125
+NO
+YES
+NO
+YES
+167
+YES
+YES
+NO
+YES
+167
+YES
+Original DATA
+Bootrapped Dataset
+Chọn lựa ngẫu nhiên từ 
+dataset ban đầu
+29
+AI VIETNAM
+All-in-One Course
+29
+Vinh Dinh Nguyen- PhD in Computer Science
+CHEST PAIN
+GOOD BLOOD 
+CIRCULATION
+BLOCKED
+ARTERIES
+WEIGHT
+HEART 
+DISEASE
+YES
+YES
+YES
+180
+YES
+NO
+NO
+NO
+125
+NO
+YES
+NO
+YES
+167
+YES
+YES
+NO
+YES
+167
+YES
+2nd Step: Decision Tree from Boostrapped 
+Dataset
+GENERATE DECISION TREES FROM THE BOOTSTRAPPED DATASET USING PREDEFINED CONDITIONS
+A RANDOM SUBSET OF 2 ATTRIBUTES 
+(OR 2 COLUMNS). 
+Traditional Tree
+Tree with Predefined 
+Conditions
+CHEST PAIN
+GOOD BLOOD 
+CIRCULATION
+BLOCKED
+ARTERIES
+WEIGHT
+HEART 
+DISEASE
+YES
+YES
+YES
+180
+YES
+NO
+NO
+NO
+125
+NO
+YES
+NO
+YES
+167
+YES
+YES
+NO
+YES
+167
+YES
+30
+AI VIETNAM
+All-in-One Course
+30
+Vinh Dinh Nguyen- PhD in Computer Science
+CHEST PAIN
+GOOD BLOOD 
+CIRCULATION
+BLOCKED
+ARTERIES
+WEIGHT
+HEART 
+DISEASE
+YES
+YES
+YES
+180
+YES
+NO
+NO
+NO
+125
+NO
+YES
+NO
+YES
+167
+YES
+YES
+NO
+YES
+167
+YES
+CHEST PAIN
+GOOD BLOOD 
+CIRCULATION
+BLOCKED
+ARTERIES
+WEIGHT
+HEART 
+DISEASE
+YES
+YES
+YES
+180
+YES
+NO
+NO
+NO
+125
+NO
+YES
+NO
+YES
+167
+YES
+YES
+NO
+YES
+167
+YES
+GOOD BLOOD
+???
+???
+Chọn lựa ngẫu nhiên 2 
+features (columns)
+Giả sử Good Blood là 
+root node
+Loại bỏ Good Blood ra 
+khỏi dataset
+Chọn lựa ngẫu nhiên 2 features (columns)
+CHEST PAIN
+GOOD BLOOD 
+CIRCULATION
+BLOCKED
+ARTERIES
+WEIGHT
+HEART 
+DISEASE
+YES
+YES
+YES
+180
+YES
+NO
+NO
+NO
+125
+NO
+YES
+NO
+YES
+167
+YES
+YES
+NO
+YES
+167
+YES
+31
+AI VIETNAM
+All-in-One Course
+31
+Vinh Dinh Nguyen- PhD in Computer Science
+CHEST PAIN
+GOOD BLOOD 
+CIRCULATION
+BLOCKED
+ARTERIES
+WEIGHT
+HEART 
+DISEASE
+YES
+YES
+YES
+180
+YES
+NO
+NO
+NO
+125
+NO
+YES
+NO
+YES
+167
+YES
+YES
+NO
+YES
+167
+YES
+CHEST PAIN
+GOOD BLOOD 
+CIRCULATION
+BLOCKED
+ARTERIES
+WEIGHT
+HEART 
+DISEASE
+YES
+YES
+YES
+180
+YES
+NO
+NO
+NO
+125
+NO
+YES
+NO
+YES
+167
+YES
+YES
+NO
+YES
+167
+YES
+Chọn lựa ngẫu nhiên 2 features (columns)
+GOOD BLOOD
+Chest Pain
+???
+Giả sử Chest pain là 
+node tối ưu
+???
+???
+Loại bỏ chest pain ra khỏi dataset
+Chọn lựa ngẫu nhiên 2 features (columns)
+CHEST PAIN
+GOOD BLOOD 
+CIRCULATION
+BLOCKED
+ARTERIES
+WEIGHT
+HEART 
+DISEASE
+YES
+YES
+YES
+180
+YES
+NO
+NO
+NO
+125
+NO
+YES
+NO
+YES
+167
+YES
+YES
+NO
+YES
+167
+YES
+32
+AI VIETNAM
+All-in-One Course
+32
+Vinh Dinh Nguyen- PhD in Computer Science
+CHEST PAIN
+GOOD BLOOD 
+CIRCULATION
+BLOCKED
+ARTERIES
+WEIGHT
+HEART 
+DISEASE
+YES
+YES
+YES
+180
+YES
+NO
+NO
+NO
+125
+NO
+YES
+NO
+YES
+167
+YES
+YES
+NO
+YES
+167
+YES
+CHEST PAIN
+GOOD BLOOD 
+CIRCULATION
+BLOCKED
+ARTERIES
+WEIGHT
+HEART 
+DISEASE
+YES
+YES
+YES
+180
+YES
+NO
+NO
+NO
+125
+NO
+YES
+NO
+YES
+167
+YES
+YES
+NO
+YES
+167
+YES
+Chọn lựa ngẫu nhiên 2 features (columns)
+GOOD BLOOD
+Chest Pain
+???
+Giả sử Weight là node 
+tối ưu
+Weight
+???
+Loại bỏ Weight ra khỏi dataset
+Blocked Arteries
+Weight
+Weight
+Weight
+33
+AI VIETNAM
+All-in-One Course
+33
+Vinh Dinh Nguyen- PhD in Computer Science
+1st Decision Tree 
+CHEST 
+PAIN
+GOOD 
+BLOOD 
+CIRCULATION
+BLOCKED
+ARTERIES
+WEIGHT
+HEART 
+DISEASE
+YES
+YES
+YES
+180
+YES
+NO
+NO
+NO
+125
+NO
+YES
+NO
+YES
+167
+YES
+YES
+NO
+YES
+167
+YES
+34
+AI VIETNAM
+All-in-One Course
+34
+Vinh Dinh Nguyen- PhD in Computer Science
+…
+Create N Tree
+1st tree
+2nd tree
+nth tree
+Generate
+1st bootstrapped dataset
+2nd bootstrapped dataset
+nth bootstrapped dataset
+35
+AI VIETNAM
+All-in-One Course
+35
+Vinh Dinh Nguyen- PhD in Computer Science
+…
+Create N Tree
+1st tree
+2nd tree
+nth tree
+Generate
+1st bootstrapped dataset
+2nd bootstrapped dataset
+nth bootstrapped dataset
+Random Forest
+36
+AI VIETNAM
+All-in-One Course
+36
+Vinh Dinh Nguyen- PhD in Computer Science
+1st tree
+Chest Pain
+No
+GOOD BLOOD 
+CIRCULATION
+No
+BLOCKED ARTERIES
+No
+Weight
+125
+Tôi có thể bị 
+bệnh không?
+2nd tree
+nth tree
+Yes
+No
+7
+2
+Predict
+Predict
+Predict
+Heart Disease
+Rất tiếc, bạn 
+đã mắc bệnh!
+How to Predict New Sample
+37
+AI VIETNAM
+All-in-One Course
+37
+Vinh Dinh Nguyen- PhD in Computer Science
+Out-of-bag Dataset
+OUT-OF-BAG ERROR
+1.
+How to create out-of-bag dataset?
+2.
+Please show me its benefits?
+38
+AI VIETNAM
+All-in-One Course
+38
+Vinh Dinh Nguyen- PhD in Computer Science
+Random Forest
+1.
+Can we use RF for filling missing data? And How?
+2.
+How many trees in RF? 
+3.
+RF instead of searching for the most important feature while splitting a node, it 
+searches for the best feature among a random subset of features?
+4.
+What are limitations of RF?
+The random forest is a classification algorithm consisting of many decisions trees. It uses bagging and
+feature randomness when building each individual tree to try to create an uncorrelated forest of
+trees whose prediction by committee is more accurate than that of any individual tree.
+39
+AI VIETNAM
+All-in-One Course
+39
+Vinh Dinh Nguyen- PhD in Computer Science
+Why Random Feature to Build a Tree: RF
+AIO2023 use a uniformly distributed random number generator to produce a number.
+If the number AIO2023 generates, is greater than or equal to 40, you win (so you have a 60% chance of
+victory) and AIO2023 pays you some money. If it is below 40, AIO2023 win, and you pay AIO2023 the same
+amount
+Game 1
+Play 100 times, betting $1 each time.
+Game 2
+Play 10 times, betting $10 each time.
+Game 3
+Play 1 times, betting $100 each time.
+Which game would you pick?
+40
+AI VIETNAM
+All-in-One Course
+40
+Vinh Dinh Nguyen- PhD in Computer Science
+Why Random Feature to Build a Tree: RF
+Game 1
+Play 100 times, betting $1 each time.
+Game 2
+Play 10 times, betting $10 each time.
+Game 3
+Play 1 times, betting $100 each time.
+Expected Value:
+= (0.60*1 + 0.40*-1)*100 = 20
+Expected Value:
+(0.60*10 + 0.40*-10)*10 = 20
+Expected Value:
+= 0.60*100 + 0.40*-100 = 20
+What about the distributions?
+We will run 10,000 simulations of each
+game type; for example, we will simulate
+10,000 times the 100 plays of Game 1
+Which game 
+would you pick?
+41
+AI VIETNAM
+All-in-One Course
+41
+Vinh Dinh Nguyen- PhD in Computer Science
+Why Random Feature to Build a Tree: RF
+Game 1
+Play 100 times, betting $1 each time.
+Game 2
+Play 10 times, betting $10 each time.
+Game 3
+Play 1 times, betting $100 each time.
+Expected Value:
+= (0.60*1 + 0.40*-1)*100 = 20
+Expected Value:
+(0.60*10 + 0.40*-10)*10 = 20
+Expected Value:
+= 0.60*100 + 0.40*-100 = 20
+You make money in 97% of them
+You make money in 63% of them
+You make money in 60% of them
+42
+AI VIETNAM
+All-in-One Course
+42
+Vinh Dinh Nguyen- PhD in Computer Science
+Why Random Feature to Build a Tree: RF
+Game 1
+Play 100 times, betting $1 each time.
+Game 2
+Play 10 times, betting $10 each time.
+Game 3
+Play 1 times, betting $100 each time.
+Expected Value:
+= (0.60*1 + 0.40*-1)*100 = 20
+Expected Value:
+(0.60*10 + 0.40*-10)*10 = 20
+Expected Value:
+= 0.60*100 + 0.40*-100 = 20
+You make money in 97% of them
+You make money in 63% of them
+You make money in 60% of them
+The more we split up our $100 bet into different plays, the more confident we can be that we will make
+money. As mentioned previously, this works because each play is independent of the other ones
+Random forest is the same — each tree is like one play in our game earlier. We just saw how our chances 
+of making money increased the more times we played. Similarly, with a random forest model, our chances of 
+making correct predictions increase with the number of uncorrelated trees in our model.
+43
+AI VIETNAM
+All-in-One Course
+43
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Decision Tree 
+Ø Random Forest
+Ø AdaBoost
+Ø Gradient Boosting
+Ø XGBoost
+Ø Example 
+Outline
+44
+AI VIETNAM
+All-in-One Course
+44
+Vinh Dinh Nguyen- PhD in Computer Science
+Bias-Variance Trade-off
+RF decreases the variance and helps to avoid overfitting.
+Aim to decrease variance, not bias
+Boosting techniques aims to decrease bias, not variance.
+45
+AI VIETNAM
+All-in-One Course
+45
+Vinh Dinh Nguyen- PhD in Computer Science
+Boosting-Based Method
+46
+AI VIETNAM
+All-in-One Course
+46
+Vinh Dinh Nguyen- PhD in Computer Science
+AdaBoost: FOREST OF STUMP
+1
+2
+3
+4
+Influence
+Adaboost builds a stump based on the the error made by previous stumps
+47
+AI VIETNAM
+All-in-One Course
+47
+Vinh Dinh Nguyen- PhD in Computer Science
+Heart Disease Dataset
+Chest Pain
+Blocked Arteries
+Patient Weight
+Heart Disease
+Yes
+Yes
+205
+Yes
+No
+Yes
+180
+Yes
+Yes
+No
+210
+Yes
+Yes
+Yes
+167
+Yes
+No
+Yes
+156
+No
+No
+Yes
+125
+No
+Yes
+No
+168
+No
+Yes
+Yes
+172
+No
+Important of sample = Sample weight = 1 / number of samples = 1/8
+48
+AI VIETNAM
+All-in-One Course
+48
+Vinh Dinh Nguyen- PhD in Computer Science
+Compute Gini Index For Chest Pain
+CHEST PAIN
+HEART DISEASE
+HEART DISEASE
+YES
+NO
+3
+2
+YES
+NO
+1
+2
+Gini index = 5/8 * (1 – (3/5)^2 – (2/5)^2) + 3/8* (1 - (1/3)^2 - (2/3)^2) = 0.57
+Yes
+No
+49
+AI VIETNAM
+All-in-One Course
+49
+Vinh Dinh Nguyen- PhD in Computer Science
+GINI INDEX FOR BLOCKED ARTERIES
+BLOCKED ARTERIES
+HEART DISEASE
+HEART DISEASE
+YES
+NO
+3
+3
+YES
+NO
+1
+1
+Gini index = 6/8 * (1 – (3/6)^2 – (3/6)^2) + 2/8* (1 - (1/2)^2 - (1/2)^2) = 0.5
+Yes
+No
+50
+AI VIETNAM
+All-in-One Course
+50
+Vinh Dinh Nguyen- PhD in Computer Science
+Gini Index for Heart Disease
+PATIENT WEIGHT > 170
+HEART DISEASE
+HEART DISEASE
+YES
+NO
+3
+1
+YES
+NO
+1
+3
+Gini index = =4/8 * (1-(1/4)^2 - (3/4)^2) + 4/8* (1-(1/4)^2 -(3/4)^2) =  0.375
+192.5
+195
+188.5
+140.5
+161.5
+146.5
+170
+51
+AI VIETNAM
+All-in-One Course
+51
+Vinh Dinh Nguyen- PhD in Computer Science
+Amount of Say
+How was this stump contribute to the final decision (classification)?
+PATIENT WEIGHT > 170
+HEART DISEASE
+HEART DISEASE
+YES
+NO
+3
+1
+YES
+NO
+1
+3
+YES
+NO
+Amount 
+of Say
+52
+AI VIETNAM
+All-in-One Course
+52
+Vinh Dinh Nguyen- PhD in Computer Science
+Amount of Say: Patient Weight
+• Total error is equal to the sum of the weights of the incorrect classified
+• Amount of say = 1/2*log((1-2/8) / (2/8)) = 0.55
+53
+AI VIETNAM
+All-in-One Course
+53
+Vinh Dinh Nguyen- PhD in Computer Science
+Amount of say: Chest Pain
+• Total error is equal to the sum of the weights of the incorrect classified
+• Amount of say = 1/2*log((1-3/8) / (3/8)) = 0.25
+log(Odds) = log(
+! "#$%&'&()(*+ %, (-.%$$/.* 0$/1(.*(%-
+#$%&'&()(*+ %, (-.%$$/.* 0$/1(.*(%-  )
+54
+AI VIETNAM
+All-in-One Course
+54
+Vinh Dinh Nguyen- PhD in Computer Science
+Amout of Say: Blocked Arteries
+• Total error is equal to the sum of the weights of the incorrect classified
+• Amount of say = 1/2*log((1-4/8) / (4/8)) = 0
+55
+AI VIETNAM
+All-in-One Course
+55
+Vinh Dinh Nguyen- PhD in Computer Science
+Assumptions
+Known: weight cho các sample dự đoán sai được sử dụng để tính “Amount of Say” cho từng 
+stump hiện tại. 
+Unknown: Tiếp theo, chúng ta cần làm thế nào để sử dụng thông tin các weight của sample dự 
+đoán sai này để xây dựng stump tiếp và khắc phục các dự đoán sai này
+56
+AI VIETNAM
+All-in-One Course
+56
+Vinh Dinh Nguyen- PhD in Computer Science
+Idea: Improved Bootstrapped Dataset
+Create new dataset
+Incorrect
+Incorrect
+This new stump can handel incorrect classification
+57
+AI VIETNAM
+All-in-One Course
+57
+Vinh Dinh Nguyen- PhD in Computer Science
+How to build next Stump
+Increase the sample weights of samples that were incorrectly classified and decrease
+sample weights of samples that were correctly classified. Label {-1, 1}
+New sample weight = 1/8 * e^{0.55} = 0.22
+58
+AI VIETNAM
+All-in-One Course
+58
+Vinh Dinh Nguyen- PhD in Computer Science
+How to build next Stump
+Increase the sample weights of samples that were incorrectly classified and decrease the sample
+weights of samples that were correctly classified. Label {-1, 1}
+New sample weight = 1/8 * e^{-0.55} = 0.07
+59
+AI VIETNAM
+All-in-One Course
+59
+Vinh Dinh Nguyen- PhD in Computer Science
+How to build next Stump
+Increase the sample weights of samples that were incorrectly classified and keep the sample
+weights of samples that were correctly classified. Label {0, 1}
+New sample weight = 1/8 * e^{0.55*1} = 0.22
+60
+AI VIETNAM
+All-in-One Course
+60
+Vinh Dinh Nguyen- PhD in Computer Science
+How to build next Stump
+Increase the sample weights of samples that were incorrectly classified and keep the sample
+weights of samples that were correctly classified. Label {0, 1}
+New sample weight = 1/8 * e^{0.55*0} = 0.125
+61
+AI VIETNAM
+All-in-One Course
+61
+Vinh Dinh Nguyen- PhD in Computer Science
+New Sample Weight
+Chest Pain
+Blocked Arteries
+Patient Weight
+Heart Diease
+Sample Weight
+New Weight
+Normal Weight
+Yes
+Yes
+205
+Yes
+1/8
+0.07
+0.08
+No
+Yes
+180
+Yes
+1/8
+0.07
+0.08
+Yes
+No
+210
+Yes
+1/8
+0.07
+0.08
+Yes
+Yes
+167
+Yes
+1/8
+0.22
+0.25
+No
+Yes
+156
+No
+1/8
+0.07
+0.08
+No
+Yes
+125
+No
+1/8
+0.07
+0.08
+Yes
+No
+168
+No
+1/8
+0.07
+0.08
+Yes
+Yes
+172
+No
+1/8
+0.22
+0.25
+Sum
+~1.0
+0.86
+~1.0
+Update
+62
+AI VIETNAM
+All-in-One Course
+62
+Vinh Dinh Nguyen- PhD in Computer Science
+New Sample Weight
+Chest Pain
+Blocked Arteries
+Patient Weight
+Heart Diease
+New Weight
+Yes
+Yes
+205
+Yes
+0.08
+No
+Yes
+180
+Yes
+0.08
+Yes
+No
+210
+Yes
+0.08
+Yes
+Yes
+167
+Yes
+0.25
+No
+Yes
+156
+No
+0.08
+No
+Yes
+125
+No
+0.08
+Yes
+No
+168
+No
+0.08
+Yes
+Yes
+172
+No
+0.25
+Sum
+~1.0
+63
+AI VIETNAM
+All-in-One Course
+63
+Vinh Dinh Nguyen- PhD in Computer Science
+AdaBoost: FOREST OF STUMPS
+IMPROVE ERROR
+IMPROVE ERROR
+IMPROVE ERROR
+64
+AI VIETNAM
+All-in-One Course
+64
+Vinh Dinh Nguyen- PhD in Computer Science
+New Dataset
+65
+AI VIETNAM
+All-in-One Course
+65
+Vinh Dinh Nguyen- PhD in Computer Science
+New Dataset
+Random [0,1] to select samples
+66
+AI VIETNAM
+All-in-One Course
+66
+Vinh Dinh Nguyen- PhD in Computer Science
+New Dataset
+Chest 
+Pain
+Blocked
+Arteries
+Patient
+Weight
+Heart
+Diease
+Normal
+Weight
+Range
+Yes
+Yes
+205
+Yes
+0.08
+[0-0.08]
+No
+Yes
+180
+Yes
+0.08
+(0.08-0.16]
+Yes
+No
+210
+Yes
+0.08
+(0.16-0.24]
+Yes
+Yes
+167
+Yes
+0.25
+(0.24-0.495]
+No
+Yes
+156
+No
+0.08
+(0.495-0.575]
+No
+Yes
+125
+No
+0.08
+(0.575-0.655]
+Yes
+No
+168
+No
+0.08
+(0.655-0.735]
+Yes
+Yes
+172
+No
+0.25
+(0.735-1.0]
+Sum
+~1.0
+67
+AI VIETNAM
+All-in-One Course
+67
+Vinh Dinh Nguyen- PhD in Computer Science
+New Dataset
+Random [0,1] 
+to select 
+samples
+Old dataset
+New dataset
+Ý tưởng: các sample bịphân loại sai, sẽđược được nhiều 
+hơn vào dataset mới
+CONTINUE TO BUILD
+THE NEXT STUMP
+68
+AI VIETNAM
+All-in-One Course
+68
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Classify The Final Result
+These stumps for predicting 
+heart disease
+These stumps for predicting 
+no heart disease
+69
+AI VIETNAM
+All-in-One Course
+69
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Classify The Final Result
+https://hastie.su.domains/Papers/samme.pdf
+1. Can AdaBoost handle overfitting?
+2. AdaBoost can be sensitive to outliers / label noise?
+3. When should we stop the Adaboost?
+Adaboost: the weight of each sample is modified during
+each iteration to reduce the prediction error, and the weight
+of each tree is different when making final classification.
+70
+AI VIETNAM
+All-in-One Course
+70
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Decision Tree 
+Ø Random Forest
+Ø AdaBoost
+Ø Gradient Boosting
+Ø XGBoost
+Ø Example 
+Outline
+71
+AI VIETNAM
+All-in-One Course
+71
+Vinh Dinh Nguyen- PhD in Computer Science
+Gradient Boosting
+Gradient
+Applies the concepts of logistic regression. It uses log-odds to make a prediction, converts log-odds
+to probabilities through logistic function, then make a classification based on self-defined threshold.
+Boosting
+Error
+Iteration
+…
+72
+AI VIETNAM
+All-in-One Course
+72
+Vinh Dinh Nguyen- PhD in Computer Science
+Gradient Boost For Regression
+Height
+Favorite Color
+Gender
+Weight
+1.6
+Blue
+Male
+88
+1.6
+Green
+Female
+76
+1.5
+Blue
+Female
+56
+1.8
+Red
+Male
+73
+1.5
+Green
+Male
+77
+1.4
+Blue
+Female
+57
+Input
+Output
+73
+AI VIETNAM
+All-in-One Course
+73
+Vinh Dinh Nguyen- PhD in Computer Science
+Tree-based Gradient Boost
+• Step 1: Build 1st tree
+• Calculate the average of weights
+Height
+Favorite Color
+Gender
+Weight
+1.6
+Blue
+Male
+88
+1.6
+Green
+Female
+76
+1.5
+Blue
+Female
+56
+1.8
+Red
+Male
+73
+1.5
+Green
+Male
+77
+1.4
+Blue
+Female
+57
+Average of Weights: 71.17
+Node of 1st Tree
+74
+AI VIETNAM
+All-in-One Course
+74
+Vinh Dinh Nguyen- PhD in Computer Science
+Gradient Boost: Behind The Scenes
+• Initialize a model with a constant value:
+• 𝑭𝟎𝒙= 𝒂𝒓𝒈𝒎𝒊𝒏∑𝒊"𝟏
+𝒏
+𝑳(𝒚, 𝜹)
+𝜹
+𝒚
+SSR = 1/2 {(88 – 𝜹)^2 + (76 – 𝜹)^2 + (56 - 𝜹)^2}
+2334
+2𝜹= -(88 - 𝜹) – (76 - 𝜹) – (56 - 𝜹) = 0
+𝜹= 
+667897:9
+;
+= 73.3 = average of all sample’ weights
+75
+AI VIETNAM
+All-in-One Course
+75
+Vinh Dinh Nguyen- PhD in Computer Science
+Tree-based Gradient Boost
+• Step 2: 
+ØBuild 2nd tree
+Average of weights: 71.17
+76
+AI VIETNAM
+All-in-One Course
+76
+Vinh Dinh Nguyen- PhD in Computer Science
+Tree-based Gradient Boost
+• Step 2: 
+ØBuild 2nd tree
+Average of weights: 71.2
+Height
+Favorite Color
+Gender
+Weight
+Residual Error
+1.6
+Blue
+Male
+88
+16.8
+1.6
+Green
+Female
+76
+1.8
+1.5
+Blue
+Female
+56
+-15.2
+1.8
+Red
+Male
+73
+1.8
+1.5
+Green
+Male
+77
+5.8
+1.4
+Blue
+Female
+57
+-14.2
+77
+AI VIETNAM
+All-in-One Course
+77
+Vinh Dinh Nguyen- PhD in Computer Science
+Tree-based Gradient Boost
+Height
+Favorite Color
+Gender
+Residual Error
+1.6
+Blue
+Male
+16.8
+1.6
+Green
+Female
+1.8
+1.5
+Blue
+Female
+-15.2
+1.8
+Red
+Male
+1.8
+1.5
+Green
+Male
+5.8
+1.4
+Blue
+Female
+-14.2
+Gender is Female
+Height < 1.6
+Color is not Blue
+4.8
+16.8
+1.5, 5.8
+-14.2, -15.2
+Tại sao lại xây dựng cây 
+dự đoán Residual Error
+78
+AI VIETNAM
+All-in-One Course
+78
+Vinh Dinh Nguyen- PhD in Computer Science
+Tree-based Gradient Boost
+Height
+Favorite Color
+Gender
+Residual Error
+1.6
+Blue
+Male
+16.8
+1.6
+Green
+Female
+1.8
+1.5
+Blue
+Female
+-15.2
+1.8
+Red
+Male
+1.8
+1.5
+Green
+Male
+5.8
+1.4
+Blue
+Female
+-14.2
+Gender is Female
+Height < 1.6
+Color is not Blue
+4.8
+16.8
+3.8
+-14.7
+Trung bình residual
+Tại sao lại xây dựng cây 
+dự đoán Residual Error
+79
+AI VIETNAM
+All-in-One Course
+79
+Vinh Dinh Nguyen- PhD in Computer Science
+Tree-based Gradient Boost
+Average of weights: 71.2
+Gender is Female
+Height < 1.6
+Color is not Blue
+-14.7
+4.8
+16.8
+3.8
+1st Tree
+2nd Tree
+Điều gì sẽxảy ra, nếu chung ta tiếp tục
+xây dựng cây theo cách này?
+80
+AI VIETNAM
+All-in-One Course
+80
+Vinh Dinh Nguyen- PhD in Computer Science
+Prediction
+Height
+Favorite Color
+Gender
+Weight
+Prediction
+1.6
+Blue
+Male
+88
+88
+1.6
+Green
+Female
+76
+76
+1.5
+Blue
+Female
+56
+56
+1.8
+Red
+Male
+73
+73
+1.5
+Green
+Male
+77
+77
+1.4
+Blue
+Female
+57
+57
+81
+AI VIETNAM
+All-in-One Course
+81
+Vinh Dinh Nguyen- PhD in Computer Science
+Prediction
+AVG of weights: 71.2
+1st Tree
+82
+AI VIETNAM
+All-in-One Course
+82
+Vinh Dinh Nguyen- PhD in Computer Science
+Prediction
+Height
+Favorite Color
+Gender
+Weight
+Prediction
+1.6
+Blue
+Male
+88
+74.56
+0.2
+Prediction = 71.2 + 0.2 * 16.8 = 74.56
+83
+AI VIETNAM
+All-in-One Course
+83
+Vinh Dinh Nguyen- PhD in Computer Science
+Tree-based Gradient Boost
+• Step 3: 
+ØBuild 3rd tree
+Average of weights: 71.2
+Height
+Favorite Color
+Gender
+Weight
+Predicted Weight
+Residual Error
+1.6
+Blue
+Male
+88
+74.56
+12.44
+1.6
+Green
+Female
+76
+…
+…
+1.5
+Blue
+Female
+56
+…
+…
+1.8
+Red
+Male
+73
+…
+…
+1.5
+Green
+Male
+77
+…
+…
+1.4
+Blue
+Female
+57
+…
+…
+1st Tree
+2ndTree
+84
+AI VIETNAM
+All-in-One Course
+84
+Vinh Dinh Nguyen- PhD in Computer Science
+Tree-based Gradient Boost
+• Step 3: 
+ØBuild 3rd tree
+Average of weights: 71.2
+1st Tree
+2ndTree
+Height
+Favorite Color
+Gender
+First Tree
+Residual
+Second Tree
+Residual 
+Third Tree
+Residual
+1.6
+Blue
+Male
+16.8
+12.44
+???
+1.6
+Green
+Female
+1.8
+…
+???
+1.5
+Blue
+Female
+-15.2
+…
+???
+1.8
+Red
+Male
+1.8
+…
+???
+1.5
+Green
+Male
+5.8
+…
+???
+1.4
+Blue
+Female
+-14.2
+…
+???
+85
+AI VIETNAM
+All-in-One Course
+85
+Vinh Dinh Nguyen- PhD in Computer Science
+AVG of weights: 71.2
+Prediction
+1. How to select 𝛼(𝑙earning rate) ?
+2. Differences between Gradient Descent and Gradient Boosting
+3. Limitations of Gradient Boosting?
+86
+AI VIETNAM
+All-in-One Course
+86
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Decision Tree 
+Ø Random Forest
+Ø AdaBoost
+Ø Gradient Boosting
+Ø XGBoost
+Ø Example 
+Outline
+87
+AI VIETNAM
+All-in-One Course
+87
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost
+Weights < 15
+Weight < 5
+-0.5
+-0.5
+0.5, 0.5
+weights < 15
+-10.5
+6.5, 7.5, -7.5
+weights < 30
+6.5, 7.5
+-7.5
+Classification
+Regression
+𝑆imilarity Score =
+∑Residual <
+Number of Residual + 𝜆
+𝑆imilarity Score =
+∑Residual <
+∑Ey( × 1 −Ey( + 𝜆
+Output Value =
+∑Residual
+Number of Residual + 𝜆
+Ouput value =
+∑Residual
+∑Ey( × 1 −Ey( + 𝜆
+88
+AI VIETNAM
+All-in-One Course
+88
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost For Regression
+Drug Weight (mg) 
+Drug Effectiveness
+-15
+-10
+-5
+0
+5
+10
+20
+40
+Drug Weight < 15
+-10.5
+Drug Weight < 30
+6.5, 7.5
+-8
+89
+AI VIETNAM
+All-in-One Course
+89
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost For Regression
+Step 1
+• Initialize the first prediction for drug effectiveness
+• Any number, for default, we set 1st prediction = 0.5
+Drug Effectiveness
+-15
+-10
+-5
+0
+5
+10
+20
+40
+Drug Weight (mg) 
+Prediction = 0.5
+Residual = error
+90
+AI VIETNAM
+All-in-One Course
+90
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost For Regression
+Step 1
+Drug Effectiveness
+-15
+-10
+-5
+0
+5
+10
+20
+40
+Drug Weight (mg) 
+-10.5, 6.5, 7.5, -7.5  
+-10.5
+6.5
+7.5
+- 7.5
+Start with single Leaf of residuals
+Compute Similarity Score
+SC = 
+[∑
+?@AB@A"BCD2EFAD2 ]!
+H7 I
+m: number of samples
+𝜆∶𝑟𝑒𝑔𝑢𝑙𝑎𝑟𝑖𝑧𝑎𝑡𝑖𝑜𝑛𝑝𝑎𝑟𝑎𝑚𝑒𝑡𝑒𝑟𝑠
+Prediction = 0.5
+91
+AI VIETNAM
+All-in-One Course
+91
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost For Regression
+Step 1
+Drug Effectiveness
+-15
+-10
+-5
+0
+5
+10
+20
+40
+Drug Weight (mg) 
+-10.5, 6.5, 7.5, -7.5  
+-10.5
+6.5
+7.5
+- 7.5
+Start with single Leaf of residuals
+Compute Similarity Score
+m = 4
+𝜆= 0
+SC = "!J.:78.:79.:7 "8.:
+𝟐
+L
+=4
+SC = 
+[∑
+?@AB@A"BCD2EFAD2 ]!
+H7 I
+92
+AI VIETNAM
+All-in-One Course
+92
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost For Regression
+Drug Effectiveness
+-15
+-10
+-5
+0
+5
+10
+20
+40
+Drug Weight (mg) 
+-10.5, 6.5, 7.5, -7.5  
+-10.5
+6.5
+7.5
+- 7.5
+SC = 4
+What happens if we try to split residuals into two groups => 
+measure the similarity score
+Step 1
+93
+AI VIETNAM
+All-in-One Course
+93
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost For Regression
+Drug Effectiveness
+-15
+-10
+-5
+0
+5
+10
+20
+40
+Drug Weight (mg) 
+-10.5, 6.5, 7.5, -7.5  
+-10.5
+6.5
+7.5
+- 7.5
+SC = 4
+What happens if we try to split residuals into two groups =>
+measure the similarity score
+Step 1
+Build a tree on it
+94
+AI VIETNAM
+All-in-One Course
+94
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost For Regression
+Drug Effectiveness
+-15
+-10
+-5
+0
+5
+10
+20
+40
+Drug Weight (mg) 
+-10.5, 6.5, 7.5, -7.5  
+-10.5
+6.5
+7.5
+- 7.5
+SC = 4
+Please look at the two outputs with lowest drug weights
+Average = 15
+Drug weights < 15
+-10.5
+6.5, 7.5, -7.5
+SC = 4
+SC = 110.25
+SC = 14.08
+Step 1
+95
+AI VIETNAM
+All-in-One Course
+95
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost For Regression
+Drug Effectiveness
+-15
+-10
+-5
+0
+5
+10
+20
+40
+Drug Weight (mg) 
+-10.5, 6.5, 7.5, -7.5  
+-10.5
+6.5
+7.5
+- 7.5
+SC = 4
+How much better leaves cluster similar Residual than the root?
+Average = 15
+Drug weights < 15
+-10.5
+6.5, 7.5, -7.5
+SC = 4
+SC = 110.25
+SC = 14.08
+Step 1
+96
+AI VIETNAM
+All-in-One Course
+96
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost For Regression
+Drug Effectiveness
+-15
+-10
+-5
+0
+5
+10
+20
+40
+Drug Weight (mg) 
+-10.5, 6.5, 7.5, -7.5  
+-10.5
+6.5
+7.5
+- 7.5
+SC = 4
+Average = 15
+Drug weights < 15
+-10.5
+6.5, 7.5, -7.5
+SC = 4
+SC = 110.25
+SC = 14.08
+qStep 1
+Caculate the Gain.
+Gain = Left SC + Right SC - Root SC
+Gain = 120.33
+Residual rất khác 
+nhau, triệt tiêu lẫn 
+nhau, nên SC nhỏ
+Residual giống nhau hoặc không 
+triệt tiêu lẫn nhau, nên SC khá lơn
+97
+AI VIETNAM
+All-in-One Course
+97
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost For Regression
+Drug Effectiveness
+-15
+-10
+-5
+0
+5
+10
+20
+40
+Drug Weight (mg) 
+-10.5, 6.5, 7.5, -7.5  
+-10.5
+6.5
+7.5
+- 7.5
+SC = 4
+Average = 22.5
+Drug weights < 22.5
+-10.5, 6.5
+7.5, -7.5
+SC = 4
+SC = 8
+SC = 0
+Caculate the Gain.
+Gain = Left SC + Right SC - Root SC
+Gain = 4.0
+qStep 1
+Residual rất khác 
+nhau, triệt tiêu lẫn 
+nhau, nên SC nhỏ
+Residual giống nhau 
+hoặc không triệt tiêu 
+lẫn nhau, nên SC khá 
+lơn
+98
+AI VIETNAM
+All-in-One Course
+98
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost For Regression
+Drug Effectiveness
+-15
+-10
+-5
+0
+5
+10
+20
+40
+Drug Weight (mg) 
+-10.5, 6.5, 7.5, -7.5  
+-10.5
+6.5
+7.5
+- 7.5
+SC = 4
+Average = 30
+Drug weights < 30
+-10.5, 6.5, 7.5
+-7.5
+SC = 4
+SC = 4.05
+SC = 56.25
+Caculate the Gain.
+Gain = Left SC + Right SC - Root SC
+Gain = 56.33
+qStep 1
+Residual rất khác 
+nhau, triệt tiêu lẫn 
+nhau, nên SC nhỏ
+Residual giống nhau 
+hoặc không triệt tiêu lẫn 
+nhau, nên SC khá lơn
+99
+AI VIETNAM
+All-in-One Course
+99
+Vinh Dinh Nguyen- PhD in Computer Science
+Drug weights < 15
+-10.5
+6.5, 7.5, -7.5
+SC = 4
+SC = 110.25
+SC = 14.8
+Gain = 4
+Gain = 120.33
+≤
+We select 
+Drug weights < 15
+Gain = 56.25
+≤
+XGBoost For Regression
+qStep 1
+100
+AI VIETNAM
+All-in-One Course
+100
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost For Regression
+Drug weights < 15
+-10.5
+6.5, 7.5, -7.5
+SC = 4
+Stop
+Continue Split
+qStep 1
+Drug Effectiveness
+-15
+-10
+-5
+0
+5
+10
+20
+40
+Drug Weight (mg) 
+-10.5
+6.5
+7.5
+- 7.5
+Average = 15
+101
+AI VIETNAM
+All-in-One Course
+101
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost For Regression
+Drug weights < 15
+-10.5
+6.5, 7.5, -7.5
+SC = 4
+Stop
+Continue Split
+Drug weights < 22.5
+6.5
+7.5, -7.5
+SC = 14,8
+SC = 42.25
+SC = 0
+Caculate the Gain
+Gain = Left SC + Right SC - Root SC
+Gain = 28.17
+qStep 1
+Drug Effectiveness
+-15
+-10
+-5
+0
+5
+10
+20
+40
+Drug Weight (mg) 
+-10.5
+6.5
+7.5
+- 7.5
+Average = 15
+Average = 22.5
+102
+AI VIETNAM
+All-in-One Course
+102
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost For Regression
+Drug Effectiveness
+-15
+-10
+-5
+0
+5
+10
+20
+40
+Drug Weight (mg) 
+6.5
+7.5
+- 7.5
+Average =30
+Drug weights < 15
+-10.5
+6.5, 7.5, -7.5
+SC = 4
+Stop
+Continue Split
+Drug weights < 30
+6.5, 7.5
+-7.5
+SC = 14,8
+SC = 98
+SC = 56.25
+Caculate the Gain
+Gain = Left SC + Right SC - Root SC
+Gain = 140.17
+qStep 1
+103
+AI VIETNAM
+All-in-One Course
+103
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost For Regression
+Drug weights < 15
+-10.5
+6.5, 7.5, -7.5
+Gain = 120.33
+Stop
+Drug weights < 30
+6.5, 7.5
+-7.5
+SC = 140.7
+How to prune the tree to prevent 
+Overfitting ? Gain information
+𝛾= 130
+Drug Effectiveness
+-15
+-10
+-5
+0
+5
+10
+20
+40
+Drug Weight (mg) 
+6.5
+7.5
+- 7.5
+Average =30
+qStep 1
+104
+AI VIETNAM
+All-in-One Course
+104
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost For Regression
+Drug Effectiveness
+-15
+-10
+-5
+0
+5
+10
+20
+40
+Drug Weight (mg) 
+6.5
+7.5
+- 7.5
+Average = 22.5
+Drug weights < 15
+-10.5
+6.5, 7.5, -7.5
+Gain = 120.33
+Stop
+Drug weights < 30
+6.5, 7.5
+-7.5
+SC = 140.7
+How to prune the tree to prevent 
+Overfitting ? Gain information
+qStep 1
+𝛾= 130
+Difference = Gain - 𝛾
+If difference > 0, do not remove branch
+If difference < 0, remove branch
+105
+AI VIETNAM
+All-in-One Course
+105
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost For Regression
+Drug Effectiveness
+-15
+-10
+-5
+0
+5
+10
+20
+40
+Drug Weight (mg) 
+6.5
+7.5
+- 7.5
+Average = 22.5
+Drug weights < 15
+-10.5
+6.5, 7.5, -7.5
+Gain = 120.33
+Stop
+SC = 140.7
+How to prune the tree to prevent 
+Overfitting ? Gain information
+qStep 1
+𝛾= 150
+Difference = Gain - 𝛾
+If difference > 0, do not remove branch
+If difference < 0, remove branch
+106
+AI VIETNAM
+All-in-One Course
+106
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost For Regression
+Drug Effectiveness
+-15
+-10
+-5
+0
+5
+10
+20
+40
+Drug Weight (mg) 
+6.5
+7.5
+- 7.5
+Average = 22.5
+o.5
+How to prune the tree to prevent 
+Overfitting ? Gain information
+qStep 1
+𝛾= 150
+Difference = Gain - 𝛾
+If difference > 0, do not remove branch
+If difference < 0, remove branch
+107
+AI VIETNAM
+All-in-One Course
+107
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost For Regression
+qStep 1
+Drug Effectiveness
+-15
+-10
+-5
+0
+5
+10
+20
+40
+Drug Weight (mg) 
+-10.5, 6.5, 7.5, -7.5  
+-10.5
+6.5
+7.5
+- 7.5
+Start with single Leaf 
+of residuals
+Compute Similarity Score
+SC = 
+∑
+?@AB@A"BCD2EFAD2 !
+H7 I
+m = 4
+𝜆= 1
+SC = 
+"!J.:78.:79.:7 "8.:
+!
+L7!
+=3.2
+108
+AI VIETNAM
+All-in-One Course
+108
+Vinh Dinh Nguyen- PhD in Computer Science
+Drug Effectiveness
+-15
+-10
+-5
+0
+5
+10
+20
+40
+Drug Weight (mg) 
+-10.5, 6.5, 7.5, -7.5  
+-10.5
+6.5
+7.5
+- 7.5
+SC = 3.2
+Please look at the two outputs with lowest drug weights
+Average = 15
+Drug weights < 15
+-10.5
+6.5, 7.5, -7.5
+SC = 3.2
+SC = 55.12
+SC = 10.56
+When 𝜆> 0, the  similarity score are smaller
+Inversely proportional to the number of residuals
+SC = 110.25
+SC = 14.8
+SC = 4
+qStep 1
+XGBoost For Regression
+𝜆= 1
+𝜆= 0
+109
+AI VIETNAM
+All-in-One Course
+109
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost For Regression
+Drug Effectiveness
+-15
+-10
+-5
+0
+5
+10
+20
+40
+Drug Weight (mg) 
+-10.5
+6.5
+7.5
+- 7.5
+Average = 15
+Drug weights < 15
+-10.5
+6.5, 7.5, -7.5
+SC = 55.12
+SC = 10.56
+SC = 110.25
+SC = 14.8
+Gain = 55.12 + 10.56 – 3.2 =  62.48
+Gain = 55.12 + 10.56 – 4 =  120.33
+Gain = 82.9
+Gain = 140.17
+𝜆= 1
+𝜆= 0
+The amount of decrease is invertly propotional to
+the number of Residual in the nodes
+110
+AI VIETNAM
+All-in-One Course
+110
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost For Regression
+Drug Effectiveness
+-15
+-10
+-5
+0
+5
+10
+20
+40
+Drug Weight (mg) 
+-10.5
+6.5
+7.5
+- 7.5
+Average = 15
+Drug weights < 15
+-10.5
+6.5, 7.5, -7.5
+SC = 55.12
+SC = 10.56
+SC = 110.25
+SC = 14.8
+Gain = 55.12 + 10.56 – 4 =  62.48
+Gain = 55.12 + 10.56 – 4 =  120.33
+Gain = 82.9
+Gain = 140.17
+𝜆= 1
+𝜆= 0
+The amount of decrease is invertly propotional to the number
+of Residual in the nodes
+𝜆> 0: easy to prune the tree
+Prevent overffiting
+Prunning 
+parameter: 
+𝛾= 130
+111
+AI VIETNAM
+All-in-One Course
+111
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost For Regression
+Drug Effectiveness
+-15
+-10
+-5
+0
+5
+10
+20
+40
+Drug Weight (mg) 
+-10.5
+6.5
+7.5
+- 7.5
+Average = 15
+SC = 65.3
+𝜆= 1
+SC = 21.12
+SC = 28.12
+Gain = 21.12 + 28.12 – 65.3 = -16.06
+Prunning 
+parameter: 
+𝛾= 0
+We will remove this 
+branch: -16.06- 𝛾 < 0  
+Setting 𝛾 = 0  do not 
+turn off prunning 
+SC = (6.5+7.5)2/(2+1) 
+= 65.3
+112
+AI VIETNAM
+All-in-One Course
+112
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Predict Value
+Drug weights < 15
+-10.5
+6.5, 7.5, -7.5
+Drug weights < 30
+6.5, 7.5
+-7.5
+-5.25
+Drug Effectiveness
+-15
+-10
+-5
+0
+5
+10
+20
+40
+Drug Weight (mg) 
+-10.5
+6.5
+7.5
+- 7.5
+Average = 15
+𝜆= 1
+When 𝜆 > 0, it will reduce the amount that 
+this indiviual observation add to the overal 
+prediction
+113
+AI VIETNAM
+All-in-One Course
+113
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Predict Value
+0.5
+Drug weights < 15
+-10.5
+6.5, 7.5, -7.5
+Drug weights < 30
+6.5, 7.5
+-7.5
+-10.5
+7
+-7.5
+output
+𝛼∗
+𝜆= 0
+𝛼= 0.3
+114
+AI VIETNAM
+All-in-One Course
+114
+Vinh Dinh Nguyen- PhD in Computer Science
+Building the Next Tree
+Keep bulding the Tree until the Residual are reach the predefined threshold. Or we reach to the 
+maximum number of Tree
+𝛼∗Next Tree Result
+115
+AI VIETNAM
+All-in-One Course
+115
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoot For Classification
+Drug Weight (mg) 
+Drug Effectiveness
+-15
+-10
+-5
+0
+5
+10
+10
+20
+Effectiviness
+Not effectiviness
+0.5
+First prediction
+50% chance of the 
+drug is effective
+116
+AI VIETNAM
+All-in-One Course
+116
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoot For Classification
+Drug Weight (mg) 
+Probability of Effectiveness
+1
+10
+20
+Effectiviness
+Not effectiviness
+0.5
+First prediction
+50% chance of the 
+drug is effective
+0
+Residual
+Weight < 15
+Weight < 5
+-0.5
+-0.5
+0.5, 0.5
+117
+AI VIETNAM
+All-in-One Course
+117
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoot For Classification
+Similarity Score for Classification:
+Similarity Score for Prediction (regression):
+Similarity Score = 
+∑#$%&'()*A
+B
+∑+,$-&.(% +,./)/&*&01A × 34+,$-&.(% +,./)/&*&01A 56
+Similarity Score = 
+∑#$%&'()*A
+B
+7(8/$, .9 ,$%&'()*56
+118
+AI VIETNAM
+All-in-One Course
+118
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost for Classification
+Drug Weight (mg) 
+Probability of Effectiveness
+1
+10
+20
+Effectiviness
+Not effectiviness
+0.5
+0
+-0.5, 0.5, 0.5, -0.5 
+SC = 0 
+First Tree
+𝜆= 0
+119
+AI VIETNAM
+All-in-One Course
+119
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost For Classification
+Drug Weight (mg) 
+Probability of Effectiveness
+1
+10
+20
+Effectiviness
+Not effectiviness
+0.5
+0
+-0.5, 0.5, 0.5, -0.5 
+SC = 0 
+𝜆= 0
+120
+AI VIETNAM
+All-in-One Course
+120
+Vinh Dinh Nguyen- PhD in Computer Science
+𝜆= 0
+XGBoost For Classification
+Drug Weight (mg) 
+Probability of Effectiveness
+1
+10
+20
+0.5
+0
+Weights < 15
+SC = 0 
+-0.5, 0.5, 0.5
+-0.5
+Average = 15
+SC = 0.33 
+SC = 1 
+Gain = 0.33 + 1 – 0 =1.33 
+Supposing that 
+weights < 15 
+is best threshold
+121
+AI VIETNAM
+All-in-One Course
+121
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost For Classification
+Drug Weight (mg) 
+Probability of Effectiveness
+1
+10
+20
+0.5
+0
+Weights < 15
+Weight < 10
+-0.5
+Average = 10
+-0.5, 0.5
+0.5
+SC = 0 
+SC = 1 
+SC = 0.33
+Gain = 0 + 1 – 0.33 = 0.66
+𝜆= 0
+122
+AI VIETNAM
+All-in-One Course
+122
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost for Classification
+Drug Weight (mg) 
+Probability of Effectiveness
+1
+10
+20
+0.5
+0
+Weights < 15
+Weight < 5
+-0.5
+-0.5
+0.5, 0.5
+SC = 1
+SC = 2 
+SC = 0.33
+Gain = 1 + 2 – 0.33 = 2.66
+Average = 5
+123
+AI VIETNAM
+All-in-One Course
+123
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost for Classification
+Drug Weight (mg) 
+Probability of Effectiveness
+1
+10
+20
+0.5
+0
+Weights < 15
+Weight < 5
+-0.5
+Average = 5
+-0.5
+0.5, 0.5
+How to estimate the minimum number of Residuals in each leaf 
+=> XGBoot Cover
+Select Weight < 5 is threshold 
+because ….
+Giả sử quy định depth level = 2, dừng xây dựng Tree
+By default: Mininmum XGBoot Cover is set to 1
+124
+AI VIETNAM
+All-in-One Course
+124
+Vinh Dinh Nguyen- PhD in Computer Science
+Similarity Score = 
+∑#$%&'()*A
+B
+7(8/$, .9 ,$%&'()*56
+Similarity Score = 
+∑#$%&'()*A
+B
+∑+,$-&.(% +,./)/&*&01A × 34+,$-&.(% +,./)/&*&01A 56
+What is a Cover
+Cover
+Similarity Score for Classification:
+Similarity Score for Prediction:
+125
+AI VIETNAM
+All-in-One Course
+125
+Vinh Dinh Nguyen- PhD in Computer Science
+What is a Cover
+Drug Weight (mg) 
+Probability of Effectiveness
+1
+10
+20
+0.5
+0
+Weights < 15
+Weight < 5
+-0.5
+Average = 5
+-0.5
+0.5, 0.5
+Cover = 0.5 *  (1- 0.5) = 0.25
+Mininmum XGBoot Cover is 1
+Cover = (0.5 *  (1- 0.5))*2 = 0.5 
+Delete
+Delete
+126
+AI VIETNAM
+All-in-One Course
+126
+Vinh Dinh Nguyen- PhD in Computer Science
+Xgboost for Classification
+Drug Weight (mg) 
+Probability of Effectiveness
+1
+10
+20
+0.5
+0
+Weights < 15
+-0.5, 0.5, 0.5
+-0.5
+Average = 15
+Cover = [(0.5 *  (1- 0.5)]*3 = 0.75
+Default mininmum XGBoot Cover is 1
+Cover = 0.25
+Delete
+Delete
+127
+AI VIETNAM
+All-in-One Course
+127
+Vinh Dinh Nguyen- PhD in Computer Science
+Xgboost for Classification
+Drug Weight (mg) 
+Probability of Effectiveness
+1
+10
+20
+0.5
+0
+-0.5, 0.5, 0.5, -0.5
+Average = 15
+Default mininmum XGBoot Cover is 1
+Cover = [(0.5 *  (1- 0.5)]*4 = 1
+Keep this node
+128
+AI VIETNAM
+All-in-One Course
+128
+Vinh Dinh Nguyen- PhD in Computer Science
+How to predict the value
+Drug Weight (mg) 
+Probability of Effectiveness
+1
+10
+20
+0.5
+0
+Weights < 15
+Weight < 5
+-0.5
+Average = 5
+-0.5
+0.5, 0.5
+Output Value = 
+∑"#$%&'()#
+∑*+#,%-'$ *+-.(.%)%/0# × 23*+#,%-'$ *+-.(.%)%/0# 45
+129
+AI VIETNAM
+All-in-One Course
+129
+Vinh Dinh Nguyen- PhD in Computer Science
+How to predict the value
+Drug Weight
+Drug Effectiveness
+No
+Yes
+Yes
+No
+2 Yes and 2 No => Probablity Yes = 2/4 = 1/2  = 0.5
+Log(odds) = log (Probablity Yes
+Probablity No)=0 
+Initial prediction is that the probability of drug effective is 50%
+Probability of Drug Effectiveness =
+e)-6(-&&$)
+1 + e)-6(-&&$)
+Probability of Drug Effectiveness =
+#!
+24#! = 0.5
+In XGBoost (or Gradient Boost), the initial prediction is that the log(odds) 
+130
+AI VIETNAM
+All-in-One Course
+130
+Vinh Dinh Nguyen- PhD in Computer Science
+How to predict the value
+Drug Weight (mg) 
+Probability of Effectiveness
+1
+10
+20
+0.5
+0
+Weights < 15
+Weight < 5
+-0.5
+Average = 5
+-0.5
+0.5, 0.5
+Output value = -0.5 / 0.25 = - 2
+Output value = -2
+Output value = 1.0 / 0.5 = 2
+𝜆= 0
+Output Value = 
+∑"#$%&'()#
+∑*+#,%-'$ *+-.(.%)%/0# × 23*+#,%-'$ *+-.(.%)%/0# 45
+P = 0.5
+Probability => Log(odds)
+Log(odds) = 0
+Tranformation formular for getting value at a leaf.
+131
+AI VIETNAM
+All-in-One Course
+131
+Vinh Dinh Nguyen- PhD in Computer Science
+How to predict the value
+P = 0.5
+𝛼∗
+Probability => Log(odds)
+Prediction = 0 + 0.3 * (-2) = -0.6 
+Log(odds) = 0
+Probability = 
+/!".$
+!7/!".$ = 0.35
+Probability =
+e)-6(-&&$)
+1 + e)-6(-&&$)
+0
+!"0 = odds
+Log(
+0
+!"0) = log(odds)
+𝛼 = 0.3
+New residual
+132
+AI VIETNAM
+All-in-One Course
+132
+Vinh Dinh Nguyen- PhD in Computer Science
+How to predict the value
+P = 0.5
+Log(odds) = 0
+New residual
+0
+!"0 = odds
+Log(
+0
+!"0) = log(odds)
+𝛼 = 0.3
+Log(odds) = Prediction = 0 + 0.3 * (2) = 0.6 
+Probability =
+e)-6(-&&$)
+1 + e)-6(-&&$)
+Probability = 
+/".$
+!7/".$ = 0.65
+𝛼∗
+Probability => Log(odds)
+Can we 
+change P?
+133
+AI VIETNAM
+All-in-One Course
+133
+Vinh Dinh Nguyen- PhD in Computer Science
+Build 2nd Tree
+P = 0.5
+∝∗
+Probability => Log(odds)
+Log(odds) = 0
+New residual
+New residual
+∝∗
+0.35
+0.65
+-0.35, 0.35, 0.35, -0.35 
+Similarity Score = 
+−0.35 + 0.35 + 0.35−0.35
+!
+J.;:× !"J.;: 7J.9:× !"J.9: 7J.9:× !"J.9: 7J.;:× !"J.;:
+Similarity Score = 
+∑N/O(1P')#
+!
+∑0$/Q(%PO 0$%&'&()(*+# × !"0$/Q(%PO 0$%&'&()(*+# 7I
+134
+AI VIETNAM
+All-in-One Course
+134
+Vinh Dinh Nguyen- PhD in Computer Science
+Build 2nd Tree
+P = 0.5
+∝∗
+Probability => Log(odds)
+Log(odds) = 0
+New residual
+New residual
+∝∗
+0.35
+0.65
+-0.35, 0.35, 0.35, -0.35 
+Output Score = 
+−0.35 + 0.35 + 0.35−0.35
+J.;:× !"J.;: 7J.9:× !"J.9: 7J.9:× !"J.9: 7J.;:× !"J.;: 7I
+Output Score = 
+∑N/O(1P')#
+∑0$/Q(%PO 0$%&'&()(*+# × !"0$/Q(%PO 0$%&'&()(*+# 7I
+135
+AI VIETNAM
+All-in-One Course
+135
+Vinh Dinh Nguyen- PhD in Computer Science
+Build 2nd Tree
+P = 0.5
+∝∗
+Probability => Log(odds)
+Log(odds) = 0
+New residual
+New residual
+Weights < 5
+Weight < 15
+0.35, 0.35
+-0.35
+-0.35
+∝∗
+136
+AI VIETNAM
+All-in-One Course
+136
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost Review Questions
+1. When do you stop to build the Tree
+2. What’s happen when 𝜆> 0 
+Similarity Score = 
+∑#$%&'()*A
+B
+∑+,$-&.(% +,./)/&*&01A × 34+,$-&.(% +,./)/&*&01A 56
+3. How to select 𝛾? 
+Case if 𝛾is very large?
+Case if 𝛾is very small?
+4. Start with 0 and check CV error 
+rate. If you see test error is much 
+larger than train error. What will 
+you do? Decrease or increase 𝛾
+137
+AI VIETNAM
+All-in-One Course
+137
+Vinh Dinh Nguyen- PhD in Computer Science
+XGBoost Cheat sheet
+138
+AI VIETNAM
+All-in-One Course
+138
+Vinh Dinh Nguyen- PhD in Computer Science
+1. Sựkhác biệt giữa AdaBoost và XGBoost là gì?
+2. Lý do đằng sau việc không sửdụng các stumps trong gradient boosting?
+3. Làm thếnào đểcó thểcải độchính xác của thuật toán gradient boossting ?
+4. Sựkhác biệt giữa Gradient Boosting và XGBoost là gì?
+5. Có bao nhiêu loại boosting algorithm?
+6. Sựkhác biệt giữa Random Forest và XGBoost là gì?
+7. Làm cách nào để điều chỉnh siêu tham số trong XGBoost?
+139
+AI VIETNAM
+All-in-One Course
+139
+Vinh Dinh Nguyen- PhD in Computer Science
+Hyperparameter optimization/tuning
+Grid Search — trying out all the possible 
+combinations
+Random Search tries random combinations
+Bayes Search
+https://towardsdatascience.com/a-practical-introduction-to-grid-search-random-search-and-bayes-search-d5580b1d941d
+Other methods: Evolutionary optimization, Early stopping-based,…
+140
+AI VIETNAM
+All-in-One Course

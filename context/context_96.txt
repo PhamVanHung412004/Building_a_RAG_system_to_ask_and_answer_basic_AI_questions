@@ -1,0 +1,728 @@
+AI VIET NAM – AIO2024
+OOP Cơ Bản Dùng Python
+Khanh Duong
+Quang-Vinh Dinh
+Ngày 15 tháng 6 năm 2024
+Abstract
+Trong lập trình hướng đối tượng (OOP), việc sửdụng classes và objects đóng vai trò nền tảng, giúp
+cho mã nguồn được tổchức và quản lý một cách hiệu quả. Python, với khảnăng hỗtrợmạnh mẽcho
+OOP, cho phép ta mô hình hóa các thực thểtrong thếgiới thực thành các đối tượng với những thuộc
+tính và phương thức riêng biệt. Trong bài học này, chúng ta sẽcùng nhau tìm hiểu những kiến thức cơ
+bản và quan trọng nhất vềClasses và Objects, cùng với đó là những thao tác liên quan đến tính Kế
+thừa (Inheritance) trong OOP, một tính chất giúp cho những hệthống được xây dựng dựa trên Python
+có khảnăng tái sửdụng và mởrộng dễdàng.
+1. Classes and Objects
+1.1. Khái niệm vềClasses và Objects
+• Classes là khuôn mẫu (template) đểtạo ra các objects. Một class định nghĩa các thuộc tính
+(attributes) và phương thức (methods) mà objects của nó sẽcó.
+• Objects là các thểhiện (instance) của classes, tức là mỗi object được tạo ra từmột class sẽcó các
+thuộc tính và phương thức được định nghĩa trong class đó.
+1.2. Class Diagram
+• Class Diagram là một loại sơ đồthuộc vềUML (Unified Modeling Language) được sửdụng để
+biểu diễn cấu trúc và mối quan hệgiữa các lớp trong một hệthống phần mềm.
+• Một Class Diagram bao gồm: tên của class, các thuộc tính của class, các phương thức của class.
+Hình 1: Thành phần của một Class Diagram.
+1
+AI VIETNAM
+aivietnam.edu.vn
+1.3. Cách định nghĩa một Class
+Đểđịnh nghĩa một Class, ta thực hiện khai báo các thuộc tính của class bên trong phương thức
+__init__() (hay còn gọi là constructor, một phương thức đặc biệt trong Class Python sẽđược mô
+tảkỹhơn trong mục 1.5).
+Các phương thức của class được định nghĩa bằng cách nhận biến đặc biệt self làm đối sốđầu tiên (một
+đối sốđược sửdụng đểtham chiếu đến đối tượng hiện tại), và khởi tạo tương tựnhư các hàm bình
+thường.
+1 # Create a class
+2 class
+Rectangle:
+3
+def
+__init__(self , my_width , my_height):
+4
+self.width = my_width
+5
+self.height = my_height
+6
+7
+def
+calculate_area (self):
+8
+self.area = self.width * self.height
+9
+return
+self.area
+10
+11
+def
+calculate_perimeter (self):
+12
+return (self.width + self.height) * 2
+13
+1.4. Cách tạo một Object từmột Class
+Đểkhởi tạo một object thuộc một class, ta gọi tên class và kèm theo các giá trịtương ứng so với các
+biến đã được định nghĩa trong phương thức __init__.
+1 # Create a object and
+2 my_rec = Rectangle (4, 7)
+3
+4 # Call the
+attributes of the object
+5 print(my_rec.width)
+# Output: 4
+6 print(my_rec.height)
+# Output: 7
+7
+8 # Call the
+methods of the object
+9 print(my_rec. calculate_area ())
+# Output: 28
+10 print(my_rec. calculate_perimeter ())
+# Output: 22
+11
+1.5. Các phương thức đặc biệt
+a. __init__()
+Đây là phương thức khởi tạo (constructor), được gọi tựđộng mỗi khi một object mới của class được
+tạo ra.
+2
+AI VIETNAM
+aivietnam.edu.vn
+1 class
+MyClass:
+2
+def
+__init__(self , value):
+3
+self.value = value
+4
+5 obj = MyClass (10)
+6 print(obj.value)
+# Output: 10
+7
+b. __str__()
+Phương thức này được sửdụng đểđịnh nghĩa chuỗi đại diện của object, thường được sửdụng bởi hàm
+print.
+1 class
+MyClass:
+2
+def
+__init__(self , value):
+3
+self.value = value
+4
+5
+def
+__str__(self):
+6
+return f"MyClass
+with
+value {self.value}"
+7
+8 obj = MyClass (10)
+9 print(obj)
+# Output: MyClass
+with
+value 10
+10
+c. __len__()
+Phương thức này được sửdụng đểtrảvềđộdài (length) của object, thường được sửdụng bởi hàm len.
+1 class
+MyCollection:
+2
+def
+__init__(self , items):
+3
+self.items = items
+4
+5
+def
+__len__(self):
+6
+return len(self.items)
+7
+8 collection = MyCollection ([1, 2, 3, 4])
+9 print(len(collection))
+# Output: 4
+10
+d. __call__()
+Phương thức này cho phép một object có thểđược gọi như một hàm.
+3
+AI VIETNAM
+aivietnam.edu.vn
+1 class
+Adder:
+2
+def
+__init__(self , value):
+3
+self.value = value
+4
+5
+def
+__call__(self , x):
+6
+return
+self.value + x
+7
+8 add_five = Adder (5)
+9 print(add_five (10))
+# Output: 15
+10
+1.6. Sửdụng object của Class này làm thuộc tính của Class khác
+Thuộc tính của một class có thểlà bất kỳđối tượng nào, bao gồm các biến có kiểu dữliệu nguyên
+thủy (integer, float, boolean,...), các iterable (list, tuple, string...), hay thậm chí cảobject của một class
+đã được khai báo trước đó. Trong ví dụnày, thuộc tính birth trong class Person nhận giá trịlà một
+object được khởi tạo từclass Date đã được định nghĩa trước đó.
+1 class
+Date:
+2
+def
+__init__(self , day , month , year):
+3
+self.day = day
+4
+self.month = month
+5
+self.year = year
+6
+7
+def
+__call__(self):
+8
+return f"{self.day :02d}/{ self.month :02d}/{ self.year}"
+9
+10 class
+Person:
+11
+def
+__init__(self , name , birth):
+12
+self.name = name
+13
+self.birth = birth
+14
+15
+def info(self):
+16
+print(f"Name: {self.name} - Birth: {self.birth ()}")
+17
+18 name = "Isaac
+Newton"
+19 birth = Date(4, 1, 1643)
+20 physicist = Person(name , birth)
+21 physicist.info ()
+22 # Output: Name: Isaac
+Newton - Birth: 04/01/1643
+23
+2. Inheritance
+Kếthừa là một trong những tính năng mạnh mẽnhất của lập trình hướng đối tượng. Nó cho phép một
+lớp (class) có thểkếthừa các thuộc tính (attributes) và phương thức (methods) của một lớp khác. Lớp
+kếthừa được gọi là lớp con (subclass), còn lớp bịkếthừa được gọi là lớp cha (superclass).
+2.1. Định nghĩa Kếthừa
+Lớp con có thểkếthừa tất cảcác thuộc tính và phương thức từlớp cha. Điều này giúp tái sửdụng mã
+nguồn và tạo ra mối quan hệcha-con giữa các lớp.
+Trong hình 2, quan hệKếthừa được mô tảbằng Class Diagram. Trong, đó, Parent là superclass, Child
+4
+AI VIETNAM
+aivietnam.edu.vn
+là subclass, được kết nối với bằng mũi tên có đầu tam giác rỗng, trỏvào class Parent, ngụý rằng class
+Parent là class cha của class Child.
+Hình 2: Quan hệkếthừa được mô tảbằng Class Diagram.
+Ví dụdưới đây mô tảcú pháp khởi tạo class kếthừa. Trong đó, class cha là Parent được gọi trong dấu
+ngoặc ngay khi class con là Child được định nghĩa. Phương thức __init__() của class cha cũng được
+gọi ởclass con thông qua hàm super().
+1 class
+Parent:
+2
+def
+__init__(self , name):
+3
+self.name = name
+4
+5
+def
+display(self):
+6
+print(f"Parent
+Name: {self.name}")
+7
+8 class
+Child(Parent):
+9
+def
+__init__(self , name , age):
+10
+super ().__init__(name)
+# Gọi hàm khởi tạo của lớp cha
+11
+self.age = age
+12
+13
+def
+display(self):
+14
+super ().display ()
+# Gọi phương thức của lớp cha
+15
+print(f"Child Age: {self.age}")
+16
+17 # Tạo object của lớp Child
+18 child = Child("Alice", 20)
+19 child.display ()
+20
+21 # Output:
+22 # Parent
+Name: Alice
+23 # Child Age: 20
+24
+2.2. Access Modifiers
+Access Modifiers trong Python là cách đểkiểm soát mức độtruy cập và sửa đổi các thuộc tính (at-
+tributes) và phương thức (methods) của một class. Mặc dù Python không có các từkhóa cụthểnhư
+private, protected, public giống như một sốngôn ngữlập trình khác (ví dụ: Java, C++), nhưng nó
+cung cấp cách thức đểđạt được điều này thông qua quy ước đặt tên.
+5
+AI VIETNAM
+aivietnam.edu.vn
+a. Public members
+Các public members có thểđược truy cập từbất kỳđâu, cảbên trong và bên ngoài class. Mặc định,
+tất cảcác thuộc tính và phương thức trong Python đều là public.
+1 class
+MyClass:
+2
+def
+__init__(self , value):
+3
+self.value = value
+4
+5
+def
+display(self):
+6
+print(self.value)
+7
+8 obj = MyClass (10)
+9 print(obj.value)
+# Truy cập thuộc tính công khai
+10 obj.display ()
+# Gọi phương thức công khai
+11
+b. Protected members
+Các protected members chỉnên được truy cập bên trong class và các lớp con của nó. Đểkhai báo một
+member là protected, chúng ta sửdụng một dấu gạch dưới _ trước tên của thuộc tính hoặc phương
+thức.
+1 class
+MyClass:
+2
+def
+__init__(self , value):
+3
+self._value = value
+# Protected
+attribute
+4
+5
+def
+_display(self):
+# Protected
+method
+6
+print(self._value)
+7
+8 class
+SubClass(MyClass):
+9
+def show(self):
+10
+self._display ()
+# Truy cập phương thức được bảo vệtừlớp con
+11
+12 obj = SubClass (20)
+13 obj.show ()
+# Output: 20
+14
+b. Private members
+Các private members chỉcó thểđược truy cập bên trong class nơi chúng được định nghĩa. Đểkhai báo
+một member là private, chúng ta sửdụng hai dấu gạch dưới __ trước tên của thuộc tính hoặc phương
+thức.
+6
+AI VIETNAM
+aivietnam.edu.vn
+1 class
+MyClass:
+2
+def
+__init__(self , value):
+3
+self.__value = value
+# Private
+attribute
+4
+5
+def
+__display(self):
+# Private
+method
+6
+print(self.__value)
+7
+8
+def
+public_method(self):
+9
+self.__display ()
+# Truy cập phương thức riêng tư từbên trong
+class
+10
+11 obj = MyClass (30)
+12 obj. public_method ()
+# Output: 30
+13 # print(obj.__value)
+# Lỗi: AttributeError
+14 # obj.__display ()
+# Lỗi: AttributeError
+15
+2.3. Override
+Override là một khái niệm quan trọng trong lập trình hướng đối tượng, cho phép một lớp con cung cấp
+một triển khai cụthểcủa một phương thức đã được định nghĩa trong lớp cha. Ghi đè phương thức cho
+phép bạn thay đổi hoặc mởrộng hành vi của phương thức kếthừa từlớp cha trong lớp con.
+Đểghi đè một phương thức trong lớp con, bạn chỉcần định nghĩa lại phương thức đó với cùng tên và
+cùng tham sốtrong lớp con.
+Trong ví dụnày, phương thức display() được ghi đè ởsubclass Child.
+1 class
+Parent:
+2
+def
+display(self):
+3
+print("Display
+from
+Parent")
+4
+5 class
+Child(Parent):
+6
+def
+display(self):
+7
+print("Display
+from
+Child")
+8
+9 # Tạo object từlớp con
+10 child = Child ()
+11 child.display ()
+# Output: Display
+from
+Child
+12
+7
+AI VIETNAM
+aivietnam.edu.vn
+2.4. Các loại Kếthừa trong Python
+a. Single Inheritance (Kếthừa đơn)
+Kếthừa đơn là khi một lớp con kếthừa từmột lớp cha duy nhất.
+Hình 3: Kếthừa đơn.
+1 class
+Parent:
+2
+def
+__init__(self , name):
+3
+self.name = name
+4
+5
+def
+display(self):
+6
+print(f"Parent
+Name: {self.name}")
+7
+8 class
+Child(Parent):
+9
+def
+__init__(self , name , age):
+10
+super ().__init__(name)
+11
+self.age = age
+12
+13
+def
+display(self):
+14
+super ().display ()
+15
+print(f"Child Age: {self.age}")
+16
+17 # Tạo object từlớp con
+18 child = Child("Alice", 20)
+19 child.display ()
+20
+21 # Output:
+22 # Parent
+Name: Alice
+23 # Child Age: 20
+24
+8
+AI VIETNAM
+aivietnam.edu.vn
+b. Multiple Inheritance (Kếthừa đa kế)
+Kếthừa đa kếlà khi một lớp con kếthừa từnhiều lớp cha.
+Hình 4: Kếthừa đa kế.
+1 class
+Base1:
+2
+def
+__init__(self):
+3
+self.str1 = "Base1"
+4
+print("Base1
+Initialized")
+5
+6 class
+Base2:
+7
+def
+__init__(self):
+8
+self.str2 = "Base2"
+9
+print("Base2
+Initialized")
+10
+11 class
+Derived(Base1 , Base2):
+12
+def
+__init__(self):
+13
+Base1.__init__(self)
+14
+Base2.__init__(self)
+15
+print("Derived
+Initialized")
+16
+17
+def
+display(self):
+18
+print(self.str1 , self.str2)
+19
+20 # Tạo object từlớp Derived
+21 obj = Derived ()
+22 obj.display ()
+23
+24 # Output:
+25 # Base1
+Initialized
+26 # Base2
+Initialized
+27 # Derived
+Initialized
+28 # Base1
+Base2
+29
+9
+AI VIETNAM
+aivietnam.edu.vn
+c. Multilevel Inheritance (Kếthừa đa cấp)
+Kếthừa đa cấp là khi một lớp kếthừa từlớp cha, và lớp cha đó lại kếthừa từmột lớp khác.
+Hình 5: Kếthừa đa cấp.
+1 class
+GrandParent:
+2
+def
+__init__(self , grandparent_name ):
+3
+self. grandparent_name = grandparent_name
+4
+5
+def
+display_grandparent (self):
+6
+print(f"GrandParent
+Name: {self. grandparent_name }")
+7
+8 class
+Parent(GrandParent):
+9
+def
+__init__(self , grandparent_name , parent_name):
+10
+super ().__init__( grandparent_name )
+11
+self.parent_name = parent_name
+12
+13
+def
+display_parent (self):
+14
+print(f"Parent
+Name: {self.parent_name}")
+15
+16 class
+Child(Parent):
+17
+def
+__init__(self , grandparent_name , parent_name , child_name):
+18
+super ().__init__(grandparent_name , parent_name)
+19
+self.child_name = child_name
+20
+21
+def
+display_child(self):
+22
+print(f"Child
+Name: {self.child_name}")
+23
+24 # Tạo object từlớp con
+25 child = Child("George", "John", "Alice")
+26 child. display_grandparent ()
+# Output: GrandParent
+Name: George
+27 child. display_parent ()
+# Output: Parent
+Name: John
+28 child. display_child ()
+# Output: Child
+Name: Alice
+29
+d. Hierarchical Inheritance (Kếthừa phân cấp)
+Kếthừa phân cấp là khi một lớp cha có nhiều lớp con kếthừa từnó.
+10
+AI VIETNAM
+aivietnam.edu.vn
+Hình 6: Kếthừa phân cấp.
+1 class
+Parent:
+2
+def
+__init__(self , name):
+3
+self.name = name
+4
+5
+def
+display(self):
+6
+print(f"Parent
+Name: {self.name}")
+7
+8 class
+Child1(Parent):
+9
+def
+__init__(self , name , age):
+10
+super ().__init__(name)
+11
+self.age = age
+12
+13
+def
+display(self):
+14
+super ().display ()
+15
+print(f"Child1 Age: {self.age}")
+16
+17 class
+Child2(Parent):
+18
+def
+__init__(self , name , grade):
+19
+super ().__init__(name)
+20
+self.grade = grade
+21
+22
+def
+display(self):
+23
+super ().display ()
+24
+print(f"Child2
+Grade: {self.grade}")
+25
+26 # Tạo objects từcác lớp con
+27 child1 = Child1("Alice", 20)
+28 child2 = Child2("Bob", "A")
+29
+30 child1.display ()
+31 # Output:
+32 # Parent
+Name: Alice
+33 # Child1 Age: 20
+34
+35 child2.display ()
+36 # Output:
+37 # Parent
+Name: Bob
+38 # Child2
+Grade: A
+39
+11
+AI VIETNAM
+aivietnam.edu.vn
+6. Bài Tập
+Câu hỏi 1: Khái niệm nào sau đây mô tảchính xác nhất vềmột class trong Python?
+a. Một biến
+b. Một hàm
+c. Một khuôn mẫu đểtạo ra các đối tượng
+d. Một phương thức đặc biệt
+Câu hỏi 2: Trong sơ đồclass (class diagram), yếu tốnào sau đây không phải là thành phần của class?
+a. Tên class
+b. Thuộc tính (attributes)
+c. Phương thức (methods)
+d. Tham số(parameters)
+Câu hỏi 3: Câu lệnh nào sau đây được sửdụng đểđịnh nghĩa một class trong Python?
+a. def MyClass:
+b. class MyClass:
+c. create MyClass:
+d. define MyClass:
+Câu hỏi 4: Câu lệnh nào sau đây dùng đểtạo một object từclass MyClass?
+a. obj = MyClass.create()
+b. obj = MyClass.new()
+c. obj = MyClass()
+d. obj = new MyClass()
+Câu hỏi 5: Phương thức đặc biệt nào được sửdụng đểkhởi tạo các thuộc tính của một object trong
+Python?
+a. __start__
+b. __init__
+c. __create__
+d. __new__
+Câu hỏi 6: Kếthừa (Inheritance) trong Python là gì?
+a. Khảnăng một class kếthừa các thuộc tính và phương thức từmột class khác
+b. Khảnăng một class thay đổi giá trịcủa các biến
+c. Khảnăng một class tạo ra các đối tượng mới
+d. Khảnăng một class gọi các hàm từclass khác
+Câu hỏi 7: Access modifier nào sau đây được sửdụng đểchỉra một thuộc tính hoặc phương thức là
+riêng tư (private) trong Python?
+a. @
+b. _
+c. __
+d. #
+Câu hỏi 8: Điều nào sau đây là đúng vềphương thức override trong Python?
+12
+AI VIETNAM
+aivietnam.edu.vn
+a. Nó cho phép lớp con kếthừa phương thức từlớp cha mà không cần thay đổi gì
+b. Nó cho phép lớp con thay đổi hoặc mởrộng hành vi của phương thức kếthừa từlớp cha
+c. Nó ngăn cản lớp con kếthừa phương thức từlớp cha
+d. Nó yêu cầu lớp con phải gọi phương thức của lớp cha mà không được thay đổi
+Câu hỏi 9: Loại kếthừa nào sau đây mô tảđúng khi một lớp con kếthừa từnhiều lớp cha?
+a. Single Inheritance
+b. Multiple Inheritance
+c. Multilevel Inheritance
+d. Hierarchical Inheritance
+Câu hỏi 10: Trong Python, loại kếthừa nào xảy ra khi một lớp kếthừa từmột lớp cha, và lớp cha đó
+lại kếthừa từmột lớp khác?
+a. Single Inheritance
+b. Multiple Inheritance
+c. Multilevel Inheritance
+d. Hierarchical Inheritance
+13

@@ -1,5 +1,0 @@
-Các ứng dụng phổ biến nhất về LLMs có thể kể đến như ChatGPT, Gemini...
-Hình 1: Sử dụng RAG trong việc hỏi đáp tài liệu về YOLOv10 trong AIO.
-Trong LLMs, Retrieval Augmented Generation (RAG)là một kỹ thuật giúp LLMs cải
-thiện chất lượng kết quả tạo sinh bằng cách tích hợp nội dung truy vấn được từ một nguồn tài
-1

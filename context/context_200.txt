@@ -1,0 +1,674 @@
+AI VIET NAM – AI COURSE 2023
+Xây dựng mô hình AI tạo sinh thơ tiếng Việt
+Dinh-Thang Duong và Quang-Vinh Dinh
+Ngày 25 tháng 2 năm 2024
+Phần I. Giới thiệu
+Text Generation là một trong các dạng bài toán thuộc lĩnh vực xửlý ngôn ngữtựnhiên hiện đang
+rất được cộng đồng quan tâm, với khảnăng tạo ra các câu từmới dựa trên dữliệu đầu vào. Chính bởi
+các kết quảtrảvềmang tính "sáng tạo", đáp ứng được các nhu cầu bài toán khác nhau từmô hình
+này mà nó đã và đang được ứng dụng vào các sản phẩm nổi tiếng hiện nay, điển hình nhất chính là
+ChatGPT, một ứng dụng Chatbot đã tạo nên cơn sốt trên toàn thếgiới thời gian qua.
+Hình 1: Bài toán sinh thơ tiếng Việt (thơ trong hình được tạo từmô hình sinh thơ)
+Trong project này, chúng ta sẽcùng triển khai một chương trình sửdụng mô hình Text Generation với
+chủđềsinh thơ Tiếng Việt dựa vào một từtiếng Việt đầu vào từngười dùng. Như vậy, Input/Output
+của chương trình là:
+• Input: Một chuỗi gồm các kí tựmởđầu cho bài thơ.
+• Output: Bài thơ hoàn chỉnh.
+1
+AI VIETNAM
+aivietnam.edu.vn
+Phần II. Cài đặt chương trình
+Trong phần này, chúng ta sẽthực hiện hai giai đoạn chính của project đểhoàn thiện được mô hình yêu
+cầu, bao gồm: Thu thập dữliệu và Xây dựng mô hình. Nội dung cụthểnhư sau:
+1. Thu thập dữliệu: Đểhuấn luyện được mô hình với Input/Output theo đúng như yêu cầu đã
+đềra ởphần trước, chúng ta cần thu thập vào xây dựng một bộdữliệu theo đúng mô tả. Đối với
+dữliệu thơ, có rất nhiều trang web tổng hợp các văn thơ của Việt Nam cũng như thếgiới. Tuy
+nhiên ởproject này, ta sẽthu thập các văn thơ ngũ ngôn trên trang web thivien.net, một trang
+web lớn chuyên tổng hợp các văn thơ gồm đủcác thểloại của Việt Nam.
+*Note: Các bạn có thểtải bộdữliệu đã được thu thập sẵn tại đây và bỏqua phần này.
+Hình 2: Trang chủthivien.net
+Có rất nhiều thư viện Python giúp ta có thểtương tác và trích xuất thông tin từtrang web một
+cách dễdàng. Song ởproject này, ta sẽdùng thư viện Selenium đểthực hiện việc thu thập dữliệu
+trên Google Colab. Các bước thực hiện như sau:
+(a) Tải thư viện Selenium: Với môi trường máy tính cá nhân, ta đơn giản cài đặt bằng dòng
+lệnh pip install selenium webdriver_manager. Tuy nhiên với môi trường Google Colab,
+ta sẽcó cách cài đặt phức tạp hơn (chi tiết các bạn coi tại đây), các bạn hãy copy và chạy
+đoạn code bên dưới trong Colab:
+1 %% shell
+2 # Ubuntu no longer
+distributes
+chromium -browser
+outside of snap
+3 #
+4 # Proposed
+solution: https :// askubuntu.com/questions /1204571/ how -to -install -
+chromium -without -snap
+5
+6 # Add debian
+buster
+7 cat > /etc/apt/sources.list.d/debian.list <<’EOF’
+8 deb [arch=amd64 signed -by=/usr/share/keyrings/debian -buster.gpg] http :// deb.
+debian.org/debian
+buster
+main
+2
+AI VIETNAM
+aivietnam.edu.vn
+9 deb [arch=amd64 signed -by=/usr/share/keyrings/debian -buster -updates.gpg] http
+:// deb.debian.org/debian buster -updates
+main
+10 deb [arch=amd64 signed -by=/usr/share/keyrings/debian -security -buster.gpg]
+http :// deb.debian.org/debian -security
+buster/updates
+main
+11 EOF
+12
+13 # Add keys
+14 apt -key adv --keyserver
+keyserver.ubuntu.com --recv -keys
+DCC9EFBF77E11517
+15 apt -key adv --keyserver
+keyserver.ubuntu.com --recv -keys 648 ACFD622F3D138
+16 apt -key adv --keyserver
+keyserver.ubuntu.com --recv -keys
+112695 A0E562B32A
+17
+18 apt -key export 77 E11517 | gpg --dearmour -o /usr/share/keyrings/debian -buster
+.gpg
+19 apt -key export 22 F3D138 | gpg --dearmour -o /usr/share/keyrings/debian -buster
+-updates.gpg
+20 apt -key export
+E562B32A | gpg --dearmour -o /usr/share/keyrings/debian -
+security -buster.gpg
+21
+22 # Prefer
+debian
+repo for
+chromium* packages
+only
+23 # Note the double -blank
+lines
+between
+entries
+24 cat > /etc/apt/preferences.d/chromium.pref << ’EOF’
+25 Package: *
+26 Pin: release a=eoan
+27 Pin -Priority: 500
+28
+29
+30 Package: *
+31 Pin: origin "deb.debian.org"
+32 Pin -Priority: 300
+33
+34
+35 Package: chromium*
+36 Pin: origin "deb.debian.org"
+37 Pin -Priority: 700
+38 EOF
+39
+40 # Install
+chromium
+and chromium -driver
+41 apt -get update
+42 apt -get
+install
+chromium
+chromium -driver
+43
+44 # Install
+selenium
+45 pip
+install
+selenium
+(b) Import các thư viện cần thiết:
+1 import
+pandas as pd
+2 import os
+3 import
+requests
+4 import
+time
+5 import
+random
+6
+7 from tqdm
+import
+tqdm
+8 from
+selenium
+import
+webdriver
+9 from
+selenium.webdriver.chrome.service
+import
+Service
+10 from
+selenium.webdriver.common.by import By
+11 from
+selenium.webdriver.support.ui import
+WebDriverWait
+12 from
+selenium.webdriver.support
+import
+expected_conditions
+as EC
+(c) Khởi tạo Selenium driver: Với selenium, ta có thểhiểu đơn giản rằng việc truy cập vào
+một trang web sẽđược thực hiện như chính chúng ta sửdụng trình duyệt web hằng ngày.
+Đầu tiên, ta khởi tạo một driver sửdụng đoạn code sau:
+3
+AI VIETNAM
+aivietnam.edu.vn
+1 WEBDRIVER_DELAY_TIME_INT = 10
+2
+3 service = Service( executable_path =r’/usr/bin/ chromedriver ’)
+4 chrome_options = webdriver. ChromeOptions ()
+5 chrome_options .add_argument(’--headless ’)
+6 chrome_options .add_argument(’--no -sandbox ’)
+7 chrome_options .headless = True
+8 driver = webdriver.Chrome(service=service , options= chrome_options )
+9 driver. implicitly_wait (5)
+10 wait = WebDriverWait(driver , WEBDRIVER_DELAY_TIME_INT )
+Driver trong Selenium đóng vai trò như trình duyệt web, giúp ta thực hiện các thao tác như
+truy cập vào trang web dựa vào đường dẫn, thao tác chuyển trang...
+(d) Phân tích nội dung cần trích xuất: Đểviệc triển khai code được thuận lợi, ta cần xác
+định rõ kiến trúc file html của trang web cũng như các thành phần, nội dung mà ta mong
+muốn trích xuất. Một cách tìm nhanh chóng nhất đó là ta nên tìm đến trang tìm kiếm, từ
+đó sửdụng selenium đểduyệt qua toàn bộcác bài viết được liệt kê trong trang tìm kiếm đó.
+Trong thivien.net, ta chọn mục Tìm thơ... đểđến trang này.
+Sau đó, các bạn hãy điền một sốthông tin trong bảng TÌM BÀI THƠ:, ởđây ta chỉcần
+quan tâm đến trường thông tin Thểthơ: được chọn vào "Thơ mới năm chữ". Sau khi
+bấm tìm kiếm, một trang web với các bài thơ với thểthơ ngũ ngôn xuất hiện.
+4
+AI VIETNAM
+aivietnam.edu.vn
+Tại đây, ta đã có được thông tin đường dẫn của trang web (mainpage_url). Chúng ta sẽsử
+dụng driver đã định nghĩa ởtrên đểtruy cập vào trang này bằng lệnh driver.get():
+1 datasets = []
+2 deletion_script = ’arguments [0]. parentNode.removeChild(arguments [0]);’
+3 for
+page_idx in tqdm(range (1, 11)):
+4
+main_url = f’https :// www.thivien.net/searchpoem.php?PoemType =16& ViewType
+=1& Country =2& Age []=3& Page ={ page_idx}’
+5
+driver.get(main_url)
+Nhận thấy đường dẫn trang web có chứa các trường thông tin đểta có thểdi chuyển qua lại
+tại các trang tiếp theo của bảng tìm kiếm (‘Page=2‘ tức đang ởtrang 2 của bảng). Vì vậy
+ta có thểtận dụng điều này đểtạo một vòng lặp lặp qua từng trang một cách tựđộng (với
+đoạn code trên ta sẽduyệt từtrang thứ1 đến trang thứ10).
+Ta tiếp tục phân tích các thành phần ta cần trích xuất đối với một trang thơ thông qua
+việc đọc cấu trúc html của trang web (cấu trúc html của trang web có thểđược tìm thấy
+thông qua tính năng Inspect trên trình duyệt). Nhận thấy, thông tin duy nhất ta quan tâm
+đó chính là nội dung bài thơ. Song, đểtiện cho các tác vụsau này nếu có, ta sẽtrích xuất
+thêm các thông tin khác của bài thơ như Tựa đề, Nguồn...
+5
+AI VIETNAM
+aivietnam.edu.vn
+Hình 3: Ví dụvềmột bài thơ được liệt kê trong bảng tìm kiếm và thẻhtml của nó
+Như vậy, mỗi bài thơ được liệt kê tại trang tìm kiếm là một thẻ<div>, bên trong có chứa
+đường dẫn đến trang chứa bài thơ chính khi ta click chuột vào. Từđây, ta dễdàng truy cập
+vào mỗi bài thơ bằng cách đọc đường dẫn của thuộc tính ‘href‘ chứa tại thẻ<a> (như hình).
+Đểthực hiện được điều này, đầu tiên ta cần đọc được thẻhtml chứa bảng dữliệu, thực hiện
+như sau:
+1
+content_tags_xpath = ’//*[ @class ="page -content
+container "]/ div [2]/ div/div
+[@class ="list -item "]’
+2
+content_tags = driver. find_elements (By.XPATH , content_tags_xpath )
+Trong Selenium, có nhiều cách đểxác định và đọc thẻhtml từtrang web thông qua hai phương
+thức driver.find_element() (tìm một thẻkhớp) và driver.find_elements() (tìm nhiều
+thẻkhớp) (chi tiết tại đây) song tìm kiếm bằng XPATH là một cách nhanh chóng nhất. Ở
+đây, ta quan tâm đến các thẻdiv chứa thông tin bài thơ nên ta sẽdùng find_elements() để
+tìm toàn bộcác thẻnày. Và với danh sách các thẻcủa từng bài thơ (content_tags), ta đã
+có thểtruy cập vào nội dung chi tiết của từng bài thơ.
+Hình 4: Tìm XPATH của một thẻhtml trên trình duyệt
+6
+AI VIETNAM
+aivietnam.edu.vn
+(e) Thực hiện trích xuất nội dung thơ: Cuối cùng, với từng thẻhtml của trang thơ, ta sẽ
+thực hiện trích xuất các thông tin mà ta đã xác định (gồm Nội dung bài thơ, Tựa đề, Nguồn)
+của bài thơ tương ứng. Các thông tin này sẽđược lưu thành một dictionary và đẩy vào một
+list lưu trữchung (datasets):
+1
+for idx in range(len( content_tags )):
+2
+content_tag_xpath = f’/html/body/div [4]/ div [2]/ div/div [{2+ idx}]’
+3
+content_title_xpath = f’/html/body/div [4]/ div [2]/ div/div [{2+ idx }]/h4/
+a’
+4
+content_tag = wait.until(
+5
+EC. presence_of_element_located (
+6
+(By.XPATH , content_tag_xpath )
+7
+)
+8
+)
+9
+poem_title = wait.until(
+10
+EC. presence_of_element_located (
+11
+(By.XPATH , content_title_xpath )
+12
+)
+13
+).text
+14
+poem_url = wait.until(
+15
+EC. presence_of_element_located (
+16
+(By.XPATH , content_title_xpath )
+17
+)
+18
+).get_attribute(’href ’)
+19
+20
+try:
+21
+driver.get(poem_url)
+22
+23
+poem_src_xpath = ’//div[@class =" small "]’
+24
+poem_content_tag = wait.until(
+25
+EC. presence_of_element_located (
+26
+(By.CLASS_NAME , ’poem -content ’)
+27
+)
+28
+)
+29
+30
+try:
+31
+poem_content_i_tag = poem_content_tag .find_element(
+32
+By.TAG_NAME ,
+33
+’i’
+34
+)
+35
+driver. execute_script (deletion_script , poem_content_i_tag )
+36
+except:
+37
+pass
+38
+39
+try:
+40
+poem_content_b_tag = poem_content_tag .find_element(
+41
+By.TAG_NAME ,
+42
+’b’
+43
+)
+44
+driver. execute_script (deletion_script , poem_content_b_tag )
+45
+except:
+46
+pass
+47
+48
+poem_content = poem_content_tag .text
+49
+50
+try:
+51
+poem_src_tag = wait.until(
+52
+EC. presence_of_element_located (
+53
+(By.XPATH , poem_src_xpath )
+54
+)
+7
+AI VIETNAM
+aivietnam.edu.vn
+55
+)
+56
+poem_src = poem_src_tag.text
+57
+except:
+58
+poem_src = ’’
+59
+60
+poem_info = {
+61
+’title ’: poem_title ,
+62
+’content ’: poem_content ,
+63
+’source ’: poem_src ,
+64
+’url’: poem_url
+65
+}
+66
+67
+datasets.append(poem_info)
+68
+69
+driver.back ()
+70
+except
+Exception as e:
+71
+print(e)
+72
+print(poem_url)
+Các kỹthuật tại bước này đều xoay quanh việc tìm kiếm bằng XPATH kèm theo một số
+logic python phát sinh trong quá trình thửnghiệm code, các bạn nên đọc qua từng dòng
+cũng như kiểm nghiệm lại giá trịcác biến dữliệu đểcó thểhiệu tường tận các bước trích
+xuất trên. Thông qua đó, các bạn cũng có thểáp dụng đểthu thập dữliệu từcác trang web
+khác theo nhu cầu của các bạn (Ví dụ: thu thập các bài thơ lục bát tại thivien.net...)
+(f) Lưu bộdữliệu thành file .csv: Sau khi hoàn tất giai đoạn thu thập trên, ta sẽcó một
+danh sách các dictionary (record) chứa thông tin của một bài thơ. Lúc này, đểthuận tiện
+trong việc lưu trữ, ta sẽlưu danh sách này thành một file .csv.
+Hình 5: Dữliệu thu thập được trong bảng dữliệu
+1 df = pd.DataFrame(datasets)
+2 df.to_csv(’poem_dataset.csv’, index=True)
+Trong phần code ví dụtrên, ta chỉcài đặt đểthu thập 10 trang đầu tiên trong trang tìm
+kiếm (vì trang web giới hạn sốtrang hiển thị).
+2. Xây dựng mô hình: Trong project này, chúng ta sẽsửdụng dữliệu thơ đã thu thập được và
+thực hiện fine-tuning mô hình GPT2. GPT2 (Generative Pre-trained Transformer 2) là một mô
+hình ngôn ngữlớn phiên bản thứ2 trong chuỗi các mô hình họGPT được phát triển bởi OpenAI.
+GPT2 được xây dựng dựa trên kiến trúc Transformer Decoder-only, các bạn có thểcoi ảnh minh
+họa kiến trúc của GPT2 ởhình dưới đây:
+8
+AI VIETNAM
+aivietnam.edu.vn
+Hình 6: Kiến trúc mô hình của GPT2. Nguồn: link
+Ởphần này, chúng ta sẽsửdụng mô hình GPT2 đểthực hiện fine-tuning cho mục đích sinh thơ
+tiếng Việt. Theo đó, các bước thực hiện như sau:
+(a) Tải các thư viện cần thiết:
+1 !pip
+install -qq datasets ==2.16.1
+evaluate ==0.4.1
+transformers [sentencepiece
+]==4.35.2
+2 !pip
+install -qq accelerate ==0.26.1
+3 !apt
+install git -lfs
+(b) Import các thư viện cần thiết: Chúng ta sẽsửdụng thư viện HuggingFace với 2 module
+quan trọng là GPT2Tokenizer và GPT2LMHeadModel.
+1 import os
+2 import
+math
+3 import
+torch
+4 import
+pandas as pd
+5
+6 from
+transformers
+import
+GPT2Tokenizer , GPT2LMHeadModel
+7 from
+transformers
+import
+DataCollatorForLanguageModeling
+8 from
+transformers
+import
+TrainingArguments , Trainer
+9 from
+huggingface_hub
+import
+notebook_login
+10 from
+datasets
+import
+Dataset
+(c) Load bộdữliệu: Với bộdữliệu đã thu thập được, chúng ta sẽtiến hành đọc file .csv lên
+như sau:
+1 DATASET_PATH = ’poem_final.csv’
+2 df = pd.read_csv(DATASET_PATH)
+3 df
+(d) Chuẩn bịbộdữliệu: Hiện tại, đoạn thơ ta tách được có cấu trúc như sau:
+9
+AI VIETNAM
+aivietnam.edu.vn
+Hình 7: Cấu trúc của một mẫu dữliệu (một bài thơ) ta thu thập được.
+Một bài thơ có thểcó nhiều khổthơ (part), một khổthơ sẽgồm 4 dòng thơ, mỗi dòng gồm
+5 chữ. Đểgiảm độphức tạp của bài toán, chúng ta sẽcoi mỗi khổthơ là một data sample,
+và dùng chúng cho việc huấn luyện mô hình. Đầu tiên, ta xây dựng hàm tách nội dung thơ
+của một hành dữliệu thành các danh sách chứa 4 dòng thơ:
+1 def
+split_content(content):
+2
+samples = []
+3
+4
+poem_parts = content.split(’\n\n’)
+5
+for
+poem_part in poem_parts:
+6
+poem_in_lines = poem_part.split(’\n’)
+7
+if len(poem_in_lines) == 4:
+8
+samples.append( poem_in_lines )
+9
+10
+return
+samples
+11
+12 df[’content ’] = df[’content ’]. apply(lambda x: split_content (x))
+13 df
+Nhận thấy nội dung cột content của mỗi hàng dữliệu là một list chứa các sublist. Ta sẽthực
+hiện tách các sublist này thành một hàng trong bảng dữliệu mới, coi như là một sample mới
+trong bộdữliệu. Cách thực hiện như sau:
+1 df_exploded = df.explode(’content ’)
+2 df_exploded.reset_index(drop=True , inplace=True)
+3 df_exploded = df_exploded.dropna(subset =[’content ’])
+4 df_exploded
+Hàm df.explode() sẽgiúp ta tách các phần tửtrong một list thành các hàng mới. Khi thực
+thi xong đoạn code trên, ta có bảng dữliệu mới như sau:
+10
+AI VIETNAM
+aivietnam.edu.vn
+Hình 8: Bảng dữliệu sau khi sửdụng hàm explode của pandas đểtách các khổthơ thành các hàng dữ
+liệu mới. Có thểnhận thấy sốhàng trong bảng dữliệu đã tăng lên.
+Ta cần nội dung thơ (giá trịcủa cột content) phải ởdạng string. Vì vậy, ta sẽthực hiện
+convert nội dung content sang string như sau:
+1 df_exploded[’content ’] = df_exploded[’content ’]. apply(lambda x: ’\n’.join(x))
+2 df_exploded
+Hình 9: Bảng dữliệu sau khi chuyển đổi nội dung cột content sang dạng string.
+Với DataFrame đã chuẩn bịxong, chúng ta sẽđổi dạng dữliệu pandas này sang HuggingFace
+dataset đểthuận tiện trong việc sửdụng thư viện:
+1 TEST_SIZE = 0.1
+2 poem_dataset = Dataset.from_pandas(df_exploded)
+3 poem_dataset = poem_dataset. train_test_split (test_size=TEST_SIZE)
+11
+AI VIETNAM
+aivietnam.edu.vn
+Hình 10: Bảng dữliệu sau khi được đổi sang HuggingFace dataset.
+(e) Tiền xửlý dữliệu: Với bộdữliệu thơ đã sẵn sàng, chúng ta bắt đầu quy trình tiền xửlý
+bộdữliệu đểchuẩn bịcho việc huấn luyện mô hình. Đầu tiên, ta khai báo tokenizer:
+1 MODEL_NAME = ’danghuy1999/gpt2 -viwiki ’
+2
+3 tokenizer = GPT2Tokenizer . from_pretrained (MODEL_NAME)
+Sau đó, xây dựng hàm chạy tokenization cho mỗi sample và thực thi chúng lên bộdữliệu:
+1 tokenizer.pad_token = tokenizer.eos_token
+2 MAX_SEQ_LEN = 100
+3
+4 def
+preprocess_function (row):
+5
+return
+tokenizer(
+6
+row[’content ’],
+7
+max_length=MAX_SEQ_LEN ,
+8
+padding=’max_length ’,
+9
+truncation=True
+10
+)
+11
+12 tokenized_poem_dataset = poem_dataset.map(
+13
+preprocess_function ,
+14
+batched=True ,
+15
+num_proc =4,
+16
+remove_columns =poem_dataset[’train ’]. column_names ,
+17 )
+Khi huấn luyện mô hình ngôn ngữtrong HuggingFace, chúng ta sẽkhai báo một instance từ
+class DataCollatorForLanguageModeling. Việc này nhằm giúp HuggingFace hỗtrợchúng ta
+việc batching dữliệu đểviệc huấn luyện mô hình ngôn ngữtrởnên hiệu quảhơn.
+1 data_collator = DataCollatorForLanguageModeling (tokenizer=tokenizer , mlm=
+False)
+12
+AI VIETNAM
+aivietnam.edu.vn
+Hình 11: Ảnh minh họa việc đoán từtiếp theo dựa trên các từtrước đó. Nguồn: link.
+(f) Huấn luyện mô hình: Với bộdữliệu đã được tiền xửlý, ta sẽbắt đầu việc huấn luyện mô
+hình. Đầu tiên, ta load pre-trained model GPT2:
+1 model = GPT2LMHeadModel . from_pretrained (MODEL_NAME)
+Sau đó, khai báo một vài các config trong việc huấn luyện mô hình:
+1 training_args = TrainingArguments (
+2
+output_dir=’gpt2_viet_poem_generation ’,
+3
+save_strategy=’epoch ’,
+4
+learning_rate =2e-5,
+5
+num_train_epochs =10,
+6
+weight_decay =0.01 ,
+7
+fp16=True
+8 )
+Cuối cùng, ta thực thi trainer đểtiến hành training:
+1 trainer = Trainer(
+2
+model=model ,
+3
+args=training_args ,
+4
+train_dataset= tokenized_poem_dataset [’train ’],
+5
+eval_dataset= tokenized_poem_dataset [’test ’],
+6
+data_collator=data_collator ,
+7
+tokenizer=tokenizer
+8 )
+9
+10 trainer.train ()
+Như vậy, sau khi hoàn thành các bước trên, ta đã hoàn tất quá trình huấn luyện một mô
+hình sinh thơ tiếng Việt.
+(g) Inference: Đểsửdụng mô hình này, chúng ta có thểđưa lên HuggingFace hub và gọi mô
+hình xuống đểsửdụng hoặc chúng ta có thểlàm theo cách sau:
+1 prompt = ’Học học nữa học mãi\n’
+2 device = ’cuda ’ if torch.cuda.is_available () else ’cpu’
+3 inputs = tokenizer(prompt , return_tensors ="pt").input_ids.to(device)
+4 outputs = model.generate(
+5
+inputs ,
+6
+max_new_tokens =50,
+7
+do_sample=True ,
+8
+top_k =50,
+9
+top_p =0.95 ,
+10
+temperature =0.8,
+13
+AI VIETNAM
+aivietnam.edu.vn
+11
+repetition_penalty =1.2
+12 )
+13 results = tokenizer.batch_decode(outputs , skip_special_tokens =True)
+14 results = results [0]
+15 print ()
+16 for line in results.split(’\n’):
+17
+print(line)
+Hình 12: Kết quảmột khổthơ được sinh ra từmô hình.
+14
+AI VIETNAM
+aivietnam.edu.vn
+Phần III. Câu hỏi trắc nghiệm
+1. Mô hình Text Generation là?
+(a) Mô hình sinh chữtừảnh.
+(b) Mô hình sinh chữtừvideo.
+(c) Mô hình sinh chữtừmột input nào đó.
+(d) Mô hình sinh chữtừbản ghi âm thanh.
+2. Ứng dụng nào sau đây thuộc vềText Generation?
+(a) Image Captioning.
+(b) Text Summarization.
+(c) Automatic Speech Recognition.
+(d) Tất cảcác phương án trên.
+3. Mục tiêu của bài toán Text Generation là?
+(a) Copy văn bản đầu vào.
+(b) Tạo văn bản mới dựa trên dữliệu đầu vào.
+(c) Sửa văn bản đầu vào.
+(d) Không phương án nào đúng.
+4. Các thách thức trong bài Text Generation?
+(a) Văn bản đầu ra có ngữpháp đúng.
+(b) Văn bản đầu ra có nghĩa.
+(c) Văn bản đầu ra phải mạch lạc.
+(d) Tất cảcác phương án trên.
+5. Khi mô hình được thiết kếđểdựđoán từtiếp theo dựa trên một chuỗi các từtrước đó, ta gọi bài
+toán này là gì?
+(a) Causal Language Modeling.
+(b) Masked Language Modeling.
+(c) Sequence to Sequence
+(d) Denoising.
+6. Mô hình GPT2 được xây dựng dựa theo kiến trúc nào?
+(a) Transformer Encoder-Decoder.
+(b) Transformer Encoder-only.
+(c) Transformer Decoder-only.
+(d) Long Short-Term Memory.
+7. Selenium là?
+(a) Ngôn ngữlập trình.
+(b) Trình duyệt web.
+(c) Một thư viện trong Python.
+15
+AI VIETNAM
+aivietnam.edu.vn
+(d) Thiết kếmô hình học sâu.
+8. Selenium thường được sửdụng trong việc?
+(a) Thu thập dữliệu trên web.
+(b) Thiết kếgiao diện web.
+(c) Tối ưu siêu tham sốmô hình học sâu.
+(d) Thiết kếmô hình học sâu.
+9. Dòng lệnh nào sau đây dùng đểtruy cập vào một trang web trong Selenium với đường dẫn cho
+trước:
+(a) driver.get()
+(b) driver.switch_to_window()
+(c) driver.execute_script()
+(d) driver.close()
+10. Dòng lệnh nào sau đây dùng đểtìm một thẻhtml trong Selenium:
+(a) driver.get()
+(b) driver.find_element()
+(c) driver.back()
+(d) driver.execute_async_script()
+- Hết -
+16

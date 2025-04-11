@@ -1,0 +1,70 @@
+AI VIET NAM – COURSE 2024
+Random Forest
+Ngày 5 tháng 3 năm 2024
+Ngày tóm tắt:
+07/03/2024
+Tác giả:
+AIO
+Nguồn dữliệu (nếu
+có):
+Link of Module 4 AIO 2023
+Từkhóa:
+Random Forest,Decision Tree, Entropy, Information Gain
+Người tóm tắt:
+Vũ Mai Thi
+1. Tóm lược Decision Tree ( Cây quyết định ):
+• Bạn có biết rằng trong cuộc sống hàng ngày, bạn vẫn đang sửdụng phương pháp Decision
+Tree (Cây quyết định). Chẳng hạn, bạn đến siêu thịmua sữa cho cảgia đình. Câu đầu tiên
+trong đầu bạn sẽlà: Bạn cần mua bao nhiêu sữa? Bạn sẽxác định: Nếu là ngày thường thì
+gia đình bạn sẽsửdụng hết 1 lít sữa, còn cuối tuần thì sẽlà 1,5 lít. Như vậy, dựa theo ngày,
+bạn sẽquyết định lượng thực phẩm cần mua cho gia đình bạn. Đó chính là một dạng của
+cây quyết định nhịphân.
+• Cây quyết định (Decision Tree) là một cây phân cấp có cấu trúc được dùng đểphân lớp
+các đối tượng dựa vào dãy các luật. Các thuộc tính của đối tượngncó thểthuộc các kiểu dữ
+liệu khác nhau như Nhịphân (Binary) , Định danh (Nominal), Thứtự(Ordinal), Sốlượng
+(Quantitative) trong khi đó thuộc tính phân lớp phải có kiểu dữliệu là Binary hoặc Ordinal.
+• Tóm lại, cho dữliệu vềcác đối tượng gồm các thuộc tính cùng với lớp (classes) của nó, cây
+quyết định sẽsinh ra các luật đểdựđoán lớp của các dữliệu chưa biết.
+2. Random Forest ( Rừng cây ngẫu nhiên ):
+• Random forest là một phương pháp thống kê mô hình hóa bằng máy (machine learning
+statistic) dùng đểphục vụcác mục đích phân loại, tính hồi quy và các nhiệm vụkhác bằng
+cách xây dựng nhiều cây quyết định (Decision tree).Random Forest cho thấy hiệu quảhơn
+so với thuật toán phân loại thường được sửdụng vì có khảnăng tìm ra thuộc tính nào quan
+trọng hơn so với những thuộc tính khác
+• Hướng tiếp cận Ensemple có homogeneous approach (cùng một giải thuật đầu vào) và het-
+erogenerous (nhiều giải thuật đầu vào)
+3. Cách xây dựng Ramdom Forest:
+• Dữliệu vềbệnh nhân có khảnăng mắc bệnh tim thông qua 4 tiêu chí: đau ngực, tuần hoàn
+máu tốt,tắc động mạch và cân nặng, từđó quyết định xem người đó có khảnăng bịbệnh
+tim hay không?
+1
+AI VIETNAM
+aivietnam.edu.vn
+Hình 1: Ví dụdữliệu vềbệnh nhân có khảnăng mắc bệnh tim
+Hình 2: Tạo tập dữliệu mới
+• Bước 1: Tạo một tập dữliệu mới, chọn lựa ngẫu nhiên từdataset ban đầu. Đặt stt từ1-4,
+mỗi lần random được stt nào thì đưa vào tập dữliệu mới, chấp nhận cảviệc dữliệu bịtrùng.
+• Bước 2: Tạo cây từBoostrapped dataset. Đầu tiên random ngẫu nhiên hai thuộc tính từ4
+thuộc tính
+Hình 3: minh họa
+• Bước 3: Tiếp theo chọn Good Blood là nút gốc thì xóa nút gốc khỏi dataset. Sau đó random
+ngẫu nhiên 2 thuộc tính mới. Giảsửchọn được Chest pain và Weigh
+AI VIETNAM
+aivietnam.edu.vn
+Hình 4: minh họa
+• Bước 4: Chọn tiếp Chest pain là nút tối ưu, thì xóa Chest pain ra khỏi dataset. Rồi chọn nốt
+hai thuộc tính cuối,giảsửchọn tiếp Weigh là nút tối ưu thì sẽxóa Weigh khỏi dataset. Từ
+đó xây dựng được 1 cây
+Hình 5: minh họa
+Hình 6: Tạo dựng được 1 cây
+AI VIETNAM
+aivietnam.edu.vn
+4. Công thức:
+• Công thức Entropy
+• Ví dụbài tập và lời giải
+• code minh họa
+• Công thức Information Gain
+AI VIETNAM
+aivietnam.edu.vn
+• ví dụbài tập và lời giải
+• code minh họa

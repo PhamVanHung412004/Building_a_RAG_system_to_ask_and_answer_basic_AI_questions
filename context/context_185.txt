@@ -1,0 +1,732 @@
+Extra Class
+UNet
+Year 2023
+Nguyen Quoc Thai
+AI VIETNAM
+All-in-One Course
+1
+2
+CONTENT
+(1) – Image Segmentation
+(2) – Transposed Convolution
+(3) – UNet Model
+1 – Image Segmentation
+!
+3
+Image Classification
+MODEL
+(LeNet, ResNet,…)
+Pretrained Model
+Class: CAT
+1 – Image Segmentation
+!
+4
+Multiple Objects
+MODEL
+(LeNet, ResNet,…)
+Class: ?
+CAT
+DOG
+1 – Image Segmentation
+!
+5
+Image Segmentation
+MODEL
+CAT
+DOG
+1 – Image Segmentation
+!
+6
+Image Segmentation
+MODEL
+CAT
+DOG
+UNet
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1
+1
+0
+0
+0
+0
+0
+0
+1
+1
+1
+0
+2
+2
+0
+0
+1
+1
+1
+0
+2
+2
+0
+0
+1
+1
+1
+2
+2
+2
+0
+0
+1
+1
+1
+1
+2
+2
+0
+1
+1
+1
+1
+1
+2
+2
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1 – Image Segmentation
+!
+7
+Unet Model
+Conv 3x3, ReLU
+Max Pool 2x2
+Up Conv 2x2
+Output
+Segmentation
+Map
+Input
+Image
+2 – Transposed Convolution
+!
+8
+Review: Convolution
+Input: M x N
+Kernel: K x O
+Bias
+1
+0
+0
+0
+0
+0
+0
+0
+0
+3
+1
+1
+0
+0
+3
+1
+2
+0
+0
+0
+3
+4
+2
+3
+0
+0
+3
+0
+0
+2
+0
+0
+0
+0
+0
+0
+0
+0
+3
+1
+1
+3
+1
+2
+0
+3
+4
+2
+3
+3
+0
+0
+2
+1
+1
+1
+1
+1
+1
+0
+1
+0
+Shape: (M+2P) x (N+2Q)
+Padding: (P, Q)
+Stride: (S, T)
+7
+8
+15
+13
+M + 2P −K
+S
++ 1 x N + 2Q −O
+T
++ 1
+2 – Transposed Convolution
+!
+9
+Review: Pooling
+Input: 6 x 6
+Output: 3 x 3
+Kernel Size: 2
+Stride: 2
+3
+2
+1
+0
+0
+3
+0
+3
+3
+1
+1
+0
+3
+1
+4
+1
+1
+0
+2
+4
+1
+1
+0
+4
+1
+0
+3
+0
+3
+0
+3
+4
+4
+3
+3
+4
+3
+3
+3
+4
+4
+4
+4
+4
+4
+Input: 6 x 6
+Output: 2 x 3
+Kernel Size: (3, 2)
+Stride: 2
+3
+2
+1
+0
+0
+3
+0
+3
+3
+1
+1
+0
+3
+1
+4
+1
+1
+0
+2
+4
+1
+1
+0
+4
+1
+0
+3
+0
+3
+0
+3
+4
+4
+3
+3
+4
+2.0
+1.7
+0.8
+1.8
+1.6
+1.3
+❖Max Pooling
+❖Average Pooling
+2 – Transposed Convolution
+!
+10
+Transposed Convolution
+Convolution
+0
+3
+1
+1
+3
+1
+2
+0
+3
+4
+2
+3
+3
+0
+0
+2
+7
+8
+15
+13
+0
+3
+1
+1
+3
+1
+2
+0
+3
+4
+2
+3
+3
+0
+0
+2
+7
+8
+15
+13
+Transposed 
+Convolution
+2 – Transposed Convolution
+!
+11
+Transposed Convolution
+2
+2
+1
+4
+1
+1
+1
+1
+2
+2
+2
+2
+2
+2
+2
+2
+1
+1
+1
+1
+4
+4
+4
+4
+2
+4
+2
+3
+9
+6
+1
+5
+4
++
++
++
+Input
+Kernel
+2 – Transposed Convolution
+!
+12
+Transposed Convolution – Demo
+2 – Transposed Convolution
+!
+13
+Transposed Convolution
+2
+2
+1
+4
+1
+1
+1
+1
+2
+4
+2
+3
+9
+6
+1
+5
+4
+Input
+Kernel
+Bias
+1
+3
+5
+3
+4
+10
+7
+2
+6
+5
+2 – Transposed Convolution
+!
+14
+Transposed Convolution – Demo
+2 – Transposed Convolution
+!
+15
+Padding
+2
+2
+1
+4
+1
+1
+1
+1
+2
+4
+2
+3
+9
+6
+1
+5
+4
+Input
+Kernel
+9
+Padding (1, 1)
+2
+4
+2
+3
+9
+6
+1
+5
+4
+Padding (1, 0)
+3
+9
+6
+2 – Transposed Convolution
+!
+16
+Padding – Demo
+2 – Transposed Convolution
+!
+17
+Stride
+2
+2
+1
+4
+1
+1
+1
+1
+Input
+Kernel
+2
+4
+2
+3
+9
+6
+1
+5
+4
+Stride (1, 1)
+Stride (2, 2)
+2
+2
+2
+2
+2
+2
+2
+2
+1
+1
+4
+4
+1
+1
+4
+4
+2 – Transposed Convolution
+!
+18
+Stride – Demo
+2 – Transposed Convolution
+!
+19
+Padding & Stride
+2
+2
+1
+4
+1
+1
+1
+1
+Input
+Kernel
+Stride (2, 2)
+2
+2
+2
+2
+2
+2
+2
+2
+1
+1
+4
+4
+1
+1
+4
+4
+2
+2
+1
+4
+Padding (1, 1)
+2 – Transposed Convolution
+!
+20
+Padding & Stride – Demo
+2 – Transposed Convolution
+!
+21
+Padding & Stride
+2
+2
+1
+4
+1
+1
+1
+1
+Input
+Kernel
+Stride (2, 2)
+2
+2
+2
+2
+2
+2
+2
+2
+1
+1
+4
+4
+1
+1
+4
+4
+2
+2
+1
+4
+Padding (1, 1)
+M x N
+K x O
+S x T
+P x Q
+H!"# = M −1 ∗S −2P + K −1 + 1
+W!"# = N −1 ∗T −2Q + O −1 + 1
+2 – Transposed Convolution
+!
+22
+Multiple Channels
+0
+1
+3
+0
+1
+1
+1
+1
+Input #1
+Kernel #1
+Stride (2, 2)
+0
+0
+1
+1
+0
+0
+1
+1
+3
+3
+0
+0
+3
+3
+0
+0
+1
+1
+2
+4
+1
+1
+1
+1
+Input #2
+Kernel #2
+Stride (2, 2)
+1
+1
+1
+1
+1
+1
+1
+1
+2
+2
+4
+4
+2
+2
+4
+4
+1
+1
+2
+2
+1
+1
+2
+2
+5
+5
+4
+4
+5
+5
+4
+4
+2 – Transposed Convolution
+!
+23
+Multiple Channels – Demo
+3 – UNet Model
+!
+24
+UNet
+Conv 3x3, ReLU
+Max Pool 2x2
+Up Conv 2x2
+Output
+Segmentation
+Map
+Input
+Image
+3 – UNet Model
+!
+25
+ConvBlock – Demo
+Conv 3x3, ReLU
+Max Pool 2x2
+Up Conv 2x2
+3 – UNet Model
+!
+26
+Encoder – Demo
+Conv 3x3, ReLU
+Max Pool 2x2
+Up Conv 2x2
+3 – UNet Model
+!
+27
+Decoder – Demo
+Conv 3x3, ReLU
+Max Pool 2x2
+Up Conv 2x2
+3 – UNet Model
+!
+28
+UNet – Demo
+Conv 3x3, ReLU
+Max Pool 2x2
+Up Conv 2x2
+Output
+Segmentation
+Map
+Input
+Image
+3 – UNet Model
+!
+29
+UNet – Demo
+Thanks!
+Any questions?
+30

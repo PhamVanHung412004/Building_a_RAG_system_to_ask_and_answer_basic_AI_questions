@@ -1,6 +1,0 @@
-AI VIETNAM aivietnam.edu.vn
-Hình 10: Kết quả End-to-end QA sử dụng hàm search trên Milvus vector database
-Như vậy, thông qua việc cài đặt theo các bước trên, các bạn đã thành công ứng dụng Milvus vector
-database để xây dựng một chương trình về End-to-end Question Answering. Các bạn muốn hiểu
-thêm về Milvus có thể tìm đọc code đính kèm có filehello_milvus.py để hiểu thêm về các hàm cơ
-bản trong Milvus nhé.

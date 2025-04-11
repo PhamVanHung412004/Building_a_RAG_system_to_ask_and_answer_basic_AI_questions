@@ -1,5 +1,0 @@
-AI VIETNAM aivietnam.edu.vn
-1 class Ward :
-2 def __init__ (self , name : str ):
-3 self . __name = name
-4 self . 

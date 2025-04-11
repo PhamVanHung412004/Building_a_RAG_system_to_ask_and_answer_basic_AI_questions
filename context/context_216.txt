@@ -1,0 +1,495 @@
+Module 10 - Project
+Multi-Task Learning
+Year 2023
+AI VIET NAM
+Nguyen Quoc Thai
+AI VIETNAM
+All-in-One Course
+1
+2
+Objectives
+Multi-task Learning for Computer Vision
+!
+Task 1
+Training Data
+Model
+Generalization
+Task 2
+Training Data
+Model
+Generalization
+Task 3
+Training Data
+Model
+Generalization
+Feature-based MTL
+Parameter-based MTL
+3
+Ø Introduction
+Ø Deep Multi-Task Architectures
+Ø Optimization Strategy
+Ø Experiment
+Outline
+4
+Introduction
+Single-Task Learning
+!
+MODEL
+(LeNet, ResNet,…)
+Class: CAT
+Ø Image Classification
+5
+Introduction
+Single-Task Learning
+!
+MODEL
+(UNet)
+CAT
+DOG
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1
+1
+0
+0
+0
+0
+0
+0
+1
+1
+1
+0
+2
+2
+0
+0
+1
+1
+1
+0
+2
+2
+0
+0
+1
+1
+1
+2
+2
+2
+0
+0
+1
+1
+1
+1
+2
+2
+0
+1
+1
+1
+1
+1
+2
+2
+0
+0
+0
+0
+0
+0
+0
+0
+0
+Ø Image Segmentation
+6
+Introduction
+Single-Task Learning
+!
+MODEL
+(UNet)
+Ø Object Detection
+DOG – 0.98 CAT – 0.87
+Assign labels, bounding boxes 
+to objects in the image
+7
+Introduction
+Single-Task Learning
+!
+Task 1
+Training Data
+Model
+Training
+Generalization
+Task 2
+Training Data
+Model
+Training
+Generalization
+Task 3
+Training Data
+Model
+Training
+Generalization
+8
+Introduction
+Multi-Task Learning
+!
+Task 1
+Training Data
+Model
+Generalization
+Task 2
+Training Data
+Model
+Training
+Generalization
+Task 3
+Training Data
+Model
+Generalization
+9
+Introduction
+Motivation
+!
+Ø Learning multiple tasks jointly with the aim of mutual benefit
+Ø Improves generalization on other tasks
+Caused by the inductive bias provided by the auxiliary task
+10
+Introduction
+Multi-Task Learning
+!
+Task 1
+Training Data
+Model
+Generalization
+Task 2
+Training Data
+Model
+Generalization
+Task 3
+Training Data
+Model
+Generalization
+What to Share?
+How to Share?
+11
+Introduction
+MTL Methods (based on what to share?)
+!
+Ø Feature-based MTL
+o Aims to learn common features among different tasks
+Ø Parameter-based MTL
+o Learns model parameters to help learn parameters for other tasks
+Ø Instance-based MTL
+o Identify useful data instances in a task for other task
+12
+Introduction
+MTL Methods (based on how to share?)
+!
+Ø Feature-based MTL
+o Feature learning approach
+o Deep learning approach
+Ø Parameter-based MTL
+o Low-Rank approach
+13
+Introduction
+Feature Learning Approach
+!
+Ø Why need to learn common feature representations?
+o Original features may not have enough expressive power
+Ø Two sub-categories
+o Feature transformation approach
+o Feature selection approach
+14
+Introduction
+Feature Learning Approach
+!
+Ø Feature transformation approach
+o The learned features are a linear or nonlinear transformation of the original 
+feature representation
+o Multi-task feedforward NN
+Input 1
+Input d
+Output for task 1
+Output for task 2
+15
+Introduction
+Feature Learning Approach
+!
+Ø Feature selection approach
+o Select a subset of the original features as the learned representation
+o Eliminates useless features based on different criteria
+16
+Introduction
+Low-Rank Approach
+!
+Ø Assumes the model parameters of different 
+tasks share a low-rank subspace
+17
+Introduction
+Deep Learning Approach
+!
+Ø Deep Multi-Task Architectures
+o Encoder-Focused
+o Decoder-Focused
+Ø Optimization Strategy Methods
+o Task Balancing
+o Other: Heuristics, Gradient Sign Dropout
+18
+Ø Introduction
+Ø Deep Multi-Task Architectures
+Ø Optimization Strategy
+Ø Experiment
+Outline
+19
+Deep Multi-Task Architectures
+Deep Multi-Task Architectures used in Computer Vision
+!
+Deep Multi-Task 
+Architectures
+Decoder-Focused
+Encoder-Focused
+Other
+MTL Baseline
+Cross-Stitch Networks
+NDDR-CNN
+MTAN
+PAD-Net
+PAP-Net
+MTI-Net
+ASTMT
+20
+Deep Multi-Task Architectures
+Encoder-Focused
+!
+Shared Encoder
+(Soft/Hard)
+Task A
+Task B
+Task C
+Task specific
+Ø Share the task features in the encoding stage
+21
+Deep Multi-Task Architectures
+Encoder-Focused
+!
+Task A
+Task B
+Task C
+Task specific
+Ø Hard Parameter Sharing
+o Generally applied by sharing the hidden layers between all tasks
+o Keep several task-specific output layers
+22
+Deep Multi-Task Architectures
+Encoder-Focused
+!
+Ø Soft Parameter Sharing
+o Each task has its own model with its own parameters
+o Uses a linear combination in every layer of the task-specific networks
+Task A
+Task B
+Task C
+Task specific
+23
+Deep Multi-Task Architectures
+Encoder-Focused
+!
+Ø Cross-Stitch Networks
+o Shared the activations amongst all single-task networks in the encoder
+Task A
+Task B
+Task A
+Task B
+𝛼
+𝛼
++
++
++
++
+Share Parameters
+24
+Deep Multi-Task Architectures
+Encoder-Focused
+!
+Ø Cross-Stitch Networks
+o Shared the activations amongst all single-task networks in the encoder
+o Cross connection
+Conv
+Task A
+Task B
+Conv
++
++
++
++
+Conv
+Task A
+Task B
+Conv
+𝛼
+𝛼
++
++
++
++
+Conv
+Conv
+25
+Deep Multi-Task Architectures
+Encoder-Focused
+!
+Ø Multi-Task Attention Networks
+o Used a shared backbone network in conjunction with task-specific attention 
+modules in the encoder
+Attention Module
+Attention Module
+Task B
+Task C
+Task specific
+Attention Module
+Attention Module
+Shared Encoder
+26
+Deep Multi-Task Architectures
+Decoder-Focused
+!
+Shared Encoder
+(Soft/Hard)
+Task B
+Task C
+Task A
+Task specific
+Task A
+Task B
+Task C
+27
+Deep Multi-Task Architectures
+Decoder-Focused
+!
+Ø PAD-Net
+o Multi-Tasks Guided Prediction-and-Distillation Network for Simultaneous 
+Depth Estimation and Scene Parsing
+28
+Deep Multi-Task Architectures
+Decoder-Focused
+!
+Ø PAD-Net
+o Deep Multimodal Distillation
+29
+Ø Introduction
+Ø Deep Multi-Task Architectures
+Ø Optimization Strategy
+Ø Experiment
+Outline
+30
+Optimization Strategy
+Task Balancing Approaches
+!
+Ø Set a unique weight for each task
+Ø Use SGD to minimize the objective
+ℒ!"# = #
+$
+𝑤$. ℒ$
+𝑊%&'()* = 𝑊%&'()* −𝛾#
+$
+𝑤$
+𝜕ℒ$
+𝜕𝑊%&'()*
+31
+Optimization Strategy
+Uncertainty Weighting
+!
+Ø Use the homoscedastic uncertainty to balance the single-task losses
+Ø Optimize the model weights W and noise parameters
+ℒW, σ+, 𝜎, =
+1
+2𝜎+
+, ℒ+ 𝑊+ 1
+2𝜎,
+, ℒ, 𝑊+ log 𝜎+ 𝜎,
+32
+Optimization Strategy
+Dynamic Weight Averaging (DWA)
+!
+Ø Learns to average task weighting over time by considering the rate of change of loss 
+for each task
+w- t =
+N exp r- t −1
+T
+∑. exp r. t −1
+T
+, r. t −1 = L.(t −1)
+L.(t −2)
+Training Time
+Temperature
+(Softness of Task Weighting)
+Relative Loss Change
+33
+Optimization Strategy
+Other methods
+!
+Ø Gradient Normalization
+Ø Dynamic Task Prioritization
+34
+Quiz
+35
+Ø Introduction
+Ø Deep Multi-Task Architectures
+Ø Optimization Strategy
+Ø Experiment
+Outline
+36
+Experiment
+NYUD-v2 Dataset
+!
+37
+Experiment
+Model
+!
+Task A
+Task B
+Task C
+Task A
+Task B
+Task C
+Hard Parameter Sharing
+Soft Parameter Sharing
+38
+Experiment
+Code
+!
+39
+Summary
+Deep Multi-Task 
+Architectures
+Decoder-Focused
+Encoder-Focused
+Other
+MTL Baseline
+Cross-Stitch Networks
+NDDR-CNN
+MTAN
+PAD-Net
+PAP-Net
+MTI-Net
+ASTMT
+Optimization Strategy
+Task Balancing
+Uncertainty Weighting
+Gradient Normalization
+DWA
+DTP
+Thanks!
+Any questions?
+40

@@ -1,4 +1,0 @@
-[10] Wilson Yan et al. VideoGPT: Video Generation using VQ-VAE and Transformers. 2021. arXiv:
-2104.10157 [cs.CV].
-[11] Wang W. Yan H. Lv W. Zhu Y. Feng J. Zhou D. “MagicVideo: Efficient Video Generation With
-Latent Diffusion Models”. In:arXiv preprint arXiv:2211.11018(2022).

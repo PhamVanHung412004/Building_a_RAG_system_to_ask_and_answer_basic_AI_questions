@@ -1,8 +1,0 @@
-AIO2024 aivietnam.edu.vn
-Câu 8: Phép nhân giữa hai ma trận
-1 # Python code ( aivietnam )
-2 import numpy as np
-3
-4 X = np. array ([[1 , 2] ,
-5 [3 , 4]])
-6 Y = np. 

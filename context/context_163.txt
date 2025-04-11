@@ -1,0 +1,92 @@
+Data Sampling for Imbalanced Datasets
+TA Hùng An
+AI VIETNAM
+All-in-One Course
+Nội dung
+1.
+Failure of k-Fold Cross-Validation
+2.
+Data Sampling
+AI VIETNAM
+All-in-One Course
+2
+Imbalance Problem - Một số phương pháp giải quyết imbalance
+Data Sampling
+AI VIETNAM
+All-in-One Course
+Imbalance Problem - Một số phương pháp giải quyết imbalance
+Data Sampling
+AI VIETNAM
+All-in-One Course
+Data Sampling
+AI VIETNAM
+All-in-One Course
+5
+Có 3 kỹ thuật Data Sampling phổ biến:
+-
+Oversampling Techniques
+-
+Undersampling Techniques
+-
+Combinations of Techniques
+Tour of Model Evaluation Metrics
+AI VIETNAM
+All-in-One Course
+6
+Random Data Sampling -  Random Sampling 
+Tour of Model Evaluation Metrics
+AI VIETNAM
+All-in-One Course
+7
+Random Data Sampling -  Random Oversampling 
+Tour of Model Evaluation Metrics
+AI VIETNAM
+All-in-One Course
+8
+Random Data Sampling -  Random Undersampling 
+Tour of Model Evaluation Metrics
+AI VIETNAM
+All-in-One Course
+9
+Oversampling Methods -  SMOTE
+Tour of Model Evaluation Metrics
+AI VIETNAM
+All-in-One Course
+10
+Oversampling Methods -  SMOTE With Selective Sample Generation
+Borderline-SMOTE
+Borderline-SMOTE SVM
+Tour of Model Evaluation Metrics
+AI VIETNAM
+All-in-One Course
+11
+Oversampling Methods -  SMOTE With Selective Sample Generation
+Adaptive Synthetic Sampling
+Tour of Model Evaluation Metrics
+AI VIETNAM
+All-in-One Course
+12
+Undersampling Methods -  Near Miss Undersampling
+Adaptive Synthetic Sampling
+Tour of Model Evaluation Metrics
+AI VIETNAM
+All-in-One Course
+13
+Undersampling Methods -  Near Miss Undersampling
+NearMiss-1
+Tour of Model Evaluation Metrics
+AI VIETNAM
+All-in-One Course
+14
+Undersampling Methods -  Near Miss Undersampling
+NearMiss-2
+Tour of Model Evaluation Metrics
+AI VIETNAM
+All-in-One Course
+15
+Undersampling Methods -  Condensed Nearest Neighbor Rule
+Tour of Model Evaluation Metrics
+AI VIETNAM
+All-in-One Course
+16
+Undersampling Methods -  One-Sided Selection

@@ -1,0 +1,1910 @@
+1
+AI VIETNAM
+All-in-One Course
+1
+AI VIETNAM
+All-in-One Course
+Support Vector Machine
+(First Look)
+Year 2023
+Vinh Dinh Nguyen
+PhD in Computer Science
+AI VIETNAM
+All-in-One Course
+2
+AI VIETNAM
+All-in-One Course
+2
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Maximal Margin Classifier
+Ø Support Vector Classifier
+Ø Support Vector Machine
+Ø Polynomial Kernel
+Ø Radial Basic Function Kernel (RBF)
+Ø Example
+Outline
+3
+AI VIETNAM
+All-in-One Course
+3
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Maximal Margin Classifier
+Ø Support Vector Classifier
+Ø Support Vector Machine
+Ø Polynomial Kernel
+Ø Radial Basic Function Kernel (RBF)
+Ø Example
+Outline
+4
+AI VIETNAM
+All-in-One Course
+4
+Vinh Dinh Nguyen- PhD in Computer Science
+SVM Motivation
+Phát triển chương trình dự đoán Lợn có khả năng bị béo phì hay không dựa vào cân nặng (kg)
+Cân nặng (kg)
+Béo phì
+Không Béo phì
+T 
+T 
+Dữ liệu mới
+K béo phì
+T 
+Béo phì
+T 
+béo phì
+Có chính xác 
+không?
+Threshold T 
+không chính xác
+How to improve T
+5
+AI VIETNAM
+All-in-One Course
+5
+Vinh Dinh Nguyen- PhD in Computer Science
+SVM Motivation
+Phát triển chương trình dự đoán Lợn có khả năng bị béo phì hay không dựa vào cân nặng (kg)
+Cân nặng (kg)
+new T 
+Quan sát 2 đối tượng biên của mỗi 
+cluster. Xác định threshold T mới. 
+Kết quả dự đoán chính xác
+old T 
+béo phì
+Kết quả dự đoán không  
+chính xác
+Béo phì
+Không Béo phì
+Dữ liệu mới
+6
+AI VIETNAM
+All-in-One Course
+6
+Vinh Dinh Nguyen- PhD in Computer Science
+SVM Motivation
+Phát triển chương trình dự đoán Lợn có khả năng bị béo phì hay không dựa vào cân nặng (kg)
+Cân nặng (kg)
+new T 
+The shortest distance between the 
+obervations and T threshold is called the 
+margin
+old T 
+béo phì
+Kết quả dự đoán không  
+chính xác
+Margin đạt giá trị lớn nhất trong trường 
+hợp T nằm giữa 2 observations
+Béo phì
+Không Béo phì
+Dữ liệu mới
+7
+AI VIETNAM
+All-in-One Course
+7
+Vinh Dinh Nguyen- PhD in Computer Science
+SVM Motivation
+Phát triển chương trình dự đoán Lợn có khả năng bị béo phì hay không dựa vào cân nặng (kg)
+Cân nặng (kg)
+new T 
+old T 
+béo phì
+Kết quả dự đoán không  
+chính xác
+Margin nhỏ hơn khi di chuyển threshold T
+Béo phì
+Không Béo phì
+Dữ liệu mới
+8
+AI VIETNAM
+All-in-One Course
+8
+Vinh Dinh Nguyen- PhD in Computer Science
+SVM Motivation
+Phát triển chương trình dự đoán Lợn có khả năng bị béo phì hay không dựa vào cân nặng (kg)
+Cân nặng (kg)
+new T 
+This margin give us the largest margin to 
+make classification
+old T 
+béo phì
+Kết quả dự đoán không  
+chính xác
+Maximal Margin Classifier
+Béo phì
+Không Béo phì
+Dữ liệu mới
+9
+AI VIETNAM
+All-in-One Course
+9
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Maximal Margin Classifier
+Ø Support Vector Classifier
+Ø Support Vector Machine
+Ø Polynomial Kernel
+Ø Radial Basic Function Kernel (RBF)
+Ø Example
+Outline
+10
+AI VIETNAM
+All-in-One Course
+10
+Vinh Dinh Nguyen- PhD in Computer Science
+SVM Motivation
+Phát triển chương trình dự đoán Lợn có khả năng bị béo phì hay không dựa vào cân nặng (kg)
+Cân nặng (kg)
+Threshold T 
+Threshold T 
+Maximal Margin Classifier
+Không Béo phì
+(Không chính xác)
+Tại Sao?
+MMC is sensitive to outliers 
+in the training data
+Can we select a Threshold T 
+that not sensitive to outliers
+Yes. Allow missclassification
+Béo phì
+Không Béo phì
+Dữ liệu mới
+11
+AI VIETNAM
+All-in-One Course
+11
+Vinh Dinh Nguyen- PhD in Computer Science
+SVM Motivation
+Phát triển chương trình dự đoán Lợn có khả năng bị béo phì hay không dựa vào cân nặng (kg)
+Cân nặng (kg)
+hreshold T 
+Threshold T 
+Maximal Margin Classifier
+MMC  allows missclassification
+Béo phì
+Chính xác
+Missclassification
+Soft Margin: The distance 
+between Observation and 
+Threshold
+How do we know which soft 
+margin is better?
+Cross validation
+Soft Magin Classifier Or 
+Support Vector Classifier
+What is 
+Support Vector mean?
+Observations are on the 
+edge and within the Soft 
+margin: Support Vector
+Béo phì
+Không Béo phì
+Dữ liệu mới
+12
+AI VIETNAM
+All-in-One Course
+12
+Vinh Dinh Nguyen- PhD in Computer Science
+SVM Motivation: 2 Dimensional
+Cân nặng (kg)
+Chiều cao (cm)
+Soft Margin
+Support 
+Vector 
+Classifier 
+forms a line
+13
+AI VIETNAM
+All-in-One Course
+13
+Vinh Dinh Nguyen- PhD in Computer Science
+SVM Motivation: 3 Dimensional
+Cân nặng (kg)
+Chiều cao (cm)
+Support 
+Vector 
+Classifier 
+forms a plane
+Age
+Summary
+If the data are 1–dimensional, the support vector classifer is single point
+If the data are 2–dimensional, the support vector classifer is a 1 dimensional line
+If the data are 3–dimensional, the support vector classifer is a 2 dimensional plane 
+the data are 4 or more dimensional, the support vector classifer is a hyperplane
+14
+AI VIETNAM
+All-in-One Course
+14
+Vinh Dinh Nguyen- PhD in Computer Science
+Support Vector Classifier: Limitation
+hreshold T 
+Béo phì
+Chính xác
+Support Vector Classifier
+Work well with this data
+Lượng thuốc dùng (mg)
+Không Đáp ứng thuốc
+Đáp ứng thuốc
+Cân nặng (kg)
+Fail to work with this data
+A lot of miss 
+classifications
+How to solve this problem?
+=> Support Vector Machine
+15
+AI VIETNAM
+All-in-One Course
+15
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Maximal Margin Classifier
+Ø Support Vector Classifier
+Ø Support Vector Machine
+Ø Polynomial Kernel
+Ø Radial Basic Function Kernel (RBF)
+Ø Example
+Outline
+16
+AI VIETNAM
+All-in-One Course
+16
+Vinh Dinh Nguyen- PhD in Computer Science
+Support Vector Machine: Main Idea
+Liều dùng (mg)
+Y = (liều dùng)2
+Support Veclor Classifier
+Main idea:
+1. Start with data in low dimension
+2. Move data into a higher dimension
+3. Find support vector classifier that separates the higher dimensional data into 
+two groups
+17
+AI VIETNAM
+All-in-One Course
+17
+Vinh Dinh Nguyen- PhD in Computer Science
+Support Vector Machine: Kernel Function
+X = Liều dùng (mg)
+Y = (X)2
+Support Veclor Classfier find 
+this line
+Main idea:
+1. Start with data in low dimension
+2. Move data into a higher dimension
+3. Find support vector classifier that separates the higher dimensional data into 
+two group
+Y = (X)3
+How do we decide to 
+transform the data: 
+Kernel Function
+Kernel functions: None-linear functions that help us to transform data from lower dimension to higher dimension
+18
+AI VIETNAM
+All-in-One Course
+18
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Maximal Margin Classifier
+Ø Support Vector Classifier
+Ø Support Vector Machine
+Ø Polynomial Kernel
+Ø Radial Basic Function Kernel (RBF)
+Ø Example
+Outline
+19
+AI VIETNAM
+All-in-One Course
+19
+Vinh Dinh Nguyen- PhD in Computer Science
+Polynomial Kernel
+Polynomial Kernel: the degree of the polynomial d
+d = 1. Compute the relationship between each 
+pair of observations in 1-Dimensional tò find SVC
+d = 2. Compute 2-Dimensional relationship 
+between each pair of observations find SVC
+d = n. Compute n-Dimensional relationship 
+between each pair of observations. Those 
+relationship are used to find SVC
+How to find value of d: Cross Validation
+Other kernel: Radial Basic Function Kernel (RBF)
+20
+AI VIETNAM
+All-in-One Course
+20
+Vinh Dinh Nguyen- PhD in Computer Science
+Polynomial Kernel
+Liều dùng (mg)
+Y = (liều dùng)2
+Polynomial Kernel: a × b + r !
+Coefficient of the polynomial kernel
+Degree of polyno
+Example: r =
+"
+#, d = 2 
+a and b refer to two different 
+observations in the dataset
+21
+AI VIETNAM
+All-in-One Course
+21
+Vinh Dinh Nguyen- PhD in Computer Science
+Polynomial Kernel
+Liều dùng (mg)
+Y = (liều dùng)2
+a × b +
+"
+#
+#
+= a × b +
+"
+#
+a × b +
+"
+# = a#b# + ab +
+"
+$ = a, a#,
+"
+# . b, b#,
+"
+#
+a × b +
+"
+#
+#
+= a, a#
+.
+b, b#
+Low dimension
+High dimension
+High dimension
+Low dimension
+r =
+"
+#, d = 2 
+22
+AI VIETNAM
+All-in-One Course
+22
+Vinh Dinh Nguyen- PhD in Computer Science
+Polynomial Kernel
+Liều dùng (mg)
+Y = (liều dùng)2
+a × b + 1 # = a × b + 1
+a × b + 1 = a#b# + 2ab + 1 =
+2a, a#, 1 .
+2b, b#, 1
+a × b + 1 #=
+2a, a#, 1 .
+2b, b#, 1
+r =1, d = 2 
+2
+2
+2
+2
+2
+2
+2
+2
+2
+23
+AI VIETNAM
+All-in-One Course
+23
+Vinh Dinh Nguyen- PhD in Computer Science
+Kernel Trick
+Low Dimension Data
+High Dimension Data
+Kernel Function
+SVM
+Test Data
+Test Data
+A function that takes its input vector in the 
+original space and returns the dot product of 
+the vectors in the feature space
+24
+AI VIETNAM
+All-in-One Course
+24
+Vinh Dinh Nguyen- PhD in Computer Science
+Kernel Trick
+Low Dimension Data
+High Dimension Data
+Kernel Function
+SVM
+Test Data
+Test Data
+A function that takes its input vector in the 
+original space and returns the dot product of 
+the vectors in the feature space
+25
+AI VIETNAM
+All-in-One Course
+25
+Vinh Dinh Nguyen- PhD in Computer Science
+Kernel Trick
+Apply the transformation ϕ(x) = x mod 2
+26
+AI VIETNAM
+All-in-One Course
+26
+Vinh Dinh Nguyen- PhD in Computer Science
+Kernel Trick
+Apply the transformation ϕ(x) = x²
+27
+AI VIETNAM
+All-in-One Course
+27
+Vinh Dinh Nguyen- PhD in Computer Science
+Kernel Trick
+Second-degree polynomial mapping
+We have seen how higher dimensional transformations can allow us to separate data in order to make classification predictions. It seems that in
+order to train a support vector classifier and optimize our objective function, we would have to perform operations with the higher dimensional
+vectors in the transformed feature space => extremely high and impractical computational costs
+The kernel trick provides a solution to this problem.
+It allows us to operate in the original feature space without computing the 
+coordinates of the data in a higher dimensional space.
+28
+AI VIETNAM
+All-in-One Course
+28
+Vinh Dinh Nguyen- PhD in Computer Science
+Kernel Trick
+The “trick” is that kernel methods represent the data only through a set of pairwise similarity comparisons between the original data
+observations x (with the original coordinates in the lower dimensional space), instead of explicitly applying the transformations ϕ(x) and
+representing the data by these transformed coordinates in the higher dimensional feature space.
+Kernel Function:
+k(a,b) = (a% . b)²
+The kernel function here is the 
+polynomial kernel 
+The ultimate benefit of the kernel trick is that the objective function we are
+optimizing to fit the higher dimensional decision boundary only includes the
+dot product of the transformed feature vectors. Therefore, we can just
+substitute these dot product terms with the kernel function, and we don’t
+even use ϕ(x).
+29
+AI VIETNAM
+All-in-One Course
+29
+Vinh Dinh Nguyen- PhD in Computer Science
+Kernel Trick
+Liều dùng (mg)
+Y = (liều dùng)2
+a × b +
+"
+#
+#
+= a × b +
+"
+#
+a × b +
+"
+# = a#b# + ab +
+"
+$ = a, a#,
+"
+# . b, b#,
+"
+#
+a × b +
+"
+#
+#
+= a, a#
+.
+b, b#
+Low dimension
+High dimension
+r =
+"
+#, d = 2 
+Want to calculate the high dimensional relationship 
+between these two observations (samples)
+a × b + 1
+2
+!
+=
+5 × 10 + 1
+2
+!
+= 110.25
+We actually didn"t transform the data to 2 −Dimensions.
+Kernel trick is to convert dot product of
+support vectors to the dot product of mapping
+function
+30
+AI VIETNAM
+All-in-One Course
+30
+Vinh Dinh Nguyen- PhD in Computer Science
+Kernel Trick
+Input space
+Feature space
+So we do not have to perform any complex transformations or store the feature space in memory, if the dot product of feature space can be 
+represented using dot product of input space.
+31
+AI VIETNAM
+All-in-One Course
+31
+Vinh Dinh Nguyen- PhD in Computer Science
+Kernel Trick
+32
+AI VIETNAM
+All-in-One Course
+32
+Vinh Dinh Nguyen- PhD in Computer Science
+Radial Kernel
+𝛾 scales the amount of influence two points have each other
+Radial kernel: e&' (&) !
+Liều dùng (mg)
+2.5mg
+4.0mg
+𝛾= 1
+e& #.+&$ ! = 0.11
+𝛾= 2
+e& #.+&$ ! = 0.01
+Find support vector classifer in infinite dimensions
+The nearest neighbors have a lot of influence on how we classify the new observation. 
+Radiel kernel determines how much influence each observation in the Training Dataset has on classifying new observation
+33
+AI VIETNAM
+All-in-One Course
+33
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Maximal Margin Classifier
+Ø Support Vector Classifier
+Ø Support Vector Machine
+Ø Polynomial Kernel
+Ø Radial Basic Function Kernel (RBF)
+Ø Example
+Outline
+34
+AI VIETNAM
+All-in-One Course
+34
+Vinh Dinh Nguyen- PhD in Computer Science
+Radial Kernel
+𝛾 scales the amount of influence two points have each other
+Radial kernel: e&' (&) !
+Liều dùng (mg)
+2.5mg
+16.0mg
+𝛾= 1
+e& #.+&", ! ≈ 0 
+𝛾= 2
+e& #.+&", ! ≈0
+Find support vector classifer in infinite dimensions
+The further two observation are from each other, the less in>luence they have on each other
+35
+AI VIETNAM
+All-in-One Course
+35
+Vinh Dinh Nguyen- PhD in Computer Science
+Radial Kernel: Intuition
+Polynomial Kernel: a × b + r ! with r = 0
+a × b + r ! =
+a × b ! = (a!) (b!)
+Liều dùng (mg)
+d = 2 ⇒
+a × b + r # = (a#) (b#)
+This dot product only has one coordinate. The new coordinate is square of 
+the original measurement on the original axis
+d = 2 ⇒
+a × b + r # = (2.5#) (4#)
+2.5mg
+4.0mg
+6.25mg
+16.0mg
+Old 
+position
+New 
+position
+Old 
+position
+New 
+position
+The original data are shift with r = 0 and d = 2
+36
+AI VIETNAM
+All-in-One Course
+36
+Vinh Dinh Nguyen- PhD in Computer Science
+Radial Kernel: Intuition
+Polynomial Kernel: a × b + r ! with r = 0
+a × b + r ! =
+a × b ! = (a!) (b!)
+Liều dùng (mg)
+d = 3 ⇒
+a × b + r - = (a-) (b-)
+This dot product only has one coordinate. The new coordinate is square of 
+the original measurement on the original axis
+d = 3 ⇒
+a × b + r - = (2.5-) (4-)
+2.5mg
+4.0mg
+15.625mg
+64.0mg
+Old 
+position
+New 
+position
+Old 
+position
+New 
+position
+The original data are shift further with r = 0 and d = 3
+37
+AI VIETNAM
+All-in-One Course
+37
+Vinh Dinh Nguyen- PhD in Computer Science
+Radial Kernel: Intuition
+Polynomial Kernel: a × b + r ! with r = 0
+a × b + r ! =
+a × b ! = (a!) (b!)
+Liều dùng (mg)
+d = 3 ⇒
+a × b + r - = (a") (b")
+This dot product only has one coordinate. The new coordinate is square of 
+the original measurement on the original axis
+d = 3 ⇒
+a × b + r - = (2.5") (4")
+2.5mg
+4.0mg
+The original data stays in its original position with r = 0 and d = 1.
+The data stays on the same 1-dimensional line regardless the value of d
+38
+AI VIETNAM
+All-in-One Course
+38
+Vinh Dinh Nguyen- PhD in Computer Science
+Radial Kernel: Intuition
+Polynomial Kernel: a × b " = (a") (b") with r = 0 and d = 1
+Polynomial Kernel: a × b # = (a#) (b#) with r = 0 and d = 2
+(a") (b") + (a#) (b#) = a, a#
+.
+b, b#
+We do not acctually do the transformation, we 
+just solve for Dot Product the get high 
+dimensional relationship!
+39
+AI VIETNAM
+All-in-One Course
+39
+Vinh Dinh Nguyen- PhD in Computer Science
+Radial Kernel: Intuition
+Polynomial Kernel: a × b " = (a") (b") with r = 0 and d = 1
+Polynomial Kernel: a × b # = (a#) (b#) with r = 0 and d = 2
+(a") (b") + (a#) (b#) + (a-) (b-)= 
+a, a#, a-
+.
+b, b#, b-
+We do not acctually do the transformation, we 
+just solve for Dot Product the get high 
+dimensional relationship!
+Polynomial Kernel: a × b - = (a-) (b-) with r = 0 and d = 3
+40
+AI VIETNAM
+All-in-One Course
+40
+Vinh Dinh Nguyen- PhD in Computer Science
+Radial Kernel: Intuition
+Polynomial Kernel: a × b " = (a") (b") with r = 0 and d = 1
+Polynomial Kernel: a × b # = (a#) (b#) with r = 0 and d = 2
+(a") (b") + (a#) (b#) + (a-) (b-) + … + (a.) (b.) = a, a#, a-, … , a.,
+. b, b#, b-, … , b.
+Polynomial Kernel: a × b - = (a-) (b-) with r = 0 and d = 3
+Polynomial Kernel: a × b ... = (a…) (b…) with r = 0 and d = ⋯
+Polynomial Kernel: a × b . = (a.) (b.) with r = 0 and d = ∞
+Radial kernel: e&' (&) ! = e&"
+! (!&#()0)! = e&"
+! (!0)! e()
+Taylor Series:
+e1 = e( +
+2#
+"! x −a +
+2#
+#! x −a # +
+2#
+-! x −a -+… +
+2#
+.! x −a .
+e1 = e4 +
+2$
+"! x −a +
+2$
+#! x −0 # +
+2$
+-! x −0 -+… +
+2$
+.! x −0 .
+41
+AI VIETNAM
+All-in-One Course
+41
+Vinh Dinh Nguyen- PhD in Computer Science
+Radial Kernel: Intuition
+(a4) (b4) + (a") (b") + (a#) (b#) + (a-) (b-) + … + (a.) (b.) = a, a#, a-, … , a.,
+. b, b#, b-, … , b.
+Radial kernel: e&' (&) ! = e&"
+! (!&#()0)! = e&"
+! (!0)! e()
+e() = e4 +
+2$
+"! ab +
+2$
+#! ab # +
+2$
+-! ab -+… +
+2$
+.! ab .
+Polynomial kernel
+Radial kernel
+e() = 1 + "
+"! ab + "
+#! ab # + "
+-! ab -+… + "
+.! ab .
+(a4) (b4) + (a") (b") + (a#) (b#) + (a-) (b-) + … + (a.) (b.) = 1, a, a#, a-, … , a.,
+. 1, b, b#, b-, … , b.
+e() =
+1,
+1
+1! a,
+1
+2! a#,
+1
+3! a-, … ,
+1
+∞! a.,
+.
+1,
+1
+1! b,
+1
+2! b#,
+1
+3! b-, … ,
+1
+∞! b.
+42
+AI VIETNAM
+All-in-One Course
+42
+Vinh Dinh Nguyen- PhD in Computer Science
+Radial Kernel: Intuition
+Radial kernel: e&' (&) ! = e&"
+! (!&#()0)! = e&"
+! (!0)! e()
+e() =
+1,
+1
+1! a,
+1
+2! a#,
+1
+3! a-, … ,
+1
+∞! a.,
+.
+1,
+1
+1! b,
+1
+2! b#,
+1
+3! b-, … ,
+1
+∞! b.
+e&"
+! (!0)! e() = e&"
+! (!0)!
+1,
+"
+"! a,
+"
+#! a#,
+"
+-! a-, … ,
+"
+.! a.,
+.
+1,
+"
+"! b,
+"
+#! b#,
+"
+-! b-, … ,
+"
+.! b.
+e&"
+! (!0)! e() =
+𝛿, 𝛿
+"
+"! a, 𝛿
+"
+#! a#, 𝛿
+"
+-! a-, … , 𝛿
+"
+.! a.,
+.
+𝛿, 𝛿
+"
+"! b, 𝛿
+"
+#! b#, 𝛿
+"
+-! b-, … , 𝛿
+"
+.! b.
+𝛿=
+e&"
+# (!0)!
+Radial kernel is equal to a dot product that has coordinates for infinite number of dimensions 
+43
+AI VIETNAM
+All-in-One Course
+43
+Vinh Dinh Nguyen- PhD in Computer Science
+Radial Kernel: Example
+𝛾 scales the amount of influence two points have each other
+Liều dùng (mg)
+2.5mg
+4.0mg
+𝛾= 1
+e& #.+&$ ! = 0.11
+𝛾= 2
+e& #.+&$ ! = 0.01
+𝑇ℎ𝑒𝑟𝑒𝑙𝑎𝑡𝑖𝑜𝑛𝑠ℎ𝑖𝑝𝑏𝑒𝑡𝑤𝑒𝑒𝑛𝑡𝑤𝑜𝑝𝑜𝑖𝑛𝑡𝑠𝑖𝑛𝑖𝑛𝑓𝑖𝑛𝑖𝑡𝑒−𝑑𝑖𝑚𝑒𝑛𝑠𝑖𝑜𝑛𝑠
+44
+AI VIETNAM
+All-in-One Course
+44
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Maximal Margin Classifier
+Ø Support Vector Classifier
+Ø Support Vector Machine
+Ø Polynomial Kernel
+Ø Radial Basic Function Kernel (RBF)
+Ø Example
+Outline
+45
+AI VIETNAM
+All-in-One Course
+45
+Vinh Dinh Nguyen- PhD in Computer Science
+Line Equation Review
+0
+1
+2
+3
+4
+5
+6
+x
+1
+2
+3
+4
+5
+6
+7
+8
+y
+y = 2x + 1
+y = mx + b
+m : slope, b: intercept
+0
+1
+2
+3
+4
+5
+6
+x
+1
+2
+3
+4
+5
+6
+7
+8
+y
+What is the equation of the following 
+vertical line?
+General form of the equation of 
+the straight line
+Ax + By + C = 0
+𝑦= −𝐴
+𝐵𝑥−𝐶
+𝐵
+46
+AI VIETNAM
+All-in-One Course
+46
+Vinh Dinh Nguyen- PhD in Computer Science
+Line Equation Review
+0
+1
+2
+3
+4
+5
+6
+x
+y
+y = 0.5𝑥+ 1
+-1
+-1
+−0.5𝑥+ 𝑦−1 = 0
+−2𝑥+ 4𝑦−4 = 0
+2𝑥−4𝑦+ 4 = 0
+0
+1
+2
+3
+4
+5
+6
+x
+1
+2
+3
+4
+5
+6
+7
+8
+y
+𝑥−4 = 0
+1
+2
+3
+4
+5
+6
+7
+8
+47
+AI VIETNAM
+All-in-One Course
+47
+Vinh Dinh Nguyen- PhD in Computer Science
+Line Equation Review: A, B, C Changes
+0
+1
+2
+3
+4
+5
+6
+x
+1
+y
+-1
+-1
+−2𝑥+ 4𝑦−4 = 0
+Ax + By + C = 0
+−𝑥+ 4𝑦−4 = 0
+2
+3
+4
+5
+6
+7
+8
+−4𝑥+ 4𝑦−4 = 0
+When we change A, the Line is rotating around 1.
+48
+AI VIETNAM
+All-in-One Course
+48
+Vinh Dinh Nguyen- PhD in Computer Science
+Line Equation Review: A, B, C Changes
+0
+1
+2
+3
+4
+5
+6
+x
+1
+y
+-1
+-1
+−2𝑥+ 4𝑦−4 = 0
+Ax + By + C = 0
+−2𝑥+ 4𝑦−8 = 0
+2
+3
+4
+5
+6
+7
+8
+−2𝑥+ 4𝑦−0 = 0
+𝑦= −𝐴
+𝐵𝑥−𝐶
+𝐵
+49
+AI VIETNAM
+All-in-One Course
+49
+Vinh Dinh Nguyen- PhD in Computer Science
+Line Equation Review: A, B, C Changes
+0
+1
+2
+3
+4
+5
+6
+x
+1
+y
+-2
+-1
+−2𝑥+ 4𝑦−4 = 0
+Ax + By + C = 0
+−2𝑥+ 8𝑦−4 = 0
+2
+3
+4
+5
+6
+7
+8
+−4𝑥+ 2𝑦−4 = 0
+𝑦= −𝐴
+𝐵𝑥−𝐶
+𝐵
+50
+AI VIETNAM
+All-in-One Course
+50
+Vinh Dinh Nguyen- PhD in Computer Science
+General Form Line Equation
+0
+1
+2
+3
+4
+5
+6
+x
+1
+y
+-2
+-1
+2
+3
+4
+5
+6
+7
+8
+−2𝑥+ 4𝑦−4 = 0
+Ax + By + C = 0
+𝐴(5,4)
+−2 ∗5 + 4 ∗4 −4 = 2
+𝐴𝑖𝑠𝑎𝑏𝑜𝑣𝑒𝑡ℎ𝑒𝑙𝑖𝑛𝑒
+−2𝑥+ 4𝑦−4 = 0
+Ax + By + C = 0
+−2 ∗5 + 3 ∗4 −4
+= −2
+B 𝑖𝑠𝑏𝑒𝑙𝑜𝑤𝑡ℎ𝑒𝑙𝑖𝑛𝑒
+B (5,3)
+−2𝑥+ 4𝑦−4 = 0
+Ax + By + C = 0
+−2 ∗2 + 2 ∗4 −4 = 0
+C 𝑖𝑠𝑜𝑛𝑡ℎ𝑒𝑙𝑖𝑛𝑒
+C (2,2)
+51
+AI VIETNAM
+All-in-One Course
+51
+Vinh Dinh Nguyen- PhD in Computer Science
+General Form Line Equation
+0
+1
+2
+3
+4
+5
+6
+x
+1
+y
+-2
+-1
+2
+3
+4
+5
+6
+7
+8
+−2𝑥+ 4𝑦−4 = 0
+Ax + By + C = 0
+−2𝑥+ 4𝑦−4 = 1
+𝑦= 0.5𝑥+ 1
+𝑦= 0.5𝑥+ 1.25
+−2𝑥+ 4𝑦−4 = 0
+−2𝑥+ 4𝑦−4 = −1
+𝑦= 0.5𝑥+ 1
+𝑦= 0.5𝑥+ 0.75
+52
+AI VIETNAM
+All-in-One Course
+52
+Vinh Dinh Nguyen- PhD in Computer Science
+General Form Line Equation
+0
+1
+2
+3
+4
+5
+6
+x
+1
+y
+-2
+-1
+2
+3
+4
+5
+6
+7
+8
+−2𝑥+ 4𝑦−4 = 0
+Ax + By + C = 0
+−2𝑥+ 4𝑦−4 = 1
+𝑦= 0.5𝑥+ 1
+𝑦= 0.5𝑥+ 1.25
+−2𝑥+ 4𝑦−4 = −1
+𝑦= 0.5𝑥+ 0.75
+Multiple with a factor smaller than 1
+53
+AI VIETNAM
+All-in-One Course
+53
+Vinh Dinh Nguyen- PhD in Computer Science
+General Form Line Equation
+0
+1
+2
+3
+4
+5
+6
+x
+1
+y
+-2
+-1
+2
+3
+4
+5
+6
+7
+8
+−2𝑥+ 4𝑦−4 = 0
+Ax + By + C = 0
+−2𝑥+ 4𝑦−4 = 1
+𝑦= 0.5𝑥+ 1
+𝑦= 0.5𝑥+ 1.25
+−2𝑥+ 4𝑦−4 = −1
+𝑦= 0.5𝑥+ 0.75
+Multiple with a factor greater than 1
+This method is used on SVM to in crease or decrease find the the Margin
+54
+AI VIETNAM
+All-in-One Course
+54
+Vinh Dinh Nguyen- PhD in Computer Science
+Distance between a point and a line
+0
+1
+2
+3
+4
+5
+6
+x
+1
+-2
+-1
+4
+5
+6
+7
+8
+𝐴(3,5)
+−2𝑥+ 4𝑦−4 = 0
+Ax + By + C = 0
+𝑑= Ax + By + C
+𝐴2 + 𝐵2
+𝑑=
+no ∗pqr∗sq(nr)
+(no)"q(r)"
+=2.236
+2
+3
+55
+AI VIETNAM
+All-in-One Course
+55
+Vinh Dinh Nguyen- PhD in Computer Science
+Distance between parallel lines
+0
+1
+2
+3
+4
+5
+6
+x
+-2
+-1
+−2𝑥+ 4𝑦−4 = 0
+Ax + By + C = 0
+𝑑= 𝐶1 −𝐶2
+𝐴2 + 𝐵2
+𝑑=
+nr n(ntr))
+(no)"q(r)" = tu
+ou=2.236
+1
+4
+5
+6
+7
+8
+2
+3
+−2𝑥+ 4𝑦−14 = 0
+56
+AI VIETNAM
+All-in-One Course
+56
+Vinh Dinh Nguyen- PhD in Computer Science
+Distance between parallel lines
+0
+1
+2
+3
+4
+5
+6
+x
+1
+y
+-2
+-1
+2
+3
+4
+5
+6
+7
+8
+Ax + By + C = 0
+−2𝑥+ 4𝑦−4 = 0
+−2𝑥+ 4𝑦−4 = 1
+−2𝑥+ 4𝑦−4 = −1
+𝑑=
+np n(ns))
+(no)"q(r)"= o
+ou= 0.447
+𝑑=
+o
+v"qw"= 
+o
+x "
+57
+AI VIETNAM
+All-in-One Course
+57
+Vinh Dinh Nguyen- PhD in Computer Science
+Example
+0
+1
+2
+3
+4
+5
+6
+x
+1
+y
+-2
+-1
+2
+3
+4
+5
+6
+7
+8
+Yes
+No
+Blood Pressure
+Cholesterol Level
+Disease
+1
+2
+Yes
+2
+5
+Yes
+3
+5
+Yes
+3
+4
+Yes
+6
+1
+No
+4
+0
+No
+5
+2
+No
+5
+1
+No
+58
+AI VIETNAM
+All-in-One Course
+58
+Vinh Dinh Nguyen- PhD in Computer Science
+Example
+0
+1
+2
+3
+4
+5
+6
+x
+1
+y
+-2
+-1
+2
+3
+4
+5
+6
+7
+8
+Yes
+No
+-4x + 4y + 4 = 0
+Support vector
+-4x + 4y + 12= 0
+-4x + 4y +(-4) = 0
+k(-4x + 4y + 4) = 1
+Find a value of K so that the left-hand size is equal to one
+k(-4*3 + 4*4 + 4) = 1
+k*8 = 1
+k = 1/8
+-0.5x + 0.5y + 0.5 = 0
+-0.5x + 0.5y + 0.5 = -1
+-0.5x + 0.5y + 0.5 = 1
+59
+AI VIETNAM
+All-in-One Course
+59
+Vinh Dinh Nguyen- PhD in Computer Science
+Example
+0
+1
+2
+3
+4
+5
+6
+x
+1
+y
+-2
+-1
+2
+3
+4
+5
+6
+7
+8
+Yes
+No
+-4x + 4y + 4 = 0
+Support vector
+-4x + 4y + 12= 0
+-4x + 4y +(-4) = 0
+k(-4x + 4y + 4) = 1
+Find a value of K so that the left-hand size is equal to 1
+k(-4*3 + 4*4 + 4) = 1
+k*8 = 1
+k = 1/8
+-0.5x + 0.5y + 0.5 = 0
+-0.5x + 0.5y + 0.5 = -1
+-0.5x + 0.5y + 0.5 = 1
+k = 1/8
+60
+AI VIETNAM
+All-in-One Course
+60
+Vinh Dinh Nguyen- PhD in Computer Science
+Example
+0
+1
+2
+3
+4
+5
+6
+x
+1
+y
+-2
+-1
+2
+3
+4
+5
+6
+7
+8
+Yes
+No
+-4x + 4y + 4 = 0
+-4x + 4y + 12= 0
+-4x + 4y +(-4) = 0
+-0.5x + 0.5y + 0.5
+-0.5x6 + 0.5x3 + 0.5 = -1
+-0.5x + 0.5y + 0.5 = 0
+-0.5x + 0.5y + 0.5 = -1
+-0.5x + 0.5y + 0.5 = 1
+k = 1/8
+-0.5x + 0.5y + 0.5
+-0.5x5 + 0.5x6 + 0.5 = 1
+61
+AI VIETNAM
+All-in-One Course
+61
+Vinh Dinh Nguyen- PhD in Computer Science
+Example
+0
+1
+2
+3
+4
+5
+6
+x
+1
+y
+-2
+-1
+2
+3
+4
+5
+6
+7
+8
+Yes
+No
+Support vector
+-0.5x + 0.5y + b = 0
+-0.5x + 0.5y + b = -1
+-0.5x + 0.5y + b = 1
+b = 0.5
+𝑤5X+ b = 0
+X = 𝑥
+𝑦
+W = −0.5
+0.5
+𝑤5X+ b = 0
+𝑤5X+ b = 1
+𝑤5X+ b = -1
+62
+AI VIETNAM
+All-in-One Course
+62
+Vinh Dinh Nguyen- PhD in Computer Science
+Example
+0
+1
+2
+3
+4
+5
+6
+x
+1
+y
+-2
+-1
+2
+3
+4
+5
+6
+7
+8
+Yes
+No
+Support vector
+-0.5x + 0.5y + b = 0
+-0.5x + 0.5y + b = -1
+-0.5x + 0.5y + b = 1
+b = 0.5
+𝑤5X+ b = 0
+𝑤5X+ b = 1
+𝑤5X+ b = -1
+New Sample
+-0.5*6 + 0.5*3 + 0.5 = -1.5
+A(6,3)
+Predict No
+-0.5*5 + 0.5*5 + 0.5 = 0.5
+A(5,5)
+Predict Yes
+63
+AI VIETNAM
+All-in-One Course
+63
+Vinh Dinh Nguyen- PhD in Computer Science
+Example
+0
+1
+2
+3
+4
+5
+6
+x
+1
+y
+-2
+-1
+2
+3
+4
+5
+6
+7
+8
+Yes
+No
+Support vector
+𝑤5X+ b = 0
+𝑤5X+ b = 1
+𝑤5X+ b = -1
+New Sample
+-0.5*6 + 0.5*3 + 0.5 = -1.5
+A(6,3)
+Predict No
+-0.5*5 + 0.5*5 + 0.5 = 0.5
+A(5,5)
+Predict Yes
+Predict = {+1 𝑖𝑓𝑤5X+ b ≥0
+−1 𝑖𝑓𝑤5X+ b < 0
+64
+AI VIETNAM
+All-in-One Course
+64
+Vinh Dinh Nguyen- PhD in Computer Science
+Example
+0
+1
+2
+3
+4
+5
+6
+x
+1
+y
+-2
+-1
+2
+3
+4
+5
+6
+7
+8
+Yes
+No
+𝑤5X+ b = 0
+𝑤5X+ b = 1
+𝑤5X+ b = -1
+Y = {+1 𝑖𝑓𝑤5X+ b ≥0
+−1 𝑖𝑓𝑤5X+ b < 0
+𝑑=
+o
+v"qw"= 
+o
+x "
+We want to maximize the distance d
+We want to minimize 𝑊
+2
+SVM tries to find a hyperplane that maximizes the width of this margin
+Need some constraints because the margin can be infinitely large
+𝑑=
+o
+v"qw"=
+o
+x "
+65
+AI VIETNAM
+All-in-One Course
+65
+Vinh Dinh Nguyen- PhD in Computer Science
+Example
+0
+1
+2
+3
+4
+5
+6
+x
+1
+y
+-2
+-1
+2
+3
+4
+5
+6
+7
+8
+Yes
+No
+𝑤5X+ b = 0
+𝑤5X+ b = 1
+𝑤5X+ b = -1
+Max !
+" such that ! 𝑤#X+ b ≥1 𝑖𝑓𝑌= +1
+𝑤#X+ b ≤−1 𝑖𝑓𝑌= −1
+SVM tries to find a hyperplane that maximizes the width of this margin
+Constraints: the margin should not span beyond the  support vectors
+Max 
+!
+"
+! such that Y * (𝑤#X+ b) ≥1
+66
+AI VIETNAM
+All-in-One Course
+66
+Vinh Dinh Nguyen- PhD in Computer Science
+Example
+0
+1
+2
+3
+4
+5
+6
+x
+1
+y
+-2
+-1
+2
+3
+4
+5
+6
+7
+8
+Yes
+No
+𝑤5X+ b = 0
+𝑤5X+ b = 1
+𝑤5X+ b = -1
+What should we do if a green data point is noise?
+Max 
+!
+"
+! such that Y * (𝑤#X+ b) ≥1
+Chúng ta nên chấp nhận như là miss-classification hay là thay đổi hyperplane 
+67
+AI VIETNAM
+All-in-One Course
+67
+Vinh Dinh Nguyen- PhD in Computer Science
+Example
+0
+1
+2
+3
+4
+5
+6
+x
+1
+y
+-2
+-1
+2
+3
+4
+5
+6
+7
+8
+Yes
+No
+What should we do if a green data point is noise?
+Max 
+!
+"
+! such that Y * (𝑤#X+ b) ≥1
+Chúng ta nên chấp này như là miss-classification hay là thay đổi hyperplane 
+68
+AI VIETNAM
+All-in-One Course
+68
+Vinh Dinh Nguyen- PhD in Computer Science
+Example
+0
+1
+2
+3
+4
+5
+6
+x
+1
+y
+-2
+-1
+2
+3
+4
+5
+6
+7
+8
+Yes
+No
+𝑤5X+ b = 0
+𝑤5X+ b = 1
+𝑤5X+ b = -1
+Max 
+!
+"
+! such that Y * (𝑤#X+ b) ≥1
+Support Vector
+min $
+! W !
+!+ C ∑%
+& 𝜀% such that Y * (𝑤#X+ b) ≥1- 𝜀%
+Allow for miss classification
+𝜀6 is a distance measure of the data points from their corresponding blue line.
+𝜀" > 1
+𝑑=
+o
+v"qw"= 
+o
+x "
+Slack variable in SVM
+miss-classification
+𝜀# = 0
+𝜀- < 1
+𝑑= •=
+x "
+C controls how much weight should set on the misclassification data
+69
+AI VIETNAM
+All-in-One Course
+69
+Vinh Dinh Nguyen- PhD in Computer Science
+Example
+0
+1
+2
+3
+4
+5
+6
+x
+1
+y
+-2
+-1
+2
+3
+4
+5
+6
+7
+8
+Yes
+No
+𝑤5X+ b = 0
+𝑤5X+ b = 1
+Support Vector
+𝜀" > 1
+miss-classification
+𝜀# = 0
+𝜀- < 1
+𝑑= •=
+x "
+70
+AI VIETNAM
+All-in-One Course
+70
+Vinh Dinh Nguyen- PhD in Computer Science
+Dicussion
+How about the case C is small?
+Soft Margin Classifier
+How about the case C is large?
+Hard Margin Classifier 
+min $
+! 𝑊
+2 + C ∑%
+& 𝜀% such that Y * (𝑤#X+ b) ≥1- 𝜀%
+𝜀6 ≥0
+71
+AI VIETNAM
+All-in-One Course
+71
+Vinh Dinh Nguyen- PhD in Computer Science
+Hard Margin vs Soft Margin
+72
+AI VIETNAM
+All-in-One Course
+72
+Vinh Dinh Nguyen- PhD in Computer Science
+Further Study
+min $
+! W !
+!+ C ∑%
+& 𝜀% such that Y * (𝑤#X+ b) ≥1- 𝜀%
+𝜀6 ≥0
+Primal Problem
+However, this way we won’t be able use the objective function to solve 
+for non-linear cases. Hence, we will find an equivalent problem 
+named Dual Problem and solve that using Lagrange Multipliers.
+Another form:
+The HyperParameter C is also called 
+as Regularization Constant.
+If k = 1 , then the loss is named 
+as Hinge Loss and if k =2 then its 
+called Quadratic Loss
+Kernel trick migh apply here
+73
+AI VIETNAM
+All-in-One Course

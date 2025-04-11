@@ -1,0 +1,52 @@
+AI VIET NAM – COURSE 2023
+Implementing Your Proposed Solution
+(Research Module - Assignment 4)
+Ngày 28 tháng 11 năm 2023
+Ởbài tập này giảsửcác bạn đã hoàn thành được Research Plan, cũng như tìm hiểu, hiện thực lại
+cũng như đánh giá được performance của các giải thuật trước đây liên quan đến chủđềnghiên cứu mà
+bạn đã chọn. Từviệc hiểu được ưu điểm cũng như hạn chếcủa các phương pháp trước đây, bài tập
+này được thiết kếnhằm hỗtrợcác bạn tìm được giải pháp đểkhắc phục các hạn chếcủa phương pháp
+trước đó gặp phải.
+Lưu ý: sau khi hoàn thành bài tập và submit bài tập này, các bạn sẽnhận được feedback từđội
+ngũ TA research của AIVN trong vòng 1 tuần nhé!
+Câu hỏi 1 Your research topic
+Please mention your research topic
+Answer:
+’
+’
+Câu hỏi 2 Your research questions
+Please mention the simplest research questions that you can solve, and why do you select it?
+Answer:
+’
+’
+Câu hỏi 3 Motivation
+Briefly describe the motivation/idea/techniques that might help you solving simplest research questions
+mentioned above. Please provide references (if any)
+Answer:
+’
+’
+Câu hỏi 4 Detail of the proposed method:
+Please decsribe the detail information of the proposed method, how can the proposed method might
+help to increase the performance of existing systems.
+Answer:
+’
+1
+’
+Câu hỏi 5 Dataset
+Please describe the list of datasets that you are going to use to evaluate the perform of the proposed
+method.
+Answer:
+’
+’
+Câu hỏi 6 Performance Evaluation:
+Please describe the results obtained from the proposed method and provide an explanation for the
+observed outcomes. Why did these results occur?
+Answer:
+’
+’
+Câu hỏi 7 Limtation of your method:
+Please describe the limitations of your method
+Answer:
+’
+’
+2

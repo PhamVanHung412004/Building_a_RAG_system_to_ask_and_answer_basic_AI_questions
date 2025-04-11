@@ -1,6 +1,0 @@
-Vì ta đã triển khai
-hàm loss là cross-entropy trong hàm forward của model, nên ta chỉ cần trích xuất giá trị
-mất mát từ kết quả trả về của hàm forward. Sau đó ta sẽ tiếp tục code hàmsave_model()
-để định nghĩa cách lưu model. Để lưu model, ta cần ghi lại các tham số, tokenizer, và
-cấu hình (config) của model.
-7

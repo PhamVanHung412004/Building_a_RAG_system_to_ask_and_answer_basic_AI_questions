@@ -1,0 +1,1150 @@
+RNN/LSTM for Sequence 
+and Time-Series Data
+Year 2023
+Quang-Vinh Dinh
+Ph.D. in Computer Science
+AI VIETNAM
+All-in-One Course
+➢RNN in PyTorch
+➢RNNs for Time-Series Data
+➢RNNs for IMDB dataset
+➢From RNN to LSTM
+➢LSTM Applications
+Outline
+index
+word
+0
+[UNK]
+1
+[pad]
+2
+ai
+3
+a
+4
+are
+5
+cs
+6
+is
+7
+learning
+Embedding Layer
+Increase space dimentions
+We are learning AI
+0
+4
+7
+2
+1
+be updated
+1
+After one update
+https://projector.tensorflow.org/
+Embedding visualization
+https://projector.tensorflow.org/
+Embedding 
+visualization
+RNN
+WxhX3 + bxh
+tanh(.)
+tanh(.)
+tanh(.)
+WxhX4 + bxh
+WxhX5 + bxh
+Whhh3 + bhh
+z4
+h4
+z5
+h5
+Whhh4 + bhh
++
++
++
+WxhX1 + bxh
+WxhX2 + bxh
+tanh(.)
+tanh(.)
+z1
+h1
+Whhh1 + bhh
+Whhh2 + bhh
+z2
+h2
+z3
+h3
++
+h0
++
+Whhh0 + bhh
+h2 = tanh WxhX2 + bxh + Whhh1 + bhh
+h3 = tanh WxhX3 + bxh + Whhh2 + bhh
+h4 = tanh WxhX4 + bxh + Whhh3 + bhh
+h5 = tanh WxhX5 + bxh + Whhh4 + bhh
+h1 = tanh WxhX1 + bxh + Whhh0 + bhh
+h0 = 𝟎
+bhh = 𝟎
+ht = tanh WxhXt + bxh + Whhh(t−1) + bhh
+2
+RNN
+WxhX3 + bxh
+tanh(.)
+tanh(.)
+tanh(.)
+WxhX4 + bxh
+WxhX5 + bxh
+Whhh3 + bhh
+z4
+h4
+z5
+h5
+Whhh4 + bhh
++
++
++
+WxhX1 + bxh
+WxhX2 + bxh
+tanh(.)
+tanh(.)
+z1
+h1
+Whhh1 + bhh
+Whhh2 + bhh
+z2
+h2
+z3
+h3
++
+h0
++
+Whhh0 + bhh
+Xi
+Zi
+1
+zi3
+zi1
+zi2
+(W1, b1)
+hi
+h’i
+1
+h’i3
+h’i1
+h’i2
+(W1, b1)
+Discussion
+3
+Stack of RNNs
+❖ Recurrent Neural Networks (RNNs)
+❖ Two layers
+AI VIETNAM
+All-in-One Course
+RNN Cell
+RNN Cell
+X1
+X2
+ho
+h1
+h2
+RNN Cell
+RNN Cell
+ko
+k1
+k2
+Wxh
+Whh
+bxh
+Wxh
+Whh
+bxh
+Whk
+Wkk
+bhk
+Whk
+Wkk
+bhk
+h1 = tanh WxhX1 + bxh + Whhh0 + bhh
+h2 = tanh WxhX2 + bxh + Whhh1 + bhh
+k1 = tanh Whkh1 + bhk + Wkkk0 + bkk
+k2 = tanh Whkh2 + bhk + Wkkk1 + bkk
+h1
+h2
+bhh
+bhh
+bkk
+bkk
+4
+❖ Bidirectional RNNs
+RNNs
+AI VIETNAM
+All-in-One Course
+5
+➢RNN in PyTorch
+➢RNNs for Time-Series Data
+➢RNNs for IMDB dataset
+➢From RNN to LSTM
+➢LSTM Applications
+Outline
+Weather Forecasting
+❖Introduction
+AI VIETNAM
+AI Course 2022
+Predict future temperature in weather forecasting
+6
+Weather Forecasting
+❖Introduction
+AI VIETNAM
+AI Course 2022
+Problem Statement: Given temperature from the previous 5 hours (including the current one), predict 
+temperature of the next 1 hour. 
+Hour
+13:00
+14:00
+15:00
+16:00
+17:00
+18:00
+19:00
+20:00
+Condition
+Temperature
+32
+31
+31
+30
+29
+26
+25
+7
+Time-series Data
+Temperature 
+forecasting
+AI VIETNAM
+All-in-One Course
+8
+Weather Forecasting
+❖Introduction
+AI VIETNAM
+AI Course 2022
+Time
+Temperature (C)
+2006-04-01 00:00:00.000 +0200
+9.472222
+2006-04-01 01:00:00.000 +0200
+9.355556
+2006-04-01 02:00:00.000 +0200
+9.377778
+2006-04-01 03:00:00.000 +0200 
+8.288889
+2006-04-01 04:00:00.000 +0200
+8.755556
+2006-04-01 05:00:00.000 +0200
+9.222222
+X
+y
+Temperature forecasting datatable
+9
+Time-series Data
+Temperature forecasting
+AI VIETNAM
+All-in-One Course
+10
+Time-series Data
+Temperature forecasting
+AI VIETNAM
+All-in-One Course
+Input
+RNN Cell
+1
+1
+RNN Cell
+RNN Cell
+X1
+X5
+ho
+h1
+h5
+Wxh
+Whh
+bxh
+Wxh
+Whh
+bxh
+h4
+…
+X1
+X2
+X3
+X4
+X5
+Xi
+bhh
+bhh
+11
+Example
+Wxh =
+0.6584
+−0.1671
+Whh = 0.5147 
+−0.1310
+0.6606 
+−0.1671
+bxh = −0.5966
+0.0945
+bhh =
+0.6599
+−0.2662
+WxhX1 + bxh
+WxhX2 + bxh
+tanh(.)
+tanh(.)
+WxhX3 + bxh
+tanh(.)
+z1
+Whhh1 + bhh
+Whhh2 + bhh
+z2
+tanh(.)
+tanh(.)
+WxhX4 + bxh
+WxhX5 + bxh
+Whhh3 + bhh
+z3
+z4
+z5
+Whhh4 + bhh
++
++
++
++
++
+Whhh0 + bhh
+X1 = 1.2
+X2 = 1.4
+X3 = 2.1
+X4 = 2.6
+X5 = 3.5
+h1 =
+0.6928
+−0.3559
+h2 = 0.8828
+0.1111
+h3 = 0.9550
+0.0420
+h4 = 0.9785
+0.0177
+h5 =
+0.9936
+−0.1126
+h0 = 0.0
+0.0
+12
+Implementation
+Temperature forecasting
+AI VIETNAM
+All-in-One Course
+X1
+X2
+X3
+…
+X5
+X64
+Model
+ො𝑦
+𝑦
+loss
+update
+(optimizer)
+Input
+RNN Cell
+1
+Output
+1
+Xi
+1
+h32
+13
+Implementation
+Back to Temperature forecasting
+AI VIETNAM
+All-in-One Course
+Input
+RNN Cell
+1
+Output
+1
+…
+Xi
+1
+h32
+14
+sequence_length = 64
+embed_dim = 1
+𝑛𝑢𝑚_𝑟𝑛𝑛_𝑙𝑎𝑦𝑒𝑟𝑠, 𝑁, ℎ𝑖𝑑𝑑𝑒𝑛_𝑠𝑖𝑧𝑒
+hidden_dim = 32
+output_dim = 1
+Implementation
+Input
+RNN Cell
+1
+Output
+1
+…
+Xi
+RNN Cell
+1
+…
+RNN Cell
+1
+… ℎ32
+(3)
+ℎ1
+(1)
+ℎ32
+(1)
+ℎ1
+(2)
+ℎ32
+(2)
+…
+…
+sequence_length = 64
+embed_dim = 1
+hidden_dim = 32
+output_dim = 1
+Stack of three RNNs
+AI VIETNAM
+All-in-One Course
+Implementation
+Data preparation
+AI VIETNAM
+All-in-One Course
+train_data_length = 5
+lag = sequence_length = 3
+ahead = 1
+lag
+ahead
+lag
+ahead
+range(5-3-1+1) = range(2) → 0, 1
+0
+1
+16
+Implementation
+Train
+-5
+0
+5
+10
+15
+20
+25
+30
+35
+1
+10
+19
+28
+37
+46
+55
+64
+73
+82
+91
+100
+109
+118
+127
+136
+145
+154
+163
+172
+181
+190
+199
+208
+217
+226
+235
+244
+253
+262
+271
+280
+289
+298
+307
+316
+325
+334
+343
+352
+361
+370
+379
+388
+397
+406
+415
+424
+433
+442
+451
+460
+469
+478
+487
+496
+Predicted-Value
+Real-Value
+R2 Score: 0.984
+      MAE: 0.71
+       MSE: 1.23
+17
+Qualitative results from the test data
+𝒚
+11.18
+11.66
+8.97
+0.33-
+-0.61
+1.350.61
+1.35
+𝑅2 = 1 −σ𝑖𝑦𝑖−ො𝑦𝑖2
+σ𝑖𝑦𝑖−𝑦𝑖
+2
+𝑀𝑆𝐸= 1
+𝑁෍
+𝑖=1
+𝑁
+𝑦𝑖−ො𝑦𝑖2
+ത
+ത1 1 .
+5 1
+7. 6 212.27
+11.51
+ത
+7.62
+132.481 5 0
+. 55
+50. 0 6
+0.58
+1.06
+-
+1. 6 3
+0.58
+1.06
+-1.63
+𝑅2 = 1 −132.48 + 150.55 + 50.06
+0.3364 + 1.123 + 2.6569
+ 
+= −79.91
+0.3 3 61.123
+2.6 5 6
+𝒚−ഥ𝒚𝟐
+0.336
+1.123
+2.656
+Common  Metrics for TS Data
+18
+➢RNN in PyTorch
+➢RNNs for Time-Series Data
+➢RNNs for IMDB dataset
+➢From RNN to LSTM
+➢LSTM Applications
+Outline
+-
+50,000 movie review for sentiment analysis
+-
+Consist of: 
++ 25,000 movie review for training
+ 
+ 
+ 
++ 25,000 movie review for testing
+-
+Label: positive – negative
+“A wonderful little production. <br /><br />The filming technique is very unassuming- very old-time-
+BBC fashion and gives a comforting, and sometimes discomforting, sense of realism to the entire 
+piece…..”
+positive
+“This show was an amazing, fresh & innovative idea in the 70's when it first aired. The first 7 or 8 
+years were brilliant, but things dropped off after that. By 1990, the show was not really funny anymore, 
+and it's continued its decline further to the complete waste of time it is today….”
+negative
+“I thought this was a wonderful way to spend time on a too hot summer weekend, sitting in the air 
+conditioned theater and watching a light-hearted comedy. The plot is simplistic, but the dialogue is 
+witty and the characters are likable (even the well bread suspected serial killer)….”
+positive
+“BTW Carver gets a very annoying sidekick who makes you wanna shoot him the first three minutes 
+he's on screen.”
+negative
+Text Classification
+AI VIETNAM
+All-in-One Course
+❖ IMDB dataset
+-
+50,000 movie review for sentiment analysis
+-
+Consist of: 
++ 25,000 movie review for training
+ 
+ 
+ 
++ 25,000 movie review for testing
+-
+Label: positive – negative
+Text 
+Classification
+❖ IMDB dataset
+Using RNN
+Word-1
+Word-2
+Word-500
+RNN Cell
+RNN Cell
+RNN Cell
+RNN Cell
+RNN Cell
+RNN Cell
+hidden_dim=64
+dim=2
+embed_dim = 128
+50
+55
+60
+65
+70
+75
+80
+85
+1
+2
+3
+4
+5
+6
+7
+8
+9 10 11 12 13 14 15 16 17 18 19 20
+Train Accuracy
+Test Accuracy
+Test accuracy: ~68%
+21
+➢RNN in PyTorch
+➢RNNs for Time-Series Data
+➢RNNs for IMDB dataset
+➢From RNN to LSTM
+➢LSTM Applications
+Outline
+LSTM
+❖ Construction
+tanh
+ℎ𝑡
+ℎ𝑡−1
+𝑥𝑡
+𝑊ℎℎ, 𝑏ℎℎ
+𝑊𝑥ℎ, 𝑏𝑥ℎ
+RNN
+h2 = tanh WxhX2 + bxh + Whhh1 + bhh
+h3 = tanh WxhX3 + bxh + Whhh2 + bhh
+h4 = tanh WxhX4 + bxh + Whhh3 + bhh
+h5 = tanh WxhX5 + bxh + Whhh4 + bhh
+h1 = tanh WxhX1 + bxh + Whhh0 + bhh
+h0 = 𝟎
+bhh = 𝟎
+WxhX1 + bxh
+WxhX2 + bxh
+tanh(.)
+tanh(.)
+z1
+h1
+Whhh1 + bhh
+Whhh2 + bhh
+z2
+h2
++
+h0
++
+Whhh0 + bhh
+ht = tanh WxhXt + bxh + Whhh(t−1) + bhh
+22
+tanh
++
+𝑐𝑡−1
+𝑐𝑡
+tanh
+ℎ𝑡
+ℎ𝑡−1
+𝑥𝑡
+𝑔𝑡
+LSTM
+AI VIETNAM
+All-in-One Course
+❖ Construction
+𝑔𝑡= tanh Wigxt + big + Whgh(t−1) + bhg
+h0 = 𝟎
+b.. = 𝟎
+c0 = 𝟎
+𝑐𝑡= 𝑔𝑡+ 𝑐𝑡−1
+𝑐1 = 𝑔1
+ℎ𝑡= tanh 𝑐𝑡
+23
+tanh
+tanh
+*
++
+𝑐𝑡−1
+𝑐𝑡
+ℎ𝑡
+*
+ℎ𝑡−1
+𝑥𝑡
+*
+𝑓𝑡
+𝑖𝑡
+𝑔𝑡
+𝑜𝑡
+LSTM
+❖ Construction
+h0 = 𝟎
+b.. = 𝟎
+c0 = 𝟎
+𝑖𝑡= 𝜎Wiixt + bii + Whih(t−1) + bhi
+𝑓𝑡= 𝜎Wifxt + bif + Whfh(t−1) + bhf
+𝑜𝑡= 𝜎Wi𝑜xt + bi𝑜+ Wh𝑜h(t−1) + bh𝑜
+24
+tanh
+tanh
+*
++
+𝑐𝑡−1
+𝑐𝑡
+ℎ𝑡
+ℎ𝑡−1
+𝑥𝑡
+𝜎
+*
+𝜎
+𝜎
+ℎ𝑡−1
+𝑥𝑡
+ℎ𝑡−1
+𝑥𝑡
+ℎ𝑡−1
+𝑥𝑡
+*
+𝑓𝑡
+𝑖𝑡
+𝑔𝑡
+𝑜𝑡
+LSTM
+❖ Construction
+h0 = 𝟎
+b.. = 𝟎
+c0 = 𝟎
+𝑔𝑡= tanh Wigxt + big + Whgh(t−1) + bhg
+𝑐𝑡= 𝑓𝑡⊙𝑔𝑡+ 𝑖𝑡⊙𝑐𝑡−1
+ℎ𝑡= 𝑜𝑡⊙tanh 𝑐𝑡
+𝑖𝑡= 𝜎Wiixt + bii + Whih(t−1) + bhi
+𝑓𝑡= 𝜎Wifxt + bif + Whfh(t−1) + bhf
+𝑜𝑡= 𝜎Wi𝑜xt + bi𝑜+ Wh𝑜h(t−1) + bh𝑜
+25
+tanh
+tanh
+*
++
+𝑐𝑡−1
+𝑐𝑡
+ℎ𝑡
+ℎ𝑡−1
+𝑥𝑡
+𝜎
+*
+𝜎
+𝜎
+*
+𝑓𝑡
+𝑖𝑡
+𝑔𝑡
+𝑜𝑡
+LSTM
+❖ Construction
+h0 = 𝟎
+b.. = 𝟎
+c0 = 𝟎
+𝑔𝑡= tanh Wigxt + big + Whgh(t−1) + bhg
+𝑐𝑡= 𝑓𝑡⊙𝑔𝑡+ 𝑖𝑡⊙𝑐𝑡−1
+ℎ𝑡= 𝑜𝑡⊙tanh 𝑐𝑡
+𝑖𝑡= 𝜎Wiixt + bii + Whih(t−1) + bhi
+𝑓𝑡= 𝜎Wifxt + bif + Whfh(t−1) + bhf
+𝑜𝑡= 𝜎Wi𝑜xt + bi𝑜+ Wh𝑜h(t−1) + bh𝑜
+26
+Text Deep Models
+❖ Long short-term memory
+AI VIETNAM
+All-in-One Course
+LSTM Cell
+X1
+ho
+co
+LSTM Cell
+X2
+h1
+c1
+LSTM Cell
+X3
+h2
+c2
+27
+➢RNN in PyTorch
+➢RNNs for Time-Series Data
+➢RNNs for IMDB dataset
+➢From RNN to LSTM
+➢LSTM Applications
+Outline
+Time-series Data
+Temperature forecasting
+AI VIETNAM
+All-in-One Course
+28
+❖LSTM
+-5
+0
+5
+10
+15
+20
+25
+30
+1
+10
+19
+28
+37
+46
+55
+64
+73
+82
+91
+100
+109
+118
+127
+136
+145
+154
+163
+172
+181
+190
+199
+208
+217
+226
+235
+244
+253
+262
+271
+280
+289
+298
+307
+316
+325
+334
+343
+352
+361
+370
+379
+388
+397
+406
+415
+424
+433
+442
+451
+460
+469
+478
+487
+496
+Predicted-Value
+Real-Value
+R2 Score: 0.986
+      MAE: 0.67
+       MSE: 1.06
+29
+Text Deep Models
+Long short-term memory
+Word-1
+Word-2
+Word-500
+LSTM Cell
+LSTM Cell
+LSTM Cell
+LSTM Cell
+LSTM Cell
+LSTM Cell
+hidden_dim=64
+dim=2
+embed_dim = 128
+30
+Text Deep Models
+Long short-term memory
+Word-1
+Word-2
+Word-500
+LSTM Cell
+LSTM Cell
+LSTM Cell
+LSTM Cell
+LSTM Cell
+LSTM Cell
+hidden_dim=64
+dim=2
+embed_dim = 128
+50
+55
+60
+65
+70
+75
+80
+85
+1
+2
+3
+4
+5
+6
+7
+8
+9 10 11 12 13 14 15 16 17 18 19 20
+Train Accuracy
+Test Accuracy
+(RNN) Test accuracy: ~68%
+50
+60
+70
+80
+90
+100
+110
+1
+2
+3
+4
+5
+6
+7
+8
+9 10 11 12 13 14 15 16 17 18 19 20
+Train Accuracy
+Test Accuracy
+(LSTM) Test accuracy: ~87%
+31
+Text Deep Models
+❖ Bidirectional RNN/LSTM/GRU
+32
+AI VIETNAM
+All-in-One Course
+Text Deep Models
+❖ Bidirectional RNN/LSTM
+AI VIETNAM
+All-in-One Course
+50
+60
+70
+80
+90
+100
+110
+1
+2
+3
+4
+5
+6
+7
+8
+9 10 11 12 13 14 15 16 17 18 19 20
+Train Accuracy
+Test Accuracy
+(LSTM) Test accuracy: ~88%
+33
+RNN
+WxhX3 + bxh
+tanh(.)
+tanh(.)
+tanh(.)
+WxhX4 + bxh
+WxhX5 + bxh
+Whhh3 + bhh
+z4
+h4
+z5
+h5
+Whhh4 + bhh
++
++
++
+WxhX1 + bxh
+WxhX2 + bxh
+tanh(.)
+tanh(.)
+z1
+h1
+Whhh1 + bhh
+Whhh2 + bhh
+z2
+h2
+z3
+h3
++
+h0
++
+Whhh0 + bhh
+h2 = tanh WxhX2 + bxh + Whhh1 + bhh
+h3 = tanh WxhX3 + bxh + Whhh2 + bhh
+h4 = tanh WxhX4 + bxh + Whhh3 + bhh
+h5 = tanh WxhX5 + bxh + Whhh4 + bhh
+h1 = tanh WxhX1 + bxh + Whhh0 + bhh
+h0 = 𝟎
+bhh = 𝟎
+ht = tanh WxhXt + bxh + Whhh(t−1) + bhh
+Text Deep Models
+❖ Recurrent Neural Networks (RNN) - Classification
+AI VIETNAM
+All-in-One Course
+Loss: J θ
+Compute: 
+𝜕J
+𝜕Wxh
+Backpropagation
+h3 = tanh (Whhh2 + bhh + Wxhx3 + bxh)
+h2 = tanh (Whhh1 + bhh + Wxhx2 + bxh)
+𝜕J
+𝜕Wxh
+= 𝜕J
+𝜕h3
+𝜕h3
+𝜕Wxh
++ 𝜕J
+𝜕h3
+𝜕h3
+𝜕h2
+34
+Text Deep Models
+❖ Recurrent Neural Networks (RNN) - Classification
+AI VIETNAM
+All-in-One Course
+Loss: J θ
+Compute: 
+𝜕J
+𝜕Wxh
+Backpropagation
+h3 = tanh (Whhh2 + bhh + Wxhx3 + bxh)
+h2 = tanh (Whhh1 + bhh + Wxhx2 + bxh)
+h1 = tanh (Whhh0 + bhh + Wxhx1 + bxh)
+𝜕J
+𝜕Wxh
+= 𝜕J
+𝜕h3
+𝜕h3
+𝜕Wxh
++ 𝜕J
+𝜕h3
+𝜕h3
+𝜕h2
+𝜕h2
+𝜕Wxh
++ 𝜕h2
+𝜕h1
+= 𝜕J
+𝜕h3
+𝜕h3
+𝜕Wxh
++ 𝜕J
+𝜕h3
+𝜕h3
+𝜕h2
+𝜕h2
+𝜕Wxh
++ 𝜕J
+𝜕h3
+𝜕h3
+𝜕h2
+𝜕h2
+𝜕h1
+35
+Text Deep Models
+❖ Recurrent Neural Networks (RNN) - Classification
+AI VIETNAM
+All-in-One Course
+Loss: J θ
+Compute: 
+𝜕J
+𝜕Wxh
+Backpropagation
+𝜕J
+𝜕Wxh
+= 𝜕J
+𝜕h3
+𝜕h3
+𝜕Wxh
++ 𝜕J
+𝜕h3
+𝜕h3
+𝜕h2
+𝜕h2
+𝜕Wxh
++ 𝜕J
+𝜕h3
+𝜕h3
+𝜕h2
+𝜕h2
+𝜕h1
+𝜕h1
+𝜕Wxh
+h3 = tanh (Whhh2 + bhh + Wxhx3 + bxh)
+h2 = tanh (Whhh1 + bhh + Wxhx2 + bxh)
+h1 = tanh (Whhh0 + bhh + Wxhx1 + bxh)
+36
+Text Deep Models
+❖ Recurrent Neural Networks (RNN) - Classification
+AI VIETNAM
+All-in-One Course
+Loss: J θ
+Compute: 
+𝜕J
+𝜕Wxh
+Backpropagation
+𝜕J
+𝜕Wxh
+= ෍
+k=1
+T
+𝜕J
+𝜕hT
+𝜕hT
+𝜕hk
+𝜕hk
+𝜕Wxh
+𝜕hT
+𝜕hT−1
+𝜕hT−1
+𝜕hT−2 …
+𝜕hk+2
+𝜕hk+1
+𝜕hk+1
+𝜕hk
+h3 = tanh (Whhh2 + bhh + Wxhx3 + bxh)
+h2 = tanh (Whhh1 + bhh + Wxhx2 + bxh)
+h1 = tanh (Whhh0 + bhh + Wxhx1 + bxh)

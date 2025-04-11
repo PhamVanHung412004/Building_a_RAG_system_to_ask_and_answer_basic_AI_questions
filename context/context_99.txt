@@ -1,0 +1,758 @@
+AI VIET NAM – COURSE 2024
+Python OOP – Exercise
+Ngày 15 tháng 6 năm 2024
+I. Câu hỏi tựluận
+1. Viết class và cài phương thức softmax.
+Trong pytorch, torch.nn.Module là lớp cơ bản đểtừđó xây dựng lên các mô hình hoặc các phương
+thức kích hoạt (activation funtion) như sigmoid, softmax,... Trong phần này, chúng ta xây dựng
+class Softmax và softmax_stable nhận đầu vào là mảng 1 chiều (tensor 1 chiều) dựa vào kếthừa
+từlớp Module và ghi đè vào phương thức forward() theo công thức sau đây:
+Hình 1: Softmax
+1 # Examples 1
+2 data = torch.Tensor ([1, 2, 3])
+3 softmax = Softmax ()
+4 output = softmax(data)
+5 output
+6 >> tensor ([0.0900 , 0.2447 ,
+0.6652])
+7
+8 data = torch.Tensor ([1, 2, 3])
+9 softmax_stable = softmax_stable ()
+10 output = softmax_stable(data)
+11 output
+12 >> tensor ([0.0900 , 0.2447 ,
+0.6652])
+1
+AI VIETNAM
+aivietnam.edu.vn
+2. Một Ward (phường) gồm có name (string) và danh sách của mọi người trong Ward.
+Một người person có thểlà student, doctor, hoặc teacher. Một student gồm có name,
+yob (int) (năm sinh), và grade (string). Một teacher gồm có name, yob, và subject
+(string). Một doctor gồm có name, yob, và specialist (string). Lưu ý cần sửdụng a
+list đểchứa danh sách của mọi người trong Ward.
+(a) Cài đặt các class Student, Doctor, và Teacher theo mô tảtrên. Thực hiện phương thức
+describe() method đểin ra tất cảthông tin của các object.
+(b) Viết add_person(person) method trong Ward class đểadd thêm một người mới với nghề
+nghiệp bất kỳ(student, teacher, doctor) vào danh sách người của ward. Tạo ra một ward
+object, và thêm vào 1 student, 2 teacher, và 2 doctor. Thực hiện describe() method đểin ra
+tên ward (name) và toàn bộthông tin của từng người trong ward.
+(c) Viết count_doctor() method đểđếm sốlượng doctor trong ward.
+(d) Viết sort_age() method đểsort mọi người trong ward theo tuổi của họvới thứtựtăng dần.
+(hint: Có thểsửdụng sort của list hoặc viết thêm function đều được)
+(e) Viết compute_average() method đểtính trung bình năm sinh của các teachers trong ward.
+1 # Examples
+2 # 2(a)
+3 student1 = Student(name="studentA", yob =2010 , grade="7")
+4 student1.describe ()
+5 #output
+6 >> Student - Name: studentA - YoB: 2010 - Grade: 7
+7
+8 teacher1 = Teacher(name="teacherA", yob =1969 ,
+subject="Math")
+9 teacher1.describe ()
+10 #output
+11 >> Teacher - Name: teacherA - YoB: 1969 - Subject: Math
+12
+13 doctor1 = Doctor(name="doctorA", yob =1945 ,
+specialist=" Endocrinologists ")
+14 doctor1.describe ()
+15 #output
+16 >> Doctor - Name: doctorA - YoB: 1945 - Specialist: Endocrinologists
+17
+18
+19 # 2(b)
+20 print ()
+21 teacher2 = Teacher(name="teacherB", yob =1995 ,
+subject="History")
+22 doctor2 = Doctor(name="doctorB", yob =1975 ,
+specialist=" Cardiologists ")
+23 ward1 = Ward(name="Ward1")
+24 ward1.add_person(student1)
+25 ward1.add_person(teacher1)
+26 ward1.add_person(teacher2)
+27 ward1.add_person(doctor1)
+28 ward1.add_person(doctor2)
+29 ward1.describe ()
+30
+31 #output
+32 >> Ward Name: Ward1
+33 Student - Name: studentA - YoB: 2010 - Grade: 7
+34 Teacher - Name: teacherA - YoB: 1969 - Subject: Math
+35 Teacher - Name: teacherB - YoB: 1995 - Subject: History
+36 Doctor - Name: doctorA - YoB: 1945 - Specialist: Endocrinologists
+37 Doctor - Name: doctorB - YoB: 1975 - Specialist: Cardiologists
+38
+39 # 2(c)
+2
+AI VIETNAM
+aivietnam.edu.vn
+40 print(f"\nNumber of doctors: {ward1.count_doctor ()}")
+41
+42 #output
+43 >> Number of doctors: 2
+44
+45 # 2(d)
+46 print("\nAfter
+sorting
+Age of Ward1
+people")
+47 ward1.sort_age ()
+48 ward1.describe ()
+49
+50 #output
+51 >> After
+sorting
+Age of Ward1
+people
+52 Ward Name: Ward1
+53 Student - Name: studentA - YoB: 2010 - Grade: 7
+54 Teacher - Name: teacherB - YoB: 1995 - Subject: History
+55 Doctor - Name: doctorB - YoB: 1975 - Specialist: Cardiologists
+56 Teacher - Name: teacherA - YoB: 1969 - Subject: Math
+57 Doctor - Name: doctorA - YoB: 1945 - Specialist: Endocrinologists
+58
+59 # 2(e)
+60 print(f"\nAverage
+year of birth (teachers): {ward1. compute_average ()}")
+61
+62 #output
+63 >> Average
+year of birth (teachers): 1982.0
+3
+AI VIETNAM
+aivietnam.edu.vn
+Hình 2: Stack
+3. Thực hiện xây dựng class Stack với các phương thức (method) sau đây
+• initialization method nhận một input "capacity": dùng đểkhởi tạo stack với capacity là số
+lượng element mà stack có thểchứa
+• .is_empty(): kiểm tra stack có đang rỗng
+• .is_full(): kiểm tra stack đã full chưa
+• .pop(): loại bỏtop element và trảvềgiá trịđó
+• .push(value) add thêm value vào trong stack
+• .top() lấy giá trịtop element hiện tại của stack, nhưng không loại bỏgiá trịđó
+• Không cần thiết phải thực hiện với pointer như trong hình minh họa
+1 stack1 = MyStack(capacity =5)
+2
+3 stack1.push (1)
+4
+5 stack1.push (2)
+6
+7 print(stack1.is_full ())
+8 >> False
+9
+10 print(stack1.top())
+11 >>2
+12
+13 print(stack1.pop())
+14 >> 2
+15
+16 print(stack1.top())
+17 >> 1
+18
+19 print(stack1.pop())
+20 >> 1
+21
+22 print(stack1.is_empty ())
+23 >> True
+4
+AI VIETNAM
+aivietnam.edu.vn
+Hình 3: Queue
+4. Thực hiện xây dựng class Queue với các chức năng (method) sau đây
+• initialization method nhận một input "capacity": dùng đểkhởi tạo queue với capacity là
+sốlượng element mà queue có thểchứa
+• .is_empty(): kiểm tra queue có đang rỗng
+• .is_full(): kiểm tra queue đã full chưa
+• .dequeue(): loại bỏfirst element và trảvềgiá trịđó
+• .enqueue(value) add thêm value vào trong queue
+• .front() lấy giá trịfirst element hiện tại của queue, nhưng không loại bỏgiá trịđó
+• Không cần thiết phải thực hiện với các pointers như trong hình minh họa
+1 queue1 = MyQueue(capacity =5)
+2
+3 queue1.enqueue (1)
+4
+5 queue1.enqueue (2)
+6
+7 print(queue1.is_full ())
+8 >> False
+9
+10 print(queue1.front ())
+11 >> 1
+12
+13 print(queue1.dequeue ())
+14 >> 1
+15
+16 print(queue1.front ())
+17 >> 2
+18
+19 print(queue1.dequeue ())
+20 >> 2
+21
+22 print(queue1.is_empty ())
+23 >> True
+5
+AI VIETNAM
+aivietnam.edu.vn
+II. Câu hỏi trắc nghiệm
+Câu hỏi 1: Kết quảcủa đoạn code dưới đây là bao nhiêu.
+1 import
+torch
+2 import
+torch.nn as nn
+3
+4 data = torch.Tensor ([1, 2, 3])
+5 softmax_function = nn.Softmax(dim =0)
+6 output = softmax_function (data)
+7 assert
+round(output [0]. item (), 2) == 0.09
+8 output
+a) [0.0900, 0.2747, 0.6652]
+b) [0.0700, 0.2447, 0.6652]
+c) [0.0900, 0.2447, 0.6652]
+d) [0.1900, 0.2447, 0.6692]
+Câu hỏi 2: Hoàn thành đoạn code sau đây theo công thức tính softmax.
+1 import
+torch
+2 import
+torch.nn as nn
+3
+4 class
+MySoftmax(nn.Module):
+5
+def
+__init__(self):
+6
+super ().__init__ ()
+7
+8
+def
+forward(self , x):
+9
+### Your Code Here
+10
+11
+### End Code Here
+12
+13 data = torch.Tensor ([5, 2, 4])
+14 my_softmax = MySoftmax ()
+15 output = my_softmax(data)
+16 assert
+round(output [-1]. item (), 2) == 0.26
+17 output
+a) [0.0900, 0.2747, 0.6652]
+b) [0.7054, 0.0351, 0.2595]
+c) [0.0900, 0.2447, 0.6652]
+d) [0.7054, 0.0351, 0.009]
+Câu hỏi 3: Hoàn thành đoạn code sau đây theo công thức tính softmax.
+1 import
+torch
+2 import
+torch.nn as nn
+3
+4 class
+MySoftmax(nn.Module):
+5
+def
+__init__(self):
+6
+super ().__init__ ()
+7
+8
+def
+forward(self , x):
+9
+### Your Code Here
+10
+6
+AI VIETNAM
+aivietnam.edu.vn
+11
+### End Code Here
+12
+13 data = torch.Tensor ([1, 2, 300000000])
+14 my_softmax = MySoftmax ()
+15 output = my_softmax(data)
+16 assert
+round(output [0]. item (), 2) == 0.0
+17 output
+a) [0.0900, 0.2747, 0.6652]
+b) [0.7054, 0.0351, 0.2595]
+c) [0., 0., nan]
+d) [0.7054, 0.0351, 0.009]
+Câu hỏi 4: Hoàn thành đoạn code sau đây theo công thức tính stable softmax.
+1 import
+torch
+2 import
+torch.nn as nn
+3
+4 class
+SoftmaxStable(nn.Module):
+5
+def
+__init__(self):
+6
+super ().__init__ ()
+7
+8
+def
+forward(self , x):
+9
+x_max = torch.max(x, dim=0, keepdims=True)
+10
+x_exp = torch.exp(x - x_max.values)
+11
+partition = x_exp.sum(0, keepdims=True)
+12
+return
+x_exp / partition
+13
+14 data = torch.Tensor ([1, 2, 3])
+15 softmax_stable = SoftmaxStable ()
+16 output = softmax_stable(data)
+17 assert
+round(output [-1]. item (), 2) == 0.67
+18 output
+a) [0.0900, 0.2747, 0.6652]
+b) [0.0900, 0.2447, 0.6652]
+c) [0., 0., nan]
+d) [0.7054, 0.0351, 0.009]
+Câu hỏi 5: Một người (person) có thểlà student, doctor, hoặc teacher. Một student gồm có name
+(string), yob (int) (năm sinh), và grade (string). Các bạn thực hiện viết class Student theo mô tả
+trên (Các bạn sẽviết thêm describe() method đểprint ra tất cảthông tin của object) và kết quả
+đầu ra là gì? Chọn đáp án đúng nhất bên dưới.
+1 from abc import ABC , abstractmethod
+2
+3 class
+Person(ABC):
+4
+def
+__init__(self , name:str , yob:int):
+5
+self._name = name
+6
+self._yob = yob
+7
+8
+def
+get_yob(self):
+9
+return
+self._yob
+10
+11
+@abstractmethod
+7
+AI VIETNAM
+aivietnam.edu.vn
+12
+def
+describe(self):
+13
+pass
+14
+15
+16 class
+Student(Person):
+17
+def
+__init__(self , name:str , yob:int , grade:str):
+18
+### Your Code Here
+19
+20
+### End Code Here
+21
+22
+def
+describe(self):
+23
+### Your Code Here
+24
+25
+### End Code Here
+26
+27 student1 = Student(name="studentZ2023", yob =2011 , grade="6")
+28 assert
+student1._yob == 2011
+29 student1.describe ()
+a) Student - Name: studentZ2023 - YoB: 2011 - Grade: 6
+b) Student - Name: studentZ2023 - YoB: 6 - Grade: 2011
+c) Student - Name: 6 - YoB: studentZ2023 - Grade: 2011
+d) Tất cảđều sai
+Câu hỏi 6: Một người (person) có thểlà student, doctor, hoặc teacher. Một teacher gồm có name
+(string), yob (int), và subject (string). Các bạn thực hiện viết class Teacher theo mô tảtrên (Các
+bạn sẽviết thêm describe() method đểprint ra tất cảthông tin của object) và kết quảđầu ra là
+gì? Chọn đáp án đúng nhất bên dưới.
+1 from abc import ABC , abstractmethod
+2
+3 class
+Person(ABC):
+4
+def
+__init__(self , name:str , yob:int):
+5
+self._name = name
+6
+self._yob = yob
+7
+8
+def
+get_yob(self):
+9
+return
+self._yob
+10
+11
+@abstractmethod
+12
+def
+describe(self):
+13
+pass
+14
+15
+16 class
+Teacher(Person):
+17
+def
+__init__(self , name:str , yob:int , subject:str):
+18
+### Your Code Here
+19
+20
+### End Code Here
+21
+22
+def
+describe(self):
+23
+### Your Code Here
+24
+25
+### End Code Here
+26
+27 teacher1 = Teacher(name="teacherZ2023", yob =1991 ,
+subject="History")
+28 assert
+teacher1._yob == 1991
+29 teacher1.describe ()
+8
+AI VIETNAM
+aivietnam.edu.vn
+a) Teacher - Name: 1991 - YoB: teacherZ2023 - Subject: History
+b) Teacher - Name: teacherZ2023 - YoB: 1991 - Subject: History
+c) Teacher - Name: History - YoB: teacherZ2023 - Subject: 1991
+d) Tất cảđều sai
+Câu hỏi 7: Một người (person) có thểlà student, doctor, hoặc teacher. Một doctor gồm có name
+(string), yob (string), và specialist (string). Các bạn thực hiện viết class Teacher theo mô tảtrên
+(Các bạn sẽviết thêm describe() method đểprint ra tất cảthông tin của object) và kết quảđầu
+ra là gì? Chọn đáp án đúng nhất bên dưới.
+1 from abc import ABC , abstractmethod
+2
+3 class
+Person(ABC):
+4
+def
+__init__(self , name:str , yob:int):
+5
+self._name = name
+6
+self._yob = yob
+7
+8
+def
+get_yob(self):
+9
+return
+self._yob
+10
+11
+@abstractmethod
+12
+def
+describe(self):
+13
+pass
+14
+15
+16 class
+Doctor(Person):
+17
+def
+__init__(self , name:str , yob:int , specialist:str):
+18
+### Your Code Here
+19
+20
+### End Code Here
+21
+22
+def
+describe(self):
+23
+### Your Code Here
+24
+25
+### End Code Here
+26
+27 doctor1 = Doctor(name="doctorZ2023", yob =1981 ,
+specialist=" Endocrinologists ")
+28 assert
+doctor1._yob == 1981
+29 doctor1.describe ()
+a) Doctor - Name: doctorZ2023 - YoB: 1981 - Specialist: Endocrinologists
+b) Doctor - Name: 1981 - YoB: doctorZ2023 - Specialist: Endocrinologists
+c) Teacher - Name: History - YoB: teacherZ2023 - Subject: 1991
+d) Tất cảđều sai
+Câu hỏi 8 Một Ward gồm có name (string) và danh sách của mọi người trong Ward. Một người
+person có thểlà student, doctor, hoặc teacher và cần sửdụng một list đểchứa danh sách của mọi
+người trong Ward. Viết add_person(person) method trong Ward class đểadd thêm một người
+mới với nghềnghiệp bất kỳ(student, teacher, doctor) vào danh sách người của ward. Tạo ra một
+ward object, và thêm vào 1 student, 2 teacher, và 2 doctor. Thực hiện describe() method đểin ra
+tên ward (name) và toàn bộthông tin của từng người trong ward. Chọn đáp án đúng nhất bên
+dưới cho phương thức đếm sốlượng doctor.
+9
+AI VIETNAM
+aivietnam.edu.vn
+1 class
+Ward:
+2
+def
+__init__(self , name:str):
+3
+self.__name = name
+4
+self.__listPeople = list ()
+5
+6
+def
+add_person(self , person:Person):
+7
+self.__listPeople.append(person)
+8
+9
+def
+describe(self):
+10
+print(f"Ward Name: {self.__name}")
+11
+for p in self.__listPeople:
+12
+p.describe ()
+13
+14
+def
+count_doctor(self):
+15
+### Your Code Here
+16
+17
+### End Code Here
+18
+19 student1 = Student(name="studentA", yob =2010 , grade="7")
+20 teacher1 = Teacher(name="teacherA", yob =1969 ,
+subject="Math")
+21 teacher2 = Teacher(name="teacherB", yob =1995 ,
+subject="History")
+22 doctor1 = Doctor(name="doctorA", yob =1945 ,
+specialist=" Endocrinologists ")
+23 assert
+ward1.count_doctor () == 1
+24 doctor2 = Doctor(name="doctorB", yob =1975 ,
+specialist=" Cardiologists ")
+25 ward1 = Ward(name="Ward1")
+26 ward1.add_person(student1)
+27 ward1.add_person(teacher1)
+28 ward1.add_person(teacher2)
+29 ward1.add_person(doctor1)
+30 ward1.add_person(doctor2)
+31 ward1.count_doctor ()
+a) 4
+b) 3
+c) 2
+d) 1
+Câu hỏi 9 Thực hiện xây dựng class Stack với các chức năng (method) sau đây: initial- ization
+method nhận một input "capacity": dùng đểkhởi tạo stack với capacity là sốlượng element mà
+stack có thểchứa. .is_full(): kiểm tra stack đã full chưa. .push(value) add thêm value vào trong
+stack. Kết quảđầu ra là gì?
+1 class
+MyStack:
+2
+def
+__init__(self , capacity):
+3
+self.__capacity = capacity
+4
+self.__stack = []
+5
+6
+def
+is_full(self):
+7
+return len(self.__stack) == self.__capacity
+8
+9
+def push(self , value):
+10
+### Your Code Here
+11
+12
+### End Code Here
+13
+14 stack1 = MyStack(capacity =5)
+15 stack1.push (1)
+10
+AI VIETNAM
+aivietnam.edu.vn
+16 assert
+stack1.is_full () == False
+17 stack1.push (2)
+18 print(stack1.is_full ())
+a) True
+b) False
+c) None
+d) Raise an error
+Câu hỏi 10: Thực hiện xây dựng class Stack với các chức năng (method) sau đây: initialization
+method nhận một input "capacity", dùng đểkhởi tạo stack với capacity là sốlượng element mà
+stack có thểchứa. Phương thức is_empty(): kiểm tra stack có đang rỗng. Phương thức is_full():
+kiểm tra stack đã full chưa. Phương thức push(value) add thêm value vào trong stack. Phương
+thức top() lấy giá trịtop element hiện tại của stack, nhưng không loại bỏgiá trịđó. Kết quảđầu
+ra là gì?
+1 class
+MyStack:
+2
+def
+__init__(self , capacity):
+3
+self.__capacity = capacity
+4
+self.__stack = []
+5
+6
+def
+is_full(self):
+7
+return len(self.__stack) == self.__capacity
+8
+9
+def push(self , value):
+10
+### Your Code Here
+11
+12
+### End Code Here
+13
+14
+def top(self):
+15
+### Your Code Here
+16
+17
+# End Code Here
+18
+19 stack1 = MyStack(capacity =5)
+20 stack1.push (1)
+21 assert
+stack1.is_full () == False
+22 stack1.push (2)
+23 print(stack1.top())
+a) 1
+b) 2
+c) None
+d) Raise an error
+Câu hỏi 11: Thực hiện xây dựng class Queue với các chức năng (method) sau đây: initialization
+method nhận một input "capacity", dùng đểkhởi tạo queue với capacity là sốlượng element mà
+queue có thểchứa. Phương thức is_full(): kiểm tra queue đã full chưa. Phương thức enqueue(value)
+thêm value vào trong queue. Kết quảđầu ra là gì?
+1 class
+MyQueue:
+2
+def
+__init__(self , capacity):
+3
+self.__capacity = capacity
+4
+self.__queue = []
+11
+AI VIETNAM
+aivietnam.edu.vn
+5
+6
+def
+is_full(self):
+7
+return len(self.__queue) == self.__capacity
+8
+9
+def
+enqueue(self , value):
+10
+### Your Code Here
+11
+12
+### End Code Here
+13
+14 queue1 = MyQueue(capacity =5)
+15 queue1.enqueue (1)
+16 assert
+queue1.is_full () == False
+17 queue1.enqueue (2)
+18 print(queue1.is_full ())
+a) False
+b) True
+c) None
+d) Raise an error
+Câu hỏi 12: Thực hiện xây dựng class Queue với các chức năng (method) sau đây: initialization
+method nhận một input "capacity" dùng đểkhởi tạo queue với capacity là sốlượng element mà
+queue có thểchứa. Phương thức is_full(): kiểm tra queue đã full chưa. Phương thức enqueue(value)
+add thêm value vào trong queue. Phương thức front() lấy giá trịfirst element hiện tại của queue,
+nhưng không loại bỏgiá trịđó. Kết quảđầu ra là gì?
+1 class
+MyQueue:
+2
+def
+__init__(self , capacity):
+3
+self.__capacity = capacity
+4
+self.__queue = []
+5
+6
+def
+isEmpty(self):
+7
+return len(self.__queue) == 0
+8
+9
+def
+is_full(self):
+10
+return len(self.__queue) == self.__capacity
+11
+12
+def
+dequeue(self):
+13
+14
+def
+enqueue(self , value):
+15
+16
+def front(self):
+17
+### Your Code Here
+18
+19
+### End Code Here
+20
+21 queue1 = MyQueue(capacity =5)
+22 queue1.enqueue (1)
+23 assert
+queue1.is_full () == False
+24 queue1.enqueue (2)
+25 print(queue1.front ())
+a) 4
+b) 3
+c) 2
+d) 1
+12

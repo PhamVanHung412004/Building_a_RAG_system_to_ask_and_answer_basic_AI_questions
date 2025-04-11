@@ -1,0 +1,167 @@
+Building LLMs application with 
+LangChain
+Dinh-Thang Duong – TA
+Nguyen-Thuan Duong – TA
+Extra Class: LLMs
+Year 2024
+AI VIETNAM
+All-in-One Course
+(TA Session)
+2
+Objectives
+AI VIETNAM
+All-in-One Course
+(TA Session)
+In this lecture, we will discuss about:
+1. What is LLMs in Production?
+2. What is Langchain?
+3. Basic components of LangChain.
+4. How to use LangChain to deploy an 
+API?
+5. How to use LangChain to deploy a 
+RAG application?
+3
+➢Introduction
+➢LangChain
+➢API with LangChain
+➢RAG with LangChain 
+➢Question
+Outline
+AI VIETNAM
+All-in-One Course
+(TA Session)
+4
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Introduction
+5
+Introduction
+❖ Getting Started
+AI VIETNAM
+All-in-One Course
+(TA Session)
+6
+Introduction
+❖ LLMs size over time
+AI VIETNAM
+All-in-One Course
+(TA Session)
+https://www.reddit.com/r/AILinksandTools/comments/12c4jmk/a_survey_of_all_llms_so_far_2018_to_2022_a/
+7
+Introduction
+❖ LLMs Applications
+AI VIETNAM
+All-in-One Course
+(TA Session)
+https://markovate.com/blog/applications-and-use-cases-of-llm/
+8
+Introduction
+❖ Getting Started
+AI VIETNAM
+All-in-One Course
+(TA Session)
+https://blog.dataiku.com/llm-in-production
+Overview of LLMs in Production
+9
+AI VIETNAM
+All-in-One Course
+(TA Session)
+LangChain
+10
+10
+LangChain
+❖ Introduction
+AI VIETNAM
+All-in-One Course
+(TA Session)
+LangChain: A framework for developing applications 
+powered by large language models (LLMs). LangChain 
+simplifies every stage of the LLM application lifecycle: 
+Development, Productionization, Deployment.
+11
+11
+LangChain
+❖ Introduction
+AI VIETNAM
+All-in-One Course
+(TA Session)
+•
+Development: Build your applications using 
+LangChain's open-source building blocks 
+and components. Hit the ground running 
+using third-party integrations and Templates.
+•
+Productionization: Use LangSmith to inspect, 
+monitor and evaluate your chains, so that you can 
+continuously optimize and deploy with 
+confidence.
+•
+Deployment: Turn any chain into an API 
+with LangServe.
+12
+12
+LangChain
+❖ LangChain components
+AI VIETNAM
+All-in-One Course
+(TA Session)
+https://pub.dev/packages/langchain
+13
+AI VIETNAM
+All-in-One Course
+(TA Session)
+API with LangChain
+14
+14
+API with LangChain
+❖ Introduction
+AI VIETNAM
+All-in-One Course
+(TA Session)
+https://blog.streamlit.io/langchain-tutorial-1-build-an-llm-powered-app-in-18-lines-of-code/
+Description: Serve a LLMs chat application as an API that receive a simple question and return the response of 
+the LLMs (pre-trained model).
+15
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Quiz
+16
+AI VIETNAM
+All-in-One Course
+(TA Session)
+RAG with LangChain
+17
+17
+RAG with LangChain
+❖ Introduction
+AI VIETNAM
+All-in-One Course
+(TA Session)
+https://www.determined.ai/blog/rag
+Description: Serve a LLMs RAG application as an API that receive a simple question and return the response of 
+the LLMs (utilizing context retrieved from a vector database).
+18
+18
+Summary
+AI VIETNAM
+All-in-One Course
+(TA Session)
+In this lecture, we have discussed:
+1. What is LLMs in production?
+1. How is it differ from LLMs in research?
+2. What are some challenges when deploying LLMs in production?
+2. Basics of LangChain
+1. The key concept of LangChain.
+2. Basic components of LangChain: Prompt Template, LLM Chain, Chat History, Document Loader…
+3. How to build an API using LangChain.
+4. How to build a RAG application using LangChain.
+1. Retrieve and answer questions related to Academic Paper.
+?
+19
+Question
+AI VIETNAM
+All-in-One Course
+(TA Session)
+20

@@ -1,0 +1,512 @@
+NLP Course
+Large Language Models
+Prompting Techniques
+Year 2023
+Nguyen Quoc Thai
+AI VIETNAM
+All-in-One Course
+CONTENT
+1
+Large Language Models
+2
+Prompting Techniques
+3
+Learning from Human Feedback
+4
+Experiment
+2
+Ø Transformer
+3
+1 – Large Language Models
+!
+Review
+Ø Decoder-only models (GPT-x models)
+4
+1 – Large Language Models
+!
+Review
+Ø Encoder-only models (BERT, RoBERTa, ELECTRA)
+5
+1 – Large Language Models
+!
+Input BERT
+Review
+Ø Encoder-Decoder models (T5, BART)
+6
+1 – Large Language Models
+Review
+!
+BART model
+7
+1 – Large Language Models
+Why need Large Language Models?
+!
+Ø Pre-training: trained on huge amounts of unlabeled text using “self-supervised” 
+training objective
+Ø Adaptation: how to use a pre-trained model for downstream task?
+8
+1 – Large Language Models
+Why need Large Language Models?
+!
+Ø The promise: one single model to solve 
+many NLP tasks
+Ø Emergent properties in LLMs
+Ø Prompts involve instructions and context passed to a language model to achieve a
+desired task
+Ø Prompt engineering is the practice of developing and optimizing prompts to
+efficiently use language models (LMs) for a variety of applications
+9
+1 – Large Language Models
+Prompt
+!
+10
+1 – Large Language Models
+Elements of a Prompt
+!
+Prompt
+Response
+Language
+Model
+TASK DESCRIPTION
+CURRENT INPUT
+OUTPUT INDICATOR
+EXAMPLE 1
+EXAMPLE 2
+One-shot
+Few-shot
+Ø Three setting for In-Content-Learning
+11
+1 – Large Language Models
+Prompt Examples
+!
+Ø Medium-sized models: BERT/RoBERTa models (100M or 300M), T5 models 
+(220M, 700M, 3B, 11B)
+Ø “Very” large LMs: models of 100+ billion parameters
+GPT3 (175B), BLOOM (176B), PaLM (540B), GLaM (1200B)…
+Ø Larger model sizes => Larger compute, more expensive during inference
+12
+1 – Large Language Models
+Parameter
+!
+Ø Data scale: usually in the order of trillions of tokens
+GPT3 (0.5 trillion tokens), LLaMA (1.4 trillion tokens), …
+Ø Training data: Low-quality data 
+13
+1 – Large Language Models
+Dataset
+!
+Ø Data bottleneck for training
+14
+1 – Large Language Models
+Dataset
+!
+15
+1 – Large Language Models
+A timeline of existing large language models
+!
+16
+1 – Large Language Models
+T5 Model
+!
+Ø Text-to-Text Transfer Transformer
+17
+1 – Large Language Models
+T5 Model
+!
+Ø Every task, one format!
+Ø [“Task-specific prefix]: [Input text]” => “[Output text]”
+18
+1 – Large Language Models
+T5 Model
+!
+Ø Workflow
+19
+1 – Large Language Models
+T5 Model
+!
+Ø Baseline Objective
+20
+1 – Large Language Models
+T5 Model
+!
+Ø Different Attention Mask Patterns
+21
+1 – Large Language Models
+T5 Model
+!
+Ø Transformer architecture variants
+22
+1 – Large Language Models
+T5 Model
+!
+Ø Transformer architecture variants
+23
+1 – Large Language Models
+T5 Model
+!
+Ø Different Unsupervised Objectives
+24
+1 – Large Language Models
+T5 Model
+!
+Ø Different Unsupervised Objectives
+25
+1 – Large Language Models
+T5 Model
+!
+Ø Different Unsupervised Objectives
+26
+1 – Large Language Models
+T5 Model
+!
+Ø Different Unsupervised Objectives
+27
+1 – Large Language Models
+T5 Model
+!
+Ø Different Unsupervised Objectives
+28
+1 – Large Language Models
+T5 Model
+!
+Ø Multi-task
+29
+1 – Large Language Models
+T5 Model
+!
+Ø Multi-task
+30
+1 – Large Language Models
+T5 Model
+!
+Ø Multi-task
+31
+1 – Large Language Models
+T5 Model
+!
+Ø Multi-task
+32
+1 – Large Language Models
+T5 Model
+!
+Ø Multi-task
+33
+1 – Large Language Models
+T5 Model
+!
+Ø Model Variants
+34
+1 – Large Language Models
+BLOOM
+!
+Ø BLOOM is a decoder-only Transformer language model
+Ø Training data: ROOTs Corpus – 46 natural and 13 programming language 
+35
+1 – Large Language Models
+BLOOM
+!
+Ø Two architectural deviations in BLOOM
+q ALiBi Positional Embeddings
+q Embedding LayerNorm
+The khead slope parameters for ALiBi
+are taken as 2−8i/n with n the number 
+of heads and i ∈1, 2, ..., n.
+Original 
+Transformer-Decoder
+36
+1 – Large Language Models
+BLOOM
+!
+Ø Prompts (Based on PromptSource)
+37
+1 – Large Language Models
+BLOOM
+!
+Ø Prompts (Based on PromptSource)
+Label
+Template
+Input
+Prompt
+38
+1 – Large Language Models
+BLOOM
+!
+Ø Prompts (Based on PromptSource)
+Label
+Template
+Input
+Prompt
+Ø Basic Prompting: Zero-shot, Few-shot
+Ø Chain-of-Thought (CoT)
+Ø Self-Consistency Sampling
+Ø Automatic Prompt Engineer
+Ø Prompt as Parameter-Efficient Fine-Tuning
+39
+2 – Prompting Techniques
+Advanced Prompting Techniques
+!
+https://lilianweng.github.io/posts/2023-03-15-prompt-engineering/
+https://learnprompting.org/
+Ø Three setting for In-Content-Learning
+40
+2 – Prompting Techniques
+2.1. Basic Prompting
+!
+Ø Example Selection, Ordering
+41
+2 – Prompting Techniques
+2.1. Basic Prompting
+!
+q Choose examples that are semantically similar to the test example using k-NN 
+clustering in the embedding space
+Source: What makes good In-content Examples for GPT-3
+Ø Example Selection, Ordering
+42
+2 – Prompting Techniques
+2.1. Basic Prompting
+!
+q Based on contrastive learning
+Source: Learning To Retrieve Prompts for In-Context Learning
+Ø Generates a sequence of short sentences to describe reasoning logics step by step
+Ø Helpful for complicated reasoning tasks
+43
+2 – Prompting Techniques
+2.2. Chain-of-Thought Prompting
+!
+Source: Chain-of-Thought Prompting Elicits Reasoning in LLMs
+Ø Few-shot-CoT
+44
+2 – Prompting Techniques
+2.2. Chain-of-Thought Prompting
+!
+Source: Large Language Models are Zero-Shot Reasoners
+Ø Zero-shot-CoT
+45
+2 – Prompting Techniques
+2.2. Chain-of-Thought Prompting
+!
+Source: Large Language Models are Zero-Shot Reasoners
+Ø Zero-shot-CoT
+46
+2 – Prompting Techniques
+2.2. Chain-of-Thought Prompting
+!
+Source: Large Language Models are Zero-Shot Reasoners
+Ø To sample multiple outputs with beam search, temperature > 0 and then selecting the
+best one out of these candidates
+47
+2 – Prompting Techniques
+2.3. Self-Consistency Sampling
+!
+Source: Chain-of-Thought Prompting Elicits Reasoning in LLMs
+Ø LLMs as inference model to generate demonstrations and scoring model
+48
+2 – Prompting Techniques
+2.3. Automatic Prompt Engineer
+!
+Source
+Ø LLMs as inference model to generate demonstrations and scoring model
+49
+2 – Prompting Techniques
+2.4. Prompt as Parameter-Efficient Fine-Tuning
+!
+Prefix-Tuning
+Prompt-Tuning
+3 – Learning from HF (RLHF)
+Overview: InstructGPT
+!
+3 – Learning from HF (RLHF)
+Pre-training LLMs
+!
+3 – Learning from HF (RLHF)
+3.1. SFT Model
+!
+Ø Goal: optimize the LLM to generate the response that users are 
+looking for
+3 – Learning from HF (RLHF)
+3.1. SFT Model
+!
+Ø A large collections of prompts:
+q Labeler-written prompts
+Plain
+Labelers to come up with  an arbitrary task, while 
+ensuring diversity of tasks
+Few-shot
+Labelers to come up with an instruction and multiple 
+query/response pairs for that instruction
+“Given the sentiment for a tweet”
+User-based
+Collect use-cases stated in applications to the 
+OpenAI API. Labelers to come up with prompts 
+correspponding to these use-cases
+3 – Learning from HF (RLHF)
+3.1. SFT Model
+!
+Ø A large collections of prompts:
+q Labeler-written prompts
+q API user prompts (From OpenAI GPT3 Playground)
+- 200 prompts / per organization
+- 10 use cases
+3 – Learning from HF (RLHF)
+3.1. SFT Model
+!
+Ø A large collections of prompts:
+3 – Learning from HF (RLHF)
+3.1. SFT Model
+!
+Ø A large collections of prompts:
+3 – Learning from HF (RLHF)
+3.1. SFT Model
+!
+Ø Fine tune the model, call this model SFT Model
+q Initialized with pretrained GPT3 175B model
+q Trained for 16 epochs on demonstration data
+q Notation:
+𝜋!"#
+3 – Learning from HF (RLHF)
+3.1. SFT Model
+!
+Ø Task: language modeling
+Ø Training data: high-quality in the format of (prompt, response)
+Ø Data scale: 10,000 – 100,000 (prompt, response) pairs
+Ø Model: LLMs
+- Input: prompt
+- Output: response for this prompt
+Ø Loss: cross entropy
+3 – Learning from HF (RLHF)
+3.2. Reward Modeling
+!
+Ø Training a model to output a score on a given input (a pair of 
+prompt – response)
+Ø A classification or regression task
+3 – Learning from HF (RLHF)
+3.2. Reward Modeling
+!
+Ø Given K = 4 to 9 outputs to rank for each prompt
+3 – Learning from HF (RLHF)
+3.2. Reward Modeling
+!
+Ø Given K = 4 to 9 outputs to rank for each prompt
+Ø For 4 ranked responses:  D > C > A = B
+=> 5 ranked pairs: (D > C), (D > A), (D > B), (C > A), (C > B)
+3 – Learning from HF (RLHF)
+3.2. Reward Modeling
+!
+Ø The reward model: 𝒓𝜽
+x: the prompt, yw: the better completion, yl: the worse completion
+loss 𝜃= E %,'!,'" ~) log 𝜎r* x, y+ −r* x, y,
+Reward on better 
+completion
+Reward on worse 
+completion
+3 – Learning from HF (RLHF)
+3.2. Reward Modeling
+!
+Ø The reward model: 𝒓𝜽
+Ø Overfitting problem
+Each prompt has K completions => K choose 2 pairs to compare
+Each completion can appear in K-1 gradient updates
+3 – Learning from HF (RLHF)
+3.2. Reward Modeling
+!
+Ø The reward model: 𝒓𝜽
+Ø Overfitting problem
+Each prompt has K completions => K choose 2 pairs to compare
+Each completion can appear in K-1 gradient updates
+Ø Solution: train on all comparisons from each prompt as a single 
+batch element
+Ø Normalization in loss with -1/(K choose 2):
+loss 𝜃= −1
+K
+2
+E %,'!,'" ~) log 𝜎r* x, y+ −r* x, y,
+3 – Learning from HF (RLHF)
+3.2. Reward Modeling
+!
+Ø The reward model: 𝒓𝜽
+Ø Training data: high-quality data
+x: the prompt, yw: the better completion, yl: the worse completion
+Ø Data scale: 100K – 1M examples
+InstructGPT: 50,000 prompts (each prompt: 4 to 9 responses) => 
+300K to 1.8M training examples
+Ø Training sample (x, yw, yl )
+loss 𝜃= −1
+K
+2
+E %,'!,'" ~) log 𝜎r* x, y+ −r* x, y,
+3 – Learning from HF (RLHF)
+3.3. Reinforcement learning (RL)
+!
+Ø Goal: train the SFT model to generate output responses that will 
+maximize the scores by the RM model
+Ø Training data: randomly selected prompts
+Ø Data sacle: 10,000 – 100,0000 prompts
+3 – Learning from HF (RLHF)
+3.3. Reinforcement learning (RL)
+!
+ML Task: Reinforcement Learning
+Ø Action space: the vocabulary of tokens the LLM uses. Taking 
+action means choosing a token to generate
+Ø Observation space: the distribution over all possible prompts
+Ø Policy: the probability distribution over all actions to take (all 
+tokens to generate) given an observation (a  prompt)
+Ø Reward function: the reward model from stage 2
+3 – Learning from HF (RLHF)
+3.3. Reinforcement learning (RL)
+!
+Ø DRL: the distribution of prompts used for RL model
+Ø LLM 𝜋-
+./: the model being trained with RL, parameterized by 𝜙
+Ø For each x from DRL: y: 𝜋-
+./(x)
+objective0 x, y; 𝜙= 𝒓𝜽(x, y)
+Ø For all training data DRL
+objective0 x, y; 𝜙= E(2,')~4#$./𝒓𝜽(x, y)
+3 – Learning from HF (RLHF)
+3.3. Reinforcement learning (RL)
+!
+Ø Worse reward esimates: as RLHF is updated, its outputs become 
+very different from what the RM was trained on
+Ø Solution: add a KL penalty that makes sure PPO model output 
+does not deviate too far from SFT model
+objective0 x, y; 𝜙= E %,5 ~4#$67 𝒓𝜽x, y −𝛽log
+𝜋-
+./ 𝑦𝑥
+𝜋89: 𝑦𝑥
+3 – Learning from HF (RLHF)
+3.3. Reinforcement learning (RL)
+!
+Ø Just using RL objective leads to performance degradation 
+on many NLP tasks
+Ø Solution: add a auxiliary LM ojective on the pretraining data. 
+Call this variant PPO-ptx
+Ø Dpretrain: the distribution of the pretraining data for the pretrain 
+model
+objective; x<=>?=@AB; 𝜙= 𝛾E2~4%&'(&)*+ log 𝝅𝝓
+./ x
+3 – Learning from HF (RLHF)
+3.3. Reinforcement learning (RL)
+!
+Ø Maximize the objective function in RL training:
+objective 𝝓= objective0 x, y; 𝜙+ objective; x<=>?=@AB; 𝜙
+objective 𝝓= E %,5 ~4#$67 𝒓𝜽x, y −𝛽log
+𝜋-
+./ 𝑦𝑥
+𝜋89: 𝑦𝑥
++ 𝛾E2~4%&'(&)*+ log 𝝅𝝓
+./ x
+3 – Learning from HF (RLHF)
+Summary
+!
+4 - Experiment
+Source code: https://github.com/thainq107/text_classification.git
+!
+Reference
+Ø COS 597G (Fall 2022): Understanding Large Language Models
+Ø RLHF: Reinforcement Learning from Human Feedback, HuyenChip
+Ø https://github.com/ethanyanjiali/minChatGPT
+Ø https://lilianweng.github.io/posts/2023-03-15-prompt-engineering/
+Ø https://learnprompting.org/
+Thanks!
+Any questions?
+75

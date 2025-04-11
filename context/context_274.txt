@@ -1,0 +1,635 @@
+Direct Preference Optimization: 
+Your Language Model is Secretly a Reward Model
+Nguyen Dinh Huan
+introduction to 
+reinforcement learning
+proximal policy 
+optimization (ppo)
+02
+reinforcement 
+learning from human 
+feedback (rlhf)
+03
+direct preference 
+optimization (dpo)
+04
+agenda
+01
+introduction to 
+reinforcement learning
+01
+reinforcement learning
+•
+Học tăng cường (Reinforcement learning - RL) là một nhánh của học máy (Machine learning -
+ML), nghiên cứu cách thức một thực thể(Agent) trong một môi trường (Environment) đang ở 
+một trạng thái (State) thực hiện một hành động (Action) để tối ưu hóa một phần thưởng 
+(Reward) chung.
+•
+Học tăng cường là một phương pháp phổ biến để giải các bài toán quyết định Markov (Markov 
+Decision Process - MDP).
+reinforcement learning
+Mục tiêu của RL là để thực hiện một chuỗi các hành động để sao cho tổng phần 
+thưởng nhận lại là lớn nhất.
+Reinforment learning
+markov decision process (mdp)
+Tính chất của Markov: 
+●
+Phần thưởng và trạng thái của tương 
+lai chỉ phụ thuộc vào hành động và 
+trạng thái ở hiện tại chứ không phải 
+tất cả hành động và trạng thái ở quá 
+khứ.
+Markov Process hay Markov Chain
+●
+Markov Process : là một chuỗi các trạng thái ngẫu nhiên tuân theo tính chất của Markov (hay 
+còn gọi là Memoryless random process)
+●
+Markov Process bao gồm các thành phần như sau:
+○
+𝓢là một tập (hữu hạn) các trạng thái (𝒔∈𝓢)
+○
+𝓟là phép chuyển đổi trạng thái từs sang s’ 𝒑𝒔𝒕+𝟏= 𝒔′ 𝒔𝒕= 𝒔
+●
+Có thểthấy là ở đây chưa có thành phần vềphần thưởng và hành động.
+●
+Nếu mà có N hữu hạn các trạng thái thì phép chuyển đổi P có thểđược biểu diễn dưới dạng 1 
+ma trận.
+𝑃=
+𝑃(𝑠1|𝑠1)
+⋯
+𝑃(𝑠𝑁|𝑠1)
+⋮
+⋱
+⋮
+𝑃(𝑠1|𝑠𝑁)
+⋯
+𝑃(𝑠𝑁|𝑠𝑁)
+Markov Process hay Markov Chain
+Markov Reward Process (MRP)
+●
+Markov Reward Process: Là Markov Proces mà có thêm phần thưởng.
+●
+Markov Reward Process bao gồm:
+○
+𝓢là một tập (hữu hạn) các trạng thái (𝒔∈𝓢)
+○
+𝓟là phép chuyển đổi trạng thái từs sang s’ 𝒑𝒔𝒕+𝟏= 𝒔′ 𝒔𝒕= 𝒔
+○
+𝓡là hàm phần thưởng 𝓡𝒔𝒕= 𝒔= 𝔼[𝒓𝒕|𝒔𝒕= 𝒔]
+○
+Khấu hao 𝜸∈0,1
+●
+Có thểthấy rằng ở đây vẫn chưa có định nghĩa nào vềhành động.
+●
+Nếu mà có N hữu hạn các trạng thái thì hàm phần thưởng R có thể được biểu diễn dưới 
+dạng 1 vector
+𝑅=
+𝑅(𝑠1)
+⋮
+𝑅(𝑠𝑁)
+Markov Reward Process (MRP)
+markov decision process (mdp)
+●
+Markov Decision Process (MDP): là một công cụ toán học dùng để mô hình hóa bài toán 
+decision-making trong một môi trường biến động. Mục đích của MDP là đểtìm ra một chiến
+lược (Policy) tối ưu đểcó được tổng phần thưởng tối đa.
+●
+MDP gồm có:
+○
+𝓢là một tập (hữu hạn) các trạng thái (𝒔∈𝓢)
+○
+𝓐là một tập (hữu hạn) các hành động có thểthực hiện (𝒂∈𝓐)
+○
+𝓟𝒔𝒂là phép chuyển đổi trạng thái từs sang s’ khi thực hiện hành động
+𝒂(𝒑𝒔𝒕+𝟏= 𝒔′ 𝒔𝒕= 𝒔, 𝒂𝒕= 𝒂)
+○
+𝓡là hàm phần thưởng 𝓡𝒔𝒕= 𝒔= 𝔼[𝒓𝒕|𝒔𝒕= 𝒔, 𝒂𝒕= 𝒂]
+○
+Khấu hao 𝜸∈0,1
+𝑴𝑫𝑷(𝓢, 𝓐, 𝓟𝒔𝒂, 𝓡, 𝜸)
+markov decision process (mdp)
+return
+●
+Return (Gt) là tổng giá trị các phần thưởng khấu hao nhận được tính từ thời điểm t trở đi
+𝐺𝑡= 𝑅𝑡+ 𝛾𝑅𝑡+1 + 𝛾2𝑅𝑡+2 + ⋯= ෍
+𝑘=0
+∞
+𝛾𝑘𝑅𝑡+𝑘
+●
+𝜸là discount factor (khấu hao) có giá trịtrong khoảng [0,1] cái này add vào có 2 mục đích:
+○
+Vì tổng này là vô hạn nên có discount factor vào đểđảm bảo tiến tới 1 giá trịcốđịnh
+thay vì vô cực.
+○
+Lấy cảm hứng từbên khái niệm của kinh tếlà Time value of Money (Tính Present 
+Value dựa vào Future Value).
+■
+𝑃𝑉=
+𝐹𝑉
+(1+𝑟)𝑛= 𝛾𝑛𝐹𝑉đặ𝑡
+1
+(1+𝑟) 𝑙à 𝛾
+Value function
+●
+State - value function là cách đểdựđoán
+phần thưởng trong tương lai. 
+●
+Thường dùng đểso sánh độtốt/không tốt
+của một trạng thái (state)
+●
+Từkết quảcủa value function ta có thểcăn
+cứđểchọn hành động tương ứng.
+𝑣𝑠= 𝔼𝐺𝑡𝑆𝑡= 𝑠
+= 𝔼𝑅𝑡+ 𝛾𝑅𝑡+1 + 𝛾2𝑅𝑡+2 + ⋯𝑆𝑡= 𝑠
+= ℛ𝑠+ 𝛾෍
+𝑠∈𝒮
+𝒫𝑠→𝑠′ 𝑣𝑠′
+policy
+●
+Policy là một mô hình tượng trưng cho 
+hành vi của agent.
+●
+Nó là một hàm ánh xạ từ trạng thái của 
+môi trường sang hành động của agent.
+●
+Policy là một phân phối xác suất của tất 
+cả các hành động có thể thực hiện được 
+khi ở một trạng thái nhất định.
+●
+Policy trong Markov Decision Process chỉ 
+phụ thuộc vào trạng thái hiện tại
+𝜋𝑎𝑠= 𝑃𝐴𝑡= 𝑎𝑆𝑡= 𝑠]
+Value function when having policy
+●
+State - value function trong MDP khi có 1 
+Policy là:
+𝑣𝑠= ℛ𝑠+ 𝛾෍
+𝑠∈𝒮
+𝒫𝑠→𝑠′
+𝑎
+𝑣𝑠′
+●
+Khi có policy action a sẽ được quyết định 
+dựa theo policy:
+𝑎= 𝜋(𝑠)
+●
+Action – value function:
+𝑞𝑠, 𝑎= ℛ𝑠, 𝑎+ 𝛾෍
+𝑠∈𝒮
+𝒫(𝑠′|𝑠, 𝑎) 𝑣𝜋𝑠′
+Value function when having policy
+model
+●
+Model là 1 mô hình cố gắng giả lập lại 
+những hành vi của môi trường.
+●
+Model sẽhọc 2 phần của MDP là 𝓟𝒔𝒔′
+𝒂
+(Transition probability) và 𝓡𝒔
+𝒂(Reward 
+function).
+○
+𝓟𝒔𝒔′
+𝒂
+dựđoán trạng thái kếtiếp của
+môi trường. 
+𝒫𝑠𝑠′
+𝑎= ℙ𝑆𝑡+1 = 𝑠′ 𝑆𝑡= 𝑠, 𝐴𝑡= 𝑎
+○
+𝓡𝒔
+𝒂dựđoán phần thưởng (tức thời) 
+kếtiếp.
+ℛ𝑠
+𝑎= 𝔼𝑅𝑡+1 = 𝑠′ 𝑆𝑡= 𝑠, 𝐴𝑡= 𝑎
+Categorizing RL agents
+Value based
+Policy based
+o
+No Policy (Implicit)
+o
+Value Function
+o
+Policy
+o
+No Value Function
+Categorizing RL agents
+Model free
+model based
+o
+Policy and/or Value Function
+o
+No Model
+o
+Policy and/or Value Function
+o
+Model
+Categorizing RL agents
+o
+Policy
+o
+Value Function
+Actor-critic
+Find optimal policy through value function
+●
+Nếu Policy 𝜋∗có giá trịlớn nhất tại mọi
+trạng thái 𝑠so với các policy khác, ta gọi 𝜋∗
+là chiến lược tối ưu.
+●
+Tương tựta có state-value function, action-
+value function tối ưu khi sửdụng policy tối
+ưu.
+𝑣∗𝑠= 𝑣𝜋∗𝑠≥𝑣𝜋𝑠,∀𝑠, ∀𝜋= max 𝑣𝜋𝑠
+𝑞∗𝑠, 𝑎= 𝑞𝜋∗𝑠, 𝑎≥𝑞𝜋𝑠, 𝑎, ∀𝑠, ∀𝑎, ∀𝜋
+= max 𝑞𝜋𝑠, 𝑎
+●
+Khi đó Policy tối ưu sẽ được tính bằng cách:
+𝜋∗𝑠= 𝑎𝑟𝑔𝑚𝑎𝑥𝑣𝜋𝑠
+𝜋∗𝑠= 𝑎𝑟𝑔𝑚𝑎𝑥𝑞𝜋𝑠, 𝑎
+Policy evaluation
+●
+Khi chúng ta có một Policy cốđịnh trong
+Markov Decision Process thì chúng ta có
+thểđo lường độtốt/tệcủa Policy đó bằng
+Markov Reward Process.
+●
+Khi đó Markove Reward Process sẽbao 
+gồm 4 phần (𝒮, ℛ𝜋, 𝒫𝜋, 𝛾) với:
+𝒫𝜋(𝑠′|𝑠) = ෍
+𝑎∈𝒜
+𝜋𝑎𝑠𝒫(𝑠′|𝑠, 𝑎)
+ℛ𝜋(𝑠) = ෍
+𝑎∈𝒜
+𝜋𝑎𝑠ℛ(𝑠, 𝑎)
+●
+Khi đó chúng ta có 2 cách đểđánh giá 1 cái
+Policy là tốt hay không:
+○
+Monte Carlo (MC) Policy Evaluation
+○
+Temporal Difference (TD) Policy 
+Evaluation
+●
+Cách tìm Policy tối ưu theo phương pháp vòng lặp cải tiến:
+●
+Gán i= 0
+●
+Khởi tạo ngẫu nhiên Policy 𝜋0 𝑠cho tất cảcác state s
+●
+While i==0 hay 𝜋𝑖−𝜋𝑖−1 1 > 0 (Kiểm tra xem Policy còn thay đổi hay không)
+○
+𝑉𝜋𝑖←Tính ra giá trịValue bằng cho Policy 𝜋𝑖
+○
+𝜋𝑖+1 ←Cải thiện Policy
+○
+i = i+1
+Policy iteration
+Policy Evaluation – Monte Carlos
+●
+Trong MC Policy Evaluation chúng ta 
+sẽchạy giảlập nhiều lần. Mỗi lần chạy
+giảlập sẽcó một chuỗi các hành động
+khác nhau được tạo ra nhờPolicy 𝜋.
+●
+Chúng ta tính return cho mỗi lần chạy
+bằng công thức:
+𝐺𝑡= 𝑅𝑡+ 𝛾𝑅𝑡+1 + 𝛾2𝑅𝑡+2 + ⋯
+●
+Sau đó tính Value bằng cách lấy trung
+bình các return:
+𝑉𝜋𝑠= 𝑚𝑒𝑎𝑛𝐺𝑡
+●
+Cập nhật lại Value bằng cách chạy
+vòng lặp, ở vòng lặp thứi:
+𝑉𝜋𝑠= 𝑉𝜋𝑠+ 𝛼(𝐺𝑖,𝑡−𝑉𝜋𝑠)
+Policy Evaluation – Monte Carlos
+●
+Hạn chế:
+○
+Phải đợi đến khi hết mỗi lần chạy mới có return và mới tính V được.
+○
+Yêu cầu mỗi lần chạy phải có điểm dừng nếu không sẽ chạy không ngừng.
+○
+Cần phải chạy nhiều lần (cần nhiều data).
+●
+Ưu điểm:
+○
+Không cần giả định các state phải tuân theo tính chất của Markov.
+○
+Không cần mô hình reward và transition của MDP
+Policy Evaluation – temporal difference (TD(0))
+●
+Temporal Difference muốn tìm một cách khác để
+có thểước lượng được Gt mà không cần phải đợi
+đến hết lần giảlập.
+𝑉𝜋𝑠= 𝑉𝜋𝑠+ 𝛼([𝑟𝑡+ 𝛾𝑉𝜋𝑠𝑡+1 ] −𝑉𝜋𝑠)
+Ước lượng Gt bằng
+cách nhìn vềphía
+trước 1 bước
+Value Function Approximation
+V(s) và Q(s,a) thường được biểu diễn dưới dạng vector hay là ma trận, nhưng trong thực tế 
+có những môi trường có rất nhiều trạng thái hoặc hành động. 
+Value Function Approximation
+Value Function Approximation
+●
+Lợi ích khi áp dụng value function approximation:
+○
+Khiến agent trở nên Generalization (tổng quát hóa) để mô hình có thể học cách đưa ra 
+hành động khi gặp một trạng thái mà agent chưa từng gặp.
+○
+Giảm bộ nhớ lưu trữ.
+○
+Giảm tài nguyên tính toán.
+Value Function Approximation – optimize weight
+●
+Tìm 𝑤sao cho L2 error giữa giá trịxấp xỉtừvalue function ො𝑣(𝑠, 𝑤) và giá trịthực tếtừvalue 
+function 𝑣𝜋𝑠là nhỏnhất.
+𝐽𝑤= 𝔼𝜋[( ො𝑣𝑠, 𝑤−𝑣𝜋𝑠)2]
+●
+Gradient descent thì w được cập nhật bằng cách:
+𝑤= 𝑤−𝛼𝑑𝐽𝑤
+𝑑𝑤
+= 𝑤−𝛼( ො𝑣𝑠, 𝑤−𝑣𝜋𝑠)𝑑ෝ𝑣𝑠, 𝑤
+𝑑𝑤
+𝑑𝐽(𝑤)
+𝑑𝑤
+= 1
+2 𝔼𝜋
+ො𝑣𝑠, 𝑤−𝑣𝜋𝑠
+2
+′
+= 1
+2 2𝔼𝜋ො𝑣𝑠, 𝑤−𝑣𝜋𝑠
+𝑑ො𝑣𝑠, 𝑤−𝑣𝜋𝑠
+𝑑𝑤
+= ( ො𝑣𝑠, 𝑤−𝑣𝜋𝑠) 𝑑ෝ𝑣𝑠, 𝑤
+𝑑𝑤
+Value Function Approximation – optimize weight
+●
+Gọi ∅(𝑠) là 1 linear layer hay neural network dùng để encode trạng thái thành embedding 
+vector của trạng thái hay có thể gọi là feature vector:
+∅𝑠=
+∅1 𝑠
+⋮
+∅𝑛𝑠
+●
+Nếu biểu diễn value function dưới dạng 1 linear layer thì:
+ො𝑣𝑠, 𝑤= ∅𝑠𝑇𝑤
+●
+Trong thực tếthì ta sẽthay thế𝑣𝜋𝑠bằng return 𝐺𝑡. Khi đó 𝑤được cập nhật bằng cách:
+𝑤= 𝑤−𝛼𝑑𝐽𝑤
+𝑑𝑤
+= 𝑤−𝛼∅𝑠𝑇𝑤−𝐺𝑡
+𝑑∅𝑠𝑇𝑤
+𝑑𝑤
+= 𝑤−𝛼∅𝑠𝑇𝑤−𝐺𝑡∅𝑠
+Step-size
+Prediction error
+Feature value
+proximal policy 
+optimization (ppo)
+02
+PPO
+●
+PPO: là một phương pháp học Policy đểcải thiện
+quá trình học tập của agent một cách ổn định bằng
+cách tránh cập nhật những thay đổi lớn đối với
+Policy.
+●
+Lý do nên tránh cập nhật những thay đổi lớn cho
+Policy:
+○
+Khi cập nhật những thay đổi nhỏvới Policy sẽ
+dễđi đến kết quảtối ưu (Optimal solution).
+○
+Thay đổi Policy quá khác biệt với Policy cũ có
+thểgây ra kết quảgiống như “rơi xuống núi” 
+và sẽtốn rất nhiều thời gian hoặc không bao 
+giờtìm được Policy tốt (leo lên lại núi)
+Advantage Actor-Critic (A2C)
+●
+Actor – Critic có thểhiểu ở trường hợp đơn giản
+nhất là có 2 model 1 model đóng vai là actor và 1 
+model đóng vai critic.
+●
+Actor là model dùng đểhọc ra policy. Critic là 1 
+baseline đưa ra các pseudo groundtruth
+●
+Trong quá trình học:
+○
+Critic sẽ cập nhật action-value function để 
+đưa ra value tốt hơn (value based).
+○
+Actor sẽ cập nhật policy dựa vào hướng dẫn 
+của critic (policy based).
+Advantage Actor-Critic (A2C)
+●
+Advantage function 𝐴là cách critic dùng để
+đánh giá mối tương quan giữa hành động mà
+policy chọn thực hiện đối với hành động khác
+ở trong cùng 1 trạng thái. 
+𝐴= 𝑄𝑠, 𝑎−𝑉(𝑠)
+●
+Nếu A > 0 nghĩa là hành động mà actor chọn
+thực hiện cho kết quảtốt hơn những hành
+động khác. 
+𝐽𝜃= 𝔼𝑡[log𝜋𝜃𝑎𝑡𝑠𝑡𝐴(𝑎𝑡,𝑠𝑡)]
+Generalized advantage estimation (GAE)
+•
+Q(s,a) có thể được ước lượng bằng nhiều cách như sau:
+Generalized advantage estimation (GAE)
+•
+Generalized advantage estimation là 1 cách để ước lượng Q(s,a) bằng cách kết hợp giữa 
+phương pháp TD và MC:
+Generalized advantage estimation (GAE)
+Importance Sampling
+●
+Importance Sampling là một kỹ thuật ước tính giá trị kỳ 
+vọng của f(x) trong đó x có phân phối dữ liệu p. Tuy nhiên, 
+Thay vì lấy mẫu từ p, chúng ta sẽ tính kết quả từ việc lấy 
+mẫu q.
+𝐸𝑝[𝑓(𝑥)] = 𝐸𝑞(𝑓𝑋𝑝𝑋
+𝑞(𝑋)
+)
+●
+Đểcó thểviệc ước lượng được chính xác thì phân phối p và
+q phải gần giống nhau có nghĩa là
+𝑝𝑋
+𝑞(𝑋) phải không được
+cách biệt nhau quá lớn. Do đó tốt nhất thì 
+𝑝𝑋
+𝑞(𝑋) chỉnên nằm
+trong khoảng nào đó 0 đến 1.
+KL Divergence
+●
+Trong thống kê và lý thuyết thông tin, 
+độ đo Kullback–Leibler divergence (còn 
+hay gọi là Entropy tương đối, viết tắt KL 
+divergence) là một độ đo mức độ lệch 
+của một phân bố đối với phân bố được 
+chỉ định. 
+●
+Nói một cách đơn giản, KL divergence là 
+độ đo sự khác nhau giữa hai phân bố xác 
+suất.
+𝐷𝐾𝐿(𝑝||𝑞) = −෍
+𝑖=1
+𝑛
+𝑝𝑖log𝑏
+𝑞𝑖
+𝑝𝑖
+Policy gradient
+Put all together
+𝐿𝑉𝐹(𝜃) = ෢
+𝔼𝑡[ 𝑉𝜃𝑠𝑡−𝐺𝑡2]
+𝑟𝑡(𝜃) = 𝜋𝜃(𝑎𝑡|𝑠𝑡)
+𝜋𝜃𝑜𝑙𝑑(𝑎𝑡|𝑠𝑡)
+𝐿𝑃𝐺(𝐶𝐿𝐼𝑃)(𝜃) = ෢
+𝔼𝑡[min(𝑟𝑡𝜃෢
+𝐴𝑡, 𝑐𝑙𝑖𝑝𝑟𝑡𝜃,1 −𝜀, 1 + 𝜀෢
+𝐴𝑡)]
+Or
+𝐿𝑃𝐺(𝐾𝐿𝑃𝐸𝑁)(𝜃) = ෢
+𝔼𝑡[𝑟𝑡𝜃෢
+𝐴𝑡−𝛽𝐾𝐿(𝜋𝜃. 𝑠𝑡, 𝜋𝜃𝑜𝑙𝑑(. |𝑠𝑡))]
+𝐿
+𝜃= 𝐿𝑃𝐺+ 𝑐1𝐿𝑉𝐹
+A2C
+Important sampling
+Vì chúng ta lấy important 
+sampling nên chúng ta phải
+đảm bảo 2 phân phối không
+nên quá khác biệt
+Put all together
+reinforcement 
+learning from human 
+feedback (rlhf)
+03
+overview
+Pretraining language models 
+Reward model training 
+Reward model
+●
+Objective function của reward model xuất
+phát từBradley-Terry model. Đó là một mô
+hình xác suất dùng đểso sánh kết quảtrảvề
+của 2 đối tượng. Ở đây ta dùng nó đểso 
+sánh độưa thích giữa 2 câu sau khi được
+con người đánh giá.
+𝑝𝑦1 > 𝑦2 =
+exp 𝑟𝜃𝑥, 𝑦1
+exp 𝑟𝜃𝑥, 𝑦1
++ exp(𝑟𝜃(𝑥, 𝑦2))
+𝑝𝑦1 > 𝑦2 = 𝜎(𝑟𝜃𝑥, 𝑦1 −𝑟𝜃𝑥, 𝑦2 )
+Reward model
+●
+Objective function của reward model xuất phát từBradley-Terry model. Đó là một mô hình
+xác suất dùng đểso sánh kết quảtrảvềcủa 2 đối tượng. Ở đây ta dùng nó đểso sánh độưa
+thích giữa 2 câu sau khi được con người đánh giá.
+𝑝𝑦1 > 𝑦2 =
+exp 𝑟𝜃𝑥, 𝑦1
+exp 𝑟𝜃𝑥, 𝑦1
++ exp(𝑟𝜃(𝑥, 𝑦2))
+𝑝𝑦1 > 𝑦2 = 𝜎(𝑟𝜃𝑥, 𝑦1 −𝑟𝜃𝑥, 𝑦2 )
+●
+Loss function:
+𝐿𝑟𝜃= −log(𝜎𝑟𝜃𝑥, 𝑦1 −𝑟𝜃𝑥, 𝑦2
+)
+●
+Khi reward trảra từreward model dùng cho PPO tác giảadd thêm KL Divergence:
+R(𝑥, 𝑦) = 𝑟𝜃𝑥, 𝑦
+−𝛽𝐾𝐿(𝜋𝜃
+𝑅𝐿𝑦𝑥||𝜋𝜃(𝑜𝑙𝑑)
+𝑆𝐹𝑇(𝑦|𝑥))
+Fine-tuning with rl - ppo
+ppo
+direct preference 
+optimization (dpo)
+04
+overview
+•
+Đây là một kỹthuật dùng đểhuấn language model sao cho model đưa ra câu trảlời đúng theo
+ý người dùng một cách trực tiếp.
+•
+Trước đây các Language model thường được train theo hướng maximum likelihood estimation 
+(MLE) hoặc reinforment learning (RL).
+overview 
+overview 
+Secret behind DPO
+●
+Từ RLHF ta có những công thức sau:
+𝑝𝑦1 > 𝑦2 =
+exp 𝑟𝜃𝑥, 𝑦1
+exp 𝑟𝜃𝑥, 𝑦1
++ exp(𝑟𝜃(𝑥, 𝑦2))
+𝐿𝑟𝜃𝑅𝑀= −log(𝜎𝑟𝜃𝑅𝑀𝑥, 𝑦1 −𝑟𝜃𝑅𝑀𝑥, 𝑦2
+)
+𝑟𝜃𝑅𝑀𝑖𝑠𝑎𝑟𝑒𝑤𝑎𝑟𝑑𝑚𝑜𝑑𝑒𝑙
+R 𝑥, 𝑦= 𝑟𝜃𝑅𝑀𝑥, 𝑦
+−𝛽𝐾𝐿(𝜋𝜃
+𝑅𝐿𝑦𝑥||𝜋𝜃(𝑜𝑙𝑑)
+𝑆𝐹𝑇(𝑦|𝑥))
+= 𝑟𝜃𝑅𝑀𝑥, 𝑦
+−𝛽log 𝜋𝜃
+𝑅𝐿𝑦𝑥
+−log 𝜋𝜃𝑜𝑙𝑑
+𝑆𝐹𝑇
+𝑦𝑥
+Secret behind DPO
+Secret behind DPO
+Secret behind DPO
+Demo
+Thanks for listening
+●
+http://www.juyang.co/reinforcement-learning-ii-markov-decision-process-and-rl-agent/
+●
+https://www.davidsilver.uk/teaching/
+●
+https://www.researchgate.net/figure/Classification-of-RL-algorithms-inspired-from-UCL-
+Course-on-RL-by-David-Silver-41_fig2_346808682
+●
+https://www.researchgate.net/figure/Reinforcement-Learning-Agent-
+Taxonomy_fig2_327733315
+●
+https://medium.com/@khalil.hennara.247/value-function-approximation-dqn-
+43df289a3380
+●
+https://tek4.vn/phuong-phap-importance-sampling-hoc-tang-cuong
+●
+https://jonathan-hui.medium.com/rl-policy-gradients-explained-advanced-topic-
+20c2b81a9a8b
+●
+https://blog.mlreview.com/making-sense-of-the-bias-variance-trade-off-in-deep-
+reinforcement-learning-79cf1e83d565
+●
+https://www.freecodecamp.org/news/an-introduction-to-q-learning-reinforcement-
+learning-14ac0b4493cc/
+references
+●
+https://www.eeweb.com/tools/calculus-derivatives-and-limits-reference-sheet/
+●
+https://huggingface.co/blog/deep-rl-ppo
+●
+https://arshren.medium.com/unlocking-the-secrets-of-actor-critic-reinforcement-learning-a-
+beginners-guide-3c5953b13551
+●
+https://huggingface.co/blog/deep-rl-a2c
+●
+https://hugocisneros.com/notes/kullback_leibler_divergence/
+●
+https://proceedings.neurips.cc/paper_files/paper/2020/file/1f89885d556929e98d3ef9b864
+48f951-Paper.pdf
+●
+https://arxiv.org/pdf/1707.06347.pdf
+●
+https://blog.tylertaewook.com/post/proximal-policy-optimization
+●
+https://huggingface.co/learn/deep-rl-course/
+●
+https://lilianweng.github.io/posts/2018-02-19-rl-overview/
+●
+https://web.stanford.edu/class/cme241/lecture_slides/rich_sutton_slides/13-multistep.pdf
+●
+https://www.interconnects.ai/p/the-dpo-debate
+●
+https://machinelearningmastery.com/a-gentle-introduction-to-sigmoid-function/
+references

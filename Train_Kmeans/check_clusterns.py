@@ -1,7 +1,10 @@
-from package import KElbowVisualizer
-from package import plt
-from package import np
-from package import KMeans
+from package import (
+    KElbowVisualizer,
+    plt,
+    numpy as np,
+    KMeans
+)
+
 class Check_Cluster:
     def __init__(self, data : np.array) -> None:
         '''

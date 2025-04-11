@@ -1,0 +1,66 @@
+All-in-One Course 2023
+aivietnam.edu.vn
+Study Guide: Module 10 - Week 3
+Graph Neural Networks
+1. Chủnhật (Ngày 28/04/2024)
+GNN (1)
+• Instructor: Dr. Nguyễn Đình Vinh
+• : TA: Bùi Minh Đức
+• Prerequisite:
+– Basic Graph Theory
+– Basic Convolutions Neural Network
+– Basic Pytorch
+• Content:
+– What is Graph Data Around Us
+– Understand Graph Neural Network
+– Understand Graph Convolutional Neural Network
+– Node Classification with Cora Citation Dataset
+References:
+1 Graph neural networks: A review of methods and applications
+2 Towards Deep Attention in Graph Neural Networks: Problems and Remedies
+2. Thứ4 (Ngày 01/05/2024)
+GNN (2)
+• Instructor: Dr. Nguyễn Đình Vinh
+• TA: Bùi Minh Đức
+• Prerequisite:
+– Basic Graph Theory
+– Basic Convolutions Neural Network
+– Basic Pytorch
+– Basic GNN
+• Content:
+– How to integrate edge feature to GNN
+– Edge Weight in GNN
+– Relational GNN
+– Multidimensional Edge Feature
+– Attention in GNN
+– Graph-level prediction: Example and Code
+References:
+1 Graph neural networks: A review of methods and applications
+1
+All-in-One Course 2023
+aivietnam.edu.vn
+2 Towards Deep Attention in Graph Neural Networks: Problems and Remedies
+3. Thứ6 (Ngày 03/05/2024) Exercise: GNN
+• Instructor: TA Bùi Minh Đức
+• Prerequisite:
+– Basic GNN
+– Basic Graph Theory
+– Pytorch
+• Content:
+– Overview
+– From MLP to GNN
+– How to use GNN for imge classification task
+– Experiment on Caltech-101 and PACS Datasets
+4. Thứ7 (Ngày 04/05/2024)
+(Extra class) LLMs Series: Langchain
+• Phụtrách: TA Dương Đình Thắng
+• Nội dung:
+- Giới thiệu vềmô hình ngôn ngữlớn (LLMs - Large Language Models).
+- Giới thiệu vềviệc triển khai mô hình ngôn ngữlớn trong thực tế.
+- Giới thiệu vềLangChain.
+- Giới thiệu vềcách sửdụng, các thành phần cơ bản của LangChain (Prompt Template,
+LLM Chain, Output Parser...)
+- Triển khai một ứng dụng vềLLM (Chatbot) sửdụng LangChain.
+• Tài liệu tham khảo:
+- LangChain Documentation
+2

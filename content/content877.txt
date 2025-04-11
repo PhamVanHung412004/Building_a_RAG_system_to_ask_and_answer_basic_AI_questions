@@ -1,3 +1,0 @@
-AI VIETNAM aivietnam.edu.vn
-Đầu tiên, chúng ta cần hiểu rõ về cơ chế đa luồng. Ở phần trước, chúng ta cũng đã áp dụng nó để tải
-các url ảnh. 

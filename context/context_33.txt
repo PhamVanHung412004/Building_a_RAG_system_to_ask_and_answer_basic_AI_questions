@@ -1,0 +1,357 @@
+Module 9 - Exercise
+Text to Image Generation
+Using Stable Diffusion Model
+Year 2023
+AI VIET NAM
+Nguyen Quoc Thai
+AI VIETNAM
+All-in-One Course
+1
+2
+Objectives
+Text-to-Image using Stable Diffusion Model
+!
+UNet
+The person has high 
+cheekbones, and pointy 
+nose. She is wearing 
+lipstick.
+3
+Ø Introduction
+Ø Stable Diffusion Model
+Ø Text-to-Image Generation using SDM
+Outline
+4
+Introduction
+Text to Image Generation
+!
+Ø The person has high cheekbones, and pointy 
+nose. She is wearing lipstick.
+5
+Introduction
+The milestones of text-to-image models and large models
+!
+Source
+6
+Introduction
+GAN-CLS
+!
+G
+Generator
+D
+Discriminator
+Generated Image
+Real Image
+0/1
+Fake/Real
++ Text Embedding
++ Real & Fake 
+Text Embedding
+Loss
+Function
+Update G
+Update D
+7
+Introduction
+GAN-CLS
+!
+G
+Generator
+D
+Discriminator
+Generated Image
+Real Image
+0/1
+Fake/Real
+Random 
+Noise
+(z)
+Text 
+Embedding
++ Text Embedding
+Loss
+Function
+Update G
+Update D
+X1
+X2
+…
+Xn
+Encoder
+(BERT)
+Pooling Layer
+Sentence
+Embedding
++ Real & Fake 
+Text Embedding
++ Text Embedding
+Optimization
+8
+Introduction
+Variatinal AutoEncoder
+!
+Autoencoder
+Variational Autoencoder
+9
+Introduction
+Vector Quantized Variatinal AutoEncoder (VQ-VAE)
+!
+Ø VAE learns a discrete latent representation, instead continuous
+Ø Latents do not necessarily need to be continuous vectors
+Ø It just needs to be some form of numerical representation of the data
+56
+73
+67
+23
+81
+19
+Image to discrete codes
+Discrete codes to image
+56
+73
+67
+23
+81
+19
+ENCODER
+DECODER
+10
+Introduction
+Visual Vocabulary
+!
+Ø Introduces a Discrete Latent Codebook to store a finite set of possible latent vectors
+Ø Describe an image as a sequence of symbols (language tokens)
+11
+Introduction
+Quantization Layer
+!
+During Training
+Ø Output of encoder is compared to all the vectors in the codebook
+Ø The codebook vector closet in Euclidean distance is fed to decoder
+VQ-VAE
+Encoder
+Codebook
+calculate 
+distance
+VQ-VAE
+Decoder
+reshape
+reshape
+argmin
+12
+Introduction
+Generate Image from Codebook
+!
+Train a PixelCNN as prior on the discretized 32x32 latent space
+Ø Use VQ-VAE Encoder to extract latent space (codebook indicates) from dataset
+Ø Train PixelCNN to auto-regressively complete the latent codebook
+Ø Use VQ-VAE Decoder to generate image from the completed latent codebook
+Codebook
+2
+VQ-VAE
+Decoder
+3
+VQ-VAE
+Encoder
+1
+13
+Introduction
+DALL-E
+!
+Text-to-Image Generator model using a transformer that autoregressively models the text 
+and image tokens as a single stream of data
+Ø Uses Discrete VAE
+Ø Switch PixelCNN with a 12-billion parameter GPT-3
+Ø Trained on 250 million image-text pairs
+An armchair in the shape of an avocado
+14
+Introduction
+DALL-E Parts
+!
+Ø Discrete VAE encoder and decoder
+o Inspired by VQ-VAE-2
+o Compress 256x256 RGB images into 
+a 32x32 grid of image tokens
+o With 8192 possible codebook tokens
+Ø Transformer Decoder
+o Concatenate text tokens with image 
+tokens into single array
+o Train to predict text image token from 
+the preceding tokens
+dVAE
+Encoder
+Transformer
+Text description
+dVAE
+Decoder
+15
+Introduction
+Gumbel Softmax Relaxation
+!
+Ø Outputs a distribution over codebook vectors for each latent code instead of mapping 
+deterministically to a single codebook vector.
+VQ-VAE
+Decoder
+dVAE
+Decoder
+VQ-VAE
+Encoder
+𝐾×𝑑
+dVAE
+Encoder
+𝐾×𝑑
+ℎ×𝑤×𝑑
+ℎ×𝑤×𝑑
+ℎ×𝑤×𝐾
+ℎ×𝑤×𝑑
+codebook
+Nearest 
+neighbor
+copy
+Softmax
+sample
+codebook
+Non-
+differentiable
+Differentiable
+Gumbel Softmax
+weights
+ℎ∗𝑤×𝐾
+16
+Introduction
+Dall-E Inference
+!
+Ø Not directly predict (choose) 
+the next latent index, but predict 
+the distribution
+Ø Then sample the index from 
+that distribution
+Transformer
+an armchair in the shape of 
+an avocado
+Generated image latents
+codebook
+Probability distribution
+of codebook index
+Sampled index
+dVAE
+Decoder
+17
+Introduction
+Diffusion Model
+!
+18
+Introduction
+Diffusion Model - Training
+!
+19
+Introduction
+Diffusion Model - Inference
+!
+20
+Introduction
+Diffusion Model - Problem
+!
+Ø Operating in the input space is very computationally expensive
+1024x1024
+1024x1024
+21
+Introduction
+Diffusion Model – Generate Low-Resolution + Upsample
+!
+1024x1024
+1024x1024
+256x256
+256x256
+UNet
+22
+Introduction
+Diffusion Models – Generate in Latent Space
+!
+1024x1024
+1024x1024
+UNet
+23
+Ø Introduction
+Ø Stable Diffusion Model
+Ø Text-to-Image Generation using SDM
+Outline
+24
+Stable Diffusion Model
+Stable Diffusion Model (Latent Diffusion Model)
+!
+Ø The Diffusion process happens in the latent space
+Ø First, train an autoencoder to learn to compress the image data into low-dimensional 
+representation
+Latent Data
+25
+Stable Diffusion Model
+Stable Diffusion Model (Latent Diffusion Model)
+!
+Ø After encoding the images into 
+latent data, the forward and 
+reverse diffusion processes will 
+be done in the latent space.
+26
+Stable Diffusion Model
+Conditional Generation
+!
+Ø Condition denoising on text, images, etc,…
+27
+Stable Diffusion Model
+Training
+!
+Ø The training objective (loss function) is pretty similar to the one in the pure diffusion 
+model. The only changes are:
+o Input latent data z instead of the image x
+o Added conditioning input 𝜏!(𝑦) to the UNet
+28
+Stable Diffusion Model
+Sampling
+!
+Ø Stable Diffusion sampling process use the latent data
+Ø The size of the latent data is much smaller than the original images, the denoising 
+process will be much faster
+29
+Ø Introduction
+Ø Stable Diffusion Model
+Ø Text-to-Image Generation using SDM
+Outline
+30
+Text-to-Image using SDM
+Celeb-HQ Dataset
+!
+31
+Text-to-Image using SDM
+Celeb-HQ Dataset
+!
+Ø The person has high cheekbones, and pointy 
+nose. She is wearing lipstick.
+Ø The person has high cheekbones, and pointy 
+nose. She is wearing lipstick.
+Ø She is wearing lipstick. She is young, and 
+smiling and has big lips, mouth slightly open, 
+pointy nose, and high cheekbones.
+Ø This attractive woman has high cheekbones, 
+pointy nose, bushy eyebrows, mouth slightly 
+open, wavy hair, arched eyebrows, and bags 
+under eyes. 
+Ø …
+32
+Text-to-Image using SDM
+Celeb-HQ Dataset
+!
+Ø The person has high cheekbones, and pointy 
+nose. She is wearing lipstick.
+33
+Text-to-Image using SDM
+Stable Diffusion Model – Text Condition
+!
+Text
+BERT
+CLIP
+34
+Summary
+Thanks!
+Any questions?
+35

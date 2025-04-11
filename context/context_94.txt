@@ -1,0 +1,497 @@
+Chủ đề:
+Mô hình ngôn ngữ
+Trích chọn đặc trưng trong NLP 
+Mục đích buổi học
+●
+Học viên nắm được các kỹ thuật trích chọn đặc trưng trong 
+xử lý ngôn ngữ tự nhiên
+Nội dung chính
+Mô hình ngôn ngữ
+Trích chọn đặc trưng
+Mô hình ngôn ngữ
+Mô hình hoá ngôn ngữ
+●
+Mô hình ngôn ngữ là mô hình dự đoán xác xuất của một chuỗi 
+các từ.
+○
+P(W) = P(w1, w2, ..., wn)
+○
+Ví dụ:
+■
+S1 = “con mèo nhảy qua con chó”, P(S1) ~ 1
+■
+S2 = “qua con mèo con chó nhảy”, P(S2) ~ 0
+Ứng dụng
+●
+Dịch máy
+○
+P(high winds tonight) > P (large winds tonight)
+●
+Sửa lỗi văn bản
+○
+The office is about fifteen minuets from my house
+○
+P (“about fifteen minutes from”) > P(about fifteen minuets from) 
+●
+Nhận dạng giọng nói
+○
+P(I saw a van) > P(eyes awe of an)
+●
+Nhận dạng chữ viết
+○
+P(Act naturally) > P(Abt naturally)
+●
+Tóm tắt, hỏi – đáp, ..
+Xác suất có điều kiện
+Xác suất có điều kiện
+●
+Mô Hình Ngôn Ngữ = mô hình dự đoán từ
+●
+Quy tắc dây chuyền
+P(x1,x2,x3,...,xn) = P(x1)P(x2|x1)P(x3|x1,x2)...P(xn|x1,...,xn-1)
+●
+Ví dụ
+○
+P(“its water is so transparent”) = P(its) × P(water|its) × P(is|its 
+water) × P(so|its water is) × P(transparent|its water is so)
+●
+Mô hình ngôn ngữ là mô hình dự đoán từ dựa trên các từ phía 
+trước
+Mô hình ngôn ngữ
+●
+Tính xác suất của từ trong ngữ cảnh dựa trên N-gram
+Xác suất của từ
+Có vấn đề gì với cách tính trên?
+Giả thuyết Markov
+Giả thuyết Markov
+Unigram (1-gram): xác suất của một từ không phụ thuộc vào từ phía trước
+Mô hình n-gram
+Bigram (2-gram): xác suất một từ xuất hiện sau một từ cho trước
+Trigram (3-gram): xác suất một từ phụ thuộc vào 2 từ phía trước
+N-gram: xác suất 1 từ phụ thuộc vào N từ phía trước
+Sử dụng Maximum Likelihood Estimate
+Ước lượng xác suất
+Ví dụ
+Thống kê trên dữ liệu
+●
+Berkeley Restaurant Project (BeRP)
+●
+BeRP chứa các câu tư vấn trong lĩnh vực nhà hàng thành phố 
+Berkeley, California
+●
+Chứa 9222 câu. Ví dụ:
+○
+can you tell me about any good cantonese restaurants close by • 
+mid priced thai food is what i’m looking for
+○
+tell me about chez panisse
+○
+can you give me a listing of the kinds of food that are available • i’m 
+looking for a good place to eat breakfast
+○
+when is caffe venezia open during the day 
+○
+...
+Đếm đồng xuất hiện
+Xác xuất Bigram
+Chuẩn hóa bằng Unigrams:
+Kết quả
+Xác xuất Bigram
+Tính xác suất câu dựa trên các bigram
+P(<s> I want english food </s>) =
+P(I|<s>)
+× P(want|I)
+× P(english|want)
+× P(food|english)
+× P(</s>|food)
+= .000031
+Tính xác suất câu dựa trên các bigram
+Các xác suất đã tính được
+●
+P(english|want) = .0011
+●
+P(chinese|want) = .0065
+●
+P(to|want) = .66
+●
+P(eat | to) = .28
+●
+P(food | to) = 0
+●
+P(want | spend) = 0
+●
+P (i | <s>) = .25
+Các mô hình ngôn ngữ có sẵn
+Google Book N-grams
+●
+http://ngrams.googlelabs.com/
+KenLM
+●
+https://kheafield.com/code/kenlm/
+Đánh giá mô hình
+Extrinsic evaluation - Đánh giá ngoài
+●
+Mô hình ngôn ngữ A và B được sử dụng trong một bài toán X khác:
+○
+Bài toán speech recognition, spelling, machine translation
+●
+So sánh mô hình A với mô hình B tương ứng với so sánh kết quả ứng 
+dụng A với B trong bài toán X.
+Đánh giá mô hình
+Intrinsic evaluation - Đánh giá trong
+●
+Sử dụng dữ liệu Test là các câu trong ngôn ngữ 
+●
+Sử dụng độ đo Perplexity (độ phức tạp)
+○
+Đánh giá xấp xỉ không tốt
+■
+Chỉ khi dữ liệu test giống dữ liệu train (về bộ từ vựng)
+■
+Tốt cho thí nghiệm nhưng không tốt cho thực tế
+Shannon Game:
+●
+Ta có thể tiên đoán từ tiếp theo không?
+I always order pizza with cheese and ____
+The 33rd President of the US was ____
+I saw a ____
+●
+Có thể dùng unigram không?
+Mô hình tốt sẽ gán xác suất cao cho từ thường xuyên xuất hiện ở vị trí dự 
+đoán
+Ý tưởng của Perplexity
+Độ phức tạp tương đương số trường hợp rẽ nhánh
+• Giả thiết 1 câu gồm các chữ số ngẫu nhiên. Khi đó độ phức tạp của
+câu dựa trên 1 mô hình sẽ gán P=1/10 đ/v mỗi chữ số.
+Độ phức tạp (Perplexity)
+Độ phức tạp tương đương số trường hợp rẽ nhánh
+• Giả thiết 1 câu gồm các chữ số ngẫu nhiên. Khi đó độ phức tạp của
+câu dựa trên 1 mô hình sẽ gán P=1/10 đ/v mỗi chữ số.
+Cực tiểu perplexity tương đương với việc cực đại xác suất
+Độ phức tạp (Perplexity)
+Perplexity thấp = mô hình tốt
+• Bộ dữ liệu WSJ
+• Tập huấn luyện 38 triệu từ, kiểm tra 1.5 triệu từ
+Độ phức tạp (Perplexity)
+Giá trị phù hợp của n là bao nhiêu?
+●
+Về mặt lý thuyết, rất khó xác định
+●
+Tuy nhiên: nhiều nhất có thể (→ tiệm cận với mô hình “hoàn hảo”)
+●
+Về mặt thực nghiệm, phổ biến n = 3
+○
+Ước lượng tham số? (độ tin cậy, dữ liệu, lưu trữ, không gian, ...)
+○
+4 là quá lớn: |V|=60k → 1.296 x 1019 tham số
+○
+nhưng: 6-7 có thể nếu có đủ dữ liệu: trong thực tế, chúng ta có thể 
+khôi phục bản gốc từ 7-grams!
+Giá trị n
+N-grams chỉ tiên đoán từ tốt nếu tập test giống tập train.
+Ta cần tạo ra mô hình có tính tổng quát, nghĩa là có thể xử lý các 
+trường hợp xác suất = 0 (những TH không có trong tập train nhưng có 
+trong tập test)
+Hiện tượng quá khớp dữ liệu (overfitting)
+Khi chúng ta có thống kê thưa:
+P(w | denied the) 
+●
+3 allegations
+●
+2 reports
+●
+1 claims
+●
+1 request
+Xác suất trên tập train:
+Giảm xác suất các n-gram có xác suất lớn 
+hơn 0 để bù cho các n-gram có xác suất 
+bằng 0.
+●
+P(w | denied the) 
+●
+2.5 allegations 
+●
+1.5 reports
+●
+0.5 claims
+●
+0.5 request
+●
+2 other
+Vấn đề làm mịn
+Trích chọn đặc trưng
+Phân loại văn bản
+Đầu vào:
+●
+Một văn bản d
+●
+Một tập các lớp C = {c1, c2, ..., cJ}
+Đầu ra:
+Dự đoán lớp c ∈ C của d
+●
+Chọn đặc trưng
+●
+Luật (Rules) dựa vào kết hợp các đặc trưng của từ hoặc các 
+đặc trưng khác
+○
+spam: black-list-address OR (“dollars” AND“have been 
+selected”)
+●
+Độ chính xác có thể cao
+○
+Nếu luật được thiết kế cẩn thận bởi chuyên gia
+●
+Xây dựng và duy trì những bộ luật này là tốn kém
+Luật thủ công
+●
+Đầu vào:
+○
+Một văn bản (email) d
+○
+Một tập các lớp C = {c1, c2,..., cJ}
+○
+Một tập dữ liệu huấn luyện gồm m mẫu đã được gán nhãn 
+(d1,c1),....,(dm,cm)
+●
+Đầu ra:
+○
+Một bộ phân lớp γ:d → c
+Học máy có giám sát
+●
+Sử dụng bất kỳ các loại phân lớp
+○
+Naïve Bayes
+○
+Logistic regression
+○
+Support-vector machines
+○
+Neural Network
+○
+…
+Một số phương pháp
+Hệ thống phân loại văn bản
+●
+Một biến có thể đo lường, khác biệt của một thứ mà chúng ta 
+muốn lập mô hình.
+●
+Chúng ta thường chọn đặc trưng mà hữu ích để xác định thứ 
+gì đó, ví dụ như để phân lớp (loại).
+○
+Ví dụ: Cô gái đó rất đẹp trong bữa tiệc hôm đó.
+●
+Chúng ta thường cần một số đặc trưng để lập mô hình đầy 
+đủ.
+– nhưng không quá nhiều!
+Đặc trưng (Features)
+●
+Numeric Representation
+Đặc trưng (Features)
+●
+Numeric Representation
+Đặc trưng (Features)
+Từ văn bản sang đặc trưng
+Có thể việc sinh ra các đặc trưng hữu ích bằng thủ công 
+(feature engineering)
+●
+Đặc trưng thống kê: độ dài, vị trí,...
+●
+Sử dụng điểm từ các từ điển:
+○
+Sentiment dictionaries: SentiWordNet, SentiWords, ... 
+○
+Subjectivity/objectivity dictionaries: MPQA
+●
+Các đặc trưng cú pháp: 
+○
+POS tags
+●
+Đặc trưng cho bài toán: e.g. number of emojis (😝, 😘)
+Biểu diễn văn bản
+Giá trị của một vài đặc trưng của một quan sát có thể đưa vào 
+một vector
+Vector đặc trưng
+Các đặc trưng sẽ hữu ích trong việc phân biệt giữa các thể loại
+Vector đặc trưng
+Biểu diễn văn bản
+One-hot encoding
+●
+Token-Level
+●
+Được biểu diễn bằng vectơ nhị phân
+One-hot encoding
+●
+Token-Level
+●
+Được biểu diễn bằng vectơ nhị phân
+One-hot encoding
+Nhược điểm
+●
+Ma trận thưa (hầu hết là số 0)
+○
+Số chiều của Vectơ tỷ lệ thuận với 
+kích thước của số lượng từ vựng
+●
+Không nắm bắt được ý nghĩa của từ
+○
+Chỉ bao gồm các số 0 và 1
+●
+Out of vocabulary (OOV)
+Bag of Words (BoW)
+Document-Level: Coi văn bản như một túi (bộ sưu tập) các từ
+Được biểu diễn bằng vectơ n-chiều
+●
+số lần xuất hiện của từ trong tài liệu
+Bag of Words (BoW)
+Document-Level: Coi văn bản như một túi (bộ sưu tập) các từ
+Được biểu diễn bằng vectơ n-chiều
+●
+số lần xuất hiện của từ trong tài liệu
+Bag of Words (BoW)
+Nhược điểm
+-
+Out of vocabulary (OOV): từ không nằm trong từ điển
+Bag of Words (BoW)
+Nhược điểm
+Vector biểu diễn không tính đến tần suất xuất hiện của từ
+Bag of Words (BoW)
+Ưu điểm
+-
+Giữ được sự tương đồng về ngữ nghĩa của tài liệu
+Bag of Words (BoW)
+Nhược điểm
+●
+Ma trận thưa (hầu hết là số 0)
+○
+Số chiều của Vectơ tỷ lệ thuận với 
+kích thước của số lượng từ vựng
+●
+Không nắm bắt được ý nghĩa của từ
+○
+Chỉ bao gồm các số 0 và 1
+●
+Out of vocabulary (OOV)
+●
+Document Level: Xem văn bản như một túi (bộ sưu tập) các từ
+●
+Vocabulary: tập hợp tất cả các n-gram duy nhất từ kho ngữ liệu
+Bag of N-grams
+●
+TF (Term Frequency): dùng để ước lượng tần suất xuất hiện 
+của từ trong văn bản. Tuy nhiên với mỗi văn bản thì có độ dài 
+khác nhau, vì thế số lần xuất hiện của từ có thể nhiều hơn . Vì 
+vậy số lần xuất hiện của từ sẽ được chia độ dài của văn bản 
+(tổng số từ trong văn bản đó)
+TF-IDF
+●
+TF (Term Frequency)
+TF-IDF
+●
+TF (Term Frequency)
+TF-IDF
+N: Tổng số tài liệu trong kho văn bản
+dft: Số lượng tài liệu có thuật ngữ t trong đó
+TF-IDF
+IDF (Inverse Document Frequency)
+●
+Đo lường tầm quan trọng của từ trên một kho ngữ liệu
+TF-IDF
+IDF (Inverse Document Frequency)
+Khi tính tần số xuất hiện tf thì các từ đều được coi là quan trọng như 
+nhau. Tuy nhiên có một số từ thường được được sử dụng nhiều 
+nhưng không quan trọng để thể hiện ý nghĩa của đoạn văn , ví dụ :
+●
+Từ nối: và, nhưng, tuy nhiên, vì thế, vì vậy, …
+●
+Giới từ: ở, trong, trên, …
+●
+Từ chỉ định: ấy, đó, nhỉ, …
+Vì vậy ta cần giảm đi mức độ quan trọng của những từ đó bằng cách 
+sử dụng IDF
+TF-IDF
+IDF (Inverse Document Frequency)
+TF-IDF
+●
+là trọng số của một từ trong văn bản thu được qua thống kê thể 
+hiện mức độ quan trọng của từ này trong một văn bản, mà bản 
+thân văn bản đang xét nằm trong một tập hợp các văn bản.
+●
+Khi đó, biểu diễn vectơ TF-IDF cho một tài liệu chỉ đơn giản là 
+điểm TF-IDF cho từng thuật ngữ trong tài liệu đó.
+TF-IDF
+TF-IDF
+TF-IDF
+TF-IDF
+Ưu điểm
+●
+Nắm bắt một số điểm tương đồng về ngữ nghĩa
+●
+Hữu ích cho việc truy xuất thông tin và phân loại văn bản
+Text Classification
+Phương pháp Naive Bayes
+●
+Giả định Naïve Bayes: Các thuộc tính mà mô tả dữ liệu là độc 
+lập điều kiện theo bởi giả thuyết phân lớp
+●
+Cực đại giả thuyết hậu nghiệm
+●
+Một trong những phương pháp học máy thực tế nhất
+●
+Các ứng dụng thành công:
+○
+Chẩn đoán sức khỏe
+○
+Phân lớp văn bản, lọc nội dung thư rác (spam mail)
+Phương pháp Naive Bayes
+Phân loại văn bản
+●
+Mục tiêu: gán một văn bản mới vào một lớp có xác suất hậu nghiệm 
+cao nhất P(class | document)
+●
+Ví dụ: Phân loại Spam mail
+○
+Một email là spam nếu P(spam | message) > P(¬spam | message)
+Phân loại văn bản
+●
+Mục tiêu: gán một văn bản mới vào một lớp có xác suất hậu 
+nghiệm cao nhất P(class | document)
+●
+Chúng ta có P(class | document) μ P(document | class)P(class)
+●
+Mô hình cần ước lượng likelihoods P(document | class) cho tất 
+cả các lớp priors P(class)
+Thuật toán Naïve Bayes
+●
+ Mục tiêu: ước lượng xác suất hậu nghiệm P(document | class) 
+và xác suất tiền nghiệm P(class)
+●
+Likelihood: giả sử dùng bag of words
+○
+Một Văn Bản Là Một Chuỗi Các Từ (w1,...,wn)
+○
+Thứ tự các từ không quan trọng
+○
+Mỗi từ phụ thuộc điều kiện với lớp của văn bản như sau
+●
+Như vậy, vấn đề được đơn giản hoá bằng quá trình ước lượng 
+xác suất của từng từ P(wi | class)
+Ước lượng tham số
+●
+Tham số của mô hình: là các xác suất likelihoods P(word | class) 
+và xác suất tiền nghiệm P(class)
+○
+Làm thế nào để xác định giá trị của các tham số?
+○
+Cần tập dữ liệu huấn luyện
+●
+Quá trình ước lượng maximum likelihood (ML) từ tập dữ liệu 
+huấn luyện như sau:
+Ước lượng tham số
+●
+ Ước lượng tham số:
+●
+Làm mịn tham số (parameter smoothing): xử lý trường hợp các 
+từ không xuất hiện hoặc xuất hiện quá nhiều
+●
+Tổng kết buổi học

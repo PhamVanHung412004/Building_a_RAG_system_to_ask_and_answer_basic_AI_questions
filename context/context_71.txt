@@ -1,0 +1,82 @@
+All-in-One Course 2023
+aivietnam.edu.vn
+Study Guide: Module 9 - Week 5
+Stable Diffusion
+1. Thứ4 (Ngày 10/04/2024)
+Introduction to Stable (Latent) Diffusion Model
+• Phụtrách: Dr. Nguyễn Đình Vinh
+• Kiến thức cần chuẩn bịtrước:
+- Basics of probability and statistics (multivariate Gaussian, conditional probability, marginal
+probability, likelihood, Bayers’ rule)
+- Basic of Pytorch and Neural Network
+- How the attention mechanism works
+- How convolution layers work
+- Basic about Diffusion Models and Denoise Diffusion Models
+• Nội dung:
+- Thảo luận và phân tích nhược điểm của các môn hình diffusion probability models khi dữ
+liệu đầu vào lớn
+- Giới thiệu phương pháp Stable (Latent) Diffusion Model đểkhắc phục nhược điểm của mô
+hình diffusion trước đây sửdụng VAE
+- Hiện thực lại phương pháp Stable Diffusion sửdụng Pytorch
+• Tài liệu tham khảo:
+Deep High-Resolution Image Synthesis with Latent Diffusion Models
+• Các link:
+Link GG drive cho các tài liệu
+Link Zoom
+2. Thứ6 (Ngày 12/04/2024)
+Introduction to OpenAI’s Sora
+• Phụtrách: Dr. Nguyễn Đình Vinh
+• Kiến thức cần chuẩn bịtrước:
+- Basics of probability and statistics (multivariate Gaussian, conditional probability, marginal
+probability, likelihood, Bayers’ rule)
+- Basic of Pytorch and Neural Network
+- Basic Transformer and Chat GPT Architecture
+- Basic Stable Diffusion Model
+- Basic Vision Transformer
+• Nội dung:
+- Giới thiệu diffusion models
+- Giới thiệu vềTransformer và Chat GPT
+- Giới thiệu vềVision Transformer
+- Giới thiệu mô hình Diffusion và Transformer kết hợp
+- Giới thiệu kiến trúc môn hình OpenAI’s Sora
+1
+All-in-One Course 2023
+aivietnam.edu.vn
+• Tài liệu tham khảo:
+Sora: A Review on Background, Technology, Limitations, and Opportunities of Large Vision
+Models
+• Các link:
+Link GG drive cho các tài liệu
+Link Zoom
+3. Chủnhật (Ngày 14/04/2024)
+Text-to-Image Generation using Stable Diffusion Model
+• Phụtrách: TA Nguyễn Quốc Thái
+• Nội dung:
+- Ôn tập các thành phần cơ bản mô hình Stable Diffusion
+- Tổng quan vềcác phương pháp đểgiải quyết bài toán Text-to-Image Generation
+- Huấn luyện mô hình Stable Diffusion cho bài toán Text-to-Image Generation dựa vào bộ
+dữliệu CelebA-HQ
+• Tài liệu tham khảo:
+- High-Resolution Image Synthesis with Latent Diffusion Models
+- Bộdữliệu: CelebA-HQ
+- Text-to-Image Generation using Diffusers
+• Các link:
+Link GG drive cho các tài liệu
+Link Zoom
+4. Thứ7 (Ngày 13/04/2024)
+(Extra class) LLMs Series: Instruction Tuning
+• Phụtrách: TA Dương Đình Thắng
+• Nội dung:
+- Giới thiệu vềmô hình ngôn ngữlớn (LLMs).
+- Giới thiệu vềcác kỹthuật giúp LLMs có thểxửlý tốt trên một task cụthể, bao gồm:
+(a) In-context learning.
+(b) Instruction tuning.
+- Giới thiệu vềkỹthuật giúp huấn luyện được mô hình ngôn ngữlớn trên GPU nhỏ.
+- Huấn luyện LLMs cho bài toán giải toán trắc nghiệm.
+• Tài liệu tham khảo:
+- Paper: Scaling Instruction-Finetuned Language Models
+- Instruction-tuned LLMs Tutorial
+• Các link:
+Link GG drive cho các tài liệu
+Link Zoom
+2

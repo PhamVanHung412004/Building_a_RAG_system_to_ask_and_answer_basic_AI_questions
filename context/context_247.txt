@@ -1,0 +1,1128 @@
+AI VIETNAM – AIO2024
+Học List và Numpy Qua Các Ví Dụ
+Đinh Quang Vinh
+Ngày 9 tháng 7 năm 2024
+List
+1. Chỉmục xuôi và chỉmục ngược
+Ví dụcho một danh sách có tên là data, chứa sáu phần tửlần lượt là 4, 5, 6, 7, 8, và 9 như hình bên
+dưới. Mỗi phần tửtrong danh sách được tiếp cận (lấy hay thay đổi giá trị) bằng thông tin chỉmục
+(index) của nó. Thông tin chỉmục bao gồm thông tin chỉmục xuôi (từtrái sang phải) và thông tin chỉ
+mục ngược (từphải sang trái). Khi từ"chỉmục" được đềcập mà không nói rõ là chỉmục xuôi hay chỉ
+mục ngược, chúng ta thường ngầm hiểu đó là chỉmục xuôi.
+Ví dụ1: Chỉmục xuôi và chỉmục ngược của một danh sách.
+Giá trịcủa chỉmục xuôi là những sốnguyên, bắt đầu từ0 và tăng với đơn vịlà 1. Với danh sách data
+có sáu phần tử, giá trịchỉmục xuôi lần lượt là 0, 1, 2, 3, 4, và 5. Chúng ta có thểnhẩm giá trịchỉ
+mục xuôi cho phần tửđầu tiên là 0 và phần từcuối cùng của danh sách là 6 −1 = 5.
+Thông tin chỉmục ngược bao gồm những giá trịnguyên âm, từphải sáng trái, giá trịbắt đầu từ-1 và
+giảm dần với đơn vịlà 1. Cụthểởdanh sách data, chỉmục ngược cho các phần tửtừphải sang trái là
+-1, -2, -3, -4, -5, và -6. Giá trịchỉmục ngược -1 được sửdụng phổbiến nhất đểlấy phần tửcuối cùng
+của danh sách.
+Đoạn code bên dưới minh họa việc tạo một danh sách và lấy các phần tửcủa danh sách dùng giá trị
+chỉmục xuôi và chỉmục ngược.
+1 # Python
+code
+2 data = [4, 5, 6, 7, 8, 9]
+3 print(data [0])
+4 print(data [3])
+5 print(data [-1])
+6 print(data [-3])
+=================
+Output
+================
+4
+7
+9
+7
+==========================================
+1
+AIO2024
+aivietnam.edu.vn
+2. Kỹthuật slicing
+Kỹthuật slicing cho phép thao tác với nhiều phần tửtrong danh sách. Cú pháp của kỹthuật slicing là
+tên-danh-sách[start:end:step], trong đó start, end, và step cách nhau bằng dấu hai chấm (:) và có giá
+trịmặc định lần lượt là 0, độdài của danh sách len(.), và 1. Cú pháp trên có ý nghĩa là lấy các phần
+tửcó chỉmục bắt đầu từstart đến chỉmục (end-1) với giá trịtăng lên là step. Khi
+Xét ví dụ2 với một danh sách data chứa sáu phần tửvà mỗi phần tửcó một giá trịchỉmục. Ba phần
+tửđầu tiên của danh sách được lấy theo kỹthuật slicing là data[0:3:1], trong đó start=0, end=3, và
+step=1. data[0:3:1] sẽlấy các phần tửtheo thứtựcó chỉmục là 0, 1, và 2. Ởđây, phần tửvới chỉmục
+là 3 sẽkhông được lấy vì slicing chỉlấy phần tửtới chỉmục (end-1).
+1 # Python
+code
+2 data = [4, 5, 6, 7, 8, 9]
+3 print(data [0:3:1])
+4 print(data [2:4:1])
+5 print(data [3:6:1])
+6 print(data [0:6:2])
+7 print(data [0:5:3])
+8 print(data [1:6:2])
+=================
+Output
+================
+[4, 5, 6]
+[6, 7]
+[7, 8, 9]
+[4, 6, 8]
+[4, 7]
+[5, 7, 9]
+==========================================
+Ví dụ2: Kỹthuật slicing trong Python.
+Mặc dù chúng ta thấy có ba thông tin start, end, và step ởkỹthuật slicing, ba thông tin này có thể
+không cần khai báo như ởví dụ3. Khi chỉcó một dấu hai chấm (:) được dùng, lúc này Python hiểu là
+đây là dấu hai chấm đầu tiên trong cú pháp slicing. Cụthể, data[2:4] nghĩa là start=2, end=4, và step
+nhận giá trịmặc định là 1. Một trường hợp khác, data[3:] nghĩa là start=2, và end=4 và step nhận giá
+trịmặc định là 6 và 1.
+Ví dụ3: Các giá trịstart, end và step có thểkhông khai báo trong kỹthuật slicing.
+2
+AIO2024
+aivietnam.edu.vn
+Ba giá trịstart, end và step có thểkhông khai báo khi dùng slicing như ởví dụ4. Lúc này start, end
+và step sẽnhận các giá trịmặc định là 0, 6 và 1. Như đã thảo luận, chúng ta thậm chí có thểkhông
+khai báo đầy đủhai dấu hai chấm như data[:] chỉkhai báo một dấu hai chấm, và lờđi start, end, stop,
+và một dấu hai chấm. Tuy nhiên, nếu chúng ta bỏđi luôn cảhai dấu hai chấm như data[], chương
+trình sẽbáo lỗi cú pháp không hợp lệ.
+Ví dụ4: Chỉdùng dấu hai chấm và không khai báo start, end và step trong kỹthuật slicing.
+Trong thực tế, dù kỹthuật slicing cho phép sửdụng một cách linh động. Chúng ta vẫn nên khai báo
+đầu đủthông tin đểcode tường minh hơn và rõ ràng hơn. Hai đoạn code 3 và 4 trình bày code Python
+và kết quảcủa 2 chương trình.
+1 # Python
+code 3
+2 data = [4, 5, 6, 7, 8, 9]
+3 print(data [:3])
+4 print(data [2:4])
+5 print(data [3:])
+6 print(data [:])
+7 print(data [::])
+=================
+Output
+================
+[4, 5, 6]
+[6, 7]
+[7, 8, 9]
+[4, 5, 6, 7, 8, 9]
+[4, 5, 6, 7, 8, 9]
+==========================================
+1 # Python
+code 4
+2 data = [4, 5, 6, 7, 8, 9]
+3 print(data [])
+4
+5
+6 # =========================================
+=================
+Output
+================
+Cell In [.], line 3
+print(data [])
+^
+SyntaxError: invalid
+syntax
+==========================================
+3
+AIO2024
+aivietnam.edu.vn
+3. Thêm phần tửvào danh sách
+Chúng ta có thểthêm một hoặc nhiều phần tửvào một danh sách. Hàm append(element) cho phép
+thêm phần tửelement vào cuối danh sách. Hàm insert(index, element) chèn phần tửelement vào vị
+trí có chỉmục là index. Ví dụ3.1 minh họa việc thêm một phần tửvào một danh sách dùng hàm
+append(element) và hàm insert(index, element) . Code 3.1 và 3.2 cài đặt việc thêm phần tửvào một
+danh sách.
+Ví dụ3.1: Thêm một phần tửvào một danh sách.
+1 # Python
+code 3.1
+2 data = [6, 5, 7, 1, 9, 2]
+3 print(data)
+4 data.append (4)
+5 print(data)
+=================
+Output
+================
+[6, 5, 7, 1, 9, 2]
+[6, 5, 7, 1, 9, 2, 4]
+==========================================
+1 # Python
+code 3.2
+2 data = [6, 5, 7, 1, 9, 2]
+3 print(data)
+4 data.insert (0, 4)
+5 print(data)
+=================
+Output
+================
+[6, 5, 7, 1, 9, 2]
+[4, 6, 5, 7, 1, 9, 2]
+==========================================
+Ngoài ra, Python cho phép thêm nhiều phần tửvào một danh sách hay nối hai danh sách vào thành
+một. Hàm extend(a_list) thêm các phần tửtrong a_list vào cuối một danh sách. Chúng ta dùng dấu
+cộng (+) theo cú pháp list_1 + list_1 đểnối hai danh sách list_1 và list_2 . Ví dụ3.2 minh họa
+việc thêm nhiều phần tửvào một danh sách và việc nối hai danh sách vào thành một. Code 3.3 và 3.4
+trình bày phần cài đặt cho ví dụ3.2.
+Ví dụ3.2: Thêm nhiều phần từvào một danh sách và nối hai danh sách.
+4
+AIO2024
+aivietnam.edu.vn
+1 # Python
+code 3.3
+2 data = [6, 5, 7, 1]
+3 print(data)
+4 data.extend ([9, 2])
+5 print(data)
+=================
+Output
+================
+[6, 5, 7, 1]
+[6, 5, 7, 1, 9, 2]
+==========================================
+1 # Python
+code 3.4
+2 data = [6, 5, 7] + [1, 9, 2]
+3 print(data)
+=================
+Output
+================
+[6, 5, 7, 1, 9, 2]
+==========================================
+5
+AIO2024
+aivietnam.edu.vn
+4. Cập nhật phần tửtrong danh sách
+Một hay nhiều phần tửcủa một danh sách có thểđược thay đổi giá trịthông qua giá trịchỉmục, như
+ởví dụ4. data[1] = 4 nghĩa là cập nhật phần tửởchỉmục là 1 với giá trịlà 4. Kỹthuật slicing có thể
+được sửdụng đểcập nhật nhiều phần tửtrong một danh sách. Ví dụdata[::2] tiếp cận ba phần tửở
+chỉmục 0, 2, và 4; do đó, data[::2] = [1, 1, 1] cập nhật giá trị1 cho ba phần tửởchỉmục 0, 2, và 4.
+Code 4.1, 4.2 và 4.3 trình bày cài đặt Python cho việc cập nhật một và nhiều phần tửtrong một danh
+sách.
+Ví dụ4: Thêm nhiều phần từvào một danh sách và nối hai danh sách.
+1 # Python
+code 4.1
+2 data = [6, 5, 7, 1, 9, 2]
+3 print(data)
+4 data [1] = 4
+5 print(data)
+=================
+Output
+================
+[6, 5, 7, 1, 9, 2]
+[6, 4, 7, 1, 9, 2]
+==========================================
+1 # Python
+code 4.2
+2 data = [4, 5, 6, 7, 8, 9]
+3 print(data)
+4 data [0:3] = [1, 1, 1]
+5 print(data)
+=================
+Output
+================
+[4, 5, 6, 7, 8, 9]
+[1, 1, 1, 7, 8, 9]
+==========================================
+1 # Python
+code 4.3
+2 data = [4, 5, 6, 7, 8, 9]
+3 print(data)
+4 data [::2] = [1, 1, 1]
+5 print(data)
+=================
+Output
+================
+[4, 5, 6, 7, 8, 9]
+[1, 5, 1, 7, 1, 9]
+==========================================
+6
+AIO2024
+aivietnam.edu.vn
+5. Xóa phần tửkhỏi danh sách
+Ví dụ5: Xóa phần tửkhỏi danh sách dùng hàm pop() và remove().
+Ví dụ6: Xóa phần tửkhỏi danh sách dùng hàm clear() và và từkhóa del.
+7
+AIO2024
+aivietnam.edu.vn
+Numpy
+Câu 1: Import gói Numpy và in ra phiên bản của nó
+1 # Python
+code (aivietnam)
+2 import
+numpy as np
+3 print(np.version.version)
+=================
+Output
+================
+1.25.0
+==========================================
+Câu 2: Tạo mảng một chiều từ4 đến 9
+1 # Python
+code (aivietnam)
+2 import
+numpy as np
+3
+4 data = np.arange (4, 10)
+5 print(data)
+=================
+Output
+================
+[4 5 6 7 8 9]
+==========================================
+Câu 3: Tạo một mảng boolean 3x3 với tất cảgiá trịlà True
+1 # Python
+code (aivietnam)
+2 import
+numpy as np
+3
+4 # way 1
+5 data1 = np.ones ((3 ,3)) > 0
+6 print(f’{data1} \n---------------------’)
+7
+8 # way 2
+9 data2 = np.ones ((3 ,3), dtype=bool)
+10 print(f’{data2} \n---------------------’)
+11
+12 # way 3
+13 data3 = np.full ((3 ,3), True , dtype=bool)
+14 print(f’{data3} \n---------------------’)
+=================
+Output
+================
+[[ True
+True
+True]
+[ True
+True
+True]
+[ True
+True
+True ]]
+-------------------
+[[ True
+True
+True]
+[ True
+True
+True]
+[ True
+True
+True ]]
+-------------------
+[[ True
+True
+True]
+[ True
+True
+True]
+[ True
+True
+True ]]
+-------------------
+==========================================
+8
+AIO2024
+aivietnam.edu.vn
+Câu 4: Lấy những phần tửmà thoảmãn một điều kiện cho trước của mảng một chiều
+1 # Python
+code (aivietnam)
+2 import
+numpy as np
+3
+4 # create an ndarray
+from 0 to 9
+5 data = np.arange (0, 10)
+6 print(data)
+7
+8 # Find odd
+numbers
+9 data_odd = data[data %2 == 1]
+10 print(data_odd)
+=================
+Output
+================
+[0 1 2 3 4 5 6 7 8 9]
+[1 3 5 7 9]
+==========================================
+Câu 5: Thay thếphần tửthoảmãn điều kiện cho trước bằng một giá khác
+1 # Python
+code (aivietnam)
+2 import
+numpy as np
+3
+4 # create an ndarray
+from 0 to 9
+5 data = np.arange (0, 10)
+6 print(data)
+7
+8 # replace
+odd
+numbers by
+-1
+9
+AIO2024
+aivietnam.edu.vn
+9 data[data %2 == 1] = -1
+10 print(data)
+=================
+Output
+================
+[0 1 2 3 4 5 6 7 8 9]
+[ 0 -1
+2 -1
+4 -1
+6 -1
+8
+-1]
+==========================================
+1 # Python
+code (aivietnam)
+2 import
+numpy as np
+3
+4 # create an ndarray
+from 0 to 9
+5 data = np.arange (0, 10)
+6 print(data)
+7
+8 # replace
+odd
+numbers by
+-1
+9 out = np.where(data %2 == 1, -1, arr)
+10 print(out)
+=================
+Output
+================
+[0 1 2 3 4 5 6 7 8 9]
+[0
+-1
+2 -1
+4 -1
+6 -1
+8
+-1]
+==========================================
+Câu 6: Chuyển định dạng (shape) của một ndarray. Chuyển mảng một chiều thành mảng
+hai chiều
+1 # Python
+code (aivietnam)
+2 import
+numpy as np
+3
+4 # create a 1D ndarray
+from 0 to 9
+5 data = np.arange (10)
+6 print(data)
+7
+8 # reshape
+data to 2 rows and 5 columns
+9 data_2d = data.reshape (2, 5)
+10 print(data_2d)
+=================
+Output
+================
+[0 1 2 3 4 5 6 7 8 9]
+[[0 1 2 3 4]
+[5 6 7 8 9]]
+==========================================
+10
+AIO2024
+aivietnam.edu.vn
+Câu 7: Xếp chồng 2 mảng theo chiều dọc
+1 # Python
+code (aivietnam)
+2 import
+numpy as np
+3
+4 data1 = np.arange (10).reshape (2,
+-1)
+5 print(data1)
+6
+7 data2 = np.repeat (7, 10).reshape (2,
+-1)
+8 print(data2)
+9
+10 # Way 1 :
+11 out1 = np.concatenate ([data1 , data2],
+12
+axis =0)
+13 print(out1)
+14
+15 # Way 2 :
+16 out2 = np.vstack ([data1 , data2 ])
+17 print(out2)
+18
+19 # Way 3 :
+20 out3 = np.r_[data1 , data2]
+21 print(out3)
+=================
+Output
+================
+[[0 1 2 3 4]
+[5 6 7 8 9]]
+[[7 7 7 7 7]
+[7 7 7 7 7]]
+[[0 1 2 3 4]
+[5 6 7 8 9]
+[7 7 7 7 7]
+[7 7 7 7 7]]
+[[0 1 2 3 4]
+[5 6 7 8 9]
+[7 7 7 7 7]
+[7 7 7 7 7]]
+[[0 1 2 3 4]
+[5 6 7 8 9]
+[7 7 7 7 7]
+[7 7 7 7 7]]
+==========================================
+Câu 8: Xếp chồng 2 mảng theo chiều ngang
+11
+AIO2024
+aivietnam.edu.vn
+1 # Python
+code (aivietnam)
+2 import
+numpy as np
+3
+4 data1 = np.arange (10).reshape (2,
+-1)
+5 print(data1)
+6
+7 data2 = np.repeat (7, 10).reshape (2,
+-1)
+8 print(data2)
+9
+10 # Way 1
+11 out1 = np.concatenate ([data1 , data2],
+12
+axis =1)
+13 print(out1)
+14
+15 # Way 2
+16 out2 = np.hstack ([data1 , data2 ])
+17 print(out2)
+18
+19 # Way 3
+20 out3 = np.c_[data1 , data2]
+21 print(out3)
+=================
+Output
+================
+[[0 1 2 3 4]
+[5 6 7 8 9]]
+[[7 7 7 7 7]
+[7 7 7 7 7]]
+[[0 1 2 3 4 7 7 7 7 7]
+[5 6 7 8 9 7 7 7 7 7]]
+[[0 1 2 3 4 7 7 7 7 7]
+[5 6 7 8 9 7 7 7 7 7]]
+[[0 1 2 3 4 7 7 7 7 7]
+[5 6 7 8 9 7 7 7 7 7]]
+==========================================
+Câu 9: Lặp data với repeat() và tile()
+1 # Python
+code (aivietnam)
+2 import
+numpy as np
+3
+4 data = np.array ([1, 2])
+5 print(data)
+6
+7 # repeat
+each
+element
+three
+times
+8 out1 = np.repeat(data , 3)
+9 print(out1)
+10
+11 # repeat
+data
+three
+times
+12 out2 = np.tile(data , 3)
+13 print(out2)
+=================
+Output
+================
+[1 2]
+[1 1 1 2 2 2]
+[1 2 1 2 1 2]
+==========================================
+12
+AIO2024
+aivietnam.edu.vn
+Câu 10: Lấy phần tửchung của 2 mảng
+1 # Python
+code (aivietnam)
+2 import
+numpy as np
+3
+4 data1 = np.array ([1, 2, 3, 2])
+5 data2 = np.array ([7, 2, 1, 8])
+6 print(data1)
+7 print(data2)
+8
+9 out = np.intersect1d(data1 , data2)
+10 print(out)
+=================
+Output
+================
+[1 2 3 2]
+[7 2 1 8]
+[1 2]
+==========================================
+Câu 11: Xoá phần tửtừmột mảng mà tồn tại trong một mảng khác
+1 # Python
+code (aivietnam)
+2 import
+numpy as np
+3
+4 data1 = np.array ([1, 2, 3, 4, 5])
+5 data2 = np.array ([1, 5, 9])
+6
+7 out = np.setdiff1d(data1 , data2)
+8 print(out)
+=================
+Output
+================
+[2 3 4]
+==========================================
+13
+AIO2024
+aivietnam.edu.vn
+Câu 12: Lấy tất cảvịtrí nơi giá trịcác phần tửcủa hai mảng giống nhau
+1 # Python
+code (aivietnam)
+2 import
+numpy as np
+3
+4 # create
+data1
+v
+data2
+5 data1 = np.array ([1, 2, 3, 4, 5, 6])
+6 data2 = np.array ([1, 1, 1, 6, 6, 6])
+7
+8 # compare
+the two array
+9 comp = data1 == data2
+10
+11 # get
+indices
+whose
+elements
+are not zero
+12 indices = comp.nonzero ()
+13 print(indices)
+=================
+Output
+================
+(array ([0, 5], dtype=int64) ,)
+==========================================
+Câu 13: Lấy tất cảcác giá trịtrong một phạm vi cho trước
+1 # Python
+code (aivietnam)
+2 import
+numpy as np
+3 data = np.array ([1, 8, 3, 9, 7, 6])
+4 print(data)
+5
+6 # Way 1
+7 indices = np.where(data >=7)
+8 out1 = data[indices]
+9 print(out1)
+10
+11 # Way 2
+12 out2 = data[data >=7]
+13 print(out2)
+=================
+Output
+================
+[1 8 3 9 7 6]
+[8 9 7]
+[8 9 7]
+==========================================
+14
+AIO2024
+aivietnam.edu.vn
+Câu 14: Áp dụng một hàm user-defined cho ndarray dùng np.vectorize(). Áp dụng hàm
+get_max() cho hai mảng ndarray
+1 # Python
+code (aivietnam)
+2 import
+numpy as np
+3
+4 # get larger
+value
+5 def
+get_max(x, y):
+6
+if x >= y :
+7
+return x
+8
+else:
+9
+return y
+10
+11 # vectorize
+the
+function
+12 pair_max = np.vectorize(get_max ,
+13
+otypes =[int])
+14
+15 # create
+data1 and data2
+16 data1 = np.array ([5, 3, 8, 2, 7])
+17 data2 = np.array ([2, 7, 3, 1, 8])
+18
+19 # use
+pair_max as a function
+20 out1 = pair_max(data1 , data2)
+21 print(out1)
+=================
+Output
+================
+[5 7 8 2 8]
+==========================================
+1 # Python
+code (aivietnam)
+2 import
+numpy as np
+3
+4 data1 = np.array ([5, 3, 8, 2, 7])
+5 data2 = np.array ([2, 7, 3, 1, 8])
+6
+7 # Way 2: Using the
+maximum () function
+8 out2 = np.maximum(data1 , data2)
+9 print(out2)
+10
+11 # Way 3: Using the where () function
+12 out3 = np.where(data1 >data2 , data1 , data2)
+13 print(out3)
+=================
+Output
+================
+[5 7 8 2 8]
+[5 7 8 2 8]
+==========================================
+15
+AIO2024
+aivietnam.edu.vn
+Câu 15: Hoán đổi các cột trong mảng hai chiều
+1 # Python
+code (aivietnam)
+2 import
+numpy as np
+3
+4 # create a 3x3 matrix
+5 data = np.arange (9).reshape (3,3)
+6 print(data , ’\n’)
+7
+8 # A new matrix is constructed by the
+9 # columns [1,0,2] from data
+10 out = data[:, [1 ,0 ,2]]
+11 print(out)
+=================
+Output
+================
+[[0 1 2]
+[3 4 5]
+[6 7 8]]
+[[1 0 2]
+[4 3 5]
+[7 6 8]]
+==========================================
+Câu 16: Hoán đổi các dòng trong mảng hai chiều
+1 # Python
+code (aivietnam)
+2 import
+numpy as np
+3
+4 # create a 3x3 matrix
+5 data = np.arange (9).reshape (3,3)
+6 print(data , ’\n’)
+7
+8 # A new matrix is constructed by the
+9 # rows [1,0,2] from data
+10 out = data [[1,0,2], :]
+11 print(out)
+=================
+Output
+================
+[[0 1 2]
+[3 4 5]
+[6 7 8]]
+[[3 4 5]
+[0 1 2]
+[6 7 8]]
+==========================================
+16
+AIO2024
+aivietnam.edu.vn
+Câu 17: Đảo ngược các phần tửcủa các cột trong mảng hai chiều
+1 # Python
+code (aivietnam)
+2 import
+numpy as np
+3
+4 # create a 3x3 matrix
+5 data = np.arange (9).reshape (3,3)
+6 print(data , ’\n’)
+7
+8 # reverse
+each
+column
+9 out = data [::-1, :]
+10 print(out)
+=================
+Output
+================
+[[0 1 2]
+[3 4 5]
+[6 7 8]]
+[[6 7 8]
+[3 4 5]
+[0 1 2]]
+==========================================
+Câu 18: Đảo ngược các phần tửcủa các hàng trong mảng hai chiều
+1 # Python
+code (aivietnam)
+2 import
+numpy as np
+3
+4 # create a 3x3 matrix
+5 data = np.arange (9).reshape (3,3)
+6 print(data , ’\n’)
+7
+8 # reverse
+each row
+9 out = data[:, ::-1]
+10 print(out)
+=================
+Output
+================
+[[0 1 2]
+[3 4 5]
+[6 7 8]]
+[[2 1 0]
+[5 4 3]
+[8 7 6]]
+==========================================
+17
+AIO2024
+aivietnam.edu.vn
+Câu 19: Tạo mảng hai chiều chứa sốngẫu nhiên (kiểu sốlẻ)
+1 # Python
+code (aivietnam)
+2 import
+numpy as np
+3
+4 # create a 2x3 matrix (from 5 to 10)
+5 data1 = np.random.uniform (5, 10,
+6
+size =(2, 3))
+7 print(data1 , ’\n’)
+8
+9 # create a 2x3 matrix (from 0 to 1)
+10 data2 = np.random.random ([2, 3])
+11 print(data2)
+=================
+Output
+================
+[[9.36267749
+9.05352382
+8.22208754]
+[5.1182297
+8.58622514
+6.60564768]]
+[[0.71150894
+0.48885357
+0.96791849]
+[0.2763089
+0.54731615
+0.37406768]]
+==========================================
+18
+AIO2024
+aivietnam.edu.vn
+Câu 1: Tính độdài của một vector
+1 # Python
+code (aivietnam)
+2 import
+numpy as np
+3
+4 u = np.array ([1, 2, 4, 2])
+5
+6 # compute
+the length of u
+7 print(np.linalg.norm(u))
+=================
+Output
+================
+5.0
+==========================================
+Câu 2: Phép cộng và trừgiữa hai vector
+1 # Python
+code (aivietnam)
+2 import
+numpy as np
+3
+4 # create two
+vectors
+5 x = np.array ([1 ,2 ,3 ,4])
+6 y = np.array ([5 ,6 ,7 ,8])
+7
+8 print(’data x \n’, x)
+9 print(’data y \n’, y)
+10
+11 # Addition
+between
+the two
+vectors
+12 print(’x + y = \n’, x + y)
+13
+14 # Subtration
+between
+the two
+vectors
+15 print(’x - y = \n’, x - y)
+=================
+Output
+================
+data x
+[1 2 3 4]
+data y
+[5 6 7 8]
+x + y =
+[ 6
+8 10 12]
+x - y =
+[-4 -4 -4
+-4]
+==========================================
+Câu 3: Nhân (Hadamard) và chia giữa hai vector
+1 # Python
+code (aivietnam)
+2 import
+numpy as np
+3
+4 x = np.array ([1 ,2 ,3 ,4])
+5 y = np.array ([5 ,6 ,7 ,8])
+6
+7 print(’data x \n’, x)
+8 print(’data y \n’, y)
+9
+10 # Hadamard
+product
+between
+the two vectors
+11 print(’x * y = \n’, x*y)
+12
+13 # Division
+between
+the two
+vectors
+14 print(’x / y = \n’, x/y)
+19
+AIO2024
+aivietnam.edu.vn
+=================
+Output
+================
+data x
+[1 2 3 4]
+data y
+[5 6 7 8]
+x * y =
+[5 12 21 32]
+x / y =
+[0.2
+0.33333333
+0.42857143
+0.5]
+==========================================
+Câu 4: Tính tích vô hướng (dot product) giữa hai vector
+1 # Python
+code (aivietnam)
+2 import
+numpy as np
+3
+4 v = np.array ([1, 2])
+5 w = np.array ([2, 3])
+6
+7 # Compute
+inner
+product
+between v and w
+8 print(’dot
+product \n’, v.dot(w))
+=================
+Output
+================
+dot
+product
+8
+==========================================
+Câu 5: Các phép tính cơ bản trên ma trận
+20
+AIO2024
+aivietnam.edu.vn
+1 # Python
+code (aivietnam)
+2 import
+numpy as np
+3
+4 A = np.array ([[4, 2],
+5
+[9, 8]])
+6 B = np.array ([[1, 2],
+7
+[3, 4]])
+8
+9 # Addition
+between
+the two
+matrices
+10 print(’A + B = \n’, A+B)
+11
+12 # Subtraction
+between
+the two
+matrices
+13 print(’A - B = \n’, A-B)
+14
+15 # Hadamard
+product
+between
+the two
+matrices
+16 print(’A * B = \n’, A*B)
+17
+18 # Division
+between
+the two
+matrices
+19 print(’A / B = \n’, A/B)
+=================
+Output
+================
+A + B =
+[[ 5
+4]
+[12 12]]
+A - B =
+[[3 0]
+[6 4]]
+A * B =
+[[ 4
+4]
+[27 32]]
+A / B =
+[[4. 1.]
+[3. 2.]]
+==========================================
+Câu 6: Chuyển vịmột ma trận
+1 # Python
+code (aivietnam)
+2 X = np.array ([[1, 2],
+3
+[3, 4]])
+4 print(’X: \n’, X)
+5
+6 # transpose X
+7 print(’X.T: \n’, X.T)
+=================
+Output
+================
+X:
+[[1 2]
+[3 4]]
+X.T:
+[[1 3]
+[2 4]]
+Câu 7: Phép nhân giữa ma trận và vector
+1 # Python
+code (aivietnam)
+2 import
+numpy as np
+3
+4 X = np.array ([[1, 2],
+5
+[3, 4]])
+6 v = np.array ([1, 2])
+7
+8 # Dot
+product
+between a matrix & a vector
+9 print(’X.dot(v) \n’, X.dot(v))
+10 print(’v.dot(X) \n’, v.dot(X))
+=================
+Output
+================
+X.dot(v)
+[ 5 11]
+v.dot(X)
+[ 7 10]
+==========================================
+21
+AIO2024
+aivietnam.edu.vn
+Câu 8: Phép nhân giữa hai ma trận
+1 # Python
+code (aivietnam)
+2 import
+numpy as np
+3
+4 X = np.array ([[1, 2],
+5
+[3, 4]])
+6 Y = np.array ([[2, 3],
+7
+[2, 1]])
+8
+9 # Dot
+product
+between
+the two
+matrices
+10 print(’X.dot(Y) \n’, X.dot(Y))
+11 print(’Y.dot(X) \n’, Y.dot(X))
+=================
+Output
+================
+X.dot(Y)
+[[ 6
+5]
+[14 13]]
+Y.dot(X)
+[[11 16]
+[ 5
+8]]
+==========================================
+Câu 9: Nhân vector/matrix với đại lượng vô hướng (scalar)
+22
+AIO2024
+aivietnam.edu.vn
+1 # Python
+code (aivietnam)
+2 import
+numpy as np
+3
+4 v = np.array ([1, 2, 3])
+5 X = np.array ([[1, 2],
+6
+[3, 4]])
+7 scalar = 2
+8
+9 # Multiply
+with a scalar
+10 print(’v*2 \n’, v*2)
+11 print(’X*2 \n’, X*2)
+=================
+Output
+================
+v*2
+[2 4 6]
+X*2
+[[2 4]
+[6 8]]
+==========================================
+23

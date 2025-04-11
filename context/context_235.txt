@@ -1,0 +1,701 @@
+Image Domain Conversion
+(Model Construction)
+Year 2023
+Quang-Vinh Dinh
+Ph.D. in Computer Science
+AI VIETNAM
+All-in-One Course
+Motivation
+AI VIETNAM
+All-in-One Course
+Flatten data
+Classification
+Feature extraction
+Image
+Image
+Input Space
+Classification 
+Information
+Output Space
+CNN
+1
+Motivation
+AI VIETNAM
+All-in-One Course
+Image
+Input Space
+Classification 
+Information
+Output Space
+CNN
+Image
+Input Space
+Localization 
+Information
+Output Space
+CNN
+Image
+Input Space
+Detection 
+Information
+Output Space
+CNN
+Image
+Classification
+Image
+Localization
+Image
+Detection
+…
+2
+Motivation
+AI VIETNAM
+All-in-One Course
+Image
+Input Space
+Image
+Output Space
+How?
+3
+Image 
+Segmentation
+https://www.v7labs.com/blog/image-segmentation-guide
+4
+Segmentation
+Traditional method
+AI VIETNAM
+All-in-One Course
+Original Image
+K-Mean Segmentation
+5
+Segmentation
+AI VIETNAM
+All-in-One Course
+Oxford-IIIT-Pet
+https://www.robots.ox.ac.uk/~vgg/data/pets/
+Discussion
+AI VIETNAM
+All-in-One Course
+Input/Output + Loss Function
+Image Classification
+Temperature Forecasting
+7
+Discussion
+AI VIETNAM
+All-in-One Course
+Input/Output + Loss Function
+Flatten data
+Real Y=0
+Predicted Y
+Cross
+Entropy
+8
+One-hot
+encoding
+Image Classification
+One-Hot Encoding and Cross-entropy
+1
+𝑥
+𝑧0
+𝑧1
+𝑧2
+Softmax
+ොy0
+ොy1
+ොy2
+Model
+L(𝛉) = −𝑦2log(ොy2)−𝑦1log(ොy1)−𝑦0log(ොy0)
+Loss function
+= −෍
+𝑖
+𝑦𝑖log(ොyi)
+Feature
+Label
+#classes = 3
+#features = 1
+𝑦∈0,1,2
+One-hot encoding for label
+𝑦= 0 →𝒚=
+1
+0
+0
+𝑦= 1 →𝒚=
+0
+1
+0
+𝑦= 2 →𝒚=
+0
+0
+1
+𝒚=
+𝑦0
+𝑦1
+𝑦2
+𝑦𝑖∈0,1
+෍
+𝑖
+𝑦𝑖= 1
+Review
+…
+…
+Cross 
+Entropy
+MLP
+0
+1
+0
+0.1
+0.6
+0.3
+update
+predict
+n nodes
+m units
+output
+m units
+0.5
+Input/Output + Loss Function
+AI VIETNAM
+All-in-One Course
+Discussion – Classification Problem
+y = 1
+one-hot 
+encoding
+7.8
+10.1
+12.2
+…
+…
+11.6
+8.9
+10.6
+7.8
+10.1
+12.2
+…
+…
+11.6
+8.9
+10.6
+…
+…
+MSE Loss
+MLP
+11.18
+11.66
+8.97
+2.06
+-4.36
+-0.65
+update
+predict
+64 days
+64 units
+Predict for 
+next 3 days
+64 units
+144.2637
+Input/Output + Loss Function
+AI VIETNAM
+All-in-One Course
+Discussion – Regression Problem
+11
+Discussion – Segmentation Problem
+Input/Output + Loss Function
+AI VIETNAM
+All-in-One Course
+Model
+12
+image
+(2x2)
+Model
+Output
+(3x2x2)
+0 2
+2 1
+Inference 
+Predicted
+Segmentation
+image
+(2x2)
+Model
+Output
+(3x2x2)
+Training 
+1 0
+2 0
+Ground-truth
+0 1
+0
+1 0
+0
+0 0
+1
+1 0
+0
+one-hot encoding
+Cross
+Entropy
+13
+Object
+128x128
+Background
+128x128
+Border
+128x128
+Object
+128x128
+Background
+128x128
+Border
+128x128
+UNet Model
+0.07
+−0.65
+0.81
+0.27
+0.13
+0.6
+Softmax
+0
+0
+1
+𝐶𝐸= −෍
+𝑖
+𝑦𝑖log ො𝑦𝑖
+Shape=(3, 128, 128)
+Label
+𝐶𝐸
+0.60
+0.13
+0.27
+,
+1
+0
+0
+= 0.5
+Output
+Shape=(3, 128, 128)
+Total_loss =
+1
+𝐻∗𝑊෍
+𝑗=1
+𝐻
+෍
+𝑘=1
+𝑊
+𝐶𝐸ො𝑦𝑗,𝑘, 𝑦𝑗,𝑘
+Input image
+Loss Function
+14
+idea
+Segmentation (1)
+Pixel-wise and color-based method
+(1x1) Convolution
+padding = ‘same’
+ReLU
+Batch 
+Norm
++
+15
+Segmentation (1)
+Result
+16
+Segmentation (2)
+Increase kernel sizes
+(5x5) Convolution
+padding = ‘same’
+ReLU
+Batch 
+Norm
++
+17
+Segmentation (2)
+Result
+18
+Segmentation (3)
+Keep increasing
+(9x9) Convolution
+padding = ‘same’
+ReLU
+Batch 
+Norm
++
+(5x5) Convolution
+padding = ‘same’
+ReLU
+Batch 
+Norm
++
+19
+Segmentation (3)
+Result
+20
+Segmentation (4)
+AI VIETNAM
+All-in-One Course
+Make it more efficient
+(3,128,128)
+(64,64,64)
+(128,32,32)
+(256,16,16)
+(512,8,8)
+(512,4,4)
+(512,2,2)
+(3*128*128,)
+(3x3) Convolution
+padding = ‘same’
+Batch 
+Norm
++
+reshape
+ReLU
++
+MaxPooing
++
+(3x3) Convolution
+padding = ‘same’
+21
+ReShape
+1
+2
+5
+1
+4
+3
+4
+2
+0
+7
+4
+1
+2
+5
+5
+9
+3
+6
+0
+3
+4
+9
+9
+4
+7
+4
+5
+5
+6
+6
+2
+4
+9
+5
+3
+1
+1
+2
+5
+1
+4
+3
+4
+2
+0
+7
+4
+1
+2
+5
+5
+9
+3
+6
+0
+3
+4
+9
+9
+4
+7
+4
+5
+5
+6
+6
+2
+4
+9
+5
+3
+1
+1
+2
+5
+1
+4
+3
+4
+2
+0
+7
+4
+1
+2
+5
+5
+9
+3
+6
+0
+3
+4
+9
+9
+4
+7
+4
+5
+5
+6
+6
+2
+4
+9
+5
+3
+1
+Reshape(1, 6, 6)
+Shape=(4, 3, 3)
+22
+Segmentation (4)
+Make it more efficient
+Problem?
+23
+Further Reading
+AI VIETNAM
+All-in-One Course
+Fully Convolutional Networks
+https://arxiv.org/pdf/1411.4038.pdf
+24
+Segmentation (5)
+AI VIETNAM
+All-in-One Course
+Input Image
+Output Image
+Encoding phase
+Decoding phase
+#channels increases
+resolution decreases
+#channels decreases
+resolution increases
+Down-sampling
+Up-sampling
+How to upsample feature maps?
+25
+Segmentation (5)
+❖Image upsampling
+❖Data interpolation
+AI VIETNAM
+All-in-One Course
+26
+Segmentation (5)
+❖Image upsampling
+❖Data interpolation
+AI VIETNAM
+All-in-One Course
+1.0
+5.0
+3.2
+4.2
+4.0
+7.2
+8.0
+𝑥
+𝑦
+Bilinear interpolation
+27
+Segmentation (5)
+❖Nearest neighbor interpolation
+AI VIETNAM
+All-in-One Course
+1
+5
+4
+8
+data =
+1
+1
+1
+1
+5
+5
+5
+5
+4
+4
+4
+4
+8
+8
+8
+8
+Nearest neighbor 
+interpolation
+28
+Segmentation (5)
+❖Bilinear interpolation
+AI VIETNAM
+All-in-One Course
+1
+5
+4
+8
+data =
+1.0
+2.0
+1.7
+2.7
+4.0
+5.0
+4.7
+5.7
+3.2
+4.2
+4.0
+5.0
+6.2
+7.2
+7.0
+8.0
+Bilinear 
+interpolation
+29
+How to Upsample Feature Maps
+AI VIETNAM
+All-in-One Course
+Naïve approach: Only use ‘image upsampling’
+Use ‘image upsampling’+Conv
+upsampling
+conv
+padding=‘same’
+stride=1
+Overcome the 
+weakness
+Output feature maps are lack of details
+❖Interpolation
+30
+Segmentation (5)
+AI VIETNAM
+All-in-One Course
+Input Image
+[0,1]
+Output Image
+[0,1]
+Encoding phase
+Decoding phase
+(3x3) Convolution
+padding = ‘same’
+stride = 1 + ReLU
+(2x2) max 
+pooling
++
+Batch 
+Norm
++
+(3x3) Convolution
+padding = ‘same’
+softmax
+Feature Map 
+Upsamping
++
+(3x3) Convolution
+padding = ‘same’
+stride = 1 + ReLU
+Feature Map 
+Upsamping
++
++
+Batch 
+Norm
+Encoding phase
+Decoding phase
+(3,128,128)
+(64,64,64)
+(128,32,32)
+(256,16,16)
+(512,8,8)
+(512,4,4)
+(512,8,8)
+(256,16,16)
+(128,32,32)
+(64,64,64)
+(3,128,128)
+(depth, height, width)
+(3,128,128)
+(64,64,64)
+(128,32,32)
+(256,16,16)
+(512,8,8)
+(512,4,4)
+Segmentation (5)
+❖Encoding
+32
+Segmentation (5)
+(512,4,4)
+(512,8,8)
+(256,16,16)
+(128,32,32)
+(64,64,64)
+(3,128,128)
+❖Decoding
+ESRGAN: Enhanced Super-Resolution Generative 
+Adversarial Networks, 2018
+Perception-Oriented Single Image Super-Resolution 
+using Optimal Objective Estimation, CVPR 2023
+Segmentation (6)
+AI VIETNAM
+All-in-One Course
+Using skip connections
+(3x3) Convolution
+padding = ‘same’
+stride = 1 + ReLU
+(2x2) max 
+pooling
++
+Batch 
+Norm
++
+(3x3) Convolution
+padding = ‘same’
+stride = 1 + ReLU
+Feature Map 
+Upsamping
++
++
+Batch 
+Norm
+(3,128,128)
+(64,64,64)
+(128,32,32)
+(256,16,16)
+(512,8,8)
+(512,4,4)
+(512,8,8)
+(256,16,16)
+(128,32,32)
+(64,64,64)
+(3,128,128)
+(3x3) Convolution
+padding = ‘same’
+softmax
+Feature Map 
+Upsamping
++
+Segmentation (6)
+With Skip 
+Connections
+AI VIETNAM
+All-in-One Course
+Without Skip 
+Connections

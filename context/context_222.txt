@@ -1,0 +1,566 @@
+NLP Project
+Aspect-Based 
+Sentiment Analysis
+Year 2023
+AI VIET NAM
+Nguyen Quoc Thai
+AI VIETNAM
+All-in-One Course
+1
+2
+Ø Sentiment Analysis
+Ø Aspect-based Sentiment Analysis
+Ø Aspect Sentiment Pair Extraction
+Outline
+3
+Sentiment Analysis
+Sentiment Analysis
+!
+Emotion Detection Sentiment Analysis
+It helps to detect and understand the emotions of the people
+4
+Sentiment Analysis
+Types of Sentiment Analysis
+!
+Sentiment 
+Analysis
+Emotion Detection Sentiment Analysis
+It helps to detect and understand the emotions of the people
+5
+Sentiment Analysis
+Types of Sentiment Analysis
+!
+Sentiment 
+Analysis
+Aspect-based Sentiment Analysis
+It is more focused on the aspects of a particular prodict or service
+Emotion Detection Sentiment Analysis
+It helps to detect and understand the emotions of the people
+6
+Sentiment Analysis
+Types of Sentiment Analysis
+!
+Sentiment 
+Analysis
+Aspect-based Sentiment Analysis
+It is more focused on the aspects of a particular prodict or service
+Fine Grained Sentiment Analysis
+It helps in studying the ratings and reviews given by the customers
+Emotion Detection Sentiment Analysis
+It helps to detect and understand the emotions of the people
+7
+Sentiment Analysis
+Types of Sentiment Analysis
+!
+Sentiment 
+Analysis
+Aspect-based Sentiment Analysis
+It is more focused on the aspects of a particular prodict or service
+Fine Grained Sentiment Analysis
+It helps in studying the ratings and reviews given by the customers
+Intent-based Sentiment Analysis
+To know the intent of the customers
+8
+Sentiment Analysis
+NTC-SCV Dataset for Sentiment Analysis
+!
+Positive Example
+Negative Example
+Mình được 1 cô bạn giới_thiệu đến đây , tìm
+địa_chỉkhá dễ. Menu nước uống chất khỏi nói
+. Mình muốn cũng đc 8 loại nước ởđây , món
+nào cũng ngon và bổ_dưỡng cả.
+Quán chế_biến đồ_ăn lâu , Cá_Sapa nướng 
+uớp rất dở , sò Lông ko tươi , nước_chấm ko 
+ngon\n Tóm_lại sẽ ko bao_giờ ghé nữa , ăn_dở 
+mà uổng tiền
+Mỗi lần thèm trà sữa là làm 1 ly . Quán dễ
+kiếm , không_gian lại rộng_rãi . Nhân_viên thì
+dễ_thương gần_gũi . Nói_chung thèm trà sữa
+là mình ghé Quán ởđây vì gần nhà .
+Quán này thấy khá nhiều người bảo mình nên 
+mình đã đi ăn thử , nhưng thực_sự ăn xong 
+thấy không được như mong_đợi lắm .
+9
+Sentiment Analysis
+Sentiment Analysis using Neural Network
+!
+X1
+X2
+XN
+Embedding Layer
+Dense vector
+Flatten
+Classifier
+Input
+10
+Sentiment Analysis
+Sentiment Analysis using RNNs
+!
+X1
+X2
+X3
+R
+R
+R
+h0
+Classifier
+Embedding Layer
+RNN Layer
+Last Hidden State
+11
+Sentiment Analysis
+!
+Transformer-Encoder
+1
+1
+0
+0
+1
+1
+1
+1
+1
+1
+0
+0
+x1
+x2
+x3
+x4
+Token and Positional Embedding Layer
+Average Pooling
+Classifier
+Sentiment Analysis using Transformer-Encoder
+12
+Sentiment Analysis
+!
+Sentiment Analysis using Pre-trained LMs
+BERT
+1
+1
+0
+[CLS]
+x1
+x2
+x3
+Classifier
+13
+Ø Sentiment Analysis
+Ø Aspect-based Sentiment Analysis
+Ø Aspect Sentiment Pair Extraction
+Outline
+Emotion Detection Sentiment Analysis
+It helps to detect and understand the emotions of the people
+14
+Sentiment Analysis
+Types of Sentiment Analysis
+!
+Sentiment 
+Analysis
+Aspect-based Sentiment Analysis
+It is more focused on the aspects of a particular prodict or service
+Fine Grained Sentiment Analysis
+It helps in studying the ratings and reviews given by the customers
+Intent-based Sentiment Analysis
+To know the intent of the customers
+sp1 negative
+sp2 positive
+Si:
+The
+price
+was
+too
+high,
+but
+the
+cab
+was
+amazing
+a1
+o1
+a2
+o2
+15
+Aspect-based Sentiment Analysis
+Subtask
+!
+Aspect Term Extraction (ATE)
+Aspect Term Sentiment Classification (ATSC)
+Aspect Sentiment Pair Extraction (ASPE)
+Aspect Oriented Opinion Extraction (AOOE)
+Aspect Opinion Pair Extraction (AOPE)
+Aspect Opinion Sentiment Triplet Extraction 
+(AOSTE)
+sp1 negative
+sp2 positive
+Si:
+The
+price
+was
+too
+high,
+but
+the
+cab
+was
+amazing
+a1
+o1
+a2
+o2
+Si
+a1, a2
+16
+Aspect-based Sentiment Analysis
+Subtask
+!
+Aspect Term Extraction (ATE)
+Aspect Term Sentiment Classification (ATSC)
+Aspect Sentiment Pair Extraction (ASPE)
+Aspect Oriented Opinion Extraction (AOOE)
+Aspect Opinion Pair Extraction (AOPE)
+Aspect Opinion Sentiment Triplet Extraction 
+(AOSTE)
+sp1 negative
+sp2 positive
+Si:
+The
+price
+was
+too
+high,
+but
+the
+cab
+was
+amazing
+a1
+o1
+a2
+o2
+Si
+a1, a2
+Si + a1, Si + a2
+sp1, sp2
+17
+Aspect-based Sentiment Analysis
+Subtask
+!
+Aspect Term Extraction (ATE)
+Aspect Term Sentiment Classification (ATSC)
+Aspect Sentiment Pair Extraction (ASPE)
+Aspect Oriented Opinion Extraction (AOOE)
+Aspect Opinion Pair Extraction (AOPE)
+Aspect Opinion Sentiment Triplet Extraction 
+(AOSTE)
+sp1 negative
+sp2 positive
+Si:
+The
+price
+was
+too
+high,
+but
+the
+cab
+was
+amazing
+a1
+o1
+a2
+o2
+Si
+a1, a2
+Si + a1, Si + a2
+sp1, sp2
+Si
+(a1, sp1), (a2, sp2)
+18
+Aspect-based Sentiment Analysis
+Subtask
+!
+Aspect Term Extraction (ATE)
+Aspect Term Sentiment Classification (ATSC)
+Aspect Sentiment Pair Extraction (ASPE)
+Aspect Oriented Opinion Extraction (AOOE)
+Aspect Opinion Pair Extraction (AOPE)
+Aspect Opinion Sentiment Triplet Extraction 
+(AOSTE)
+sp1 negative
+sp2 positive
+Si:
+The
+price
+was
+too
+high,
+but
+the
+cab
+was
+amazing
+a1
+o1
+a2
+o2
+Si
+a1, a2
+Si + a1, Si + a2
+sp1, sp2
+Si
+(a1, sp1), (a2, sp2)
+Si + a1, Si + a2
+o1, o2
+19
+Aspect-based Sentiment Analysis
+Subtask
+!
+Aspect Term Extraction (ATE)
+Aspect Term Sentiment Classification (ATSC)
+Aspect Sentiment Pair Extraction (ASPE)
+Aspect Oriented Opinion Extraction (AOOE)
+Aspect Opinion Pair Extraction (AOPE)
+Aspect Opinion Sentiment Triplet Extraction 
+(AOSTE)
+sp1 negative
+sp2 positive
+Si:
+The
+price
+was
+too
+high,
+but
+the
+cab
+was
+amazing
+a1
+o1
+a2
+o2
+Si
+a1, a2
+Si + a1, Si + a2
+sp1, sp2
+Si
+(a1, sp1), (a2, sp2)
+Si + a1, Si + a2
+o1, o2
+Si
+(a1, o1), (a2, o2)
+20
+Aspect-based Sentiment Analysis
+Subtask
+!
+Aspect Term Extraction (ATE)
+Aspect Term Sentiment Classification (ATSC)
+Aspect Sentiment Pair Extraction (ASPE)
+Aspect Oriented Opinion Extraction (AOOE)
+Aspect Opinion Pair Extraction (AOPE)
+Aspect Opinion Sentiment Triplet Extraction 
+(AOSTE)
+sp1 negative
+sp2 positive
+Si:
+The
+price
+was
+too
+high,
+but
+the
+cab
+was
+amazing
+a1
+o1
+a2
+o2
+Si
+a1, a2
+Si + a1, Si + a2
+sp1, sp2
+Si
+(a1, sp1), (a2, sp2)
+Si + a1, Si + a2
+o1, o2
+Si
+(a1, o1), (a2, o2)
+Si
+(a1, o1, sp1), (a2, o2, sp2)
+21
+Aspect-based Sentiment Analysis
+Subtask
+!
+Aspect Term Extraction (ATE)
+Aspect Term Sentiment Classification (ATSC)
+Aspect Sentiment Pair Extraction (ASPE)
+Aspect Oriented Opinion Extraction (AOOE)
+Aspect Opinion Pair Extraction (AOPE)
+Aspect Opinion Sentiment Triplet Extraction 
+(AOSTE)
+22
+Ø Sentiment Analysis
+Ø Aspect-based Sentiment Analysis
+Ø Aspect Sentiment Pair Extraction
+Outline
+sp1 negative
+sp2 positive
+Si:
+The
+price
+was
+too
+high,
+but
+the
+cab
+was
+amazing
+a1
+o1
+a2
+o2
+Si
+(a1, sp1), (a2, sp2)
+23
+Aspect Sentiment Pair Extraction
+Example
+!
+24
+Aspect Sentiment Pair Extraction
+SemEval Task 4 Dataset
+!
+But
+the
+staff
+was
+so
+horribale
+to
+us
+Aspect: Staff
+Sentiment: Negative
+sp1 negative
+sp2 positive
+Si:
+The
+price
+was
+too
+high,
+but
+the
+cab
+was
+amazing
+a1
+o1
+a2
+o2
+25
+Aspect Sentiment Pair Extraction
+Approach
+!
+Sentence
+Si
+Pre-trained LMs
+Aspect
+Price, cab
+Sentence
+Si
+Aspect
+Price, cab
+Pre-trained LMs
+Sentiment
+Negative, Positive
+Stage 1: Aspect Term Extraction (Token-level Classification)
+Stage 2: Aspect Term Sentiment Extraction (Document-level Classification)
+26
+Aspect Sentiment Pair Extraction
+Approach
+!
+Stage 1: Aspect Term Extraction (Token-level Classification)
+Stage 2: Aspect Term Sentiment Extraction (Document-level Classification)
+But
+the
+staff
+was
+so
+horribale
+to
+us
+0
+0
+1
+0
+0
+0
+0
+0
+-1
+-1
+0
+-1
+-1
+-1
+-1
+-1
+27
+Aspect Sentiment Pair Extraction
+Aspect Term Extraction
+!
+BERT
+1
+1
+0
+0
+1
+1
+1
+1
+1
+1
+0
+0
+[CLS]
+x1
+x2
+x3
+Classifier
+28
+Aspect Sentiment Pair Extraction
+Aspect Term Extraction
+!
+29
+Aspect Sentiment Pair Extraction
+Aspect Term Sentiment Extraction (Next Sentence Prediction Task)
+!
+BERT
+1
+1
+0
+0
+1
+1
+1
+1
+1
+1
+0
+0
+[CLS]
+S1
+[SEP]
+S2
+Classifier
+30
+Aspect Sentiment Pair Extraction
+Aspect Term Sentiment Extraction (Next Sentence Prediction Task)
+!
+Thanks!
+Any questions?
+31

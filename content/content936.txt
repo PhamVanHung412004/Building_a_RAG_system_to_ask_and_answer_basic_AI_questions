@@ -1,4 +1,0 @@
-35. 2022, 22199–22213.
-Zhang, Z., Zhang, A., Li, M., & Smola, A. Automatic chain of thought prompting in large language
-models. In: InThe eleventh international conference on learning representations (iclr 2023).
-2023.

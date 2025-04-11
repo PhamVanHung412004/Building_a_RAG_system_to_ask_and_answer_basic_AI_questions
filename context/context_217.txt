@@ -1,0 +1,1169 @@
+1
+AI VIETNAM
+All-in-One Course
+1
+AI VIETNAM
+All-in-One Course
+How to Write a Research Paper 4
+(Conclusion, Abstract, Keywords and Title)
+Year 2023
+Vinh Dinh Nguyen
+PhD in Computer Science
+AI VIETNAM
+All-in-One Course
+2
+AI VIETNAM
+All-in-One Course
+2
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø How to Write Conclusion Section
+Ø How to Write Abstract Section
+Ø How to Write Title Section
+Ø How to Write Keywords Section
+Ø How to Write Cover Letter
+Ø Types  of Reviewers
+Ø Case studies for Reviewers' comments
+Outline
+3
+AI VIETNAM
+All-in-One Course
+3
+Vinh Dinh Nguyen- PhD in Computer Science
+How Do Researcher Spend Their Time
+4
+AI VIETNAM
+All-in-One Course
+4
+Vinh Dinh Nguyen- PhD in Computer Science
+5
+AI VIETNAM
+All-in-One Course
+5
+Vinh Dinh Nguyen- PhD in Computer Science
+Schedule
+Week 1
+How to write the Proposed Method section
+Week 2
+How to write the Experimental Results section
+Week 3
+How to write  the Introduction and Related Work sections
+Week 4
+How to write  the Conclusion, Abstract and Title sections
+Trick and Tip 
+for Answering 
+the Reviewers 
+Comments or 
+Remarks
+How to write  
+the Reponse 
+Letter
+6
+AI VIETNAM
+All-in-One Course
+6
+Vinh Dinh Nguyen- PhD in Computer Science
+Conclusion vs. Introduction
+Conclusion
+Introduction
+7
+AI VIETNAM
+All-in-One Course
+7
+Vinh Dinh Nguyen- PhD in Computer Science
+Conclusion vs. Introduction
+Conclusion
+8
+AI VIETNAM
+All-in-One Course
+8
+Vinh Dinh Nguyen- PhD in Computer Science
+<<Paper’ title>>
+Abstract
+Keyword
+1. Introduction (done)
+2. Related Work (done)
+3. Proposed Method (done)
+4. Experimental Results (done)
+5. Conclusion
+References
+How to Write a Conclusion
+9
+AI VIETNAM
+All-in-One Course
+9
+Vinh Dinh Nguyen- PhD in Computer Science
+HOW TO WRITE CONCLUSION SECTION
+Step 2. 
+RESTATE THE RESEARCH 
+QUESTION/OBJECTIVE 
+Step 4. 
+LIMITATIONS AND FUTURE 
+RESEARCH
+Step 1. 
+SUMMARY OF THE MAIN 
+FINDING
+Step 3. 
+DISCUSS THE IMPLICATION OF 
+THE FINDINGS
+How to Write a Conclusion
+10
+AI VIETNAM
+All-in-One Course
+10
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Write a Conclusion
+Step 1.  SUMMARY OF THE MAIN FINDING
+•Briefly recap the main points and results of your study. Focus on the key findings that directly address 
+your research questions or hypotheses.
+•Avoid introducing new information in the conclusion; it should be a synthesis of what you've already 
+presented.
+Most existing local transformations for stereo matching are designed heuristically using expert knowledge. Therefore, they 
+require a lot of time to investigate and design a suitable feature for specific conditions. 
+Example
+11
+AI VIETNAM
+All-in-One Course
+11
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Write a Conclusion
+Step 2. RESTATE THE RESEARCH QUESTION/OBJECTIVE
+•Remind the reader of the research questions or objectives that guided your study. Highlight how your 
+findings contribute to addressing these questions.
+In this paper, we investigated deep learning to develop a robust stereo data cost that improves the performance of existing 
+stereo matching without requiring much expert knowledge. We hope that this research will provide new insight regarding the 
+benefits of deep learning-based unsupervised approaches for stereo matching. The accuracy of a stereo matching algorithm 
+depends on how much data can be mined in the training process rather than on designing a feature for specific conditions. 
+Example
+12
+AI VIETNAM
+All-in-One Course
+12
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Write a Conclusion
+Step 3. DISCUSS THE IMPLICATION OF THE FINDINGS 
+• Explain the importance and implications of your results. 
+•Discuss how your study adds to the existing body of knowledge in the field. Consider the broader implications of your findings 
+and their potential impact on future research, practice, or policy.
+The proposed LDE stereo method outperforms dominant stereo methods, including SAD, Census, and ANCC. Based on the robust experiments 
+in both indoor and outdoor conditions, the proposed LDE stereo method has the following advantages. 
+•
+LDE is less sensitive to radiometric variations and realistic conditions than the current dominant local pattern methods (LDP or LTrP). 
+•
+The performances of conventional stereo matching algorithms, such as BP, SGM, and GC are significantly improved by applying LDE as the 
+data cost in the SGM and global matching models. 
+•
+Under normal conditions and conditions with brightness differences, the proposed LDE method offers a better performance than popular 
+stereo data costs such as SAD, Census, and ANCC. 
+•
+The proposed LDE method can be applied to improve the performance of current stereo methods under conditions with brightness 
+differences. 
+Example
+13
+AI VIETNAM
+All-in-One Course
+13
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Write a Conclusion
+Step 4. LIMITATIONS AND FUTURE RESEARCH
+•Acknowledge any limitations in your study. This demonstrates a thoughtful and realistic approach to your research and shows 
+that you are aware of the constraints of your work.
+•Propose possible avenues for future research. Identify areas that could benefit from further investigation based on the gaps or 
+limitations identified in your study.
+We also clarify the weakness of the proposed data cost. Currently, parameters ψ and φ of the proposed matching cost are selected by 
+performing tests in the large data sets. These parameters should be adaptively tuned based on local region information. 
+We plan to resolve this shortcoming in future work. We implemented the local census-based FPGA in [41] to obtain real-time processing and 
+good results under realistic conditions. Moreover, the stereo system [41] has been used to develop a successful vehicle detection system 
+[53]. Real-time implementation of the SGM-based LDE matching cost in an FPGA system will be considered in the future work to improve the 
+performance of the vehicle detection system. 
+Example
+14
+AI VIETNAM
+All-in-One Course
+14
+Vinh Dinh Nguyen- PhD in Computer Science
+Conclusion: All in One
+Most existing local transformations for stereo matching are designed heuristically using expert knowledge. Therefore, they require a lot of time 
+to investigate and design a suitable feature for specific conditions. 
+In this paper, we investigated deep learning to develop a robust stereo data cost that improves the performance of existing stereo matching 
+without requiring much expert knowledge. We hope that this research will provide new insight regarding the benefits of deep learning-based 
+unsupervised approaches for stereo matching. The accuracy of a stereo matching algorithm depends on how much data can be mined in the 
+training process rather than on designing a feature for specific conditions.   
+The proposed LDE stereo method outperforms dominant stereo methods, including SAD, Census, and ANCC. Based on the robust experiments 
+in both indoor and outdoor conditions, the proposed LDE stereo method has the following advantages. 
+•
+LDE is less sensitive to radiometric variations and realistic conditions than the current dominant local pattern methods (LDP or LTrP). 
+•
+The performances of conventional stereo matching algorithms, such as BP, SGM, and GC are significantly improved by applying LDE as the 
+data cost in the SGM and global matching models. 
+•
+Under normal conditions and conditions with brightness differences, the proposed LDE method offers a better performance than popular 
+stereo data costs such as SAD, Census, and ANCC. 
+•
+The proposed LDE method can be applied to improve the performance of current stereo methods under conditions with brightness 
+differences. 
+We also clarify the weakness of the proposed data cost. Currently, parameters ψ and φ of the proposed matching cost are selected by 
+performing tests in the large data sets. These parameters should be adaptively tuned based on local region information. We plan to resolve this 
+shortcoming in future work. We implemented the local census-based FPGA in [41] to obtain real-time processing and good results under 
+realistic conditions. Moreover, the stereo system [41] has been used to develop a successful vehicle detection system [53]. Real-time 
+implementation of the SGM-based LDE matching cost in an FPGA system will be considered in the future work to improve the performance of 
+the vehicle detection system. 
+15
+AI VIETNAM
+All-in-One Course
+15
+Vinh Dinh Nguyen- PhD in Computer Science
+Things to Avoid in Conclusion
+2. DON’T REPEAT INFORMATION
+4. DON’T END ABRUPTLY
+1. DON’T INTRODUCE NEW INFORMATION
+3. DON’T MAKE UNSUPPORT CLAIMS
+16
+AI VIETNAM
+All-in-One Course
+16
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø How to Write Conclusion Section
+Ø How to Write Abstract Section
+Ø How to Write Title Section
+Ø How to Write Keywords Section
+Ø How to Write Cover Letter
+Ø Types  of Reviewers
+Ø Case studies for Reviewers' comments
+Outline
+17
+AI VIETNAM
+All-in-One Course
+17
+Vinh Dinh Nguyen- PhD in Computer Science
+<<Paper’ title>>
+Abstract
+Keyword
+1. Introduction
+2. Related Work
+3. Proposed Method
+4. Experimental Results
+5. Conclusion
+References
+How to Write Abstract
+18
+AI VIETNAM
+All-in-One Course
+18
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Write Abstract
+19
+AI VIETNAM
+All-in-One Course
+19
+Vinh Dinh Nguyen- PhD in Computer Science
+HOW TO WRITE ABSTRACT SECTION
+2. PROPOSED METHOD
+4. MAIN CONTRIBUTIONS
+1. INTRODUCTION
+3. EXPERIMENTAL RESULTS
+How to Write Abstract
+ABSTRACT
+20
+AI VIETNAM
+All-in-One Course
+20
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Write Abstract
+21
+AI VIETNAM
+All-in-One Course
+21
+Vinh Dinh Nguyen- PhD in Computer Science
+The Local Binary Pattern (LBP) and its variants have been widely investigated in many image
+processing and computer vision applications due to their robust ability to capture local image
+structures and because of their computational simplicity. The existing LBPs extract local structure
+information by establishing a relationship between the central pixel and its adjacent pixels.
+However, most local binary patterns miss the relationship among all of the pixels in the local region.
+Therefore, this paper proposes a novel model to establish this relationship by introducing a support
+local binary pattern (SLBP). The proposed model improves the performance of the existing LBP
+methods and results in lower sensitivity to illumination changes and radiometric variations.
+Moreover, the proposed model has been successfully investigated in two applications: disparity map
+generation and texture classification.
+For disparity map generation, the proposed model reduces the root mean square error (RMS) by
+23.6% (in Baby1 dataset, Middlebury), and 16.58% (in Aloe dataset, Middlebury) as compared with
+the standard LBP under radiometric variation conditions. Moreover, the proposed model reduces the
+RMS by 28.11% as compared with the standard LBP under the Gaussian noise condition in the
+ESATS
+dataset.
+For
+texture
+classification
+applications,
+the
+proposed
+model
+improves
+the
+classification results from 96.26% to 98.13% on the Outext database, from 88.03% to 91.41% on
+the Xu database, and from 94.00% to 96.67% on the KTH-TIPS database as compared with the
+completed local binary pattern (CLBP
+22
+AI VIETNAM
+All-in-One Course
+22
+Vinh Dinh Nguyen- PhD in Computer Science
+The Local Binary Pattern (LBP) and its variants have been widely
+investigated
+in
+many
+image
+processing
+and
+computer
+vision
+applications due to their robust ability to capture local image structures
+and because of their computational simplicity. The existing LBPs extract
+local structure information by establishing a relationship between the
+central pixel and its adjacent pixels.
+23
+AI VIETNAM
+All-in-One Course
+23
+Vinh Dinh Nguyen- PhD in Computer Science
+The Local Binary Pattern (LBP) and its variants have been widely investigated in many image
+processing and computer vision applications due to their robust ability to capture local image
+structures and because of their computational simplicity. The existing LBPs extract local structure
+information by establishing a relationship between the central pixel and its adjacent pixels.
+However, most local binary patterns miss the relationship among all of the pixels in the local region.
+Therefore, this paper proposes a novel model to establish this relationship by introducing a support
+local binary pattern (SLBP). The proposed model improves the performance of the existing LBP
+methods and results in lower sensitivity to illumination changes and radiometric variations.
+Moreover, the proposed model has been successfully investigated in two applications: disparity map
+generation and texture classification.
+For disparity map generation, the proposed model reduces the root mean square error (RMS) by
+23.6% (in Baby1 dataset, Middlebury), and 16.58% (in Aloe dataset, Middlebury) as compared with
+the standard LBP under radiometric variation conditions. Moreover, the proposed model reduces the
+RMS by 28.11% as compared with the standard LBP under the Gaussian noise condition in the
+ESATS
+dataset.
+For
+texture
+classification
+applications,
+the
+proposed
+model
+improves
+the
+classification results from 96.26% to 98.13% on the Outext database, from 88.03% to 91.41% on
+the Xu database, and from 94.00% to 96.67% on the KTH-TIPS database as compared with the
+completed local binary pattern (CLBP
+24
+AI VIETNAM
+All-in-One Course
+24
+Vinh Dinh Nguyen- PhD in Computer Science
+However, most local binary patterns miss the relationship among all of
+the pixels in the local region. Therefore, this paper proposes a novel
+model to establish this relationship by introducing a support local
+binary pattern (SLBP). The proposed model improves the performance
+of the existing LBP methods and results in lower sensitivity to
+illumination
+changes
+and
+radiometric
+variations.
+Moreover,
+the
+proposed model has been successfully investigated in two applications:
+disparity map generation and texture classification.
+25
+AI VIETNAM
+All-in-One Course
+25
+Vinh Dinh Nguyen- PhD in Computer Science
+The Local Binary Pattern (LBP) and its variants have been widely investigated in many image
+processing and computer vision applications due to their robust ability to capture local image
+structures and because of their computational simplicity. The existing LBPs extract local structure
+information by establishing a relationship between the central pixel and its adjacent pixels.
+However, most local binary patterns miss the relationship among all of the pixels in the local region.
+Therefore, this paper proposes a novel model to establish this relationship by introducing a support
+local binary pattern (SLBP). The proposed model improves the performance of the existing LBP
+methods and results in lower sensitivity to illumination changes and radiometric variations.
+Moreover, the proposed model has been successfully investigated in two applications: disparity map
+generation and texture classification.
+For disparity map generation, the proposed model reduces the root mean square error (RMS) by
+23.6% (in Baby1 dataset, Middlebury), and 16.58% (in Aloe dataset, Middlebury) as compared with
+the standard LBP under radiometric variation conditions. Moreover, the proposed model reduces the
+RMS by 28.11% as compared with the standard LBP under the Gaussian noise condition in the
+ESATS
+dataset.
+For
+texture
+classification
+applications,
+the
+proposed
+model
+improves
+the
+classification results from 96.26% to 98.13% on the Outext database, from 88.03% to 91.41% on
+the Xu database, and from 94.00% to 96.67% on the KTH-TIPS database as compared with the
+completed local binary pattern (CLBP
+26
+AI VIETNAM
+All-in-One Course
+26
+Vinh Dinh Nguyen- PhD in Computer Science
+For disparity map generation, the proposed model reduces the root
+mean square error (RMS) by 23.6% (in Baby1 dataset, Middlebury),
+and 16.58% (in Aloe dataset, Middlebury) as compared with the
+standard LBP under radiometric variation conditions. Moreover, the
+proposed model reduces the RMS by 28.11% as compared with the
+standard LBP under the Gaussian noise condition in the ESATS dataset.
+For texture classification applications, the proposed model improves the
+classification results from 96.26% to 98.13% on the Outext database,
+from 88.03% to 91.41% on the Xu database, and from 94.00% to
+96.67% on the KTH-TIPS database as compared with the completed
+local binary pattern (CLBP
+27
+AI VIETNAM
+All-in-One Course
+27
+Vinh Dinh Nguyen- PhD in Computer Science
+1
+• Avoid the direct use of abbreviations, as it will require explanation, which will 
+unnecessarily use up space for other relevant information 
+2
+• Avoid jargon and superfluous vocabulary in the abstract to avoid confusion 
+among the readers 
+3
+• Do not include any references or citations while writing the abstract 
+4
+• Importantly, there should not be any misleading speculations stated in the 
+abstract 
+28
+AI VIETNAM
+All-in-One Course
+28
+Vinh Dinh Nguyen- PhD in Computer Science
+Things to Avoid in Abstract
+Don't Introduce New Information:
+Do not provide detailed information about the research method
+Avoid providing citations
+Don't Use Abbreviations or Acronyms Without Explanation:
+Keep the abstract brief and focused. Avoid including excessive 
+details, background information, or data that are not essential to 
+understanding the main findings and conclusions of your study.
+The abstract should not contain information or results that are not 
+presented in the main body of the paper. It's not the place to introduce 
+new data, methods, or findings.
+If you use abbreviations or acronyms, ensure that you define them in 
+the abstract. Readers should be able to understand your abstract 
+without referring to the full paper.
+Typically, abstracts do not include references. Avoid citing other works 
+or including a list of references in the abstract. Save citations for the 
+main body of the paper.
+29
+AI VIETNAM
+All-in-One Course
+29
+Vinh Dinh Nguyen- PhD in Computer Science
+<<Paper’ title>>
+Abstract
+Keyword
+1. Introduction
+2. Related Work
+3. Proposed Method
+4. Experimental Results
+5. Conclusion
+References
+30
+AI VIETNAM
+All-in-One Course
+30
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø How to Write Conclusion Section
+Ø How to Write Abstract Section
+Ø How to Write Title Section
+Ø How to Write Keywords Section
+Ø How to Write Cover Letter
+Ø Types  of Reviewers
+Ø Case studies for Reviewers' comments
+Outline
+31
+AI VIETNAM
+All-in-One Course
+31
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Write Title
+How can you come up with the title 
+of this paper
+32
+AI VIETNAM
+All-in-One Course
+32
+Vinh Dinh Nguyen- PhD in Computer Science
+• Title is the key part of the article which should be designed to engage the readers 
+attention at first sight
+• The title of an article should be simple, precise, and catchy. 
+How to Write Title
+33
+AI VIETNAM
+All-in-One Course
+33
+Vinh Dinh Nguyen- PhD in Computer Science
+“What is your research paper about?”
+Step 1: Ask yourself a few questions about your research paper
+“My paper studies how to increase the accuracy of disparity 
+estimation and texture classification by using the local pattern 
+approaches.”
+How to Write Title
+34
+AI VIETNAM
+All-in-One Course
+34
+Vinh Dinh Nguyen- PhD in Computer Science
+“What method/techniques did I use to perform my study?”
+Step 1: Ask yourself a few questions about your research paper
+“I investigate local patterns to for my study”
+How to Write Title
+35
+AI VIETNAM
+All-in-One Course
+35
+Vinh Dinh Nguyen- PhD in Computer Science
+“How were the results?”
+Step 1: Ask yourself a few questions about your research paper
+“My study revealed that the proposed support local pattern 
+significantly improve the accuracy of disparity estimation and texture 
+classification ”
+How to Write Title
+36
+AI VIETNAM
+All-in-One Course
+36
+Vinh Dinh Nguyen- PhD in Computer Science
+Step 2: Identify and list 
+keywords and phrases from 
+these responses
+Disparity 
+estimation
+Texture 
+classification
+Local pattern
+Support 
+Local Pattern
+Robust 
+Feature
+How to Write Title
+37
+AI VIETNAM
+All-in-One Course
+37
+Vinh Dinh Nguyen- PhD in Computer Science
+“This research investigated a support local pattern method by considering the
+relationship between neighbor pixels. Results indicates the accuracy of disparity
+estimation and texture classification algorithms are significantly increased”
+Step 3: Use these keywords to create one long sentence
+How to Write Title
+38
+AI VIETNAM
+All-in-One Course
+38
+Vinh Dinh Nguyen- PhD in Computer Science
+“This research investigated a support local pattern method by considering
+the relationship between neighbor pixels. Results indicates the accuracy of
+disparity estimation and texture classification algorithms are significantly
+increased”
+Step 4: Create a working title
+A support local pattern method by considering the relationship between neighbor pixels. 
+The accuracy of disparity estimation and texture classification algorithms are significantly 
+increased.
+How to Write Title
+39
+AI VIETNAM
+All-in-One Course
+39
+Vinh Dinh Nguyen- PhD in Computer Science
+Final title: Support local pattern and its application to disparity improvement and classification
+Step 5: Eliminate extra words and phrases to meet word count, place keywords at 
+the beginning and end of your title
+How to Write Title
+40
+AI VIETNAM
+All-in-One Course
+40
+Vinh Dinh Nguyen- PhD in Computer Science
+<<Paper’ title>>
+Abstract
+Keyword
+1. Introduction
+2. Related Work
+3. Proposed Method
+4. Experimental Results
+5. Conclusion
+References
+41
+AI VIETNAM
+All-in-One Course
+41
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø How to Write Conclusion Section
+Ø How to Write Abstract Section
+Ø How to Write Title Section
+Ø How to Write Keywords Section
+Ø How to Write Cover Letter
+Ø Types  of Reviewers
+Ø Case studies for Reviewers' comments
+Outline
+42
+AI VIETNAM
+All-in-One Course
+42
+Vinh Dinh Nguyen- PhD in Computer Science
+43
+AI VIETNAM
+All-in-One Course
+43
+Vinh Dinh Nguyen- PhD in Computer Science
+• Make sure to follow any instructions your target journal provides regarding 
+keywords.
+• Think about what terms you would use to search for papers related to your 
+topic
+• Keywords should indicate the general subject matter; however, they should 
+not be too broad
+• Test your keywords before submitting your paper
+44
+AI VIETNAM
+All-in-One Course
+44
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø How to Write Conclusion Section
+Ø How to Write Abstract Section
+Ø How to Write Title Section
+Ø How to Write Keywords Section
+Ø How to Write a Cover Letter
+Ø Types  of Reviewers
+Ø Case studies for Reviewers' comments
+Outline
+45
+AI VIETNAM
+All-in-One Course
+45
+Vinh Dinh Nguyen- PhD in Computer Science
+46
+AI VIETNAM
+All-in-One Course
+46
+Vinh Dinh Nguyen- PhD in Computer Science
+47
+AI VIETNAM
+All-in-One Course
+47
+Vinh Dinh Nguyen- PhD in Computer Science
+48
+AI VIETNAM
+All-in-One Course
+48
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Write Cover Letter
+49
+AI VIETNAM
+All-in-One Course
+49
+Vinh Dinh Nguyen- PhD in Computer Science
+Key information to include in
+your cover letter
+ Address the editor
+by their name if you
+know it. 
+Include your
+manuscript's title
+and the name of
+the journal.
+State that your paper
+has not been
+published/is not
+under consideration
+by another journal.
+Briefly describe your
+research. Why is it
+important? Why will
+readers find it
+interesting?
+Include contact
+information for
+yourself and 
+any co-authors.
+Remember:  Check the specific requirements of your
+chosen journal to make sure you include everything you
+need to. 
+1
+1
+2
+2
+3
+3
+4
+5
+6
+4
+5
+6
+Declare any
+conflicts of
+interest, or
+confirm there
+are none. 
+How to Write 
+Cover Letter
+50
+AI VIETNAM
+All-in-One Course
+50
+Vinh Dinh Nguyen- PhD in Computer Science
+What should my cover letter include?
+• Editor’s name (you can usually find this on the journal page on Taylor & Francis Online)
+• Your manuscript’s title
+• Name of the journal you are submitting to
+• Statement that your paper has not been previously published and is not currently under consideration by another journal
+• Brief description of the research you are reporting in your paper, why it is important, and why you think the readers of the journal 
+would be interested in it
+• Contact information for you and any co-authors
+• Confirmation that you have no competing interests to disclose.
+51
+AI VIETNAM
+All-in-One Course
+51
+Vinh Dinh Nguyen- PhD in Computer Science
+Things to Avoid
+• Don’t copy your abstract into your cover letter, instead explain in your own words the
+significance of the work, the problem that is being addressed, and why the manuscript belongs
+in the journal
+• Don’t use too much jargon or too many acronyms, keep language straightforward and easy to
+read
+• Avoid too much detail – keep your cover letter to a maximum of one page, as an introduction
+and brief overview
+• Avoid any spelling and grammar errors and ensure your letter is thoroughly proofed before
+submitting
+52
+AI VIETNAM
+All-in-One Course
+52
+Vinh Dinh Nguyen- PhD in Computer Science
+https://asiaedit.com/resources/journal-submission-cover-letter/
+53
+AI VIETNAM
+All-in-One Course
+53
+Vinh Dinh Nguyen- PhD in Computer Science
+54
+AI VIETNAM
+All-in-One Course
+54
+Vinh Dinh Nguyen- PhD in Computer Science
+55
+AI VIETNAM
+All-in-One Course
+55
+Vinh Dinh Nguyen- PhD in Computer Science
+Step 1: Address the recipient professionally
+56
+AI VIETNAM
+All-in-One Course
+56
+Vinh Dinh Nguyen- PhD in Computer Science
+Step 2: State the manuscript essentials 
+(e.g., title & type)
+57
+AI VIETNAM
+All-in-One Course
+57
+Vinh Dinh Nguyen- PhD in Computer Science
+Step 3: Summarize your study
+• You can highlight the novelty of your study, innovation of your approach, or strength 
+of your conclusions
+58
+AI VIETNAM
+All-in-One Course
+58
+Vinh Dinh Nguyen- PhD in Computer Science
+Step 4: Meet journal-specific requirements
+• Authorship
+• Funding, conflicts of interest
+• Ethical approval for experiments involving humans or animals
+• Clinical trial registration
+• Data availability or sharing
+• If all authors are willing to transfer copyright to the journal if the manuscript is 
+accepted
+59
+AI VIETNAM
+All-in-One Course
+59
+Vinh Dinh Nguyen- PhD in Computer Science
+Step 4: Meet journal-specific requirements
+• Some journals ask you to state if your manuscript has been previously rejected by
+another journal, in which case past review reports should be enclosed, along with a
+point-by-point response. Some journals ask for:
+qNames and affiliations of all the authors of the submitted manuscript
+qWord count and number of tables and figures
+qNumber and size of supplementary files
+qIf the authors are willing to pay for colour-page charges
+qSuggestions of images for cover art
+60
+AI VIETNAM
+All-in-One Course
+60
+Vinh Dinh Nguyen- PhD in Computer Science
+Step 5: Include standard declarations
+61
+AI VIETNAM
+All-in-One Course
+61
+Vinh Dinh Nguyen- PhD in Computer Science
+Step 6: Sign off professionally
+62
+AI VIETNAM
+All-in-One Course
+62
+Vinh Dinh Nguyen- PhD in Computer Science
+…
+…
+63
+AI VIETNAM
+All-in-One Course
+63
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø How to Write Conclusion Section
+Ø How to Write Abstract Section
+Ø How to Write Title Section
+Ø How to Write Keywords Section
+Ø How to Write Cover Letter
+Ø Types  of Reviewers
+Ø Case studies for Reviewers' comments
+Outline
+64
+AI VIETNAM
+All-in-One Course
+64
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Handel Reviewer’s Comments
+65
+AI VIETNAM
+All-in-One Course
+65
+Vinh Dinh Nguyen- PhD in Computer Science
+66
+AI VIETNAM
+All-in-One Course
+66
+Vinh Dinh Nguyen- PhD in Computer Science
+Single Blind Peer Review
+67
+AI VIETNAM
+All-in-One Course
+67
+Vinh Dinh Nguyen- PhD in Computer Science
+Double Blind Peer Review
+68
+AI VIETNAM
+All-in-One Course
+68
+Vinh Dinh Nguyen- PhD in Computer Science
+https://www.editage.com/insights/9-types-of-peer-reviewers
+Types of Reviewers
+69
+AI VIETNAM
+All-in-One Course
+69
+Vinh Dinh Nguyen- PhD in Computer Science
+Pedant
+•
+Finds and corrects every single minor mistake in the 
+manuscript. Great at policing errors.
+•
+Can’t see the wood for the trees. Sometimes misses the 
+big scientific blunders altogether.
+•
+Pedants in general are younger than other reviewers, 
+and their level of detail reflects their closer proximity to 
+the bench
+70
+AI VIETNAM
+All-in-One Course
+70
+Vinh Dinh Nguyen- PhD in Computer Science
+Stream-of-consciousness
+• Fast and impressionistic feedback
+• Unstructured and often riddled with 
+typos
+• You get their opinion on the manuscript, 
+almost in real time!
+71
+AI VIETNAM
+All-in-One Course
+71
+Vinh Dinh Nguyen- PhD in Computer Science
+Broad brushstrokes/Big 
+thinker
+• Sometimes finds significance that you didn’t 
+realize was there.
+• Provides no technical or in-depth feedback 
+whatsoever
+72
+AI VIETNAM
+All-in-One Course
+72
+Vinh Dinh Nguyen- PhD in Computer Science
+Hijacker
+Thoroughly understands and critiques the 
+story.
+Tries to get you to do all the experiments 
+they would have done in your place.
+73
+AI VIETNAM
+All-in-One Course
+73
+Vinh Dinh Nguyen- PhD in Computer Science
+Assassin
+“I feel this story needs more work in order to be 
+acceptable”
+• Quietly and efficiently kills your competitors’ 
+papers
+• Quietly and efficiently kills your papers.
+74
+AI VIETNAM
+All-in-One Course
+74
+Vinh Dinh Nguyen- PhD in Computer Science
+Sycophant
+“The data are of the quality that’s 
+always associated with this group.”
+(+) Generous, possibly over-generous 
+feedback.
+(-) May feel you owe them some
+thing.
+75
+AI VIETNAM
+All-in-One Course
+75
+Vinh Dinh Nguyen- PhD in Computer Science
+Bitter lemon
+• The images shown here are 
+embarrassingly poor. And again no 
+quantitation.”
+(+) Gives you a horror story to share with   
+friends?
+(-) Taking out personal frustrations rather 
+than actually reviewing your paper.
+76
+AI VIETNAM
+All-in-One Course
+76
+Vinh Dinh Nguyen- PhD in Computer Science
+Last-minuter
+“I only have a few points to raise.”
+(+) Short reviews that can be 
+addressed easily.
+(-) Doesn’t expend the time to 
+properly assess the paper.
+77
+AI VIETNAM
+All-in-One Course
+77
+Vinh Dinh Nguyen- PhD in Computer Science
+Unicorn
+“I have a few suggestions that the 
+authors may wish to implement.”
+(+) Wise, temperate, constructively. 
+critical, and gives a balanced.    
+assessment of your work.
+(-) Rarely encountered.
+78
+AI VIETNAM
+All-in-One Course
+78
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø How to Write Conclusion Section
+Ø How to Write Abstract Section
+Ø How to Write Title Section
+Ø How to Write Keywords Section
+Ø How to Write Cover Letter
+Ø Types  of Reviewers
+Ø Case studies for Reviewers' comments
+Outline
+79
+AI VIETNAM
+All-in-One Course
+79
+Vinh Dinh Nguyen- PhD in Computer Science
+80
+AI VIETNAM
+All-in-One Course
+80
+Vinh Dinh Nguyen- PhD in Computer Science
+Reviewer’s comments
+“It is bad that there is no way to reproduce
+the result by the audience since there is no
+executable or demo program. It is not easy
+to detect a lane by "mouth". You need to
+provide some ways to generate good
+results as mentioned in the paper. The
+reader will not cite this work for comparison
+for future publications if it is impossible to
+reproduce the results”
+81
+AI VIETNAM
+All-in-One Course
+81
+Vinh Dinh Nguyen- PhD in Computer Science
+“Need to provide a way to help the
+audience to compare your results with
+theirs. It is not possible to reproduce the
+exact results within weeks for general
+readers. No one can cite your paper since
+they cannot compare it easily”
+Reviewer’s comments
+82
+AI VIETNAM
+All-in-One Course
+82
+Vinh Dinh Nguyen- PhD in Computer Science
+Case Study
+83
+AI VIETNAM
+All-in-One Course
+83
+Vinh Dinh Nguyen- PhD in Computer Science
+84
+AI VIETNAM
+All-in-One Course
+84
+Vinh Dinh Nguyen- PhD in Computer Science
+Case Study
+85
+AI VIETNAM
+All-in-One Course
+85
+Vinh Dinh Nguyen- PhD in Computer Science
+Case Study
+86
+AI VIETNAM
+All-in-One Course
+86
+Vinh Dinh Nguyen- PhD in Computer Science
+Case Study
+87
+AI VIETNAM
+All-in-One Course
+87
+Vinh Dinh Nguyen- PhD in Computer Science
+88
+AI VIETNAM
+All-in-One Course
+88
+Vinh Dinh Nguyen- PhD in Computer Science
+89
+AI VIETNAM
+All-in-One Course
+89
+Vinh Dinh Nguyen- PhD in Computer Science
+90
+AI VIETNAM
+All-in-One Course
+90
+Vinh Dinh Nguyen- PhD in Computer Science
+91
+AI VIETNAM
+All-in-One Course
+91
+Vinh Dinh Nguyen- PhD in Computer Science
+92
+AI VIETNAM
+All-in-One Course
+92
+Vinh Dinh Nguyen- PhD in Computer Science
+Case Study
+“Given that the paper has rather limited technical novelty (also due to the existence of [27]), I would think
+the paper has to provide more "new insights", or interesting designs, or convincing new experiments or
+stellar results to justify a journal publication. Though the paper claims the "new insights" in the conclusion,
+auto encoder is actually applied in a straightforward way independently for each input matching pair. Sect.
+E and Fig. 7 are not rigorous or relevant for this particular paper, for instance, where will the part be
+detected for such a shallow network with a small receptive field of 9x9? Another sign of the paper being
+very experimental and lacking of depth is that when it's realised that adding another hidden layer does not
+help by experiments, then it is immediately declared understanding this as a future work”
+93
+AI VIETNAM
+All-in-One Course
+93
+Vinh Dinh Nguyen- PhD in Computer Science
+94
+AI VIETNAM
+All-in-One Course
+94
+Vinh Dinh Nguyen- PhD in Computer Science
+95
+AI VIETNAM
+All-in-One Course
+95
+Vinh Dinh Nguyen- PhD in Computer Science
+96
+AI VIETNAM
+All-in-One Course
+96
+Vinh Dinh Nguyen- PhD in Computer Science
+97
+AI VIETNAM
+All-in-One Course
+97
+Vinh Dinh Nguyen- PhD in Computer Science
+98
+AI VIETNAM
+All-in-One Course
+98
+Vinh Dinh Nguyen- PhD in Computer Science
+99
+AI VIETNAM
+All-in-One Course
+99
+Vinh Dinh Nguyen- PhD in Computer Science
+100
+AI VIETNAM
+All-in-One Course
+100
+Vinh Dinh Nguyen- PhD in Computer Science
+101
+AI VIETNAM
+All-in-One Course
+101
+Vinh Dinh Nguyen- PhD in Computer Science
+102
+AI VIETNAM
+All-in-One Course
+102
+Vinh Dinh Nguyen- PhD in Computer Science
+103
+AI VIETNAM
+All-in-One Course
+103
+Vinh Dinh Nguyen- PhD in Computer Science
+104
+AI VIETNAM
+All-in-One Course
+104
+Vinh Dinh Nguyen- PhD in Computer Science
+105
+AI VIETNAM
+All-in-One Course
+105
+Vinh Dinh Nguyen- PhD in Computer Science
+Assignment 4:
+• Requirements: Write Full Paper
+• Research content: your interested research
+• Deadline: 17/02/2023
+• Submission to email: 
+aivnresearch@gmail.com
+106
+AI VIETNAM
+All-in-One Course
+106
+Vinh Dinh Nguyen- PhD in Computer Science
+107
+AI VIETNAM
+All-in-One Course

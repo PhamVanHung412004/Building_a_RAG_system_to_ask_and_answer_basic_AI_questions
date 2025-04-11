@@ -1,5 +1,0 @@
-1 !pip install tqdm
-2
-3 !apt-get update
-4 !apt-get install -y wget
-20

@@ -1,0 +1,390 @@
+Neural Style Transfer
+(TA Session)
+AI VIETNAM
+All-in-One Course
+Year 2024
+Khoa Nguyen
+Ph.D. Student
+Objectives
+✔Review Style Transfer (Definition, …)
+✔Introduce Style Transfer Examples 
+✔Review requisite knowledge
+✔Introduce Milestone Papers
+✔Implementation of Style Transfer with 2 Style Images
+✔Implementation of Style Transfer with Rotation + DE
+➢Introduction
+➢Basic Knowledge
+➢Style Transfer Example
+Outline
+➢Milestone Papers
+➢Style Transfer with 2 Style Images
+➢Style Transfer with Rotation + DE
+Introduction
+AI VIETNAM
+All-in-One Course
+❖Definition
+Introduction
+AI VIETNAM
+All-in-One Course
+❖Definition
+Introduction
+AI VIETNAM
+All-in-One Course
+❖Definition
+Neural Style Transfer is a fascinating technique in the field of computer vision and artificial 
+intelligence that allows the style of one image to be applied to the content of another image, 
+effectively blending the two. This is achieved through the use of Convolutional Neural Networks 
+(CNNs), which are a class of deep neural networks commonly used in analyzing visual imagery
+Content Image: This is the primary image to which you want to apply a new style. It provides the 
+structure and content.
+Style Image: This image provides the artistic style you wish to apply to the content image. It could be a 
+famous painting or any other image with a distinctive artistic style.
+Generated Image: This is the output image that starts as a copy of the content image and iteratively 
+transforms to match the style of the style image while retaining the content of the original content image.
+Introduction
+AI VIETNAM
+All-in-One Course
+❖Definition
+Basic Knowledge
+AI VIETNAM
+All-in-One Course
+Basic Knowledge
+AI VIETNAM
+All-In-One Course
+❖Generate Image
+Content
+Style
+Initialize Random Image
+  - I : CxHxW
+Use gradient descent to minimize the loss function   
+Basic Knowledge
+AI VIETNAM
+All-in-One Course
+❖Neural Style Transfer
+Basic Knowledge
+AI VIETNAM
+All-in-One Course
+❖Pre-trained model
+Basic Knowledge
+AI VIETNAM
+All-in-One Course
+❖VGG
+Basic Knowledge
+AI VIETNAM
+All-in-One Course
+❖Visualizing deep layers: Layer 1
+Basic Knowledge
+AI VIETNAM
+All-in-One Course
+❖Visualizing deep layers: Layer 2
+Basic Knowledge
+AI VIETNAM
+All-in-One Course
+❖Visualizing deep layers: Layer 3
+Basic Knowledge
+AI VIETNAM
+All-in-One Course
+❖Visualizing deep layers: Layer 4
+Basic Knowledge
+AI VIETNAM
+All-in-One Course
+❖Visualizing deep layers: Layer 5
+Basic Knowledge
+AI VIETNAM
+All-in-One Course
+❖Neural Style Transfer basic structure
+Basic Knowledge
+AI VIETNAM
+All-in-One Course
+❖Neural Style Transfer basic structure
+Basic Knowledge
+AI VIETNAM
+All-in-One Course
+❖Content Loss
+Input Image
+Feature maps
+Conv
+●Layer l
+●Number of filters
+●Generated image
+●Generated feature map
+●Content image
+●Content feature map
+Basic Knowledge
+AI VIETNAM
+All-in-One Course
+❖Content Loss
+Target 
+Image
+Noise 
+Image
+Pretrained 
+Model
+Pretrained 
+Model
+Feature 
+map
+Feature 
+map
+Variable
+Constant
+Content Loss
+Basic Knowledge
+AI VIETNAM
+All-in-One Course
+❖Style Loss
+Input Image
+Feature maps
+Conv
+●Layer l
+●Number of filters
+●Feature map size
+●Gram Matrix
+Feature maps
+Basic Knowledge
+AI VIETNAM
+All-in-One Course
+❖Gram Matrix
+Feature maps
+Basic Knowledge
+❖Style Loss
+Input Image
+Feature maps
+Conv
+●Layer l
+●Number of filters
+●Feature map size
+●Gram Matrix
+Feature maps
+●Generated image
+●Generated feature map
+●Style image
+●Style feature map
+Gram Matrix
+AI VIETNAM
+All-in-One Course
+Basic Knowledge
+AI VIETNAM
+All-in-One Course
+❖Style Loss
+Style 
+Image
+Noise 
+Image
+Pretrained 
+Model
+Pretrained 
+Model
+ 
+ 
+Style Loss
+ 
+Basic Knowledge
+AI VIETNAM
+All-in-One Course
+❖Total Loss
+Pretrained 
+Model
+Content 
+Loss
+Style Image
+Pretrained 
+Model
+Feature map
+Pretrained 
+Model
+Content Image
+Output 
+Image
+Style 
+Loss
+Total 
+Loss
+Style Transfer Example
+AI VIETNAM
+All-in-One Course
+Style Transfer Example
+AI VIETNAM
+All-in-One Course
+❖Style Transfer
+Style Transfer Examples
+AI VIETNAM
+All-In-One Course
+❖Style Transfer
+Style Transfer Examples
+AI VIETNAM
+All-In-One Course
+❖Style Transfer
+OR
+Style Transfer Examples
+AI VIETNAM
+All-In-One Course
+❖Style Transfer
+Milestone Papers
+AI VIETNAM
+All-in-One Course
+Milestone Papers
+AI VIETNAM
+All-in-One Course
+❖Fast Neural Style Transfer
+Milestone Papers
+AI VIETNAM
+All-in-One Course
+❖Fast Neural Style Transfer
+Milestone Papers
+AI VIETNAM
+All-in-One Course
+❖Fast Neural Style Transfer
+Milestone Papers
+AI VIETNAM
+All-in-One Course
+❖Arbitrary Style Transfer
+Milestone Papers
+AI VIETNAM
+All-in-One Course
+❖Arbitrary Style Transfer
+Style Transfer with 2 Style Images
+AI VIETNAM
+All-in-One Course
+Style Transfer with 2 Style Images
+AI VIETNAM
+All-in-One Course
+Style Transfer with 2 Style Images
+AI VIETNAM
+All-in-One Course
+Style Transfer with 2 Style Images
+AI VIETNAM
+All-in-One Course
+VGG19
+VGG19
+VGG19
+VGG19
+Generated image
+Combine
+Style Transfer with 2 Style Images
+AI VIETNAM
+All-in-One Course
+VGG19
+1/4
+3/4
+Style 1
+Style 2
+Feature of 
+Style 1
+Feature of 
+Style 2
+Feature of 
+New Style
+Style Transfer with 2 Style Images
+AI VIETNAM
+All-in-One Course
+❖Code Overview
+0: Import Library 
+1: Data Preparation
+2: Modeling
+4: Plot Results
+3: Train and 
+Evaluate
+1
+Load Data
+2
+Build Model
+1
+Conﬁg Model
+2
+Evaluate model
+2
+Processing Data
+1
+Train model
+2
+Train/Test Acc
+1
+Train/Test Loss
+3
+Build Loss
+Style Transfer with 2 Style Images
+AI VIETNAM
+All-in-One Course
+❖Data
+Đầu tiên chúng ta cần load 
+ảnh content và style bằng thư 
+viện PIL, rồi resize về cùng
+kích thước 256x256 và 
+convert thành tensor để sử 
+dụng với Pytorch. Đối với bài 
+1 chúng ta cần load 3 ảnh (2 
+style và 1 content), còn đối với 
+bài 2 chỉ cần 1 style và 1 
+content
+Style Transfer with 2 Style Images
+AI VIETNAM
+All-in-One Course
+❖Loss
+Style Transfer with 2 Style Images
+AI VIETNAM
+All-In-One Course
+❖Model
+Style Transfer with 2 Style Images
+AI VIETNAM
+All-in-One Course
+Style Transfer with 2 Style Images
+AI VIETNAM
+All-in-One Course
+❖Style Transfer
+Clean gradient in 
+optimizer
+START
+Clamp image
+Extract features
+Content loss
+Style loss
+Total loss
+Gradient
+Update
+Return losses
+END
+Style Transfer with 2 Style Images
+AI VIETNAM
+All-in-One Course
+❖Style Transfer
+Style Transfer with 2 Style Images
+AI VIETNAM
+All-in-One Course
+Generated image
+Generated image
+After 3000 steps
+Style Transfer with Rotation + DE
+AI VIETNAM
+All-in-One Course
+Style Transfer with Rotation + DE
+AI VIETNAM
+All-in-One Course
+Style Transfer with Rotation + DE
+AI VIETNAM
+All-in-One Course
+Style Transfer with Rotation + DE
+AI VIETNAM
+All-in-One Course
+❖Differential Evolution
+Style Transfer with Rotation + DE
+AI VIETNAM
+All-in-One Course
+Style Transfer with Rotation + DE
+AI VIETNAM
+All-in-One Course
+Style Transfer with Rotation + DE
+AI VIETNAM
+All-in-One Course
+After 3000 steps
+Generated image 1
+Generated image 2
+Generated image 1
+Generated image 2
+Summary
+✔Reviewed Style Transfer
+✔Presented Style Transfer Examples 
+✔Reviewed fundamental necessary understanding
+✔Reviewed Milestone Papers
+✔Executed  Style Transfer Using Two Style References
+✔Executed  Style Transfer with Rotation + DE

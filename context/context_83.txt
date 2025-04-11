@@ -1,0 +1,106 @@
+All-in-One Course 2023
+aivietnam.edu.vn
+Study Guide: Module 10 - Week 1
+Reinforcement Learning
+1. Thứ4 (Ngày 17/04/2024)
+Reinforcement Learning (Policy-based)
+• Phụtrách: Dr. Lương Ngọc Hoàng
+• Kiến thức cần chuẩn bịtrước:
+- Markov Decision Process (MDP).
+- Basics of probability, statistics, and linear algebra.
+- Bellman equations.
+• Nội dung:
+- Giới thiệu vềcác khái niệm cơ bản trong Reinforcement Learning (RL) (agent, environ-
+ment, state, action, reward...).
+- Giới thiệu vềMarkov Decision Process (MDP) trong RL (state space, action space,
+transition model, reward function, initial state).
+- Giới thệu vềPolicy và value functions.
+- Giới thiệu vềBellman equations.
+- Giới thiệu vềhướng tiếp cận Policy search.
+- Giới thiệu vềPolicy Gradient.
+- Giới thiệu vềREINFORCE.
+- Giới thiệu vềActor-Critic, Advantage Actor-Critic (A2C) và Asynchronous Advantage
+Actor-Critic (A3C).
+- Giới thiệu vềon-policy và off-policy.
+- Giới thiệu vềSelf-Imitation Learning.
+- Giới thiệu vềDeterministic và Deep Deterministic Policy Gradient (DPG và DDPG).
+• Tài liệu tham khảo:
+Reinforcement Learning: An Introduction
+• Các link:
+Link GG drive cho các tài liệu
+Link Zoom
+2. Thứ6 (Ngày 19/04/2024)
+Reinforcement Learning (Value-based)
+• Phụtrách: Dr. Lương Ngọc Hoàng
+• Kiến thức cần chuẩn bịtrước:
+- Basic idea of Reinforcement Learning (states, actions, reward function...)
+- Basics of probability, statistics, and linear algebra.
+- Policy and value function.
+• Nội dung:
+- Giới thiệu vềmodel-based learning.
+1
+All-in-One Course 2023
+aivietnam.edu.vn
+- Giới thiệu vềmodel-free learning.
+(a) Giới thiệu Direct Evaluation vs Policy Evaluation.
+(b) Giới thiệu vềTemporal Difference (TD) Learning.
+(c) Giới thiệu vềQ-Learning.
+(d) Giới thiệu vềSARSA.
+(e) Giới thiệu vềApproximate Q-Learning.
+• Tài liệu tham khảo:
+Reinforcement Learning: An Introduction
+• Các link:
+Link GG drive cho các tài liệu
+Link Zoom
+3. Chủnhật (Ngày 21/04/2024)
+Reinforcement Learning Exercise
+• Phụtrách: TA Dương Đình Thắng
+• Nội dung:
+- Ôn tập các kiến thức, khái niệm cơ bản vềReinforcement Learning (state, action, reward,
+agent, environment...).
+- Ôn tập và thực hành các thuật toán thuộc nhóm value-based: Q-Learning và Approximate
+Q-Learning.
+- Ôn tập và thực hành thuật toán thuộc nhóm policy-based: REINFORCE.
+• Tài liệu tham khảo:
+- Gymnasium library documentation
+- An Introduction to Q-Learning: A Tutorial For Beginners
+- An introduction to Policy Gradients with Cartpole and Doom
+• Các link:
+Link GG drive cho các tài liệu
+Link Zoom
+4. Thứ3 (Ngày 16/04/2024)
+(Extra class) Introduction to Reinforcement Learning
+• Phụtrách: TA Dương Nguyễn Thuận
+• Nội dung:
+- Giới thiệu vềcác khái niệm cơ bản trong Reinforcement Learning (RL)
+- Giới thiệu vềQ-Learning.
+- Giới thiệu vềthư viện Gymnasium.
+• Tài liệu tham khảo:
+- Gymnasium Documentation
+- Stable-Baselines3 Docs
+• Các link:
+Link GG drive cho các tài liệu
+Link Zoom
+2
+All-in-One Course 2023
+aivietnam.edu.vn
+5. Thứ7 (Ngày 20/04/2024)
+(Extra class) LLMs Series: RAG for NLP Applications
+• Phụtrách: TA Bách
+• Nội dung:
+- Giới thiệu vềmô hình ngôn ngữlớn (LLMs).
+- Giới thiệu vềcác kỹthuật giúp LLMs có thểxửlý tốt trên một task cụthể, bao gồm:
+(a) In-context learning.
+(b) Instruction tuning.
+(c) Retrieval Augmented Generation
+- Giới thiệu vềkỹthuật giúp mô hình ngôn ngữtrảlời những câu hỏi không nằm trong
+kiến thức được pre-train.
+- Huấn luyện LLMs cho bài toán tra cứu tài liệu AIO.
+• Tài liệu tham khảo:
+- Paper: Scaling Instruction-Finetuned Language Models
+- The Ultimate Guide on RAG [w/ Gemma llamaindex]
+- llama-index documentation
+• Các link:
+Link GG drive cho các tài liệu
+Link Zoom
+3

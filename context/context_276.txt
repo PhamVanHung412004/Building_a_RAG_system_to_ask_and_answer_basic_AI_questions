@@ -1,0 +1,131 @@
+AI VIET NAM – AIO2024
+K-Nearest Neighbors - KNN
+Ngày 15 tháng 2 năm 2024
+Người tóm tắt
+Ngọc Trúc
+Nguồn dữliệu:
+K-Nearest Neighbor - KNN
+Từkhóa:
+Machine Learning,KNN, K-Nearest Neighbor, Brute force, K-D Tree,
+Ball Tree
+1
+Overview Machine Learning
+•
+Có 4 phương pháp máy học chính: Học máy có giám sát (Supervised Learning), Học máy không
+giám sát (Unsupervised Learning), Học máy tăng cường (Reinforcement Learning) và Học máy
+bán giám sát (Semi-supervised learning)
+Hình 1: So sánh input-output của 3 loại học máy chính
+• Supervised learning là thuật toán dựđoán đầu ra (outcome) của một dữliệu mới (new input) dựa
+trên các cặp (input, outcome) đã biết từtrước.
+– Ví dụ: Thuật toán dò các khuôn mặt trong một bức ảnh đã được phát triển từrất lâu. Thời
+gian đầu, facebook sửdụng thuật toán này đểchỉra các khuôn mặt trong một bức ảnh và
+yêu cầu người dùng tag friends - tức gán nhãn cho mỗi khuôn mặt. Sốlượng cặp dữliệu
+(khuôn mặt, tên người) càng lớn, độchính xác ởnhững lần tựđộng tag tiếp theo sẽcàng lớn.
+1
+AI VIETNAM
+aivietnam.edu.vn
+Hình 2: Supervised Learning
+• Thuật toán Unsupervised Learning không biết được outcome hay nhãn mà chỉcó dữliệu đầu vào,
+nó sẽdựa vào cấu trúc của dữliệu đểthực hiện một công việc nào đó, ví dụnhư phân nhóm
+(clustering) hoặc giảm sốchiều của dữliệu (dimension reduction) đểthuận tiện trong việc lưu trữ
+và tính toán.Một cách toán học, Unsupervised learning là khi chúng ta chỉcó dữliệu vào X mà
+không biết nhãn Y tương ứng.
+– Ví dụbài toán phân nhóm (Clustering) khách hàng dựa trên hành vi mua hàng. Điều này
+cũng giống như việc ta đưa cho một đứa trẻrất nhiều mảnh ghép với các hình thù và màu
+sắc khác nhau, ví dụtam giác, vuông, tròn với màu xanh và đỏ, sau đó yêu cầu trẻphân
+chúng thành từng nhóm. Mặc dù không cho trẻbiết mảnh nào tương ứng với hình nào hoặc
+màu nào, nhiều khảnăng chúng vẫn có thểphân loại các mảnh ghép theo màu hoặc hình
+dạng.
+Hình 3: Unsupervised Learning
+AI VIETNAM
+aivietnam.edu.vn
+• Thuật toán Semi-Supervised Learning (Học bán giám sát) là các bài toán khi chúng ta có một
+lượng lớn dữliệu X nhưng chỉmột phần trong chúng được gán nhãn. Những bài toán thuộc nhóm
+này nằm giữa hai nhóm được nêu bên trên (Supervised Learning và Unsupervised Learning)
+– Một ví dụđiển hình của nhóm này là chỉcó một phần ảnh hoặc văn bản được gán nhãn (ví
+dụbức ảnh vềngười, động vật hoặc các văn bản khoa học, chính trị) và phần lớn các bức
+ảnh/văn bản khác chưa được gán nhãn được thu thập từinternet.
+Hình 4: Semi Supervised Learning
+• Reinforcement learning là các bài toán giúp cho một hệthống tựđộng xác định hành vi dựa trên
+hoàn cảnh đểđạt được lợi ích cao nhất (maximizing the performance)
+Hình 5: Reinforcement Learning
+AI VIETNAM
+aivietnam.edu.vn
+2
+KNN Motivation
+• Lazy Motivation hoạt động bằng cách ghi nhớdữliệu huấn luyện thay vì xây dựng một mô hình
+chung. Khi nhận được một truy vấn mới, thuật toán này sẽtruy xuất các trường hợp tương tựtừ
+tập huấn luyện và sửdụng chúng đểtạo dựđoán.
+• Ý tưởng của thuật toán này là nó không học một điều gì từtập dữliệu học. Một trong những
+thuật toán Lazy Motivation phổbiến nhất là KNN (K-Nearest Neighbors)
+• KNN (K-Nearest Neighbors) là một trong những thuật toán học có giám sát (Supervised Learning)
+đơn giản nhất được sửdụng nhiều trong khai phá dữliệu và học máy, mọi tính toán được thực
+hiện khi nó cần dựđoán nhãn của dữliệu mới. Lớp (nhãn) của một đối tượng dữliệu mới có thể
+dựđoán từcác lớp (nhãn) của k hàng xóm gần nó nhất.
+• Khác với Lazy Motivation, Eager learning hay còn gọi là học dựa trên mô hình, là phương pháp
+trong học máy xây dựng một mô hình tổng quát từdữliệu huấn luyện, cốgắng khám phá mối
+quan hệvà mẫu ẩn.
+Hình 6: Lazy Learning and Eager Learning
+3
+KNN for Classification
+• Các bước đểthực hiện thuật toán KNN:
+– Bước 1: Xác định sốláng giềng gần nhất (K)
+AI VIETNAM
+aivietnam.edu.vn
+– Bước 2: Tính toán khoảng cách
+Có 3 cách cơ bản đểtính khoảng cách 2 điểm dữliệu x, y có k thuộc tính, thông dụng nhất
+là cách tính Euclid
+Hình 7: Công thức tính khoảng cách 2 điểm dữliệu x, y có k thuộc tính
+– Bước 3: Xác định K láng giềng gần nhất
+– Bước 4: Phiếu bầu và xác định nhãn dựđoán
+4
+How to select k in KNN
+• Giá trịk là tham sốảnh hưởng đến độphức tạp của mô hình.
+– Nếu k nhỏ, mô hình phức tạp hơn, sai sốkhớp trên mẫu xây dựng nhỏhơn, dễbịoverfitting.
+– Nếu k lớn, kết quảdựbáo ổn định hơn, do có "sựbình chọn giữa nhiều quan sát.
+• Đểchọn giá trịcủa k trong thuật toán KNN (K-Nearest Neighbors), có thểsửdụng các phương
+pháp thửnghiệm và đánh giá hiệu suất của mô hình trên tập dữliệu kiểm tra.
+– Tuy nhiên, việc đánh giá hiệu suất mô hình không chỉdựa trên độchính xác (accuracy) mà
+còn phải sửdụng các sốđo khác như precision, recall thông qua Confusion Matrix. Bằng
+cách sửdụng Confusion Matrix, có thểxác định sốlượng dựđoán đúng và sai cho mỗi lớp,
+từđó đưa ra cái nhìn tổng quan vềhiệu suất của mô hình.
+• Việc chọn giá trịk là sốlẻhoặc sốchẵn trong thuật toán KNN ảnh hưởng đến quá trình bỏphiếu
+(voting) và có thểảnh hưởng đến kết quảdựđoán của mô hình
+– Khi k là sốlẻ, quá trình bỏphiếu sẽluôn cho ra kết quảvới sốphiếu bầu cao hơn, giúp việc
+kết luận trởnên dễdàng hơn.
+– Tuy nhiên, khi k là sốchẵn, có thểxảy ra tình trạng mỗi lớp nhận được sốphiếu bầu bằng
+nhau, dẫn đến kết quảdựđoán không hiệu quả. Đểkhắc phục điều này, chúng ta có thểsử
+dụng trọng số(weights), bao gồm uniform weight, distance weight, và customize weight, để
+điều chỉnh quá trình bỏphiếu dựa trên mức độquan trọng của mỗi láng giềng. Ví dụ, khi sử
+dụng distance weight, mô hình sẽxem xét cảkhoảng cách giữa các láng giềng đểxác định
+trọng sốcho các phiếu bầu.
+AI VIETNAM
+aivietnam.edu.vn
+5
+KNN for Regression
+• Trong bài toán regression, thuật toán K-Nearest Neighbors (KNN) cũng có thểđược sửdụng để
+dựđoán giá trịcủa một biến liên tục dựa trên các giá trịcủa các biến đầu vào. Quá trình hoạt
+động của KNN trong bài toán regression tương tựnhư trong bài toán phân loại, nhưng có một số
+điểm khác biệt chính:
+– Sau khi chọn K lân cận, thay vì sửdụng bước bỏphiếu như trong bài toán phân loại, chúng
+ta thực hiện bước tính trung bình (hoặc trung vị) của các giá trịđầu ra của các điểm lân
+cận. Điều này có nghĩa là chúng ta tính trung bình của các giá trịcủa biến mục tiêu (target
+variable) cho các điểm dữliệu lân cận và sửdụng giá trịnày làm dựđoán cho điểm mới.
+Hình 8: KNN for regression
+6
+KNN with Brute force
+• KNN Brute Force: Mỗi điểm trong tập huấn luyện được lưu và dùng tính khoảng cách. Hiệu quả
+cho tập nhỏ, nhưng không hiệu quảcho dữliệu lớn hoặc có sốchiều cao.
+Hình 9: KNN with Brute force
+AI VIETNAM
+aivietnam.edu.vn
+7
+KNN with K-D Tree
+• KNN with K-D trees: Sửdụng cấu trúc dữliệu K-D tree đểtăng tốc quá trình tìm kiếm láng
+giềng. Hiệu quảhơn Brute Force đối với dữliệu lớn hoặc có sốchiều cao.
+Hình 10: KNN with K-D Tree
+8
+KNN with Ball Tree
+• Tương tựnhư K-D Tree nhưng đối với Ball Tree, hướng tiếp cận và cách tính sẽcó sựkhác biệt,
+cụthểđược thểhiện trong hình minh họa.
+Hình 11: KNN with Ball Tree

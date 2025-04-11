@@ -1,0 +1,1947 @@
+1
+AI VIETNAM
+All-in-One Course
+1
+AI VIETNAM
+All-in-One Course
+Decision Tree for Regression
+Year 2023
+Vinh Dinh Nguyen
+PhD in Computer Science
+AI VIETNAM
+All-in-One Course
+2
+AI VIETNAM
+All-in-One Course
+2
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Motivation for Regression Tree
+Ø Regression Tree
+Ø Overfitting in Regression Tree
+Ø Case study
+Outline
+3
+AI VIETNAM
+All-in-One Course
+3
+Vinh Dinh Nguyen- PhD in Computer Science
+Classification Tree: Review
+4
+AI VIETNAM
+All-in-One Course
+4
+Vinh Dinh Nguyen- PhD in Computer Science
+Classification Tree: Review
+• \
+Love Math
+Love Art
+Age
+Love AI
+Yes
+Yes
+7
+No
+Yes
+No
+12
+No
+No
+Yes
+18
+Yes
+No
+Yes
+35
+Yes
+Yes
+Yes
+38
+Yes
+Yes
+No
+50
+No
+No
+No
+83
+No
+Love Art
+Age < 12.5
+Not love AI
+Not love AI
+Love AI
+Yes
+No
+Yes
+No
+Labels
+Features
+5
+AI VIETNAM
+All-in-One Course
+5
+Vinh Dinh Nguyen- PhD in Computer Science
+Classification Tree: Review
+Love Art
+Love AI
+Thích
+Không thích
+Yes
+No
+0
+3
+GINI = 0.214
+Age < 12.5
+Love AI
+Love AI
+Có
+Không
+Yes
+No
+0
+1
+Yes
+No
+3
+0
+GINI = 0
+PURITY
+PURITY
+PURITY
+Love Art
+Not Love AI
+Thích
+Không thích
+GINI = 0.214
+Age < 12.5
+Not Love AI
+Love AI
+có
+không
+Previous Open Question:
+How can we handle overfitting?
+6
+AI VIETNAM
+All-in-One Course
+6
+Vinh Dinh Nguyen- PhD in Computer Science
+Metric Evaluation Review
+GNI IMPURITY
+Entropy – Information Gain
+When should I use Gini Impurity as opposed to Information Gain (Entropy)
+7
+AI VIETNAM
+All-in-One Course
+7
+Vinh Dinh Nguyen- PhD in Computer Science
+Laura Elena Raileanu and Kilian Stoffel compared both in "Theoretical comparison between the gini index and information gain criteria". The 
+most important remarks were:
+•It only matters in 2% of the cases whether you use gini impurity or entropy.
+•Entropy might be a little slower to compute (because it makes use of the logarithm).
+https://link.springer.com/article/10.1023/B:AMAI.0000018580.96245.c6
+Gini Vs. Entropy
+Found that they disagree only in 2% of all cases, which explains why most
+previously published empirical results concluded that it is not possible to
+decide which one of the two tests performs better
+Study the behavior of the Gini Index and Information Gain, to give an exact
+mathematical description of the situations when they are choosing the same
+test to split on and when they are choosing different tests.
+8
+AI VIETNAM
+All-in-One Course
+8
+Vinh Dinh Nguyen- PhD in Computer Science
+Classification Tree Review
+9
+AI VIETNAM
+All-in-One Course
+9
+Vinh Dinh Nguyen- PhD in Computer Science
+Iris Flower Classification (Entropy)
+Các bạn có thấy điều 
+gì bất thường ở đây 
+không?
+10
+AI VIETNAM
+All-in-One Course
+10
+Vinh Dinh Nguyen- PhD in Computer Science
+Iris Flower Classification (Entropy)
+11
+AI VIETNAM
+All-in-One Course
+11
+Vinh Dinh Nguyen- PhD in Computer Science
+Iris Flower Classification (Gini)
+Các bạn có thấy điều 
+gì bất thường ở đây 
+không?
+12
+AI VIETNAM
+All-in-One Course
+12
+Vinh Dinh Nguyen- PhD in Computer Science
+Iris Flower Classification (Gini)
+13
+AI VIETNAM
+All-in-One Course
+13
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Motivation for Regression Tree
+Ø Regression Tree
+Ø Overfitting in Regression Tree
+Ø Case study
+Outline
+14
+AI VIETNAM
+All-in-One Course
+14
+Vinh Dinh Nguyen- PhD in Computer Science
+Motivation
+Happy
+Life
+Score
+Time to Study AI
+15
+AI VIETNAM
+All-in-One Course
+15
+Vinh Dinh Nguyen- PhD in Computer Science
+Motivation
+Happy
+Life
+Score
+Time to Study AI
+10
+20
+30
+25
+50
+75
+100
+16
+AI VIETNAM
+All-in-One Course
+16
+Vinh Dinh Nguyen- PhD in Computer Science
+Motivation
+Happy
+Life
+Score
+Time to Study AI
+10
+20
+30
+25
+50
+75
+100
+17
+AI VIETNAM
+All-in-One Course
+17
+Vinh Dinh Nguyen- PhD in Computer Science
+Case study
+The StatQuest Illustrated Guide To Machine Learning, Josh Starmer PhD
+Supposing that, you want to research and 
+develop a new vaccine to cure the Covid-19
+18
+AI VIETNAM
+All-in-One Course
+18
+Vinh Dinh Nguyen- PhD in Computer Science
+Case study
+Unit
+Age
+Sex
+Effect (%)
+10
+25
+Female
+98
+20
+73
+Male
+0
+35
+54
+Female
+100
+5
+12
+Male
+44
+…
+…
+…
+…
+Khi có 1 vaccine ra đời, chúng ta muốn dự đoán xem nó hiệu quả bao 
+nhiêu % ứng với liều lượng dùng cố định (unit), tuổi (age) và giới tính 
+(sex) của bệnh nhân.
+Tiêm 5 đơn vị vaccine, 
+12 tuổi, giới tính nam
+Hiệu quảvaccine: 44%
+19
+AI VIETNAM
+All-in-One Course
+19
+Vinh Dinh Nguyen- PhD in Computer Science
+Can we use Decision Tree for solving this research?
+20
+AI VIETNAM
+All-in-One Course
+20
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Motivation for Regression Tree
+Ø Regression Tree
+Ø Overfitting in Regression Tree
+Ø Case study
+Outline
+21
+AI VIETNAM
+All-in-One Course
+21
+Vinh Dinh Nguyen- PhD in Computer Science
+Which node is root?
+Unit(đơn vị)
+Effect (hiệu quả) (%)
+10
+98
+20
+0
+35
+100
+5
+44
+…
+…
+Khi có 1 vaccine ra đời, chúng ta muốn dự đoán xem nó hiệu quả bao 
+nhiêu % ứng với từng liều lượng (unit) dùng trên bệnh nhân.
+Tiêm 5 đơn vị vaccine
+Hiệu quảvaccine: 44%
+22
+AI VIETNAM
+All-in-One Course
+22
+Vinh Dinh Nguyen- PhD in Computer Science
+Which node is root?
+Age
+Effect (hiệu quả) (%)
+25
+98
+73
+0
+54
+100
+12
+44
+…
+…
+Khi có 1 vaccine ra đời, chúng ta muốn dự đoán xem nó hiệu quả bao 
+nhiêu % ứng với tuổi (age) của bệnh nhân.
+12 tuổi
+Hiệu quảvaccine: 44%
+23
+AI VIETNAM
+All-in-One Course
+23
+Vinh Dinh Nguyen- PhD in Computer Science
+Which node is root?
+Sex
+Effect (hiệu quả) (%)
+Female
+98
+Male
+0
+Female
+100
+Male
+44
+…
+…
+Khi có 1 vaccine ra đời, chúng ta muốn dự đoán xem nó hiệu quả bao 
+nhiêu % ứng với giới tính (sex) của bệnh nhân.
+Giới tính Male
+Hiệu quảvaccine: 44%
+24
+AI VIETNAM
+All-in-One Course
+24
+Vinh Dinh Nguyen- PhD in Computer Science
+Unit is a root node
+Unit(đơn vị)
+Effect (hiệu quả) (%)
+10
+98
+20
+0
+35
+100
+5
+44
+…
+…
+Khi có 1 vaccine ra đời, chúng ta muốn dự đoán xem nó hiệu quả bao 
+nhiêu % ứng với từng liều lượng (unit) dùng trên bệnh nhân.
+Tiêm 5 đơn vị vaccine
+Hiệu quảvaccine: 44%
+25
+AI VIETNAM
+All-in-One Course
+25
+Vinh Dinh Nguyen- PhD in Computer Science
+Unit is a root node
+Khi có 1 vaccine ra đời, chúng ta muốn dự đoán xem nó hiệu quả bao nhiêu % ứng với từng liều lượng dùng (unit) trên bệnh nhân.
+Tiêm 5 đơn vị vaccine
+Hiệu quảvaccine: 44%
+10
+20
+30
+40
+25
+50
+75
+100
+Đơn vị vaccine
+Hiệu 
+quả (%)
+26
+AI VIETNAM
+All-in-One Course
+26
+Vinh Dinh Nguyen- PhD in Computer Science
+Unit is a root node
+10
+20
+30
+40
+25
+50
+75
+100
+Unit (Đơn vị) vaccine
+Effectiveness 
+(Hiệu quả) 
+(%)
+Average in unit(
+) = 3
+3
+Average in effectiveness(
+) = 0
+Average in effectiveness(
+) = 38.8
+Unit < 3
+Predict effective = 0
+Predict effective = 38.8
+Khi có 1 vaccine ra đời, chúng ta muốn dự đoán xem nó hiệu quả bao nhiêu % ứng với từng liều lượng dùng (unit) trên bệnh nhân.
+27
+AI VIETNAM
+All-in-One Course
+27
+Vinh Dinh Nguyen- PhD in Computer Science
+Unit is a root node
+10
+20
+30
+40
+25
+50
+75
+100
+Unit (Đơn vị) vaccine
+Effectiveness 
+(Hiệu quả) 
+(%)
+3
+Unit < 3
+Predict effective = 0
+Predict effective = 38.8
+Để đánh giá chất lượng cây mới tạo, chúng ta 
+cần đánh giá residual error (lỗi) của nó
+Đánh giá residual error trong trường hợp unit < 3
+Sum of Square Error (SSR) = 0
+28
+AI VIETNAM
+All-in-One Course
+28
+Vinh Dinh Nguyen- PhD in Computer Science
+Unit is a root node
+10
+20
+30
+40
+25
+50
+75
+100
+Unit (Đơn vị) vaccine
+Effectiveness 
+(Hiệu quả) 
+(%)
+3
+Unit < 3
+Predict effective = 0
+Predict effective = 38.8
+Để đánh giá chất lượng cây mới tạo, chúng ta 
+cần đánh giá residual error (lỗi) của nó
+Đánh giá residual error trong trường hợp
+ unit >= 3
+Sum of Square Error (SSR) = 25.555
+38.8
+29
+AI VIETNAM
+All-in-One Course
+29
+Vinh Dinh Nguyen- PhD in Computer Science
+SSR
+Unit Threshold
+10
+20
+30
+15000
+30000
+3
+25.555 = [SSR of unit < 3] + [SSR of unit >= 3]
+30
+AI VIETNAM
+All-in-One Course
+30
+Vinh Dinh Nguyen- PhD in Computer Science
+Unit is a root node
+Compute SSR
+10
+20
+30
+40
+25
+50
+75
+100
+Unit (Đơn vị) vaccine
+Effectiveness 
+(Hiệu quả) 
+(%)
+Average in unit(
+) = 5
+5
+Average in effectiveness(
+) = 0
+Average in effectiveness(
+) = 41.1
+Unit < 5
+Predict effective = 0
+Predict effective = 41.1
+31
+AI VIETNAM
+All-in-One Course
+31
+Vinh Dinh Nguyen- PhD in Computer Science
+SSR
+Unit Threshold
+10
+20
+30
+15000
+30000
+3
+[SSR of unit < 3] + [SSR of unit >= 3]
+[SSR of unit < 5] + [SSR of unit >= 5]
+32
+AI VIETNAM
+All-in-One Course
+32
+Vinh Dinh Nguyen- PhD in Computer Science
+Unit is a root node
+Compute SSR
+10
+20
+30
+40
+25
+50
+75
+100
+Unit (Đơn vị) vaccine
+Effectiveness 
+(Hiệu quả) 
+(%)
+Average in unit(
+) = 7
+7
+Average in effectiveness(
+) = 0
+Average in effectiveness(
+) = 43.7
+Unit < 7
+Predict effective = 0
+Predict effective = 43.7
+33
+AI VIETNAM
+All-in-One Course
+33
+Vinh Dinh Nguyen- PhD in Computer Science
+SSR
+Unit Threshold
+10
+20
+30
+15000
+30000
+3
+[SSR of unit < 3] + [SSR of unit >= 3]
+[SSR of unit < 5] + [SSR of unit >= 5]
+[SSR of unit < 7] + [SSR of unit >= 7]
+34
+AI VIETNAM
+All-in-One Course
+34
+Vinh Dinh Nguyen- PhD in Computer Science
+SSR
+Unit Threshold
+10
+20
+30
+15000
+30000
+3
+14.5
+35
+AI VIETNAM
+All-in-One Course
+35
+Vinh Dinh Nguyen- PhD in Computer Science
+Unit is a root node
+10
+20
+30
+40
+25
+50
+75
+100
+Unit (Đơn vị) vaccine
+Effectiveness 
+(Hiệu quả) 
+(%)
+Average in unit(
+) = 14.5
+14.5
+Unit < 14.5
+Unit < ???
+????
+36
+AI VIETNAM
+All-in-One Course
+36
+Vinh Dinh Nguyen- PhD in Computer Science
+Unit is a root node
+10
+20
+30
+40
+25
+50
+75
+100
+Unit (Đơn vị) vaccine
+Effectiveness 
+(Hiệu quả) 
+(%)
+Average in unit(
+) = 14.5
+14.5
+Unit < 14.5
+Unit < 3
+????
+Compute SSR for unit 3
+3
+37
+AI VIETNAM
+All-in-One Course
+37
+Vinh Dinh Nguyen- PhD in Computer Science
+Unit is a root node
+10
+20
+30
+40
+25
+50
+75
+100
+Unit (Đơn vị) vaccine
+Effectiveness 
+(Hiệu quả) 
+(%)
+Average in unit(
+) = 14.5
+14.5
+Unit < 14.5
+Unit < 5
+????
+Compute SSR for unit 5
+5
+38
+AI VIETNAM
+All-in-One Course
+38
+Vinh Dinh Nguyen- PhD in Computer Science
+Unit is a root node
+10
+20
+30
+40
+25
+50
+75
+100
+Unit (Đơn vị) vaccine
+Effectiveness 
+(Hiệu quả) 
+(%)
+Average in unit(
+) = 14.5
+14.5
+Unit < 14.5
+Unit < 7
+????
+Compute SSR for unit 7
+7
+39
+AI VIETNAM
+All-in-One Course
+39
+Vinh Dinh Nguyen- PhD in Computer Science
+Unit is a root node
+10
+20
+30
+40
+25
+50
+75
+100
+Unit (Đơn vị) vaccine
+Effectiveness 
+(Hiệu quả) 
+(%)
+Average in unit(
+) = 14.5
+14.5
+Unit < 14.5
+Unit < 9
+????
+Compute SSR for unit 9
+9
+40
+AI VIETNAM
+All-in-One Course
+40
+Vinh Dinh Nguyen- PhD in Computer Science
+Unit is a root node
+10
+20
+30
+40
+25
+50
+75
+100
+Unit (Đơn vị) vaccine
+Effectiveness 
+(Hiệu quả) 
+(%)
+Average in unit(
+) = 14.5
+14.5
+Unit < 14.5
+Unit < 11.5
+????
+11.5
+Compute SSR for unit 11.5
+41
+AI VIETNAM
+All-in-One Course
+41
+Vinh Dinh Nguyen- PhD in Computer Science
+SSR
+Unit Threshold
+10
+20
+30
+15000
+30000
+3
+11.5
+Unit < 14.5
+Unit < 11.5
+Predict: 1
+Predict: 20
+Should we stop?
+Supposing that unit < 11.5 has the lowest SSR
+42
+AI VIETNAM
+All-in-One Course
+42
+Vinh Dinh Nguyen- PhD in Computer Science
+Unit is a root node
+10
+20
+30
+40
+25
+50
+75
+100
+Unit (Đơn vị) vaccine
+Effectiveness 
+(Hiệu quả) 
+(%)
+Unit < 14.5
+Unit < 11.5
+Predict: 1
+Predict: 20
+Should we stop?
+Chúng ta xét trường hợp unit < 11.5. Kết 
+quả vẫn còn có thể tiếp tục ???
+14.5
+11.5
+43
+AI VIETNAM
+All-in-One Course
+43
+Vinh Dinh Nguyen- PhD in Computer Science
+SSR
+Unit Threshold
+10
+20
+30
+3
+9
+Should we stop?
+Dosage < 14.5
+Dosage < 11.5
+Dosage < 9
+Predict: 20
+Predict 0
+Predict 5
+44
+AI VIETNAM
+All-in-One Course
+44
+Vinh Dinh Nguyen- PhD in Computer Science
+Unit is a root node
+10
+20
+30
+40
+25
+50
+75
+100
+Unit (Đơn vị) vaccine
+Effectiveness 
+(Hiệu quả) 
+(%)
+9
+Dosage < 14.5
+Dosage < 11.5
+Dosage < 9
+Predict: 20
+Predict 0
+Predict 5
+Should we stop?
+45
+AI VIETNAM
+All-in-One Course
+45
+Vinh Dinh Nguyen- PhD in Computer Science
+Overfitting Problem
+46
+AI VIETNAM
+All-in-One Course
+46
+Vinh Dinh Nguyen- PhD in Computer Science
+Unit is a root node
+10
+20
+30
+40
+25
+50
+75
+100
+Unit (Đơn vị) vaccine
+Effectiveness 
+(Hiệu quả) 
+(%)
+9
+Unit < 14.5
+Unit < 11.5
+Unit < 9
+Predict: 20
+Predict 0
+Predict 5
+Thông thường chúng ta sẽ giới hạn tổng 
+số node (observation) tối đa để thực hiện 
+tiếp tách nhánh là 20.
+Hạn chế overfitting
+47
+AI VIETNAM
+All-in-One Course
+47
+Vinh Dinh Nguyen- PhD in Computer Science
+Unit is a root node
+10
+20
+30
+40
+25
+50
+75
+100
+Unit (Đơn vị) vaccine
+Effectiveness 
+(Hiệu quả) 
+(%)
+Average in effect.(
+) = 4.2
+14.5
+Unit < 14.5
+Predict effect: 4.2
+????
+Vì nhánh unit < 14.5 có tổng số 
+nodes < 7 . Dừng triển khai tách nhánh
+Kết quả dự đoán 
+cho unit < 14.5
+48
+AI VIETNAM
+All-in-One Course
+48
+Vinh Dinh Nguyen- PhD in Computer Science
+Unit is a root node
+10
+20
+30
+40
+25
+50
+75
+100
+Unit (Đơn vị) vaccine
+Effectiveness 
+(Hiệu quả) 
+(%)
+14.5
+Unit < 14.5
+Predict effect: 4.2
+????
+Kết quả dự đoán 
+cho unit < 14.5
+49
+AI VIETNAM
+All-in-One Course
+49
+Vinh Dinh Nguyen- PhD in Computer Science
+Unit is a root node
+10
+20
+30
+40
+25
+50
+75
+100
+Unit (Đơn vị) vaccine
+Effectiveness 
+(Hiệu quả) 
+(%)
+29
+Unit < 14.5
+Predict effect: 4.2
+Unit < 29
+Kết quả dự đoán 
+cho unit < 14.5
+14.5
+Unit < 23.5
+Predict effect: 2.5
+Kết quả dự đoán cho unit unit >= 29
+23.5
+Predict effect: 100
+Predict effect: 52
+Kết quả dự đoán 
+cho unit < 23.5
+Kết quả dự đoán 
+cho unit >= 23.5
+50
+AI VIETNAM
+All-in-One Course
+50
+Vinh Dinh Nguyen- PhD in Computer Science
+Unit is a root node
+10
+20
+30
+40
+25
+50
+75
+100
+Unit (Đơn vị) vaccine
+Effectiveness 
+(Hiệu quả) 
+(%)
+29
+Unit < 14.5
+Predict effect: 4.2
+Unit < 29
+Kết quả dự đoán 
+cho unit < 14.5
+14.5
+????
+Predict effect: 2.5
+Kết quả dự đoán cho unit unit >= 29
+Bây giờ, chúng ta cài đặt mininum nodes 
+cho tách nhánh là 20? What’s happen?
+51
+AI VIETNAM
+All-in-One Course
+51
+Vinh Dinh Nguyen- PhD in Computer Science
+Unit is a root node
+10
+20
+30
+40
+25
+50
+75
+100
+Unit (Đơn vị) vaccine
+Effectiveness 
+(Hiệu quả) 
+(%)
+14.5
+Unit < 14.5
+Predict effect: 4.2
+Predict effect: 51.8
+Kết quả dự đoán 
+cho unit < 14.5
+Kết quả dự đoán 
+cho unit >= 14.5
+Compute SSR  for this case
+SSR ~ 19.000
+52
+AI VIETNAM
+All-in-One Course
+52
+Vinh Dinh Nguyen- PhD in Computer Science
+Case study
+Unit
+Age
+Sex
+Effect (%)
+10
+25
+Female
+98
+20
+73
+Male
+0
+35
+54
+Female
+100
+5
+12
+Male
+44
+…
+…
+…
+…
+Khi có 1 vaccine ra đời, chúng ta muốn dự đoán xem nó hiệu quả bao 
+nhiêu % ứng với liều lượng dùng cố định, tuổi và giới tính của bệnh nhân.
+Tiêm 5 đơn vị vaccine, 
+12 tuổi, giới tính nam
+Hiệu quảvaccine: 44%
+53
+AI VIETNAM
+All-in-One Course
+53
+Vinh Dinh Nguyen- PhD in Computer Science
+Age node is a root?
+Age
+Effect (hiệu quả) (%)
+25
+98
+73
+0
+54
+100
+12
+44
+…
+…
+Khi có 1 vaccine ra đời, chúng ta muốn dự đoán xem nó hiệu quả bao 
+nhiêu % ứng với tuổi (age) của bệnh nhân.
+12 tuổi
+Hiệu quảvaccine: 44%
+54
+AI VIETNAM
+All-in-One Course
+54
+Vinh Dinh Nguyen- PhD in Computer Science
+Age is a root node
+Khi có 1 vaccine ra đời, chúng ta muốn dự đoán xem nó hiệu quả bao nhiêu % ứng với từng liều lượng dùng trên bệnh nhân.
+20
+40
+60
+80
+25
+50
+75
+100
+Age (Tuổi)
+Hiệu 
+quả (%)
+50
+Kết quả dự đoán 
+cho Age < 50
+Kết quả dự đoán 
+cho Age >= 50
+Age < 50
+Predict effect: 52.0
+Predict effect: 3.0
+Compute SSR  for this case
+SSR ~ 12,000
+55
+AI VIETNAM
+All-in-One Course
+55
+Vinh Dinh Nguyen- PhD in Computer Science
+Case study
+Unit
+Age
+Sex
+Effect (%)
+10
+25
+Female
+98
+20
+73
+Male
+0
+35
+54
+Female
+100
+5
+12
+Male
+44
+…
+…
+…
+…
+Khi có 1 vaccine ra đời, chúng ta muốn dự đoán xem nó hiệu quả bao 
+nhiêu % ứng với liều lượng dùng cố định, tuổi và giới tính của bệnh nhân.
+Giới tính nam
+Hiệu quảvaccine: 44%
+56
+AI VIETNAM
+All-in-One Course
+56
+Vinh Dinh Nguyen- PhD in Computer Science
+Sex node is  a root?
+Sex
+Effect (hiệu quả) (%)
+Female
+98
+Male
+0
+Female
+100
+Male
+44
+…
+…
+Khi có 1 vaccine ra đời, chúng ta muốn dự đoán xem nó hiệu quả bao 
+nhiêu % ứng với giới tính (sex) của bệnh nhân.
+Giới tính Male
+Hiệu quảvaccine: 44%
+57
+AI VIETNAM
+All-in-One Course
+57
+Vinh Dinh Nguyen- PhD in Computer Science
+Sex is a root node
+Khi có 1 vaccine ra đời, chúng ta muốn dự đoán xem nó hiệu quả bao nhiêu % ứng với từng liều lượng dùng trên bệnh nhân.
+Male
+Female
+25
+50
+75
+100
+Sex (giới tính)
+Hiệu 
+quả (%)
+Kết quả dự đoán 
+Sex is Female
+Kết quả dự đoán 
+cho Sex is Male
+Sex is Female
+Predict effect: 12.0
+Predict effect: 40.0
+Compute SSR  for this case
+SSR ~ 20,000
+58
+AI VIETNAM
+All-in-One Course
+58
+Vinh Dinh Nguyen- PhD in Computer Science
+Sex is Female
+Predict effect: 12.0
+Predict effect: 40.0
+Unit < 14.5
+Predict effect: 4.2
+Predict effect: 51.8
+Age < 50
+Predict effect: 52.0
+Predict effect: 3.0
+SSR ~ 19.000
+SSR ~ 20.000
+SSR ~ 12.000
+Chọn lựa root node với SSR nhỏ nhất
+59
+AI VIETNAM
+All-in-One Course
+59
+Vinh Dinh Nguyen- PhD in Computer Science
+Case study
+Unit
+Age
+Sex
+Effect (%)
+10
+25
+Female
+98
+20
+73
+Male
+0
+35
+54
+Female
+100
+5
+12
+Male
+44
+7
+80
+Male
+5
+…
+…
+…
+…
+Tiếp tục mở rộng cho trường hợp Age < 50
+Unit hoặc Sex là node kế tiếp???
+Age < 50
+???
+Predict effect: 
+3.0
+60
+AI VIETNAM
+All-in-One Course
+60
+Vinh Dinh Nguyen- PhD in Computer Science
+Case study
+Unit
+Age
+Sex
+Effect (%)
+10
+25
+Female
+98
+20
+73
+Male
+0
+35
+54
+Female
+100
+5
+12
+Male
+44
+7
+80
+Male
+5
+…
+…
+…
+…
+Age < 50
+Uinit < 29
+Predict effect: 
+3.0
+Sex is Female
+Predict effect: 
+20.0
+Predict effect: 100%
+Predict effect: 50%
+61
+AI VIETNAM
+All-in-One Course
+61
+Vinh Dinh Nguyen- PhD in Computer Science
+Final Tree
+Age < 50
+Uinit < 29
+Predict effect: 
+3.0
+Sex is Female
+Predict effect: 20.0
+Predict effect: 100%
+Predict effect: 50%
+Yes
+No
+Yes
+No
+Yes
+No
+62
+AI VIETNAM
+All-in-One Course
+62
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Motivation for Regression Tree
+Ø Regression Tree
+Ø Overfitting in Regression Tree
+Ø Case study
+Outline
+63
+AI VIETNAM
+All-in-One Course
+63
+Vinh Dinh Nguyen- PhD in Computer Science
+Overfitting Problem
+10
+20
+30
+40
+25
+50
+75
+100
+Unit (Đơn vị) vaccine
+Effectiveness 
+(Hiệu quả) 
+(%)
+14.5
+Unit < 14.5
+Predict effect: 
+4.2
+Unit < 29
+Kết quả dự đoán 
+cho unit < 14.5
+Kết quả dự đoán 
+cho unit >= 29
+Unit < 23.5
+Predict effect 2.5
+29
+23.5
+Predict effect: 100
+Predict effect: 52.8
+Kết quả dự đoán 
+cho unit > 23.5
+Kết quả dự đoán 
+cho unit < 23.5
+64
+AI VIETNAM
+All-in-One Course
+64
+Vinh Dinh Nguyen- PhD in Computer Science
+Overfitting Problem
+10
+20
+30
+40
+25
+50
+75
+100
+Unit (Đơn vị) vaccine
+Effectiveness 
+(Hiệu quả) 
+(%)
+14.5
+Unit < 14.5
+Predict effect: 
+4.2
+Unit < 29
+Kết quả dự đoán 
+cho unit < 14.5
+Kết quả dự đoán 
+cho unit >= 29
+Unit < 23.5
+Predict effect 2.5
+29
+23.5
+Predict effect: 100
+Predict effect: 52.8
+Kết quả dự đoán 
+cho unit > 23.5
+Kết quả dự đoán 
+cho unit < 23.5
+Dữ liệu test 
+Dữ liệu train
+Error
+65
+AI VIETNAM
+All-in-One Course
+65
+Vinh Dinh Nguyen- PhD in Computer Science
+Prunning Solution
+10
+20
+30
+40
+25
+50
+75
+100
+Unit (Đơn vị) vaccine
+Effectiveness 
+(Hiệu quả) 
+(%)
+14.5
+Unit < 14.5
+Predict effect: 
+4.2
+Unit < 29
+Kết quả dự đoán 
+cho unit < 14.5
+Kết quả dự đoán 
+cho unit >= 29
+Delete
+Predict effect 2.5
+29
+23.5
+Delete
+Delete
+Kết quả dự đoán 
+cho unit > 23.5
+Kết quả dự đoán 
+cho unit < 23.5
+Dữ liệu test 
+Dữ liệu train
+Error
+Note : If we want to prune the tree more, we could remove last two
+leaves and replace the split with a leaf that is the average of all of the
+observations
+66
+AI VIETNAM
+All-in-One Course
+66
+Vinh Dinh Nguyen- PhD in Computer Science
+Prunning Solution
+10
+20
+30
+40
+25
+50
+75
+100
+Unit (Đơn vị) vaccine
+Effectiveness 
+(Hiệu quả) 
+(%)
+14.5
+Unit < 14.5
+Predict effect: 
+4.2
+Unit < 29
+Kết quả dự đoán 
+cho unit < 14.5
+Kết quả dự đoán 
+cho unit >= 29
+Predict effect 2.5
+29
+Kết quả dự đoán 
+cho unit < 29
+Kết quả dự đoán 
+cho unit < 23.5
+Dữ liệu test 
+Dữ liệu train
+Error
+Predict effect 73.8
+67
+AI VIETNAM
+All-in-One Course
+67
+Vinh Dinh Nguyen- PhD in Computer Science
+How to select an optimal Tree
+Unit < 14.5
+Predict effect: 
+4.2
+Unit < 29
+Unit < 23.5
+Predict effect 2.5
+Predict effect: 100
+Predict effect: 52.8
+SSR = 148.8
+SSR = 0
+SSR = 75
+SSR = 320
+Total SSR = 320 + 75 + 148.8 + 0 = 543.8
+Unit < 14.5
+Predict effect: 
+4.2
+Unit < 29
+Predic effect: 73.8
+Predict effect 2.5
+SSR = 75
+SSR = 320
+SSR = 5099
+Total SSR = 320 + 75 + 5099 = 5498
+68
+AI VIETNAM
+All-in-One Course
+68
+Vinh Dinh Nguyen- PhD in Computer Science
+How to select an optimal Tree
+Unit < 14.5
+Predict effect: 
+4.2
+Predict effect: 51.8
+SSR = 320
+Total SSR = 320 + 18.923 = 19243
+SSR = 18.923
+Unit < 14.5
+Predict effect: 
+4.2
+Unit < 29
+Predic effect: 73.8
+Predict effect 2.5
+SSR = 75
+SSR = 320
+SSR = 5099
+Total SSR = 320 + 75 + 5099 = 5498
+69
+AI VIETNAM
+All-in-One Course
+69
+Vinh Dinh Nguyen- PhD in Computer Science
+How to select an optimal Tree
+Unit < 14.5
+Predict effect: 
+4.2
+Predict effect: 51.8
+SSR = 320
+Total SSR = 320 + 18.923 = 19243
+SSR = 18.923
+Predict effect: 50.5
+SSR = 28.897
+70
+AI VIETNAM
+All-in-One Course
+70
+Vinh Dinh Nguyen- PhD in Computer Science
+Predict effect: 50.5
+SSR = 28.897
+The sum of squared residual is relatively small for the original, full sized tree. But 
+each time we remove a leaf, the sum of squared residual gets larger.
+How do we compare these trees?
+71
+AI VIETNAM
+All-in-One Course
+71
+Vinh Dinh Nguyen- PhD in Computer Science
+Decision Tree-Pruning-Cost Complexity Method
+72
+AI VIETNAM
+All-in-One Course
+72
+Vinh Dinh Nguyen- PhD in Computer Science
+Tree complexity penalty
+The tree complexity penalty compensates for the difference in the number of leaves.
+Tree Score = sum of squared residual + αT
+α (alpha) is a tuning parameter that we finding using cross validation.
+T is the total number of terminal nodes/the total number of leaves
+For now, let’s let α = 10,000 and calculate tree score for each tree.
+73
+AI VIETNAM
+All-in-One Course
+73
+Vinh Dinh Nguyen- PhD in Computer Science
+Tree Score
+Unit < 14.5
+Predict effect: 
+4.2
+Unit < 29
+Unit < 23.5
+Predict effect 2.5
+Predict effect: 100
+Predict effect: 52.8
+SSR = 148.8
+SSR = 0
+SSR = 75
+SSR = 320
+Total SSR = 320 + 75 + 148.8 + 0 = 543.8
+Tree Score = Total SSR+ αT
+Tree Score = 543 + αT = 40.543
+α = 10000, T = 4
+74
+AI VIETNAM
+All-in-One Course
+74
+Vinh Dinh Nguyen- PhD in Computer Science
+Predict effect: 50.5
+SSR = 28.897
+The sum of squared residual is relatively small for the original, full sized tree. But 
+each time we remove a leaf, the sum of squared residual gets larger.
+Tree Score
+Tree Score = 40.543
+Tree Score = 35.494
+Tree Score = 39.243
+Tree Score = 38.897
+Best Tree
+α = 10.000
+75
+AI VIETNAM
+All-in-One Course
+75
+Vinh Dinh Nguyen- PhD in Computer Science
+Prunning Solution
+10
+20
+30
+40
+25
+50
+75
+100
+Unit (Đơn vị) vaccine
+Effectiveness 
+(Hiệu quả) 
+(%)
+14.5
+Unit < 14.5
+Predict effect: 
+4.2
+Unit < 29
+Kết quả dự đoán 
+cho unit < 14.5
+Kết quả dự đoán 
+cho unit >= 29
+Predict effect 2.5
+29
+Kết quả dự đoán 
+cho unit < 29
+Kết quả dự đoán 
+cho unit < 23.5
+Dữ liệu test 
+Dữ liệu train
+Error
+Predict effect 73.8
+76
+AI VIETNAM
+All-in-One Course
+76
+Vinh Dinh Nguyen- PhD in Computer Science
+Predict effect: 50.5
+SSR = 28.897
+The sum of squared residual is relatively small for the original, full sized tree. But 
+each time we remove a leaf, the sum of squared residual gets larger.
+Tree Score
+Tree Score = 80.543
+Tree Score = 65.498
+Tree Score = 59.243
+Tree Score = 48.897
+Best Tree
+α = 20.000
+77
+AI VIETNAM
+All-in-One Course
+77
+Vinh Dinh Nguyen- PhD in Computer Science
+How to select α 
+Unit
+Age
+Sex
+Effect (%)
+10
+25
+Female
+98
+20
+73
+Male
+0
+35
+54
+Female
+100
+5
+12
+Male
+44
+7
+80
+Male
+5
+…
+…
+…
+…
+Entire dataset
+Full size Tree
+This full size tree has lowest 
+Tree Score when α = ??
+Tree Score = sum of squared residual + αT
+1
+78
+AI VIETNAM
+All-in-One Course
+78
+Vinh Dinh Nguyen- PhD in Computer Science
+How to select α 
+Prunning Tree
+Increase untill pruning leaves will give us a lower 
+Tree Score 
+Tree Score = sum of squared residual + αT
+2
+α = 10.000
+Full size Tree
+α = 0
+79
+AI VIETNAM
+All-in-One Course
+79
+Vinh Dinh Nguyen- PhD in Computer Science
+How to select α 
+Tree
+Increase untill pruning leaves will give us a lower 
+Tree Score 
+Tree Score = sum of squared residual + αT
+3
+α = 10.000
+Prunning Tree
+α = 15.000
+80
+AI VIETNAM
+All-in-One Course
+80
+Vinh Dinh Nguyen- PhD in Computer Science
+How to select α 
+Tree
+Increase untill pruning leaves will give us a lower 
+Tree Score 
+Tree Score = sum of squared residual + αT
+3
+α = 15.000
+Leaf
+α = 20.000
+Predict effect: 50.5
+81
+AI VIETNAM
+All-in-One Course
+81
+Vinh Dinh Nguyen- PhD in Computer Science
+How to select α 
+Next Step
+82
+AI VIETNAM
+All-in-One Course
+82
+Vinh Dinh Nguyen- PhD in Computer Science
+How to select α 
+Unit
+Age
+Sex
+Effect (%)
+10
+25
+Female
+98
+20
+73
+Male
+0
+35
+54
+Female
+100
+5
+12
+Male
+44
+7
+80
+Male
+5
+…
+…
+…
+…
+Entire dataset
+Unit
+Age
+Sex
+Effect (%)
+10
+25
+Female
+98
+20
+73
+Male
+0
+…
+…
+…
+…
+Unit
+Age
+Sex
+Effect (%)
+5
+12
+Male
+44
+7
+80
+Male
+5
+…
+…
+…
+…
+Training dataset
+Testing dataset
+For each Split
+Build Tree with α = 0 , α = 10000, α = 15000, α = 20,000 
+Tree Score with α = 0 , α = 10000, α = 15000, α = 20,000 
+83
+AI VIETNAM
+All-in-One Course
+83
+Vinh Dinh Nguyen- PhD in Computer Science
+How to select α 
+α = 0 
+α = 10,000
+α = 15000
+α =20,000 
+Split 1
+…
+…
+…
+…
+Split 2
+…
+…
+…
+…
+Split 3
+…
+…
+…
+…
+Split 4
+…
+…
+…
+…
+Split 5
+…
+…
+…
+…
+Average
+50,000
+5000
+11,000
+30,000
+In this case, the optimal trees built with α = 10,000 had, on average, the
+lowest sum of square residuals. So α = 10,000 is our final value.
+84
+AI VIETNAM
+All-in-One Course
+84
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Motivation for Regression Tree
+Ø Regression Tree
+Ø Overfitting in Regression Tree
+Ø Case study
+Outline
+85
+AI VIETNAM
+All-in-One Course
+85
+Vinh Dinh Nguyen- PhD in Computer Science
+Case study
+http://www.webgraphviz.com/
+export_graphviz(regressor, out_file ='tree.dot',
+feature_names =["Level"])
+86
+AI VIETNAM
+All-in-One Course
+86
+Vinh Dinh Nguyen- PhD in Computer Science
+Case study
+tree.plot_tree(regressor, ax=ax, feature_names = ["Level"], 
+filled=True)
+from sklearn.tree import DecisionTreeRegressor
+regressor = DecisionTreeRegressor(random_state=0)
+#Fit the regressor object to the dataset.
+regressor.fit(X,y)
+87
+AI VIETNAM
+All-in-One Course
+87
+Vinh Dinh Nguyen- PhD in Computer Science
+Case study
+regressor = DecisionTreeRegressor(random_state=0, 
+max_depth=3)
+88
+AI VIETNAM
+All-in-One Course
+88
+Vinh Dinh Nguyen- PhD in Computer Science
+Case study
+regressor = DecisionTreeRegressor(random_state=0, 
+min_samples_leaf=4)
+89
+AI VIETNAM
+All-in-One Course
+89
+Vinh Dinh Nguyen- PhD in Computer Science
+Case study
+Visualising the Decision Tree Regression 
+results
+plt.scatter(X, y, color = 'red')
+plt.plot(X, regressor.predict(X), color 
+= 'blue')
+plt.title('Check It (Regression Model)')
+plt.xlabel('Position level')
+plt.ylabel('Salary')
+plt.show()
+90
+AI VIETNAM
+All-in-One Course
+90
+Vinh Dinh Nguyen- PhD in Computer Science
+Case study
+91
+AI VIETNAM
+All-in-One Course

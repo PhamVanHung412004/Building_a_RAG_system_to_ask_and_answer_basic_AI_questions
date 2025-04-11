@@ -1,0 +1,135 @@
+Switch-case Alternatives in Python
+Dinh-Tiem Nguyen và Quang-Vinh Dinh
+1
+Switch Case
+Switch case là một cấu trúc điều khiển trong lập trình giúp kiểm tra giá trịcủa một biến, biểu thức
+và thực hiện các hành động khác nhau tùy thuộc vào giá trịđó. Đểđơn giản thì hãy tưởng tượng bạn
+có một chiếc hộp điều khiển với nhiều nút bấm. Mỗi nút bấm trên chiếc hộp này sẽlàm một việc khác
+nhau. Khi bạn nhấn vào một nút, chiếc hộp sẽbiết cần phải làm gì tiếp theo. Đó chính là cách mà
+switch case hoạt động.
+Trong biểu đồtrên thểhiện các thành phần và cách switch case hoạt động, trong đó:
+• Switch Expression (Biểu thức kiểm tra): Chúng ta bắt đầu với việc kiểm tra biểu thức. Ví dụ:
+Hôm nay bạn muốn ăn món gì?
+• Case 1: Kiểm tra trường hợp đầu tiên. Nếu biểu thức khớp với trường hợp này, chúng ta thực hiện
+"Statement 1"và sau đó kết thúc. Ví dụ: Case bạn muốn ăn Táo thì thực hiện Statement 1: Lấy
+trong tủlạnh.
+AIO2024
+aivietnam.edu.vn
+• Case 2: Nếu biểu thức không khớp với trường hợp đầu tiên, chúng ta kiểm tra trường hợp thứhai.
+Nếu biểu thức khớp với trường hợp này, chúng ta thực hiện "Statement 2"và sau đó kết thúc. Ví
+dụ: Case bạn muốn ăn chuối thì thực hiện Statement 1: Lấy trên bàn ăn.
+• Case n: Tiếp tục kiểm tra các trường hợp khác cho đến khi tìm thấy một trường hợp khớp hoặc
+đến trường hợp cuối cùng.
+• Default Statement: Nếu không có trường hợp nào khớp, chúng ta thực hiện hành động mặc định.
+Đây là điều sẽxảy ra nếu tất cảcác trường hợp trên đều không đúng. ví dụ: statement mặc định
+khi bạn chọn một loại trái cây không khớp với bất kỳtrường hợp nào, giảsửbạn chọn bưởi mà
+nhà bạn không có bưởi thì giá trịmặc định trảvềsẽlà: "Hãy ra chợmua".
+• End: Sau khi thực hiện một hành động (dù là từmột trường hợp cụthểhay hành động mặc định),
+quá trình kết thúc.
+Và đó là cấu trúc và cách switch case hoạt động, tuy nhiên trong python không có cấu trúc này. Thay
+vào đó, chúng ta có thểsửdụng các phương pháp khác như if-elif-else, dictionary hoặc từPython
+3.10 trởđi, chúng ta có thểsửdụng match case đểlàm điều tương tự.
+2
+Các phương pháp thay thếswitch case trong python
+Chúng ta sẽtìm hiểu các phương pháp thay thếswitch case qua ví dụvềthói quen vào buổi sáng của
+Tom. Buổi sáng, Tom thường thức dậy vào lúc 5 giờ, đến 6 giờthì cậu ấy bắt đàu tập yoga, sau đó
+7 giờcậu ấy bắt đầu làm việc, và các thời gian còn lại thì cậu ấy làm các công việc khác. Ta sẽviết
+chương trình nhập đầu vào là thời gian đểxem hoạt động của Tom.
+Input
+Output
+5 AM
+Wake up
+6 AM
+Yoga
+7 AM
+Work
+Giá trịkhác
+Do something else
+2
+AIO2024
+aivietnam.edu.vn
+2.1
+If-elif-else
+Cách phổbiến nhất đểthay thếswitch case trong python là sửdụng cấu trúc if-elif-else. Cấu trúc này
+bắt đầu bằng câu lệnh if và điều kiện condition, nếu điều kiện này đúng khối lệnh trong if(statement)
+sẽđược thực hiện. Nếu điều kiện sai sẽchuyển sang câu lệnh elif và tiếp tục kiểm tra điều kiện. Nếu
+không có điều kiện nào đúng thì thực hiện khối lệnh trong else.
+Sau đây là cách sửdụng if-elif-else đểxây dựng chương trình :
+1 time = input("Input
+time: ")
+2 if time == "5 AM":
+3
+print("Wake up")
+4 elif time == "6 AM":
+5
+print("Yoga")
+6 elif time == "7 AM":
+7
+print("Work")
+8 else:
+9
+print("Do something
+else")
+10
+Chương trình trên bắt đầu bằng cách yêu cầu người dùng nhập thời gian. Người dùng sẽnhập một giá
+trịthời gian cụthể(ví dụ: "5 AM", "6 AM", hoặc "7 AM"). Sau đó chương trình kiểm tra giá trịcủa
+biến thời gian với các lệnh if, elif, và else, nếu điều kiện đúng thì sẽthực hiện câu lệnh print. Nếu người
+dùng nhập các giá trịkhác thì thực hiện khối lệnh trong else in ra màn hình "Do something else".
+2.2
+Dictionary
+Phương pháp thứhai có thểthay thếswitch case trong python là sửdụng Dictionary, đây là kiểu dữ
+liệu được lưu trữdưới dạng các cặp khóa và giá trị. Mỗi khóa là duy nhất và liên kết với một giá trị.
+Sau đây là cách sửdụng dictionary đểxây dựng chương trình theo dõi hoạt động của Tom.
+1 todo = {"5 AM": "Wake up",
+2
+"6 AM": "Yoga",
+3
+"7 AM": "Work"}
+4 time = input("Input
+time: ")
+5 todo.get(time , "Do something
+else")
+Đầu tiên chúng ta tạo một từđiển todo với các cặp khóa-giá trị. Mỗi khóa là một thời gian cụthể(ví
+dụ: "5 AM", "6 AM", "7 AM") và mỗi giá trịlà haotj động của Tom vào thời gian đó (ví dụ: "Wake
+3
+AIO2024
+aivietnam.edu.vn
+up", "Yoga", "Work"). Tiếp theo chương trình yêu cầu người dùng nhập thời gian. Cuối cùng chúng
+ta sửdụng phương thức get của từđiển đểtìm công việc tương ứng với thời gian nhập vào. Nếu thời
+gian nhập vào có trong từđiển, phương thức get sẽtrảvềcông việc tương ứng. Nếu thời gian nhập vào
+không có trong từđiển, phương thức get sẽtrảvềgiá trịmặc định là "Do something else".
+2.3
+Mactch case
+Cấu trúc match case trong Python cung cấp một cách tiếp cận mạnh mẽvà trực quan đểxửlý các điều
+kiện phức tạp. So với if-else, dictionary, và switch case từcác ngôn ngữkhác, match case giúp mã dễ
+đọc hơn, dễbảo trì hơn, và linh hoạt hơn trong việc kiểm tra các mẫu dữliệu phức tạp. Cú pháp sử
+dụng tương tựswitch case, bắt đầu bằng match và biểu thức cần kiểm tra. Bên trong khối match gồm
+các case, với trường hợp các case đều sai thì sửdụng cú pháp "case _".
+Dưới đây là cách sửdụng match case đểxây dựng chương trình theo dõi hoạt động của Tom:
+1 time = input("Input
+time: ")
+2 match
+time:
+3
+case "5 AM":
+4
+print("Wake up")
+5
+case "6 AM":
+6
+print("Yoga")
+7
+case "7 AM":
+8
+print("Work")
+9
+case _:
+10
+print("Do something
+else")
+11
+Trong chương trình trên, đầu tiên chúng ta sửdụng lệnh input đểyêu cầu người dùng nhập thời gian
+và lưu giá trịđó vào biến time. Tiếp theo chúng ta kiểm tra giá trịbiến time này với cấu trúc match
+case. Một chú ý nhỏởđây là dấu gạch dưới _ đại diện cho trường hợp mặc định, khi giá trịcủa time
+không khớp với bất kỳtrường hợp nào đã liệt kê.
+4

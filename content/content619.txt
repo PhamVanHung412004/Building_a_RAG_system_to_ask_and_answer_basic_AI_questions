@@ -1,6 +1,0 @@
-AIO2024 aivietnam.edu.vn
-Câu 7: Xếp chồng 2 mảng theo chiều dọc
-1 # Python code ( aivietnam )
-2 import numpy as np
-3
-4 data1 = np. arange (10) . 

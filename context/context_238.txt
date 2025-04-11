@@ -1,0 +1,297 @@
+Feature Engineering 
+for Time Series Data
+Minh-Duc Bui
+AI VIETNAM
+Time Series Data
+Year 2023
+▪
+Feature Engineering in General
+▪
+Feature Engineering for Time Series Data
+Outline
+▪
+Feature Engineering in General
+▪
+Feature Engineering for Time Series Data
+Outline
+Feature Engineering in General
+4
+Feature engineering is the process of extracting features (characteristics,
+properties, attributes) from raw data.
+●Missing values
+●Data Normalization/Standardization
+●Encoding Categorical Data
+●Dimensionality Reduction
+●Temporal Feature Engineering
+●Domain-Specific Features
+AI VIETNAM
+Time Series Data
+Feature Engineering in General
+5
+●
+Having the right features tends to give the biggest performance boost compared to
+clever algorithmic techniques such as hyper-parameter tuning.
+●
+State-of-the-art model architectures can still perform poorly if they don't use a
+good set of features.
+AI VIETNAM
+Time Series Data
+Feature Engineering for Time Series
+6
+AI VIETNAM
+Time Series Data
+▪
+Feature Engineering in General
+▪
+Feature Engineering for Time Series Data
+Outline
+Stationarity
+8
+AI VIETNAM
+Time Series Data
+❖What is Stationarity?
+Stationarity describes the concept that how a
+time series is changing will remain the same
+in the future.
+In mathematical terms, a time series is
+stationary when its statistical properties
+are independent of time:
+●
+constant mean,
+●
+constant variance, and
+●
+covariance is independent of time.
+Stationarity
+9
+AI VIETNAM
+Time Series Data
+❖Why it is important?
+Some time series forecasting models (e.g., autoregressive models) require a
+stationary time series because they are easier to model due to their constant
+statistical properties.
+Stationarity
+10
+AI VIETNAM
+Time Series Data
+Stationarity
+11
+AI VIETNAM
+Time Series Data
+❖Non-stationarity => Stationarity
+You can apply different transformations to a non-stationary
+time series to try to make it stationary:
+●
+Differencing
+●
+Detrending by model fitting
+●
+Log transformation
+Stationarity
+12
+AI VIETNAM
+Time Series Data
+❖First-order differencing
+The differenced series is the change
+between consecutive observations in
+the original series:
+import pandas as pd
+import matplotlib.pyplot as plt
+df = pd.read_csv('ch2_co2_levels.csv’)
+# Convert to datetime
+df['datestamp’] =
+pd.to_datetime(df['datestamp'])
+# Set datestamp column as index
+df = df.set_index('datestamp’)
+df_diff = df.diff()
+Stationarity
+13
+AI VIETNAM
+Time Series Data
+❖Second-order differencing
+Occasionally the differenced data will not
+appear to be stationary and it may be
+necessary to difference the data a second
+time to obtain a stationary series:
+import pandas as pd
+import matplotlib.pyplot as plt
+df = pd.read_csv('ch2_co2_levels.csv’)
+# Convert to datetime
+df['datestamp’] =
+pd.to_datetime(df['datestamp'])
+# Set datestamp column as index
+df = df.set_index('datestamp’)
+df_diff = df.diff().diff()
+Stationarity
+14
+AI VIETNAM
+Time Series Data
+❖Seasonal differencing
+A seasonal difference is the difference
+between
+an
+observation
+and
+the
+previous observation from the same
+season.
+import pandas as pd
+import matplotlib.pyplot as plt
+df = pd.read_csv('ch2_co2_levels.csv’)
+# Convert to datetime
+df['datestamp’] =
+pd.to_datetime(df['datestamp'])
+# Set datestamp column as index
+df = df.set_index('datestamp’)
+df_diff = df.diff(periods=12)
+Stationarity
+15
+AI VIETNAM
+Time Series Data
+❖Detrending by model fitting
+Fit a trend model and then subtracting
+the trend component from the original
+series.
+from sklearn.linear_model import LinearRegression
+# Create a numerical time index (e.g., 0, 1, 2, ...)
+df['time_index'] = np.arange(len(df))
+# Prepare the data for the linear model
+X = df['time_index'].values.reshape(-1, 1)
+y = df['co2'].values
+# Create and fit the linear model
+model = LinearRegression()
+model.fit(X, y)
+# Predict CO2 levels using the model
+predicted_co2 = model.predict(X)
+# Detrend the data by subtracting the predicted 
+values from the original CO2 levels
+detrended_co2 = df['co2'] - predicted_co2
+Stationarity
+16
+AI VIETNAM
+Time Series Data
+❖Log transformation
+Apply the logarithm function to each data
+point in a dataset.
+=> Stabilizing Variance, Reducing Skewness
+import pandas as pd
+import matplotlib.pyplot as plt
+df = pd.read_csv('ch2_co2_levels.csv’)
+# Convert to datetime
+df['datestamp’] =
+pd.to_datetime(df['datestamp'])
+# Set datestamp column as index
+df = df.set_index('datestamp’)
+df_log_transforme = np.log(df['co2'])
+Time-based Features
+17
+AI VIETNAM
+Time Series Data
+●
+Create new features from date and time information.
+●
+Extract the day of the week, hour of the day, or month of the year.
+import pandas as pd
+import matplotlib.pyplot as plt
+df = pd.read_csv('ch2_co2_levels.csv’)
+# Convert to datetime
+df['datestamp’] =
+pd.to_datetime(df['datestamp'])
+# Set datestamp column as index
+df = df.set_index('datestamp’)
+df['month'] = df.index.month
+df['day’]
+= df.index.day
+Lag Features
+18
+AI VIETNAM
+Time Series Data
+●
+Shift the values of a variable backward in time by a certain number of time periods.
+●
+Lagged features can capture temporal dependencies and trends in the data.
+import pandas as pd
+import matplotlib.pyplot as plt
+df = pd.read_csv('ch2_co2_levels.csv’)
+# Convert to datetime
+df['datestamp’] =
+pd.to_datetime(df['datestamp'])
+# Set datestamp column as index
+df = df.set_index('datestamp’)
+df['lag_1'] = df['co2'].shift(1)
+df['lag_2'] = df['co2'].shift(2)
+df['lag_3'] = df['co2'].shift(3)
+Rolling Window Features
+19
+AI VIETNAM
+Time Series Data
+●
+Calculating summary statistics, such as the mean or standard deviation, over a
+sliding window of previous values.
+○
+highlighting long-term trends or cycles
+○
+smoothing out short-term fluctuations
+○
+removing outliers
+df_mean = df.rolling(window=48).mean()
+Expanding Window Features
+20
+AI VIETNAM
+Time Series Data
+●
+In zolling window technique, we consider only the most recent values and ignore the
+past values.
+●
+The idea behind the expanding window feature is that it takes all the past values
+into account.
+df_mean = df.expanding().mean()
+Rolling & Expanding Window
+21
+AI VIETNAM
+Time Series Data
+●
+Capture the local trends, fluctuations, and overall behavior.
+=> Allow the model to learn from the temporal dynamics.
+●
+Rolling window: useful when dealing with noisy data or non-stationarity.
+●
+Expanding window: provide insights into the cumulative effects or long-term
+trends.
+Series Decomposition
+22
+AI VIETNAM
+Time Series Data
+●
+Time series are a combination of (mainly) three 
+components: trend, seasonality, and 
+residuals/remainder
+●
+Decomposition provides a useful abstract model:
+○
+thinking about time series generally
+○
+better understanding problems during time 
+series analysis and forecasting
+from statsmodels.tsa.seasonal import seasonal_decompose
+# Plot the decomposition for multiplicative series
+decomposition_plot = seasonal_decompose(df)
+Series Decomposition
+23
+AI VIETNAM
+Time Series Data
+Zeng, Ailing, et al. "Are transformers effective for time series forecasting?." Proceedings of the AAAI conference on artificial intelligence. Vol. 37. No. 9. 2023.
+Domain-Specific Features
+24
+AI VIETNAM
+Time Series Data
+• Incorporating domain-specific features can significantly enhance the performance.
+• Domain-specific features are derived from expert knowledge in the relevant field and
+can provide valuable information that is not present in the raw time series data.
+For example in finance:
+• P/E, P/E, EPS
+• Earnings Before Interest and Taxes (EBIT): Lợi nhuận trước lãi vay và trước thuế
+EBIT = Lợi nhuận trước thuế + Chi phí lãi vay
+• Enteprise Value (EV): Giá trị doanh nghiệp
+EV = Market Cap + Tổng nợ - Tiền mặt và các khoản tương 
+đương tiền

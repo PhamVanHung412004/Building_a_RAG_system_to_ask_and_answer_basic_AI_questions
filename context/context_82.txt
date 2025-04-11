@@ -1,0 +1,281 @@
+NLP - Competition
+Vietnamese Medical QA
+Year 2023
+AI VIET NAM
+Nguyen Quoc Thai
+AI VIETNAM
+All-in-One Course
+1
+2
+CONTENT
+1
+Task Description
+2
+Retriever
+3
+Classifier - Generator
+4
+Improvement
+5
+Source Code
+1 – Task Description
+3
+I/O
+!
+Ø Task: Multiple Choices Question Answering
+Ø Domain: Medical
+Corpus: Ban tổchức cung cấp dữliệu vềcác loại bệnh
+phổbiến, mỗi bệnh có từ1 đến 2 bài viết, bao gồm các
+thông tin liên quan đến nguyên nhân, triệu chứng, cách
+phòng tránh bệnh…
+Lưu ý: Một lựa chọn được coi là ĐÚNG nếu xuất hiện
+thông tin tương ứng tại các bài viết trong corpus được
+cung cấp bởi ban tổchức. Những lựa chọn không có
+thông tin trong corpus (mặc dù vềmặt kiến thức có thể
+đúng) sẽKHÔNG được coi là đáp án chính xác.
+NOTE
+1 – Task Description
+4
+I/O
+!
+Ø Task: Multiple Choices Question Answering
+Ø Domain: Medical
+Ø Các đội được phép sửdụng các pre-trained model và dataset được công bốpublic. Việc sửdụng pre-trained
+model cần được thông báo với ban tổchức. Các pre-trained model và dataset private không được phép sửdụng
+Ø Thời gian inference mỗi test case không quá 10 giây
+Ø Môi trường inference không có internet
+Ø Cấu hình máy inference:
+•
+GPU: NVIDIA Tesla T4 16GB GDDR6 PCIe 3.0
+•
+CPU: Intel SkyLake 6151 3.0GHz
+•
+RAM: 32GB
+LIMITATION
+1 – Task Description
+5
+MultiMedQA Dataset
+!
+Source
+1 – Task Description
+6
+MultiMedQA Dataset
+!
+Source
+1 – Task Description
+7
+MultiMedQA Dataset
+!
+Source
+1 – Task Description
+8
+MultiMedQA Dataset
+!
+Source
+1 – Task Description
+9
+MultiMedQA Dataset
+!
+Source
+1 – Task Description
+10
+MultiMedQA Dataset
+!
+Source
+1 – Task Description
+11
+MultiMedQA Dataset
+!
+Source
+1 – Task Description
+12
+MultiMedQA Dataset
+!
+Source
+1 – Task Description
+13
+MultiMedQA Dataset
+!
+Source
+1 – Task Description
+14
+FrenchMedMCQA Dataset
+!
+Source
+1 – Task Description
+15
+MCQA Dataset
+!
+MedQA
+MedMCQA
+PubMedQA
+MMLU
+Single Answer
+Lang: EN
+FrenchMCQA
+Multiple Answers
+LANG: FR
+ViMedMCQA
+LANG: VI
+EN
+VI
+GoogleTranslator
+Lib: deep_translator
+1 – Task Description
+16
+Model
+!
+Stage 1: Retriever
+Stage 2: QA Module
+Classifier - Generator
+2 - Retriever
+17
+Document – Passage Retriever
+!
+Indexing
+Statement 
+Processing
+Search
+(Vector space or probabilistic
+Ranked
+Đâu là triệu chứng 
+của bệnh van tim?
+2 - Retriever
+18
+EDA
+!
+ØDocument Length
+Đâu là triệu chứng 
+của bệnh van tim?
+2 - Retriever
+19
+Document – Passage Retriver
+!
+ØDocument Length
+Đâu là triệu chứng 
+của bệnh van tim?
+Document Retriever: BM25
+Passage Retriver
+DPR: Bi-Encoder
+2 - Retriever
+20
+BM25
+!
+Ø rank_bm25
+Common words 
+less important
+Repetitions of query 
+words => good
+More words in common with 
+the query => good
+But more important if document 
+is relatively long (average)
+Repetitions less important 
+than different query words
+2 - Retriever
+21
+DPR: Bi-Encoder
+!
+ØBi-Encoder
+Source https://github.com/facebookresearch/DPR
+3 – Classifier - Generator
+22
+QA Module
+!
+QUESTION
+Đâu là triệu chứng 
+của bệnh van tim
+CHOICES
+A.
+Khó thở
+B.
+Tăng cân
+C.
+Vàng da
+D.
+Rụng tóc
+CONTEXT
+Các triệu chứng của bệnh van tim
+•Khó thở
+•Suy nhược hoặc chóng mặt
+•Khó chịu ởngực
+•Đánh trống ngực
+•Sưng mắt cá chân, bàn chân hoặc
+bụng (chứng phù nề).
+•Tăng cân nhanh chóng
+Model
+ANSWER
+1100
+A B
+3 – Classifier - Generator
+23
+Classifier
+!
+ØMulti-Class Text Classification
+Input: “Context”: context. “Question”. “Choices”: A – B – C – D - E 
+Label: {‘A’:0, ‘B’:1,…, ‘A B’: 3,… ‘A B C’: 5}
+3 – Classifier - Generator
+24
+Classifier
+!
+ØMulti-Label Text Classification
+Input: “Context”: context. “Question”. “Choices”: A – B – C – D - E 
+Label-One hot Encoding (A: [1, 0, 0, 0 0],… ’A B'
+3 – Classifier - Generator
+25
+Classifier
+!
+ØClassification Model
+Input: “Context”: context. “Question”. “Choices”: A – B – C – D - E 
+Label-One hot Encoding (A: [1, 0, 0, 0 0],… ’A B'
+3 – Classifier - Generator
+26
+Generator
+!
+Input: “Context”: context. “Question”. 
+“Choices”: A – B – C – D - E 
+Output: “A B”
+“A. Khó thở và B. Tăng cân”
+4 – Improvement
+27
+Difficulty of Question
+!
+Clause Detection
+NER
+4 – Improvement
+28
+MultiMedQA Dataset
+!
+MedQA
+MedMCQA
+PubMedQA
+MMLU
+Single Answer
+Lang: EN
+FrenchMCQA
+Multiple Answers
+LANG: FR
+ViMedMCQA
+LANG: VI
+EN
+Pharse 1:
+Fitune MultiMedQA 
+Dataset
+Pharse 2:
+Fitune FrenchMCQA 
+Dataset
+4 – Improvement
+29
+Prompting Techniques
+!
+4 – Improvement
+30
+Prompting Techniques
+!
+5 – Source Code
+31
+Code
+!
+Thanks!
+Any questions?
+32

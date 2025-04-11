@@ -1,0 +1,56 @@
+All-in-One Course 2023
+aivietnam.edu.vn
+Study Guide: Module 9 - Week 3
+Diffusion Models
+1. Thứ4 (Ngày 27/03/2024)
+Introduction to Diffusion Probabilistic Model
+• Phụtrách: Dr. Nguyễn Đình Vinh
+• Nội dung:
+- Thảo luận các hạn chếcủa các mô hình image generator truyền thống như GAN, VAE, và
+flow based models.
+- Giới thiệu vềmô hình Diffusion Probability Model.
+- Thảo luận cách thức hoạt động, cũng như hiện thực lại quy trình Forward Process trong
+Diffusion Model.
+- Thảo luận cách thức hoạt động, cũng như hiện thực lại quy trình Reverse Process trong
+Diffusion Model.
+• Tài liệu tham khảo:
+Deep Unsupervised Learning using Nonequilibrium Thermodynamics
+2. Thứ6 (Ngày 29/03/2024)
+Denoising Diffusion Probabilistic Models
+• Phụtrách: Dr. Nguyễn Đình Vinh
+• Nội dung:
+- Thảo luận sâu hơn vềmô hình Diffusion Probability Model với Denosing.
+- Thảo luận cách thức hoạt động, cũng như hiện thực lại quy trình Forward Process trong
+Denosing Diffusion Model.
+- Thảo luận cách thức hoạt động, cũng như hiện thực lại quy trình Reverse Process trong
+Denoise Diffusion Model.
+• Tài liệu tham khảo:
+Denoising Diffusion Probabilistic Models
+3. Chủnhật (Ngày 31/03/2024)
+Image Inpainting using Denoising Diffusion Probabilistic Model
+• Phụtrách: TA Nguyễn Quốc Thái
+• Nội dung:
+- Xây dựng mô hình khôi phục hình ảnh (Image Inpainting) từcác hình ảnh khuyết thiếu
+dựa vào mô hình Denoising Diffusion Probabilistic trên bộdữliệu CelebA.
+- Một sốkỹthuật cải tiến mô hình: mô hình UNet kết hợp cơ chếAttention.
+• Tài liệu tham khảo:
+- Bộdữliệu: CelebA
+- Palette: Image-to-Image Diffusion Models
+- Một sốkỹthuật cải tiến mô hình: Diffusion Models Beat GANs on Image Synthesis
+1
+All-in-One Course 2023
+aivietnam.edu.vn
+4. Thứ7 (Ngày 30/03/2024)
+(Extra class) MLOps: Deploy Deep Learning model with FastAPI
+• Phụtrách: TA Dương Đình Thắng
+• Nội dung:
+- Giới thiệu và thảo luận vềkhái niệm API.
+- Giới thiệu vềFastAPI và các thành phần cơ bản trong framework.
+- Hướng dẫn một sốthao tác, cách sửdụng cơ bản với FastAPI.
+- Hướng dẫn triển khai (deploy) một mô hình Deep Learning sửdụng FastAPI.
+- Giới thiệu và thảo luận vềmột pipeline MLOps cơ bản trong việc triển khai mô hình Deep
+Learning dưới dạng API.
+• Tài liệu tham khảo:
+(a) FastAPI basic usages
+(b) FastAPI Deployment
+2

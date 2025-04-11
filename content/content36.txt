@@ -1,5 +1,0 @@
-AI VIETNAM (AIO2024) aivietnam.edu.vn
-Hình 2: Tổng quan các bước thực hiện trong project.
-Luồng xử lý (pipeline) của chương trình Helmet Safety Detection mà chúng ta sẽ xây dựng có
-dạng như sau:
-Hình 3: Pipeline của chương trình.

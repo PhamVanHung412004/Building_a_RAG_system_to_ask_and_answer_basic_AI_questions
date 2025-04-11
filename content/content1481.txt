@@ -1,4 +1,0 @@
-Ở đây, mình sẽ chạy với câu hỏi
-sau (câu hỏi này thuộc bộ dữ liệu SQuADv2):
-1 $ python3 qa.py -- question ’In what year did Wesley Clark retire ?’
-11

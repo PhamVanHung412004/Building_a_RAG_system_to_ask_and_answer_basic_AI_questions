@@ -1,3 +1,0 @@
-AI VIETNAM (AIO2024) aivietnam.edu.vn
-Hình 16: Kết quả dự đoạn của mô hình YOLOv10 phiên bảnnano (yolov10n.pt).
-8. 

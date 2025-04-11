@@ -1,0 +1,2624 @@
+AI VIET NAM – AI COURSE 2023
+Diffusion-based Image Colorization
+Tien-Huy Nguyen, Khanh Duong and Nhu-Tai Do
+Ngày 7 tháng 4 năm 2024
+Phần I: Giới thiệu
+Hình 1: Ví dụminh họa cho bài toán Image Colorization.
+Sựbùng nổcủa mô hình Diffusion trong những năm gần đây đã tạo ra nhiều bước ngoặt trong vấn
+đềsinh dữliệu, đặc biệt là vấn đềtái tạo ảnh. Theo đó, ởquá trình forward, Diffusion thêm nhiễu vào
+ảnh một cách có hệthống, biến ảnh thành một nhiễu tuân theo phân phối Gauss. Sau đó, ởquá trình
+ngược lại, mô hình này học cách dựđoán nhiễu và tiến hành khửnhiễu dần dần từmột nhiễu chuẩn để
+tạo ra ảnh mới.
+Trong bài báo mang tên Palette: Image-to-Image Diffusion Models, mô hình Diffusion đã thực sự
+chứng minh được khảnăng tổng quát mạnh mẽcủa mình, khi cùng lúc giải quyết 4 vấn đềkhó trong
+lĩnh vực dịch ảnh chỉvới một mô hình duy nhất, bao gồm: Colorization, Inpainting, Uncropping, và
+JPEG restoration.
+Trong dựán này, chúng ta sẽcùng tìm hiểu ứng dụng của mô hình Diffusion trong bài toán tô màu
+ảnh, bằng cách sửdụng những ý tưởng cơ bản của công bốnêu trên.
+Image Colorization là quá trình dựđoán màu cho các ảnh đen trắng, giúp tái tạo lại hình ảnh
+thực tếtừdữliệu đơn sắc, mang lại trải nghiệm hình ảnh phong phú và sống động. Với đầu vào là một
+ảnh xám, biểu thịcường độsáng của ảnh, mô hình sẽhọc cách ước tính các kênh màu của ảnh, tạo ra
+một hình ảnh hợp lý và hài hòa vềmặt thịgiác.
+1
+AI VIETNAM
+aivietnam.edu.vn
+Hình 2: Không gian màu Lab.
+Trong dựán này, chúng ta sẽtiếp tục sửdụng không gian màu Lab cho xửlý dữliệu. Theo đó, mô
+hình của chúng ta sẽnhận đầu vào là kênh L như tấm ảnh gray-scale, đại diện cho độsáng, và sửdụng
+kênh ab như ground truth của mô hình.
+Đối với vấn đềtô màu cho ảnh, có một thuật ngữđược gọi là Multimodal Predictions. Thuật ngữ
+này đềcập đến việc một pixel có thểcó nhiều kết quảmàu hợp lý thay vì chỉmột dựđoán nhất định.
+Điều này dẫn đến việc, đểđánh giá một mô hình Image Colorization, ta không chỉsửdụng thước đo
+định lượng, mà cần phải xem xét đến cảm nhận thịgiác và những kết quảmang tính định tính khác.
+Một thước đo định tính đã và đang được sửdụng đểgiải quyết vấn đềnày được gọi là colorization
+Turing test (hay Fool rate). Theo đó, người tham gia sẽcần phải phân biệt những tấm ảnh gốc và
+những tấm ảnh giảđược tạo ra từmô hình AI. Tỷlệngười tham gia bịđánh lừa bởi mức độchân thật
+của ảnh giảcàng cao, chứng tỏmô hình thu được càng tốt.
+Chính vì vậy, cần thiết phải có một công cụgiúp người huấn luyện có thểquan sát một cách trực
+quan những kết quảhình ảnh được tạo ra trong quá trình huấn luyện một mô hình Image Colorization.
+Thật may mắn, Weights & Biases (wandb), một công cụcho phép theo dõi và hiển thịkết quảsố
+liệu, hình ảnh, đã và đang ngày càng phổbiến và dễsửdụng.
+Trong phần này, chúng ta sẽtập trung vào việc xây dựng một mô hình dựa trên Diffusion đểgiải
+quyết vấn đềImage Colorization, cùng với đó là áp dụng công cụwandb đểhỗtrợquá trình huấn luyện.
+Input và output của chương trình như sau:
+1. Input: Ảnh xám G (L channel).
+2. Output: Trường ảnh màu C (ab channels).
+2
+AI VIETNAM
+aivietnam.edu.vn
+Phần II: Nội dung
+Trong phần này, chúng ta sẽtriển khai mô hình Diffusion-based Image Colorization dựa trên ý tưởng
+cơ bản của bài báo Palette: Image-to-Image Diffusion Models đểhọc cách biến đổi một hình ảnh xám
+đầu vào thành một hình ảnh màu hợp lý. Cụthể, ta sẽxây dựng chương trình dựa trên bộdữliệu
+CelebA (Large-scale CelebFaces Attributes), một tập dữliệu lớn được sửdụng rộng rãi trong lĩnh vực
+nhận dạng khuôn mặt và phân loại hình ảnh, chứa hơn 200,000 hình ảnh của nhiều người nổi tiếng từ
+các bộphim, truyền hình và âm nhạc.
+Hình 3: Ảnh minh họa cho CelebA dataset
+Theo đó, nội dung thực nghiệm sẽtrình bày với các thành phần như sau:
+a) Data Preparation: Chuẩn bịdữliệu cho tập huấn luyện.
+b) Models: Xây dựng mô hình UNet và mô hình Diffusion cho Colorization.
+c) Loss, Metrics: Xây dựng hàm mất mát và độđo đánh giá cho mô hình.
+d) Trainer: Xây dựng class Trainer dành riêng cho huấn luyện
+e) Inference: Minh họa kết quảđạt được sau khi huấn luyện mô hình.
+1. Data Preparation
+Đầu tiên, chúng ta cần chuẩn bịbộdữliệu CelebA. Bạn có thểtải bộdữliệu và giải nén tại đây.
+Khai báo các thư viện:
+1 import
+glob
+2 import
+torch
+3 import cv2
+4 import
+numpy as np
+5 from
+torchvision
+import
+transforms
+6 from
+torch.utils.data
+import
+Dataset
+7 from
+torch.utils.data
+import
+DataLoader
+8
+9 # Load the paths of the images and split
+into
+train set and valid set
+10 img_paths = glob.glob(’./ img_align_celeba /*. jpg’)
+11 num_train , num_val = 200, 20 # demo with
+small
+data
+12 train_imgpaths = img_paths[ : num_train]
+13 val_imgpaths = img_paths[num_train : num_train + num_val]
+14
+15
+3
+AI VIETNAM
+aivietnam.edu.vn
+16 # Build
+ColorDataset
+17 class
+ColorDataset ():
+18
+def
+__init__(self , img_paths , data_len =2880 ,
+image_size =(128 , 128)):
+19
+if data_len > 0:
+20
+self.img_paths = img_paths [:int(data_len)]
+21
+else:
+22
+self.img_paths = img_paths
+23
+self.tfs = transforms.Resize (( image_size [0], image_size [1]))
+24
+25
+def
+__getitem__(self , index):
+26
+img_path = self.img_paths[index]
+27
+arr_img_bgr = cv2.imread(img_path)
+28
+29
+# Convert
+BGR to LAB
+30
+arr_img_lab = cv2.cvtColor(arr_img_bgr , cv2. COLOR_BGR2LAB )
+31
+32
+# Normalize
+from
+[0..255] to [ -1..1]
+33
+arr_img_lab = (( arr_img_lab * 2.0) / 255.0) - 1.0
+34
+35
+# Resize the image to image_size =(128 , 128)
+36
+tens_img_lab = torch.tensor(arr_img_lab.transpose (2, 0, 1),
+37
+dtype=torch.float32)
+38
+39
+# Divide the image
+into gray
+input and color
+output
+40
+original_img_l = tens_img_lab [:1, :, :]
+41
+tens_img_lab = self.tfs( tens_img_lab )
+42
+tens_img_l = tens_img_lab [:1, :, :]
+43
+tens_img_ab = tens_img_lab [1:, :, :]
+44
+return
+original_img_l , tens_img_l , tens_img_ab
+45
+46
+def
+__len__(self):
+47
+return len(self.img_paths)
+48
+49 # Create
+Dataset
+50 train_dataset = ColorDataset(train_imgpaths , num_train)
+51 val_dataset = ColorDataset(val_imgpaths , num_val)
+52
+53 # Create
+DataLoader
+54 BATCH_SIZE = 4
+55 train_loader = DataLoader(train_dataset , batch_size=BATCH_SIZE ,
+56
+shuffle=True , drop_last=True)
+57 val_loader = DataLoader(val_dataset , batch_size=BATCH_SIZE)
+2. Models
+Trong phần này, chúng ta sẽtận dụng một kiến trúc UNet phổbiến trong các bài toán liên quan
+đến Diffusion, sửdụng nhiều kỹthuật như Attention Mechanism, Adaptive Group Normalization
+và được giới thiệu trong một công bốmang tên Diffusion Models Beat GAN on Image Synthesis.
+4
+AI VIETNAM
+aivietnam.edu.vn
+Hình 4: Minh họa quá trình đảo ngược của mô hình Color Diffusion
+Ởquá trình đảo ngược, mô hình UNet nhận đầu vào bao gồm: timestep embedding t và một ảnh 3
+chiều (được hợp thành bởi đầu ra của mô hình UNet tại thời điểm t + 1 và thành phần điều kiện
+là kênh màu xám). Sau đó, mô hình học cách dựđoán và trảvềmột nhiễu Gauss cho timestep t
+-1. Kết quảnày sau đó được kết hợp với trường màu ab tại timestep t đểtính toán ra ab channels
+tại timestep t - 1. Quá trình này được lặp lại cho đến khi timestep t = 0. Lúc này ta nhận được
+trường màu ab đã được khửnhiễu. Kết hợp với kênh màu xám, ta thu được một ảnh màu hoàn
+thiện.
+UNet model:
+1 import
+math
+2 import
+numpy as np
+3 import
+torch
+4 import
+torch.nn as nn
+5
+6
+7 class
+GroupNorm32(nn.GroupNorm):
+8
+def
+forward(self , x):
+9
+return
+super ().forward(x.float ()).type(x.dtype)
+10
+11
+12 def
+zero_module(module):
+13
+"""
+14
+Zero out the
+parameters of a module and return it.
+15
+"""
+16
+for p in module.parameters ():
+17
+p.detach ().zero_ ()
+18
+return
+module
+19
+20
+21 def
+scale_module(module , scale):
+22
+"""
+23
+Scale the
+parameters of a module and return it.
+24
+"""
+25
+for p in module.parameters ():
+26
+p.detach ().mul_(scale)
+5
+AI VIETNAM
+aivietnam.edu.vn
+27
+return
+module
+28
+29
+30 def
+mean_flat(tensor):
+31
+"""
+32
+Take the mean over all non -batch
+dimensions.
+33
+"""
+34
+return
+tensor.mean(dim=list(range (1, len(tensor.shape))))
+35
+36
+37 def
+normalization(channels):
+38
+"""
+39
+Make a standard
+normalization
+layer.
+40
+41
+:param
+channels: number of input
+channels.
+42
+:return: an nn.Module for
+normalization .
+43
+"""
+44
+return
+GroupNorm32 (32, channels)
+45
+46
+47
+48 def
+checkpoint(func , inputs , params , flag):
+49
+"""
+50
+Evaluate a function
+without
+caching
+intermediate
+activations , allowing
+for
+51
+reduced
+memory at the
+expense of extra
+compute in the
+backward
+pass.
+52
+53
+:param
+func: the
+function to evaluate.
+54
+:param
+inputs: the
+argument
+sequence to pass to ‘func ‘.
+55
+:param
+params: a sequence of parameters ‘func ‘ depends on but does not
+56
+explicitly
+take as arguments.
+57
+:param
+flag: if False , disable
+gradient
+checkpointing .
+58
+"""
+59
+if flag:
+60
+args = tuple(inputs) + tuple(params)
+61
+return
+CheckpointFunction .apply(func , len(inputs), *args)
+62
+else:
+63
+return
+func (* inputs)
+64
+65
+66 class
+CheckpointFunction (torch.autograd.Function):
+67
+@staticmethod
+68
+def
+forward(ctx , run_function , length , *args):
+69
+ctx.run_function = run_function
+70
+ctx.input_tensors = list(args [: length ])
+71
+ctx.input_params = list(args[length :])
+72
+with
+torch.no_grad ():
+73
+output_tensors = ctx. run_function (*ctx. input_tensors )
+74
+return
+output_tensors
+75
+76
+@staticmethod
+77
+def
+backward(ctx , *output_grads):
+78
+ctx.input_tensors = [x.detach (). requires_grad_ (True) for x in ctx.
+input_tensors]
+79
+with
+torch.enable_grad ():
+80
+# Fixes a bug where the first op in run_function
+modifies
+the
+81
+# Tensor
+storage in place , which is not
+allowed
+for detach ()’d
+82
+# Tensors.
+83
+shallow_copies = [x.view_as(x) for x in ctx. input_tensors ]
+84
+output_tensors = ctx. run_function (* shallow_copies )
+85
+input_grads = torch.autograd.grad(
+6
+AI VIETNAM
+aivietnam.edu.vn
+86
+output_tensors ,
+87
+ctx.input_tensors + ctx.input_params ,
+88
+output_grads ,
+89
+allow_unused=True ,
+90
+)
+91
+del ctx.input_tensors
+92
+del ctx.input_params
+93
+del
+output_tensors
+94
+return (None , None) + input_grads
+95
+96
+97 def
+count_flops_attn (model , _x , y):
+98
+"""
+99
+A counter
+for the ‘thop ‘ package to count the
+operations in an
+100
+attention
+operation.
+101
+Meant to be used like:
+102
+macs , params = thop.profile(
+103
+model ,
+104
+inputs =(inputs , timestamps),
+105
+custom_ops ={ QKVAttention: QKVAttention.count_flops},
+106
+)
+107
+"""
+108
+b, c, *spatial = y[0]. shape
+109
+num_spatial = int(np.prod(spatial))
+110
+# We perform
+two
+matmuls
+with the same
+number of ops.
+111
+# The first
+computes
+the weight matrix , the second
+computes
+112
+# the
+combination of the value
+vectors.
+113
+matmul_ops = 2 * b * (num_spatial ** 2) * c
+114
+model.total_ops += torch.DoubleTensor ([ matmul_ops ])
+115
+116
+117 def
+gamma_embedding (gammas , dim , max_period =10000):
+118
+"""
+119
+Create
+sinusoidal
+timestep
+embeddings.
+120
+:param
+gammas: a 1-D Tensor of N indices , one per batch
+element.
+121
+These may be fractional.
+122
+:param dim: the
+dimension of the output.
+123
+:param
+max_period: controls
+the
+minimum
+frequency of the
+embeddings.
+124
+:return: an [N x dim] Tensor of positional
+embeddings.
+125
+"""
+126
+half = dim // 2
+127
+freqs = torch.exp(
+128
+-math.log(max_period) * torch.arange(start =0, end=half , dtype=torch.
+float32) / half
+129
+).to(device=gammas.device)
+130
+args = gammas [:, None ]. float () * freqs[None]
+131
+embedding = torch.cat([ torch.cos(args), torch.sin(args)], dim=-1)
+132
+if dim % 2:
+133
+embedding = torch.cat([ embedding , torch.zeros_like(embedding [:, :1])],
+dim=-1)
+134
+return
+embedding
+1 import
+math
+2 import
+torch
+3 import
+torch.nn as nn
+4 import
+torch.nn.functional as F
+5
+6 from abc import
+abstractmethod
+7
+8 class
+SiLU(nn.Module):
+9
+def
+forward(self , x):
+7
+AI VIETNAM
+aivietnam.edu.vn
+10
+return x * torch.sigmoid(x)
+11
+12 class
+EmbedBlock(nn.Module):
+13
+"""
+14
+Any module
+where
+forward () takes
+embeddings as a second
+argument.
+15
+"""
+16
+17
+@abstractmethod
+18
+def
+forward(self , x, emb):
+19
+"""
+20
+Apply the module to ‘x‘ given ‘emb ‘ embeddings.
+21
+"""
+22
+23 class
+EmbedSequential (nn.Sequential , EmbedBlock):
+24
+"""
+25
+A sequential
+module
+that
+passes
+embeddings to the
+children
+that
+26
+support it as an extra
+input.
+27
+"""
+28
+29
+def
+forward(self , x, emb):
+30
+for layer in self:
+31
+if isinstance(layer , EmbedBlock):
+32
+x = layer(x, emb)
+33
+else:
+34
+x = layer(x)
+35
+return x
+36
+37 class
+Upsample(nn.Module):
+38
+"""
+39
+An upsampling
+layer
+with an optional
+convolution.
+40
+:param
+channels: channels in the inputs and
+outputs.
+41
+:param
+use_conv: a bool
+determining if a convolution is applied.
+42
+43
+"""
+44
+45
+def
+__init__(self , channels , use_conv , out_channel=None):
+46
+super ().__init__ ()
+47
+self.channels = channels
+48
+self.out_channel = out_channel or channels
+49
+self.use_conv = use_conv
+50
+if use_conv:
+51
+self.conv = nn.Conv2d(self.channels , self.out_channel , 3, padding =1)
+52
+53
+def
+forward(self , x):
+54
+assert x.shape [1] == self.channels
+55
+x = F.interpolate(x, scale_factor =2, mode="nearest")
+56
+if self.use_conv:
+57
+x = self.conv(x)
+58
+return x
+59
+60 class
+Downsample(nn.Module):
+61
+"""
+62
+A downsampling
+layer
+with an optional
+convolution.
+63
+:param
+channels: channels in the inputs and
+outputs.
+64
+:param
+use_conv: a bool
+determining if a convolution is applied.
+65
+"""
+66
+67
+def
+__init__(self , channels , use_conv , out_channel=None):
+68
+super ().__init__ ()
+69
+self.channels = channels
+8
+AI VIETNAM
+aivietnam.edu.vn
+70
+self.out_channel = out_channel or channels
+71
+self.use_conv = use_conv
+72
+stride = 2
+73
+if use_conv:
+74
+self.op = nn.Conv2d(
+75
+self.channels , self.out_channel , 3, stride=stride , padding =1
+76
+)
+77
+else:
+78
+assert
+self.channels == self.out_channel
+79
+self.op = nn.AvgPool2d(kernel_size=stride , stride=stride)
+80
+81
+def
+forward(self , x):
+82
+assert x.shape [1] == self.channels
+83
+return
+self.op(x)
+84
+85
+86 class
+ResBlock(EmbedBlock):
+87
+"""
+88
+A residual
+block
+that can
+optionally
+change the number of channels.
+89
+:param
+channels: the number of input
+channels.
+90
+:param
+emb_channels: the number of embedding
+channels.
+91
+:param
+dropout: the rate of dropout.
+92
+:param
+out_channel: if specified , the number of out
+channels.
+93
+:param
+use_conv: if True and
+out_channel is specified , use a spatial
+94
+convolution
+instead of a smaller 1x1 convolution to change the
+95
+channels in the skip
+connection.
+96
+:param
+use_checkpoint : if True , use
+gradient
+checkpointing on this
+module.
+97
+:param up: if True , use this
+block for
+upsampling.
+98
+:param
+down: if True , use this
+block for
+downsampling .
+99
+"""
+100
+101
+def
+__init__(
+102
+self ,
+103
+channels ,
+104
+emb_channels ,
+105
+dropout ,
+106
+out_channel=None ,
+107
+use_conv=False ,
+108
+use_scale_shift_norm =False ,
+109
+use_checkpoint =False ,
+110
+up=False ,
+111
+down=False ,
+112
+):
+113
+super ().__init__ ()
+114
+self.channels = channels
+115
+self.emb_channels = emb_channels
+116
+self.dropout = dropout
+117
+self.out_channel = out_channel or channels
+118
+self.use_conv = use_conv
+119
+self. use_checkpoint = use_checkpoint
+120
+self. use_scale_shift_norm = use_scale_shift_norm
+121
+122
+self.in_layers = nn.Sequential(
+123
+normalization(channels),
+124
+SiLU (),
+125
+nn.Conv2d(channels , self.out_channel , 3, padding =1),
+126
+)
+127
+128
+self.updown = up or down
+129
+9
+AI VIETNAM
+aivietnam.edu.vn
+130
+if up:
+131
+self.h_upd = Upsample(channels , False)
+132
+self.x_upd = Upsample(channels , False)
+133
+elif down:
+134
+self.h_upd = Downsample(channels , False)
+135
+self.x_upd = Downsample(channels , False)
+136
+else:
+137
+self.h_upd = self.x_upd = nn.Identity ()
+138
+139
+self.emb_layers = nn.Sequential(
+140
+SiLU (),
+141
+nn.Linear(
+142
+emb_channels ,
+143
+2 * self.out_channel if
+use_scale_shift_norm
+else self.
+out_channel ,
+144
+),
+145
+)
+146
+self.out_layers = nn.Sequential(
+147
+normalization(self.out_channel),
+148
+SiLU (),
+149
+nn.Dropout(p=dropout),
+150
+zero_module(
+151
+nn.Conv2d(self.out_channel , self.out_channel , 3, padding =1)
+152
+),
+153
+)
+154
+155
+if self.out_channel == channels:
+156
+self. skip_connection = nn.Identity ()
+157
+elif
+use_conv:
+158
+self. skip_connection = nn.Conv2d(
+159
+channels , self.out_channel , 3, padding =1
+160
+)
+161
+else:
+162
+self. skip_connection = nn.Conv2d(channels , self.out_channel , 1)
+163
+164
+def
+forward(self , x, emb):
+165
+"""
+166
+Apply the block to a Tensor , conditioned on a embedding.
+167
+:param x: an [N x C x ...]
+Tensor of features.
+168
+:param emb: an [N x emb_channels] Tensor of embeddings.
+169
+:return: an [N x C x ...]
+Tensor of outputs.
+170
+"""
+171
+return
+checkpoint(
+172
+self._forward , (x, emb), self.parameters (), self. use_checkpoint
+173
+)
+174
+175
+def
+_forward(self , x, emb):
+176
+if self.updown:
+177
+in_rest , in_conv = self.in_layers [:-1], self.in_layers [-1]
+178
+h = in_rest(x)
+179
+h = self.h_upd(h)
+180
+x = self.x_upd(x)
+181
+h = in_conv(h)
+182
+else:
+183
+h = self.in_layers(x)
+184
+emb_out = self.emb_layers(emb).type(h.dtype)
+185
+while len(emb_out.shape) < len(h.shape):
+186
+emb_out = emb_out [... , None]
+187
+if self. use_scale_shift_norm :
+188
+out_norm , out_rest = self.out_layers [0], self.out_layers [1:]
+10
+AI VIETNAM
+aivietnam.edu.vn
+189
+scale , shift = torch.chunk(emb_out , 2, dim =1)
+190
+h = out_norm(h) * (1 + scale) + shift
+191
+h = out_rest(h)
+192
+else:
+193
+h = h + emb_out
+194
+h = self.out_layers(h)
+195
+return
+self. skip_connection (x) + h
+196
+197 class
+AttentionBlock(nn.Module):
+198
+"""
+199
+An attention
+block
+that
+allows
+spatial
+positions to attend to each
+other.
+200
+Originally
+ported
+from here , but
+adapted to the N-d case.
+201
+https :// github.com/hojonathanho /diffusion/blob /1
+e0dceb3b3495bbe19116a5e1b3596cd0706c543 / diffusion_tf /models/unet.py#L66.
+202
+"""
+203
+204
+def
+__init__(
+205
+self ,
+206
+channels ,
+207
+num_heads =1,
+208
+num_head_channels =-1,
+209
+use_checkpoint =False ,
+210
+use_new_attention_order =False ,
+211
+):
+212
+super ().__init__ ()
+213
+self.channels = channels
+214
+if num_head_channels ==
+-1:
+215
+self.num_heads = num_heads
+216
+else:
+217
+assert (
+218
+channels % num_head_channels == 0
+219
+), f"q,k,v channels {channels} is not
+divisible by num_head_channels
+{ num_head_channels }"
+220
+self.num_heads = channels // num_head_channels
+221
+self. use_checkpoint = use_checkpoint
+222
+self.norm = normalization (channels)
+223
+self.qkv = nn.Conv1d(channels , channels * 3, 1)
+224
+if
+use_new_attention_order :
+225
+# split qkv before
+split
+heads
+226
+self.attention = QKVAttention (self.num_heads)
+227
+else:
+228
+# split
+heads
+before
+split qkv
+229
+self.attention = QKVAttentionLegacy (self.num_heads)
+230
+231
+self.proj_out = zero_module(nn.Conv1d(channels , channels , 1))
+232
+233
+def
+forward(self , x):
+234
+return
+checkpoint(self._forward , (x,), self.parameters (), True)
+235
+236
+def
+_forward(self , x):
+237
+b, c, *spatial = x.shape
+238
+x = x.reshape(b, c,
+-1)
+239
+qkv = self.qkv(self.norm(x))
+240
+h = self.attention(qkv)
+241
+h = self.proj_out(h)
+242
+return (x + h).reshape(b, c, *spatial)
+243
+244
+245 class
+QKVAttentionLegacy (nn.Module):
+246
+"""
+11
+AI VIETNAM
+aivietnam.edu.vn
+247
+A module
+which
+performs
+QKV
+attention. Matches
+legacy
+QKVAttention + input/
+ouput
+heads
+shaping
+248
+"""
+249
+250
+def
+__init__(self , n_heads):
+251
+super ().__init__ ()
+252
+self.n_heads = n_heads
+253
+254
+def
+forward(self , qkv):
+255
+"""
+256
+Apply QKV
+attention.
+257
+:param qkv: an [N x (H * 3 * C) x T] tensor of Qs , Ks , and Vs.
+258
+:return: an [N x (H * C) x T] tensor
+after
+attention.
+259
+"""
+260
+bs , width , length = qkv.shape
+261
+assert
+width % (3 * self.n_heads) == 0
+262
+ch = width // (3 * self.n_heads)
+263
+q, k, v = qkv.reshape(bs * self.n_heads , ch * 3, length).split(ch , dim =1)
+264
+scale = 1 / math.sqrt(math.sqrt(ch))
+265
+weight = torch.einsum(
+266
+"bct ,bcs ->bts", q * scale , k * scale
+267
+)
+# More
+stable
+with f16 than
+dividing
+afterwards
+268
+weight = torch.softmax(weight.float (), dim=-1).type(weight.dtype)
+269
+a = torch.einsum("bts ,bcs ->bct", weight , v)
+270
+return a.reshape(bs , -1, length)
+271
+272
+@staticmethod
+273
+def
+count_flops(model , _x , y):
+274
+return
+count_flops_attn (model , _x , y)
+275
+276
+277 class
+QKVAttention(nn.Module):
+278
+"""
+279
+A module
+which
+performs
+QKV
+attention
+and splits in a different
+order.
+280
+"""
+281
+282
+def
+__init__(self , n_heads):
+283
+super ().__init__ ()
+284
+self.n_heads = n_heads
+285
+286
+def
+forward(self , qkv):
+287
+"""
+288
+Apply QKV
+attention.
+289
+:param qkv: an [N x (3 * H * C) x T] tensor of Qs , Ks , and Vs.
+290
+:return: an [N x (H * C) x T] tensor
+after
+attention.
+291
+"""
+292
+bs , width , length = qkv.shape
+293
+assert
+width % (3 * self.n_heads) == 0
+294
+ch = width // (3 * self.n_heads)
+295
+q, k, v = qkv.chunk (3, dim =1)
+296
+scale = 1 / math.sqrt(math.sqrt(ch))
+297
+weight = torch.einsum(
+298
+"bct ,bcs ->bts",
+299
+(q * scale).view(bs * self.n_heads , ch , length),
+300
+(k * scale).view(bs * self.n_heads , ch , length),
+301
+)
+# More
+stable
+with f16 than
+dividing
+afterwards
+302
+weight = torch.softmax(weight.float (), dim=-1).type(weight.dtype)
+303
+a = torch.einsum("bts ,bcs ->bct", weight , v.reshape(bs * self.n_heads , ch ,
+length))
+304
+return a.reshape(bs , -1, length)
+12
+AI VIETNAM
+aivietnam.edu.vn
+305
+306
+@staticmethod
+307
+def
+count_flops(model , _x , y):
+308
+return
+count_flops_attn (model , _x , y)
+309
+310 class
+UNet(nn.Module):
+311
+"""
+312
+The full UNet
+model
+with
+attention
+and
+embedding.
+313
+:param
+in_channel: channels in the input Tensor , for image
+colorization :
+Y_channels + X_channels .
+314
+:param
+inner_channel: base
+channel
+count for the model.
+315
+:param
+out_channel: channels in the output
+Tensor.
+316
+:param
+res_blocks: number of residual
+blocks per
+downsample.
+317
+:param
+attn_res: a collection of downsample
+rates at which
+318
+attention
+will take
+place. May be a set , list , or tuple.
+319
+For example , if this
+contains 4, then at 4x downsampling , attention
+320
+will be used.
+321
+:param
+dropout: the
+dropout
+probability.
+322
+:param
+channel_mults: channel
+multiplier
+for each
+level of the UNet.
+323
+:param
+conv_resample: if True , use
+learned
+convolutions
+for
+upsampling
+and
+324
+downsampling.
+325
+:param
+use_checkpoint : use
+gradient
+checkpointing to reduce
+memory
+usage.
+326
+:param
+num_heads: the number of attention
+heads in each
+attention
+layer.
+327
+:param
+num_heads_channels : if specified , ignore
+num_heads
+and
+instead
+use
+328
+a fixed
+channel
+width per
+attention
+head.
+329
+:param
+num_heads_upsample : works
+with
+num_heads to set a different
+number
+330
+of heads for
+upsampling. Deprecated.
+331
+:param
+use_scale_shift_norm : use a FiLM -like
+conditioning
+mechanism.
+332
+:param
+resblock_updown : use
+residual
+blocks for up/downsampling.
+333
+:param
+use_new_attention_order : use a different
+attention
+pattern
+for
+potentially
+334
+increased
+efficiency.
+335
+"""
+336
+337
+def
+__init__(
+338
+self ,
+339
+image_size ,
+340
+in_channel ,
+341
+inner_channel ,
+342
+out_channel ,
+343
+res_blocks ,
+344
+attn_res ,
+345
+dropout =0,
+346
+channel_mults =(1, 2, 4, 8),
+347
+conv_resample=True ,
+348
+use_checkpoint =False ,
+349
+use_fp16=False ,
+350
+num_heads =1,
+351
+num_head_channels =-1,
+352
+num_heads_upsample =-1,
+353
+use_scale_shift_norm =True ,
+354
+resblock_updown =True ,
+355
+use_new_attention_order =False ,
+356
+):
+357
+358
+super ().__init__ ()
+359
+360
+if num_heads_upsample
+==
+-1:
+361
+num_heads_upsample = num_heads
+362
+13
+AI VIETNAM
+aivietnam.edu.vn
+363
+self.image_size = image_size
+364
+self.in_channel = in_channel
+365
+self.inner_channel = inner_channel
+366
+self.out_channel = out_channel
+367
+self.res_blocks = res_blocks
+368
+self.attn_res = attn_res
+369
+self.dropout = dropout
+370
+self.channel_mults = channel_mults
+371
+self.conv_resample = conv_resample
+372
+self. use_checkpoint = use_checkpoint
+373
+self.dtype = torch.float16 if use_fp16
+else
+torch.float32
+374
+self.num_heads = num_heads
+375
+self. num_head_channels = num_head_channels
+376
+self. num_heads_upsample = num_heads_upsample
+377
+378
+cond_embed_dim = inner_channel * 4
+379
+self.cond_embed = nn.Sequential(
+380
+nn.Linear(inner_channel , cond_embed_dim ),
+381
+SiLU (),
+382
+nn.Linear(cond_embed_dim , cond_embed_dim ),
+383
+)
+384
+385
+ch = input_ch = int( channel_mults [0] * inner_channel )
+386
+self.input_blocks = nn.ModuleList(
+387
+[ EmbedSequential (nn.Conv2d(in_channel , ch , 3, padding =1))]
+388
+)
+389
+self._feature_size = ch
+390
+input_block_chans = [ch]
+391
+ds = 1
+392
+for level , mult in enumerate( channel_mults ):
+393
+for _ in range(res_blocks):
+394
+layers = [
+395
+ResBlock(
+396
+ch ,
+397
+cond_embed_dim ,
+398
+dropout ,
+399
+out_channel=int(mult * inner_channel ),
+400
+use_checkpoint =use_checkpoint ,
+401
+use_scale_shift_norm =use_scale_shift_norm ,
+402
+)
+403
+]
+404
+ch = int(mult * inner_channel )
+405
+if ds in attn_res:
+406
+layers.append(
+407
+AttentionBlock (
+408
+ch ,
+409
+use_checkpoint =use_checkpoint ,
+410
+num_heads=num_heads ,
+411
+num_head_channels =num_head_channels ,
+412
+use_new_attention_order =use_new_attention_order ,
+413
+)
+414
+)
+415
+self.input_blocks .append( EmbedSequential (* layers))
+416
+self._feature_size += ch
+417
+input_block_chans .append(ch)
+418
+if level != len( channel_mults ) - 1:
+419
+out_ch = ch
+420
+self.input_blocks .append(
+421
+EmbedSequential (
+422
+ResBlock(
+14
+AI VIETNAM
+aivietnam.edu.vn
+423
+ch ,
+424
+cond_embed_dim ,
+425
+dropout ,
+426
+out_channel=out_ch ,
+427
+use_checkpoint =use_checkpoint ,
+428
+use_scale_shift_norm =use_scale_shift_norm ,
+429
+down=True ,
+430
+)
+431
+if resblock_updown
+432
+else
+Downsample(
+433
+ch , conv_resample , out_channel=out_ch
+434
+)
+435
+)
+436
+)
+437
+ch = out_ch
+438
+input_block_chans .append(ch)
+439
+ds *= 2
+440
+self._feature_size += ch
+441
+442
+self.middle_block = EmbedSequential (
+443
+ResBlock(
+444
+ch ,
+445
+cond_embed_dim ,
+446
+dropout ,
+447
+use_checkpoint =use_checkpoint ,
+448
+use_scale_shift_norm =use_scale_shift_norm ,
+449
+),
+450
+AttentionBlock (
+451
+ch ,
+452
+use_checkpoint =use_checkpoint ,
+453
+num_heads=num_heads ,
+454
+num_head_channels =num_head_channels ,
+455
+use_new_attention_order =use_new_attention_order ,
+456
+),
+457
+ResBlock(
+458
+ch ,
+459
+cond_embed_dim ,
+460
+dropout ,
+461
+use_checkpoint =use_checkpoint ,
+462
+use_scale_shift_norm =use_scale_shift_norm ,
+463
+),
+464
+)
+465
+self._feature_size += ch
+466
+467
+self.output_blocks = nn.ModuleList ([])
+468
+for level , mult in list(enumerate( channel_mults ))[:: -1]:
+469
+for i in range(res_blocks + 1):
+470
+ich = input_block_chans .pop()
+471
+layers = [
+472
+ResBlock(
+473
+ch + ich ,
+474
+cond_embed_dim ,
+475
+dropout ,
+476
+out_channel=int( inner_channel * mult),
+477
+use_checkpoint =use_checkpoint ,
+478
+use_scale_shift_norm =use_scale_shift_norm ,
+479
+)
+480
+]
+481
+ch = int(inner_channel * mult)
+482
+if ds in attn_res:
+15
+AI VIETNAM
+aivietnam.edu.vn
+483
+layers.append(
+484
+AttentionBlock (
+485
+ch ,
+486
+use_checkpoint =use_checkpoint ,
+487
+num_heads=num_heads_upsample ,
+488
+num_head_channels =num_head_channels ,
+489
+use_new_attention_order =use_new_attention_order ,
+490
+)
+491
+)
+492
+if level and i == res_blocks:
+493
+out_ch = ch
+494
+layers.append(
+495
+ResBlock(
+496
+ch ,
+497
+cond_embed_dim ,
+498
+dropout ,
+499
+out_channel=out_ch ,
+500
+use_checkpoint =use_checkpoint ,
+501
+use_scale_shift_norm =use_scale_shift_norm ,
+502
+up=True ,
+503
+)
+504
+if resblock_updown
+505
+else
+Upsample(ch , conv_resample , out_channel=out_ch)
+506
+)
+507
+ds //= 2
+508
+self.output_blocks .append( EmbedSequential (* layers))
+509
+self._feature_size += ch
+510
+511
+self.out = nn.Sequential(
+512
+normalization(ch),
+513
+SiLU (),
+514
+zero_module(nn.Conv2d(input_ch , out_channel , 3, padding =1)),
+515
+)
+516
+517
+def
+forward(self , x, gammas):
+518
+"""
+519
+Apply the model to an input
+batch.
+520
+:param x: an [N x 2 x ...]
+Tensor of inputs (B&W)
+521
+:param
+gammas: a 1-D batch of gammas.
+522
+:return: an [N x C x ...]
+Tensor of outputs.
+523
+"""
+524
+hs = []
+525
+gammas = gammas.view(-1, )
+526
+emb = self.cond_embed( gamma_embedding (gammas , self. inner_channel ))
+527
+528
+h = x.type(torch.float32)
+529
+for module in self.input_blocks:
+530
+h = module(h, emb)
+531
+hs.append(h)
+532
+h = self.middle_block (h, emb)
+533
+for module in self.output_blocks :
+534
+h = torch.cat([h, hs.pop()], dim =1)
+535
+h = module(h, emb)
+536
+h = h.type(x.dtype)
+537
+return
+self.out(h)
+Color Diffusion Model
+1 def
+make_beta_schedule (schedule , n_timestep , linear_start =1e-5, linear_end =1e-2):
+2
+if schedule == ’linear ’:
+3
+betas = np.linspace(
+16
+AI VIETNAM
+aivietnam.edu.vn
+4
+linear_start , linear_end , n_timestep , dtype=np.float64
+5
+)
+6
+else:
+7
+raise
+NotImplementedError (schedule)
+8
+return
+betas
+9
+10 def
+get_index_from_list (vals , t, x_shape =(1 ,1 ,1 ,1)):
+11
+"""
+12
+Returns a specific
+index t of a passed
+list of values
+vals
+13
+while
+considering
+the batch
+dimension.
+14
+"""
+15
+batch_size , *_ = t.shape
+16
+out = vals.gather(-1, t)
+17
+return out.reshape(batch_size , *((1 ,) * (len(x_shape) - 1))).to(device)
+1 from tqdm
+import
+tqdm
+2 from
+functools
+import
+partial
+3
+4 class
+ColorDiffusion(nn.Module):
+5
+def
+__init__(self , unet_config , beta_schedule , ** kwargs):
+6
+super(ColorDiffusion , self).__init__ (** kwargs)
+7
+self.denoise_fn = UNet (** unet_config)
+8
+self.beta_schedule = beta_schedule
+9
+10
+def
+set_new_noise_schedule (self , device):
+11
+to_torch = partial(torch.tensor , dtype=torch.float32 , device=device)
+12
+betas = make_beta_schedule (** self. beta_schedule )
+13
+alphas = 1. - betas
+14
+timesteps , = betas.shape
+15
+self.num_timesteps = int(timesteps)
+16
+17
+gammas = np.cumprod(alphas , axis =0) # alphas_cumprod
+18
+gammas_prev = np.append (1., gammas [: -1])
+19
+20
+# calculations
+for
+diffusion q(x_t | x_{t -1}) and others
+21
+self. register_buffer (’gammas ’, to_torch(gammas))
+22
+self. register_buffer (’sqrt_recip_gammas ’, to_torch(np.sqrt (1. / gammas)))
+23
+self. register_buffer (’sqrt_recipm1_gammas ’, to_torch(np.sqrt (1. / gammas
+- 1)))
+24
+25
+# calculations
+for
+posterior q(x_{t-1} | x_t , x_0)
+26
+posterior_variance = betas * (1. - gammas_prev) / (1. - gammas)
+27
+# below: log
+calculation
+clipped
+because
+the
+posterior
+variance is 0 at
+the
+beginning of the
+diffusion
+chain
+28
+self. register_buffer (’posterior_log_variance_clipped ’, to_torch(np.log(np
+.maximum(posterior_variance , 1e -20))))
+29
+self. register_buffer (’posterior_mean_coef1 ’, to_torch(betas * np.sqrt(
+gammas_prev) / (1. - gammas)))
+30
+self. register_buffer (’posterior_mean_coef2 ’, to_torch ((1. - gammas_prev)
+* np.sqrt(alphas) / (1. - gammas)))
+31
+32
+def
+set_loss(self , loss_fn):
+33
+self.loss_fn = loss_fn
+34
+35
+def
+predict_start_from_noise (self , y_t , t, noise):
+36
+return (
+37
+get_index_from_list (self.sqrt_recip_gammas , t, y_t.shape) * y_t -
+38
+get_index_from_list (self.sqrt_recipm1_gammas , t, y_t.shape) * noise
+39
+)
+40
+41
+def
+q_posterior(self , y_0_hat , y_t , t):
+17
+AI VIETNAM
+aivietnam.edu.vn
+42
+"""
+43
+Compute
+the mean and
+variance of the
+diffusion
+posterior:
+44
+45
+q(x_{t-1} | x_t , x_0)
+46
+47
+"""
+48
+posterior_mean = (
+49
+get_index_from_list (self.posterior_mean_coef1 , t, y_t.shape) *
+y_0_hat +
+50
+get_index_from_list (self.posterior_mean_coef2 , t, y_t.shape) * y_t
+51
+)
+52
+posterior_log_variance_clipped = get_index_from_list (
+53
+self. posterior_log_variance_clipped , t, y_t.shape
+54
+)
+55
+return
+posterior_mean , posterior_log_variance_clipped
+56
+57
+def
+p_mean_variance (self , y_t , t, clip_denoised : bool , y_cond=None):
+58
+noise_level = get_index_from_list (self.gammas , t, x_shape =(1, 1)).to(y_t.
+device)
+59
+y_0_hat = self. predict_start_from_noise (
+60
+y_t , t=t, noise=self.denoise_fn(torch.cat([y_cond , y_t], dim =1),
+noise_level))
+61
+62
+if clip_denoised:
+63
+y_0_hat.clamp_ (-1., 1.)
+64
+65
+model_mean , posterior_log_variance = self.q_posterior(
+66
+y_0_hat=y_0_hat , y_t=y_t , t=t)
+67
+return
+model_mean , posterior_log_variance
+68
+69
+def
+q_sample(self , y_0 , sample_gammas , noise=None):
+70
+noise = noise if noise is not None else
+torch.randn_like(y_0)
+71
+return (
+72
+sample_gammas.sqrt () * y_0 +
+73
+(1 - sample_gammas).sqrt () * noise
+74
+)
+75
+76
+@torch.no_grad ()
+77
+def
+p_sample(self , y_t , t, clip_denoised =True , y_cond=None):
+78
+model_mean , model_log_variance = self. p_mean_variance (
+79
+y_t=y_t , t=t, clip_denoised =clip_denoised , y_cond=y_cond)
+80
+noise = torch.randn_like(y_t) if any(t>0) else
+torch.zeros_like(y_t)
+81
+return
+model_mean + noise * (0.5 * model_log_variance ).exp()
+82
+83
+@torch.no_grad ()
+84
+def
+restoration(self , y_cond , y_t=None , y_0=None , sample_num =8):
+85
+b, _, h, w = y_cond.shape
+86
+87
+sample_inter = (self. num_timesteps // sample_num)
+88
+89
+y_t = y_t if y_t is not None else
+torch.randn ((b, 2, h, w))
+90
+y_t = y_t.to(y_cond.device)
+91
+ret_arr = y_t
+92
+for i in reversed(range (0, self. num_timesteps )):
+93
+t = torch.full ((b,), i, device=y_cond.device , dtype=torch.long)
+94
+y_t = self.p_sample(y_t , t, y_cond=y_cond)
+95
+ret_arr = torch.cat([ ret_arr , y_t], dim =0)
+96
+return y_t , ret_arr
+97
+98
+def
+forward(self , y_0 , y_cond=None , noise=None):
+18
+AI VIETNAM
+aivietnam.edu.vn
+99
+# sampling
+from p(gammas)
+100
+b, *_ = y_0.shape
+101
+t = torch.randint (1, self.num_timesteps , (b,), device=y_0.device).long ()
+102
+gamma_t1 = get_index_from_list (self.gammas , t-1, x_shape =(1, 1))
+103
+sqrt_gamma_t2 = get_index_from_list (self.gammas , t, x_shape =(1, 1))
+104
+sample_gammas = (sqrt_gamma_t2 -gamma_t1) * torch.rand ((b, 1), device=y_0.
+device) + gamma_t1
+105
+sample_gammas = sample_gammas .view(b,
+-1)
+106
+107
+noise = noise if noise is not None else
+torch.randn_like(y_0)
+108
+y_noisy = self.q_sample(
+109
+y_0=y_0 , sample_gammas =sample_gammas .view(-1, 1, 1, 1), noise=noise)
+110
+111
+noise_hat = self.denoise_fn(torch.cat([y_cond , y_noisy], dim =1),
+sample_gammas)
+112
+loss = self.loss_fn(noise , noise_hat)
+113
+return
+loss
+1 unet_config = {
+2
+"in_channel": 3,
+3
+"out_channel": 2,
+4
+"inner_channel": 64,
+5
+"channel_mults": [1, 2, 4, 8],
+6
+"attn_res": [16],
+7
+" num_head_channels ": 32,
+8
+"res_blocks": 2,
+9
+"dropout": 0.2,
+10
+"image_size": 128
+11 }
+12
+13 beta_schedule = {
+14
+"schedule": "linear",
+15
+"n_timestep": 20,
+16
+"linear_start": 1e-4,
+17
+"linear_end": 0.09
+18 }
+19
+20 colordiff_model = ColorDiffusion (unet_config , beta_schedule )
+3. Loss and Metrics
+Trong phần này, chúng ta thiết lập hàm mất mát cho mô hình Color Diffusion. Trong đó, L2
+norm, còn được biết đến là Mean Square Error, được dùng làm hàm mất mát do sựđa dạng đáng
+kểvềmặt kết quảso với Mean Absolute Error (L1 norm), được kiểm chứng qua quá trình thực
+nghiệm bởi Saharia, C. và các cộng sự. Ngoài ra, MAE cũng đóng vai trò như một độđo đểđánh
+giá mô hình trong dựán này.
+1 import
+torch.nn.functional as F
+2
+3 def
+mse_loss(output , target):
+4
+return F.mse_loss(output , target)
+5
+6
+7 def mae(input , target):
+8
+with
+torch.no_grad ():
+9
+loss = nn.L1Loss ()
+10
+output = loss(input , target)
+11
+return
+output
+19
+AI VIETNAM
+aivietnam.edu.vn
+4. Trainer
+Ởgiai đoạn huấn luyện, chúng ta sẽxây dựng class Trainer dành cho việc huấn luyện mô hình Dif-
+fusion. Ngoài ra, chúng ta cũng sẽsửdụng một công cụtheo dõi được sửdụng phổbiến trong việc
+huấn luyện các mô hình học máy, được gọi là wandb. Theo đó, các kết quảbao gồm cảthông số
+mất mát của mô hình và hình ảnh mà mô hình dựđoán cũng có thểđược trực quan hóa, giúp người
+dùng dễdàng kiểm soát quy trình huấn luyện, từđó đưa ra những chiến lược thích hợp và kịp thời.
+Đểcó thểsửdụng wandb, bạn có thểđăng ký và nhận API cá nhân thông qua wandb.ai.
+Hình 5: Ảnh minh họa cho việc sửdụng wandb.
+Khởi tạo class Trainer
+1 import
+time
+2
+3 class
+Trainer ():
+4
+def
+__init__(self , model , optimizers , train_loader ,
+5
+val_loader , epochs , sample_num ,
+6
+device , save_model , use_wandb=False):
+7
+8
+self.model = model.to(device)
+9
+self.optimizer = torch.optim.Adam(list(filter(
+10
+lambda p: p.requires_grad , self.model.parameters ()
+11
+)), ** optimizers)
+12
+self.model.set_loss(mse_loss)
+13
+self.model. set_new_noise_schedule (device)
+14
+self.sample_num = sample_num
+15
+self.train_loader = train_loader
+16
+self.val_loader = val_loader
+17
+self.device = device
+18
+self.epochs = epochs
+19
+self.save_model = save_model
+20
+self.use_wandb = use_wandb
+21
+22
+def
+train_step(self):
+23
+self.model.train ()
+24
+losses = []
+20
+AI VIETNAM
+aivietnam.edu.vn
+25
+for
+original_gray , gray , color in tqdm(self.train_loader):
+26
+cond_gray = gray.to(self.device)
+27
+gt_color = color.to(self.device)
+28
+29
+self.optimizer.zero_grad ()
+30
+31
+loss = self.model(gt_color , cond_gray)
+32
+loss.backward ()
+33
+losses.append(loss.item ())
+34
+self.optimizer.step ()
+35
+return sum(losses)/len(losses)
+36
+37
+def
+val_step(self , epoch):
+38
+self.model.eval ()
+39
+losses , metrics = [], []
+40
+pred_images = []
+41
+gt_images = []
+42
+43
+with
+torch.no_grad ():
+44
+for i, (original_gray , gray , color) in tqdm(enumerate(self.val_loader
+)):
+45
+cond_gray = gray.to(self.device)
+46
+gt_color = color.to(self.device)
+47
+loss = self.model(gt_color , cond_gray)
+48
+49
+output , visuals = self.model.restoration(
+50
+cond_gray , sample_num=self.sample_num)
+51
+if i == 0:
+52
+for i in range(output.shape [0]):
+53
+# Show
+predicted
+image
+54
+pred_bgr_image = self. show_wandb_image ( original_gray [i],
+output[i]. detach ().cpu())
+55
+pred_wandb_image = wandb.Image(pred_bgr_image , caption=f"
+epoch {epoch}")
+56
+pred_images.append( pred_wandb_image )
+57
+58
+# Show
+grouth
+truth
+image
+59
+gt_bgr_image = self. show_wandb_image ( original_gray [i],
+color[i])
+60
+gt_wandb_image = wandb.Image(gt_bgr_image , caption=f"
+epoch {epoch}")
+61
+gt_images.append( gt_wandb_image )
+62
+63
+mae_score = mae(gt_color , output)
+64
+losses.append(loss.item ())
+65
+metrics.append(mae_score.item ())
+66
+return sum(losses)/len(losses), sum(metrics)/len(metrics), pred_images ,
+gt_images
+67
+68
+# Postprocess
+the image
+before
+logging to WanDB
+69
+def
+show_wandb_image (self , img_l , img_ab , is_save=False):
+70
+img_l = img_l.permute (1, 2, 0).numpy ()
+71
+img_ab = img_ab.permute (1, 2, 0).numpy ()
+72
+img_ab = cv2.resize(img_ab , (img_l.shape [1], img_l.shape [0]) ,
+interpolation=cv2.INTER_LINEAR )
+73
+arr_lab = np.concatenate ([img_l , img_ab], axis =2)
+74
+arr_lab = (arr_lab + 1.0) * 255 / 2
+75
+arr_lab = np.clip(arr_lab , 0, 255).astype(np.uint8)
+76
+arr_bgr = cv2.cvtColor(arr_lab , cv2. COLOR_LAB2RGB )
+77
+return
+arr_bgr
+21
+AI VIETNAM
+aivietnam.edu.vn
+78
+79
+80
+def train(self):
+81
+best_mae = 100000
+82
+for epoch in range(self.epochs):
+83
+epoch_start_time = time.time ()
+84
+train_loss = self.train_step ()
+85
+val_loss , val_mae , pred_images , gt_images = self.val_step(epoch)
+86
+87
+# Log the
+results to WanDB
+88
+if self.use_wandb:
+89
+wandb.log({
+90
+"train_loss": train_loss ,
+91
+"val_loss": val_loss ,
+92
+"val_mae": val_mae ,
+93
+"pred_images": pred_images ,
+94
+"gt_images": gt_images
+95
+})
+96
+97
+if val_mae < best_mae:
+98
+torch.save(self.model.state_dict (), self.save_model)
+99
+# Print loss , acc end epoch
+100
+print("-" * 59)
+101
+print(
+102
+"| End of epoch {:3d} | Time: {:5.2f}s | Train
+Loss
+{:8.3f} "
+103
+"| Valid
+Loss
+{:8.3f} | Valid MAE {:8.3f} ".format(
+104
+epoch+1, time.time () - epoch_start_time ,
+105
+train_loss , val_loss , val_mae
+106
+)
+107
+)
+108
+print("-" * 59)
+109
+self.model. load_state_dict (torch.load(self.save_model))
+Tải thư viện wandb.
+1 !pip install
+wandb
+2 import
+wandb
+Khởi tạo các tham sốvà Trainer object.
+1 epochs = 3
+2 sample_num = 8
+3 save_model = ’./ save_model/best_model.pth’
+4 optimizers = { "lr": 5e-5, " weight_decay ": 0}
+5 device = "cuda" if torch.cuda.is_available () else "cpu"
+6 use_wandb = True
+7
+8 trainer = Trainer(
+9
+colordiff_model , optimizers ,
+10
+train_loader , val_loader ,
+11
+epochs , sample_num ,
+12
+device , save_model ,
+13
+use_wandb
+14 )
+Đăng nhập wandb thông qua API được lấy từtài khoản wandb cá nhân.
+1 if use_wandb:
+2
+wandb_api="387 da1f220b55f23dec29347d30650c011d7exxx "
+3
+wandb.login(key=wandb_api)
+Khởi tạo một wandb session.
+22
+AI VIETNAM
+aivietnam.edu.vn
+1 if use_wandb:
+2
+wandb.init(
+3
+# set the wandb
+project
+where
+this run will be logged
+4
+project="my -diff -color",
+5
+6
+# track
+hyperparameters
+and run
+metadata
+7
+config ={
+8
+"learning_rate": optimizers["lr"],
+9
+"weight_decay": optimizers["weight_decay"],
+10
+"architecture": "UNet",
+11
+"dataset": "CelebA",
+12
+"epochs": epochs ,
+13
+"save_model": save_model ,
+14
+"sample_num": sample_num
+15
+}
+16
+)
+Tiến hành huấn luyện. Lúc này, nếu wandb được sửdụng thông qua việc cài đặt tham số
+use_wandb = True, các thông tin vềloss, metrics và hình ảnh sẽđược đẩy lên giao diện
+wandb, giúp người dùng có thểdễdàng theo dõi và đánh giá tiến độhuấn luyện.
+1 trainer.train ()
+Sau khi hoàn thành huấn luyện, hãy kết thúc wandb session.
+1 if use_wandb:
+2
+wandb.finish ()
+Theo dõi quá trình huấn luyện trên wandb.
+Hình 6: Theo dõi kết quảloss và metrics theo từng epoch trên wandb.
+23
+AI VIETNAM
+aivietnam.edu.vn
+Hình 7: Theo dõi quá trình tạo ảnh của mô hình theo từng epoch trên wandb.
+5. Inference
+Bạn có thểsửdụng checkpoint sẵn có đểtiến hành quá trình suy luận thửnghiệm.
+1 # Download
+the
+checkpoint
+2 !gdown 1-0 IcaofrE8cNbvUn1Ydo2WyShkxohv9r
+1 # Load the model
+2 colordiff_model = ColorDiffusion (unet_config , beta_schedule )
+3 colordiff_model . set_new_noise_schedule (device)
+4 load_state = torch.load(’./ best_model.pth’)
+5 colordiff_model . load_state_dict (load_state , strict=True)
+6 colordiff_model .eval ().to(device)
+7
+8
+9 # Load
+original
+image
+10 showed_img_idx = 55
+11 img_path = img_paths[showed_img_idx ]
+12 img_bgr = cv2.imread(img_path)
+13
+14 img_lab = cv2.cvtColor(img , cv2. COLOR_BGR2LAB )
+15 img_l = img_lab [: ,: ,:1]
+16 plt.imshow(img_l , cmap=’gray ’)
+17 plt.axis(False)
+18 plt.savefig("e1_gray.png")
+19 plt.show ()
+20
+21 img_rgb = cv2.cvtColor(img_bgr , cv2. COLOR_BGR2RGB )
+22 plt.imshow(img_rgb)
+23 plt.axis(False)
+24 plt.savefig("e2_full_color.png")
+25 plt.show ()
+26
+27
+28 # Infer
+29 test_imgpath = img_paths[ showed_img_idx ]
+30 test_dataset = ColorDataset ([ test_imgpath ])
+31 test_sample = next(iter(test_dataset))
+24
+AI VIETNAM
+aivietnam.edu.vn
+32
+33 def
+inference(model , test_sample):
+34
+with
+torch.no_grad ():
+35
+output , visuals = model.restoration(
+36
+test_sample [1]. unsqueeze (0).to(device)
+37
+)
+38
+return output , visuals
+39
+40 output , visuals = inference(colordiff_model , test_sample)
+41
+42
+43 # Show the
+results
+44 def
+show_tensor_image (img_l , img_ab , is_save=False):
+45
+img_l = img_l.permute (1, 2, 0).numpy ()
+46
+img_ab = img_ab.permute (1, 2, 0).numpy ()
+47
+img_ab = cv2.resize(img_ab , (img_l.shape [1], img_l.shape [0]) , interpolation =
+cv2.INTER_LINEAR)
+48
+arr_lab = np.concatenate ([img_l , img_ab], axis =2)
+49
+arr_lab = (arr_lab + 1.0) * 255 / 2
+50
+arr_lab = np.clip(arr_lab , 0, 255).astype(np.uint8)
+51
+arr_bgr = cv2.cvtColor(arr_lab , cv2. COLOR_LAB2BGR )
+52
+if is_save:
+53
+cv2.imwrite("results.png", arr_bgr)
+54
+arr_bgr = cv2.cvtColor(arr_bgr , cv2. COLOR_BGR2RGB )
+55
+plt.imshow(arr_bgr)
+56
+plt.axis(False)
+57
+58 output , visuals = inference(colordiff_model , test_sample)
+59 show_tensor_image (test_sample [0], output [0]. cpu(), is_save=True)
+60 plt.show ()
+Kết quảthực nghiệm mô hình sau khi huấn luyện
+Hình 8: Kết quảthực nghiệm mô hình sau khi huấn luyện.
+25
+AI VIETNAM
+aivietnam.edu.vn
+Phần III: Câu hỏi trắc nghiệm
+1. Trong Diffusion Model, Loss Function là:
+(a) ELBO (Evidence Lower Bound)
+(b) VLB (Variational Lower Bound)
+(c) Simplified MSE
+(d) Tất cảđáp án đều đúng.
+2. Gray channel đóng vai trò gì trong quá trình huấn luyện mô hình Diffusion-based Image Coloriza-
+tion?
+(a) Nó được sửdụng làm điều kiện mang thông tin cấu trúc của ảnh trong quá trình tạo màu.
+(b) Nó bịbỏqua trong quá trình tạo màu đểchỉtập trung vào sắc độ.
+(c) Nó được tăng cường thông tin qua mô hình khuếch tán đểcải thiện độtrung thực của màu
+sắc ởđầu ra cuối cùng.
+3. Đâu là nhược điểm chính của DDPM trong việc sinh ảnh dữliệu có chất lượng, độphân giải cao?
+(chọn phương án đúng nhất)
+(a) Tốn nhiều thời gian, tài nguyên tính toán đểthực hiện sampling process.
+(b) Không ổn định trong việc huyến luyện
+(c) Phụthuộc vào surrogate loss.
+(d) Khó khăn trong việc thiết kếkiến trúc mô hình.
+4. Phát biểu nào sau đây đúng vềDiffusion-based Image Colorization:
+(a) Cần xác định tấm ảnh đầy màu sắc làm groundtruth.
+(b) Ràng buộc trong việc sửdụng các kênh màu phổbiến RGB hoặc HSV.
+(c) Quá trình Sampling là sựkết hợp giữa việc sửdụng color channel được mô hình dựđoán (sau
+khi denoise) và việc sửdụng kênh màu gray-scale đểtạo nên tấm ảnh Lab Image.
+5. Phương pháp định tính được sửdụng đểđánh giá mô hình Image Colorization là?
+(a) PSNR
+(b) SSIM
+(c) FID Score
+(d) Fooling rate
+6. Công dụng chính của Weights & Biases (Wandb) trong việc huấn luyện các mô hình Machine
+Learning là gì?
+(a) Tiền xửlý và làm sạch dữliệu cho quá trình huấn luyện.
+(b) Huấn luyện và triển khai trực tiếp các mô hình Machine Learning.
+(c) Theo dõi, quan sát và so sánh các thửnghiệm Machine Learning.
+(d) Finetune các siêu tham sốmột cách tựđộng.
+- Hết -
+26

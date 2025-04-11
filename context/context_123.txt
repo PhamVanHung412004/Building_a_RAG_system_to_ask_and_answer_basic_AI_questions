@@ -1,0 +1,1233 @@
+1
+AI VIETNAM
+All-in-One Course
+1
+AI VIETNAM
+All-in-One Course
+How to do Research
+(Research Plan: Brainstorming Idea and Implementation)
+Year 2023
+Vinh Dinh Nguyen
+PhD in Computer Science
+AI VIETNAM
+All-in-One Course
+2
+AI VIETNAM
+All-in-One Course
+2
+Vinh Dinh Nguyen- PhD in Computer Science
+This Week
+Week 1
+How to read Research Paper
+Week 2
+How to find Research Topic and Develop Research Questions
+Week 3
+Research Plan: Study and Implement Existing Algorithms
+This Week
+Research Plan: Brainstorming Idea and Implementation
+Next Week
+Performance Evaluation and Plan to Write a Research Paper
+(If Any)
+3
+AI VIETNAM
+All-in-One Course
+3
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Research Plan
+Ø Challenges of the Research Topics
+Ø Brainstorming idea
+Ø Performance Evaluation
+Ø Assignment
+Outline
+4
+AI VIETNAM
+All-in-One Course
+4
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Research Plan
+Ø Challenges of the Research Topics
+Ø Brainstorming idea
+Ø Performance Evaluation
+Ø Assignment
+Outline
+5
+AI VIETNAM
+All-in-One Course
+5
+Vinh Dinh Nguyen- PhD in Computer Science
+Develop Your Research Questions
+Research Plan
+Background Research
+Develop a Research Plan
+1.
+Research Title: 
+Provide a clear and concise title that reflects the main focus of your research
+2.
+Introduction 
+Briefly introduce your research topic, explaining its significance and relevance.
+3.
+Background and Literature Review
+Summarize the existing knowledge and research related to your topic. Highlight key studies, theories, or 
+gaps in the literature that your research aims to address.
+4.
+Research Objectives
+What do you aim to achieve or discover through your study?
+5.
+Research Questions
+Formulate the research questions or hypotheses that will guide your investigation
+6.
+Methodology
+Detail the research design, methods, and procedures you plan to employ
+7.
+Timeline
+Provide a timeline for your research activities. Include milestones, deadlines, and key events. 
+8.
+Resources
+Outline the resources you'll need for your research, such as access to specific databases, equipment, or 
+funding.
+9.
+Expected Result
+Discuss the anticipated outcomes of your research.
+10. Significant and Contribution
+Explain the potential significance of your research.
+Study and Implement Existing Methods
+Implement Your Proposed Methods
+Evaluate Performance of Compared Methods
+6
+AI VIETNAM
+All-in-One Course
+6
+Vinh Dinh Nguyen- PhD in Computer Science
+Develop Your Research Questions
+Research Plan
+Background Research
+Develop a Research Plan
+1. Research Title: 
+Robust Stereo Matching Various Weather Conditions
+2. Introduction 
+Stereo matching is a fundamental computer vision task that involves the 
+computation of dense disparity maps from stereo image pairs. The goal is to 
+establish correspondences between pixels in the left and right images, providing 
+depth information crucial for 3D perception. However, the accuracy and reliability 
+of stereo matching algorithms are often challenged by various real-world factors 
+such as occlusions, varying lighting conditions, and textureless regions.
+In response to these challenges, the concept of robust stereo matching has 
+emerged as a critical area of research within computer vision. Robust stereo 
+matching aims to enhance the accuracy and efficiency of disparity estimation 
+under adverse conditions, ensuring the reliability of depth information in a wide 
+range of scenarios.
+Study and Implement Existing Methods
+Implement Your Proposed Methods
+Evaluate Performance of Compared Methods
+7
+AI VIETNAM
+All-in-One Course
+7
+Vinh Dinh Nguyen- PhD in Computer Science
+Develop Your Research Questions
+Research Plan
+Background Research
+Develop a Research Plan
+1. Research Title: (done)
+2. Introduction 
+…
+Robust stereo matching techniques incorporate advanced algorithms and 
+methodologies to address common issues encountered in stereo vision. These 
+may include the development of adaptive matching cost functions, the 
+integration of machine learning approaches for robust feature extraction, and 
+the incorporation of strategies to handle occlusions and textureless regions 
+effectively.
+This field plays a pivotal role in applications such as autonomous vehicles, 
+robotics, and augmented reality, where precise depth perception is essential for 
+making informed decisions. As researchers delve into the complexities of real-
+world stereo vision challenges, the development of robust stereo matching 
+algorithms becomes increasingly crucial to unlocking the full potential of stereo 
+imaging systems in diverse and dynamic environments.
+Study and Implement Existing Methods
+Implement Your Proposed Methods
+Evaluate Performance of Compared Methods
+8
+AI VIETNAM
+All-in-One Course
+8
+Vinh Dinh Nguyen- PhD in Computer Science
+Develop Your Research Questions
+Research Plan
+Background Research
+Develop a Research Plan
+1.
+Research Title (done)
+2.
+Introduction (done)
+3.
+Background and Literature Review
+3.a Introduction
+Stereo matching, a vital component of computer vision, aims to extract depth information
+from stereo image pairs. This literature review explores the historical evolution,
+foundational concepts, and recent advancements in stereo matching algorithms.
+3.b Historical of Stereo Matching
+Early stereo matching methods, such as block matching and dynamic programming, laid 
+the groundwork for depth perception. Despite their simplicity, these approaches 
+struggled with challenges like occlusions and varying lighting conditions.
+3.Foundational Concepts in Stereo Matching
+Key concepts, including epipolar geometry and the stereo correspondence problem, form 
+the basis of stereo matching. Understanding these principles is essential for developing 
+and evaluating stereo matching algorithms.
+Study and Implement Existing Methods
+Implement Your Proposed Methods
+Evaluate Performance of Compared Methods
+9
+AI VIETNAM
+All-in-One Course
+9
+Vinh Dinh Nguyen- PhD in Computer Science
+Develop Your Research Questions
+Research Plan
+Background Research
+Develop a Research Plan
+1.
+Research Title (done)
+2.
+Introduction (done)
+3.
+Background and Literature Review
+3.d Traditional Stereo Matching Techniques
+Classical methods like block-based matching and graph cuts provided initial solutions to
+stereo correspondence. However, they faced limitations in handling textureless regions
+and were sensitive to noise.
+3.e Historical of Stereo Matching
+Early stereo matching methods, such as block matching and dynamic programming, laid 
+the groundwork for depth perception. Despite their simplicity, these approaches 
+struggled with challenges like occlusions and varying lighting conditions.
+3.f Challenges in Traditional Stereo Matching
+Discuss challenges faced by traditional stereo matching techniques, such as sensitivity to 
+noise, computational inefficiency, and difficulties in handling real-world scenarios with 
+dynamic lighting conditions.
+Study and Implement Existing Methods
+Implement Your Proposed Methods
+Evaluate Performance of Compared Methods
+10
+AI VIETNAM
+All-in-One Course
+10
+Vinh Dinh Nguyen- PhD in Computer Science
+Develop Your Research Questions
+Research Plan
+Background Research
+Develop a Research Plan
+1.
+Research Title (done)
+2.
+Introduction (done)
+3.
+Background and Literature Review
+3.g State-of-the-Art Stereo Matching Approaches
+Highlight recent advancements in stereo matching algorithms. State-of-the-art
+approaches leverage machine learning, advanced matching cost functions, and efficient
+optimization techniques to address challenges and achieve high accuracy.
+Study and Implement Existing Methods
+Implement Your Proposed Methods
+Evaluate Performance of Compared Methods
+11
+AI VIETNAM
+All-in-One Course
+11
+Vinh Dinh Nguyen- PhD in Computer Science
+Develop Your Research Questions
+Research Plan
+Background Research
+Develop a Research Plan
+1.
+Research Title (done)
+2.
+Introduction  (done)
+3.
+Background and Literature Review (done)
+4.
+Research Objectives
+Investigate and address challenges such as occlusions, varying lighting conditions, and 
+textureless regions. Research could focus on developing algorithms that are robust in 
+real-world scenarios, ensuring reliable depth estimation even in adverse conditions.
+Explore the integration of machine learning, including deep learning techniques, to 
+enhance feature extraction and matching cost computation. This objective aims to 
+leverage the power of neural networks to improve the overall performance of stereo 
+matching algorithms.
+Develop real-time stereo matching algorithms for applications that require fast and 
+efficient processing, such as robotics or autonomous vehicles. This objective involves 
+optimizing algorithms for speed without compromising accuracy.
+Study and Implement Existing Methods
+Implement Your Proposed Methods
+Evaluate Performance of Compared Methods
+12
+AI VIETNAM
+All-in-One Course
+12
+Vinh Dinh Nguyen- PhD in Computer Science
+Develop Your Research Questions
+Research Plan
+Background Research
+Develop a Research Plan
+1.
+Research Title
+2.
+Introduction 
+3.
+Background and Literature Review
+4.
+Research Objectives
+5.
+Research Questions
+RQ1: How to improve the performance of existing stereo matching methods under 
+various lighting conditions and complex material properties? 
+RQ2: How to obtain a real-time processing for current state-of-the-art stereo 
+matching-based deep learning methods?
+RQ3: How to design an automatically learning the network architecture, its 
+activation functions, and its parameters from data ?
+Study and Implement Existing Methods
+Implement Your Proposed Methods
+Evaluate Performance of Compared Methods
+13
+AI VIETNAM
+All-in-One Course
+13
+Vinh Dinh Nguyen- PhD in Computer Science
+Develop Your Research Questions
+Research Plan
+Background Research
+Develop a Research Plan
+1.
+Research Title: 
+2.
+Introduction 
+3.
+Background and Literature Review
+4.
+Research Objectives
+5.
+Research Questions
+6.
+Methodology
+a. Data Preprocessing:
+    Noise Reduction: Apply preprocessing techniques to reduce noise in the stereo images. This may include 
+Gaussian blurring, median filtering, or other denoising methods to improve the quality of input data.
+    Color Correction: Normalize lighting conditions and correct color disparities between the stereo images 
+to ensure consistency in feature extraction.
+b. Feature Extraction:
+    Use advanced feature extraction techniques to capture meaningful information from the stereo images.
+    Explore local features (e.g., SIFT, SURF) and global features (e.g., color histograms) that are robust to 
+variations in lighting and texture.
+c. Matching Cost Computation:
+    Employ adaptive matching cost functions that dynamically adjust to local image characteristics.
+    Experiment with different cost aggregation methods, such as cross-based or semi-global aggregation, to 
+improve the accuracy of disparity maps in challenging regions.
+Study and Implement Existing Methods
+Implement Your Proposed Methods
+Evaluate Performance of Compared Methods
+14
+AI VIETNAM
+All-in-One Course
+14
+Vinh Dinh Nguyen- PhD in Computer Science
+Develop Your Research Questions
+Research Plan
+Background Research
+Develop a Research Plan
+1.
+Research Title: 
+2.
+Introduction 
+3.
+Background and Literature Review
+4.
+Research Objectives
+5.
+Research Questions
+6.
+Methodology
+d. Machine Learning Integration:
+    Explore the integration of machine learning techniques, such as Convolutional Neural Networks (CNNs), 
+to enhance feature extraction and matching cost computation.
+    Train models on diverse datasets to improve the network's ability to handle variations in lighting, 
+occlusions, and textureless regions.
+e. Occlusion Handling:
+    Develop strategies to handle occlusions effectively. Investigate methods for detecting and managing 
+occluded regions to prevent them from affecting disparity estimation.
+    Use confidence measures or segmentation techniques to identify unreliable disparities in occluded areas.
+f. Adaptive Window Sizes:
+    Implement adaptive window sizes based on local image characteristics. This helps in focusing 
+computational efforts where detailed disparities are needed and using larger windows in textureless or 
+uniform areas.
+Study and Implement Existing Methods
+Implement Your Proposed Methods
+Evaluate Performance of Compared Methods
+15
+AI VIETNAM
+All-in-One Course
+15
+Vinh Dinh Nguyen- PhD in Computer Science
+Develop Your Research Questions
+Research Plan
+Background Research
+Develop a Research Plan
+1.
+Research Title: 
+2.
+Introduction 
+3.
+Background and Literature Review
+4.
+Research Objectives
+5.
+Research Questions
+6.
+Methodology
+7.
+Timeline 
+Study and implement existing methods: 1 week
+Implement the proposed method: 1 week
+Evaluate and analysis the performance of compared methods: 1 week
+Study and Implement Existing Methods
+Implement Your Proposed Methods
+Evaluate Performance of Compared Methods
+16
+AI VIETNAM
+All-in-One Course
+16
+Vinh Dinh Nguyen- PhD in Computer Science
+Develop Your Research Questions
+How to do Research
+Background Research
+Develop a Research Plan
+1. Research Title: 
+2. Introduction 
+3. Background and Literature Review
+4. Research Objectives
+5. Research Questions
+6. Methodology
+7. Timeline
+8. Resources
+Dataset
+Hardware
+Software
+Human resource
+Study and Implement Existing Methods
+Implement Your Proposed Methods
+Evaluate Performance of Compared Methods
+17
+AI VIETNAM
+All-in-One Course
+17
+Vinh Dinh Nguyen- PhD in Computer Science
+Develop Your Research Questions
+Research Plan
+Background Research
+Develop a Research Plan
+1. Research Title: 
+2. Introduction 
+3. Background and Literature Review
+4. Research Objectives
+5. Research Questions
+6. Methodology
+7. Timeline
+8. Resources
+9. Expected Result
+Improve the performance of existing methods under difficult conditions by 
+1%.
+Reduce the processing time of the-state-of-the-art method to 30ms/frame
+Study and Implement Existing Methods
+Implement Your Proposed Methods
+Evaluate Performance of Compared Methods
+18
+AI VIETNAM
+All-in-One Course
+18
+Vinh Dinh Nguyen- PhD in Computer Science
+Develop Your Research Questions
+Research Plan
+Background Research
+Develop a Research Plan
+1. Research Title: 
+2. Introduction 
+3. Background and Literature Review
+4. Research Objectives
+5. Research Questions
+6. Methodology
+7. Timeline
+8. Resources
+9. Expected Result
+10. Significant and Contribution
+ Significance: The proposed stereo matching methodology addresses the 
+limitations of existing techniques by specifically targeting challenging 
+conditions, including occlusions, varying lighting conditions, and textureless 
+regions.
+    Contribution: The methodology introduces novel strategies, such as 
+adaptive matching cost functions and machine learning integration, to 
+enhance the accuracy and robustness of disparity estimation under difficult 
+scenarios.
+Study and Implement Existing Methods
+Implement Your Proposed Methods
+Evaluate Performance of Compared Methods
+19
+AI VIETNAM
+All-in-One Course
+19
+Vinh Dinh Nguyen- PhD in Computer Science
+Research Questions: Stereo Matching
+RQ1: How to improve the performance of existing stereo matching methods under various lighting conditions and complex material 
+properties? 
+RQ2: How to obtain a real-time processing for current state-of-the-art stereo matching-based deep learning methods?
+RQ3: How to design an automatically learning the network architecture, its activation functions, and its parameters from data ?
+Please select the simplest question to solve 
+In this 
+module
+20
+AI VIETNAM
+All-in-One Course
+20
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Research Plan
+Ø Challenges of the Research Topics
+Ø Brainstorming idea
+Ø Performance Evaluation
+Ø Assignment
+Outline
+21
+AI VIETNAM
+All-in-One Course
+21
+Vinh Dinh Nguyen- PhD in Computer Science
+Stereo Matching: Background
+22
+AI VIETNAM
+All-in-One Course
+22
+Vinh Dinh Nguyen- PhD in Computer Science
+Stereo Matching: Background
+23
+AI VIETNAM
+All-in-One Course
+23
+Vinh Dinh Nguyen- PhD in Computer Science
+Stereo Matching: Background
+24
+AI VIETNAM
+All-in-One Course
+24
+Vinh Dinh Nguyen- PhD in Computer Science
+Stereo Matching: Background
+𝐶! 𝒑, 𝒅= 𝐿𝒑−𝑅𝒑−𝒅
+𝒅= 𝑑
+0
+𝑑∈𝐷
+Finding d so that 𝐶! 𝒑, 𝒅 is 
+minimum.
+𝑑= argmin
+"∈$
+𝐶! 𝒑, 𝒅
+Then, d is the value for the pixel 
+p in disparity map
+25
+AI VIETNAM
+All-in-One Course
+25
+Vinh Dinh Nguyen- PhD in Computer Science
+Stereo Matching: Background
+vNormal
+26
+AI VIETNAM
+All-in-One Course
+26
+Vinh Dinh Nguyen- PhD in Computer Science
+vChallenges
+Stereo Matching: Background
+27
+AI VIETNAM
+All-in-One Course
+27
+Vinh Dinh Nguyen- PhD in Computer Science
+vChallenges
+Stereo Matching: Background
+Photometric 
+Variations.
+28
+AI VIETNAM
+All-in-One Course
+28
+Vinh Dinh Nguyen- PhD in Computer Science
+vChallenges
+Stereo Matching: Background
+Image Sensor 
+Noise
+29
+AI VIETNAM
+All-in-One Course
+29
+Vinh Dinh Nguyen- PhD in Computer Science
+vChallenges
+Stereo Matching: Background
+Specularities
+30
+AI VIETNAM
+All-in-One Course
+30
+Vinh Dinh Nguyen- PhD in Computer Science
+vChallenges
+Stereo Matching: Background
+Foreshortening 
+and the 
+Uniqueness 
+Constraint
+31
+AI VIETNAM
+All-in-One Course
+31
+Vinh Dinh Nguyen- PhD in Computer Science
+vChallenges
+Stereo Matching: Background
+Perspective 
+Distortions.
+32
+AI VIETNAM
+All-in-One Course
+32
+Vinh Dinh Nguyen- PhD in Computer Science
+vChallenges
+Stereo Matching: Background
+Textureless 
+Regions.
+33
+AI VIETNAM
+All-in-One Course
+33
+Vinh Dinh Nguyen- PhD in Computer Science
+vChallenges
+Stereo Matching: Background
+Repetitive 
+Structures and 
+Textures
+34
+AI VIETNAM
+All-in-One Course
+34
+Vinh Dinh Nguyen- PhD in Computer Science
+vChallenges
+Stereo Matching: Background
+Reflections
+35
+AI VIETNAM
+All-in-One Course
+35
+Vinh Dinh Nguyen- PhD in Computer Science
+vChallenges
+Stereo Matching: Background
+Transparency
+36
+AI VIETNAM
+All-in-One Course
+36
+Vinh Dinh Nguyen- PhD in Computer Science
+vChallenges
+Stereo Matching: Background
+Occlusions
+37
+AI VIETNAM
+All-in-One Course
+37
+Vinh Dinh Nguyen- PhD in Computer Science
+Challenges in Stereo Matching
+RQ1: How to improve the performance of existing stereo matching methods under various lighting conditions and complex material 
+properties? 
+38
+AI VIETNAM
+All-in-One Course
+38
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Research Plan
+Ø Challenges of the Research Topics
+Ø Brainstorming idea
+Ø Performance Evaluation
+Ø Assignment
+Outline
+39
+AI VIETNAM
+All-in-One Course
+39
+Vinh Dinh Nguyen- PhD in Computer Science
+Stereo Matching Workflow
+Indentify where you can improve the performance of 
+existing algorithms?
+40
+AI VIETNAM
+All-in-One Course
+40
+Vinh Dinh Nguyen- PhD in Computer Science
+Stereo Matching Cost
+v AD Matching Cost
+𝐿 is the left image
+𝑅 is the right image
+𝐿𝒑 is the (vector) value of p
+𝑥!
+𝑦!
+𝒑= 𝑥%
+𝑦%
+𝐶! 𝒑, 𝒅= 𝐿𝒑−𝑅𝒑−𝒅
+𝒅= 𝑑
+0
+𝑑∈𝐷
+Finding d so that 𝐶! 𝒑, 𝒒, 𝒅 is 
+minimum.
+𝑑= argmin
+"∈$
+𝐶! 𝒑, 𝒅
+Then, d is the value for the pixel 
+p in disparity map
+41
+AI VIETNAM
+All-in-One Course
+41
+Vinh Dinh Nguyen- PhD in Computer Science
+Stereo Matching
+vSAD Matching Cost
+𝐿 is the left image
+𝑅 is the right image
+𝐿𝒑 is the (vector) value of p
+𝒑= 𝑥%
+𝑦%
+𝐶& 𝒑, 𝒅= 6
+𝒖∈(𝒑
+𝐿𝒖−𝑅𝒖−𝒅
+𝒅= 𝑑
+0
+𝑑∈𝐷
+Finding d so that 𝐶& 𝒑, 𝒅 is 
+minimum.
+𝑑= argmin
+"∈$
+𝐶& 𝒑, 𝒅
+Then, d is the value for the pixel 
+p in disparity map
+𝑊𝒑 is a window centered at p
+42
+AI VIETNAM
+All-in-One Course
+42
+Vinh Dinh Nguyen- PhD in Computer Science
+Stereo Matching Cost
+Parametric Matching Costs
+Sampling-insensitive 
+absolute 
+difference of Birchfield and 
+Tomasi
+43
+AI VIETNAM
+All-in-One Course
+43
+Vinh Dinh Nguyen- PhD in Computer Science
+Stereo Matching Cost
+Normalized cross-correlation
+The zeromean sum of absolute 
+differences (ZSAD) s
+NCC is another window-based matching technique that is commonly used. NCC compensates for gain changes and is statistically the optimal 
+method for dealing with Gaussian noise. However, NCC tends to blur depth discontinuities more than many other matching costs because 
+outliers lead to high errors within the NCC calculation
+Parametric Matching Costs
+44
+AI VIETNAM
+All-in-One Course
+44
+Vinh Dinh Nguyen- PhD in Computer Science
+Stereo Matching Cost
+Zero-mean variant ZNCC
+Parametric Matching Costs
+Non-parametric Matching Costs
+Rank Filter
+The function T[] is defined to return 1 if its argument is true and 0 otherwise. The transformed images are matched with the absolute 
+difference. The Rank filter is known to be susceptible to noise in textureless areas.
+45
+AI VIETNAM
+All-in-One Course
+45
+Vinh Dinh Nguyen- PhD in Computer Science
+Stereo Matching Cost
+Non-parametric Matching Costs
+Soft Rank filter
+The Soft Rank filter was proposed by Zitnick  to reduce the problem of Rank filter by defining a linear, soft transition zone between 0 
+and 1 for values that are close together
+Census Filter
+46
+AI VIETNAM
+All-in-One Course
+46
+Vinh Dinh Nguyen- PhD in Computer Science
+Cosine similarity
+4
+31
+cs(ax, 𝑏y) =
+#$.&'
+#$
+('  =
+∑!
+" #*#(+#
+∑!
+" #$*#
+$ ∑!
+" ($+#
+$
+                    =
+#( ∑!
+" *#+#
+#$ ∑!
+" *#
+$ ($ ∑!
+" +#
+$
+                    =
+∑!
+" *#+#
+∑!
+" *#
+$ ∑!
+" +#
+$=cs(x, y)
+Cosine similarity (cs) được dùng để đo mức độ giống nhau/tương đồng giữa hai vector
+Gọi x và y là hai vector, cs được tính như sau
+cs(x, y) =
+$.'
+$
+'  =
+∑!
+" *#+#
+∑!
+" *#
+$ ∑!
+" +#
+$
+Ví dụ:
+x = [4, 2, 1, 2]#
+y = [1, 2, 2, 0]#
+cs(x, y) =
+6∗89:∗:98∗:9:∗;
+6$9:$98$9:$ 8$9:$9:$9;
+               =
+8;
+:< = = 8;
+8< = 0.67
+cs(u, v) =
+>∗?96∗@9:∗@96∗;
+>$96$9:$96$ ?$9@$9@$9;
+               =
+@;
+8;; >8 = @;
+=; = 0.67
+                                            = cs(x, y)
+u = 2x = [8, 4, 2, 4]#
+v = 3y = [3, 6, 6, 0]#
+Tính chất 1: cs(x, y) = cs(ax, 𝑏y) 
+Tính chất 2: cs(x, y) ≠ cs(x + 𝑐, y + 𝑑) 
+47
+AI VIETNAM
+All-in-One Course
+47
+Vinh Dinh Nguyen- PhD in Computer Science
+⃗𝑥=  2 
+3 
+⃗𝑦=  4 
+2 
+⃗𝑦
+⃗𝑥
+𝛼
+Cosine Similarity 
+for Matching Cost
+cs(ax, 𝑏y) =
+#$.&'
+#$
+('  =
+∑!
+" #*#(+#
+∑!
+" #$*#
+$ ∑!
+" ($+#
+$
+                    =
+#( ∑!
+" *#+#
+#$ ∑!
+" *#
+$ ($ ∑!
+" +#
+$
+                    =
+∑!
+" *#+#
+∑!
+" *#
+$ ∑!
+" +#
+$=cs(x, y)
+Cosine similarity (cs) is used to measure the 
+similarity between two vectors
+Let x and y be two vectors, cs is defined as
+cs(x, y) =
+$.'
+$
+'  =
+∑!
+" *#+#
+∑!
+" *#
+$ ∑!
+" +#
+$
+Property 1: cs(x, y) = cs(ax, 𝑏y); ab > 0
+Property 2: cs(x, y) ≠ cs(x + 𝑐, y + 𝑑) 
+⃗𝑣= 2 ∗⃗𝑦=  8 
+4 
+⃗𝑣
+𝑢= 3 ∗⃗𝑥=  6 
+9 
+𝑢
+47
+48
+AI VIETNAM
+All-in-One Course
+48
+Vinh Dinh Nguyen- PhD in Computer Science
+Stereo Matching Cost
+49
+AI VIETNAM
+All-in-One Course
+49
+Vinh Dinh Nguyen- PhD in Computer Science
+When will stereo block matching fail?
+50
+AI VIETNAM
+All-in-One Course
+50
+Vinh Dinh Nguyen- PhD in Computer Science
+How can we improve depth estimation?
+Too many discontinuities. We 
+expect disparity values to 
+change slowly. 
+Let’s make an assumption: depth should change smoothly
+51
+AI VIETNAM
+All-in-One Course
+51
+Vinh Dinh Nguyen- PhD in Computer Science
+How can we improve depth estimation?
+What defines a good stereo correspondence? 
+1. Match quality – Want each pixel to find a 
+good match in the other image 
+2. Smoothness – If two pixels are adjacent, 
+they should (usually) move about the same 
+amount 
+52
+AI VIETNAM
+All-in-One Course
+52
+Vinh Dinh Nguyen- PhD in Computer Science
+How can we improve depth estimation?
+53
+AI VIETNAM
+All-in-One Course
+53
+Vinh Dinh Nguyen- PhD in Computer Science
+How can we improve depth estimation?
+54
+AI VIETNAM
+All-in-One Course
+54
+Vinh Dinh Nguyen- PhD in Computer Science
+32
+54
+55
+AI VIETNAM
+All-in-One Course
+55
+Vinh Dinh Nguyen- PhD in Computer Science
+Correlation Coefficient Matching Cost
+𝜌$% =
+𝐸[(𝑥−𝜇$)(𝑦−𝜇%)]
+𝑣𝑎𝑟(𝑥) 𝑣𝑎𝑟(𝑦)
+ 
+=
+𝑛∑& 𝑥&𝑦& −∑& 𝑥& (∑& 𝑦&)
+𝑛∑& 𝑥&
+' −(∑& 𝑥&)' 𝑛∑& 𝑦&
+' −(∑& 𝑦&)'
+Công thức: Gọi x,y là hai biến ngẫu nhiên
+Tính chất 1
+-1 
+≤ 
+𝜌$%  
+≤ 
+1
+Tương quan 
+nghịch
+Tương quan 
+thuận
+Tính chất 2
+𝜌!" = 𝜌#$
+𝑢= 𝑎𝑥+ 𝑏
+𝑣= 𝑐𝑦+ 𝑑
+trong đó
+Ví dụ 1
+x = [7, 18, 29, 2, 10, 9, 9]
+y = [1, 6, 12, 8, 6, 21, 10]
+𝜌$% = 𝐸[(𝑥−𝜇$)(𝑦−𝜇%)]
+𝑣𝑎𝑟(𝑥) 𝑣𝑎𝑟(𝑦)
+ 
+=
+𝑛∗818 −84∗64
+𝑛∗1480 −7056 𝑛∗822 −4096
+= 0.149
+Ví dụ 2
+u=2*x-14 = [0, 22, 44, -10, 6, 4, 4]
+v=y+2 = [3, 8, 14, 10, 8, 23, 12]
+𝜌() = 𝐸[(𝑢−𝜇()(𝑣−𝜇))]
+𝑣𝑎𝑟(𝑢) 𝑣𝑎𝑟(𝑣)
+ 
+=
+𝑛∗880 −70∗78
+𝑛∗2588 −4900 𝑛∗1106 −6084
+= 0.149
+v Definition
+ignore the differences between 
+population and sample
+55
+56
+AI VIETNAM
+All-in-One Course
+56
+Vinh Dinh Nguyen- PhD in Computer Science
+56
+Correlation for Stereo Matching Cost
+57
+AI VIETNAM
+All-in-One Course
+57
+Vinh Dinh Nguyen- PhD in Computer Science
+LTP Matching Cost
+58
+AI VIETNAM
+All-in-One Course
+58
+Vinh Dinh Nguyen- PhD in Computer Science
+LTP Matching Cost
+59
+AI VIETNAM
+All-in-One Course
+59
+Vinh Dinh Nguyen- PhD in Computer Science
+Stereo Matching
+v Local/Window-based stereo matching
+In the case of local approaches, the search area for finding a match is confined to a fixedsize window within the search image
+60
+AI VIETNAM
+All-in-One Course
+60
+Vinh Dinh Nguyen- PhD in Computer Science
+Stereo Matching
+v Global-based stereo matching
+61
+AI VIETNAM
+All-in-One Course
+61
+Vinh Dinh Nguyen- PhD in Computer Science
+Stereo Matching
+v Semi-global stereo matching
+62
+AI VIETNAM
+All-in-One Course
+62
+Vinh Dinh Nguyen- PhD in Computer Science
+Stereo Matching
+v CNN-based Stereo Matching
+63
+AI VIETNAM
+All-in-One Course
+63
+Vinh Dinh Nguyen- PhD in Computer Science
+Stereo Matching
+v CNN-based Stereo Matching
+64
+AI VIETNAM
+All-in-One Course
+64
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Research Plan
+Ø Challenges of the Research Topics
+Ø Brainstorming idea
+Ø Performance Evaluation
+Ø Assignment
+Outline
+65
+AI VIETNAM
+All-in-One Course
+65
+Vinh Dinh Nguyen- PhD in Computer Science
+Datasets
+66
+AI VIETNAM
+All-in-One Course
+66
+Vinh Dinh Nguyen- PhD in Computer Science
+Evaluation Metrics
+67
+AI VIETNAM
+All-in-One Course
+67
+Vinh Dinh Nguyen- PhD in Computer Science
+Evaluation Metrics
+Percentage of Bad Pixels: Measures the percentage of pixels with disparity errors exceeding a specified threshold. Common thresholds 
+include 1, 2, or 3 pixels.
+Root Mean Squared Error (RMSE): Calculates the square root of the average squared disparity errors across all pixels. It provides a 
+measure of the overall accuracy.
+Mean Absolute Error (MAE): Computes the average absolute disparity errors. It is less sensitive to outliers than RMSE.
+The "d1-bg" error is specifically defined as the percentage of disparity errors (in pixels) where the absolute disparity error is less than 1 
+pixel and the error occurs in regions classified as foreground or background
+68
+AI VIETNAM
+All-in-One Course
+68
+Vinh Dinh Nguyen- PhD in Computer Science
+Common Challenges
+Lack of Clear Objectives
+Problem: Unclear research goals and objectives can lead to 
+confusion and make it difficult to stay focused.
+Solution: Clearly define your research questions and objectives 
+before starting.
+Literature Review Challenges
+•Problem: Difficulty in finding relevant literature or understanding the 
+existing body of knowledge.
+•Solution: Invest time in a thorough literature review, use academic 
+databases, and seek guidance from mentors.
+Problem: Obtaining accurate and sufficient data can be a significant 
+challenge.
+Solution: Plan your data collection method carefully, consider 
+potential biases, and validate your data sources.
+Data Collection Issues
+Problem: Issues related to the research design, sampling, or 
+experimental procedures.
+Solution: Consult with experienced researchers, follow established 
+methodologies, and be open to adapting your approach.
+Methodological Challenges:
+69
+AI VIETNAM
+All-in-One Course
+69
+Vinh Dinh Nguyen- PhD in Computer Science
+Common Challenges
+Lack of Clear Analytical Difficulties
+•Problem: Challenges in analyzing data or interpreting results.
+•Solution: Seek statistical or methodological advice, use appropriate 
+software, and consider collaborating with experts.
+Time Management
+•Problem: Balancing research with other commitments can be 
+challenging.
+•Solution: Develop a realistic timeline, set milestones, and prioritize 
+tasks effectively.
+•Problem: Unforeseen ethical issues or conflicts may arise.
+•Solution: Consult with an ethics committee, adhere to ethical 
+guidelines, and prioritize participant well-being.
+Ethical Dilemmas
+•Problem: Difficulty in communicating research findings or 
+collaborating with peers.
+•Solution: Work on effective communication skills, present at 
+conferences, and collaborate with colleagues.
+Communication Challenges:
+70
+AI VIETNAM
+All-in-One Course
+70
+Vinh Dinh Nguyen- PhD in Computer Science
+Fail to Improve Performance of Existing Methods
+Thorough Analysis
+•Examine your research method and results critically. Identify the 
+specific aspects where improvement is needed. Understand the 
+limitations and challenges you are facing.
+Literature Review
+•Revisit the literature to ensure you are aware of the latest 
+developments in your field. Identify if there are new methods or 
+techniques that could be applied to your research problem
+•Seek feedback from experienced researchers, colleagues, or 
+mentors. Discuss your challenges and ask for their insights. They may 
+offer valuable suggestions or alternative approaches.
+Thorough Analysis
+•Collaborating with other researchers working on similar problems 
+can provide fresh perspectives. Sharing ideas and collaborating on 
+solving challenges can lead to innovative solutions.
+Collaborate with Peers
+•Explore whether incorporating knowledge from other disciplines 
+could benefit your research. Sometimes, a multidisciplinary approach 
+can provide novel solutions.
+Consider a Multidisciplinary Approach:
+•Try variations of your existing method to identify potential 
+improvements. Experiment with different parameters, data 
+preprocessing techniques, or algorithms to see if any adjustments 
+lead to better results.
+Experiment with Variations
+71
+AI VIETNAM
+All-in-One Course
+71
+Vinh Dinh Nguyen- PhD in Computer Science
+Fail to Improve Performance of Existing Methods
+Validation and Benchmarking
+•Ensure that your evaluation metrics are appropriate and that you 
+are comparing your method against suitable benchmarks. Reassess 
+the validity of your experimental setup.
+Document and Report Findings
+•Be transparent about the challenges you faced and the steps you 
+took to address them. Document your findings, even if the 
+improvements are minimal. This transparency contributes to the 
+scientific community's collective knowledge.
+•If, despite your efforts, you are unable to achieve significant 
+improvements, consider exploring alternative research approaches. 
+Sometimes, a change in direction can lead to valuable insights.
+Consider Alternative Approaches
+72
+AI VIETNAM
+All-in-One Course
+72
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Research Plan
+Ø Challenges of the Research Topics
+Ø Brainstorming idea
+Ø Performance Evaluation
+Ø Assignment
+Outline
+73
+AI VIETNAM
+All-in-One Course
+73
+Vinh Dinh Nguyen- PhD in Computer Science
+Assignment 4
+• Requirement:
+oSuggest an idea to solve limitations of existing systems (just pickup simplest idea)
+oImplement and evaluate the performance of the idea
+oDisplay several exprimental results 
+oSubmit to: aivnresearch@gmail.com
+• Deadline: 12:00 09/12/2023
+• Receiving Feedback: 1 week from TA Research Team of AIVN
+74
+AI VIETNAM
+All-in-One Course
+74
+Vinh Dinh Nguyen- PhD in Computer Science
+This Week
+Week 1
+How to read Research Paper
+Week 2
+How to find Research Topic and Develop Research Questions
+Week 3
+Research Plan: Study and Implement Existing Algorithms
+This Week
+Research Plan: Brainstorming Idea and Implementation
+Next Week
+Performance Evaluation and Plan to Write a Research Paper
+(If Any)
+75
+AI VIETNAM
+All-in-One Course

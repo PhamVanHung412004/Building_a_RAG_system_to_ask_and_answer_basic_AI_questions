@@ -1,6 +1,0 @@
-AI VIETNAM aivietnam.edu.vn
-60 nepochs = args [" epochs "]
-61
-62 # Create DataLoader
-63 data = ColorDataset (
-64 os. path . 

@@ -12,7 +12,7 @@ class Chunking_Data:
 
     def Get_nodes(self) -> list:        
         try:
-            splitter = SemanticSplitterNodeParser(E
+            splitter = SemanticSplitterNodeParser(
                 buffer_size=1,
                 breakpoint_percentile_threshold=95,
                 embed_model=self.__model_embedding

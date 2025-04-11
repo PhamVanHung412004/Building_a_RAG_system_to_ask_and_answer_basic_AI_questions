@@ -1,0 +1,739 @@
+Text-to-Video Generation Guide
+Hoang-Bach Ngo
+Minh-Hung An
+Ngày 28 tháng 2 năm 2024
+Phần I: Giới thiệu tổng quan
+Trong những năm gần đây, sựphát triển không ngừng của công nghệđã mởđường cho một bước đột
+phá đáng kinh ngạc trong lĩnh vực tạo sinh nội dung: khảnăng chuyển đổi văn bản thành video, một
+tiến bộmới nhất trong chuỗi các thành tựu công nghệ. Điều này không chỉlà một bước tiến trong việc
+tạo ra nội dung đa phương tiện từvăn bản mô tảmà còn mởra cánh cửa mới cho nhiều ngành công
+nghiệp khác nhau. Mô hình Sora, phát triển bởi OpenAI, hay Genie, phát triển bởi Google, là những
+minh chứng nổi bật cho tiến trình này, đánh dấu một cột mốc quan trọng trong việc mô hình hóa và
+tạo sinh video dựa trên văn bản, giúp biến những mô tảvăn bản thành video sinh động với mạch lạc
+thời gian và không gian cao.
+Lý do phía sau việc nghiên cứu và phát triển text-to-video không chỉlà đểmởrộng biên giới của thị
+giác máy tính mà còn nhằm giải quyết những thách thức liên quan đến việc mô hình hóa video, một
+tác vụphức tạp hơn đáng kểso với tạo sinh hình ảnh từvăn bản. Sựphức tạp này đến từviệc cần phải
+hiểu và tái tạo được sựliên kết thời gian và không gian trong video, đòi hỏi những phương pháp tiếp
+cận sáng tạo và tiên tiến. Bài viết này nhằm mục đích giới thiệu vềcách thức hoạt động của các mô
+hình tạo sinh video, phân biệt chúng với mô hình tạo sinh hình ảnh, và khám phá các nghiên cứu hàng
+đầu trong lĩnh vực hấp dẫn nhưng cũng đầy thách thức này.
+1
+AI VIETNAM
+aivietnam.edu.vn
+Phần II: Các thách thức cho bài toán
+text-to-video
+Trước hết, chúng ta hãy cùng nhau khám phá những thách thức lớn mà công nghệtạo sinh video phải
+đối mặt. Những thách thức này chủyếu liên quan đến việc giữcho video có sựnhất quán vềkhông gian
+và liên kết mạch lạc theo thời gian, đồng thời cũng cần phải quan tâm đến yếu tốtài nguyên tính toán
+và sựkhan hiếm của dữliệu dataset chất lượng cao.
+1
+Sựnhất quán trong không gian và sựliên kết vềmặt thời gian
+Duy trì sựnhất quán trong không gian và sựliên kết vềmặt thời gian giữa các vật thể, nhân vật và
+bối cảnh là một trong những thửthách lớn nhất trong bài toán tạo sinh video [8], [11]. Sựnhất quán
+vềkhông gian yêu cầu mô hình phải có sựhiểu biết vềkhông gian ba chiều trong video và theo sát vị
+trí, phương hướng và sựtương tác giữa các vật thểtrong video. Vấn đềnày trởnên khó khăn khi câu
+văn bản mô tảnhững phân cảnh có tính phức tạp cao, với nhiều vật thểtương tác với nhau, yêu cầu
+mô hình phải có hiểu biết phức tạp vềbối cảnh.
+Bên cạnh đó, sựnhất quán vềthời gian yêu cầu video được tạo ra không chỉtuân theo mạch tường
+thuật được mô tảtrong văn bản mà chuyển động và chuyển tiếp giữa các khung hình cũng mượt mà
+và chân thực. Đểđạt được sựmạch lạc vềmặt thời gian đòi hỏi mô hình phải hiểu được mối quan hệ
+nhân quảvà trình tựcủa các sựkiện trong câu text prompt, chuyển chúng thành một chuỗi khung hình
+mạch lạc vềmặt trực quan.
+2
+Độphức tạp trong tính toán
+Nhu cầu duy trì đồng thời sựnhất quán vềkhông gian và tính liên kết vềthời gian làm tăng đáng kể
+yêu cầu tính toán của việc tạo văn bản thành video. Mỗi khung hình trong video được tạo ra đều phải
+liến kết đến tất cảcác khung hình trước đó, đến từng chi tiết đểđảm bảo độchính xác vềkhông gian
+và quá trình chuyển đổi giữa các khung hình phải được mô hình hóa cẩn thận đểduy trì dòng thời gian.
+Quá trình này yêu cầu tài nguyên tính toán khổng lồ[8] [11], đặc biệt đối với các video có độphân giải
+cao trong đó độtrung thực của từng pixel có thểảnh hưởng đến chất lượng tổng thểvà độchân thực
+của video.
+Hơn nữa, các mô hình tổng hợp được sửdụng đểtổng hợp văn bản thành video, chẳng hạn như
+Mạng GAN, VAE hay mạng Diffusion,đều cần một lượng tính toán khổng lồ. Khi được giao nhiệm vụ
+tạo video, các mô hình này phải hoạt động trên không gian đầu ra lớn hơn nhiều so với việc tạo hình
+ảnh, xửlý nhiều khung hình thậm chí chỉtrong vài giây video. Điều này không chỉđòi hỏi sức mạnh
+xửlý đáng kểmà còn đặt ra những thách thức vềbộnhớvà lưu trữ, vì mô hình phải duy trì và xửlý
+lượng lớn dữliệu đểtạo ra đầu ra video cuối cùng.
+3
+Thiếu các datasets có chất lượng cao
+Trong việc chuyển đổi văn bản thành video, một trong những khó khăn lớn nhất chính là việc tìm kiếm
+và sửdụng dữliệu phù hợp. Có một sựthiếu hụt rõ ràng vềcác bộdữliệu lớn, nơi mô tảvăn bản chi
+tiết đi kèm với video tương ứng [9], [7] [3] khiến việc thu thập dữliệu trởnên cực kỳphức tạp. Cần
+phải có những mô tảrất cụthểvà chính xác vềnội dung video, điều này làm tăng thêm độkhó trong
+việc tạo ra những bộdữliệu đa dạng và chất lượng cao.
+Đểgiải quyet vấn đềnày, các nhà nghiên cứu đang áp dụng nhiều phương pháp như tạo dữliệu
+giả, phương pháp tăng cường dữliệu, sửdụng crowdsourcing đểthu thập mô tảvideo, và áp dụng kỹ
+2
+AI VIETNAM
+aivietnam.edu.vn
+thuật học chuyển giao từcác nhiệm vụcó liên quan. Mặc dù đã có nhiều cốgắng, việc vượt qua những
+trởngại liên quan đến việc tiếp cận dữliệu vẫn là một bước tiến quan trọng đểphát triển công nghệ
+chuyển đổi văn bản thành video.
+Nhìn chung đó là những thách thức chính cho bài toán tạo sinh video từvăn bản. Ởphần sau, chúng
+ta hãy cùng đi vào tìm hiểu xem có những phương pháp nào được sửdụng đểvượt qua những thách
+thức trên.
+Phần III: Các Dataset phổbiến
+Việc sửdụng các bộdữliệu gồm video kèm theo mô tả(caption) đểhuấn luyện các mô hình tạo sinh
+video là một phần không thểthiếu trong quá trình phát triển công nghệnày. Những bộdữliệu này
+cung cấp cho mô hình một cơ sởdữliệu phong phú, giúp mô hình học cách hiểu và tái tạo lại các sự
+kiện, hành động, và mối liên kết giữa các nhân vật trong video dựa trên mô tảvăn bản. Qua đó, mô
+hình có thểtăng cường khảnăng nhận thức vềkhông gian và thời gian, cũng như cách các yếu tốtrong
+video tương tác với nhau. Việc này đòi hỏi bộdữliệu phải đa dạng vềnội dung, cảnh quay và phong
+cách kểchuyện, giúp mô hình có khảnăng áp dụng vào nhiều tình huống và bối cảnh khác nhau, từđó
+mởrộng khảnăng ứng dụng của công nghệtạo sinh video trong thực tế. Sau đây là một sốbộdữliệu
+phổbiến, thường xuyên được sửdụng đểhuấn luyện các mô hình tạo sinh video
+3.1
+HowTo100M
+HowTo100M (https://www.di.ens.fr/willow/research/howto100m) là một tập dữliệu quy mô lớn
+bao gồm 136 triệu đoạn clip video được thu thập từ1.22 triệu video hướng dẫn có lời bình trên web,
+mô tảcon người thực hiện và mô tảhơn 23 nghìn nhiệm vụtrực quan khác nhau. Tập dữliệu được tạo
+ra bằng cách sửdụng WikiHow đểxác định 23,611 nhiệm vụtrực quan từcác hoạt động tương tác với
+thếgiới vật lý, loại trừcác nhiệm vụtrừu tượng. Các video hướng dẫn được tìm kiếm trên YouTube
+dựa trên các tiêu chí như có phụđềtiếng Anh và thu hút ít nhất 100 lượt xem, đồng thời loại bỏvideo
+quá dài hoặc thiếu nội dung. Tập dữliệu được tinh lọc đểloại bỏtrùng lặp và cải thiện chất lượng,
+mặc dù vẫn có khảnăng chứa bản sao do tải lên nhiều lần, nhưng điều này không ảnh hưởng lớn đến
+quy mô dựán của tập dữliệu này.
+Hình 1: Ví dụvềcác cặp clip-caption được chọn dựa trên sựtương đồng giữa ảnh và mô tảtương ứng.
+3
+AI VIETNAM
+aivietnam.edu.vn
+3.2
+WebVid
+WebVid (https://maxbain.com/webvid-dataset)là tập dữliệu được thu thập từweb, bao gồm 2.5
+triệu cặp video-text, vượt trội hơn hẳn so với các tập dữliệu trước đó. Quá trình thu thập dữliệu này
+tuân thủmột phương pháp tương tựnhư Google Conceptual Captions, với việc nhận thấy một phần
+đáng kểcác hình ảnh từCC3M thực chất là hình thu nhỏcủa video, WebVid khai thác các nguồn
+video tương tựđểtạo ra tập dữliệu phong phú. Tập dữliệu video này, mặc dù nhỏhơn đáng kểso
+với HowTo100M vềthời lượng và sốlượng cặp clip-caption, nhưng lại nổi bật với chất lượng caption
+thủcông cao, tạo ra câu văn rõ ràng và mô tảchính xác nội dung hình ảnh. Bên cạnh đó, tập dữliệu
+Google Conceptual Captions cho hình ảnh của WebVid, với 3.3 triệu cặp text-image, mởrộng phạm vi
+đa dạng phong cách mô tảvà hình ảnh, phản ánh một cách chân thực hơn các nguồn thông tin đa dạng
+từweb.
+Hình 2: Ví dụminh họa vềcặp video và văn bản mô tảtrong WebVid dataset:
+3.3
+CelebV-Text
+CelebV-Text (https://celebv-text.github.io), một tập dữliệu lớn, đa dạng và chất lượng cao của
+cặp video vềkhuôn mặt và văn bản mô tả, nhằm hỗtrợnghiên cứu vềnhiệm vụtạo video từvăn bản
+mô tảcho khuôn mặt. CelebV-Text bao gồm 70,000 đoạn clip video vềkhuôn mặt trong môi trường tự
+nhiên với nội dung hình ảnh đa dạng, mỗi đoạn được ghép nối với 20 đoạn văn bản mô tảđược tạo ra
+thông qua chiến lược tạo văn bản bán tựđộng. Các văn bản mô tảđược cung cấp có chất lượng cao, mô
+tảchính xác cảcác thuộc tính tĩnh và động. Sựvượt trội của CelebV-Text so với các tập dữliệu khác
+được thểhiện qua phân tích thống kê toàn diện vềvideo, văn bản mô tảvà mối liên quan text-video.
+4
+AI VIETNAM
+aivietnam.edu.vn
+Hình 3: CelebV-Text bao gồm (a) 70,000 mẫu video và (b) 1,400,000 văn bản mô tả. Mỗi mẫu video
+được ghi chú với hình dáng tổng quát, hình dáng chi tiết, điều kiện ánh sáng, hành động, cảm xúc, và
+hướng ánh sáng.
+Phần IV: Các hướng tiếp cận chính
+Khi nói đến việc tạo video từvăn bản, có hai phương pháp tiếp cận chính mà các nhà nghiên cứu thường
+theo đuổi. Một là sửdụng mô hình dựa trên cấu trúc Transformer, vốn nổi tiếng với khảnăng hiểu và
+xửlý ngôn ngữtựnhiên một cách hiệu quả. Phương pháp thứhai là áp dụng kỹthuật diffusion, một
+cách tiếp cận mới mẻvà đầy hứa hẹn trong việc tạo ra hình ảnh và video từvăn bản.
+Gần đây, một sốnghiên cứu đã bắt đầu kết hợp những ưu điểm của cảhai mô hình này, tích hợp
+cấu trúc Transformer vào bên trong mô hình diffusion đểtạo ra những kết quảcòn ấn tượng hơn. Một
+ví dụđiển hình cho sựkết hợp này là mô hình Sora của OpenAI, được kỳvọng sẽmởra những khả
+năng mới trong lĩnh vực tạo sinh video từvăn bản.
+4
+Transformer-based Pretraining
+Transformer, kểtừkhi được giới thiệu, đã tạo ra một cuộc cách mạng trong nhiều lĩnh vực của trí tuệ
+nhân tạo, từxửlý ngôn ngữtựnhiên đến nhận dạng hình ảnh. Gần đây, nhiều sựchú ý đã được hướng
+tới việc áp dụng kiến trúc transformer trong tác vụtạo sinh video, một lĩnh vực đầy thách thức nhưng
+cũng rất hứa hẹn. Trong bối cảnh này, transformer được sửdụng đểhiểu và dựđoán các mô hình thời
+gian không gian phức tạp trong dữliệu video, cho phép chúng tạo ra những đoạn video mới mẻvà độc
+đáo từmô tảvăn bản. Sau đây là những công trình nghiên cứu nổi bật với hướng tiếp cận này.
+4.1
+VideoGPT:
+Trong nghiên cứu tiên phong vềviệc áp dụng công nghệTransformer vào việc tạo video, bài báo khoa
+học "VideoGPT: Video Generation using VQ-VAE and Transformers" [10] đưa ra một kiến trúc độc
+đáo nhằm khai thác tiềm năng của các mô hình tạo sinh dựa trên xác suất. Kiến trúc này được thiết
+kếđểmởrộng và tối ưu hóa quá trình tạo video, làm cho nó trởnên mạnh mẽvà linh hoạt hơn. Trong
+VideoGPT, có một sốthành phần chính được đưa ra, mỗi thành phần đều đóng vai trò quan trọng
+5
+AI VIETNAM
+aivietnam.edu.vn
+trong việc tạo ra các video chất lượng cao và đa dạng từvăn bản hoặc các dạng đầu vào khác. Một số
+thành phần chính của VideoGPT được thểhiện trong Hình 7 bao gồm:
+Hình 4: Kiến trúc của VideoGPT bao gồm 2 thành phần: khối VQ-VAE và khối GPT
+• VQ-VAE (Vector Quantized Variational AutoEncoder): được đềxuất bởi [4], là một dạng
+mô hình nén các điểm dữliệu ởkhông gian nhiều chiều vềkhông gian latent rời rạc và tái tạo lại
+những điểm dữliệu đó. Thành phần này có chức năng chính là học những biểu diễn của các video
+trong không gian latent, cụthểnhư sau:
+– Đầu tiên một khối encoder E(x) −→h mã hóa video x thành một chuỗi các vector h. Sau
+đó chuỗi vector này sẽđược rời rạc hóa bằng cách sửdụng phương pháp nearest neighbor để
+map vềcác vector codebook có sẵn.
+– Sau đó một khối D(e) −→ˆx học đểtái tạo lại x từnhững vector đã được rời rạc hóa.
+Đểcó thểhọc mô hình hóa được data dạng video, VideoGPT sửdụng một chuỗi các khối 3D
+convolutions đểlấy mẫu xuống (downsample) thông tin không gian và thời gian, theo sau đó bằng
+một khối attention residual. Khối attention residual được thiết kếnhư hình 5:
+Hình 5: Khối attention residual
+• GPT: Ởgiai đoạn tiếp theo, sau khi đã có những vector rời rạc trong không gian latent ởbước
+trước, tác giảdùng một kiểu kiến trúc tương tựGPT (Generative pretrained transformer) đểmô
+hình hóa những vector này thành một chuỗi liên tục. Và train bằng cách dựđoán vector của frame
+kếtiếp.
+Tóm lại, videoGPT giới thiệu một kiến trúc đơn giản và hiệu quảcho bài toán tạo sinh video, sửdụng
+2 thành phần chính là khối VQ-VAE có chức năng học không gian latent rời rạc của các video và khối
+kiến trúc tương tựnhư GPT đểmô hình hóa và tạo sinh chuỗi. Sựđơn giản của phương pháp này cùng
+với tính hiệu quảcủa nó mang đến một hướng nghiên cứu vềcác mô hình tạo video.
+6
+AI VIETNAM
+aivietnam.edu.vn
+4.2
+Make-A-Video
+Được giới thiệu trong [7], đây là một phương pháp tạo video từvăn bản mà không cần dữliệu video
+đi kèm văn bản mô tả, từđó giải quyết vấn đềvềthiếu hụt data trong tác vụtạo sinh video. Phương
+pháp này mởrộng từmô hình tạo hình ảnh từvăn bản mô tả(Text to Image-T2I) bằng cách thêm vào
+các mô-đun spatialtemporal, cho phép tạo video có độphân giải cao và tốc độkhung hình cao từvăn
+bản đầu vào. Make-A-Video không yêu cầu dữliệu video có kèm theo văn bản mô tảvà có thểtạo ra
+video với chất lượng và mức độchi tiết cao, mởra khảnăng áp dụng trong nhiều lĩnh vực khác nhau.
+Hình 6: Make-A-Video high-level architecture
+Make-A-Video bao gồm ba thành phần chính:
+• Một mô hình cơ sởT2I được huấn luyện trên các cặp text-image: Sửdụng 3 networks để
+tạo ra hình ảnh độphân giải cao từvăn bản. Prior network P trong quá trình inference tạo ra
+các image embedding từtext embedding và các BPE encoded text tokens. Decoder network D
+tạo ảnh RGB với low-resolution (64 × 64) dựa trên các image embedding. Hai super-resolution
+networks SR1, SRh tăng độphân giải của ảnh lên thành 256 × 256 và 768 × 768.
+• Spatiotemporal network sửdụng các spatiotemporal convolution và attention layers
+đểmởrộng các blocks. Điều này đòi hỏi phải điều chỉnh các lớp tích chập và các lớp attention.
+Ngoài ra, spatiotemporal decoder network tạo ra những khung hình RGB độphân giải thấp ban
+đầu. Các khung hình này sau đó được cải thiện bởi interpolation network và các super-resolution
+networks đảm bảo sựnhất quán giữa các khung hình đểtránh flickering artifacts. Super-resolution
+được sửdụng do hạn chếvềbộnhớvà khảnăng tính toán cùng với sựkhởi tạo consistent noise
+giữa các khung hình đểduy trì nội dung chi tiết giữa chúng.
+7
+AI VIETNAM
+aivietnam.edu.vn
+Hình 7: Kiến trúc và cơ chếkhởi tạo của Pseudo-3D convolutional và attention layers, cho phép chuyển
+đổi mô hình T2I đã được huấn luyện trước sang chiều không gian thời gian.
+– Pseudo-3D convolutional layers: Việc sửdụng Pseudo-3D convolutional layers nhằm
+nâng cao 2D convolutional network cho temporal learning mà không cần đến tính toán của
+3D convolutions. Xếp 1D convolution sau 2D convolution layer nhằm thúc đẩy việc chia sẻ
+thông tin giữa không gian và thời gian đồng thời duy trì sựtách biệt giữa 2D convolution đã
+huấn luyện trước và 1D convolution mới. Lớp này được định nghĩa theo mặt toán học, với
+tensor được biểu diễn trong không gian đa chiều nơi mà B, C, F, H, và W lần lượt ký hiệu
+cho batch, channels, frames, height, width. Nó cũng lưu ý rằng khi khởi tạo, mạng có khả
+năng tạo ra nhiều hình ảnh chính xác vềmặt văn bản nhưng không nhất quán vềthời gian
+do nhiễu ngẫu nhiên.
+– Pseudo-3D attention layers: với mục đích là chèn thông tin văn bản vào network mà
+không tốn nhiều tài nguyên tính toán như sửdụng full 3D convolutions. Việc này được thực
+hiện bằng cách xếp chồng các 1D attention layer lên trên pre-trained spatial attention layer.
+Những lớp này cho phép network duy trì sựchú ý trong không gian đồng thời kết hợp thông
+tin thời gian. Cách tiếp cận này giúp khảthi vềquản lý tài nguyên bộnhớvà tính toán,
+đồng thời giải quyết thách thức tích hợp thời gian vào tạo ảnh và video.
+• Spatiotemporal network còn có thêm một thành phần quan trọng cho việc tạo video là frame
+interpolation network nhằm cải thiện tốc độtạo khung hình. Network có thểtăng sốlượng
+khung hình của video được tạo ra thông qua nội suy khung hình đểtạo ra các chuỗi smooth hơn
+hoặc ngoại suy khung hình trước/sau đểkéo dài video. Đểquản lý giới hạn vềbộnhớvà tính
+toán, network tinh chỉnh một spatiotemporal decoder cho nhiệm vụnội suy khung hình với mask
+đểnâng cao chất lượng video. Quá trình này bao gồm việc thêm các channels bổsung vào input
+và sửdụng zero-padding cho các masked frames. Network cũng có khảnăng bỏqua một sốkhung
+hình biến đổi và điều kiện fps trong thời gian suy luận, cho phép linh hoạt trong việc nâng cao
+chất lượng thời gian từmột sốlượng khung hình nhất định sang một sốlượng lớn hơn.
+8
+AI VIETNAM
+aivietnam.edu.vn
+4.3
+Phenaki
+Hình 8: Kiến trúc chung của mô hình Phenaki
+Mô hình Phenaki, được trình bày trong công trình "Phenaki: Variable Length Video Generation From
+Open Domain Textual Description" [8], mởra một hướng mới trong việc tạo video từvăn bản. Được
+thiết kếđểtạo ra những đoạn video chân thực từcác mô tảvăn bản, Phenaki giải quyết nhiều thách
+thức đáng kểtrong lĩnh vực này. Đó là việc tối ưu hóa hiệu suất tính toán, đối mặt với tình trạng thiếu
+hụt nguồn dữliệu văn bản-video chất lượng cao và duy trì sựnhất quán trong không gian cũng như
+tính liên kết vềthời gian cho các video dài. Bằng cách biến đổi các đoạn văn bản thành những câu
+chuyện video liền mạch, Phenaki không chỉđặt ra một tiêu chuẩn mới mà còn cho thấy khảnăng ứng
+dụng rộng rãi của nó trong thực tế.
+4.3.1
+Kiến trúc Encoder-Decoder cho video: C-ViVIT
+Đểcó thểlàm được những điều trên, Phenaki giới thiệu một kiến trúc encoder-decodcer mới, đặt tên
+là C-ViViT, được mô tảtrong Hình 8. Kiến trúc này có 2 khảnăng chính.
+• Kiến trúc này có thểkhai thác sựdư thừa thời gian trong video đểcải thiện chất lượng tái tạo
+mỗi khung hình đồng thời nén sốlượng video token từ40% trởlên.
+• Cho phép mã hóa và giải mã các video có độdài thay đổi dựa trên cấu trúc của nó.
+Một trong những thách thức lớn nhất đối với các mô hình tạo sinh video từvăn bản đó chính là
+quá trình nén video thành các vector biểu diễn. Các công trình trước đó đi theo 2 hướng chính đểlàm
+việc này, đó là sửdụng các image encoder theo từng frame một, hoặc là sửdụng một video encoder có
+sốframe cốđịnh. Hướng thứnhất cho phép tạo sinh video với độdài tùy thích, tuy nhiên trên thực tế
+thì việc tạo sinh video với độdài lớn là rất khó khăn và tốn nhiều tài nguyên. Phương pháp thứ2 có
+thểgiúp giảm tài nguyên tính toán, tuy nhiên lại không thểtạo sinh video với độdài tùy thích. Mục
+tiêu của Phenaki là giải quyết 2 vấn đềnày: tạo sinh video với độdài tùy thích, đồng thời nén sốlượng
+token video vềmức tối thiểu. Kiến trúc C-ViViT, là một biến thểcủa mô hình ViViT có khảnăng tạo
+9
+AI VIETNAM
+aivietnam.edu.vn
+sinh video và nén video trong các chiều thời gian và không gian, trong khi vẫn có tính hồi quy theo thời
+gian.
+Khối Encoder:
+Hình 9: Kiến trúc của khối encoder
+Khối encoder chuyển chuỗi video thành các token biểu diễn nhỏgọn phù hợp đểxửlý bởi các lớp
+transformers của mô hình.Quy trình bắt đầu với một chuỗi video ban đầu ởkhông gian bốn chiều biểu
+diễn thời gian, chiều cao, chiều rộng và kênh màu. Chuỗi này sau đó được nén thành biểu diễn token
+nhỏhơn phân biệt giữa khung hình đầu tiên và các token video không gian-thời gian tiếp theo, phụ
+thuộc vào các khung hình trước.
+Quá trình nén được thực hiện bằng cách trích xuất các patches không chồng lấn từkhung hình đầu
+tiên và các khung hình video tiếp theo, sau đó được làm phẳng và chiếu vào không gian chiều thấp hơn.
+Các chiều không gian và thời gian của các patches này được sắp xếp lại thành định dạng tensor phân
+biệt rõ ràng giữa chiều không gian và chiều thời gian. Quá trình này được biểu diễn trong hình 8.
+Hình 10: Quá trình trích xuất các patches không chồng lấn sau đó làm phẳng và giảm chiều.
+Bộmã hóa áp dụng nhiều lớp transformer trên các chiều không gian sửdụng Spatial Transformer
+với attention toàn cục. Khối transformer này có nhiệm vụhọc thông tin vềkhông gian. Tiếp theo là
+10
+AI VIETNAM
+aivietnam.edu.vn
+các lớp transformer bổsung trên chiều thời gian sửdụng causal attention. Các lớp này có nhiệm vụ
+học thông tin vềthời gian. Điều này đảm bảo rằng mỗi token không gian chỉtương tác với các token
+không gian từcác khung hình trước, cho phép khung hình đầu tiên được mã hóa độc lập. Thiết kếnày
+tạo điều kiện cho việc kết hợp các mô hình text-to-image trong mô hình video và cho phép quá trình
+tạo video được điều kiện hóa (conditioned) bởi một tập hợp khung hình ban đầu.
+Các vector đầu ra sau khi đi qua các lớp transformer sẽđược lượng tửhóa vềkhông gian latent rời
+rạc. Tương tựnhư trong kiến trúc VQ-VAE.
+Khối Decoder:
+Khối decoder của C-ViViT đơn giản là một khối encoder được lật ngược. Đầu
+tiên token được chuyển đổi thành các embedding. Sau đó là temporal transformer, tiếp theo là spatial
+transformer. Đầu ra sau đó được áp dụng một phép chiếu tuyến tính đơn đểánh xạcác token trởlại
+không gian pixel.
+4.3.2
+Tạo sinh video từvăn bản với bidirectional transformers
+Hình 11: Quá trình training bidirectional transformer
+Việc chuyển đổi từvăn bản sang video có thểđược định nghĩa như một tác vụsequence-to-sequence,
+thường được giải quyết bằng cách sửdụng các mô hình autoregressive transformer dựđoán tuần tựcác
+token video từnhúng văn bản. Tuy nhiên, cách tiếp cận này trởnên không hiệu quảcho các video dài
+do thời gian lấy mẫu tăng tuyến tính.
+Đểcải thiện hiệu quả, tác giảsửdụng mô hình bidirectional transformer có khảnăng dựđoán đồng
+thời nhiều token video, giảm đáng kểthời gian lấy mẫu bất kểđộdài của chuỗi video. Trong quá trình
+huấn luyện, một phần các token video được che kín và các token này được dựđoán bằng các embedding
+văn bản và các token không bịche kín, với mô hình học thông qua hàm loss cross-entropy.
+Phương pháp này, lấy cảm hứng từcác kỹthuật như được sửdụng trong MaskGIT, giảm đáng kể
+sốbước lấy mẫu cần thiết (thông thường từ12 đến 48 bước), có khảnăng cải thiện chất lượng video
+được tạo ra trong khi đảm bảo quá trình xửlý nhanh hơn.
+Quá trình inference Trong quá trình inferece, trước tiên tất cảcác video token được đánh dấu
+là token đặc biệt [MASK]. Sau đó, tại mỗi bước inference, tất cảcác token video bịche được dựđoán
+cùng một lúc dựa trên các embedding văn bản và các token video không bịche (đã dựđoán). Sau đó,
+một tỷlệβi của các token được dựđoán tại bước lấy mẫu i được giữlại, và các token còn lại sẽđược
+che lại và dựđoán lại ởbước tiếp theo.
+11
+AI VIETNAM
+aivietnam.edu.vn
+4.3.3
+Tổng kết
+Phenaki được giới thiệu là một mô hình có khảnăng tạo ra video có độdài biến thiên dựa trên chuỗi
+prompt văn bản từcác chủđềmở. Nó sửdụng C-ViViT làm bộmã hóa video, một mô hình mới cung
+cấp khảnăng nén không gian-thời gian hiệu quảtrong khi vẫn duy trì tính tựhồi quy theo thời gian.
+Phenaki cho thấy kết quảhứa hẹn trong việc dựđoán video và có thểtạo ra video dài từlời nhắc văn
+bản, với sựlinh hoạt đểbắt đầu từmột khung hình nhất định. Phenaki có thểtạo ra các câu chuyện
+video dài, có mạch lạc từnhiều prompt văn bản, minh họa tiềm năng của nó như một công cụsáng tạo
+cho việc kểchuyện bằng video.
+4.4
+CogVideo
+CogVideo [3] là một mô hình tạo video từvăn bản mô tảsửdụng kiến trúc Transformer với 9 tỷtham
+số, được huấn luyện dựa trên mô hình sinh ảnh từvăn bản mô tảCogView2. CogVideo sửdụng chiến
+lược huấn luyện phân cấp nhiều tốc độkhung hình đểcải thiện việc căn chỉnh giữa văn bản mô tảvà
+video, cũng như tinh chỉnh khảnăng kiểm soát độchính xác trong quá trình tạo video. Trong paper
+CogVideo đềcập đến việc mởrộng và áp dụng cơ chếSwin attention trong tạo video tựđộng, nhằm
+tăng cường tốc độhuấn luyện và suy luận.
+CogVideo sửdụng Multi-frame-rate Hierarchical Training đểhuấn luyện mô hình. Ý tưởng chính
+là thêm một frame-rate token vào văn bản mô tảvà lấy mẫu các khung hình ởframe-rate này đểtạo
+thành một chuỗi huấn luyện cốđịnh. Động lực dựa trên hai phần:
+• Tách video dài thành các đoạn ởframe-rate cốđịnh thường dẫn đến sựkhông khớp nghĩa. CogVideo
+vẫn sửdụng toàn bộvăn bản nhưng đoạn clip bịcắt có thểchỉchứa hành động không hoàn chỉnh.
+• Các khung hình liền kềthường rất giống nhau. Một sựthay đổi lớn so với khung hình trước có
+thểgây ra sai sốlớn. Điều này khiến các mô hình ít có xu hướng khám phá mối liên hệdài hạn
+vì đơn giản sao chép khung hình trước đó giống như một lối tắt.
+Trong quá trình huấn luyện, nhằm đạt được được sựkhớp chính xác giữa văn bản mô tảvà hình
+ảnh. CogVideo thiết lập trước một dãy các frame-rate và chọn ra frame-rate thấp nhất có thểcho từng
+cặp text-video, đảm bảo có thểlấy mẫu được ít nhất là 5 khung hình. Dù phương pháp này cải thiện
+sựphù hợp giữa văn bản mô tảvà video, nhưng video tạo ra ởframe-rate thấp có thểkhông liền mạch.
+Do đó, một frame interpolation model được tạo ra đểthêm các khung hình chuyển tiếp vào video, giúp
+cho quá trình sinh video trởnên mượt mà hơn. Nhờvào sựlinh hoạt của CogLM, hai mô hình này có
+thểsửdụng chung một cấu trúc và quy trình huấn luyện, chỉkhác biệt ởđiểm sửdụng các attention
+masks.
+12
+AI VIETNAM
+aivietnam.edu.vn
+Hình 12: Multi-frame-rate hierarchical generation framework in CogVideo
+Quá trình Multi-frame-rate hierarchical generation của CogVideo là một quá trình đệquy gồm hai
+giai đoạn. Đầu tiên là sinh tuần tựkhung hình chủchốt dựa trên frame-rate thấp và văn bản mô tả;
+thứhai là nội suy đệquy các khung hình dựa trên văn bản mô tả, frame-rate và các khung hình đã
+biết, với mục tiêu tạo ra video có nhiều khung hình hơn thông qua việc chia các khung hình đã sinh ra
+và nội suy thêm khung hình giữa chúng.
+Cũng trong bài báo CogVideo tác giảđềxuất việc sửdụng các mô hình tạo ảnh đã được huấn luyện
+trước đểhỗtrợviệc tạo video từvăn bản mô tả, thay vì dựa trên việc thu thập dữliệu ảnh và video
+chất lượng cao, quá trình này thường tốn kém và mất thời gian. Cụthểáp dụng Dual-channel Attention
+bằng cách thêm spatial-temporal attention channel vào mỗi lớp chuyển đổi của mô hình CogView2 đã
+được huấn luyện trước, giữnguyên các tham sốcũ và chỉhuấn luyện các tham sốmới của lớp attention.
+Điều này giúp giữlấy kiến thức vềmối quan hệtext-image từCogView2 mà không làm hỏng trọng số
+đã học được khi chuyển sang tạo video, vốn đòi hỏi sựchú ý đến cảkhông gian và thời gian.
+13
+AI VIETNAM
+aivietnam.edu.vn
+Hình 13: Dual-channel attention block
+Đểgiảm thiểu áp lực vềthời gian và bộnhớtrong quá trình huấn luyện và suy luận, CogVideo áp
+dụng Swin Attention, mởrộng nó cho các tình huống auto-regressive và temporal scenario bằng cách
+sửdụng auto-regressive attention mask trong shifted windows. Phát hiện thú vịlà Swin Attention cho
+phép tạo ra song song ởcác vùng xa của các khung hình khác nhau, tăng tốc độcho auto-regressive,
+với sựphụthuộc vào việc tạo token dựa trên auto-regressive mask và shifted windows, giới hạn sựchú
+ý chỉtrong phạm vi kích thước cửa sổ.
+Hình 14: Autoregressive swin attention (window size 2 × 2)
+5
+Diffusion-based models
+Một hướng tiếp cận khác cho tác vụtạo sinh video từvăn bản là hướng áp dụng mô hình diffusion.
+Hướng tiếp này là một trong những phát triển đáng chú ý gần đây, được thúc đẩy bởi thành công mà
+các mô hình diffusion đã đạt được trong việc sinh ra hình ảnh chất lượng cao. Các nghiên cứu tiên tiến
+trong lĩnh vực này đang khám phá cách thức áp dụng các nguyên tắc diffusion đểtạo ra video không
+chỉcó chất lượng hình ảnh sắc nét mà còn đảm bảo tính liên tục và mượt mà vềmặt chuyển động. Dưới
+đây là một sốcông trình nổi bật đã đưa ra cách tiếp cận sửdụng mô hình diffusion cho việc sinh video,
+mởra những khảnăng mới cho việc tạo ra nội dung video phong phú và đa dạng từvăn bản mô tả.
+14
+AI VIETNAM
+aivietnam.edu.vn
+5.1
+Video Diffusion Models
+Đây là một trong những công trình nghiên cứu đầu tiến tiếp cận theo hướng sửdụng mô hình diffusion
+đểtạo sinh video. Video Diffusion Models [2] là sựmởrộng tựnhiên của kiến trúc image diffusion và
+cho phép đào tạo chung từdữliệu ảnh và video. Đểtạo ra video dài và độphân giải cao hơn, các tác
+giảđã giới thiệu một kỹthuật lấy mẫu điều kiện mới cho việc mởrộng video theo không gian và thời
+gian.
+Trong công trình nghiên cứu vềmô hình hình ảnh, U-Net là kiến trúc tiêu chuẩn cho image diffusion,
+bao gồm quá trình giảm và tăng mẫu không gian với các skip connections. U-net được xây dựng từcác
+khối 2D convolutional và mỗi khối được theo sau bởi một khối spatial attention. Trong bài báo Video
+Diffusion Models tác giảđềxuất mởrộng kiến trúc này cho dữliệu video với U-Net 3D, phân tách theo
+không gian và thời gian, và thêm khối temporal attention, cho phép đào tạo chung trên video và hình
+ảnh, cải thiện chất lượng mẫu.
+Hình 15: 3D U-Net architecture trong Video Diffusion Models
+Thông thường việc giải quyết thách thức tính toán khi mô hình hóa video, thường gồm hàng trăm
+đến hàng nghìn khung hình, bằng cách đào tạo model trên một tập hợp con khung hình và sau đó mở
+rộng mẫu đểtạo video dài hơn. Hai phương pháp lấy mẫu điều kiện từdiffusion model gồm: sửdụng
+phương pháp thay thế- không hiệu quảcho mô hình video do thiếu sựliên kết giữa các khung hình
+được sinh ra, và phương pháp được đềxuất trong paper gọi là reconstruction-guided sampling. Phương
+pháp này cải thiện chất lượng mẫu bằng cách điều chỉnh denoising model với gradient term based dựa
+trên sựtái tạo của model, đặc biệt khi kết hợp với Langevin diffusion samplers. Nó cũng mởrộng sang
+nội suy không gian cho super-resolution, thểhiện tính linh hoạt của phương pháp trong việc tạo video
+độphân giải cao từđầu vào độphân giải thấp.
+5.2
+MagicVideo
+MagicVideo [11] có thểtạo ra các đoạn video mượt mà phù hợp với văn bản mô tảđã cho. Nhờvào
+kiến trúc 3D U-Net và hiệu quảcùng với việc mô hình hóa phân phối video trong không gian low-
+dimensional. MagicVideo có thểtổng hợp video 256×256 spatial resolution trên một card GPU, giảm
+đến 64 lần lượng tính toán so với Video Diffusion Models (VDM) vềFLOPs. MagicVideo còn giới thiệu
+hai thiết kếmới đểthích nghi bộlọc U-Net được đào tạo trên dữliệu hình ảnh sang dữliệu video, và
+chứng minh khảnăng tạo ra các đoạn video chất lượng cao với nội dung thực tếhoặc tưởng tượng.
+15
+AI VIETNAM
+aivietnam.edu.vn
+Hình 16: (a) data flow cho cảquá trình training và inference: trong quá trình training, timestep t sẽ
+được chọn mẫu ngẫu nhiên từ[0, T] và các khung hình video đầu vào bịlàm nhiễu qua quá trình lan
+truyền, U-Net được sửdụng đểhọc cách tái tạo các khung hình video. Gaussian noise được chọn mẫu
+ngẫu nhiên trong suy luận, và denoising process được lặp lại T lần. Latent vector z sau đó được đưa
+vào bộgiải mã VAE và chuyển đổi sang không gian RGB. (b) là cấu trúc của spatiotemporal attention
+(ST-Attn). (c) là directed attention được sửdụng trong ST-Attn
+Trong quá trình huấn luyện model tạo video từvăn bản mô tả, MagicVideo tiếp cận bằng cách lấy
+mẫu một phần nhỏcác khung hình liên tiếp và xác định rõ frame-rate mới dựa trên độdài mẫu. Đểcải
+thiện chất lượng, model được huấn luyện trước mà không cần ghép cặp văn bản-video sửdụng dữliệu
+video chất lượng cao, sau đó được tinh chỉnh với mục tiêu huấn luyện cụthể, áp dụng loss function cho
+từng khung hình và sửdụng các embeddings đểtinh chỉnh mô hình, cho phép tạo video liền mạch và
+chất lượng cao từvăn bản mô tả.
+Hình 17: VideoVAE decoder
+Trong quá trình tổng hợp hình ảnh RGB từcác decoding latent features quaVAE decoder đã được
+đào tạo trước, quá trình tái tạo từng khung hình video dẫn đến hiện tượng pixel dithering, làm giảm
+chất lượng thẩm mỹhình ảnh. Các đặc trưng không gian với kích thước lớn hơn sẽgiảm bớt dithering
+nhưng cũng làm tăng chi phí tính toán. Đểcải thiện chất lượng hình ảnh mà không tăng tính toán, tác
+16
+AI VIETNAM
+aivietnam.edu.vn
+giảđã giữkích thước thấp cho latent features và thêm vào decoder hai khối temporal directed attention
+layers, tạo nên VideoVAE decoder giúp hiệu quảtrong việc giảm thiểu dithering.
+5.3
+Tune-A-Video
+"Tune-A-Video: One-Shot Tuning of Image Diffusion Models for Text-to-Video Generation" [9] là paper
+giới thiệu một phương pháp mới đểtạo ra video từcác prompt văn bản bằng cách tận dụng khảnăng của
+các mô hình diffusion text-to-image (T2I) đã được pretrained. Nghiên cứu này giải quyết vấn đềthiếu
+hụt các cặp văn bản-video chất lượng cao cho việc đào tạo bằng cách đềxuất phương pháp one-shot
+video-tuning, từđó không cần phải phụthuộc vào các cặp video-văn bản caption.
+Hình 18: Cái nhìn tổng quát vềpaper Tune-A-Video
+.
+Cụthểvới một video cho trước, nhiệm vụcủa model là fine-tune cụthểtrên video đó, đểtừđó có
+thểedit video đó dựa theo yêu cầu từtext prompt của user. Điều này giúp giảm chi phí tính toán, khi
+thay vì phải train trên một tập dataset vềvideo lớn, với chi phí vềgán nhãn và vềphần cứng khổng
+lồ, ta có thểtận dụng các mô hình Text-to-image có sẵn đểtune duy nhất cho một video, và tương tác
+trên video đó. Phương pháp này được gọi là zero-shot video-tuning.
+Hình 19: Pipeline của paper Tune-a-video
+17
+AI VIETNAM
+aivietnam.edu.vn
+Paper này sửdụng Latent Diffusion Model (LDM, [6]) đã được pretrained như một mô hình text-to-
+image. Trong đó LDM sửdụng kiến trúc U-Net, sửdụng nhiều khối Convolution 2D và khối transformer,
+với từng khối transformer sửdụng các layer self-attention, cross-attention và feed-forward. Đểsửdụng
+các khối này cho tác vụvideo, nghiên cứu này có một sốchỉnh sửa cho khối U-Net. Đầu tiên, khối
+Convolution 2D được thay thếbằng khối Convolution 3D giả, với các filter 3x3 được thay thếbằng các
+layer 1x3x3. Vềkhối attention, một khối temporal self-attention (T-Attn) được thêm vào ởcuối cùng
+ởmối khối transformer đểmô tảthông tin vềthời gian. Đểtăng độmạch lạc vềthời gian cho video,
+paper này sửdụng một khối spatial-temporal attention thay cho khối self-attention. Trong đó, đểgiảm
+tài nguyên cần cho tính toán, attention chỉđược tính giữa frame hiện tại, frame liền trước nó và frame
+đầu tiên, trong đó, thông tin vềfeature giữa frame đầu tiên và frame liền trước được concat lại với
+nhau. Quá trình này được mô tảtrong hình 20.
+Hình 20: Minh họa Spatial-Temporal Attention
+Tổng kết lại, bài báo giới thiệu một task mới có tên one-shot video-tuning cho việc tạo video từvăn
+bản (T2V), mà trong đó việc huấn luyện mô hình tạo sinh T2V chỉsửdụng một cặp văn bản-video
+duy nhất với sựhỗtrợcủa các mô hình chuyển đổi từvăn bản sang hình ảnh (T2I) đã được huấn luyện
+từtrước. Công cụđược giới thiệu, Tune-A-Video, hỗtrợviệc tạo và chỉnh sửa video dựa trên văn bản
+thông qua một chiến lược tuning đặc biệt và sựđảo ngược cấu trúc, đảm bảo tính nhất quán vềthời
+gian trong các video được tạo ra. Hiệu quảcủa phương pháp này được chứng minh thông qua các thử
+nghiệm rộng rãi trên nhiều ứng dụng, cho thấy khảnăng ấn tượng của nó.
+6
+Diffusion Models with Transformer
+Đây là một phương pháp kết hợp những điểm mạnh của cảhai cách làm trước đây. Bằng cách dùng mô
+hình diffusion cùng với kiến trúc transformer - thay vì dùng kiến trúc UNet thông thường - cách tiếp
+cận này mởra khảnăng thiết kếmô hình linh hoạt hơn và tận dụng khảnăng nhận diện hình ảnh ưu
+việt của transformer. Điều này giúp tạo ra những hình ảnh, video chất lượng cao, với hiểu biết sâu sắc
+vềnội dung và bối cảnh hơn.
+Nghiên cứu "Scalable Diffusion Models with Transformers" [5] là một công trình tiên phong khám
+phá một nhánh mới của mô hình diffusion sửdụng kiến trúc transformer. Khác với các mô hình diffusion
+truyền thống thường sửdụng cốt lõi U-Net, nghiên cứu này giới thiệu việc sửdụng transformer hoạt
+động trên các patches trong không gian latent của hình ảnh. Điểm chính của nghiên cứu là vềkhảnăng
+18
+AI VIETNAM
+aivietnam.edu.vn
+mởrộng của các Diffusion Transformers (DiTs) thông qua phân tích độphức tạp của quá trình lan
+truyền xuôi, được đo bằng Gflops. Nghiên cứu đã tìm thấy một xu hướng nhất quán, khi mô hình DiTs
+có Gflops cao hơn, đạt được thông qua việc tăng độsâu/rộng của transformer hoặc sốlượng token đầu
+vào, thểhiện điểm Frechet Inception Distance (FID) thấp hơn, cho thấy hiệu suất tốt hơn. Đáng chú
+ý, mô hình lớn nhất, DiT-XL/2, đã vượt qua các mô hình khuếch tán trước đó vềhiệu suất trên các
+benchmark phổbiến.
+Hình 21: Caption
+Một trong những đột phá chính của nghiên cứu này là thay thếkiến trúc U-Net thường được sử
+dụng trong các mô hình diffusion thành kiến trúc diffusion transformer. Hình 21 cho ta thấy cái nhìn
+tổng quan vềthiết kếcủa khối DiT. Đầu vào của khối DiT là biểu diễn trong không gian latent z của
+một tấm ảnh (với một tấm ảnh kích thước 256 × 256 × 3, z có kích thước 32 × 32 × 4). Sau đó z sẽđược
+chia thành từng patches ảnh nhỏ, sau đó trải phẳng đểtạo thành một chuỗi T các token hình ảnh, với
+mỗi token có chiều là d.
+6.1
+Diffusion Transformer
+Bây giờchúng ta sẽtìm hiểu tổng quan vềDiffusion Transformer được đềcập trong bài báo.
+Diffusion formulation - Diffusion model thêm dần nhiễu vào dữliệu và sau đó học cách đảo ngược
+quá trình này. Quá trình đào tạo dựa vào việc giảm thiểu sai sốgiữa nhiễu dựđoán và nhiễu thực tế.
+Classifier-free guidance - Phương pháp này cải thiện khảnăng tạo mẫu của mô hình bằng cách
+điều chỉnh đầu ra dựa trên thông tin bổsung như nhãn lớp đểtạo ra ảnh chất lượng cao hơn.
+Latent diffusion models - Đây là một phương pháp hiệu quảvềmặt tính toán, nén ảnh vào biểu
+diễn không gian nhỏhơn trước khi tạo ảnh, giúp tiết kiệm tài nguyên tính toán.
+19
+AI VIETNAM
+aivietnam.edu.vn
+Hình 22: DiT Block.
+DiT block design - Với DiT block tác giảđã có một sốnhững thay đổi nhỏso với ViT block chuẩn
+thông thường:
+• In-context conditioning: DiT thêm các vector embedding của timestep và class labels như là hai
+token bổsung trong chuỗi đầu vào, xửlý chúng không khác gì so với các token ảnh. Điều này
+tương tựnhư token cls trong ViTs, và nó cho phép DiT sửdụng các khối ViT chuẩn mà không
+cần chỉnh sửa.
+• Cross-attention block: tại đây nối các embedding của timestep và class labels thành một chuỗi có
+độdài hai, tách biệt từchuỗi token ảnh. Khối transformer được chỉnh sửa đểbao gồm thêm một
+lớp multi-head cross-attention theo sau multi-head self-attention.
+• Adaptive layer norm (adaLN) block: thay thếcác layer norm thông thường trong các khối trans-
+former bằng adaptive layer norm - adaLN. Tại đây, thay vì học trực tiếp các tham sốdimensionwise
+scale và shift parameters thì DiT hồi quy chúng từtổng của các vector embedding của timestep
+và class labels.
+• adaLN-Zero block: Trong nghiên cứu vềResNets, việc khởi tạo các residual block đểhoạt động
+như identity function đã được chứng minh là có ích. Mô hình Diffusion U-Net áp dụng phương
+pháp tương tựvới lớp tích chập cuối của mỗi khối. DiT áp dụng chiến lược này trong khối adaLN
+của mô hình DiT, đồng thời hồi quy thêm các tham sốtỷlệđểtối ưu hóa hiệu suất trước khi
+thực hiện kết nối phần dư.
+Phần V: Mô hình Sora
+Sora là một mô hình AI có khảnăng tạo ra các video lên đến một phút, với chất lượng hình ảnh cao và
+nội dung bám sát theo yêu cầu của người dùng. Mô hình hiện đang được mởcho các nhóm kiểm định
+20
+AI VIETNAM
+aivietnam.edu.vn
+đểđánh giá vềcác rủi ro tiềm ẩn và cũng được cung cấp cho các nghệsĩ, nhà thiết kếvà nhà làm phim
+đểthu thập phản hồi nhằm cải thiện mô hình cho nhu cầu sáng tạo. Sora có thểtạo ra các cảnh phức
+tạp với nhiều nhân vật, các loại chuyển động cụthể, và chi tiết chính xác vềđối tượng và phông nền.
+Mặc dù có khảnăng hiểu biết sâu sắc vềngôn ngữvà tạo ra các nhân vật biểu cảm, mô hình vẫn còn
+hạn chếnhư khó khăn trong mô phỏng vật lý của cảnh phức tạp và nhầm lẫn các chi tiết không gian
+trong yêu cầu.
+Safety - Trước khi Sora được tích hợp vào các sản phẩm của OpenAI, mô hình sẽđược áp dụng
+các biện pháp an toàn quan trọng, bao gồm hợp tác với các chuyên gia từcác lĩnh vực như thông tin
+sai lệch và nội dung độc hại đểkiểm thửmô hình. Hiện OpenAI cũng đang phát triển công cụđểphát
+hiện nội dung lừa đảo và dựđịnh tích hợp metadata C2PA. Sửdụng các phương pháp an toàn từsản
+phẩm sửdụng DALL·E 3 và tiếp tục phát triển kỹthuật mới nhằm đảm bảo vào việc kiểm soát nội
+dung vi phạm chính sách sửdụng trước khi hiển thịcho người dùng.
+7
+Research techniques
+Ởphần này chúng ta sẽtìm hiểu tổng quan vềmô hình Sora. Trong khi nghiên cứu trước đây tập trung
+vào video ngắn hoặc dữliệu hình ảnh hạn chế, Sora phá vỡgiới hạn này bằng cách tạo ra video và hình
+ảnh đa dạng, kéo dài đến một phút với độnét cao.
+Xửlý dữliệu hình ảnh - Áp dụng phương pháp từcác mô hình ngôn ngữlớn trước đó là dùng
+dữliệu quy mô internet đểphát triển khảnăng tổng quát sau đó chuyển đổi qua dữliệu ảnh với các
+image patches thay cho các tokens văn bản. Cách tiếp cận này, đã được chứng minh là hiệu quảtrong
+việc đại diện cho dữliệu hình ảnh giúp Sora trởnên mạnh mẽvà có thểmởrộng đểhuấn luyện trên
+video và hình ảnh đa dạng. Quá trình biến đổi video thành các patches được thực hiện bằng cách nén
+chúng vào lower-dimensional latent space sau đó phân tách chúng vào spacetime patches.
+Mạng nén thông tin video Một trong những thành phần rất quan trọng của Sora, nhưng lại
+không được đềcập quá kĩ trong báo cáo kĩ thuật của OpenAI đó chính là mô hình nén video. Mô hình
+này có chức năng chính là nén video gốc thành những vector biễu diễn trên không gian latent, và những
+vector biễu diễn này đã nén cảvềchiều không gian lẫn chiều thời gian. Một mạng decoder cũng được
+train đểánh xạnhững biểu diễn này vềlại không gian pixel. Có một sốsuy đoán vềkiến trúc của thành
+phần này, chẳng hạn một mô hình VAE, hay một dạng tượng tựnhư VQGAN như các mô hình ởphần
+III có đềcập. Tuy nhiên ta không thểnào biết chính xác kiến trúc và cách training của thành phần này.
+Spacetime latent patches - Với một video đầu vào đã được nén, Sora trích xuất một chuỗi các
+spacetime patches hoạt động như các token transformer. Cơ chếnày cũng áp dụng cho ảnh vì ảnh chỉ
+là video với một khung hình duy nhất. Biểu diễn dựa trên patches của chúng cho phép Sora huấn luyện
+trên video và hình ảnh với độphân giải, thời lượng và tỷlệkhung hình đa dạng. Tại thời điểm suy luận,
+21
+AI VIETNAM
+aivietnam.edu.vn
+chúng ta có thểkiểm soát kích thước của video được sinh ra bằng cách sắp xếp các patches được khởi
+tạo ngẫu nhiên trong một lưới có kích thước phù hợp.
+Mởrộng quy mô mạng transformer cho việc tạo sinh video - Như chúng ta đã biết diffusion
+model là một loại mô hình sinh mô phỏng quá trình xoá mờvà tái tạo dữliệu, thường được sửdụng
+trong việc sinh ra hình ảnh, video, hoặc âm thanh. Bằng cách bắt đầu từdữliệu nhiễu và dần dần loại
+bỏnhiễu đó qua nhiều bước lặp, mô hình học cách tái tạo dữliệu gốc từdữliệu đã bịlàm nhiễu, từ
+từsinh ra sản phẩm cuối cùng có chất lượng cao. Quá trình này thường được hỗtrợbởi thông tin điều
+kiện, như văn bản mô tả, đểhướng dẫn quá trình tái tạo dữliệu theo mong muốn.
+Trong bối cảnh của Sora, diffusion model được áp dụng đểdựđoán và tái tạo các clean patches từ
+các noisy patches, với sựhỗtrợcủa thông tin điều kiện như văn bản mô tả. Đặc biệt, Sora kết hợp cấu
+trúc của diffusion transformer (DiT), tận dụng khảnăng mởrộng mạnh mẽcủa bộbiến đổi qua nhiều
+lĩnh vực như mô hình hóa ngôn ngữvà sinh hình ảnh. Qua quá trình huấn luyện, chất lượng của dữliệu
+sinh ra bởi Sora tiếp tục cải thiện, chứng minh khảnăng mởrộng hiệu quảcủa diffusion model dưới
+dạng bộbiến đổi cho việc mô hình hóa video.
+8
+Một sốkhảnăng của Sora
+Khảnăng thông hiểu ngôn ngữ: Đầu tiên đó chính là khảnăng hiểu ngôn ngữcủa Sora, từđó có
+thểtạo ra video từcác prompt văn bản. Sora được train trên dữliệu video-text với caption cho các
+video được thu thập bằng phương pháp re-captioning được giới thiệu trong paper DALLE 3. Tương
+tựnhư DALLE 3, Sora cũng sửdụng các mô hình GPT đểbiến những prompt của người dùng thành
+những câu captions dài và chi tiết.
+Prompting từhình ảnh và video Ngoài khảnăng tạo sinh video từvăn bản, ta còn có thể
+prompt sora bằng ảnh và video. Khảnăng này cho phép Sora có thểthực hiệu những tác vụvềedit
+hình ảnh và video, chẳng hạn như tạo những video loop, tạo ảnh động từảnh tĩnh, kéo dài video tiến
+hoặc lùi theo thời gian, v.v.
+Khảnăng mô phỏng thếgiới Và cuối cùng, một khảnăng của Sora khiến giới khoa học thảo
+luận và tranh cãi khá nhiều đó chính là khảnăng mô phỏng thếgiới của Sora. Khi được huấn luyện với
+lượng dữliệu khổng lồ, Sora có thểcó được một sốkhảnăng thú vị, cho phép mô hình có thểmô phỏng
+một sốkhía cạnh của con người, động vật và môi trường từthếgiới vật chất. Sora hoàn toàn không
+được train đểlàm những tác vụnày, đây hoàn toàn là thành quảtuyệt vời được sinh ra từdữliệu lớn.
+Những khảnăng này cho thấy rằng việc mởrộng kích thước của các mô hình video là một con
+đường đầy hứa hẹn, hướng tới sựphát triển của các mô hình có khảnăng mô phỏng thếgiới vật chất
+và tương tác giữa các vật thể, con người và động vật trong đó.
+Tóm lại, SORA đã chứng minh mình là một bước tiến đáng kểtrong lĩnh vực công nghệ, mởra một
+tương lai đầy hứa hẹn với khảnăng tạo sinh video từvăn bản. Mặc dù còn tồn tại một sốhạn chế,
+22
+AI VIETNAM
+aivietnam.edu.vn
+nhưng tiềm năng đểphát triển thành một hệthống mô phỏng thực tếảo, nơi vật thểvà con người có
+thểtương tác một cách tựnhiên, là điều không thểphủnhận. SORA không chỉmởra cánh cửa cho
+những cải tiến công nghệtiếp theo mà còn hứa hẹn sẽmang lại những ứng dụng sáng tạo và cách mạng
+trong các ngành như metaverse, điện ảnh, quảng cáo và giáo dục, đánh dấu một bước ngoặt mới trong
+cách chúng ta tương tác và tạo ra nội dung số.
+Phần VI: Mô hình Genie
+Genie - là một generative interactive environment, đánh dấu bước tiến lớn trong việc tạo dựng thếgiới
+ảo thông qua việc học không giám sát từkho dữliệu video trên internet không được gắn nhãn. Điểm
+nổi bật của Genie là khảnăng của nó trong việc phản hồi các yêu cầu đểsinh ra các thếgiới ảo đa
+dạng, từvăn bản mô tả, hình ảnh tổng hợp, ảnh chụp đến bản vẽ, mởra không gian sáng tạo không
+giới hạn cho người dùng. Với 11 tỷtham số, mô hình này không chỉlà một cơ sởdữliệu thếgiới mà
+còn là một công cụmạnh mẽ, bao gồm spatiotemporal video encoder, autoregressive dynamics model
+và scalable latent action model.
+Đặc biệt, Genie cho phép người dùng tương tác với các môi trường sinh ra, từng khung hình một,
+mà không cần đến nhãn hành động sựthật cơ bản hay các yêu cầu đặc thù của lĩnh vực thường thấy
+trong các nghiên cứu vềmô hình thếgiới. Điều này không chỉlàm giảm bớt gánh nặng vềdữliệu mà
+còn tạo điều kiện cho việc áp dụng rộng rãi. Hơn nữa, latent action space mà Genie học được mởra
+khảnăng đào tạo các đại lý đểmô phỏng hành vi từvideo chưa từng thấy, tiến một bước dài hướng
+tới mục tiêu phát triển các generalist agents cho tương lai.
+Genie bao gồm ba thành phần chính: latent action model dựđoán hành động giữa các cặp khung
+hình, video tokenizer chuyển đổi khung hình thô thành token rời rạc, và dynamics model dựđoán khung
+hình tiếp theo dựa trên latent action và khung hình trước. Quá trình đào tạo mô hình diễn ra qua hai
+giai đoạn, bắt đầu với video tokenizer, sau đó đồng thời đào tạo latent action model và dynamics model,
+cho phép tạo ra dòng video liên tục và chân thực từcác pixel, mởra khảnăng tạo ra các trải nghiệm
+ảo đa dạng và phong phú. Sau đây, chúng ta hãy đi vào tìm hiểu từng thành phần chính của Genie.
+ST-Transformer Mô hình Genie tích hợp nhiều yếu tốtừkiến trúc Vision Transformer, nổi bật
+với đặc thù là độphức tạp tính toán tăng theo cấp sốnhân. Điều này đặt ra thách thức không nhỏ
+trong việc xửlý video, do đó, nghiên cứu này đã chọn giải pháp sửdụng khối ST-Transformer. Phương
+23
+AI VIETNAM
+aivietnam.edu.vn
+Hình 23: Kiến trúc khôi ST-Transformer
+pháp này giúp cân đối hiệu quảgiữa khảnăng xửlý của mô hình và các giới hạn vềkhảnăng tính toán.
+Kiến trúc của khối này được minh họa trong Hình 23.
+Khác biệt so với các khối transformer thông thường, nơi mỗi phần tửdữliệu (token) quan tâm đến
+mọi phần tửkhác, ST-transformer lại được thiết kếvới các khối không gian-thời gian đa dạng. Các lớp
+chú ý không gian trong đó tập trung vào việc xem xét các phần tửdữliệu trong cùng một bức ảnh,
+trong khi các lớp chú ý theo thời gian lại nhắm đến việc kết nối với dữliệu từcác khung hình trước
+đó. Nhờcách tiếp cận này, độphức tạp tính toán của ST-transformer chỉtăng theo chiều dài của video
+một cách tuyến tính thay vì theo cấp sốnhân, làm cho việc xửlý video trởnên hiệu quảhơn nhiều.
+Hình 24: Các thành phần của mô hình Genie
+Latent Action Model (LAM) Trong mô hình Genie, quá trình tạo ra mỗi khung hình mới phụ
+thuộc vào hành động của người dùng được ghi nhận từcác khung hình trước đó. Thách thức ởđây là
+thông tin vềnhững hành động này thường khá hiếm và khó có được từnhững video trên internet. Để
+giải quyết vấn đềnày, mô hình sửdụng khối LAM, giúp máy học được các hành động ẩn mà không cần
+dữliệu được gán nhãn cụthể.
+Khối LAM hoạt động bằng cách xem xét một loạt các khung hình trước và sau đó dựđoán chuỗi
+hành động ẩn có thểdẫn đến khung hình tiếp theo. Một bộgiải mã sau đó sửdụng thông tin này cùng
+với chuỗi khung hình đểdựđoán khung hình kếtiếp. Quá trình này được huấn luyện dựa trên kỹthuật
+VQ-VAE, giúp hạn chếsốlượng hành động có thểxuất hiện và trong trường hợp này là 8 hành động.
+Do bộgiải mã chỉnhìn vào các khung hình trước đó, mô hình cần phải nắm bắt được những biến đổi
+quan trọng nhất giữa các khung hình đã qua và khung hình tiếp theo đểcó thểdựđoán chính xác.
+24
+AI VIETNAM
+aivietnam.edu.vn
+Video Tokenizer Khối này có nhiệm vụnén các video thành những token rời rạc, với mục đích
+đểgiảm chiều và tăng chất lượng tạo sinh video. Một lần nữa kiến trúc VQ-VAE lại được sửdụng cho
+thành phần này. Khác với những công trình nghiên cứu khác chỉtập trung vào việc nén trong chiều
+không gian, nghiên cứu này sửdụng khối ST-transformer trong cảencoder và decoder đểcó thểđảm
+bảo sựliên kết trong chiều thời gian.
+Khối Dynamics Model Đây là một khối decoder transformer tương tựnhư trong nghiên cứu
+MaskGIT [1]. Ởmỗi bước, khối này nhận đầu vào là một chuỗi video đã được tokenize và thông tin về
+hành động tiềm ẩn được dựđoán bởi khối LAM. Mục tiêu huấn luyện của nó là dựđoán token tiếp
+theo trong chuỗi video. Trong quá trình train, một sốtoken video sẽđược che đi ngẫu nhiên theo phân
+phối Bernoulli.
+Genie được nhấn mạnh là một mô hình đột phá, mang đến khảnăng tạo sinh và tương tác với các
+môi trường ảo một cách linh hoạt. Đặc biệt, dù chỉdựa trên dữliệu video, Genie vẫn có thểtạo ra các
+môi trường đa dạng và kiểm soát chúng một cách hiệu quả. Sựđa năng và tiềm năng của mô hình này
+mởra khảnăng ứng dụng rộng rãi trong các lĩnh vực như video game và mô phỏng thực tếảo, hứa hẹn
+làm thay đổi cách chúng ta tạo sinh và tương tác với thếgiới số.
+Phần VII: Tổng kết
+Genie và Sora đều là những mô hình tạo sinh video tiên tiến, được huấn luyện trên tập data khổng lồ.
+Tiềm năng của 2 mô hình này không chỉdừng lại trong việc tạo sinh video, mà còn là cách mạng trong
+25
+AI VIETNAM
+aivietnam.edu.vn
+nhiều lĩnh vực khác nhau như điện ảnh, làm game, thực tếảo, v.v. Hơn hết, cả2 mô hình đều cho thấy
+việc huấn luyện các mô hình deep learning trên tập data lớn vềvideo có thểgiúp các mô hình trí tuệ
+nhân tạo học được cách vận hành của thếgiới vật chất, mởra hướng mới cho việc phát triển AI có khả
+năng tương tác với thếgiới và tiệm cận trí tuệcon người.
+References
+[1]
+Huiwen Chang et al. “MaskGIT: Masked Generative Image Transformer”. In: The IEEE Confer-
+ence on Computer Vision and Pattern Recognition (CVPR). 2022.
+[2]
+Jonathan Ho et al. “Video diffusion models”. In: arXiv:2204.03458 (2022).
+[3]
+Zheng W. Liu X. Tang J. Hong W. Ding M. “CogVideo: Large-scale Pretraining for Text-to-Video
+Generation via Transformers”. In: arXiv preprint arXiv:2205.15868 (2022).
+[4]
+Aaron van den Oord, Oriol Vinyals, and Koray Kavukcuoglu. “Neural discrete representation
+learning”. In: Proceedings of the 31st International Conference on Neural Information Processing
+Systems. NIPS’17. Long Beach, California, USA: Curran Associates Inc., 2017, 6309–6318. isbn:
+9781510860964.
+[5]
+William Peebles and Saining Xie. “Scalable Diffusion Models with Transformers”. In: arXiv preprint
+arXiv:2212.09748 (2022).
+[6]
+Robin Rombach et al. High-Resolution Image Synthesis with Latent Diffusion Models. 2021. arXiv:
+2112.10752 [cs.CV].
+[7]
+Thomas Hayes Xi Yin Jie An Songyang Zhang Qiyuan Hu Singer Adam Polyak. “Make-A-Video:
+Text-to-Video Generation without Text-Video Data”. In: arXiv preprint arXiv:2209.14792 (2022).
+[8]
+Ruben Villegas et al. “Phenaki: Variable Length Video Generation From Open Domain Textual
+Description”. In: ArXiv abs/2210.02399 (2022).
+[9]
+Jay Zhangjie Wu et al. “Tune-a-video: One-shot tuning of image diffusion models for text-to-video
+generation”. In: Proceedings of the IEEE/CVF International Conference on Computer Vision.
+2023, pp. 7623–7633.
+[10]
+Wilson Yan et al. VideoGPT: Video Generation using VQ-VAE and Transformers. 2021. arXiv:
+2104.10157 [cs.CV].
+[11]
+Wang W. Yan H. Lv W. Zhu Y. Feng J. Zhou D. “MagicVideo: Efficient Video Generation With
+Latent Diffusion Models”. In: arXiv preprint arXiv:2211.11018 (2022).
+- Hết -
+26

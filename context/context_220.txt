@@ -1,0 +1,627 @@
+Decision Tree
+(Warm-up Class)
+Year 2023
+Quang-Vinh Dinh
+Ph.D. in Computer Science
+AI VIETNAM
+All-in-One Course
+Entropy
+Motivation
+AI VIETNAM
+All-in-One Course
+p A = 9
+10 = 0.9
+A: Get a red ball
+B: Get a blue ball
+p B = 1
+10 = 0.1
+How to measure 
+the surprises?
+𝑆𝑢𝑟𝑝𝑟𝑖𝑠𝑒(𝐸) =
+1
+𝑝(𝐸)
+Observation
+𝑆𝑢𝑟𝑝𝑟𝑖𝑠𝑒(𝐸)
+𝑝(𝐸)
+Problem?
+Experiment 1
+Got a red ball 
+E: Pick a ball from the basket
+Experiment 2
+Got a blue ball 
+Which experiment makes you more surprised?
+1
+𝑝(𝐸)
+−𝑙𝑜𝑔𝑝(𝐸)
+Information(𝑥) = −𝑙𝑜𝑔𝑝(𝑥)
+−𝑙𝑜𝑔𝑝(𝐸)
+In information theory
+Monotonic decrease of the function surprise(E) 
+𝑙𝑜𝑔𝑆𝑢𝑟𝑝𝑟𝑖𝑠𝑒(𝐸) = 𝑙𝑜𝑔
+1
+𝑝(𝐸)
+= −𝑙𝑜𝑔𝑝(𝐸)
+2
+H 𝑋∶= −෍
+𝑥∈𝑋
+𝑝(𝑥) 𝑙𝑜𝑔𝑝(𝑥)
+Entropy: Average of information
+p X = 0 = 5
+10 = 0.5
+p X = 1 = 5
+10 = 0.5
+H 𝑋= −෍
+𝑥∈𝑋
+𝑝(𝑥) 𝑙𝑜𝑔𝑝(𝑥)
+= −0.5𝑙𝑜𝑔0.5 −0.5𝑙𝑜𝑔0.5
+= 1.0
+Entropy
+AI VIETNAM
+All-in-One Course
+p X = 0 = 9
+10 = 0.9
+p X = 1 = 1
+10 = 0.1
+H 𝑋= −෍
+𝑥∈𝑋
+𝑝(𝑥) 𝑙𝑜𝑔𝑝(𝑥)
+= −0.9𝑙𝑜𝑔0.9 −0.1𝑙𝑜𝑔0.1
+= 0.468
+3
+Outlook
+Temp
+Humidity
+Wind
+Play Tennis
+Sunny
+Hot
+High
+Weak
+No
+Sunny
+Hot
+High
+Strong
+No
+Overcast
+Hot
+High
+Weak
+Yes
+Rain
+Mild
+High
+Weak
+Yes
+Rain
+Cool
+Normal
+Weak
+Yes
+Rain
+Cool
+Normal
+Strong
+No
+Overcast
+Cool
+Normal
+Strong
+Yes
+Sunny
+Mild
+High
+Weak
+No
+Sunny
+Cool
+Normal
+Weak
+Yes
+Rain
+Mild
+Normal
+Weak
+Yes
+Sunny
+Mild
+Normal
+Strong
+Yes
+Overcast
+Mild
+High
+Strong
+Yes
+Overcast
+Hot
+Normal
+Weak
+Yes
+Rain
+Mild
+High
+Strong
+No
+Combine
+Option_1: Sunny - (Overcast, Rain) 
+Option_2: Overcast - (Sunny, Rain)
+Option_3: Rain – (Sunny, Overcast)
+𝐺𝑎𝑖𝑛𝑆, 𝑊𝑖𝑛𝑑= 𝐸𝑆−8
+14 𝐸𝑆𝑤𝑒𝑎𝑘−6
+14 𝐸𝑆𝑆𝑡𝑟𝑜𝑛𝑔
+= 0.94 −
+8
+14 ∗0.811 −
+6
+14 ∗1 = 0.048
+Category = 3 > 2
+Entropy:
+𝐸𝑆= −9
+14 𝑙𝑜𝑔2
+9
+14 −5
+14 𝑙𝑜𝑔2
+5
+14
+= 0.94
+𝐸𝑆= −෍
+𝑐∈𝐶
+𝑝𝑐𝑙𝑜𝑔2𝑝𝑐
+𝐼𝐺𝑆, 𝐹= 𝐸𝑆−෍
+𝑓∈𝐹
+𝑆𝑓
+𝑆𝐸(𝑆𝑓)
+Information Gain
+𝑆𝑤𝑒𝑎𝑘= {6: 𝑌𝑒𝑠, 2: 𝑁𝑜}
+𝑆𝑆𝑡𝑟𝑜𝑛𝑔= {3: 𝑌𝑒𝑠, 3: 𝑁𝑜}
+𝐸𝑆𝑤𝑒𝑎𝑘= −6
+8 𝑙𝑜𝑔2
+6
+8 −2
+8 𝑙𝑜𝑔2
+6
+8
+= 0.811
+𝐸𝑆𝑆𝑡𝑟𝑜𝑛𝑔= −3
+6 𝑙𝑜𝑔2
+3
+6 −3
+6 𝑙𝑜𝑔2
+3
+6
+= 1
+𝑆= {9: 𝑌𝑒𝑠, 5: 𝑁𝑜}
+Gain(S, Outlook) = max ൞
+𝐼𝐺𝑆, 𝑂𝑝𝑡𝑖𝑜𝑛_1 = 0.102
+𝐼𝐺𝑆, 𝑂𝑝𝑡𝑖𝑜𝑛_2 = 0.226
+𝐼𝐺𝑆, 𝑂𝑝𝑡𝑖𝑜𝑛_3 = 0.003
+𝐼𝐺𝑆, 𝑂𝑝𝑡𝑖𝑜𝑛_1
+= 𝐸𝑆−5
+14 𝐸𝑆𝑆𝑢𝑛𝑛𝑦−9
+14 𝐸𝑆𝑂𝑣𝑒𝑟𝑐𝑎𝑠𝑡,𝑅𝑎𝑖𝑛
+= 0.94 −5
+14 ∗0.97 −9
+14 ∗0.764 = 0.102
+𝑆𝑆𝑢𝑛𝑛𝑦= {2: 𝑌𝑒𝑠, 3: 𝑁𝑜}
+𝑆𝑂𝑣𝑒𝑟𝑐𝑎𝑠𝑡,𝑅𝑎𝑖𝑛= {7: 𝑌𝑒𝑠, 2: 𝑁𝑜}
+𝐸𝑆𝑆𝑢𝑛𝑛𝑦= 0.97
+𝐸𝑆𝑂𝑣𝑒𝑟𝑐𝑎𝑠𝑡,𝑅𝑎𝑖𝑛= 0.764
+Gain(S, Outlook) = 0.226
+Gain(S, Temp) = 0.015
+Gain(S, Humidity) = 0.151
+Gain(S, Wind) = 0.048
+Choose Outlook 
+with highest Gain 
+score for root node
+Option_2 is used to 
+split 
+Category = 2
+Training phase
+5
+Gain(S, Outlook) = 0.029
+Gain(S, Temp) = 0.034
+Gain(S, Humidity) = 0.278
+Gain(S, Wind) = 0.124
+n = 4
+Play_Tennis = Yes
+Outlook
+Temp
+Humidity
+Wind
+Label
+Overcast
+Hot
+High
+Weak
+Yes
+Overcast
+Cool
+Normal
+Strong
+Yes
+Overcast
+Mild
+High
+Strong
+Yes
+Overcast
+Hot
+Normal
+Weak
+Yes
+Outlook
+Temp
+Humidity
+Wind
+Label
+Sunny
+Hot
+High
+Weak
+No
+Sunny
+Hot
+High
+Strong
+No
+Rain
+Mild
+High
+Weak
+Yes
+Rain
+Cool
+Normal
+Weak
+Yes
+Rain
+Cool
+Normal
+Strong
+No
+Sunny
+Mild
+High
+Weak
+No
+Sunny
+Cool
+Normal
+Weak
+Yes
+Rain
+Mild
+Normal
+Weak
+Yes
+Sunny
+Mild
+Normal
+Strong
+Yes
+Rain
+Mild
+High
+Strong
+No
+Outlook
+Temp
+Humidity
+Wind
+Label
+Sunny
+Hot
+High
+Weak
+No
+Sunny
+Hot
+High
+Strong
+No
+Rain
+Mild
+High
+Weak
+Yes
+Sunny
+Mild
+High
+Weak
+No
+Rain
+Mild
+High
+Strong
+No
+Outlook
+Temp
+Humidity
+Wind
+Label
+Rain
+Cool
+Normal
+Weak
+Yes
+Rain
+Cool
+Normal
+Strong
+No
+Sunny
+Cool
+Normal
+Weak
+Yes
+Rain
+Mild
+Normal
+Weak
+Yes
+Sunny
+Mild
+Normal
+Strong
+Yes
+Gain(S, Outlook) = 0.321
+Gain(S, Temp) = 0.17
+Gain(S, Humidity) = 0.00
+Gain(S, Wind) = 0.17
+Gain(S, Outlook) = 0.17
+Gain(S, Temp) = 0.17
+Gain(S, Humidity) = 0.00
+Gain(S, Wind) = 0.321overcastrain / sunnyhighnormal
+Training phase
+Outlook
+Temp
+Humidity
+Wind
+Label
+Rain
+Mild
+High
+Weak
+Yes
+Rain
+Mild
+High
+Strong
+No
+Outlook
+Temp
+Humidity
+Wind
+Label
+Sunny
+Hot
+High
+Weak
+No
+Sunny
+Hot
+High
+Strong
+No
+Sunny
+Mild
+High
+Weak
+No
+Outlook
+Temp
+Humidity
+Wind
+Label
+Rain
+Cool
+Normal
+Weak
+Yes
+Sunny
+Cool
+Normal
+Weak
+Yes
+Rain
+Mild
+Normal
+Weak
+Yes
+Outlook
+Temp
+Humidity
+Wind
+Label
+Rain
+Cool
+Normal
+Strong
+No
+Sunny
+Mild
+Normal
+Strong
+Yes
+n = 4
+Play_Tennis = Yes
+Gain(S, Outlook) = 0.00
+Gain(S, Temp) = 0.00
+Gain(S, Humidity) = 0.00
+Gain(S, Wind) = 1
+Gain(S, Outlook) = 1
+Gain(S, Temp) = 1
+Gain(S, Humidity) = 0.00
+Gain(S, Wind) = 0.00overcasthighnormalweaksunnystrongrain
+rain/sunny
+Training phase
+7
+n = 4
+Play_Tennis = Yes
+n = 3
+Play_Tennis = No
+n = 3
+Play_Tennis = Yes
+n = 3
+Play_Tennis = No
+n = 3
+Play_Tennis = Yes
+n = 3
+Play_Tennis = No
+n = 3
+Play_Tennis = Yesrain/sunnynormalweaksunnysunnyweakstrongovercastovercaststronghighovercast
+Training phase
+8
+Play_Tennis = Yes
+Play_Tennis = No
+Play_Tennis = Yes
+Play_Tennis = No
+Play_Tennis = Yes
+Play_Tennis = No
+Play_Tennis = Yesrain/sunnynormalweaksunnysunnyweakstrongovercastovercaststronghighovercast
+Test sample = <outlook=Sunny, temperature=Hot, humidity=High, Wind=Weak>
+Test phase
+9
+Classification
+1D-IRIS
+Classification
+AI VIETNAM
+All-in-One Course
+1D-IRIS
+11
+Classification
+AI VIETNAM
+All-in-One Course
+1D-IRIS
+12
+Classification
+AI VIETNAM
+All-in-One Course
+1D-IRIS
+13
+DT - Classification
+AI VIETNAM
+All-in-One Course
+1D-IRIS
+14
+Classification
+AI VIETNAM
+All-in-One Course
+15
+Classification
+AI VIETNAM
+All-in-One Course
+Simple IRIS
+16
+17
+Simple IRIS
+Classification Tree
+18
+Classification
+AI VIETNAM
+All-in-One Course
+Simple IRIS
+0.8
+19
+Classification
+AI VIETNAM
+All-in-One Course
+Simple IRIS
+20
+Regression
+AI VIETNAM
+All-in-One Course
+Salary prediction
+21
+When Experience = 5.3,
+Salary = ?
+𝜇= 1
+𝑆෍
+𝑖
+𝑆𝑖= 55.14
+𝑚𝑠𝑒= 1
+𝑆෍
+𝑖
+𝑆𝑖−𝜇2 = 1417.97
+𝜇𝑅= 1
+𝑅෍
+𝑖
+𝑅𝑖= 59.38
+𝑚𝑠𝑒𝑅= 1
+𝑅෍
+𝑖
+𝑅𝑖−𝜇2 = 1275.15
+𝜇𝐿= 1
+𝐿෍
+𝑖
+𝐿𝑖= 0
+𝑚𝑠𝑒𝐿= 1
+𝐿෍
+𝑖
+𝐿𝑖−𝜇2 = 0
+𝑎𝑚𝑠𝑒= 𝐿
+𝑆𝑚𝑠𝑒𝐿+ 𝑅
+𝑆𝑚𝑠𝑒𝑅
+= 1
+14 ∗0 + 13
+14 ∗1275.15
+= 1184.07
+22
+𝜇= 1
+𝑆෍
+𝑖
+𝑆𝑖= 55.14
+𝑚𝑠𝑒= 1
+𝑆෍
+𝑖
+𝑆𝑖−𝜇2 = 1417.97
+𝜇𝑅= 1
+𝑅෍
+𝑖
+𝑅𝑖= 77.2
+𝑚𝑠𝑒𝑅= 1
+𝑅෍
+𝑖
+𝑅𝑖−𝜇2 = 282.35
+𝜇𝐿= 1
+𝐿෍
+𝑖
+𝐿𝑖= 0
+𝑚𝑠𝑒𝐿= 1
+𝐿෍
+𝑖
+𝐿𝑖−𝜇2 = 0
+𝑎𝑚𝑠𝑒= 𝐿
+𝑆𝑚𝑠𝑒𝐿+ 𝑅
+𝑆𝑚𝑠𝑒𝑅
+= 4
+14 ∗0 + 10
+14 ∗282.35
+= 201.68
+𝑎𝑚𝑠𝑒= 1184.07
+𝑎𝑚𝑠𝑒= 911.19
+𝑎𝑚𝑠𝑒= 588.68
+𝑎𝑚𝑠𝑒= 201.68
+𝑎𝑚𝑠𝑒= 383.92
+𝑎𝑚𝑠𝑒= 526.52
+𝑎𝑚𝑠𝑒= 543.51
+𝑎𝑚𝑠𝑒= 575.09
+𝑎𝑚𝑠𝑒= 613.34
+𝑎𝑚𝑠𝑒= 758.4
+𝑎𝑚𝑠𝑒= 947.73
+𝑎𝑚𝑠𝑒= 1090.05
+𝑎𝑚𝑠𝑒= 1256.21
+24
+Regression
+AI VIETNAM
+All-in-One Course
+Salary prediction
+25
+DT - Regression
+26
+Regression
+AI VIETNAM
+All-in-One Course
+Salary
+27

@@ -1,3 +1,0 @@
-(a) Chấm dứt cuộc hội thoại.
-(b) Ngắt hội thoại củauserproxy agent.
-12

@@ -1,0 +1,691 @@
+AI VIET NAM – COURSE 2024
+Probability Exercise
+(Naive Bayes Classifier)
+Ngày 20 tháng 7 năm 2024
+GiảsửX có các đặc trưng thuộc tính độc lập với nhau x1, x2, ..., xn, đểphân loại X vào lớp một
+trong các lớp C = c1, c2, ..., cm, dựa vào công thức Bayes ta có:
+P(c|X) = P(X|c).P(c)
+P(X)
+Dựa vào ước lượng tối đa xác suất hậu nghiệm (MAP - Maximum A Posterior) ta được:
+P(c|X) ∝P(X|c).P(c)
+P(c|X) ∝P(x1|c).P(x2|c)...P(xn|c).P(c)
+1. BINARY CLASSIFICATION - PLAY TENNIS
+Cho tập dữliệu huấn luyện mô hình phân loại nhịphân Naive Bayes gồm các thuộc tính "Outlook",
+"Temperature", "Humidity", "Wind":
+Day
+Outlook
+Temperature
+Humidity
+Wind
+PlayTennis
+D1
+Sunny
+Hot
+High
+Weak
+No
+D2
+Sunny
+Hot
+High
+Strong
+No
+D3
+Overcast
+Hot
+High
+Weak
+Yes
+D4
+Rain
+Mild
+High
+Weak
+Yes
+D5
+Rain
+Cool
+Normal
+Weak
+Yes
+D6
+Rain
+Cool
+Normal
+Strong
+No
+D7
+Overcast
+Cool
+Normal
+Strong
+Yes
+D8
+Overcast
+Mild
+High
+Weak
+No
+D9
+Sunny
+Cool
+Normal
+Weak
+Yes
+D10
+Rain
+Mild
+Normal
+Weak
+Yes
+Bảng 1: Play Tennis - Tập dữliệu huấn luyện
+Cho sựkiện thửnghiệm:
+X = (Outlook=Sunny, Temperature=Cool, Humidity=High, Wind=Strong)
+1
+AI VIETNAM
+aivietnam.edu.vn
+Câu hỏi 1: Xác suất xảy ra sựkiện "Play Tennis"="Yes" và sựkiện "Play Tennis"="No" lần lượt là:
+a) P("Play Tennis" = "Yes") = 6/10, P("Play Tennis" = "No") = 4/10
+b) P("Play Tennis" = "Yes") = 4/10, P("Play Tennis" = "No") = 6/10
+c) P("Play Tennis" = "Yes") = 6/10, P("Play Tennis" = "No") = 6/10
+d) P("Play Tennis" = "Yes") = 4/10, P("Play Tennis" = "No") = 4/10
+Câu hỏi 2: Xác suất xảy ra sựkiện "Play Tennis"="Yes" khi sựkiện X xảy ra là:
+a) P("Play Tennis" = "Yes"|X) ∝0.0014
+b) P("Play Tennis" = "Yes"|X) ∝0.0028
+c) P("Play Tennis" = "Yes"|X) ∝0.0188
+d) P("Play Tennis" = "Yes"|X) ∝0.0098
+Câu hỏi 3: Xác suất xảy ra sựkiện "Play Tennis"="No" khi sựkiện X xảy ra là:
+a) P("Play Tennis" = "No" | X) ∝0.0014
+b) P("Play Tennis" = "No" | X) ∝0.0028
+c) P("Play Tennis" = "No" | X) ∝0.0188
+d) P("Play Tennis" = "No" | X) ∝0.0098
+Câu hỏi 4: Khi xảy ra sựkiện X, nhãn của "Play Tennis" sẽlà:
+a) "Play Tennis" = "Yes"
+b) "Play Tennis" = "No"
+2
+AI VIETNAM
+aivietnam.edu.vn
+2. MULTI-LABEL CLASSIFICATION - TRAFFIC DATA Cho tập dữliệu huấn luyện mô
+hình phân loại Naive Bayes gồm các thuộc tính "Day", "Season", "Fog", "Rain".
+Day
+Season
+Fog
+Rain
+Class
+Weekday
+Spring
+None
+None
+On Time
+Weekday
+Winter
+None
+Slight
+On Time
+Weekday
+Winter
+None
+None
+On Time
+Holiday
+Winter
+High
+Slight
+Late
+Saturday
+Summer
+Normal
+None
+On Time
+Weekday
+Autumn
+Normal
+None
+Very Late
+Holiday
+Summer
+High
+Slight
+On Time
+Sunday
+Summer
+Normal
+None
+On Time
+Weekday
+Winter
+High
+Heavy
+Very Late
+Weekday
+Summer
+None
+Slight
+On Time
+Saturday
+Spring
+High
+Heavy
+Cancelled
+Weekday
+Summer
+High
+Slight
+On Time
+Weekday
+Winter
+Normal
+None
+Late
+Weekday
+Summer
+High
+None
+On Time
+Weekday
+Winter
+Normal
+Heavy
+Vary Late
+Saturday
+Autumn
+High
+Slight
+On Time
+Weekday
+Autumn
+None
+Heavy
+On Time
+Holiday
+Spring
+Normal
+Slight
+On Time
+Weekday
+Spring
+Normal
+None
+On Time
+Weekday
+Spring
+Normal
+Heavy
+On Time
+Bảng 2: Traffic Data - Tập dữliệu huấn luyện
+Cho sựkiện thửnghiệm:
+X = (Day=Weekday, Season=Winter, Fog=High, Rain=Heavy)
+Câu hỏi 5: Xác suất xảy ra sựkiện "Class"="On Time", sựkiện "Class"="Late",
+sựkiện "Class"=" Very Late" và sựkiện "Class"="Cancelled" lần lượt là:
+(A) P("Class" = "On Time") = 14/20, P("Class" = "Late") = 2/20,
+P("Class" = "Very Late") = 3/20, P("Class" = "Cancelled") = 1/20
+(B) P("Class" = "On Time") = 2/20, P("Class" = "Late") = 3/20,
+P("Class" = "Very Late") = 1/20, P("Class" = "Cancelled") = 14/20
+(C) P("Class" = "On Time") = 3/20, P("Class" = "Late") = 1/20,
+P("Class" = "Very Late") = 2/20, P("Class" = "Cancelled") = 14/20
+(D) P("Class" = "On Time") = 1/20, P("Class" = "Late") = 1/20,
+P("Class" = "Very Late") = 14/20, P("Class" = "Cancelled") = 3/20
+Câu hỏi 6: Xác suất xảy ra sựkiện "Class"="On Time" khi sựkiện X xảy ra là:
+(A) P("Class" = "On Time" | X) ∝0.0222
+(B) P("Class" = "On Time" | X) ∝0.0013
+3
+AI VIETNAM
+aivietnam.edu.vn
+(C) P("Class" = "On Time" | X) ∝0.0026
+(D) P("Class" = "On Time" | X) ∝0.0000
+Câu hỏi 7: Xác suất xảy ra sựkiện "Class"="Late" khi sựkiện X xảy ra là:
+(A) P("Class" = "Late" | X) ∝0.0222
+(B) P("Class" = "Late" | X) ∝0.0013
+(C) P("Class" = "Late" | X) ∝0.0026
+(D) P("Class" = "Late" | X) ∝0.0000
+Câu hỏi 8: Xác suất xảy ra sựkiện "Class"= "Very Late" khi sựkiện X xảy ra là:
+(A) P("Class" = "Very Late" | X) ∝0.0222
+(B) P("Class" = "Very Late" | X) ∝0.0013
+(C) P("Class" = "Very Late" | X) ∝0.0026
+(D) P("Class" = "Very Late" | X) ∝0.0000
+Câu hỏi 9: Xác suất xảy ra sựkiện "Class"= Cancelled" khi sựkiện X xảy ra là:
+(A) P("Class" = "Cancelled" | X) ∝0.0222
+(B) P("Class" = "Cancelled" | X) ∝0.0013
+(C) P("Class" = "Cancelled" | X) ∝0.0026
+(D) P("Class" = "Cancelled" | X) ∝0.0000
+Câu hỏi 10: Dựđoán "Class" của sựkiện X là:
+(A) "On Time"
+(B) "Late"
+(C) "Very Late"
+(D) "Cancelled"
+4
+AI VIETNAM
+aivietnam.edu.vn
+3. IRIS CLASSIFICATION
+Cho một tập dữliệu huấn luyện phân loại hoa Iris dựa vào chiều dài cánh hoa như bảng dữliệu bên
+dưới. Các bạn hãy trảlời các câu hỏi sau khi dùng Gaussian Naive Bayes cho data Iris này.
+Length
+1.4
+1.0
+1.3
+1.9
+2.0
+1.8
+3.0
+3.8
+4.1
+3.9
+4.2
+3.4
+Class
+0
+0
+0
+0
+0
+0
+1
+1
+1
+1
+1
+1
+Bảng 3: Phân loại cánh hoa Iris dựa vào chiều dài cánh hoa - Tập dữliệu huấn luyện
+Câu hỏi 11: Giá trịmean và variance của biến đầu vào (Length) cho "Class"="0" lần lượt là:
+a) mean = 1.566 và variance = 0.128
+b) mean = 3.733 và variance = 0.172
+c) mean = 1.566 và variance = 0.172
+Câu hỏi 12: Giá trịmean và variance của biến đầu vào (Length) cho "Class"="1" lần lượt là:
+a) mean = 1.566 và variance = 0.128
+b) mean = 3.733 và variance = 0.172
+c) mean = 1.566 và variance = 0.172
+Câu hỏi 13: Cho dữliệu kiểm thửX = (Length=3.4). Xác suất dữliệu kiểm thửX thuộc vào
+"Class"="0" và "Class"="1" lần lượt là:
+a) P("Class" = "0" | X) = 1.09 ∗10−6 và P("Class" = "1" | X) = 0.3486
+b) P("Class" = "0" | X) = 1.09 ∗10−4 và P("Class" = "1" | X) = 0.3486
+c) P("Class" = "0" | X) = 1.09 ∗10−2 và P("Class" = "1" | X) = 0.3486
+5
+AI VIETNAM
+aivietnam.edu.vn
+4. PLAY TENNIS CLASSIFIER IMPLEMENTATION
+Cho trước dữliệu thời tiết của 10 ngày (D1-D10, như bảng 1). Hãy phát triển chương trình sửdụng
+mô hình phân loại Naive Bayes đểdựđoán xem ngày thứ11 (D11), AD có thểchơi tennis hay không?
+Day
+Outlook
+Temperature
+Humidity
+Wind
+PlayTennis
+D11
+Sunny
+Cool
+High
+Strong
+???
+Bảng 4: Play Tennis - Dữliệu testing
+(a) "Play Tennis" = "Yes"
+(b) "Play Tennis" = "No"
+Đểhoàn thành bài tập này bạn cần hoàn thành các function sau đây bằng cách sửdụng thư viên
+numpy:
+4.1 Hoàn thiện function create_train_dataset() đểtổchức dữliệu bảng 1 vào array 2 chiều như
+bên dưới.
+1 # ########################
+2 # Create
+data
+3 # ########################
+4 import
+numpy as np
+5
+6 def
+create_train_data ():
+7
+8
+#your code here
+************************
+9
+10
+return np.array(data)
+11
+12 train_data = create_train_data ()
+13 print(train_data)
+14
+15 ***************** Sample
+Result
+when we print out
+train_data
+*****************
+16 [[’Sunny ’ ’Hot’ ’High ’ ’Weak ’ ’no’]
+17
+[’Sunny ’ ’Hot’ ’High ’ ’Strong ’ ’no’]
+18
+[’Overcast ’ ’Hot’ ’High ’ ’Weak ’ ’yes’]
+19
+[’Rain ’ ’Mild ’ ’High ’ ’Weak ’ ’yes’]
+20
+[’Rain ’ ’Cool ’ ’Normal ’ ’Weak ’ ’yes’]
+21
+[’Rain ’ ’Cool ’ ’Normal ’ ’Strong ’ ’no’]
+22
+[’Overcast ’ ’Cool ’ ’Normal ’ ’Strong ’ ’yes’]
+23
+[’Overcast ’ ’Mild ’ ’High ’ ’Weak ’ ’no’]
+24
+[’Sunny ’ ’Cool ’ ’Normal ’ ’Weak ’ ’yes’]
+25
+[’Rain ’ ’Mild ’ ’Normal ’ ’Weak ’ ’yes’]]
+4.2 Hoàn thiện function compute_prior_probability tính P("Play Tennis" = "Yes") and tính
+P("Play Tennis" = "No") như bên dưới:
+1 def
+compute_prior_probablity (train_data):
+2
+y_unique = [’no’, ’yes’]
+3
+prior_probability = np.zeros(len(y_unique))
+4
+# your code here
+******************
+5
+return
+prior_probability
+6
+7 prior_probablity = compute_prior_probablity (train_data)
+8 print("P(play
+tennis = No"), prior_probablity [0])
+9 print("P(play
+tennis = Yes"), prior_probablity [1])
+6
+AI VIETNAM
+aivietnam.edu.vn
+Câu hỏi 14: Kết quảnào sau đây là output từchương trình trên:
+a) P("Play Tennis" = "Yes") = 0.6, P("Play Tennis" = "No") = 0.4
+b) P("Play Tennis" = "Yes") = 0.3, P("Play Tennis" = "No") = 0.7
+c) P("Play Tennis" = "Yes") = 0.4, P("Play Tennis" = "No") = 0.8
+d) P("Play Tennis" = "Yes") = 0.4, P("Play Tennis" = "No") = 0.3
+4.3 Hoàn thiện function compute_conditional_probability đểtính likelihood (The probability
+of "A" being True. Given "B" True, P(A|B)) như bên dưới:
+1 def
+compute_conditional_probability (train_data):
+2
+y_unique = [’no’, ’yes’]
+3
+conditional_probability = []
+4
+list_x_name = []
+5
+for i in range(0, train_data.shape [1] -1):
+6
+x_unique = np.unique(data[:,i])
+7
+list_x_name.append(x_unique)
+8
+9
+# your code here
+********************
+10
+11 conditional_probability .append( x_conditional_probability )
+12 return
+conditional_probability , list_x_name
+13
+Câu hỏi 15: Hãy cho biết kết quảcủa đoạn chương trình sau đây:
+1 train_data = create_train_data ()
+2 _, list_x_name
+= compute_conditional_probability (train_data)
+3 print("x1 = ",list_x_name [0])
+4 print("x2 = ",list_x_name [1])
+5 print("x3 = ",list_x_name [2])
+6 print("x4 = ",list_x_name [3])
+a) x1 = [’Cool’ ’Hot’ ’Mild’]
+x2 = [’Overcast’ ’Rain’ ’Sunny’]
+x3 = [’High’ ’Normal’]
+x4 = [’Strong’ ’Weak’]
+b) x1 = [’Overcast’ ’Rain’ ’Sunny’]
+x2 = [’Cool’ ’Hot’ ’Mild’]
+x3 = [’High’ ’Normal’]
+x4 = [’Strong’ ’Weak’]
+c) x1 = [’Strong’ ’Weak’]
+x2 = [’Cool’ ’Hot’ ’Mild’]
+x3 = [’High’ ’Normal’]
+x4 = [’Overcast’ ’Rain’ ’Sunny’]
+7
+AI VIETNAM
+aivietnam.edu.vn
+d) x1 = [’Overcast’ ’Rain’ ’Sunny’]
+x2 = [’Cool’ ’Hot’ ’Mild’]
+x3 = [’Strong’ ’Weak’]
+x4 = [’High’ ’Normal’]
+4.4 Hoàn thiện function get_index_from_value đểtính trảvềindex tương ứng với feature name:
+1 #This
+function is used to return the index of the
+feature
+name
+2 def
+get_index_from_value (feature_name , list_features ):
+3
+return np.where(list_eatures == feature_ame)[0][0]
+Câu hỏi 16: Hãy cho biết kết quảcủa đoạn chương trình sau đây:
+1 train_data = create_train_data ()
+2 _, list_x_name
+= compute_conditional_probability (train_data)
+3 outlook = list_x_name [0]
+4
+5 i1 = get_index_from_value ("Overcast", outlook)
+6 i2 = get_index_from_value ("Rain", outlook)
+7 i3 = get_index_from_value ("Sunny", outlook)
+8
+9 print(i1 , i2 , i3)
+a) 1 2 0
+b) 0 1 1
+c) 0 1 2
+d) 0 2 3
+Câu hỏi 17: Hãy cho biết kết quảcủa đoạn chương trình sau đây:
+1 train_data = create_train_data ()
+2 conditional_probability , list_x_name
+= compute_conditional_probability (train_data)
+3 # Compute P(" Outlook "=" Sunny "| Play
+Tennis "=" Yes")
+4 x1= get_index_from_value ("Sunny",list_x_name [0])
+5 print("P(’Outlook ’=’Sunny ’|Play
+Tennis ’=’Yes ’) = ", np.round( conditional_probability
+[0][1 , x1],2))
+a) P(’Outlook’=’Sunny’|Play Tennis’=’Yes’) = 0.27
+b) P(’Outlook’=’Sunny’|Play Tennis’=’Yes’) = 0.47
+c) P(’Outlook’=’Sunny’|Play Tennis’=’Yes’) = 0.37
+d) P(’Outlook’=’Sunny’|Play Tennis’=’Yes’) = 0.17
+Câu hỏi 18: Hãy cho biết kết quảcủa đoạn chương trình sau đây:
+1 train_data = create_train_data ()
+2 conditional_probability , list_x_name
+= compute_conditional_probability (train_data)
+3 # Compute P(" Outlook "=" Sunny "| Play
+Tennis "="No")
+4 x1= get_index_from_value ("Sunny",list_x_name [0])
+5 print("P(’Outlook ’=’Sunny ’|Play
+Tennis ’=’No ’) = ", np.round( conditional_probability
+[0][1 , x1],2))
+8
+AI VIETNAM
+aivietnam.edu.vn
+a) P(’Outlook’=’Sunny’|Play Tennis’=’Yes’) = 0.5
+b) P(’Outlook’=’Sunny’|Play Tennis’=’Yes’) = 0.4
+c) P(’Outlook’=’Sunny’|Play Tennis’=’Yes’) = 0.3
+d) P(’Outlook’=’Sunny’|Play Tennis’=’Yes’) = 0.2
+4.5 Hoàn thiện function train_naive_bayes như bên dưới:
+1 # ##########################
+2 # Train
+Naive
+Bayes
+Model
+3 # ##########################
+4 def
+train_naive_bayes (train_data):
+5
+# Step 1: Calculate
+Prior
+Probability
+6
+y_unique = [’no’, ’yes’]
+7
+prior_probability = compute_prior_probablity (train_data)
+8
+9
+# Step 2: Calculate
+Conditional
+Probability
+10
+conditional_probability , list_x_name
+= compute_conditional_probability (train_data
+)
+11
+12
+return
+prior_probability ,conditional_probability , list_x_name
+4.6 Hoàn thiện function prediction_play_tennis đểhỗtrợAD có nên đi chơi tennis vào ngày
+D11 không:
+Day
+Outlook
+Temperature
+Humidity
+Wind
+PlayTennis
+D11
+Sunny
+Cool
+High
+Strong
+???
+Bảng 5: Play Tennis - Dữliệu testing
+1 # ###################
+2 # Prediction
+3 # ###################
+4 def
+prediction_play_tennis (X, list_x_name , prior_probability , conditional_probability )
+:
+5
+6
+x1= get_index_from_value (X[0], list_x_name [0])
+7
+x2= get_index_from_value (X[1], list_x_name [1])
+8
+x3= get_index_from_value (X[2], list_x_name [2])
+9
+x4= get_index_from_value (X[3], list_x_name [3])
+10
+11
+p0 = 0
+12
+p1 = 0
+13
+14
+# your code here
+***********************
+15
+16
+if p0 >p1:
+17
+y_pred =0
+18
+else:
+19
+y_pred =1
+20
+21
+return
+y_pred
+Câu hỏi 19: Hãy cho biết kết quảcủa đoạn chương trình sau đây:
+9
+AI VIETNAM
+aivietnam.edu.vn
+1 X = [’Sunny ’,’Cool ’, ’High ’, ’Strong ’]
+2 data = create_train_data ()
+3 prior_probability ,conditional_probability , list_x_name = train_naive_bayes (data)
+4 pred =
+prediction_play_tennis (X, list_x_name , prior_probability ,
+conditional_probability )
+5
+6 if(pred):
+7
+print("Ad should go!")
+8 else:
+9
+print("Ad should not go!")
+a) Ad should not go!
+b) Ad should go!
+10
+AI VIETNAM
+aivietnam.edu.vn
+5. (OPTIONAL) IRIS CLASSIFIER IMPLEMENTATION
+Cho trước dữliệu chứa thông tin vềhoa Iris gồm có sepal length, sepal width và petal length, và Species
+(bảng 6). Hãy phát triển chương trình sửdụng mô hình phân loại Gausian Naive Bayes đểdựđoán
+chủng loại của hoa Iris. Dữliệu hoa iris được lưu trữtrong file iris_data.txt có thểđược tải vềtại đây.
+No.
+Sepal length
+Sepal width
+Petal length
+Petal width
+Species
+1
+5.1
+3.5
+1.4
+0.2
+Iris-setosa
+2
+4.9
+3.0
+1.4
+0.2
+Iris-setosa
+3
+6.4
+3.1
+5.5
+1.8
+Iris-virginica
+4
+6.0
+3.0
+4.8
+1.8
+Iris-virginica
+5
+6.0
+2.2
+4.0
+1.0
+Iris-versicolora
+...
+...
+...
+...
+..
+...
+Bảng 6: Iris flower - Tập dữliệu huấn luyện
+Dựa vào hướng dẫn dưới đây đểthực thi mã nguồn cho bài toán phân loại.
+1 # Example 1
+2 # X =[ sepal length , sepal width , petal length , petal
+width]
+3 X = [6.3 , 3.3, 6.0,
+2.5]
+4 train_data = create_train_data_iris ()
+5 y_unique = np.unique(train_data [: ,4])
+6 prior_probability , conditional_probability = train_gaussian_naive_bayes (train_data)
+7 pred = y_unique[prediction_iris (X, prior_probability , conditional_probability )]
+8 assert
+pred == "Iris -virginica"
+9
+10 #Example 2 #########################
+11 # X =[ sepal length , sepal width , petal length , petal
+width]
+12 X = [5.0 ,2.0 ,3.5 ,1.0]
+13 train_data = create_train_data_iris ()
+14 y_unique = np.unique(train_data [: ,4])
+15 prior_probability , conditional_probability = train_gaussian_naive_bayes (train_data)
+16 pred = y_unique[prediction_iris (X, prior_probability , conditional_probability )]
+17 assert
+pred == "Iris -versicolor"
+18
+19 #Example 3 #########################
+20 X = [4.9 ,3.1 ,1.5 ,0.1]
+21 # X =[ sepal length , sepal width , petal length , petal
+width]
+22 train_data = create_train_data_iris ()
+23 y_unique = np.unique(train_data [: ,4])
+24 prior_probability , conditional_probability = train_gaussian_naive_bayes (train_data)
+25 pred = y_unique[prediction_iris (X, prior_probability , conditional_probability )]
+26 assert
+pred == "Iris -setosa"
+11

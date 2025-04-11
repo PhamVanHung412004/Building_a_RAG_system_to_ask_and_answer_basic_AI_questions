@@ -1,0 +1,679 @@
+Extra Class
+Advanced CNN Architecture
+Year 2023
+Nguyen Quoc Thai
+AI VIETNAM
+All-in-One Course
+1
+2
+CONTENT
+(1) – ResNet
+(2) – Feature Extraction
+(3) – Image Similarity
+1 – ResNet
+!
+3
+Review: Skip Connection
+input
+Loss
+target
+output
+block 1
+block 2
+block 3
+block 4
++
++
++
++
+1 – ResNet
+!
+4
+Review: Skip Connection
++
+Identity Shortcut
+Conv2d
+in_channels=3
+out_channels=10
+kernel_size=3
+stride=1
+padding=1
+ReLU
+Projection Shortcut
+input
+feature
+map
+ReLU
+[128, 3, 64, 64]
+[128, 10, 64, 64]
+[128, 10, 64, 64]
+Conv2d
+in_channels=10
+out_channels=3
+kernel_size=3
+stride=1
+padding=1
+[128, 3, 64, 64]
++
+Conv2d
+in_channels=3
+out_channels=10
+kernel_size=3
+stride=1
+padding=1
+ReLU
+input
+feature
+map
+ReLU
+[128, 10, 64, 64]
+[128, 10, 64, 64]
+Conv2d
+in_channels=10
+out_channels=3
+kernel_size=3
+stride=2
+padding=1
+[128, 3, 32, 32]
+Conv2d
+in_channels=3
+out_channels=3
+kernel_size=3
+stride=2
+padding=1
+[128, 3, 64, 64]
+[128, 3, 64, 64]
+[128, 3, 32, 32]
+[128, 3, 32, 32]
+[128, 3, 64, 64]
+[128, 3, 32, 32]
+1 – ResNet
+!
+5
+Review: Skip Connection
++
++
+Short Skip Connection 
+(ResNet, …)
+Long Skip Connection 
+(UNet, …)
+1 – ResNet
+!
+6
+ResNet18
+3x3 conv, 64
+3x3 conv, 64
++
+64-d
+relu
+relu
+2 strides to 
+down-sample
+1x1 conv, 128
+Stride: 2
+2 strides to 
+down-sample
+2 strides to 
+down-sample
+1x1 conv, 256
+Stride: 2
+1x1 conv, 512
+Stride: 2
+Source
+Classifier
+1 – ResNet
+!
+7
+ResNet18
+1 – ResNet
+!
+8
+ResNet (18 – 34 – 50 – 101 – 152)
+Source
+1 – ResNet
+!
+9
+CIFAR10 Classification using ResNet18
+❖Training: 50,000 images. Testing: 10,000 images
+❖Classes: 10
+1 – ResNet
+!
+10
+CIFAR10 Classification using ResNet18 – Demo
+❖Load Dataset
+1 – ResNet
+!
+11
+CIFAR10 Classification using ResNet18 – Demo
+❖Preprocessing
+1 – ResNet
+!
+12
+CIFAR10 Classification using ResNet18 – Demo
+❖Model
+1 – ResNet
+!
+13
+CIFAR10 Classification using ResNet18 – Demo
+❖Training
+2 – Pretrained Models
+!
+14
+ImageNet
+❖Training: 1,281,167 images. Validation: 50,000 images. Testing: 100,000 images
+❖Object classes: 1,000
+2 – Pretrained Models
+!
+15
+ImageNet
+❖Training: 1,281,167 images. Validation: 50,000 images. Testing: 100,000 images
+❖Object classes: 1,000
+Large Dataset
+(ImageNet,..)
+MODEL
+(ResNet, VGG)
+Pretrained Model
+Trained
+2 – Pretrained Models
+!
+16
+ImageNet
+Source
+❖Training: 1,281,167 images. Validation: 50,000 images. Testing: 100,000 images
+❖Object classes: 1,000
+2 – Pretrained Models
+!
+17
+ImageNet
+Source
+❖Training: 1,281,167 images. Validation: 50,000 images. Testing: 100,000 images
+❖Object classes: 1,000
+2 – Pretrained Models
+!
+18
+Transfer Learing
+❖Traditional Learning: Isolated, single task 
+learning
+Dataset #1
+Model
+Dataset #2
+Model
+Dataset #1
+Model
+Dataset #2
+Model
+Knowledge 
+(Weights)
+❖Transfer Learning: Learning of a new tasks relies 
+on the previous learned tasks
+Trained
+2 – Pretrained Models
+!
+19
+Transfer Learing
+Large Dataset
+(ImageNet)
+Small Dataset
+(CIFAR10,…)
+Copy Weights
+❖Transfer Learning: Feature Extractor
+Model (ResNet18)
+Feature Extraction
+Trained
+Classifier
+Model (ResNet18)
+Feature Extraction
+New Task
+2 – Pretrained Models
+!
+20
+Feature Extraction using Pretrained Models
+Feature Extractor
+Vector
+Matrix
+Pretraied Model (ResNet18)
+New Task
+2 – Pretrained Models
+!
+21
+Feature Extraction using Pretrained Models - Demo
+2 – Pretrained Models
+!
+22
+Feature Extraction using Pretrained Models - Demo
+3 – Image Similarity
+1
+23
+Similarity between two images
+Feature Extractor
+Feature Extractor
+Similarity/
+Distance Function
+Similarity Score / 
+Distance
+MSE
+L1 – Distance
+Cosine Similarity
+Normalized Cross-Correlation
+3 – Image Similarity
+1
+24
+Similarity between two images - MSE
+𝑌= [𝑦!, 𝑦", 𝑦#, …, 𝑦$]
+'𝑌= [(𝑦!, (𝑦", (𝑦#, … , (𝑦$]
+3 – Image Similarity
+1
+25
+Similarity between two images - MSE
+1.0
+2.0
+4.0
+5.0
+1.2
+2.4
+3.4
+5.6
+-0.2
+-0.4
+0.6
+-0.6
+-
+(
+)
+2
+0.04
+0.16
+0.36
+0.36
+0.23
+mean
+100
+105
+98
+110
+102
+107
+97
+108
+-2
+-2
+1
+?
+-
+(
+)
+2
+4
+4
+1
+?
+?
+mean
+=
+=
+3 – Image Similarity
+5
+26
+Similarity between two images – on raw images
+MSE: 0.4063
+MSE: 0.3265
+3 – Image Similarity
+3
+27
+Similarity between two images –L1 Distance
+𝑌= [𝑦!, 𝑦", 𝑦#, …, 𝑦$]
+'𝑌= [(𝑦!, (𝑦", (𝑦#, … , (𝑦$]
+𝐿1 = +
+%&!
+'
+|𝑝% −𝑞%|
+3 – Image Similarity
+3
+28
+Similarity between two images –L1 Distance
+100
+105
+98
+110
+102
+107
+97
+108
+-2
+-2
+1
+2
+-
+|
+|
+2
+2
+1
+2
+7
+sum
+=
+5
+8
+4
+2
+3
+7
+10
+6
+2
+1
+-6
+?
+-
+|
+|
+2
+1
+6
+?
+13
+sum
+=
+3 – Image Similarity
+5
+29
+Similarity between two images – on raw images
+L1: 51128.43
+L1: 40339.5
+3 – Image Similarity
+5
+30
+Similarity between two images – on raw images
+L1: 46423.3
+MSE: 0.3477
+L1: 40339.5
+MSE: 0.3265
+Problem?
+3 – Image Similarity
+2
+31
+Similarity between two images – Cosine Similarity
+𝐴= [𝑎!, 𝑎", 𝑎#, … , 𝑎$ ]
+𝐵( = 𝑏!, 𝑏", 𝑏#, … , 𝑏$
+𝐴. 𝐵= 𝑎!𝑏! + 𝑎"𝑏" + ⋯𝑎$𝑏$
+𝐴
+=
+𝑎!
+" + 𝑎"
+" + ⋯+ 𝑎$"
+𝐵
+=
+𝑏!
+" + 𝑏"
+" + ⋯+ 𝑏$"
+3 – Image Similarity
+2
+32
+Similarity between two images – Cosine Similarity
+1.0
+2.0
+3.0
+4.0
+5.0
+6.0
+7.0
+8.0
+*
+=
+1 ∗5 + 2 ∗6 + 3 ∗7 + 4 ∗8
+1! + 2! + 3! + 4!
+5! + 6! + 7! + 8! =
+0.97
+9
+3
+2
+6
+3
+2
+4
+6
+*
+=
+?
+? ∗
+?
+=
+?
+3 – Image Similarity
+5
+33
+Similarity between two images – on raw images
+Cosine sim: 1.0 
+Cosine sim: 0.83
+3 – Image Similarity
+4
+34
+Similarity between two images – Normalized Cross-Correlation
+Formula
+3 – Image Similarity
+4
+35
+Similarity between two images – Normalized Cross-Correlation
+3 – Image Similarity
+4
+36
+Similarity between two images – Normalized Cross-Correlation
+1.0
+2.0
+4.0
+9.0
+4.0
+3.0
+1.0
+2.0
+-3
+-2
+0
+5
+-
+9
+4
+0
+25
+-
+4
+2.5
+=
+=
+1.5
+0.5
+-1.5
+-0.5
+(
+(
+)
+)
+2
+2
+2.25
+?
+2.25
+?
+3 – Image Similarity
+4
+37
+Similarity between two images – Normalized Cross-Correlation
+*
+-4.5
+?
+0
+-2.5
+=
+Sum
+Sum
+38
+5
+= ?
+−8
+38 ∗
+5
+9
+4
+0
+25
+2.25
+0.25
+2.25
+0.25
+-3
+-2
+0
+5
+1.5
+0.5
+-1.5
+-0.5
+3 – Image Similarity
+5
+38
+Similarity between two images – on raw images
+NCC: 0.99
+NCC: 0.3937
+3 – Image Similarity
+5
+39
+Similarity between two images – on raw images
+Method
+Similarity
+L1 Distance
+51128.43
+MSE
+0.4063
+Cosine similarity
+0.7620
+Normalized Cross Correlation
+-0.3564
+3 – Image Similarity
+5
+40
+Similarity between two images – on raw images
+Method
+Similarity
+L1 Distance
+40339.5
+MSE
+0.3265
+Cosine similarity
+0.8294
+Normalized Cross Correlation
+0.3937
+3 – Image Similarity
+5
+41
+Similarity between two images – on raw images
+41
+Method
+Similarity
+L1 Distance
+46423.3
+MSE
+0.3477
+Cosine similarity
+1.0000
+Normalized Cross Correlation
+0.9999
+3 – Image Similarity
+5
+42
+Similarity between two images – on raw images
+42
+Method
+Similarity
+L1 Distance
+30073.23
+MSE
+0.2542
+Cosine similarity
+0.8691
+Normalized Cross Correlation
+0.3812
+Problem?
+3 – Image Similarity
+6
+43
+Similarity between two images – using resnet18
+Feature Extractor
+Feature Extractor
+3 – Image Similarity
+6
+44
+Similarity between two images – using resnet18
+Load the model
+Compute feature
+3 – Image Similarity
+6
+45
+Similarity between two images – using resnet18
+Feature Extractor
+Feature Extractor
+Similarity/
+Distance Function
+Similarity Score / 
+Distance
+3 – Image Similarity
+6
+46
+Similarity between two images – using resnet18
+Method
+Similarity
+L1 Distance
+53.34
+MSE
+0.1329
+Cosine similarity
+0.8999
+Normalized Cross Correlation
+0.4541
+3 – Image Similarity
+6
+47
+Similarity between two images – using resnet18
+Method
+Similarity
+L1 Distance
+49.47
+MSE
+0.123
+Cosine similarity
+0.912
+Normalized Cross Correlation
+0.595
+3 – Image Similarity
+6
+48
+Similarity between two images – using resnet18
+48
+Method
+Similarity
+L1 Distance
+4.344
+MSE
+0.011
+Cosine similarity
+0.9993
+Normalized Cross Correlation
+0.9961
+3 – Image Similarity
+5
+49
+Similarity between two images – on raw images
+49
+Method
+Similarity
+L1 Distance
+22.1067
+MSE
+0.0549
+Cosine similarity
+0.9983
+Normalized Cross Correlation
+0.7959
+Thanks!
+Any questions?
+50

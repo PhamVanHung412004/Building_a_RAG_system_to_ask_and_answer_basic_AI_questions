@@ -1,3 +1,0 @@
-Trong phần này chúng ta sẽ tập trung vào đi sâu tìm hiểu về RLHF.
-Hình 3: Reinforcement Learning from Human Feedback.
-2

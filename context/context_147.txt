@@ -1,0 +1,274 @@
+AI VIET NAM – COURSE 2023
+How to read a research paper
+(Research Module - Assignment 1)
+Ngày 5 tháng 11 năm 2023
+Hình 1: Sample Research paper: V. D. Nguyen, D. D. Nguyen, T. T. Nguyen, V. Q. Dinh and J. W.
+Jeon, "Support Local Pattern and its Application to Disparity Improvement and Texture Classification,"
+in IEEE Transactions on Circuits and Systems for Video Technology, vol. 24, no. 2, pp. 263-276, Feb.
+2014, doi: 10.1109/TCSVT.2013.2254898.
+1
+Ởbài tập này, đầu tiên các bạn cần tìm kiếm được 1 bài báo nghiên cứu khoa học dựa trên research
+interest của mình. Sau đó các bạn tiến hành đọc bài báo và hoàn thành câu trảlời cho các câu hỏi bên
+dưới.
+Lưu ý: sau khi hoàn thành bài tập và submit bài tập này, các bạn sẽnhận được feedback từđội
+ngũ TA research của AIVN trong vòng 1 tuần nhé!
+Câu hỏi 1 (Đọc tiêu đềbài báo nghiên cứu khoa học):
+(a) What is the purpose of the "Paper title" section?
+Answer:
+’
+’
+(b) What is the research topic?
+Answer:
+’
+’
+(c) Is it closed to your research interest?
+Answer:
+’
+’
+(d) Is it a new research approach?
+Answer:
+’
+’
+(e) General idea of what the research is about?
+Answer:
+’
+’
+(f) Does the title use keywords that are relevant to the topic?
+Answer:
+’
+’
+(g) Does the title catch your attention or pique your interest in the research?
+Answer:
+’
+’
+2
+Câu hỏi 2 (Đọc thông tin các tác giảcủa bài báo ):
+(a) What is the purpose of the "Author information" section?
+Answer:
+’
+’
+(b) Who are the authors of the paper?
+Answer:
+’
+’
+(c) Are their main research topics?
+Answer:
+’
+’
+(d) Do they have any related publications?
+Answer:
+’
+’
+(e) Is there a corresponding author indicated, and what are their contact details?
+Answer:
+’
+’
+Câu hỏi 3 (Đọc Abstract của bài báo khoa học ):
+(a) What is the purpose of the "Abstract" section?
+Answer:
+’
+’
+(b) What methods or approaches were used in the research?
+Answer:
+’
+’
+(c) What are the most important findings or results of the study?
+Answer:
+’
+’
+3
+(d) What are the most important findings or results of the study?
+Answer:
+’
+’
+(e) Which techniques that you known/or unknown?
+Answer:
+’
+’
+(f) What conclusions or implications are drawn from the findings?
+Answer:
+’
+’
+(g) What is the overall purpose or goal of the research?
+Answer:
+’
+’
+Câu hỏi 4 (Đọc phần "Conclusion" của bài báo khoa học ):
+(a) What is the purpose of the "Conclusion" section?
+Answer:
+’
+’
+(b) What are the main findings and results presented in the conclusion?
+Answer:
+’
+’
+(c) How do the findings answer the research question or address the research objective?
+Answer:
+’
+’
+(d) Are there any unexpected or surprising results discussed in the conclusion?
+Answer:
+’
+’
+4
+(e) Do the conclusions align with the research hypothesis or initial goals?
+Answer:
+’
+’
+(f) Are there any limitations or weaknesses of the study mentioned in the conclusion?
+Answer:
+’
+’
+(g) What are the practical implications of the findings?
+Answer:
+’
+’
+(h) Are there any recommendations or suggestions for future research provided?
+Answer:
+’
+’
+Câu hỏi 5 (Đọc phần "Introduction" của bài báo khoa học ):
+(a) What is the purpose of the "Introduction" section?
+Answer:
+’
+’
+(b) What is the overall purpose or goal of the research?
+Answer:
+’
+’
+(c) What is the background or context of the research?
+Answer:
+’
+’
+(d) What are previous related research that has been done?
+Answer:
+’
+’
+5
+(e) What are the citation of each previous work (extremely important for you)?
+Answer:
+’
+’
+(f) Is there a review of related work or literature in the introduction?
+Answer:
+’
+’
+(g) Are there any notable trends or debates in the field mentioned?
+Answer:
+’
+’
+(h) What is the theoretical framework or approach used in the research?
+Answer:
+’
+’
+(i) Does the introduction engage your interest and make you want to continue reading the paper?
+Answer:
+’
+’
+Câu hỏi 6 (Đọc phần "Experimental Results" của bài báo khoa học ):
+(a) What is the purpose of the "Experimental Result" section?
+Answer:
+’
+’
+(b) What are the key findings or results presented in the experimental results section?
+Answer:
+’
+’
+(c) Do the results address the research question or hypothesis posed in the introduction?
+Answer:
+’
+’
+6
+(d) Are there any unexpected or surprising results discussed in the section?
+Answer:
+’
+’
+(e) Are there any statistical analyses or tests mentioned, and if so, what were the results?
+Answer:
+’
+’
+(f) Do the results support or contradict the prior literature discussed in the introduction?
+Answer:
+’
+’
+(g) Are there any figures, tables, or visuals, and do they enhance your understanding of the results?
+Answer:
+’
+’
+(h) Which existing methods they mentioned for comparison?
+Answer:
+’
+’
+(i) Which datasets they used for evaluation?
+Answer:
+’
+’
+(j) Which conditions they conducted for testing?
+Answer:
+’
+’
+Câu hỏi 7 (Đọc phần "the Proposed Method" của bài báo khoa học ):
+(a) What is the purpose of the "The proposed method" section?
+Answer:
+’
+’
+7
+(b) What is the research problem or objective?
+Answer:
+’
+’
+(c) What is the overall approach or framework used in the method?
+Answer:
+’
+’
+(d) What data preprocessing or cleaning steps are involved?
+Answer:
+’
+’
+(e) What specific techniques or algorithms are applied?
+Answer:
+’
+’
+(f) Are there any assumptions made in the method?
+Answer:
+’
+’
+(g) How are the parameters and hyper-parameters chosen or tuned?
+Answer:
+’
+’
+(h) How does the proposed method compare to existing methods?
+Answer:
+’
+’
+(i) How reproducible is the method?
+Answer:
+’
+’
+Câu hỏi 8 (Đọc phần "the Proposed Method" của bài báo khoa học ):
+8
+(a) What is the purpose of the "Related Work" section?
+Answer:
+’
+’
+(b) What are the key research topics or areas covered in the related work?
+Answer:
+’
+’
+(c) How does the paper’s research question or problem statement relate to the prior literature?
+Answer:
+’
+’
+(d) Are there any gaps or limitations in the existing research that the paper aims to address?
+Answer:
+’
+’
+(e) What are the main findings or insights from the related work?
+Answer:
+’
+’
+(f) How does the current research build upon or extend the existing literature?
+Answer:
+’
+’
+9

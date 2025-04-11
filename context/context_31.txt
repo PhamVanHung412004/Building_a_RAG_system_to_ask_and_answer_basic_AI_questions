@@ -1,0 +1,162 @@
+Graduate School of Data Science
+Chonnam National University
+Knowledge Distillation
+January 7, 2024
+Ph.D. Ngo Ba Hung
+Email: ngohung@jnu.ac.kr
+Facebook: https://www.facebook.com/hung.ngo.7121
+Module
+❑What is knowledge distillation?
+▪Knowledge distillation refers to the process of transferring the knowledge 
+from a large model or set of models to a single smaller model that can be 
+practically deployed under real-world constraints.
+2
+Topic 3: Knowledge Distillation
+Overview
+❑What is knowledge distillation?
+▪Knowledge distillation refers to the process of transferring the knowledge 
+from a large model or set of models to a single smaller model that can be 
+practically deployed under real-world constraints.
+3
+Topic 3: Knowledge Distillation
+Overview
+❑
+What is the different between Transfer Learning and Knowledge Distillation?
+4
+Topic 3: Knowledge Distillation
+Overview
+Transfer Learning
+Knowledge Distillation
+❑
+Classification
+5
+Topic 3: Knowledge Distillation
+Applications
+❑
+Object Detection
+6
+Topic 3: Knowledge Distillation
+Applications
+❑
+Semantic Segmentation
+7
+Topic 3: Knowledge Distillation
+Applications
+8
+Topic 3: Knowledge Distillation
+Knowledge Distillation Mechanism
+Feature-based knowledge distillation
+Logit-based knowledge distillation
+9
+❑Implementation
+⚫Dataset
+▪CIFAR-10
+–
+60,000 color images
+–
+10 classes
+Topic 3: Knowledge Distillation
+Implementation
+10
+Implementation
+❑Prerequisites
+⚫1 GPU, 4GB of memory
+⚫PyTorch v2.0 or later
+⚫CIFAR-10 dataset
+Topic 3: Knowledge Distillation
+11
+Implementation
+❑Preprocessing data
+Topic 3: Knowledge Distillation
+12
+Implementation
+❑Build a deeper neural network and a lightweight neural network
+Topic 3: Knowledge Distillation
+13
+Implementation
+❑Training
+Topic 3: Knowledge Distillation
+14
+Implementation
+❑Testing
+Topic 3: Knowledge Distillation
+15
+Implementation
+❑Testing
+Topic 3: Knowledge Distillation
+16
+Implementation
+❑Testing without knowledge distillation
+Topic 3: Knowledge Distillation
+17
+Implementation
+❑Testing with knowledge distillation
+Topic 3: Knowledge Distillation
+18
+Implementation
+❑Testing with knowledge distillation
+Topic 3: Knowledge Distillation
+19
+Topic 3: Knowledge Distillation
+Training
+Offline Knowledge Distillation
+Online Knowledge Distillation
+Offline Knowledge Distillation
+20
+Topic 3: Knowledge Distillation
+Method
+❑A good teacher is patient and consistent
+*Lucas Beyer, Xiaohua Zhai, Amélie Royer, Larisa Markeeva, et.al; Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2022.
+What is a good teacher?
+21
+*Hieu Pham, Zihang Dai, Qizhe Xie, Quoc V. Le; Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2021.
+Topic 3: Knowledge Distillation
+Method
+❑Meta Pseudo Labels
+❑Knowledge Distillation With the Reused Teacher Classifier
+22
+*Defang Chen, Jian-Ping Mei, Hailin Zhang, Can Wang, et.al; Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2022.
+Topic 3: Knowledge Distillation
+Method
+23
+❑Implementation
+⚫Dataset
+▪MNIST 
+Topic 3: Knowledge Distillation
+Implementation
+24
+Implementation
+❑Prerequisites
+⚫Keras
+▪Setup
+▪Construct Distiller() class
+▪Create student and teacher models
+▪Prepare the dataset
+▪Train the teacher
+▪Distill teacher to student
+Topic 3: Knowledge Distillation
+25
+Implementation
+❑Construct Distiller() class
+Topic 3: Knowledge Distillation
+26
+Implementation
+❑Create student and teacher models
+Topic 3: Knowledge Distillation
+27
+Implementation
+❑Prepare the dataset
+❑Train the teacher
+Topic 3: Knowledge Distillation
+28
+Implementation
+❑Distill teacher to student
+Topic 3: Knowledge Distillation
+29
+Comparing KLD vs MSE
+❑KLD vs MSE
+Topic 3: Knowledge Distillation
+*Kim, T., et al. "Comparing kullback-leibler divergence and mean squared error loss in knowledge distillation. Proceedings of the Thirtieth International Joint Conference on 
+Artificial Intelligence (IJCAI-21).
+30
+THANK YOU

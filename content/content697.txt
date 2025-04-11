@@ -1,2 +1,0 @@
-. 4
-2.5 Tạo mảng với arange() . . 

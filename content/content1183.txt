@@ -1,5 +1,0 @@
-cat ([h, hs. pop ()], dim =1)
-535 h = module (h, emb )
-536 h = h. type (x. dtype )
-537 return self . out (h)
-19

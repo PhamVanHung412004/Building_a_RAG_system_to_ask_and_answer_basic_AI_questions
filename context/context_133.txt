@@ -1,0 +1,767 @@
+AI VIET NAM – AI COURSE 2023
+Multi-agent LLMs
+Dinh-Thang Duong, Nguyen-Thuan Duong và Quang-Vinh Dinh
+Ngày 5 tháng 5 năm 2024
+Phần I: Giới thiệu
+Multi-agent LLMs là một hướng phát triển liên quan đến mô hình ngôn ngữlớn. Trong đó, ta ứng
+dụng LLMs kết hợp với các agents có khảnăng sửdụng một công cụhoặc một chức năng bên ngoài
+nào đó, nhằm giải quyết bài toán của chúng ta. Ví dụ, ta có thểcài đặt cho LLMs sửdụng calculator
+đểgiải quyết các phép tính, từđó sẽđảm bảo kết quảđầu ra của mô hình.
+Hình 1: Minh họa vềcác agent trong môi trường ChatDev. Ảnh: link.
+Trong bài viết này, chúng ta sẽxây dựng một ứng dụng vềMulti-agent LLMs tạo sinh code đồng
+thời kiểm tra code thông qua trình thực thi. Mã nguồn được xây dựng bằng thư viện Autogen. Theo
+đó, ta sẽxây dựng một ứng dụng có dạng như Chatbot. Ởđó, sẽcó hai agent tựgiao tiếp với nhau
+gồm AssistantAgent và UserProxyAgent:
+• AssistantAgent là một LLM, có vai trò tạo sinh code theo yêu cầu và kiểm tra lại code nếu cần.
+1
+AI VIETNAM
+aivietnam.edu.vn
+• UserProxyAgent có vai trò gửi yêu cầu tạo sinh đến AssistantAgent và thực thi code nhận được
+đểkiểm tra code đã chạy được hay chưa.
+Thông qua hội thoại giữa hai agent này, ta sẽcó được một đoạn code theo yêu cầu đã được kiểm
+tra thông qua trình thực thi. Tổng quan, pipeline của project như sau:
+Hình 2: Pipeline của project.
+1. Từyêu cầu vềtạo sinh một đoạn code với chức năng nào đó từngười dùng, ta kết hợp với context
+có sẵn trong Autogen đểhình thành nội dung khởi đầu của cuộc hội thoại giữa hai agent.
+2. Với nội dung trên, ta tiến hành cho hai agent giao tiếp với nhau.
+3. Từnội dung chat giữa hai agent, ta trích ra nội dung cần thiết đểlàm kết quảcủa chương trình
+(ởđây là đoạn code được tạo sinh theo yêu cầu và kết quảthực thi).
+2
+AI VIETNAM
+aivietnam.edu.vn
+Phần II: Cài đặt chương trình
+Trong phần này, chúng ta sẽtiến hành cài đặt nội dung của project. Mã nguồn được xây dựng trên hệ
+điều hành Ubuntu với GPU 24GB. Các bước thực hiện như sau:
+1. Tổchức thư mục code: Đểmã nguồn trởnên rõ ràng nhằm phục vụcho mục đích đọc hiểu
+code, chúng ta sẽcó ảnh minh họa tổchức cây thư mục như sau:
+multiagent_llms/
+agent.py
+app.py
+chat.py
+utils.py
+OAI_CONFIG_LIST.json
+requirements.txt
+2. Cập nhật file requirements.txt: Ta liệt kê một sốthư viện cần thiết đểchạy được source code
+thông qua file requirements như sau:
+1 pyautogen ==0.2.27
+2 gradio ==4.29.0
+3. Cập nhật file agent.py: Trong file này, ta định nghĩa các hàm khởi tạo các agents. Nội dung như
+sau:
+(a) Import các thư viện và modules cần thiết:
+1 import
+autogen
+2 from
+autogen
+import
+AssistantAgent , UserProxyAgent
+3 from
+autogen.code_utils
+import
+extract_code
+4
+5 TIMEOUT = 60
+(b) Khai báo biến config cho LLM (AssistantAgent): AssistAgent của chúng ta là một
+LLM. Theo đó, đối với việc sửdụng GPT, AutoGen yêu cầu ta cung cấp một file .json có
+chứa API KEY và model version. Các bạn tạo một file tên OAI_CONFIG_LIST.json
+có nội dung sau:
+1 [
+2
+{
+3
+"model": "gpt -3.5 - turbo",
+4
+"api_key": "Type your
+API_KEY
+here"
+5
+}
+6 ]
+Quay lại file code agent.py, các bạn đọc file và import config như sau:
+1 config_list = autogen. config_list_from_json ("./ OAI_CONFIG_LIST .json")
+3
+AI VIETNAM
+aivietnam.edu.vn
+(c) Xây dựng hàm check điều kiện dừng hội thoại cho UserProxyAgent: UserProxyA-
+gent cần nhận được đoạn code được tạo sinh từAgent còn lại đểthực thi. Vì vậy, ta sẽkhai
+báo một hàm kết thúc lượt nhắn của UserProxyAgent nếu chưa nhận được code và ngược
+lại:
+1 def
+_is_termination_msg (message):
+2
+if isinstance(message , dict):
+3
+message = message.get("content")
+4
+if message is None:
+5
+return
+False
+6
+cb = extract_code(message)
+7
+contain_code = False
+8
+for c in cb:
+9
+if c[0] == "python":
+10
+contain_code = True
+11
+break
+12
+return not
+contain_code
+(d) Xây dựng hàm khởi tạo các agents: Đểthuận tiện trong việc triển khai code, ta xây
+dựng hàm initialize_agents() đểtạo hai agent, sửdụng trong phần code của file khác trong
+source code:
+1 def
+initialize_agents ():
+2
+assistant = AssistantAgent (
+3
+name="assistant",
+4
+max_consecutive_auto_reply =5,
+5
+llm_config ={
+6
+"timeout": TIMEOUT ,
+7
+"config_list": config_list ,
+8
+},
+9
+)
+10
+11
+userproxy = UserProxyAgent (
+12
+name="userproxy",
+13
+human_input_mode ="NEVER",
+14
+is_termination_msg =_is_termination_msg ,
+15
+max_consecutive_auto_reply =5,
+16
+code_execution_config ={
+17
+"work_dir": "coding",
+18
+"use_docker": False ,
+19
+},
+20
+)
+21
+22
+return
+assistant , userproxy
+4
+AI VIETNAM
+aivietnam.edu.vn
+Hình 3: Minh họa vềtương tác giữa hai agent - UserProxyAgent (Trình thực thi code) và AssistantAgent
+(LLM tạo sinh code).
+4. Cập nhật file utils.py: Trong file này, ta định một class liên quan đến threading, sẽđược sử
+dụng ởfile chat.py. Nội dung file utils.py như sau:
+1 import sys
+2 import
+threading
+3
+4 LOG_LEVEL = "INFO"
+5 TIMEOUT = 60
+6
+7 class
+thread_with_trace (threading.Thread):
+8
+def
+__init__(self , *args , ** keywords):
+9
+threading.Thread.__init__(self , *args , ** keywords)
+10
+self.killed = False
+11
+self._return = None
+12
+13
+def start(self):
+14
+self.__run_backup = self.run
+15
+self.run = self.__run
+16
+threading.Thread.start(self)
+17
+18
+def __run(self):
+19
+sys.settrace(self.globaltrace)
+20
+self.__run_backup ()
+21
+self.run = self.__run_backup
+22
+23
+def run(self):
+24
+if self._target is not None:
+25
+self._return = self._target (* self._args , ** self._kwargs)
+26
+5
+AI VIETNAM
+aivietnam.edu.vn
+27
+def
+globaltrace(self , frame , event , arg):
+28
+if event == "call":
+29
+return
+self.localtrace
+30
+else:
+31
+return
+None
+32
+33
+def
+localtrace(self , frame , event , arg):
+34
+if self.killed:
+35
+if event == "line":
+36
+raise
+SystemExit ()
+37
+return
+self.localtrace
+38
+39
+def kill(self):
+40
+self.killed = True
+41
+42
+def join(self , timeout =0):
+43
+threading.Thread.join(self , timeout)
+44
+return
+self._return
+5. Cập nhật file chat.py: Trong file này, ta định nghĩa các hàm xây dựng hộp hội thoại (chatbox)
+giữa hai agent. Từđó, cho chúng tương tác qua lại và lấy vềkết quảcuối cùng - lịch sửcuộc trò
+chuyện giữa hai agent, từđó trích xuất được đoạn code và kết quảthực thi. Theo đó, ta triển
+khai như sau:
+(a) Import các thư viện và module cần thiết:
+1 import os
+2 from
+autogen
+import
+OpenAIWrapper
+3 from
+agent
+import
+initialize_agents , config_list
+4 from
+utils
+import *
+(b) Khởi tạo agents: Ta khởi tạo hai agent, UserProxyAgent và AssistantAgent. Đây là hai
+agent sẽtương tác qua lại với nhau trong chatbox:
+1 assistant , userproxy = initialize_agents ()
+(c) Xây dựng hàm chuyển đổi format lịch sửhội thoại: Đểđưa thông tin các cuộc hội thoại
+giữa 2 agent tại quá khứtrong chatbox vào model GPT, ta sẽxây dựng hàm chuyển đổi thông
+tin lịch sửta ghi nhận được sang format của OpenAI thông qua hàm chat_to_oai_message():
+1 def
+chat_to_oai_message (chat_history):
+2
+""" Convert
+chat
+history to OpenAI
+message
+format."""
+3
+messages = []
+4
+if LOG_LEVEL == "DEBUG":
+5
+print(f" chat_to_oai_message : { chat_history }")
+6
+for msg in chat_history:
+7
+messages.append(
+8
+{
+9
+"content": msg [0]. split ()[0] if msg [0]. startswith("exitcode")
+else msg[0],
+10
+"role": "user",
+11
+}
+12
+)
+13
+messages.append ({"content": msg[1], "role": "assistant"})
+14
+return
+messages
+(d) Xây dựng hàm chuyển đổi ngược format lịch sửhội thoại: Đểhiển thịthông tin lịch
+sửlên giao diện của chúng ta sau khi chạy xong, ta cần lấy lại thông tin lịch sửtừGPT.
+Vì thông tin đang ởformat của OpenAI, ta cần có hàm chuyển đổi ngược lại thành một list
+như ban đầu. Theo đó, ta khai báo hàm oai_message_to_chat():
+6
+AI VIETNAM
+aivietnam.edu.vn
+1 def
+oai_message_to_chat (oai_messages , sender):
+2
+""" Convert
+OpenAI
+message
+format to chat
+history."""
+3
+chat_history = []
+4
+messages = oai_messages [sender]
+5
+if LOG_LEVEL == "DEBUG":
+6
+print(f" oai_message_to_chat : {messages}")
+7
+for i in range(0, len(messages), 2):
+8
+chat_history.append(
+9
+[
+10
+messages[i]["content"],
+11
+messages[i + 1]["content"] if i + 1 < len(messages) else "",
+12
+]
+13
+)
+14
+return
+chat_history
+(e) Xây dựng hàm khởi tạo đoạn hội thoại ban đầu: Khi bắt đầu chương trình, ta cần
+khởi tạo môi trường chat cho hai agent. Ta có hàm initiate_chat() như sau:
+1 def
+initiate_chat(config_list , user_message , chat_history ):
+2
+if LOG_LEVEL == "DEBUG":
+3
+print(f" chat_history_init : {chat_history}")
+4
+5
+if len(config_list [0]. get("api_key", "")) < 2:
+6
+chat_history.append(
+7
+[
+8
+user_message ,
+9
+]
+10
+)
+11
+return
+chat_history
+12
+else:
+13
+llm_config = {
+14
+"timeout": TIMEOUT ,
+15
+"config_list": config_list ,
+16
+}
+17
+assistant.llm_config.update(llm_config)
+18
+assistant.client = OpenAIWrapper (** assistant.llm_config)
+19
+20
+if user_message.strip ().lower ().startswith("show file:"):
+21
+filename = user_message .strip ().lower ().replace("show file:", "").
+strip ()
+22
+filepath = os.path.join("coding", filename)
+23
+if os.path.exists(filepath):
+24
+chat_history.append ([ user_message , (filepath ,)])
+25
+else:
+26
+chat_history.append ([ user_message , f"File {filename} not found."
+])
+27
+return
+chat_history
+28
+29
+assistant.reset ()
+30
+oai_messages = chat_to_oai_message (chat_history)
+31
+assistant. _oai_system_message_origin = assistant. _oai_system_message .copy
+()
+32
+assistant. _oai_system_message
++= oai_messages
+33
+34
+try:
+35
+userproxy.initiate_chat (assistant , message=user_message)
+36
+messages = userproxy. chat_messages
+37
+chat_history +=
+oai_message_to_chat (messages , assistant)
+38
+except
+Exception as e:
+39
+chat_history.append ([ user_message , str(e)])
+40
+7
+AI VIETNAM
+aivietnam.edu.vn
+41
+assistant. _oai_system_message = assistant. _oai_system_message_origin .copy
+()
+42
+if LOG_LEVEL == "DEBUG":
+43
+print(f"chat_history: {chat_history}")
+44
+return
+chat_history
+(f) Xây dựng hàm trảvềkết quảđoạn hội thoại: Ta xây dựng hàm trảvềkết quảcủa
+chương trình. Kết quảchương trình của chúng ta là lịch sửđoạn hội thoại giữa hai agent
+(code của AssistantAgent và kết quảthực thi code của UserProxyAgent). Theo đo, hàm trả
+vềkết quảđược triển khai như sau:
+1 def
+chatbot_reply_thread (input_text , chat_history , config_list):
+2
+""" Chat with the agent
+through
+terminal."""
+3
+thread = thread_with_trace (target=initiate_chat , args =( config_list ,
+input_text , chat_history ))
+4
+thread.start ()
+5
+try:
+6
+messages = thread.join(timeout=TIMEOUT)
+7
+if thread.is_alive ():
+8
+thread.kill ()
+9
+thread.join ()
+10
+messages = [
+11
+input_text ,
+12
+"Timeout
+Error: Please
+check
+your API keys and try again
+later.",
+13
+]
+14
+except
+Exception as e:
+15
+messages = [
+16
+[
+17
+input_text ,
+18
+str(e) if len(str(e)) > 0 else "Invalid
+Request to OpenAI ,
+please
+check
+your API keys.",
+19
+]
+20
+]
+21
+return
+messages
+22
+23 def
+chatbot_reply(input_text , chat_history , config_list):
+24
+""" Chat with the agent
+through
+terminal."""
+25
+return
+chatbot_reply_thread (input_text , chat_history , config_list)
+26
+27 def
+chat_respond(message , chat_history , model , oai_key , aoai_key , aoai_base):
+28
+chat_history [:] = chatbot_reply (message , chat_history , config_list)
+29
+if LOG_LEVEL == "DEBUG":
+30
+print(f"return
+chat_history : { chat_history }")
+31
+return ""
+8
+AI VIETNAM
+aivietnam.edu.vn
+Hình 4: Minh họa việc trảvềnội dung đoạn hội thoại (carryover) giữa hai agent. Các carryover theo
+thời gian trởthành lịch sửđoạn hội thoại làm context cho các lần chat khác.
+6. Cập nhật file app.py: Cuối cùng, ta xây dựng một giao diện đơn giản đểtương tác với chương
+trình, trực quan hóa hội thoại giữa hai agent cũng như kết quảcủa chương trình mà ta mong
+muốn. Theo đó, ta sẽxây dựng giao diện bằng thư viện Gradio. Triển khai như sau:
+(a) Import các thư viện và modules cần thiết: Tại đây, ta sẽimport thư viện Gradio. Ta
+sẽsửdụng giao diện chat cơ bản của Gradio là ChatInterface:
+1 import
+gradio as gr
+2 from
+gradio
+import
+ChatInterface
+3
+4 from chat
+import
+chat_respond
+5
+6 LOG_LEVEL = "INFO"
+(b) Xây dựng block Gradio: Đểtriển khai giao diện, ta xây dựng một block gradio với các
+thành phần trên giao diện như sau:
+1 with gr.Blocks () as demo:
+2
+3
+description = gr.Markdown("""
+4
+# Microsoft
+AutoGen
+5
+## Multi -agent
+Conversation
+6
+""")
+7
+8
+chatbot = gr.Chatbot(
+9
+[],
+10
+elem_id="chatbot",
+11
+bubble_full_width =False ,
+12
+avatar_images =(
+13
+"../ images/human.png",
+14
+"../ images/autogen.png",
+15
+),
+16
+render=False ,
+17
+height =600,
+9
+AI VIETNAM
+aivietnam.edu.vn
+18
+)
+19
+20
+txt_input = gr.Textbox(
+21
+scale=4,
+22
+show_label=False ,
+23
+placeholder="Enter
+text and press
+enter",
+24
+container=False ,
+25
+render=False ,
+26
+autofocus=True ,
+27
+)
+28
+29
+chatiface = ChatInterface (
+30
+chat_respond ,
+31
+chatbot=chatbot ,
+32
+textbox=txt_input ,
+33
+examples =[
+34
+["write a python
+function to count the sum of two
+numbers?"],
+35
+["what if the
+production of two
+numbers?"],
+36
+["Plot a chart of the last year ’s stock
+prices of Microsoft ,
+Google and Apple and save to stock_price.png."],
+37
+["show file: stock_price.png"],
+38
+],
+39
+)
+(c) Khởi động giao diện: Cuối cùng, ta cài đặt lệnh khởi động giao diện khi chạy file app.py
+như sau:
+1 if __name__ == "__main__":
+2
+demo.launch(share=False , server_name="0.0.0.0", server_port =7868)
+Hình 5: Giao diện ứng dụng Multi-agent LLMs sau khi được triển khai và chạy thửmột ví dụ.
+10
+AI VIETNAM
+aivietnam.edu.vn
+Phần III: Câu hỏi trắc nghiệm
+1. Trong Multi-agent LLMs, khái niệm agent có thểđược hiểu như là?
+(a) Là một Docker Container.
+(b) Là một máy ảo (Virtual machine).
+(c) Là một mô hình LLM.
+(d) Là một thực thể(Entity) có khảnăng nhận và gửi thông điệp (Message) đến các agent khác.
+2. Đâu là ưu điểm của việc sửdụng phối hợp của nhiều agent (Multi-agent)?
+(a) Giải quyết một vấn đềnhanh hơn.
+(b) Có khảnăng giải quyết đa dạng các bài toán hơn.
+(c) Giải quyết được các vấn đề, bài toán khó và phức tạp.
+(d) Dễdàng cài đặt.
+3. Xét đoạn code dưới đây:
+1 import os
+2 from
+autogen
+import
+ConversableAgent
+3
+4 agent = ConversableAgent (
+5
+"chatbot",
+6
+llm_config ={"config_list": [{
+7
+"model": "gpt -3.5 - turbo",
+8
+"api_key": os.environ.get(" OPENAI_API_KEY ")
+9
+}]},
+10 )
+Agent trên được khởi tạo như là:
+(a) Một mô hình LLM.
+(b) Một công cụthực thi code.
+(c) Một máy ảo.
+(d) Công cụlưu trữlịch sửhội thoại.
+4. Một agent có khảnăng thực thi script (Code Executors) (ví dụnhư python code) sẽtồn tại rủi
+ro tiềm ẩn nào?
+(a) Giống như chúng ta chạy code python nên không có rủi ro.
+(b) LLM có thểsinh ra các script nhằm đánh cắp dữliệu của máy HOST.
+(c) Khiến máy HOST bịchậm do tiêu tốn tài nguyên CPU/GPU.
+(d) Tiêu tốn không gian lưu trữdữliệu mà agent tải về.
+5. Đâu KHÔNG là một giái pháp đểgiảm thiểu rủi ro cho một Code Executors Agent?
+(a) Luôn luôn yêu cầu sựkiểm tra của con người trước khi cho agent thực thi code.
+(b) Sửdụng máy ảo đểthực thi code.
+(c) Sửdụng công cụContainerization (ví dụDocker Container).
+(d) Sửdụng Jupyter Notebook đểthực thi code.
+6. Xét đoạn code dưới đây:
+11
+AI VIETNAM
+aivietnam.edu.vn
+1 executor = DockerCommandLineCodeExecutor (
+2
+image="python :3.11 - slim",
+3
+timeout =10,
+4
+work_dir=temp_dir.name ,
+5 )
+Ý nghĩa của dòng thứ2 là gì?
+(a) Khai báo tên của docker container.
+(b) Khai báo tên của docker image.
+(c) Khai báo tên docker image được dùng đểthực thi.
+(d) Khai báo tên của Code Executor Agent.
+7. Xét đoạn code dưới đây:
+1 human_proxy = ConversableAgent (
+2
+"human_proxy",
+3
+human_input_mode ="ALWAYS",
+4 )
+Ý nghĩa của dòng thứ3 là gì?
+(a) Là message từuser truyển cho agent tại thời điểm khởi tạo.
+(b) Cho phép agent có khảnăng thực thi code.
+(c) Luôn luôn yêu cầu message của con người trước khi agent thực thi.
+(d) Cho phép con người truyển message bất cứkhi nào.
+8. Trong Autogen framework, đâu là cách đểchấm dứt cuộc hội thoại, trò chuyện?
+(a) Dùng max_turns parameter trong hàm initiate_chat.
+(b) Dùng max_consecutive_auto_reply parameter khi khởi tạo agent.
+(c) Dùng is_termination_msg parameter khi khởi tạo agent.
+(d) Cả3 cách trên.
+9. Xét đoạn code dưới đây:
+1 executor = DockerCommandLineCodeExecutor (
+2
+image="python :3.11 - slim",
+3
+timeout =10,
+4
+work_dir=temp_dir.name ,
+5 )
+6
+7 userproxy = UserProxyAgent(
+8
+name="userproxy",
+9
+human_input_mode ="NEVER",
+10
+is_termination_msg =lambda msg: "TERMINATE" in msg["content"],
+11
+max_consecutive_auto_reply =5,
+12
+code_execution_config ={"executor": executor},
+13 )
+14
+15 executor.stop ()
+Ý nghĩa của line thứ15 là gì?
+(a) Chấm dứt cuộc hội thoại.
+(b) Ngắt hội thoại của userproxy agent.
+12
+AI VIETNAM
+aivietnam.edu.vn
+(c) Dừng docker container được dùng đểthực thi code.
+(d) Dừng việc thực thi code.
+10. Vai trò của Group Chat Manager trong group chat là gì?
+(a) Chọn ra một Agent duy nhất đểthực hiện task.
+(b) Nhận task từBoss Agent, sau đó phân tán task cho tất cảcác Agent trong group.
+(c) Thu thập kết quảtừcác Agent sau đó đưa ra câu trảlời.
+(d) Nhận task từBoss Agent, chọn một Agent thực hiện task, lặp lại cho tới khi hoàn thành.
+- Hết -
+13

@@ -1,5 +1,0 @@
-AI VIETNAM aivietnam.edu.vn
-Hình 5: Hình ảnh so sánh kết quả registration của 2 đám mây điểm. a) Original (inlier_rmse = 1.177e-
-02), b) Point-to-point ICP (inlier_rmse = 7 76e-03), c) Point-to-plane ICP (inlier_rmse = 6.58e-03)
-này để tạo ra mô hình 3D hoàn chỉnh và chính xác của căn phòng.
-Point-to-Point ICP:Đây là cách tiếp cận đơn giản và truyền thống hơn. 

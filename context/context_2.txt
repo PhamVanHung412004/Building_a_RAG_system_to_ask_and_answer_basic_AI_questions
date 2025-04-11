@@ -1,0 +1,932 @@
+AI VIETNAM
+All-in-One Course
+(TA Session)
+EXERCISE - Optimization Trong Machine 
+Learning
+13:53:24
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Content
+• Giới Thiệu Optimization Trong Machine Learning 
+– Giới Thiệu Gradient-based Optimization Trong Machine Learning
+– Giới Thiệu Sharpness-Aware Minimization
+• Optimizing Functions of Two Varibales
+– Giới thiệu vấn đề 
+– Exercise1: Gradient Descent 
+– Exercise2: Gradient Descent + Momentum
+– Exercise3: RMSProp
+– Exercise4: Adam
+• Vanishing Problem (Optional)
+– GD, GD + Momentum, RMSProp, và Adam 
+• Other Research Papers
+13:53:25
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Content
+• Giới Thiệu Optimization Trong Machine Learning 
+– Giới Thiệu Gradient-based Optimization Trong Machine Learning
+– Giới Thiệu Sharpness-Aware Minimization
+• Optimizing Functions of Two Varibales
+– Giới thiệu vấn đề 
+– Exercise1: Gradient Descent 
+– Exercise2: Gradient Descent + Momentum
+– Exercise3: RMSProp
+– Exercise4: Adam
+• Vanishing Problem (Optional)
+– GD, GD + Momentum, RMSProp, và Adam 
+• Other Research Papers
+13:53:25
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Giới Thiệu Optimization Trong Machine Learning
+13:53:25
+• Giới Thiệu Gradient-based Optimization Trong Machine Learning
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Giới Thiệu Optimization Trong Machine Learning
+13:53:25
+• Giới Thiệu Gradient-based Optimization Trong Machine Learning
+AI VIETNAM
+All-in-One Course
+(TA Session)
+13:53:25
+• Giới Thiệu Gradient-based Optimization Trong Machine Learning
+Gradient Descent 
+Adding Momentum
+Adaptive Learning 
+Rate
+AdaBelief
+SGD
+mini-batch SGD
+GD
+SGD + momentum
+Nesterov momentum
+Adagrad
+RMSprop
+Adam
+Momentum 
+Adaptive LR
+＋
+=
+＋
+AdaMax
+Nadam
+⋮ ⋮ ⋮
+⋮ ⋮ ⋮
+⋮ ⋮ ⋮
+⋮ ⋮ ⋮
+⋮ ⋮ ⋮
+⋮ ⋮ ⋮
+Giới Thiệu Optimization Trong Machine Learning
+AI VIETNAM
+All-in-One Course
+(TA Session)
+13:53:25
+Gradient Descent 
+SGD
+mini-batch SGD
+GD
+Giới Thiệu Optimization Trong Machine Learning
+AI VIETNAM
+All-in-One Course
+(TA Session)
+13:53:25
+Giới Thiệu Optimization Trong Machine Learning
+GD
+SGD
+mini-batch SGD
+AI VIETNAM
+All-in-One Course
+(TA Session)
+13:53:25
+Gradient Descent 
+SGD
+mini-batch SGD
+GD
+Giới Thiệu Optimization Trong Machine Learning
+AI VIETNAM
+All-in-One Course
+(TA Session)
+13:53:25
+GD
+Advantages
+1. Fewer model updates mean that this variant of the steepest descent method is more computationally efficient than the stochastic 
+    gradient descent method.
+2. Reducing the update frequency provides a more stable error gradient and a more stable convergence for some problems.
+3. Separating forecast error calculations and model updates provides a parallel processing-based algorithm implementation.
+Disadvantages
+1. A more stable error gradient can cause the model to prematurely converge to a suboptimal set of parameters.
+2. End-of-training epoch updates require the additional complexity of accumulating prediction errors across all training examples.
+3. The batch gradient descent method typically requires the entire training dataset in memory and is implemented for use in the algorithm.
+4. Large datasets can result in very slow model updates or training speeds.
+5. Slow and require more computational power.
+Giới Thiệu Optimization Trong Machine Learning
+AI VIETNAM
+All-in-One Course
+(TA Session)
+13:53:25
+Advantages
+1. You can instantly see your model’s performance and improvement rates with frequent updates.
+2. This variant of the steepest descent method is probably the easiest to understand and implement, especially for beginners.
+3. Increasing the frequency of model updates will allow you to learn more about some issues faster.
+4. The noisy update process allows the model to avoid local minima (e.g., premature convergence).
+5. Faster and require less computational power.
+6. Suitable for the larger dataset.
+Disadvantages
+1. Frequent model updates are more computationally intensive than other steepest descent configurations, and it takes 
+considerable time to train the model with large datasets.
+2. Frequent updates can result in noisy gradient signals. This can result in model parameters and cause errors to fly around (more 
+variance across the training epoch).
+3. A noisy learning process along the error gradient can also make it difficult for the algorithm to commit to the model’s 
+minimum error.
+SGD
+Giới Thiệu Optimization Trong Machine Learning
+AI VIETNAM
+All-in-One Course
+(TA Session)
+13:53:25
+mini-batch SGD
+Advantages
+1. The model is updated more frequently than the stack gradient descent method, allowing for more robust convergence and 
+avoiding local minima.
+2. Batch updates provide a more computationally efficient process than stochastic gradient descent.
+3. Batch processing allows for both the efficiency of not having all the training data in memory and implementing the algorithm.
+Disadvantages
+1. Mini-batch requires additional hyperparameters “mini-batch size” to be set for the learning algorithm.
+2. Error information should be accumulated over a mini-batch of training samples, such as batch gradient descent.
+3. It will generate complex functions.
+Giới Thiệu Optimization Trong Machine Learning
+AI VIETNAM
+All-in-One Course
+(TA Session)
+13:53:25
+• Concerns on SGD
+1. If the loss function changes quickly in one direction and slowly in another, it may result in a high oscillation of gradients 
+making the training progress very slow.
+2. If the loss function has a local minimum or a saddle point, it is very possible that SGD will be stuck there without being 
+able to “jump out” and proceed in finding a better minimum. This happens because the gradient becomes zero so there is no 
+update in the weight whatsoever.
+3. The gradients are still noisy because we estimate them based only on a small sample of our dataset. The noisy updates 
+might not correlate well with the true direction of the loss function.
+4. Choosing a good loss function is tricky and requires time-consuming experimentation with different hyperparameters.
+5. The same learning rate is applied to all of our parameters, which can become problematic for features with different 
+frequencies or significance.
+Giới Thiệu Optimization Trong Machine Learning
+AI VIETNAM
+All-in-One Course
+(TA Session)
+13:53:25
+• Giới Thiệu Gradient-based Optimization Trong Machine Learning
+Adding Momentum
+SGD + momentum
+Giới Thiệu Optimization Trong Machine Learning
+AI VIETNAM
+All-in-One Course
+(TA Session)
+13:53:25
+• Giới Thiệu Gradient-based Optimization Trong Machine Learning
+Adding Momentum
+SGD + momentum
+Nesterov momentum
+AI VIETNAM
+All-in-One Course
+(TA Session)
+13:53:25
+• Giới Thiệu Gradient-based Optimization Trong Machine Learning
+Adding Momentum
+SGD + momentum
+Nesterov momentum
+Giới Thiệu Optimization Trong Machine Learning
+AI VIETNAM
+All-in-One Course
+(TA Session)
+13:53:25
+• Giới Thiệu Gradient-based Optimization Trong Machine Learning
+Adaptive Learning Rate
+Adagrad
+RMSprop
+Giới Thiệu Optimization Trong Machine Learning
+AI VIETNAM
+All-in-One Course
+(TA Session)
+13:53:25
+• Giới Thiệu Gradient-based Optimization Trong Machine Learning
+Adagrad
+Giới Thiệu Optimization Trong Machine Learning
+AI VIETNAM
+All-in-One Course
+(TA Session)
+13:53:25
+• Giới Thiệu Gradient-based Optimization Trong Machine Learning
+Adagrad vs RMSProp
+GD vs Adagrad
+AI VIETNAM
+All-in-One Course
+(TA Session)
+13:53:25
+• Giới Thiệu Gradient-based Optimization Trong Machine Learning
+Adam
+Momentum 
+Adaptive LR
+AdaMax
+Nadam
+⋮ ⋮ ⋮
+Giới Thiệu Optimization Trong Machine Learning
+AI VIETNAM
+All-in-One Course
+(TA Session)
+13:53:25
+• Giới Thiệu Gradient-based Optimization Trong Machine Learning
+Adam
+Giới Thiệu Optimization Trong Machine Learning
+AI VIETNAM
+All-in-One Course
+(TA Session)
+13:53:25
+• Giới Thiệu Gradient-based Optimization Trong Machine Learning
+AdaMax
+Giới Thiệu Optimization Trong Machine Learning
+AI VIETNAM
+All-in-One Course
+(TA Session)
+13:53:25
+• Giới Thiệu Gradient-based Optimization Trong Machine Learning
+AdaMax
+AI VIETNAM
+All-in-One Course
+(TA Session)
+13:53:25
+• Giới Thiệu Gradient-based Optimization Trong Machine Learning
+Nadam
+AI VIETNAM
+All-in-One Course
+(TA Session)
+13:53:25
+• Giới Thiệu Gradient-based Optimization Trong Machine Learning
+Logistic Regression MNIST
+Linear Regression
+Giới Thiệu Optimization Trong Machine Learning
+AI VIETNAM
+All-in-One Course
+(TA Session)
+13:53:25
+• Giới Thiệu Gradient-based Optimization Trong Machine Learning
+MNIST Digit Classification with Convolutional Neural Networks
+Giới Thiệu Optimization Trong Machine Learning
+AI VIETNAM
+All-in-One Course
+(TA Session)
+13:53:25
+AdaBelief
+• Giới Thiệu Gradient-based Optimization Trong Machine Learning
+Giới Thiệu Optimization Trong Machine Learning
+AI VIETNAM
+All-in-One Course
+(TA Session)
+13:53:25
+• Giới Thiệu Gradient-based Optimization Trong Machine Learning
+AdaBelief
+Giới Thiệu Optimization Trong Machine Learning
+AI VIETNAM
+All-in-One Course
+(TA Session)
+13:53:25
+• Giới Thiệu Gradient-based Optimization Trong Machine Learning
+Second-Order Derivatives Methods
+Giới Thiệu Optimization Trong Machine Learning
+AI VIETNAM
+All-in-One Course
+(TA Session)
+13:53:25
+• Giới Thiệu Gradient-based Optimization Trong Machine Learning
+Second-Order Derivatives Methods
+Giới Thiệu Optimization Trong Machine Learning
+AI VIETNAM
+All-in-One Course
+(TA Session)
+13:53:25
+• Giới Thiệu Gradient-based Optimization Trong Machine Learning
+Second-Order Derivatives Methods
+[5] Nocedal J and Wright S 2006 Numerical Optimization Springer Series in Operations Research and Financial Engineering (Springer New York) ISBN 9780387303031
+[7] Møller M F 1993 Neural Networks 6 525 – 533 ISSN 0893-6080 URL http://www.sciencedirect.com/science/article/pii/S0893608005800565
+[8] Sohl-Dickstein J, Poole B and Ganguli S 2013 CoRR abs/1311.2115 (Preprint 1311.2115) URL http://arxiv.org/abs/1311.2115
+Giới Thiệu Optimization Trong Machine Learning
+AI VIETNAM
+All-in-One Course
+(TA Session)
+13:53:25
+• Giới Thiệu Gradient-based Optimization Trong Machine Learning
+Second-Order Derivatives Methods
+[4] LeCun Y, Bottou L, Orr G B and M¨uller K R 1998 Efficient BackProp (Berlin, Heidelberg: Springer Berlin Heidelberg) pp 9–50 ISBN 978-3-540-49430-0
+[10] Wilamowski B M and Yu H 2010 IEEE Transactions on Neural Networks 21 930–937 ISSN 1045-9227
+[13] Goh B S 2012 Latest Advances in Systems Science and Computational Intelligence 25–30
+[14] Martens J 2010 Proceedings of the 27th International Conference on International Conference on Machine Learning 735–742 URL http://dl.acm.org/citation.cfm?id=3104322.3104416
+Giới Thiệu Optimization Trong Machine Learning
+AI VIETNAM
+All-in-One Course
+(TA Session)
+13:53:25
+• Giới Thiệu Sharpness-Aware Minimization
+⟹
+Giới Thiệu Optimization Trong Machine Learning
+AI VIETNAM
+All-in-One Course
+(TA Session)
+13:53:26
+• Giới Thiệu Sharpness-Aware Minimization
+[JNM+19]: Yiding Jiang, Behnam Neyshabur, Hossein Mobahi, Dilip Krishnan, and Samy Bengio, Fantastic Generalization Measures and Where to Find Them, arXiv e-prints (2019), arXiv:1912.02178.
+[SMN+16]:Nitish Shirish Keskar, Dheevatsa Mudigere, Jorge Nocedal, Mikhail Smelyanskiy, and Ping Tak Peter Tang, On Large-Batch Training for Deep Learning: Generalization Gap and Sharp Minima, arXiv e-prints 
+(2016), arXiv:1609.04836.
+[IPG+18]: Pavel Izmailov, Dmitrii Podoprikhin, Timur Garipov, Dmitry Vetrov, and Andrew Gordon Wilson, Averaging Weights Leads to Wider Optima and Better Generalization, arXiv e-prints (2018), arXiv:1803.05407.
+Giới Thiệu Optimization Trong Machine Learning
+AI VIETNAM
+All-in-One Course
+(TA Session)
+13:53:26
+• Giới Thiệu Sharpness-Aware Minimization
+Giới Thiệu Optimization Trong Machine Learning
+AI VIETNAM
+All-in-One Course
+(TA Session)
+13:53:26
+• Giới Thiệu Sharpness-Aware Minimization
+- Minimizes loss value AND sharpness.
+- Is efficient and easy to implement.
+- Strongly improves generalization (SOTA on Imagenet, 
+  CIFAR, SVHN, and others).
+- Is robust to label noise.
+SAM is an optimization algorithm
+Giới Thiệu Optimization Trong Machine Learning
+AI VIETNAM
+All-in-One Course
+(TA Session)
+13:53:26
+• Giới Thiệu Sharpness-Aware Minimization
+Giới Thiệu Optimization Trong Machine Learning
+AI VIETNAM
+All-in-One Course
+(TA Session)
+13:53:26
+• Giới Thiệu Sharpness-Aware Minimization
+One update of SAM against one update of 
+plain gradient descent.
+Giới Thiệu Optimization Trong Machine Learning
+AI VIETNAM
+All-in-One Course
+(TA Session)
+13:53:26
+• Giới Thiệu Sharpness-Aware Minimization
+Giới Thiệu Optimization Trong Machine Learning
+AI VIETNAM
+All-in-One Course
+(TA Session)
+13:53:26
+• Giới Thiệu Sharpness-Aware Minimization
+Giới Thiệu Optimization Trong Machine Learning
+AI VIETNAM
+All-in-One Course
+(TA Session)
+13:53:26
+• Giới Thiệu Sharpness-Aware Minimization
+Giới Thiệu Optimization Trong Machine Learning
+AI VIETNAM
+All-in-One Course
+(TA Session)
+13:53:26
+• Giới Thiệu Sharpness-Aware Minimization
+Giới Thiệu Optimization Trong Machine Learning
+AI VIETNAM
+All-in-One Course
+(TA Session)
+13:53:26
+• Giới Thiệu Adaptive Sharpness-Aware Minimization
+Giới Thiệu Optimization Trong Machine Learning
+AI VIETNAM
+All-in-One Course
+(TA Session)
+13:53:26
+• Giới Thiệu Adaptive Sharpness-Aware Minimization
+Giới Thiệu Optimization Trong Machine Learning
+AI VIETNAM
+All-in-One Course
+(TA Session)
+13:53:26
+• Giới Thiệu Adaptive Sharpness-Aware Minimization
+Giới Thiệu Optimization Trong Machine Learning
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Content
+• Giới Thiệu Optimization Trong Machine Learning 
+– Giới Thiệu Optimization
+– Giới Thiệu Gradient-based Optimization Trong Machine Learning
+– Giới Thiệu Sharpness-Aware Minimization
+• Optimizing Functions of Two Varibales
+– Giới thiệu vấn đề 
+– Exercise1: Gradient Descent 
+– Exercise2: Gradient Descent + Momentum
+– Exercise3: RMSProp
+– Exercise4: Adam
+• Vanishing Problem (Optional)
+– GD, GD + Momentum, RMSProp, và Adam 
+13:53:26
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Optimizing Functions of Two Varibales
+13:53:26
+• Giới thiệu vấn đề
+Ǌ(Ǜ1, Ǜ2) = 0.1Ǜ12 + 2Ǜ22      (1)
+Cho một function 2 biến (1). Sử dụng các thuật toán optimizationđể tìm 
+điểm minimum của function:
+    (a) Trình bày chi tiết từng thuật toán với 2 lần lặp (latex, doc, ...)
+    (b) Thực hiện code với 30 lần lặp (sử dụng thư viện Numpy) 
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Optimizing Functions of Two Varibales
+13:53:26
+• Exercise1: Gradient Descent
+Ǌ(Ǜ1, Ǜ2) = 0.1Ǜ12 + 2Ǜ22      (1)
+Gradient Descent: ǁ = ǁ −ح ∗푑ǁ      (1.1)
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Optimizing Functions of Two Varibales
+13:53:26
+• Exercise1: Gradient Descent
+Ǌ(Ǜ1, Ǜ2) = 0.1Ǜ12 + 2Ǜ22      (1)
+Gradient Descent: ǁ = ǁ −ح ∗푑ǁ      (1.1)
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Optimizing Functions of Two Varibales
+13:53:26
+• Exercise1: Gradient Descent
+Ǌ(Ǜ1, Ǜ2) = 0.1Ǜ12 + 2Ǜ22      (1)
+Gradient Descent: ǁ = ǁ −ح ∗푑ǁ      (1.1)
+FUNCTION sgd(W, dW, lr)
+    W = W - lr*dW
+    RETURN W
+ENDFUNCTION
+FUNCTION df_w(W)
+    w1, w2 = W
+    dw1 = 0.2*w1
+    dw2 = 4*w2
+    dW = array([dw1, dw2])
+    RETURN dW 
+ENDFUNCTION
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Optimizing Functions of Two Varibales
+13:53:26
+• Exercise1: Gradient Descent
+Ǌ(Ǜ1, Ǜ2) = 0.1Ǜ12 + 2Ǜ22      (1)
+Gradient Descent: ǁ = ǁ −ح ∗푑ǁ      (1.1)
+FUNCTION train_p1(optimizer, lr, epochs)
+    W = array([-5, 2])
+    results = [W]
+    FOR e start at 0 TO epochs-1
+        dW = df_w(W)
+        W = optimizer(W, dW, lr)
+        results.append(W)
+    RETURN results 
+ENDFUNCTION
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Optimizing Functions of Two Varibales
+13:53:26
+• Exercise2: Gradient Descent + Momentum
+Ǌ(Ǜ1, Ǜ2) = 0.1Ǜ12 + 2Ǜ22      (1)
+Gradient Descent + Momentum:
+      ǀ֩ = خǀ֩−1 + (1 −خ)푑ǁ֩−1    (2.1) 
+      ǁ֩ = ǁ֩−1 −ح ∗ǀ֩                (2.2)
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Optimizing Functions of Two Varibales
+13:53:26
+• Exercise2: Gradient Descent + Momentum
+Ǌ(Ǜ1, Ǜ2) = 0.1Ǜ12 + 2Ǜ22      (1)
+Gradient Descent + Momentum:
+      ǀ֩ = خǀ֩−1 + (1 −خ)푑ǁ֩−1    (2.1) 
+      ǁ֩ = ǁ֩−1 −ح ∗ǀ֩                (2.2)
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Optimizing Functions of Two Varibales
+13:53:26
+• Exercise2: Gradient Descent + Momentum
+Ǌ(Ǜ1, Ǜ2) = 0.1Ǜ12 + 2Ǜ22      (1)
+Gradient Descent + Momentum:
+      ǀ֩ = خǀ֩−1 + (1 −خ)푑ǁ֩−1    (2.1) 
+      ǁ֩ = ǁ֩−1 −ح ∗ǀ֩                (2.2)
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Optimizing Functions of Two Varibales
+13:53:26
+• Exercise2: Gradient Descent + Momentum
+Ǌ(Ǜ1, Ǜ2) = 0.1Ǜ12 + 2Ǜ22      (1)
+Gradient Descent + Momentum:
+      ǀ֩ = خǀ֩−1 + (1 −خ)푑ǁ֩−1    (2.1) 
+      ǁ֩ = ǁ֩−1 −ح ∗ǀ֩                (2.2)
+FUNCTION sgd_momentum(W, dW, lr, V, beta)
+    V = beta*V + (1-beta)*dW
+    W = W - lr*V
+    RETURN W, V
+ENDFUNCTION
+FUNCTION df_w(W)
+    w1, w2 = W
+    dw1 = 0.2*w1
+    dw2 = 4*w2
+    dW = array([dw1, dw2])
+    RETURN dW 
+ENDFUNCTION
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Optimizing Functions of Two Varibales
+13:53:27
+• Exercise2: Gradient Descent + Momentum
+Ǌ(Ǜ1, Ǜ2) = 0.1Ǜ12 + 2Ǜ22      (1)
+Gradient Descent + Momentum:
+      ǀ֩ = خǀ֩−1 + (1 −خ)푑ǁ֩−1    (2.1) 
+      ǁ֩ = ǁ֩−1 −ح ∗ǀ֩                (2.2)
+FUNCTION train_p1(optimizer, lr, epochs)
+    W = array([-5, 2])
+    V = array([0, 0])
+    results = [W]
+    FOR e start at 0 TO epochs-1
+        dW = df_w(W)
+        W, V = optimizer(W, dW, lr, V, beta=0.5)
+        results.append(W)
+    RETURN results 
+ENDFUNCTION
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Optimizing Functions of Two Varibales
+13:53:27
+• Exercise3: RMSProp
+Ǌ(Ǜ1, Ǜ2) = 0.1Ǜ12 + 2Ǜ22      (1)
+RMSProp:
+      ƽ֩ = دƽ֩−1 + (1 −د)푑ǁ2֩−1    (3.1) 
+      ǁ֩ = ǁ֩−1 −ح ∗
+푑ֳ֪
+֣֪ +ي            (3.2)
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Optimizing Functions of Two Varibales
+13:53:27
+• Exercise3: RMSProp
+Ǌ(Ǜ1, Ǜ2) = 0.1Ǜ12 + 2Ǜ22      (1)
+RMSProp:
+      ƽ֩ = دƽ֩−1 + (1 −د)푑ǁ2֩−1    (3.1) 
+      ǁ֩ = ǁ֩−1 −ح ∗
+푑ֳ֪
+֣֪ +ي            (3.2)
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Optimizing Functions of Two Varibales
+13:53:27
+• Exercise3: RMSProp
+Ǌ(Ǜ1, Ǜ2) = 0.1Ǜ12 + 2Ǜ22      (1)
+RMSProp:
+      ƽ֩ = دƽ֩−1 + (1 −د)푑ǁ2֩−1    (3.1) 
+      ǁ֩ = ǁ֩−1 −ح ∗
+푑ֳ֪
+֣֪ +ي            (3.2)
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Optimizing Functions of Two Varibales
+13:53:27
+• Exercise3: RMSProp
+Ǌ(Ǜ1, Ǜ2) = 0.1Ǜ12 + 2Ǜ22      (1)
+RMSProp:
+      ƽ֩ = دƽ֩−1 + (1 −د)푑ǁ2֩−1    (3.1) 
+      ǁ֩ = ǁ֩−1 −ح ∗
+푑ֳ֪
+֣֪ +ي            (3.2)
+FUNCTION RMSProp(W, dW, lr, S, gamma)
+    epsilon = 1e-6
+    S = gamma*S + (1-gamma)*dW**2
+    adapt_lr = lr/sqrt(S + epsilon)
+    W = W - adapt_lr*dW
+    RETURN W, S
+ENDFUNCTION
+FUNCTION df_w(W)
+    w1, w2 = W
+    dw1 = 0.2*w1
+    dw2 = 4*w2
+    dW = array([dw1, dw2])
+    RETURN dW 
+ENDFUNCTION
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Optimizing Functions of Two Varibales
+13:53:27
+• Exercise3: RMSProp
+Ǌ(Ǜ1, Ǜ2) = 0.1Ǜ12 + 2Ǜ22      (1)
+RMSProp:
+      ƽ֩ = دƽ֩−1 + (1 −د)푑ǁ2֩−1    (3.1) 
+      ǁ֩ = ǁ֩−1 −ح ∗
+푑ֳ֪
+֣֪ +ي            (3.2)
+FUNCTION train_p1(optimizer, lr, epochs)
+    W = array([-5, 2])
+    S = array([0, 0])
+    results = [S]
+    FOR e start at 0 TO epochs-1
+        dW = df_w(W)
+        W, S = optimizer(W, dW, lr, S, beta=0.9)
+        results.append(W)
+    RETURN results 
+ENDFUNCTION
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Optimizing Functions of Two Varibales
+13:53:27
+• Exercise4: Adam
+Ǌ(Ǜ1, Ǜ2) = 0.1Ǜ12 + 2Ǜ22      (1)
+Adam:
+ ǀ֩ = خ1ǀ֩−1 + (1 −خ1)푑ǁ֩−1    (4.1)       ǀե֕֕֡ =
+֪֯
+1−އ1
+֪       (4.3)   
+ ƽ֩ = خ2ƽ֩−1 + (1 −خ2)푑ǁ2֩−1   (4.2)       ƽե֕֕֡ =
+֣֪
+1−އ1
+֪       (4.4)   
+                              ǁ֩ = ǁ֩−1 −ح ∗
+֯զ֖֖֢
+֣զ֖֖֢+ي            (4.5)
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Optimizing Functions of Two Varibales
+13:53:27
+• Exercise4: Adam
+Ǌ(Ǜ1, Ǜ2) = 0.1Ǜ12 + 2Ǜ22      (1)
+Adam:
+ ǀ֩ = خ1ǀ֩−1 + (1 −خ1)푑ǁ֩−1    (4.1)       ǀե֕֕֡ =
+֪֯
+1−އ1
+֪       (4.3)     
+ ƽ֩ = خ2ƽ֩−1 + (1 −خ2)푑ǁ2֩−1   (4.2)       ƽե֕֕֡ =
+֣֪
+1−އ1
+֪       (4.4)
+                    ǁ֩ = ǁ֩−1 −ح ∗
+֯զ֖֖֢
+֣զ֖֖֢+ي            (4.5)
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Optimizing Functions of Two Varibales
+13:53:27
+• Exercise4: Adam
+Ǌ(Ǜ1, Ǜ2) = 0.1Ǜ12 + 2Ǜ22      (1)
+Adam:
+ ǀ֩ = خ1ǀ֩−1 + (1 −خ1)푑ǁ֩−1    (4.1)       ǀե֕֕֡ =
+֪֯
+1−އ1
+֪       (4.3)     
+ ƽ֩ = خ2ƽ֩−1 + (1 −خ2)푑ǁ2֩−1   (4.2)       ƽե֕֕֡ =
+֣֪
+1−އ1
+֪       (4.4)
+                    ǁ֩ = ǁ֩−1 −ح ∗
+֯զ֖֖֢
+֣զ֖֖֢+ي            (4.5)
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Optimizing Functions of Two Varibales
+13:53:27
+• Exercise4: Adam
+Ǌ(Ǜ1, Ǜ2) = 0.1Ǜ12 + 2Ǜ22      (1)
+Adam:
+ ǀ֩ = خ1ǀ֩−1 + (1 −خ1)푑ǁ֩−1    (4.1)       ǀե֕֕֡ =
+֪֯
+1−އ1
+֪       (4.3)     
+ ƽ֩ = خ2ƽ֩−1 + (1 −خ2)푑ǁ2֩−1   (4.2)       ƽե֕֕֡ =
+֣֪
+1−އ1
+֪       (4.4)
+                    ǁ֩ = ǁ֩−1 −ح ∗
+֯զ֖֖֢
+֣զ֖֖֢+ي            (4.5)
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Optimizing Functions of Two Varibales
+13:53:27
+• Exercise4: Adam
+Ǌ(Ǜ1, Ǜ2) = 0.1Ǜ12 + 2Ǜ22      (1)
+Adam:
+ ǀ֩ = خ1ǀ֩−1 + (1 −خ1)푑ǁ֩−1    (4.1)       ǀե֕֕֡ =
+֪֯
+1−އ1
+֪       (4.3)     
+ ƽ֩ = خ2ƽ֩−1 + (1 −خ2)푑ǁ2֩−1   (4.2)       ƽե֕֕֡ =
+֣֪
+1−އ1
+֪       (4.4)
+                    ǁ֩ = ǁ֩−1 −ح ∗
+֯զ֖֖֢
+֣զ֖֖֢+ي            (4.5)
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Content
+• Giới Thiệu Optimization Trong Machine Learning 
+– Giới Thiệu Optimization
+– Giới Thiệu Gradient-based Optimization Trong Machine Learning
+– Giới Thiệu Sharpness-Aware Minimization
+• Optimizing Functions of Two Varibales
+– Giới thiệu vấn đề 
+– Exercise1: Gradient Descent 
+– Exercise2: Gradient Descent + Momentum
+– Exercise3: RMSProp
+– Exercise4: Adam
+• Vanishing Problem (Optional)
+– GD, GD + Momentum, RMSProp, và Adam 
+13:53:27
+AI VIETNAM
+All-in-One Course
+(TA Session)
+• Giới thiệu vấn đề 
+– Fashion MNIST dataset
+• Train: 60,000 samples
+• Test: 10,000 samples
+• Classes: 10 
+• Size: 28x28
+• Image type: grayscale
+https://github.com/zalandoresearch/fashion-mnist
+https://miro.medium.com/max/1838/1*6YhvuUHE0LPHEsqU_Cis9w.png
+13:53:27
+Vanishing Problem (Optional)
+AI VIETNAM
+All-in-One Course
+(TA Session)
+• Giới thiệu vấn đề 
+– Model:
+• Hidden Layers: 5 layers 
+• Activation: sigmoid
+• Nodes: 128 
+• Loss: CE
+• LR: 0.01
+13:53:27
+Vanishing Problem (Optional)
+AI VIETNAM
+All-in-One Course
+(TA Session)
+• GD 
+– Model:
+• Hidden Layers: 5 layers 
+• Activation: sigmoid
+• Nodes: 128 
+• Loss: CE
+• Optimizer: sgd
+13:53:27
+Vanishing Problem (Optional)
+AI VIETNAM
+All-in-One Course
+(TA Session)
+• GD + Momentum 
+– Model:
+• Hidden Layers: 5 layers 
+• Activation: sigmoid
+• Nodes: 128 
+• Loss: CE
+• Optimizer: sgd + momentum (0.9)
+13:53:27
+Vanishing Problem (Optional)
+AI VIETNAM
+All-in-One Course
+(TA Session)
+• RMSProp 
+– Model:
+• Hidden Layers: 5 layers 
+• Activation: sigmoid
+• Nodes: 128 
+• Loss: CE
+• Optimizer: RMSProp
+13:53:27
+Vanishing Problem (Optional)
+AI VIETNAM
+All-in-One Course
+(TA Session)
+• Adam 
+– Model:
+• Hidden Layers: 5 layers 
+• Activation: sigmoid
+• Nodes: 128 
+• Loss: CE
+• Optimizer: Adam خ1 = 0.9, خ2 = 0.999 
+13:53:27
+Vanishing Problem (Optional)
+AI VIETNAM
+All-in-One Course
+(TA Session)
+13:53:27
+Vanishing Problem (Optional)
+GD
+GD + Momentum
+RMSProp
+Adam
+AI VIETNAM
+All-in-One Course
+(TA Session)
+13:53:27
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Other Research Papers
+13:53:27
+AdaSmooth: An Adaptive Learning Rate Method based on Effective Ratio
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Other Research Papers
+13:53:27
+AdaSmooth: An Adaptive Learning Rate Method based on Effective Ratio
+Effective Ratio (ER)
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Other Research Papers
+13:53:27
+AdaSmooth: An Adaptive Learning Rate Method based on Effective Ratio
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Other Research Papers
+13:53:27
+AdaSmooth: An Adaptive Learning Rate Method based on Effective Ratio
+- Background:
+   - Traditional optimization methods require tedious manual tuning of hyper-parameters.
+   - AdaSmooth introduces a novel per-dimension learning rate method for gradient descent.
+- Key Feature:
+   - Insensitivity to hyper-parameters, eliminating the need for manual tuning akin to Momentum, AdaGrad, and 
+AdaDelta methods.
+- Objective:
+   - To increase optimization efficiency, out-of-sample accuracy, and reduce memory requirements.
+- Advantages:
+   - No Manual Tuning: Simplifies the optimization process.
+   - Increased Efficiency: Promising results in optimization compared to other methods.
+   - Memory Efficiency: Designed for handling large-scale machine learning tasks with lesser memory requirements.
+   - Combines advantages of AdaGrad, RMSProp, and AdaDelta for a robust optimization approach.
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Other Research Papers
+13:53:27
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Other Research Papers
+13:53:27
+Gradients without Backpropagation
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Other Research Papers
+13:53:28
+Gradients without Backpropagation
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Other Research Papers
+13:53:28
+Gradients without Backpropagation
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Other Research Papers
+13:53:28
+Gradients without Backpropagation
+- Background:
+   - Traditionally, backpropagation is used to compute gradients in machine learning.
+   - These gradients are crucial for optimizing a model's parameters to minimize loss.
+- Problem:
+   - Backpropagation can be computationally intensive, impacting the efficiency of training pipelines.
+- Solution:
+   - The paper introduces a novel method called "forward gradient," eliminating the need for backpropagation.
+- Advantages:
+   - Substantial savings in computation, with training being up to twice as fast in some cases.
+   - Potential to reduce time and energy costs in ML training pipelines.
+   - Opens discussions on ML hardware design and the biological plausibility of backpropagation.

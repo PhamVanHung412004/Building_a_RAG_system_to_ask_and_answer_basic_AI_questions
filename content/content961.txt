@@ -1,3 +1,0 @@
-Vì vậy, ta sẽ loại bỏ các trường hợp này ra
-khỏi bộ dữ liệu:
-12

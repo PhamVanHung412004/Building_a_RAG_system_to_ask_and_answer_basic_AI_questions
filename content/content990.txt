@@ -1,7 +1,0 @@
-AI VIETNAM aivietnam.edu.vn
-Hình 8: Xử lý thông tin dạng bảng với phép biến đổi markdown và html. Thông tin trích xuất trực tiếp
-với Raw-text cho thấy cấu trúc bảng không rõ ràng. Cấu trúc bảng của markdown và html cho phép
-các LLM dễ hiểu hơn nội dung trong bảng.
-Dữ liệu có cấu trúc:Một số giải pháp coi dữ liệu dạng bảng như một nguồn dữ liệu cung cấp
-các thông tin chính xác. Các giải pháp này tập trung vào việc nâng cao khả năng suy luận và truy vấn
-thông tin từ các cơ sở dữ liệu có cấu trúc.Wang et al. 

@@ -1,9 +1,0 @@
-AI VIETNAM aivietnam.edu.vn
-Phần III: Câu hỏi trắc nghiệm
-1. Đâu là một cách xử lý video có kích thước lớn?
-(a) Sử dụng toàn bộ frame trong video.
-(b) Chia video thành nhiều clip ngắn và train model.
-(c) Bỏ qua các frame không quan trọng.
-(d) Sử dụng video với tốc độ khung hình cao.
-2. RWF2000 là dataset cho bài toán gì?
-(a) Phát hiện hành vi bạo lực.

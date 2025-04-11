@@ -1,0 +1,204 @@
+Imbalanced Data
+Year 2024
+Nguyen Khoa
+1
+2
+CONTENT
+(1) – Pre-Processing
+(2) – Special-purpose Learning Methods
+(3) – Post-Processing
+Data Pre-processing
+!
+3
+Introduction
+Advantages: 
+•
+Can be applied to any existing learning tool
+•
+The chosen models are biased to the goals of the user (because the data distribution was 
+previously changed to match these goals), and thus it is expected that the models are more 
+interpretable in terms of these goals.
+Disadvantages:
+•
+Mapping the given data distribution into an optimal new distribution according to the user goals is 
+not easy.
+•
+It was proved for classification tasks that a perfectly balanced distribution does not always provide 
+optimal results
+Data Pre-processing
+!
+4
+Re-Sampling / Random Under-sampling and Over-sampling
+0
+1000
+2000
+3000
+4000
+5000
+6000
+7000
+8000
+9000
+10000
+Negative
+Positive
+0
+1000
+2000
+3000
+4000
+5000
+6000
+7000
+8000
+9000
+10000
+Negative
+Positive
+0
+1000
+2000
+3000
+4000
+5000
+6000
+7000
+8000
+9000
+10000
+Negative
+Positive
+Original Data
+Undersampling Data
+Oversampling Data
+Data Pre-processing
+!
+5
+Re-Sampling / Distance-Based / NearMiss
+NearMiss1
+NearMiss2
+NearMiss1
+Data Pre-processing
+!
+6
+Re-Sampling /  Data Cleaning / Tomek Links
+Tomek Links
+Approach 1: Remove All
+Approach 1: Remove Majority
+Data Pre-processing
+!
+7
+Re-Sampling /  Synthesising New Data / SMOTE
+Majority Class Samples 
+Minority Class Samples 
+n K-nearest Neighbors of x_i
+Generated Instance
+Randomly Selected Minority 
+Class Sample (x_i) 
+Randomly Selected Sample from n 
+K-nearest Neighbors 
+Special-purpose Learning Methods
+!
+8
+Introduction
+Advantages:
+•
+The user goals are incorporated directly into the models 
+Disadvantages:
+•
+restricted in his choice to the learning algorithms that have been modified to be able to optimise his 
+goals, or has to develop new algorithms for the task
+•
+may be necessary to introduce further modifications in the algorithm which may not be straightforward
+•
+requires a deep knowledge of the learning algorithms implementations
+Special-purpose Learning Methods
+!
+9
+Two-Stage Learning / MFCascadeCNN
+Special-purpose Learning Methods
+!
+10
+Transfer Learning
+Data 1
+Model 1
+Head 1
+Prediction 1
+Data 2
+Model 1
+Head 2
+Prediction 2
+Task 1
+Task 2
+Knowledge Transfer
+Special-purpose Learning Methods
+!
+11
+Loss / MFE & MSFE
+𝐹𝑃𝐸= 1
+𝑁෍
+𝑖=1
+𝑁
+෍
+𝑛
+1
+2 𝑑𝑛
+𝑖−𝑦𝑛
+𝑖
+2
+𝐹𝑁𝐸= 1
+𝑃෍
+𝑖=1
+𝑁
+෍
+𝑛
+1
+2 𝑑𝑛
+𝑖−𝑦𝑛
+𝑖
+2
+𝑀𝐹𝐸= 𝐹𝑃𝐸+ 𝐹𝑁𝐸
+𝑀𝑆𝐹𝐸= 𝐹𝑃𝐸2 + 𝐹𝑁𝐸2
+𝑀𝐹𝐸: Mean False Error
+𝑀𝑆𝐹𝐸: Mean Square False Error
+𝐹𝑃𝐸: Mean False Positive Error
+𝐹𝑁𝐸: Mean False Negative Error
+𝑁: the numbers of samples in negative class
+𝑃: the numbers of samples in positive class
+𝑑𝑛
+𝑖: the desired value of 𝑖𝑡ℎsample on 𝑛𝑡ℎneuron
+𝑦𝑛
+𝑖: the corresponding predicted value of 𝑑𝑛
+𝑖
+Special-purpose Learning Methods
+!
+12
+Optimizer / ImbSAM
+Prediction Post-processing
+!
+13
+Introduction
+Advantages: 
+•
+Not necessary to be aware of the user preference biases at learning time
+•
+Be applied to different deployment scenarios without the need of re-learning the models
+•
+Any standard learning tool can be used
+Disadvantages:
+•
+The models do not reflect the user preferences
+•
+The models interpretability is meaningless
+Prediction Post-processing
+!
+14
+Thresholding
+References
+!
+15
+Notion
+https://transparent-sesame-adf.notion.site/Imbalanced-4310cb6fbcfb4aa493145ef244c02f43
+Thanks!
+Any questions?
+16

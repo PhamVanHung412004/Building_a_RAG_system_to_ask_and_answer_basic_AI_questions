@@ -1,7 +1,0 @@
-backward ()
-30 optimizer . step ()
-31 ...
-Lưu ý: file pdf này chỉ cung cấp một số đoạn code chính để tránh người đọc phân tâm. Tất cả
-các phần code còn lại như một bài toán image classification bình thường, full code sẽ nằm ở file
-notebook.
-9

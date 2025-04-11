@@ -1,5 +1,0 @@
-Mục tiêu của phần này với mỗi prompt và response chúng ta cần đưa ra điểm số tương ứng.
-(c) Reinforcement learning (RL)
-Trong phần này chúng ta sử dụng bộ dữ liệu rm-static, kết hợp với mô hình RM để tinh chỉnh
-mô hình SFT dựa vào phương pháp huấn luyện sử dụng Proximal Policy Optimization (PPO).
-3

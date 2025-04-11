@@ -1,0 +1,675 @@
+AI VIETNAM
+All-in-One Course
+(TA Session)
+EXERCISE - MULTI-LAYER 
+PERCEPTRON
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Content
+• Review MLP
+• MLP For Regression
+– Dự đoán năng lượng tiêu thụ (MPG) của xe ô tô dựa trên 9 features (thông 
+số kỹ thuật của xe)
+– Chuẩn bị data trước khi train 
+– Train 2 model: linear regression và MLP regression model  
+– So sánh kết quả 
+• MLP For Classification (Non-Linearly Separable data)
+– Phân loại 3 class thuộc dạng non-linearly separable dựa trên tọa độ x và y
+– Train 2 model: sofmax regresion và MLP classification model
+– So sánh kết quả
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Content
+• MLP For Classification (Image data)
+– Phân loại  loại cảm xúc của một người dựa trên ảnh đầu vào là gương mặt 
+thể hiện cảm xúc của ngừời đó
+– Chuẩn bị data trước khi train
+– Train 4 models:
+• Softmax regression (không normalize)
+• Softmax regression (normalize [-1, 1])
+• MLP - tanh (normalize [-1, 1])
+• MLP - relu (normalize [-1, 1])
+– So sánh kết quả 
+– Giới thiệu cơ bản về  Sigmoid, Tanh, Relu
+• Modern Uses of MLPs
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Content
+• Review MLP
+• MLP For Regression
+– Dự đoán năng lượng tiêu thụ (MPG) của xe ô tô dựa trên 9 features (thông 
+số kỹ thuật của xe)
+– Chuẩn bị data trước khi train 
+– Train 2 model: linear regression và MLP regression model  
+– So sánh kết quả 
+• MLP For Classification (Non-Linearly Separable data)
+– Phân loại 3 class thuộc dạng non-linearly separable dựa trên tọa độ x và y
+– Train 2 model: sofmax regresion và MLP classification model
+– So sánh kết quả
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Review MLP 
+Linear Model
+Logistic Regression Model
+Softmax Regression Model
+MLP Model
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Review MLP 
+Linear Model
+Logistic Regression Model
+Softmax Regression Model
+MLP Model
+- Giải quyết bài toán về regression 
+- Sử dụng linear function
+- Target có domain ǝ ∈(−∞, + ∞) 
+- Giải quyết bài toán về binary classification, hoặc 
+multi-label classification  
+- Sử dụng linear function + sigmoid function
+- Target có domain ǝ ∈[0,1] 
+- Có thể giải quyết bài toán về regression và 
+classification, ... 
+- Sử dụng các loại layers và các node (linear 
+function + activation functions)
+- Target có domain tùy vào bài toán
+- Giải quyết bài toán về multi-class classification
+- Sử dụng linear function + softmax function
+- Target là discrete domain (thông thường được 
+biểu diễn bằng one-hot encoding) 
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Review MLP 
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Review MLP 
+Các bước cơ bản trong việc build model và train khi dùng Pytorch 
+Data Preparation
+Tải bộ dữ liệu
+Tiền xử lý dữ liệu
+Split data 
+Tạo DataLoader
+Model Definition
+Xây dựng kiến trúc network
+Chọn các layer phù hợp
+Khởi tạo weight và bias
+Model Compilation
+Chọn một hàm loss
+Chọn một optimizer
+Tùy chọn các 
+hyperparameter
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Review MLP 
+Các bước cơ bản trong việc build model và train khi dùng Pytorch 
+Model Training
+Đặt training mode
+Forward pass
+Tính Loss 
+Backward
+Cập nhật weight
+Model Evaluation
+Đặt evaluation mode
+Forward pass
+Tính Metric
+In hoặc lưu kết quả 
+Plot kết quả
+AI VIETNAM
+All-in-One Course
+(TA Session)
+• Review MLP
+• MLP For Regression
+– Dự đoán năng lượng tiêu thụ (MPG) của xe ô tô dựa trên 9 features (thông 
+số kỹ thuật của xe)
+– Chuẩn bị data trước khi train 
+– Train 2 model: linear regression và MLP regression model  
+– So sánh kết quả 
+• MLP For Classification (Non-Linearly Separable data)
+– Phân loại 3 class thuộc dạng non-linearly separable dựa trên tọa độ x và y
+– Train 2 model: sofmax regresion và MLP classification model
+– So sánh kết quả
+Content
+AI VIETNAM
+All-in-One Course
+(TA Session)
+MLP For Regression
+• Yêu cầu đề bài 
+Model ?
+Thông số kỹ 
+thuật của xe 
+Số lượng nhiên 
+liệu mà xe tiêu thụ 
+• Model1: Linear regression
+Loss: MSE
+Epochs: 100
+Optimizer: SGD
+LR: 0.1
+• Model2: MLP regression
+Hidden layers: 2
+Nodes: 64, 64
+Activation: relu
+Loss: MSE
+Epochs: 100
+Optimizer: SGD
+LR: 0.003
+AI VIETNAM
+All-in-One Course
+(TA Session)
+⋯
+⋯
+⋯
+Input Layer: ∈ℝ9
+Hidden Layer1: ∈ℝ64
+Hidden Layer2: ∈ℝ64
+Ouput Layer: ∈ℝ1
+AI VIETNAM
+All-in-One Course
+(TA Session)
+MLP For Regression
+• Chuẩn bị data trước khi train 
+Categorical type
+One-hot encoding
+AI VIETNAM
+All-in-One Course
+(TA Session)
+MLP For Regression
+• Chuẩn bị data trước khi train 
+Categorical type
+One-hot encoding
+AI VIETNAM
+All-in-One Course
+(TA Session)
+MLP For Regression
+• Chuẩn bị data trước khi train 
+Target
+Features
+AI VIETNAM
+All-in-One Course
+(TA Session)
+MLP For Regression
+• Chuẩn bị data trước khi train 
+80% Train
+20% Val
+Split train - val data
+Ț =  Ț −ظ
+ؿ
+Standardisation: mean = 0, std=1
+Dataset
+AI VIETNAM
+All-in-One Course
+(TA Session)
+MLP For Regression
+• Chuẩn bị data trước khi train 
+AI VIETNAM
+All-in-One Course
+(TA Session)
+MLP For Regression
+• Chuẩn bị data trước khi train 
+https://www.geeksforgeeks.org/python-read-csv-using-pandas-read_csv/
+AI VIETNAM
+All-in-One Course
+(TA Session)
+MLP For Regression
+• Chuẩn bị data trước khi train 
+80% Train
+20% Val
+Split train - val data
+Dataset
+AI VIETNAM
+All-in-One Course
+(TA Session)
+MLP For Regression
+• Chuẩn bị data trước khi train 
+https://www.geeksforgeeks.org/python-pandas-dataframe-sample/
+AI VIETNAM
+All-in-One Course
+(TA Session)
+MLP For Regression
+• Chuẩn bị data trước khi train 
+Ț =  Ț −ظ
+ؿ
+=
+Ț −1
+Ƹ  Ǎ=1
+Ƹ ǜս
+1
+Ƹ  Ǎ=1
+Ƹ (ǜս −ظ)2
+Standardisation: mean = 0, std=1
+Standardisation (Z-score):
+- Là một kỹ thuật Feature Scaling đưa các giá trị của feature theo 
+distribution có mean = 0 và standard deviation = 1.
+- Giúp đưa variance của các feature về gần bằng nhau:
+   + Giá trị < 0: giá trị dưới mean 
+   + Giá trị > 0: giá trị trên mean 
+   + Giá trị = 0: giá trị chính là mean 
+- Phù hợp với các feature có ít outliers hoặc outliers không quá lớn để 
+clipping
+- ǝ =  ɍTɎ
+- SE = (ǝ −y)2 
+- ɍ =  ɍ − س ∗
+ٌSE
+ٌɍ 
+- ǝ =  3Ǜ1 + 60Ǜ2 + Ǜ0
+- SE = (3Ǜ1 + 60Ǜ2 + Ǜ0 −y)2 
+- 
+ٌSE
+ٌɍ =  2 ∗(3Ǜ1 + 60Ǜ2 + Ǜ0 −y)... 
+- ɍ =  ɍ − س ∗
+ٌSE
+ٌɍ 
+- ǝ =  −1.18Ǜ1 + 1.5Ǜ2 + Ǜ0
+- SE = (−1.18Ǜ1 + 1.52Ǜ2 + Ǜ0 −y)2 
+- 
+ٌSE
+ٌɍ =  2 ∗(−1.18Ǜ1 + 1.52Ǜ2 + Ǜ0 −y)...
+- ɍ =  ɍ − س ∗
+ٌSE
+ٌɍ 
+AI VIETNAM
+All-in-One Course
+(TA Session)
+MLP For Regression
+• Chuẩn bị data trước khi train 
+Ț =  Ț −ظ
+ؿ
+Standardisation: mean = 0, std=1
+AI VIETNAM
+All-in-One Course
+(TA Session)
+MLP For Regression
+• Metric for regression 
+- Là việc tính toán error score để kết luận khả năng dự đoán của model trên một tập data 
+- Vì là bài toán regression nên không thể dùng accuracy như bài toán clasification mà thay vào đó là kết quả dự đoán gần với 
+kết quả thật là bao nhiêu 
+- Có 3 metric phổ biến: MSE, MAE, và R-squared 
+MAE =
+1
+Ƹ  |ǝ −ǝ|
+MSE =  
+1
+Ƹ  (ǝ −ǝ)2
+R-squared = 1 −
+푅ƽƽ
+푇ƽƽ
+RSS =  (ǝ −ǝ)2
+TSS =  (ǝ −ǝ)2
+- MAE: Đo trị tuyệt đối sai lệch giữa kết quả dự đoán và giá trị thật. Ít bị 
+ảnh hưởng bởi outlier hơn MSE. Nhưng có thể không phản ánh được hết 
+tác động của outliers  
+- MSE: Đo bình phương độ sai lệch giữa kết quả dự đoán và giá trị thật. 
+Độ sai lệch càng lớn khi outliers càng lớn nhưng nếu quá lớn thì sẽ chỉ 
+chịu sự tác động của outliers  
+- R-squared: Có range [0,1], giá trị càng lớn thì thể hiện performance 
+của model càng tốt (ko giống với MAE và MSE càng bé càng tốt). Hoạt 
+động theo giả thuyết là ban đầu dự đoán kết quả bằng trung bình của 
+data (R-squared = 0, RSS=TSS) sau đó nhờ huấn luyện kết quá dự đoán 
+tốt hơn (R-squared > 0, RSS<TSS)
+AI VIETNAM
+All-in-One Course
+(TA Session)
+MLP For Regression
+• Model1: Linear regression
+Loss: MSE
+Epochs: 100
+Optimizer: SGD
+LR: 0.1
+AI VIETNAM
+All-in-One Course
+(TA Session)
+MLP For Regression
+• Model2: MLP regression
+Hidden layers: 2
+Nodes: 64, 64
+Activation: relu
+Loss: MSE
+Epochs: 100
+Optimizer: SGD
+LR: 0.003
+AI VIETNAM
+All-in-One Course
+(TA Session)
+MLP For Regression
+• So sánh kết quả 
+•  Model1: Linear regression
+Loss: MSE
+Epochs: 100
+Optimizer: SGD
+LR: 0.1
+•  Model2: MLP regression
+Hidden layers: 2
+Nodes: 64, 64
+Activation: relu
+Loss: MSE
+Epochs: 100
+Optimizer: SGD
+LR: 0.003
+AI VIETNAM
+All-in-One Course
+(TA Session)
+AI VIETNAM
+All-in-One Course
+(TA Session)
+• Review MLP
+• MLP For Regression
+– Dự đoán năng lượng tiêu thụ (MPG) của xe ô tô dựa trên 9 features (thông 
+số kỹ thuật của xe)
+– Chuẩn bị data trước khi train 
+– Train 2 model: linear regression và MLP regression model  
+– So sánh kết quả 
+• MLP For Classification (Non-Linearly Separable data)
+– Phân loại 3 class thuộc dạng non-linearly separable dựa trên tọa độ x và y
+– Train 2 model: sofmax regresion và MLP classification model
+– So sánh kết quả
+Content
+AI VIETNAM
+All-in-One Course
+(TA Session)
+MLP For Classification (Non-Linearly Separable data)
+http://www.statistics4u.com/fundstat_eng/cc_data_structure.html
+• Trong bài toán phân loại thường có 3 trường hợp về data
+AI VIETNAM
+All-in-One Course
+(TA Session)
+• Yêu cầu đề bài 
+Model ?
+Tọa độ x, y 
+Class của tọa độ 
+input (0, 1, 2) 
+• Model1: Softmax regression
+Loss: CE
+Epochs: 500
+Optimizer: SGD
+Learning rate: 0.1
+https://machinelearningcoban.com/2017/02/24/mlp/
+• Model2: MLP Classification
+Hidden layers: 1
+Nodes: 128
+Activation: relu
+Loss: CE
+Epochs: 500
+Optimizer: SGD
+LR: 0.1
+MLP For Classification (Non-Linearly Separable data)
+AI VIETNAM
+All-in-One Course
+(TA Session)
+⋯
+Input Layer: ∈ℝ2
+Hidden Layer1: ∈ℝ128
+Ouput Layer: ∈ℝ3
+AI VIETNAM
+All-in-One Course
+(TA Session)
+•  Model1: Softmax regression
+Loss: CE
+Epochs: 500
+Optimizer: SGD
+Learning rate: 0.1
+MLP For Classification (Non-Linearly Separable data)
+AI VIETNAM
+All-in-One Course
+(TA Session)
+MLP For Classification (Non-Linearly Separable data)
+• Model2: MLP Classification
+Hidden layers: 1
+Nodes: 128
+Activation: relu
+Loss: CE
+Epochs: 500
+Optimizer: SGD
+LR: 0.1
+AI VIETNAM
+All-in-One Course
+(TA Session)
+• So sánh kết quả 
+•   Model1: Softmax regression
+Loss: CE
+Epochs: 500
+Optimizer: SGD
+Learning rate: 0.1
+•  Model2: MLP Classification
+Hidden layers: 1
+Nodes: 128
+Activation: relu
+Loss: CE
+Epochs: 500
+Optimizer: SGD
+LR: 0.1
+MLP For Classification (Non-Linearly Separable data)
+AI VIETNAM
+All-in-One Course
+(TA Session)
+• Other Non-linearly Separable data 
+– Test capacity of MLP
+https://playground.tensorflow.org/
+MLP For Classification (Non-Linearly Separable data)
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Content
+• MLP For Classification (Image data)
+– Phân loại  loại cảm xúc của một người dựa trên ảnh đầu vào là gương mặt 
+thể hiện cảm xúc của ngừời đó
+– Chuẩn bị data trước khi train
+• High-level Keras preprocessing utilities
+• Input pipeline from scratch dùng tf.data
+– Train 4 models:
+• Softmax regression (không normalize)
+• Softmax regression (normalize [-1, 1])
+• MLP - tanh (normalize [-1, 1])
+• MLP - relu (normalize [-1, 1])
+– So sánh kết quả 
+– Giới thiệu cơ bản về  Sigmoid, Tanh, Relu
+AI VIETNAM
+All-in-One Course
+(TA Session)
+• Yêu cầu đề bài 
+MLP For Classification (Image data)
+Model ?
+Ảnh gương 
+mặt  
+Class 7 trạng thái 
+cảm xúc 
+• Model1: Softmax regression
+Epochs: 100
+Learning rate: 0.006
+Normalize data: None
+• Model3: MLP Classification
+Hidden layers: 3
+Nodes: 1024, 512, 256
+Activation: tanh
+Epochs: 100
+Learning rate: 0.006
+Normalize data: x =
+x
+127.5 −1
+• Model2: Softmax regression
+Epochs: 100
+Learning rate: 0.006
+Normalize data: x =
+x
+127.5 −1
+• Model4: MLP Classification
+Hidden layers: 3
+Nodes: 1024, 512, 256
+Activation: relu
+Epochs: 100
+Learning rate: 0.006
+Normalize data: x =
+x
+127.5 −1
+AI VIETNAM
+All-in-One Course
+(TA Session)
+AI VIETNAM
+All-in-One Course
+(TA Session)
+• Chuẩn bị data trước khi train  
+Directory Tree Structure 
+MLP For Classification (Image data)
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Các bước cơ bản trong việc build model và train khi dùng Pytroch 
+Data Preparation
+Tải bộ dữ liệu
+Tiền xử lý dữ liệu
+Split data 
+Tạo DataLoader
+Model Definition
+Xây dựng kiến trúc network
+Chọn các layer phù hợp
+Khởi tạo weight và bias
+Model Compilation
+Chọn một hàm loss
+Chọn một optimize
+Tùy chọn các 
+hyperparameter
+MLP For Classification (Image data)
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Các bước cơ bản trong việc build model và train khi dùng Pytroch 
+Model Training
+Đặt training mode
+Forward pass
+Tính Loss 
+Backward
+Cập nhật weight
+Model Evaluation
+Đặt evaluationmode
+Forward pass
+Tính Metric
+In hoặc lưu kết quả 
+Plot kết quả
+MLP For Classification (Image data)
+AI VIETNAM
+All-in-One Course
+(TA Session)
+MLP For Classification (Image data)
+Model1: Softmax 
+regression
+AI VIETNAM
+All-in-One Course
+(TA Session)
+MLP For Classification (Image data)
+Model2: Softmax 
+regression - 
+Normalized
+AI VIETNAM
+All-in-One Course
+(TA Session)
+MLP For Classification (Image data)
+Model3: MLP - 
+Tanh - 
+Normalized
+AI VIETNAM
+All-in-One Course
+(TA Session)
+MLP For Classification (Image data)
+Model4: MLP - 
+Relu - 
+Normalized
+AI VIETNAM
+All-in-One Course
+(TA Session)
+MLP For Classification (Image data)
+Model1: Softmax regression
+Model2: Softmax regression - Normalized
+AI VIETNAM
+All-in-One Course
+(TA Session)
+MLP For Classification (Image data)
+Model2: Softmax regression - Normalized
+Model3: MLP - Tanh - Normalized
+AI VIETNAM
+All-in-One Course
+(TA Session)
+MLP For Classification (Image data)
+Model3: MLP - Tanh - Normalized
+Model4: MLP - Relu - Normalized
+AI VIETNAM
+All-in-One Course
+(TA Session)
+• Activation Function: Sigmoid, Tanh, Relu 
+MLP For Classification (Image data)
+AI VIETNAM
+All-in-One Course
+(TA Session)
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Modern Uses of MLPs
+Traditional Use:
+Definition: Multi-Layer Perceptrons (MLPs) are a class of feedforward neural networks that consist of at least 
+three layers of nodes: an input layer, hidden layer(s), and an output layer. Each node is a neuron that uses a 
+nonlinear activation function, typically a sigmoid or a rectified linear unit (ReLU).
+Applications: Due to their straightforward architecture, MLPs have historically been used for simpler tasks 
+such as basic binary or multiclass classification problems.
+Modern Use:
+Evolving Complexity: As the field of artificial intelligence progressed, the usage of MLPs has evolved. They 
+are now being integrated into more complex, cutting-edge vision models.
+Vision Transformers (ViTs): In Vision Transformers, MLPs are utilized within the transformer blocks, 
+specifically in the feed-forward neural networks, aiding in learning position-wise non-linearities over the 
+channels which is crucial for processing image data.
+MLP-Mixer: The MLP-Mixer architecture takes this a step further by relying solely on MLPs for both mixing 
+spatial and channel information, offering a novel approach to image classification tasks.
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Modern Uses of MLPs
+CNN
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Modern Uses of MLPs
+MLPs in FFNs:
+Location in Architecture: Within each transformer 
+block, there exists a feed-forward neural network 
+(FFN) which comprises one or more layers of Multi-
+Layer Perceptrons (MLPs).
+Functionality: The MLPs in the FFNs are 
+responsible for learning position-wise non-
+linearities over the channels. In other words, they 
+operate independently on each position, applying a 
+series of linear transformations interspersed with 
+non-linear activation functions.
+Importance: This mechanism enables the model to 
+learn and represent complex patterns in the data, 
+significantly contributing to the Vision Transformer's 
+ability to understand and interpret image content.
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Modern Uses of MLPs
+Vision Transformers 
+process the data through 
+transformer blocks with 
+self-attention and MLP 
+components, MLP-Mixer 
+dose not use the self-
+attention component, 
+showcasing a different 
+approach to handling 
+image data.
+AI VIETNAM
+All-in-One Course
+(TA Session)
+MLP Recently Research
+Traditional to Modern Transition: MLPs, initially employed for simpler tasks due to their straightforward 
+architecture, have transitioned into being integral components in sophisticated vision models like Vision 
+Transformers and MLP-Mixer.
+Architectural Innovation: Modern vision models have leveraged MLPs in novel ways, such as in the 
+mixing of spatial and channel information in MLP-Mixer, and within the feed-forward networks of Vision 
+Transformers, expanding the capabilities of MLPs beyond their traditional use-cases.
+Papers:
+- Vision Transformer: An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale
+- MLP-Mixer: An all-MLP Architecture for Vision

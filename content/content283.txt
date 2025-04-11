@@ -1,3 +1,0 @@
-AI VIETNAM aivietnam.edu.vn
-(c) Dừng docker container được dùng để thực thi code.
-(d) Dừng việc thực thi code.

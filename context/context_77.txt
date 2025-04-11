@@ -1,0 +1,601 @@
+Support Vector Machine
+Dinh-Thang Duong – TA
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Extra Class
+Year 2023
+Outline
+2
+➢Introduction
+➢Support Vector Machine
+➢Code Examples
+➢Question
+Outline
+AI VIETNAM
+All-in-One Course
+(TA Session)
+3
+Introduction
+❖Getting Started
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Artificial Intelligence
+Machine Learning
+Deep Learning
+Machine Learning (ML): A branch of AI and Computer Science 
+which focuses on the use of data and algorithms to imitate the 
+way that humans learn, gradually improving its accuracy.
+https://www.ibm.com/topics/machine-learning
+4
+Introduction
+❖Getting Started
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Suppose you got some dataset:
+And you want to make a program to automatically predict 
+value of 1 column based on others.
+X(Name, Team, Number, Position, Age, Height, Weight, College) -> Y(Salary)
+Salary Predict 
+Program
+Name,
+Team,
+Number,
+Position,
+Age,
+Height,
+Weight,
+College
+Salary
+Input
+Output
+5
+Introduction
+❖Getting Started
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Using this data to 
+“train” an ML Model
+ML Model
+Name,
+Team,
+Number,
+Position,
+Age,
+Height,
+Weight,
+College
+Salary
+Input
+Output
+Trained ML 
+Model
+Use the trained model to predict 
+Salary based on any given input
+Since we use a labeled dataset to train ML Model.
+=> This is called Supervised-learning.
+Input X
+Output Y
+6
+Introduction
+❖Supervised Learning
+AI VIETNAM
+All-in-One Course
+(TA Session)
+In ML Superivsed-learning algorithms, we often deal with Regression and Classification
+7
+Introduction
+❖Supervised Learning: Regression
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Regression: A task involving predicting a continuous 
+value based on given inputs.
+𝑥1
+𝑦
+𝑥1
+𝑦
+In general, we want to find the line that best fit the data 
+distribution.
+8
+Introduction
+❖Supervised Learning: Classification
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Classification: A task involving predicting a discrete 
+(categorical) value based on given inputs.
+𝑥1
+𝑥2
+𝑥1
+𝑥2
+In general, we want to find the line that best separates the 
+dataset into classes.
+Class 1
+Class 2
+9
+Support Vector Machine
+❖Introduction
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Support Vector Machine (SVM): A supervised-learning ML 
+algorithm that works by identifying the optimal hyperplane 
+that best separates data into different classes. 
+SVM was originally built for classification task (SVC) but was 
+later modified to fit for regression task (SVR) too.
+10
+Support Vector Machine
+❖Getting Started
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Assume we have a linearly separable dataset
+Linearly separable data: A dataset that can 
+be fully separated into classes using a single 
+line.
+11
+Support Vector Machine
+❖Getting Started
+AI VIETNAM
+All-in-One Course
+(TA Session)
+How should we draw a line so that we can perfectly separate this dataset into 2 classes? 
+12
+Support Vector Machine
+❖Getting Started
+AI VIETNAM
+All-in-One Course
+(TA Session)
+There are many ways to draw the line
+Example 1
+Example 2
+13
+Support Vector Machine
+❖Getting Started
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Class 0
+Class 1
+With this line, we can now determine whether a new 
+data point belongs to Class 0 or Class 1 based on which 
+side of the line it falls on.
+This point is classified 
+as Class 1 since it lies 
+on right hand side of 
+the line.
+14
+Support Vector Machine
+❖Getting Started
+AI VIETNAM
+All-in-One Course
+(TA Session)
+However, in this situation, the result seems wrong since 
+the point is more closer to Class 0.
+=> This line is not really optimal.
+This point is classified 
+as Class 1 since it lies 
+on right hand side of 
+the line.
+What would be the best line?
+15
+Support Vector Machine
+❖Getting Started
+AI VIETNAM
+All-in-One Course
+(TA Session)
+This line looks awful because 
+the distances from points are 
+pretty close.
+This line looks better 
+since the distances to 
+nearest points are much 
+longer.
+16
+Support Vector Machine
+❖Idea
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Idea: Find the line that best separates the data into classes 
+while maximizing the distances between nearest points.
+Maximizing these!
+17
+Support Vector Machine
+❖Margin
+AI VIETNAM
+All-in-One Course
+(TA Session)
+The distance between the line and the nearest data point from 
+either of the two classes is called margin.
+18
+Support Vector Machine
+❖Hard Margin Classifier Idea
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Idea: Find the line that best separates the data into classes 
+while maximizing the margin. This is called Hard Margin 
+Classifier.
+max
+19
+Support Vector Machine
+❖Hard Margin Classifier Problem
+AI VIETNAM
+All-in-One Course
+(TA Session)
+However, assume we have an outlier
+Using Hard Margin Classifier, we 
+might have a line like this.
+Not a good classifier
+20
+Support Vector Machine
+❖Soft Margin Classifier
+AI VIETNAM
+All-in-One Course
+(TA Session)
+To avoid this, we should allow 
+misclassification
+Not a good classifier
+How to avoid this case?
+Misclassification
+21
+Support Vector Machine
+❖Soft Margin Classifier
+AI VIETNAM
+All-in-One Course
+(TA Session)
+However, when we have a new data point, we 
+might get it right.
+New Data Point 
+classified as Green
+22
+Support Vector Machine
+❖Soft Margin Classifier
+AI VIETNAM
+All-in-One Course
+(TA Session)
+When we allow misclassifications, the distance between the 
+observations and the decision boundary is called Soft Margin 
+=> Soft Margin Classifier (Support Vector Classifier).
+23
+Support Vector Machine
+❖Why “Support” Vector Classifier
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Support Vectors
+We called “Support” Vector Classifier because the data 
+points on the edge and within the Soft Margin are called 
+Support Vectors.
+24
+Support Vector Machine
+❖Why “Support” Vector Classifier
+AI VIETNAM
+All-in-One Course
+(TA Session)
+To better have a sense of relation between data points and 
+Soft Margin, we draw two parallel lines to the Decision 
+Boundary on Support Vectors.
+Class 0
+Class 1
+Misclassification
+25
+Support Vector Machine
+❖SVC: Hyperplane
+AI VIETNAM
+All-in-One Course
+(TA Session)
+In 2D space, decision 
+boundary is a line
+But in 3D, decision 
+boundary is instead a 
+plane
+2D
+line
+3D
+plane
+Higher
+Hyperplane
+26
+Support Vector Machine
+❖SVC: Hyperplane
+AI VIETNAM
+All-in-One Course
+(TA Session)
+With w = (1, -1) and b = -3 
+we get this hyperplane.
+Equation of Hyperplane
+𝑤∙𝑥+ 𝑏= 0
+•
+ℎ𝑥𝑖= ቊ+1 𝑖𝑓𝑤∙𝑥+ 𝑏≥0
+−1 𝑖𝑓𝑤∙𝑥+ 𝑏< 0
+•
+ℎ𝑥𝑖= 𝑠𝑖𝑔𝑛𝑤∙𝑥+ 𝑏
+Hypothesis Function h(x)
+We use the hypothesis function 
+to predict the class of a data 
+point.
+27
+Support Vector Machine
+❖SVC: Prediction
+AI VIETNAM
+All-in-One Course
+(TA Session)
+X1
+X2
+Y
+3
+4
+-1
+1
+4
+-1
+2
+3
+-1
+6
+-1
+1
+7
+-1
+1
+5
+-3
+1
+(1*3) + (-1*4) + (-3) = -7 < 0 
+(1*7) + (-1*-1) + (-3) = 5 > 0
+𝑦𝑝𝑟𝑒𝑑𝑖𝑐𝑡= +1
+𝑦𝑝𝑟𝑒𝑑𝑖𝑐𝑡= −1
+Classifying a data point using the 
+hyperplane.
+In this example, we use X1 and X2 to predict Y.
+With w = (1, -1) and b = -3, the equation of 
+hyperplane becomes:
+𝑤∙𝑥+ 𝑏= 𝑥1 −𝑥2 −3 = 0
+28
+Support Vector Machine
+❖SVC: Hyperplane
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Changing the value 
+of W gives us 
+different 
+hyperplanes
+Where is 
+the optimal 
+hyperplane?
+How do we 
+find it?
+Compute w and b using sklearn
+Training phase
+x1
+x2
+y
+3
+4
+-1
+1
+4
+-1
+2
+3
+-1
+6
+-1
+1
+7
+-1
+1
+5
+-3
+1
+Support vectors
+Test phase
+x1
+x2
+8
+-2
+1
+3
+Linearly separable dataset
+𝑤𝑇∙𝑥𝑖+ 𝑏≤−1 𝑓𝑜𝑟𝑥𝑖ℎ𝑎𝑣𝑖𝑛𝑔𝑐𝑙𝑎𝑠𝑠−1
+𝑤𝑇∙𝑥𝑖+ 𝑏≥1 𝑓𝑜𝑟𝑥𝑖ℎ𝑎𝑣𝑖𝑛𝑔𝑐𝑙𝑎𝑠𝑠+ 1
+0.25 ∗8 + −0.25 ∗−2 + −0.75 = 1.75 > 1
+0.25 ∗1 + −0.25 ∗3 + −0.75 = −1.25 < −1
+30
+Support Vector Machine
+❖SVC Problem
+AI VIETNAM
+All-in-One Course
+(TA Session)
+1-Dimensional Space
+Can SVC handle this kind of data?
+31
+Support Vector Machine
+❖SVC Problem
+AI VIETNAM
+All-in-One Course
+(TA Session)
+In general, it is hard for Hard/Soft Margin Classifier to 
+handle this kind of data
+32
+Support Vector Machine
+❖SVM Idea
+AI VIETNAM
+All-in-One Course
+(TA Session)
+𝑥1
+𝑦
+Consider a 2-Dimensional space (with the same 
+data points from previous example).
+Now let’s make 𝒚= 𝒙𝟐
+33
+Support Vector Machine
+❖SVM Idea
+AI VIETNAM
+All-in-One Course
+(TA Session)
+𝑥1
+𝑦
+This is out data when we map from 1D to 2D
+34
+Support Vector Machine
+❖SVM Idea
+AI VIETNAM
+All-in-One Course
+(TA Session)
+𝑥1
+𝑦
+After mapping, now we can use a line to separate 
+our data into classes.
+35
+Support Vector Machine
+❖SVM Idea
+AI VIETNAM
+All-in-One Course
+(TA Session)
+𝑥1
+𝑦
+After mapping, now we can use a line to separate 
+our data into classes.
+Mapping from 1D to 2D
+Classify this as Orange
+36
+Support Vector Machine
+❖SVM Idea
+AI VIETNAM
+All-in-One Course
+(TA Session)
+𝑥1
+𝑦
+Support Vector Machine (SVM) Idea: Move the 
+original data into higher dimension, then find the 
+best SVC on the new data.
+Mapping from 1D to 2D
+Classify this as Orange
+37
+Support Vector Machine
+❖SVM Idea
+AI VIETNAM
+All-in-One Course
+(TA Session)
+𝑥1
+𝑦
+But why 𝑦= 𝑥2, can we use other equations, 
+how can we decide y?
+38
+Support Vector Machine
+❖Kernel
+AI VIETNAM
+All-in-One Course
+(TA Session)
+To decide the y, or to decide SVC in higher 
+dimensions, we use Kernel Functions.
+39
+Support Vector Machine
+❖Type of kernels
+AI VIETNAM
+All-in-One Course
+(TA Session)
+In general, we have some kernel types:
+•
+Linear
+•
+Polynomial
+•
+Radial Basis Function (RBF)
+•
+Sigmoid 
+Different results from different kernels using sklearn
+40
+Code Examples
+❖Introduction
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Description: Build a binary classifier with SVM using scikit-learn library. 
+41
+Code Examples
+❖Step 1: Import libraries
+AI VIETNAM
+All-in-One Course
+(TA Session)
+42
+Code Examples
+❖Step 2: Download and load dataset
+AI VIETNAM
+All-in-One Course
+(TA Session)
+1. Download the dataset here.
+2. Using pandas.read_csv() to read the dataset.
+43
+Code Examples
+❖Step 3: Get some detail information
+AI VIETNAM
+All-in-One Course
+(TA Session)
+44
+Code Examples
+❖Step 4: Plot the dataset
+AI VIETNAM
+All-in-One Course
+(TA Session)
+45
+Code Examples
+❖Step 5: Split train val dataset
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Original Dataset
+Train Set
+Val set
+46
+Code Examples
+❖Step 6: Train SVM
+AI VIETNAM
+All-in-One Course
+(TA Session)
+In this problem, we do classification, so we will 
+use SVC module.
+Read more about SVC here
+47
+Code Examples
+❖Step 7: Evaluation
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Evaluate trained SVM on val set:
+48
+Code Examples
+❖Linear kernel with non-linear dataset ? (Download here)
+AI VIETNAM
+All-in-One Course
+(TA Session)
+If we apply the same previous SVC code, will it still work?
+49
+Code Examples
+❖Linear kernel with non-linear dataset ?
+AI VIETNAM
+All-in-One Course
+(TA Session)
+50
+Code Examples
+❖How about other kernels ?
+AI VIETNAM
+All-in-One Course
+(TA Session)
+It is important to tune proper hyperparameters of SVM 
+for the best result.
+?
+51
+Question
+AI VIETNAM
+All-in-One Course
+(TA Session)
+52

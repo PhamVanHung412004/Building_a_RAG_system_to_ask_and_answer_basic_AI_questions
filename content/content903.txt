@@ -1,6 +1,0 @@
-Zero-shot COT thể hiện sự linh hoạt và khả năng áp dụng rộng rãi trong các tác vụ suy
-luận khác nhau, từ toán học đến suy luận thông thường, mở ra hướng mới trong việc khám phá và
-tận dụng tiềm năng sẵn có của các LLMs. Trong bài báo "Large Language Models are Zero-Shot
-Reasoners" Kojima et al., 2022 chỉ ra rằng chúng ta chỉ cần đơn giản thêm cụm "Let’s think step
-by step" vào prompt gốc sẽ giúp model đưa ra kết quả tốt hơn.
-9

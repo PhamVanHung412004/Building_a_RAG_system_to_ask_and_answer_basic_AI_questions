@@ -1,4 +1,0 @@
-8 """
-9 self . root_dir = root_dir
-10 self . transform = transform
-4

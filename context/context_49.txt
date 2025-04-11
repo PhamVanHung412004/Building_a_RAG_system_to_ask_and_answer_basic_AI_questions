@@ -1,0 +1,44 @@
+AI VIET NAM – COURSE 2023
+Computer Vision Foundation - Background Subtracti
+Ngày 30 tháng 9 năm 2023
+Final Project - Rubric
+Câu
+Kiến Thức
+Đánh Giá
+1
+- Kiến thức vềgiải thuật trừnên thông
+dụng MOG
+- Biết cách sửdụng thư viện OpenCV để
+hiện thực bài toán trừnền phát hiện đối
+tượng di chuyển
+2
+- Kiến thức vềgiải thuật Dilation
+- Biết cách sửdụng thư viện OpenCV để
+hiện thực bài toán tăng cường feature sử
+dụng Dilation
+3
+- Kiến thức vềgiải thuật Erosion
+- Biết cách sửdụng thư viện OpenCV để
+hiện thực bài toán loại bỏfeature nhiễu sử
+dụng Erosion
+4
+- Kiến thức làm thếnào đểkết hợp giải
+thuật Erosion và Dilation
+- Biết cách sửdụng thư viện OpenCV để
+hiện thực bài toán loại bỏfeature nhiễu
+và tăng cường feature sửdụng Erosion và
+Dilation song song
+5
+- Kiến thức vềgiải thuật phát thiện
+countours
+- Biết cách sửdụng thư viện OpenCV để
+hiện thực bài toán xác định contour và vị
+trí của đối tượng trong ảnh
+6
+- Kiến thức kết hợp thuật toán trừnền,
+dilation, erosion, dilation, contours finding
+- Biết cách sửdụng thư viện OpenCV để
+hiện thực bài toán đếm tổng người vào ra
+trong siêu thị, sửdụng thuật toán trừnền,
+dilation, erosion, dilation, contours finding
+1

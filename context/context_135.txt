@@ -1,0 +1,362 @@
+Module 10 - Extra
+Multimodal 
+Large Language Models
+Year 2023
+AI VIET NAM
+Nguyen Quoc Thai
+AI VIETNAM
+All-in-One Course
+1
+2
+Objectives
+Multimodal Large Language Models
+!
+MLLMs
+3
+Ø Introduction
+Ø Multimodal Large Language Models
+Ø BLIP-2
+Ø NExT-GPT: Any-to-Any MLLM
+Outline
+4
+Introduction
+Large Language Models
+!
+5
+Introduction
+Large Language Models
+!
+Ø “Very” large LMs: models of 100+ billion parameters
+GPT3 (175B), BLOOM (176B), PaLM (540B), GLaM (1200B)…
+Ø Data scale: usually in the order of trillions of tokens
+GPT3 (0.5 trillion tokens), LLaMa (1.4 trillion tokens)
+6
+Introduction
+Large Language Models
+!
+Ø The promise: one single model to solve 
+many NLP tasks
+Ø Emergent properties in LLMs
+7
+Introduction
+Large Language Models
+!
+8
+Introduction
+Large Language Models
+!
+9
+Introduction
+Large Language Models
+!
+Prompt
+Response
+LLMs
+Machine Translation
+Reasioning
+…
+Ø Solve many NLP tasks
+10
+Introduction
+Multimodal Large Language Models
+!
+MLLMs
+11
+Ø Introduction
+Ø Multimodal Large Language Models
+Ø BLIP-2
+Ø NExT-GPT: Any-to-Any MLLM
+Outline
+12
+Multimodal LLMs
+The milestones of Multimodal LLMs
+!
+13
+Multimodal LLMs
+Architecture
+!
+14
+Multimodal LLMs
+Architecture – Modility Encoder
+!
+Ø Encode inputs from diverse modalities to obtain corresponding features
+15
+Multimodal LLMs
+Architecture – Modility Encoder
+!
+Ø Image/Video Encoder: ViT
+16
+Multimodal LLMs
+Architecture – Modility Encoder
+!
+Ø Image/Video Encoder: ViT/ CLIP ViT/ Eva-CLIP ViT
+17
+Multimodal LLMs
+Architecture – Modility Encoder
+!
+Ø Audio Encoder: C-Former / HuBERT / BEATs / Whisper / 
+CLAP
+18
+Multimodal LLMs
+Architecture – Modility Encoder
+!
+Ø Audio Encoder: C-Former / HuBERT / BEATs / Whisper / 
+CLAP
+19
+Multimodal LLMs
+Architecture – Modility Encoder
+!
+Ø IMAGEBLIND: One Embedding Space To Bind Them All
+Ø Join embedding space enables novel multimodal capabilities
+20
+Multimodal LLMs
+Architecture – Modility Encoder
+!
+Ø IMAGEBLIND: One Embedding Space To Bind Them All
+Ø Join embedding space enables novel multimodal capabilities
+21
+Multimodal LLMs
+Architecture – Connecter (Input Projector)
+!
+Ø Align the encoded features of other modalities with the text feature
+Ø Linear Projector / MLP / Cross-attention / Q-Former / P-Former
+22
+Multimodal LLMs
+Architecture – LLMs
+!
+Ø LLMs: PaLM, LLaMA, Vicuna, Qwen,… 
+23
+Multimodal LLMs
+Architecture – Output Projector
+!
+Ø Output Projector: maps the signal token representation from LLM into features
+Ø MLP / Tiny Transformer
+24
+Multimodal LLMs
+Architecture – Modality Generator
+!
+Ø Product outputs in distinct modalities
+Ø Stable Diffusion Model
+25
+Multimodal LLMs
+Architecture – Modality Generator
+!
+Ø Stable Diffusion Model 
+for Image
+26
+Multimodal LLMs
+Architecture – Modality Generator
+!
+Ø Stable Diffusion Model for Audio (AudioLDM)
+27
+Multimodal LLMs
+Architecture
+!
+28
+Multimodal LLMs
+Training Strategy – Pre-Training
+!
+Ø Align different modalities and learn 
+multimodal world knowledge
+Ø Entails large-scale text-paired data
+29
+Multimodal LLMs
+Training Strategy – Instruction-Tuning
+!
+30
+Multimodal LLMs
+Training Strategy – Instruction-Tuning
+!
+31
+Multimodal LLMs
+Training Strategy – Instruction-Tuning
+!
+32
+Multimodal LLMs
+Training Strategy – Alignment Tuning
+!
+33
+Multimodal LLMs
+SOTA MLLMs
+!
+Model
+I/O
+Modality 
+Encoder
+Input 
+Projector
+LLM
+Output 
+Projector
+Modality 
+Generator
+BLIP-2
+IT => T
+CLIP ViT
+Q-Former
+Linear
+Flan-T5
+OPT
+-
+-
+LLaVA
+IT => T
+CLIP ViT
+Linear
+Vicuna
+-
+-
+miniGPT-4
+IT => T
+Eva-CLIP ViT
+Q-Former
+Linear
+Vicuna
+-
+-
+InstructBLIP
+IVT => T
+ViT
+Q-Former
+Linear
+Flan-T5
+Vicuna
+-
+-
+Next-GPT
+IVAT => IVAT
+ImageBlind
+Linear
+Vicuna
+Tiny 
+Transformer
+Stable Diffusion 
+Model
+ModaVerse
+IVAT => IVAT
+ImageBlind
+Linear
+LLaMA2
+MLP
+Stable Diffusion 
+Model
+34
+Ø Introduction
+Ø Multimodal Large Language Models
+Ø BLIP-2 for Visual Question Answering
+Ø NExT-GPT: Any-to-Any MLLM
+Outline
+35
+BLIP-2 for VQA
+VQA Dataset
+!
+Question:
+How many diamonds are there?
+Response: 
+97
+36
+BLIP-2 for VQA
+BLIP-2 - Training
+!
+Model
+I/O
+Modality 
+Encoder
+Input 
+Projector
+LLM
+Output 
+Projector
+Modality 
+Generator
+BLIP-2
+IT => T
+CLIP ViT
+Q-Former
+Linear
+Flan-T5
+OPT
+-
+-
+37
+Multimodal LLMs
+BLIP-2 - Inference
+!
+38
+Multimodal LLMs
+BLIP-2 - Demo
+!
+39
+Ø Introduction
+Ø Multimodal Large Language Models
+Ø BLIP-2 for Visual Question Answering
+Ø NExT-GPT: Any-to-Any MLLM
+Outline
+40
+NExT-GPT
+NExT-GPT
+!
+41
+NExT-GPT
+NExT-GPT
+!
+Model
+I/O
+Modality 
+Encoder
+Input 
+Projector
+LLM
+Output 
+Projector
+Modality 
+Generator
+Next-GPT
+IVAT => IVAT
+ImageBlind
+Linear
+Vicuna
+Tiny 
+Transformer
+Stable Diffusion 
+Model
+42
+NExT-GPT
+NExT-GPT: Lightweight Multimodal Alignment Learning
+!
+Ø Encoding-side LLM-centric Multimodal Alignment
+43
+NExT-GPT
+NExT-GPT: Lightweight Multimodal Alignment Learning
+!
+Ø Decoding-side Instruction-following Alignment
+44
+NExT-GPT
+NExT-GPT: Lightweight Multimodal Alignment Learning
+!
+Ø Modality-switching Instruction Tuning
+45
+NExT-GPT
+NExT-GPT - Demo
+!
+46
+NExT-GPT
+NExT-GPT - Demo
+!
+47
+NExT-GPT
+NExT-GPT - Demo
+!
+48
+NExT-GPT
+NExT-GPT - Demo
+!
+49
+NExT-GPT
+NExT-GPT - Demo
+!
+50
+Summary
+Thanks!
+Any questions?
+51

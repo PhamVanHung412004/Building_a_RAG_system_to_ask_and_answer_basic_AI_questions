@@ -1,6 +1,0 @@
-AI VIETNAM aivietnam.edu.vn
-Hình 7: Theo dõi quá trình tạo ảnh của mô hình theo từng epoch trênwandb.
-5. Inference
-Bạn có thể sử dụng checkpoint sẵn có để tiến hành quá trình suy luận thử nghiệm.
-1 # Download the checkpoint
-2 ! 

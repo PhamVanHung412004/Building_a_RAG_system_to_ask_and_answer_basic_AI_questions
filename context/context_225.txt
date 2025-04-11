@@ -1,0 +1,1149 @@
+Softmax Regression
+Dinh-Thang Duong – TA
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Exercise
+Year 2023
+Outline
+2
+➢Review
+➢Card Fraud Detection
+➢Sentiment Analysis
+➢Question
+Outline
+AI VIETNAM
+All-in-One Course
+(TA Session)
+3
+Programs
+Output
+An email
+Input
+Classification problem
+Spam
+Not Spam
+Output is categorical. E.g:
+-
+Spam/Not Spam
+-
+Positive/Negative/Neutral
+-
+Cat/Dog/Bird/Mouse
+-
+1/2/3/4
+Review
+AI VIETNAM
+All-in-One Course
+(TA Session)
+❖ Getting Started
+4
+Binary Classification (n_classes=2)
+Multi-class Classification (n_classes >= 2)
+Review
+AI VIETNAM
+All-in-One Course
+(TA Session)
+❖ Getting Started
+5
+𝑧= 𝑏0 +
+෍
+𝑖=1
+𝑛_𝑓𝑒𝑎𝑡𝑢𝑟𝑒𝑠
+𝑏𝑖𝑥𝑖
+Sigmoid function
+𝑠𝑖𝑔𝑚𝑜𝑖𝑑𝑧=
+1
+1 + 𝑒−𝑧
+Range value: (0, 1)
+Class 1
+Class 2
+p > threshold
+How about 
+multiclass?
+Review
+AI VIETNAM
+All-in-One Course
+(TA Session)
+❖ Logistic Regression for multiclass?
+6
+Review
+❖ Introduction
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Softmax Regression (Multinomial Logisitic Regression): A 
+supervised ML algorithm used for classification tasks. It is a 
+generalization of Logistic Regression to the case where we 
+want to handle multiple classes.
+7
+x
+: Input data xi
+: Linear value (z)
+z
+p
+: Activation value (p)
+: Direction
+z
+p
+x1
+x2
+b
+Input
+𝜃0
+𝜃1
+𝜃2
+Z
+P
+sigmoid()
+Logistic Regression Computation
+Review
+AI VIETNAM
+All-in-One Course
+(TA Session)
+❖ Logistic Regression (Graph)
+8
+z
+p
+x1
+x2
+b
+Input
+𝜃0
+𝜃1
+𝜃2
+Z
+P
+sigmoid()
+Review
+AI VIETNAM
+All-in-One Course
+(TA Session)
+❖ Logistic Regression (Graph)
+: Direction
+Each direction is associated with a unique 
+weight theta.
+𝜃
+9
+z
+p
+x1
+x2
+b
+Input
+𝜃0
+𝜃1
+𝜃2
+Z
+P
+sigmoid()
+Review
+AI VIETNAM
+All-in-One Course
+(TA Session)
+❖ Logistic Regression (Graph)
+: Linear value
+Green node represents the dot product of input 
+features and their weights (including bias):
+𝑧= 𝑋∙𝜃= ෍
+𝑖=1
+𝑛
+𝑋𝑖𝜃𝑖
+z
+10
+z
+p
+x1
+x2
+b
+Input
+𝜃0
+𝜃1
+𝜃2
+Z
+P
+sigmoid()
+Review
+AI VIETNAM
+All-in-One Course
+(TA Session)
+❖ Logistic Regression (Graph)
+Yellow node represents the output of sigmoid 
+function (activation function) with the input of z:
+𝑎𝑧= 𝜎𝑧=
+1
+1 + 𝑒−𝑧
+p
+: Activation value (p)
+11
+z0
+z1
+p0
+p1
+Z
+P
+x1
+x2
+b
+Input
+𝜃00
+𝜃01
+𝜃02
+𝜃10
+𝜃11
+𝜃12
+z
+p
+x1
+x2
+b
+Input
+𝜃0
+𝜃1
+𝜃2
+Z
+P
+sigmoid()
+Logistic Regression
+softmax()
+softmax()
+Softmax Regression
+n_features = 2, n_classes = 2
+Review
+AI VIETNAM
+All-in-One Course
+(TA Session)
+❖ Softmax Regression
+12
+z0
+z1
+p0
+p1
+Z
+P
+x1
+x2
+b
+𝜃00
+𝜃01
+𝜃02
+𝜃10
+𝜃11
+𝜃12
+softmax()
+softmax()
+Softmax Regression (2 class)
+z0
+z1
+z2
+z3
+p0
+p1
+p2
+p3
+Z
+P
+x1
+x2
+b
+Input
+𝜃10
+𝜃00
+𝜃01
+𝜃02
+𝜃11
+𝜃12
+𝜃20
+𝜃21
+𝜃22
+𝜃30
+𝜃31
+𝜃32
+Softmax Regression (4 class)
+Review
+AI VIETNAM
+All-in-One Course
+(TA Session)
+❖ Softmax Regression
+13
+z0
+z1
+z2
+z3
+p0
+p1
+p2
+p3
+Z
+P
+x1
+x2
+b
+Input
+𝑝𝑖= 𝑠𝑜𝑓𝑡𝑚𝑎𝑥𝑍=
+𝑒𝑧𝑖
+σ𝑗=1
+𝑛_𝑐𝑙𝑎𝑠𝑠𝑒𝑠𝑒𝑧𝑗
+𝑧𝑖= 𝜃𝑖
+𝑇𝑋= 𝑏𝜃𝑖0 +
+෍
+𝑗=1
+𝑛_𝑓𝑒𝑎𝑡𝑢𝑟𝑒𝑠
+𝜃𝑖𝑗𝑋𝑗
+❖Calculate z of class i’th:
+❖Calculate p of class i’th:
+n_features = 2, n_classes = 4
+𝜃10
+𝜃00
+𝜃01
+𝜃02
+𝜃11
+𝜃12
+𝜃20
+𝜃21
+𝜃22
+𝜃30
+𝜃31
+𝜃32
+Review
+AI VIETNAM
+All-in-One Course
+(TA Session)
+❖ Softmax Regression
+14
+0.6
+0.1
+0.1
+0.2
+P
+1)0 < 𝑝𝑖< 1
+2)σ𝑖
+𝑛_𝑐𝑙𝑎𝑠𝑠𝑒𝑠𝑝𝑖= 1
+3)𝑧𝑖< 0,𝑝𝑖> 0
+4)𝑧𝑖= 𝑧𝑗,𝑝𝑖= 𝑝𝑗
+5)𝑚𝑎𝑥= 𝑧𝑖, 𝑚𝑎𝑥= 𝑝𝑖
+2
+-0.2
+-0.2
+1
+Z
+x1
+x2
+b
+Input
+𝜃10
+𝜃00
+𝜃01
+𝜃02
+𝜃11
+𝜃12
+𝜃20
+𝜃21
+𝜃22
+𝜃30
+𝜃31
+𝜃32
+n_features = 2, n_classes = 4
+Review
+AI VIETNAM
+All-in-One Course
+(TA Session)
+❖ Properties of Softmax Output
+15
+𝐿ŷ, 𝑦= −log 𝑦𝑇∙ŷ = −𝑦𝑇∙log ŷ
+❖Cross-entropy loss:
+∇𝜃𝐿= 𝜕𝐿
+𝜕𝜃= 𝜕𝐿
+𝜕ŷ
+𝜕ŷ
+𝜕𝑧
+𝜕𝑧
+𝜕𝜃= 𝑋∙(ŷ −𝑦)𝑇
+❖Derivative:
+z0
+z1
+p0
+p1
+Z
+P
+x1
+x2
+b
+Input
+𝜃00
+𝜃01
+𝜃02
+𝜃10
+𝜃11
+𝜃12
+𝜕𝐿
+𝜕𝜃0
+𝜕𝐿
+𝜕𝜃1
+Review
+AI VIETNAM
+All-in-One Course
+(TA Session)
+❖ Loss function and derivative
+16
+Review
+❖ Softmax Regression objective
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Our objective is to find the optimal weights and 
+bias (theta) that minimize the loss function:
+መ𝜃= 𝑎𝑟𝑔min
+𝜃
+1
+𝑛෍
+𝑖=1
+𝑛
+𝐿(ŷ𝑖, 𝑦𝑖)
+For each step, compute the gradient and update 
+the current theta:
+•
+∇𝜃𝑠𝐿= 1
+𝑁𝑋𝑖𝑇 (ŷ𝑖−𝑦𝑖)
+•
+𝜃𝑠+1 = 𝜃𝑠−𝜂∇𝜃𝑠𝐿
+Gradient Descent
+17
+17
+Raw data
+Preprocessing
+Split dataset
+Train X, y
+predict()
+loss()
+gradient()
+update()
+if not end epoch
+Train X, y
+Test X, y
+Training Stage
+Data Processing Stage
+Model
+Trained 
+Model
+X
+predict()
+Evaluate
+y_hat
+y_true
+Evaluation Stage
+Review
+AI VIETNAM
+All-in-One Course
+(TA Session)
+❖ Pipeline
+18
+Card Fraud Detection
+AI VIETNAM
+All-in-One Course
+(TA Session)
+❖ Introduction
+Description: Given card_fraud_detection.csv dataset, build a Card Fraud Detection model using Softmax Regression.
+19
+Card Fraud Detection
+AI VIETNAM
+All-in-One Course
+(TA Session)
+❖ Step 1: Import libraries and read dataset
+20
+Card Fraud Detection
+AI VIETNAM
+All-in-One Course
+(TA Session)
+❖ Step 2: Get dataset information
+21
+Index
+Column 1
+Column 2
+Column 3
+…
+Column n
+…
+…
+…
+…
+…
+…
+…
+…
+…
+…
+…
+…
+…
+…
+…
+…
+…
+…
+…
+…
+…
+…
+…
+…
+Features
+Label
+In our exericse’s dataset:
+❖Independent variables (features): from column 1 to n – 1.
+❖Depedent varaibles (labels): last column.
+Independent Variable (Cause)
+Dependent Variable (Result)
+Card Fraud Detection
+AI VIETNAM
+All-in-One Course
+(TA Session)
+❖ Step 3: Split X, y
+22
+Card Fraud Detection
+AI VIETNAM
+All-in-One Course
+(TA Session)
+❖ Step 3: Split X, y
+23
+Feature 1
+Feature 2
+Feature 3
+Feature 4
+…
+…
+…
+…
+…
+…
+…
+…
+…
+…
+…
+…
+…
+…
+…
+…
+Bias
+1
+1
+1
+1
+𝑧𝑖= 𝜃𝑖
+𝑇𝑋= 𝑏𝜃𝑖0 +
+෍
+𝑗=1
+𝑛_𝑓𝑒𝑎𝑡𝑢𝑟𝑒𝑠
+𝜃𝑖𝑗𝑋𝑗
+❖Calculate z of class i’th:
+1. Ones Vector (n_elements = n_samples)
+2. Concat by column to independent variable
+idx
+0
+1
+…
+n_samples - 1
+value
+1
+1
+1
+1
+X variable
+Card Fraud Detection
+AI VIETNAM
+All-in-One Course
+(TA Session)
+❖ Step 4: Add the bias term 
+24
+❖Recall: Predict on sample i’th output an n elements 
+vector 
+0.6
+0.1
+0.1
+0.2
+P
+2
+-0.2
+-0.2
+1
+Z
+x1
+x2
+b
+Input
+𝜃10
+𝜃00
+𝜃01
+𝜃02
+𝜃11
+𝜃12
+𝜃20
+𝜃21
+𝜃22
+𝜃30
+𝜃31
+𝜃32
+y_hati = [0.6, 0.1, 0.1, 0.2]
+yi = 0
+One hot encoding 
+label
+How to calculate loss 
+between y vs y_hat?
+Card Fraud Detection
+AI VIETNAM
+All-in-One Course
+(TA Session)
+❖ Step 5: One-hot encoding label
+25
+n_features = 2, n_classes = 4
+Definition: Convert categorial data to one-hot vector
+Label
+0
+0
+1
+3
+2
+1
+2
+Label
+1
+0
+0
+0
+1
+0
+0
+0
+0
+1
+0
+0
+0
+0
+0
+1
+0
+0
+1
+0
+0
+1
+0
+0
+0
+0
+1
+0
+Label encoding
+One-hot encoding
+1. Zeros Vector (n_elements = n_classes)
+2. E.g: y = 2
+idx
+0
+1
+2
+3
+value
+0
+0
+0
+0
+idx
+0
+1
+2
+3
+value
+0
+0
+1
+0
+zeros_vector[y] = 1
+Card Fraud Detection
+AI VIETNAM
+All-in-One Course
+(TA Session)
+❖ Step 5: One-hot encoding label
+26
+Card Fraud Detection
+❖ Step 6: Split train, val, test set
+AI VIETNAM
+All-in-One Course
+(TA Session)
+27
+Card Fraud Detection
+❖ Step 7: Normalization
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Using sklearn.preprocessing.StandardScaler() to 
+scale all values in dataset.
+Note: We only use the train set to fit the scaler.
+28
+Card Fraud Detection
+❖ Step 8: Training
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Define 
+hyperparameters
+Weight 
+Initialization
+𝜽
+Predict
+Compute Loss
+Compute Gradient
+Compute Accuracy
+update
+Start iteration
+End iteration ?
+End epoch ?
+Terminate
+False
+True
+True
+False
+29
+Card Fraud Detection
+❖ Step 8: Training
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Define essential hyperparameters and initialize weights
+30
+Card Fraud Detection
+❖ Step 8: Training
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Hypothesis function
+•
+𝑧= 𝑏0 + σ𝑖=1
+𝑛_𝑓𝑒𝑎𝑡𝑢𝑟𝑒𝑠𝑏𝑖𝑥𝑖
+•
+𝑦ℎ𝑎𝑡= 𝑠𝑜𝑓𝑡𝑚𝑎𝑥𝑧=
+𝑒𝑧𝑖
+σ𝑗=1
+𝑛_𝑐𝑙𝑎𝑠𝑠𝑒𝑠𝑒𝑧𝑗
+31
+Card Fraud Detection
+❖ Step 8: Training
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Softmax Regression Loss (Cross-entropy)
+𝐿ŷ,𝑦= −1
+𝑁෍
+𝑖=1
+𝑁
+𝑦𝑖𝑙𝑜𝑔ŷ𝑖
+32
+Card Fraud Detection
+❖ Step 8: Training
+AI VIETNAM
+All-in-One Course
+(TA Session)
+𝑎𝑐𝑐𝑢𝑟𝑎𝑐𝑦= 𝑡𝑟𝑢𝑒_𝑝𝑟𝑒𝑑𝑖𝑐𝑡𝑖𝑜𝑛𝑠
+𝑛_𝑠𝑎𝑚𝑝𝑙𝑒𝑠
+Accuracy Formula
+33
+Card Fraud Detection
+❖ Step 8: Training
+AI VIETNAM
+All-in-One Course
+(TA Session)
+•
+Gradient computation formula:
+∇𝜃𝐿= 1
+𝑁𝑋𝑇(ŷ −𝑦)
+•
+Weights update formula:
+𝜃= 𝜃− 𝜂∇𝜃𝐿
+34
+Card Fraud Detection
+❖ Step 8: Training
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Line 6: Loop over number of epochs.
+Line 7, 8, 9, 10: Declare empty lists to stor 
+batche accuracies, losses of train and val sets.  
+35
+Card Fraud Detection
+❖ Step 8: Training
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Line 12: Loop over number of batches (based on 
+batch size).
+Line 13, 14: Get X and y data of current batch.
+36
+Card Fraud Detection
+❖ Step 8: Training
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Line 16: Do prediction on X_i and theta.
+Line 17: Compute the loss of y_hat and y_i.
+Line 18: Compute the gradient.
+Line 19: Update theta using the computed 
+gradient.
+37
+Card Fraud Detection
+❖ Step 8: Training
+AI VIETNAM
+All-in-One Course
+(TA Session)
+From line 20 to line 30: Compute and store 
+accuracies and losses on train and val sets.
+38
+Card Fraud Detection
+❖ Step 8: Training
+AI VIETNAM
+All-in-One Course
+(TA Session)
+From line 32 to line 35: Compute and store 
+batch accuracies and losses of train and val sets.
+39
+Card Fraud Detection
+❖ Step 8: Training (Visualization)
+AI VIETNAM
+All-in-One Course
+(TA Session)
+40
+Card Fraud Detection
+❖ Step 9: Evaluation
+AI VIETNAM
+All-in-One Course
+(TA Session)
+𝑎𝑐𝑐𝑢𝑟𝑎𝑐𝑦= 𝑡𝑟𝑢𝑒_𝑝𝑟𝑒𝑑𝑖𝑐𝑡𝑖𝑜𝑛𝑠
+𝑛_𝑠𝑎𝑚𝑝𝑙𝑒𝑠
+41
+Sentiment Analysis
+❖ Introduction
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Description: Given Twitter Sentiment Analysis dataset, build a Logistic Regression model to determine whether a 
+tweet (text) has a positive, neutral or negative sentiment.
+Positive
+Negative
+Neutral
+42
+Sentiment Analysis
+❖ Introduction
+AI VIETNAM
+All-in-One Course
+(TA Session)
+In this exercise, we will implement Softmax Regression with two approaches: NumPy and PyTorch. 
+Approach 1: Build with NumPy
+Approach 2: Build with PyTorch
+43
+Sentiment Analysis
+❖ Step 1: Import libraries
+AI VIETNAM
+All-in-One Course
+(TA Session)
+44
+Sentiment Analysis
+❖ Step 2: Read dataset
+AI VIETNAM
+All-in-One Course
+(TA Session)
+45
+Sentiment Analysis
+❖ Step 3: Get dataset information
+AI VIETNAM
+All-in-One Course
+(TA Session)
+46
+Sentiment Analysis
+❖ Step 4: Data preprocessing
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Raw Text: We love this! Would you go? #talk 
+#makememories #unplug #relax #iphone #smartphone 
+#wifi #connect... http://fb.me/6N3LsUpCu
+Vector Representation: array([1.0, 4768.0, 1425.0])
+Data 
+Preprocessing
+47
+Sentiment Analysis
+❖ Step 4: Data preprocessing
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Raw Text
+Input
+Text Normalization
+Build tfidf 
+(max_features=2000)
+Vectorizer
+Vector 
+Representation
+Corpus 
+(Dataset)
+Output
+48
+Sentiment Analysis
+❖ Step 4: Data preprocessing
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Raw Text
+Input
+Text Normalization
+Normalized Text
+Output
+Lowercasing
+Retweet Acronym 
+Removal
+Hyperlinks 
+Removal
+Punctuation 
+Removal
+Stopwords 
+Removal
+Stemming
+49
+Sentiment Analysis
+❖ Step 4: Data preprocessing
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Retweet Acronym Removal: Remove 
+"RT” at the start of the string
+Hyperlinks Removal: Remove all hyperlinks in 
+the string.
+Punctuation Removal: Remove all 
+punctuations symbols "#".
+Lowercasing: Convert text into 
+lowercase.
+50
+Sentiment Analysis
+❖ Step 4: Data preprocessing
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Stopwords Removal: Remove all “stopwords” which 
+are not necessary to represent in vocabulary.
+51
+Sentiment Analysis
+❖ Step 4: Data preprocessing
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Stemming: Convert all the words into its root form 
+(only use in English or similar languages).
+52
+Sentiment Analysis
+❖ Step 4: Data preprocessing
+AI VIETNAM
+All-in-One Course
+(TA Session)
+53
+Sentiment Analysis
+❖ Step 4: Data preprocessing
+AI VIETNAM
+All-in-One Course
+(TA Session)
+To represent normalized text as vector, we will use 
+TfIdf vectorizer from sklearn.
+54
+Sentiment Analysis
+❖ Step 4: Data preprocessing
+AI VIETNAM
+All-in-One Course
+(TA Session)
+We also add the bias term into each TfIdf 
+vector.
+55
+Sentiment Analysis
+❖ Step 5: One-hot encode label
+AI VIETNAM
+All-in-One Course
+(TA Session)
+56
+Sentiment Analysis
+❖ Step 6: Split train, val, test set
+AI VIETNAM
+All-in-One Course
+(TA Session)
+57
+Sentiment Analysis
+❖ Step 7: Training
+AI VIETNAM
+All-in-One Course
+(TA Session)
+58
+Sentiment Analysis
+❖ Step 7: Training
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Define essential functions and hyperparameters
+59
+Sentiment Analysis
+❖ Step 7: Training
+AI VIETNAM
+All-in-One Course
+(TA Session)
+60
+Sentiment Analysis
+❖ Step 7: Training (Visualization)
+AI VIETNAM
+All-in-One Course
+(TA Session)
+61
+Sentiment Analysis
+❖ Step 8: Evaluation
+AI VIETNAM
+All-in-One Course
+(TA Session)
+𝑎𝑐𝑐𝑢𝑟𝑎𝑐𝑦= 𝑡𝑟𝑢𝑒_𝑝𝑟𝑒𝑑𝑖𝑐𝑡𝑖𝑜𝑛𝑠
+𝑛_𝑠𝑎𝑚𝑝𝑙𝑒𝑠
+62
+Sentiment Analysis
+❖ Implement with PyTorch: Step 1
+AI VIETNAM
+All-in-One Course
+(TA Session)
+63
+Sentiment Analysis
+❖ Implement with PyTorch: Step 2
+AI VIETNAM
+All-in-One Course
+(TA Session)
+64
+Sentiment Analysis
+❖ Implement with PyTorch: Step 3
+AI VIETNAM
+All-in-One Course
+(TA Session)
+65
+Sentiment Analysis
+❖ Implement with PyTorch: Step 4
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Raw Text
+Input
+Text Normalization
+Build tfidf 
+(max_features=2000)
+Vectorizer
+Vector 
+Representation
+Corpus 
+(Dataset)
+Output
+66
+Sentiment Analysis
+❖ Implement with PyTorch: Step 4
+AI VIETNAM
+All-in-One Course
+(TA Session)
+67
+Sentiment Analysis
+❖ Implement with PyTorch: Step 5
+AI VIETNAM
+All-in-One Course
+(TA Session)
+68
+Sentiment Analysis
+❖ Implement with PyTorch: Step 6
+AI VIETNAM
+All-in-One Course
+(TA Session)
+69
+Sentiment Analysis
+❖ Implement with PyTorch: Step 7
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Create a SoftmaxRegression class that inherits from 
+nn.Module:
+We define a linear transformation, which is just the dot 
+product (remember to set bias=True to include the bias term).
+70
+Sentiment Analysis
+❖ Implement with PyTorch: Step 8
+AI VIETNAM
+All-in-One Course
+(TA Session)
+We define the loss function (called criterion in PyTorch) 
+using Cross-entropy and optimizer algorithm (in this case is 
+SGD).
+71
+Sentiment Analysis
+❖ Implement with PyTorch: Step 8
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Line 1, 2, 3, 4: Define empty lists for storing losses 
+and accuracies of train and val sets in each epoch.
+72
+Sentiment Analysis
+❖ Implement with PyTorch: Step 8
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Line 9, 10: Zero out the gradients of previous epoch 
+before any computations.
+73
+Sentiment Analysis
+❖ Implement with PyTorch: Step 8
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Line 12, 13: Do prediction on all data points of 
+current epoch.
+74
+Sentiment Analysis
+❖ Implement with PyTorch: Step 8
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Line 15, 16: Calculating the training loss and append 
+the result to train_losses list.
+Line 20, 21: Calculate the accuracy on the train set.
+75
+Sentiment Analysis
+❖ Implement with PyTorch: Step 8
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Line 23, 24, 25: Compute the gradient and update 
+the weights.
+76
+Sentiment Analysis
+❖ Implement with PyTorch: Step 8
+AI VIETNAM
+All-in-One Course
+(TA Session)
+From line 27 to line 37: Change the model to 
+evaluation mode and calculate the loss and accuracy 
+on val set. Then append those scores into according 
+lists.
+77
+Sentiment Analysis
+❖ Implement with PyTorch: Step 9
+AI VIETNAM
+All-in-One Course
+(TA Session)
+78
+Sentiment Analysis
+❖ Implement with PyTorch: Step 10
+AI VIETNAM
+All-in-One Course
+(TA Session)
+?
+79
+Question
+AI VIETNAM
+All-in-One Course
+(TA Session)
+80

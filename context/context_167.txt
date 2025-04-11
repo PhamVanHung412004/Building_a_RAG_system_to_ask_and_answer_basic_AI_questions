@@ -1,0 +1,200 @@
+Vận hành trong Tài chính Ngân hàng
+Tựđộng hóa quy trình bằng robot
+(RPA)
+Người soạn:
+Cao Trung Nghĩa
+Cập nhật ngày 05/07/2024
+Mục lục
+1
+Lý thuyết cơ bản . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+2
+2
+Bối cảnh lịch sử. . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+2
+3
+Các thí nghiệm quan trọng . . . . . . . . . . . . . . . . . . . . . . . .
+2
+4
+Ví dụminh họa . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+3
+5
+Ví dụthực tế. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+3
+6
+Phân tích sâu . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+3
+7
+Bài tập thực hành
+. . . . . . . . . . . . . . . . . . . . . . . . . . . .
+5
+8
+Kết luận . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+5
+9
+Tài liệu tham khảo . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+6
+1
+Tựđộng hóa quy trình bằng robot (RPA)
+NextGen AI Bankers
+1
+Lý thuyết cơ bản
+Tựđộng hóa quy trình bằng robot (RPA) là một công nghệcho phép các tổ
+chức tựđộng hóa các tác vụlặp đi lặp lại và dựa trên quy tắc, thường do nhân viên
+thực hiện. RPA sửdụng các robot phần mềm (bot) đểmô phỏng các hành động của
+con người như nhập dữliệu, xửlý giao dịch và trảlời các yêu cầu của khách hàng.
+Những bot này tương tác với các hệthống và ứng dụng kỹthuật sốđểthực hiện
+các tác vụmột cách nhanh chóng và chính xác.
+Các đặc điểm chính của RPA bao gồm:
+• Tựđộng hóa quy trình: Bot thực hiện các quy tắc và quy trình được định
+trước.
+• Khảnăng mởrộng: RPA có thểxửlý khối lượng lớn các tác vụlặp đi lặp lại.
+• Độchính xác: Bot thực hiện các tác vụvới độchính xác cao, giảm thiểu lỗi.
+• Hiệu quảchi phí: Tựđộng hóa các tác vụthủcông giúp giảm chi phí lao động
+và nâng cao hiệu quả.
+2
+Bối cảnh lịch sử
+Công nghệRPA xuất hiện vào đầu những năm 2000, phát triển từcác công nghệtự
+động hóa truyền thống và screen scraping. Ban đầu được sửdụng trong các ngành
+công nghiệp như sản xuất đểtựđộng hóa quy trình, RPA sớm tìm thấy các ứng
+dụng trong các ngành dịch vụ, bao gồm cảtài chính và ngân hàng. Cuộc khủng
+hoảng tài chính năm 2008 đã thúc đẩy việc áp dụng RPA trong ngân hàng khi các
+tổchức tìm cách giảm chi phí và cải thiện hiệu quảhoạt động.
+3
+Các thí nghiệm quan trọng
+Một thí nghiệm đáng chú ý được thực hiện bởi Deutsche Bank, đã triển khai RPA
+đểtựđộng hóa quy trình xửlý các chỉdẫn thanh toán giao dịch. Bằng cách triển
+khai RPA, Deutsche Bank đã có thểgiảm thời gian xửlý từhàng giờxuống còn vài
+phút, cải thiện đáng kểhiệu quảvà độchính xác, đồng thời giải phóng nhân viên
+đểtập trung vào các nhiệm vụchiến lược hơn.
+Một thí nghiệm quan trọng khác liên quan đến Ngân hàng Hoàng gia Scotland
+(RBS), đã sửdụng RPA đểtựđộng hóa các quy trình dịch vụkhách hàng. RBS
+triển khai các bot đểxửlý các yêu cầu và giao dịch thường xuyên, chẳng hạn như
+kiểm tra sốdư và chuyển tiền. Thí nghiệm cho thấy rằng RPA có thểxửlý một khối
+2
+Tựđộng hóa quy trình bằng robot (RPA)
+NextGen AI Bankers
+lượng lớn các giao dịch với rất ít lỗi, dẫn đến sựhài lòng của khách hàng được nâng
+cao và chi phí hoạt động giảm.
+4
+Ví dụminh họa
+Hãy tưởng tượng RPA như một nhân viên hiệu quảvà không biết mệt mỏi có thể
+làm việc 24/7 mà không nghỉ. Giống như một robot trên dây chuyền sản xuất trong
+nhà máy thực hiện các tác vụlặp đi lặp lại với độchính xác và tốc độcao, một bot
+RPA trong ngân hàng xửlý các giao dịch và thực hiện các tác vụnhập dữliệu với
+độchính xác và hiệu quảnhất quán. Điều này cho phép nhân viên con người tập
+trung vào các hoạt động phức tạp và có giá trịcao hơn.
+5
+Ví dụthực tế
+Ví dụ: JP Morgan Chase và COiN
+JP Morgan Chase đã triển khai RPA thông qua nền tảng Contract Intelligence
+(COiN) đểxem xét các hợp đồng cho vay thương mại. Bằng cách sửdụng RPA,
+COiN có thểphân tích các tài liệu pháp lý và trích xuất các điểm dữliệu chính
+trong vài giây, một nhiệm vụmà trước đây mất hàng ngàn giờlàm việc của con
+người. Việc triển khai này đã tăng tốc độvà độchính xác của việc trích xuất dữ
+liệu, giảm chi phí hoạt động và giảm thiểu rủi ro lỗi.
+6
+Phân tích sâu
+Các thành phần chính và ứng dụng của RPA trong ngân hàng:
+1. Xửlý giao dịch:
+• Các bot RPA có thểtựđộng hóa quy trình xửlý giao dịch tài chính từ
+đầu đến cuối, bao gồm thanh toán, chuyển khoản và thanh toán bù trừ.
+Điều này giảm thời gian xửlý, giảm thiểu lỗi và đảm bảo tuân thủcác
+tiêu chuẩn quy định.
+2. Dịch vụkhách hàng:
+• RPA nâng cao dịch vụkhách hàng bằng cách tựđộng hóa các yêu cầu
+và giao dịch thường xuyên. Bot có thểxửlý các tác vụnhư kiểm tra số
+dư, lịch sửgiao dịch và chuyển tiền, cho phép các đại diện dịch vụkhách
+hàng tập trung vào các nhu cầu khách hàng phức tạp hơn.
+3. Tuân thủvà báo cáo:
+3
+Tựđộng hóa quy trình bằng robot (RPA)
+NextGen AI Bankers
+• RPA có thểtựđộng hóa các kiểm tra tuân thủvà quy trình báo cáo, đảm
+bảo rằng các ngân hàng tuân thủcác yêu cầu quy định. Bot có thểthu
+thập và phân tích dữliệu, tạo báo cáo và cảnh báo bất kỳsựkhông khớp
+hoặc vấn đềtuân thủnào.
+4. Quản lý tài khoản:
+• RPA tựđộng hóa quy trình mở, đóng và duy trì tài khoản. Bot có thểxử
+lý nhập dữliệu, xác minh tài liệu và cập nhật hệthống, giảm thời gian
+và công sức cần thiết đểquản lý tài khoản khách hàng.
+5. Phát hiện gian lận:
+• RPA có thểhỗtrợphát hiện gian lận bằng cách liên tục giám sát các
+giao dịch và xác định các mẫu chỉra hoạt động gian lận. Bot có thểcảnh
+báo các giao dịch đáng ngờđểđiều tra thêm, giúp bảo vệngân hàng và
+khách hàng của mình.
+Thách thức và cân nhắc:
+1. Tích hợp với các hệthống kếthừa:
+• Việc tích hợp RPA với các hệthống kếthừa hiện có có thểlà một thách
+thức. Các ngân hàng cần đảm bảo rằng các giải pháp RPA của họtương
+thích với cơ sởhạtầng CNTT hiện tại và có thểtương tác liền mạch với
+các ứng dụng và cơ sởdữliệu khác nhau.
+2. An ninh và quyền riêng tư:
+• Vì các bot RPA xửlý dữliệu tài chính nhạy cảm, việc đảm bảo an ninh
+và quyền riêng tư của dữliệu là rất quan trọng. Các ngân hàng phải triển
+khai các biện pháp bảo mật mạnh mẽđểbảo vệdữliệu và ngăn chặn
+truy cập trái phép.
+3. Quản lý thay đổi:
+• Việc triển khai RPA đòi hỏi một sựthay đổi văn hóa trong tổchức. Các
+ngân hàng cần quản lý sựthay đổi một cách hiệu quả, đảm bảo rằng
+nhân viên hiểu rõ lợi ích của RPA và được đào tạo đểlàm việc cùng các
+bot.
+4. Khảnăng mởrộng:
+• Việc mởrộng RPA trong toàn tổchức đòi hỏi kếhoạch và quản lý cẩn
+thận. Các ngân hàng cần phát triển một chiến lược RPA có thểmởrộng
+đểxửlý khối lượng giao dịch và tác vụtăng lên mà không làm giảm hiệu
+suất.
+4
+Tựđộng hóa quy trình bằng robot (RPA)
+NextGen AI Bankers
+7
+Bài tập thực hành
+1. Xác định một Quy trình Ngân hàng:
+• Chọn một quy trình ngân hàng lặp đi lặp lại và dựa trên quy tắc có thể
+hưởng lợi từRPA, chẳng hạn như mởtài khoản, xửlý giao dịch hoặc báo
+cáo tuân thủ.
+2. Vẽsơ đồquy trình:
+• Tạo một sơ đồchi tiết của quy trình hiện tại, bao gồm tất cảcác bước,
+người tham gia và hệthống liên quan. Xác định các điểm khó khăn như
+sựchậm trễ, lỗi hoặc nỗlực thủcông.
+3. Thiết kếmột giải pháp RPA:
+• Phác thảo cách công nghệRPA có thểtựđộng hóa quy trình. Cân nhắc
+việc sửdụng các bot đểnhập dữliệu, xửlý giao dịch và kiểm tra tuân
+thủ. Mô tảcách mỗi thành phần của giải pháp RPA giải quyết các điểm
+khó khăn đã xác định.
+4. Phát triển một mẫu thử:
+• Sửdụng một nền tảng phát triển RPA như UiPath, Automation Any-
+where hoặc Blue Prism, phát triển một mẫu thửđơn giản của giải pháp
+RPA của bạn. Thực hiện các chức năng cơ bản đểminh họa cách bot có
+thểthực hiện các tác vụđã xác định.
+5. Kiểm tra và phân tích:
+• Thực hiện các thửnghiệm đểđánh giá hiệu suất, độchính xác và hiệu
+quảcủa mẫu thửcủa bạn. Phân tích kết quảđểxác định các cải tiến
+tiềm năng và đánh giá tính khảthi của việc triển khai giải pháp trong
+môi trường ngân hàng thực tế.
+6. Trình bày kết quảcủa bạn:
+• Chuẩn bịmột bài thuyết trình đểchia sẻkết quảcủa bạn với đồng nghiệp
+hoặc người giám sát. Nêu rõ lợi ích, thách thức và tác động tiềm năng
+của việc triển khai công nghệRPA trong quy trình ngân hàng đã chọn.
+8
+Kết luận
+Tựđộng hóa quy trình bằng robot (RPA) có tiềm năng to lớn đểcách mạng hóa
+hoạt động ngân hàng bằng cách nâng cao hiệu quả, độchính xác và tính hiệu quả
+5
+Tựđộng hóa quy trình bằng robot (RPA)
+NextGen AI Bankers
+chi phí. Bằng cách hiểu và tận dụng RPA, các ngân hàng có thểđơn giản hóa các
+quy trình, giảm chi phí và cung cấp các dịch vụtốt hơn cho khách hàng của mình.
+Việc thực hành và triển khai các giải pháp RPA trong các kịch bản thực tếlà điều
+cần thiết đểduy trì tính cạnh tranh và đổi mới trong ngành tài chính đang phát
+triển nhanh chóng.
+9
+Tài liệu tham khảo
+1. Willcocks, L. P., Lacity, M. C., & Craig, A. (2015). Robotic Process Automa-
+tion: The Next Transformation Lever for Shared Services. The Outsourcing
+Unit Working Research Paper Series.
+2. Asatiani, A., & Penttinen, E. (2016). Turning robotic process automation into
+commercial success – Case OpusCapita. Journal of Information Technology
+Teaching Cases, 6(2), 67-74.
+3. Van Der Aalst, W. M. P. (2018). Robotic Process Automation. In The Digital
+Twin: Transforming the Manufacturing Industry (pp. 61-70). Springer, Cham.
+6

@@ -1,0 +1,1003 @@
+AI VIET NAM – AI COURSE 2023
+Triển khai mô hình Deep Learning với FastAPI
+Dinh-Thang Duong, Nguyen-Thuan Duong và Quang-Vinh Dinh
+PR-Team: Hoàng-Nguyên Vũ, Đăng-Nhã Nguyễn và Minh-Châu Phạm
+Ngày 28 tháng 3 năm 2024
+Phần I: Giới thiệu
+Triển khai mô hình Deep Learning (Model Deployment) là một trong những công việc quan
+trọng trong quy trình đưa mô hình ra sản phẩm thực tế, giúp cho người sửdụng có thểtương tác với
+trực tiếp với mô hình. Một trong những phương thức giúp chúng ta có thểlàm điều này đó là triển khai
+mô hình thành một API. Theo đó, người dùng có thểthông qua API endpoint đểsửdụng mô hình của
+chúng ta mà không cần phải sởhữu mã nguồn chương trình cũng như tài nguyên tính toán.
+Hình 1: Triển khai mô hình Deep Learning dưới dạng một API.
+Trong bài viết này, chúng ta sẽtriển khai một mô hình vềImage Classification bằng thư viện FastAPI
+trong Python. Sau khi hoàn thành chương trình, chúng ta sẽcó thểsửdụng mô hình thông qua một
+địa chỉweb (URL).
+Hình 2: Logo của thư viện FastAPI.
+1
+AI VIETNAM
+aivietnam.edu.vn
+Phần II: Nội dung
+Ởphần này, chúng ta sẽxây dựng hai thành phần chính của chương trình bao gồm phần xây dựng mô
+hình và phần FastAPI. Cách thực hiện như sau:
+A. Xây dựng mô hình
+Đầu tiên, chúng ta sẽbắt đầu với giai đoạn đầu như mọi project vềMachine Learning đó là
+xây dựng mô hình. Như đã đềcập trong bài viết, chúng ta sẽxây dựng một mô hình vềImage
+Classification, cụthểlà bài toán Cat/Dog Classification.
+Hình 3: Ảnh minh họa bài toán Cat/Dog Classification. Ảnh: link.
+Ởđây, ta sẽsửdụng thư viện PyTorch và Google Colab đểgiải quyết phần này như sau:
+1. Tải và import các thư viện cần thiết: Đầu tiên, ta cài đặt thư viện datasets đểsửdụng
+trong việc tải dữliệu Cat Dog vềsau:
+1 $ pip
+install
+datasets ==2.18.0 -q
+Sau đó, ta thực hiện import các thư viện cần thiết trong việc huấn luyện mô hình:
+1 import
+torch
+2 import
+torch.nn as nn
+3
+4 from PIL import
+Image
+5 from
+datasets
+import
+load_dataset
+6 from
+torch.utils.data
+import
+Dataset , DataLoader
+7 from
+torchvision.models
+import
+resnet18
+8 from
+torchvision
+import
+transforms
+2
+AI VIETNAM
+aivietnam.edu.vn
+2. Tải bộdữliệu: Chúng ta sẽsửdụng bộdữliệu Cat Dog có sẵn trên HuggingFace Dataset.
+Các bạn hãy chạy đoạn code bên dưới đểtải cũng như load bộdữliệu:
+1 DATASET_NAME = ’cats_vs_dogs ’
+2 datasets = load_dataset(DATASET_NAME)
+3 datasets
+Hình 4: Bộdữliệu vềCat Dog Image Classification trên HuggingFace Dataset.
+3. Chia bộdữliệu train, val: Từbộdữliệu gốc, ta sẽtách thành hai bộtrain và val đểphục
+vụcho việc huấn luyện mô hình như sau:
+1 TEST_SIZE = 0.2
+2 datasets = datasets[’train ’]. train_test_split (test_size=TEST_SIZE)
+4. Xây dựng DataLoader: Đểthuận tiện trong việc đọc dữliệu khi thực hiện huấn luyện với
+PyTorch, chúng ta sẽxây dựng DataLoader cho hai bộtrain và val như sau:
+(a) Xây dựng hàm tiền xửlý dữliệu ảnh: Chúng ta sẽxây dựng hàm transforms trong
+PyTorch đểtiền xửlý dữliệu ảnh như sau:
+1 IMG_SIZE = 64
+2 img_transforms = transforms.Compose ([
+3
+transforms.Resize (( IMG_SIZE , IMG_SIZE)),
+4
+transforms.Grayscale( num_output_channels =3),
+5
+transforms.ToTensor (),
+6
+transforms.Normalize(
+7
+[0.485 , 0.456 , 0.406] ,
+8
+[0.229 , 0.224 , 0.225]
+9
+)
+10 ])
+3
+AI VIETNAM
+aivietnam.edu.vn
+(b) Xây dựng class CatDogDataset: Chúng ta xây dựng class CatDogDataset đểđọc dữ
+liệu cho DataLoader:
+1 class
+CatDogDataset(Dataset):
+2
+def
+__init__(self , data , transform=None):
+3
+self.data = data
+4
+self.transform = transform
+5
+6
+def
+__len__(self):
+7
+return len(self.data)
+8
+9
+def
+__getitem__(self , idx):
+10
+images = self.data[idx][’image ’]
+11
+labels = self.data[idx][’labels ’]
+12
+13
+if self.transform:
+14
+images = self.transform(images)
+15
+16
+labels = torch.tensor(labels , dtype=torch.long)
+17
+18
+return images , labels
+(c) Khai báo DataLoader: Cuối cùng, ta khai báo hai DataLoader với sốbatch size phù
+hợp:
+1 TRAIN_BATCH_SIZE = 512
+2 VAL_BATCH_SIZE = 256
+3
+4 train_dataset = CatDogDataset (datasets[’train ’], transform= img_transforms )
+5 test_dataset = CatDogDataset (datasets[’test ’], transform= img_transforms )
+6
+7 train_loader = DataLoader(train_dataset , batch_size=TRAIN_BATCH_SIZE ,
+shuffle=True)
+8 test_loader = DataLoader(test_dataset , batch_size=VAL_BATCH_SIZE , shuffle=
+False)
+5. Xây dựng mô hình: Ta xây dựng class CatDogModel cho bài toán Cat Dog Classification với
+backbone là pre-trained resnet18 như sau:
+1 class
+CatDogModel(nn.Module):
+2
+def
+__init__(self , n_classes):
+3
+super(CatDogModel , self).__init__ ()
+4
+5
+resnet_model = resnet18(weights=’IMAGENET1K_V1 ’)
+6
+self.backbone = nn.Sequential (* list(resnet_model.children ())[: -1])
+7
+for param in self.backbone.parameters ():
+8
+param.requires_grad = False
+9
+10
+in_features = resnet_model .fc.in_features
+11
+self.fc = nn.Linear(in_features , n_classes)
+12
+13
+def
+forward(self , x):
+14
+x = self.backbone(x)
+15
+x = torch.flatten(x, 1)
+16
+x = self.fc(x)
+17
+18
+return x
+Sau đó, ta khai báo mô hình và kiểm tra thửmô hình đã hoạt động được hay chưa như sau:
+1 device = ’cuda ’ if torch.cuda.is_available () else ’cpu’
+2 N_CLASSES = 2
+4
+AI VIETNAM
+aivietnam.edu.vn
+3 model = CatDogModel(N_CLASSES).to(device)
+4 test_input = torch.rand(1, 3, 224, 224).to(device)
+5 with
+torch.no_grad ():
+6
+output = model(test_input)
+7
+print(output.shape) # (1, 2)
+6. Thực hiện huấn luyện mô hình: Với mô hình và dataset đã sẵn sàng, chúng ta sẽkhai
+báo optimizer, criterion cũng như vòng lặp training đểhuấn luyện mô hình như sau:
+1 EPOCHS = 10
+2 LR = 1e-3
+3 WEIGHT_DECAY = 1e-5
+4
+5 optimizer = torch.optim.Adam(model.parameters (), lr=LR , weight_decay=
+WEIGHT_DECAY)
+6 criterion = torch.nn. CrossEntropyLoss ()
+7
+8 for epoch in range(EPOCHS):
+9
+train_losses = []
+10
+model.train ()
+11
+for images , labels in train_loader :
+12
+images = images.to(device)
+13
+labels = labels.to(device)
+14
+15
+outputs = model(images)
+16
+17
+optimizer.zero_grad ()
+18
+loss = criterion(outputs , labels)
+19
+loss.backward ()
+20
+optimizer.step ()
+21
+22
+train_losses.append(loss.item ())
+23
+24
+train_loss = sum(train_losses) / len(train_losses)
+25
+26
+val_losses = []
+27
+model.eval ()
+28
+with
+torch.no_grad ():
+29
+for images , labels in test_loader:
+30
+images = images.to(device)
+31
+labels = labels.to(device)
+32
+33
+outputs = model(images)
+34
+loss = criterion(outputs , labels)
+35
+36
+val_losses.append(loss.item ())
+37
+38
+val_loss = sum(val_losses) / len(val_losses)
+39
+40
+print(f’EPOCH {epoch + 1}:\ tTrain
+loss: {train_loss :.3f}\ tVal loss: {
+val_loss :.3f}’)
+7. Lưu trọng sốmô hình: Với mô hình đã được huấn luyện xong, ta sẽlưu mô hình lại dưới
+dạng file .pt và tải vềmáy file này:
+1 SAVE_PATH = ’catdog_weights .pt’
+2 torch.save(model.state_dict (), SAVE_PATH)
+Như vậy, qua mục này, chúng ta đã có được một mô hình Deep Learning đểsửdụng trong
+API.
+5
+AI VIETNAM
+aivietnam.edu.vn
+B. Xây dựng API
+Sau khi có bộtrọng sốmô hình Cat Dog Classification đã huấn luyện ởmục trước, chúng ta
+sẽtiến hành xây dựng API đểsửdụng mô hình này bằng FastAPI. Nội dung này chúng ta sẽcài
+đặt ởmáy tính cá nhân. Demo được thực hiện trên hệđiều hành MacOS. Các bước thực hiện như
+sau:
+1. Tổchức thư mục code: Đểmã nguồn trởnên rõ ràng nhằm phục vụcho mục đích đọc
+hiểu code, chúng ta sẽtổchức thư mục như sau:
+root/
+config/
+catdog_cfg.py
+logging_cfg.py
+logs/
+middleware/
+__init__.py
+cors.py
+http.py
+models/
+weights/
+catdog_weights.pt
+catdog_model.py
+catdog_predictor.py
+routes/
+base.py
+catdog_route.py
+schemas/
+catdog_schema.py
+utils/
+logger.py
+app.py
+requirements.txt
+server.py
+6
+AI VIETNAM
+aivietnam.edu.vn
+Tổng quan, chúng ta sẽcó thư mục chứa mã nguồn có tên root (các bạn hoàn toàn có thể
+sửdụng tên gọi khác). Bên trong sẽcó các thư mục con và các file với ý nghĩa như sau:
+_ config/: Thư mục chứa code định nghĩa các tham sốliên quan đến các module khác
+nhau như model, logger...
+_ logs/: Thư mục lưu trữlog. Log có thểbao gồm thông tin trạng thái các request mà
+API đã nhận được cũng như kết quảtrảvềcủa mô hình.
+_ middleware/: Thư mục chứa code tiền và hậu xửlý một request.
+_ models/: Thư mục chứa code của mô hình mà ta đã huấn luyện ởphần A.
+_ routes/: Thư mục chứa code định nghĩa các API endpoints.
+_ schemas/: Thư mục chứa code định nghĩa các cấu trúc dữliệu input/output của API...
+_ utils/: Thư mục dùng đểchứa một sốcode có các chức năng khác nhau tùy thuộc vào
+project.
+_ app.py: File code khai báo API.
+_ requirements.txt: File chứa thông tin các gói thư viện cần thiết đểchạy mã nguồn.
+_ server.py: File code đểthực thi triển khai mô hình.
+Hình 5: Minh họa cấu trúc cây thư mục của chương trình trong VSCode.
+7
+AI VIETNAM
+aivietnam.edu.vn
+2. Cập nhật file requirements.txt: Đểbắt đầu, chúng ta sẽliệt kê các gói thư viện cần thiết
+đểchạy được chương trình này. Các bạn hãy cập nhật file requirements.txt với nội dung sau:
+1 fastapi ==0.110.0
+2 uvicorn ==0.27.1
+3 torch ==2.2.1
+4 torchvision ==0.17.1
+5 python -multipart ==0.0.9
+3. Cập nhật thư mục config/: Mục đích của thư mục này nhằm giúp chúng ta có thểquản
+lý những tham sốcủa một sốtính năng nào đó trong API, có thểkểđến là các tham sốcủa
+mô hình Deep Learning, một cách thuận tiện và hiệu quả. Vì vậy, chúng ta sẽkhai báo các
+thông tin tham sốcho bài toán Cat Dog Classification vào file config/catdog_cfg.py như sau:
+1 import sys
+2
+3 from
+pathlib
+import
+Path
+4 sys.path.append(str(Path(__file__).parent))
+5
+6 class
+CatDogDataConfig :
+7
+N_CLASSES = 2
+8
+IMG_SIZE = 64
+9
+ID2DLABEL = {0: ’Cat’, 1: ’Dog’}
+10
+LABEL2ID = {’Cat’: 0, ’Dog’: 1}
+11
+NORMALIZE_MEAN = [0.485 , 0.456 , 0.406]
+12
+NORMALIZE_STD = [0.229 , 0.224 , 0.225]
+13
+14 class
+ModelConfig:
+15
+ROOT_DIR = Path(__file__).parent.parent
+16
+MODEL_NAME = ’resnet18 ’
+17
+MODEL_WEIGHT = ROOT_DIR / ’models ’ / ’weights ’ / ’catdog_weights .pt’
+18
+DEVICE = ’cpu’
+Ởđây, ta quản lý các tham sốbằng Python class. Việc đặt tên class có thểtùy chỉnh khác
+nhau nhưng nên được đặt tên cho phù hợp với ý nghĩa của chúng.
+4. Xây dựng hàm logger: Khi triển khai API, rất nhiều khảnăng chúng ta sẽbắt gặp lỗi ở
+một request tại thời điểm nào đó. Đểbiết chính xác thông tin này, chúng ta cần thực hiện
+logging. Logging là một kỹthuật giúp chương trình ghi nhận lại lịch sửcủa chương trình, có
+thểbao gồm kết quảdựđoán của mô hình, kết quảrequest...
+Hình 6: Minh họa thông tin kết quảcác lần request API mà logger ghi nhận được.
+Trong bài này, chúng ta sẽsửdụng module logging trong Python đểxây dựng một logger.
+Ta sẽtriển khai code vào file utils/logger.py như sau:
+1 import sys
+2 import
+logging
+8
+AI VIETNAM
+aivietnam.edu.vn
+3
+4 from
+pathlib
+import
+Path
+5 sys.path.append(str(Path(__file__).parent))
+6
+7 from
+logging.handlers
+import
+RotatingFileHandler
+8 from
+config.logging_cfg
+import
+LoggingConfig
+9
+10 class
+Logger:
+11
+def
+__init__(self , name="", log_level=logging.INFO , log_file=None) ->
+None:
+12
+self.log = logging.getLogger(name)
+13
+self.get_logger(log_level , log_file)
+14
+15
+def
+get_logger(self , log_level , log_file):
+16
+self.log.setLevel(log_level)
+17
+self. _init_formatter ()
+18
+if log_file is not None:
+19
+self. _add_file_hander (LoggingConfig .LOG_DIR / log_file)
+20
+else:
+21
+self. _add_stream_hander ()
+22
+23
+def
+_init_formatter (self):
+24
+self.formatter = logging.Formatter(
+25
+"%( asctime)s - %( name)s - %( levelname)s - %( message)s"
+26
+)
+27
+def
+_add_stream_hander (self):
+28
+stream_handler = logging. StreamHandler(sys.stdout)
+29
+stream_handler .setFormatter(self.formatter)
+30
+self.log.addHandler( stream_handler )
+31
+32
+def
+_add_file_hander (self , log_file):
+33
+file_handler = RotatingFileHandler (log_file , maxBytes =10000 ,
+backupCount =10)
+34
+file_handler.setFormatter(self.formatter)
+35
+self.log.addHandler(file_handler)
+36
+37
+def
+log_model(self , predictor_name ):
+38
+self.log.info(f"Predictor
+name: { predictor_name }")
+39
+40
+def
+log_response(self , pred_prob , pred_id , pred_class):
+41
+self.log.info(f"Predicted
+Prob: {pred_prob} -
+Predicted ID: {pred_id
+} -
+Predicted
+Class: {pred_class}")
+Đối với việc logging, chúng ta sẽcó tham sốvềđường dẫn thư mục lưu file log. Vì vậy, ta
+cũng sẽcập nhật tham sốnày trong file config/logging_cfg.py như sau:
+1 from
+pathlib
+import
+Path
+2
+3 class
+LoggingConfig:
+4
+ROOT_DIR = Path(__file__).parent.parent
+5
+6
+LOG_DIR = ROOT_DIR / "logs"
+7
+8 LoggingConfig.LOG_DIR.mkdir(parents=True , exist_ok=True)
+5. Cập nhật thư mục models/: Chúng ta sẽđưa thông tin model đã huấn luyện vào thư mục
+chuyên dùng đểchứa các mô hình đã huấn luyện. Theo đó, chúng ta sẽlưu file weights
+catdog_weights.pt vào trong thư mục con models/weights.
+Tiếp theo, đểsửdụng mô hình PyTorch khi inference, chúng ta cần có định nghĩa class
+9
+AI VIETNAM
+aivietnam.edu.vn
+của mô hình cũng như hàm prediction. Vậy nên, ta sẽđưa các thông tin trên thành hai file
+riêng biệt:
+_ Với models/catdog_model.py: Dùng đểchứa định nghĩa class của mô hình. Ởđây, ta đơn
+giản copy lại thông tin ởfile notebook vào:
+1 import
+torch
+2 import
+torch.nn as nn
+3
+4 from
+torchvision.models
+import
+resnet18
+5
+6 class
+CatDogModel(nn.Module):
+7
+def
+__init__(self , n_classes):
+8
+super(CatDogModel , self).__init__ ()
+9
+10
+resnet_model = resnet18(weights=’IMAGENET1K_V1 ’)
+11
+self.backbone = nn.Sequential (* list(resnet_model.children ())[: -1])
+12
+for param in self.backbone.parameters ():
+13
+param.requires_grad = False
+14
+15
+in_features = resnet_model .fc.in_features
+16
+self.fc = nn.Linear(in_features , n_classes)
+17
+18
+def
+forward(self , x):
+19
+x = self.backbone(x)
+20
+x = torch.flatten(x, 1)
+21
+x = self.fc(x)
+22
+23
+return x
+_ Với models/catdog_predictor.py: Ta xây dựng class Predictor, dùng trong việc khởi tạo mô
+hình với bộtrọng sốcho trước và cho phép ta thực hiện inference. Ta có thểxây dựng
+class này như sau:
+1 import sys
+2 import
+torch
+3 import
+torchvision
+4
+5 from
+pathlib
+import
+Path
+6 sys.path.append(str(Path(__file__).parent.parent))
+7
+8 from PIL import
+Image
+9 from
+torch.nn import
+functional as F
+10 from
+utils.logger
+import
+Logger
+11 from
+config.catdog_cfg
+import
+CatDogDataConfig
+12 from .catdog_model
+import
+CatDogModel
+13
+14 LOGGER = Logger(__file__ , log_file="predictor.log")
+15 LOGGER.log.info("Starting
+Model
+Serving")
+16
+17 class
+Predictor:
+18
+def
+__init__(self , model_name: str , model_weight: str , device: str = "
+cpu"):
+19
+self.model_name = model_name
+20
+self.model_weight = model_weight
+21
+self.device = device
+22
+self.load_model ()
+23
+self. create_transform ()
+24
+25
+async def
+predict(self , image):
+26
+pil_img = Image.open(image)
+10
+AI VIETNAM
+aivietnam.edu.vn
+27
+28
+if pil_img.mode == ’RGBA ’:
+29
+pil_img = pil_img.convert(’RGB’)
+30
+31
+transformed_image = self.transforms_(pil_img).unsqueeze (0)
+32
+output = await
+self. model_inference ( transformed_image )
+33
+probs , best_prob , predicted_id , predicted_class = self.output2pred
+(output)
+34
+35
+LOGGER.log_model(self.model_name)
+36
+LOGGER.log_response (best_prob , predicted_id , predicted_class )
+37
+38
+torch.cuda.empty_cache ()
+39
+40
+resp_dict = {
+41
+"probs":probs ,
+42
+"best_prob": best_prob ,
+43
+"predicted_id": predicted_id ,
+44
+" predicted_class ": predicted_class ,
+45
+"predictor_name ": self.model_name
+46
+}
+47
+48
+return
+resp_dict
+49
+50
+async def
+model_inference (self , input):
+51
+input = input.to(self.device)
+52
+with
+torch.no_grad ():
+53
+output = self.loaded_model(input.to(self.device)).cpu()
+54
+return
+output
+55
+56
+def
+load_model(self):
+57
+try:
+58
+model = CatDogModel( CatDogDataConfig .N_CLASSES)
+59
+model. load_state_dict (torch.load(self.model_weight ,
+map_location=self.device))
+60
+model.to(self.device)
+61
+model.eval ()
+62
+63
+self.loaded_model = model
+64
+65
+except
+Exception as e:
+66
+LOGGER.log.error(f"Load
+model
+failed")
+67
+LOGGER.log.error(f"Error: {e}")
+68
+69
+return
+None
+70
+71
+def
+create_transform (self):
+72
+self.transforms_ = torchvision.transforms.Compose ([
+73
+torchvision.transforms.Resize (( CatDogDataConfig .IMG_SIZE ,
+CatDogDataConfig .IMG_SIZE)),
+74
+torchvision.transforms.ToTensor (),
+75
+torchvision.transforms.Normalize(mean= CatDogDataConfig .
+NORMALIZE_MEAN , std= CatDogDataConfig . NORMALIZE_STD )
+76
+])
+77
+78
+def
+output2pred(self , output):
+79
+probabilities = F.softmax(output , dim =1)
+80
+best_prob = torch.max(probabilities , 1) [0]. item ()
+81
+predicted_id = torch.max(probabilities , 1) [1]. item ()
+82
+predicted_class = CatDogDataConfig .ID2DLABEL[predicted_id]
+11
+AI VIETNAM
+aivietnam.edu.vn
+83
+84
+return
+probabilities.squeeze ().tolist (), round(best_prob , 6),
+predicted_id , predicted_class
+6. Cập nhật folder middleware/: Middleware là một thành phần quan trọng API. Có thểhiểu
+nôm na Middleware là các hàm tiền và hậu xửlý các request mà API nhận được. Trong bài
+này, chúng ta sẽtriển khai như sau:
+_ middleware/cors.py: Ta cập nhật nội dung file này với CORSMiddleware. Hiểu một cách
+đơn giản, CORSMiddleware là một tính năng bảo mật cho phép ta định nghĩa một tập
+các tên miền, URL... (gọi chung là origin) thực hiện request và đọc được response trảvề
+từAPI.
+Hình 7: Minh họa việc bịblock khi đọc response từmột server khác tên miền do same-origin policy của
+các trình duyệt. Ảnh: link.
+Với demo này, ta sẽcho phép tất cảorigin được quyền request và đọc response. Ta định
+nghĩa như sau:
+1 from
+fastapi.middleware.cors
+import
+CORSMiddleware
+2
+3 def
+setup_cors(app):
+4
+app.add_middleware (
+5
+CORSMiddleware ,
+6
+allow_origins =["*"],
+7
+allow_credentials =True ,
+8
+allow_methods =["*"],
+9
+allow_headers =["*"],
+10
+)
+Hàm setup_cors() nhận đầu vào là một thực thể(instance) FastAPI. Vềsau, khi đã khai
+báo một thực thểFastAPI, ta sẽđưa vào hàm này đểcập nhật policy này.
+_ middleware/http.py: Ta cập nhật nội dung file này với một định nghĩa Middleware được
+custom cho việc logging:
+1 import
+time
+2 import sys
+3
+4 from
+pathlib
+import
+Path
+5 sys.path.append(str(Path(__file__).parent.parent))
+12
+AI VIETNAM
+aivietnam.edu.vn
+6
+7 from
+starlette.middleware.base
+import
+BaseHTTPMiddleware
+8 from
+starlette.requests
+import
+Request
+9 from
+utils.logger
+import
+Logger
+10
+11 LOGGER = Logger(__file__ , log_file="http.log")
+12
+13 class
+LogMiddleware( BaseHTTPMiddleware ):
+14
+async def
+dispatch(self , request: Request , call_next):
+15
+start_time = time.time ()
+16
+response = await
+call_next(request)
+17
+process_time = time.time () - start_time
+18
+LOGGER.log.info(
+19
+f"{request.client.host} - \"{ request.method} {request.url.path
+} {request.scope[’http_version ’]}\" {response.status_code} {
+process_time :.2f}s")
+20
+21
+return
+response
+Ta sửdụng class logger đã khai báo trước đó, khi một request đã được thực thi xong,
+ta sẽlog lại thông tin của response này trước khi trảvềcho người dùng. Như đã đềcập
+trước đó, việc sửdụng class Middleware này sẽđược thực hiện khi ta khai báo một thực
+thểFastAPI.
+– middleware/__init__.py: Ta tạo file init đểimport sẵn các hàm, class của hai file trên để
+việc import ởcác file trong vịtrí folder khác thuận tiện hơn như sau:
+1 from .http
+import
+LogMiddleware
+2 from .cors
+import
+setup_cors
+7. Cập nhật folder schemas/: Các API thường biểu diễn dữliệu request/response ởdạng bán
+cấu trúc như XML, JSON... Trong hầu hết tất cảcác trường hợp, các trường thông tin trong
+dữliệu sẽđược xác định trước. Vì vậy, sẽthật tốt nếu chúng ta có một cách thức kiểm tra
+tựđộng mà không cần phải thao tác thủcông.
+Hình 8: Minh họa dữliệu request và dữliệu response.
+Trong FastAPI, chúng ta có thểsửdụng Pydantic Model, một dạng data validation. Pydantic
+Model cho phép chúng ta định nghĩa cấu trúc dữliệu và đảm bảo rằng cấu trúc này sẽluôn
+được tuân thủbởi API. Đối với bài này, chúng ta sẽcho người dùng gửi một tấm ảnh và API
+13
+AI VIETNAM
+aivietnam.edu.vn
+sẽtrảvềkết quảdựđoán của tấm ảnh dưới dạng dictionary (JSON). Như vậy, ta sẽđịnh
+nghĩa pydantic model cho response này trong file schemas/catdog_schema.py như sau:
+1 from
+pydantic
+import
+BaseModel
+2
+3 class
+CatDogResponse (BaseModel):
+4
+probs: list = []
+5
+best_prob: float =
+-1.0
+6
+predicted_id: int = -1
+7
+predicted_class : str = ""
+8
+predictor_name : str = ""
+Việc tạo pydantic model gần như tương tựvới việc tạo một class trong Python, điểm khác
+biệt là bạn cần phải cho kếthừa class BaseModel.
+8. Cập nhật folder routes/: Một API có thểsẽcó nhiều những chức năng khác nhau, từ
+việc truy vấn dữliệu trong một database đến inference các Deep Learning model khác nhau.
+Vì vậy, đểphân biệt rõ các chức năng trong một API, chúng ta cần định nghĩa các API
+endpoints.
+Hình 9: Minh họa vềAPI Endpoints. Với tên miền API là https://api_domain.com, chúng ta có thểcó
+các endpoints với các chức năng khác nhau.
+Trong demo này, chúng ta sẽchỉcó một endpoint với chức năng inference model Cat Dog
+Classification. Vì vậy, nội dung folder này như sau:
+(a) routes/catdog_route.py: Định nghĩa router (endpoint) cho phép nhận vào một tấm ảnh
+upload từmáy tính và trảvềkết quảdựđoán của mô hình. Cấu trúc của response sẽ
+giống với pydantic model mà ta đã định nghĩa trước đó:
+1 import sys
+2 from
+pathlib
+import
+Path
+3 sys.path.append(str(Path(__file__).parent))
+4
+5 from
+fastapi
+import File , UploadFile
+6 from
+fastapi
+import
+APIRouter
+7 from
+schemas.catdog_schema
+import
+CatDogResponse
+8 from
+config.catdog_cfg
+import
+ModelConfig
+9 from
+models. catdog_predictor
+import
+Predictor
+10
+11 router = APIRouter ()
+12 predictor = Predictor(
+13
+model_name=ModelConfig.MODEL_NAME ,
+14
+model_weight=ModelConfig.MODEL_WEIGHT ,
+15
+device=ModelConfig.DEVICE
+16 )
+17
+18 @router.post("/predict")
+14
+AI VIETNAM
+aivietnam.edu.vn
+19 async def
+predict(file_upload: UploadFile = File (...)):
+20
+response = await
+predictor.predict(file_upload.file)
+21
+22
+return
+CatDogResponse (** response)
+Trong đây, ta khởi tạo instance router của FastAPI đểđịnh nghĩa một endpoint, đồng
+thời khởi tạo một instance Predictor của model Cat Dog Classification đểrouter này có
+thểgọi và lấy kết quảdựđoán.
+(b) routes/base.py: Trong trường hợp các bạn có nhiều router, chúng ta có thểtạo một file
+.py đểimport tất cảrouter của từng file và gom lại thành một router duy nhất. Trong
+trường hợp này, mặc dù vậy, chúng ta sẽchỉimport một router:
+1 from
+fastapi
+import
+APIRouter
+2 from .catdog_route
+import
+router as catdog_cls_route
+3
+4 router = APIRouter ()
+5 router. include_router (catdog_cls_route , prefix="/ catdog_classification ")
+9. Cập nhật app.py và server.py: Cuối cùng, với các thành phần ởtrên, ta sẽkhởi tạo một
+thực thểFastAPI đểhost API của chúng ta. Đầu tiên, ta code file app.py như sau:
+1 import sys
+2 from
+pathlib
+import
+Path
+3 sys.path.append(str(Path(__file__).parent))
+4
+5 from
+fastapi
+import
+FastAPI
+6 from
+middleware
+import
+LogMiddleware , setup_cors
+7 from
+routes.base
+import
+router
+8
+9 app = FastAPI ()
+10
+11 app.add_middleware (LogMiddleware )
+12 setup_cors(app)
+13 app.include_router (router)
+Ta tạo instance FastAPI với tên biến app, sau đó cập nhật middlware cũng như router mà
+ta đã định nghĩa ởcác file khác vào trong biến này. Cuối cùng, đểtriển khai API, ta sẽcập
+nhật đoạn code này vào file server.py:
+1 import
+uvicorn
+2
+3 if __name__ == "__main__":
+4
+uvicorn.run("app:app", host="0.0.0.0", port =8000 , reload=True)
+Theo đó, ta sửdụng thư viện uvicorn đểhost API trên địa chỉ0.0.0.0 (địa chỉmáy local) trên
+port 8000. Trong trường hợp các bạn bịlỗi port đã được sửdụng, hãy đổi sang port khác
+nhé.
+10. Thực thi chương trình: Đểkhởi động API, chúng ta hãy cài đặt các gói thư viện cần thiết
+trong file requirements.txt với lệnh sau trong terminal (các bạn nên cài trong môi trường
+conda, hướng dẫn cài đặt conda tại đây):
+1 $ pip3
+install -r requirements.txt
+Sau đó, chạy file server.py:
+1 $ python3
+server.py
+15
+AI VIETNAM
+aivietnam.edu.vn
+Hình 10: Nội dung trên màn hình terminal khi API đã được host thành công.
+Theo đó, nếu cài đặt tương tựnhư ví dụtrong bài, các bạn có thểtruy cập vào địa chỉ
+http://0.0.0.0:8000/docs trên trình duyệt và sẽcó kết quảnhư sau:
+Hình 11: FastAPI docs. Giao diện được khởi tạo tựđộng cho phép tương tác với các chức năng của
+API.
+Từđây, các bạn có thểsửdụng mô hình của mình bằng cách upload ảnh lên và thực hiện
+request. Kết quảsẽđược trảvềdưới dạng JSON:
+Hình 12: Mẫu dữliệu test. Ảnh: link.
+16
+AI VIETNAM
+aivietnam.edu.vn
+Hình 13: Cách bước sửdụng mô hình trên FastAPI docs.
+Hình 14: Kết quảcủa mô hình, tương ứng với dữliệu đầu vào là ví dụmẫu.
+Như vậy, chúng ta đã hoàn tất việc host một API với chức năng Cat Dog Classification. Các
+bạn giờđây có thểtắt chương trình bằng cách nhấn tổhợp phím Ctrl + C ởterminal.
+- Hết -
+17

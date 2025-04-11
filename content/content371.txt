@@ -1,3 +1,0 @@
-(b) Phân loại động vật.
-(c) Nhận diện khuôn mặt.
-(d) Dự đoán thời tiết.

@@ -1,0 +1,917 @@
+Exercise Class
+Transformer Applications
+Year 2023
+Nguyen Quoc Thai
+AI VIETNAM
+All-in-One Course
+1
+2
+CONTENT
+(1) – Sequence-to-Sequence
+(2) – Transformer
+(3) – BERT
+(4) – Vision Transformer
+1 – Sequence-to-Sequence
+!
+3
+RNNs Model
+X1
+X2
+XN
+Embedding Layer
+Dense vector
+Hidden State
+Input
+RNN
+RNN
+RNN
+Output Sequence
+Last Hidden State
+1 – Sequence-to-Sequence
+!
+4
+Text Generation
+❖Take a sequence as input, predict a sequence as output
+What is the boiling point of water?
+Translate English to Vietnamese: 
+I love you!
+Classify: I like this movie!
+100o C
+Tôi yêu bạn!
+Positive
+MODEL
+1 – Sequence-to-Sequence
+!
+5
+Sequence-to-Sequence Architecture
+❖Take a sequence as input, predict a sequence as output
+❖Encoder: encoding the inputs into state (thought vector)
+❖Decoder: the state is passed into the decoder to generate the output
+Decoder
+Encoder
+0.5
+1.2
+0.1
+0.3
+I
+like
+this
+movie
+Positive
+Thought Vector
+1 – Sequence-to-Sequence
+!
+6
+Sequence-to-Sequence Architecture
+❖Training - Teacher Forcing
+J = 1
+T %
+!"#
+$
+J!
+1 – Sequence-to-Sequence
+!
+7
+Sequence-to-Sequence Architecture
+Input Sequence (Source)
+Output Sequence (Target)
+ENCODER
+DECODER
+❖Inference – Decoding – Greedy Search
+RNN
+1 – Sequence-to-Sequence
+!
+8
+Information Bottleneck
+Input Sequence (Source)
+Output Sequence (Target)
+ENCODER
+DECODER
+❖Thought vector: capture all information of input sentence
+RNN
+Information 
+Bottleneck
+1 – Sequence-to-Sequence
+!
+9
+Information Bottleneck
+❖Thought vector: capture all information of input sentence
+Encoder
+Decoder
+k1
+k2
+k3
+k4
+q1
+q2
+q3
+q4
+0.5
+1.2
+0.1
+0.3
+Attention
+Focus on all timestep in the encoder
+!
+10
+Scaled Dot-Product Attention
+1 – Sequence-to-Sequence
+Encoder
+Decoder
+k1
+k2
+k3
+k4
+q1
+q2
+q3
+q4
+!
+11
+Scaled Dot-Product Attention
+1 – Sequence-to-Sequence
+q!k!
+"/ d#
+Encoder
+Attention 
+Score
+e% = q#k#
+$
+d&
+, q#k'
+$
+d&
+, … q#k'
+$
+d&
+Decoder
+k1
+k2
+k3
+k4
+q!k$
+"/ d#
+q!k%
+"/ d# q!k&
+"/ d#
+q1
+q2
+q3
+q4
+!
+12
+Scaled Dot-Product Attention
+1 – Sequence-to-Sequence
+q!k!
+"/ d#
+Encoder
+Attention 
+Score
+e% = q#k#
+$
+d&
+, q#k'
+$
+d&
+, … q#k'
+$
+d&
+Decoder
+Attention
+distribution
+α#
+α'
+α(
+α)
+α% = softmax(e%)
+k1
+k2
+k3
+k4
+q!k$
+"/ d#
+q!k%
+"/ d# q!k&
+"/ d#
+q1
+q2
+q3
+q4
+!
+13
+Scaled Dot-Product Attention
+1 – Sequence-to-Sequence
+q!k!
+"/ d#
+Encoder
+Attention 
+Score
+e% = q#k#
+$
+d&
+, q#k'
+$
+d&
+, … q#k'
+$
+d&
+Decoder
+Attention
+distribution
+α#
+α'
+α(
+α)
+Attention 
+output
+a% = %
+#
+*
+α!
+%v! ; v! = k!
+α% = softmax(e%)
+k1
+k2
+k3
+k4
+q!k$
+"/ d#
+q!k%
+"/ d# q!k&
+"/ d#
+q1
+q2
+q3
+q4
+o1
+!
+14
+Scaled Dot-Product Attention
+1 – Sequence-to-Sequence
+Encoder
+Decoder
+Attention 
+output
+k1
+k2
+k3
+k4
+q1
+q2
+q3
+q4
+Scaled Dot-Product Attention
+Attention Q, K, V = softmax QK$
+d&
+V; K = V
+Loss - Prediction
+!
+15
+Scaled Dot-Product Attention
+1 – Sequence-to-Sequence
+Encoder
+Decoder
+Attention 
+output
+k1
+k2
+k3
+k4
+q1
+q2
+q3
+q4
+Attention Q, K, V = softmax QK$
+d&
+V; K = V
+Loss - Prediction
+Scaled Dot-Product Attention
+o1
+o2
+o3
+o4
+!
+16
+Attention Variants
+1 – Sequence-to-Sequence
+Attention Q, K, V = softmax QK$
+d&
+V
+Multiplicative Attention 
+softmax QWK$ V
+Additive Attention 
+tanh W#Q + W'K V
+❖Architecture:
+Input Embedding
+Positional Encoding
+N Encoder Layer
+N Decoder Layer
+Language Model Head (Projection + Softmax)
+❖Core technique: attention
+❖Loss function: cross-entropy
+!
+17
+Transformer
+2 – Transformer
+Encoder
+Decoder
+!
+18
+Input Embedding - Positional Encoding
+2 – Transformer
+❖The position of a token in a sentence as unique representation – each position is mapped to a vector
+❖Methods: Sinusoid; Learned positional embedding (as learned input embedding)
+1
+1
+1
+0
+0
+0
+1
+1
+1
+x1
+x2
+x3
+Embedding 
+Layer #1
+1
+2
+1
+0
+1
+0
+2
+1
+0
+x1
+x2
+x3
+Embedding 
+Layer #2
+2
+3
+2
+0
+1
+0
+3
+2
+1
++
+Model
+0.2
+0.3
+1.2
+0.7
+1.9
+0.8
+0.3
+2.1
+1.2
+!
+19
+Transformer-Encoder
+2 – Transformer
+❖Multi-Head Attention
+❖Feed Forward
+❖Add & Norm
+q3
+k3
+v3
+q2
+k2
+v2
+q1
+k1
+v1
+!
+20
+Transformer-Encoder
+2 – Transformer
+0
+1
+0
+0
+0
+0
+1
+1
+1
+0
+1
+0
+0
+1
+0
+0
+1
+0
+1
+1
+1
+1
+1
+1
+1
+1
+1
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1.7
+0.6
+0.0
+0.7
+0.2
+0.1
+x1
+x2
+x3
+❖Self-Attention
+q3
+k3
+v3
+q2
+k2
+v2
+q1
+k1
+v1
+!
+21
+Transformer-Encoder
+2 – Transformer
+0
+1
+0
+0
+0
+0
+1
+1
+1
+0
+1
+0
+0
+1
+0
+0
+1
+0
+1
+1
+1
+1
+1
+1
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1
+1
+1
+1.7
+0.6
+0.0
+0.7
+0.2
+0.1
+0.7
+0.9
+0.7
+x1
+x2
+x3
+❖Self-Attention
+q3
+k3
+v3
+q2
+k2
+v2
+q1
+k1
+v1
+!
+22
+Transformer-Encoder
+2 – Transformer
+0
+1
+0
+0
+0
+0
+1
+1
+1
+0
+1
+0
+0
+1
+0
+1
+1
+1
+1
+1
+1
+1
+1
+1
+0
+0
+0
+0
+0
+0
+0.7
+0.9
+0.7
+x1
+x2
+x3
+0.7
+0.9
+0.7
+0.3
+0.6
+0.3
+0
+0
+0
+Scaled Dot-Product Attention
+❖Self-Attention
+0
+1
+0
+O1
+!
+23
+Transformer-Encoder
+2 – Transformer
+❖Multi-Head Attention
+❖Split into the multiple attention heads (process independently) => self-attention => concat
+Attention
+Score
+H: Heads
+S: Sequence Length
+D: Embedding Dim
+S x D
+Q
+V
+K
+Split
+H x S x (D/H)
+H x S x (D/H)
+H x S x (D/H)
+Q1
+Q2
+Q3
+K1
+K2
+K3
+V1
+V2
+V3
+H x S x (D/H)
+O2
+O3
+concat
+S x D
+!
+24
+Transformer-Encoder
+2 – Transformer
+!
+25
+Transformer-Encoder
+2 – Transformer
+❖Layer Normalization
+!
+26
+Transformer-Encoder
+2 – Transformer
+❖Feed Forward
+❖2 FC Layer
+!
+27
+Transformer-Encoder – Demo
+2 – Transformer
+!
+28
+Transformer-Decoder
+2 – Transformer
+❖Masked Multi-Head Attention
+❖Multi-Head Attention
+❖Layer Normalization
+❖Feed Forward
+!
+29
+Transformer-Decoder
+2 – Transformer
+❖Masked Multi-Head Attention
+❖Predict a next token based on the history token
+❖Queries, keys, values are computed from decoder states
+Decoder  self-attention 
+(masked)
+Tokens look at the 
+previous tokens
+Not Seen
+!
+30
+Transformer-Decoder
+2 – Transformer
+❖Masked Multi-Head Attention
+❖Predict a next token based on the history token
+❖Queries, keys, values are computed from decoder states
+Not Seen
+1.2
+-inf
+-inf
+-inf
+-inf
+2.3
+1.5
+-inf
+-inf
+-inf
+0.5
+1.4
+1.6
+-inf
+-inf
+0.6
+1.8
+2.4
+0.3
+-inf
+2.1
+2.3
+0.2
+2.0
+2.5
+1.0
+0.0
+0.0
+0.0
+0.0
+0.69
+0.31
+0.0
+0.0
+0.0
+0.15
+0.38
+0.46
+0.0
+0.0
+0.6
+1.8
+2.4
+0.3
+0.0
+2.1
+2.3
+0.2
+2.0
+2.5
+Softmax
+!
+31
+Transformer-Decoder
+2 – Transformer
+❖Multi-Head Attention
+❖Sequence-to-sequence with attention
+❖Queries – from decoder states
+❖Keys, values from encoder states
+Decoder self-attention (masked)
+Tokens look at the previous tokens
+Decoder – encoder attention
+Target token look at the source
+!
+32
+Transformer-Decoder – Demo
+2 – Transformer
+!
+33
+Transformer – Demo
+2 – Transformer
+!
+34
+Text Classification using Transformer-Encoder – Demo
+2 – Transformer
+N x Transformer-Encoder
+1
+1
+0
+0
+1
+1
+1
+1
+1
+1
+0
+0
+x1
+x2
+x3
+x4
+Token and Positional Embedding Layer
+Average Pooling
+Classifier
+!
+35
+Text Classification using Transformer-Encoder
+2 – Transformer
+!
+36
+Pretrained Model for Image
+3 – BERT
+Large Dataset
+(ImageNet,..)
+MODEL
+(ResNet, VGG)
+Pretrained Model
+Trained
+❖ImageNet
+❖Training: 1,281,167 images. Validation: 50,000 images. Testing: 100,000 images
+❖Object classes: 1,000
+!
+37
+Pretrained Model for Text
+3 – BERT
+Language Modeling 
+Architecture
+LM Head
+(Projection + softmax)
+LM Task
+Corpus
+Phase 1:
+Self-Supervised Training
+Language Modeling 
+Architecture
+Downstream Task 
+Head
+Downstream Task
+Task-specific 
+Data
+Phase 2:
+Downstream Task Fine-Tuning
+Pretrained
+!
+38
+BERT
+3 – BERT
+❖BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding
+❖BERT: An encoder-only model
+❖Maps an input sequence to a contextualized sequence: 𝒇𝜽𝑩𝑬𝑹𝑻: 𝑿𝟏:𝒏⟶E𝑿𝟏:𝒏
+Source
+!
+39
+Objective Functions
+3 – BERT
+❖Masked LM (15% token):
+80%: replace with [MASK]
+10%: replace with a random word
+10%: keep unchanged
+❖Next Sentence Prediction (NSP)
+Classification Task
+2 Labels: IsNext and NotNext
+Use [SEP] [CLS] token
+Source
+!
+40
+Input Representation
+3 – BERT
+❖BERT Input Representation
+Source
+Source
+!
+41
+BERT Training
+3 – BERT
+❖BERT base:
+L=12, H=768, A=12, P=110M
+❖BERT large:
+L=24, H=1024, A=16, P=340M
+Source
+!
+42
+Fine-Tuning
+3 – BERT
+Source
+!
+43
+Text Classification using BERT – Demo
+3 – BERT
+Source
+!
+44
+Text Classification using BERT
+3 – BERT
+❖NTC-SCV Dataset
+Model
+Accuracy
+Transformer-Encoder
+82.55
+BERT
+85.52
+RNN
+80.92
+TextCNN
+88.78
+!
+45
+Architecture
+4 – Vision Transformer
+!
+46
+Embedded Patches
+4 – Vision Transformer
+46
+Original
+Patches
+Vectorization
+Linear Projection of Flattened Patches
+1 +
+2 +
+3 +
+4 +
+z1
+z2
+z3
+z4
+Embed
+[CLS]
+0 +
+z0
+Transformer Encoder
+Positional 
+Embedding
+!
+47
+Flower Dataset
+4 – Vision Transformer
+!
+48
+Implementation (Scratch) - Linear Projection – Demo
+4 – Vision Transformer
+!
+49
+Implementation (Scratch) - Linear Projection – Demo
+4 – Vision Transformer
+initialize 
+positional 
+embedding
+add positional 
+embedding to 
+patch 
+embedding
+!
+50
+Implementation (Scratch) - Linear Projection – Demo
+4 – Vision Transformer
+!
+51
+Implementation (Pretrained) – Demo
+4 – Vision Transformer
+!
+52
+Pretrained - google/vit-base-patch16-224-in21k
+4 – Vision Transformer
+Dataset
+ImageNet-21k
+Num of Images
+14 millions
+Num of Classes
+21,000 
+Resized
+224 x 224
+Normalized Mean
+(0.5, 0.5, 0.5)
+Normalized Standard Deviation
+(0.5, 0.5, 0.5)
+Hardware
+TPUv3 (8 cores)
+Batch Size
+4096
+Thanks!
+Any questions?
+53

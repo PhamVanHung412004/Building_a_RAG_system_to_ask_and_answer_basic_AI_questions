@@ -1,7 +1,0 @@
-AI VIET NAM – AIO COURSE 2023
-Exercise: Multimodal Large Language Models
-Quoc-Thai Nguyen và Duong-Thuan Nguyen
-Ngày 23 tháng 4 năm 2024
-Phần I. Giới thiệu
-Hình 1: Giới thiệu các thành phần cơ bản trong mô hình MLLMs.
-Hình 2: Ví dụ về sinh ảnh dựa vào văn bản sử dụng mô hình MLLMs.

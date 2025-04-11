@@ -1,0 +1,1724 @@
+AI VIET NAM – AI COURSE 2023
+VAE-based Image Colorization
+Khanh Duong, Tien-Huy Nguyen và Nhu-Tai Do
+Ngày 2 tháng 4 năm 2024
+Phần I: Giới thiệu
+Image Colorization là quá trình dựđoán màu cho các ảnh đen trắng, giúp tái tạo lại hình ảnh thực
+tếtừdữliệu đơn sắc, mang lại trải nghiệm hình ảnh phong phú và sống động. Với đầu vào là một ảnh
+xám, biểu thịcường độsáng của ảnh, mô hình sẽhọc cách ước tính các kênh màu của ảnh, tạo ra một
+hình ảnh hợp lý và hài hòa vềmặt thịgiác.
+Hình 1: Ví dụminh họa cho bài toán Image Colorization.
+Vấn đềtô màu cho ảnh mang lại một sựthuận lợi đáng kểvềmặt dữliệu, khi mà việc gán nhãn bị
+loại bỏhoàn toàn. Bởi, mỗi bức ảnh đều có thểđược phân chia thành hai thành phần thông tin chính:
+gray channel và color channel. Trong đó, gray channel được sửdụng làm đầu vào cho mô hình, đóng
+vai trò là cơ sởcho quá trình dựđoán. Mô hình sẽtiến hành dựđoán color channel, tức là thông tin về
+màu sắc, dựa trên gray channel. Khi mà mô hình đã hoàn thành việc dựđoán, color channel sẽđược
+kết hợp với gray channel đểtạo ra một ảnh hoàn chỉnh.
+Trong các bài toán tô màu cho ảnh, không gian màu phổbiến thường được sửdụng là Lab thay vì
+RGB như trong các bài toán xửlý ảnh thông thường, trong đó:
+1
+AI VIETNAM
+aivietnam.edu.vn
+Hình 2: Minh họa cho không gian màu Lab
+• L (Lightness): Đây là thành phần đại diện cho độsáng của một pixel trong ảnh. Thành phần L
+có thểđược xem như phiên bản grayscale của ảnh.
+• a (Green-Red): Thành phần a biểu diễn sựkhác biệt màu giữa các màu xanh lam và đỏ. Khi
+giá trịcủa a tăng, màu sắc trởnên đỏhơn. Khi giá trịgiảm, màu sắc trởnên xanh hơn.
+• b (Blue-Yellow): Thành phần b biểu diễn sựkhác biệt màu giữa các màu xanh lá cây và màu
+vàng. Khi giá trịcủa b tăng, màu sắc trởnên vàng hơn. Khi giá trịgiảm, màu sắc trởnên xanh
+hơn.
+Bằng cách sửdụng không gian màu Lab, mô hình của chúng ta sẽnhận đầu vào là kênh L, đại diện
+cho độsáng, và sửdụng kênh ab như ground truth của mô hình. Vì vậy, sốlượng kênh màu cần dự
+đoán là 2, bao gồm thành phần màu a và b, giúp giảm bớt độphức tạp so với việc dựđoán 3 kênh màu
+khi sửdụng không gian màu RGB.
+Có nhiều phương pháp được sửdụng đểthực hiện việc tô màu cho ảnh, bao gồm sửdụng mạng
+CNN truyền thống, hay các mạng tạo sinh đã và đang phát triển trong những năm gần đây như GAN,
+VAE (Variational Autoencoder) và cảDiffusion Models. Mỗi phương pháp mang lại những ưu điểm và
+hạn chếriêng, đều hướng tới mục tiêu cuối cùng là tạo ra các ảnh màu tựnhiên và chân thực.
+Trong phần này, chúng ta sẽtập trung vào việc xây dựng một mô hình dựa trên VAE đểgiải quyết
+vấn đềImage Colorization. Input và output của chương trình như sau:
+• Input: Ảnh xám G (L channel).
+• Output: Trường ảnh màu C (ab channels).
+2
+AI VIETNAM
+aivietnam.edu.vn
+Phần II: Nội dung
+Trong phần này, chúng ta sẽtriển khai mô hình VAE-base Image Colorization dựa trên bài báo Learning
+Diverse Image Colorization đểhọc cách tạo ra tập ảnh màu đa dạng vềmặt kết quả. Cụthể, ta sẽxây
+dựng chương trình dựa trên bộdữliệu LFW (Labeled Faces in the Wild Home), một trong những bộ
+dữliệu quan trọng và phổbiến trong lĩnh vực nhận dạng khuôn mặt. Bộdữliệu này chứa các hình ảnh
+của khuôn mặt được thu thập từcác bức ảnh chụp thực tế, bao gồm nhiều điều kiện ánh sáng, góc chụp
+và nền khác nhau.
+Hình 3: Ảnh minh họa cho LFW dataset
+Theo đó, nội dung thực nghiệm sẽtrình bày với các thành phần như sau:
+a) Data Preparation: Chuẩn bịdữliệu cho tập huấn luyện.
+b) Models: Xây dựng mô hình VAE và mô hình MDN (Mixture Density Network).
+c) Loss Functions: Xây dựng hàm mất mát cho mô hình VAE và mô hình MDN.
+d) Trainer: Xây dựng các hàm đểhuấn luyện cho từng mô hình.
+e) Inference: Minh họa kết quảđạt được sau khi huấn luyện mô hình.
+1. Data Preparation
+Đầu tiên, chúng ta cần chuẩn bịbộdữliệu LFW thông qua dòng lệnh dưới đây. Bộdữliệu bao
+gồm hơn 12,000 ảnh train và 1,000 ảnh test. Cùng với đó là một bộđặc trưng tương ứng với từng
+ảnh, trích xuất từmột mạng VGG được huấn luyện mạnh mẽtrên bộdữliệu lớn ImageNet.
+Tải dữliệu
+1 !gdown 187 x5YSXYibG4QwC5m_Hx8cNzPGVTXv6G
+2 !unzip -q data.zip
+3 !rm data.zip
+Khai báo các thư viện:
+1 import os
+2 import
+numpy as np
+3 from tqdm
+import
+tqdm
+4 import
+torch
+5 import
+torch.nn as nn
+6 import
+torch.nn.functional as F
+7 import
+torch.optim as optim
+3
+AI VIETNAM
+aivietnam.edu.vn
+8 from
+torch.utils.data
+import
+DataLoader
+9 import cv2
+10 import
+numpy as np
+11 from
+torch.utils.data
+import
+Dataset
+Khởi tạo class ColorDataset:
+1 class
+ColorDataset(Dataset):
+2
+def
+__init__(self , out_directory , listdir=None ,
+3
+featslistdir=None , shape =(64 , 64),
+4
+outshape =(256 , 256) , split="train"):
+5
+6
+# Save
+paths to a list
+7
+self.img_fns = []
+8
+self.feats_fns = []
+9
+10
+with open("%s/list .%s.vae.txt" % (listdir , split), "r") as ftr:
+11
+for img_fn in ftr:
+12
+self.img_fns.append(img_fn.strip("\n"))
+13
+14
+with open("%s/list .%s.txt" % (featslistdir , split), "r") as ftr:
+15
+for
+feats_fn in ftr:
+16
+self.feats_fns.append(feats_fn.strip("\n"))
+17
+18
+self.img_num = min(len(self.img_fns), len(self.feats_fns))
+19
+self.shape = shape
+20
+self.outshape = outshape
+21
+self.out_directory = out_directory
+22
+23
+# Create a dictionary to save
+weight of 313 ab bins
+24
+self.lossweights = None
+25
+countbins = 1.0 / np.load("data/ zhang_weights /prior_probs.npy")
+26
+binedges = np.load("data/ zhang_weights /ab_quantize.npy").reshape (2, 313)
+27
+lossweights = {}
+28
+for i in range (313):
+29
+if binedges [0, i] not in lossweights:
+30
+lossweights[binedges [0, i]] = {}
+31
+lossweights[binedges [0, i]][ binedges [1, i]] = countbins[i]
+32
+self.binedges = binedges
+33
+self.lossweights = lossweights
+34
+35
+def
+__len__(self):
+36
+return
+self.img_num
+37
+38
+def
+__getitem__(self , idx):
+39
+# Declare
+empty
+arrays to get values
+40
+color_ab = np.zeros ((2, self.shape [0], self.shape [1]) ,
+41
+dtype="f")
+42
+weights = np.ones ((2, self.shape [0], self.shape [1]) ,
+43
+dtype="f")
+44
+recon_const = np.zeros ((1, self.shape [0], self.shape [1]) ,
+45
+dtype="f")
+46
+recon_const_outres = np.zeros ((1, self.outshape [0], self.outshape [1]) ,
+47
+dtype="f")
+48
+greyfeats = np.zeros ((512 , 28, 28), dtype="f")
+49
+50
+# Read and
+reshape
+51
+img_large = cv2.imread(self.img_fns[idx])
+52
+if self.shape is not None:
+53
+img = cv2.resize(img_large , (self.shape [0], self.shape [1]))
+54
+img_outres = cv2.resize(img_large ,
+4
+AI VIETNAM
+aivietnam.edu.vn
+55
+(self.outshape [0], self.outshape [1]))
+56
+57
+# Convert
+BGR to LAB
+58
+img_lab = cv2.cvtColor(img , cv2. COLOR_BGR2LAB )
+59
+img_lab_outres = cv2.cvtColor(img_outres , cv2. COLOR_BGR2LAB )
+60
+61
+# Normalize to [ -1..1]
+62
+img_lab = (( img_lab * 2.0) / 255.0) - 1.0
+63
+img_lab_outres = (( img_lab_outres * 2.0) / 255.0) - 1.0
+64
+65
+recon_const [0, :, :] = img_lab [... , 0]
+66
+recon_const_outres [0, :, :] = img_lab_outres [... , 0]
+67
+68
+color_ab [0, :, :] = img_lab [... , 1]. reshape (1, self.shape [0],
+69
+self.shape [1])
+70
+color_ab [1, :, :] = img_lab [... , 2]. reshape (1, self.shape [0],
+71
+self.shape [1])
+72
+73
+if self.lossweights is not None:
+74
+weights = self.__getweights__ (color_ab)
+75
+76
+# Load
+feature
+maps
+77
+featobj = np.load(self.feats_fns[idx])
+78
+greyfeats [:, :, :] = featobj["arr_0"]
+79
+80
+return
+color_ab , recon_const , weights , recon_const_outres , greyfeats
+81
+82
+def
+__getweights__ (self , img):
+83
+"""
+84
+Calculate
+weight
+values for each
+pixel of an image.
+85
+"""
+86
+img_vec = img.reshape (-1)
+87
+img_vec = img_vec * 128.0
+88
+img_lossweights = np.zeros(img.shape , dtype="f")
+89
+img_vec_a = img_vec [: np.prod(self.shape)]
+90
+binedges_a = self.binedges [0, ...]. reshape (-1)
+91
+binid_a = [binedges_a.flat[np.abs(binedges_a - v).argmin ()]
+92
+for v in img_vec_a]
+93
+img_vec_b = img_vec[np.prod(self.shape) :]
+94
+binedges_b = self.binedges [1, ...]. reshape (-1)
+95
+binid_b = [binedges_b.flat[np.abs(binedges_b - v).argmin ()]
+96
+for v in img_vec_b]
+97
+binweights = np.array ([ self.lossweights[v1][v2] for v1 , v2 in zip(binid_a
+, binid_b)])
+98
+img_lossweights [0, :, :] = binweights.reshape(self.shape [0],
+99
+self.shape [1])
+100
+img_lossweights [1, :, :] = binweights.reshape(self.shape [0], self.shape
+[1])
+101
+return
+img_lossweights
+102
+103
+def
+saveoutput_gt(self , net_op , gt , prefix , batch_size ,
+104
+num_cols =8, net_recon_const =None):
+105
+"""
+106
+Save
+images
+107
+"""
+108
+net_out_img = self. __tiledoutput__ (net_op , batch_size , num_cols=num_cols ,
+109
+net_recon_const = net_recon_const )
+110
+gt_out_img = self. __tiledoutput__ (gt , batch_size , num_cols=num_cols ,
+111
+net_recon_const = net_recon_const )
+112
+5
+AI VIETNAM
+aivietnam.edu.vn
+113
+num_rows = np.int_(np.ceil (( batch_size * 1.0) / num_cols))
+114
+border_img = 255 * np.ones (( num_rows * self.outshape [0], 128, 3),
+115
+dtype="uint8")
+116
+out_fn_pred = "%s/%s.png" % (self.out_directory , prefix)
+117
+cv2.imwrite(out_fn_pred ,
+118
+np.concatenate (( net_out_img , border_img , gt_out_img), axis =1)
+)
+119
+120
+def
+__tiledoutput__ (self , net_op , batch_size ,
+121
+num_cols =8, net_recon_const =None):
+122
+"""
+123
+Generate a combined
+image
+from
+these
+inputs by stitching
+the images
+into
+a large
+image.
+124
+"""
+125
+num_rows = np.int_(np.ceil (( batch_size * 1.0) / num_cols))
+126
+out_img = np.zeros (( num_rows*self.outshape [0], num_cols*self.outshape [1],
+3),
+127
+dtype="uint8")
+128
+img_lab = np.zeros (( self.outshape [0], self.outshape [1], 3),
+129
+dtype="uint8")
+130
+c = 0
+131
+r = 0
+132
+133
+for i in range(batch_size):
+134
+if i % num_cols == 0 and i > 0:
+135
+r = r + 1
+136
+c = 0
+137
+img_lab [..., 0] = self. __decodeimg__ ( net_recon_const [i, 0, :, :].
+reshape(self.outshape [0], self.outshape [1]))
+138
+img_lab [..., 1] = self. __decodeimg__ (net_op[i, 0, :, :]. reshape(self.
+shape [0], self.shape [1]))
+139
+img_lab [..., 2] = self. __decodeimg__ (net_op[i, 1, :, :]. reshape(self.
+shape [0], self.shape [1]))
+140
+img_rgb = cv2.cvtColor(img_lab , cv2. COLOR_LAB2BGR )
+141
+out_img[
+142
+r * self.outshape [0] : (r + 1) * self.outshape [0],
+143
+c * self.outshape [1] : (c + 1) * self.outshape [1],
+144
+...,
+145
+] = img_rgb
+146
+c = c + 1
+147
+148
+return
+out_img
+149
+150
+def
+__decodeimg__(self , img_enc):
+151
+"""
+152
+Denormalize
+from [ -1..1] to [0..255]
+153
+"""
+154
+img_dec = ((( img_enc + 1.0) * 1.0) / 2.0) * 255.0
+155
+img_dec[img_dec < 0.0] = 0.0
+156
+img_dec[img_dec > 255.0] = 255.0
+157
+return cv2.resize(np.uint8(img_dec), (self.outshape [0], self.outshape [1])
+)
+Khởi tạo các siêu tham sốtoàn cụcho chương trình.
+1 # Declare
+hyperparameters
+2 args = {
+3
+"gpu": 1,
+4
+"epochs": 2,
+5
+"batchsize": 32,
+6
+"hiddensize": 64,
+6
+AI VIETNAM
+aivietnam.edu.vn
+7
+"nthreads": 2,
+8
+"epochs_mdn": 2,
+9
+"nmix": 8,
+10
+"logstep": 100,
+11
+"dataset_key": "lfw"
+12 }
+13
+14 def
+get_dirpaths(args):
+15
+if args["dataset_key"] == "lfw":
+16
+out_dir = "data/output/lfw"
+17
+listdir = "data/imglist/lfw"
+18
+featslistdir = "data/featslist/lfw"
+19
+else:
+20
+raise
+NameError("[ERROR] Incorrect
+key: %s" % (args.dataset_key))
+21
+return
+out_dir , listdir , featslistdir
+2. Models
+Chúng ta sẽtiến hành xây dựng mô hình VAE và mô hình MDN.
+(a) VAE model: Trong bài toán này, chúng ta sẽsửdụng một biến thểcủa mô hình VAE, được
+gọi là Conditional VAE (CVAE). Mô hình này bao gồm ba phần: khối Encoder chính và khối
+Decoder chính (hai khối này tạo thành một mạng VAE cơ bản, được bao quanh bởi hình chữ
+nhật màu đỏ), cùng với một khối Conditional Encoder (khối này giúp mô hình tận dụng tối
+đa những trường thông tin có sẵn). Đầu vào của mạng VAE cơ bản là trường màu C có kích
+thước (2 x h x w), và đầu ra là một feature map có kích thước tương tự(2 x h x w). Đồng
+thời, ảnh xám G (1 x h x w) cũng được sửdụng làm điểm khởi đầu cho khối Conditional
+Encoder đểtrích xuất các feature maps chứa thông tin cục bộ, và sau đó được sửdụng làm
+điều kiện đểlàm tăng khảnăng cho khối Decoder.
+Hình 4: Ảnh minh họa cho mô hình Conditional VAE.
+1 import
+torch
+2 import
+torch.nn as nn
+3 import
+torch.nn.functional as F
+4
+5 class VAE(nn.Module):
+6
+def
+__init__(self):
+7
+super(VAE , self).__init__ ()
+7
+AI VIETNAM
+aivietnam.edu.vn
+8
+self.hidden_size = 64
+9
+10
+# Encoder
+block
+11
+self.enc_conv1 = nn.Conv2d (2, 128, 5, stride =2, padding =2)
+12
+self.enc_bn1 = nn.BatchNorm2d (128)
+13
+self.enc_conv2 = nn.Conv2d (128 , 256, 5, stride =2, padding =2)
+14
+self.enc_bn2 = nn.BatchNorm2d (256)
+15
+self.enc_conv3 = nn.Conv2d (256 , 512, 5, stride =2, padding =2)
+16
+self.enc_bn3 = nn.BatchNorm2d (512)
+17
+self.enc_conv4 = nn.Conv2d (512 , 1024 , 3, stride =2, padding =1)
+18
+self.enc_bn4 = nn.BatchNorm2d (1024)
+19
+self.enc_fc1 = nn.Linear (4*4*1024 ,
+self.hidden_size *2)
+20
+self.enc_dropout1 = nn.Dropout(p=0.7)
+21
+22
+# Conditional
+encoder
+block
+23
+self. cond_enc_conv1 = nn.Conv2d (1, 128, 5, stride =2, padding =2)
+24
+self.cond_enc_bn1 = nn.BatchNorm2d (128)
+25
+self. cond_enc_conv2 = nn.Conv2d (128 , 256, 5, stride =2, padding =2)
+26
+self.cond_enc_bn2 = nn.BatchNorm2d (256)
+27
+self. cond_enc_conv3 = nn.Conv2d (256 , 512, 5, stride =2, padding =2)
+28
+self.cond_enc_bn3 = nn.BatchNorm2d (512)
+29
+self. cond_enc_conv4 = nn.Conv2d (512 , 1024 , 3, stride =2, padding =1)
+30
+self.cond_enc_bn4 = nn.BatchNorm2d (1024)
+31
+32
+# Decoder
+block
+33
+self.dec_upsamp1 = nn.Upsample(scale_factor =4, mode=’bilinear ’)
+34
+self.dec_conv1 = nn.Conv2d (1024+ self.hidden_size , 512, 3, stride =1,
+padding =1)
+35
+self.dec_bn1 = nn.BatchNorm2d (512)
+36
+self.dec_upsamp2 = nn.Upsample(scale_factor =2, mode=’bilinear ’)
+37
+self.dec_conv2 = nn.Conv2d (512*2 , 256, 5, stride =1, padding =2)
+38
+self.dec_bn2 = nn.BatchNorm2d (256)
+39
+self.dec_upsamp3 = nn.Upsample(scale_factor =2, mode=’bilinear ’)
+40
+self.dec_conv3 = nn.Conv2d (256*2 , 128, 5, stride =1, padding =2)
+41
+self.dec_bn3 = nn.BatchNorm2d (128)
+42
+self.dec_upsamp4 = nn.Upsample(scale_factor =2, mode=’bilinear ’)
+43
+self.dec_conv4 = nn.Conv2d (128*2 , 64, 5, stride =1, padding =2)
+44
+self.dec_bn4 = nn.BatchNorm2d (64)
+45
+self.dec_upsamp5 = nn.Upsample(scale_factor =2, mode=’bilinear ’)
+46
+self.dec_conv5 = nn.Conv2d (64, 2, 5, stride =1, padding =2)
+47
+48
+def
+encoder(self , x):
+49
+x = F.relu(self.enc_conv1(x))
+50
+x = self.enc_bn1(x)
+51
+x = F.relu(self.enc_conv2(x))
+52
+x = self.enc_bn2(x)
+53
+x = F.relu(self.enc_conv3(x))
+54
+x = self.enc_bn3(x)
+55
+x = F.relu(self.enc_conv4(x))
+56
+x = self.enc_bn4(x)
+57
+x = x.view(-1, 4*4*1024)
+58
+x = self.enc_dropout1 (x)
+59
+x = self.enc_fc1(x)
+60
+mu = x[..., :self.hidden_size]
+61
+logvar = x[..., self.hidden_size :]
+62
+return mu , logvar
+63
+64
+def
+cond_encoder(self , x):
+65
+x = F.relu(self. cond_enc_conv1 (x))
+66
+sc_feat32 = self.cond_enc_bn1(x)
+8
+AI VIETNAM
+aivietnam.edu.vn
+67
+x = F.relu(self. cond_enc_conv2 (sc_feat32))
+68
+sc_feat16 = self.cond_enc_bn2(x)
+69
+x = F.relu(self. cond_enc_conv3 (sc_feat16))
+70
+sc_feat8 = self. cond_enc_bn3 (x)
+71
+x = F.relu(self. cond_enc_conv4 (sc_feat8))
+72
+sc_feat4 = self. cond_enc_bn4 (x)
+73
+return
+sc_feat32 , sc_feat16 , sc_feat8 , sc_feat4
+74
+75
+def
+decoder(self , z, sc_feat32 , sc_feat16 , sc_feat8 , sc_feat4):
+76
+x = z.view(-1, self.hidden_size , 1, 1)
+77
+x = self.dec_upsamp1(x)
+78
+x = torch.cat([x, sc_feat4], 1)
+79
+x = F.relu(self.dec_conv1(x))
+80
+x = self.dec_bn1(x)
+81
+x = self.dec_upsamp2(x)
+82
+x = torch.cat([x, sc_feat8], 1)
+83
+x = F.relu(self.dec_conv2(x))
+84
+x = self.dec_bn2(x)
+85
+x = self.dec_upsamp3(x)
+86
+x = torch.cat([x, sc_feat16], 1)
+87
+x = F.relu(self.dec_conv3(x))
+88
+x = self.dec_bn3(x)
+89
+x = self.dec_upsamp4(x)
+90
+x = torch.cat([x, sc_feat32], 1)
+91
+x = F.relu(self.dec_conv4(x))
+92
+x = self.dec_bn4(x)
+93
+x = self.dec_upsamp5(x)
+94
+x = torch.tanh(self.dec_conv5(x))
+95
+return x
+96
+97
+def
+forward(self , color , greylevel , z_in=None):
+98
+sc_feat32 , sc_feat16 , sc_feat8 , sc_feat4 = self.cond_encoder(
+greylevel)
+99
+mu , logvar = self.encoder(color)
+100
+if self.training:
+101
+stddev = torch.sqrt(torch.exp(logvar))
+102
+eps = torch.randn_like(stddev)
+103
+z = mu + eps * stddev
+104
+z = z.to(greylevel.device)
+105
+else:
+106
+z = z_in
+107
+z = z.to(greylevel.device)
+108
+color_out = self.decoder(z, sc_feat32 , sc_feat16 , sc_feat8 , sc_feat4)
+109
+return mu , logvar , color_out
+(b) MDN model
+Đầu vào của một mạng Conditional Variational Autoencoder (CVAE) yêu cầu thông tin về
+cảtrường màu C và ảnh xám G. Trong quá trình huấn luyện, khối Encoder chính ánh xạ
+thông tin của trường màu C thành phân phối hậu nghiệm P, sau đó lấy mẫu từphân phối
+P đểlàm điểm khởi đầu cho khối Decoder. Tuy nhiên, trong quá trình dựđoán, không có
+thông tin vềtrường màu C được cung cấp. Chính vì thế, một mạng MDN (Mixture Density
+Network) được đã được thiết kế. MDN nhận đầu vào là vector đặc trưng, được tạo ra bằng
+cách cho ảnh xám G đi qua mạng VGG đã được huấn luyện trước trong bài báo Colorful
+Image Colorization. Kết quảđầu ra của mô hình MDN sau đó được sửdụng đểtạo ra các
+tham sốphân phối cho mô hình Gaussian Mixture Model, một mô hình thực hiện việc xấp
+xỉphân phối P được tạo ra từkhối Encoder vừa được huấn luyện trước đó.
+9
+AI VIETNAM
+aivietnam.edu.vn
+Hình 5: Ảnh minh họa cho mô hình MDN.
+1 import
+torch
+2 import
+torch.nn as nn
+3 import
+torch.nn.functional as F
+4
+5 class MDN(nn.Module):
+6
+def
+__init__(self):
+7
+super(MDN , self).__init__ ()
+8
+9
+self.feats_nch = 512
+10
+self.hidden_size = 64
+11
+self.nmix = 8
+12
+self.nout = (self.hidden_size + 1) * self.nmix
+13
+14
+self.model = nn.Sequential(
+15
+nn.Conv2d(self.feats_nch , 384, 5, stride =1, padding =2),
+16
+nn.BatchNorm2d (384) ,
+17
+nn.ReLU (),
+18
+nn.Conv2d (384 , 320, 5, stride =1, padding =2),
+19
+nn.BatchNorm2d (320) ,
+20
+nn.ReLU (),
+21
+nn.Conv2d (320 , 288, 5, stride =1, padding =2),
+22
+nn.BatchNorm2d (288) ,
+23
+nn.ReLU (),
+24
+nn.Conv2d (288 , 256, 5, stride =2, padding =2),
+25
+nn.BatchNorm2d (256) ,
+26
+nn.ReLU (),
+27
+nn.Conv2d (256 , 128, 5, stride =1, padding =2),
+28
+nn.BatchNorm2d (128) ,
+29
+nn.ReLU (),
+30
+nn.Conv2d (128 , 96, 5, stride =2, padding =2),
+31
+nn.BatchNorm2d (96) ,
+32
+nn.ReLU (),
+33
+nn.Conv2d (96, 64, 5, stride =2, padding =2),
+34
+nn.BatchNorm2d (64) ,
+35
+nn.ReLU (),
+36
+nn.Dropout(p=0.7)
+37
+)
+38
+39
+self.fc = nn.Linear (4 * 4 * 64, self.nout)
+10
+AI VIETNAM
+aivietnam.edu.vn
+40
+41
+def
+forward(self , feats):
+42
+x = self.model(feats)
+43
+x = x.view(-1, 4 * 4 * 64)
+44
+x = F.relu(x)
+45
+x = F.dropout(x, p=0.7 , training=self.training)
+46
+x = self.fc(x)
+47
+return x
+3. Loss Functions
+Trong phần này chúng ta xây dựng hàm mất mát cho các mô hình VAE và MDN.
+VAE Loss
+Hình 6: Ảnh minh họa cho VAE Loss.
+1 def
+vae_loss(mu , logvar , pred , gt , lossweights , batchsize):
+2
+"""
+3
+Return the loss
+values of the VAE model.
+4
+"""
+5
+kl_element = torch.add(torch.add(torch.add(mu.pow (2), logvar.exp()), -1),
+logvar.mul(-1))
+6
+kl_loss = torch.sum(kl_element).mul (0.5)
+7
+gt = gt.reshape (-1, 64 * 64 * 2)
+8
+pred = pred.reshape (-1, 64 * 64 * 2)
+9
+recon_element = torch.sqrt(torch.sum(torch.mul(torch.add(gt , pred.mul(-1)).
+pow (2), lossweights), 1))
+10
+recon_loss = torch.sum(recon_element ).mul (1.0 / (batchsize))
+11
+12
+recon_element_l2 = torch.sqrt(torch.sum(torch.add(gt , pred.mul(-1)).pow (2),
+1))
+13
+recon_loss_l2 = torch.sum( recon_element_l2 ).mul (1.0 / (batchsize))
+14
+15
+return
+kl_loss , recon_loss , recon_loss_l2
+11
+AI VIETNAM
+aivietnam.edu.vn
+MDN Loss
+Hình 7: Ảnh minh họa cho MDN Loss.
+1 def
+get_gmm_coeffs (gmm_params):
+2
+"""
+3
+Return the
+distribution
+coefficients of the GMM.
+4
+"""
+5
+gmm_mu = gmm_params [..., : args["hiddensize"] * args["nmix"]]
+6
+gmm_mu.contiguous ()
+7
+gmm_pi_activ = gmm_params [... , args["hiddensize"] * args["nmix"] :]
+8
+gmm_pi_activ.contiguous ()
+9
+gmm_pi = F.softmax(gmm_pi_activ , dim =1)
+10
+return gmm_mu , gmm_pi
+11
+12 def
+mdn_loss(gmm_params , mu , stddev , batchsize):
+13
+"""
+14
+Calculates
+the loss by comparing
+two
+distribution
+15
+- the
+predicted
+distribution of the MDN (given by gmm_mu and gmm_pi) with
+16
+- the target
+distribution
+created by the
+Encoder
+block (given by mu and
+stddev).
+17
+"""
+18
+gmm_mu , gmm_pi = get_gmm_coeffs (gmm_params)
+19
+eps = torch.randn(stddev.size ()).normal_ ().cuda ()
+20
+z = torch.add(mu , torch.mul(eps , stddev))
+21
+z_flat = z.repeat (1, args["nmix"])
+22
+z_flat = z_flat.reshape(batchsize * args["nmix"], args["hiddensize"])
+23
+gmm_mu_flat = gmm_mu.reshape(batchsize * args["nmix"], args["hiddensize"])
+24
+dist_all = torch.sqrt(torch.sum(torch.add(z_flat , gmm_mu_flat.mul(-1)).pow (2)
+.mul (50) , 1))
+25
+dist_all = dist_all.reshape(batchsize , args["nmix"])
+26
+dist_min , selectids = torch.min(dist_all , 1)
+27
+gmm_pi_min = torch.gather(gmm_pi , 1, selectids.reshape (-1, 1))
+28
+gmm_loss = torch.mean(torch.add(-1 * torch.log(gmm_pi_min + 1e -30) , dist_min)
+)
+29
+gmm_loss_l2 = torch.mean(dist_min)
+30
+return
+gmm_loss , gmm_loss_l2
+4. Trainer
+Trong phần này chúng ta xây dựng hàm huấn luyện cho từng mô hình.
+12
+AI VIETNAM
+aivietnam.edu.vn
+Train VAE model
+1 def
+test_vae(model):
+2
+model.eval ()
+3
+4
+# Load
+hyperparameters
+5
+out_dir , listdir , featslistdir = get_dirpaths(args)
+6
+batchsize = args["batchsize"]
+7
+hiddensize = args["hiddensize"]
+8
+nmix = args["nmix"]
+9
+10
+# Create
+DataLoader
+11
+data = ColorDataset(
+12
+os.path.join(out_dir , "images"),
+13
+listdir=listdir ,
+14
+featslistdir=featslistdir ,
+15
+split="test",
+16
+)
+17
+nbatches = np.int_(np.floor(data.img_num / batchsize))
+18
+data_loader = DataLoader(
+19
+dataset=data ,
+20
+num_workers=args["nthreads"],
+21
+batch_size=batchsize ,
+22
+shuffle=False ,
+23
+drop_last=True ,
+24
+)
+25
+26
+# Eval
+27
+test_loss = 0.0
+28
+for batch_idx , (
+29
+batch ,
+30
+batch_recon_const ,
+31
+batch_weights ,
+32
+batch_recon_const_outres ,
+33
+_,
+34
+) in tqdm(enumerate(data_loader), total=nbatches):
+35
+36
+input_color = batch.cuda ()
+37
+lossweights = batch_weights .cuda ()
+38
+lossweights = lossweights.reshape(batchsize ,
+-1)
+39
+input_greylevel = batch_recon_const .cuda ()
+40
+z = torch.randn(batchsize , hiddensize)
+41
+42
+mu , logvar , color_out = model(input_color , input_greylevel , z)
+43
+_, _, recon_loss_l2 = vae_loss(
+44
+mu , logvar , color_out , input_color , lossweights , batchsize
+45
+)
+46
+test_loss = test_loss + recon_loss_l2 .item ()
+47
+48
+test_loss = (test_loss * 1.0) / nbatches
+49
+model.train ()
+50
+51
+return
+test_loss
+52
+53
+54 def
+train_vae ():
+55
+# Load
+hyperparameters
+56
+out_dir , listdir , featslistdir = get_dirpaths(args)
+57
+batchsize = args["batchsize"]
+58
+hiddensize = args["hiddensize"]
+59
+nmix = args["nmix"]
+13
+AI VIETNAM
+aivietnam.edu.vn
+60
+nepochs = args["epochs"]
+61
+62
+# Create
+DataLoader
+63
+data = ColorDataset(
+64
+os.path.join(out_dir , "images"),
+65
+listdir=listdir ,
+66
+featslistdir=featslistdir ,
+67
+split="train",
+68
+)
+69
+nbatches = np.int_(np.floor(data.img_num / batchsize))
+70
+data_loader = DataLoader(
+71
+dataset=data ,
+72
+num_workers=args["nthreads"],
+73
+batch_size=batchsize ,
+74
+shuffle=True ,
+75
+drop_last=True ,
+76
+)
+77
+78
+# Initialize
+VAE model
+79
+model = VAE()
+80
+model.cuda ()
+81
+model.train ()
+82
+83
+optimizer = optim.Adam(model.parameters (), lr=5e-5)
+84
+85
+# Train
+86
+itr_idx = 0
+87
+for epochs in range(nepochs):
+88
+train_loss = 0.0
+89
+90
+for batch_idx , (
+91
+batch ,
+92
+batch_recon_const ,
+93
+batch_weights ,
+94
+batch_recon_const_outres ,
+95
+_,
+96
+) in tqdm(enumerate(data_loader), total=nbatches):
+97
+98
+input_color = batch.cuda ()
+99
+lossweights = batch_weights .cuda ()
+100
+lossweights = lossweights.reshape(batchsize ,
+-1)
+101
+input_greylevel = batch_recon_const .cuda ()
+102
+z = torch.randn(batchsize , hiddensize)
+103
+104
+optimizer.zero_grad ()
+105
+mu , logvar , color_out = model(input_color , input_greylevel , z)
+106
+kl_loss , recon_loss , recon_loss_l2 = vae_loss(
+107
+mu , logvar , color_out , input_color , lossweights , batchsize
+108
+)
+109
+loss = kl_loss.mul(1e-2) + recon_loss
+110
+recon_loss_l2.detach ()
+111
+loss.backward ()
+112
+optimizer.step ()
+113
+114
+train_loss = train_loss + recon_loss_l2 .item ()
+115
+116
+if batch_idx % args["logstep"] == 0:
+117
+data.saveoutput_gt (
+118
+color_out.cpu().data.numpy (),
+119
+batch.numpy (),
+14
+AI VIETNAM
+aivietnam.edu.vn
+120
+"train_ %05d_%05d" % (epochs , batch_idx),
+121
+batchsize ,
+122
+net_recon_const = batch_recon_const_outres .numpy (),
+123
+)
+124
+125
+train_loss = (train_loss * 1.0) / (nbatches)
+126
+print("VAE Train Loss , epoch %d has loss %f" % (epochs , train_loss))
+127
+test_loss = test_vae(model)
+128
+print("VAE Test Loss , epoch %d has loss %f" % (epochs , test_loss))
+129
+130
+# Save VAE model
+131
+torch.save(model.state_dict (), "%s/models/model_vae.pth" % (out_dir))
+132
+133
+print("Complete
+VAE
+training")
+134
+135 train_vae ()
+Train MDN model
+1 def
+test_mdn(model_vae , model_mdn):
+2
+# Load
+hyperparameters
+3
+out_dir , listdir , featslistdir = get_dirpaths(args)
+4
+batchsize = args["batchsize"]
+5
+hiddensize = args["hiddensize"]
+6
+nmix = args["nmix"]
+7
+8
+# Create
+DataLoader
+9
+data = ColorDataset(
+10
+os.path.join(out_dir , "images"), listdir , featslistdir , split="test"
+11
+)
+12
+nbatches = np.int_(np.floor(data.img_num / batchsize))
+13
+data_loader = DataLoader(
+14
+dataset=data ,
+15
+num_workers=args["nthreads"],
+16
+batch_size=batchsize ,
+17
+shuffle=True ,
+18
+drop_last=True ,
+19
+)
+20
+21
+optimizer = optim.Adam(model_mdn.parameters (), lr=1e-3)
+22
+23
+# Eval
+24
+model_vae.eval ()
+25
+model_mdn.eval ()
+26
+itr_idx = 0
+27
+test_loss = 0.0
+28
+29
+for batch_idx , (batch , batch_recon_const , batch_weights , _, batch_feats) in
+tqdm(
+30
+enumerate(data_loader), total=nbatches
+31
+):
+32
+input_color = batch.cuda ()
+33
+input_greylevel = batch_recon_const .cuda ()
+34
+input_feats = batch_feats.cuda ()
+35
+z = torch.randn(batchsize , hiddensize)
+36
+optimizer.zero_grad ()
+37
+38
+# Get the
+parameters of the
+posterior
+distribution
+39
+mu , logvar , _ = model_vae(input_color , input_greylevel , z)
+40
+41
+# Get the GMM vector
+15
+AI VIETNAM
+aivietnam.edu.vn
+42
+mdn_gmm_params = model_mdn(input_feats)
+43
+44
+# Compare 2 distributions
+45
+loss , _ = mdn_loss(mdn_gmm_params , mu , torch.sqrt(torch.exp(logvar)),
+batchsize)
+46
+47
+test_loss = test_loss + loss.item ()
+48
+49
+test_loss = (test_loss * 1.0) / (nbatches)
+50
+model_vae.train ()
+51
+return
+test_loss
+52
+53
+54 def
+train_mdn ():
+55
+# Load
+hyperparameters
+56
+out_dir , listdir , featslistdir = get_dirpaths(args)
+57
+batchsize = args["batchsize"]
+58
+hiddensize = args["hiddensize"]
+59
+nmix = args["nmix"]
+60
+nepochs = args["epochs_mdn"]
+61
+62
+# Create
+DataLoader
+63
+data = ColorDataset(
+64
+os.path.join(out_dir , "images"), listdir , featslistdir , split="train"
+65
+)
+66
+nbatches = np.int_(np.floor(data.img_num / batchsize))
+67
+data_loader = DataLoader(
+68
+dataset=data ,
+69
+num_workers=args["nthreads"],
+70
+batch_size=batchsize ,
+71
+shuffle=True ,
+72
+drop_last=True ,
+73
+)
+74
+75
+# Initialize
+VAE model
+76
+model_vae = VAE()
+77
+model_vae.cuda ()
+78
+model_vae.load_state_dict (torch.load("%s/models/model_vae.pth" % (out_dir)))
+79
+model_vae.eval ()
+80
+81
+# Initialize
+MDN model
+82
+model_mdn = MDN()
+83
+model_mdn.cuda ()
+84
+model_mdn.train ()
+85
+86
+optimizer = optim.Adam(model_mdn.parameters (), lr=1e-3)
+87
+88
+# Train
+89
+itr_idx = 0
+90
+for
+epochs_mdn in range(nepochs):
+91
+train_loss = 0.0
+92
+93
+for batch_idx , (
+94
+batch ,
+95
+batch_recon_const ,
+96
+batch_weights ,
+97
+_,
+98
+batch_feats ,
+99
+) in tqdm(enumerate(data_loader), total=nbatches):
+100
+input_color = batch.cuda ()
+16
+AI VIETNAM
+aivietnam.edu.vn
+101
+input_greylevel = batch_recon_const .cuda ()
+102
+input_feats = batch_feats.cuda ()
+103
+z = torch.randn(batchsize , hiddensize)
+104
+optimizer.zero_grad ()
+105
+106
+# Get the
+parameters of the
+posterior
+distribution
+107
+mu , logvar , _ = model_vae(input_color , input_greylevel , z)
+108
+109
+# Get the GMM vector
+110
+mdn_gmm_params = model_mdn(input_feats)
+111
+112
+# Compare 2 distributions
+113
+loss , loss_l2 = mdn_loss(
+114
+mdn_gmm_params , mu , torch.sqrt(torch.exp(logvar)), batchsize
+115
+)
+116
+117
+loss.backward ()
+118
+optimizer.step ()
+119
+train_loss = train_loss + loss.item ()
+120
+121
+train_loss = (train_loss * 1.0) / (nbatches)
+122
+test_loss = test_mdn(model_vae , model_mdn)
+123
+print(
+124
+f"End of epoch {epochs_mdn :3d} | Train
+Loss {train_loss :8.3f} |
+Test
+Loss {test_loss :8.3f}"
+125
+)
+126
+127
+# Save MDN model
+128
+torch.save(model_mdn.state_dict (), "%s/models_mdn/model_mdn.pth" % (
+out_dir))
+129
+130
+print("Complete
+MDN
+training")
+131
+132 train_mdn ()
+5. Inference
+Bạn có thểsửdụng checkpoint sẵn có đểtiến hành quá trình suy luận thửnghiệm.
+1 # Download
+VAE
+checkpoint
+2 !gdown 1 wdyK198lXwwZO4NIB7DzJmA5arwUVWDU
+3 # Download
+MDN
+checkpoint
+4 !gdown 1 AhilMrR_C04v7_sysuf5ffEVsQllo2W6
+17
+AI VIETNAM
+aivietnam.edu.vn
+Hình 8: Ảnh minh họa cho Big Model ởgiai đoạn inference
+1 def
+inference ():
+2
+# Load
+hyperparameters
+3
+out_dir , listdir , featslistdir = get_dirpaths(args)
+4
+batchsize = args["batchsize"]
+5
+hiddensize = args["hiddensize"]
+6
+nmix = args["nmix"]
+7
+8
+# Create
+DataLoader
+9
+data = ColorDataset(
+10
+os.path.join(out_dir , "images"),
+11
+listdir=listdir ,
+12
+featslistdir=featslistdir ,
+13
+split="test",
+14
+)
+15
+16
+nbatches = np.int_(np.floor(data.img_num / batchsize))
+17
+18
+data_loader = DataLoader(
+19
+dataset=data ,
+20
+num_workers=args["nthreads"],
+21
+batch_size=batchsize ,
+22
+shuffle=False ,
+23
+drop_last=True ,
+24
+)
+25
+26
+# Load VAE model
+27
+model_vae = VAE()
+28
+model_vae.cuda ()
+29
+model_vae.load_state_dict (torch.load("%s/models/model_vae.pth" % (out_dir)))
+30
+model_vae.eval ()
+31
+32
+# Load MDN model
+33
+model_mdn = MDN()
+34
+model_mdn.cuda ()
+35
+model_mdn.load_state_dict (torch.load("%s/models/model_mdn.pth" % (out_dir)))
+36
+model_mdn.eval ()
+37
+38
+# Infer
+39
+for batch_idx , (
+18
+AI VIETNAM
+aivietnam.edu.vn
+40
+batch ,
+41
+batch_recon_const ,
+42
+batch_weights ,
+43
+batch_recon_const_outres ,
+44
+batch_feats ,
+45
+) in tqdm(enumerate(data_loader), total=nbatches):
+46
+47
+input_feats = batch_feats.cuda ()
+48
+49
+# Get GMM
+parameters
+50
+mdn_gmm_params = model_mdn(input_feats)
+51
+gmm_mu , gmm_pi = get_gmm_coeffs ( mdn_gmm_params )
+52
+gmm_pi = gmm_pi.reshape (-1, 1)
+53
+gmm_mu = gmm_mu.reshape (-1, hiddensize)
+54
+55
+for j in range(batchsize):
+56
+batch_j = np.tile(batch[j, ...]. numpy (), (batchsize , 1, 1, 1))
+57
+batch_recon_const_j = np.tile(
+58
+batch_recon_const [j, ...]. numpy (), (batchsize , 1, 1, 1)
+59
+)
+60
+batch_recon_const_outres_j = np.tile(
+61
+batch_recon_const_outres [j, ...]. numpy (), (batchsize , 1, 1, 1)
+62
+)
+63
+64
+input_color = torch.from_numpy(batch_j).cuda ()
+65
+input_greylevel = torch.from_numpy( batch_recon_const_j ).cuda ()
+66
+67
+# Get mean from GMM
+68
+curr_mu = gmm_mu[j * nmix : (j + 1) * nmix , :]
+69
+orderid = np.argsort(
+70
+gmm_pi[j * nmix : (j + 1) * nmix , 0]. cpu().data.numpy ().reshape
+(-1)
+71
+)
+72
+73
+# Sample
+from GMM
+74
+z = curr_mu.repeat(int(( batchsize * 1.0) / nmix), 1)
+75
+76
+# Predict
+color
+77
+_, _, color_out = model_vae(input_color , input_greylevel , z)
+78
+79
+# Save
+images
+80
+data.saveoutput_gt (
+81
+color_out.cpu().data.numpy ()[orderid , ...] ,
+82
+batch_j[orderid , ...] ,
+83
+"divcolor_ %05d_%05d" % (batch_idx , j),
+84
+nmix ,
+85
+net_recon_const = batch_recon_const_outres_j [orderid , ...] ,
+86
+)
+87
+88
+print("Complete
+inference")
+89
+90 vae_ckpt = "model_vae.pth"
+91 mdn_ckpt = "model_mdn.pth"
+92 inference(vae_ckpt , mdn_ckpt)
+Kết quảthực nghiệm mô hình sau khi huấn luyện
+19
+AI VIETNAM
+aivietnam.edu.vn
+Hình 9: Kết quảthực nghiệm mô hình sau khi huấn luyện.
+20
+AI VIETNAM
+aivietnam.edu.vn
+Phần III: Câu hỏi trắc nghiệm
+1. VAE có thểđược sửdụng trong các ứng dụng nào?
+(a) Tô màu cho ảnh xám
+(b) Nén ảnh
+(c) Sinh ảnh mới
+(d) Tất cảcác phương án trên
+2. Mô hình VAE cơ bản có bao nhiêu block chính?
+(a) 1
+(b) 2
+(c) 3
+(d) 4
+3. Trong VAE, đối tượng cần được mã hóa được biểu diễn như thếnào?
+(a) Dưới dạng một giá trịsốthực.
+(b) Dưới dạng một phân phối xác suất
+(c) Dưới dạng một véc-tơ nhịphân
+(d) Dưới dạng một ma trận đặc trưng
+4. Trong VAE, khi huấn luyện mô hình, ta muốn KL Divergence Loss đạt giá trịbằng bao nhiêu?
+(a) 0
+(b) 1
+(c) Không có giá trịnhất định
+(d) Càng lớn càng tốt
+5. Trong Image Colorization, vì sao không gian màu Lab thường được sửdụng hơn không gian màu
+RGB (chọn phương án đúng nhất)?
+(a) Phân biệt rõ ràng giữa độsáng và màu sắc: Không gian màu Lab phân chia màu sắc và
+độsáng thành hai kênh riêng biệt (L, a, và b), giúp mô hình tập trung vào việc tái tạo màu
+sắc một cách chính xác hơn. Trong khi đó, ảnh RGB có thểlàm mất thông tin vềđộsáng khi
+thêm màu vào, gây ra hiệu ứng không mong muốn.
+(b) Khảnăng lưu trữthông tin màu sắc chi tiết: Các giá trịtrong không gian màu Lab là
+liên tục, ngược lại với các giá trịrời rạc trong không gian màu RGB. Điều này dẫn đến việc
+không gian màu Lab có khảnăng lưu trữlớn hơn và chính xác hơn trong việc biểu diễn hình
+ảnh
+(c) Độphức tạp thấp hơn khi dựđoán màu sắc: Với không gian màu Lab, chúng ta chỉcần
+dựđoán hai kênh màu a và b, thay vì cảba kênh màu như trong không gian màu RGB. Điều
+này giúp giảm độphức tạp của bài toán và tăng hiệu suất của mô hình.
+(d) Tất cảđáp án trên.
+6. Trong quá trình inference, mô hình CVAE có sựtham gia của những thành phần nào?
+(a) Encoder, Conditional Encoder, Decoder
+(b) Encoder, Decoder
+21
+AI VIETNAM
+aivietnam.edu.vn
+(c) Conditional Encoder, Decoder
+(d) Decoder
+- Hết -
+22

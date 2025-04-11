@@ -1,9 +1,0 @@
-Tiếp theo hệ thống sẽ so sánh ảnh truy vấn với các hình ảnh trong thư mục huấn luyện để tính
-điểm L1. Sau đó, kết quả truy vấn được trả về là danh sách các đường dẫn chứa hình ảnh và điểm số
-tính theo L1. Cuối cùng 5 kết quả tốt nhất sẽ được hiển thị cùng với ảnh truy vấn
-1 root_img_path = f"{ROOT}/train/"
-2 query_path = f"{ROOT}/test/Orange_easy/0_100.jpg"
-3 size = (448, 448)
-4 query, ls_path_score = get_l1_score(root_img_path, query_path, size)
-5 plot_results(query_path, ls_path_score, reverse=False)
-4

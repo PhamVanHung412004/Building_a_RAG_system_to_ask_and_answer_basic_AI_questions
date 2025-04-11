@@ -1,3 +1,0 @@
-AI VIETNAM aivietnam.edu.vn
-118 self . use_conv = use_conv
-119 self . 

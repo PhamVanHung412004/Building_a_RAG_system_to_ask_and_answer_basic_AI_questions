@@ -1,5 +1,0 @@
-AI VIETNAM aivietnam.edu.vn
-Hình 21: Image retrieval dùng vector database với similarity score
-3 Trắc Nghiệm
-1. CLIP chủ yếu được sử dụng để làm gì trong bối cảnh tìm kiếm sự tương đồng giữa
-các hình ảnh với hình ảnh?

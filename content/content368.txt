@@ -1,4 +1,0 @@
-AI VIETNAM aivietnam.edu.vn
-5 super ( Model , self ). __init__ ()
-6 cfg = VivitConfig ()
-7 cfg . 

@@ -1,4 +1,0 @@
-Daily AI Exercise (AIO) aivietnam.edu.vn
-3 Bài tập
-Viết một chương trình Python để kiểm tra xem một số có phải là số nguyên tố hay không. Số nguyên
-tố là số nguyên dương lớn hơn 1 và chỉ có hai ước số dương là 1 và chính nó.

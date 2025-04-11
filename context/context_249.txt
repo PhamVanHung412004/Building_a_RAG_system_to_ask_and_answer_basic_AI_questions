@@ -1,0 +1,1115 @@
+AI VIET NAM – AI COURSE 2023
+Xây dựng hệthống hỏi-đáp mởvới hệcơ sởdữ
+liệu vector
+Dinh-Thang Duong, Minh-Duc Bui và Quang-Vinh Dinh
+PR-Team: Minh-Châu Phạm, Hoàng-Nguyên và Vũ Đăng-Nhã Nguyễn
+Ngày 13 tháng 2 năm 2024
+Phần I: Giới thiệu
+Trong project này, chúng ta sẽtập trung vào việc phát triển một hệthống end-to-end hỏi đáp tựđộng,
+với khảnăng trảlời một câu hỏi với nội dung bất kì. Hệthống mà chúng ta cài đặt trong project này
+bao gồm hai phần chính là Retriever và Reader, với mục tiêu xây dựng một hệthống toàn diện có khả
+năng rút trích thông tin từvăn bản và cung cấp câu trảlời cho các câu hỏi dựa trên nội dung của đoạn
+văn.
+Cụthể, ta sẽxây dựng chương trình dựa vào dataset SQuAD2.0, một bộdữliệu vềđọc hiểu, vector
+database là FAISS và mô hình BERT đểthực hiện các nhiệm vụcụthểtrong chương trình. Input và
+output của chương trình như sau:
+• Input: Một câu hỏi.
+• Output: Câu trảlời tương ứng.
+1
+AI VIETNAM
+aivietnam.edu.vn
+Phần II: Nội dung
+Đểxây dựng một chương trình End-to-end Question Answering, chúng ta cần hoàn thiện hai module
+chính bao gồm Retriever và Reader:
+Hình 1: Ảnh minh hoạt tổng quát vềmột hệthống End-to-end QA.
+Theo đó, nội dung của bài viết sẽtrình bày chương trình cài đặt cho từng thành phần như sau:
+1. Dataset description: SQuAD2.0 Stanford Question Answering Dataset (SQuAD) là bộdata
+theo hướng đọc hiểu, bao gồm các đoạn văn (passage) khác nhau vềnhiều chủđề, ứng với mỗi
+đoạn văn sẽcó một các câu hỏi ngắn kèm theo. Bảng 1 miêu tảcấu trúc chi tiết vềdataset
+SQuAD2.0:
+Hình 2: Ví dụminh họa vềdataset SQuAD2.0.
+2
+AI VIETNAM
+aivietnam.edu.vn
+SQuAD 2.0
+Train
+Total examples
+130,319
+Negative examples
+43,498
+Total articles
+442
+Articles with negatives
+285
+Development
+Total examples
+11,873
+Negative examples
+5,945
+Total articles
+35
+Articles with negatives
+35
+Test
+Total examples
+8,862
+Negative examples
+4,332
+Total articles
+28
+Articles with negatives
+28
+Bảng 1: Thống kê sốlượng sample của dataset SQuAD2.0.
+Câu trảlời cho các câu hỏi ngắn là những từ/cụm từcó sẵn trong đoạn văn cho trước (không
+yêu cầu suy luận phức tạp), hoặc các câu hỏi không trảlời được dựa vào đoạn văn (answer là no
+answer). Bảng 2 thống kê vềdataset SQuAD2.0:
+Answer type
+Percentage
+Example
+Date
+8.9%
+19 October 2023
+Other Numeric
+10.9%
+12
+Person
+12.9%
+Thomas Coke
+Location
+4.4%
+Germany
+Other Entity
+15.3%
+ABC Sports
+Common Noun Phrase
+31.8%
+property damage
+Adjective Phrase
+3.9%
+second-largest
+Verb Phrase
+5.5%
+returned to Earth
+Clause
+3.7%
+to avoid trivialization
+Other
+2.7%
+quietly
+Bảng 2: Thống kê các loại câu trảlời khác nhau của dataset SQuAD2.0.
+2. Reader: DistilBERT Đầu tiên ta sẽxây dựng model Reader hay chính là model QA trong
+project này.
+(a) Install and import bibraries: Đầu tiên ta sẽinstall một sốthư viện cần thiết mà Colab
+chưa hỗtrợ.
+1 !pip
+install -qq datasets ==2.16.1
+evaluate ==0.4.1
+transformers [sentencepiece
+]==4.35.2
+2 !pip
+install -qq accelerate ==0.26.1
+3 !apt
+install git -lfs
+Sau đó ta sẽtiến hành login vào HuggingFace đểdownload dataset và model có sẵn. Khi
+chạy block code này thì HuggingFace sẽđưa ra một đường dẫn đến trang HuggingFace để
+lấy mã token.
+3
+AI VIETNAM
+aivietnam.edu.vn
+1 from
+huggingface_hub
+import
+notebook_login
+2
+3 notebook_login ()
+Cuối cùng ta sẽimport các thư viện chính được sửdụng trong phần này:
+1 import
+numpy as np
+2 from tqdm.auto
+import
+tqdm
+3 import
+collections
+4
+5 import
+torch
+6
+7 from
+datasets
+import
+load_dataset
+8 from
+transformers
+import
+AutoTokenizer
+9 from
+transformers
+import
+AutoModelForQuestionAnswering
+10 from
+transformers
+import
+TrainingArguments
+11 from
+transformers
+import
+Trainer
+12 import
+evaluate
+13
+14 device = torch.device("cuda") if torch.cuda.is_available () else \
+15
+torch.device("cpu")
+(b) Setup config: Tiếp theo ta sẽsetup một sốconfig cơ bản:
+1 # Sửdụng mô hình "distilbert -base -uncased" làm mô hình checkpoint
+2 MODEL_NAME = "distilbert -base -uncased"
+3
+4 # Độdài tối đa cho mỗi đoạn văn bản sau khi được xửlý
+5 MAX_LENGTH = 384
+6
+7 # Khoảng cách giữa các điểm bắt đầu của các đoạn văn bản liên tiếp
+8 STRIDE = 128
+(c) Setup Dataset:
+• Download dataset:
+1 # Download
+squad
+dataset từHuggingFace
+2 DATASET_NAME = ’squad_v2 ’
+3 raw_datasets = load_dataset(DATASET_NAME)
+• Load tokenizer and run some examples:
+1 # Load
+tokenizer đểrun một sốexample
+2 tokenizer = AutoTokenizer . from_pretrained (MODEL_NAME)
+(d) Tokenize dataset: Trong phần này ta sẽtiến hành tokenize dataset cho tập train và tập
+val.
+• Tokenize train set: Hàm preprocess_training_examples nhận dữliệu đào tạo làm đầu
+vào và tiền xửlý đểchuẩn bịcho việc huấn luyện mô hình hỏi đáp. Trong quá trình này,
+hàm trích xuất danh sách câu hỏi, mã hóa thông tin đầu vào bằng tokenizer, và trích
+xuất offset_mapping và sample_map đểánh xạvịtrí từmã hóa vềvăn bản gốc. Hàm
+cũng xác định vịtrí bắt đầu và kết thúc của câu trảlời trong ngữcảnh và thêm thông
+tin vềvịtrí này vào biến inputs.
+1 # Định nghĩa hàm preprocess_training_examples và nhận tham sốexamples
+2 # là dữliệu training
+3 def
+preprocess_training_examples (examples):
+4
+# Trích xuất danh sách câu hỏi từexamples và
+5
+# loại bỏcác khoảng trắng dư thừa
+6
+questions = [q.strip () for q in examples["question"]]
+4
+AI VIETNAM
+aivietnam.edu.vn
+7
+8
+# Tiến hành mã hóa thông tin đầu vào sửdụng tokenizer
+9
+inputs = tokenizer(
+10
+questions ,
+11
+examples["context"],
+12
+max_length=MAX_LENGTH ,
+13
+truncation="only_second",
+14
+stride=STRIDE ,
+15
+return_overflowing_tokens =True ,
+16
+return_offsets_mapping =True ,
+17
+padding="max_length",
+18
+)
+19
+20
+# Trích xuất offset_mapping từinputs và loại bỏnó ra khỏi inputs
+21
+offset_mapping = inputs.pop(" offset_mapping ")
+22
+23
+# Trích xuất sample_map từinputs và loại bỏnó ra khỏi inputs
+24
+sample_map = inputs.pop(" overflow_to_sample_mapping ")
+25
+26
+# Trích xuất thông tin vềcâu trảlời (answers) từexamples
+27
+answers = examples["answers"]
+28
+29
+# Khởi tạo danh sách các vịtrí bắt đầu và kết thúc câu trảlời
+30
+start_positions = []
+31
+end_positions = []
+32
+33
+# Duyệt qua danh sách offset_mapping
+34
+for i, offset in enumerate( offset_mapping ):
+35
+# Xác định index của mẫu (sample) liên quan đến offset hiện tại
+36
+sample_idx = sample_map[i]
+37
+38
+# Trích xuất sequence_ids từinputs
+39
+sequence_ids = inputs. sequence_ids (i)
+40
+41
+# Xác định vịtrí bắt đầu và kết thúc của ngữcảnh
+42
+idx = 0
+43
+while
+sequence_ids[idx] != 1:
+44
+idx += 1
+45
+context_start = idx
+46
+while
+sequence_ids[idx] == 1:
+47
+idx += 1
+48
+context_end = idx - 1
+49
+50
+# Trích xuất thông tin vềcâu trảlời cho mẫu này
+51
+answer = answers[sample_idx]
+52
+53
+if len(answer[’text ’]) == 0:
+54
+start_positions .append (0)
+55
+end_positions .append (0)
+56
+else:
+57
+# Xác định vịtrí ký tựbắt đầu và kết thúc của câu trảlời
+58
+# trong ngữcảnh
+59
+start_char = answer["answer_start"][0]
+60
+end_char = answer[" answer_start "][0] + len(answer["text"][0])
+61
+62
+# Nếu câu trảlời không nằm hoàn toàn trong ngữcảnh ,
+63
+# gán nhãn là (0, 0)
+64
+if offset[ context_start ][0] > start_char
+65
+or offset[context_end ][1] < end_char:
+5
+AI VIETNAM
+aivietnam.edu.vn
+66
+start_positions .append (0)
+67
+end_positions .append (0)
+68
+else:
+69
+# Nếu không , gán vịtrí bắt đầu và kết thúc dựa trên
+70
+# vịtrí của các mã thông tin
+71
+idx = context_start
+72
+while idx
+<= context_end
+and offset[idx ][0]
+<= start_char:
+73
+idx += 1
+74
+start_positions .append(idx - 1)
+75
+76
+idx = context_end
+77
+while idx
+>= context_start
+and offset[idx ][1]
+>= end_char:
+78
+idx
+-= 1
+79
+end_positions .append(idx + 1)
+80
+81
+# Thêm thông tin vịtrí bắt đầu và kết thúc vào inputs
+82
+inputs[" start_positions "] = start_positions
+83
+inputs["end_positions "] = end_positions
+84
+85
+return
+inputs
+Sau đó ta sẽchạy đoạn hàm trên với từng dòng trong raw_dataset của tập train:
+1 # Tạo một biến train_dataset và gán cho nó giá trịsau khi áp dụng
+2 # hàm preprocess_training_examples lên tập dữliệu "train"
+3 #
+4 # Bật chếđộxửlý theo từng batch bằng cách đặt batched=True
+5 #
+6 # Loại bỏcác cột không cần thiết trong
+7 # tập dữliệu "train" bằng cách sửdụng remove_columns
+8
+9 train_dataset = raw_datasets["train"].map(
+10
+preprocess_training_examples ,
+11
+batched=True ,
+12
+remove_columns =raw_datasets["train"]. column_names ,
+13 )
+14
+15 # In ra độdài của tập dữliệu "train" ban đầu và
+16 # độdài của tập dữliệu đã được xửlý ( train_dataset )
+17 len(raw_datasets["train"]), len( train_dataset)
+• Tokenize val set: Ta sẽlàm tương tựvới tập val, hàm preprocess_validation_examples
+thực hiện việc tiền xửlý dữliệu cho quá trình đánh giá mô hình. Hàm chuẩn bịdanh
+sách câu hỏi, mã hóa các câu hỏi và văn bản liên quan bằng cách sửdụng tokenizer. Sau
+đó xác định ví dụtham chiếu cho từng dòng đầu vào và điều chỉnh ánh xạoffset đểloại
+bỏcác offset không phù hợp với sequence_ids. Cuối cùng là thêm thông tin vềví dụ
+tham chiếu vào đầu vào.
+1 def
+preprocess_validation_examples (examples):
+2
+# Chuẩn bịdanh sách câu hỏi bằng cách
+3
+# loại bỏkhoảng trắng ởđầu và cuối mỗi câu hỏi
+4
+questions = [q.strip () for q in examples["question"]]
+5
+6
+# Sửdụng tokenizer đểmã hóa các câu hỏi và văn bản liên quan
+7
+inputs = tokenizer(
+8
+questions ,
+9
+examples["context"],
+10
+max_length=MAX_LENGTH ,
+11
+truncation="only_second",
+12
+stride=STRIDE ,
+6
+AI VIETNAM
+aivietnam.edu.vn
+13
+return_overflowing_tokens =True ,
+14
+return_offsets_mapping =True ,
+15
+padding="max_length",
+16
+)
+17
+18
+# Lấy ánh xạđểánh xạlại ví dụtham chiếu cho từng dòng trong
+inputs
+19
+sample_map = inputs.pop(" overflow_to_sample_mapping ")
+20
+example_ids = []
+21
+22
+# Xác định ví dụtham chiếu cho mỗi dòng đầu vào và
+23
+# điều chỉnh ánh xạoffset
+24
+for i in range(len(inputs["input_ids"])):
+25
+sample_idx = sample_map[i]
+26
+example_ids.append(examples["id"][ sample_idx ])
+27
+28
+sequence_ids = inputs. sequence_ids (i)
+29
+offset = inputs[" offset_mapping "][i]
+30
+31
+# Loại bỏcác offset không phù hợp với sequence_ids
+32
+inputs[" offset_mapping "][i] = [
+33
+o if sequence_ids[k] == 1 else None \
+34
+for k, o in enumerate(offset)
+35
+]
+36
+37
+# Thêm thông tin ví dụtham chiếu vào đầu vào
+38
+inputs["example_id"] = example_ids
+39
+40
+return
+inputs
+Ta sẽchạy đoạn hàm trên với từng dòng trong raw_dataset của tâp validation:
+1 # Tạo một biến validation_dataset và gán giá trịbằng việc sửdụng dữliệu
+2 # từraw_datasets [" validation "] sau khi áp dụng một hàm xửlý trước.
+3
+4 validation_dataset = raw_datasets["validation"].map(
+5
+preprocess_validation_examples ,
+6
+batched=True ,
+7
+remove_columns =raw_datasets["validation"]. column_names ,
+8 )
+9
+10 # In ra độdài của raw_datasets [" validation "]
+11 # và validation_dataset đểso sánh.
+12 len(raw_datasets["validation"]), len( validation_dataset )
+(e) Train model: Sau khi đã chuẩn bịxong dataset, ta sẽtiến hành load model từHuggingFace
+đểchuẩn bịcho quá trình training:
+1 # Load
+model
+2 model = AutoModelForQuestionAnswering . from_pretrained (MODEL_NAME)
+Tiếp theo ta sẽđịnh nghĩa một sốparameter mà ta sẽsửdụng đểtraining model:
+1 # Tạo đối tượng args là các tham sốcho quá trình huấn luyện
+2 args = TrainingArguments (
+3
+output_dir="distilbert -finetuned -squadv2", # Thư mục lưu output
+4
+evaluation_strategy ="no",
+# Chếđộđánh giá không tựđộng sau mỗi epoch
+5
+save_strategy="epoch",
+# Lưu checkpoint
+sau mỗi epoch
+6
+learning_rate =2e-5,
+# Tốc độhọc
+7
+num_train_epochs =3,
+# Sốepoch huấn luyện
+8
+weight_decay =0.01 ,
+# Giảm trọng lượng mô hình đểtránh overfitting
+7
+AI VIETNAM
+aivietnam.edu.vn
+9
+fp16=True ,
+# Sửdụng kiểu dữliệu half -precision đểtối ưu tài nguyên
+10
+push_to_hub=True ,
+# Đẩy kết quảhuấn luyện lên HuggingFace
+Hub
+11 )
+Cuối cùng ta sẽkhởi tạo class Trainer, đây là class chính đểtraining model, ta sẽkhông cần
+phải định nghĩa hàm train, đưa input vào mode, tính toán loss, update gradient nữa, hàm
+class này sẽtựđộng làm giúp chúng ta. Sau khi đã khởi tạo thì chỉcần gọi trainner.train()
+thì quá trình training model sẽđược tiến hành:
+1 # Khởi tạo một đối tượng Trainer đểhuấn luyện mô hình
+2 trainer = Trainer(
+3
+model=model ,
+# Sửdụng mô hình đã tạo trước đó
+4
+args=args ,
+# Các tham sốvà cấu hình huấn luyện
+5
+train_dataset=train_dataset ,
+# Sửdụng tập dữliệu huấn luyện
+6
+eval_dataset=validation_dataset ,
+# Sửdụng tập dữliệu đánh giá
+7
+tokenizer=tokenizer ,
+# Sửdụng tokenizer đểxửlý văn bản
+8 )
+9
+10 # Bắt đầu quá trình huấn luyện
+11 trainer.train ()
+Sau khi quá trình training hoàn tất, ta sẽđưa weight, config của model lên HuggingFace Hub
+đểlưu lại:
+1 # Gửi dữliệu đào tạo lên Hub
+2 trainer.push_to_hub(commit_message ="Training
+complete")
+(f) Evaluate model: Đểđánh giá performance của model ta sẽsửdụng metric squad từthư
+viện evaluate:
+1 # Tải metric "squad" từthư viện evaluate
+2 metric = evaluate.load("squad_v2")
+8
+AI VIETNAM
+aivietnam.edu.vn
+Hàm compute_metrics nhận các đầu vào như start_logits, end_logits, features, và examples,
+và thực hiện các bước sau đểtính toán các độđo và kết quảđánh giá mô hình hỏi đáp. Trong
+quá trình tính toán, hàm này tạo một danh sách các câu trảlời dựđoán dựa trên các logits
+được dựđoán bởi mô hình. Điều này bao gồm việc xác định vịtrí bắt đầu và kết thúc tốt
+nhất cho các câu trảlời và đánh giá xem chúng có hợp lệhay không dựa trên độdài tối đa
+cho câu trảlời. Cuối cùng, hàm tính toán các độđo và trảvềkết quảđánh giá mô hình hỏi
+đáp dựa trên các câu trảlời dựđoán và câu trảlời lý thuyết từví dụ.
+1 N_BEST = 20 # Sốlượng kết quảtốt nhất được lựa chọn sau khi dựđoán
+2 MAX_ANS_LENGTH = 30 # Độdài tối đa cho câu trảlời dựđoán
+3
+4 def
+compute_metrics (start_logits , end_logits , features , examples):
+5
+# Tạo một từđiển mặc định đểánh xạmỗi ví dụ
+6
+# với danh sách các đặc trưng tương ứng
+7
+example_to_features = collections.defaultdict(list)
+8
+for idx , feature in enumerate(features):
+9
+example_to_features [feature[’example_id ’]]. append(idx)
+10
+11
+predicted_answers = []
+12
+for
+example in tqdm(examples):
+13
+example_id = example[’id’]
+14
+context = example[’context ’]
+15
+answers = []
+16
+17
+# Lặp qua tất cảcác đặc trưng liên quan đến ví dụđó
+18
+for
+feature_index in
+example_to_features [example_id ]:
+19
+start_logit = start_logits [ feature_index ]
+20
+end_logit = end_logits[ feature_index ]
+21
+offsets = features[ feature_index ][’offset_mapping ’]
+22
+23
+# Lấy các chỉsốcó giá trịlớn nhất cho start và end logits
+24
+start_indexes = np.argsort(start_logit)[-1:-N_BEST -1: -1]. tolist ()
+25
+end_indexes = np.argsort(end_logit)[-1:-N_BEST -1: -1]. tolist ()
+26
+for
+start_index in start_indexes :
+27
+for
+end_index in end_indexes:
+28
+# Bỏqua các câu trảlời
+29
+# không hoàn toàn nằm trong ngữcảnh
+30
+if offsets[start_index] is None or \
+31
+offsets[end_index] is None:
+32
+continue
+33
+# Bỏqua các câu trảlời có độdài > max_answer_length
+34
+if end_index - start_index + 1 > MAX_ANS_LENGTH :
+35
+continue
+36
+37
+# Tạo một câu trảlời mới
+38
+text = context[
+39
+offsets[start_index ][0]: offsets[end_index ][1]
+40
+]
+41
+logit_score = start_logit[start_index] + \
+42
+end_logit[end_index]
+43
+answer = {
+44
+’text ’: text ,
+45
+’logit_score ’: logit_score ,
+46
+}
+47
+answers.append(answer)
+48
+49
+# Chọn câu trảlời có điểm sốtốt nhất
+50
+if len(answers) > 0:
+51
+best_answer = max(answers , key=lambda x: x[’logit_score ’])
+9
+AI VIETNAM
+aivietnam.edu.vn
+52
+answer_dict = {
+53
+’id’: example_id ,
+54
+’prediction_text ’: best_answer[’text ’],
+55
+’no_answer_probability ’: 1 - best_answer[’logit_score ’]
+56
+}
+57
+else:
+58
+answer_dict = {
+59
+’id’: example_id ,
+60
+’prediction_text ’: ’’,
+61
+’no_answer_probability ’: 1.0
+62
+}
+63
+predicted_answers .append(answer_dict)
+64
+65
+# Tạo danh sách câu trảlời lý thuyết từcác ví dụ
+66
+theoretical_answers = [
+67
+{’id’: ex[’id’], ’answers ’: ex[’answers ’]} for ex in examples
+68
+]
+69
+# Sửdụng metric.compute đểtính toán các độđo và trảvềkết quả
+70
+return
+metric.compute(
+71
+predictions=predicted_answers ,
+72
+references= theoretical_answers
+73
+)
+Sau khi đã định nghĩa hàm evaluation, ta sẽtiến hành predict model trên tập validation rồi
+đưa vào hàm compute_metrics:
+1 # Thực hiện dựđoán trên tập dữliệu validation
+2 predictions , _, _ = trainer.predict( validation_dataset )
+3
+4 # Lấy ra thông tin vềcác điểm bắt đầu và
+5 # điểm kết thúc của câu trảlời dựđoán
+6 start_logits , end_logits = predictions
+7
+8 # Tính toán các chỉsốđánh giá sửdụng hàm compute_metrics
+9 results = compute_metrics (
+10
+start_logits ,
+11
+end_logits ,
+12
+validation_dataset ,
+13
+raw_datasets["validation"]
+14 )
+15 results
+(g) Load model from hub: Ởphần trước, xong khi training model xong thì ta đã đưa model
+10
+AI VIETNAM
+aivietnam.edu.vn
+lên HuggingFace, nếu muốn sửdụng thì ta chỉcần dùng class pipeline có sẵn của HuggingFace
+là đã có thểload model và tiến hành inference:
+1 # Use a pipeline as a high -level
+helper
+2 from
+transformers
+import
+pipeline
+3
+4 PIPELINE_NAME = ’question -answering ’
+5 MODEL_NAME = ’thangduong0509 /distilbert -finetuned -squadv2 ’
+6 pipe = pipeline(PIPELINE_NAME , model=MODEL_NAME)
+Sau đây ta sẽchạy thửmột example đểtest model:
+1 INPUT_QUESTION = ’What is my name?’
+2 INPUT_CONTEXT = ’My name is AI Vietnam
+and I live in Vietnam.’
+3 pipe(question=INPUT_QUESTION , context= INPUT_CONTEXT )
+4
+5 ## >> Output: {’score ’: 0.97179114818573 , ’start ’: 11, ’end ’: 21, ’answer ’: ’
+AI Vietnam ’}
+3. Retriever: Faiss (Facebook AI Similarity Search) là một thư viện được phát triển bởi Facebook
+AI Research Team, hỗtrợtrong việc tìm kiếm tương đồng và phân cụm (clustering) các vector
+với tốc độvà độchính xác cao. Các bạn có thểđọc thêm vềFaiss tại đây.
+Hình 3: Source
+Tại đây, chúng ta sẽứng dụng Faiss đểlàm module Retriever cho hệthống E2E QA của chúng
+ta. Với nhiệm vụtìm kiếm các context phù hợp nhất cho câu hỏi đầu vào, ta sẽcài đặt Faiss theo
+cách thức như sau:
+(a) Với bộdữliệu SQuAD2.0, ta sẽxây dựng một database chứa thêm cột đại diện cho vector
+embedding của câu hỏi.
+(b) Thực hiện embedding các câu hỏi sửdụng DistilBERT.
+(c) Thực hiện tìm kiếm tương đồng giữa các vector trong cột mới và vector câu hỏi đầu vào, từ
+đó tìm ra nội dung context có liên quan nhất.
+Quy trình xửlý của Faiss trong bài có thểđược tóm gọn qua ảnh sau:
+11
+AI VIETNAM
+aivietnam.edu.vn
+Hình 4: Minh họa các bước xây dựng một vector database với Faiss
+Đểcài đặt Faiss phục vụcho việc tìm kiếm các văn bản context của các câu hỏi có nội dung giống
+với câu hỏi đầu vào, ta thực hiện như sau:
+(a) Cài đặt và import các thư viện cần thiết:
+1 !pip
+install -qq transformers[ sentencepiece ]==4.35.2
+datasets ==2.16.1
+evaluate ==0.4.1
+2 !sudo apt -get
+install
+libomp -dev
+3 !pip
+install -qq faiss -gpu
+1 import
+numpy as np
+2 import
+collections
+3 import
+torch
+4 import
+faiss
+5 import
+evaluate
+6
+7 from
+datasets
+import
+load_dataset
+8 from
+transformers
+import
+AutoTokenizer , AutoModel
+9 from
+transformers
+import
+AutoModelForQuestionAnswering
+10 from
+transformers
+import
+TrainingArguments
+11 from
+transformers
+import
+Trainer
+12 from tqdm.auto
+import
+tqdm
+13
+14 device = torch.device("cuda") if torch.cuda.is_available () else
+torch.device(
+"cpu")
+(b) Tải bộdữliệu: Ta tải bộdữliệu SQuAD2.0:
+1 DATASET_NAME = ’squad_v2 ’
+2 raw_datasets = load_dataset(DATASET_NAME , split=’train+validation ’)
+3 raw_datasets
+Đểtận dụng toàn bộngữliệu, chúng ta sẽgom hai bộdữliệu train và validation trong bước
+tạo vector database này.
+(c) Loại bỏcác mẫu không có đáp án: Các mẫu dữliệu không có đáp án thường chứa các
+câu hỏi không liên quan đến đoạn văn ngữcảnh. Vì vậy, ta sẽloại bỏcác trường hợp này ra
+khỏi bộdữliệu:
+12
+AI VIETNAM
+aivietnam.edu.vn
+1 raw_datasets = raw_datasets.filter(
+2
+lambda x: len(x[’answers ’][’text ’]) > 0
+3 )
+(d) Khởi tạo mô hình: Đểtạo vector embedding cho các câu hỏi, ta sẽsửdụng mô hình
+pre-trained DistilBERT:
+1 MODEL_NAME = "distilbert -base -uncased"
+2 tokenizer = AutoTokenizer . from_pretrained (MODEL_NAME)
+3 model = AutoModel. from_pretrained (MODEL_NAME).to(device)
+(e) Xây dựng hàm lấy vector embedding: Ởđây, ta sẽxây dựng một hàm trảvềvector
+embedding cho một đoạn text đầu vào, cụthểởđây sẽlà câu hỏi. Đểtạo vector embedding
+đại diện cho câu hỏi, ta sẽsửdụng vector hidden state từtoken [CLS] trong kết quảoutput
+của mô hình DistilBERT:
+Hình 5: Ảnh minh họa vịtrí của final hidden state của token CLS.
+Đầu tiên, ta xây dựng hàm lấy final hidden state của token CLS:
+1 def
+cls_pooling(model_output):
+2
+return
+model_output. last_hidden_state [:, 0]
+Sau đó, xây dựng hàm đưa một văn bản vào model đểtừđó có thểgọi hàm cls_pooling():
+1 def
+get_embeddings (text_list):
+2
+encoded_input = tokenizer(
+3
+text_list ,
+4
+padding=True ,
+5
+truncation=True ,
+6
+return_tensors =’pt’
+7
+)
+8
+encoded_input = {k: v.to(device) for k, v in encoded_input .items ()}
+9
+model_output = model (** encoded_input )
+10
+11
+return
+cls_pooling(model_output )
+13
+AI VIETNAM
+aivietnam.edu.vn
+(f) Xây dựng vector database: Với hàm tạo vector embedding đã triển khai, ta sẽsửdụng nó
+đểtạo một cột trong bảng dữliệu dùng đểchứa kết quảlời gọi hàm get_embeddings() với input
+là các câu hỏi của từng mẫu dữliệu. Cụthể, ta tạo cột mới tên là question_embedding
+và lưu vector embedding của câu hỏi như sau:
+1 EMBEDDING_COLUMN = ’question_embedding ’
+2 embeddings_dataset = raw_datasets.map(
+3
+lambda x: {
+4
+EMBEDDING_COLUMN : get_embeddings (
+5
+x[’question ’]
+6
+).detach ().cpu().numpy ()[0]
+7
+}
+8 )
+Sau đó, đểcó thểtìm kiếm các vector tương đồng, ta sẽtạo một cấu trúc dữliệu đặc biệt là
+Faiss Index như sau:
+1 embeddings_dataset . add_faiss_index (column= EMBEDDING_COLUMN )
+Cuối cùng, chúng ta đã có một vector database lưu trữvector embedding của các câu hỏi
+trong bộdữliệu. Từđây, ta sẽtiến hành thửthực hiện truy vấn với một câu hỏi đầu vào
+bất kì như sau:
+1 input_question = ’When did
+Beyonce
+start
+becoming
+popular?’
+2
+3 input_quest_embedding = get_embeddings ([ input_question ])
+4 input_quest_embedding = input_quest_embedding .cpu().detach ().numpy ()
+5
+6 TOP_K = 5
+7 scores , samples = embeddings_dataset . get_nearest_examples (
+8
+EMBEDDING_COLUMN , input_quest_embedding , k=TOP_K
+9 )
+10
+11 for idx , score in enumerate(scores):
+12
+print(f’Top {idx + 1}\ tScore: {score}’)
+13
+print(f’Question: {samples [" question "][ idx]}’)
+14
+print(f’Context: {samples [" context "][ idx]}’)
+15
+print ()
+Khi chạy xong đoạn lệnh trên, ta được kết quảtrảvềnhư sau:
+Hình 6: Kết quảtruy vấn được in ra màn hình
+Có thểthấy, vì câu hỏi đầu vào có tồn tại trong vector database của chúng ta nên mẫu dữ
+liệu tương đồng nhất cũng chính là mẫu có câu hỏi tương tự.
+14
+AI VIETNAM
+aivietnam.edu.vn
+(g) Áp dụng mô hình hỏi-đáp đểtrảlời câu hỏi: Như vậy, chúng ta đã có hai thành
+phần Retriever và Reader. Chúng ta sẽviết một đoạn code ngắn đểthực hiện chương trình
+End-to-End QA. Đầu tiên, khởi tạo mô hình hỏi-đáp đã huấn luyện:
+1 from
+transformers
+import
+pipeline
+2
+3 PIPELINE_NAME = ’question -answering ’
+4 MODEL_NAME = ’thangduong0509 /distilbert -finetuned -squadv2 ’
+5 pipe = pipeline(PIPELINE_NAME , model=MODEL_NAME)
+Tận dụng kết quảtruy vấn vừa rồi (nằm ởbiến scores và samples), chúng ta sẽtruyền vào
+mô hình QA hai thông tin gồm question và context:
+1 print(f’Input
+question: { input_question }’)
+2 for idx , score in enumerate(scores):
+3
+question = samples["question"][idx]
+4
+context = samples["context"][idx]
+5
+answer = pipe(
+6
+question=question ,
+7
+context=context
+8
+)
+9
+print(f’Top {idx + 1}\ tScore: {score}’)
+10
+print(f’Context: {context}’)
+11
+print(f’Answer: {answer}’)
+12
+print ()
+Hình 7: Kết quảE2E QA được in ra màn hình
+15
+AI VIETNAM
+aivietnam.edu.vn
+Phần III: Câu hỏi trắc nghiệm
+1. So với QA, chương trình End-to-end QA có điểm gì khác biệt?
+(a) Mô hình trích xuất câu hỏi tốt hơn.
+(b) Sửdụng kiến trúc transformer.
+(c) Có sửdụng mô hình tìm kiếm context.
+(d) Tốc độxửlý nhanh hơn.
+2. Tại sao mô hình Transformer được sửdụng phổbiến trong bài toán Question Answering (QA)?
+(a) Do Transformer có khảnăng tựhọc đặc trưng từvăn bản tựnhiên.
+(b) Do Transformer chứa nhiều kiến thức vềdữliệu.
+(c) Có sửdụng mô hình tìm kiếm context.
+(d) Do Transformer có khảnăng xửlý dữliệu dạng sequence.
+3. Trong QA, tại sao phải sửdụng Transfer learning?
+(a) Transfer learning giúp mô hình học được kiến thức từdữliệu lớn.
+(b) Mô hình QA không cần sửdụng transfer learning.
+(c) Transfer learning làm gia tăng khảnăng xửlý của CPU.
+(d) Transfer learning giúp mô hình bịoverfitting.
+4. Mô hình End-to-end QA khác biệt với QA truyền thống ởđiểm nào?
+(a) Mô hình End-to-end QA sửdụng mô hình tìm kiếm context.
+(b) Mô hình End-to-end QA có khảnăng tựđộng xây dựng câu hỏi.
+(c) Mô hình End-to-end QA sửdụng RNN đểtrích xuất câu trảlời.
+(d) Mô hình End-to-end QA chỉhoạt động trên dữliệu có cấu trúc.
+5. Tham sốstride có nghĩa là gì trong đoạn code sau:
+1 inputs = tokenizer(
+2
+question ,
+# Danh sách các câu hỏi
+3
+context ,
+# Nội dung liên quan đến câu hỏi
+4
+max_length=MAX_LENGTH ,
+# Độdài tối đa cho đầu ra mã hóa
+5
+truncation="only_second",
+# Cắt bớt dữliệu chỉcho phần thứhai (context)
+6
+stride=STRIDE ,
+7
+return_overflowing_tokens =True ,
+# Trảvềcác tokens vượt quá độdài tối đa
+8
+return_offsets_mapping =True ,
+# Trảvềbản đồvịtrí của các tokens
+trong văn
+bản gốc
+9
+padding="max_length" # Điền vào dữliệu đểcó cùng độdài max_length
+10 )
+(a) Độdài bước nhảy trong trường hợp dữliệu dài hơn max_length
+(b) Độdài bước nhảy trong trường hợp dữliệu ngắn hơn max_length
+(c) Độdài bước nhảy trong trường hợp dữliệu bằng max_length
+(d) Độdài bước nhảy trong trường hợp bất kỳ
+6. Tham sốfp16=True có nghĩa là gì trong đoạn code sau:
+16
+AI VIETNAM
+aivietnam.edu.vn
+1 # Tạo đối tượng args là các tham sốcho quá trình huấn luyện
+2 args = TrainingArguments (
+3
+output_dir="distilbert -finetuned -squadv2",
+# Thư mục lưu trữkết quảhuấn
+luyện
+4
+evaluation_strategy ="no",
+# Chếđộđánh giá không tựđộng sau mỗi epoch
+5
+save_strategy="epoch",
+# Lưu checkpoint
+sau mỗi epoch
+6
+learning_rate =2e-5,
+# Tốc độhọc
+7
+num_train_epochs =3,
+# Sốepoch huấn luyện
+8
+weight_decay =0.01 ,
+# Giảm trọng lượng mô hình đểtránh overfitting
+9
+fp16=True ,
+10
+push_to_hub=True ,
+# Đẩy kết quảhuấn luyện lên một nơi chia sẻtrực tuyến (
+Hub)
+11 )
+(a) Sửdụng kiểu dữliệu 32-bit đểtối ưu hóa tài nguyên
+(b) Sửdụng kiểu dữliệu double đểtối ưu hóa tài nguyên
+(c) Sửdụng kiểu dữliệu float đểtối ưu hóa tài nguyên
+(d) Sửdụng kiểu dữliệu half-precision đểtối ưu hóa tài nguyên
+7. Trong đoạn code sau đây, biến PIPELINE_NAME dùng đểlàm gì?
+1 # Use a pipeline as a high -level
+helper
+2 from
+transformers
+import
+pipeline
+3
+4 PIPELINE_NAME = ’question -answering ’
+5 MODEL_NAME = ’thangduong0509 /distilbert -finetuned -squadv2 ’
+6 pipe = pipeline(PIPELINE_NAME , model=MODEL_NAME)
+(a) Xác định tên của task hiện tại, người dùng có thểđặt tên bất kỳ
+(b) Xác định tên của task hiện tại, người dùng phải đặt đúng tên quy định của HuggingFace
+(c) Tên của model, người dùng phải đặt tên đúng yêu cầu
+(d) Tên của model, người dùng có thểđặt bất kỳ
+8. Ưu điểm của vector database khi xửlý các loại dữliệu phức tạp như hình ảnh, âm thanh và văn
+bản so với cơ sởdữliệu quan hệtruyền thống là gì?
+(a) Nó cung cấp khảnăng chuẩn hóa dữliệu và ràng buộc tính toàn vẹn tốt hơn.
+(b) Nó cho phép tìm kiếm và truy vấn dữliệu dựa trên nội dung một cách hiệu quả.
+(c) Nó cung cấp các cơ chếkiểm soát giao dịch mạnh mẽhơn.
+(d) Nó tăng cường khảnăng truy vấn SQL cho phân tích dữliệu có cấu trúc.
+9. Đểtính sựtương đồng giữa hai vector, độđo nào sau đây không thểáp dụng?
+(a) Cosine Similarity
+(b) Euclidean Distance
+(c) Pearson Correlation Coefficient
+(d) Maximum Likelihood Estimation
+10. Khi ứng dụng BERT đểtạo vector embedding trong vector database, final hidden state của token
+nào thường được sửdụng trong output của BERT?
+(a) [CLS] token
+(b) [SEP] token
+17
+AI VIETNAM
+aivietnam.edu.vn
+(c) [EOS] token
+(d) Final token
+11. Trong các vector database như Faiss, kỹthuật nào thường được sửdụng đểtối ưu hiệu quảtìm
+kiếm trên dữliệu đa chiều?
+(a) Linear Search
+(b) Indexing
+(c) Quantization
+(d) Encryption
+12. Trong đoạn code dưới đây:
+1 TOP_K = 5
+2 scores , samples = embeddings_dataset . get_nearest_examples (
+3
+EMBEDDING_COLUMN , input_quest_embedding , k=TOP_K
+4 )
+Biến TOP_K còn được hiểu là?
+(a) Sốlượng cluster
+(b) Sốlượng kết quảtrảvề
+(c) Sốepochs
+(d) Sốchiều trong không gian embedding
+- Hết -
+18

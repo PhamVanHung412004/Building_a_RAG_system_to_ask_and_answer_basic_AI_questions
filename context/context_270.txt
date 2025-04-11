@@ -1,0 +1,736 @@
+Building LLMs application with 
+LangChain
+Dinh-Thang Duong – TA
+Nguyen-Thuan Duong – TA
+Extra Class: LLMs
+Year 2024
+AI VIETNAM
+All-in-One Course
+(TA Session)
+2
+Objectives
+AI VIETNAM
+All-in-One Course
+(TA Session)
+In this lecture, we will discuss about:
+1. What is LLMs in Production?
+2. What is Langchain?
+3. Basic components of LangChain.
+4. How to use LangChain to deploy an 
+API?
+5. How to use LangChain to deploy a 
+RAG application?
+3
+Ø Introduction
+Ø LangChain
+Ø RAG with LangChain 
+Ø Question
+Outline
+AI VIETNAM
+All-in-One Course
+(TA Session)
+4
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Introduction
+5
+Introduction
+v Getting Started
+AI VIETNAM
+All-in-One Course
+(TA Session)
+6
+Introduction
+v LLMs size over time
+AI VIETNAM
+All-in-One Course
+(TA Session)
+https://www.reddit.com/r/AILinksandTools/comments/12c4jmk/a_survey_of_all_llms_so_far_2018_to_2022_a/
+7
+Introduction
+v LLMs Applications
+AI VIETNAM
+All-in-One Course
+(TA Session)
+https://markovate.com/blog/applications-and-use-cases-of-llm/
+8
+Introduction
+v Getting Started
+AI VIETNAM
+All-in-One Course
+(TA Session)
+https://blog.dataiku.com/llm-in-production
+Overview of LLMs in Production
+9
+AI VIETNAM
+All-in-One Course
+(TA Session)
+LangChain
+10
+10
+LangChain
+v Introduction
+AI VIETNAM
+All-in-One Course
+(TA Session)
+LangChain: A framework for developing applications 
+powered by large language models (LLMs). LangChain 
+simplifies every stage of the LLM application lifecycle: 
+Development, Productionization, Deployment.
+11
+11
+LangChain
+v LangChain usecases
+AI VIETNAM
+All-in-One Course
+(TA Session)
+https://datasciencedojo.com/blog/llamaindex-vs-langchain/
+12
+12
+LangChain
+v Introduction
+AI VIETNAM
+All-in-One Course
+(TA Session)
+13
+13
+LangChain
+v Introduction
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Development: Build your applications using 
+LangChain's open-source building blocks 
+and components. Hit the ground running 
+using third-party integrations and Templates.
+14
+14
+LangChain
+v Introduction
+AI VIETNAM
+All-in-One Course
+(TA Session)
+LangServe helps developers deploy LangChain 
+runnables and chains as a REST API. This library is 
+integrated with FastAPI and uses pydantic for data 
+validation.
+15
+15
+LangChain
+v Introduction
+AI VIETNAM
+All-in-One Course
+(TA Session)
+LangSmith: used to inspect, monitor and evaluate 
+your chains, so that you can continuously optimize 
+and deploy with confidence (productionization).
+16
+16
+LangChain
+v LangSmith
+AI VIETNAM
+All-in-One Course
+(TA Session)
+17
+17
+LangChain
+v LangChain Components
+AI VIETNAM
+All-in-One Course
+(TA Session)
+https://pub.dev/packages/langchain
+18
+18
+LangChain
+v LangChain Components
+AI VIETNAM
+All-in-One Course
+(TA Session)
+https://wearefram.com/blog/langchain-101-build-your-own-gpt-powered-applications/
+LLM (Large Language Model): The core AI model 
+responsible for processing natural language and 
+generating outputs.
+19
+19
+LangChain
+v LangChain Components
+AI VIETNAM
+All-in-One Course
+(TA Session)
+https://wearefram.com/blog/langchain-101-build-your-own-gpt-powered-applications/
+Prompts: Template or structures for crafting 
+natural language prompts that can be fed into the 
+LLM.
+20
+20
+LangChain
+v LangChain Components
+AI VIETNAM
+All-in-One Course
+(TA Session)
+https://wearefram.com/blog/langchain-101-build-your-own-gpt-powered-applications/
+Document Loaders and Utils: Tools and utilities 
+for loading and managing documents or data 
+sources that can be used as inputs or references 
+for the LLM.
+21
+21
+LangChain
+v LangChain Components
+AI VIETNAM
+All-in-One Course
+(TA Session)
+https://wearefram.com/blog/langchain-101-build-your-own-gpt-powered-applications/
+Agents: Software agents or programs that can 
+interact with the LLM and other tools or services to 
+perform specific tasks or actions.
+22
+22
+LangChain
+v LangChain Components
+AI VIETNAM
+All-in-One Course
+(TA Session)
+https://www.pinecone.io/learn/series/langchain/langchain-agents/
+https://wearefram.com/blog/langchain-101-build-your-own-gpt-powered-applications/
+23
+23
+LangChain
+v LangChain Components
+AI VIETNAM
+All-in-One Course
+(TA Session)
+https://wearefram.com/blog/langchain-101-build-your-own-gpt-powered-applications/
+Chains: These are sequences or combinations of 
+calls to the LLM and other components, allowing 
+for the creation of more complex applications or 
+workflows.
+24
+24
+LangChain
+v LangChain: How to use
+AI VIETNAM
+All-in-One Course
+(TA Session)
+25
+25
+LangChain
+v LangChain: Create an LLM (provider)
+AI VIETNAM
+All-in-One Course
+(TA Session)
+26
+26
+LangChain
+v LangChain: Installation
+AI VIETNAM
+All-in-One Course
+(TA Session)
+27
+27
+LangChain
+v LangChain: Create an LLM
+AI VIETNAM
+All-in-One Course
+(TA Session)
+https://lancerninja.com/chatgpt-endpoint-in-langchain/
+LangChain LLM
+GPT from OpenAI
+LLM from HuggingFace
+28
+28
+LangChain
+v LangChain: Using ChatGPT
+AI VIETNAM
+All-in-One Course
+(TA Session)
+https://lancerninja.com/chatgpt-endpoint-in-langchain/
+29
+29
+LangChain
+v LangChain: Using ChatGPT
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Using invoke() method to input string to the model.
+API_KEY is required
+30
+30
+LangChain
+v LangChain: Create an LLM
+AI VIETNAM
+All-in-One Course
+(TA Session)
+https://lancerninja.com/chatgpt-endpoint-in-langchain/
+LangChain LLM
+GPT from OpenAI
+LLM from HuggingFace
+31
+31
+LangChain
+v LangChain: Using LLM from HuggingFace
+AI VIETNAM
+All-in-One Course
+(TA Session)
+32
+32
+LangChain
+v LangChain: Create an LLM from HuggingFace
+AI VIETNAM
+All-in-One Course
+(TA Session)
+33
+33
+LangChain
+v LangChain: Create an LLM from HuggingFace
+AI VIETNAM
+All-in-One Course
+(TA Session)
+34
+34
+LangChain
+v LangChain: Create an LLM from HuggingFace
+AI VIETNAM
+All-in-One Course
+(TA Session)
+35
+35
+LangChain
+v LangChain: Create an LLM from HuggingFace
+AI VIETNAM
+All-in-One Course
+(TA Session)
+36
+36
+LangChain
+v LangChain: Prompt Template
+AI VIETNAM
+All-in-One Course
+(TA Session)
+prompt = “hello how are you?”
+When using LLM, prompt is very important:
+37
+37
+LangChain
+v LangChain: Prompt Template
+AI VIETNAM
+All-in-One Course
+(TA Session)
+In LangChain, we use PromptTemplate: Predefined recipes 
+for generating prompts for language models.
+38
+38
+LangChain
+v LangChain: Prompt Template
+AI VIETNAM
+All-in-One Course
+(TA Session)
+In LangChain, we use PromptTemplate: Predefined 
+recipes for generating prompts for language models.
+A template may include:
+•
+Instructions.
+•
+Few-shot examples.
+•
+Specific context and questions appropriate for a 
+given task.
+39
+39
+LangChain
+v LangChain: List of template
+AI VIETNAM
+All-in-One Course
+(TA Session)
+https://tonylixu.medium.com/langchain-prompt-template-0359d96090c5
+40
+40
+LangChain
+v LangChain: PromptTemplate
+AI VIETNAM
+All-in-One Course
+(TA Session)
+41
+41
+LangChain
+v LangChain: ChatPromptTemplate
+AI VIETNAM
+All-in-One Course
+(TA Session)
+ChatPromptTemplate: A list of chat messages (conversation).
+42
+42
+LangChain
+v LangChain: Use PromptTemplate with LLM
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Using previous model:
+43
+43
+LangChain
+v LangChain: Use PromptTemplate with LLM
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Using invoke() method to get the response.
+44
+44
+LangChain
+v LangChain: LLMChain
+AI VIETNAM
+All-in-One Course
+(TA Session)
+In practice, we may combine multiple tools, LLMs, modules to solve a task
+https://medium.com/the-modern-scientist/a-complete-guide-to-llms-based-autonomous-agents-part-i-69515c016792
+45
+45
+LangChain
+v LangChain: LLMChain
+AI VIETNAM
+All-in-One Course
+(TA Session)
+In LangChain, we can build complex usage of LLMs by 
+chaining them using LLMChain.
+Chains refer to sequences of calls - whether to an LLM, a 
+tool, or a data preprocessing step.
+46
+46
+LangChain
+v LangChain: LLMChain
+AI VIETNAM
+All-in-One Course
+(TA Session)
+https://vitalflux.com/llm-chain-openai-chatgpt-python-example/
+An example of LLMChain including Prompt Template and LLM
+47
+47
+LangChain
+v LangChain: Using LLMChain with LLM and PromptTemplate
+AI VIETNAM
+All-in-One Course
+(TA Session)
+48
+48
+LangChain
+v LangChain: Using LLMChain with LLM and PromptTemplate
+AI VIETNAM
+All-in-One Course
+(TA Session)
+49
+49
+LangChain
+v LangChain: OutputParser
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Sometimes, we might want LLMs to 
+output a specific data structure.
+User Input
+LLM
+OutputParser
+“A string”
+50
+50
+LangChain
+v LangChain: OutputParser
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Output parsers are classes that help structure language 
+model responses. There are two main methods an output 
+parser must implement:
+•
+“Get format instructions”: A method which returns a string 
+containing instructions for how the output of a language 
+model should be formatted.
+•
+“Parse”: A method which takes in a string (assumed to be 
+the response from a language model) and parses it into 
+some structure.
+51
+51
+LangChain
+v LangChain: OutputParser to JSON
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Pydantic Model is a way of defining data 
+structures with type annotations, ensuring 
+that the data adheres to a specified format 
+and type (Data Validator). 
+52
+52
+LangChain
+v LangChain: OutputParser to JSON
+AI VIETNAM
+All-in-One Course
+(TA Session)
+53
+53
+LangChain
+v LangChain: OutputParser to JSON
+AI VIETNAM
+All-in-One Course
+(TA Session)
+54
+54
+LangChain
+v LangChain: OutputParser to JSON
+AI VIETNAM
+All-in-One Course
+(TA Session)
+https://towardsdatascience.com/use-langchains-output-parser-with-chatgpt-for-structured-outputs-cf536f692685
+We can connect OutputParser to LLMChain
+55
+55
+LangChain
+v LangChain: OutputParser to JSON
+AI VIETNAM
+All-in-One Course
+(TA Session)
+https://towardsdatascience.com/use-langchains-output-parser-with-chatgpt-for-structured-outputs-cf536f692685
+We can connect OutputParser to LLMChain
+56
+56
+LangChain
+v LangChain: OutputParser to JSON
+AI VIETNAM
+All-in-One Course
+(TA Session)
+57
+AI VIETNAM
+All-in-One Course
+(TA Session)
+RAG with LangChain
+58
+58
+RAG with LangChain
+v Introduction
+AI VIETNAM
+All-in-One Course
+(TA Session)
+https://www.determined.ai/blog/rag
+Description: Serve a LLMs RAG application as an API that receive a simple question and return the response of 
+the LLMs (utilizing context retrieved from a vector database).
+59
+59
+RAG with LangChain
+v Introduction
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Our app’s pipeline
+60
+60
+RAG with LangChain
+v Source code structure
+AI VIETNAM
+All-in-One Course
+(TA Session)
+-
+data_source/: Folder containing corpus for retrieval.
+-
+src/base/: Folder containing code to inititalize LLM.
+-
+src/rag/: Folder containing code for RAG.
+-
+app.py: Python file containing codes for FastAPI app 
+initialization.
+-
+requirements.txt: File containing packages version 
+information to run the soruce code.
+61
+61
+RAG with LangChain
+v Step 1: Download corpus
+AI VIETNAM
+All-in-One Course
+(TA Session)
+62
+62
+RAG with LangChain
+v Step 1: Download corpus
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Update download.py:
+63
+63
+RAG with LangChain
+v Step 1: Download corpus
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Update download.py:
+64
+64
+RAG with LangChain
+v Step 2: Build the load LLM function
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Update src/base/llm_model.py:
+65
+65
+RAG with LangChain
+v Step 2: Build the load LLM function
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Update src/base/llm_model.py:
+66
+66
+RAG with LangChain
+v Step 3: Build RAG source code
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Update src/rag/main.py:
+67
+67
+RAG with LangChain
+v Step 3: Build RAG source code
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Update src/rag/offline_rag.py:
+68
+68
+RAG with LangChain
+v Step 3: Build RAG source code
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Update src/rag/offline_rag.py:
+69
+69
+RAG with LangChain
+v Step 3: Build RAG source code
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Update src/rag/utils.py:
+70
+70
+RAG with LangChain
+v Step 3: Build RAG source code
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Update src/rag/vectorstore.py:
+71
+71
+RAG with LangChain
+v Step 3: Build RAG source code
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Update src/rag/file_loader.py:
+72
+72
+RAG with LangChain
+v Step 3: Build RAG source code
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Update src/rag/file_loader.py:
+73
+73
+RAG with LangChain
+v Step 3: Build RAG source code
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Update src/rag/file_loader.py:
+74
+74
+RAG with LangChain
+v Step 3: Build RAG source code
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Update src/rag/file_loader.py:
+75
+75
+RAG with LangChain
+v Step 4: Build API
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Update src/app.py:
+76
+76
+RAG with LangChain
+v Step 4: Build API
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Update src/app.py:
+77
+77
+RAG with LangChain
+v Step 4: Build API
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Update src/app.py:
+78
+78
+RAG with LangChain
+v Step 4: Build API
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Update src/app.py:
+79
+79
+RAG with LangChain
+v Step 5: Deploy and test API
+AI VIETNAM
+All-in-One Course
+(TA Session)
+uvicorn src.app:app --host "0.0.0.0" --port 5000 --reload
+80
+80
+RAG with LangChain
+v Step 5: Deploy and test API
+AI VIETNAM
+All-in-One Course
+(TA Session)
+81
+81
+RAG with LangChain
+v Step 5: Deploy and test API
+AI VIETNAM
+All-in-One Course
+(TA Session)
+82
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Quiz
+83
+83
+Summary
+AI VIETNAM
+All-in-One Course
+(TA Session)
+In this lecture, we have discussed:
+1. What is LLMs in production?
+1. How is it differ from LLMs in research?
+2. What are some challenges when deploying LLMs in production?
+2. Basics of LangChain
+1. The key concept of LangChain.
+2. Basic components of LangChain: Prompt Template, LLM Chain, Chat History, Document Loader…
+3. How to build an API using LangChain.
+4. How to build a RAG application using LangChain.
+1. Retrieve and answer questions related to Academic Paper.
+?
+84
+Question
+AI VIETNAM
+All-in-One Course
+(TA Session)
+85

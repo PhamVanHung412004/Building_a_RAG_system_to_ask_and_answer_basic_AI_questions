@@ -1,2 +1,0 @@
-. 11
-6 Các phương pháp tìm kiếm và sắp xếp mảng. . 

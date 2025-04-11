@@ -1,0 +1,80 @@
+AI VIET NAM – COURSE 2024
+Decision Tree for Classification
+Ngày 17 tháng 2 năm 2024
+Nguồn dữliệu:
+Decision Tree for Classification
+Từkhóa:
+Decision Tree, Gini Impurity, Entropy
+Người tóm tắt:
+Nguyễn Tấn Phát
+1
+Decision Tree.
+• Cây quyết định (Decision Tree): là một cây phân cấp có cấu trúc được dùng đểphân lớp các
+đối tượng dựa vào dãy các luật. Các thuộc tính (features) của đối tượng có thểthuộc các kiểu
+dữliệu khác nhau như Nhịphân (Binary), Định danh (Nominal), Thứtự(Ordinal), Sốlượng
+(Quantitative), trong đó thuộc tính phân lớp phải có kiểu dữliệu là Binary hoặc Ordinal.
+Minh họa cấu trúc của một cây quyết định cơ bản.
+• Ví dụvềcây quyết định trong bài toán phân loại:
+1
+AI VIETNAM
+aivietnam.edu.vn
+• Độkhông thuần khiết (Impurity) của một tập dữliệu được minh họa như sau:
+• Đểxây dựng một cây quyết định, ta tiến hành chia nhỏdần dataset ban đầu theo hướng tạo ra
+những dataset nhỏhơn có Impurity giảm nhiều nhất. Đểcó tiêu chí chọn ra nút gốc (root node)
+ởmỗi bước, ta có thểsửdụng giá trịGini Impurity hoặc Entropy - Information Gain.
+2
+Xây dựng Decision Tree với giá trịGini Impurity.
+• Cho dataset D chứa các mẫu lấy từk lớp. Ta có công thức Gini Impurity:
+Gini(D) = 1 −
+k
+X
+i=1
+p2
+i
+AI VIETNAM
+aivietnam.edu.vn
+với pi là xác suất một mẫu thuộc vào lớp thứi.
+• Đối với các nút lá, ta tính giá trịGini dựa theo công thức ởtrên:
+• Đối với các nút gốc, giá trịGini là trung bình có trọng sốcác giá trịGini tại các nút lá:
+• Lưu ý: Trường hợp dataset có thuộc tính thuộc kiểu dữliệu Ordinal (chẳng hạn như "Tuổi"), ta
+sắp xếp lại dữliệu và tính giá trịGini dựa theo việc chia các ngưỡng (threshold). Cách thực hiện
+AI VIETNAM
+aivietnam.edu.vn
+như bên dưới:
+• Tại mỗi thời điểm chọn nút làm gốc, ta thửlần lượt từng thuộc tính, tính giá trịGini thu được và
+so sánh, thuộc tính nào có giá trịGini nhỏnhất thì ta chọn nó làm nút gốc. Kết quảminh họa:
+AI VIETNAM
+aivietnam.edu.vn
+3
+Xây dựng Decision Tree với giá trịEntropy - Information Gain.
+• Độngạc nhiên (Suprise): S = 1
+P tỉlệnghịch với xác suất P.
+Vấn đềxảy ra khi dataset gồm các mẫu thuộc cùng một lớp (P = 1).
+Khi đó S = 1/1 = 1 (không phù hợp vì độngạc nhiên phải nên bằng 0). vì thếta sửdụng hàm
+logarit đểtính toán vềsau.
+• Cho dataset D chứa các mẫu lấy từk lớp. Ta có công thức Entropy:
+Entropy(D) = −
+k
+X
+i=1
+pi log2 pi
+với pi là xác suất một mẫu thuộc vào lớp thứi.
+• Ta thực hiện xây dựng cây quyết định với ý tưởng giống với phần Gini Impurity, chỉkhác ởviệc
+so sánh đểchọn nút gốc. Nút gốc sẽlà thuộc tính có giá trịInformation Gain = Eparent −Echildren
+lớn nhất.
+AI VIETNAM
+aivietnam.edu.vn
+4
+Đánh giá vềDecision Tree.
+• Cây quyết định là một thuật toán đơn giản và phổbiến. Thuật toán này được sửdụng rộng rãi
+bới những ưu điểm của nó:
+– Mô hình sinh ra các quy tắc dễhiểu cho người đọc, tạo ra bộluật với mỗi nhánh lá là một
+luật của cây.
+– Dữliệu đầu vào có thểlà dữliệu missing, không cần chuẩn hóa hoặc tạo biến giả.
+– Có thểlàm việc với cảdữliệu sốvà dữliệu phân loại.
+– Có thểxác thực mô hình bằng cách sửdụng các kiểm tra thống kê.
+– Có khảnăng làm việc với dữliệu lớn.
+• Kèm với đó, cây quyết định cũng có những nhược điểm cụthể:
+– Mô hình cây quyết định phụthuộc rất lớn vào dữliệu. Thậm chí, với một sựthay đổi nhỏ
+trong bộdữliệu, cấu trúc mô hình cây quyết định có thểthay đổi hoàn toàn.
+– Cây quyết định hay gặp vấn đềoverfitting.

@@ -1,7 +1,0 @@
-output_blocks = nn. ModuleList ([])
-468 for level , mult in list ( enumerate ( channel_mults )) [:: -1]:
-469 for i in range ( res_blocks + 1):
-470 ich = input_block_chans . pop ()
-471 layers = [
-472 ResBlock (
-17

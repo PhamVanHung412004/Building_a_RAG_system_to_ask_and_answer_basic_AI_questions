@@ -1,0 +1,490 @@
+Generative Adversarial 
+Networks
+Quang-Vinh Dinh
+Ph.D. in Computer Science
+AI VIETNAM
+All-in-One Course
+Year 2024
+Objectives
+✓Study Generative Adversarial Network
+✓Study Deep Convolutional GAN
+Generator (G)
+Real Image
+Discriminator (D)
+Generated Image
+random
+(Latent Random Variable)
+Real Images
+Update G
+Update D
+Sample
+Real/Fake
+Loss 
+Function
+➢Introduction
+➢GAN
+➢DCGAN
+➢Implementation
+Outline
+Introduction
+❖ Introduction
+AI VIETNAM
+All-in-One Course
+Data distribution
+Training data
+Testing data
+Image
+Image
+A perfect case: Have unlimited training
+A normal case
+Training data cover the whole distribution
+But, impractical!!!
+Introduction
+AI VIETNAM
+All-in-One Course
+Images
+Input Space
+Output Space
+2
+Network
+(Unet)
+Images
+Introduction
+AI VIETNAM
+All-in-One Course
+Input Image
+[-1,1]
+Output Image
+[-1,1]
+(256,1024,3)
+(128,512,64)
+(64,256,128)
+(32,128,256) (16,64,512)
+(8,32,512)
+(16,64,512)
+(32,128,256)
+(64,256,128)
+(128,512,64)
+(256,1024,3)
+(3x3) Convolution
+padding = ‘same’
+stride = 1 + ReLU
+(2x2) max 
+pooling
++
+Batch 
+Norm
++
+(3x3) Convolution
+padding = ‘same’
+stride = 1 + Tanh
+Feature Map 
+Upsamping
++
+(3x3) Convolution
+padding = ‘same’
+stride = 1 + ReLU
+Feature Map 
+Upsamping
++
++
+Batch 
+Norm
+Skip connection (UNet)
+Introduction
+MNIST dataset
+Grayscale images
+Resolution=28x28
+Training set: 60000 samples
+Testing set: 10000 samples
+5
+Introduction
+❖ Input?
+6
+AI VIETNAM
+All-in-One Course
+Data 
+Generation 
+Network
+?
+Generative Adversarial Networks
+❖ Input?
+7
+AI VIETNAM
+All-in-One Course
+Data 
+Generation 
+Network
+Random
+samples
+Generative Adversarial Networks
+❖ Loss function?
+8
+AI VIETNAM
+All-in-One Course
+Input samples
+Training 
+samples
+L1/l2 losses
+Input samples
+?? loss
+Demo
+Training 
+samples
+Generative Adversarial Networks
+❖ Loss function: A network
+9
+AI VIETNAM
+All-in-One Course
+Real Data
+Generated Data
+Binary 
+Classification 
+Network
+Generative Adversarial Networks
+Model so far!
+10
+AI VIETNAM
+All-in-One Course
+Data 
+Generation 
+Network
+Random
+samples
+Real Data
+Generated Data
+Binary 
+Classification 
+Network
+Target: generate 
+new data
+➢Introduction
+➢GAN
+➢DCGAN
+➢Implementation
+Outline
+Generator Loss
+Model so far!
+4
+Data 
+Generation 
+Network G
+Random
+Samples 
+z
+Real Data
+(y=1)
+Generated Data
+(y=0)
+Binary 
+Classification 
+Network D
+𝐿𝐺𝒛= −𝑙𝑜𝑔(𝐷(𝐺(𝒛)))
+Fixed
+11
+Discriminator Loss
+Model so far!
+4
+Data 
+Generation 
+Network G
+Random
+Samples
+z
+Real Data x
+(y=1)
+Generated Data
+(y=0)
+Binary 
+Classification 
+Network D
+Fixed
+𝐿𝐷𝒛, 𝒙= −𝑦𝑙𝑜𝑔𝐷𝒙
+−(1 −𝑦)𝑙𝑜𝑔(1 −𝐷(𝐺(𝒛)))
+12
+Standard GAN
+❖ Architecture
+1024 Nodes
+Input layer
+1
+Fully 
+connect
+32
+32
+1024
+flatten data
+1
+512 Nodes
+Hidden layer
+…
+1
+256 Nodes
+Hidden layer
+Fully 
+connect
+…
+1 Node
+Output layer
+Fully 
+connect
+Dense+LeakyReLU
+Dense
+13
+32*32 Nodes
+Output layer
+1
+Fully 
+connect
+1024 Nodes
+Hidden layer
+1
+…
+Fully 
+connect
+1
+512 Nodes
+Hidden layer
+…
+Fully 
+connect
+1
+256 Nodes
+Hidden layer
+…
+Random 
+vector
+Fully 
+connect
+Standard GAN
+❖ Architecture
+Dense+LeakyReLU
+Dense+Tanh
+Generative Adversarial Networks
+Model so far!
+4
+AI VIETNAM
+All-in-One Course
+𝐿𝐷𝒛, 𝒙= −𝑦𝑙𝑜𝑔𝐷𝒙
+−(1 −𝑦)𝑙𝑜𝑔(1 −𝐷(𝐺(𝒛)))
+Generator 
+G
+Random
+Samples
+z
+Real Data x
+Fake Data
+Discriminator 
+D
+𝐿𝐺𝒛= −𝑙𝑜𝑔(𝐷(𝐺(𝒛)))
+15
+Generator (G)
+Discriminator (D)
+Random
+(Latent Random Variable)
+Real Images
+Sample
+Real/Fake
+Real Image
+Generated Image
+Generative Adversarial Networks
+AI VIETNAM
+All-in-One Course
+16
+Workflow
+Generative Adversarial Networks
+AI VIETNAM
+All-in-One Course
+Generator (G)
+Real Image
+Discriminator (D)
+Decoder
+Generated Image
+random
+(Latent Random Variable)
+Real Images
+Update G
+Update D
+Sample
+Real/Fake
+Loss 
+Function
+17
+GAN Training 
+Generator (G)
+G_Optimizer
+Random noise
+Generated Image
+Labels=1
+Outputs
+Discriminator (D)
+Update
+Loss 
+Function
+Train Generator
+Generator (G)
+Discriminator (D)
+Loss 
+Function
+D_Optimizer
+Random noise
+Labels=0
+Outputs
+Labels=1
+Outputs
+Loss 
+Function
+Real Image
+Update
+Generated Image
+Train Discriminator
+Fake_label: 0
+Real_label: 1
+𝐿𝐺𝒛= −𝑙𝑜𝑔(𝐷(𝐺(𝒛)))
+𝐿𝐷𝒛, 𝒙= −𝑦𝑙𝑜𝑔𝐷𝒙
+−(1 −𝑦)𝑙𝑜𝑔(1 −𝐷(𝐺(𝒛)))
+Standard GAN
+❖ Train Generator
+Standard GAN
+❖ Train Discriminator
+➢Introduction
+➢GAN
+➢DCGAN
+➢Implementation
+Outline
+Generative Adversarial Networks
+❖ How to improve?
+4
+AI VIETNAM
+All-in-One Course
+Generator 
+G
+Random
+samples
+Real Data
+Fake Data
+Discriminator 
+D
+19
+Generator (G)
+Discriminator (D)
+Random
+(Latent Random Variable)
+Real Images
+Sample
+Real/Fake
+Real Image
+Generated Image
+Generative Adversarial Networks
+AI VIETNAM
+All-in-One Course
+20
+Network architecture
+Generative Adversarial Networks
+❖ Architecture
+AI VIETNAM
+All-in-One Course
+Generator Architecture
+Generated Image
+random
+(Latent Random Variable)
+Real Image
+Discriminator 
+(D)
+Generated Image
+Discriminator Architecture
+Real/Fake
+⋯
+⋯
+21
+Generator (G)
+Generative Adversarial Networks
+AI VIETNAM
+All-in-One Course
+Generator (G)
+Real Image
+Discriminator (D)
+Generated Image
+random
+(Latent Random Variable)
+Real Images
+Update G
+Update D
+Sample
+Real/Fake
+Loss 
+Function
+22
+GAN Training 
+(128,8,8)
+ 
+ 
+(128,16,16)
+(64,32,32)
+Linear
+100
+(128,8,8)
+upsampling
+upsampling
+128*2*2
+(32,8,8)
+(16,16,16)
+conv 
+stride=2
+Flatten()
+dense
+Discriminator
+Generator
+DCGAN
+Reshape
+(1,32,32)
+(1,32,32)
+conv 
+stride=2
+conv 
+stride=2
+(64,4,4)
+(128,2,2)
+DCGAN
+❖ Train Generator
+DCGAN
+❖ Train Discriminator
+DCGAN
+❖ Implementation
+AI VIETNAM
+All-in-One Course
+Generator (G)
+Real Image
+Discriminator (D)
+Generated Image
+z
+Update D
+Real/Fake
+Loss 
+Function
+DCGAN
+Implementation
+Real Image
+Discriminator (D)
+Generated Image
+z
+Update G
+Real/Fake
+Loss 
+Function
+Generator G
+1
+2
+➢Introduction
+➢GAN
+➢DCGAN
+➢Implementation
+Outline
+Summary
+✓Studied Generative Adversarial Network
+✓Studied Deep Convolutional GAN
+✓GAN Extensions
+Horse2Zebra
+Zebra2Horse
+𝑋
+෠𝑌
+Generators

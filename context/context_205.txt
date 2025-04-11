@@ -1,0 +1,814 @@
+Instruction Tuning
+Dinh-Thang Duong – TA
+Nguyen-Thuan Duong – TA
+Extra Class: LLMs
+Year 2024
+AI VIETNAM
+All-in-One Course
+(TA Session)
+2
+Objectives
+AI VIETNAM
+All-in-One Course
+(TA Session)
+In this lecture, we will discuss about:
+1. How LLMs learn (training type)?
+2. How to make LLMs adapt to a task?
+1. Prompting (In-context learning)
+2. Instruction Tuning
+3. How to train LLMs on a single 
+(small) GPU?
+4. Apply Instruction Tuning for multiple 
+choice math question solver task.
+3
+Ø Introduction
+Ø In-context Learning
+Ø Instruction Tuning
+Ø Parameter Efficient Fine-Tuning
+Ø Evaluation 
+Ø Practices
+Ø Question
+Outline
+AI VIETNAM
+All-in-One Course
+(TA Session)
+4
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Introduction
+5
+Introduction
+v Getting Started
+Example: AI Chatbot using Large Language Models (LLMs)
+AI VIETNAM
+All-in-One Course
+(TA Session)
+6
+Write a python function that receive an 
+image and plot it using matplotlib 
+library.
+Textual Description (Prompt):
+v Chatbot (ChatGPT)
+Introduction
+AI VIETNAM
+All-in-One Course
+(TA Session)
+7
+v What are Large Language Models (LLMs)?
+ChatGPT App:
+1. User inputs a prompt (greetings, 
+task…).
+2. ChatGPT (Chatbot) outputs a 
+appropriate response.
+Introduction
+AI VIETNAM
+All-in-One Course
+(TA Session)
+8
+LLMs (Large Language Models): AI models (language models) that were trained on a very large corpus of text. This 
+made them capable of performing various NLP tasks with high precision.
+v What are Large Language Models (LLMs)?
+Introduction
+AI VIETNAM
+All-in-One Course
+(TA Session)
+9
+LLMs are often pretrained on a 
+vast majority of data and 
+designed to be adaptable to a 
+wide variety of tasks 
+(Foundation models).
+v What are Large Language Models (LLMs)?
+Introduction
+AI VIETNAM
+All-in-One Course
+(TA Session)
+10
+v LLMs I/O
+LLMs
+Input Text
+Output Text
+Write a python function 
+that receive an image and 
+plot it using matplotlib 
+library.
+Introduction
+Given a “prompt”, LLMs can generate 
+an appropriate response. 
+AI VIETNAM
+All-in-One Course
+(TA Session)
+11
+v Generative AI
+Introduction
+https://www.jonstokes.com/p/getting-started-with-stable-diffusion
+AI VIETNAM
+All-in-One Course
+(TA Session)
+12
+v Generative AI Prompting
+Introduction
+https://medium.com/m/global-identity-2?redirectUrl=https%3A%2F%2Ftowardsdatascience.com%2Fpractical-prompt-engineering-74e96130abc4
+Prompting: Refers to a process of 
+providing an input, usually in the form of 
+text data, to a generative AI model to 
+generate a specific output.
+AI VIETNAM
+All-in-One Course
+(TA Session)
+13
+v Prompting in LLMs
+Introduction
+With prompting, we can make LLMs do any task with just natural language (zero-shot capability)
+AI VIETNAM
+All-in-One Course
+(TA Session)
+14
+v LLMs problem
+Introduction
+Question: How can we improve LLMs on 
+a specific task?
+AI VIETNAM
+All-in-One Course
+(TA Session)
+15
+v How to improve LLMs on specific tasks?
+Introduction
+AI VIETNAM
+All-in-One Course
+(TA Session)
+How to improve LLMs?
+Fine-tuning
+In-context learning
+Augmenting
+16
+v How to improve LLMs on specific tasks?
+Introduction
+AI VIETNAM
+All-in-One Course
+(TA Session)
+How to improve LLMs?
+Fine-tuning
+In-context learning
+Augmenting
+17
+AI VIETNAM
+All-in-One Course
+(TA Session)
+In-context Learning
+18
+v Introduction
+In-context learning
+https://towardsdatascience.com/in-context-learning-approaches-in-large-language-models-9c0c53b116a1
+AI VIETNAM
+All-in-One Course
+(TA Session)
+In-context learning (ICL) in LLMs is a technique 
+where task demonstrations are integrated into the 
+prompt in a natural language format. This 
+approach allows pre-trained LLMs to address new 
+tasks without fine-tuning the model.
+19
+v Example
+In-context learning
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Make LLMs adapt to a task using instruction and examples
+20
+v In-context learning type
+In-context learning
+AI VIETNAM
+All-in-One Course
+(TA Session)
+In-context learning
+Chain-of-Thought
+Zero/One/Few-shot 
+learning
+…
+21
+v Zero-shot learning
+In-context learning
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Zero-shot learning: Prompting LLMs to do a task 
+without any examples.
+https://www.hopsworks.ai/dictionary/in-context-learning-icl
+22
+v One-shot learning
+In-context learning
+AI VIETNAM
+All-in-One Course
+(TA Session)
+One-shot learning: Prompting LLMs to do a task with 
+an example.
+https://www.hopsworks.ai/dictionary/in-context-learning-icl
+23
+v Few-shot learning
+In-context learning
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Few-shot learning: Prompting LLMs to do a task with 
+more than one example.
+https://www.hopsworks.ai/dictionary/in-context-learning-icl
+24
+v Chain-of-Thought Prompting
+In-context learning
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Chain-of-Thought (CoT) prompting enables complex 
+reasoning capabilities through intermediate reasoning 
+steps. You can combine it with few-shot prompting to 
+get better results on more complex tasks that require 
+reasoning before responding.
+25
+v Zero-shot learning with CoT
+In-context learning
+AI VIETNAM
+All-in-One Course
+(TA Session)
+https://www.promptingguide.ai/techniques/cot
+26
+v One-shot learning with CoT
+In-context learning
+AI VIETNAM
+All-in-One Course
+(TA Session)
+https://www.promptingguide.ai/techniques/cot
+27
+v CoT variations
+In-context learning
+AI VIETNAM
+All-in-One Course
+(TA Session)
+https://cobusgreyling.medium.com/the-anatomy-of-chain-of-thought-prompting-cot-b7489c925402
+28
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Instruction Tuning
+29
+Instruction Tuning
+v Training model in Machine Learning
+Basic training type
+1. Training
+2. Pre-training
+3. Fine-tuning 
+Start with a randomized 
+weights and train the model 
+on a new task.
+Start with a randomized 
+weights and train the model 
+on a very large dataset - 
+wide range of tasks.
+Start with a pre-trained 
+weights and train the model 
+on a new task.
+AI VIETNAM
+All-in-One Course
+(TA Session)
+30
+Instruction Tuning
+v Training model in Machine Learning
+Basic training type
+1. Training
+2. Pre-training
+3. Fine-tuning 
+Start with a randomized 
+weights and train the model 
+on a new task.
+Start with a randomized 
+weights and train the model 
+on a very large dataset - 
+wide range of tasks.
+Start with a pre-trained 
+weights and train the model 
+on a new task.
+AI VIETNAM
+All-in-One Course
+(TA Session)
+31
+Instruction Tuning
+v Fine-tuning
+Machine 
+Learning Model
+Update 
+Weights 
+(Knowledge)
+Fine-tuning
+Training 
+Dataset
+Pre-trained 
+Weights
+Initialize
+AI VIETNAM
+All-in-One Course
+(TA Session)
+32
+Instruction Tuning
+v Introduction
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Instruction Tuning in LLMs is a training 
+method aimed at enhancing the model’s 
+ability to understand and execute natural 
+language instructions.
+33
+Instruction Tuning
+v Training LLMs
+AI VIETNAM
+All-in-One Course
+(TA Session)
+https://www.lesswrong.com/posts/9asGWZ9vjmNDc4TeN/proposal-align-systems-earlier-in-training
+34
+Instruction Tuning
+v Applications
+AI VIETNAM
+All-in-One Course
+(TA Session)
+https://intuitivetutorial.com/2023/06/18/large-language-models-in-deep-learning/
+35
+Instruction Tuning
+v Applications
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Pretrained LLMs
+Fine-tuning on 
+Task A
+Inference on Task 
+A
+Fine-tuning to perform on a single 
+task (pretrain-finetune)
+36
+Instruction Tuning
+v Use case: Multiple choice math question solver
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Problem statement: Build a model that can choose the best answer (A, B, C or D) given a multiple choice math 
+question.
+37
+Instruction Tuning
+v Use case: Multiple choice math question solver
+AI VIETNAM
+All-in-One Course
+(TA Session)
+38
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Parameter Efficient Fine-Tuning
+39
+Parameter Efficient Fine-tuning
+v Problem Description
+AI VIETNAM
+All-in-One Course
+(TA Session)
+8-bits quantized
+30GB @ 8 bits
+precision
+Model 1.5B parameters
+(GPT-2)
+8-bits quantized
+3500GB @ 8 bits
+precision
+Model 175B parameters
+(GPT-3)
+8-bits quantized
+140GB @ 8 bits
+precision
+Model 7B parameters
+(LLaMa-7B)
+A100 40GB
+A100 80GB
+A100 80GB
+OutOfMemoryError: 
+Cuda out of memory
+40
+Parameter Efficient Fine-tuning
+v PEFT type
+AI VIETNAM
+All-in-One Course
+(TA Session)
+https://www.leewayhertz.com/parameter-efficient-fine-tuning/
+Parameter-efficient Fine-tuning (PEFT) is a 
+technique used to improve the performance of pre-
+trained language models on specific downstream 
+tasks. It involves reusing the pre-trained model’s 
+parameters and fine-tuning them on a smaller 
+dataset, which saves computational resources and 
+time compared to training the entire model from 
+scratch.
+41
+Parameter Efficient Fine-tuning
+v PEFT type
+AI VIETNAM
+All-in-One Course
+(TA Session)
+42
+Parameter Efficient Fine-tuning
+v LoRA: Low Rank Adaptation
+AI VIETNAM
+All-in-One Course
+(TA Session)
+ℎ= 𝑊𝑥 = 𝑊!𝑥+ ∆𝑊𝑥
+ ℎ= 𝑊!𝑥+ 𝐵𝐴𝑥
+𝐵∈ℝ"×$, 𝐴∈ℝ$×%
+𝑟≪{𝑑, 𝑘}
+LoRA training
+B
+𝑟
+𝑑
+A
+𝑟
+𝑘
+𝑑
+𝑘
+𝑇𝑟𝑎𝑖𝑛𝑎𝑏𝑙𝑒 𝑝𝑎𝑟𝑎𝑚𝑠= 2×𝑑&'"()×𝑟×?𝐿*'+,
+∗"𝐿!"#$ is the number of linear layers applied to LoRA
+43
+Parameter Efficient Fine-tuning
+v LoRA: Low Rank Adaptation
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Pre-trained
+weight
+*
+Task A
+Frozen
+Pre-trained
+weight
+*
+Task B
+Frozen
+44
+Parameter Efficient Fine-tuning
+v QLoRA
+AI VIETNAM
+All-in-One Course
+(TA Session)
+QLoRA      =    Quantization               +                   LoRA
+Block-wise k-bit Quantization
+k-bit NormalFloat Quantization
+Double Quantization 
+45
+Parameter Efficient Fine-tuning
+v Performance of LoRA
+AI VIETNAM
+All-in-One Course
+(TA Session)
+With LoRA
+Without LoRA
+46
+AI VIETNAM
+All-in-One Course
+(TA Session)
+LLM Metrics
+47
+LLM Metrics
+v How to evaluate LLMs?
+AI VIETNAM
+All-in-One Course
+(TA Session)
+How to efficiently evaluate the performance of LLMs?
+48
+LLM Metrics
+v How to evaluate LLMs?
+AI VIETNAM
+All-in-One Course
+(TA Session)
+https://datasciencedojo.com/blog/evaluating-large-language-models-llms/
+49
+LLM Metrics
+v BLEU score
+AI VIETNAM
+All-in-One Course
+(TA Session)
+BLEU (Bilingual Evaluation Understudy) is an algorithm for evaluating the quality of text which has been 
+machine-translated.
+How many words from the candidate appear in the reference?
+I
+I
+a
+student
+I
+am
+a
+student
+of
+this
+Candidate
+Reference
+university
+student
+of
++1
++1
++1
++1
++1
++1
+𝑠𝑐𝑜𝑟𝑒= 1 + 1 + 1 + 1 + 1 + 1
+𝑙𝑒𝑛(𝑐𝑎𝑛𝑑𝑖𝑑𝑎𝑡𝑒)
+= 1
+BLEU score is: 
+50
+LLM Metrics
+v BLEU score
+AI VIETNAM
+All-in-One Course
+(TA Session)
+I
+I
+a
+student
+I
+am
+a
+student
+of
+this
+Candidate
+Reference
+university
+student
+of
++1
++0
++1
++1
++0
++1
+𝑠𝑐𝑜𝑟𝑒=
+1 + 1 + 1 + 1
+𝑙𝑒𝑛(𝑐𝑎𝑛𝑑𝑖𝑑𝑎𝑡𝑒) = 0.66
+Modified version
+Cons:
+-
+don't consider semantic meaning
+-
+don't consider sentence structure
+51
+LLM Metrics
+v ROUGE score
+AI VIETNAM
+All-in-One Course
+(TA Session)
+ROUGE (Recall-Oriented Understudy for Gisting Evaluation) is a set of metrics for evaluating text generation 
+models (summarization or machine translation).
+I
+I
+a
+student
+I
+am
+a
+student
+of
+this
+Candidate
+Reference 1
+university
+student
+of
++1
++1
++1
++1
++1
++1
+𝑠𝑐𝑜𝑟𝑒2 =
+1 + 1 + 1
+𝑙𝑒𝑛(𝑟𝑒𝑓𝑒𝑟𝑒𝑛𝑐𝑒) = 0.42
+I
+am
+a
+member
+of
+this
+Reference 2
+university
++0
++0
++1
++0
+𝑠𝑐𝑜𝑟𝑒1 =
+1 + 1 + 1 + 1
+𝑙𝑒𝑛(𝑟𝑒𝑓𝑒𝑟𝑒𝑛𝑐𝑒) = 0.57
+Ninal score = max(score1, score2)
+52
+LLM Metrics
+v Other metrics?
+AI VIETNAM
+All-in-One Course
+(TA Session)
+https://msandbu.org/benchmarking-llms-and-what-is-the-best-llm/
+Evaluate LLMs on datasets built specificly for some capabilities
+53
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Quiz
+54
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Practices
+55
+Practices
+v Problem Description
+Description: Build a Vietnamese Chatbot that can handle math problem using Large Language Models (LLMs).
+AI VIETNAM
+All-in-One Course
+(TA Session)
+56
+Practices
+v Problem Description
+Description: Build a Vietnamese Chatbot that can handle math problem using Large Language Models (LLMs).
+We will apply fine-tuning to improve pre-trained performance
+AI VIETNAM
+All-in-One Course
+(TA Session)
+57
+Practices
+v Coding Step 1: Install libraries
+AI VIETNAM
+All-in-One Course
+(TA Session)
+58
+v Coding Step 2: Import libraries/modules
+Practices
+AI VIETNAM
+All-in-One Course
+(TA Session)
+59
+v Coding Step 3: Load pre-trained model
+Practices
+AI VIETNAM
+All-in-One Course
+(TA Session)
+60
+v Coding Step 3: Load pre-trained model
+Practices
+AI VIETNAM
+All-in-One Course
+(TA Session)
+61
+v Coding Step 4: Configurate LLMs 
+Generation configuration (Will affect the generation results)
+Practices
+AI VIETNAM
+All-in-One Course
+(TA Session)
+62
+v Fine-tuning LLMs
+LLMs
+Update 
+Weights 
+(Knowledge)
+Fine-tuning
+Training 
+Dataset
+Pre-trained 
+Weights
+Initialize
+Practices
+AI VIETNAM
+All-in-One Course
+(TA Session)
+63
+v Coding Step 5: Download dataset
+Fine-tune VinaLLaMA on 
+hllj/vi_grade_school_math_mc
+q 
+(https://huggingface.co/datasets
+/hllj/vi_grade_school_math_mcq)
+, a Vietnamese elementary math 
+dataset.
+Practices
+AI VIETNAM
+All-in-One Course
+(TA Session)
+64
+v Coding Step 5: Download dataset
+Practices
+AI VIETNAM
+All-in-One Course
+(TA Session)
+65
+Practices
+v Prompting format
+<|im_start|>system
+Bạn là một chuyên gia về toán. Bạn sẽ nhận câu hỏi trắc nghiệm kèm theo các lựa 
+chọn, hãy giải step by step nếu có và chọn phương án đúng.
+<|im_start|>user
+### Câu hỏi:
+{question}
+### Các lựa chọn:
+{choices}
+### Câu trả lời:
+<|im_start|>assistant
+{explanation}
+AI VIETNAM
+All-in-One Course
+(TA Session)
+66
+Practices
+v Coding Step 6: Create generate prompt function
+AI VIETNAM
+All-in-One Course
+(TA Session)
+67
+Practices
+v Coding Step 7: Create training samples
+AI VIETNAM
+All-in-One Course
+(TA Session)
+68
+Practices
+v Coding Step 7: Create training samples
+In problems column, each sample has 1 list of problems:
+1. Choices
+2. Question
+3. Explanation
+AI VIETNAM
+All-in-One Course
+(TA Session)
+69
+Practices
+v Coding Step 7: Create training samples
+Problems 
+column
+Take a dictionary
+Extract question, 
+choices, 
+explanation
+Call generate 
+prompt function
+Add sample to list
+New prompt
+End of list ?
+No
+Yes
+AI VIETNAM
+All-in-One Course
+(TA Session)
+70
+Practices
+v Coding Step 7: Create training samples
+AI VIETNAM
+All-in-One Course
+(TA Session)
+71
+Practices
+v Coding Step 8: Training
+AI VIETNAM
+All-in-One Course
+(TA Session)
+72
+Practices
+v Fine-tuning results
+Before fine-tuning
+AI VIETNAM
+All-in-One Course
+(TA Session)
+73
+Practices
+v Fine-tuning results
+After fine-tuning
+AI VIETNAM
+All-in-One Course
+(TA Session)
+74
+74
+Summary
+AI VIETNAM
+All-in-One Course
+(TA Session)
+In this lecture, we have discussed:
+1. Training type
+1. Pre-training
+2. Fine-tuning
+2. How to make LLMs adapt to a task?
+1. Prompting (In-context learning)
+1. One-shot learning: Prompting with 1 example.
+2. Few-shot learning: Prompting with more than 1 example.
+3. Chain-of-Thought: Prompting with reasoning.
+2. Instruction Tuning: By supervised learning LLMs with instruction data.
+3. How to train LLMs on a single (small) GPU? 
+1. Parameter Efficient Fine-Tuning
+4. Apply Instruction Tuning for multiple choice math question solver task.
+?
+75
+Question
+AI VIETNAM
+All-in-One Course
+(TA Session)
+76

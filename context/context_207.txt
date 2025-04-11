@@ -1,0 +1,754 @@
+AI VIET NAM – AI COURSE 2023
+Reinforcement Learning - Exercise
+Dinh-Thang Duong và Quang-Vinh Dinh
+PR-Team: Hoàng-Nguyên Vũ, Đăng-Nhã Nguyễn và Minh-Châu Phạm
+Ngày 18 tháng 4 năm 2024
+Phần I: Giới thiệu
+Reinforcement Learning (RL) (Tạm dịch: Học tăng cường), là một trong 3 nhánh chính trong
+Machine Learning (bên cạnh Supervised Learning và Unsupervised Learning). Đây là một nhánh học
+liên quan đến việc nghiên cứu cách đểtạo ra một tác tử(Agents), có khảnăng tương tác trong một môi
+trường giảlập (Environments) bằng một sốcác hành động (Actions) phù hợp, nhằm hoàn thành được
+mục tiêu của bài toán và tối đa điểm thưởng tích lũy kỳvọng nhận được (Expected Cumulative Reward)
+qua mỗi hành động thực hiện. Reinforcement learning thường được thửnghiệm trong môi trường game
+giảlập, song vẫn góp mặt trong một vài các ứng dụng nổi tiếng như: AlphaGo, ChatGPT...
+Đểhiểu rõ hơn một sốtừkhóa sửdụng trong bài viết, chúng ta sẽmô tảlại ý tưởng chính của một
+bài toán Học tăng cường qua framework sau:
+1
+AI VIETNAM
+aivietnam.edu.vn
+Hình 1: Reinforcement Learning Framework. Mô tảtổng quan vềbài toán Học tăng cường.
+Như đã nói ởtrên, Reinforcement Learning liên quan đến việc triển khai một tác tửcó khảnăng
+tương tác với môi trường, từđó học cách đểtối ưu điểm thưởng tích lũy kỳvọng nhận được qua mỗi
+nước đi. Với hình minh họa trên, ta có thểhình dung một ngữcảnh khi quá trình huấn luyện bắt đầu
+(trò chơi bắt đầu) tại thời điểm t = 0 như sau:
+1. Đầu tiên, tác tửnhận thông tin trạng thái S0 (khởi tạo) từmôi trường.
+2. Dựa vào thông tin trạng thái S0, tác tửthực hiện hành động At lên môi trường.
+3. Môi trường từđó thay đổi sang trạng thái S1.
+4. Môi trường đồng thời trảvềcho tác tửđiểm thưởng R1.
+Và cứnhư vậy, quá trình trên sẽlặp đi lặp lại cho đến khi tác tửhoàn thành mục tiêu của trò chơi hoặc
+hết giờ(timeout), trò chơi sẽkết thúc (gọi là terminate state).
+Hình 2: Hai loại thuật toán Reinforcement Learning sẽđược tìm hiểu trong bài
+Trong bài tập lần này, chúng ta sẽcùng triển khai và chạy thửcác thuật toán Reinforcement
+Learning cơ bản trên một sốmôi trường game, bao gồm các game trong thư viện gym của OpenAI
+(Taxi, LunarLander) và game PACMAN. Các thuật toán chúng ta sẽtriển khai bao gồm: Q-Learning,
+Approximate Q-Learning và Policy Gradient.
+2
+AI VIETNAM
+aivietnam.edu.vn
+Phần II: Bài tập
+Đểcó thểquan sát tác tửchơi game, các bạn cần chạy animation của game. Ởđây, chúng ta có thể
+hiển thịanimation game trên cả2 nền tảng code (máy local và Google Colab):
+• Đối với máy local: Các bạn hãy sửdụng môi trường ảo conda (cách cài đặt conda các bạn hãy
+tham khảo tại đây) và cài đặt thư viện gym như sau:
+1 $ pip3
+install ’gym[all]’
+Sau khi quá trình tải hoàn tất, các bạn có thểtest thư viện bằng cách chạy thửmôi trường game
+CartPole-v1 bằng cách copy đoạn lệnh này vào một file .py bất kì (giảsửtest.py):
+1 # test.py
+2 import gym
+3
+4 env = gym.make(’CartPole -v1’, render_mode=’human ’)
+5 env.reset ()
+6 for _ in range (100):
+7
+env.render ()
+8
+env.step(env.action_space .sample ())
+9 env.close ()
+Sau đó, thực thi file test.py trong terminal bằng lệnh:
+1 $ python3
+test.py
+Nếu thực thi thành công, các bạn sẽthấy một cửa sổanimation game CartPole hiện lên như sau:
+Hình 3: Hình ảnh trực quan của môi trường CartPole-v1
+• Đối với Google Colab: Mặc dù không thểchạy trực tiếp animation game như ởmáy local, song
+vẫn có nhiều cách khác nhau giúp ta có thểquan sát animation game. Ởđây, chúng ta coi các
+3
+AI VIETNAM
+aivietnam.edu.vn
+trạng thái của môi trường như các frame, sau đó lưu lại thành một file .gif, từđó có thểdễdàng
+hiển thịlên colab. Các bước thực hiện như sau:
+1. Cài đặt một sốpackage cần thiết:
+1 !sudo apt -get update
+2 !apt
+install
+imagemagick
+3 !pip
+install ’gym[all]’ pygame
+2. Xây dựng hàm tạo ảnh gif: Hàm này nhận vào danh sách các frame, sau đó xuất thành
+file có tên demo.gif:
+1 import
+matplotlib.pyplot as plt
+2 from
+matplotlib
+import
+animation
+3
+4 def
+save_frames_as_gif (
+5
+frames ,
+6
+path=’./’,
+7
+filename=’demo.gif’,
+8
+fps=1
+9 ):
+10
+temp_frame = frames [0]
+11
+plt.figure(figsize =( temp_frame.shape [1] / 72.0 ,
+temp_frame.shape [0] /
+72.0) , dpi =72)
+12
+13
+patch = plt.imshow(frames [0])
+14
+plt.axis(’off’)
+15
+16
+def
+animate(i):
+17
+patch.set_data(frames[i])
+18
+19
+anim = animation.FuncAnimation (plt.gcf(), animate , frames = len(frames),
+interval =50)
+20
+anim.save(path + filename , writer=’imagemagick ’, fps=fps)
+21
+plt.close ()
+3. Khởi tạo môi trường và kiểm thử: Ta khởi tạo môi trường CartPole-v1 đểkiểm thửhàm
+tạo ảnh gif trên bằng đoạn lệnh sau:
+1 import gym
+2
+3 from
+IPython.display
+import
+Image
+4
+5 env_id = ’CartPole -v1’
+6 env = gym.make(env_id , render_mode=’rgb_array ’)
+7 images = []
+8 state , info = env.reset ()
+9 img = env.render ()
+10 images.append(img)
+11
+12 for _ in range (100):
+13
+action = env.action_space.sample ()
+14
+state , reward , terminated , truncated , info = env.step(action)
+15
+img = env.render ()
+16
+images.append(img)
+17
+18
+if terminated or truncated:
+19
+break
+20
+21 env.close ()
+22 save_frames_as_gif (images , fps =10)
+23 Image(open(’demo.gif’,’rb’).read ())
+4
+AI VIETNAM
+aivietnam.edu.vn
+Nếu toàn bộcác bước trên thành công, ta sẽthấy animation game hiển thịtrong Colab như
+hình sau:
+Hình 4: Hình ảnh trực quan của môi trường CartPole-v1 trong Google Colab
+Đểthuận tiện trong việc thực hiện bài tập này, bài tập 1 và 3 trong bài viết sẽđược thực hiện trong
+Google Colab.
+5
+AI VIETNAM
+aivietnam.edu.vn
+Câu 1: Q-Learning
+Cho môi trường game Taxi trong thư viện OpenAI Gym, với một sốthông tin chính như sau (các
+bạn có thểđọc thêm thông tin chi tiết vềmôi trường này tại đây):
+Hình 5: Hình ảnh trực quan của game Taxi
+• Kiểu môi trường: Grid World (Deterministic Environment).
+• Không gian hành động (Action Space): 6 (Discrete).
+• Không gian trạng thái (State Space): 500 (Discrete).
+• Mục tiêu (Objective): Di chuyển Taxi đến đón khách hàng và đưa họđến một trong bốn vịtrí
+trảkhách.
+• Trạng thái kết thúc (Terminate State): Taxi trảkhách đúng nơi đã định.
+• Hàm điểm thưởng (Reward Function):
+– +20 điểm nếu trảhàng khách đúng nơi.
+– -1 điểm mỗi một lần Taxi di chuyển.
+– -10 điểm nếu đón và trảhàng khách không đúng nơi đã định.
+Các bạn hãy cài đặt thuật toán Q-Learning đểhuấn luyện tác tửhoàn thành nhiệm vụ, cũng như đạt
+điểm thưởng tích lũy tối đa trên môi trường Taxi này. Đểtriển khai thuật toán này, các bạn có thể
+tham khảo một sốbước hướng dẫn sau:
+1. Khai báo các thư viện cần thiết:
+1 import
+numpy as np
+2 import
+gymnasium as gym
+3 import os
+4 import
+tqdm
+5 import
+matplotlib.pyplot as plt
+6
+AI VIETNAM
+aivietnam.edu.vn
+6
+7 from
+IPython.display
+import
+Image
+8 from
+matplotlib
+import
+animation
+9 from tqdm.notebook
+import
+tqdm
+2. Khởi tạo môi trường Taxi-v3:
+1 env_id = ’Taxi -v3’
+2 env = gym.make(env_id , render_mode=’rgb_array ’)
+3. Xây dựng hàm khởi tạo Q-Table:
+1 def
+init_q_table(state_space , action_space ):
+2
+q_table = np.zeros (( state_space , action_space))
+3
+4
+return
+q_table
+4. Xây dựng hàm khởi tạo Greedy Policy:
+1 def
+greedy_policy(q_table , state):
+2
+action = np.argmax(q_table[state , :])
+3
+4
+return
+action
+5. Xây dựng hàm khởi tạo Epsilon-greedy Policy:
+1 def
+epsilon_greedy_policy (q_table , state , epsilon):
+2
+rand_n = float(np.random.uniform (0, 1))
+3
+4
+if rand_n > epsilon:
+5
+action = greedy_policy (q_table , state)
+6
+else:
+7
+action = np.random.choice(q_table.shape [1])
+8
+9
+return
+action
+6. Khai báo một sốsiêu tham sốcần thiết:
+1 n_training_episodes = 30000
+2 n_eval_episodes = 100
+3 lr = 0.7
+4
+5 max_steps = 99
+6 gamma = 0.95
+7 eval_seed = range( n_eval_episodes )
+8
+9 max_epsilon = 1.0
+10 min_epsilon = 0.05
+11 decay_rate = 0.0005
+7. Xây dựng hàm training:
+1 def train(
+2
+env ,
+3
+max_steps ,
+4
+q_table ,
+5
+n_training_episodes ,
+6
+min_epsilon ,
+7
+max_epsilon ,
+8
+decay_rate ,
+7
+AI VIETNAM
+aivietnam.edu.vn
+9
+lr ,
+10
+gamma
+11 ):
+12
+for
+episode in tqdm(range( n_training_episodes )):
+13
+epsilon = min_epsilon + (max_epsilon - min_epsilon) * np.exp(-decay_rate
+* episode)
+14
+15
+state , info = env.reset ()
+16
+step = 0
+17
+terminated = False
+18
+truncated = False
+19
+20
+for step in range(max_steps):
+21
+action = epsilon_greedy_policy (q_table , state , epsilon)
+22
+new_state , reward , terminated , truncated , info = env.step(action)
+23
+24
+q_table[state , action] = q_table[state , action] + lr * (reward +
+gamma * np.max(q_table[new_state ]) - q_table[state , action ])
+25
+26
+if terminated or truncated:
+27
+break
+28
+29
+state = new_state
+30
+31
+return
+q_table
+8. Thực hiện huấn luyện:
+1 q_table = init_q_table(state_space , action_space)
+2 trained_q_table = train(
+3
+env ,
+4
+max_steps ,
+5
+q_table ,
+6
+n_training_episodes ,
+7
+min_epsilon ,
+8
+max_epsilon ,
+9
+decay_rate ,
+10
+lr ,
+11
+gamma
+12 )
+Sau khi quá trình training hoàn tất, ta sẽcó một Q-table với các giá trịQ-value đã được cập nhật.
+8
+AI VIETNAM
+aivietnam.edu.vn
+Câu 2: Approximate Q-Learning
+Cho môi trường game Pacman với một sốthông tin chính như sau:
+Hình 6: Hình ảnh trực quan của game Pacman
+• Kiểu môi trường: Grid World (Stochastic Environment).
+• Không gian hành động (Actions Space): 5 (Discrete).
+• Mục tiêu (Objective): Di chuyển Pacman ăn toàn bộtất cảcác đồăn (chấm màu trắng) trên
+bản đồđồng thời tránh né các ghosts.
+• Trạng thái kết thúc (Terminate State): Pacman ăn được toàn bộcác đồăn trên bản đồ.
+• Hàm điểm thưởng (Reward Function):
+– +10 điểm nếu ăn được 1 đồăn.
+– +200 điểm nếu tiêu diệt được 1 ghost.
+– -500 điểm nếu bịtiêu diệt bởi ghosts.
+– -1 điểm mỗi một lần thực hiện hành động bất kì.
+Các bạn hãy tải source code của game Pacman theo đường dẫn này và cài đặt thuật toán Approximate
+Q-Learning đểhuấn luyện tác tửhoàn thành nhiệm vụ, cũng như đạt được điểm thưởng tích lũy tối đa
+trên môi trường game Pacman này. Bên cạnh đó, dựa vào chức năng recording game trong source code,
+các bạn hãy thực nghiệm với 4 bản demo tác tửchơi 1 ván game như sau:
+• Demo 1: Tác tửkhi không được huấn luyện.
+• Demo 2: Tác tửkhi được huấn luyện qua 10 episodes.
+9
+AI VIETNAM
+aivietnam.edu.vn
+• Demo 3: Tác tửkhi được huấn luyện qua 100 episodes.
+• Demo 4: Tác tửkhi được huấn luyện qua 1000 episodes.
+Đểthực hiện được bài tập này, các bạn có thểtham khảo cách làm sau:
+1. Cài đặt source code game Pacman: Dựa vào đường dẫn đã cung cấp ởtrên, các bạn hãy tải
+source code game Pacman thông qua lệnh sau:
+1 $ git clone
+https :// dagshub.com/DavidN/Pacman -RL.git
+Hình 7: Cấu trúc cây thư mục của mã nguồn game Pacman
+Đểnhanh chóng tiếp cận, các bạn cần lưu ý một vài file/thư mục chính như sau:
+• ./pacman.py: File main dùng đểthực hiện chạy chương trình game Pacman cũng như huấn
+luyện tác tử. Các bạn có thểchạy thửgame này bằng lệnh:
+1 $ python3
+pacman.py -n 1 -z 2
+Nếu thực thi thành công, cửa sổgame sẽmởvà các bạn có thểdùng nút lên xuống trái phải
+của bàn phím đểchơi game.
+• ./agents: Thư mục chứa các class định nghĩa các kiểu tác tử, trong đó bao gồm Pacman và
+Ghosts. Đối với tác tửPacman, hiện tại có 3 phiên bản gồm:
+– KeyboardAgent: Phiên bản cho phép ta điều khiển tác tử. Đây là mặc định của game.
+– LeftTurnAgent: Phiên bản Pacman sẽluôn tựđộng chọn hướng rẽtrái đểdi chuyển.
+– GreedyAgent: Phiên bản tác tửsẽluôn tựđộng chọn hành động mang lại điểm thưởng
+tức thời cao nhất.
+Ví dụ, đểsửdụng GreedyAgent, các bạn sửdụng lệnh sau:
+1 $ python3
+pacman.py -p GreedyAgent -n 1 -z 2
+Có thểthấy rằng, đểtạo một phiên bản tác tửmới, ta cần định nghĩa một class mới trong các
+file trong thư mục ./agents. Đểdễdàng tiếp cận bài toán, các bạn hãy tham khảo file code
+Approximate Q-Learning trong repo này và tích hợp vào mã nguồn của đềbài.
+10
+AI VIETNAM
+aivietnam.edu.vn
+Câu 3: Policy Gradient
+Cho môi trường game LunarLander-v2 trong thư viện OpenAI Gym, với một sốthông tin chính như
+sau (các bạn có thểđọc thêm thông tin chi tiết vềmôi trường này tại đây):
+Hình 8: Hình ảnh trực quan của môi trường LunarLander
+• Kiểu môi trường: Box2D (Stochastic Environment).
+• Không gian hành động (Actions Space): 4 (Discrete).
+• State Shape: (8,).
+• Mục tiêu (Objective): Điều khiển tàu tên lửa đáp xuống đúng vịtrí (càng sát càng tốt) đã
+định trên màn hình, trong khi giữcho lượng nguyên liệu tiêu thụít nhất, đặc biệt không đểtàu
+phát nổ.
+• Trạng thái kết thúc (Terminate State): Tàu tên lửa đáp xuống thành công, hoặc phát nổ,
+hoặc bay khỏi giới hạn màn hình.
+• Hàm điểm thưởng (Reward Function):
+– +100 điểm nếu đáp xuống bãi đáp thành công.
+– -100 điểm nếu tàu tên lửa phát nổ.
+– -0.3 điểm cho mỗi đơn vịthời gian trôi qua.
+– +10 điểm cho mỗi chân tàu nằm gọn bên trong bãi đáp.
+Các bạn hãy triển khai thuật toán REINFORCE (một trong những thuật toán policy gradient) và
+huấn luyện tác tửcó thểhoàn thành được trò chơi này, tối thiểu phải có điểm thưởng tích lũy tối đa là
+dương. Các bạn có thểtham khảo các bước thực hiện như sau:
+Lưu ý: Đểtăng tốc độtraining, các bạn hãy sửdụng GPU cho bài tập này.
+1. Khai báo các thư viện cần thiết:
+11
+AI VIETNAM
+aivietnam.edu.vn
+1 import
+numpy as np
+2 import gym
+3 import os
+4 import
+tqdm
+5 import
+matplotlib.pyplot as plt
+6
+7 import
+torch
+8 import
+torch.nn as nn
+9 import
+torch.nn.functional as F
+10 import
+torch.optim as optim
+11 from
+torch.distributions
+import
+Categorical
+12
+13 from
+collections
+import
+deque
+14 from
+IPython.display
+import
+Image
+15 from
+matplotlib
+import
+animation
+16 from tqdm.notebook
+import
+tqdm
+2. Khởi tạo môi trường LunarLander-v2:
+1 env_id = ’LunarLander -v2’
+2 env = gym.make(env_id , new_step_api =True)
+3
+4 state_space = env. observation_space .shape [0]
+5 action_space = env.action_space.n
+3. Xây dựng Policy Network:
+1 class
+Policy(nn.Module):
+2
+def
+__init__(self , s_size , a_size , h_size):
+3
+super(Policy , self).__init__ ()
+4
+self.fc1 = nn.Linear(s_size , h_size)
+5
+self.fc2 = nn.Linear(h_size , h_size * 2)
+6
+self.fc3 = nn.Linear(h_size * 2, a_size)
+7
+8
+def
+forward(self , x):
+9
+x = F.relu(self.fc1(x))
+10
+x = F.relu(self.fc2(x))
+11
+x = self.fc3(x)
+12
+13
+return F.softmax(x, dim =1)
+14
+15
+def act(self , state):
+16
+state = torch.from_numpy(state).float ().unsqueeze (0).to(device)
+17
+probs = self.forward(state).cpu()
+18
+m = Categorical(probs)
+19
+action = m.sample ()
+20
+21
+return
+action.item (), m.log_prob(action)
+4. Xây dựng hàm training:
+1 def
+reinforce(
+2
+policy ,
+3
+optimizer ,
+4
+n_training_episodes ,
+5
+max_steps ,
+6
+gamma ,
+7
+print_every
+8 ):
+9
+scores_deque = deque(maxlen =100)
+12
+AI VIETNAM
+aivietnam.edu.vn
+10
+scores = []
+11
+12
+for
+i_episode in range (1, n_training_episodes + 1):
+13
+saved_log_probs = []
+14
+rewards = []
+15
+state = env.reset ()
+16
+17
+for t in range(max_steps):
+18
+action , log_prob = policy.act(state)
+19
+saved_log_probs .append(log_prob)
+20
+state , reward , done , _, info = env.step(action)
+21
+rewards.append(reward)
+22
+if done:
+23
+break
+24
+scores_deque.append(sum(rewards))
+25
+scores.append(sum(rewards))
+26
+27
+returns = deque(maxlen=max_steps)
+28
+n_steps = len(rewards)
+29
+30
+for t in range(n_steps)[:: -1]:
+31
+disc_return_t = returns [0] if len(returns) > 0 else 0
+32
+returns.appendleft(gamma * disc_return_t + rewards[t])
+33
+34
+eps = np.finfo(np.float32).eps.item ()
+35
+36
+returns = torch.tensor(returns)
+37
+returns = (returns - returns.mean ()) / (returns.std() + eps)
+38
+39
+policy_loss = []
+40
+for log_prob , disc_return in zip(saved_log_probs , returns):
+41
+policy_loss.append(-log_prob * disc_return)
+42
+policy_loss = torch.cat(policy_loss).sum()
+43
+44
+optimizer.zero_grad ()
+45
+policy_loss.backward ()
+46
+optimizer.step ()
+47
+48
+if i_episode % print_every == 0:
+49
+print("Episode
+{}\ tAverage
+Score: {:.2f}".format(i_episode , np.mean(
+scores_deque)))
+50
+51
+return
+scores
+5. Khai báo policy network và optimizer:
+1 device = torch.device(’cuda ’ if torch.cuda.is_available () else ’cpu’)
+2
+3 policy = Policy(
+4
+s_size=state_space ,
+5
+a_size=action_space ,
+6
+h_size=h_size ,
+7 ).to(device)
+8
+9 optimizer = optim.Adam(policy.parameters (), lr=lr)
+6. Thực hiện huấn luyện:
+1 scores = reinforce(
+2
+policy ,
+13
+AI VIETNAM
+aivietnam.edu.vn
+3
+optimizer ,
+4
+n_training_episodes ,
+5
+max_steps ,
+6
+gamma ,
+7
+print_every =100
+8 )
+14
+AI VIETNAM
+aivietnam.edu.vn
+Phần III: Câu hỏi trắc nghiệm
+1. Trong Reinforcement Learning, mục tiêu của tác tửlà?
+(a) Tối ưu điểm thưởng nhận được tại mỗi trạng thái.
+(b) Tối ưu điểm thưởng tích lũy kỳvọng.
+(c) Tối ưu thời gian hoàn thành mục tiêu.
+(d) Tối ưu tiền thưởng nhận được trong trò chơi.
+2. Theo Reinforcement Learning Framework, sau khi tác tửthực hiện hành động At, môi trường sẽ
+trảlại cho tác tửnhững gì?
+(a) Điểm thưởng Rt và Trạng thái St.
+(b) Trạng thái St+1.
+(c) Điểm thưởng Rt+1 và Trạng thái St+1.
+(d) Điểm thưởng Rt+1.
+3. Đáp án nào sau đây là một dạng bài toán trong Reinforcement Learning?
+(a) Adversarial
+(b) Recursive
+(c) Dynamic
+(d) Episodic
+4. Trong Reinforcement Learning, trạng thái (S) được hiểu là?
+(a) Mô tảcác hành động thực hiện được của tác tử.
+(b) Mô tảtoàn cục của môi trường.
+(c) Mô tảcục bộcủa môi trường.
+(d) Mô tảđiểm thưởng nhận được của tác tử.
+5. Trong trò chơi Super Mario Bros phiên bản OpenAI Gym (có không gian trò chơi như ảnh minh
+họa trên), nhân vật Mario có thểthực hiện được các hành động bao gồm: Di chuyển Trái/Phải,
+Ngồi xuống, Nhảy lên và Đứng yên. Theo đó, không gian hành động (Action Space) của môi
+trường này là?
+15
+AI VIETNAM
+aivietnam.edu.vn
+(a) Discrete(4)
+(b) Discrete(5)
+(c) Discrete(6)
+(d) Discrete(7)
+6. Trong Reinforcement Learning, Policy là gì?
+(a) Hàm ánh xạhành động sang điểm thưởng.
+(b) Hàm ánh xạtrạng thái sang hành động.
+(c) Hàm ánh xạđiểm thưởng sang hành động.
+(d) Hàm ánh xạhành động sang trạng thái.
+7. Trong phương pháp Value-based, việc luôn lựa chọn hành động cho điểm thưởng tích lũy cao nhất
+còn được gọi là gì?
+(a) Softmax Policy.
+(b) Random Policy.
+(c) ε-greedy Policy.
+(d) Greedy Policy.
+8. Dòng code nào sau đây biểu diễn chiến lược cân bằng giữa exploration và exploitation?
+(a) np.argmax(Q[s])
+(b) np.random.choice(A)
+(c) np.argmin(Q[s])
+(d) np.argmax(Q[s]) if np.random.rand() > e else np.random.choice(A)
+9. Mục đích của yếu tốHệsốchiết khấu (Discounting Factor) là gì?
+(a) Gia tăng kích thước của không gian trạng thái.
+(b) Giảm kích thước của không gian trạng thái.
+(c) Tăng điểm thưởng tích lũy kỳvọng nhận được.
+(d) Cân bằng độquan trọng giữa điểm thưởng nhận được tức khắc và tương lai.
+10. Trong Q-learning, hàm nào sau đây miêu tảtìm kiếm optimal policy?
+(a) π∗(s) = arg maxa Q∗(s, a)
+(b) π∗(s) = arg maxa V ∗(s)
+(c) π∗(s) = arg mina Q∗(s, a)
+(d) π∗(s) = arg mina V ∗(s)
+11. Trong Q-Learning, công thức nào dưới đây biểu diễn hàm cập nhật Q-Value của trạng thái s và
+hành động a?
+(a) Q(s, a) = Q(s, a) + α[r + γ P
+a′ Q(s′, a′) −Q(s, a)]
+(b) Q(s, a) = Q(s, a) + α[r + γQ(s′, a′) −Q(s, a)]
+(c) Q(s, a) = Q(s, a) + α[r + γ maxa′ Q(s′, a′) −Q(s, a)]
+(d) Q(s, a) = Q(s, a) + α[r −γ maxa′ Q(s′, a′) −Q(s, a)]
+12. Hàm nào sau đây không phải là hàm điểm thưởng tích lũy kỳvọng?
+(a) V π(s) = Eπ
+τt∼p(τt)[P∞
+i=0 γi · rt+i|st = s]
+16
+AI VIETNAM
+aivietnam.edu.vn
+(b) V π(s) = P
+a∈A Qπ(s, a)
+(c) V π(s) = P
+a∈A π(a|s)Qπ(s, a)
+(d) V π(s) = Eπ[Rt+1 + γRt+2 + γ2Rt+3 + ...|St = s]
+13. Thuật toán nào sau đây thuộc nhóm thuật toán Policy Gradient?
+(a) REINFORCE
+(b) Q-Learning
+(c) SARSA
+(d) Value Iteration
+14. Trong Policy Gradient, hàm nào dưới đây biểu diễn stochastic policy?
+(a) πθ(s) = arg maxa Qπ(s, a)
+(b) πθ(a|s) = arg maxa Qπ(s, a)
+(c) πθ(s) = arg maxa V π(s)
+(d) πθ(a|s) = P(a|s; θ)
+15. Cho đoạn code Q-Learning sau:
+1 state = env.reset ()
+2 for t in range(max_steps):
+3
+action = np.argmax(Q[state ])
+4
+next_state , reward , done , _ = env.step(action)
+5
+Q[state , action] = Q[state , action] + alpha * (reward + gamma * np.max(Q[
+next_state ]) - Q[state , action ])
+6
+state = next_state
+7
+if done:
+8
+break
+Loại policy dùng đểlựa chọn hành động tại step t đã được triển khai là?
+(a) ε-greedy Policy
+(b) Softmax Policy
+(c) Greedy Policy
+(d) Random Policy
+- Hết -
+17

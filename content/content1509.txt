@@ -1,4 +1,0 @@
-AI VIETNAM aivietnam.edu.vn
-c) L1
-d) Contrastive Loss
-Câu hỏi 8Bộ dữ liệu sử dụng cho phần thực nghiệm là?

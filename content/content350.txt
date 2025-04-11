@@ -1,4 +1,0 @@
-path . join ( self . root_dir , self . phase ))
-20
-21 for folder in video_folders :
-22 video_paths = os. listdir (os. 

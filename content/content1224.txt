@@ -1,3 +1,0 @@
-AI VIETNAM aivietnam.edu.vn
-6 self . backbone = mobilenet_v3_small ( pretrained = True )
-7 self . backbone . classifier = nn. 

@@ -1,0 +1,145 @@
+What is Imbalanced Classification
+TA Hùng An
+AI VIETNAM
+All-in-One Course
+Nội dung
+1.
+What is Imbalanced Classification?
+2.
+Intuition for Imbalanced Classification
+3.
+Challenge of Imbalanced Classification
+AI VIETNAM
+All-in-One Course
+2
+Competition
+AI VIETNAM
+All-in-One Course
+MultiEarth 2023
+3
+Competition
+AI VIETNAM
+All-in-One Course
+Deep Learning in Ultrasound Image Analysis
+4
+1 - What is Imbalanced Classification
+AI VIETNAM
+All-in-One Course
+Classification Predictive Modeling
+Understandp
+roblem
+Define 
+model goals
+get data for 
+modeling
+prepare the 
+data
+process data
+select model
+train and 
+validate model 
+Optimize 
+model
+8 bước cho một Predictive Modeling Pipeline
+5
+1 - What is Imbalanced Classification
+AI VIETNAM
+All-in-One Course
+Classification Predictive Modeling
+Classification là một Predictive Modeling liên quan đến việc gán nhãn 
+cho mỗi data point/observation
+6
+1 - What is Imbalanced Classification
+AI VIETNAM
+All-in-One Course
+Imbalanced Classification Problems
+Imbalance data là một thách thức cho 
+predictive modeling vì hầu hết các thuật 
+toán sử dụng để phân loại đều được thiết 
+kế dựa trên giả định về số lượng bằng nhau 
+cho mỗi class. Điều này dẫn đến các mô 
+hình có hiệu suất dự đoán kém, đặc biệt đối 
+với những class thiểu số. 
+7
+1 - What is Imbalanced Classification
+AI VIETNAM
+All-in-One Course
+Imbalanced Classification Problems
+Vấn đề lệch dữ liệu giữa các class được gọi là Imbalanced thay vì Unbalanced là vì:
+-
+Unbalanced đề cập đến việc class distribution đã được cân bằng và hiện không 
+còn cân bằng nữa.
+-
+Imbalanced đề cập đến việc class distribution vốn đã không cân bằng.
+Ví dụ: Cho bài toán imbalanced binary classification với sự mất cân bằng từ 1 đến 100 
+(1:100) có nghĩa là cứ mỗi một sample ở một class này thì có 100 samples ở class kia
+8
+1 - What is Imbalanced Classification
+AI VIETNAM
+All-in-One Course
+Imbalanced Classification Problems
+9
+Long-tail Problem
+Một loại bài toán imbalanced phức tạp hơn 
+1 - What is Imbalanced Classification
+AI VIETNAM
+All-in-One Course
+Causes of Class Imbalance
+Hai nguyên nhân chính dẫn đến sự mất cân bằng của class distribution:
+-
+Data sampling
+-
+Properties of the domain 
+10
+1 - What is Imbalanced Classification
+AI VIETNAM
+All-in-One Course
+Challenge of Imbalanced Classification
+Imbalanced Classification có 2 dạng chính: Slight Imbalance và Severe Imabalance
+-
+Slight Imbalance: distribution của các mẫu dữ liệu có sự phân bố không đều ở 
+một lượng nhỏ trong dataset (ví dụ lệch 4:6)
+-
+Severe Imbalance: distribution của các mẫu dữ liệu có sự phân bố không đều ở 
+số lượng lớn trong dataset (ví dụ lệch 1:100 hoặc nhiều hơn)
+Class có nhiều mẫu dữ liệu hơn được gọi là major class, ngược lại gọi là minor class
+11
+2 - Intuition for Imbalanced Classification
+AI VIETNAM
+All-in-One Course
+Create and Plot data: 
+12
+2 - Intuition for Imbalanced Classification
+AI VIETNAM
+All-in-One Course
+Create and Plot data: 
+13
+Sự khác biệt khi kiểm tra imbalanced data giữa 2 loại biểu đồ là gì?
+2 - Intuition for Imbalanced Classification
+AI VIETNAM
+All-in-One Course
+Create and Plot data: 
+14
+Sử dụng scatter giúp chúng ta có cái nhìn tổng quan về phân phối data để có thể lựa 
+chọn những giải pháp phù hợp  
+2 - Intuition for Imbalanced Classification
+AI VIETNAM
+All-in-One Course
+Create Synthetic Dataset with a Class Distribution
+15
+2 - Intuition for Imbalanced Classification
+AI VIETNAM
+All-in-One Course
+Effect of Skewed Class Distributions
+16
+3 - Challenge of Imbalanced Classification
+AI VIETNAM
+All-in-One Course
+Compounding Effect of Dataset Size
+17
+3 - Challenge of Imbalanced Classification
+AI VIETNAM
+All-in-One Course
+Compounding Effect of Label Noise
+Việc có thêm noise sẽ làm cho việc phân tách giữa các lớp trở nên khó khăn hơn.
+18

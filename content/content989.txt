@@ -1,3 +1,0 @@
-Các phương pháp đơn giản sẽ chuyển đổi cấu trúc bảng thành các cấu trúc dễ
-hiểu hơn với máy như markdown hoặc html.
-7

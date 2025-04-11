@@ -1,0 +1,171 @@
+AI VIET NAM – COURSE 2024
+Decision Tree for Regression
+Ngày 4 tháng 3 năm 2024
+Ngày công bố:
+16/02/2024
+Tác giả:
+Người tóm tắt:
+Nguyễn Văn Nam
+1. Đặt vấn đề:
+Hình 1: Dataset phức tạp
+• Nếu dataset phức tạp thì dùng giải thuật Linear regression sẽrất khó khăn => Vì vậy giải
+thuật Regression tree được ra đời đểgiải quyết vấn đềnày
+• Bài toán vềregression là chia nhỏdữliệu và tính trung bình của đoạn dữliệu đó sao cho
+đường đại diện cho đoạn dữliệu có độlệch trung bình nhỏtốt nhất, đại diện tối ưu nhất cho
+đoạn dữliệu đó.
+2. Regression tree:
+• Xét 1 ví dụcụthể, chúng ta cần dựđoán kết quảđầu ra của dataset dựa trên các thuộc
+tính: Unit, Age, Sex như hình bên dưới
+• Ý tưởng xây dựng giải thuật: dựa trên dataset có sẵn, ta đi tìm node gốc của bộdữliệu bằng
+cách thửlần lượt các thuộc tính của dataset, thuộc tính nào tốt nhất thì sẽlà root node của
+cây
+3. Cách xác định:
+1
+AI VIETNAM
+aivietnam.edu.vn
+Hình 2: Ví dụvềdataset phức tạp
+• Giảsửta lấy Unit là root node
+• Ta cần tìm ngưỡng của dataset:
+Hình 3: Xác định ngưỡng
+- Từtrái qua phải, ta lấy 2 điểm liền kềđầu tiên và lấy giá trịtrung bình của 2 điểm đó (ở
+đây trung bình sẽlà 3)
+- Từtrung bình ởtrên, ta đã chia dữliệu thành 2 phần trái và phải. Tiếp theo ta tiến hành
+lấy giá trịtrung bình của mỗi phía
+- Theo dataset ta có được trung bình bên trái là 0, trung bình bên phải sẽlà 38.8
+- Ta đã có được 1 thành phần cây: nếu Unit < 3 thì hiệu quảsẽ= 0, ngược lại hiệu quảđạt
+38.8
+- Tiến hành đánh giá độchính xác của cây: SSR = tổng bình phương của hiệu giá trịthực tế
+với giá trịdựđoán
+- Ta lần lượt đánh giá độchính xác của từng phần
+AI VIETNAM
+aivietnam.edu.vn
+Hình 4: Tính SSR của trường hợp Unit < 3
+Hình 5: Tính SSR của trường hợp Unit > 3
+- Cuối cùng ta tính được tổng SSR 2 nhánh của cây
+- Lưu ý rằng tổng SSR hiện tại chỉlà 1 cây đầu tiên, ta phải tiếp tục thực hiện tính tổng SSR
+của các trường hợp khác và đánh giá tiếp đểlấy trường hợp tối ưu nhất.
+- Ta tiếp tục đi tính trung bình 2 điểm tiếp theo trong bộdữliệu
+- Đường trung bình có giá trịbằng 5 và đường trung bình cũng chia dữliệu thành 2 phần, bên
+trái và bên phải. Ta tiến hành thực hiện tính giá trịtrung bình của bên trái và bên phải,
+tính SSR của từng phần của tổng giá trịcủa SSR của cây
+AI VIETNAM
+aivietnam.edu.vn
+Hình 6: Tổng SSR
+Hình 7: Tìm đường trung bình của 2 điểm tiếp theo
+- Quá trình này được lặp qua tất cảcác điểm của data, với mỗi 1 ngưỡng (trung bình của 2
+điểm) ta sẽcó được giá trịSSR của cây. Cuối cùng ta được 1 ngưỡng có SSR nhỏnhất chính
+là ngưỡng tốt nhất của cây
+AI VIETNAM
+aivietnam.edu.vn
+Hình 8: Tổng SSR của 2 điểm kếtiếp
+Hình 9: Tìm SSR nhỏnhất
+- Sau khi từng được ngưỡng tốt nhất (ởđây là 14.5), ta được 2 nhánh của cây
+- Tiếp tục thực hiện tìm ngưỡng tối ưu nhất đối với từng nhánh của cây tương tựnhư data
+ban đầu. Việc tìm ngưỡng ởđây sẽáp dụng đối với từng nhánh của cây sau khi đã được tách
+từđường 14.5
+- Quá trình lại tiếp tục lặp đi lặp lại đối với từng ngưỡng, từng nhánh của cây do ngưỡng phân
+tách
+(?) Vấn đềphát sinh hiện tại là đến khi nào ra sẽdừng việc tìm ngưỡng và đánh giá nó?
+- Có rất nhiều điều kiện dừng khác nhau tuỳthuộc vào lựa chọn hay dataset mà ta có thể
+dùng các điều kiện dừng khác nhau, một vài điều kiện có thểcó như:
++ Độsâu của cây không quá 3
++ Tổng sốsample trong node không vượt quá 4,5 hoặc 6
++ Các sample giống nhau hơn
+AI VIETNAM
+aivietnam.edu.vn
+Hình 10: 2 nhánh của cây từngưỡng 14.5
+Hình 11: Ngưỡng bên trái của cây
+4. Overfitting:
+- Underfit: là hiện tượng mô hình Machine Learning hoặc Deep Learning không học được đủ
+kiến thức từdữliệu huấn luyện và không đạt được hiệu suất tốt trên cảtập huấn luyện và
+tập kiểm tra (high bias or low variance)
+- Good Fit: là nằm giữa Underfitting và Overfitting. Mô hình cho ra kết quảhợp lý với cảtập
+dữliệu huấn luyện và các tập dữliệu mới. Đây là mô hình lý tưởng mang được tính tổng
+quát và khớp được với nhiều dữliệu mẫu và cảcác dữliệu mới.
+- Overfit: là mô hình rất hợp lý, rất khớp với tập huấn luyện nhưng khi đem ra dựđoán với
+dữliệu mới thì lại không phù hợp. Nguyên nhân có thểdo ta chưa đủdữliệu đểđánh giá
+hoặc do mô hình của ta quá phức tạp. Mô hình bịquá phức tạp khi mà mô hình của ta sử
+dụng cảnhững nhiễu lớn trong tập dữliệu đểhọc, dấn tới mất tính tổng quát của mô hình
+(high variance or low bias). Nếu kết quảtraining quá tốt đạt tỷlệ100% thì cần phải xem
+AI VIETNAM
+aivietnam.edu.vn
+Hình 12: Overfitting
+xét lại dataset vì rất có thểta đang mắc phải trường hợp overfitting.
+- Đểtránh overfitting thông thường ta sẽgiới hạn tổng sốnode (observation) tối đa đểthực
+hiện tách tiếp là từ8-20
+AI VIETNAM
+aivietnam.edu.vn
+Hình 13: Hạn chếoverfitting
+- Áp dụng điều kiện vào bài toán, ta chọn sốnode là 7, ta được kết quả:
+Hình 14: Đánh giá điều kiện dừng
+- Vì nhánh bên trái thoảmãn điều kiện dừng nên ta sẽtính trung bình của các node và dừng
+việc tách nhánh. Nhánh bên phải không thoảmãn điều kiện nên ta tiếp tục phân nhánh của
+nhánh bên phải
+- Sau khi lặp lại các bước tìm ngưỡng tách nhánh kết hợp với điều kiện dừng thì ta được cây
+hoàn chỉnh như sau:
+AI VIETNAM
+aivietnam.edu.vn
+Hình 15: Cây hoàn chỉnh với node < 7
+- Tiếp theo ra đi tính SSR của toàn bộcây bằng tổng SSR của từng nhánh.
+- Nếu ra thay đổi điều kiện dừng của cây là 20 thì cây sẽcó dạng:
+Hình 16: Cây hoàn chỉnh với node < 20
+- Ta cũng đi tính tổng SSR của cây và sẽlấy cây có SSR tốt nhất
+- Vì dataset có 3 thuộc tính nên sẽđi lần lượt các thuộc tính tiếp theo. Nếu Age, Sex là root
+node, ta cũng làm tương tựnhư đối với Unit là root node, kết quảnếu Age, Sex là root node
+lần lượt có dạng:
+AI VIETNAM
+aivietnam.edu.vn
+Hình 17: Cây hoàn chỉnh với Age là root node
+Hình 18: Cây hoàn chỉnh với Sex là root node
+- Từ3 thuộc tính của dataset, ta lại lấy node có SSR nhỏnhất
+AI VIETNAM
+aivietnam.edu.vn
+Hình 19: Chọn node có SSR nhỏnhất
+- Sau khi chọn được node gốc đầu tiên đểphân nhánh, ta tiếp tục tiến hành lấy node tiếp theo
+từcác thuộc tính còn lại của dataset, kết quảsẽđược:
+Hình 20: Cây hoàn chỉnh
+5. Prunning:
+• Sau khi xây dựng được cây, ta thấy cây sẽgặp hiện tượng overfitting (dữliệu train và test
+chêch lệch nhau quá lớn), vì vậy ra cần bỏbớt nhánh đã phân (prunning)
+AI VIETNAM
+aivietnam.edu.vn
+• Ta sẽtiến hành bỏnhánh của cây lần lượt, ta được
+Hình 21: Bỏbớt nhánh
+Hình 22: Tổng SSR sau khi prunning
+AI VIETNAM
+aivietnam.edu.vn
+Hình 23: Bỏbớt nhánh lần 2
+Hình 24: Tổng SSR sau khi prunning lần 2
+Hình 25: So sánh SSR giữa các lần prunning
+? Ta thấy khi prunning thì hiện tượng overfitting sẽđược khắc phục nhưng SSR lại rất lớn,
+vậy làm cách nào đểxác định cây tốt nhất?
+AI VIETNAM
+aivietnam.edu.vn
+6. Tree complexity penalty:
+• Tree score là độphức tạp của cây
+Hình 26: Công thức tree score
+• Áp dụng công thức ta tính tree score của 3 cây đã tỉa bớt nhánh, ởđây ta chọn α = 10.000
+Hình 27: Tính tree score
+• Ta sẽchọn cây có tree score tốt nhất
+? Chọn α như thếnào?
+- Cho α = 0 thì ta được giá trịtree score nhỏnhất
+- Khi ta bỏbớt nhánh của cây, ta sẽtính tree score với α tăng dần sao cho giá trịtree score
+mới tốt hơn tree score ban đầu
+- Tiếp tục bỏbớt nhánh và tăng giá trịα
+- Có bao nhiêu cây được bỏnhánh thì có bấy nhiêu giá trịα được xác định
+AI VIETNAM
+aivietnam.edu.vn
+Hình 28: Tính tree score
+Hình 29: Tính tree score
+AI VIETNAM
+aivietnam.edu.vn
+Hình 30: Tính tree score
+- Sửdụng K fold chia dữliệu thành dữliệu train và dữliệu test, dữliệu được phân tách thành
+các fold, ta phải đi xây dựng cây theo giá trịα đã được xác định ởtrên. Mục đích chia dữ
+liệu đểtăng sựđa dạng cho dữliệu đểquá trình huấn luyện được diễn ra tốt hơn
+Hình 31: Phân chia data thành các fold
+AI VIETNAM
+aivietnam.edu.vn
+Hình 32: Quá trình phân chia data
+- Lập bảng giá trị, tính giá trịtrung bình theo từng giá trịα và chọn giá tri α tốt nhất
+Hình 33: Chọn alpha nhỏnhất là giá trịtốt nhất

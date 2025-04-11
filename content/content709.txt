@@ -1,2 +1,0 @@
-. 7
-4 Các phương pháp nối mảng. . 

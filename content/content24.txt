@@ -1,6 +1,0 @@
-send ()
-10. Chạy chainlit app:
-1 ! chainlit run app .py -- host 0.0.0.0 -- port 8000 & >/ content / logs . txt &
-11. Expose localhost thành public host bằng localtunnel:
-1 import urllib
-11

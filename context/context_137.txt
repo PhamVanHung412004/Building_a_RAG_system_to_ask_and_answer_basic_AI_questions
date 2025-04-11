@@ -1,0 +1,497 @@
+AI VIET NAM – AI COURSE 2023
+LLMs Series: Cải thiện khảnăng giải toán trắc
+nghiệm của LLMs với Instruction Tuning
+Dinh-Thang Duong, Nguyen-Thuan Duong và Quang-Vinh Dinh
+PR-Team: Hoàng-Nguyên Vũ, Đăng-Nhã Nguyễn và Minh-Châu Phạm
+Ngày 14 tháng 4 năm 2024
+Phần I: Giới thiệu
+Instruction Tuning (IT) là một trong những kỹthuật training mô hình ngôn ngữlớn (LLMs) rất
+quan trọng. Trong đó, IT giúp chúng ta cải thiện khảnăng của mô hình cũng như kiểm soát kết quả
+đầu ra. Là kiểu huấn luyện mô hình có giám sát từbộdữliệu theo cặp (intruction-output), từđó giúp
+mô hình thu hẹp khoảng cách giữa từkếtiếp được sinh ra và sựchỉdẫn của con người.
+Hình 1: Fine-tuning mô hình ngôn ngữlớn với dữliệu instruction giải toán trắc nghiệm
+Trong bài viết này, chúng ta sẽhuấn luyện một mô hình ngôn ngữlớn tiếng Việt với dữliệu
+instruction giải toán trắc nghiệm. Từđó, mô hình này sẽcó thểphần nào cải thiện khảnăng giải toán.
+1
+AI VIETNAM
+aivietnam.edu.vn
+Phần II: Cài đặt chương trình
+Trong phần này, chúng ta sẽxây dựng một Chatbot chuyên giải toán trắc nghiệm tiếng Việt sửdụng
+Mô hình ngôn ngữlớn được huấn luyện chủyếu trên bộdữliệu tiếng Việt là VinaLLaMA. Các bước
+thực hiện như sau:
+1. Cài đặt thư viện: Chúng ta sẽcần cài đặt một sốthư viện sau đểcó thểchạy được một mô
+hình ngôn ngữlớn từthư viện HuggingFace:
+1 !pip install -q -U bitsandbytes
+2 !pip install -q -U datasets
+3 !pip install -q -U git+https :// github.com/huggingface/transformers.git
+4 !pip install -q -U git+https :// github.com/huggingface/peft.git
+5 !pip install -q -U git+https :// github.com/huggingface/accelerate.git
+6 !pip install -q -U loralib
+7 !pip install -q -U einops
+8 !pip install -q -U googletrans ==3.1.0 a0
+2. Import các thư viện cần thiết: Sau khi đã tải xong, chúng ta sẽthực hiện import các thư viện
+đã tải cũng như một sốthư viện khác đểphục vụcho chương trình:
+1 import
+json
+2 import os
+3 import
+bitsandbytes as bnb
+4 import
+torch
+5 import
+torch.nn as nn
+6 import
+transformers
+7
+8 from
+googletrans
+import
+Translator
+9 from
+pprint
+import
+pprint
+10 from
+datasets
+import
+load_dataset
+11 from
+huggingface_hub
+import
+notebook_login
+12 from peft
+import (
+13
+LoraConfig ,
+14
+PeftConfig ,
+15
+PeftModel ,
+16
+get_peft_model ,
+17
+prepare_model_for_kbit_training
+18 )
+19 from
+transformers
+import (
+20
+AutoConfig ,
+21
+AutoModelForCausalLM ,
+22
+AutoTokenizer ,
+23
+BitsAndBytesConfig
+24 )
+25
+26 os.environ[" CUDA_VISIBLE_DEVICES "] = "0"
+3. Khởi tạo mô hình: Mô hình ngôn ngữlớn mà chúng ta sẽsửdụng trong bài này có tên gọi là
+VinaLLaMA, một mô hình được nhóm tác giảngười Việt thực hiện huấn luyện trên bộdữliệu
+chủyếu vềtiếng Việt. Đểkhởi tạo mô hình lên trên file notebook, chúng ta sẽchạy đoạn code
+sau:
+1 MODEL_NAME = "vilm/vinallama -7b-chat"
+2
+3 bnb_config = BitsAndBytesConfig (
+4
+load_in_4bit=True ,
+5
+bnb_4bit_use_double_quant =True ,
+2
+AI VIETNAM
+aivietnam.edu.vn
+6
+bnb_4bit_quant_type ="nf4",
+7
+bnb_4bit_compute_dtype =torch.bfloat16
+8 )
+9
+10 model = AutoModelForCausalLM . from_pretrained (
+11
+MODEL_NAME ,
+12
+device_map="auto",
+13
+trust_remote_code =True ,
+14
+quantization_config =bnb_config
+15 )
+16
+17 tokenizer = AutoTokenizer.from_pretrained (MODEL_NAME)
+18 tokenizer.pad_token = tokenizer.eos_token
+19
+20 model. gradient_checkpointing_enable ()
+21 model = prepare_model_for_kbit_training (model)
+22
+23 config = LoraConfig(
+24
+r=16,
+25
+lora_alpha =32,
+26
+target_modules =[
+27
+"q_proj",
+28
+"up_proj",
+29
+"o_proj",
+30
+"k_proj",
+31
+"down_proj",
+32
+"gate_proj",
+33
+"v_proj"
+34
+],
+35
+lora_dropout =0.05 ,
+36
+bias="none",
+37
+task_type="CAUSAL_LM"
+38 )
+39
+40 model = get_peft_model (model , config)
+Trong đó:
+• Dòng 1: Khai báo biến chứa tên của mô hình ngôn ngữlớn chúng ta mong muốn sửdụng,
+ởđây sẽlà VinaLLaMA phiên bản 7b-chat.
+• Dòng 3 - 40: Khởi tạo mô hình và các cài đặt cần thiết.
+4. Sửdụng mô hình (trước khi huấn luyện): Mô hình vừa khởi tạo đã được nhóm tác giả
+huấn luyện trên một bộdữliệu rất lớn, có thểthực hiện được nhiều task khác nhau. Chúng ta có
+thểtương tác với mô hình ngay lúc này, bằng cách viết một đoạn chat mô tảmệnh lệnh nào đó
+(prompt) và gửi vào mô hình. Sau một khoảng thời gian tính toán, mô hình sẽtrảvềcâu trảlời
+phù hợp. Cách thực hiện như sau:
+(a) Cài đặt một vài tham sốcần thiết cho mô hình, các tham sốnày sẽảnh hưởng đến kết quả
+trảlời của mô hình ngôn ngữlớn:
+1 generation_config = model. generation_config
+2 generation_config .max_new_tokens = 200
+3 generation_config .temperature = 0.7
+4 generation_config .top_p = 0.7
+5 generation_config . num_return_sequences = 1
+6 generation_config .pad_token_id = tokenizer. eos_token_id
+7 generation_config .eos_token_id = tokenizer. eos_token_id
+3
+AI VIETNAM
+aivietnam.edu.vn
+(b) Khai báo prompt: Chúng ta sẽkhởi tạo một biến chứa đoạn prompt, câu mệnh lệnh hoặc
+một đoạn tin nhắn mà chúng ta muốn gửi vào mô hình. Cụthểtrong VinaLLaMA, chúng ta
+sẽcó format cốđịnh cho đoạn prompt như sau:
+Hình 2: Format prompt của VinaLLaMA. Trong đó, {your_task} là một đoạn văn bản mô tảmột nhiệm
+vụ, câu hỏi hay một câu nói bất kì mà bạn mong muốn gửi đến mô hình.
+Dựa vào format trên, ta có thểthửđặt một yêu cầu xây dựng một hàm Python cho mô hình
+như trong môi trường code sau:
+Hình 3: Minh họa vềcách xây dựng prompt theo format của mô hình VinaLLaMA
+(c) Chạy mô hình: Sửdụng đoạn code dưới đây, ta đưa đoạn prompt đã khởi tạo đểlấy câu
+trảlời từmô hình như sau:
+1 %% time
+2 device = ’cuda ’ if torch.cuda.is_available () else ’cpu’
+3
+4 encoding = tokenizer(prompt , return_tensors ="pt").to(device)
+5 with
+torch.inference_mode ():
+6
+outputs = model.generate(
+7
+input_ids=encoding.input_ids ,
+8
+attention_mask =encoding.attention_mask ,
+9
+generation_config = generation_config
+10
+)
+11
+12 print(tokenizer.decode(outputs [0], skip_special_tokens =True))
+Khi quá trình tính toán hoàn tất, ta nhận được kết quảin ra màn hình là câu trảlời của mô
+hình ứng với đoạn prompt:
+4
+AI VIETNAM
+aivietnam.edu.vn
+Hình 4: Ví dụvềcâu trảlời của mô hình vềviệc viết một hàm Python ứng với mô tảtrong prompt
+Như vậy, có thểthấy chỉvới mô hình gốc (gọi là pre-trained model), chúng ta đã có thể
+tương tác với mô hình ngôn ngữlớn và yêu cầu thực hiện một tác vụnào đó với độchính
+xác tương đối. Trong lĩnh vực Machine Learning, chúng ta còn có thểcải thiện kết quảcủa
+pre-trained model với một task cụthểnào đó bằng cách áp dụng một kỹthuật được gọi là
+fine-tuning. Cụthể, chúng ta sẽtiếp tục thực hiện huấn luyện mô hình, trên một bộdữliệu
+với các task cụthểhơn (ứng với nhu cầu và mục đich sửdụng của chúng ta).
+5. Tải bộdữliệu fine-tuning: Trong bài này, vì mục tiêu của chúng ta là xây dựng chatbot
+chuyên dùng đểgiải toán trắc nghiệm tiếng Việt, nên ởphần sau chúng ta sẽthực hiện fine-tuning
+VinaLLaMA trên bộdữliệu toán trắc nghiệm đểcải thiện chất lượng câu trảlời. Ta thực hiện
+tải bộdữliệu có tên là vi_grade_school_math_mcq như sau:
+1 data = load_dataset(’hllj/ vi_grade_school_math_mcq ’)
+5
+AI VIETNAM
+aivietnam.edu.vn
+Hình 5: Minh họa một sốmẫu dữliệu trong bộdữliệu vừa tải về
+Trong đoạn code, ta sửdụng hàm load_data() từthư viện datasets, hàm này cho phép tải các bộ
+dữliệu trong database của thư viện. Bộdữliệu được ta lưu vào biến data, khi in biến này, ta có
+thông tin như sau:
+Hình 6: Dữliệu của biến data. Biến có kiểu dữliệu là DatasetDict, một kiểu dữliệu riêng biệt của thư
+viện datasets
+6. Xây dựng bộdữliệu fine-tuning: Với bộdữliệu đã tải, chúng ta sẽsửdụng đểthực hiện
+fine-tuning mô hình, tức sẽhuấn luyện cho mô hình học thêm các dữliệu từbộdữliệu mới này.
+Các bước làm như sau:
+(a) Xây dựng hàm tạo prompt: Trong trường hợp huấn luyện VinaLLaMA, chúng ta cần
+thay đổi dữliệu vào đúng format prompt như ởphần trước. Nhận thấy trong format prompt,
+ô user sẽnhận input của người dùng, ứng với trường "prompt"của bộdữliệu. Ô assistant
+6
+AI VIETNAM
+aivietnam.edu.vn
+là câu trảlời của mô hình, ứng với trường "response"của bộdữliệu. Vì vậy, ta sẽxây dựng
+hàm đểđưa vào đúng khuôn format như sau:
+1 def
+generate_prompt (question , choices , explanation):
+2
+return f"""
+3 <|im_start|>system
+4 Bạn là một chuyên gia vềtoán. Bạn sẽnhận câu hỏi trắc nghiệm kèm theo các l
+ựa chọn, hãy giải step by step nếu có và chọn phương án đúng.
+5
+6 <|im_start|>user
+7 ### Câu hỏi:
+8 {question}
+9 ### Các lựa chọn:
+10 {choices}
+11 ### Câu trảlời:
+12
+13 <|im_start|>assistant
+14 {explanation}
+15 """.strip ()
+16
+17 def
+generate_and_tokenize_prompt (question , choices , explanation):
+18
+full_prompt = generate_prompt (question , choices , explanation)
+19
+tokenized_full_prompt = tokenizer(
+20
+full_prompt ,
+21
+padding=True ,
+22
+truncation=True
+23
+)
+24
+25
+return
+tokenized_full_prompt
+(b) Xây dựng hàm tokenization: Đối với bất kì mô hình ngôn ngữlớn nào, đểxửlý một văn
+bản nào, trước hết chúng ta cần thực hiện tokenization lên văn bản đó. Hiểu một cách đơn
+giản, chúng ta sẽđưa văn bản từdạng string thành một list (vector) các con số:
+Ởđây, ta sẽthiết kếhàm tạo câu prompt với điểm dữliệu gồm cặp (response, prompt) đầu
+vào, sau đó thực hiện tokenize câu prompt, code cài đặt như sau:
+1 def
+generate_and_tokenize_prompt (question , choices , explanation):
+2
+full_prompt = generate_prompt (question , choices , explanation)
+3
+tokenized_full_prompt = tokenizer(
+4
+full_prompt ,
+5
+padding=True ,
+6
+truncation=True
+7
+)
+8
+9
+return
+tokenized_full_prompt
+(c) Áp dụng tokenization vào bộdữliệu: Với hàm tokenization vừa xây dựng, ta sửdụng
+đoạn code sau đây đểtách các thông tin vềcác lựa chọn trắc nghiệm (choices), lời giải thích
+kèm đáp án (explanation) và câu hỏi (question). Sau đó, đưa các thông tin này vào hàm
+tokenization đểhình thành câu prompt cho mô hình. Sau đó, sửdụng hàm Dataset.from_list
+()
+1 training_samples = []
+2 for sample in tqdm(data[’train ’]):
+3
+for quest in sample[’problems ’]:
+4
+choices = quest[’choices ’]
+5
+explanation = quest[’explanation ’]. strip ()
+6
+question = quest[’question ’]
+7
+7
+AI VIETNAM
+aivietnam.edu.vn
+8
+if explanation == ’’ or question == ’’ or choices == []:
+9
+continue
+10
+11
+try:
+12
+question = question.split(’\n \n’)[1]. strip ()
+13
+except:
+14
+continue
+15
+16
+choices = ’\n’.join(choices)
+17
+training_sample = generate_and_tokenize_prompt (
+18
+question , choices , explanation
+19
+)
+20
+21
+training_samples .append( training_sample )
+22
+23 choices_data = Dataset.from_list( training_samples )
+Hình 7: Minh họa vềmẫu dữliệu instruction giải toán trắc nghiệm.
+7. Thực hiện huấn luyện mô hình (fine-tuning): Sau khi đã chuẩn bịxong bộdữliệu hoàn
+tất, chúng ta bắt đầu huấn luyện mô hình ngôn ngữlớn, chạy các dòng lệnh sau:
+1 training_args = transformers. TrainingArguments (
+2
+per_device_train_batch_size =1,
+3
+gradient_accumulation_steps =4,
+4
+num_train_epochs =1,
+5
+learning_rate =2e-4,
+6
+fp16=True ,
+7
+save_total_limit =3,
+8
+logging_steps =1,
+9
+output_dir="experiments",
+10
+optim=" paged_adamw_8bit ",
+11
+lr_scheduler_type ="cosine",
+12
+warmup_ratio =0.05 ,
+13 )
+8
+AI VIETNAM
+aivietnam.edu.vn
+14
+15 trainer = transformers.Trainer(
+16
+model=model ,
+17
+train_dataset=data ,
+18
+args=training_args ,
+19
+data_collator=transformers . DataCollatorForLanguageModeling (tokenizer , mlm=
+False)
+20 )
+21 model.config.use_cache = False
+22 trainer.train ()
+Khi các bạn thấy bảng dưới đây xuất hiện, điều đó chứng tỏtiến trình huấn luyện đã bắt đầu
+thành công, việc còn lại của chúng ta sẽchỉcần chờcho tới khi việc thực thi hoàn tất.
+Hình 8: Ảnh minh họa bảng hiển thịcác thông tin trong quá trình thực hiện huấn luyện mô hình ngôn
+ngữlớn
+8. Chạy mô hình đã fine-tuning: Cuối cùng, ta sẽthửtương tác với mô hình sau khi đã được
+fine-tuning như sau:
+1 %% time
+2 device = ’cuda ’ if torch.cuda.is_available () else ’cpu’
+3
+4 prompt = """
+5 <|im_start|>system
+6 Bạn là một chuyên gia vềtoán. Bạn sẽnhận câu hỏi trắc nghiệm kèm theo các lựa
+chọn, hãy giải step by step nếu có và chọn phương án đúng.
+7
+8 <|im_start|>user
+9 ### Câu hỏi:
+10 1 + 1 =
+11 ### Các lựa chọn:
+12 A. 1
+13 B. 2
+14 C. 3
+15 D. 4
+16 ### Câu trảlời:
+9
+AI VIETNAM
+aivietnam.edu.vn
+17
+18 <|im_start|>assistant
+19 """.strip ()
+20
+21 encoding = tokenizer(prompt , return_tensors ="pt").to(device)
+22 with
+torch.inference_mode ():
+23
+outputs = model.generate(
+24
+input_ids=encoding.input_ids ,
+25
+attention_mask =encoding.attention_mask ,
+26
+generation_config = generation_config
+27
+)
+28
+29 print(tokenizer.decode(outputs [0], skip_special_tokens =True))
+Kết quảtrảvềcủa mô hình cho câu prompt trên được mô tảnhư hình dưới đây:
+Hình 9: Câu trảlời của mô hình
+10
+AI VIETNAM
+aivietnam.edu.vn
+Phần III: Câu hỏi trắc nghiệm
+1. Trong ngữcảnh vềmô hình ngôn ngữlớn (LLMs), Instruction Tuning được hiểu như thếnào?
+(a) Huấn luyện mô hình trên task mới mà không cần mẫu dữliệu nào.
+(b) Điều chỉnh kết quảcủa mô hình trong quá trình deploy.
+(c) Huấn luyện mô hình đểtuân theo các yêu cầu cụthể(instruction).
+(d) Giảm kích thước của mô hình đểtăng độhiệu quả.
+2. Instruction tuning là một dạng của kiểu học
+(a) Supervised learning.
+(b) Self-supervised learning.
+(c) Unsupervised learning.
+(d) Reinforcement learning.
+3. Khi thực hiện instruction tuning, hàm loss nào sau đây có thểđược sửdụng?
+(a) Mean Squared Error (MSE)
+(b) Hinge Loss
+(c) Kullback-Leibler Divergence
+(d) Cross-Entropy Loss
+4. Mệnh đềsau đúng hay sai: "Ta luôn nên áp dụng instruction tuning đểgiảm thiểu chi phí tính
+toán trong quá trình training"?
+(a) Đúng
+(b) Sai
+5. Trong LLMs, khái niệm prompt được hiểu như thếnào?
+(a) Một phần mềm bổtrợgiúp tối ưu hóa hiệu suất của mô hình
+(b) Một kỹthuật mã hóa thông tin riêng tư trong quá trình đào tạo mô hình
+(c) Một câu hỏi hoặc yêu cầu mà người dùng đưa ra cho mô hình
+(d) Một thuật toán đặc biệt đểphân loại dữliệu đầu vào
+6. Trong LLMs, ta nên áp dụng kỹthuật nào sau đây đểcải thiện khảnăng thực hiện một task cụ
+thểnào đó của mô hình mà không cần training?
+(a) Sửdụng kỹthuật transfer learning.
+(b) Ứng dụng khảnăng zero-shot learning của mô hình.
+(c) Lập trình thủcông tại bước hậu xửlý cho mỗi task.
+(d) Mởrộng bộdữliệu training.
+7. Kỹthuật prompting nào dưới đây cung cấp cho mô hình chỉmột ví dụvềtask cần làm?
+(a) One-shot learning
+(b) Few-shot learning
+(c) Continuous learning
+(d) Transfer learning
+11
+AI VIETNAM
+aivietnam.edu.vn
+8. Câu nào sau đây mô tảđúng vềkỹthuật Parameter Efficient Fine-tuning (PEFT)?
+(a) Một kỹthuật dùng đểhuấn luyện mô hình trên bộdữliệu cực lớn.
+(b) Một kỹthuật liên quan đến việc cập nhật một phần nhỏtham sốcủa mô hình khi huấn luyện.
+(c) Một kỹthuật huấn luyện dành riêng cho các mô hình có kích thước nhỏ(dưới 1 tỷtham số).
+(d) Một kỹthuật đểtăng chi phí tính toán của mô hình.
+9. Mệnh đềsau đúng hay sai: "Low-Rank Adaptation (LoRA) là một kỹthuật vềPEFT"?
+(a) Đúng.
+(b) Sai.
+10. So với LoRA, QLoRA có điểm gì khác biệt gì trong việc huấn luyện LLMs?
+(a) QLoRA lượng tửhóa (quantize) tham sốmô hình; LoRA thì không.
+(b) QLoRA sửdụng nhiều tham sốmô hình; LoRA ít hơn.
+(c) QLoRA tối ưu khảnăng tổng quát của mô hình; LoRA tối ưu trên một task cụthể.
+(d) QLoRA giảm kích thước mô hình; LoRA tăng lên.
+- Hết -
+12

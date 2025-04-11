@@ -1,0 +1,974 @@
+Multi-agent LLMs
+Dinh-Thang Duong – TA
+Nguyen-Thuan Duong – TA
+Project
+Year 2024
+AI VIETNAM
+All-in-One Course
+(TA Session)
+2
+Objectives
+AI VIETNAM
+All-in-One Course
+(TA Session)
+In this lecture, we will discuss about:
+1. What is LLMs agent?
+2. What is Multi-agent LLMs?
+3. How to implement LLMs agent with 
+LangChain?
+4. How to implement Multi-agent 
+LLMs with Autogen?
+3
+Ø Introduction
+Ø LLMs Agent with LangChain
+Ø Multi-agent LLMs with Autogen
+Ø Question
+Outline
+AI VIETNAM
+All-in-One Course
+(TA Session)
+4
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Introduction
+5
+Introduction
+v Getting Started
+AI VIETNAM
+All-in-One Course
+(TA Session)
+https://klu.ai/glossary/large-language-model
+Pre-trained LLMs are often general purpose
+6
+Introduction
+v Getting Started
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Prompt Description: What is the 
+temperature in the Ho Chi Minh City, 
+Vietnam in May 2019?
+LLMs
+If the model trained on this data, it 
+might able to answer this question.
+7
+Introduction
+v Getting Started
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Prompt Description: What is the 
+current temperature in the Ho Chi 
+Minh City, Vietnam?
+LLMs
+Since we inquiry a realtime data, any 
+pre-trained would not be able to answer 
+this question. 
+8
+Introduction
+v Getting Started
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Prompt Description: How has the 
+trend in the average daily temperature 
+in Ho Chi Minh City, Vietnam, changed 
+over the last decade, and what impact 
+might this have on local lifestyles and 
+infrastructure? Additionally, can you 
+provide a graphical representation of 
+the trend in temperature fluctuations 
+over this period?
+LLMs
+Current pre-trained LLMs might not be 
+able to solve highly complex tasks that 
+require reasoning and planning.
+99
+Introduction
+v Introduction to “Agent”
+AI VIETNAM
+All-in-One Course
+(TA Session)
+LLMs
+Accessibility
+Tools
+APIs
+Databases
+Idea: Give LLMs the ability to 
+access other external functions.
+10
+10
+Introduction
+v LLMs Agent
+AI VIETNAM
+All-in-One Course
+(TA Session)
+LLMs Agent: Advanced AI systems that utilize large 
+language models (LLMs) as their central 
+computational engine. LLMs Agent is designed to 
+solve complex tasks with required planning ability and 
+accessing to external resources to gather more 
+information.
+11
+11
+Introduction
+v LLMs Agent
+AI VIETNAM
+All-in-One Course
+(TA Session)
+https://www.promptingguide.ai/research/llm-agents
+LLMs Agent framerwork
+12
+12
+Introduction
+v General LLMs vs LLMs Agent
+AI VIETNAM
+All-in-One Course
+(TA Session)
+LLMs
+🤖
+LLMs Agent
+1. Often built with general purpose.
+2. Don’t have the ability to access external tools.
+3. Might not be able to solve highly complex tasks. 
+1. Can be either Task specific or General Purpose.
+2. Have the ability to access external tools.
+3. Might be able to solve highly complex tasks. 
+13
+13
+Introduction
+v Introduction to “Multi-agent”
+AI VIETNAM
+All-in-One Course
+(TA Session)
+How about setting up an environment that involved 
+with multiple agents working together to produce 
+the final result ?
+https://ai-scholar.tech/en/articles/agent-simulation/chatdev
+14
+14
+Introduction
+v Introduction to “Multi-gent”
+AI VIETNAM
+All-in-One Course
+(TA Session)
+https://arxiv.org/html/2309.07870v3
+In this system, all agents 
+with the ability to use tools, 
+interacting to each other to 
+solve a given task.
+15
+15
+Introduction
+v Multi-agent LLMs
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Agent 1
+Agent 2
+Interacting
+Multi-agent Conversation
+16
+AI VIETNAM
+All-in-One Course
+(TA Session)
+LLMs Agent with LangChain
+17
+17
+LLMs Agent with LangChain
+v Recap
+AI VIETNAM
+All-in-One Course
+(TA Session)
+LangChain: A framework for developing applications 
+powered by large language models (LLMs). LangChain 
+simplifies every stage of the LLM application lifecycle: 
+Development, Productionization, Deployment.
+18
+18
+LLMs Agent with 
+LangChain
+v Recap
+AI VIETNAM
+All-in-One Course
+(TA Session)
+19
+19
+LLMs Agent with LangChain
+v Recap: LangChain Components
+AI VIETNAM
+All-in-One Course
+(TA Session)
+https://pub.dev/packages/langchain
+20
+20
+LLMs Agent with LangChain
+v LangChain Components
+AI VIETNAM
+All-in-One Course
+(TA Session)
+https://wearefram.com/blog/langchain-101-build-your-own-gpt-powered-applications/
+21
+21
+LLMs Agent with LangChain
+v LangChain Agent Component
+AI VIETNAM
+All-in-One Course
+(TA Session)
+https://wearefram.com/blog/langchain-101-build-your-own-gpt-powered-applications/
+Agents: Software agents or programs that can 
+interact with the LLM and other tools or services to 
+perform specific tasks or actions.
+22
+22
+LLMs Agent with LangChain
+v LangChain Agent Component
+AI VIETNAM
+All-in-One Course
+(TA Session)
+https://www.pinecone.io/learn/series/langchain/langchain-agents/
+https://wearefram.com/blog/langchain-101-build-your-own-gpt-powered-applications/
+23
+23
+LLMs Agent with LangChain
+v LLMs Agent Pipeline
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Prompt 
+(Task Description)
+Response
+LLMs
+Agent Executor
+Tools
+Reasoning
+Invoke
+Return 
+results
+24
+24
+LLMs Agent with LangChain
+v Example: Online Search
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Initialize Tavily Search (or other search API)
+25
+25
+LLMs Agent with LangChain
+v Example: Online Search
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Tavily API Key
+26
+26
+LLMs Agent with LangChain
+v Example: Online Search
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Search data using Tavily API
+27
+27
+LLMs Agent with LangChain
+v Example: Online Search
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Initialize GPT from OpenAI (required 
+API Key)
+28
+28
+LLMs Agent with LangChain
+v Example: Online Search
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Create prompt to chat with 
+OpenAI GPT
+29
+29
+LLMs Agent with LangChain
+v Example: Online Search
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Intialize Agent (equipped with 
+LLM and tools)
+🤖
+Agent
+30
+30
+LLMs Agent with LangChain
+v Example: Online Search
+AI VIETNAM
+All-in-One Course
+(TA Session)
+31
+AI VIETNAM
+All-in-One Course
+(TA Session)
+QUIZ
+32
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Multi-agent LLMs with Autogen
+33
+33
+Multi-agent LLMs with Autogen
+v Introduction
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Description: Build a Multi-agent LLMs application that could generate a code snippet related to an input query, 
+then automatically debug the code until completely clean.
+34
+34
+Multi-agent LLMs with Autogen
+v Introduction
+AI VIETNAM
+All-in-One Course
+(TA Session)
+AssistantAgent
+UserProxyAgent
+Interacting
+Description: Build a Multi-agent LLMs application that could generate a code snippet related to an input query, 
+then automatically debug the code until completely clean.
+35
+35
+Multi-agent LLMs with Autogen
+v Pipeline
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Prompt 
+(Task Description)
+Response
+LLMs
+Agent Conversation
+Reasoning
+Invoke
+Return 
+results
+Compiler
+Agent 1
+Agent 2
+36
+36
+v Autogen Introduction
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Multi-agent LLMs with Autogen
+Microsoft Autogen: AutoGen is a framework that 
+enables development of LLM applications using multiple 
+agents that can converse with each other to solve tasks. 
+They can operate in various modes that employ 
+combinations of LLMs, human inputs, and tools.
+37
+37
+v Autogen Introduction
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Multi-agent LLMs with Autogen
+https://microsoft.github.io/autogen/docs/Getting-Started
+38
+38
+v Autogen Agent
+LLM
+(chatGPT)
+Code 
+Executor
+Tool
+(function)
+Human 
+input
+Autogen ConversationAgent
+An Autogen Agent may is:
+•
+LLM (eg. chatGPT) 
+•
+Code Executor (Local for Docker)
+•
+Tool (function) 
+•
+Input of human.
+•
+or Custom
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Multi-agent LLMs with Autogen
+39
+39
+v Recap: Multi-agent LLMs
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Agent 1
+Agent 2
+Interacting
+Multi-agent Conversation
+Multi-agent LLMs with Autogen
+How can we make it with Autogen?
+40
+40
+v Getting Started
+Hi
+Hello
+What’s your name?
+Sara, and you?
+Bob, and you?
+….
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Multi-agent LLMs with Autogen
+41
+41
+v max_turn parameter
+max_turn = 2
+Hi
+Hello
+What’s your name?
+Sara, and you?
+TERMINATE
+TERMINATE
+turn 1
+turn 2
+turn 1
+turn 2
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Multi-agent LLMs with Autogen
+42
+42
+v max_consecutive_auto_reply parameter
+Hi
+Hello
+What’s your name?
+TERMINATE
+max_consecutive_auto_reply = 1 
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Multi-agent LLMs with Autogen
+43
+43
+v is_termination_msg parameter
+What time is it?
+23
+is_termination_msg = “Good bye”
+TERMINATE
+Too late!
+See you later
+Good bye
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Multi-agent LLMs with Autogen
+44
+44
+v Getting Started
+LLM, Code 
+Executor, 
+Tool,…
+ConversationAgent
+Human-in-
+the-loop
+Message
+Human rely
+Agent auto 
+rely
+TERMINATE
+Enter
+Exit
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Multi-agent LLMs with Autogen
+45
+45
+v Human input: NEVER
+LLM, Code 
+Executor, 
+Tool,…
+ConversationAgent
+Message
+Agent auto rely
+Never ask for human input, use chat termination to stop the conversation.
+High risk when the 
+agent is a code executor.
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Multi-agent LLMs with Autogen
+46
+46
+v Human input: ALWAYS
+LLM, Code 
+Executor, 
+Tool,…
+ConversationAgent
+Human-
+in-the-
+loop
+TERMINATE
+ConversationAgent
+Human-in-the-
+loop
+TERMINATE
+More security when running code
+Agent as human
+Enter
+Exit
+Exit
+Message
+Human rely
+Agent auto 
+rely
+Message
+Human rely
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Multi-agent LLMs with Autogen
+47
+47
+v Human input: TERMINATE
+LLM, Code 
+Executor, 
+Tool,…
+ConversationAgent
+Human-in-
+the-loop
+Message
+Agent auto 
+reply
+TERMINATE
+Enter
+Exit
+Ask the human when the conversation should stop.
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Multi-agent LLMs with Autogen
+48
+48
+v Code Executor: Local Execution
+Agent
+Code Executor
+Message with 
+code
+Message with 
+execution ouput
+File code (eg .py)
+Console output
+Write
+Read
+Execution
+eg. venv / conda
+•
+Execute code generated by LLM 
+in local host machine.
+•
+High security risk for system.
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Multi-agent LLMs with Autogen
+49
+49
+v Code Executor: Docker Execution
+Agent
+Code Executor
+Message with 
+code
+Message with 
+execution ouput
+File code 
+(eg .py)
+Console 
+output
+Write
+Read
+Execution
+•
+Execute code generated by LLM 
+in docker container.
+Docker container
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Multi-agent LLMs with Autogen
+50
+50
+v Tool use: Getting Started
+Tools are pre-define functions.
+Caculator
+Retriever
+Output 
+parser
+…
+Assistant
+User
+Can you answer my question 
+based on this paper?
+Find
+Retriever
+Use this tool to extract 
+relevant information and 
+send it back to me.
+User
+Retriever
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Multi-agent LLMs with Autogen
+51
+51
+v Tool use: Getting Started
+In this section, we describe the general 
+pipeline employed in instruction tuning.
+There are generally two methods for 
+constructing instruction datasets: …
+What’s your question?
+What’s Intruction tuning?
+User
+User
+Assistant
+Assistant
+Instruction tuning (IT) is a process that 
+involves fine-tuning a pre-trained model in a 
+fully-supervised manner based on collected 
+IT datasets.
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Multi-agent LLMs with Autogen
+52
+52
+v Chat Sequence: Getting Started
+Student
+chatGPT
+Today, I must finish my 
+article, but I have nothing.
+Gemini
+Perplexity
+Student
+You will help me 
+complete the introduction 
+given by my topic.
+Student
+You will help me 
+complete the body of the 
+article. I will give you my 
+topic and introduction.
+Student
+I will give you my article's 
+topic, intro, and body. You will 
+help me write the conclusion.
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Multi-agent LLMs with Autogen
+53
+53
+v Chat Sequence: Getting Started
+ConversationAgent
+Gemini
+Student
+This is my topic: "The development 
+of artificial intelligence is the human 
+workforce"
+Artificial Intelligence (AI) has 
+revolutionized various industries …
+Student
+This is my topic: …
+This is my introduction: …
+chatGPT
+Artificial Intelligence (AI) has 
+undoubtedly made significant 
+strides in reshaping the workplace 
+landscape across diverse sectors…
+Student
+This is my topic, 
+introduction, body 
+carryover
+carryover
+Perplexity
+In conclusion, the integration of 
+artificial intelligence in the human 
+workforce is …
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Multi-agent LLMs with Autogen
+54
+54
+v Group Chat: Getting Started
+Today's topic is “how to read 
+articles effectively”.
+Let's work in a group and write a 
+simple article about this topic.
+Leader
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Multi-agent LLMs with Autogen
+55
+55
+v Group Chat
+Leader
+You will handle the 
+first phase. That is the 
+introduction.
+Leader
+The body of this 
+article is your task 
+today.
+Leader
+Last but not least, you 
+will take care of the 
+conclusion.
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Multi-agent LLMs with Autogen
+56
+56
+v Group Chat
+Leader
+Intro
+Body
+Conclu
+sion
+Reply TERMINATE if 
+the task is done.
+TERMINATE
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Multi-agent LLMs with Autogen
+57
+57
+Multi-agent LLMs with Autogen
+v Build application step 1: Organize source code
+AI VIETNAM
+All-in-One Course
+(TA Session)
+-
+requirements.txt: Text file containing required libraries to run the 
+source code.
+-
+agent.py: Python file containing code for defining function that 
+can create agents.
+-
+OAI_CONFIG_LIST.json: Json file containing API KEY of the 
+OpenAI GPT.
+-
+utils.py: Python file containing code for threading.
+-
+chat.py: Python file containing code for defining chatbox between 
+two agents. 
+-
+app.py: Python file containing code for deploying.
+58
+58
+Multi-agent LLMs with Autogen
+v Build application step 1: Organize source code
+AI VIETNAM
+All-in-One Course
+(TA Session)
+We build this API in local computer with the 
+following source code structure
+59
+59
+Multi-agent LLMs with Autogen
+v Build application step 2: Define requirements.txt
+AI VIETNAM
+All-in-One Course
+(TA Session)
+60
+60
+Multi-agent LLMs with Autogen
+v Build application step 3: Update agent.py
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Load OpenAI model configuration
+61
+61
+Multi-agent LLMs with Autogen
+v Build application step 3: Update agent.py
+AI VIETNAM
+All-in-One Course
+(TA Session)
+62
+62
+Multi-agent LLMs with Autogen
+v Build application step 3: Update agent.py
+AI VIETNAM
+All-in-One Course
+(TA Session)
+63
+63
+Multi-agent LLMs with Autogen
+v Build application step 3: Update agent.py
+AI VIETNAM
+All-in-One Course
+(TA Session)
+AssistantAgent
+UserProxyAgent
+Generate 
+tokens
+Extract code
+Terminate message
+If fail
+True if not contains code
+False if contains code
+64
+64
+Multi-agent LLMs with Autogen
+v Build application step 4: Update utils.py
+AI VIETNAM
+All-in-One Course
+(TA Session)
+65
+65
+Multi-agent LLMs with Autogen
+v Build application step 4: Update utils.py
+AI VIETNAM
+All-in-One Course
+(TA Session)
+66
+66
+Multi-agent LLMs with Autogen
+v Build application step 5: Update chat.py
+AI VIETNAM
+All-in-One Course
+(TA Session)
+67
+67
+Multi-agent LLMs with Autogen
+v Build application step 5: Update chat.py
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Agent A
+Agent B
+Chat
+Agent A
+Agent C
+Chat
+Agent A
+Agent D
+Chat
+Message
+Context
+Message
+Context
+Message
+Context
+carryover
+carryover
+carryover
+carryover
+68
+68
+Multi-agent LLMs with Autogen
+v Build application step 5: Update chat.py
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Since we are using OpenAI GPT model, we need to convert into 
+its format
+69
+69
+Multi-agent LLMs with Autogen
+v Build application step 5: Update chat.py
+AI VIETNAM
+All-in-One Course
+(TA Session)
+We also need to get back the chat history to show the conversation in the chatbox
+70
+70
+Multi-agent LLMs with Autogen
+v Build application step 5: Update chat.py
+AI VIETNAM
+All-in-One Course
+(TA Session)
+We also need to get back the chat history to show the conversation in the chatbox
+71
+71
+Multi-agent LLMs with Autogen
+v Build application step 5: Update chat.py
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Function to intialize a chat between agents
+72
+72
+Multi-agent LLMs with Autogen
+v Build application step 5: Update chat.py
+AI VIETNAM
+All-in-One Course
+(TA Session)
+73
+73
+Multi-agent LLMs with Autogen
+v Build application step 5: Update chat.py
+AI VIETNAM
+All-in-One Course
+(TA Session)
+74
+74
+Multi-agent LLMs with Autogen
+v Build application step 6: Update app.py
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Create a Chatbox Interface
+75
+75
+Multi-agent LLMs with Autogen
+v Build application step 6: Update app.py
+AI VIETNAM
+All-in-One Course
+(TA Session)
+76
+76
+Multi-agent LLMs with Autogen
+v Build application results
+AI VIETNAM
+All-in-One Course
+(TA Session)
+77
+77
+Summary
+AI VIETNAM
+All-in-One Course
+(TA Session)
+In this lecture, we have discussed:
+1. What is LLMs agent?
+1. How is it differ from general LLMs?
+2. What are some challenges when deploying LLMs in production?
+2. What is Multi-agent LLMs?
+1. How is it differ from LLMs agent?
+3. How to implement an LLMs agent application with LangChain?
+1. Using retriever tool to retrieve necessary information for LLMs.
+2. Using calculator tool to compute input math equation. 
+4. How to implement an Multi-agent LLMs application with Autogen?
+1. Generate code with the help of code compiler for double check.
+?
+78
+Question
+AI VIETNAM
+All-in-One Course
+(TA Session)
+79

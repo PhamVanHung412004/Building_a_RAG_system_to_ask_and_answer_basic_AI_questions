@@ -1,0 +1,670 @@
+Visual Question Answering
+Dinh-Thang Duong – TA
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Project
+Year 2023
+Outline
+2
+➢Introduction
+➢CNN+LSTM Approach
+➢ViT+RoBERTa Approach
+➢Question
+Outline
+AI VIETNAM
+All-in-One Course
+(TA Session)
+3
+Introduction
+❖ Getting Started
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Q: What is the shape of the cloud in 
+this image?
+ChatGPT can 
+answer 
+question 
+from image.
+4
+Introduction
+❖ Getting Started
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Many questions can be asked within an image. How can we made a ML model do this task?
+5
+Introduction
+❖ What is VQA?
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Visual Question Answering (VQA): A task in Machine 
+Learning that aims to answer a question related to a 
+given image. This is a very challenging problem since 
+it requires a model to appropriately extract features 
+from both image and text for prediction.
+6
+Introduction
+❖ VQA Input/Output
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Q: Is this a truck ?
+Input
+VQA 
+Model
+‘yes’
+Output
+7
+Introduction
+❖ VQA Approach
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Question: Is the umbrella upside 
+down?
+Image:
+?
+Fixed possible answers list:
+- 1
+- 2
+- 3
+- yes
+- no
+- red
+- yellow
+- green
+- nothing
+- circle
+- round
+...
+8
+Introduction
+❖ VQA Approach
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Fixed possible answers list:
+- 1
+- 2
+- 3
+- yes
+- no
+- red
+- yellow
+- green
+- nothing
+- circle
+- round
+...
+Since we have a list of fixed possible answers…
+9
+Introduction
+❖ VQA Approach
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Question: Is the umbrella upside 
+down?
+Image:
+Classification 
+Model
+Feature Extraction
+Feature Extraction
+Fusion
+10
+10
+Introduction
+❖ VQA Approach
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Question: Is the umbrella upside 
+down?
+Image:
+Classification 
+Model
+Feature Extraction
+Feature Extraction
+Fusion
+1. Features Extraction
+2. Features Fusion
+3. Model
+11
+11
+Introduction
+❖ VQA Approach: Type of model
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Consider VQA task as Classification or Seq-to-Seq problem?
+12
+12
+Introduction
+❖ VQA Approach: Features Fusion
+AI VIETNAM
+All-in-One Course
+(TA Session)
+13
+13
+Introduction
+❖ VQA Approach: Features Extractions
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Question: Is the umbrella upside 
+down?
+Image:
+How should we 
+encode visual 
+and textual 
+data? 
+14
+14
+Introduction
+❖ Challenges 
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Question: Is the umbrella upside 
+down?
+Image:
+Classification 
+Model
+Feature Extraction
+Feature Extraction
+Fusion
+1. Features Extraction
+2. Features Fusion
+3. Model
+How to implement these effectively?
+15
+15
+Introduction
+❖ Challenges 
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Different types of question
+https://arxiv.org/pdf/1909.01860v2.pdf
+16
+16
+Introduction
+❖ Challenges 
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Correct Answer, Plausible Answer, Popular Answers and Random Answers
+17
+17
+Introduction
+❖ Challenges 
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Fill in the blank questions
+18
+18
+Introduction
+❖ Challenges 
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Object Counting questions
+19
+19
+Introduction
+❖ Challenges 
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Knowledge-based questions
+20
+20
+Introduction
+❖ Project Description 
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Description: Given a dataset about Yes/No questions with images (download here), build a model to answer a given 
+question related to the image.
+21
+21
+Introduction
+❖ Pipeline
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Question: Is this a ski 
+slope ?
+Image:
+Encoder
+Encoder
+C
+Classifier
+’no’
+22
+22
+CNN+LSTM Approach
+❖ Introduction
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Vanilla VQA: Considered as a 
+benchmark for deep learning 
+methods, the vanilla VQA model 
+uses CNN for feature extraction 
+and LSTM or Recurrent networks 
+for language processing. 
+Vanilla VQA: https://openaccess.thecvf.com/content_iccv_2015/papers/Antol_VQA_Visual_Question_ICCV_2015_paper.pdf
+23
+23
+CNN+LSTM Approach
+❖ Pipeline
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Question: Is this a ski 
+slope ?
+Image:
+ResNet
+Bi-LSTM
+C
+Classifier
+’no’
+24
+24
+CNN+LSTM Approach
+❖ Step 1: Import libraries
+AI VIETNAM
+All-in-One Course
+(TA Session)
+25
+25
+CNN+LSTM Approach
+❖ Step 2: Read dataset
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Dataset: images folder
+26
+26
+CNN+LSTM Approach
+❖ Step 2: Read dataset
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Dataset: File label structure
+27
+27
+CNN+LSTM Approach
+❖ Step 2: Read dataset
+AI VIETNAM
+All-in-One Course
+(TA Session)
+In order to create data sample, we need 
+to extract:
+1. Image Path
+2. Question
+3. Answer
+28
+28
+CNN+LSTM Approach
+❖ Step 2: Read dataset
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Line format: IMG_PATH\tQUESTION ? ANSWER
+29
+29
+CNN+LSTM Approach
+❖ Step 2: Read dataset
+AI VIETNAM
+All-in-One Course
+(TA Session)
+30
+30
+CNN+LSTM Approach
+❖ Step 3: Data Preprocessing
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Q: Is this a truck ?
+Text Tokenizer
+[6, 5, 7, 16, 21, 75, 3, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+We need to encode question into tokens
+31
+31
+CNN+LSTM Approach
+❖ Step 3: Data Preprocessing
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Using build_vocab_from_iterator() function to 
+build a vocabulary
+32
+32
+CNN+LSTM Approach
+❖ Step 3: Data Preprocessing
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Examination of tokenize() function
+33
+33
+CNN+LSTM Approach
+❖ Step 3: Data Preprocessing
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Classname
+ID
+no
+0
+yes
+1
+Create a classname, id mapping dictionary
+34
+34
+CNN+LSTM Approach
+❖ Step 4: Create pytorch datasets
+AI VIETNAM
+All-in-One Course
+(TA Session)
+35
+35
+CNN+LSTM Approach
+❖ Step 5: Create dataloader
+AI VIETNAM
+All-in-One Course
+(TA Session)
+36
+36
+CNN+LSTM Approach
+❖ Step 6: Create model
+AI VIETNAM
+All-in-One Course
+(TA Session)
+37
+37
+CNN+LSTM Approach
+❖ Step 6: Create model
+AI VIETNAM
+All-in-One Course
+(TA Session)
+38
+38
+CNN+LSTM Approach
+❖ Step 6: Create model
+AI VIETNAM
+All-in-One Course
+(TA Session)
+39
+39
+CNN+LSTM Approach
+❖ Step 6: Create model
+AI VIETNAM
+All-in-One Course
+(TA Session)
+40
+40
+CNN+LSTM Approach
+❖ Step 7: Create evaluate model
+AI VIETNAM
+All-in-One Course
+(TA Session)
+41
+41
+CNN+LSTM Approach
+❖ Step 8: Training
+AI VIETNAM
+All-in-One Course
+(TA Session)
+42
+42
+CNN+LSTM Approach
+❖ Step 8: Training
+AI VIETNAM
+All-in-One Course
+(TA Session)
+43
+43
+CNN+LSTM Approach
+❖ Step 8: Training
+AI VIETNAM
+All-in-One Course
+(TA Session)
+44
+44
+CNN+LSTM Approach
+❖ Step 9: Evaluation
+AI VIETNAM
+All-in-One Course
+(TA Session)
+45
+45
+ViT+RoBERTaApproach
+❖ Introduction
+AI VIETNAM
+All-in-One Course
+(TA Session)
+How about replace CNN and 
+LSTM with a better model? 
+46
+46
+ViT+RoBERTaApproach
+❖ Introduction
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Transformers: A Transformer is a 
+type of deep learning architecture 
+that uses an attention mechanism 
+to process text sequences.
+47
+47
+ViT+RoBERTa Approach
+❖ Introduction
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Encoder
+Decoder
+48
+48
+ViT+RoBERTaApproach
+❖ Introduction
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Encoder
+BERT (Bidirectional Encoder Representations from 
+Transformers): A language model based on the transformer 
+architecture.
+https://arxiv.org/abs/1810.04805
+49
+49
+ViT+RoBERTaApproach
+❖ Introduction
+AI VIETNAM
+All-in-One Course
+(TA Session)
+RoBERTa: Builds on BERT and modifies key hyperparameters, 
+removing the next-sentence pretraining objective and training 
+with much larger mini-batches and learning rates.
+https://arxiv.org/abs/1907.11692
+Encoder
+50
+50
+ViT+RoBERTaApproach
+❖ Introduction
+AI VIETNAM
+All-in-One Course
+(TA Session)
+ViT (Vision Transformer): The first paper that successfully trains a 
+Transformer encoder on ImageNet, attaining very good results compared to 
+familiar convolutional architectures
+https://arxiv.org/abs/2010.11929
+Encoder
+51
+51
+ViT+RoBERTaApproach
+❖ Pipeline
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Question: Is this a 
+high quality bottle of 
+wine ?
+Image:
+Vision
+Transformers
+RoBERTa
+C
+Classifier
+’yes’
+52
+52
+ViT+RoBERTaApproach
+❖ Step 1: Import libraries
+AI VIETNAM
+All-in-One Course
+(TA Session)
+53
+53
+ViT+RoBERTa Approach
+❖ Step 2: Read dataset 
+AI VIETNAM
+All-in-One Course
+(TA Session)
+54
+54
+ViT+RoBERTaApproach
+❖ Step 3: Create pytorch datasets
+AI VIETNAM
+All-in-One Course
+(TA Session)
+55
+55
+ViT+RoBERTaApproach
+❖ Step 3: Create pytorch datasets
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Previous CNN+LSTM Approach pytorch dataset
+56
+56
+ViT+RoBERTa Approach
+❖ Step 3: Create pytorch datasets
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Question: Is this a 
+high quality bottle of 
+wine ?
+Image:
+Vision
+Transformers
+RoBERTa
+ViTImageProcessor
+Tokenizer
+57
+57
+ViT+RoBERTaApproach
+❖ Step 3: Create pytorch datasets
+AI VIETNAM
+All-in-One Course
+(TA Session)
+58
+58
+ViT+RoBERTa Approach
+❖ Step 3: Create pytorch datasets
+AI VIETNAM
+All-in-One Course
+(TA Session)
+59
+59
+ViT+RoBERTaApproach
+❖ Step 4: Create data preprocessing function
+AI VIETNAM
+All-in-One Course
+(TA Session)
+60
+60
+ViT+RoBERTaApproach
+❖ Step 5: Create dataloader
+AI VIETNAM
+All-in-One Course
+(TA Session)
+61
+61
+ViT+RoBERTaApproach
+❖ Step 6: Create model
+AI VIETNAM
+All-in-One Course
+(TA Session)
+62
+62
+ViT+RoBERTaApproach
+❖ Step 6: Create model
+AI VIETNAM
+All-in-One Course
+(TA Session)
+63
+63
+ViT+RoBERTa Approach
+❖ Step 6: Create model
+AI VIETNAM
+All-in-One Course
+(TA Session)
+64
+64
+ViT+RoBERTaApproach
+❖ Step 6: Create model
+AI VIETNAM
+All-in-One Course
+(TA Session)
+65
+65
+ViT+RoBERTaApproach
+❖ Step 6: Create model
+AI VIETNAM
+All-in-One Course
+(TA Session)
+66
+66
+ViT+RoBERTa Approach
+❖ Step 7: Create evaluate and training function
+AI VIETNAM
+All-in-One Course
+(TA Session)
+67
+67
+ViT+RoBERTaApproach
+❖ Step 7: Create evaluate and training function
+AI VIETNAM
+All-in-One Course
+(TA Session)
+68
+68
+ViT+RoBERTaApproach
+❖ Step 8: Training
+AI VIETNAM
+All-in-One Course
+(TA Session)
+69
+69
+ViT+RoBERTaApproach
+❖ Step 9: Evaluation
+AI VIETNAM
+All-in-One Course
+(TA Session)
+?
+70
+Question
+AI VIETNAM
+All-in-One Course
+(TA Session)
+71

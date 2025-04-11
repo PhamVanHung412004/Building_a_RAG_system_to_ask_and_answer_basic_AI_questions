@@ -1,0 +1,407 @@
+Convolutional Neural Networks
+Dinh-Thang Duong – TA
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Exercise
+Year 2023
+Outline
+2
+Ø ResNet
+Ø DenseNet
+Ø Question
+Outline
+AI VIETNAM
+All-in-One Course
+(TA Session)
+3
+ResNet
+v ResNet Architecture
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Residual Networks (ResNet): A type of CNNs first introduced 
+in 2015. Its innovative approach involes using “residual 
+blocks”, which allow the network to efficiently train 
+extremely deep models by learning residual (difference) 
+between the input and desired output.
+4
+ResNet
+v ResNet Architecture
+AI VIETNAM
+All-in-One Course
+(TA Session)
+ResNet Connectivity
+In ResNet, the output of a layer is combined 
+with the input to create a residual connection 
+or shorcut connection. 
+Standard Connectivity
+5
+ResNet
+v Coding Exercise
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Problem Statement: Given the weather image dataset (download here). Train a model to determine which type of weather 
+is in a image using ResNet.  
+6
+ResNet
+v Step 1: Import libraries
+AI VIETNAM
+All-in-One Course
+(TA Session)
+7
+ResNet
+v Step 2: Read dataset
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Each folder name is also a class name, 
+thus we could get list of classnames by 
+reading over them.
+8
+ResNet
+v Step 2: Read dataset
+AI VIETNAM
+All-in-One Course
+(TA Session)
+We get all image paths 
+as well as their 
+corresponding label. 
+9
+ResNet
+v Step 3: Train, val, test split
+AI VIETNAM
+All-in-One Course
+(TA Session)
+10
+ResNet
+v Step 4: Create pytorch datasets
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Declare train, val, test 
+datasets object
+11
+ResNet
+v Step 5: Create dataloader
+AI VIETNAM
+All-in-One Course
+(TA Session)
+We must also declare 
+the value of batch size 
+for training and 
+testing.
+DataLoader is an 
+iterator, so we can get a 
+sample (image_path, 
+label) and visualize it.
+12
+ResNet
+v Step 6: ResNet Architecture
+AI VIETNAM
+All-in-One Course
+(TA Session)
+13
+ResNet
+v Step 6: Implement Residual Block
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Residual Block
+14
+ResNet
+v Step 6: Implement Residual Block
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Residual Block
+15
+ResNet
+v Step 7: Implement ResNet (ResNet-18)
+AI VIETNAM
+All-in-One Course
+(TA Session)
+16
+ResNet
+v Step 7: Implement ResNet (ResNet-18)
+AI VIETNAM
+All-in-One Course
+(TA Session)
+17
+ResNet
+v Step 7: Implement ResNet (ResNet-18)
+AI VIETNAM
+All-in-One Course
+(TA Session)
+18
+ResNet
+v Step 7: Implement ResNet (ResNet-18)
+AI VIETNAM
+All-in-One Course
+(TA Session)
+After initialize the model, 
+we should whether it 
+works correctly or not
+19
+ResNet
+v Step 8: Create fit function
+AI VIETNAM
+All-in-One Course
+(TA Session)
+From line 1 to line 9: Declare fit() function with the 
+following parameters:
+•
+model: the pytorch model to use.
+•
+train_loader: the dataloader of train set.
+•
+val_loader: the dataloader of val set.
+•
+criterion: the pytorch loss function.
+•
+optimizer: the pytorch learning algorithm.
+•
+device: ‘cuda’ or ‘cpu’.
+•
+epochs: number of epochs.
+20
+ResNet
+v Step 8: Create fit function
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Line 10, 11: Declare two empty lists for storing 
+losses on train set and val set over epochs. These 
+will be the return values of our function.
+21
+ResNet
+v Step 8: Create fit function
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Line 13, 14, 15, 16: Iterate over each epoch, create 
+an empty list for storing loss on each iteration and 
+turn the training mode of the model on.
+22
+ResNet
+v Step 8: Create fit function
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Line 17, 18: Iterate over each batch of samples in 
+train dataloader, convert the input tensor into 
+correspoding device (CPU or GPU).  
+Line 20, 21: Clear the previous gradient and 
+execute the prediction on inputs.
+23
+ResNet
+v Step 8: Create fit function
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Line 22, 23, 24, 26: Compute the loss, gradient and 
+update the computed gradient to the optimizer. 
+Then, append the computed loss to empty list 
+declared on line 14. 
+24
+ResNet
+v Step 8: Create fit function
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Line 28, 29: With a list of loss value of each 
+iteration, we average them to get a single 
+representative value for the current epoch.
+25
+ResNet
+v Step 8: Create fit function
+AI VIETNAM
+All-in-One Course
+(TA Session)
+From line 31 to 39: Evaluate the model on val set, 
+append the val loss to empty list declared in line 
+11, print the training result on the current epoch. If 
+the iteration over epoch ends, return the 
+train_losses and val_losses.  
+26
+ResNet
+v Step 9: Training 
+AI VIETNAM
+All-in-One Course
+(TA Session)
+27
+ResNet
+v Step 9: Training 
+AI VIETNAM
+All-in-One Course
+(TA Session)
+28
+ResNet
+v Step 10: Create evaluation function
+AI VIETNAM
+All-in-One Course
+(TA Session)
+29
+DenseNet
+v DenseNet Architecture
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Densely Connected Convolutional Networks (DenseNet): A 
+type of CNNs introduced in 2017. It revolutionized CNNs by 
+introducing dense connectivity (DenseBlock), facilitating 
+information flow and feature reuse.
+30
+DenseNet
+v DenseNet architecture
+AI VIETNAM
+All-in-One Course
+(TA Session)
+In DenseNet, each layer is not only connected to the 
+previous layer but also to all subsequent layers in the 
+network.
+c
+c
+c
+c
+DenseNet Connectivity
+31
+DenseNet
+v Coding Exercise
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Problem Statement: Given the scenes image dataset (download here), build a scenes image classifier using DenseNet 
+architecture.
+32
+DenseNet
+v Step 1: Import libraries
+AI VIETNAM
+All-in-One Course
+(TA Session)
+33
+DenseNet
+v Step 2: Read dataset
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Each folder name is also a class name, 
+thus we could get list of classnames by 
+reading over them.
+34
+DenseNet
+v Step 2: Read dataset
+AI VIETNAM
+All-in-One Course
+(TA Session)
+35
+DenseNet
+v Step 3: Train, val, test split
+AI VIETNAM
+All-in-One Course
+(TA Session)
+We only need to split once since we 
+already have test set
+36
+DenseNet
+v Step 4: Create pytorch dataset
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Declare train, val, test 
+datasets object
+37
+DenseNet
+v Step 5: Create dataloader
+AI VIETNAM
+All-in-One Course
+(TA Session)
+We must also declare 
+the value of batch size 
+for training and 
+testing.
+DataLoader is an 
+iterator, so we can get a 
+sample (image_path, 
+label) and visualize it.
+38
+DenseNet
+v Step 6: DenseNet Architecture
+AI VIETNAM
+All-in-One Course
+(TA Session)
+39
+DenseNet
+v Step 6: DenseNet Architecture Visualization
+AI VIETNAM
+All-in-One Course
+(TA Session)
+40
+DenseNet
+v Step 6: DenseBlock Architecture
+AI VIETNAM
+All-in-One Course
+(TA Session)
+BottleNeck
+41
+DenseNet
+v Step 6: Implement DenseBlock
+AI VIETNAM
+All-in-One Course
+(TA Session)
+42
+DenseNet
+v Step 6: Implement DenseBlock
+AI VIETNAM
+All-in-One Course
+(TA Session)
+43
+DenseNet
+v Step 6: Implement DenseNet
+AI VIETNAM
+All-in-One Course
+(TA Session)
+44
+DenseNet
+v Step 6: Implement DenseNet
+AI VIETNAM
+All-in-One Course
+(TA Session)
+45
+DenseNet
+v Step 6: Implement DenseNet
+AI VIETNAM
+All-in-One Course
+(TA Session)
+46
+DenseNet
+v Step 8, 9: Create fit and evaluate function
+AI VIETNAM
+All-in-One Course
+(TA Session)
+47
+DenseNet
+v Step 10: Training
+AI VIETNAM
+All-in-One Course
+(TA Session)
+48
+DenseNet
+v Step 10: Training
+AI VIETNAM
+All-in-One Course
+(TA Session)
+49
+DenseNet
+v Step 10: Training
+AI VIETNAM
+All-in-One Course
+(TA Session)
+?
+50
+Question
+AI VIETNAM
+All-in-One Course
+(TA Session)
+51

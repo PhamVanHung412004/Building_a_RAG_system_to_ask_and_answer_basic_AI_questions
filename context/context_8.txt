@@ -1,0 +1,2814 @@
+Text Generation
+Year 2024
+Quang-Vinh Dinh
+Ph.D. in Computer Science
+AI VIETNAM
+All-in-One Course
+➢Motivation to Text Generation
+➢Simple Models
+➢Using RNNs
+➢Examples
+➢Using Masked Encoder (~Decoder)
+Outline
+Self-Supervision Using Image Data
+AI VIETNAM
+All-in-One Course
+Model
+Noisy and grayscale images
+Clean and color images
+Model
+Model
+Noisy images
+Clean images
+Grayscale images
+Color images
+1
+Self-Supervision Using Image Data
+AI VIETNAM
+All-in-One Course
+https://arxiv.org/pdf/2111.06377.pdf
+2
+Self-Supervision Using Text Data
+❖ How?
+natural language processing is a branch of artificial intelligence
+natural
+language
+X
+y
+Text Model
+natural
+language
+language
+ො𝑦
+𝑦
+loss
+update
+3
+Text Generation
+AI VIETNAM
+All-in-One Course
+❖ Applications
+❖ From the viewpoint of users
+Embedding
+Vectorization
+Model
+Output
+Input
+Inference
+4
+Simple Model
+RNN Cell
+RNN Cell
+ho
+Wih
+Whh
+bih
+Wih
+bih
+h1
+h2
+bhh
+ai
+học
+đi
+4
+3
+học
+[-1.27,  0.84,  0.04]
+Embedded sample 2
+[-0.88,  0.81,  0.77]
+Embedded sample 1
+Model
+Model
+ai
+học
+Output
+Loss
+optimizer
+học
+input
+đi
+học
+ai
+data
+ai
+label
+đi
+học
+Label
+ho
+Whh
+bhh
+Output
+Label
+Loss
+optimizer
+Simple Model
+5
+RNN Cell
+RNN Cell
+ho
+Wih
+Whh
+bih
+Wih
+bih
+h1
+h2
+bhh
+?
+?
+?
+?
+?
+?
+Model
+Model
+?
+?
+Output
+Loss
+optimizer
+có
+làm
+mới
+có
+ăn
+data
+Label
+ho
+Whh
+bhh
+Output
+Label
+Loss
+optimizer
+input & label
+Discussion and Finding out problems
+Another Example
+6
+Text Generation
+AI VIETNAM
+All-in-One Course
+❖ Input is a set of tokens
+data = 'trăm năm trong cõi người ta'
+Embedding
+Vectorization
+Model
+A Token
+Input
+7
+Text Generation
+AI VIETNAM
+All-in-One Course
+Text Generation Model
+interesting
+Learning AI is
+Vectorization
+5
+2
+6
+Embedding
+Model
+Softmax
+…
+size?
+Where is “interesting” from? 
+size = vocab_size
+Another Example
+Learning AI is interesting
+AI is a CS Topic
+8
+Text Generation
+Text Generation Model
+interesting
+Learning AI is
+Vectorization
+5
+2
+6
+Embedding
+Model
+0.x
+0.x
+0.x
+0.x
+0.8
+0.x
+0.x
+0.x
+index
+0
+1
+2
+3
+4
+5
+6
+7
+word
+pad
+[UNK]
+ai
+we
+interesting
+learning
+is
+cs
+Text Generation Model
+is
+Learning AI
+Vectorization
+5
+2
+Embedding
+Model
+0.x
+0.x
+0.x
+0.x
+0.x
+0.x
+0.8
+0.x
+Abstract view
+9
+Text Generation
+Text Generation Model
+AI
+Learning
+Vectorization
+5
+Embedding
+Model
+0.x
+0.x
+0.8
+0.x
+0.x
+0.x
+0.x
+0.x
+index
+0
+1
+2
+3
+4
+5
+6
+7
+word
+pad
+[UNK]
+ai
+we
+interesting
+learning
+is
+cs
+Text Generation Model
+Learning
+?
+Vectorization
+Embedding
+Model
+0.x
+0.x
+0.x
+0.x
+0.x
+0.8
+0.x
+0.x
+use [startoftext]
+?
+Abstract view
+Learning AI is interesting
+index
+0
+1
+2
+3
+4
+5
+6
+7
+word
+pad
+[UNK]
+ai
+we
+interesting
+learning
+is
+cs
+sequence_length = 6
+Text Generation Model
+interesting
+Learning AI is
+Vectorization
+5
+2
+6
+0
+0
+0
+Embedded Vectors
+Model
+0.x
+0.x
+0.x
+0.x
+0.8
+0.x
+0.x
+0.x
+Text Generation Model
+is
+Learning AI
+Vectorization
+Embedded Vectors
+Model
+0.x
+0.x
+0.x
+0.x
+0.x
+0.x
+0.8
+0.x
+5
+2
+0
+0
+0
+0
+11
+. . .
+. . .
+➢Motivation to Text Generation
+➢Simple Models
+➢Using RNNs
+➢Examples
+➢Using Masked Encoder (~Decoder)
+Outline
+RNN Cell
+RNN Cell
+ho
+h1
+Wih
+Whh
+bih
+Wih
+Whh
+bih
+h1
+h2
+bhh
+bhh
+ai
+học
+đi
+4
+3
+đi
+học
+input
+đi
+học
+ai
+data
+ai
+label
+ai
+Model
+Output
+Loss
+optimizer
+Implementation Using RNN
+Label
+way 1
+Extract context from input
+12
+RNN Cell
+RNN Cell
+ho
+h1
+Wih
+Whh
+bih
+Wih
+Whh
+bih
+h1
+h2
+bhh
+bhh
+<pad>
+đi
+1
+3
+đi
+input
+đi
+học
+ai
+data
+học
+label
+Model
+Output
+Loss
+optimizer
+Label
+way 1
+học
+học
+Extract context from input
+Implementation Using RNN
+13
+RNN Cell
+RNN Cell
+ho
+h1
+Wih
+Whh
+bih
+Wih
+Whh
+bih
+h1
+h2
+bhh
+bhh
+ai
+học
+đi
+4
+3
+đi
+học
+ai
+data
+ai
+Model
+Output
+Loss
+optimizer
+Label
+way 2
+Linear
+đi
+học
+input
+ai
+label
+Using all the features
+Implementation Using RNN
+14
+Text 
+Generation
+❖ Practice
+Text Generation Model
+a Token
+Input Text
+Vectorization
+Embedding
+Model
+0.x
+0.x
+0.x
+0.x
+0.x
+…
+0.x
+0.x
+5
+0
+0 … 0
+0
+Classifier
+Linear
+shape = (40,)
+shape = (40, 128)
+shape = (40, 128)
+shape = (40, 128)
+shape = (1000,)
+‘AI’
+‘Learning AI is interesting’
+𝑥=
+𝑦=
+‘Learning’
+sequence_length = 40
+embed_dim = 128
+vocab_size = 1000
+15
+Text 
+Generation
+❖ Practice
+Text Generation Model
+a Token
+Input Text
+Vectorization
+Embedding
+Model
+0.x
+0.x
+0.x
+0.x
+0.x
+…
+0.x
+0.x
+5
+2
+0 … 0
+0
+Classifier
+Linear
+shape = (40,)
+shape = (40, 128)
+shape = (40, 128)
+shape = (40, 128)
+shape = (1000,)
+‘is’
+‘Learning AI is interesting’
+𝑥=
+𝑦=
+‘Learning AI’
+sequence_length = 40
+embed_dim = 128
+vocab_size = 1000
+16
+Text 
+Generation
+❖ Practice
+Text Generation Model
+a Token
+Input Text
+Vectorization
+Embedding
+Model
+0.x
+0.x
+0.x
+0.x
+0.x
+…
+0.x
+0.x
+5
+2
+8
+0 … 0
+sequence_length = 40
+shape = (40,)
+embed_dim = 128
+shape = (40, 128)
+Classifier
+shape = (40, 128)
+shape = (40, 128)
+vocab_size = 1000
+Linear
+shape = (1000,)
+‘interesting’
+‘Learning AI is interesting’
+𝑥=
+𝑦=
+‘Learning AI is’
+17
+Loss function?
+Copus
+Vocab
+Id
+Text
+0
+Ăn quả nhớ kẻ trồng cây
+1
+Có chí thì nên
+Tokenizer
+Ăn
+quả
+cây
+trồng
+kẻ
+nhớ
+có
+chí
+thì
+nên
+Token
+Id
+<unk>
+0
+<pad>
+1
+<sos>
+2
+chí
+3
+cây
+4
+có
+5
+kẻ
+6
+nhớ
+7
+nên
+8
+quả
+9
+thì 
+10
+trồng
+11
+ăn
+12
+<unk>
+<pad>
+<sos>
+Build vocab
+Special tokens
+Add
+Example
+18
+Id
+Text
+0
+Ăn quả nhớ kẻ trồng cây
+1
+Có chí thì nên
+Input tokens
+Target token
+<sos>
+Ăn
+<sos> Ăn
+quả
+<sos> Ăn quả
+nhớ
+<sos> Ăn quả nhớ
+kẻ
+<sos> Ăn quả nhớ kẻ
+trồng
+<sos> Ăn quả nhớ kẻ trồng
+cây
+<sos> 
+Có
+<sos> Có
+chí
+<sos> Có chí
+thì
+<sos> Có chí thì 
+nên
+Next token prediction dataset
+Input ids
+Target ids
+[2, 1, 1, 1, 1, 1]
+12
+[2, 12, 1, 1, 1, 1]
+9
+[2, 12, 9, 1, 1, 1]
+7
+[2, 12, 9, 7, 1, 1]
+6
+[2, 12, 9, 7, 6, 1]
+11
+[2, 12, 9, 7, 6, 11]
+4
+[2, 1, 1, 1, 1, 1]
+5
+[2, 5, 1, 1, 1, 1]
+3
+[2, 5, 3, 1, 1, 1]
+10
+[2, 5, 3, 10, 1, 1]
+8
+padding
+Vocab
+Training data
+Example
+19
+sequence_length = 6
+Token
+Id
+<unk>
+0
+<pad>
+1
+<sos>
+2
+chí
+3
+cây
+4
+có
+5
+Token
+Id
+kẻ
+6
+nhớ
+7
+nên
+8
+quả
+9
+thì 
+10
+trồng
+11
+ăn
+12
+Training
+X ids
+[2, 1, 1, 1, 1, 1]
+[2, 12, 1, 1, 1, 1]
+[2, 12, 9, 1, 1, 1]
+[2, 12, 9, 7, 1, 1]
+[2, 12, 9, 7, 6, 1]
+[2, 12, 9, 7, 6, 11]
+[2, 1, 1, 1, 1, 1]
+[2, 5, 1, 1, 1, 1]
+[2, 5, 3, 1, 1, 1]
+[2, 5, 3, 10, 1, 1]
+Model
+(RNN / Transformer)
+target ids
+12
+9
+7
+6
+11
+4
+5
+3
+10
+8
+predict ids
+12
+9
+7
+6
+12
+4
+5
+3
+9
+8
+CrossEntropy
+Loss
+Update params
+Example
+AI VIETNAM
+All-in-One Course
+20
+Input tokens
+Target token
+<sos> Có chí thì 
+nên
+Input ids
+Target ids
+[2, 5, 3, 10]
+[8]
+Embedding 
+layer
+2
+5
+3
+10
+𝑋1 = −0.7521
+1.6487
+−0.3925
+−1.4036
+𝑋2 = −0.7581
+1.0783
+0.8008
+1.6806
+𝑋3 = −0.7279
+−0.5594
+−0.7688
+0.7624
+𝑋4 = −0.8371
+−0.9224
+1.8113
+0.1606
+0.3035
+−0.2523
+0.2980
+0.4578
+−0.1187
+0.1524
+0.3399
+−0.1687
+0.2860
+0.1057
+−0.3626
+−0.1773
+−0.3885
+−0.1275
+−0.2669
+−0.4838
+𝑾𝒉𝒉
+−0.2863
+0.1249
+−0.0660
+−0.3629
+𝑏𝑖ℎ
+𝑾𝒊𝒉
+−0.2982
+0.4811
+−0.3363
+−0.2582
+−0.2982
+−0.4126
+0.2025
+−0.3409
+0.4497
+−0.4959
+0.1790
+0.2653
+0.1666
+−0.3912
+0.4155
+−0.2021
+0.0117
+−0.3415
+−0.4242
+−0.2753 
+𝑏ℎℎ
+ℎ0
+ℎ1
+ℎ2
+ℎ3
+𝑋1
+0
+0
+0
+0
+𝒃𝒊𝒉
+ℎ4
+𝑋4
+𝑋3
+𝑋2
+RNN
+𝒃𝒉𝒉
+𝑾𝒊𝒉
+𝑾𝒉𝒉
+𝑾𝒊𝒉
+𝑾𝒊𝒉
+𝑾𝒊𝒉
+𝒃𝒉𝒉
+𝒃𝒉𝒉
+𝒃𝒉𝒉
+ℎ1 = −0.7409
+−0.4739
+−0.5055
+−0.6786
+ℎ2 = 0.2170
+−0.9590
+0.6681
+−0.6519
+ℎ3 = 0.4735
+−0.2915
+−0.4692
+−0.1583
+ℎ4 = 0.8327
+−0.8839
+0.2449
+0.6446
+FC
+Flatten
+𝑾𝒉𝒉
+𝑾𝒉𝒉
+𝑾𝒉𝒉
+𝒃𝒊𝒉
+𝒃𝒊𝒉
+𝒃𝒊𝒉
+Feed Forward
+21
+sequence_length = 4
+hidden_dim = 4
+FC
+Probability
+0.1121
+0.1334
+0.0742
+0.0896
+0.0648
+0.0569
+0.0956
+0.0744
+0.0751
+0.0809
+0.0636
+0.0490
+0.0304
+Target
+0
+0
+0
+0
+0
+0
+0
+0
+1
+0
+0
+0
+0
+CrossEntropyLoss (L)
+Loss
+0.0896
+−0.0079
+0.0049
+−0.0619
+−0.0204
+−0.0960
+−0.1445
+0.0827
+0.0843
+0.0819
+−0.0518
+−0.1736
+0.0201
+−0.0723
+−0.1252
+0.0291
+𝛁𝑾𝒉𝒉𝑳
+𝛁𝑾𝒊𝒉𝑳
+0.0187
+−0.1285
+−0.2816
+−0.0437
+−0.1589
+0.1600
+0.0904
+0.1782
+−0.0991
+−0.1825
+0.1933
+0.2889
+−0.0988
+−0.0411
+0.1014
+−0.0192
+−0.0235
+0.1788
+0.3628
+0.0449
+𝛁𝑏ℎℎ𝑳
+−0.0235
+0.1788
+0.3628
+0.0449
+𝛁𝑏𝑖ℎ𝑳
+2.5884
+backward
+backward
+Back-Propagation
+𝑾𝒉𝒉= 𝑾𝒉𝒉 −𝒍𝒓× 𝒅𝑾𝒉𝒉
+𝑾𝒊𝒉= 𝑾𝒊𝒉 −𝒍𝒓× 𝒅𝑾𝒊𝒉
+0.2945
+−0.2515
+0.2975
+0.4640
+−0.1166
+0.1620
+0.3544
+−0.1770
+0.2776
+0.0975
+−0.3574
+−0.1599
+−0.3905
+−0.1203
+−0.2544
+−0.4867
+−0.2840
+0.1070
+−0.1023
+−0.3674
+[−0.3001
+0.4940
+−0.3082
+[−0.2538
+−0.2823
+−0.4286
+0.1935
+−0.3587
+0.4596
+−0.4777
+0.1597
+0.2364
+0.1765
+−0.3871
+0.4053
+−0.2002
+0.0141
+−0.3594
+−0.4605
+−0.2798 
+𝒃𝒉𝒉= 𝒃𝒉𝒉−𝒍𝒓× 𝒅𝒃𝒉𝒉
+𝒃𝒊𝒉= 𝒃𝒊𝒉−𝒍𝒓× 𝒅𝒃𝒊𝒉
+Update Parameters
+SGD(𝑙𝑟= 0.1)
+Probability
+0.1044
+0.1163
+0.0659
+0.0865
+0.0575
+0.0521
+0.0894
+0.0673
+0.1506
+0.0754
+0.0578
+0.0488
+0.0280
+Target
+0
+0
+0
+0
+0
+0
+0
+0
+1
+0
+0
+0
+0
+CrossEntropyLoss (L)
+Loss
+1.8929
+Forward again
+2nd Feed Forward
+23
+➢Motivation to Text Generation
+➢Simple Models
+➢Using RNNs
+➢Examples
+➢Using Masked Encoder (~Decoder)
+Outline
+RNN Cell
+RNN Cell
+ho
+h1
+Wih
+Whh
+bih
+Wih
+Whh
+bih
+h1
+h2
+bhh
+bhh
+ai
+học
+đi
+4
+3
+học
+đi
+học
+input
+đi
+học
+ai
+data
+học
+ai
+label
+ai
+học
+Model
+Output
+Loss
+optimizer
+Label
+way 3
+RNNs encode input sequentially
+Implementation Using RNN
+24
+*Linear can be added (where?)
+RNN Cell
+RNN Cell
+ho
+h1
+Wih
+Whh
+bih
+Wih
+Whh
+bih
+h1
+h2
+bhh
+bhh
+ai
+học
+đi
+4
+3
+học
+[-0.88,  0.81,  0.77]
+[-1.27,  0.84,  0.04]
+Embedded Input
+[0.25,   0.05,  0.17]
+[-0.11,  0.35,  0.22]
+[0.44, -0.22, -0.42]
+[0.38,  0.36, -0.01]
+[-0.08,  0.68, -0.08, -0.53]
+[-0.30,  0.77, -0.15, -0.58]
+Output
+[-0.30,  0.77, -0.15, -0.58]
+Hidden
+[0.38, -0.06,  0.37, -0.19]
+[-0.16,  0.42,  0.08, -0.02]
+[-0.36, -0.01,  0.17,  0.39]
+[-0.43,  0.09,  0.33,  0.03]
+Wih
+[-0.47,  0.13,  0.46, -0.15]
+bih
+Whh
+[0.43,  0.16,  0.34, -0.39]
+bhh
+seq_len = 2
+way 3
+RNNs encode input sequentially
+Implementation Using RNN
+*Linear can be added
+hidden_dim = vocab_size = 4
+RNN Cell
+RNN Cell
+ho
+h1
+h2
+Wxh
+Whh
+bxh
+Wxh
+Whh
+bxh
+h1
+h2
+bhh
+bhh
+Whh
+bhh
+ai
+học
+đi
+4
+3
+học
+RNN Cell
+h3
+Wxh
+bxh
+h2
+Whh
+bhh
+<eos>
+2
+ai
+đi
+học
+ai
+<eos>
+Training
+Loss
+ai
+học
+<eos>
+label
+Add more special tokens
+seq_len = 3
+27
+RNN Cell
+RNN Cell
+ho
+h1
+h3
+Wxh
+Whh
+bxh
+Wxh
+Whh
+bxh
+h1
+h3
+bhh
+bhh
+Whh
+bhh
+ai
+học
+<sos>
+4
+1
+RNN Cell
+h4
+Wxh
+bxh
+h4
+Whh
+bhh
+<eos>
+2
+ai
+RNN Cell
+h2
+Wxh
+bxh
+Whh
+h2
+bhh
+đi
+3
+học
+đi
+<sos>
+đi
+học
+ai
+<eos>
+Training
+Loss
+ai
+<eos>
+học
+đi
+label
+seq_len = 4
+28
+Text 
+Generation
+❖ Practice
+Text Generation Model
+Outputs
+Input
+Vectorization
+Embedding
+Model
+0.x
+0.x
+0.x
+0.x
+0.x
+…
+0.x
+0.x
+5
+2
+7 … 0
+0
+Classifier
+Linear
+shape = (40,)
+shape = (40, 128)
+shape = (40, 128)
+shape = (40, 128)
+shape 
+(40, 1000)
+What about?
+‘AI is …  very interesting’
+‘Learning AI is … very interesting’
+𝑥=
+𝑦=
+‘Learning AI is … very’
+sequence_length = 40
+embed_dim = 128
+vocab_size = 1000
+29
+0.x
+0.x
+0.x
+0.x
+0.x
+…
+0.x
+0.x
+➢Motivation to Text Generation
+➢Simple Models
+➢Using RNNs
+➢Examples
+➢Using Masked Encoder (~Decoder)
+Outline
+https://arxiv.org/pdf/
+1803.08494.pdf
+Positional 
+Embedding
+Input Embedding
++
+Multi-head 
+Self-Attention
+Add & Norm
+Feed Forward
+Add & Norm
+Linear
+Softmax
+Transformer Encoder
+N×
+30
+Softmax
+n
+d
+n
+d
+d
+d
+n
+n
+n
+n
+n
+𝑑𝑞
+𝑑𝑘
+𝑑𝑣
+𝑑𝑞
+𝑑𝑘
+𝑑𝑣
+𝑊𝑞
+𝑊𝑘
+𝑊𝑣
+Q
+K
+V
+𝑄𝐾𝑇
+Y
+A
+n
+n
+𝑑𝑞= 𝑑𝑘= 𝑑𝑣
+Embedding size
+Sequence length
+Input
+𝑑𝑣
+Self-Attention
+31
+Positional 
+Embedding
+Input Embedding
++
+Multi-head 
+Self-Attention
+Add & Norm
+Feed Forward
+Add & Norm
+Positional 
+Embedding
+Output Embedding
++
+Masked 
+Multi-head 
+Self-Attention
+Add & Norm
+Multi-head 
+Self-Attention
+Add & Norm
+Feed Forward
+Add & Norm
+Linear
+Softmax
+Transformer Models
+N×
+N×
+32
+word-0
+word-1
+word-n
+…
+𝑋0
+𝑋1
+𝑋𝑛
+…
+𝑄0
+𝐾0
+𝑉0
+𝑊𝑄
+𝑊𝐾
+𝑊𝑉
+𝑄1
+𝐾1
+𝑉1
+𝑊𝑄
+𝑊𝐾
+𝑊𝑉
+𝑄𝑛
+𝐾𝑛
+𝑉𝑛
+𝑊𝑄
+𝑊𝐾
+𝑊𝑉
+Transformer
+AI VIETNAM
+All-in-One Course
+❖ Masked self-attention
+33
+𝐷0
+𝐷1
+𝐷𝑛
+…
+a word vector
+a word vector
+a word vector
+𝑌0
+𝑌1
+𝑌𝑛
+…
+𝛼00
+𝛼01
+𝛼0𝑛
+𝑌0 = 𝛼00𝐷0 + 𝛼01𝐷1 + ⋯+ 𝛼0𝑛𝐷𝑛
+𝑌0 = 𝛼00𝐷0 + 0 × 𝐷1 + ⋯+ 0 × 𝐷𝑛
+𝛼0 = softmax(𝐷0𝐷𝑇
+𝑑
+) =
+𝛼00
+𝛼01
+…
+𝛼0𝑛
+𝛼00
+0
+…
+0
+How to obtain 
+kind of →
+𝛼0 = softmax 𝐷0𝐷𝑇
+𝑑
+∗
+1
+0
+…
+0
+=
+𝛼00
+0
+…
+0
+?
+Masked 
+self-attention
+𝐷0
+𝐷1
+𝐷𝑛
+…
+a word vector
+a word vector
+a word vector
+𝑌0
+𝑌1
+𝑌𝑛
+…
+𝛼00
+𝛼01
+𝛼0𝑛
+𝑌0 = 𝛼00𝐷0 + 𝛼01𝐷1 + ⋯+ 𝛼0𝑛𝐷𝑛
+𝑌0 = 𝛼00𝐷0 + 0 × 𝐷1 + ⋯+ 0 × 𝐷𝑛
+𝛼0 = softmax(𝐷0𝐷𝑇
+𝑑
+) =
+𝛼00
+𝛼01
+…
+𝛼0𝑛
+𝛼00
+0
+…
+0
+How to obtain 
+kind of →
+𝛼0 = softmax
+𝐷0𝐷𝑇
+𝑑
+∗
+1
+0
+…
+0
+=
+𝛼00
+0
+…
+0
+?
+Mask 
+self-attention
+𝐷0
+𝐷1
+𝐷𝑛
+…
+a word vector
+a word vector
+a word vector
+𝑌0
+𝑌1
+𝑌𝑛
+…
+𝛼00
+𝛼01
+𝛼0𝑛
+𝑌0 = 𝛼00𝐷0 + 𝛼01𝐷1 + ⋯+ 𝛼0𝑛𝐷𝑛
+𝑌0 = 𝛼00𝐷0 + 0 × 𝐷1 + ⋯+ 0 × 𝐷𝑛
+𝛼0 = softmax(𝐷0𝐷𝑇
+𝑚) =
+𝛼00
+𝛼01
+…
+𝛼0𝑛
+𝛼00
+0
+…
+0
+How to obtain 
+kind of →
+𝛼0 = softmax
+𝐷0𝐷𝑇
+𝑑
++
+0
+−∞
+…
+−∞
+=
+𝛼00
+0
+…
+0
+?
+Mask 
+self-attention
+𝐷0
+𝐷1
+𝐷𝑛
+…
+a word vector
+a word vector
+a word vector
+𝑌0
+𝑌1
+𝑌𝑛
+…
+𝛼10
+𝛼11
+𝛼1𝑛
+𝑌1 = 𝛼10𝐷0 + 𝛼11𝐷1 + ⋯+ 𝛼1𝑛𝐷𝑛
+𝑌1 = 𝛼10𝐷0 + 𝛼11𝐷1 + ⋯+ 0 × 𝐷𝑛
+𝛼1 = softmax
+𝐷1𝐷𝑇
+𝑑
++
+0
+0
+−∞
+…
+−∞
+=
+𝛼10
+𝛼11
+0
+…
+0
+Mask 
+self-attention
+37
+𝐷0
+𝐷1
+𝐷𝑛
+…
+a word vector
+a word vector
+a word vector
+𝑌0
+𝑌1
+𝑌𝑛
+…
+𝛼𝑛0
+𝛼𝑛1
+𝛼𝑛𝑛
+𝑌𝑛= 𝛼𝑛0𝐷0 + 𝛼𝑛1𝐷1 + ⋯+ 𝛼𝑛𝑛𝐷𝑛
+?
+𝛼𝑛= softmax
+𝐷𝑛𝐷𝑇
+𝑑
++
+0
+0
+0
+…
+0
+=
+𝛼𝑛0
+𝛼𝑛1
+𝛼𝑛2
+…
+𝛼𝑛𝑛
+Mask 
+self-attention
+38
+𝐷0
+𝐷1
+𝐷𝑛
+…
+𝑌0
+𝑌1
+𝑌𝑛
+…
+𝐷0
+𝐷1
+𝐷𝑛
+…
+𝑌0
+𝑌1
+𝑌𝑛
+…
+𝛼= 𝑠𝑖𝑔𝑚𝑜𝑖𝑑𝐷𝐷𝑇
+𝑑
+𝛼= 𝑠𝑖𝑔𝑚𝑜𝑖𝑑𝐷𝐷𝑇
+𝑑
++ 𝑀
+𝑀=
+0 
+−∞ 
+−∞… −∞
+0 
+0 
+−∞… −∞
+…
+0 
+0 
+0 
+…  
+0
+𝑌= 𝑠𝑖𝑔𝑚𝑜𝑖𝑑𝑄𝐾𝑇
+𝑑
++ 𝑀𝑉
+𝑀=
+0 
+−∞ 
+−∞… −∞
+0 
+0 
+−∞… −∞
+…
+0 
+0 
+0 
+…  
+0
+Masked self-attention
+𝑌0
+𝑌1
+𝑌𝑛
+…
+word-0
+word-1
+word-n
+…
+𝑋0
+𝑋1
+𝑋𝑛
+…
+𝑄0
+𝐾0
+𝑉0
+𝑊𝑄
+𝑊𝐾
+𝑊𝑉
+𝑄1
+𝐾1
+𝑉1
+𝑊𝑄
+𝑊𝐾
+𝑊𝑉
+𝑄𝑛
+𝐾𝑛
+𝑉𝑛
+𝑊𝑄
+𝑊𝐾
+𝑊𝑉
+40
+𝐴= 𝑠𝑖𝑔𝑚𝑜𝑖𝑑𝑄𝐾𝑇
+𝑑
++ 𝑀𝑉
+𝑌= 𝐴𝑊𝑂
+Masked self-attention
+𝑌0
+𝑌1
+𝑌𝑛
+…
+word-0
+word-1
+word-n
+…
+𝑋0
+𝑋1
+𝑋𝑛
+…
+𝑄0
+𝐾0
+𝑉0
+𝑊𝑄
+𝑊𝐾
+𝑊𝑉
+𝑄1
+𝐾1
+𝑉1
+𝑊𝑄
+𝑊𝐾
+𝑊𝑉
+𝑄𝑛
+𝐾𝑛
+𝑉𝑛
+𝑊𝑄
+𝑊𝐾
+𝑊𝑉
+Masked 
+Self-Attention
+41
+𝑋= −0.1 
+0.1 
+0.3
+ 0.4 −1.1 −0.3
+𝑊𝑄=
+−0.35 
+0.51 
+0.50
+ 0.36 −0.47 −0.29
+−0.51 −0.14 −0.56
+𝑊𝐾=
+−0.49 
+−0.68 0.18
+−0.44 
+−0.46 0.18
+ 0.07 
+−0.10 0.44
+𝑊𝑉=
+−0.41 
+0.39 −0.65
+−0.40 −0.07 −0.34
+−0.55 −0.13 −0.29
+𝑊𝑂=
+−0.36 −0.08 0.32
+ 0.27 
+0.05 0.15
+−0.05 −0.28 0.05
+𝑄= 𝑋𝑊𝑄= −0.1 
+0.1 
+0.3
+ 0.4 −1.1 −0.3
+−0.35 
+0.51 
+0.50
+ 0.36 −0.47 −0.29
+−0.51 −0.14 −0.56
+𝐾= 𝑋𝑊𝐾= −0.1 
+0.1 
+0.3
+ 0.4 −1.1 −0.3
+−0.49 
+−0.68 
+0.18
+−0.44 
+−0.46 
+0.18
+ 0.07 
+−0.10 
+0.44
+𝑉= 𝑋𝑊𝑉= −0.1 
+0.1 
+0.3
+ 0.4 −1.1 −0.3
+−0.41 
+0.39 −0.65
+−0.40 −0.07 −0.34
+−0.55 −0.13 −0.29
+head = 1
+Masked Multi-
+head Attention
+𝑀= 0 
+−∞
+0 
+0
+= −0.08 −0.14 −0.24
+−0.39 0.77 0.69
+= 0.02 −0.01 0.13
+0.27 0.27 −0.26
+= −0.16 −0.08 −0.05
+−0.02 −0.02 0.05
+42
+approximately
+Masked Multi-head Attention
+AI VIETNAM
+All-in-One Course
+❖ Example 
+𝑌= 𝐴𝑊𝑂= −0.16 −0.08 −0.05
+ 0.12 
+0.08 
+0.06
+−0.36 −0.08 0.32
+ 0.27 
+0.05 0.15
+−0.05 −0.28 0.05
+=
+0.03 0.02 −0.06
+−0.02 −0.02 0.05
+𝐴= 𝑠𝑖𝑔𝑚𝑜𝑖𝑑𝑄𝐾𝑇
+𝑑
++ 𝑀𝑉
+= 𝑠𝑖𝑔𝑚𝑜𝑖𝑑
+−0.08 −0.14 −0.24
+−0.39 
+0.77 
+0.69
+ 0.02 
+0.27
+−0.01 
+0.27
+ 0.13 −0.26
+1
+𝑑
++ 0 
+−∞
+0 
+0
+−0.16 −0.08 −0.05
+−0.02 −0.02 
+0.05
+=
+1.0 
+0.0
+0.52 0.48
+−0.16 −0.08 −0.05
+−0.02 −0.02 
+0.05 = −0.16 −0.08 −0.05
+ 0.12 
+0.08 0.06
+= 𝑠𝑖𝑔𝑚𝑜𝑖𝑑
+−0.019 
+0.002
+ 0.043 
+−0.046 + 0 
+−∞
+0 
+0
+−0.16 −0.08 −0.05
+−0.02 −0.02 
+0.05
+43
+n
+d
+n
+d
+d
+d
+n
+n
+n
+n
+n
+𝑑𝑞
+𝑑𝑘
+𝑑𝑣
+𝑑𝑞
+𝑑𝑘
+𝑑𝑣
+𝑊𝑞
+𝑊𝑘
+𝑊𝑣
+Q
+K
+V
+𝑄𝐾𝑇
+Z
+𝑑𝑞= 𝑑𝑘= 𝑑𝑣
+Embedding size
+Sequence length
+Input
+𝑑𝑣
+0
+−∞
+−∞
+−∞
+−∞
+0
+0
+−∞
+−∞
+−∞
+0
+0
+0
+−∞
+−∞
+0
+0
+0
+0
+−∞
+0
+0
+0
+0
+0
+𝑀𝑎𝑠𝑘
+Softmax
+A
+n
+n
+Masked-Attention
+Training process
+44
+Positional 
+Embedding
+Output Embedding
++
+Masked 
+Multi-head 
+Self-Attention
+Add & Norm
+Feed Forward
+Add & Norm
+Linear
+Decoder
+N×
+Text Generation
+AI VIETNAM
+All-in-One Course
+❖ Architecture
+interesting
+Learning AI is
+Text Encoding
+Softmax
+Dataset
+(x, y)
+45
+Encoder in PyTorch
+đi
+học
+3
+4
+index
+word
+0
+[UNK]
+1
+[pad]
+2
+ai
+3
+đi
+4
+học
+…
+…
+Embedding
+index
+Embedding
+0
+[-0.188, …,  0.7013]
+1
+[1.7840…,  1.3586]
+2
+[1.0281, …,  0.4211]
+3
+[-1.308,  …, -0.3680]
+4
+[0.2293,  …,  2.0501]
+…
+…
+Transformer Encoder
+Multi-head 
+Self-Attention
+Add & 
+Norm
+Linear
+(3, 4)
+ReLU
+Add & 
+Norm
+Linear
+(4, 3)
+Feed Forward
+Encoder 
+in Pytorch
+(N, 2, 3)
+(N, 2, 3)
+46
+đi
+học
+3
+4
+Embedding
+Multi-head 
+Self-Attention
+Add & 
+Norm
+Linear
+(3, 4)
+ReLU
+Add & 
+Norm
+Linear
+(4, 3)
+Feed Forward
+Encoder 
+in Pytorch
+(N, 2, 3)
+(N, 2, 3)
+[0.69,  0.72, -1.41]
+[0.21,  1.10, -1.31]
+[0.97, 0.39, -1.37]
+[0.58, 0.82, -1.40]
+Transformer Encoder
+47
+Masked Encoder in PyTorch
+đi
+học
+ai
+3
+4
+2
+index
+word
+0
+[UNK]
+1
+[pad]
+2
+ai
+3
+đi
+4
+học
+…
+…
+Embedding
+index
+Embedding
+0
+[-0.188, …,  0.7013]
+1
+[1.7840…,  1.3586]
+2
+[1.0281, …,  0.4211]
+3
+[-1.308,  …, -0.3680]
+4
+[0.2293,  …,  2.0501]
+…
+…
+Transformer Encoder
+Masked 
+Multi-head 
+Self-Attention
+Add & 
+Norm
+Linear
+(3, 4)
+ReLU
+Add & 
+Norm
+Linear
+(4, 3)
+Feed Forward
+Masked Encoder 
+in Pytorch
+(N, 3, 3)
+(N, 3, 3)
+48
+đi
+học
+ai
+3
+4
+2
+Embedding
+Masked 
+Multi-head 
+Self-Attention
+Add & 
+Norm
+Linear
+(3, 4)
+ReLU
+Add & 
+Norm
+Linear
+(4, 3)
+Feed Forward
+Masked Encoder 
+in Pytorch
+(N, 3, 3)
+(N, 3, 3)
+[0.69,  0.72, -1.41]
+[0.21,  1.10, -1.31]
+[-0.88,  0.60, -0.31]
+[0.97, 0.39, -1.37]
+[0.58, 0.82, -1.40]
+[-0.85, 1.40, -0.54]
+Transformer Encoder
+49
+Transformer in PyTorch
+(N, 2, 3)
+Multi-head 
+Self-Attention
+Add & 
+Norm
+Linear
+(3, 4)
+ReLU
+Add & 
+Norm
+Linear
+(4, 3)
+Feed Forward
+(N, 2, 3)
+query
+value
+key
+50
+Transformer in PyTorch
+AI VIETNAM
+All-in-One Course
+❖ Transformer Encoder 
+(N, 2, 3)
+Masked 
+Multi-head 
+Self-Attention
+Add & 
+Norm
+(N, 3, 3)
+Masked 
+Multi-head 
+Self-Attention
+query
+value
+key
+query
+value
+key
+Add & 
+Norm
+Linear
+(3, 4)
+ReLU
+Add & 
+Norm
+Linear
+(4, 3)
+Feed Forward
+(N, 2, 3)
+Multi-head 
+Self-Attention
+Add & 
+Norm
+Linear
+(3, 4)
+ReLU
+Add & 
+Norm
+Linear
+(4, 3)
+Feed Forward
+(N, 2, 3)
+Masked 
+Multi-head 
+Self-Attention
+Add & 
+Norm
+(N, 3, 3)
+Masked 
+Multi-head 
+Self-Attention
+query
+value
+key
+query
+value
+key
+query
+value
+key
+Add & 
+Norm
+Linear
+(3, 4)
+ReLU
+Add & 
+Norm
+Linear
+(4, 3)
+Feed Forward
+Example
+Input tokens
+Target token
+<sos> Có chí thì 
+nên
+Input ids
+Target ids
+[2, 5, 3, 10]
+[8]
+Embedding layer
+𝑋1 = −0.7521
+1.6487
+−0.3925
+−1.4036
+𝑋2 = −0.7581
+1.0783
+0.8008
+1.6806
+𝑋3 = −0.7279
+−0.5594
+−0.7688
+0.7624
+𝑋4 = −0.8371
+−0.9224
+1.8113
+0.1606
+Masked Multi-
+Head Attention
+Feed Forward
+Add & Norm
+Add & Norm
+Linear
+2
+5
+3
+10
+0.3035
+−0.2523
+0.2980
+0.4578
+−0.1187
+0.1524
+0.3399
+−0.1687
+0.2860
+0.1057
+−0.3626
+−0.1773
+−0.3885
+−0.1275
+−0.2669
+−0.4838
+𝑾𝒌_𝒑𝒓𝒐𝒋
+0.0782
+0.0014
+−0.3432
+0.4192
+−0.4400
+−0.1861
+−0.2917
+−0.0992
+−0.2154
+−0.0346
+−0.1711
+0.4302
+−0.2993
+−0.3388
+−0.3946
+0.1558
+𝑾𝒐_𝒑𝒓𝒐𝒋
+−0.2863
+0.0117
+−0.4376
+0.1541
+0.1249
+−0.3415
+−0.3184
+−0.4663
+−0.0660
+−0.4242
+0.4998
+−0.3284
+−0.3629
+−0.2753
+0.0944
+−0.1664
+𝑾𝒗_𝒑𝒓𝒐𝒋
+Linear (fc2)
+Feed Forward
+Linear (fc1)
+GeLU
+Transformer
+−0.2982
+0.4811
+−0.3363
+−0.2582
+−0.2982
+−0.4126
+0.2025
+−0.3409
+0.4497
+−0.4959
+0.1790
+0.2653
+0.1666
+−0.3912
+0.4155
+−0.2021
+𝑾𝒒_𝒑𝒓𝒐𝒋
+𝑾𝒇𝒄_𝟏
+0.2792
+−0.3735
+0.1161
+0.2610
+−0.1278
+0.1783
+0.2583
+0.2628
+−0.2853
+0.3870
+0.0907
+0.1870
+−0.1712
+−0.4707
+−0.1781
+−0.0879
+−0.1324
+0.3196
+0.0073
+−0.4541
+0.0535
+0.4297
+−0.0299
+−0.1845
+−0.0883
+−0.0495
+0.1202
+0.4211
+−0.1490
+−0.1119
+0.1401
+0.1948
+−0.3125
+−0.2288
+−0.2465
+−0.0035
+−0.2126
+0.2581
+−0.3489
+−0.2689
+−0.0558
+−0.1608
+−0.2871
+−0.3029
+0.3420
+−0.0709
+0.2636
+−0.3307
+0.0511
+−0.3517
+0.1697
+0.1447
+−0.0916
+0.2366
+0.2975
+−0.1736
+0.1463
+0.2679
+0.1852
+−0.0712
+−0.1347
+0.1289
+0.0895
+−0.2035
+𝐖𝐟𝐜_𝟐
+Linear
+Linear
+Linear
+Scaled Dot-Product 
+Attention
+Linear
+V
+K
+Q
+Masked Multi-Head Attention
+Decoder
+Probability
+0.1098
+0.0881
+0.1008
+0.1022
+0.0764
+0.0552
+0.0719
+0.0356
+0.0639
+0.0781
+0.0314
+0.1317
+0.0547
+Target
+0
+0
+0
+0
+0
+0
+0
+0
+1
+0
+0
+0
+0
+CrossEntropyLoss (L)
+Linear
+0.0226
+−0.0292
+−0.0036
+0.0103
+−0.0454
+0.0681
+−0.0774
+0.0547
+0.0152
+−0.0030
+−0.0410
+0.0288
+0.0237
+−0.0166
+−0.0150
+0.0079
+0.0099
+0.0117
+−0.0254
+0.0038
+−0.0103
+0.0277
+−0.1183
+0.1009
+−0.0523
+0.0269
+0.0294
+−0.0041
+−0.1596
+0.2036
+0.0265
+−0.0706
+𝒅𝑳
+𝒅𝑾𝒇𝒄_𝟐
+𝒅𝑳
+𝒅𝑾𝒇𝒄_𝟏
+−0.0086
+−0.1358
+−0.0030
+0.0203
+0.0251
+0.0574
+−0.0024
+−0.0668
+−0.0023
+0.0340
+−0.0033
+0.0041
+−0.0143
+0.0445
+0.0087
+0.0425
+0.0681
+−0.0266
+−0.0638
+−0.1115
+−0.0519
+−0.0736
+0.0198
+0.0300
+−0.0352
+0.0213
+0.0126
+0.0305
+0.0190
+0.0789
+0.0315]
+0.0509]
+0.0293
+0.0130
+0.0123
+−0.0020
+−0.0253
+−0.0116
+0.0327
+0.0192
+−0.0122
+−0.0029
+−0.0392
+−0.0113
+−0.0568
+−0.0259
+0.0138
+0.0187
+𝒅𝑳
+𝒅𝑾𝒒_𝒑𝒓𝒐𝒋
+4.129e −4
+2.1878e −5
+−2.6279e −4
+−6.7103e −4
+−3.752e −3
+3.1984e −2
+−1.1805e −2
+−3.4454e −2
+6.2969e −3
+−6.6984e −2
+−2.3536e −3
+2.0683e −2
+4.7672e −2
+−1.9498e −1
+−1.6597e −2
+3.0328e −2
+𝒅𝑳
+𝒅𝑾𝒌_𝒑𝒓𝒐𝒋
+−0.0805
+0.0609
+−0.0342
+0.0538
+0.0741
+−0.1002
+−0.1142
+0.1403
+0.0290
+−0.0820
+0.0412
+0.0118
+0.1113
+−0.0876
+−0.1077
+0.0840
+𝒅𝑳
+𝒅𝑾𝒐_𝒑𝒓𝒐𝒋
+backward
+Loss
+2.7498
+backward
+backward
+backward
+0.0805
+−0.0260
+0.0046
+0.0316
+−0.1119
+0.0188
+−0.0373
+−0.0858
+−0.0405
+0.0059
+−0.0205
+−0.0154
+−0.1720
+−0.0532
+−0.0527
+−0.0120
+𝒅𝑳
+𝒅𝑾𝒗_𝒑𝒓𝒐𝒋
+54
+𝑾𝒇𝒄_𝟐
+= 𝑾𝒇𝒄_𝟐 −𝒍𝒓× 𝒅𝑾𝒇𝒄_𝟐
+Update Parameters
+SGD(𝑙𝑟= 0.1)
+−0.3148
+−0.2259
+[−0.2462
+[−0.0045
+−0.2081
+0.2512
+−0.3412
+−0.2743
+−0.0573
+−0.1605
+−0.2830
+−0.3058
+0.3396
+−0.0692
+0.2651
+−0.3315
+0.0502
+−0.3529
+0.1723
+0.1443
+−0.0905
+0.2339
+0.3093
+−0.1837
+−0.1515
+0.2652
+0.1823
+−0.0707
+−0.1187
+0.1085
+0.0868
+−0.1964
+𝑾𝒇𝒄_𝟏
+= 𝑾𝒇𝒄_𝟏 −𝒍𝒓× 𝒅𝑾𝒇𝒄_𝟏
+0.2800
+−0.3600
+0.1164
+0.2589
+−0.1303
+0.1726
+0.2585
+0.2694
+−0.2851
+0.3836
+0.0910
+0.1866
+−0.1698
+−0.4752
+−0.1789
+−0.0921
+−0.1392
+0.3223
+0.0137
+−0.4430
+0.0587
+0.4371
+−0.0318
+−0.1875
+−0.0848
+−0.0516
+0.1189
+0.4180
+−0.1509
+−0.1198
+0.1370
+0.1897
+𝑾𝒐_𝒑𝒓𝒐𝒋
+= 𝑾𝒐_𝒑𝒓𝒐𝒋 −𝒍𝒓× 𝒅𝑾𝒐_𝒑𝒓𝒐𝒋
+0.0862
+−0.0047
+−0.3398
+0.4139
+−0.4474
+−0.1760
+−0.2803
+−0.1133
+−0.2183
+−0.0264
+−0.1753
+0.4290
+−0.3105
+−0.3301
+−0.3839
+0.1474
+𝑾𝒒_𝒑𝒓𝒐𝒋
+= 𝑾𝒒_𝒑𝒓𝒐𝒋 −𝒍𝒓× 𝒅𝑾𝒒_𝒑𝒓𝒐𝒋
+−0.3011
+0.4798
+−0.3376
+−0.2580
+−0.2957
+−0.4115
+0.1992
+−0.3428
+0.4509
+−0.4956
+0.1830
+0.2664
+0.1723
+−0.3886
+0.4141
+−0.2040
+𝑾𝒌_𝒑𝒓𝒐𝒋
+= 𝑾𝒌_𝒑𝒓𝒐𝒋 −𝒍𝒓× 𝒅𝑾𝒌_𝒑𝒓𝒐𝒋
+0.3034
+−0.2523
+0.2981
+0.4579
+−0.1183
+0.1492
+0.3411
+−0.1653
+0.2854
+0.1124
+−0.3624
+−0.1793
+−0.3933
+−0.1080
+−0.2653
+−0.4868
+𝑾𝒗_𝒑𝒓𝒐𝒋
+= 𝑾𝒗_𝒑𝒓𝒐𝒋 −𝒍𝒓× 𝒅𝑾𝒗_𝒑𝒓𝒐𝒋
+−0.2944
+0.0143
+−0.4381
+0.1509
+0.1361
+−0.3434
+−0.3146
+−0.4578
+−0.0619
+−0.4248
+0.5019
+−0.3268
+−0.3457
+−0.2700
+0.0997
+−0.1652
+Probability
+0.0503
+0.0227
+0.0684
+0.0322
+0.0225
+0.0170
+0.0445
+0.0075
+0.6174
+0.0274
+0.0108
+0.0522
+0.0270
+Target
+0
+0
+0
+0
+0
+0
+0
+0
+1
+0
+0
+0
+0
+CrossEntropyLoss (L)
+Loss
+0.1699
+Forward again
+55
+Precision and Recall of Words
+AI VIETNAM
+All-in-One Course
+Predict/Candidate/Output: 
+       Tôi học NLP của AI VIET NAM
+                         Reference: 
+       Tôi đang học lớp AI  của AI VIET NAM
+correct
+reference_length = 6
+9
+Recall 1-gram
+correct
+candidate_length = 6
+7
+Precision 1-gram
+F1-score 1-gram
+precision × recall
+(precision + recall)/2 = 0.75
+BLEU Score
+AI VIETNAM
+All-in-One Course
+N-gram overlap between machine translation 
+candidate and reference translation
+Compute precision for n-grams of size 1 to 4
+With 4-gram and add brevity penalty 
+(for too short translations):
+❖BLEU score
+BLEU = min 1, candidate_length
+reference_length
+ෑ
+i=1
+4
+Precisioni
+1/4
+correct
+reference_length = 6
+9
+Recall 1-gram
+correct
+candidate_length = 6
+7
+Precision 1-gram
+Precision and Recall of Words
+AI VIETNAM
+All-in-One Course
+Predict/Candidate/Output:           Tôi học NLP của AI VIET NAM
+                           Reference:           Tôi đang học lớp CV và NLP  của AI 
+Precision
+1-gram
+2-gram
+3-gram
+4-gram
+6/7
+3/6
+2/5
+1/4
+Multiple reference: N-grams may match in any of 
+the reference and closest reference length used
+Brevity penalty = 7/9
+                 BLEU = 0.35
+BLEU = min 1, candidate_length
+reference_length
+ෑ
+i=1
+4
+Precisioni
+1/4

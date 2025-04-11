@@ -1,0 +1,1390 @@
+RNNs for Sequence and 
+Time-series Data
+Year 2023
+Quang-Vinh Dinh
+Ph.D. in Computer Science
+AI VIETNAM
+All-in-One Course
+➢Dealing with Text 
+➢Constructing RNN
+➢RNN Examples for Text
+➢RNN Examples for Time-series Data
+➢PyTorch Implementation
+Outline
+airplane
+automobile
+bird
+cat
+deer
+dog
+frog
+horse
+ship
+truck
+Image Data
+Image Data
+❖ Example
+AI VIETNAM
+All-in-One Course
+(3x3) Conv with 
+stride=1 + ReLU 
+(2x2) max 
+pooling
+(1,28,28)
+(32,26,26)
+(64,24,24)
+(64,12,12) (128,10,10)
+(256,8,8)
+(256,4,4)
+(512,2,2)
+Flatten data
+Classification
+Feature extraction
+2
+-
+50,000 movie review for sentiment analysis
+-
+Consist of: 
++ 25,000 movie review for training
+ 
+ 
+ 
++ 25,000 movie review for testing
+-
+Label: positive – negative
+“A wonderful little production. <br /><br />The filming technique is very unassuming- very old-time-
+BBC fashion and gives a comforting, and sometimes discomforting, sense of realism to the entire 
+piece…..”
+positive
+“This show was an amazing, fresh & innovative idea in the 70's when it first aired. The first 7 or 8 
+years were brilliant, but things dropped off after that. By 1990, the show was not really funny anymore, 
+and it's continued its decline further to the complete waste of time it is today….”
+negative
+“I thought this was a wonderful way to spend time on a too hot summer weekend, sitting in the air 
+conditioned theater and watching a light-hearted comedy. The plot is simplistic, but the dialogue is 
+witty and the characters are likable (even the well bread suspected serial killer)….”
+positive
+“BTW Carver gets a very annoying sidekick who makes you wanna shoot him the first three minutes 
+he's on screen.”
+negative
+Text Classification
+AI VIETNAM
+All-in-One Course
+❖ IMDB dataset
+3
+Text Classification
+❖ Simple approach
+AI VIETNAM
+All-in-One Course
+Output
+𝑧
+Sigmoid 
+activation
+Fully-connected layer
+Text 
+Sample
+Preprocessing
+(standardization & 
+vectorization)
+Embedding
+Preprocessing
+4
+Embedding
+-
+Example corpus
+ 
+sample1: ‘We are learning AI’
+ 
+sample2: ‘AI is a CS topic’
+(1) Build vocabulary from corpus
+We are learning AI
+we
+are
+learning
+ai
+Standardize
+AI is a CS topic
+ai
+is
+a
+cs
+topic
+index
+0
+1
+2
+3
+4
+5
+6
+7
+word
+[UNK]
+pad
+ai
+a
+are
+cs
+is
+learning
+5
+Embedding
+-
+Example corpus
+ 
+sample1: ‘We are learning AI’
+ 
+sample2: ‘AI is a CS topic’
+(1) Build vocabulary from corpus
+(Large) Text 
+Dataset
+#different words are enormous
+How to represent ‘text’ effectively?
+index
+0
+1
+2
+3
+4
+5
+6
+7
+word
+[UNK]
+pad
+ai
+a
+are
+cs
+is
+learning
+6
+Embedding
+-
+Example corpus
+ 
+sample1: ‘We are learning AI’
+ 
+sample2: ‘AI is a CS topic’
+(1) Build vocabulary from corpus
+(Large) Text 
+Dataset
+#different words are enormous
+How to represent ‘text’ effectively?
+Use a limited number of words
+index
+0
+1
+2
+3
+4
+5
+6
+7
+word
+[UNK]
+pad
+ai
+a
+are
+cs
+is
+learning
+7
+Embedding
+-
+Example corpus
+ 
+sample1: ‘We are learning AI’
+ 
+sample2: ‘AI is a CS topic’
+(1) Build vocabulary from corpus
+index
+0
+1
+2
+3
+4
+5
+6
+7
+word
+[UNK]
+pad
+ai
+a
+are
+cs
+is
+learning
+#different words are enormous
+How to represent ‘text’ effectively?
+Use a limited number of words
+Get data sample-by-sample
+8
+Embedding
+-
+Example corpus
+ 
+sample1: ‘We are learning AI’
+ 
+sample2: ‘AI is a CS topic’
+(1) Build vocabulary from corpus
+(2) Transform text into features
+We are learning AI
+we
+are
+learning
+ai
+Standardize
+0
+4
+7
+2
+1
+AI is a CS topic
+ai
+is
+a
+cs
+topic
+2
+6
+3
+5
+0
+Vectorization
+index
+0
+1
+2
+3
+4
+5
+6
+7
+word
+[UNK]
+pad
+ai
+a
+are
+cs
+is
+learning
+Demo
+‘AI’
+‘We’
+‘are’
+‘learning’
+9
+Embedding
+-
+Example corpus
+ 
+sample1: ‘We are learning AI’
+ 
+sample2: ‘AI is a CS topic’
+(1) Build vocabulary from corpus
+(2) Transform text into features
+We are learning AI
+we
+are
+learning
+ai
+Standardize
+0
+4
+7
+2
+1
+AI is a CS topic
+ai
+is
+a
+cs
+topic
+2
+6
+3
+5
+0
+Vectorization
+index
+0
+1
+2
+3
+4
+5
+6
+7
+word
+[UNK]
+pad
+ai
+a
+are
+cs
+is
+learning
+sample3 = AI topic in CS is difficult'
+Embedding
+-
+Example corpus
+ 
+sample1: ‘We are learning AI’
+ 
+sample2: ‘AI is a CS topic’
+(1) Build vocabulary from corpus
+(2) Transform text into features
+We are learning AI
+we
+are
+learning
+ai
+Standardize
+0
+4
+7
+2
+1
+AI is a CS topic
+ai
+is
+a
+cs
+topic
+2
+6
+3
+5
+0
+Vectorization
+Embedding Layer
+(3) Embedding layer
+index
+word
+0
+[UNK]
+1
+[pad]
+2
+ai
+3
+a
+4
+are
+5
+cs
+6
+is
+7
+learning
+We are learning AI
+0
+4
+7
+2
+1
+Output
+𝑧
+Sigmoid 
+activation
+Fully-connected layer
+Embedding
+12
+index
+word
+0
+[UNK]
+1
+[pad]
+2
+ai
+3
+a
+4
+are
+5
+cs
+6
+is
+7
+learning
+Embedding Layer
+(3) Embedding layer
+We are learning AI
+0
+4
+7
+2
+1
+changed
+13
+Word 
+Embedding
+❖ Why?
+3
+1
+5
+2
+0
+Embedding
+https://towardsdatascience.com/the-kernel-trick-c98cdbcaeb3f
+https://codatalicious.medium.com/kernels-ee967067aa9
+14
+➢Dealing with Text 
+➢Constructing RNN
+➢RNN Examples for Text
+➢RNN Examples for Time-series Data
+➢PyTorch Implementation
+Outline
+index
+word
+0
+[UNK]
+1
+[pad]
+2
+ai
+3
+a
+4
+are
+5
+cs
+6
+is
+7
+learning
+Revisit input x
+Convert from text to numbers
+We are learning AI
+0
+4
+7
+2
+1
+A sample X
+X1: [-0.1882,  0.5530,  1.6267,  0.7013]
+X2: [ 0.2293,  1.3255,  0.1318,  2.0501]
+X3: [ 0.4309, -1.3067, -0.8823,  1.5977]
+X4: [ 1.0281, -1.9094,  0.3182,  0.4211]
+X5: [ 1.7840, -0.8278, -0.2701,  1.3586]
+A sample X 
+We
+are
+learning
+AI
+<pad>
+0
+4
+7
+2
+1
+How to feed X to a network?
+(Get ideas from how MLP and CNN work)
+15
+How to deal with this input?
+❖ Simplest idea: Based on MLP
+❖ Concatenate all the features
+AI VIETNAM
+All-in-One Course
+A sample X 
+We
+are
+learning
+AI
+<pad>
+0
+4
+7
+2
+1
+concatenated
+features
+Pros and cons?
+MLP
+X1: [-0.1882,  0.5530,  1.6267,  0.7013]
+X2: [ 0.2293,  1.3255,  0.1318,  2.0501]
+X3: [ 0.4309, -1.3067, -0.8823,  1.5977]
+X4: [ 1.0281, -1.9094,  0.3182,  0.4211]
+X5: [ 1.7840, -0.8278, -0.2701,  1.3586]
+16
+❖ Based on CNN: Shared weights
+A sample X 
+We
+are
+learning
+AI
+<pad>
+0
+4
+7
+2
+1
+concatenated
+features
+X1: [-0.1882,  0.5530,  1.6267,  0.7013]
+X2: [ 0.2293,  1.3255,  0.1318,  2.0501]
+X3: [ 0.4309, -1.3067, -0.8823,  1.5977]
+X4: [ 1.0281, -1.9094,  0.3182,  0.4211]
+X5: [ 1.7840, -0.8278, -0.2701,  1.3586]
+X1
+X2
+X4
+X5
+z1
+z2
+z4
+z5
+z3
+Fully-connected layer
+Shared weights
+Xi
+Zi
+1
+zi3
+zi1
+zi2
+zi1 = W1
+TXi + b1
+zi2 = W2
+TXi + b2
+zi3 = W3
+TXi + b3
+zi = WXi + b
+𝑊=
+. . 
+. .
+. . 
+. .
+. . 
+. .
+𝑏=
+b1
+b2
+b3
+zi =
+zi1
+zi2
+zi3
+(W1, b1)
+17
+❖ Based on CNN: Shared weights
+A sample X 
+We
+are
+learning
+AI
+<pad>
+0
+4
+7
+2
+1
+X1: [-0.1882,  0.5530,  1.6267,  0.7013]
+X2: [ 0.2293,  1.3255,  0.1318,  2.0501]
+X3: [ 0.4309, -1.3067, -0.8823,  1.5977]
+X4: [ 1.0281, -1.9094,  0.3182,  0.4211]
+X5: [ 1.7840, -0.8278, -0.2701,  1.3586]
+X1
+X2
+X4
+X5
+z1
+z2
+z4
+z5
+z3
+Xi
+Zi
+1
+zi3
+zi1
+zi2
+zi1 = W1
+TXi + b1
+zi2 = W2
+TXi + b2
+zi3 = W3
+TXi + b3
+zi = WXi + b
+𝑊=
+. . 
+. .
+. . 
+. .
+. . 
+. .
+𝑏=
+b1
+b2
+b3
+zi =
+zi1
+zi2
+zi3
+z1 = WX1 + b
+z2 = WX2 + b
+z3 = WX3 + b
+z4 = WX4 + b
+z5 = WX5 + b
+Any thing missing?
+WX1 + b
+WX2 + b
+WX3 + b
+WX4 + b
+WX5 + b
+❖ How to exploit causal information?
+A sample X 
+We
+are
+learning
+AI
+<pad>
+0
+4
+7
+2
+1
+X1: [-0.1882,  0.5530,  1.6267,  0.7013]
+X2: [ 0.2293,  1.3255,  0.1318,  2.0501]
+X3: [ 0.4309, -1.3067, -0.8823,  1.5977]
+X4: [ 1.0281, -1.9094,  0.3182,  0.4211]
+X5: [ 1.7840, -0.8278, -0.2701,  1.3586]
+WX1 + b
+WX2 + b
+WX3 + b
+WX4 + b
+WX5 + b
+WX1 + b
+WX2 + b
+tanh(.)
+z1
+z2
+z4
+z5
+z3
+tanh(.)
+WX3 + b
+tanh(.)
+Make the representation 
+non-linear
+how?
+how?
+how?
+how?
+how?
+Just linear 
+representation
+h1 is used to make 
+decisions, not appropriate 
+for send directly to z2 or h2 
+z1
+h1
+z2
+h2
+19
+❖ How to exploit causal information?
+A sample X 
+We
+are
+learning
+AI
+<pad>
+0
+4
+7
+2
+1
+X1: [-0.1882,  0.5530,  1.6267,  0.7013]
+X2: [ 0.2293,  1.3255,  0.1318,  2.0501]
+X3: [ 0.4309, -1.3067, -0.8823,  1.5977]
+X4: [ 1.0281, -1.9094,  0.3182,  0.4211]
+X5: [ 1.7840, -0.8278, -0.2701,  1.3586]
+WX1 + b
+WX2 + b
+tanh(.)
+tanh(.)
+WX3 + b
+tanh(.)
+z1
+h1
+Wh1 + b
+Wh2 + b
+z2
+h2
+h2 is considered 
+as data/source for z3
+WX1 + b
+WX2 + b
+WX3 + b
+WX4 + b
+WX5 + b
+z1
+z2
+z4
+z5
+z3
+how?
+how?
+how?
+how?
+z3
+h3
+W, b are 
+shared weights
+How to combine the 
+pairs of two tensors?
+20
+❖ How to exploit causal information?
+X1: [-0.1882,  0.5530,  1.6267,  0.7013]
+X2: [ 0.2293,  1.3255,  0.1318,  2.0501]
+X3: [ 0.4309, -1.3067, -0.8823,  1.5977]
+X4: [ 1.0281, -1.9094,  0.3182,  0.4211]
+X5: [ 1.7840, -0.8278, -0.2701,  1.3586]
+WX2 + b
+WX3 + b
+WX4 + b
+WX5 + b
+z1
+z2
+z4
+z5
+z3
+WxhX1 + bxh
+WxhX2 + bxh
+tanh(.)
+tanh(.)
+WxhX3 + bxh
+tanh(.)
+z1
+h1
+Whhh1 + bhh
+Whhh2 + bhh
+z2
+h2
+tanh(.)
+tanh(.)
+WxhX4 + bxh
+WxhX5 + bxh
+Whhh3 + bhh
+z3
+h3
+z4
+h4
+z5
+h5
+Whhh4 + bhh
+How to combine two tensors?
+Idea from skip-connection
+ - or Concatenation
+ - or Addition
+concatenate(   ,    ) = 
+add(   ,    ) = 
+21
+❖ How to exploit causal information?
+WxhX1 + bxh
+WxhX2 + bxh
+tanh(.)
+tanh(.)
+WxhX3 + bxh
+tanh(.)
+z1
+h1
+Whhh1 + bhh
+Whhh2 + bhh
+z2
+h2
+tanh(.)
+tanh(.)
+WxhX4 + bxh
+WxhX5 + bxh
+Whhh3 + bhh
+z3
+h3
+z4
+h4
+z5
+h5
+Whhh4 + bhh
+h2 = tanh WxhX2 + bxh + Whhh1 + bhh
++
++
++
++
+h3 = tanh WxhX3 + bxh + Whhh2 + bhh
+h4 = tanh WxhX4 + bxh + Whhh3 + bhh
+h5 = tanh WxhX5 + bxh + Whhh4 + bhh
+h1 = tanh WxhX1 + bxh
+h1 formula is different from the others. How to solve this issue? 
+22
+❖ How to exploit causal information?
+WxhX3 + bxh
+tanh(.)
+tanh(.)
+tanh(.)
+WxhX4 + bxh
+WxhX5 + bxh
+Whhh3 + bhh
+z4
+h4
+z5
+h5
+Whhh4 + bhh
++
++
++
+WxhX1 + bxh
+WxhX2 + bxh
+tanh(.)
+tanh(.)
+z1
+h1
+Whhh1 + bhh
+Whhh2 + bhh
+z2
+h2
+z3
+h3
++
+h0
++
+Whhh0 + bhh
+h2 = tanh WxhX2 + bxh + Whhh1 + bhh
+h3 = tanh WxhX3 + bxh + Whhh2 + bhh
+h4 = tanh WxhX4 + bxh + Whhh3 + bhh
+h5 = tanh WxhX5 + bxh + Whhh4 + bhh
+h1 = tanh WxhX1 + bxh + Whhh0 + bhh
+h0 = 𝟎
+bhh = 𝟎
+ht = tanh WxhXt + bxh + Whhh(t−1) + bhh
+RNN
+23
+Example
+WxhX1 + bxh
+WxhX2 + bxh
+tanh(.)
+tanh(.)
+WxhX3 + bxh
+tanh(.)
+z1
+h1
+Whhh1 + bhh
+Whhh2 + bhh
+z2
+h2
+tanh(.)
+tanh(.)
+WxhX4 + bxh
+WxhX5 + bxh
+Whhh3 + bhh
+z3
+h3
+z4
+h4
+z5
+h5
+Whhh4 + bhh
+X1: [-0.1882,  0.5530,  1.6267,  0.7013]
+X2: [ 0.2293,  1.3255,  0.1318,  2.0501]
+X3: [ 0.4309, -1.3067, -0.8823,  1.5977]
+X4: [ 1.0281, -1.9094,  0.3182,  0.4211]
+X5: [ 1.7840, -0.8278, -0.2701,  1.3586]
+X1 =
+−0.1882
+0.5530
+1.6267
+0.7013
+X2 =
+0.2293
+1.3255
+0.1318
+2.0501
+X3 =
+0.4309
+−1.3067
+−0.8823
+1.5977
+X4 =
+1.0281
+−1.9094
+0.3182
+0.4211
+X5 =
+1.7840
+−0.8278
+−0.2701
+1.3586
+24
+WxhX1 + bxh
+WxhX2 + bxh
+tanh(.)
+tanh(.)
+WxhX3 + bxh
+tanh(.)
+z1
+Whhh1 + bhh
+Whhh2 + bhh
+z2
+tanh(.)
+tanh(.)
+WxhX4 + bxh
+WxhX5 + bxh
+Whhh3 + bhh
+z3
+z4
+z5
+Whhh4 + bhh
++
++
++
++
++
+Whhh0 + bhh
+X1 =
+−0.1882
+0.5530
+1.6267
+0.7013
+X2 =
+0.2293
+1.3255
+0.1318
+2.0501
+X3 =
+0.4309
+−1.3067
+−0.8823
+1.5977
+X4 =
+1.0281
+−1.9094
+0.3182
+0.4211
+X5 =
+1.7840
+−0.8278
+−0.2701
+1.3586
+h1 =
+0.2973
+0.2388
+−0.8593
+h2 =
+−0.3616
+0.6365
+−0.8125
+h3 =
+−0.3297
+0.9502
+0.6365
+h4 =
+−0.1884
+0.9009
+0.4258
+h5 =
+−0.6319
+0.9454
+0.2323
+Example
+Wxh =
+−0.4174 0.1953 −0.0365 −0.4025
+ 0.4722 −0.4085 −0.0236 
+0.3763
+ 0.0550 −0.4921 −0.4307 
+0.0855
+Whh =
+−0.5511 0.1260 0.0463
+−0.2291 −0.2084 −0.2352
+−0.4341 −0.2682 0.0612
+bxh =
+0.4481
+0.5537
+−0.5006
+bhh =
+0.0135
+−0.2209
+0.1330
+h0 =
+0.0
+0.0
+0.0
+2.il_RNN_Layer.ipynb
+Text Deep Models
+❖ Recurrent Neural Networks (RNNs)
+❖ Classification and time-step=2
+AI VIETNAM
+All-in-One Course
+RNN Cell
+RNN Cell
+X1
+X2
+ho
+h1
+h2
+h1 = tanh WxhX1 + bxh + Whhh0 + bhh
+h2 = tanh WxhX2 + bxh + Whhh1 + bhh
+Wxh
+Whh
+bxh
+Wxh
+Whh
+bxh
+https://datascience-enthusiast.com/DL/Building_a_
+Recurrent_Neural_Network-Step_by_Step_v1.html
+bhh
+bhh
+Xi
+26
+Whh=
+ 0.9 −0.1 0.1
+−0.1 −0.9 0.3
+ 0.1 −0.3 −0.9
+Wxh=
+−0.2 −0.4 
+0.3 −0.4
+−0.6 −0.8 
+0.5 −0.3
+ 0.1 −0.1 
+0.6 
+0.1
+bhh=
+0.0
+0.0
+0.0
+X= X1
+X2 = 1.  3.  2.  1.
+0.  4.  1.  2.
+h0=
+0.0
+0.0
+0.0
+h1 = tanh WxhX1 + bxh + Whhh0 + bhh
+= tanh
+−0.2 −0.4 
+0.3 −0.4
+−0.6 −0.8 
+0.5 −0.3
+ 0.1 −0.1 
+0.6 
+0.1
+1. 0
+3. 0
+2. 0
+1.0
++
+ 0.9 −0.1 0.1
+−0.1 −0.9 0.3
+ 0.1 −0.3 −0.9
+0.0
+0.0
+0.0
++
+0.0
+0.0
+0.0
+= tanh
+−1.2
+−2.3
+1.1
+=
+−0.833
+−0.98
+0.8
+RNN Cell
+RNN Cell
+X1
+X2
+ho
+h1
+h2
+Wxh
+Whh
+bxh
+bhh
+bxh=
+0.0
+0.0
+0.0
+27
+h2 = tanh WxhX2 + bxh + Whhh1 + bhh
+= tanh
+−0.2 −0.4 
+0.3 −0.4
+−0.6 −0.8 
+0.5 −0.3
+ 0.1 −0.1 
+0.6 
+0.1
+0. 0
+4. 0
+1. 0
+2.0
++
+ 0.9 −0.1 0.1
+−0.1 −0.9 0.3
+ 0.1 −0.3 −0.9
+−0.833
+−0.98
+0.8
++
+0.0
+0.0
+0.0
+= tanh
+−2.67
+−2.09
+−0.109
+=
+−0.99
+−0.97
+−0.109
+𝒉1 =
+−0.833
+−0.98
+0.8
+RNN Cell
+RNN Cell
+X1
+X2
+ho
+h1
+h2
+Wxh
+Whh
+bxh
+bxh
+Whh=
+ 0.9 −0.1 0.1
+−0.1 −0.9 0.3
+ 0.1 −0.3 −0.9
+Wxh=
+−0.2 −0.4 
+0.3 −0.4
+−0.6 −0.8 
+0.5 −0.3
+ 0.1 −0.1 
+0.6 
+0.1
+bhh=
+0.0
+0.0
+0.0
+X= X1
+X2 = 1.  3.  2.  1.
+0.  4.  1.  2.
+h0=
+0.0
+0.0
+0.0
+bxh=
+0.0
+0.0
+0.0
+28
+RNN Models
+❖ Implementation
+We are 
+learning AI
+0
+4
+7
+2
+1
+A sample X
+Batch: 𝐿, 𝑁, 𝐻𝑜𝑢𝑡
+ℎ1
+ℎ2
+ℎ3
+ℎ4
+ℎ5
+𝐿, 𝐻𝑜𝑢𝑡
+RNN Models
+❖ Implementation
+We are 
+learning AI
+0
+4
+7
+2
+1
+A sample X
+Batch: 𝑁, 𝐿, 𝐻𝑜𝑢𝑡
+ℎ1
+ℎ2
+ℎ3
+ℎ4
+ℎ5
+𝐿, 𝐻𝑜𝑢𝑡
+ℎ1
+ℎ2
+ℎ3
+ℎ4
+ℎ5
+=
+[ 0.2973 
+0.2388 −0.8593]
+[−0.3616 0.6365 −0.8125]
+[−0.3297 0.9502 
+0.6365]
+[−0.1884 0.9009 
+0.4258]
+[−0.6319 0.9454 
+0.2323]
+Stack of RNNs
+❖ Recurrent Neural Networks (RNNs)
+❖ Two layers
+AI VIETNAM
+All-in-One Course
+RNN Cell
+RNN Cell
+X1
+X2
+ho
+h1
+h2
+RNN Cell
+RNN Cell
+ko
+k1
+k2
+Wxh
+Whh
+bxh
+Wxh
+Whh
+bxh
+Whk
+Wkk
+bhk
+Whk
+Wkk
+bhk
+h1 = tanh WxhX1 + bxh + Whhh0 + bhh
+h2 = tanh WxhX2 + bxh + Whhh1 + bhh
+k1 = tanh Whkh1 + bhk + Wkkk0 + bkk
+k2 = tanh Whkh2 + bhk + Wkkk1 + bkk
+h1
+h2
+bhh
+bhh
+bkk
+bkk
+31
+h1 = tanh WxhX1 + bxh + Whhh0 + bhh
+h2 = tanh WxhX2 + bxh + Whhh1 + bhh
+RNN Cell
+RNN Cell
+X1
+X2
+ho
+h1
+h2
+RNN Cell
+RNN Cell
+ko
+k1
+k2
+Wxh
+Whh
+bxh
+Wxh
+Whh
+bxh
+Whk
+Wkk
+bhk
+Whk
+Wkk
+bhk
+h1
+h2
+Whh=
+ 0.9 −0.1 0.1
+−0.1 −0.9 0.3
+ 0.1 −0.3 −0.9
+Wxh=
+−0.2 −0.4 
+0.3 −0.4
+−0.6 −0.8 
+0.5 −0.3
+ 0.1 −0.1 
+0.6 
+0.1
+bxh= bhh=
+0.0
+0.0
+0.0
+Wkk= 0.1 
+0.9
+0.9 
+−0.1
+Whk= −1.1 0.3 −0.1
+0.1 −0.2 0.4
+bhk= bkk=
+0.0
+0.0
+0.0
+bhh
+bhh
+bkk
+bkk
+k1 = tanh Whkh1 + bhk + Wkkk0 + bkk
+k2 = tanh Whkh2 + bhk + Wkkk1 + bkk
+=
+0.49
+0.407
+= 0.84
+0.42
+=
+−0.833
+−0.98
+0.8
+=
+−0.99
+−0.97
+−0.109
+32
+Text Deep Models
+❖ Recurrent Neural Networks (RNN)
+Whh=
+0.226 
+−0.068 −0.971
+−0.973 −0.014 −0.226
+−0.001 −0.997 
+0.070
+Wxh=
+−0.436 0.373 −0.032 0.403
+−0.452 0.296 −0.609 −0.643
+−0.761 0.266 −0.526 −0.703
+bxh = bhh =
+0.0
+0.0
+0.0
+ht = tanh(Whhht-1+ bhh +Wxhxt+ bxh)
+ො𝑦 = sigmoid(WDht+ bD)
+Input
+RNN Cell
+1
+Output
+1
+Xi
+1
+embedding_data
+RNN Cell
+h0
+h1
+h2
+x0
+x1
+x2
+x3
+x4
+h3
+h4
+Output
+Embedding
+Batch: 𝑛𝑢𝑚_𝑙𝑎𝑦𝑒𝑟𝑠, 𝑁, 𝐻𝑜𝑢𝑡

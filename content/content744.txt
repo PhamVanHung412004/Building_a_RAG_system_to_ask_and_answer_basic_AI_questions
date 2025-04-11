@@ -1,2 +1,0 @@
-. 19
-7.6 Matrix-matrix multiplication . . 

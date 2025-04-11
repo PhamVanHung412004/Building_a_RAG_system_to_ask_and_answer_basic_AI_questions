@@ -1,0 +1,151 @@
+ZALO AI 2023
+TA Hùng An
+AI VIETNAM
+All-in-One Course
+Problem 
+Build a model to generate product advertising banners from product descriptions
+Input: The input data is a csv file which includes the following fields:
+-
+ID
+-
+Caption
+-
+Description
+-
+More Information
+-
+Banner Image Path
+Output: The output must be the 1024*533 pixels banner Image which is relevant to content of 
+product descriptions.
+AI VIETNAM
+All-in-One Course
+2
+Problem 
+AI VIETNAM
+All-in-One Course
+3
+Problem 
+AI VIETNAM
+All-in-One Course
+4
+Problem 
+Participants must run their models on a server with specific hardware specifications:
+-
+CPU: Intel(R) Xeon(R) Silver 4216 CPU @ 2.10GHz
+-
+RAM: 64 GB
+-
+GPU: GeForce GTX 3090
+Memory Constraint: Models consuming more than 32 GB of memory may lead to crashes 
+and result in disqualification.
+Time Constraint: The inference time should be within real-time limits. If the total inference 
+time exceeds 2 hours, the submission will not be evaluated.
+AI VIETNAM
+All-in-One Course
+5
+Problem 
+Allowances:
+-
+Participants are allowed to use pre-trained models, but these models must be freely and 
+publicly available online before the competition start date.
+-
+Submissions must be sent to the Organizing Committee for validation.
+Restrictions:
+External data usage, public test sets for training, cheating, deceptive behaviors, and the use of 
+private or commercialized tools are not permitted.
+AI VIETNAM
+All-in-One Course
+6
+Problem 
+Một số thử thách của bài toán:
+AI VIETNAM
+All-in-One Course
+7
+Nhiều frame
+ trong 1 ảnh
+Problem 
+Một số thử thách của bài toán:
+AI VIETNAM
+All-in-One Course
+8
+Bố cục 50-50: 50% khung hình, 50% 
+text (mô tả chức năng sản phẩm, tên 
+sản phẩm, giá cả, …)
+Problem 
+Một số thử thách của bài toán:
+AI VIETNAM
+All-in-One Course
+9
+Tạo chữ tiếng Việt?
+Data Augmentation 
+ImgAug - Github 
+AI VIETNAM
+All-in-One Course
+10
+Data Augmentation 
+Albumentation - Github 
+AI VIETNAM
+All-in-One Course
+11
+Data Augmentation 
+Text Augmentation 
+AI VIETNAM
+All-in-One Course
+12
+Data Augmentation 
+Augmentation with LLM 
+AI VIETNAM
+All-in-One Course
+13
+Quan sát Output
+AI VIETNAM
+All-in-One Course
+14
+Quan sát Output
+AI VIETNAM
+All-in-One Course
+15
+Quan sát Output
+AI VIETNAM
+All-in-One Course
+16
+Quan sát Output
+AI VIETNAM
+All-in-One Course
+17
+Quan sát Output
+AI VIETNAM
+All-in-One Course
+18
+Quan sát Output
+AI VIETNAM
+All-in-One Course
+19
+Quan sát Output
+AI VIETNAM
+All-in-One Course
+20
+Quan sát Output
+AI VIETNAM
+All-in-One Course
+21
+Quan sát Output
+AI VIETNAM
+All-in-One Course
+22
+Quan sát Output
+AI VIETNAM
+All-in-One Course
+23
+Quan sát Output
+AI VIETNAM
+All-in-One Course
+24
+Quan sát Output
+AI VIETNAM
+All-in-One Course
+25
+Quan sát Output
+AI VIETNAM
+All-in-One Course
+26

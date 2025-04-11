@@ -1,0 +1,446 @@
+THỰC HÀNH TRÍCH XUẤT BẢNG TRONG
+PDF VỚI TABULA-PY VÀ PANDAS
+Dinh-Tiem Nguyen và Quang-Vinh Dinh
+1
+Mởđầu
+PDF là một trong những định dạng tài liệu phổbiến nhất được sửdụng trên Internet và trong nhiều
+lĩnh vực khác nhau. Trích xuất dữliệu từcác tài liệu PDF thường gặp phải nhiều khó khăn, đặc biệt
+là đối với các bảng dữliệu. Tiếp nối bài viết "XửLý Tệp PDF Đơn Giản Với PYPDF", trong bài viết
+này chúng ta sẽtìm hiểu vềtabula-py - một thư viện Python hỗtrợtrích xuất bảng từPDF, đồng thời
+kết hợp nó với thư viện pandas đểxửlý dữliệu trích xuất.
+Yêu cầu:
+• Máy tính đã cài đặt Python >=3.8, Java 8+
+• Biết lập trình Python, Pandas cơ bản.
+2
+Cài đặt Tabula-py
+Tabula-py là một thư viện Python mã nguồn mởvới chức năng chính là trích xuất dữliệu từcác bảng
+trong tài liệu PDF. Dữliệu được trích xuất bằng tabula-py có thểdễdàng được chuyển đổi thành các
+cấu trúc dữliệu của pandas đểtiếp tục xửlý và phân tích. Đểcài đặt thư viện này, ta sửdụng lệnh
+sau:
+1 pip
+install
+tabula -py
+Vì thư viện này yêu cầu cài đặt java 8+ đểxửlý, nên chúng ta cần phải cài đặt nó. Đối với google colab
+đã được cài đặt sẵn java nên chúng ta bỏqua bước này. Đối với máy tính window, chúng ta tải java tại
+đây, sau đó tiến hành mởfile và cài đặt theo các tùy chọn mặc định. Sau khi quá trình cài đặt hoàn
+tất, ta cần thêm đường dẫn của java vào Environment Variables của window theo các bước dưới đây:
+• Truy cập vào thư mục java đã cài đặt trên máy và sao chép đường dẫn của thư mục này
+C:\Program Files (x86)\Java\jre-1.8\bin
+• Truy cập vào Environment Variables và thêm đường dẫn : Control Panel -> System and Security
+-> System -> Advanced System Settings -> Environment Variables -> Select PATH –> Edit
+Daily AI Exercise (AIO)
+aivietnam.edu.vn
+Sau khi thiết lập hoàn tất, chúng ta có thểkiểm tra xem thư viện đã cài đặt thành công chưa thông
+qua lệnh sau:
+1 import
+tabula
+2 !java -version
+======================================
+Output
+========================================
+java
+version
+"1.8.0 _411"
+Java(TM) SE Runtime
+Environment (build
+1.8.0 _411 -b09)
+Java
+HotSpot(TM) Client VM (build 25.411 -b09 , mixed mode , sharing)
+======================================================================================
+Nếu bạn nhận được kết quảtương tựnhư trên tức là quá trình cài đặt đã thành công và có thểbắt đầu
+sửdụng. Nếu quá trình cài đặt này quá phức tạp với bạn, hãy dùng google colab.
+3
+Trích xuất bảng với Tabula-py
+Trong tài liệu pdf, có rất nhiều định dạng bảng khác nhau. Chúng ta sẽtìm hiểu cách trích xuất các
+loại bảng phổbiến nhất như: Bảng với cấu trúc rõ ràng, bảng không có đường viền...
+3.1
+Bảng với cấu trúc rõ ràng
+Bảng có cấu trúc rõ ràng là bảng có đường viền rõ ràng xung quanh cảbảng và các ô bên trong, giúp
+dễdàng nhận diện và trích xuất. Chúng thường được tạo ra từcác ứng dụng như Microsoft Word hoặc
+Excel trước khi chuyển đổi sang định dạng PDF.
+Bảng 1: Thông tin Học Sinh
+Tên
+Lớp
+Điểm Trung Bình
+Anh
+10A
+8.5
+Bình
+10B
+7.2
+Châu
+10C
+9.1
+Dũng
+10A
+6.8
+Bảng trên có cấu trúc rõ ràng, ta sẽthực hiện trích xuất bảng này:
+1 import
+tabula
+2 pdf_path = "https :// github.com/ NguyenDinhTiem /tabula -py -examples/raw/main/data/tables.
+pdf"
+3
+4 dfs = tabula.read_pdf(pdf_path , pages="1", lattice=True)
+5 print(len(dfs))
+6 dfs [0]
+Trong chương trình trên, chúng ta bắt đầu bằng việc khai báo thư viện tabula, sau đó tiến hành trích
+xuất bảng tại trang 1 trong tệp pdf. Chúng ta sẽsửdụng hàm read_pdf trong đó:
+• pdf_path là đường dẫn đến tệp pdf
+• pages là tham sốxác định trang nào trong tệp PDF sẽđược trích xuất. Trong ví dụtrên,
+pages="1"chỉđịnh rằng chỉtrang đầu tiên của tệp PDF sẽđược xem xét đểtrích xuất dữliệu.
+Ta cũng có thểchỉđịnh nhiều trang cụthểbằng cách sửdụng một chuỗi như "1,2,3"hoặc một
+phạm vi trang như "1-3". Đểtrích xuất tất cảcác trangta có thểsửdụng pages="all".
+2
+Daily AI Exercise (AIO)
+aivietnam.edu.vn
+• lattice là một tham sốboolean cho biết liệu hàm có nên sửdụng chếđộ"lattice"đểtrích xuất
+bảng hay không. Khi lattice=True, tabula-py sẽcốgắng phát hiện các đường kẻbảng (cảngang
+và dọc) đểxác định chính xác ranh giới của các ô trong bảng.
+Kết quảtrảvềtừtabula.read_pdf là một danh sách chứa các dataframe. Trong ví dụtrên kết quảđầu
+ra là danh sách chứa 1 dataframe, chúng ta có thểtruy cập bằng chỉmục của danh sách, ví dụdfs[0].
+3.2
+Bảng không có đường viền
+Bảng không có đường viền là loại bảng không có đường viền xác định rõ ràng giữa các hàng và cột, chỉ
+dựa vào khoảng cách đểphân chia các ô. Việc trích xuất từcác bảng này có thểkhó khăn hơn do thiếu
+các dấu hiệu nhận biết.
+Bảng 2: Thông tin khách hàng
+Tên
+Tuổi
+Thành phố
+An
+22
+Hà Nội
+Cúc
+25
+TP HCM
+Hoa
+20
+Đà Nẵng
+Nụ
+23
+Cần Thơ
+Bảng trên là một ví dụđiển hình cho bảng không có đường viền, chúng ta sẽthực hiện trích xuất bảng
+này từtệp pdf.
+1 import
+tabula
+2 pdf_path = "https :// github.com/ NguyenDinhTiem /tabula -py -examples/raw/main/data/tables.
+pdf"
+3
+4 dfs = tabula.read_pdf(pdf_path , pages="2", stream=True)
+5 print(len(dfs))
+6 dfs [0]
+Trong chương trình trên, ta sửdụng tabula.read_pdf đểtrích xuất bảng tại trang 2 của tệp pdf. Đối
+với loại bảng này chúng ta sửdụng tham sốstream = True, tabula-py sẽphân tích trang PDF dựa trên
+cấu trúc các hàng và khoảng trống giữa chúng đểxác định ranh giới.
+3.3
+Bảng với cấu trúc phức tạp
+Bảng có cấu trúc phức tạp là bảng có hàng hoặc cột được gộp lại, chứa các bảng con, hoặc các bảng
+chứa nhiều cấp độcủa thông tin. Các bảng này thường xuất hiện trong các tài liệu kỹthuật, tài chính
+hoặc khoa học. Việc trích xuất dữliệu từchúng khó hơn các loại bảng thông thường, đòi hỏi chúng ta
+phải xửdụng các kỹthuật trong pandas đểxửlý đầu ra.
+Bảng 3: Lịch Thi Cuối Kỳ
+Môn học
+Ngày thi
+Giờbắt đầu
+Phòng thi
+Toán
+20/12/2024
+08:00
+101A
+21/12/2024
+09:00
+102B
+Lý
+22/12/2024
+08:00
+101A
+10:00
+102B
+Hóa
+23/12/2024
+08:00
+101A
+10:00
+102B
+3
+Daily AI Exercise (AIO)
+aivietnam.edu.vn
+Bảng trên có cấu trúc khá phức tạp, có những ô được gộp lại dẫn đến việc trích xuất đòi hỏi chúng ta
+phải thửcác tham sốkhác nhau và phải xửlý đầu ra với pandas.
+Đầu tiên, đểtrích xuất bảng này từfile pdf, ta sẽthửcác tham sốkhác nhau đểthu được kết quả
+output phù hợp. Trong ví dụnày, ta sẽsửdụng stream=True thay vì lattice=True, mặc dù bảng này
+cũng được bao bởi các đường kẻ, tuy nhiên trong trường hợp này sửdụng lattice sẽkhông thu được kết
+quảmong muốn.
+1 import
+tabula
+2 pdf_path = "https :// github.com/ NguyenDinhTiem /tabula -py -examples/raw/main/data/tables.
+pdf"
+3 dfs = tabula.read_pdf(pdf_path , pages="3", stream=True)
+Bảng 4: Dataframe trích xuất từbảng trong tệp pdf
+#
+Môn học
+Ngày thi
+Giờbắt đầu
+Phòng thi
+0
+NaN
+20/12/2024
+08:00
+101A
+1
+Toán
+NaN
+NaN
+NaN
+2
+NaN
+21/12/2024
+09:00
+102B
+3
+NaN
+NaN
+08:00
+101A
+4
+Lý
+22/12/2024
+NaN
+NaN
+5
+NaN
+NaN
+10:00
+102B
+6
+NaN
+NaN
+08:00
+101A
+7
+Hóa
+23/12/2024
+NaN
+NaN
+8
+NaN
+NaN
+10:00
+102B
+Tiếp theo chúng ta cần xửlí dataframe thu được, nhận thấy dữliệu của môn Toán nằm rải rác ở3
+dòng đầu, môn Lí nằm ở3 dòng tiếp theo, môn Hóa nằm ở3 dòng cuối cùng. Ta sẽthực hiện lấp đầy
+các ô có giá trịNaN ởdòng phía sau bởi các giá trịcủa các ô ởdòng trước đó.
+1 # Điền các giá trịNaN bằng các giá trịtừhàng trước đó
+2 df[’Môn học’]. fillna(method=’ffill ’, inplace=True)
+3 df[’Ngày thi’]. fillna(method=’ffill ’, inplace=True)
+4 df[’Giờbắt đầu’]. fillna(method=’ffill ’, inplace=True)
+5 df[’Phòng thi’]. fillna(method=’ffill ’, inplace=True)
+Bảng 5: Dataframe sau khi đã fillna
+#
+Môn học
+Ngày thi
+Giờbắt đầu
+Phòng thi
+0
+NaN
+20/12/2024
+08:00
+101A
+1
+Toán
+20/12/2024
+08:00
+101A
+2
+Toán
+21/12/2024
+09:00
+102B
+3
+Toán
+21/12/2024
+08:00
+101A
+4
+Lý
+22/12/2024
+08:00
+101A
+5
+Lý
+22/12/2024
+10:00
+102B
+6
+Lý
+22/12/2024
+08:00
+101A
+7
+Hóa
+23/12/2024
+08:00
+101A
+8
+Hóa
+23/12/2024
+10:00
+102B
+Sau khi lấp đầy các ô NaN, chúng ta nhận thấy, các giá trịởhàng 0, 3, 6 không cần thiết, ta sẽloại bỏ
+chúng:
+4
+Daily AI Exercise (AIO)
+aivietnam.edu.vn
+1 df_cleaned = df.drop ([0, 3, 6])
+Và cuối cùng, chúng ta sẽthu được dataframe được làm sạch.
+Bảng 6: Dataframe trích xuất từbảng trong tệp pdf
+#
+Môn học
+Ngày thi
+Giờbắt đầu
+Phòng thi
+1
+Toán
+20/12/2024
+08:00
+101A
+2
+Toán
+21/12/2024
+09:00
+102B
+4
+Lý
+22/12/2024
+08:00
+101A
+5
+Lý
+22/12/2024
+10:00
+102B
+7
+Hóa
+23/12/2024
+08:00
+101A
+8
+Hóa
+23/12/2024
+10:00
+102B
+3.4
+Bảng với vịtrí được chỉđịnh
+Trong các tài liệu pdf, đặc biệt là các bài báo khoa học, các bảng thường rất phức tạp và ởnhiều các vị
+trí khác nhau, thư viện tabula-py thường cho kết quảtrích xuất bảng rất tệtrong những tài liệu dạng
+này. Tuy nhiên có một sốtrường hợp có thểkhác phục bằng cách yêu cầu tabula-py chỉthực hiện trích
+xuất bảng tại vịtrí được chỉđịnh trên trang.
+Đây là cách làm thủcông và khá tốn sức, đầu tiên chúng ta cần một công cụđểxác định vịtrí của
+bảng trong tệp tin pdf. Trong bài viết này, chúng ta sẽsửdụng phần mềm Adobe reader, bạn có thể
+tải và cài đặt phần mềm tại đây.
+Hình 1: Xác định vịtrí bảng trong file pdf
+Chúng ta sẽthực hiện ví dụvới bài báo YOLO. Vịtrí của bảng chúng ta cần xác định là vịtrí của 4
+điểm:
+5
+Daily AI Exercise (AIO)
+aivietnam.edu.vn
+• top: Vịtrí trên cùng của bảng
+• left: Vịtrí cạnh trái của bảng
+• width: Vịví cạnh phải của bảng
+• botton: Vịtrí cạnh dưới cùng của bảng
+Chúng ta sẽsửdụng công cụmesuaring tool trong phần mềm Adobe reader đểđo khoảng cách từcác
+cạnh của tài liệu đến các vịtrí các cạnh của bảng tương ứng. Khoảng cách này được tính theo giá trị
+inch, đểchuyển đổi sang giá trịđiểm trong pdf, chúng ta sẽthực hiện theo phép chuyển đổi: 1 inch =
+72 point pdf
+1 top = 0.88
+2 left = 0.6
+3 botton = 3.06
+4 width = 4.09
+5
+6 loc = [i*72 for i in [top , left , botton ,
+width ]]
+7 print(loc)
+=================
+Output
+================
+[63.36 ,
+43.199999999999996 ,
+220.32 ,
+294.48]
+==========================================
+Sau khi xác định được vịtrí của bảng, chúng ta thực hiện trích xuất bảng:
+1 import
+tabula
+2 pdf_path = "https :// arxiv.org/pdf /1506.02640. pdf"
+3 dfs = tabula.read_pdf(pdf_path , pages="6", area = loc)
+Trong chương trình trên, chúng ta sửdụng hàm tabula.read_pdf đểtrích xuất bảng tại trang 6 và
+area=loc là vịtrí mà chúng ta đã đo phía trên. Dưới đây là kết quảbảng trích xuất được:
+Bảng 7: Comparison of Real-Time Detectors
+Index
+Real-Time Detectors
+Train
+mAP
+FPS
+0
+100Hz DPM [31]
+2007
+16.0
+100.0
+1
+30Hz DPM [31]
+2007
+26.1
+30.0
+2
+Fast YOLO
+2007+2012
+52.7
+155.0
+3
+YOLO
+2007+2012
+63.4
+45.0
+4
+Less Than Real-Time
+NaN
+NaN
+NaN
+5
+Fastest DPM [38]
+2007
+30.4
+15.0
+6
+R-CNN Minus R [20]
+2007
+53.5
+6.0
+7
+Fast R-CNN [14]
+2007+2012
+70.0
+0.5
+8
+Faster R-CNN VGG-16 [28]
+2007+2012
+73.2
+7.0
+9
+Faster R-CNN ZF [28]
+2007+2012
+62.1
+18.0
+10
+YOLO VGG-16
+2007+2012
+66.4
+21.0
+4
+Kết Luận
+Trong bài viết này, chúng ta đã tìm hiểu và sửdụng thư viện tabula-py đểtrích xuất dữliệu bảng từ
+các tài liệu PDF và cách làm sạch, xửlý dữliệu với pandas. Chúng ta đã đi qua từng bước từviệc cài
+đặt thư viện, sửdụng các phương thức trích xuất bảng, cho đến các kỹthuật cơ bản đểlàm sạch dữ
+liệu. Mặc dù tabula-py còn khá nhiều hạn chếđối với cấu trúc bảng phức tạp tuy nhiên nó cũng có
+nhiều ưu điểm đáng đểta ưu tiên sửdụng khi trích xuất bảng trong pdf.
+6

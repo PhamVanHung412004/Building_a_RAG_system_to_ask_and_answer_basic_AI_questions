@@ -1,0 +1,156 @@
+ANACONDA VSCODE INSTALLATION AND
+USAGE GUIDE
+Dinh-Tiem Nguyen và Quang-Vinh Dinh
+1
+Mởđầu
+Anaconda là một nền tảng mã nguồn mởđược thiết kếđặc biệt cho khoa học dữliệu và học máy, nó giúp
+người dùng dễdàng quản lí các thư viện và môi trường phát triển dựán. Ngoài ra Anaconda còn cung
+cấp nhiều công cụvà thư viện phổbiến như Python, R, Vscode, Jupyter notebook, Jupyterlab...Trong
+bài viết này sẽhướng dẫn bạn cài đặt và sửdụng Anaconda, Vscode đểlập trình python.
+2
+Cài đặt và sửdụng Anaconda
+2.1
+Cài đặt Anaconda
+Anaconda hỗtrợtrên 3 hệđiều hành Window, Mac, Linux. Đểcài đặt Anaconda, bạn tiến hành tải về
+tại đây. Trong hướng dẫn này, chúng ta sẽcài đặt trên hệđiều hành Window.
+Hình 1: Annconda hỗtrợWindow, Mac, Linux
+Sau khi tải vềfile cài đặt, chúng ta tiến hành nhấn chuột hai lần vào file cài đặt đểmởfile và tiến hành
+cài đặt. Việc cài đặt này khá dễdàng, bạn thực hiện theo các bước sau, lưu ý khi cài đặt bạn nên click
+vào lựa chọn "add Anaconda to your PATH environment variable"đểthêm đường dẫn Anaconda vào
+môi trường máy tính đang sửdụng. Các bước cài đặt đơn giản như sau:
+Khi cửa sổcài đặt xuất hiện, bạn nhấn next đểchuyển sang bước tiếp theo:
+Daily AI Exercise (AIO)
+aivietnam.edu.vn
+Tiếp theo chọn "Next-> "I Agree-> "Just me->"Next->"Next". Khi cửa sổAdvanced xuất hiện, tích
+vào lựa chọn "add Anaconda to your PATH environment variable".
+Cuối cùng bạn chọn "Install-> "Next-> "Finish"đểhoàn tất quá trình cài đặt. Đểkiểm tra đã cài đặt
+thành công hay chưa, bạn mởCommand Prompt hoặc Anaconda Prompt và nhập lệnh sau đểkiểm tra
+phiên bản conda trên máy:
+1 conda -V
+Nếu kết quảhiển thịgiống như conda 23.7.4 thì tức là bạn đã cài đặt thành công.
+2.2
+Sửdụng Anaconda
+Một trong những chức năng chính của Anaconda là quản lí môi trường phát triển với conda. Nếu bạn
+chưa biết môi trường trong các dựán python thì nó là không gian làm việc độc lập chứa các phiên bản
+2
+Daily AI Exercise (AIO)
+aivietnam.edu.vn
+riêng biệt của Python và các gói liên quan. Mỗi môi trường có thểcó các phiên bản Python, cài đặt và
+quản lý gói riêng biệt, giúp cô lập và quản lý dễdàng cho từng dựán.
+2.2.1
+Hướng dẫn tạo một môi trường mới
+Đểtạo một môi trường mới, chúng ta sửdụng cú pháp:
+1 conda
+create
+--name
+my_python_env
+python =3.10
+Trong đó my_python_env là tên của môi trường do chúng ta đặt, python=3.10 là phiên bản python
+mà chúng ta sẽsửdụng trong môi trường này, chúng ta nên chọn phiên bản python thấp hơn 1 đến 2
+phiên bản mới nhất, tùy vào từng dựán.
+2.2.2
+Quản lí môi trường: activate, deactivate, delete
+Đểsửdụng môi trường đã tạo, chúng ta sửdụng cú pháp sau đểkích hoạt môi trường:
+1 conda
+create
+--name
+my_python_env
+python =3.10
+Đểhủy kích hoạt hay nói cách khác là thoát ra khỏi môi trường hiện đang kích hoạt thì ta sửdụng lệnh
+sau:
+1 conda
+deactivate
+Khi muốn xóa một môi trường không còn sửdụng nữa, chúng ta sửdụng lệnh sau:
+1 conda
+remove
+--name
+my_python_env
+--all
+Đểkiểm tra danh sách các môi trường đã tạo, chúng ta sửdụng lệnh:
+1 conda env list
+2.2.3
+Anaconda navigator
+Anaconda Navigator là một ứng dụng đồhọa cung cấp giao diện người dùng đồhọa (GUI) cho việc
+quản lý môi trường, gói và các công cụtích hợp trong Anaconda. Đây là một công cụtiện lợi cho người
+dùng mới bắt đầu với Python và dữliệu khoa học, với các tính năng như:
+• Giao diện người dùng trực quan, rất hữu ích cho những người mới chưa quen với các cú pháp
+dòng lệnh.
+• Chúng ta có thểquản lí các gói và môi trường tại Environments
+• Chúng ta có thểdễdàng cài đặt các công cụnhư Vscode, Jupyter Notebook, Spider... bằng cách
+nhấn vào nút install. Đểmởcác công cụnày ta nhấn vào Launch, hoặc cũng có thểmởtừthanh
+tìm kiếm window.
+3
+Daily AI Exercise (AIO)
+aivietnam.edu.vn
+3
+Cài đặt và sửdụng Vscode
+Visual Studio Code (VSCode) là một trình soạn thảo mã nguồn mởđược phát triển bởi Microsoft. Nó
+cung cấp một loạt các tính năng hữu ích cho lập trình Python và khoa học dữliệu và nhiều ngôn ngữ
+lập trình khác.
+3.1
+Cài đặt Vscode
+Đểcài đặt Vscode, chúng ta có thểcài đặt theo hai cách, cách đầu tiên là chúng ta truy cập vào đường
+dẫn https://code.visualstudio.com/download và tiến hành lựa chọn tải xuống theo hệđiều hành trên
+máy, sau đó tiến hành cài đặt.
+Hình 2: Hai cách cài đặt Vscode
+4
+Daily AI Exercise (AIO)
+aivietnam.edu.vn
+Quá trình cài đặt khá đơn giản, chỉcần mởfile cài đặt và tiến hành nhấn next theo mặc định. Cách thứ
+hai thì đơn giản hơn, trong giao diện Anaconda Navigator chúng ta tìm đến Vscode và nhấn install.
+3.2
+Cài đặt các tiện ích quan trọng trong Vscode
+Tiện ích là các phần mởrộng được cung cấp bởi cộng đồng hoặc các nhà phát triển đểmởrộng tính
+năng của VSCode. Chúng ta sẽcài đặt hai tiện ích là Python và Jupyter trong đó:
+• Tiện ích Python hỗtrợcho lập trình Python trong VSCode, bao gồm hỗtrợcú pháp, tựđộng
+hoàn thành, gỡlỗi, và nhiều tính năng khác.
+• Tiện ích Jupyter cho phép chúng ta làm việc với notebook Jupyter trực tiếp trong VSCode, giúp
+tạo, chỉnh sửa và chạy mã Python một cách thuận tiện.
+Đểcài đặt các tiện ích trên, chúng ta tìm kiếm "Jupyter", "Python"trong tab Extensions và chọn tiện
+ích có tên "Jupyter", "Python"của Microsoft đểcài đặt.
+Hình 3: Cài đặt tiện ích vscode
+3.3
+Tạo một dựán Python
+Đểtạo một dựán python, đầu tiên chúng ta cần tạo một thư mục đểchứa dựán, sau đó tại giao diện
+vscode chọn "File-> "Open Folder"và chọn folder mà chúng ta vừa tạo.
+Đểtạo tệp mã Python, tại cửa sổEXPLORER phía trái màn hình, bạn trỏchuột đến tên của dựán sẽ
+thấy xuất hiện icon new file, tiếp theo bạn click đểtạo một file mới và đặt tên cho file là my_scripts.py.
+Sau khi tạo file, bạn tiến hành viết code và dùng tổhợp phím ctl+S đểlưu file.
+Đểthực thi file, trong giao diện Vscode bạn nhấn vào biểu tượng tam giác ởgóc trên phải màn hình,
+hoặc chọn "Terminal->"New Terminal"sau đó dùng lênh sau đểthực thi chương trình:
+1 python
+my_script.py
+5
+Daily AI Exercise (AIO)
+aivietnam.edu.vn
+Hình 4: Thực thi chương trình python
+3.4
+Lựa chọn môi trường dựán
+Khi chạy chương trình trên, chương trình được chạy trên môi trường mặc định của máy tính. Đểchọn
+môi trường cụthể, hãy chọn "View"> "Command Palette"từthanh menu hoặc nhấn tổhợp phím Ctrl
++ Shift + P sau đó nhập "Select Interpreter"và click vào "Python:Select Interpreter", một danh sách
+các môi trường chúng ta đã tạo được hiển thị, ta chọn môi trường có tên là "my_python_env"mà chúng
+ta đã tạo với conda ởphần 2.2.1.
+Hình 5: Chọn môi trường với select interpreter
+Tại Terminal ta thấy môi trường đã được kích hoạt và chương trình đã được thực thi trong môi trường
+này. Trong một sốtrường hợp nếu bạn đã làm theo các bước trên mà không thấy môi trường được kích
+6
+Daily AI Exercise (AIO)
+aivietnam.edu.vn
+hoạt có thểdo Terminal của bạn đang sửdụng Powershell, bạn hãy thay đổi sang Command Prompt
+bằng cách nhấn vào biểu tượng dấu cộng trong cửa sổterminal và chọn Command Prompt.
+3.5
+Tạo notebook Jupyter
+Vscode hỗtrợchúng ta sửdụng file jupyter notebook mà không cần phải mởphần mềm này. Điều này
+rất hữu ích khi mà dựán của chúng ta vừa sửdụng file .py vừa sửdụng file notebook .ipynb. Chúng ta
+sẽtạo file với đuôi .ipynb trong thư mục dựán tương tựnhư cách tạo file my_script.py ởphần trên.
+Sau đó ta tiến hành viết code và thực thi code bằng cách nhấn vào biểu tượng run ởđầu ô đó.
+Hình 6: Tạo file jupyter notebook
+Với lần đầu thực thi code trong file notebook, một thông báo yêu cầu cài đặt ipykernel chúng ta hãy
+chọn yes đểcài đặt và sau đó chương trình sẽđược thực thi.
+4
+Kết Luận
+Trong bài viết này đã hướng dẫn cách cài đặt và sửdụng Anaconda, Vscode đểtạo môi trường, thiết
+lập dựán đểlập trình Python trên Window. Hy vọng giúp các bạn có thêm kỹnăng cài đặt và sửdụng
+các công cụcần thiết đểbắt đầu hành trình học lập trình Python.
+7

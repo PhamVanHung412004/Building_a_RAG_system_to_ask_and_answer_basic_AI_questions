@@ -1,0 +1,1036 @@
+Machine Learning
+K-NEAREST NEIGHBORS
+DECISION TREE
+Year 2023
+Nguyen Quoc Thai
+AI VIETNAM
+All-in-One Course
+1
+2
+CONTENT
+(1) – K-Nearest Neighbors (KNN)
+(2) – KNN Applications
+(3) – Decision Tree
+(4) – Summary
+1 – K Nearest Neighbors
+What is the KNN Algorithm? 
+!
+3
+Ø KNN is one of the simplest supervised machine learning algorithms
+Ø Lazy Learning:
+q Does not “LEARN” until the test example is given
+q A new data is predicted based on K-Nearest Neighbors from the training data
+1 – K Nearest Neighbors
+What is the KNN Algorithm? 
+!
+4
+Memory-based Learning
+Training Phrase
+Test Data
+Search
+K-Nearest Neighbors
+Testing Phrase
+Training Data
+Similarity Measure
+1 – K Nearest Neighbors
+What is the KNN Algorithm? 
+!
+5
+Memory-based Learning
+Training Phrase
+Test Data
+Search
+K-Nearest Neighbors
+Testing Phrase
+Training Data
+Predict
+Similarity Measure
+1 – K Nearest Neighbors
+What is the KNN Algorithm? 
+!
+6
+Memory-based Learning
+Training Phrase
+Test Data
+Search
+K-Nearest Neighbors
+Testing Phrase
+Training Data
+Predict
+Non-Parametric
+Similarity Measure
+1 – K Nearest Neighbors
+What is the KNN Algorithm? 
+!
+7
+Memory-based Learning
+Training Phrase
+Test Data
+Search
+K-Nearest Neighbors
+Testing Phrase
+Training Data
+Predict
+Solving
+Regression
+Classfication
+1 – K Nearest Neighbors
+What is the KNN Algorithm? 
+!
+Regression
+Classification
+What will be the 
+temperature tomorrow?
+8
+Will it be hot or 
+cold tomorrow?
+Ø Predict a continuous value based
+on the input variables
+Ø Classify input variables to identify
+discrete output variables (labels,
+categories)
+1 – K Nearest Neighbors
+KNN: Classification Approach
+!
+Classification
+9
+Will it be hot or 
+cold tomorrow?
+Ø Classify input variables to identify
+discrete output variables (labels,
+categories)
+Test Data
+Training Data
+Feature
+Label
+…
+…
+?
+1 – K Nearest Neighbors
+KNN: Classification Approach
+!
+Step 1: Look at the data
+10
+Petal_Length
+Petal_Width
+Label
+1.4
+0.2
+0
+1.3
+0.4
+0
+4
+1
+1
+4.7
+1.4
+1
+2.4
+0.8
+Test Data
+Training Data
+New data
+1 – K Nearest Neighbors
+KNN: Classification Approach
+!
+Step 2: Calculate distances
+11
+Petal_Length
+Petal_Width
+Label
+Distance
+1.4
+0.2
+0
+1.166
+1.3
+0.4
+0
+1.170
+4
+1
+1
+1.612
+4.7
+1.4
+1
+2.376
+2.4
+0.8
+Test Data
+Training Data
+𝑑(x, y) =
+(
+!"#
+$
+x! −y! %
+Euclidean Distance
+1.166
+1.170
+2.376
+1.612
+1 – K Nearest Neighbors
+KNN: Classification Approach
+!
+Step 3: Find neighbours
+12
+Petal_Length
+Petal_Width
+Label
+Distance
+1.4
+0.2
+0
+1.166
+1.3
+0.4
+0
+1.170
+4
+1
+1
+1.612
+4.7
+1.4
+1
+2.376
+2.4
+0.8
+Test Data
+Training Data
+1 st
+2 nd
+3 rd
+4 th
+Find the nearest neighbours by ranking 
+points by increasing distance
+Ranking points
+1 – K Nearest Neighbors
+KNN: Classification Approach
+!
+Step 4: Vote on labels
+13
+Petal_Length
+Petal_Width
+Label
+Distance
+1.4
+0.2
+0
+1.166
+1.3
+0.4
+0
+1.170
+4
+1
+1
+1.612
+4.7
+1.4
+1
+2.376
+2.4
+0.8
+Test Data
+Training Data
+1 st
+2 nd
+3 rd
+Vote on the predicted class labels based 
+on the class of the k nearest neighbors
+K=3 Nearest neighbours
+2
+1
+# of votes
+0
+1 – K Nearest Neighbors
+KNN: Regression Approach
+!
+Step 1: Look at the data
+14
+Length
+Width
+Price
+2.0
+2.0
+2.0
+3.0
+3.0
+2.5
+4.0
+3.0
+3.5
+5.0
+2.0
+5.0
+3.0
+2.0
+Test Data
+Training Data
+New data
+1 – K Nearest Neighbors
+KNN: Regression Approach
+!
+Step 2: Calculate distances
+15
+Length
+Width
+Price
+Distance
+2.0
+2.0
+2.0
+1.0
+3.0
+3.0
+2.5
+1.0
+4.0
+3.0
+3.5
+1.4
+5.0
+2.0
+5.0
+2.0
+3.0
+2.0
+Test Data
+Training Data
+𝑑(x, y) =
+(
+!"#
+$
+x! −y! %
+Euclidean Distance
+1.0
+2.0
+1.0
+1.4
+1 – K Nearest Neighbors
+KNN: Regression Approach
+!
+Step 3: Find neighbours
+16
+Length
+Width
+Price
+Distance
+2.0
+2.0
+2.0
+1.0
+3.0
+3.0
+2.5
+1.0
+4.0
+3.0
+3.5
+1.4
+5.0
+2.0
+5.0
+2.0
+3.0
+2.0
+Test Data
+Training Data
+1 st
+2 nd
+3 rd
+4 th
+Find the nearest neighbours by ranking 
+points by increasing distance
+Ranking points
+1 – K Nearest Neighbors
+KNN: Regression Approach
+!
+Step 4: Vote on labels
+17
+Length
+Width
+Price
+Distance
+2.0
+2.0
+2.0
+1.0
+3.0
+3.0
+2.5
+1.0
+4.0
+3.0
+3.5
+1.4
+5.0
+2.0
+5.0
+2.0
+3.0
+2.0
+Test Data
+Training Data
+1 st
+2 nd
+3 rd
+Compute the mean value of the 
+k nearest neighbors
+K=4 Nearest neighbours
+3.25
+4 th
+Y&'() = 1
+k (
+*∈,-
+y*
+Y&'()
+= 1
+4 2.0 + 2.5 + 3.5 + 5.0
+=3.25
+1 – K Nearest Neighbors
+KNN: Summary
+!
+18
+Classification
+Regression
+1 – K Nearest Neighbors
+Geometry Distance Functions
+!
+19
+𝑑(x, y) =
+(
+!"#
+$
+x! −y! %
+Ø Euclidean (p=2)
+𝑑(x, y) =
+(
+."#
+/
+𝑥. −𝑦. 0
+#
+0
+Ø Minkowski (p-norm)
+𝑑(x, y) = (
+."#
+/
+𝑥. −𝑦.
+Ø Manhattan (p=1)
+𝑑x, y = lim
+0→2 (
+."#
+/
+𝑥. −𝑦. 0
+#
+0
+= max
+.
+𝑥. −𝑦.
+Ø Chebyshev (p=)
+1 – K Nearest Neighbors
+Feature Scaling (Normalization)
+!
+20
+Ø Standardize the range of independent variables (feature of data)
+Petal_Length
+L_Distance
+Petal_Width
+W_Distance
+Label
+Distance
+1.4
+1.8
+0.2
+0.4
+0
+1.844
+1.3
+1.9
+0.4
+0.2
+0
+1.910
+4
+0.8
+1
+0.4
+1
+0.894
+4.7
+1.3
+1.4
+0.8
+1
+1.526
+3.2
+Test Data
+Training Data
+0.6
+Strong Influence
+Rank
+3
+4
+1
+2
+1 – K Nearest Neighbors
+Feature Scaling (Normalization)
+!
+21
+Ø Standardize the range of independent variables (feature of data)
+Petal_Length
+L_Distance
+Petal_Width
+W_Distance
+Label
+Distance
+0.03
+0.53
+0.00
+0.33
+0
+0.624
+0.00
+0.56
+0.17
+0.16
+0
+0.582
+0.79
+0.23
+0.66
+0.33
+1
+0.402
+1.00
+0.44
+1.00
+0.67
+1
+0.801
+0.56
+Test Data
+Training Data
+0.33
+MinMaxScaler Normalization
+Rank
+3
+2
+1
+4
+1 – K Nearest Neighbors
+Searching in KNN
+!
+22
+KD Tree
+O[NDlog(N)]
+Ball Tree
+1
+Ø Training dataset: N samples in D dimensions
+Ø Brute Force: Naïve neighbor search – O[DN2]
+Source: https://varshasaini.in/kd-tree-and-ball-tree-knn-algorithm/
+2
+1 – K Nearest Neighbors
+How to find the optimal value of K in KNN?
+!
+23
+Ø Choose K based on the evaluation on the validation set (Accuracy, Error, F-Score,…)
+K=3
+K=5
+Validation Error
+Training Error
+2
+Error
+K Value
+2 – KNN Applications
+KNN for Regression: “Diabetes” Dataset
+!
+24
+Ø Sample: 442
+Ø Features: 10
+Ø Target: 25 – 346
+Ø R2-Score (Validation)
+2 – KNN Applications
+KNN for Classification: “Iris” Dataset
+!
+25
+Ø Sample: 150
+Ø Features: 4
+Ø Classes: 3 (50 per class)
+Ø Accuracy (Validation)
+2 – KNN Applications
+KNN for Text Classification: “IMDB” Dataset
+!
+26
+Ø Sample: 50.000 movie review
+Ø Classes: 2 – Positive and Negative (25.000 per class)
+Ø Accuracy, F1-Score
+https://paperswithcode.com/sota/text-classification-on-imdb
+2 – KNN Applications
+KNN for Text Classification: “IMDB” Dataset
+!
+27
+Feature
+Text
+I like this movie
+So bad
+Boring
+Love it so much
+1
+0
+0
+1
+Label
+Convert text 
+to feature
+KNN 
+Classifier
+BoW
+2 – KNN Applications
+KNN for Text Classification: “IMDB” Dataset
+!
+28
+Ø Bag of Words (BoW)
+Ø Document-Level: Consider text as a bag (collection) of words
+Ø Represented by a V-dimensional
+Use: the number of occurrences of the word in the document
+[dog, bites, man]
+[man, bites, dog]
+[dog, eats, meat]
+[man, eats, food]
+[dog, bites, man]
+Vocabulary
+IDX
+0
+1
+2
+3
+4
+5
+Token
+bites
+dog
+eats
+food
+man
+meat
+1
+1
+0
+0
+1
+0
+Counter
+2 – KNN Applications
+KNN for Text Classification: “IMDB” Dataset
+!
+29
+Ø Bag of Words (BoW)
+Ø Document-Level: Consider text as a bag (collection) of words
+Ø Represented by a V-dimensional
+[man, bites, dog]
+1
+1
+0
+0
+1
+0
+[dog, eats, meat]
+0
+1
+1
+0
+0
+1
+[man, eats, food]
+0
+0
+0
+1
+1
+0
+[dog, bites, man]
+1
+1
+0
+0
+1
+0
+2 – KNN Applications
+KNN for Text Classification: “IMDB” Dataset
+!
+30
+Ø Bag of Words (BoW)
+Ø Out of vocabulary (OOV)
+[dog, bites, man]
+Vocabulary
+IDX
+0
+1
+2
+3
+4
+5
+Token
+bites
+dog
+eats
+food
+man
+meat
+1
+1
+0
+0
+1
+0
+Counter
+[dog, and, dog, are, friends]
+0
+2
+0
+0
+0
+0
+2 – KNN Applications
+KNN for Text Classification: “IMDB” Dataset
+!
+31
+Ø Bag of Words (BoW)
+Ø Representation without considering frequency (Binary Representation)
+Vocabulary
+IDX
+0
+1
+2
+3
+4
+5
+Token
+bites
+dog
+eats
+food
+man
+meat
+Convert to binary representation 
+[dog, and, dog, are, friends]
+0
+2
+0
+0
+0
+0
+[dog, and, dog, are, friends]
+0
+1
+0
+0
+0
+0
+Counter
+Value 12
+3 – Decision Tree
+Decision Tree
+!
+32
+Ø A possible decision tree for the data
+Ø Described by IF-ELSE sets
+Feature 1
+Value 13
+Value 11
+Feature 2
+Feature 3
+Yes
+Value 21
+Value 22
+Value 31
+Value 32
+Yes
+No
+No
+Yes
+3 – Decision Tree
+Decision Tree
+!
+33
+Ø Each internal node: attribute X (feature)
+Ø Each branch from a node: value of X
+Ø Each leaf node: predict value
+Value 12
+Feature 1
+Value 13
+Value 11
+Feature 2
+Feature 3
+Yes
+Value 21
+Value 22
+Value 31
+Value 32
+Yes
+No
+No
+Yes
+3 – Decision Tree
+Decision Tree
+!
+34
+Ø Example: Play Tennis dataset
+3 – Decision Tree
+Decision Tree
+!
+35
+Ø Example: Play Tennis dataset
+Overcast
+Outlook
+Rain
+Sunny
+Humidity
+Wind
+Yes
+High
+Normal
+Strong
+Weak
+Yes
+No
+No
+Yes
+What prediction would we make for
+<outlook=Sunny, temperature=Hot, humidity=High, wind=Weak> ?
+3 – Decision Tree
+Constructing Decision Tree: ID3
+!
+36
+Value 12
+Feature 1
+Value 13
+Value 11
+Feature 2
+Feature 3
+Yes
+Value 21
+Value 22
+Value 31
+Value 32
+Yes
+No
+No
+Yes
+Why does it make 
+more sense to test the 
+feature 1 first?
+3 – Decision Tree
+Constructing Decision Tree: ID3
+!
+37
+Value 12
+Feature 1
+Value 13
+Value 11
+Feature 2
+Feature 3
+Yes
+Value 21
+Value 22
+Value 31
+Value 32
+Yes
+No
+No
+Yes
+Top-Down
+Information Gain 
+Entropy
+Ø Iterative Dichotomiser 3
+3 – Decision Tree
+Constructing Decision Tree: ID3
+!
+38
+Ø Entropy is a measure of randomness/uncertainty of a set
+Ø Data: a set S of examples with C many classes
+Ø Probability vector a = [p1, p2,…, pc] is the class distribution of the set S
+Ø Entropy of the set S:
+𝐸S = −%
+!∈#
+p! log$ p!
+Ø If a set S of examples has
+Some dominant classes => small entropy of the class distribution
+Equiprobable classes => high entropy of the class distribution
+3 – Decision Tree
+Constructing Decision Tree: ID3
+!
+39
+Ø Entropy of the set S:
+𝐸S = −%
+!∈#
+p! log$ p!
+Ø Example:
+S: 14 examples (9: class c1, 5: class c2)
+=> E(S) = -(9/14).log2(9/14) –(5/14).log2(5/14) = 0.94
+3 – Decision Tree
+Constructing Decision Tree: ID3
+!
+40
+Ø Entropy = 0
+ 
+=> all samples class 1 (or 2)
+Ø Entropy = 1
+=> num samples class 1 = class 2
+Ø Entropy ∈(0,1)
+=> num samples class 1 ≠class 2
+0
+1
+1
+E(S)
+3 – Decision Tree
+Constructing Decision Tree: ID3
+!
+41
+Ø Information Gain (IG) on knowing the value of the feature F in S:
+Gain S, F = E(S) −%
+%∈&
+S%
+S E(S%)
+Ø Sf donates the subset of elements of S for which feature F has value f
+3 – Decision Tree
+Constructing Decision Tree: ID3
+!
+42
+Ø Information Gain (IG)
+Ø Gain(S, Wind) with Wind: Weak or Strong
+S = {9: Yes, 5: No}
+Sweak = {6: Yes, 2: No}
+Wstrong = {3: Yes, 3: No}
+=> Gain S, Wind
+= E S −8
+14 E S'()* −6
+14 E S+,-./0
+= 0.94 −1
+23 ∗0.81 −4
+23 ∗1 = 0.048
+3 – Decision Tree
+Constructing Decision Tree: ID3
+!
+43
+Ø Information Gain (IG)
+Gain(S, Outlook) = 0.246
+Gain(S, Temperature) = 0.029
+Gain(S, Humidity) = 0.151
+Gain(S, Wind) = 0.048
+Overcast
+Outlook
+Rain
+Sunny
+Node 1
+Mode 2
+Yes
+Choose Outlook with 
+the highest Gain score
+S = {9+, 5-}
+Ssunny = {2+, 3-}
+Srain = {3+, 2-}
+Sovercast = {2+, 0-}
+3 – Decision Tree
+Constructing Decision Tree: ID3
+!
+44
+Ø Information Gain (IG)
+Fine “Node 1”: {Temperature, Humidity, Wind?
+Gain(Ssunny, Temperature) = 0.57
+Gain(Ssunny, Humidity) = 0.57
+Gain(Ssunny, Wind) = 0.57
+Overcast
+Outlook
+Rain
+Sunny
+Node 1
+Mode 2
+Yes
+S = {9+, 5-}
+Ssunny = {2+, 3-}
+Srain = {3+, 2-}
+Sovercast = {2+, 0-}
+3 – Decision Tree
+Constructing Decision Tree: ID3
+!
+45
+Ø Information Gain (IG)
+Fine “Node 1”: {Temperature, Humidity, Wind?
+Gain(Ssunny, Temperature) = 0.57
+Gain(Ssunny, Humidity) = 0.57
+Gain(Ssunny, Wind) = 0.57
+Overcast
+Outlook
+Rain
+Sunny
+Humidity
+Mode 2
+Yes
+S = {9+, 5-}
+Ssunny = {2+, 3-}
+Srain = {3+, 2-}
+Humidity
+High
+Normal
+Yes
+No
+{0+, 3-}
+{2+, 0-}
+Sovercast = {2+, 0-}
+3 – Decision Tree
+Constructing Decision Tree: ID3
+!
+46
+Ø Information Gain (IG)
+Overcast
+Outlook
+Rain
+Sunny
+Humidity
+Wind
+Yes
+High
+Normal
+Strong
+Weak
+Yes
+No
+No
+Yes
+Test = <outlook=Sunny, temperature=Hot, humidity=High, wind=Weak> => No
+3 – Decision Tree
+Overfitting in Decision Trees
+!
+47
+Ø Desired: a DT that is not too big in size, yet fits the training data reasonably
+Source
+3 – Decision Tree
+Overfitting in Decision Trees
+!
+48
+Ø Mainly two approaches
+q Prune while building the tree (Stopping Early)
+q
+Prune after building the tree (Post-Pruning)
+Ø Criteria for judging which nodes could potentially be pruned: evaluate validation set
+3 – Decision Tree
+Decision Tree for Iris Dataset
+!
+49
+50
+SUMMARY
+KNN
+Decision Tree
+Ø Predicted based on K-Nearest Neighbors
+from the training data through Geometry 
+Distance Functions
+Ø Build a decision tree (ID3)
+Ø Defined by a hierarchy of rules (in form of
+a tree)
+Thanks!
+Any questions?
+51

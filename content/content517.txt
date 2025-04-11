@@ -1,7 +1,0 @@
-Từ danh sách các bài báo khoa học, ta tách thành các văn bản nhỏ. Từ đó, xây dựng một hệ cơ
-sở dữ liệu vector với một embedding model.
-2. Bên cạnh câu hỏi đầu vào (question), ta truy vấn các mẫu văn bản có liên quan đến đến câu hỏi,
-dùng làm ngữ cảnh (context) trong câu prompt. Đây là nguồn thông tin mà LLMs có thể dựa vào
-để trả lời câu hỏi.
-3. Đưa câu prompt vào mô hình (question và context) để nhận câu trả lời từ mô hình.
-2

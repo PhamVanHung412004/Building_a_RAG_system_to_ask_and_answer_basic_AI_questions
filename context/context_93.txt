@@ -1,0 +1,1647 @@
+AI VIET NAM - Project
+Truy vấn ảnh dùng các toán cơ bản
+Tho-Anh-Khoa Nguyen, Dang-Nha Nguyen
+Ngày 3 tháng 8 năm 2024
+1
+Giới thiệu
+Truy vấn hình ảnh (Images Retrieval) là một bài toán thuộc lĩnh vực Truy vấn thông tin (Information
+Retrieval). Trong đó, nhiệm vụcủa ta là xây dựng một chương trình trảvềcác hình ảnh (Images) có
+liên quan đến hình ảnh truy vấn đầu vào(Query) và các hình ảnh được lấy từmột bộdữliệu hình ảnh
+cho trước, hiện nay có một sốứng dụng truy vấn ảnh như: Google Search Image, chức năng tìm kiếm
+sản phẩm bằng hình ảnh trên Shopee, Lazada, Tiki, ...
+Hình 1: Ứng dụng của Image Retrieval.
+1.1
+Yêu cầu của bài toán
+Xây dựng một chương trình mà khi đưa vào chương trình đó một hình ảnh, nó sẽhiển thịnhiều hình
+ảnh tương tự. Có rất nhiều cách thiết kếhệthống truy vấn hình ảnh khác nhau, tuy nhiên vềmặt tổng
+quát sẽcó pipeline như sau:
+1
+AI VIETNAM
+aivietnam.edu.vn
+Hình 2: Pipeline tổng quan của một hệthống Images Retrieval.
+Dựa vào hình trên, có thểphát biểu Input/Output của một hệthống truy vấn văn bản bao gồm:
+• Input: Hình ảnh truy vấn Query Image và bộdữliệu Images Library.
+• Output: Danh sách các hình ảnh có sựtương tựđến hình ảnh truy vấn.
+Hình 3: Image retrieval pipeline của project
+Trong dựán này, chúng ta sẽxây dựng một hệthống truy xuất hình ảnh bằng cách sửdụng mô hình
+deep learning đã được huấn luyện trước (CLIP) đểtrích xuất đặc trưng của ảnh và thu được các vector
+đặc trưng. Sau đó, chúng ta sẽsửdụng vector database đểindex, lưu trữvà truy xuất các ảnh tương
+tựvới ảnh yêu cầu thông qua các thuật toán đo độtương đồng.
+2
+AI VIETNAM
+aivietnam.edu.vn
+2
+Xây dựng chương trình
+Dựán này sẽgiới thiệu các phương pháp từcơ bản đến nâng cao đểxây dựng một hệthống truy vấn
+ảnh. Chúng ta sẽphát triển hệthống này trên một tập dữliệu cụthể. Tiếp theo, dựán sẽtiến hành
+thu thập và xửlý dữliệu đểtạo ra hệthống truy vấn ảnh được cá nhân hóa cho từng người dùng (phần
+đọc thêm (optional)). Các mục tiêu chính của dựán bao gồm:
+• Xây dựng chương trình truy vấn ảnh cơ bản.
+• Phát triển chương trình truy vấn ảnh nâng cao với CLIP model và vector database.
+• (Optional) Thu thập và xửlý dữliệu nhằm mục đích xây dựng chương trình truy vấn ảnh cá nhân
+hóa.
+2.1
+Chương Trình Truy Vấn Ảnh Cơ Bản:
+Mục này tập trung vào việc thiết kếvà triển khai một hệthống truy vấn ảnh đơn giản, giúp người dùng
+có thểtìm kiếm và truy xuất hình ảnh tương tự. Đểcó thểtìm được các hình ảnh có liên quan đến
+hình ảnh truy vấn, ta có thểsửdụng các độđược trình bày ởcác mục tiếp theo đểđo sựtương đồng
+giữa hai ảnh.
+Các bạn sẽđược cung cấp một tập data trong đó đường dẫn data/train là nơi chứa đata sẽtrảvềkết
+quảtruy vấn, còn data/test là nơi chứa ảnh sẽđược đem đi truy vấn
+Đầu tiên chúng ta sẽimport một sốthư viện cần thiết. Đểđọc ảnh chúng ta sửdụng thư viện PIL, để
+xửlí ma trận chúng ta dửdụng numpy, đểthao tác với thư mục, file chúng ta sửdụng thư viện os, sử
+dụng matplotlib đểhiển thịkết quả.
+1
+import os
+2
+import numpy as np
+3
+from PIL import Image
+4
+import matplotlib.pyplot as plt
+Tiếp theo chúng ta sẽlấy danh sách các class của ảnh trong data mà ta có
+1
+ROOT = ’data’
+2
+CLASS_NAME = sorted(list(os.listdir(f’{ROOT}/train’)))
+Sau đó đểthực hiện tính toán trên các hình ảnh, chúng ta sẽđọc ảnh, resize vềkích thước chung (thì
+mới áp dụng được các phép đo) và chuyển đổi nó vềdạng numpy:
+1
+def read_image_from_path(path, size):
+2
+im = Image.open(path).convert(’RGB’).resize(size)
+3
+return np.array(im)
+4
+5
+def folder_to_images(folder, size):
+6
+list_dir = [folder + ’/’ + name for name in os.listdir(folder)]
+7
+images_np = np.zeros(shape=(len(list_dir), *size, 3))
+8
+images_path = []
+9
+for i, path in enumerate(list_dir):
+10
+images_np[i] = read_image_from_path(path, size)
+11
+images_path.append(path)
+12
+images_path = np.array(images_path)
+13
+return images_np, images_path
+3
+AI VIETNAM
+aivietnam.edu.vn
+2.1.1
+Truy vấn hình ảnh với độđo L1
+Chúng ta xây dựng một hàm absolute_difference() tính độtương đồng giữa các hình ảnh. Trong ví
+dụnày chúng ta sẽsửdụng hàm L1. Hàm L1 có công thức tính như sau:
+L1(⃗a,⃗b) =
+N
+X
+i=1
+|a −b|
+1
+def absolute_difference(query, data):
+2
+axis_batch_size = tuple(range(1,len(data.shape)))
+3
+return np.sum(np.abs(data - query), axis=axis_batch_size)
+Đến đây chúng ta sẽthực hiện tính toán đểtính độtương đồng giữa ảnh input và các hình ảnh trong
+bộdữliệu. Chúng ta sẽtạo hàm get_l1_score(), hàm này sẽtrảvềảnh query và ls_path_score chứa
+danh sách hình ảnh và giá trịđộtương đồng với từng ảnh.
+1
+def get_l1_score(root_img_path, query_path, size):
+2
+query = read_image_from_path(query_path, size)
+3
+ls_path_score = []
+4
+for folder in os.listdir(root_img_path):
+5
+if folder in CLASS_NAME:
+6
+path = root_img_path + folder
+7
+images_np, images_path = folder_to_images(path, size) # mang numpy nhieu anh,
+paths
+8
+rates = absolute_difference(query, images_np)
+9
+ls_path_score.extend(list(zip(images_path, rates)))
+10
+return query, ls_path_score
+Đoạn code này thực hiện quá trình truy xuất hình ảnh bằng cách so sánh một hình ảnh truy vấn với
+các hình ảnh trong tập huấn luyện dựa trên điểm L1. Đầu tiên, các hình ảnh được thay đổi cùng kích
+thước. Tiếp theo hệthống sẽso sánh ảnh truy vấn với các hình ảnh trong thư mục huấn luyện đểtính
+điểm L1. Sau đó, kết quảtruy vấn được trảvềlà danh sách các đường dẫn chứa hình ảnh và điểm số
+tính theo L1. Cuối cùng 5 kết quảtốt nhất sẽđược hiển thịcùng với ảnh truy vấn
+1
+root_img_path = f"{ROOT}/train/"
+2
+query_path = f"{ROOT}/test/Orange_easy/0_100.jpg"
+3
+size = (448, 448)
+4
+query, ls_path_score = get_l1_score(root_img_path, query_path, size)
+5
+plot_results(query_path, ls_path_score, reverse=False)
+4
+AI VIETNAM
+aivietnam.edu.vn
+Hình 4: Image retrieval ảnh đơn giản với L1
+1
+root_img_path = f"{ROOT}/train/"
+2
+query_path = f"{ROOT}/test/African_crocodile/n01697457_18534.JPEG"
+3
+size = (448, 448)
+4
+query, ls_path_score = get_l1_score(root_img_path, query_path, size)
+5
+plot_results(query_path, ls_path_score, reverse=False)
+Hình 5: Image retrieval ảnh đơn phức tạp L1
+Tiếp theo chúng ta sẽtruy vấn hình ảnh với 3 độđo L2, Cosine Similarity, Correlation Coefficient.
+Chúng ta sẽthực hiện code tương tựnhư độđo L1.
+2.1.2
+Truy vấn hình ảnh với độđo L2
+L2(⃗a,⃗b) =
+v
+u
+u
+t
+N
+X
+i=1
+(ai −bi)2
+Chúng ta tạo hàm tính độtương đồng L2 mean_square_difference()
+5
+AI VIETNAM
+aivietnam.edu.vn
+1
+def mean_square_difference(query, data):
+2
+axis_batch_size = tuple(range(1,len(data.shape)))
+3
+return np.mean((data - query)**2, axis=axis_batch_size)
+Chúng ta tạo hàm get_l2_score(), hàm này tương tựhàm get_l1_score(), chỉcần thay đổi tại biến
+rates.
+1
+def get_l2_score(root_img_path, query_path, size):
+2
+query = read_image_from_path(query_path, size)
+3
+ls_path_score = []
+4
+for folder in os.listdir(root_img_path):
+5
+if folder in CLASS_NAME:
+6
+path = root_img_path + folder
+7
+images_np, images_path = folder_to_images(path, size) # mang numpy nhieu anh,
+paths
+8
+rates = mean_square_difference(query, images_np)
+9
+ls_path_score.extend(list(zip(images_path, rates)))
+10
+return query, ls_path_score
+Vì với độđo L2 này thì giá trịcàng nhỏsẽcàng giống nhau. Nên đểhiển thịkết quảchúng ta sửdụng
+hàm plot_results() như phép đo L1.
+1
+root_img_path = f"{ROOT}/train/"
+2
+query_path = f"{ROOT}/test/Orange_easy/0_100.jpg"
+3
+size = (448, 448)
+4
+query, ls_path_score = get_l2_score(root_img_path, query_path, size)
+5
+plot_results(query_path, ls_path_score, reverse=False)
+Hình 6: Image retrieval ảnh đơn giản với L2
+1
+root_img_path = f"{ROOT}/train/"
+2
+query_path = f"{ROOT}/test/African_crocodile/n01697457_18534.JPEG"
+3
+size = (448, 448)
+4
+query, ls_path_score = get_l2_score(root_img_path, query_path, size)
+5
+plot_results(query_path, ls_path_score, reverse=False)
+6
+AI VIETNAM
+aivietnam.edu.vn
+Hình 7: Image retrieval ảnh đơn phức tạp L2
+2.1.3
+Truy vấn hình ảnh với độđo Cosine Similarity
+cosine_similarity(⃗a,⃗b) =
+a · b
+∥a∥∥b∥=
+PN
+i=1 aibi
+qPN
+i=1 a2
+i
+qPN
+i=1 b2
+i
+Chúng ta tạo hàm tính độtương đồng cosine_similarity()
+1
+def cosine_similarity(query, data):
+2
+axis_batch_size = tuple(range(1,len(data.shape)))
+3
+query_norm = np.sqrt(np.sum(query**2))
+4
+data_norm = np.sqrt(np.sum(data**2, axis=axis_batch_size))
+5
+return np.sum(data * query, axis=axis_batch_size) / (query_norm*data_norm + np.finfo(float
+).eps)
+Chúng ta tạo hàm get_cosine_similarity_score(), hàm này tương tựhàm get_l1_score().
+1
+def get_cosine_similarity_score(root_img_path, query_path, size):
+2
+query = read_image_from_path(query_path, size)
+3
+ls_path_score = []
+4
+for folder in os.listdir(root_img_path):
+5
+if folder in CLASS_NAME:
+6
+path = root_img_path + folder
+7
+images_np, images_path = folder_to_images(path, size) # mang numpy nhieu anh,
+paths
+8
+rates = cosine_similarity(query, images_np)
+9
+ls_path_score.extend(list(zip(images_path, rates)))
+10
+return query, ls_path_score
+Đểhiển thịkết quảchúng ta sửdụng hàm plot_results(), tuy nhiên ởhàm này chúng ta sẽsắp xếp giá
+trịgiảm dần từlớn đến nhỏvì với độđo này thì giá trịcàng lớn sẽcàng giống nhau, cho nên chúng ta
+sửdụng reverse = True.
+1
+root_img_path = f"{ROOT}/train/"
+2
+query_path = f"{ROOT}/test/Orange_easy/0_100.jpg"
+3
+size = (448, 448)
+4
+query, ls_path_score = get_cosine_similarity_score(root_img_path, query_path, size)
+5
+plot_results(query_path, ls_path_score, reverse=True)
+7
+AI VIETNAM
+aivietnam.edu.vn
+Hình 8: Image retrieval ảnh đơn giản với Cosine Similarity
+1
+root_img_path =f"{ROOT}/train/"
+2
+query_path = f"{ROOT}/test/African_crocodile/n01697457_18534.JPEG"
+3
+size = (448, 448)
+4
+query, ls_path_score = get_cosine_similarity_score(root_img_path, query_path, size)
+5
+plot_results(query_path, ls_path_score, reverse=True)
+Hình 9: Image retrieval ảnh đơn phức tạp Cosine Similarity
+2.1.4
+Truy vấn hình ảnh với độđo Correlation Coefficient
+r = E[(X −µX)(Y −µY )]
+σXσY
+=
+P(xi −µX)(yi −µY )
+pP(xi −µX)2 P(yi −µY )2
+Chúng ta tạo hàm tính độtương đồng correlation_coefficient()
+1
+def correlation_coefficient(query, data):
+2
+axis_batch_size = tuple(range(1,len(data.shape)))
+3
+query_mean = query - np.mean(query)
+4
+data_mean = data - np.mean(data, axis=axis_batch_size, keepdims=True)
+8
+AI VIETNAM
+aivietnam.edu.vn
+5
+query_norm = np.sqrt(np.sum(query_mean**2))
+6
+data_norm = np.sqrt(np.sum(data_mean**2, axis=axis_batch_size))
+7
+8
+return np.sum(data_mean * query_mean, axis=axis_batch_size) / (query_norm*data_norm + np.
+finfo(float).eps)
+Chúng ta tạo hàm get_correlation_coefficient_score(), hàm này tương tựhàm get_l1_score()
+1
+def get_correlation_coefficient_score(root_img_path, query_path, size):
+2
+query = read_image_from_path(query_path, size)
+3
+ls_path_score = []
+4
+for folder in os.listdir(root_img_path):
+5
+if folder in CLASS_NAME:
+6
+path = root_img_path + folder
+7
+images_np, images_path = folder_to_images(path, size) # mang numpy nhieu anh,
+paths
+8
+rates = correlation_coefficient(query, images_np)
+9
+ls_path_score.extend(list(zip(images_path, rates)))
+10
+return query, ls_path_score
+Đểhiển thịkết quảchúng ta sửdụng hàm plot_results(), tuy nhiên ởhàm này chúng ta sẽsắp xếp giá
+trịgiảm dần từlớn đến nhỏvì với độđo này thì giá trịcàng lớn sẽcàng giống nhau, cho nên chúng ta
+sửdụng reverse = True.
+1
+root_img_path = f"{ROOT}/train/"
+2
+query_path = f"{ROOT}/test/Orange_easy/0_100.jpg"
+3
+size = (448, 448)
+4
+query, ls_path_score = get_correlation_coefficient_score(root_img_path, query_path, size)
+5
+plot_results(query_path, ls_path_score, reverse=True)
+Hình 10: Image retrieval ảnh đơn giản với Correlation Coefficient
+1
+root_img_path =f"{ROOT}/train/"
+2
+query_path = f"{ROOT}/test/African_crocodile/n01697457_18534.JPEG"
+3
+size = (448, 448)
+4
+query, ls_path_score = get_correlation_coefficient_score(root_img_path, query_path, size)
+5
+plot_results(query_path, ls_path_score, reverse=True)
+9
+AI VIETNAM
+aivietnam.edu.vn
+Hình 11: Image retrieval ảnh đơn phức tạp Correlation Coefficient
+2.2
+Nâng Cao Chương Trình Truy Vấn Ảnh
+Phần này nhằm phát triển các tính năng nâng cao cho hệthống truy vấn ảnh, bằng cách sửdụng deep
+learning model trích xuất feature vector cho các ảnh đểtăng cường khảnăng truy xuất hình ảnh chính
+xác hơn.
+Image retrieval sửdụng pretrained deep learning model là một quá trình mà trong đó, các mô hình học
+sâu đã được đào tạo trước được sửdụng đểtìm kiếm và lấy ra các hình ảnh liên quan từmột tập dữ
+liệu lớn dựa trên nội dung hình ảnh. Các mô hình này thường được huấn luyện trên các tập dữliệu
+khổng lồvới hàng triệu hình ảnh đểhọc các đặc điểm quan trọng từảnh, cho phép chúng hiểu và biểu
+diễn nội dung ảnh một cách hiệu quả.
+Trong quá trình tìm kiếm ảnh, một hình ảnh truy vấn được đưa vào mô hình, mô hình sẽtính toán đặc
+trưng của hình ảnh truy vấn và so sánh chúng với các đặc trưng đã được tính toán trước của những
+hình ảnh được lưu trữtrên hệthống. Sựtương đồng giữa các đặc trưng này được sửdụng đểxác định
+các hình ảnh có liên quan nhất, và kết quảlà những hình ảnh tương tựnhất với hình ảnh truy vấn được
+trảvềcho người dùng. Những mô hình này có khảnăng phân tích và nhận diện các đặc tính phức tạp
+của ảnh như kết cấu, hình dạng, và màu sắc, do đó chúng rất hiệu quảtrong việc tìm kiếm và lấy lại
+hình ảnh dựa trên nội dung.
+2.2.1
+Truy vấn hình ảnh với pretrained deep learning model
+Đểbắt đầu quá trình truy vấn hình ảnh sửdụng pretrained deep learning model, trước tiên, chúng ta
+cần cài đặt hai thư viện quan trọng là chromadb và open-clip-torch. Thư viện chromadb hỗtrợviệc
+quản lý và truy xuất dữliệu hình ảnh hiệu quả(chúng ta cũng sửdụng thêm với mục đích tạo vector
+database), và chromadb có thểdùng open-clip-torch đểcung cấp khảnăng sửdụng mô hình CLIP đã
+được đào tạo sẵn, đây là một công cụmạnh mẽđểphân tích nội dung hình ảnh thông qua học sâu.
+1
+pip install chromadb
+2
+pip install open-clip-torch
+Import các thư viện cần thiết
+1
+import os
+2
+import numpy as np
+3
+from PIL import Image
+4
+import matplotlib.pyplot as plt
+10
+AI VIETNAM
+aivietnam.edu.vn
+5
+from chromadb.utils.embedding_functions import OpenCLIPEmbeddingFunction
+Quá trình thực hiện truy vấn hình ảnh sửdụng mô hình CLIP trong bối cảnh này tương tựnhư các
+bước ởphần cơ bản trước, nhưng chúng ta sẽnâng cấp bằng cách thêm một hàm đểtrích xuất vector
+đặc trưng cho mỗi hình ảnh. Mô hình CLIP sẽđược sửdụng đểbiến đổi hình ảnh thành các vector đặc
+trưng đại diện cho nội dung và ngữcảnh của hình ảnh đó. Sau đó, việc so sánh các hình ảnh không
+được thực hiện trực tiếp trên ảnh gốc mà là thông qua việc tính sựtương đồng giữa các vector này.
+Đoạn code bên đưới khởi tạo một hàm đểtrích xuất vector đặc trưng từmột hình sửdụng mô hình CLIP.
+Tiếp theo, hàm get_single_image_embedding nhận một hình ảnh làm đầu vào và sửdụng phương thức
+_encode_image của OpenCLIPEmbeddingFunction đểtrích xuất ảnh thành một vector đặc trưng.
+1
+embedding_function = OpenCLIPEmbeddingFunction()
+2
+3
+def get_single_image_embedding(image):
+4
+embedding = embedding_function._encode_image(image=image)
+5
+return np.array(embedding)
+Truy vấn embedding vector với độđo L1 hàm get_l1_score được nâng cấp lên bằng cách sửdụng
+CLIP model đểtrích xuất vector đặc trưng.
+1
+def get_l1_score(root_img_path, query_path, size):
+2
+query = read_image_from_path(query_path, size)
+3
+query_embedding = get_single_image_embedding(query)
+4
+ls_path_score = []
+5
+for folder in os.listdir(root_img_path):
+6
+if folder in CLASS_NAME:
+7
+path = root_img_path + folder
+8
+images_np, images_path = folder_to_images(path, size) # mang numpy nhieu anh,
+paths
+9
+embedding_list = []
+10
+for idx_img in range(images_np.shape[0]):
+11
+embedding = get_single_image_embedding(images_np[idx_img].astype(np.uint8))
+12
+embedding_list.append(embedding)
+13
+rates = absolute_difference(query_embedding, np.stack(embedding_list))
+14
+ls_path_score.extend(list(zip(images_path, rates)))
+15
+return query, ls_path_score
+Hình 12: Image retrieval ảnh đơn giản với model CLIP và L1
+11
+AI VIETNAM
+aivietnam.edu.vn
+Hình 13: Image retrieval ảnh phức tạp với model Clip và L1
+Truy vấn embedding vector với độđo L2 hàm get_l2_score được nâng cấp lên bằng cách sửdụng
+CLIP model đểtrích xuất vector đặc trưng.
+1
+def get_l2_score(root_img_path, query_path, size):
+2
+query = read_image_from_path(query_path, size)
+3
+query_embedding = get_single_image_embedding(query)
+4
+ls_path_score = []
+5
+for folder in os.listdir(root_img_path):
+6
+if folder in CLASS_NAME:
+7
+path = root_img_path + folder
+8
+images_np, images_path = folder_to_images(path, size) # mang numpy nhieu anh,
+paths
+9
+embedding_list = []
+10
+for idx_img in range(images_np.shape[0]):
+11
+embedding = get_single_image_embedding(images_np[idx_img].astype(np.uint8))
+12
+embedding_list.append(embedding)
+13
+rates = mean_square_difference(query_embedding, np.stack(embedding_list))
+14
+ls_path_score.extend(list(zip(images_path, rates)))
+15
+return query, ls_path_score
+12
+AI VIETNAM
+aivietnam.edu.vn
+Hình 14: Image retrieval ảnh đơn giản với model CLIP và L2
+Hình 15: Image retrieval ảnh phức tạp với model Clip và L2
+Truy vấn embedding vector với độđo Cosine Similarity hàm get_cosine_similarity_score được
+nâng cấp lên bằng cách sửdụng CLIP model đểtrích xuất vector đặc trưng.
+1
+def get_cosine_similarity_score(root_img_path, query_path, size):
+2
+query = read_image_from_path(query_path, size)
+3
+query_embedding = get_single_image_embedding(query)
+4
+ls_path_score = []
+5
+for folder in os.listdir(root_img_path):
+6
+if folder in CLASS_NAME:
+7
+path = root_img_path + folder
+8
+images_np, images_path = folder_to_images(path, size) # mang numpy nhieu anh,
+paths
+9
+embedding_list = []
+10
+for idx_img in range(images_np.shape[0]):
+11
+embedding = get_single_image_embedding(images_np[idx_img].astype(np.uint8))
+12
+embedding_list.append(embedding)
+13
+rates = cosine_similarity(query_embedding, np.stack(embedding_list))
+14
+ls_path_score.extend(list(zip(images_path, rates)))
+13
+AI VIETNAM
+aivietnam.edu.vn
+15
+return query, ls_path_score
+Hình 16: Image retrieval ảnh đơn giản với model CLIP và Cosine Similarity
+Hình 17: Image retrieval ảnh phức tạp với model Clip và Cosine Similarity
+Truy vấn embedding vector với độđo Correlation Coefficient hàm get_correlation_coefficient_score
+được nâng cấp lên bằng cách sửdụng CLIP model đểtrích xuất vector đặc trưng.
+1
+def get_correlation_coefficient_score(root_img_path, query_path, size):
+2
+query = read_image_from_path(query_path, size)
+3
+query_embedding = get_single_image_embedding(query)
+4
+ls_path_score = []
+5
+for folder in os.listdir(root_img_path):
+6
+if folder in CLASS_NAME:
+7
+path = root_img_path + folder
+8
+images_np, images_path = folder_to_images(path, size) # mang numpy nhieu anh,
+paths
+9
+embedding_list = []
+10
+for idx_img in range(images_np.shape[0]):
+11
+embedding = get_single_image_embedding(images_np[idx_img].astype(np.uint8))
+14
+AI VIETNAM
+aivietnam.edu.vn
+12
+embedding_list.append(embedding)
+13
+rates = correlation_coefficient(query_embedding, np.stack(embedding_list))
+14
+ls_path_score.extend(list(zip(images_path, rates)))
+15
+return query, ls_path_score
+Hình 18: Image retrieval ảnh đơn giản với model CLIP và Correlation Coefficient
+Hình 19: Image retrieval ảnh phức tạp với model Clip và Correlation Coefficient
+2.2.2
+Tối ưu hoá quá trình truy vấn hình ảnh sửdụng mô hình CLIP và cơ sởdữliệu
+vector
+Chúng ta sẽtiếp tục phát triển phương pháp ởtrên, vì mỗi lần truy vấn đều cần phải sửdụng lại mô
+hình CLIP, phương pháp này sẽsửdụng một cơ sởdữliệu vector (vector database) đểquản lý các
+embedding vector, giúp quá trình truy vấn được tối ưu hơn.
+Bước đầu tiên là trích xuất vector đặc trưng từcác ảnh và lưu trữchúng vào cơ sởdữliệu. Đầu tiên,
+ta cần lấy danh sách đường dẫn của các ảnh mà ta muốn trích xuất vector. Đoạn code dưới đây mô tả
+quá trình trích xuất đường dẫn của các ảnh từmột thư mục cho trước. Đầu tiên, chúng ta sẽliệt kê
+các thư mục con dựa trên tên của các class (CLASS_NAME). Sau đó, liệt kê tất cảcác ảnh trong mỗi
+15
+AI VIETNAM
+aivietnam.edu.vn
+thư mục con và lưu trữđường dẫn của từng ảnh vào một danh sách.
+1
+def get_files_path(path):
+2
+files_path = []
+3
+for label in CLASS_NAME:
+4
+label_path = path + "/" + label
+5
+filenames = os.listdir(label_path)
+6
+for filename in filenames:
+7
+filepath = label_path + ’/’ + filename
+8
+files_path.append(filepath)
+9
+return files_path
+10
+11
+data_path = f’{ROOT}/train’
+12
+files_path = get_files_path(path=data_path)
+Truy vấn ảnh với L2 Collection Trong ChromaDB, "collection" là một khái niệm quan trọng, dùng
+đểtổchức và quản lý dữliệu. Một collection trong ChromaDB có thểđược hiểu như là một tập hợp các
+vector hoặc tài liệu được chỉmục và lưu trữcùng nhau dựa trên một sốtiêu chí hoặc đặc điểm chung.
+Nó tương tựnhư concept của "table" trong cơ sởdữliệu quan hệhoặc "collection" trong MongoDB.
+Đoạn code sau đây định nghĩa hàm add_embedding, một hàm giúp trích xuất và lưu trữcác vector
+đặc trưng của ảnh vào một collection đã được tạo.
+1
+def add_embedding(collection, files_path):
+2
+ids = []
+3
+embeddings = []
+4
+for id_filepath, filepath in tqdm(enumerate(files_path)):
+5
+ids.append(f’id_{id_filepath}’)
+6
+image = Image.open(filepath)
+7
+embedding = get_single_image_embedding(image=image)
+8
+embeddings.append(embedding)
+9
+collection.add(
+10
+embeddings=embeddings,
+11
+ids=ids
+12
+)
+Tiếp theo chúng ta khởi tạo một client cho cơ sởdữliệu Chroma và tạo một collection mới với cấu hình
+sửdụng L2 đểso sánh các embedding vector. Sau đó, gọi hàm add_embedding đểthêm các vector đặc
+trưng của ảnh vào collection này, qua đó tạo điều kiện thuận lợi cho việc truy vấn nhanh chóng và hiệu
+quả.
+1
+# Create a Chroma Client
+2
+chroma_client = chromadb.Client()
+3
+# Create a collection
+4
+l2_collection = chroma_client.get_or_create_collection(name="l2_collection",
+5
+metadata={HNSW_SPACE: "l2"})
+6
+add_embedding(collection=l2_collection, files_path=files_path)
+Hàm search được định nghĩa đểthực hiện truy xuất các ảnh dựa trên embedding của ảnh truy vấn.
+Hàm này nhận đường dẫn của ảnh truy vấn, loại collection và sốlượng kết quảtrảvềmong muốn, sau
+đó trảvềdanh sách các kết quảphù hợp.
+1
+def search(image_path, collection, n_results):
+2
+query_image = Image.open(image_path)
+3
+query_embedding = get_single_image_embedding(query_image)
+4
+results = collection.query(
+5
+query_embeddings=[query_embedding],
+16
+AI VIETNAM
+aivietnam.edu.vn
+6
+n_results=n_results # how many results to return
+7
+)
+8
+return results
+1
+test_path = f’{ROOT}/test’
+2
+test_files_path = get_files_path(path=test_path)
+3
+test_path = test_files_path[1]
+4
+l2_results = search(image_path=test_path, collection=l2_collection, n_results=5)
+5
+plot_results(image_path=test_path, files_path=files_path, results=l2_results)
+Hình 20: Image retrieval dùng vector database với L2
+Truy vấn ảnh với Cosine Similarity Collection
+Tương tựnhư với L2 collection, đoạn code này khởi tạo một collection mới dựa trên khoảng cách cosine.
+1
+#
+Create a collection
+2
+cosine_collection = chroma_client.get_or_create_collection(name="Cosine_collection",
+3
+metadata={HNSW_SPACE: "cosine"})
+4
+add_embedding(collection=cosine_collection, files_path=files_path)
+17
+AI VIETNAM
+aivietnam.edu.vn
+Hình 21: Image retrieval dùng vector database với similarity score
+3
+Trắc Nghiệm
+1. CLIP chủyếu được sửdụng đểlàm gì trong bối cảnh tìm kiếm sựtương đồng giữa
+các hình ảnh với hình ảnh?
+(a) Tăng cường chất lượng của hình ảnh
+(b) Tạo chú thích hình ảnh
+(c) Tìm những hình ảnh giống nhau dựa trên nội dung ngữnghĩa
+(d) Nén hình ảnh
+2. Cho hai vector a = [1, 2, 3] và b = [4, 5, 6], tính độtương tựL1 (norm 1) giữa chúng.
+(a) 9
+(b) 12
+(c) 15
+(d) 18
+3. Một trường hợp sửdụng phổbiến cho tìm kiếm sựtương đồng hình ảnh trong thương
+mại điện tửlà gì?
+(a) Dựđoán giá cổphiếu
+(b) Gợi ý sản phẩm dựa trên sựtương đồng hình ảnh
+(c) Tính chi phí vận chuyển
+(d) Tạo mô tảsản phẩm
+4. Cho hai vector a = [1, 2, 3] và b = [4, 5, 6], tính độtương tựL2 (norm 2) giữa chúng.
+(a)
+√
+27
+18
+AI VIETNAM
+aivietnam.edu.vn
+(b)
+√
+36
+(c)
+√
+50
+(d)
+√
+77
+5. Sựkết hợp của CLIP và ChromaDB làm tăng cường quá trình truy xuất hình ảnh
+như thếnào?
+(a) Giảm kích thước vật lý của hình ảnh
+(b) Cho phép tìm kiếm dựa trên ngữnghĩa thông qua so sánh vector
+(c) Dịch nội dung hình ảnh ra các ngôn ngữkhác nhau
+(d) Mã hóa dữliệu hình ảnh
+6. Cho hai vector a = [1, 0, 1] và b = [1, 1, 0], tính độtương tựCosine giữa chúng.
+(a) 0
+(b)
+1
+2
+(c) 1
+(d)
+2
+3
+7. Trong bối cảnh nào, khoảng cách L1 thường được ưu tiên sửdụng đểso sánh hình
+ảnh?
+(a) Khi cần đo lường sựtương phản trực tiếp giữa các điểm ảnh
+(b) Khi các vector đặc trưng có độdài không đồng đều
+(c) Khi các vector đặc trưng là đa chiều và phức tạp
+(d) Tất cảđều đúng
+8. Cho hai vector a = [2, 4] và b = [1, 2], tính hệsốtương quan Pearson giữa chúng.
+(a) 0.5
+(b) 1
+(c) -1
+(d) 0
+9. Ưu điểm chính của độtương đồng Cosine so với khoảng cách L1 trong việc so sánh
+hình ảnh là gì?
+(a) Độchính xác cao hơn khi xửlý các vector có giá trịâm
+(b) Không phụthuộc vào độdài của vector, chỉquan tâm đến hướng của chúng
+(c) Tính toán nhanh hơn do ít dữliệu hơn cần xửlý
+(d) Khảnăng chống nhiễu tốt hơn trong dữliệu
+19
+AI VIETNAM
+aivietnam.edu.vn
+4
+(Đọc thêm) Thu Thập và XửLý DữLiệu ĐểXây Dựng Chương
+Trình Truy Vấn Ảnh Cá Nhân Hóa
+Phần này tập trung vào việc thu thập và xửlý dữliệu nhằm mục đích tạo ra một hệthống truy vấn
+ảnh được cá nhân hóa, phù hợp với nhu cầu và sởthích riêng của từng người dùng.
+Thu thập dữliệu là tác vụđầu tiên chúng ta cần làm đểcó thểxây dựng nên bộdữliệu ảnh dành cho
+bài toán Image Retrieval. Có khá nhiều cách đểthu thập dữliệu dạng ảnh như chụp bằng thiết bịghi
+hình, tải từcác website "Image Search Engine", phổbiến như: Google Image Search, TinyEye, Bing
+Image Search, Yahoo Image Search. Yandex Image Search. Pinterest, Visual Search, Openverse, Flickr,
+Shutterstock, Pexels, ... Đối với dựán này, chúng ta sẽthực hiện thu thập ảnh từtrang web flickr.com
+- một trang web tìm kiếm ảnh chất lượng và miễn phí.
+Hình 22: Trang chủflickr.com
+Trước hết, chúng ta sẽcài đặt, import các thư viện cần thiết cho dựán này:
+• BeautifulSoup: Dùng đểphân tích cú pháp HTML của trang web flickr.com.
+• Urllib: Xửlí các vấn đềliên quan tới URL.
+• Selenium: Dùng đểtương tác với các HTML element của wetsite flickr.com
+• Concurrent.futures: Là Mô-đun dùng đểxửlý đa luồng trong Python.
+• os: Làm việc với đường dẫn ảnh, tổchức folder.
+1
+!pip install tqdm
+2
+3
+!apt-get update
+4
+!apt-get install -y wget
+20
+AI VIETNAM
+aivietnam.edu.vn
+5
+!pip install selenium
+6
+!apt-get install -y chromium-browser
+7
+!apt-get install -y chromium-chromedriver
+8
+9
+from selenium import webdriver
+10
+from selenium.webdriver.common.by import By
+11
+from selenium.webdriver.support.ui import WebDriverWait
+12
+from selenium.webdriver.support import expected_conditions as EC
+13
+14
+from bs4 import BeautifulSoup # For parsing HTML content
+15
+from urllib.parse import urljoin, urlparse # For handling URLs
+16
+import urllib.request # For making HTTP requests
+17
+import time # For handling time-related operations
+18
+import os # For interacting with the operating system (relate to dir, folder, file)
+19
+from tqdm import tqdm # For displaying progress bars (visualize progress)
+20
+import concurrent.futures # For multi-threading
+21
+import json # For writing to a text file
+22
+from PIL import Image # For handling images
+4.0.1
+Thu thập dữliệu - Crawl URL từWebsite
+Mục tiêu:
+• Hiểu vềbốcục trang web flickr.com.
+• Hiểu cách hoạt động cơ bản của website.
+• Thiết kếclass dùng đểCrawl url từwebsite dựa vào các đặc điểm của html.
+• Xửlí đa luồng khi crawl url từwebsite.
+Trước tiên chúng ta sẽquan sát bốcục của trang web này trước khi thực hiện đi sâu phân tích vềcấu
+trúc HTML của nó.
+Hình 23: Bốcục trang tìm kiếm
+Có thểthấy flickr là trang web có bốcục khá đơn giản, khi chúng ta nhập một từkhóa tìm kiếm vào
+ô search, bên dưới sẽngay lập tức hiển thịcác hình ảnh chính xác. Và ởđây có một điểm quan trọng
+nhất cần lưu ý là đường link URL (2) của trang web. Dễdàng nhận thấy được thay vì tìm kiếm bằng ô
+21
+AI VIETNAM
+aivietnam.edu.vn
+search, chúng ta hoàn toàn có thểthay đổi từkhóa "Cat" trong đường dẫn bằng từkhóa mong muốn.
+Từđây, chúng ta có thểliên hệtìm kiếm với trang web flickr thông qua đường link:
+1
+https://www.flickr.com/search/?text={search_term}
+Từđường dẫn URL, chúng ta có thểlấy được toàn bộnội dung mà trang web hiển thị:
+Hình 24: Cách hoạt động cơ bản của website
+Khi chúng ta gõ một đường dẫn, hay click vào URL nào đó, browser (như Cốc cốc, chrome, brave) sẽ
+gửi một yêu cầu tới server, server sẽđọc url, xửlí yêu cầu, truy xuất xuống database lấy những thông
+tin cần thiết, sau đó tổng hợp tất cảcác file gửi trảlời cho browser. Trong các file đó, dĩ nhiên có file
+định dạng HTML, chính là file chứa cấu trúc của toàn bộtrang web. Sau khi browser nhận được phản
+hồi từserver, sẽhiển thịtất cảthông tin dưới dạng một trang web, người dùng có thểdễdàng tương
+tác, gửi các request khác tới server thông qua browser.
+Chúng ta vừa có thểtìm kiếm nội dung bằng cách thay đổi search_term trong đường link, vừa có thể
+lấy được nội dung (cấu trúc HTML) của trang đó thông qua việc gửi request tới server, như vậy, chúng
+ta chỉcần xửlí thông tin ởtrong file HTML nhận lại từserver đểlấy ra thông tin vềảnh cần thu thập.
+Đểphân tích cấu trúc trang web thông qua HTML:
+• Bước 1: Nhấn F12 đểbật công cụdev tool của browser.
+• Bước 2: Click vào vịtrí số1 ởảnh bên dưới, sau đó trỏtới 1 bức ảnh bất kì (2).
+• Bước 3: Quan sát cấu trúc HTML chứa đường link của bức ảnh (3).
+22
+AI VIETNAM
+aivietnam.edu.vn
+Hình 25: Tìm hiểu cấu trúc trang web
+( Các bức ảnh trên các trang web thường được lưu trữtrên các server riêng biệt. Khi bạn truy cập một
+trang web, trang web đó sẽsửdụng URL của bức ảnh đểgửi yêu cầu (request) đến các server chứa bức
+ảnh. Server sau đó sẽgửi bức ảnh trởlại đểhiển thịtrên trang web. Nói cách khác, trang web chỉlưu
+trữđường dẫn đến bức ảnh, còn bức ảnh thực tếđược lưu trữvà phục vụtừserver khác.)
+Một cách khác đểnhìn thấy rõ ràng hơn cấu trúc html của trang web, bấm tổhợp phím Ctrl + U. Và
+như quan sát, tất cảcác đường dẫn hình ảnh đều nằm trong khối mã gồm thẻ<img/> như bên dưới:
+Hình 26: Mã nguồn html của trang web
+Trước tiên, thực hiện khai báo lớp ImageScraper nhận vào các tham sốnhư đường dẫn, sốlượng ảnh
+tối đa cần tải mỗi lớp, sốluồng hoạt động.
+1
+class UrlScraper:
+2
+# Constructor
+3
+def __init__(self, url_template, max_images=50, max_workers=4):
+4
+self.url_template = url_template # Link crawl
+5
+self.max_images = max_images # Max images
+6
+self.max_workers = max_workers # Thread
+23
+AI VIETNAM
+aivietnam.edu.vn
+7
+self.setup_environment() # Call for set up environment
+8
+9
+# Set up environment for selenium
+10
+def setup_environment(self):
+11
+os.environ[’PATH’] += ’:/usr/lib/chromium-browser/’
+12
+os.environ[’PATH’] += ’:/usr/lib/chromium-browser/chromedriver/’
+Ta quan sát được rằng, thẻchứa url của bức ảnh là thẻ<img/> với thuộc tính loading="lazy". Từđó,
+ta có thểsửdụng thư viện BeautifulSoup đểbắt lấy tất cảcác thẻchứa url ảnh,
+Bên cạnh đó, Flickr là trang web hiển thịảnh theo kiểu "lazy loading", tức nó sẽkhông hiển thịhết tất
+cảảnh một lần hay phân trang, mà nó sẽhiển thịthêm ảnh nếu người dùng tiếp tục lướt xuống dưới.
+Đồng thời ởmột mức nào đó, trang web sẽyêu cầu người dùng bấm vào button "Load more results"
+đểhiển thịthêm ảnh.
+Hình 27: Tính chất lazy loading giúp trang web tối ưu hiệu năng hiển thịảnh
+Nắm được đặc tính này, chúng ta sẽsửdụng selenium đểscroll trang web xuống dưới đểnhận thêm
+nhiều nội dung HTML, đồng thời click vào button "Load more results" đểlấy thêm nhiều link ảnh cho
+tới khi đủthì dừng lại.
+1
+def get_url_images(self, term):
+2
+"""
+3
+Crawl the urls of images by term
+4
+5
+Parameters:
+6
+term (str): The name of animal, plant, scenery, furniture
+7
+8
+Returns:
+9
+urls (list): List of urls of images
+10
+"""
+11
+12
+# Initialize Chrome driver
+13
+options = webdriver.ChromeOptions()
+14
+options.add_argument(’--headless’)
+15
+options.add_argument(’--no-sandbox’)
+16
+options.add_argument(’--disable-dev-shm-usage’)
+17
+driver = webdriver.Chrome(options=options)
+18
+19
+url = self.url_template.format(search_term=term)
+24
+AI VIETNAM
+aivietnam.edu.vn
+20
+driver.get(url)
+21
+22
+# Start crawl urls of image like brute force - the same mechanism with this but add
+some feature
+23
+urls = []
+24
+more_content_available = True
+25
+26
+pbar = tqdm(total=self.max_images, desc=f"Fetching images for {term}") # Set up for
+visualize progress
+27
+28
+while len(urls) < self.max_images and more_content_available:
+29
+soup = BeautifulSoup(driver.page_source, "html.parser")
+30
+img_tags = soup.find_all("img")
+31
+32
+for img in img_tags:
+33
+if len(urls) >= self.max_images:
+34
+break
+35
+if ’src’ in img.attrs:
+36
+href = img.attrs[’src’]
+37
+img_path = urljoin(url, href)
+38
+img_path = img_path.replace("_m.jpg", "_b.jpg").replace("_n.jpg", "_b.jpg")
+.replace("_w.jpg", "_b.jpg")
+39
+if img_path == "https://combo.staticflickr.com/ap/build/images/getty/
+IStock_corporate_logo.svg":
+40
+continue
+41
+urls.append(img_path)
+42
+pbar.update(1)
+43
+44
+try:
+45
+load_more_button = WebDriverWait(driver, 10).until(
+46
+EC.element_to_be_clickable((By.XPATH, ’//button[@id="
+yui_3_16_0_1_1721642285931_28620"]’))
+47
+)
+48
+load_more_button.click()
+49
+time.sleep(2)
+50
+except:
+51
+driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+52
+time.sleep(2)
+53
+54
+new_soup = BeautifulSoup(driver.page_source, "html.parser")
+55
+new_img_tags = new_soup.find_all("img", loading_="lazy")
+56
+if len(new_img_tags) == len(img_tags):
+57
+more_content_available = False
+58
+img_tags = new_img_tags
+59
+60
+pbar.close()
+61
+driver.quit()
+62
+return urls
+Đồng thời, sẽrất lâu nếu chúng ta đợi một class tải xong url mới bắt đầu class sốhai, vì thếởđây khi
+crawl url, ta sẽáp dụng xửlí đa luồng multi-threading đểphân luồng tải, thực hiện tải url cho nhiều
+class cùng một lần và thực hiện liên tiếp, từđó tốc độcrawl tăng lên đáng kể, giúp chúng ta tối ưu thời
+gian xong việc thu thập dữliệu.
+25
+AI VIETNAM
+aivietnam.edu.vn
+1
+def scrape_urls(self, categories):
+2
+"""
+3
+Call get_url_images method to get all urls of any object in categories\
+4
+5
+Parameter:
+6
+categories (dictionary): the dict of all object we need to collect image with format
+categories{"name_object": [value1, value2, ...]}
+7
+8
+Returns:
+9
+all_urls (dictionary): Dictionary of urls of images
+10
+"""
+11
+all_urls = {category: {} for category in categories}
+12
+13
+# Handle multi-threading for efficent installation
+14
+with concurrent.futures.ThreadPoolExecutor(max_workers=self.max_workers) as executor:
+15
+future_to_term = {executor.submit(self.get_url_images, term): (category, term)
+16
+for category, terms in categories.items() for term in terms}
+17
+18
+for future in tqdm(concurrent.futures.as_completed(future_to_term), total=len(
+future_to_term), desc="Overall Progress"):
+19
+category, term = future_to_term[future]
+20
+try:
+21
+urls = future.result()
+22
+all_urls[category][term] = urls
+23
+print(f"\nNumber of images retrieved for {term}: {len(urls)}")
+24
+except Exception as exc:
+25
+print(f"\n{term} generated an exception: {exc}")
+26
+return all_urls
+Sau khi đã hoàn thành tải, chúng ta sẽlưu lại các url thành file định dạng json, thểhiện phân cấp giống
+như dictionary các class cần tải (category):
+1
+def save_to_file(self, data, filename):
+2
+"""
+3
+Save the data to a JSON file.
+4
+5
+Parameters:
+6
+data (dict): The data to be saved.
+7
+filename (str): The name of the JSON file.
+8
+9
+Returns:
+10
+None
+11
+"""
+12
+with open(filename, ’w’) as file:
+13
+json.dump(data, file, indent=4)
+14
+print(f"Data saved to {filename}")
+Sau khi đã khai báo xong, thực hiện khởi tạo đối lượng từclass, đưa vào các tham sốcần thiết. Gọi
+đến hàm scrape_images đểtải tất cảcác đường dẫn cần thiết về.
+1
+categories = {
+2
+"animal": ["Monkey", "Elephant", "cows", "Cat", "Dog", "bear", "fox", "Civet", "Pangolins"
+, "Rabbit", "Bats", "Whale", "Cock", "Owl", "flamingo", "Lizard", "Turtle", "Snake", "
+Frog", "Fish", "shrimp", "Crab", "Snail", "Coral", "Jellyfish", "Butterfly", "Flies",
+"Mosquito", "Ants", "Cockroaches", "Spider", "scorpion", "tiger", "bird", "horse", "
+pig", "Alligator", "Alpaca", "Anteater", "donkey", "Bee", "Buffalo", "Camel", "
+26
+AI VIETNAM
+aivietnam.edu.vn
+Caterpillar", "Cheetah", "Chicken", "Dragonfly", "Duck", "panda", "Giraffe"],
+3
+"plant": ["Bamboo", "Apple", "Apricot", "Banana", "Bean", "Wildflower", "Flower", "
+Mushroom", "Weed", "Fern", "Reed", "Shrub", "Moss", "Grass", "Palmtree", "Corn", "
+Tulip", "Rose", "Clove", "Dogwood", "Durian", "Ferns", "Fig", "Flax", "Frangipani", "
+Lantana", "Hibiscus", "Bougainvillea", "Pea", "OrchidTree", "RangoonCreeper", "
+Jackfruit", "Cottonplant", "Corneliantree", "Coffeeplant", "Coconut", "wheat", "
+watermelon", "radish", "carrot"],
+4
+"furniture": ["bed", "cabinet", "chair", "chests", "clock", "desks", "table", "Piano", "
+Bookcase", "Umbrella", "Clothes", "cart", "sofa", "ball", "spoon", "Bowl", "fridge", "
+pan", "book"],
+5
+"scenery": ["Cliff", "Bay", "Coast", "Mountains", "Forests", "Waterbodies", "Lake", "
+desert", "farmland", "river", "hedges", "plain", "sky", "cave", "cloud", "flowergarden
+", "glacier", "grassland", "horizon", "lighthouse", "plateau", "savannah", "valley", "
+volcano", "waterfall"]
+6
+}
+7
+8
+urltopic = {"flickr": "https://www.flickr.com/search/?text={search_term}"}
+9
+scraper = UrlScraper(url_template=urltopic["flickr"], max_images=20, max_workers=5)
+10
+image_urls = scraper.scrape_urls(categories)
+11
+scraper.save_to_file(image_urls, ’image_urls.json’)
+4.0.2
+Thu thập dữliệu - Crawl ảnh từURL
+Mục tiêu:
+• Đọc nội dung từfile json (file kết quảcủa bước đầu tiên)
+• Tải ảnh theo các thư mục phân cấp
+• Xửlí đa luồng và polite delay
+Sau khi thực hiện crawl url của ảnh thành công, chúng ta sẽnhận được kết quảlà một file chứa các
+đường dẫn image_urls.json như sau:
+27
+AI VIETNAM
+aivietnam.edu.vn
+Hình 28: Cấu trúc lưu trữcác đường dẫn ảnh của file json
+Trước tiên, khai báo lớp ImageDownloader với các tham sốđầu vào như sau:
+• json_file: đường dẫn tới file json
+• download_dir: folder chứa các ảnh sẽdownload
+• max_worker: sốluồng xửlý khi tải ảnh
+• delay: thời gian nghỉgiữa các lần request
+• filename: lưu trữđường dẫn của tất cảcác ảnh
+1
+class ImageDownloader:
+2
+def __init__(self, json_file, download_dir=’Dataset’, max_workers=4, delay=1):
+3
+self.json_file = json_file # file containing URLs of images in JSON format
+4
+self.download_dir = download_dir # Folder name for storing images
+5
+self.max_workers = max_workers # Number of threads
+6
+self.delay = delay # Polite delay: when we send request too much to the server for
+downloading images without polite delay, it will crash or prevent your IP
+7
+self.filename = set() # To store filename directories
+8
+self.setup_directory() # Set up the folder structure
+9
+10
+def setup_directory(self):
+11
+if not os.path.exists(self.download_dir):
+12
+os.makedirs(self.download_dir)
+Khai báo hàm đọc file json, hàm kiểm tra xem url có đúng chuẩn không trước khi thực hiện request để
+tránh lỗi:
+28
+AI VIETNAM
+aivietnam.edu.vn
+1
+def read_json(self):
+2
+"""
+3
+Read the JSON file and return the data.
+4
+5
+Returns:
+6
+data (dict): The data read from the JSON file.
+7
+"""
+8
+with open(self.json_file, ’r’) as file:
+9
+data = json.load(file)
+10
+return data
+11
+12
+def is_valid_url(self, url):
+13
+"""
+14
+Check if the URL is valid.
+15
+16
+Parameters:
+17
+url (str): The URL to be checked.
+18
+19
+Returns:
+20
+bool: True if the URL is valid, False otherwise.
+21
+"""
+22
+try:
+23
+with urllib.request.urlopen(url) as response:
+24
+if response.status == 200 and ’image’ in response.info().get_content_type():
+25
+return True
+26
+except Exception:
+27
+return False
+Thực hiện khai báo hàm tải một ảnh, ngoài việc request tới server đểtải ảnh đó thông qua url, chúng
+ta còn cần đặt nó vào đúng thư mục và đặt tên file cho bức ảnh khi tải về. Tất cảcác thao tác đó được
+thực hiện bằng các built-in function trong thư viện os.
+1
+def download_image(self, url, category, term, pbar):
+2
+"""
+3
+Download the image from the given URL.
+4
+5
+Parameters:
+6
+url (str): The URL of the image to be downloaded.
+7
+category (str): The category of the image.
+8
+term (str): The term or keyword associated with the image.
+9
+pbar (tqdm): The progress bar object.
+10
+11
+Returns:
+12
+str: A message indicating the status of the download.
+13
+"""
+14
+if not self.is_valid_url(url):
+15
+pbar.update(1)
+16
+return f"Invalid URL: {url}"
+17
+18
+category_dir = os.path.join(self.download_dir, category)
+19
+if not os.path.exists(category_dir):
+20
+os.makedirs(category_dir)
+21
+22
+term_dir = os.path.join(category_dir, term)
+23
+if not os.path.exists(term_dir):
+29
+AI VIETNAM
+aivietnam.edu.vn
+24
+os.makedirs(term_dir)
+25
+26
+filename = os.path.join(term_dir, os.path.basename(urlparse(url).path))
+27
+28
+self.filename.add(filename) # Record the filename directory
+29
+30
+try:
+31
+urllib.request.urlretrieve(url, filename)
+32
+pbar.update(1)
+33
+return f"Downloaded: {url}"
+34
+except Exception as e:
+35
+pbar.update(1)
+36
+return f"Failed to download {url}: {str(e)}"
+Khi đã có hàm tải một ảnh, ta sẽkhai báo một hàm thực hiện tải nhiều ảnh bằng cách gọi lại hàm
+download_image. Tuy nhiên, đối với việc tải ảnh chúng ta còn cần cân nhắc tới một sốkhía cạnh các
+như hiệu suất, request lịch sựtới server.
+1
+def download_images(self):
+2
+"""
+3
+Download images from the JSON file.
+4
+5
+Returns:
+6
+None
+7
+"""
+8
+data = self.read_json()
+9
+download_tasks = []
+10
+11
+total_images = sum(len(urls) for terms in data.values() for urls in terms.values())
+12
+with tqdm(total=total_images, desc="Downloading images") as pbar:
+13
+with concurrent.futures.ThreadPoolExecutor(max_workers=self.max_workers) as
+executor:
+14
+for category, terms in data.items():
+15
+for term, urls in terms.items():
+16
+for url in urls:
+17
+download_tasks.append(executor.submit(self.download_image, url,
+category, term, pbar))
+18
+time.sleep(self.delay) # Polite delay
+19
+20
+for future in concurrent.futures.as_completed(download_tasks):
+21
+print(future.result())
+22
+23
+self.export_filename()
+24
+25
+def export_filename(self):
+26
+"""
+27
+Export the filename directories to a text file.
+28
+29
+Returns:
+30
+None
+31
+"""
+32
+with open(’filename.txt’, ’w’) as file:
+33
+for filename in sorted(self.filename):
+34
+file.write(f"{filename}\n")
+30
+AI VIETNAM
+aivietnam.edu.vn
+Đầu tiên, chúng ta cần hiểu rõ vềcơ chếđa luồng. Ởphần trước, chúng ta cũng đã áp dụng nó đểtải
+các url ảnh. Thông thường, sau khi chúng ta request cho 1 url, chúng ta sẽđợi phản hồi từserver, sau
+đó khi nhận được ảnh, chúng ta sẽtiếp tục request tiếp theo. Việc này khiến cho quá trình tải rất chậm
+chạp và tốn rất nhiều thời gian. Trong khi đó nếu áp dụng multi-threading, chúng ta sẽliên tục gửi các
+request tới server, mỗi lần gửi sẽlà n request liên tục nhau (không đồng thời) rồi tiếp tục quay lại thực
+hiện vòng lặp cho tới khi nhận đủhình ảnh. Như vậy thời gian tải hình ảnh sẽgiảm đáng kể
+Hình 29: Xửlí Multi-treading trong quá trình gửi request tới server
+Việc gửi request tới server một cách ồạt tuy tốt cho thời gian của chúng ta thếnhưng lại là một hành
+động xấu đối với server-side. Đối với một server lớn, hàng ngày có cảtriệu request từnhiều user khác
+nhau, nó vẫn có thểxửlí một cách bình thường nhờhệthông điều phối hiệu quả. Tuy nhiên điểm khác
+biệt giữa request từhàng triệu user trong một thời gian ngắn và cảngàn request từ1 user trong một
+thời gian ngắn là địa chỉIP. Địa chỉIP đại diện cho 1 client truy cập tới server, nếu chúng ta gửi liên
+tiếp request tới server, nó sẽtựđộng phát hiện đây là hành vi bất thường và ngay lập tức chặn IP của
+chúng ta khiến quá trình tải lập lức dùng lại. Trường hợp tệhơn đối với các server nhỏkhông có hệ
+thông tốt, server sẽbịcrash và sập. Vì vậy, chúng ta cần lịch sựtrong việc request tới server thông qua
+polite delay, giữa các lần request, hãy giãn thời gian ra tầm 0.5 đến 1s đểkhiến cho server không bị
+chịu tải cao, đồng thời server không phát hiện bất thường và chặn IP của chúng ta.
+31
+AI VIETNAM
+aivietnam.edu.vn
+Hình 30: Lỗi request liên tục tới server từmột địa chỉIP
+Khi đã khai báo xong tất cảcác phương thức trong class ImageDownloader, thực hiện tạo đối tượng
+rồi gọi tới hàm download_images đểthực hiện tải ảnh.
+1
+downloader = ImageDownloader(json_file=’image_urls.json’, download_dir=’Dataset’, max_workers
+=4, delay=1)
+2
+downloader.download_images()
+3
+downloader.export_filename()
+4.0.3
+Xửlí dữliệu - Làm sạch bộdữliệu
+Thực hiện làm sạch bộdữliệu (xóa ảnh kích thước quá nhỏ, chuyển ảnh về3 channel RGB, kiểm tra
+đúng định dạng file ảnh). Sau đó nén file và lưu vào drive.
+1
+from google.colab import drive
+2
+drive.mount(’/content/drive/’)
+1
+def check_and_preprocess_images(image_dir):
+2
+"""
+3
+Check and preprocess images in the specified directory.
+4
+5
+Parameters:
+6
+image_dir (str): The directory containing the images to be checked and preprocessed.
+7
+8
+Returns:
+32
+AI VIETNAM
+aivietnam.edu.vn
+9
+None
+10
+"""
+11
+for root, _, files in os.walk(image_dir):
+12
+for file in files:
+13
+file_path = os.path.join(root, file)
+14
+try:
+15
+with Image.open(file_path) as img:
+16
+# Check if image is smaller than 50x50 pixels
+17
+if img.size[0] < 50 or img.size[1] < 50:
+18
+os.remove(file_path)
+19
+print(f"Deleted {file_path}: Image too small ({img.size[0]}x{img.size
+[1]})")
+20
+continue
+21
+22
+# Convert non-RGB images to RGB
+23
+if img.mode != ’RGB’:
+24
+img = img.convert(’RGB’)
+25
+img.save(file_path)
+26
+print(f"Converted {file_path} to RGB")
+27
+28
+except Exception as e:
+29
+# If file is not an image, delete it
+30
+os.remove(file_path)
+31
+print(f"Deleted {file_path}: Not an image or corrupted file ({str(e)})")
+32
+33
+check_and_preprocess_images(’Dataset’)
+1
+!zip -r /content/drive/MyDrive/Clean_Dataset.zip Dataset
+Sau khi tải về, unzip ta sẽđược folder chứa data như sau:
+Hình 31: Cấu trúc thư mục chưa dataset đã làm sạch
+4.0.4
+Xửlí dữliệu - Tổchức cấu trúc folder
+Đểthuận tiện hơn cho việc thực hiện bài toán Image Retrieval, chúng ta sẽgom tất cảcác class lại, sau
+đó chia ra 2 tập train (19 ảnh mỗi class) và test (1 ảnh mỗi class).
+Tải clean_dataset vềcolab:
+1
+!gdown --id 1--6fe48D9ydnTpLV1GKKqJ0pqpOXB3z_
+33
+AI VIETNAM
+aivietnam.edu.vn
+Unzip file clean_dataset.zip:
+1
+!unzip Clean_Dataset
+Thực hiện phân chia, tổchức lại thư mục như đã đềcập ởtrên:
+1
+import os
+2
+import shutil
+3
+from collections import defaultdict
+4
+5
+# Define the source and target directories
+6
+source_dir = "Dataset"
+7
+train_dir = "data/train"
+8
+test_dir = "data/test"
+9
+10
+# Create the target directories if they don’t exist
+11
+os.makedirs(train_dir, exist_ok=True)
+12
+os.makedirs(test_dir, exist_ok=True)
+13
+14
+# Initialize a dictionary to hold file paths for each class
+15
+class_files = defaultdict(list)
+16
+17
+# Read the file paths from the text file
+18
+with open(’filename.txt’, ’r’) as file:
+19
+lines = file.readlines()
+20
+for line in lines:
+21
+line = line.strip()
+22
+if line:
+23
+# Extract the class name from the path
+24
+parts = line.split(’/’)
+25
+class_name = parts[2] # Structure Dataset/category/class/image.jpg
+26
+class_files[class_name].append(line)
+27
+class_files
+28
+29
+# Move images to the train and test directories
+30
+for class_name, files in class_files.items():
+31
+# Create the train and test directories for the class
+32
+train_class_dir = os.path.join(train_dir, class_name)
+33
+test_class_dir = os.path.join(test_dir, class_name)
+34
+os.makedirs(train_class_dir, exist_ok=True)
+35
+os.makedirs(test_class_dir, exist_ok=True)
+36
+37
+# Move 19 images to train and 1 image to test
+38
+for i, file_path in enumerate(files):
+39
+if i == 0:
+40
+shutil.copy(file_path, test_class_dir)
+41
+elif i < 20:
+42
+shutil.copy(file_path, train_class_dir)
+43
+44
+print("Dataset organization complete!")
+Chú ý filename.txt là file chứa đường dẫn của tất cảcác ảnh đã được download ởphần trước. File
+name.txt sẽđược output ra sau khi khởi tạo đối tượng thuộc lớp ImageDownloader và gọi tới hàm
+export_filename().
+Nếu muốn tải folder data vềlưu trữ, chúng ta có thểzip folder data vềdrive:
+34
+AI VIETNAM
+aivietnam.edu.vn
+1
+!zip -r /content/drive/MyDrive/data.zip data
+Kết quảcuối cùng chúng ta được bộdữliệu ảnh với nhiều class như sau:
+Hình 32: Dataset chứa tất cảcác class được khai báo trong category
+35

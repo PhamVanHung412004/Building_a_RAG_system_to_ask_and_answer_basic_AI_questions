@@ -1,5 +1,0 @@
-Tóm lại, videoGPT giới thiệu một kiến trúc đơn giản và hiệu quả cho bài toán tạo sinh video, sử dụng
-2 thành phần chính là khối VQ-VAE có chức năng học không gian latent rời rạc của các video và khối
-kiến trúc tương tự như GPT để mô hình hóa và tạo sinh chuỗi. Sự đơn giản của phương pháp này cùng
-với tính hiệu quả của nó mang đến một hướng nghiên cứu về các mô hình tạo video.
-6

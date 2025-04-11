@@ -1,8 +1,0 @@
-Đồng thời, ứng dụng chương trình vào việc hỏi đáp tài liệu
-bài học trong khóa AIO. Theo đó, Input và Output của chương trình là:
-• Input: File tài liệu cần hỏi đáp và một câu hỏi liên quan đến nội dung tài liệu.
-• Output: Câu trả lời.
-Tổng quan, luồng xử lý (pipeline) của chương trình RAG mà chúng ta sẽ xây dựng có dạng như
-sau:
-Hình 2: Pipeline của chương trình RAG trong project.
-2

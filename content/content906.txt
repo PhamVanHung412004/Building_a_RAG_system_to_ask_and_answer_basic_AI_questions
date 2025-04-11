@@ -1,6 +1,0 @@
-AI VIETNAM aivietnam.edu.vn
-8 Self-Consistency
-Self-Consistency được đề xuất trong paper "Self-Consistency Improves Chain of Thought Reasoning
-in Language Models" Wang et al., 2022 giúp cải thiện khả năng suy luận của LLMs bằng cách sử
-dụng COT. Nó hoạt động bằng cách tạo ra nhiều hướng suy nghĩ đa dạng và sau đó chọn câu trả
-lời phổ biến nhất từ những hướng suy nghĩ đó. 

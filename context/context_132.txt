@@ -1,0 +1,1676 @@
+Image Domain Conversion
+Upsampling Alternatives 
+and Applications
+Year 2023
+Quang-Vinh Dinh
+Ph.D. in Computer Science
+AI VIETNAM
+All-in-One Course
+➢Segmentation (Unet Using Interpolation)
+➢Alternatives to Increate Feature Resolution
+➢Colorization
+➢Super-resolution
+➢Denoising Survey
+➢Super-resolution Survey
+Outline
+Discussion – Segmentation Problem
+Input/Output + Loss Function
+AI VIETNAM
+All-in-One Course
+Model
+1
+image
+(2x2)
+Model
+Output
+(3x2x2)
+0 2
+2 1
+Inference 
+Predicted
+Segmentation
+image
+(2x2)
+Model
+Output
+(3x2x2)
+Training 
+1 0
+2 0
+Ground-truth
+0 1
+0
+1 0
+0
+0 0
+1
+1 0
+0
+one-hot encoding
+Cross
+Entropy
+2
+Object
+128x128
+Background
+128x128
+Border
+128x128
+Object
+128x128
+Background
+128x128
+Border
+128x128
+UNet Model
+0.07
+−0.65
+0.81
+0.27
+0.13
+0.6
+Softmax
+0
+0
+1
+𝐶𝐸= −෍
+𝑖
+𝑦𝑖log ො𝑦𝑖
+Shape=(3, 128, 128)
+Label
+𝐶𝐸
+0.60
+0.13
+0.27
+,
+1
+0
+0
+= 0.5
+Output
+Shape=(3, 128, 128)
+loss =
+1
+𝐻∗𝑊෍
+𝑗=1
+𝐻
+෍
+𝑘=1
+𝑊
+𝐶𝐸ො𝑦𝑗,𝑘, 𝑦𝑗,𝑘
+Input image
+Loss Function
+3
+Segmentation (6)
+AI VIETNAM
+All-in-One Course
+Using skip connections
+(3x3) Convolution
+padding = ‘same’
+stride = 1 + ReLU
+(2x2) max 
+pooling
++
+Batch 
+Norm
++
+(3x3) Convolution
+padding = ‘same’
+stride = 1 + ReLU
+Feature Map 
+Upsamping
++
++
+Batch 
+Norm
+(3,128,128)
+(64,64,64)
+(128,32,32)
+(256,16,16)
+(512,8,8)
+(512,4,4)
+(512,8,8)
+(256,16,16)
+(128,32,32)
+(64,64,64)
+(3,128,128)
+(3x3) Convolution
+padding = ‘same’
+softmax
+Feature Map 
+Upsamping
++
+Code Reading
+Experimental Results
+With Skip 
+Connections
+AI VIETNAM
+All-in-One Course
+Without Skip 
+Connections
+With Skip 
+Connections
+Without 
+Skip 
+Connections
+➢Segmentation (Unet Using Interpolation)
+➢Alternatives to Increate Feature Resolution
+➢Colorization
+➢Super-resolution
+➢Denoising Survey
+➢Super-resolution Survey
+Outline
+How to Increase Feature Map
+❖Image upsampling
+❖Data interpolation
+AI VIETNAM
+All-in-One Course
+7
+How to Increase Feature Map
+❖Image upsampling
+❖Data interpolation
+AI VIETNAM
+All-in-One Course
+1.0
+5.0
+3.2
+4.2
+4.0
+7.2
+8.0
+𝑥
+𝑦
+Bilinear interpolation
+8
+How to Increase Feature Map
+❖Nearest neighbor interpolation
+AI VIETNAM
+All-in-One Course
+1
+5
+4
+8
+data =
+1
+1
+1
+1
+5
+5
+5
+5
+4
+4
+4
+4
+8
+8
+8
+8
+Nearest neighbor 
+interpolation
+9
+How to Increase Feature Map
+❖Bilinear interpolation
+AI VIETNAM
+All-in-One Course
+1
+5
+4
+8
+data =
+1.0
+2.0
+1.7
+2.7
+4.0
+5.0
+4.7
+5.7
+3.2
+4.2
+4.0
+5.0
+6.2
+7.2
+7.0
+8.0
+Bilinear 
+interpolation
+10
+Reshape
+1
+2
+5
+1
+4
+3
+4
+2
+0
+7
+4
+1
+2
+5
+5
+9
+3
+6
+0
+3
+4
+9
+9
+4
+7
+4
+5
+5
+6
+6
+2
+4
+9
+5
+3
+1
+1
+2
+5
+1
+4
+3
+4
+2
+0
+7
+4
+1
+2
+5
+5
+9
+3
+6
+0
+3
+4
+9
+9
+4
+7
+4
+5
+5
+6
+6
+2
+4
+9
+5
+3
+1
+1
+2
+5
+1
+4
+3
+4
+2
+0
+7
+4
+1
+2
+5
+5
+9
+3
+6
+0
+3
+4
+9
+9
+4
+7
+4
+5
+5
+6
+6
+2
+4
+9
+5
+3
+1
+Reshape(1, 6, 6)
+Shape=(4, 3, 3)
+11
+How to Increase Feature Map
+❖Pixel Shuffle
+https://www.researchgate.net/figure/The-pixel-shuffle-layer-transforms-
+feature-maps-from-the-LR-domain-to-the-HR-image_fig3_339531308
+7
+5
+9
+5
+data
+6
+4
+0
+4
+7
+8
+2
+0
+3
+8
+6
+9
+output
+7
+6
+7
+3
+5
+4
+8
+8
+9
+0
+2
+6
+5
+4
+0
+9
+(B, C×𝑟2, H, W)
+(B, C, H × 𝑟, W × 𝑟)
+12
+PixelShuffle
+1
+2
+5
+1
+4
+3
+4
+2
+0
+7
+4
+1
+2
+5
+5
+9
+3
+6
+0
+3
+4
+9
+9
+4
+7
+4
+5
+5
+6
+6
+2
+4
+9
+5
+3
+1
+1
+2
+5
+1
+4
+3
+4
+2
+0
+7
+4
+1
+2
+5
+5
+9
+3
+6
+0
+3
+4
+9
+9
+4
+7
+4
+5
+5
+6
+6
+2
+4
+9
+5
+3
+1
+1
+2
+5
+1
+4
+3
+4
+2
+0
+7
+4
+1
+2
+5
+5
+9
+3
+6
+5
+6
+6
+2
+4
+9
+5
+3
+1
+0
+3
+4
+9
+9
+4
+7
+4
+5
+1
+7
+2
+4
+5
+1
+1
+2
+4
+5
+3
+5
+4
+9
+2
+3
+0
+6
+0
+5
+3
+6
+4
+6
+9
+2
+9
+4
+4
+9
+7
+5
+4
+3
+5
+1
+Shape=(4, 3, 3)
+𝐶∗𝑟2, 𝑊, 𝐻
+𝐶, 𝑟∗𝑊, 𝑟∗𝐻
+Shuffle ≫r ∗W
+13
+PixelShuffle
+1
+7
+2
+4
+5
+1
+1
+2
+4
+5
+3
+5
+4
+9
+2
+3
+0
+6
+0
+5
+3
+6
+4
+6
+9
+2
+9
+4
+4
+9
+7
+5
+4
+3
+5
+1
+1
+7
+2
+4
+5
+1
+1
+2
+4
+5
+3
+5
+4
+9
+2
+3
+0
+6
+9
+2
+9
+4
+4
+9
+7
+5
+4
+3
+5
+1
+0
+5
+3
+6
+4
+6
+Shape=(1, 6, 6)
+Shuffle ≫r ∗H
+14
+Unpooling
+1
+2
+3
+4
+5
+6
+7
+8
+9
+8
+7
+6
+5
+4
+3
+2
+0
+0
+0
+0
+0
+6
+0
+8
+9
+0
+7
+0
+0
+0
+0
+0
+6
+8
+9
+7
+[[ 5,  7],
+ [ 8, 10]]
+Data 1
+Data 3
+Data 2
+Indices
+Convolution Transpose
+❖Example 1
+AI VIETNAM
+All-in-One Course
+0.1
+-0.2
+0.3
+-0.1
+kernel =
+data =
+1
+2
+3
+4
+𝐷= 2
+K = 2
+Stride S = 1
+Padding p = 0 
+Output
+tensorflow
+pytorch
+Transpose padding
+ p′ = K −1 = 1 
+1
+2
+3
+4
+0
+0
+0
+1
+0
+2
+0
+4
+3
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1
+0
+2
+0
+4
+3
+0
+0
+0
+0
+0
+0
+0
+0.1
+-0.2
+0.3
+-0.1
+∗
+=
+0.3
+-1.0
+0.9
+-0.4
+0.6
+0.9
+0.1
+0.0
+-0.4
+16
+!
+Convolution Transpose
+❖Example 1
+O = 𝐷+ 𝐾−1 = 3
+0
+0
+0
+1
+0
+2
+0
+4
+3
+0
+0
+0
+0
+0
+0
+0
+0.1
+-0.2
+0.3
+-0.1
+∗
+=
+0.3
+-1.0
+0.9
+-0.4
+0.1
+0.0
+-0.4
+0.9 
+0.6
+Numpy
+Tensorflow
+Pytorch
+!
+Convolution Transpose: Example 1 (Different view)
+0.1
+-0.2
+0.3
+-0.1
+kernel =
+data =
+1
+2
+3
+4
+0.1
+-0.2
+0.3
+-0.1
+1
+2
+3
+4
+0.1
+-0.2
+0.3
+-0.1
+0.1
+-0.2
+0.3
+-0.1
+0.1
+-0.2
+0.3
+-0.1
+×
+×
+×
+×
+0.1
+-0.2
+0.3
+-0.1
+0.2
+-0.4
+0.6
+-0.2
+0.3
+-0.6
+0.9
+-0.3
+0.4
+-0.8
+1.2
+-0.4
+0.1
+-0.2
+0.3
+-0.1
+0.2
+-0.4
+0.6
+-0.2
+0.3
+-0.6
+0.9
+-0.3
+0.4
+-0.8
+1.2
+-0.4
++
++
++
+=
+0.3
+-1.0
+0.9
+-0.4
+0.6
+0.9
+0.1
+0.0
+-0.4
+Stride S = 1
+Padding p = 0 
+18
+Convolution Transpose
+❖Example 2
+AI VIETNAM
+All-in-One Course
+With stride S = 2
+0.1
+-0.2
+0.3
+-0.1
+kernel =
+data =
+1
+2
+3
+4
+𝐷= 2
+K = 2
+Padding p = 0 
+(padding=‘valid’)
+D −K %S == 0
+1
+2
+3
+4
+Transpose padding
+ p′ = K −1 = 1 
+1
+0
+0
+0
+2
+0
+4
+0
+3
+0
+0
+0
+1
+0
+0
+0
+0
+0
+0
+4
+0
+0
+2
+0
+3
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0.1
+-0.2
+0.3
+-0.1
+∗
+0.1
+-0.2
+0.3
+-0.1
+0.2
+-0.4
+0.6
+-0.2
+0.3
+0.9
+-0.3
+-0.6
+0.4
+-0.8
+1.2
+-0.4
+=
+!
+19
+Convolution Transpose
+❖Example 2
+Numpy
+Tensorflow
+Pytorch
+0
+0
+0
+1
+0
+0
+0
+0
+0
+0
+4
+0
+0
+2
+0
+3
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0.1
+-0.2
+0.3
+-0.1
+0.1
+-0.2
+0.3
+-0.1
+0.2
+-0.4
+0.6
+-0.2
+0.3
+0.9
+-0.3
+-0.6
+0.4
+-0.8
+1.2
+-0.4
+0.1
+-0.2
+0.3
+-0.1
+kernel =
+data =
+1
+2
+3
+4
+0.1
+-0.2
+0.3
+-0.1
+1
+2
+3
+4
+0.1
+-0.2
+0.3
+-0.1
+0.1
+-0.2
+0.3
+-0.1
+0.1
+-0.2
+0.3
+-0.1
+×
+×
+×
+×
+0.1
+-0.2
+0.3
+-0.1
+0.2
+-0.4
+0.6
+-0.2
+0.3
+-0.6
+0.9
+-0.3
+0.4
+-0.8
+1.2
+-0.4
++
++
+=
+0.1
+-0.2
+0.3
+-0.1
+0.2
+-0.4
+0.6
+-0.2
+0.3
+-0.6
+0.9
+-0.3
+0.4
+-0.8
+1.2
+-0.4
++
+0.1
+-0.2
+0.3
+-0.1
+0.2
+-0.4
+0.6
+-0.2
+0.3
+0.9
+-0.3
+-0.6
+0.4
+-0.8
+1.2
+-0.4
+Convolution Transpose
+Example 2 (Different view)
+Padding p = 0
+D −K %S == 0
+With stride S = 2
+3.
+0.
+-2.
+1.
+1.
+1.
+-3.
+0.
+2.
+1.
+2.
+3.
+4.
+3.
+0.
+-2.
+1.
+1.
+1.
+-3.
+0.
+2.
+3.
+0.
+-2.
+1.
+1.
+1.
+-3.
+0.
+2.
+3.
+0.
+-2.
+1.
+1.
+1.
+-3.
+0.
+2.
+*
+*
+*
+*
+=
+=
+=
+=
+1.
+2.
+3.
+4.
+Input
+Kernel
+3.
+0.
+-2.
+1.
+1.
+1.
+-3.
+0.
+2.
+Shape=(2,2)
+Shape=(3,3)
+3.
+0.
+-2.
+1.
+1.
+1.
+-3.
+0.
+2.
+6.
+0.
+-4.
+2.
+2.
+2.
+-6.
+0.
+4.
+9.
+0.
+-6.
+3.
+3.
+3.
+-9.
+0.
+6.
+12.
+0.
+-8.
+4.
+4.
+4.
+-12.
+0.
+8.
+ConvTranspose
+3.
+0.
+-2.     6.
+0.
+-4.
+1.
+1.
+1.     2.
+2.
+2.
+-3. 
+9.
+0.
+0.
+2.     -6.
+-6.   12.
+0. 
+0.
+4.
+-8.
+3.
+3.
+3.     4.
+4.
+4.
+-9.
+0.
+6.   -12.
+0.
+8.
+3.
+0.
+4.
+0.
+-4.
+1.
+1.
+3.
+2.
+2.
+6.
+0.
+2.
+0.
+-4.
+3.
+3.
+7.
+4.
+4.
+-9.
+0.
+-6.
+0.
+8.
+Stride = 2
+Sum
+Shape=(5,5)
+22
+ConvTranspose
+3.
+0.
+4.
+0.
+-4.
+1.
+1.
+3.
+2.
+2.
+6.
+0.
+2.
+0.
+-4.
+3.
+3.
+7.
+4.
+4.
+-9.
+0.
+-6.
+0.
+8.
+1.
+3.
+2.
+0.
+2.
+0.
+3.
+7.
+4.
+padding = 0
+Shape=(5,5)
+Shape=(3,3)
+output_padding = 0
+padding = 1
+output_padding = 0
+padding = 1
+output_padding = 1
+1.
+3.
+2.
+2.
+0.
+2.
+0.
+-4.
+3.
+7.
+4.
+4.
+0.
+-6.
+0.
+8.
+Shape=(4,4)
+Bias
++0.1
+Output
+1.1
+3.1
+2.1
+0.1
+2.1
+0.1
+3.1
+7.1
+4.1
+1.1
+3.1
+2.1
+2.1
+0.1
+2.1
+0.1
+-3.9
+3.1
+7.1
+4.1
+4.1
+0.1
+-5.9
+0.1
+8.1
++0.1
+Bias
+Output
+Shape=(3,3)
+Shape=(4,4)
+O = 𝑆𝐷−1 + 𝐾−1 −2 × 𝑃+ P𝑜+ 1
+23
+Convolution Transpose
+❖To upsample feature maps 2x
+64x64x1
+S = 2
+D = 64
+Transpose padding: P𝑜= 0
+K = 4
+P = 1
+Output size
+O = 𝑆𝐷−1 + 𝐾−1 −2 × 𝑃+ P𝑜+ 1
+ 
+= 2 ∗63 + 3 −2 + 1 + 1 = 128
+Further reading: 
+https://arxiv.org/pdf/1603.07285v1.pdf
+Output size
+O = 𝑆𝐷−1 + 𝐾−1 −2 × 𝑃+ P𝑜+ 1
+ 
+= 2 ∗63 + 2 −2 + 1 + 1 = 127
+64x64x1
+S = 2
+D = 64
+K = 3
+P = 1
+Convolution 
+Transpose
+S = 2
+D = 64
+K = 3
+P = 1
+S = 2
+D = 64
+K = 4
+P = 1
+Further reading: 
+https://arxiv.org/pdf/1603.07285v1.pdf
+Using 3x3 or 4x4
+❖Convolution Transpose
+AI VIETNAM
+All-in-One Course
+https://github.com/junyanz/pytorch-CycleGAN-
+and-pix2pix/issues/78
+Using 3x3 kernel 
+26
+➢Segmentation (Unet Using Interpolation)
+➢Alternatives to Increate Feature Resolution
+➢Colorization
+➢Super-resolution
+➢Denoising Survey
+➢Super-resolution Survey
+Outline
+Image Denoising and Colorization
+AI VIETNAM
+All-in-One Course
+Model
+Noisy and grayscale images
+Clean and color images
+Model
+Model
+Noisy images
+Clean images
+Grayscale images
+Color images
+27
+Image Translation
+AI VIETNAM
+All-in-One Course
+❖ Super-resolution
+28
+Image Translation
+AI VIETNAM
+All-in-One Course
+❖ Edge2Scene
+29
+Image Translation
+AI VIETNAM
+All-in-One Course
+Data preparation
+1
+Network construction
+2
+Loss and optimizer
+3
+Training
+4
+Input Images
+Target Images
+Predicted Images
+Deblur
+30
+Image Denoising and Colorization
+❖Flowchart
+AI VIETNAM
+All-in-One Course
+Model
+Model
+Input 
+Images
+Output 
+Images
+Target/label 
+Images
+Update model
+compare
+loss
+Noisy images
+Clean images
+Training
+31
+Denoising/Colorization/Deblur/…
+AI VIETNAM
+All-in-One Course
+(3x3) Convolution
+padding = ‘same’
+stride = 1 + ReLU
+(2x2) max 
+pooling
++
+Batch 
+Norm
++
+4x4 ConvTranspose
+padding = ‘same’
+stride = 2 + Tanh
+4x4 ConvTranspose
+padding = ‘same’
+stride = 2 + ReLU
++
+Batch 
+Norm
+Input Image
+[-1,1]
+Output Image
+[-1,1]
+(3,256,256)
+(64,128,128)
+(128,64,64)
+(256,32,32)
+(512,16,16)
+(512,8,8,)
+(512,16,16)
+(256,32,32)
+(128,64,64)
+(64,128,128)
+(3,256,256)
+Skip connection (UNet)
+7.8
+10.1
+12.2
+…
+…
+11.6
+8.9
+10.6
+…
+…
+MAE Loss
+MLP
+11.18
+11.66
+8.97
+2.06
+-4.36
+-0.65
+update
+predict
+64 days
+64 units
+Predict for 
+next 3 days
+64 units
+11.4
+Input/Output + Loss Function
+Regression Problem
+33
+Further Reading
+Unet-related Papers
+34
+➢Segmentation (Unet Using Interpolation)
+➢Alternatives to Increate Feature Resolution
+➢Colorization
+➢Super-resolution
+➢Denoising Survey
+➢Super-resolution Survey
+Outline
+Wetzler, Aaron & Kimmel, Ron. (2011). Efficient Beltrami Flow in Patch-Space. 6667. 134-143. 10.1007/978-3-642-24785-9_12. 
+Noisy Images 
+Denoised Images 
+Image Denoising
+AI VIETNAM
+All-in-One Course
+Denoising
+35
+https://analyticsindiamag.com/a-
+guide-to-different-types-of-noises-
+and-image-denoising-methods/
+Gaussian Noise
+Salt and Pepper Noise
+Speckle Noise
+Image Denoising
+AI VIETNAM
+All-in-One Course
+Denoising
+Traditional Image 
+Denoising Technique 
+Somashekhar Swamy, P.K.Kulkarni , A BASIC OVERVIEW ON IMAGE DENOISING TECHNIQUES
+Image Denoising
+37
+❖Traditional Image Denoising Technique  
+AI VIETNAM
+All-in-One Course
+Image Denoising
+https://vincmazet.github.io/bip/restoration/denoising.html
+Mean filter
+38
+❖Traditional Image Denoising Technique  
+AI VIETNAM
+All-in-One Course
+Image Denoising
+https://vincmazet.github.io/bip/restoration/denoising.html
+Median filter
+39
+https://vincmazet.github.io/bip
+/restoration/denoising.html
+Image 
+Denoising
+❖Based Deep-Learning Method
+AI VIETNAM
+All-in-One Course
+Image Denoising
+Ilesanmi, A.E., Ilesanmi, T.O. Methods for image 
+denoising using convolutional neural network: a 
+review. Complex Intell. Syst. 7, 2179–2198 (2021)
+41
+❖Based Deep-Learning Method
+AI VIETNAM
+All-in-One Course
+Image Denoising
+Ilesanmi, A.E., Ilesanmi, T.O. Methods for image denoising using convolutional neural network: a review. Complex Intell. Syst. 7, 2179–2198 (2021)
+Classifier/regression CNN
+DeGAN
+42
+➢Segmentation (Unet Using Interpolation)
+➢Alternatives to Increate Feature Resolution
+➢Colorization
+➢Super-resolution
+➢Denoising Survey
+➢Super-resolution Survey
+Outline
+Image Super-Resolution
+❖Image Super-Resolution
+AI VIETNAM
+All-in-One Course
+https://towardsdatascience.com/deep-
+learning-based-super-resolution-
+without-using-a-gan-11c9bb5b6cd5
+Low-resolution
+High-resolution
+Low-resolution
+High-resolution
+43
+Image Super-Resolution
+❖Image Super-Resolution
+AI VIETNAM
+All-in-One Course
+. Park, S.C., Park, M.K., Kang, M.G.: Super-resolution image reconstruction: a technical overview. IEEE Signal Process. Mag. 20(3), 21–36 (2003)
+44
+❖Traditional Method
+AI VIETNAM
+All-in-One Course
+Park, S.C., Park, M.K., Kang, M.G.: Super-resolution image reconstruction: a technical overview. IEEE Signal Process. Mag. 20(3), 21–36 (2003)
+Kennedy, John & Israel, Ora & Frenkel, Alex & bar-shalom, Rachel & Azhari, Haim. (2007)
+Improved Image Fusion in PET/CT Using Hybrid Image Reconstruction and Super-Resolution. International journal of biomedical imaging. 2007 
+Image Super-Resolution
+45
+Image Super-Resolution
+❖Based Deep Learning Method
+AI VIETNAM
+All-in-One Course
+Wang, Z., Chen, J., & Hoi, S.C. (2021). Deep Learning for Image Super-Resolution: A Survey. IEEE Transactions on Pattern Analysis and Machine Intelligence, 43, 3365-3387
+46
+❖Model Frameworks 
+AI VIETNAM
+All-in-One Course
+Pre-upsampling SR
+Post-upsampling SR
+Progressive upsampling SR
+Iterative up-and-down Sampling SR
+Image Super-Resolution
+Wang, Z., Chen, J., & Hoi, S.C. (2021). Deep Learning for Image Super-Resolution: A Survey. IEEE Transactions on Pattern Analysis and Machine Intelligence, 43, 3365-3387.
+❖Network Design
+AI VIETNAM
+All-in-One Course
+Wang, Z., Chen, J., & Hoi, S.C. (2021). Deep Learning for Image Super-Resolution: A Survey. IEEE Transactions on Pattern Analysis and Machine Intelligence, 43, 3365-3387.
+Residual Learning
+Recursive learning
+Channel attention
+Dense connections
+Local multi-path learning
+Scale-specific multi-path learning
+Group convolution
+Pyramid pooling
+Image Super-Resolution
+Super-resolution
+(3x3) Convolution
+padding = ‘same’
+stride = 1 + ReLU
+(2x2) max 
+pooling
++
+Batch 
+Norm
++
+4x4 ConvTranspose
+padding = ‘same’
+stride = 2 + Tanh
+4x4 ConvTranspose
+padding = ‘same’
+stride = 2 + ReLU
++
+Batch 
+Norm
+Input Image
+[-1,1]
+(3,256,256)
+(64,128,128)
+(128,64,64)
+(256,32,32)
+(512,16,16)
+(256,32,32)
+(128,64,64)
+(64,128,128)
+(3,1024, 1024)
+(64,256,256)
+(64,512,512)
+Output Image
+[-1,1]

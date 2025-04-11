@@ -1,3 +1,0 @@
-AI VIETNAM aivietnam.edu.vn
-c. Multilevel Inheritance (Kế thừa đa cấp)
-Kế thừa đa cấp là khi một lớp kế thừa từ lớp cha, và lớp cha đó lại kế thừa từ một lớp khác.

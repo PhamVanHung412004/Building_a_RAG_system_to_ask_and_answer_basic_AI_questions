@@ -1,7 +1,0 @@
-Để tăng tốc độ huấn luyện mô hình, chúng ta sẽ sử
-dụng kỹ thuật quantization và LORA.
-1 import torch
-2 from trl import ModelConfig , get_quantization_config , get_kbit_device_map
-3 from peft import LoraConfig , PeftConfig , PeftModel , get_peft_model ,
-prepare_model_for_kbit_training
-5

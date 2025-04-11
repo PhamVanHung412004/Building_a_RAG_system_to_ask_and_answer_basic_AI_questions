@@ -1,0 +1,303 @@
+AI VIET NAM – COURSE 2023
+Decision Tree and Random Forest - Exercise
+Ngày 10 tháng 9 năm 2023
+Phần I: Giới thiệu
+Trong bài tập này, chúng ta sẽthực hành các nội dung liên quan đến Decision Tree và Random Forest
+áp dụng cho bài toán Regression. Trong Machine Learning, bài toán regression là dạng bài toán mà kết
+quảđầu ra của mô hình là một giá trịliên tục.
+Decision Tree (DT) là một thuật toán Machine Learning theo kiểu Supervised Learning có thể
+dùng đểgiải quyết cho hai dạng bài toán là Regression và Classification. DT xây dựng một cấu trúc
+dạng cây, với các node đại diện cho quyết định dựa trên một điều kiện của đặc trưng nào đó. Sau khi
+trải qua một loạt quyết định, kết quảdựđoán cuối cùng chính là giá trịmà node lá nắm giữ.
+1
+AI VIETNAM
+aivietnam.edu.vn
+Hình 1: Ví dụminh họa vềmột Decision Tree.
+Random Forest (RF) là một thuật toán Machine Learning theo kiểu Ensemble Learning có thể
+dùng đểgiải quyết cho hai dạng bài toán là Regression và Classification. Ý tưởng của RF liên quan đến
+việc sửdụng nhiều DT, mỗi cây sẽhọc trên một tập con của một bộtraining dataset (Boostrap). Khi
+thực hiện dựđoán, mỗi cây sẽđưa ra kết quảdựđoán của mình, sau đó tổng hợp toàn bộkết quảlại
+theo một cách thức nào đó (ví dụ: lấy trung bình với bài Regression hay thực hiện biểu quyết với bài
+Classification) đểtrảvềkết quảcuối cùng.
+Hình 2: Ví dụminh họa vềRandom Forest.
+2
+AI VIETNAM
+aivietnam.edu.vn
+Phần II: Bài tập
+A. Phần lập trình
+Trong phần này, chúng ta sẽcài đặt và huấn luyện hai mô hình Decision Tree và Random Forest
+đểgiải quyết bài toán Regression vềdựđoán giá nhà. Các bước thực hiện như sau:
+1. Import thư viện các thư viện cần thiết:
+1 import
+numpy as np
+2 import
+pandas as pd
+3 import
+matplotlib.pyplot as plt
+4
+5 from
+sklearn.tree
+import
+DecisionTreeRegressor
+6 from
+sklearn.ensemble
+import
+RandomForestRegressor
+7 from
+sklearn.preprocessing
+import
+OrdinalEncoder , StandardScaler
+8 from
+sklearn. model_selection
+import
+train_test_split
+9 from
+sklearn.metrics
+import
+mean_absolute_error , mean_squared_error
+2. Tải bộdữliệu: Các bạn tải bộdữliệu Housing.csv tại đây.
+3. Đọc bộdữliệu: Sửdụng thư viện pandas, chúng ta sẽđọc file .csv lên như sau:
+1 dataset_path = ’./ Housing.csv’
+2 df = pd.read_csv(dataset_path)
+Khi đó, ta có thểthấy nội dung của bảng dữliệu có dạng như sau:
+Hình 3: Một vài mẫu dữliệu của bộdữliệu Housing.
+Vì bài toán của chúng ta là dựđoán giá nhà dựa trên các thuộc tính cho trước, từđó có thểxác
+định được cột price sẽlà cột label y và tất cảcác cột còn lại là cột features X.
+4. Xửlý dữliệu categorical: Đểcó thểthực hiện bất kì tính toán nào, ta cần phải sốhóa toàn
+bộgiá trịtrong bảng dữliệu. Nhận thấy có một sốcột trong bảng dữliệu có dạng string, ta sẽ
+phải đổi toàn bộcác giá trịnày vềdạng số. Đầu tiên, ta kiểm tra các cột có kiểu dữliệu là Object
+như sau:
+1 categorical_cols = df.select_dtypes (include =[’object ’]).columns.to_list ()
+2 print( categorical_cols )
+3
+4 # [’mainroad ’, ’guestroom ’, ’basement ’, ’hotwaterheating ’, ’airconditioning ’, ’
+prefarea ’, ’furnishingstatus ’]
+Sau khi đã xác định được đối tượng cần xửlý, ta sẽsửdụng OrdinalEncoder() đểchuyển đổi
+chúng thành dạng sốnhư sau:
+3
+AI VIETNAM
+aivietnam.edu.vn
+1 ordinal_encoder = OrdinalEncoder ()
+2 encoded_categorical_cols = ordinal_encoder .fit_transform (
+3
+df[ categorical_cols ]
+4 )
+5 encoded_categorical_df = pd.DataFrame(
+6
+encoded_categorical_cols ,
+7
+columns= categorical_cols
+8 )
+9 numerical_df = df.drop(categorical_cols , axis =1)
+10 encoded_df = pd.concat(
+11
+[numerical_df , encoded_categorical_df ], axis =1
+12 )
+Khi đã hoàn tất, ta được một DataFrame mới có dạng như sau:
+Hình 4: Bộdữliệu Housing sau khi đã chuyển đổi toàn bộcác đặc trưng Categorical vềdạng số.
+5. Chuẩn hóa bộdữliệu: Đểviệc tính toán thuận lợi, ta tiến hành chuẩn hóa toàn bộgiá trị
+trong bộdữliệu sửdụng StandardScaler() như sau:
+1 normalizer = StandardScaler ()
+2 dataset_arr = normalizer.fit_transform (encoded_df)
+Hình 5: Bộdữliệu Housing (ởdạng ndarray) sau khi được chuẩn hóa.
+6. Tách dữliệu X, y: Khi đã hoàn tất các bước tiền xửlý, lúc này ta sẽtách dữliệu ban đầu thành
+hai biến X, y đại diện cho các đặc trưng và nhãn. Nhận thấy cột đầu tiên, price, là nhãn của bộ
+dữliệu, ta sẽtiến hành tách X, y ra như sau:
+1 X, y = dataset_arr [:, 1:], dataset_arr [:, 0]
+7. Chia tập dữliệu train, val: Dựa vào bộdữliệu gốc, ta cần chia thành hai tập dữliệu con,
+một dùng cho việc huấn luyện mô hình và một cho việc đánh giá mô hình. Ởđây, ta sẽchia theo
+tỷlệ7:3 và tham sốngẫu nhiên random_state = 1:
+4
+AI VIETNAM
+aivietnam.edu.vn
+1 test_size = 0.3
+2 random_state = 1
+3 is_shuffle = True
+4 X_train , X_val , y_train , y_val = train_test_split (
+5
+X, y,
+6
+test_size=test_size ,
+7
+random_state=random_state ,
+8
+shuffle=is_shuffle
+9 )
+8. Huấn luyện mô hình: Ta thực hiện huấn luyện mô hình với bộdữliệu train. Đểhuấn luyện
+mô hình Decision Tree, các bạn sẽsửdụng DecisionTreeRegressor():
+1 regressor = DecisionTreeRegressor (
+2
+random_state=random_state
+3 )
+4 regressor.fit(X_train , y_train)
+Đểhuấn luyện mô hình Random Forest, các bạn sẽsửdụng RandomForestRegressor():
+1 regressor = RandomForestRegressor (
+2
+random_state=random_state
+3 )
+4 regressor.fit(X_train , y_train)
+9. Đánh giá mô hình: Đểbiết được mô hình đã huấn luyện có hoạt động tốt trên các mẫu dữliệu
+mới hay không, ta sẽđánh giá thông qua tập val. Đầu tiên, ta cho mô hình đã huấn luyện thực
+hiện dựđoán trên toàn bộtập val:
+1 y_pred = regressor.predict(X_val)
+Lúc này, ta hoàn toàn có thểáp dụng những độđo đánh giá dành cho bài Regression đểthực hiện
+đánh giá hiệu suất mô hình. Ởđây, ta sẽsửdụng Mean Absolute Error (MAE) và Mean Squared
+Error (MSE):
+1 mae = mean_absolute_error (y_val , y_pred)
+2 mse = mean_squared_error (y_val , y_pred)
+3
+4 print(’Evaluation
+results on validation
+set:’)
+5 print(f’Mean
+Absolute
+Error: {mae}’)
+6 print(f’Mean
+Squared
+Error: {mse}’)
+5
+AI VIETNAM
+aivietnam.edu.vn
+B. Phần trắc nghiệm
+1. Khi sửdụng mô hình Decision Tree, ta không thểgiải quyết được hiệu quảloại bài toán nào sau
+đây?
+(a) House Price Prediction
+(b) Image Classification
+(c) Vehicle Detection
+(d) Stock Price Prediction
+2. Thuật ngữnào sau đây không thuộc Regression Tree?
+(a) Logistic Regression
+(b) Gini Index
+(c) Pruning
+(d) Splitting Criterion
+3. Công thức nào sau đây là đúng vềMean Squared Error (MSE)?
+(a)
+1
+n
+Pn
+i=1(yi −ˆyi)
+(b)
+1
+n
+Pn
+i=1(yi −ˆyi)2
+(c)
+1
+n
+Pn
+i=1 |yi −ˆyi|
+(d)
+1
+n
+Pn
+i=1
+yi
+ˆyi
+4. Trong regression tree, thành phần nào đóng vai trò là điểm khởi đầu trong việc đưa ra quyết định?
+(a) Internal Node
+(b) Leaf Node
+(c) Branch
+(d) Root Node
+5. Trong regression tree, thành phần nào đóng vai trò chứa kết quảdựđoán và không phân nhánh?
+(a) Internal Node
+(b) Leaf Node
+(c) Branch
+(d) Root Node
+6. Cho một bộdataset có nội dung như sau:
+X
+Y
+3
+12
+5
+20
+8
+28
+10
+32
+12
+36
+Dựa theo lý thuyết vềDecision Tree, các bạn hãy trảlời một sốcâu hỏi sau:
+(a) Điều kiện nào sau đây có thểlà điều kiện phân nhánh đầu tiên cho cây, sửdụng độđo MSE
+làm splitting criterion?
+(a) X ≤3
+(b) X ≤8
+(c) X ≤5
+(d) X ≤10
+(b) Dựa vào kết quảđạt được ởcâu 6.a, giảsửvới giá trịđầu vào X là 2, kết quảdựđoán của
+cây là?
+6
+AI VIETNAM
+aivietnam.edu.vn
+(a) 14
+(b) 16
+(c) 18
+(d) 20
+(c) Dựa vào kết quảđạt được ởcâu 6.a, giảsửvới giá trịđầu vào X là 15, kết quảdựđoán của
+cây là?
+(a) 20
+(b) 24
+(c) 30
+(d) 32
+7. Dựa vào phần lập trình mục II.A, kết quảđánh giá MSE của mô hình Decision Tree đã huấn
+luyện được trên tập val là (lấy giá trịxấp xỉ)?
+(a) 0.71
+(b) 0.72
+(c) 0.72
+(d) 0.73
+8. Lý do chính của việc sửdụng bootstrap dataset trong Random Forest là?
+(a) Tăng tốc độhuấn luyện
+(b) Ưu tiên các đặc trưng quan trọng
+(c) Khắc phục missing values
+(d) Tránh overfitting
+9. Từnào sau đây được dùng đểmiêu tảsốlượng cây trong Random Forest?
+(a) max_depth
+(b) max_features
+(c) n_estimators
+(d) criterion
+10. Trong Random Forest, khái niệm Bagging được hiểu là?
+(a) Bootstrap Aggregating
+(b) Binary Aggregating
+(c) Balanced Algorithm Grouping
+(d) Best Algorithm for Generalization
+11. Cho một bộdataset có nội dung như sau:
+X
+Y
+2
+4
+1
+3
+3
+5
+2
+6
+Dựa trên bộdataset này, bạn sẽxây dựng một mô hình random forest với sốcây là 2. Độsâu cho
+mỗi cây max_depth = 1 và giá trịdựđoán cuối cùng là trung bình các giá trịdựđoán của mỗi
+cây. Từđây, các bạn hãy trảlời một sốcâu hỏi sau:
+(a) Giảsửcảhai cây đều tính toán trên toàn bộdataset trên. Cây 1 chia nhánh với điều kiện
+X ≥2, cây 2 chia nhánh với điều kiện X ≥3. Khi đó, kết quảdựđoán của mô hình với
+X = 2 là (lấy giá trịxấp xỉ)?
+7
+AI VIETNAM
+aivietnam.edu.vn
+(a) 4.0
+(b) 4.5
+(c) 5.0
+(d) 5.5
+(b) Giảsửbộdữliệu bootstrap của hai cây lần lượt là (hiển thịtheo chỉmục của các mẫu trong
+bộdữliệu gốc):
+• Cây 1: Gồm các mẫu 0, 1, 2.
+• Cây 2: Gồm các mẫu 1, 2, 3.
+Cây 1 chia nhánh với điều kiện X ≥2, cây 2 chia nhánh với điều kiện X ≥3. Khi đó, kết
+quảdựđoán của mô hình với X = 1 là?
+(a) 3.25
+(b) 3.50
+(c) 3.75
+(d) 4.0
+12. Dựa vào phần lập trình mục II.A, kết quảđánh giá MAE của mô hình Random Forest đã huấn
+luyện được trên tập val là (lấy giá trịxấp xỉ)?
+(a) 0.45
+(b) 0.46
+(c) 0.47
+(d) 0.48
+- Hết -
+8

@@ -1,4 +1,0 @@
-state_dict () , SAVE_PATH )
-Như vậy, qua mục này, chúng ta đã có được một mô hình Deep Learning để sử dụng trong
-API.
-5

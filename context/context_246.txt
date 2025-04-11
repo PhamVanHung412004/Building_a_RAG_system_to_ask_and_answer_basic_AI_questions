@@ -1,0 +1,1326 @@
+TensorFlow
+Deep Learning Framework
+Quang-Vinh Dinh
+Ph.D. in Computer Science
+Introduction to Tensorflow
+Introduction to Tensforflow.Keras
+Model Construction 
+Model Training and Inference
+Applying Softmax for Image Data
+Outline
+Introduction
+1
+AI VIETNAM
+All-in-One Course
+Installation
+pip install tensorflow
+Package Declaration
+import tensorflow as tf
+Example 1
+Example 2
+Important attributes
+Introduction
+Tensor
+~ ndarray in Numpy
+Run on both CPU and GPU
+All tensors are immutable
+Multi-dimensional arrays with a uniform type
+2
+AI VIETNAM
+All-in-One Course
+Introduction
+Tensor
+Broadcasting
+3
+AI VIETNAM
+All-in-One Course
+data
+1
+3
+2
+4
+Axis 0
+Axis 1
+1
++
+2
+4
+3
+5
+Introduction
+4
+AI VIETNAM
+All-in-One Course
+data
+1
+3
+2
+4
+Axis 0
+Axis 1
+2
++
+3
+5
+4
+6
+Tensor
+Broadcasting
+Introduction
+5
+AI VIETNAM
+All-in-One Course
+7
+1
+0
+1
+4
+2
+5
+0
+1
+3
+6
+2
+8
+9
+2
+10
+11
+12
++
+3
+2
+0
+1
+5
+2
+5
+0
+1
+4
+7
+2
+8
+10
+2
+11
+11
+13
+8
+3
+=
+7
+1
+0
+1
+4
+2
+5
+0
+1
+3
+6
+2
+8
+9
+2
+10
+11
+12
+1
+0
+1
++
+v
+3
+1
+0
+1
+1
+0
+1
+1
+0
+1
+1
+0
+1
+Y
+Tensor
+Broadcasting
+Introduction
+Tensor
+Important functions
+6
+AI VIETNAM
+All-in-One Course
+𝑠𝑑= 𝒙−𝒚2
+Squared Difference
+x 
+1
+2
+3
+4
+𝒙−𝑦2 =
+16
+9
+4
+1
+sd
+Introduction
+7
+AI VIETNAM
+All-in-One Course
+random.normal()
+random.uniform()
+Tensor
+Important functions
+Introduction
+8
+AI VIETNAM
+All-in-One Course
+concat()
+tensor_1
+1
+3
+2
+4
+Axis 0
+Axis 1
+tensor_2
+3
+5
+4
+6
+1
+3
+2
+4
+3
+5
+4
+6
+tensor_4
+1
+3
+2
+4
+3
+5
+4
+6
+tensor_3
+Tensor
+Important functions
+Introduction
+Tensor
+Important functions
+9
+AI VIETNAM
+All-in-One Course
+argmin()
+.argmin(axis=0) =
+0
+0
+2
+7
+1
+8
+6
+9
+.argmin(axis=1) =
+0
+0
+1
+2
+7
+1
+8
+6
+9
+Introduction
+6
+AI VIETNAM
+All-in-One Course
+argmax()
+.argmax(axis=0) =
+2
+1
+2
+7
+1
+8
+6
+9
+.argmax(axis=1) =
+1
+1
+0
+2
+7
+1
+8
+6
+9
+10
+Tensor
+Important functions
+Introduction
+AI VIETNAM
+All-in-One Course
+X
+1
+3
+2
+4
+1
+2
+v
+=
+5
+11
+result
+X
+1
+3
+2
+4
+1
+2
+v
+=
+7
+10
+result
+11
+Tensor
+Important functions
+Introduction
+5
+AI VIETNAM
+All-in-One Course
+1
+3
+2
+4
+2
+2
+3
+1
+=
+6
+14
+5
+13
+X
+Y
+result
+1
+3
+2
+4
+2
+2
+3
+1
+=
+11
+5
+16
+8
+X
+Y
+result
+12
+Tensor
+Important functions
+Introduction
+5
+AI VIETNAM
+All-in-One Course
+1
+3
+2
+4
+2
+2
+3
+1
+=
+6
+14
+5
+13
+X
+Y
+result
+1
+3
+2
+4
+2
+2
+3
+1
+=
+11
+5
+16
+8
+X
+Y
+result
+13
+Tensor
+Important functions
+Introduction
+Variable: Represent a tensor whose values can be changed
+5
+AI VIETNAM
+All-in-One Course
+14
+Introduction
+4
+AI VIETNAM
+All-in-One Course
+15
+Gradient computation
++
+𝑥1
+𝑥2
+𝑥3
+𝑥4
+𝑦
+∙2
+Introduction
+4
+AI VIETNAM
+All-in-One Course
+16
+𝑥
+∙2
+∙2
+𝑦
+𝑧
+Gradient computation
+Introduction
+4
+AI VIETNAM
+All-in-One Course
+17
+𝑥
+𝑥
+𝑥
+∗
+𝑦
+Gradient computation
+Introduction
+4
+AI VIETNAM
+All-in-One Course
+18
+𝑔𝑥= −3𝑥+ 4
+ℎ𝑔= 2𝑔+ 1
+Gradient computation
+Introduction
+4
+AI VIETNAM
+All-in-One Course
+19
+𝑔𝑥= 𝑥2 + 1
+ℎ𝑔= 𝑒𝑔
+Gradient computation
+Introduction
+AI VIETNAM
+All-in-One Course
+𝑔𝑥= 𝑐𝑜𝑠𝑥2𝑒𝑥+ 2𝑥
+ℎ𝑔= 𝑒𝑔𝑠𝑖𝑛
+𝑔
+Gradient computation
+Gradient computation
+21
+22
+Gradient computation
+𝑏= 0.0
+𝑤= 0.038
+Introduction
+AI VIETNAM
+All-in-One Course
+Gradient computation
+Introduction
+AI VIETNAM
+All-in-One Course
+Gradient computation
+Given 
+sample 
+data
+Forward 
+propagation (1)
+House price prediction
+Linear Regression
+AI VIETNAM
+All-in-One Course
+Model
+𝑥= 6.7
+𝑏= 0.04
+w = -0.34
+𝑦= 9.1
+𝑧= 𝑥𝑤+ 𝑏= -2.238 
+Input
+Label
+Loss
+𝑧−𝑦2 = 128.55
+Parameters
+Initialize 
+b=0.04 and 
+w=-0.34
+Demo
+Model
+𝑥= 0.67
+𝑏= 0.26676
+𝑤= 1.17929
+𝑦= 9.1
+𝑧= 𝑥𝑤+ 𝑏= -2.238 
+Input
+Label
+Loss
+Parameters
+Backpropagation
+𝑏= 𝑏−𝜂𝐿′b
+w = w −𝜂𝐿′w
+𝑧−𝑦2 = 128.55
+𝐿𝑤
+′ = 2𝑥𝑧−𝑦
+= −151.9292
+𝐿𝑏
+′ = 2 𝑧−𝑦
+= −22.676
+𝜂= 0.01
+Forward 
+propagation
+Model
+𝑥= 0.67
+𝑦= 9.1
+𝑧= 𝑥𝑤+ 𝑏= -2.238 
+Input
+Label
+Loss
+Parameters
+𝑏= 𝑏−𝜂𝐿′b
+𝑧−𝑦2 = 0.868
+Giá trịw, b mới
+giúp loss giảm
+𝑏= 0.26676
+𝑤= 1.17929
+w = w −𝜂𝐿′w
+Linear Regression
+AI VIETNAM
+All-in-One Course
+Demo
+Introduction
+AI VIETNAM
+All-in-One Course
+27
+Gradient computation
+Loss Functions
+4
+AI VIETNAM
+All-in-One Course
+28
+Cross-entropy
+Loss = ෍
+𝑖
+−𝑦𝑖log ො𝑦𝑖
+Loss Functions
+4
+AI VIETNAM
+All-in-One Course
+29
+Loss = ෍
+𝑖
+−𝑦𝑖log ො𝑦𝑖
+Cross-entropy
+Keras
+Run on top of Tensorflow
+Integrated into Tensorflow
+7
+AI VIETNAM
+All-in-One Course
+Package Declaration
+30
+https://en.wikipedia.org/wiki/Keras
+Keras
+8
+AI VIETNAM
+All-in-One Course
+1
+𝑧
+Model
+𝑥1
+𝑥2
+𝑥3
+keras.layers.Dense(units=1)
+keras.Input(shape=(3,))
+1
+𝑧1
+𝑧2
+𝑧3
+Softmax
+Model
+𝑥1
+𝑥2
+𝑥3
+𝑥4
+𝑦1
+𝑦2
+𝑦3
+keras.layers.Dense(units=3)
+keras.Input(shape=(4,))
+keras.activations.softmax
+31
+Keras
+AI VIETNAM
+All-in-One Course
+…
+Model
+keras.Sequential()
+1
+𝑧1
+𝑧2
+𝑧3
+𝑥1
+𝑥2
+𝑥3
+𝑥4
+1
+𝑧
+𝑥1
+𝑥2
+𝑥3
+Keras
+4
+AI VIETNAM
+All-in-One Course
+33
+1
+𝑧1
+𝑧2
+𝑧3
+Softmax
+𝑥1
+𝑥2
+𝑥3
+𝑥4
+𝑦1
+𝑦2
+𝑦3
+…
+Model
+keras.Sequential()
+keras.layers.Dense(units=3)
+keras.Input(shape=(4,))
+keras.activations.softmax
+keras.layers.Activation()
+Introduction to Tensorflow
+Introduction to Tensforflow.Keras
+Model Construction 
+Model Training and Inference
+Applying Softmax for Image Data
+Outline
+Model Construction
+Linear regression
+4
+AI VIETNAM
+All-in-One Course
+34
+Feature
+Label
+House price data
+price = w ∗𝑎𝑟𝑒𝑎+ 𝑏
+y = 𝑤𝑥+ 𝑏
+Model
+area
+price
+Input layer
+a layer
+keras.layers.Dense(units=1)
+keras.Input(shape=(1,))
+1
+w
+𝑏
+Model Construction
+4
+AI VIETNAM
+All-in-One Course
+35
+Features
+Label
+Advertising-based sale data
+y = 𝑤1𝑥1 + 𝑤2𝑥2 + 𝑤3𝑥3 + 𝑏
+Sale = 𝑤1 ∗𝑇𝑉+ 𝑤2 ∗𝑅𝑎𝑑𝑖𝑜+ 𝑤3 ∗𝑁𝑒𝑤𝑠𝑝𝑎𝑝𝑒𝑟+ 𝑏
+Model
+1
+𝑧
+𝑥1
+𝑥2
+𝑥3
+Input layer
+a layer
+layers.Dense(units=1)
+Input(shape=(3,))
+Linear regression
+Model Construction
+4
+AI VIETNAM
+All-in-One Course
+36
+Boston House 
+Price Data
+Features
+Label
+medv = 𝑤1 ∗𝑥1 + ⋯+ 𝑤13 ∗𝑥13 + 𝑏
+Model
+Linear regression
+Model Construction
+4
+AI VIETNAM
+All-in-One Course
+37
+medv = 𝑤1 ∗𝑥1 + ⋯+ 𝑤13 ∗𝑥13 + 𝑏
+Model
+1
+𝑧
+𝑥1
+…
+𝑥13
+Input layer
+a layer
+layers.Dense(units=1)
+Input(shape=(13,))
+…
+Linear regression
+Model Construction
+Logistic regression
+AI VIETNAM
+All-in-One Course
+Feature
+Label
+z = 𝑤𝑥+ 𝑏
+Model
+ො𝑦=
+1
+1 + 𝑒−𝑧
+Input layer
+A layer
+layers.Dense(units=1, activation='sigmoid')
+Input(shape=(1,))
+1
+ොy
+𝑥
+Sigmoid
+function
+𝑧
+38
+Model Construction
+Logistic regression
+AI VIETNAM
+All-in-One Course
+Feature
+Label
+Model
+ො𝑦=
+1
+1 + 𝑒−𝑧
+𝑧= 𝜽𝑇𝒙
+Input layer
+A layer
+layers.Dense(units=1, activation='sigmoid')
+Input(shape=(2,))
+1
+ොy
+Sigmoid
+function
+𝑧
+𝑥2
+𝑥1
+39
+Model Construction
+Logistic regression
+AI VIETNAM
+All-in-One Course
+Input layer
+A layer
+layers.Dense(units=1, activation='sigmoid')
+Input(shape=(4,))
+1
+𝑧
+Sigmoid
+function
+𝑥1
+𝑥2
+𝑥3
+𝑥4
+ොy
+Feature
+Label
+Model
+ො𝑦=
+1
+1 + 𝑒−𝑧
+𝑧= 𝜽𝑇𝒙
+Model Construction
+Softmax regression
+AI VIETNAM
+All-in-One Course
+Feature
+Label
+Iris Classification Data
+𝑧1 = 𝑥𝑤1 + 𝑏1
+𝑧2 = 𝑥𝑤2 + 𝑏2
+ොy1 =
+𝑒𝑧1
+σ𝑗=1
+2
+𝑒𝑧𝑗
+ොy2 =
+𝑒𝑧1
+σ𝑗=1
+2
+𝑒𝑧𝑗
+Input layer
+A layer
+layers.Dense(units=2)
+Input(shape=(1,))
+1
+𝑤1
+ොy1
+𝑥
+Softmax
+function
+𝑤1
+𝑏1
+𝑤2
+𝑏2
+ොy2
+𝑧1
+𝑧2
+Activation layer
+activations.softmax
+layers.Activation()
+Model Construction
+Softmax regression
+4
+AI VIETNAM
+All-in-One Course
+42
+Feature
+Label
+Iris Classification Data
+𝑧1 = 𝑥𝑤1 + 𝑏1
+𝑧2 = 𝑥𝑤2 + 𝑏2
+ොy1 =
+𝑒𝑧1
+σ𝑗=1
+2
+𝑒𝑧𝑗
+ොy2 =
+𝑒𝑧1
+σ𝑗=1
+2
+𝑒𝑧𝑗
+Input layer
+A layer
+layers.Dense(units=2, activation='softmax')
+Input(shape=(1,))
+1
+𝑤1
+ොy1
+𝑥
+Softmax
+function
+𝑤1
+𝑏1
+𝑤2
+𝑏2
+ොy2
+𝑧1
+𝑧2
+Model Construction
+Softmax regression
+4
+AI VIETNAM
+All-in-One Course
+43
+Input layer
+A layer
+layers.Dense(units=3, activation='softmax')
+Input(shape=(1,))
+1
+𝑥
+𝑧1
+𝑧2
+𝑧3
+Softmax
+ොy1
+ොy2
+ොy3
+Model Construction
+Softmax regression
+AI VIETNAM
+All-in-One Course
+Input layer
+A layer
+layers.Dense(units=3, activation='softmax')
+Input(shape=(4,))
+1
+𝑧1
+𝑧2
+𝑧3
+Softmax
+𝑥1
+𝑥2
+𝑥3
+𝑥4
+ොy1
+ොy2
+ොy3
+𝒛= 𝜽𝑇𝒙
+ො𝐲=
+𝑒𝒛
+σ𝑖=1
+𝑘
+𝑒𝑧𝑖
+Forward computation
+Introduction to Tensorflow
+Introduction to Tensforflow.Keras
+Model Construction 
+Model Training and Inference
+Applying Softmax for Image Data
+Outline
+Training
+Logistic regression
+AI VIETNAM
+All-in-One Course
+Tính đạo hàm
+Cập nhật tham số(Stochastic 
+gradient descent)
+Tính output ො𝑦
+Tính loss (binary cross-entropy)
+ො𝑦= 𝜎(𝑧) =
+1
+1 + 𝑒−𝒛
+𝐿(𝜽) = −𝐲Tlogො𝐲−(1−y)Tlog(1−ො𝐲)
+𝐿𝜽
+′ = 𝐱T(ො𝐲−𝒚)
+𝜽= 𝜽−𝜂𝐿𝜽
+′
+𝒛= 𝜽𝑇𝒙
+Computed automatically
+model.compile(optimizer='sgd', 
+loss='binary_crossentropy')
+Declare optimizer and loss function
+model.fit(x-data, y-data, batch-size, epochs)
+Start training
+If batch-size=1 Stochastic training
+If batch-size=N Batch training
+If 1<batch-size<N Mini-batch training
+45
+Training
+Softmax regression
+AI VIETNAM
+All-in-One Course
+Tính đạo hàm
+Cập nhật tham số(Stochastic 
+gradient descent)
+Tính output ො𝑦
+Tính loss (cross-entropy)
+𝜽= 𝜽−𝜂𝐿𝜽
+′
+Computed automatically
+model.compile(optimizer='sgd', 
+loss='categorical_crossentropy')
+Declare optimizer and loss function
+model.fit(x-data, y-data, batch-size, epochs)
+Start training
+If batch-size=1 Stochastic training
+If batch-size=m Batch training
+If 1<batch-size<m Mini-batch training
+𝒛= 𝜽𝑇𝒙
+ො𝐲=
+𝑒𝒛
+σ𝑖=1
+𝑘
+𝑒𝑧𝑖
+𝐿(𝜽) = −෍
+𝑖=1
+𝑘
+𝑦𝑖logො𝑦𝑖
+𝜕𝐿
+𝜕𝜽𝑖
+= 𝒙ො𝑦𝑖−𝑦𝑖
+46
+Training
+Linear regression
+AI VIETNAM
+All-in-One Course
+Feature
+Label
+House price data
+price = w ∗𝑎𝑟𝑒𝑎+ 𝑏
+y = 𝑤𝑥+ 𝑏
+Model
+Training
+Logistic regression
+AI VIETNAM
+All-in-One Course
+Feature
+Label
+z = 𝑤𝑥+ 𝑏
+Model
+ො𝑦=
+1
+1 + 𝑒−𝑧
+48
+Training
+Softmax regression
+AI VIETNAM
+All-in-One Course
+𝒛= 𝜽𝑇𝒙
+ො𝐲=
+𝑒𝒛
+σ𝑖=1
+𝑘
+𝑒𝑧𝑖
+Model
+49
+Compile Function
+compile(
+optimizer='rmsprop', 
+loss=None, 
+metrics=None, 
+loss_weights=None,
+weighted_metrics=None, 
+run_eagerly=None, 
+steps_per_execution=None
+)
+Configures the model for training
+50
+Evaluate Function
+AI VIETNAM
+All-in-One Course
+evaluate(
+x=None, 
+y=None, 
+batch_size=None, 
+verbose=1, 
+)
+Returns the loss value & metrics 
+values for the model in test mode
+51
+Fit Function
+AI VIETNAM
+All-in-One Course
+fit(
+x=None, 
+y=None, 
+batch_size=None, 
+epochs=1, 
+verbose='auto',
+callbacks=None, 
+validation_split=0.0, 
+validation_data=None, 
+shuffle=True,
+class_weight=None, 
+sample_weight=None, 
+initial_epoch=0, 
+steps_per_epoch=None,
+validation_steps=None, 
+validation_batch_size=None, 
+validation_freq=1,
+max_queue_size=10, 
+workers=1, 
+use_multiprocessing=False
+)
+52
+Fit Function
+AI VIETNAM
+All-in-One Course
+fit(
+x=None, 
+y=None, 
+batch_size=None, 
+epochs=1, 
+verbose='auto',
+callbacks=None, 
+validation_split=0.0, 
+validation_data=None, 
+shuffle=True,
+class_weight=None, 
+sample_weight=None,
+initial_epoch=0, 
+steps_per_epoch=None,
+validation_steps=None, 
+validation_batch_size=None, 
+validation_freq=1,
+max_queue_size=10, 
+workers=1, 
+use_multiprocessing=False
+)
+53
+Fit Function
+AI VIETNAM
+All-in-One Course
+fit(
+x=None, 
+y=None, 
+batch_size=None, 
+epochs=1, 
+verbose='auto',
+)
+verbose = 0
+verbose = 1
+verbose = 2
+Silent
+Progress bar
+One line per epoch
+54
+Fit Function
+AI VIETNAM
+All-in-One Course
+fit(
+x=None, 
+y=None, 
+batch_size=None, 
+epochs=1, 
+verbose='auto',
+callbacks=None, 
+validation_split=0.0, 
+validation_data=None,
+shuffle=True,
+class_weight=None, 
+sample_weight=None, 
+initial_epoch=0, 
+steps_per_epoch=None,
+validation_steps=None, 
+validation_batch_size=None, 
+validation_freq=1,
+max_queue_size=10, 
+workers=1, 
+use_multiprocessing=False
+)
+55
+Fit 
+Function
+fit(
+x=None, 
+y=None, 
+batch_size=None, 
+epochs=1, 
+verbose='auto',
+callbacks=None, 
+validation_split=0.0, 
+validation_data=None,
+shuffle=True,
+class_weight=None, 
+sample_weight=None, 
+initial_epoch=0, 
+steps_per_epoch=None,
+validation_steps=None, 
+validation_batch_size=None, 
+validation_freq=1,
+max_queue_size=10, 
+workers=1, 
+use_multiprocessing=False
+)
+Fit Function
+AI VIETNAM
+All-in-One Course
+fit(
+x=None, 
+y=None, 
+batch_size=None, 
+epochs=1, 
+verbose='auto',
+callbacks=None, 
+validation_split=0.0, 
+validation_data=None,
+shuffle=True,
+class_weight=None, 
+sample_weight=None, 
+initial_epoch=0, 
+steps_per_epoch=None,
+validation_steps=None, 
+validation_batch_size=None, 
+validation_freq=1,
+max_queue_size=10, 
+workers=1, 
+use_multiprocessing=False
+)
+57
+Fit Function
+AI VIETNAM
+All-in-One Course
+fit(
+x=None, 
+y=None, 
+batch_size=None, 
+epochs=1, 
+verbose='auto',
+callbacks=None, 
+validation_split=0.0, 
+validation_data=None,
+shuffle=True,
+class_weight=None, 
+sample_weight=None, 
+initial_epoch=0, 
+steps_per_epoch=None,
+validation_steps=None, 
+validation_batch_size=None, 
+validation_freq=1,
+max_queue_size=10, 
+workers=1, 
+use_multiprocessing=False
+)
+58
+Predict Function
+AI VIETNAM
+All-in-One Course
+predict(
+x=None, 
+y=None, 
+batch_size=None, 
+verbose=1, 
+)
+Generates output predictions 
+for the input samples
+59
+Introduction to Tensorflow
+Introduction to Tensforflow.Keras
+Model Construction 
+Model Training and Inference
+Applying Softmax for Image Data
+Outline
+Image Classification: Image Data
+Grayscale images
+AI VIETNAM
+All-in-One Course
+(Height, Width)
+Pixel p = scalar
+0 ≤p ≤255
+Resolution: #pixels
+Resolution = HeightxWidth
+60
+Image Classification: Image Data
+Color images
+AI VIETNAM
+All-in-One Course
+(Height, Width, channel)
+Pixel p=
+𝑟
+𝑔
+𝑏
+0 ≤r,g,b ≤255
+RGB color image
+Resolution: #pixels
+Resolution = HeightxWidth
+61
+Important Packages
+Some functions
+import urllib.request as req
+req.urlretrieve(url, name)
+To download a file
+from PIL import Image
+img = Image.open(name)
+To open an image
+import matplotlib.pyplot as plt
+plt.imshow(img)
+To show an image
+62
+MNIST dataset
+Image Data
+Grayscale images
+Resolution=28x28
+Training set: 60000 samples
+Testing set: 10000 samples
+63
+MNIST dataset
+Image Data
+Grayscale images
+Resolution=28x28
+Training set: 60000 samples
+Testing set: 10000 samples
+http://yann.lecun.com/exdb/mnist/
+64
+Image 
+Data
+28
+28
+784
+MNIST dataset
+65
+Fashion-MNIST dataset
+T-shirt
+Trouser
+Pullover
+Dress
+Coat
+Sandal
+Shirt
+Sneaker
+Bag
+Ankle
+Boot
+Image Data
+Grayscale images
+Resolution=28x28
+Training set: 60000 samples
+Testing set: 10000 samples
+Image Classification
+Fashion-MNIST data
+AI VIETNAM
+All-in-One Course
+Download data
+67
+Image Classification
+Fashion-MNIST data
+AI VIETNAM
+All-in-One Course
+Read data
+28
+28
+784
+68
+Demo
+AI VIETNAM
+All-in-One Course
+Demo
+GradientTape
+AI VIETNAM
+All-in-One Course
+Model Saving and Loading
+4
+AI VIETNAM
+All-in-One Course
+72
+Model Saving
+Model Loading
+Tensorflow
+4
+AI VIETNAM
+All-in-One Course
+73
+Demo
+Reference
+4
+74
+https://www.tensorflow.org/guide/tensor
+Tensor
+TensorFlow 2 quickstart for beginners
+https://www.tensorflow.org/tutorials/quickstart/beginner
+Save and load models
+https://www.tensorflow.org/tutorials/keras/save_and_load
+https://www.tensorflow.org/guide/autodiff
+Gradient tape
+AI VIETNAM
+All-in-One Course

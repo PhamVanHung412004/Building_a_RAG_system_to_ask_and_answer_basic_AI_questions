@@ -1,6 +1,0 @@
-Định nghĩa: Cho hai array cùng kích thướcA vàB, phép trừ giữa chúng (A−B)
-tạo ra một array mớiC, với mỗi phần tửCi được tính bằng cách trừ phần tửBi khỏi phần tửAi.
-Ci = Ai − Bi
-Hình 14: Minh họa Subtraction
-Ví dụ phép trừ hai array trong Numpy, chúng ta có thể sử dụng toán tử "-"hoặc hàmnp.subtract()
-17

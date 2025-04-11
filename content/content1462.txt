@@ -1,4 +1,0 @@
-AI VIETNAM aivietnam.edu.vn
-Hình 2: Yêu cầu cấu hình về phần cứng cho Milvus
-Tiếp theo, chúng ta đến với phần cài đặt Milvus. Như đã đề cập ở trên, chúng ta sẽ cài đặt thông
-qua Docker. 

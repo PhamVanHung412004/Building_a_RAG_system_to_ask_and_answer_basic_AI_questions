@@ -1,0 +1,1606 @@
+Extra Class
+Introduction to LSTM
+Year 2023
+Nguyen Quoc Thai
+AI VIETNAM
+All-in-One Course
+1
+2
+CONTENT
+(1) – Recurrent Neural Network
+(2) – Text Classification using RNN
+(3) – RNN Variants: LSTM
+1 – Recurrent Neural Network
+!
+3
+Language Model
+❖Estimate the probability of an upcoming words
+P(w|h) = P(school|i,go,to)
+w: token as word “school”
+h: history tokens as “i,go,to”
+𝑃𝑤ℎ= 𝑐𝑜𝑢𝑛𝑡(ℎ𝑤)
+𝑐𝑜𝑢𝑛𝑡(ℎ)
+𝑃𝑠𝑐ℎ𝑜𝑜𝑙𝑖, 𝑔𝑜, 𝑡𝑜= 𝑐𝑜𝑢𝑛𝑡(𝑖, 𝑔𝑜, 𝑡𝑜, 𝑠𝑐ℎ𝑜𝑜𝑙)
+𝑐𝑜𝑢𝑛𝑡(𝑖, 𝑔𝑜, 𝑡𝑜)
+!
+4
+Language Model
+❖The probability of a word depends only on some previous words
+❖N-gram model with N = {1, 2,…}
+𝑃𝑤!:# = $
+$%!
+#
+𝑃(𝑤$|𝑤$&'(!:$&!)
+𝑃(𝑤$| 𝑤!:$&!) = 𝑃(𝑤$| 𝑤$&'(!:$&!)
+1 – Recurrent Neural Network
+1 – Recurrent Neural Network
+!
+5
+Language Model
+❖N = 1
+❖Unigram Model (1 – gram)
+𝑃𝑤!:# = ∏$%!
+#
+𝑃𝑤$ 𝑤$&'(!:$&! = ∏$%!
+#
+𝑃(𝑤$)
+P(“i,go,to,school”)
+= P(i).P(go|i).P(to|i,go).P(school|i,go,to)
+= P(i).P(go).P(to).P(school)
+1 – Recurrent Neural Network
+!
+6
+From Neural Network to Recurrent Neural Network
+❖A neural Probabilistic Language Model
+Source
+Target
+trăm
+năm
+…
+…
+trăm năm
+trong
+…
+…
+trăm năm trong
+cõi
+…
+…
+trăm năm trong cõi người
+ta
+“trăm năm trong cõi người ta”
+1 – Recurrent Neural Network
+!
+7
+From Neural Network to Recurrent Neural Network
+❖Text Classification using Neural Network
+X1
+X2
+XN
+Embedding Layer
+Dense vector
+Flatten
+Classifier
+Input
+1 – Recurrent Neural Network
+!
+8
+From Neural Network to Recurrent Neural Network
+❖Text Classification using Neural Network
+X1
+X2
+XN
+EmbeddingBag Layer
+Classifier
+Input
+1 – Recurrent Neural Network
+!
+9
+From Neural Network to Recurrent Neural Network
+❖Models need to learn the context in which words appear
+❖Need better network architectures…
+RNNs for Sequence
+1 – Recurrent Neural Network
+!
+10
+Recurrent Neural Network (RNN)
+X1
+X2
+XN
+Embedding Layer
+Dense vector
+Hidden State
+Input
+RNN
+RNN
+RNN
+Output Sequence
+Last Hidden State
+1 – Recurrent Neural Network
+!
+11
+Recurrent Neural Network (RNN)
+X1
+X2
+X3
+0
+1
+0
+Dense vector
+Wxh
+2
+3
+0
+0
+1
+0
+0
+0
+R
+R
+R
+1
+1
+1
+1
+1
+1
+0 0
+Whh
+1
+0
+0
+1
+1
+1
+bxh
+0
+1
+bhh
+2
+2
+x!W"#
+$ + b"#
+0
+1
+h%W##
+$ + b##
+h! = R h%W##
+$ + b## + x!W"#
+$ + b"#
+Initilization
+h0
+1 – Recurrent Neural Network
+!
+12
+Recurrent Neural Network (RNN)
+X1
+X2
+X3
+0
+1
+0
+Dense vector
+Wxh
+2
+3
+0
+0
+1
+0
+0
+0
+R
+R
+R
+1
+1
+1
+1
+1
+1
+0 0
+Whh
+1
+0
+0
+1
+1
+1
+bxh
+0
+1
+bhh
+2
+2
+x!W"#
+$ + b"#
+0
+1
+h%W##
+$ + b##
+Initilization
+h0
+2
+2
+x&W"#
+$ + b"#
+2
+4
+h!W##
+$ + b##
+4
+6
+h& = R h!W##
+$ + b## + x&W"#
+$ + b"#
+1 – Recurrent Neural Network
+!
+13
+Recurrent Neural Network (RNN)
+X1
+X2
+X3
+0
+1
+0
+Dense vector
+Wxh
+2
+3
+0
+0
+1
+0
+0
+0
+R
+R
+R
+1
+1
+1
+1
+1
+1
+0 0
+Whh
+1
+0
+0
+1
+1
+1
+bxh
+0
+1
+bhh
+2
+2
+x!W"#
+$ + b"#
+0
+1
+h%W##
+$ + b##
+Initilization
+h0
+2
+2
+x&W"#
+$ + b"#
+2
+4
+h!W##
+$ + b##
+4
+6
+1
+1
+x'W"#
+$ + b"#
+4
+7
+h&W##
+$ + b##
+5
+8
+h' = R h&W##
+$ + b## + x'W"#
+$ + b"#
+5
+8
+1 – Recurrent Neural Network
+!
+14
+Recurrent Neural Network (RNN)
+X1
+X2
+X3
+0
+1
+0
+Dense vector
+Wxh
+2
+3
+0
+0
+1
+0
+0
+0
+R
+R
+R
+1
+1
+1
+1
+1
+1
+0 0
+Whh
+1
+0
+0
+1
+1
+1
+bxh
+0
+1
+bhh
+Initilization
+h0
+4
+6
+5
+8
+h! = R h!"#W$$
+% + b$$ + x!W&$
+% + b&$
+5
+8
+Last Hidden State
+1 – Recurrent Neural Network
+!
+15
+Loss Function
+X1
+X2
+X3
+0
+1
+0
+Dense 
+vector
+Wxh
+2
+3
+0
+0
+1
+0
+0
+0
+R
+R
+R
+1
+1
+1
+1
+1
+1
+0 0
+Whh
+1
+0
+0
+1
+1
+1
+bxh
+0
+1
+bhh
+Initilization
+h0
+4
+6
+5
+8
+5
+8
+Last Hidden State
+1 – Recurrent Neural Network
+!
+16
+Loss Function
+X1
+X2
+X3
+0
+1
+0
+Dense 
+vector
+Wxh
+2
+3
+0
+0
+1
+0
+0
+0
+R
+R
+R
+1
+1
+1
+1
+1
+1
+0 0
+Whh
+1
+0
+0
+1
+1
+1
+bxh
+0
+1
+bhh
+Initilization
+h0
+4
+6
+5
+8
+5
+8
+Last Hidden State
+❖Loss Function for Text Classification
+CE Loss
+Wxh
+Wxh
+Wxh
+Whh
+Whh
+Whh
+1 – Recurrent Neural Network
+!
+17
+Loss Function
+X1
+X2
+X3
+0
+1
+0
+Dense 
+vector
+Wxh
+2
+3
+0
+0
+1
+0
+0
+0
+R
+R
+R
+1
+1
+1
+1
+1
+1
+0 0
+Whh
+1
+0
+0
+1
+1
+1
+bxh
+0
+1
+bhh
+Initilization
+h0
+4
+6
+5
+8
+5
+8
+Last Hidden State
+❖Loss Function for Text Classification
+CE    Loss
+Wxh
+Wxh
+Wxh
+Whh
+Whh
+Whh
+1 – Recurrent Neural Network
+!
+18
+Loss Function
+X1
+X2
+X3
+0
+1
+0
+Dense vector
+Wxh
+2
+3
+0
+0
+1
+0
+0
+0
+R
+R
+R
+1
+1
+1
+1
+1
+1
+0 0
+Whh
+1
+0
+0
+1
+1
+1
+bxh
+0
+1
+bhh
+Initilization
+h0
+4
+6
+5
+8
+Last Hidden State
+❖Loss Function for Text Generation
+CE    Loss
+Wxh
+Wxh
+Wxh
+Whh
+Whh
+Whh
+1 … 0
+0 … 1
+0 … 1
+0 … 1
+0 … 1
+1 … 1
+CE    Loss
+CE    Loss
+One-hot Encoding
+Y1
+Y2
+Y3
+FC Layer
+1 – Recurrent Neural Network
+!
+19
+Loss Function
+X1
+X2
+X3
+0
+1
+0
+Dense vector
+Wxh
+2
+3
+0
+0
+1
+0
+0
+0
+R
+R
+R
+1
+1
+1
+1
+1
+1
+0 0
+Whh
+1
+0
+0
+1
+1
+1
+bxh
+0
+1
+bhh
+Initilization
+h0
+4
+6
+5
+8
+Last Hidden State
+❖Loss Function for Text Generation
+CE    Loss
+Wxh
+Wxh
+Wxh
+Whh
+Whh
+Whh
+1 … 0
+0 … 1
+0 … 1
+0 … 1
+0 … 1
+1 … 1
+CE    Loss
+CE    Loss
+One-hot Encoding
+Y1
+Y2
+Y3
+1 – Recurrent Neural Network
+!
+20
+Pytorch - Demo
+2 – Text Classification
+!
+21
+NTC-SCV Dataset
+Positive Example
+Negative Example
+Mình được 1 cô bạn giới_thiệu đến đây , tìm
+địa_chỉkhá dễ. Menu nước uống chất khỏi nói
+. Mình muốn cũng đc 8 loại nước ởđây , món
+nào cũng ngon và bổ_dưỡng cả.
+Quán chế_biến đồ_ăn lâu , Cá_Sapa nướng 
+uớp rất dở , sò Lông ko tươi , nước_chấm ko 
+ngon\n Tóm_lại sẽ ko bao_giờ ghé nữa , ăn_dở 
+mà uổng tiền
+Mỗi lần thèm trà sữa là làm 1 ly . Quán dễ
+kiếm , không_gian lại rộng_rãi . Nhân_viên thì
+dễ_thương gần_gũi . Nói_chung thèm trà sữa
+là mình ghé Quán ởđây vì gần nhà .
+Quán này thấy khá nhiều người bảo mình nên 
+mình đã đi ăn thử , nhưng thực_sự ăn xong 
+thấy không được như mong_đợi lắm .
+❖NTC-CSV Dataset
+Ø Sentiment Analysis
+2 – Text Classification
+!
+22
+Preprocessing
+❖Language Detection
+Vietnamese Language
+Other Language
+Quán này thấy khá nhiều người bảo mình nên mình đã đi ăn thử
+, nhưng thực_sựăn xong thấy không được ngon. 👍👍</p>
+Mình được 1 cô bạn giới_thiệu đến đây , tìm địa_chỉkhá dễ.
+Menu nước uống chất khỏi nói . https://foody.com
+Visiting_Da_Nang frequently but this is the first time I have
+found a coffee shop which has a creative design ( korean style )
+The room is cheap ! ! ! ! It ' s near the city center . The staff is
+so nice : - D 👍👍👍👍👍👍\n
+Language 
+Detector
+langid library
+2 – Text Classification
+!
+23
+Preprocessing
+❖Language Detection
+❖Text Cleaning
+Vietnamese Language
+Quán này thấy khá nhiều người bảo mình nên mình đã đi ăn thử
+, nhưng thực_sựăn xong thấy không được ngon. 👍👍</p>
+Mình được 1 cô bạn giới_thiệu đến đây , tìm địa_chỉkhá dễ.
+Menu nước uống chất khỏi nói . https://foody.com
+1 – Removal URLs, HTML Tags
+2 – Removal punctuations, digits
+3 – Removal emoticons, flags,…
+4 – Normalize whitespace
+5 – Lowercasing
+2 – Text Classification
+!
+24
+Index-Based Represenation
+[dog, bites, man]
+[man, bites, dog]
+2
+4
+3
+3
+4
+2
+Input matrix
+Index-based Representation
+Input shape: N x M
+0
+0.1
+3.1
+1
+0.5
+2.5
+2
+1.3
+0.6
+Embedding Matrix
+(Lookup Table)
+V   Vocabulary
+D: Embedding Dim
+IDX
+Token
+0
+<pad>
+1
+<unk>
+2
+dog
+0.6 1.4 0.1
+1.3 0.7 0.4
+0.4 0.7 1.3
+N Samples
+M: Sequence Length
+Shape: V x D
+Output shape: N x M x D
+Model
+2 – Text Classification
+!
+25
+Modeling
+X1
+X2
+X3
+Dense  vector
+R
+R
+R
+h0
+Classifier
+Embedding Layer
+RNN Layer
+Last Hidden State
+2 – Text Classification
+!
+26
+Modeling – Demo
+2 – Text Classification
+!
+27
+Training – Demo
+3 – Long Short Term Memory
+!
+28
+RNN Drawbacks
+x 0.5
+x 0.5
+x 0.5
+x 0.5
+input * 0.5n
+n: unroll time
+x 2
+x 2
+x 2
+x 2
+input * 2n
+n: unroll time
+Vanishing Gradient
+Exploding Gradient
+3 – Long Short Term Memory
+!
+29
+Prior Knowledge
+Sigmoid
+𝜎𝑥=
+1
+1 + e"'
+=
+1
+1 + 1
+e'
+=
+1
+e' + 1
+e'
+=
+e'
+e' + 1
+0 ≤𝜎𝑥≤1
+Tanh
+tanh 𝑥= e' −e"'
+e' + e"'
+−1 ≤𝑡𝑎𝑛ℎ𝑥≤1
+Matrix 
+Multiplication
+𝑎#
+𝑏#
+𝑐#
+𝑑# ⋅𝑎(
+𝑏(
+𝑐(
+𝑑(
+= 𝑎#𝑎( + 𝑏#𝑐(
+𝑎#𝑏( + 𝑏)𝑑(
+𝑐#𝑎( + 𝑑#𝑐(
+𝑐#𝑏( + 𝑑#𝑑(
+3 – Long Short Term Memory
+!
+30
+RNN
+ht
+xt
+ht-1
+tanh
+gt
+Input
+Hidden State
+3 – Long Short Term Memory
+!
+31
+Filter RNN’s Output
+x
+𝜎
+tanh
+gt
+it
+xt
+ht-1
+ht
+Input
+Hidden State
+Sigmoid
+x
+Multiplication
+3 – Long Short Term Memory
+!
+32
+Long-Term Memory
+x
+𝜎
+tanh
+gt
+it
+xt
+ht-1
+ct-1
+ct
+ht
+Input
+Hidden State
+Sigmoid
+x
+Multiplication
+Cell State
+3 – Long Short Term Memory
+!
+33
+Add Information For Long-Term Memory
+x
+𝜎
+tanh
+gt
+it
+xt
+ht-1
+ct-1
+ct
++
+ht
+Input
+Hidden State
+Sigmoid
+x
+Multiplication
++
+Addition
+Cell State
+3 – Long Short Term Memory
+!
+34
+Filter Long-Term Memory
+x
+𝜎
+tanh
+gt
+it
+xt
+ht-1
+ct-1
+ct
+x
+𝜎
++
+ht
+ft
+Input
+Hidden State
+Sigmoid
+x
+Multiplication
++
+Addition
+Cell State
+3 – Long Short Term Memory
+!
+35
+Normalize Shot-Term Memory
++
+Previous Memory
+ct-1
+ct
+x
+x
+𝜎
+tanh
+gt
+it
+xt
+ht-1
+𝜎
+ft
+tanh
+ht
+Input
+Hidden State
+Sigmoid
+x
+Multiplication
++
+Addition
+Cell State
+3 – Long Short Term Memory
+!
+36
+Filter The Normalized Short-Term Memory
++
+ct-1
+ct
+x
+x
+𝜎
+tanh
+gt
+it
+xt
+ht-1
+𝜎
+ft
+tanh
+ht
+𝜎
+x
+Input
+Hidden State
+Sigmoid
+x
+Multiplication
++
+Addition
+Cell State
+ot
+3 – Long Short Term Memory
+!
+37
+LSTM – Forget Gate
++
+ct-1
+ct
+x
+x
+𝜎
+tanh
+gt
+it
+xt
+ht-1
+𝜎
+ft
+tanh
+ht
+𝜎
+x
+Input
+Hidden State
+Sigmoid
+ot
+𝑓! = 𝜎𝑊"#𝑥! + 𝑏"# + 𝑊$#ℎ!%& + 𝑏$#
+3 – Long Short Term Memory
+!
+38
+LSTM – Input Gate
++
+ct-1
+ct
+x
+x
+𝜎
+tanh
+gt
+it
+xt
+ht-1
+𝜎
+ft
+tanh
+ht
+𝜎
+x
+Input
+Hidden State
+Sigmoid
+ot
+𝑖! = 𝜎𝑊""𝑥! + 𝑏"" + 𝑊$"ℎ!%& + 𝑏$"
+3 – Long Short Term Memory
+!
+39
+LSTM – Candidate Memory
++
+ct-1
+ct
+x
+x
+𝜎
+tanh
+gt
+it
+xt
+ht-1
+𝜎
+ft
+tanh
+ht
+𝜎
+x
+Input
+Hidden State
+ot
+𝑔! = 𝑡𝑎𝑛ℎ𝑊"'𝑥! + 𝑏"' + 𝑊$'ℎ!%& + 𝑏$'
+3 – Long Short Term Memory
+!
+40
+LSTM – Output Gate
++
+ct-1
+ct
+x
+x
+𝜎
+tanh
+gt
+it
+xt
+ht-1
+𝜎
+ft
+tanh
+ht
+𝜎
+x
+Input
+Hidden State
+Sigmoid
+ot
+𝑜! = 𝜎𝑊"(𝑥! + 𝑏"( + 𝑊$(ℎ!%& + 𝑏$(
+3 – Long Short Term Memory
+!
+41
+LSTM– Current Cell State
++
+ct-1
+ct
+x
+x
+𝜎
+tanh
+gt
+it
+xt
+ht-1
+𝜎
+ft
+tanh
+ht
+𝜎
+x
+Sigmoid
+x
+Multiplication
++
+Addition
+Cell State
+ot
+𝑐! = 𝑓! ⊙𝑐)%& + 𝑖) ⊙𝑔)
+3 – Long Short Term Memory
+!
+42
+LSTM - Current Hidden State
++
+ct-1
+ct
+x
+x
+𝜎
+tanh
+gt
+it
+xt
+ht-1
+𝜎
+ft
+tanh
+ht
+𝜎
+x
+Hidden State
+Sigmoid
+x
+Multiplication
++
+Addition
+Cell State
+ot
+ℎ! = 𝑜! ⊙tanh(𝑐))
+3 – Long Short Term Memory
+!
+43
+Example
+x
++
+1
+𝜎
+2
+1
+𝜎
+x
+tanh
+?
+𝜎
+tanh
+x
+?
+2.7
+1.63
+1.65
+0.94
+-0.19
+2
+1.41
+4.38
+1.62
+0.62
+-0.32
+Weight
+Bias
+Input
+Hidden State
+Sigmoid
+x
+Multiplication
++
+Addition
+Cell State
+0
+0
+0
+0.59
+0
+?
+?
+?
+?
+?
+?
+?
+3 – Long Short Term Memory
+!
+44
+Example - Forget Gate
+𝑊!"𝑥# + 𝑏!" + 𝑊$"ℎ#%& + 𝑏$"
+= 1.63*1+0+2.7*1+1.62
+= 5.95
+𝜎𝑊!"𝑥# + 𝑏!" + 𝑊$"ℎ#%& + 𝑏$"
+= 𝜎(5.95)
+= 
+!!.#!
+!!.#!"#
+= 0.997
+𝑓! = 𝜎𝑊"#𝑥! + 𝑏"# + 𝑊$#ℎ!%& + 𝑏$#
+x
++
+1
+𝜎
+2
+1
+𝜎
+x
+tanh
+?
+𝜎
+tanh
+x
+?
+1.65
+0.94
+-0.19
+2
+1.41
+4.38
+0.62
+-0.32
+0
+0
+0.59
+0
+2.7
+1.63
+1.62
+0
+0.997
+?
+?
+?
+?
+?
+?
+Weight
+Bias
+Input
+Hidden State
+Sigmoid
+3 – Long Short Term Memory
+!
+45
+Example - Input Gate
+𝑖! = 𝜎𝑊""𝑥! + 𝑏"" + 𝑊$"ℎ!%& + 𝑏$"
+x
++
+1
+𝜎
+2
+1
+𝜎
+x
+tanh
+?
+𝜎
+tanh
+x
+?
+2.7
+1.63
+0.94
+-0.19
+1.41
+4.38
+1.62
+-0.32
+0
+0
+0.59
+0
+0.997
+0.986
+?
+?
+?
+1.65
+2
+0.62
+0
+𝑊!!𝑥# + 𝑏!! + 𝑊$!ℎ#%& + 𝑏$!
+= 1.65*1+0.62+2*1+0
+= 4.27
+𝜎𝑊!!𝑥# + 𝑏!! + 𝑊$!ℎ#%& + 𝑏$!
+= 𝜎(4.27)
+= 
+!$.%&
+!$.%&"#
+= 0.986
+?
+?
+Weight
+Bias
+Input
+Hidden State
+Sigmoid
+2 – Long Short Term Memory
+!
+46
+Example - Candidate Memory
+𝑔! = 𝑡𝑎𝑛ℎ𝑊"'𝑥! + 𝑏"' + 𝑊$'ℎ!%& + 𝑏$'
+x
++
+1
+𝜎
+2
+1
+𝜎
+x
+tanh
+?
+𝜎
+tanh
+x
+?
+2.7
+1.63
+1.65
+-0.19
+2
+4.38
+1.62
+0.62
+0
+0
+0.59
+0
+0.966
+?
+?
+0.997
+0.986
+0.94
+1.41
+-0.32
+0
+𝑊!'𝑥# + 𝑏!' + 𝑊$'ℎ#%& + 𝑏$'
+= 0.94*1+(-0.32)+1.41*1+0
+= 2.03
+𝑡𝑎𝑛ℎ𝑊!'𝑥# + 𝑏!' + 𝑊$'ℎ#%& + 𝑏$'
+= 𝑡𝑎𝑛ℎ(2.03)
+= 
+(!.#$%(%!.#$
+(!.#$)(%!.#$
+= 0.966
+?
+?
+Weight
+Bias
+Input
+Hidden State
+Sigmoid
+3 – Long Short Term Memory
+!
+47
+Example - Output Gate
+x
++
+1
+𝜎
+2
+1
+𝜎
+x
+tanh
+?
+𝜎
+tanh
+x
+?
+2.7
+1.63
+1.65
+0.94
+-0.19
+2
+1.41
+4.38
+1.62
+0.62
+-0.32
+0
+0
+0
+0.59
+0
+0.992
+?
+0.966
+0.997
+0.986
+𝑊!*𝑥# + 𝑏!* + 𝑊$*ℎ#%& + 𝑏$*
+= -0.19*1+0+4.38*1+0.59
+= 4.78
+𝜎𝑊!*𝑥# + 𝑏!* + 𝑊$*ℎ#%& + 𝑏$*
+= 𝜎(4.78)
+= 
+!$.&'
+!$.&'"#
+= 0.992
+𝑜! = 𝜎𝑊"(𝑥! + 𝑏"( + 𝑊$(ℎ!%& + 𝑏$(
+?
+?
+Weight
+Bias
+Input
+Hidden State
+Sigmoid
+3 – Long Short Term Memory
+!
+48
+Example – Current Cell State
+x
++
+1
+2
+1
+𝜎
+x
+tanh
+2.946
+𝜎
+tanh
+x
+?
+2.7
+1.63
+1.65
+0.94
+-0.19
+2
+1.41
+4.38
+1.62
+0.62
+-0.32
+0
+0
+0
+0.59
+0
+1.994
+0.952
+?
+0.992
+𝑐! = 𝑓! ⊙𝑐)%& + 𝑖) ⊙𝑔)
+𝜎
+0.966
+0.997
+0.986
+𝑓# ⊙𝑐+%& + 𝑖+𝑔+
+= 0.997 * 2 + 0.986 * 0.966
+= 1.994 + 0.952
+= 2.946
+x
+Multiplication
++
+Addition
+Cell State
+3 – Long Short Term Memory
+!
+49
+Example - Current Hidden State
+ℎ! = 𝑜! ⊙tanh(𝑐))
+x
++
+1
+𝜎
+2
+1
+𝜎
+x
+tanh
+𝜎
+tanh
+x
+1.986
+2.7
+1.63
+1.65
+0.94
+-0.19
+2
+1.41
+4.38
+1.62
+0.62
+-0.32
+0
+0
+0
+0.59
+0
+0.994
+1.994
+0.952
+0.992
+0.966
+0.997
+0.986
+2.946
+tanh(𝑐#)
+= tanh(2.946)
+= 
+!%.#$($!)%.#$(
+!%.#$("!)%.#$(
+= 0.994
+𝑜# ⊙tanh(𝑐+)
+= 0.992 + 0.994
+= 1.986
+Hidden State
+x
+Multiplication
+3 – Long Short Term Memory
+!
+50
+Example - Final Result
+x
++
+1
+𝜎
+2
+1
+𝜎
+x
+tanh
+𝜎
+tanh
+x
+2.7
+1.63
+1.65
+0.94
+-0.19
+2
+1.41
+4.38
+1.62
+0.62
+-0.32
+0
+0
+0
+0.59
+0
+1.986
+0.994
+0.992
+2.946
+1.994
+0.952
+0.966
+0.997
+0.986
+Weight
+Bias
+Input
+Hidden State
+Sigmoid
+x
+Multiplication
++
+Addition
+Cell State
+Thanks!
+Any questions?
+51

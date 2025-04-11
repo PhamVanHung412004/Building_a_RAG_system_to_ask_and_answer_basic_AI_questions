@@ -1,0 +1,662 @@
+AI VIET NAM – AI COURSE 2023
+Ứng dụng cơ sởdữliệu vector Milvus cho hệ
+thống hỏi-đáp mở
+Dinh-Thang Duong và Quang-Vinh Dinh
+Ngày 20 tháng 2 năm 2024
+Milvus là một trong những hệcơ sởdữliệu vector (vector database) mã nguồn mở, chuyên dùng
+cho việc lưu trữcác vector embedding và tìm kiếm tương đồng (similarity search) giữa các vector với
+nhau. Từđó, trởthành một công cụcực kỳmạnh mẽhỗtrợcho các ứng dụng AI trong việc truy cập
+vào nguồn kiến thức từcác cơ sởdữliệu nội bộ, qua đó cải thiện độchính xác một cách đáng kể. Các
+bạn có thểtheo dõi và đọc thêm vềthư viện này tại trang chủhoặc trang github của thư viện.
+Hình 1: Biểu tượng của Milvus
+Trong bài viết này, chúng ta sẽtìm hiểu cách cài đặt nhanh Milvus trên máy tính cá nhân và ứng
+dụng Milvus trong việc tìm kiếm các tài liệu (context) có liên quan nhằm hỗtrợhệthống hỏi-đáp mở
+(Open Domain Question Answering).
+1. Cài đặt Milvus: Trong phần này, chúng ta sẽtìm hiểu cách cài đặt Milvus thông qua Docker.
+Đây là cách đơn giản và nhanh chóng đểcài đặt thư viện này. Phần demo được thực hiện trên hệ
+điều hành MacOS, vì vậy có một sốbước thực hiện sẽkhác so với các hệđiều hành còn lại. Bạn
+đọc hãy thay đổi cho phù hợp với hệđiều hạnh của máy mình nhé. Đầu tiên, các bạn hãy kiểm
+tra cấu hình yêu cầu đểcài đặt Milvus theo như ảnh dưới đây:
+1
+AI VIETNAM
+aivietnam.edu.vn
+Hình 2: Yêu cầu cấu hình vềphần cứng cho Milvus
+Tiếp theo, chúng ta đến với phần cài đặt Milvus. Như đã đềcập ởtrên, chúng ta sẽcài đặt thông
+qua Docker. Vì vậy, chúng ta sẽtiến hành cài đặt Docker và Docker compose tại bước này. Các
+bạn hãy lên trang chủcủa Docker và thực hiện theo hướng dẫn cài đặt theo đúng hệđiều hành
+của máy mình tại đây:
+Hình 3: Các lựa chọn cài đặt Docker cho từng hệđiều hành riêng biệt
+2
+AI VIETNAM
+aivietnam.edu.vn
+Khi quá trình cài đặt Docker hoàn tất, chúng ta sẽkiểm tra Docker đã sẵn sàng đểsửdụng hay
+chưa. Đối với MacOS/Windows, ta mởứng dụng Docker Desktop đểkhởi động Docker:
+Hình 4: Giao diện Docker Desktop trên hệđiều hành MacOS
+Sau đó, các bạn mởTerminal/CMD lên và chạy lần lượt các dòng lệnh sau:
+1 $ docker -v
+2 $ docker -compose -v
+Hình 5: Kết quảkiểm tra phiên bản của Docker và Docker Compose
+Nếu không có lỗi gì xảy ra khi chạy 2 dòng lệnh trên, chúng ta coi như đã cài đặt thành công
+Docker. Từđây, ta tiến hành cài dặt Milvus, các bạn hãy chạy các dòng lệnh sau:
+(a) Tải file script chứa các lệnh sửdụng Milvus:
+1 $ wget
+https :// raw. githubusercontent .com/milvus -io/milvus/master/scripts/
+standalone_embed .sh
+Khi chạy xong lệnh này, tại vịtrí chạy lệnh, các bạn sẽthấy file standalone_embed.sh. Các bạn
+cần lưu ý vịtrí tải file này, vì chúng ta cần phải ởđúng vịtrí tải file hoặc thay đổi đường
+dẫn hợp lý thì mới chạy lệnh gọi file này được.
+(b) Chạy file script:
+3
+AI VIETNAM
+aivietnam.edu.vn
+1 $ bash
+standalone_embed .sh start
+Lưu ý rằng, lệnh này sẽmất một khoảng thời gian đểhoàn tất tùy vào tốc độmạng.
+(c) Kiểm tra cài đặt: Khi đã tải và triển khai xong, các bạn có thểkiểm tra bằng lệnh sau:
+1 $ docker ps
+Hình 6: Kết quảkiểm tra cài đặt Milvus trên Terminal
+Như vậy, chúng ta đã hoàn tất cài đặt và triển khai Milvus.
+2. Cài đặt các thư viện Python cần thiết: Đểtương tác được với Milvus trong môi trường
+Python, chúng ta cần tải một vài các thư viện được liệt kê ởphía dưới đây. Đểthuận tiện trong
+việc cài đặt, các bạn hãy copy danh sách thư viện này vào trong một file tên là requirements.txt:
+1 # > requirements.txt
+2 pandas
+3 transformers
+4 torch
+5 datasets
+6 milvus -cli ==0.4.2
+7 protobuf ==3.20.0
+8 pymilvus ==2.3.4
+Sau đó, ta gọi lệnh pip đểcài đặt, ởđây mình sẽcài đặt trên môi trường conda:
+1 $ conda
+create -n milvus_env -y
+2 $ conda
+activate
+milvus_env
+3 $ pip3
+install
+--upgrade
+pip
+4 $ pip3
+install -r requirements.txt
+3. Kiểm tra hoạt động của Milvus: Chúng ta sẽthửtương tác với Milvus trong Python thông
+qua thư viện pymilvus. Milvus có sửdụng một sốtừkhóa mới, song các bạn có thểnắm cơ bản
+rằng chúng ta sẽcó các Collection, một dạng bảng dữliệu của Milvus. Như vậy, đểlưu trữmột
+vector database trong Milvus, chúng ta sẽcần tạo một Collection, từđó kết nối và tương tác với
+Collection này:
+4
+AI VIETNAM
+aivietnam.edu.vn
+Hình 7: Một vài thành phần trong Milvus. Nguồn: link
+Các bạn có thểtìm hiểu những khái niệm khác trong Milvus tại đây. Bây giờ, chúng ta sẽthử
+kiểm tra danh sách các Collection có trong Milvus hiện tại. Các bạn tạo một file .py bất kì, ởđây
+mình tạm đặt tên là check_milvus.py, có nội dung như sau:
+1 from
+pymilvus
+import
+connections , utility
+2
+3 connections.connect(’default ’, host=’localhost ’, port=’19530 ’)
+4
+5 print(utility. list_collections ())
+6 # Output: []
+Chương trình trên sửdụng phương thức connections.connect() đểkết nối tới Milvus Standalone
+mà chúng ta đã host ởbước đầu tiên. Sau đó, sửdụng utility.list_collections() đểkiểm tra danh
+sách các Collections hiện có, kết quảtrảvềlà một list rỗng cho thấy chúng ta đang chưa có một
+bảng dữliệu nào trên kho lưu trữ. Phần tiếp theo chúng ta sẽtiến hành xây dựng một vector
+database cho bài QA.
+4. Xây dựng vector database cho bộdữliệu QA: Chúng ta sẽxây dựng một vector database
+trên bộdữliệu QA là SQuAD. Mục tiêu của chúng ta khi sửdụng cơ sởdữliệu này nhằm tìm
+kiếm các câu hỏi có liên quan đến câu hỏi input, từđó tìm được các context có khảnăng cao chứa
+đáp án cho câu hỏi.
+5
+AI VIETNAM
+aivietnam.edu.vn
+Hình 8: Pipeline của hệthống End-to-end QA trong bài
+Các bạn tạo một file code .py mới (ởđây mình sẽtạo file build_database.py) và thực hiện các bước
+sau đây:
+(a) Import các thư viện cần thiết:
+1 from
+pymilvus
+import (
+2
+connections ,
+3
+utility ,
+4
+FieldSchema ,
+5
+CollectionSchema ,
+6
+DataType ,
+7
+Collection ,
+8 )
+9
+10 from
+datasets
+import
+load_dataset , Dataset
+11 from
+transformers
+import
+AutoTokenizer , AutoModel
+12 from
+torch
+import clamp , sum
+(b) Khai báo các hyperparameters sẽdùng trong code:
+1 DATASET_NAME = ’squad_v2 ’
+# Huggingface
+Dataset to use
+2 MODEL_NAME = ’distilbert -base -uncased ’
+# Transformer to use for
+embeddings
+3 TOKENIZATION_BATCH_SIZE = 1000
+# Batch
+size for
+tokenizing
+operation
+4 INFERENCE_BATCH_SIZE = 64
+# batch
+size for
+transformer
+5 INSERT_RATIO = 0.001
+# How many
+samples to embed and insert
+6 COLLECTION_NAME = ’huggingface_squad_db ’
+# Collection
+name
+7 DIMENSION = 768
+# Embeddings
+size
+8 LIMIT = 3
+# How many
+results to search for
+9 MILVUS_HOST = "localhost"
+10 MILVUS_PORT = "19530"
+11 REPLICA_NUMBER = 1
+Một vài tham sốcác bạn cần quan tâm:
+• INFERENCE_BATCH_SIZE: Sốlượng mẫu dữliệu đưa vào mô hình BERT để
+lấy vector embedding, các bạn hãy điều chỉnh nhỏhơn nếu không đủGPU hoặc cao hơn
+trong trường hợp ngược lại.
+6
+AI VIETNAM
+aivietnam.edu.vn
+• INSERT_RATIO: Kích thước bộdữliệu đểđưa vào database. Ởđây mình chỉnh tỉ
+lệrất thấp đểviệc demo trởnên nhanh hơn. Các bạn muốn test nhiều hơn có thểtăng
+tỉlệnày lên.
+• LIMIT: Sốlượng kết quảtruy vấn trảvềtừMilvus. Các bạn muốn tăng sốlượng tài
+liệu trảvềcó thểtăng tham sốnày lên.
+(c) Xây dựng hàm tạo Collection: Ta dùng hàm này đểtạo một bảng dữliệu (Collection),
+lưu ý rằng kết quảcủa hàm sẽlà một Collection có đầy đủcác trường thông tin (các cột)
+nhưng chưa có dữliệu (records):
+1 def
+create_collection (collection_name , dim):
+2
+if utility.has_collection ( collection_name ):
+3
+utility. drop_collection ( collection_name )
+4
+5
+fields = [
+6
+FieldSchema(name=’id’, dtype=DataType.INT64 , is_primary=True , auto_id
+=True),
+7
+FieldSchema(name=’title ’, dtype=DataType.VARCHAR , max_length =1000) ,
+8
+FieldSchema(name=’question ’, dtype=DataType.VARCHAR , max_length =1000)
+,
+9
+FieldSchema(name=’context ’, dtype=DataType.VARCHAR , max_length =10000)
+,
+10
+FieldSchema(name=’answer ’, dtype=DataType.VARCHAR , max_length =1000) ,
+11
+FieldSchema(name=’question_embedding ’, dtype=DataType.FLOAT_VECTOR ,
+dim=dim)
+12
+]
+13
+schema = CollectionSchema (fields=fields , description=’question
+search ’)
+14
+collection = Collection(name=collection_name , schema=schema)
+15
+16
+# create
+IVF_FLAT
+index for
+collection.
+17
+index_params = {
+18
+’metric_type ’:’L2’,
+19
+’index_type ’:"IVF_FLAT",
+20
+’params ’:{"nlist":2048}
+21
+}
+22
+collection.create_index(field_name=" question_embedding ", index_params =
+index_params)
+23
+24
+return
+collection
+(d) Xây dựng hàm tokenization:
+1 tokenizer = AutoTokenizer . from_pretrained (MODEL_NAME)
+2 def
+tokenize_question (batch):
+3
+results = tokenizer(
+4
+batch[’question ’],
+5
+add_special_tokens =True ,
+6
+truncation=True ,
+7
+padding="max_length",
+8
+return_attention_mask =True ,
+9
+return_tensors ="pt"
+10
+)
+11
+12
+batch[’input_ids ’] = results[’input_ids ’]
+13
+batch[’attention_mask ’] = results[’attention_mask ’]
+14
+15
+return
+batch
+(e) Xây dựng hàm get embedding: Ta cần xây dựng hàm đổi từtext sang dạng vector
+embedding của nó. Tương tựnhư trong bài học chính, ởđây ta cũng sửdụng model BERT
+7
+AI VIETNAM
+aivietnam.edu.vn
+và lấy final hidden state của token [CLS] đểlàm vector embedding:
+1 model = AutoModel. from_pretrained (MODEL_NAME)
+2 def
+quest_embedding (batch):
+3
+sentence_embs = model(
+4
+input_ids=batch[’input_ids ’],
+5
+attention_mask =batch[’attention_mask ’]
+6
+)
+7
+batch[’question_embedding ’] = sentence_embs . last_hidden_state [:, 0]
+8
+9
+return
+batch
+Hình 9: Final hidden state của token [CLS] trong BERT
+(f) Xây dựng hàm cập nhật dữliệu SQuADv2 vào Collection: Hàm này sẽtải vềbộdữ
+liệu SQuADv2 gốc và thực hiện đưa từng sample vào Collection:
+1 def
+create_squad_database ( qa_collection ):
+2
+squad_v2_dataset = load_dataset(DATASET_NAME , split=’all’)
+3
+squad_v2_dataset = squad_v2_dataset . train_test_split (test_size=
+INSERT_RATIO , seed =0)[’test ’]
+4
+squad_v2_dataset = squad_v2_dataset .map(lambda val: {’answer ’: val[’
+answers ’][’text ’][0]} if val[’answers ’][’text ’] else {’answer ’: ’’},
+remove_columns =[’answers ’])
+5
+6
+# Generate
+the tokens for each
+entry.
+7
+squad_v2_dataset = squad_v2_dataset .map(tokenize_question , batch_size=
+TOKENIZATION_BATCH_SIZE , batched=True)
+8
+squad_v2_dataset .set_format(’torch ’, columns =[’input_ids ’, ’
+attention_mask ’], output_all_columns =True)
+9
+10
+squad_v2_dataset = squad_v2_dataset .map(
+11
+quest_embedding ,
+12
+remove_columns =[’input_ids ’, ’attention_mask ’],
+13
+batched=True ,
+14
+batch_size= INFERENCE_BATCH_SIZE
+8
+AI VIETNAM
+aivietnam.edu.vn
+15
+)
+16
+17
+# Due to the
+varchar
+constraint we are going to limit the
+question
+size
+when
+inserting
+18
+def
+insert_function (batch):
+19
+insertable = [
+20
+batch[’title ’],
+21
+batch[’question ’],
+22
+[x[:9995] + ’...’ if len(x) > 9999 else x for x in batch[’context
+’]],
+23
+[x[:995] + ’...’ if len(x) > 999 else x for x in batch[’answer ’
+]],
+24
+batch[’question_embedding ’]. tolist ()
+25
+]
+26
+qa_collection.insert(insertable)
+27
+28
+squad_v2_dataset .map(insert_function , batched=True , batch_size =64)
+29
+qa_collection.flush ()
+Lưu ý rằng trong đoạn code này ởdòng số3 các sửdụng hàm train_test_split() đểtách nhỏ
+bộdữliệu ra nhằm mục đích có thểtest trên một lượng sample nhỏ. Các bạn có thểđiều
+chỉnh sốlượng này thông qua tham sốINSERT_RATIO đã khai báo ởđầu code.
+(g) Khởi tạo vector database: Với các hàm trên, ta tiến hành thực hiện lời gọi hàm đểkhởi
+tạo vector database cho bộdữliệu QA:
+1 connections.connect(host=MILVUS_HOST , port=MILVUS_PORT)
+2 if not
+utility.has_collection ( COLLECTION_NAME ):
+3
+qa_collection = create_collection (COLLECTION_NAME , DIMENSION)
+4
+qa_collection.load( replica_number = REPLICA_NUMBER )
+5 else:
+6
+qa_collection = Collection( COLLECTION_NAME )
+7
+qa_collection.load( replica_number = REPLICA_NUMBER )
+8
+9 if qa_collection.is_empty:
+10
+create_squad_database ( qa_collection )
+(h) Xây dựng hàm search: Khi đã tạo xong vector database, chúng ta sẽxây dựng một hàm
+cho phép nhận vào một batch các vector embedding của câu truy vấn (trong trường hợp này
+là các câu hỏi). Sau đó, tìm kiếm tương đồng và trảvềcác mẫu dữliệu có liên quan nhất:
+1 def search( question_batch ):
+2
+res = qa_collection.search(
+3
+question_batch [’question_embedding ’]. tolist (),
+4
+anns_field=’question_embedding ’,
+5
+param ={
+6
+"metric_type": "L2",
+7
+"params": {"nprobe": 10},
+8
+},
+9
+output_fields =[’question ’, ’context ’],
+10
+limit=LIMIT
+11
+)
+12
+overall_id = []
+13
+overall_distance = []
+14
+overall_question = []
+15
+overall_context = []
+16
+17
+for hits in res:
+18
+ids = []
+19
+distances = []
+20
+questions = []
+9
+AI VIETNAM
+aivietnam.edu.vn
+21
+contexts = []
+22
+23
+for hit in hits:
+24
+ids.append(hit.id)
+25
+distances.append(hit.distance)
+26
+questions.append(hit.entity.get(’question ’))
+27
+contexts.append(hit.entity.get(’context ’))
+28
+29
+overall_id.append(ids)
+30
+overall_distance .append(distances)
+31
+overall_question .append(questions)
+32
+overall_context .append(contexts)
+33
+34
+return {
+35
+’id’: overall_id ,
+36
+’distance ’: overall_distance ,
+37
+’context ’: overall_context ,
+38
+’similar_question ’: overall_question
+39
+}
+5. Kết hợp công cụtìm kiếm và mô hình hỏi-đáp: Khi chạy xong file build_dataset.py, chúng
+ta đã có một vector database mong muốn. Bây giờ, đểkết hợp với mô hình QA đểtrởthành
+End-to-end QA, chúng ta sẽviết một file code đểtriển khai vấn đềnày. Tại đây, mình sẽtạo một
+file mới mang tên qa.py và có nội dung như sau:
+(a) Import các thư viện, hàm và tham sốcần thiết:
+1 import
+argparse
+2 from
+datasets
+import
+Dataset
+3 from
+transformers
+import
+pipeline
+4 from
+pymilvus
+import
+connections , utility , Collection
+5 from
+build_database
+import
+tokenize_question , quest_embedding , search
+6 from
+build_database
+import (
+7
+MILVUS_HOST ,
+8
+MILVUS_PORT ,
+9
+COLLECTION_NAME ,
+10
+REPLICA_NUMBER ,
+11
+TOKENIZATION_BATCH_SIZE ,
+12
+INFERENCE_BATCH_SIZE
+13 )
+Các bạn lưu ý có một sốhàm và biến sẽđược import từfile code build_dataset.py.
+(b) Kết nối tới vector database:
+1 connections.connect(host=MILVUS_HOST , port=MILVUS_PORT)
+2 if utility.has_collection ( COLLECTION_NAME ):
+3
+qa_collection = Collection( COLLECTION_NAME )
+4
+qa_collection.load( replica_number = REPLICA_NUMBER )
+5 else:
+6
+raise
+RuntimeError
+(c) Khai báo mô hình QA: Chúng ta sẽdùng mô hình đã huấn luyện ởbuổi học vềQA đểsử
+dụng trong chương trình code này. Ởđây, mình sẽsửdụng mô hình đã huấn luyện và được
+lưu trên HuggingFace:
+1 PIPELINE_NAME = ’question -answering ’
+2 MODEL_NAME = ’thangduong0509 /distilbert -finetuned -squadv2 ’
+3 qa_pipeline = pipeline(PIPELINE_NAME , model=MODEL_NAME)
+Các bạn nên sửdụng mô hình mình đã huấn luyện và thay tên ởbiến MODEL_NAME nhé.
+10
+AI VIETNAM
+aivietnam.edu.vn
+(d) Xây dựng hàm main cho chương trình: Cuối cùng, ta viết code nhận đầu vào là câu
+hỏi từcommand line, thực hiện embedding câu hỏi và chạy hàm search. Từđó, với các tài
+liệu có liên quan, ta chạy mô hình QA đểtrảlời câu hỏi từinput:
+1 def main ():
+2
+parser = argparse. ArgumentParser ()
+3
+parser.add_argument(’--question ’, type=str , required=True)
+4
+args = parser.parse_args ()
+5
+6
+questions = {’question ’: [f’{args.question}’]}
+7
+question_dataset = Dataset.from_dict(questions)
+8
+9
+question_dataset = question_dataset .map(
+10
+tokenize_question ,
+11
+batched=True ,
+12
+batch_size= TOKENIZATION_BATCH_SIZE
+13
+)
+14
+question_dataset .set_format(
+15
+’torch ’,
+16
+columns =[’input_ids ’, ’attention_mask ’],
+17
+output_all_columns =True
+18
+)
+19
+question_dataset = question_dataset .map(
+20
+quest_embedding ,
+21
+remove_columns =[’input_ids ’, ’attention_mask ’],
+22
+batched=True ,
+23
+batch_size= INFERENCE_BATCH_SIZE
+24
+)
+25
+26
+retrieval_results = question_dataset .map(search , batched=True , batch_size
+=1)
+27
+for result in retrieval_results :
+28
+print ()
+29
+print(’Input
+Question:’)
+30
+print(result[’question ’])
+31
+print ()
+32
+for rank_idx , candidate in enumerate(zip(result[’similar_question ’],
+result[’context ’], result[’distance ’])):
+33
+context = candidate [1]
+34
+distance = candidate [2]. tolist ()
+35
+predicted_answer = qa_pipeline(
+36
+context=context ,
+37
+question=args.question
+38
+)
+39
+40
+print(f’Relevant
+Context
+Rank {rank_idx +1}: ’)
+41
+print(f’Context: {context}’)
+42
+print(f’Score: {distance}’)
+43
+print(f’Predicted
+Answer: { predicted_answer }’)
+44
+print ()
+45
+46 if __name__ == ’__main__ ’:
+47
+main ()
+48
+qa_collection.release ()
+Cuối cùng, chúng ta sẽchạy file này đểxem thửthành quả. Ởđây, mình sẽchạy với câu hỏi
+sau (câu hỏi này thuộc bộdữliệu SQuADv2):
+1 $ python3 qa.py --question ’In what year did Wesley
+Clark
+retire?’
+11
+AI VIETNAM
+aivietnam.edu.vn
+Hình 10: Kết quảEnd-to-end QA sửdụng hàm search trên Milvus vector database
+Như vậy, thông qua việc cài đặt theo các bước trên, các bạn đã thành công ứng dụng Milvus vector
+database đểxây dựng một chương trình vềEnd-to-end Question Answering. Các bạn muốn hiểu
+thêm vềMilvus có thểtìm đọc code đính kèm có file hello_milvus.py đểhiểu thêm vềcác hàm cơ
+bản trong Milvus nhé.
+6. Trường hợp muốn ngắt kết nối với Milvus và xóa dữliệu: Đểnhanh chóng ngắt kết nối
+với Milvus, các bạn hãy sửdụng lệnh sau trong Terminal:
+1 $ bash
+standalone_embed .sh stop
+Đểxóa hẳn dữliệu được lưu trong Milvus, đầu tiên các bạn hãy chạy lệnh dưới đây trong Terminal:
+1 $ docker ps -a
+Tại đây, các bạn sẽthấy một danh sách các CONTAINER ID, các bạn hãy tìm hàng có tên tại
+dòng IMAGE là milvusdb:
+Hình 11: Hàng Container ID của Milvus
+Các bạn hãy copy CONTAINER ID của milvusdb, trong trường hợp ởảnh trên sẽlà a846426c46b7.
+Sau đó, các bạn chạy lệnh sau:
+1 $ docker rm a846426c46b7
+Như vậy, các bạn đã ngắt kết nối khỏi Milvus cũng như xóa toàn bộdữliệu đã đưa vào.
+- Hết -
+12

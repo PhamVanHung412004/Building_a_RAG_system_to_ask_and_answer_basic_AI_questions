@@ -1,3 +1,0 @@
-Daily AI Exercise (AIO) aivietnam.edu.vn
-Quá trình cài đặt khá đơn giản, chỉ cần mở file cài đặt và tiến hành nhấn next theo mặc định. Cách thứ
-hai thì đơn giản hơn, trong giao diện Anaconda Navigator chúng ta tìm đến Vscode và nhấn install.

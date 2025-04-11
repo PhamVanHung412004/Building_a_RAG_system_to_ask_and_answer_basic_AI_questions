@@ -1,0 +1,1190 @@
+Poem Generation
+Dinh-Thang Duong - TA
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Project
+Year 2024
+2
+➢Introduction
+➢Poem Data Crawling
+➢Poem Generation: From Scratch
+➢Poem Generation: GPT2
+➢Question
+Outline
+AI VIETNAM
+All-in-One Course
+(TA Session)
+3
+Introduction
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Introduction
+❖ Getting Started
+AI VIETNAM
+All-in-One Course
+(TA Session)
+4
+ChatGPT  - The most famous AI application at the moment
+Introduction
+❖ Getting Started
+AI VIETNAM
+All-in-One Course
+(TA Session)
+5
+ChatGPT takes user input text and generate an appropriate response
+User Input Promt
+ChatGPT Output
+Text Generation
+Introduction
+❖ Definition
+AI VIETNAM
+All-in-One Course
+(TA Session)
+6
+Text Generation: An NLP task that aims to automatically generate new text 
+based on some inputs.
+Input
+Xin chào
+Text 
+Generation 
+Program
+Xin chào. Tôi có thể 
+giúp gì cho bạn ạ?
+Output
+Introduction
+❖ Text Generation Applications
+AI VIETNAM
+All-in-One Course
+(TA Session)
+7
+Image Captioning
+Automatic Speech Recognition
+Machine Translation
+Abstractive Text Summarization
+Introduction
+❖ Text Generation Applications
+AI VIETNAM
+All-in-One Course
+(TA Session)
+8
+Text Generation refers to the task of generating new words
+Extractive Text Summarization
+Rule-based Chatbot vs Text Generation Chatbot
+Introduction
+❖ Project Description
+AI VIETNAM
+All-in-One Course
+(TA Session)
+9
+“Áo chiều nào còn vương”
+… ?>?#@!#@!#
+“Áo chiều nào còn vương
+Người ấy đến rất nhớ
+Từ đất đen đứng dậy
+Vào cuộc đời đáng yêu”
+Project: 
+Vietnamese Poem 
+Generation
+Introduction
+❖ Getting Started
+AI VIETNAM
+All-in-One Course
+(TA Session)
+10
+Input
+Promt: “Áo chiều nào còn vương”
+Poem 
+Generation 
+Program
+Áo chiều nào còn vương
+Người ấy đến rất nhớ
+Từ đất đen đứng dậy
+Vào cuộc đời đáng yêu
+Output
+Project Description: Given a Vietnamese poem line or some words, generate a poem.  
+Introduction
+❖ Project Pipeline
+AI VIETNAM
+All-in-One Course
+(TA Session)
+11
+1. Collecting 
+Dataset
+2. Prepare 
+Training Data
+3. Train and 
+evaluate 
+model
+4. Writing 
+inference 
+program
+Input
+Promt: “Áo chiều nào còn vương”
+Poem 
+Generation 
+Program
+Áo chiều nào còn vương
+Người ấy đến rất nhớ
+Từ đất đen đứng dậy
+Vào cuộc đời đáng yêu
+Output
+Project Description: Given a Vietnamese poem line or some words, generate a poem.  
+12
+Poem Data Crawling
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Introduction
+❖ Project Pipeline
+AI VIETNAM
+All-in-One Course
+(TA Session)
+13
+1. Collecting 
+Dataset
+2. Prepare 
+Training Data
+3. Train and 
+evaluate 
+model
+4. Writing 
+inference 
+program
+Input
+Promt: “Áo chiều nào còn vương”
+Poem 
+Generation 
+Program
+Áo chiều nào còn vương
+Người ấy đến rất nhớ
+Từ đất đen đứng dậy
+Vào cuộc đời đáng yêu
+Output
+Project Description: Given a Vietnamese poem line or some words, generate a poem.  
+Poem Data Crawling
+❖ Problem
+AI VIETNAM
+All-in-One Course
+(TA Session)
+14
+Model
+Dataset
+We don’t have data yet
+Poem Data Crawling
+❖ Solution: Data Scraping
+AI VIETNAM
+All-in-One Course
+(TA Session)
+15
+https://www.webharvy.com/articles/what-is-web-scraping.html
+We can get data from websites
+Poem Data Crawling
+❖ Introduction to Web Scraping
+AI VIETNAM
+All-in-One Course
+(TA Session)
+16
+thivien.net
+Poem Data Crawling
+❖ Introduction to Web Scraping
+AI VIETNAM
+All-in-One Course
+(TA Session)
+17
+We can collect pentagram poems on this website
+Poem Data Crawling
+❖ Introduction to Web Scraping
+AI VIETNAM
+All-in-One Course
+(TA Session)
+18
+Web Scraping: Extracting data from websites
+Poem Data Crawling
+❖ Selenium Package
+AI VIETNAM
+All-in-One Course
+(TA Session)
+19
+Selenium Package: used to automate web browser interaction from Python.
+Poem Data Crawling
+❖ Introduction to Selenium
+AI VIETNAM
+All-in-One Course
+(TA Session)
+20
+https://dev.to/cuongld2/introduction-to-selenium-19j6
+Poem Data Crawling
+❖ Introduction to Selenium: Initialize driver
+AI VIETNAM
+All-in-One Course
+(TA Session)
+21
+Poem Data Crawling
+❖ Introduction to Selenium: HTML 
+AI VIETNAM
+All-in-One Course
+(TA Session)
+22
+https://www.geeksforgeeks.org/html-introduction/
+Poem Data Crawling
+❖ Introduction to Selenium: HTML 
+AI VIETNAM
+All-in-One Course
+(TA Session)
+23
+Poem Data Crawling
+❖ Introduction to Selenium: HTML Tag
+AI VIETNAM
+All-in-One Course
+(TA Session)
+24
+This tag represents Google image
+Poem Data Crawling
+❖ Introduction to Selenium: HTML Tag
+AI VIETNAM
+All-in-One Course
+(TA Session)
+25
+<img> tag contains src attribute, which contains image’s url => How to find ?
+Poem Data Crawling
+❖ Introduction to Selenium: HTML Tag
+AI VIETNAM
+All-in-One Course
+(TA Session)
+26
+https://documentation.provar.com/documentation/page-objects/introduction-to-xpaths/
+Poem Data Crawling
+❖ Introduction to Selenium: HTML Tag
+AI VIETNAM
+All-in-One Course
+(TA Session)
+27
+XPATH of <img> tag: /html/body/div[1]/div[2]/div/img
+Poem Data Crawling
+❖ Introduction to Selenium: Extract Google image url
+AI VIETNAM
+All-in-One Course
+(TA Session)
+28
+Poem Data Crawling
+❖ Step-by-step: Identify target data location
+AI VIETNAM
+All-in-One Course
+(TA Session)
+29
+Poem Data Crawling
+❖  Step-by-step: Identify target data location
+AI VIETNAM
+All-in-One Course
+(TA Session)
+30
+Poem Data Crawling
+❖  Step-by-step: Identify target data location
+AI VIETNAM
+All-in-One Course
+(TA Session)
+31
+1. Đường dẫn đến 
+trang web
+2. Danh sách các 
+bài thơ
+Poem Data Crawling
+❖  Step-by-step: Identify target data location
+AI VIETNAM
+All-in-One Course
+(TA Session)
+32
+Poem Data Crawling
+❖  Coding Step 1: Install selenium on Google Colab
+AI VIETNAM
+All-in-One Course
+(TA Session)
+33
+Poem Data Crawling
+❖  Coding Step 2: Import libraries
+AI VIETNAM
+All-in-One Course
+(TA Session)
+34
+Poem Data Crawling
+❖  Coding Step 3: Create driver
+AI VIETNAM
+All-in-One Course
+(TA Session)
+35
+Poem Data Crawling
+❖  Coding Step 4: Access to a page and get contents 
+AI VIETNAM
+All-in-One Course
+(TA Session)
+36
+Poem Data Crawling
+❖  Coding Step 5: Take Poem Data
+AI VIETNAM
+All-in-One Course
+(TA Session)
+37
+Poem Data Crawling
+❖  Coding Step 5: Take Poem Data
+AI VIETNAM
+All-in-One Course
+(TA Session)
+38
+Poem Data Crawling
+❖  Coding Step 5: Take Poem Data
+AI VIETNAM
+All-in-One Course
+(TA Session)
+39
+Poem Data Crawling
+❖ Crawling results
+AI VIETNAM
+All-in-One Course
+(TA Session)
+40
+Download link
+41
+Poem Generation: From Scratch
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Poem Generation: From Scratch
+❖ Introduction
+AI VIETNAM
+All-in-One Course
+(TA Session)
+42
+Model to be used: Transformer
+Poem Generation: From Scratch
+❖ Introduction
+AI VIETNAM
+All-in-One Course
+(TA Session)
+43
+Transformer Decoder
+<SOS>
+Hello
+this
+is
+from
+AIVN
+Hello
+this
+is
+from
+AIVN
+.
+Task: Next token prediction (causal language modeling)
+Poem Generation: From Scratch
+❖ Introduction
+AI VIETNAM
+All-in-One Course
+(TA Session)
+44
+Causal Language Modeling (Autoregressive)
+Poem Generation: From Scratch
+❖ Introduction
+AI VIETNAM
+All-in-One Course
+(TA Session)
+45
+https://medium.com/@akash.kesrwani99/understanding-next-token-prediction-concept-to-code-1st-part-7054dabda347
+Poem Generation: From Scratch
+❖ Coding Step 1: Import libraries
+AI VIETNAM
+All-in-One Course
+(TA Session)
+46
+Poem Generation: From Scratch
+❖ Coding Step 2: Download and read dataset
+AI VIETNAM
+All-in-One Course
+(TA Session)
+47
+Use what we crawled: Download link
+Poem Generation: From Scratch
+❖ Coding Step 2: Download and read dataset
+AI VIETNAM
+All-in-One Course
+(TA Session)
+48
+Poem Generation: From Scratch
+❖ Coding Step 2: Download and read dataset
+AI VIETNAM
+All-in-One Course
+(TA Session)
+49
+https://www.thivien.net/Th%C3%A1i-B%C3%A1-T%C3%A2n/C%C3%A1i-l%C3%A0m-ta-h%E1%BA%A1nh-ph%C3%BAc/poem-t24-M5Dn2cxmEDVSrQhtCw
+50
+50
+Poem Generation: From Scratch
+❖ Coding Step 3: Build vectorization function
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Input Text
+Normalization
+15
+8
+9
+24
+…
+Tokenization
+Pad and truncate
+Poem Generation: From Scratch
+❖ Coding Step 3: Build vectorization function
+AI VIETNAM
+All-in-One Course
+(TA Session)
+51
+Hạnh phúc trong điều giản,
+Ai kia, lòng khẽ hát.
+Công việc hàng ngày vui,
+Ước mơ dạy tin yêu.
+Đêm thì thầm, trăng dịu,
+Bên nhau bước, tình trào.
+Sao trên cao, lẵng lặng,
+Trong mơ, ta cùng nhảy.
+Uppercase 
+the first 
+character at 
+the beginning 
+of a line.
+Use punctuation for 
+controlling pace/flow, 
+indicating pause, 
+emphasizing on 
+aesthetic or rhythmic 
+qualities
+It appears to be better not to remove punctuation and do lowercasing
+Poem Generation: From Scratch
+❖ Coding Step 3: Build vectorization function
+AI VIETNAM
+All-in-One Course
+(TA Session)
+52
+Hạnh phúc trong điều giản,
+Ai kia, lòng khẽ hát.
+Công việc hàng ngày vui,
+Ước mơ dạy tin yêu.
+Đêm thì thầm, trăng dịu,
+Bên nhau bước, tình trào.
+Sao trên cao, lẵng lặng,
+Trong mơ, ta cùng nhảy.
+Poem Generation: From Scratch
+❖ Coding Step 3: Build vectorization function
+AI VIETNAM
+All-in-One Course
+(TA Session)
+53
+Hạnh phúc trong điều giản,
+Ai kia, lòng khẽ hát.
+Công việc hàng ngày vui,
+Ước mơ dạy tin yêu.
+Đêm thì thầm, trăng dịu,
+Bên nhau bước, tình trào.
+Sao trên cao, lẵng lặng,
+Trong mơ, ta cùng nhảy.
+Poem Generation: From Scratch
+❖ Coding Step 3: Build vectorization function
+AI VIETNAM
+All-in-One Course
+(TA Session)
+54
+Poem Generation: From Scratch
+❖ Coding Step 3: Build vectorization function
+AI VIETNAM
+All-in-One Course
+(TA Session)
+55
+Poem Generation: From Scratch
+❖ Coding Step 3: Build vectorization function
+AI VIETNAM
+All-in-One Course
+(TA Session)
+56
+Poem Generation: From Scratch
+❖ Coding Step 4: Create pytorch dataset
+AI VIETNAM
+All-in-One Course
+(TA Session)
+57
+Transformer Decoder
+<SOS>
+Hello
+this
+is
+from
+AIVN
+Hello
+this
+is
+from
+AIVN
+.
+Input: “<SOS> Hello this is from AIVN”
+Output: “Hello this is from AIVN .”
+Poem Generation: From Scratch
+❖ Coding Step 4: Create pytorch dataset
+AI VIETNAM
+All-in-One Course
+(TA Session)
+58
+Hạnh phúc trong điều giản,
+Ai kia, lòng khẽ hát.
+Công việc hàng ngày vui,
+Ước mơ dạy tin yêu.
+Đêm thì thầm, trăng dịu,
+Bên nhau bước, tình trào.
+Sao trên cao, lẵng lặng,
+Trong mơ, ta cùng nhảy.
+0
+1
+2
+3
+4
+Hạnh
+phúc
+trong
+điều
+giản,
+Sample 1:
+Input: “<SOS>”
+Output: “Hạnh”
+Sample 2:
+Input: “<SOS> Hạnh”
+Output: “Hạnh phúc”
+Sample 3:
+Input: “<SOS> Hạnh phúc”
+Output: “Hạnh phúc trong”
+Iterate through each word:
+Sample 4:
+Input: “<SOS> Hạnh phúc trong”
+Output: “Hạnh phúc trong điều”
+Sample 5:
+Input:  “<SOS> Hạnh phúc trong điều”
+Output: “Hạnh phúc trong điều giản,”
+Sample 6:
+Input: “<SOS> Hạnh phúc trong điều giản,”
+Output: “Hạnh phúc trong điều giản <EOS>”
+Poem Generation: From Scratch
+❖ Coding Step 4: Create pytorch dataset
+AI VIETNAM
+All-in-One Course
+(TA Session)
+59
+Sample 1:
+Input: “<SOS>”
+Output: “Hạnh”
+Sample 2:
+Input: “<SOS> Hạnh”
+Output: “Hạnh phúc”
+Sample 3:
+Input: “<SOS> Hạnh phúc”
+Output: “Hạnh phúc trong”
+Batch
+All samples must be of the 
+same length for batching
+Sample 1:
+Input: “<SOS> <PAD> <PAD> <PAD>”
+Output: “Hạnh <PAD> <PAD> <PAD>”
+Sample 2:
+Input: “<SOS> Hạnh <PAD> <PAD>”
+Output: “Hạnh phúc <PAD> <PAD>”
+Sample 3:
+Input: “<SOS> Hạnh phúc <PAD>”
+Output: “Hạnh phúc trong <PAD>”
+E.g: max_seq_len = 4
+Poem Generation: From Scratch
+❖ Coding Step 4: Create pytorch dataset
+AI VIETNAM
+All-in-One Course
+(TA Session)
+60
+Hạnh phúc trong điều giản,
+Ai kia, lòng khẽ hát.
+Công việc hàng ngày vui,
+Ước mơ dạy tin yêu.
+Đêm thì thầm, trăng dịu,
+Bên nhau bước, tình trào.
+Sao trên cao, lẵng lặng,
+Trong mơ, ta cùng nhảy.
+Our generating objective: Generate 4 lines
+Hạnh phúc trong điều giản,
+Ai kia, lòng khẽ hát.
+Công việc hàng ngày vui,
+Ước mơ dạy tin yêu.
+Đêm thì thầm, trăng dịu,
+Bên nhau bước, tình trào.
+Sao trên cao, lẵng lặng,
+Trong mơ, ta cùng nhảy.
+Poem Generation: From Scratch
+❖ Coding Step 4: Create pytorch dataset
+AI VIETNAM
+All-in-One Course
+(TA Session)
+61
+Our generating objective: Generate 4 lines
+Hạnh phúc trong điều giản,
+Ai kia, lòng khẽ hát.
+Công việc hàng ngày vui,
+Ước mơ dạy tin yêu.
+Đêm thì thầm, trăng dịu,
+Bên nhau bước, tình trào.
+Sao trên cao, lẵng lặng,
+Trong mơ, ta cùng nhảy.
+0
+1
+2
+3
+…
+max_seq
+_len
+Hạnh
+phúc
+trong
+điều
+…
+yêu.
+Poem Generation: From Scratch
+❖ Coding Step 4: Create pytorch dataset
+AI VIETNAM
+All-in-One Course
+(TA Session)
+62
+Our generating objective: Generate 4 lines
+Hạnh phúc trong điều giản,
+Ai kia, lòng khẽ hát.
+Công việc hàng ngày vui,
+Ước mơ dạy tin yêu.
+Đêm thì thầm, trăng dịu,
+Bên nhau bước, tình trào.
+Sao trên cao, lẵng lặng,
+Trong mơ, ta cùng nhảy.
+How to help model learn:
+1. Where to make a new line?
+2. Where is the start of the poem?
+3. Where is the end of the poem?
+Poem Generation: From Scratch
+❖ Coding Step 4: Create pytorch dataset
+AI VIETNAM
+All-in-One Course
+(TA Session)
+63
+Our generating objective: Generate 4 lines
+Hạnh phúc trong điều giản,
+Ai kia, lòng khẽ hát.
+Công việc hàng ngày vui,
+Ước mơ dạy tin yêu.
+Đêm thì thầm, trăng dịu,
+Bên nhau bước, tình trào.
+Sao trên cao, lẵng lặng,
+Trong mơ, ta cùng nhảy.
+MAX_SEQ_LEN = 26
+<SOS> Hạnh phúc trong điều giản, <EOL>
+Ai kia, lòng khẽ hát. <EOL>
+Công việc hàng ngày vui, <EOL>
+Ước mơ dạy tin yêu. <EOL> <EOS>
+❖<SOS>: The beginning of the poem.
+❖<EOS>: The end of the poem.
+❖<EOL>: Linebreak.
+Poem Generation: From Scratch
+❖ Coding Step 4: Create pytorch dataset
+AI VIETNAM
+All-in-One Course
+(TA Session)
+64
+['<sos>', 'Cái', 'làm', 'ta', 'hạnh', 'phúc', '<eol>', 'Thực', '<pad>', '<pad>', 
+'<pad>', '<pad>', '<pad>', '<pad>', '<pad>', '<pad>', '<pad>', '<pad>', '<pad>', 
+'<pad>', '<pad>', '<pad>', '<pad>', '<pad>', '<pad>']
+['Cái', 'làm', 'ta', 'hạnh', 'phúc', '<eol>', 'Thực', 'ra', '<pad>', '<pad>', 
+'<pad>', '<pad>', '<pad>', '<pad>', '<pad>', '<pad>', '<pad>', '<pad>', '<pad>', 
+'<pad>', '<pad>', '<pad>', '<pad>', '<pad>', '<pad>']
+Poem Generation: From Scratch
+❖ Coding Step 4: Create pytorch dataset
+AI VIETNAM
+All-in-One Course
+(TA Session)
+65
+PoemDataset Implementation
+Poem Generation: From Scratch
+❖ Coding Step 4: Create pytorch dataset
+AI VIETNAM
+All-in-One Course
+(TA Session)
+66
+PoemDataset Implementation
+Build functions to 
+extract these
+Poem Generation: From Scratch
+❖ Coding Step 4: Create pytorch dataset
+AI VIETNAM
+All-in-One Course
+(TA Session)
+67
+Hạnh phúc trong điều giản,
+Ai kia, lòng khẽ hát.
+Công việc hàng ngày vui,
+Ước mơ dạy tin yêu.
+Đêm thì thầm, trăng dịu,
+Bên nhau bước, tình trào.
+Sao trên cao, lẵng lặng,
+Trong mơ, ta cùng nhảy.
+Split
+Poem Generation: From Scratch
+❖ Coding Step 4: Create pytorch dataset
+AI VIETNAM
+All-in-One Course
+(TA Session)
+68
+Split into parts
+Create training samples from each part
+Poem Generation: From Scratch
+❖ Coding Step 4: Create pytorch dataset
+AI VIETNAM
+All-in-One Course
+(TA Session)
+69
+<SOS> Hạnh phúc trong điều giản, <EOL>
+Ai kia, lòng khẽ hát. <EOL>
+Công việc hàng ngày vui, <EOL>
+Ước mơ dạy tin yêu. <EOL> <EOS>
+Poem Generation: From Scratch
+❖ Coding Step 4: Create pytorch dataset
+AI VIETNAM
+All-in-One Course
+(TA Session)
+70
+['<sos>', 'Cái', 'làm', 'ta', 'hạnh', 'phúc', '<eol>', 'Thực', '<pad>', '<pad>', 
+'<pad>', '<pad>', '<pad>', '<pad>', '<pad>', '<pad>', '<pad>', '<pad>', '<pad>', 
+'<pad>', '<pad>', '<pad>', '<pad>', '<pad>', '<pad>']
+'<sos>', 'Cái', 'làm', 'ta', 'hạnh', 'phúc', '<eol>', 'Thực', '<pad>',
+'<sos>', 'Cái', 'làm', 'ta', 'hạnh', 'phúc', '<eol>', 'Thực', '<pad>',
+1
+1
+1
+1
+1
+1
+1
+1
+0
+Don’t 
+attend to 
+this token
+Self-attention
+Poem Generation: From Scratch
+❖ Coding Step 4: Create pytorch dataset
+AI VIETNAM
+All-in-One Course
+(TA Session)
+71
+'<sos>', 'Cái', 'làm', 'ta', 'hạnh', 'phúc', '<eol>', 'Thực', '<pad>',
+'<sos>', 'Cái', 'làm', 'ta', 'hạnh', 'phúc', '<eol>', 'Thực', '<pad>',
+1
+1
+1
+1
+1
+1
+1
+1
+0
+Don’t 
+attend to 
+this token
+Self-attention
+Poem Generation: From Scratch
+❖ Coding Step 4: Create pytorch dataset
+AI VIETNAM
+All-in-One Course
+(TA Session)
+72
+Poem Generation: From Scratch
+❖ Coding Step 4: Create pytorch dataset
+AI VIETNAM
+All-in-One Course
+(TA Session)
+73
+Poem Generation: From Scratch
+❖ Coding Step 5: Create model
+AI VIETNAM
+All-in-One Course
+(TA Session)
+74
+Poem Generation: From Scratch
+❖ Coding Step 5: Create model
+AI VIETNAM
+All-in-One Course
+(TA Session)
+75
+Poem Generation: From Scratch
+❖ Coding Step 5: Create model
+AI VIETNAM
+All-in-One Course
+(TA Session)
+76
+Poem Generation: From Scratch
+❖ Coding Step 5: Create model
+AI VIETNAM
+All-in-One Course
+(TA Session)
+77
+https://sshleifer.github.io/blog_v2/jupyter/2020/03/12/bart.html
+Transformer Decoder
+<SOS>
+Hello
+this
+is
+from
+AIVN
+Hello
+this
+is
+from
+AIVN
+.
+0
+1
+2
+3
+4
+5
+Hello
+this
+?
+?
+?
+?
+<SOS>
+Hello
+this
+is
+from
+AIVN
+Restrict current 
+timestep to access to 
+subsequent words
+Poem Generation: From Scratch
+❖ Coding Step 5: Create model
+AI VIETNAM
+All-in-One Course
+(TA Session)
+78
+https://sshleifer.github.io/blog_v2/jupyter/2020/03/12/bart.html
+Poem Generation: From Scratch
+❖ Coding Step 5: Create model
+AI VIETNAM
+All-in-One Course
+(TA Session)
+79
+Poem Generation: From Scratch
+❖ Coding Step 6: Training
+AI VIETNAM
+All-in-One Course
+(TA Session)
+80
+Poem Generation: From Scratch
+❖ Coding Step 7: Inference
+AI VIETNAM
+All-in-One Course
+(TA Session)
+81
+Input_String = “<SOS> Anh”
+Transformer Decoder
+Tokenization
+Output_logits = [[vocab_size], [vocab_size]]
+-1
+Choose predicted 
+token
+Predicted_word = “là”
+Append()
+Poem Generation: From Scratch
+❖ Coding Step 7: Inference
+AI VIETNAM
+All-in-One Course
+(TA Session)
+82
+Input_String = “<SOS> Anh là”
+Transformer Decoder
+Tokenization
+Output_logits = [[vocab_size], [vocab_size], [vocab_size]]
+-1
+Choose predicted 
+token
+Predicted_word = “người”
+Append()
+Poem Generation: From Scratch
+❖ Coding Step 7: Inference
+AI VIETNAM
+All-in-One Course
+(TA Session)
+83
+Input_String = “<SOS> Anh là”
+Transformer Decoder
+Tokenization
+Output_logits = [[vocab_size], [vocab_size], [vocab_size]]
+-1
+Choose predicted 
+token
+Predicted_word = “người”
+Append()
+Let’s choose 
+the higest 
+probability
+Poem Generation: From Scratch
+❖ Coding Step 7: Inference
+AI VIETNAM
+All-in-One Course
+(TA Session)
+84
+Poem Generation: From Scratch
+❖ Coding Step 7: Inference
+AI VIETNAM
+All-in-One Course
+(TA Session)
+85
+Generate replicated words 
+(since we always choose highest probability)
+Poem Generation: From Scratch
+❖ Coding Step 7: Inference (Sampling)
+AI VIETNAM
+All-in-One Course
+(TA Session)
+86
+Input_String = “<SOS> Anh là”
+Transformer Decoder
+Tokenization
+Output_logits = [[vocab_size], [vocab_size], [vocab_size]]
+-1
+Choose predicted 
+token
+Predicted_word = “người”
+Append()
+How to choose 
+word more 
+effectively?
+sampling
+Poem Generation: From Scratch
+❖ Coding Step 7: Inference (Sampling)
+AI VIETNAM
+All-in-One Course
+(TA Session)
+87
+https://huyenchip.com/2024/01/16/sampling.html
+Greedy sampling
+(select highest 
+probability) (argmax)
+Predicted word
+Poem Generation: From Scratch
+❖ Coding Step 7: Inference (Sampling)
+AI VIETNAM
+All-in-One Course
+(TA Session)
+88
+https://huyenchip.com/2024/01/16/sampling.html
+Random sampling -> Selecting 
+word based on their probability
+'green’ has 
+50% chance 
+of being 
+selected
+‘red’ has 30% 
+chance of 
+being 
+selected
+Poem Generation: From Scratch
+❖ Coding Step 7: Inference (Sampling)
+AI VIETNAM
+All-in-One Course
+(TA Session)
+89
+Poem Generation: From Scratch
+❖ Coding Step 7: Inference (Sampling)
+AI VIETNAM
+All-in-One Course
+(TA Session)
+90
+How to make the poem more diverse? => Introduce more randomness?
+Poem Generation: From Scratch
+❖ Coding Step 7: Inference (Sampling)
+AI VIETNAM
+All-in-One Course
+(TA Session)
+91
+Modify the original probability 
+distribution by “temperature”
+https://shivammehta25.github.io/posts/temperature-in-language-models-open-ai-whisper-probabilistic-machine-learning/
+Poem Generation: From Scratch
+❖ Coding Step 7: Inference (Sampling)
+AI VIETNAM
+All-in-One Course
+(TA Session)
+92
+https://shivammehta25.github.io/posts/temperature-in-language-models-open-ai-whisper-probabilistic-machine-learning/
+Selecting words based on 
+probability distribution with 
+temperature.
+=> Temperature Sampling 
+Poem Generation: From Scratch
+❖ Coding Step 7: Inference (Sampling)
+AI VIETNAM
+All-in-One Course
+(TA Session)
+93
+Poem Generation: From Scratch
+❖ Coding Step 7: Inference (Sampling)
+AI VIETNAM
+All-in-One Course
+(TA Session)
+94
+Temperature = 1.2
+Temperature = 0.5
+95
+Poem Generation: GPT2
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Poem Generation: GPT2
+❖ Introduction
+AI VIETNAM
+All-in-One Course
+(TA Session)
+96
+Model to be used: GPT2
+GPT2 (Generative Pre-trained Transformer 2 (GPT-2) is a large language model developed by OpenAI and 
+the second in their foundational series of GPT models. GPT-2 was pre-trained on BookCorpus, a dataset of 
+over 7,000 sel—published fiction books from various gernes and trained on a dataset of 8 million web pages. 
+This was proposed in the paper: Language Models are Unsupervised Multitask Learners.
+Poem Generation: GPT2
+❖ GPT2 Architecture
+AI VIETNAM
+All-in-One Course
+(TA Session)
+97
+https://www.researchgate.net/figure/GPT-2-model-architecture-The-GPT-2-model-contains-N-Transformer-decoder-blocks-as-shown_fig1_373352176
+Poem Generation: GPT2
+❖ GPT2 on HuggingFace
+AI VIETNAM
+All-in-One Course
+(TA Session)
+98
+https://huggingface.co/docs/transformers/en/model_doc/gpt2
+Poem Generation: GPT2
+❖ Pre-trained Vietnamese GPT2 on HuggingFace
+AI VIETNAM
+All-in-One Course
+(TA Session)
+99
+https://huggingface.co/danghuy1999/gpt2-viwiki
+Poem Generation: GPT2
+❖ Coding Step 1: Install and import libraries
+AI VIETNAM
+All-in-One Course
+(TA Session)
+100
+Poem Generation: GPT2
+❖ Coding Step 2: Download and read dataset
+AI VIETNAM
+All-in-One Course
+(TA Session)
+101
+Poem Generation: GPT2
+❖ Coding Step 3: Prepare dataset
+AI VIETNAM
+All-in-One Course
+(TA Session)
+102
+Hạnh phúc trong điều giản,
+Ai kia, lòng khẽ hát.
+Công việc hàng ngày vui,
+Ước mơ dạy tin yêu.
+Đêm thì thầm, trăng dịu,
+Bên nhau bước, tình trào.
+Sao trên cao, lẵng lặng,
+Trong mơ, ta cùng nhảy.
+Our generating objective: Generate 4 lines
+Hạnh phúc trong điều giản,
+Ai kia, lòng khẽ hát.
+Công việc hàng ngày vui,
+Ước mơ dạy tin yêu.
+Đêm thì thầm, trăng dịu,
+Bên nhau bước, tình trào.
+Sao trên cao, lẵng lặng,
+Trong mơ, ta cùng nhảy.
+Poem Generation: GPT2
+❖ Coding Step 3: Prepare dataset
+AI VIETNAM
+All-in-One Course
+(TA Session)
+103
+Poem Generation: GPT2
+❖ Coding Step 3: Prepare dataset
+AI VIETNAM
+All-in-One Course
+(TA Session)
+104
+Hạnh phúc trong điều giản,
+Ai kia, lòng khẽ hát.
+Công việc hàng ngày vui,
+Ước mơ dạy tin yêu.
+Đêm thì thầm, trăng dịu,
+Bên nhau bước, tình trào.
+Sao trên cao, lẵng lặng,
+Trong mơ, ta cùng nhảy.
+New 
+sample
+New 
+sample
+Poem Generation: GPT2
+❖ Coding Step 3: Prepare dataset
+AI VIETNAM
+All-in-One Course
+(TA Session)
+105
+Poem Generation: GPT2
+❖ Coding Step 3: Prepare dataset
+AI VIETNAM
+All-in-One Course
+(TA Session)
+106
+Poem Generation: GPT2
+❖ Coding Step 4: Preprocess dataset
+AI VIETNAM
+All-in-One Course
+(TA Session)
+107
+Pre-trained Vietnamese GPT2: Link
+Poem Generation: GPT2
+❖ Coding Step 4: Preprocess dataset
+AI VIETNAM
+All-in-One Course
+(TA Session)
+108
+Poem Generation: GPT2
+❖ Coding Step 5: Training
+AI VIETNAM
+All-in-One Course
+(TA Session)
+109
+Poem Generation: GPT2
+❖ Coding Step 6: Inference
+AI VIETNAM
+All-in-One Course
+(TA Session)
+110
+Poem Generation: GPT2
+❖ Coding Step 6: Inference
+AI VIETNAM
+All-in-One Course
+(TA Session)
+111
+?
+112
+Question
+AI VIETNAM
+All-in-One Course
+(TA Session)
+113

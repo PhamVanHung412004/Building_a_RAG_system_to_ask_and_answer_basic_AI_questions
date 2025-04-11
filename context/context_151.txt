@@ -1,0 +1,1047 @@
+1
+AI VIETNAM
+All-in-One Course
+1
+AI VIETNAM
+All-in-One Course
+How to read and Summary
+Research Paper
+Year 2023
+Vinh Dinh Nguyen
+PhD in Computer Science
+AI VIETNAM
+All-in-One Course
+2
+AI VIETNAM
+All-in-One Course
+2
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Introduction to Scientific Research Paper
+Ø What is Research Paper Structure
+Ø How to find Research Paper
+Ø How to read Research Paper
+Ø How to summary Research Paper
+Ø Assignment
+Outline
+3
+AI VIETNAM
+All-in-One Course
+3
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Introduction to Scientific Research Paper
+Ø What is Research Paper Structure
+Ø How to find Research Paper
+Ø How to read Research Paper
+Ø How to summary Research Paper
+Ø Assignment
+Outline
+4
+AI VIETNAM
+All-in-One Course
+4
+Vinh Dinh Nguyen- PhD in Computer Science
+Mentor Information
+https://scholar.google.com/citations?user=-gI2hEsAAAAJ
+5
+AI VIETNAM
+All-in-One Course
+5
+Vinh Dinh Nguyen- PhD in Computer Science
+Overview
+1
+3
+4
+5
+2
+Why do we need to write and 
+publish a research paper
+How to select a good research
+direction
+How to perform research
+Publication Process
+ISSN, ISBN, ISI, SCI, SCIE, Scopus
+6
+AI VIETNAM
+All-in-One Course
+6
+Vinh Dinh Nguyen- PhD in Computer Science
+Write a scientific research paper: Why?
+Disseminates the knowledge
+and information to a larger
+audience.
+Enhances fellowship and job
+opportunities
+for
+young
+researchers
+Gives funding and leadership
+opportunity
+for
+senior
+researchers
+Publication of both positive and
+negative results contributes to
+future research.
+apply for higher degrees in
+education, such as MSc or
+PhD
+7
+AI VIETNAM
+All-in-One Course
+7
+Vinh Dinh Nguyen- PhD in Computer Science
+History of Scientific Writing
+1
+3
+5
+6
+4
+2
+3500 BCE
+The earliest scientific documentation and 
+communication 
+In the Middle Age
+systematic collection and documentation of 
+scientific data (the invention of paper ) 
+Fifteen century
+The invention of printing press
+Help to spread out new 
+scientific findings
+Seventeenth century
+The first scientific journal  in French
+Eighteenth century
+Lage number of journals
+Specialty-specific journals
+Nineteenth century
+Peer review process
+Citation was added. 
+7
+The twentieth century
+Introduction, methods, results, 
+discussion and conclusions
+8
+AI VIETNAM
+All-in-One Course
+8
+Vinh Dinh Nguyen- PhD in Computer Science
+Need for Scientific Research Paper
+To Develop a Scientific Writing Skill 
+To Connect with Senior Colleagues 
+To Enhance Academic Career 
+Improves Job Opportunity 
+Benefits for Senior Researchers 
+Guides Future Research 
+Provide Reliable Scientific Information 
+9
+AI VIETNAM
+All-in-One Course
+9
+Vinh Dinh Nguyen- PhD in Computer Science
+Research Direction
+10
+AI VIETNAM
+All-in-One Course
+10
+Vinh Dinh Nguyen- PhD in Computer Science
+Research Direction
+11
+AI VIETNAM
+All-in-One Course
+11
+Vinh Dinh Nguyen- PhD in Computer Science
+Research Direction
+What is your program 
+of study?
+What problem needs 
+addressing?
+What interests you?
+Where is there a gap in 
+the literature
+12
+AI VIETNAM
+All-in-One Course
+12
+Vinh Dinh Nguyen- PhD in Computer Science
+Paper Publishing Process
+13
+AI VIETNAM
+All-in-One Course
+13
+Vinh Dinh Nguyen- PhD in Computer Science
+Paper Publishing Process
+14
+AI VIETNAM
+All-in-One Course
+14
+Vinh Dinh Nguyen- PhD in Computer Science
+Research Paper Writing
+15
+AI VIETNAM
+All-in-One Course
+15
+Vinh Dinh Nguyen- PhD in Computer Science
+International Journal Types
+Tạp chí Quốc tế thuộc danh mục SCI, SCIE, SSCI, A&HCI, ISI
+Institute for Scientific Information (ISI)
+Science Citation Index (SCI)
+Science Citation Index Expanded (SCIE)
+Social Science Citation Index (SSCI)
+Arts & Humanities Citation Index (A&HCI)
+ISI = SCIE + SSCI + A&HCI
+International Standard Serial Number (ISSN)
+International Standard Book Number (ISBN)
+16
+AI VIETNAM
+All-in-One Course
+16
+Vinh Dinh Nguyen- PhD in Computer Science
+International Journal Types
+Tạp chí Quốc tế thuộc danh mục SCI, SCIE, SSCI, A&HCI, ISI
+Institute for Scientific Information
+Science Citation Index
+Science Citation Index Expanded
+Social Science Citation Index
+Arts & Humanities Citation Index
+ISI = SCIE + SSCI + A&HCI
+17
+AI VIETNAM
+All-in-One Course
+17
+Vinh Dinh Nguyen- PhD in Computer Science
+Conference/Journal: Terminology
+18
+AI VIETNAM
+All-in-One Course
+18
+Vinh Dinh Nguyen- PhD in Computer Science
+Conference/Journal: Terminology
+Impact Factor: How Many People Read My Article?
+Journal Impact Factor is the average number of times articles from a journal published in the past two
+years have been cited in the JCR year.
+Journal
+Citation
+Reports
+(JCR) is an annual
+publication by Clarivate.
+This means that, on average, its papers
+published
+in
+2015
+and
+2016
+received
+roughly 42 citations each in 2017. 2017
+impact factors are reported in 2018; they
+cannot be calculated until all of the 2017
+publications have been processed by the
+indexing agency.
+19
+AI VIETNAM
+All-in-One Course
+19
+Vinh Dinh Nguyen- PhD in Computer Science
+Conference/Journal: Terminology
+Eigen Factor: How Many People Read this Journal?
+Based on the number of times articles from the journal published in the past five years have been cited in the JCR year, but it also
+considers which journals have contributed these citations so that highly cited journals will influence the network more than lesser
+cited journals.
+Measured by counting the total number of citations a journal receives over a five-year period. Measures the total number of
+citations. Measure of how many people read a journal and think its contents are important.
+Example: 
+Let's consider two scientific journals: Journal A and Journal B.
+•Journal A publishes high-quality research papers and is frequently cited by other prestigious journals.
+•Journal B also publishes quality papers but is cited by a larger number of journals, including some with lower impact.
+In this scenario, the Eigenfactor Score would likely be higher for Journal A. Even if Journal B has more total citations, the 
+Eigenfactor takes into account the quality and importance of the journals that cite the articles. Therefore, a citation from a 
+highly influential journal would contribute more to the Eigenfactor than a citation from a less influential one.
+20
+AI VIETNAM
+All-in-One Course
+20
+Vinh Dinh Nguyen- PhD in Computer Science
+Conference/Journal: Terminology
+Article Influence Score:
+Has all the features of the Eigenfactor Score, with an additional normalization to the number of published
+papers. Hence it can be considered the average influence of a journal's articles over the first five years
+after publication.
+X = 5-year Journal Article Count divided by the 5-year Article Count from All Journals.
+The mean Article Influence Score for each article is 1.00. A score greater than 1.00 indicates that each article in the journal has 
+above-average influence. A score less than 1.00 indicates that each article in the journal has below-average influence.
+21
+AI VIETNAM
+All-in-One Course
+21
+Vinh Dinh Nguyen- PhD in Computer Science
+Conference/Journal: Terminology
+Cites Score:
+CiteScore is another metric for measuring journal impact in Scopus. The calculation of CiteScore for the
+current year is based on the number of citations received by a journal in the latest 4 years (including the
+calculation year),
+22
+AI VIETNAM
+All-in-One Course
+22
+Vinh Dinh Nguyen- PhD in Computer Science
+Conference/Journal: Terminology
+https://libguides.lb.polyu.edu.hk/journalimpact/citescore
+23
+AI VIETNAM
+All-in-One Course
+23
+Vinh Dinh Nguyen- PhD in Computer Science
+Conference/Journal: Terminology
+Phân biệt tên gọi SCI, SCIE cho các ấn phẩn khoa học
+ØISI (Institute for Scientific Information, ISI, Hoa 
+Kỳ): cơ quan xét chọn chất lượng tạp chí.
+ØSCI (Science Citation Index) các tạp chí thuộc 
+lĩnh vực khoa học tự nhiên, kỹ thuật, công 
+nghệ(khoảng 4000 tạp chí)
+ØSCIE (Science Citation Index Expanded) là SCI 
+mở rộng, khoảng 7000 tạp chí.
+ØSSCI (Social Science Citation Index) khoảng 
+2000 tạp chí
+ØA&HCI (Arts & Humanities Citation Index) với 
+khoảng 1.200 tạp chí xuất bản
+24
+AI VIETNAM
+All-in-One Course
+24
+Vinh Dinh Nguyen- PhD in Computer Science
+Conference/Journal: Terminology
+25
+AI VIETNAM
+All-in-One Course
+25
+Vinh Dinh Nguyen- PhD in Computer Science
+Conference/Journal: Terminology
+H-index:
+The h-index is a metric that quantifies both the productivity and impact of a researcher's scholarly output.
+h-index from a plot of numbers of citations for an author's numbered papers 
+(arranged in decreasing order) https://en.wikipedia.org/wiki/H-index
+26
+AI VIETNAM
+All-in-One Course
+26
+Vinh Dinh Nguyen- PhD in Computer Science
+Conference/Journal: Terminology
+H-index:
+The h-index is a metric that quantifies both the productivity and impact of a researcher's scholarly output.
+Sort the spreadsheet in descending order by the number of
+times each
+publication is cited. Then start counting down until the article number is equal to
+or not greater than the times cited.
+The h-index is defined as the maximum value of h such that the given
+author/journal has published at least h papers that have each been cited
+at least h times
+27
+AI VIETNAM
+All-in-One Course
+27
+Vinh Dinh Nguyen- PhD in Computer Science
+Conference/Journal: Terminology
+H10-index:
+an h index of 10 means that among all publications by one author, 10 of these publications have received at least 10 citations
+each.
+28
+AI VIETNAM
+All-in-One Course
+28
+Vinh Dinh Nguyen- PhD in Computer Science
+How to select a good conf./journal
+29
+AI VIETNAM
+All-in-One Course
+29
+Vinh Dinh Nguyen- PhD in Computer Science
+How to select a good conf./journal
+30
+AI VIETNAM
+All-in-One Course
+30
+Vinh Dinh Nguyen- PhD in Computer Science
+31
+AI VIETNAM
+All-in-One Course
+31
+Vinh Dinh Nguyen- PhD in Computer Science
+Plagiarism
+32
+AI VIETNAM
+All-in-One Course
+32
+Vinh Dinh Nguyen- PhD in Computer Science
+Plagiarism
+33
+AI VIETNAM
+All-in-One Course
+33
+Vinh Dinh Nguyen- PhD in Computer Science
+Plagiarism
+34
+AI VIETNAM
+All-in-One Course
+34
+Vinh Dinh Nguyen- PhD in Computer Science
+Plagiarism
+35
+AI VIETNAM
+All-in-One Course
+35
+Vinh Dinh Nguyen- PhD in Computer Science
+Plagiarism
+36
+AI VIETNAM
+All-in-One Course
+36
+Vinh Dinh Nguyen- PhD in Computer Science
+How to avoid Plagiarism
+37
+AI VIETNAM
+All-in-One Course
+37
+Vinh Dinh Nguyen- PhD in Computer Science
+38
+AI VIETNAM
+All-in-One Course
+38
+Vinh Dinh Nguyen- PhD in Computer Science
+39
+AI VIETNAM
+All-in-One Course
+39
+Vinh Dinh Nguyen- PhD in Computer Science
+https://journalsuggester.springer.com/
+How to find a suitable journal
+40
+AI VIETNAM
+All-in-One Course
+40
+Vinh Dinh Nguyen- PhD in Computer Science
+How to find suitable journal
+https://research.com/
+41
+AI VIETNAM
+All-in-One Course
+41
+Vinh Dinh Nguyen- PhD in Computer Science
+POTENTIAL PREDATORY JOURNALS AND 
+PUBLISHERS
+https://beallslist.net/
+42
+AI VIETNAM
+All-in-One Course
+42
+Vinh Dinh Nguyen- PhD in Computer Science
+Open Access Vs Subscription-Based Journals
+43
+AI VIETNAM
+All-in-One Course
+43
+Vinh Dinh Nguyen- PhD in Computer Science
+Open Access Vs Subscription-Based Journals
+44
+AI VIETNAM
+All-in-One Course
+44
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Introduction to Scientific Research Paper
+Ø What is Research Paper Structure
+Ø How to find Research Paper
+Ø How to read Research Paper
+Ø How to summary Research Paper
+Ø Assignment
+Outline
+45
+AI VIETNAM
+All-in-One Course
+45
+Vinh Dinh Nguyen- PhD in Computer Science
+Research Paper Structure
+46
+AI VIETNAM
+All-in-One Course
+46
+Vinh Dinh Nguyen- PhD in Computer Science
+47
+AI VIETNAM
+All-in-One Course
+47
+Vinh Dinh Nguyen- PhD in Computer Science
+Research Paper Structure
+48
+AI VIETNAM
+All-in-One Course
+48
+Vinh Dinh Nguyen- PhD in Computer Science
+Research Paper Structure
+49
+AI VIETNAM
+All-in-One Course
+49
+Vinh Dinh Nguyen- PhD in Computer Science
+Authors order in a Research Paper
+50
+AI VIETNAM
+All-in-One Course
+50
+Vinh Dinh Nguyen- PhD in Computer Science
+Authors order in a Research Paper
+51
+AI VIETNAM
+All-in-One Course
+51
+Vinh Dinh Nguyen- PhD in Computer Science
+Authors order in a Research Paper
+Author weightage in multi-authored research paper
+52
+AI VIETNAM
+All-in-One Course
+52
+Vinh Dinh Nguyen- PhD in Computer Science
+Authors order in a Research Paper
+The first author should be that person who contributed most to the work, including writing of the manuscript.
+The sequence of authors should be determined by the relative overall contributions to the manuscript.
+It is common practice to have the senior author appear last, sometimes regardless of his or her contribution. The senior author, like all other
+authors, should meet all criteria for authorship
+53
+AI VIETNAM
+All-in-One Course
+53
+Vinh Dinh Nguyen- PhD in Computer Science
+Authors order in a Research Paper
+Author weightage in multi-authored research paper
+54
+AI VIETNAM
+All-in-One Course
+54
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Introduction to Scientific Research Paper
+Ø What is Research Paper Structure
+Ø How to find Research Paper
+Ø How to read Research Paper
+Ø How to summary Research Paper
+Ø Assignment
+Outline
+55
+AI VIETNAM
+All-in-One Course
+55
+Vinh Dinh Nguyen- PhD in Computer Science
+How to find a research paper
+56
+AI VIETNAM
+All-in-One Course
+56
+Vinh Dinh Nguyen- PhD in Computer Science
+How to find a research paper
+57
+AI VIETNAM
+All-in-One Course
+57
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Introduction to Scientific Research Paper
+Ø What is Research Paper Structure
+Ø How to find Research Paper
+Ø How to read Research Paper
+Ø How to summary Research Paper
+Ø Assignment
+Outline
+58
+AI VIETNAM
+All-in-One Course
+58
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Read a Research Paper
+Step 1: 
+Read Paper Title and answer 
+the following questions?
+1.
+What is the research topic?
+2.
+Is it closed to your research interest?
+3.
+Is it a new research approach?
+4.
+General idea of what the research is
+about
+5.
+Does the title use keywords that are 
+relevant to the topic? 
+6.
+Does the title catch your attention or 
+pique your interest in the research? 
+Decision
+59
+AI VIETNAM
+All-in-One Course
+59
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Read a Research Paper
+Step 2: 
+Look at the authors of the 
+paper 
+and 
+answer 
+the 
+following questions? 
+1.
+Who are the authors of the paper? 
+2.
+Are their main research topics?
+3.
+Do they have any related publications?
+4.
+Is there a corresponding author indicated, 
+and what are their contact details?
+Decision
+60
+AI VIETNAM
+All-in-One Course
+60
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Read a Research Paper
+Step 2: 
+Look at the authors of the 
+paper 
+and 
+answer 
+the 
+following questions? 
+1.
+Who are the authors of the paper? 
+2.
+Are their main research topics?
+3.
+Do they have any related publications?
+4.
+Is there a corresponding author indicated, 
+and what are their contact details?
+61
+AI VIETNAM
+All-in-One Course
+61
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Read a Research Paper
+Step 2: 
+Look at the authors of the 
+paper 
+and 
+answer 
+the 
+following questions? 
+1.
+Who are the authors of the paper? 
+2.
+Are their main research topics?
+3.
+Do they have any related publications?
+4.
+Is there a corresponding author indicated, 
+and what are their contact details?
+Decision
+62
+AI VIETNAM
+All-in-One Course
+62
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Read a Research Paper
+Step 3: 
+Read the abstract of the 
+paper 
+and 
+answer 
+the 
+following questions? 
+1.
+What methods or approaches were used in the
+research?
+2.
+What are the most important findings or results of
+the study?
+3.
+Which techniques that you known/or unknown?
+4.
+What conclusions or implications are drawn from
+the findings?
+5.
+What is the overall purpose or goal of the
+research?
+Decision
+63
+AI VIETNAM
+All-in-One Course
+63
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Read a Research Paper
+Step 4: 
+Read the conclusion of the 
+paper 
+and 
+answer 
+the 
+following questions? 
+1.
+What are the main findings and results presented in 
+the conclusion? 
+2.
+How do the findings answer the research question or 
+address the research objectives?
+3.
+Are there any unexpected or surprising results 
+discussed in the conclusion?
+4.
+Do the conclusions align with the research hypothesis 
+or initial goals? 
+5.
+Are there any limitations or weaknesses of the study 
+mentioned in the conclusion?
+6.
+What are the practical implications of the findings?
+7.
+Are there any recommendations or suggestions for 
+future research provided?
+Decision
+64
+AI VIETNAM
+All-in-One Course
+64
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Read a Research Paper
+Step 4: 
+Read the conclusion of the 
+paper 
+and 
+answer 
+the 
+following questions? 
+Conclusion
+1.
+What are the main findings and results presented in 
+the conclusion? 
+2.
+How do the findings answer the research question or 
+address the research objectives?
+3.
+Are there any unexpected or surprising results 
+discussed in the conclusion?
+4.
+Do the conclusions align with the research hypothesis 
+or initial goals? 
+5.
+Are there any limitations or weaknesses of the study 
+mentioned in the conclusion?
+6.
+What are the practical implications of the findings?
+7.
+Are there any recommendations or suggestions for 
+future research provided?
+Decision
+65
+AI VIETNAM
+All-in-One Course
+65
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Read a Research Paper
+Step 5: 
+Read the introduction of the paper 
+and answer the following questions? 
+1.
+What is the overall purpose or goal of the research?
+2.
+What is the background or context of the research? 
+3.
+What are previous related research that has been done?
+4.
+What are the citation of each previous work (extremely 
+important for you)
+5.
+Is there a review of related work or literature in the 
+introduction?
+6.
+Are there any notable trends or debates in the field 
+mentioned?
+7.
+What is the theoretical framework or approach used in the 
+research?
+8.
+What is the scope and focus of the research?
+9.
+Does the introduction engage your interest and make you 
+want to continue reading the paper?
+Decision
+66
+AI VIETNAM
+All-in-One Course
+66
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Read a Research Paper
+Step 6: 
+Read the Experimental Results section of the 
+paper and answer the following questions? 
+1.
+What are the key findings or results presented in the 
+experimental results section?
+2.
+Do the results address the research question or hypothesis 
+posed in the introduction?
+3.
+Are there any unexpected or surprising results discussed in 
+the section?
+4.
+Are there any statistical analyses or tests mentioned, and if 
+so, what were the results?
+5.
+Do the results support or contradict the prior literature 
+discussed in the introduction?
+6.
+Are there any figures, tables, or visuals, and do they enhance 
+your understanding of the results?
+7.
+Which existing methods they mentioned for comparison?
+8.
+Which datasets they used for evaluation?
+9.
+Which conditions they conducted for testing?
+Decision
+67
+AI VIETNAM
+All-in-One Course
+67
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Read a Research Paper
+Step 6: 
+Read the Experimental Results section of the 
+paper and answer the following questions? 
+1.
+What are the key findings or results presented in the 
+experimental results section?
+2.
+Do the results address the research question or hypothesis 
+posed in the introduction?
+3.
+Are there any unexpected or surprising results discussed in 
+the section?
+4.
+Are there any statistical analyses or tests mentioned, and if 
+so, what were the results?
+5.
+Do the results support or contradict the prior literature 
+discussed in the introduction?
+6.
+Are there any figures, tables, or visuals, and do they enhance 
+your understanding of the results?
+7.
+Which existing methods they mentioned for comparision?
+8.
+Which datasets they used for evaluation?
+9.
+Which conditions they coducted for testing?
+Decision
+68
+AI VIETNAM
+All-in-One Course
+68
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Read a Research Paper
+Step 6: 
+Read the Experimental Results section of the 
+paper and answer the following question? 
+1.
+What are the key findings or results presented in the 
+experimental results section?
+2.
+Do the results address the research question or 
+hypothesis posed in the introduction?
+3.
+Are there any unexpected or surprising results discussed 
+in the section?
+4.
+Are there any statistical analyses or tests mentioned, and 
+if so, what were the results?
+5.
+Do the results support or contradict the prior literature 
+discussed in the introduction?
+6.
+Are there any figures, tables, or visuals, and do they 
+enhance your understanding of the results?
+7.
+Which existing methods they mentioned for comparision?
+8.
+Which datasets they used for evaluation?
+9.
+Which conditions they coducted for testing?
+Decision
+69
+AI VIETNAM
+All-in-One Course
+69
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Read a Research Paper
+Step 7: 
+Read the Proposed Method section 
+of the paper and answer the 
+following questions? 
+1.
+What is the research problem or objective?
+2.
+What is the overall approach or framework used in the 
+method? 
+3.
+What data preprocessing or cleaning steps are involved?
+4.
+What specific techniques or algorithms are applied?
+5.
+Are there any assumptions made in the method?
+6.
+How are the parameters and hyperparameters chosen or 
+tuned? 
+7.
+How does the proposed method compare to existing 
+methods? 
+8.
+How reproducible is the method? 
+Decision
+70
+AI VIETNAM
+All-in-One Course
+70
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Read a Research Paper
+Step 7: 
+Read the Proposed Method section 
+of the paper and answer the 
+following questions? 
+1.
+What is the research problem or objective?
+2.
+What is the overall approach or framework used in the 
+method? 
+3.
+What data preprocessing or cleaning steps are involved?
+4.
+What specific techniques or algorithms are applied?
+5.
+Are there any assumptions made in the method?
+6.
+How are the parameters and hyperparameters chosen or 
+tuned? 
+7.
+How does the proposed method compare to existing 
+methods? 
+8.
+How reproducible is the method? 
+Decision
+71
+AI VIETNAM
+All-in-One Course
+71
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Read a Research Paper
+Step 7: 
+Read the Proposed Method section 
+of the paper and answer the 
+following questions? 
+1.
+What is the research problem or objective?
+2.
+What is the overall approach or framework used in the 
+method? 
+3.
+What data preprocessing or cleaning steps are involved?
+4.
+What specific techniques or algorithms are applied?
+5.
+Are there any assumptions made in the method?
+6.
+How are the parameters and hyperparameters chosen or 
+tuned? 
+7.
+How does the proposed method compare to existing 
+methods? 
+8.
+How reproducible is the method? 
+Decision
+72
+AI VIETNAM
+All-in-One Course
+72
+Vinh Dinh Nguyen- PhD in Computer Science
+How to Read a Research Paper
+Step 8: 
+Read the Related Work section of the 
+paper and answer the following question? 
+1.
+What is the purpose of the "Related Work" section?
+2.
+What are the key research topics or areas covered in the 
+related work? 
+3.
+What are the most recent and relevant studies in the field?
+4.
+How does the paper's research question or problem 
+statement relate to the prior literature?
+5.
+Are there any gaps or limitations in the existing research that 
+the paper aims to address?
+6.
+What are the main findings or insights from the related work?
+7.
+How does the current research build upon or extend the 
+existing literature?  
+Decision
+73
+AI VIETNAM
+All-in-One Course
+73
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Introduction to Scientific Research Paper
+Ø What is Research Paper Structure
+Ø How to find Research Paper
+Ø How to read Research Paper
+Ø How to summary Research Paper
+Ø Assignment
+Outline
+74
+AI VIETNAM
+All-in-One Course
+74
+Vinh Dinh Nguyen- PhD in Computer Science
+Summary Research Paper
+1. Begin your summary with a brief introduction that includes the paper's title, authors,
+and publication information.
+2.In a few sentences, introduce the research question or problem the paper addresses
+3.Provide a concise overview of the methodology or approach used in the study, including
+the data sources, data collection and analysis methods, and any statistical techniques
+4.Highlight the primary findings or results of the research. Use clear and straightforward
+language to communicate these findings. If the paper includes figures, tables, or graphs,
+refer to them as needed.
+5.Conclude your summary with a closing statement that provides an overall assessment of
+the paper, such as its significance, relevance, or potential for future research
+75
+AI VIETNAM
+All-in-One Course
+75
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Introduction to Scientific Research Paper
+Ø What is Research Paper Structure
+Ø How to find Research Paper
+Ø How to read Research Paper
+Ø How to summary Research Paper
+Ø Assignment
+Outline
+76
+AI VIETNAM
+All-in-One Course
+76
+Vinh Dinh Nguyen- PhD in Computer Science
+Assignment 1
+• Requirement:
+oFind 1 scientific research paper based on research interest
+oRead and answer the questions for each sub-section in the paper as in the slides
+oWrite an short summary in ½ A4 page
+• Submit to: aivnresearch@gmail.com
+• Deadline: 12:00 18/11/2023
+• Receiving Feedback: 1 week from TA Research Team of AIVN
+77
+AI VIETNAM
+All-in-One Course

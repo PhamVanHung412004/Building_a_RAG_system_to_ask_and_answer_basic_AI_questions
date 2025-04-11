@@ -1,5 +1,0 @@
-AI VIETNAM aivietnam.edu.vn
-Thought decomposition: khi các mẫu COT có thể tạo ra suy nghĩ mà không cần phân rã
-rõ ràng, TOT tận dụng đặc tính của vấn đề để thiết kế và phân rã các bước suy nghĩ trung gian.
-Tùy thuộc vào từng vấn đề cụ thể, một suy nghĩ có thể là một vài từ, một dòng của phương trình,
-hoặc một đoạn văn mô tả. 

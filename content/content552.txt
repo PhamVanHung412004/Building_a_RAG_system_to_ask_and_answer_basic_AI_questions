@@ -1,2 +1,0 @@
-Hàm này sẽ trả về số ký tự có
-trong chuỗi đó. ví dụ:

@@ -1,4 +1,0 @@
-AIO2024 aivietnam.edu.vn
-5. Xóa phần tử khỏi danh sách
-Ví dụ 5: Xóa phần tử khỏi danh sách dùng hàm pop() và remove().
-Ví dụ 6: Xóa phần tử khỏi danh sách dùng hàm clear() và và từ khóa del.

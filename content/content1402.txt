@@ -1,4 +1,0 @@
-AI VIETNAM aivietnam.edu.vn
-99 # sampling from p( gammas )
-100 b, *_ = y_0 . shape
-101 t = torch . 

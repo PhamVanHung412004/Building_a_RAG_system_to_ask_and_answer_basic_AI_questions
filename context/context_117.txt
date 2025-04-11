@@ -1,0 +1,486 @@
+NLP Course
+Quantization – QLoRA
+NeurIPS LLM Efficiency Challenge
+Year 2023
+Nguyen Quoc Thai
+AI VIETNAM
+All-in-One Course
+CONTENT
+1
+Quantization
+2
+QLoRA
+3
+NeurIPS LLM Efficiency Challenge
+2
+3
+1 – Quantization
+!
+Floating Point Number
+Ø A floating point number is a positive or negative whole number with a decimal point
+4
+1 – Quantization
+!
+Tensor
+Ø Tensor: multidimensional array
+5
+1 – Quantization
+!
+Tensor Properties
+Ø Shape
+Ø Device: CPU (-1), GPU (Cuda:0,…)
+Ø Data Type
+6
+1 – Quantization
+!
+FP32: Single Precision Floating Point 
+Ø 1 bit sign
+Ø 8 bits exponent
+Ø 23 bits fraction (precision)
+0
+0
+1
+1
+1
+1
+1
+0
+0
+0
+1
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
++0.15625 = +1 ×2!"×1.25
+Base: 2 or 10
+Ø FP32: default => Weights, activations 
+and other values in Neural Networks
+7
+1 – Quantization
+!
+FP32: Single Precision Floating Point 
+Ø Backward Propagation
+0
+0
+1
+1
+1
+1
+1
+0
+0
+0
+1
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
++0.15625 = +1 ×2!"×1.25
+Base: 2 or 10
+Ø FP32: default => Weights, activations 
+and other values in Neural Networks
+Use a data type with 
+fewer bits to represent 
+floating point
+8
+1 – Quantization
+!
+FP16: Half Precision Floating Point 
+Ø 1 bit sign
+Ø 5 bits exponent
+Ø 10 bits fraction (precision)
+9
+1 – Quantization
+!
+BFLOAT16: Brain Floating Point 
+Ø 1 bit sign
+Ø 8 bits exponent
+Ø 7 bits fraction (precision)
+10
+1 – Quantization
+!
+Quantization
+Ø Quantization: mapping input values from a large set (often a continuous set) to 
+outputs values in a (countable) smaller set.
+Ø Ex: Rounding and truncation
+11
+1 – Quantization
+!
+Quantization
+Ø Quantize from source dtype FP32 to target dtype INT8
+Ø INT8: [-127, 127]
+X#$%& = round
+127
+𝑎𝑏𝑠𝑚𝑎𝑥X'(") X'(")
+= round c'(")X'(")
+c: constant
+0.1
+0.2
+0.4
+FP32
+C = 127
+0.4 = 317.5
+32
+64
+127
+INT8
+12
+1 – Quantization
+!
+Quantization
+Ø Dequantize from target dtype INT8 to source dtype FP32
+Ø INT8: [-127, 127]
+dequant c'(")X'(") = X#$%&
+c'(") = X'(")
+32
+64
+127
+INT8
+C = 127
+0.4 = 317.5
+0.1
+0.2
+0.4
+INT8
+13
+1 – Quantization
+!
+Smaller and Faster
+14
+1 – Quantization
+!
+Mixed Precision Training
+Ø Mixed Precision Training: Not a Gloating point data type but a method
+Ø Use a combination of FP16 and FP32 to reduce the memory and math bandwidth
+15
+2 – QLoRA
+!
+LoRA: Low-Rank Adaptation
+Ø Freezes the pretrained model weights and injects trainable rank decomposition 
+matrices into each layer of the Transformer architecture
+Pretrained 
+Weight
+𝑊∈𝑅*×*
+x
+d
+h
++
+𝐴= 𝒩(0, 𝜎!)
+𝐵= 0
+r
+After Training
+Merge 
+Weight
+∆𝑊𝑚𝑒𝑟𝑔𝑒∈𝑅!×!
+𝑊𝑚𝑒𝑟𝑔𝑒= 𝑊+ 𝐵𝐴
+16
+2 – QLoRA
+!
+LoRA: Low-Rank Adaptation
+Ø LoRA can even outperform full finetuning training only 2% of the parameters
+17
+2 – QLoRA
+!
+Challenges of Quantization Method
+Ø Information Loss
+Ø Example: quantize from INT3 to INT2
+1
+2
+3
+4
+5
+6
+7
+8
+1
+2
+3
+4
+Speed 
+Performance
+18
+2 – QLoRA
+!
+Challenges of Quantization Method
+Ø Linear Quantization (Ignore the distribution on the source data type)
+Ø Example: 
+X#$%& = round
+5)6
+789:7; <!"#$ X'(") = round c'(")X'(")
+-2
+-1
+0
+1
+2
+Distribution of values in a tensor
+35 %
+40 %
+10 %
+15 %
+19
+2 – QLoRA
+!
+Challenges of Quantization Method
+Ø Quantile Quantization
+Ø Quantiles: cut points dividing the range of a probability distribution into continuous 
+intervals with equal probabilities
+-2
+-1
+0
+1
+2
+Distribution of values in a tensor
+25 %
+25 %
+25 %
+25 %
+20
+2 – QLoRA
+!
+Challenges of Quantization Method
+Ø Outliner in Quantization: appear few times but is far away from other values
+Ø Outliner often very important (Attention score)
+0.5
+1.0
+1.5
+2.0
+2.5
+Outliner
+The same quantized-value
+21
+2 – QLoRA
+!
+Challenges of Quantization Method
+Ø Block-wise Quantization: split a tensor into many chunks, quantize individual chunks
+Ø Block size: number of elements in a chunk
+22
+2 – QLoRA
+!
+QLoRA: Efficient Finetuning of Quantized LLMs
+QLoRA: save memory without sacrificing performance
+Ø 4-bit NormalFloat (NF4) via Block-wise Quantization
+Ø Double Quantization
+Ø Paged Optimizers
+Ø Combined with LoRA
+23
+2 – QLoRA
+!
+4-bit NormalFloat (NF4)
+Ø Step 1: Find quantiles in each chunks
+D
+D/3
+D/3
+D/3
+=> The main limitation of quantile quantization: process of quantile estimation very expensive
+24
+2 – QLoRA
+!
+4-bit NormalFloat (NF4)
+Ø Step 1: Find quantiles in each chunks
+Ø Use fixed distribution: zero-mean normal distribution with standard deviation σ
+D
+D/3
+D/3
+D/3
+25
+2 – QLoRA
+!
+4-bit NormalFloat (NF4)
+Ø Step 1: estimate the 2k + 1 quantiles of a theoretical N(0, 1) distribution to obtain a 
+k-bit quantile quantization data type for normal distributions as follows:
+QX: the quantile function of the standard normal distribution N(0,1) 
+26
+2 – QLoRA
+!
+4-bit NormalFloat (NF4)
+Ø Step 1: Estimate the 2k + 1 quantiles of a theoretical N(0, 1) distribution to obtain a k-
+bit quantile quantization data type for normal distributions
+Ø Step 2: Take this data type and normalize its values into the [−1, 1] range
+Ø Step 3: Quantize an input weight tensor by normalizing it into the [−1, 1] range 
+through absolute maximum rescaling
+27
+2 – QLoRA
+!
+4-bit NormalFloat (NF4)
+Ø Problem: Quantiles not have an exact representation of zero (Symmetric)
+Ø Important property to quantize padding and other zero-valued elements with no error
+28
+2 – QLoRA
+!
+4-bit NormalFloat (NF4)
+Solution: create an asymmetric data type by estimating quantiles qi of two range:
+Ø 2k−1 for the negative part
+Ø 2k−1 + 1 for the positive part
+Ø Then unify these sets of qi and remove one of the two zeros that occurs in both sets
+=> K-bit NormalFloat (NFk) data type
+29
+2 – QLoRA
+!
+4-bit NormalFloat (NF4)
+Ø Use 4 bits to representation
+Ø Normalize into [-1, 1] range
+Ø An asymmetric data type: an exact representation of zero
+Ø Quantiles based on zero-mean normal distribution with standard deviation σ
+30
+2 – QLoRA
+!
+Double Quantization
+FP32
+FP8
+Constant 1
+Chunk 1
+FP32
+FP8
+Constant 2
+Chunk 2
+FP32
+FP8
+Constant N
+Chunk N
+Save N quantization 
+constant
+31
+2 – QLoRA
+!
+Double Quantization
+Ø The process of quantizing the quantization constants for additional memory savings
+FP32
+FP8
+Constant 
+Chunk
+c)
+'(&
+c)
+'(")
+dequant c'(")X'(") = X'(&
+c'(") = X'(")
+c5
+'(")
+32
+2 – QLoRA
+!
+Double Quantization
+Ø The process of quantizing the quantization constants for additional memory savings
+FP32
+FP8
+Constant 
+Chunk
+c)
+'(&
+c)
+'(")
+dequant c'(")X'(") = X'(&
+c'(") = X'(")
+c5
+'(")
+Block size = 64
+Block size = 256
+33
+2 – QLoRA
+!
+Paged Optimizers
+Ø Page Optimizers to manage memory spikes
+Ø Allocate paged memory for the optimizer states which are then automatically evicted 
+to CPU RAM when the GPU runs out-of-memory and paged back into GPU memory 
+when the memory is needed in the optimizer update step
+34
+2 – QLoRA
+!
+QLoRA
+35
+2 – QLoRA
+!
+QLoRA
+Ø Given a projection XW = Y, X ∈ℝ=×>, W ∈ℝ>×?, LoRA computes:
+Y = XW + sXL5L)
+L5 ∈ℝ>×@, L) ∈ℝ@×?, s is a scaler
+36
+2 – QLoRA
+!
+QLoRA
+Ø Quantized base model with a single LoRA adapter:
+YA'5B = XA'5BdoubleDequant c5
+'("), c)
+C!=D%, WE'F + XA'5BL5
+A'5BL)
+A'5B
+doubleDequant c!
+"#$%, c%
+&'()*, W+", = dequant dequant c!
+"#$%, c%
+&'()* , W,()* = W-"!.
+NF4 for W and FP8 for c2
+A block size of 64 for W for higher quantization precision
+A block size of 256 for c2 to conserve memory
+37
+2 – QLoRA
+!
+Result
+38
+3 – LLM Efficiency Challenge
+!
+Challenge
+39
+3 – LLM Efficiency Challenge
+!
+Challenge
+Ø Approved Base Models
+Ø Approved Base Models
+40
+3 – LLM Efficiency Challenge
+!
+Methods and tools for efficient training on a single GPU
+41
+3 – LLM Efficiency Challenge
+!
+Parameter-Efficient Fine-Tuning
+42
+3 – LLM Efficiency Challenge
+!
+Quatization
+43
+3 – LLM Efficiency Challenge
+!
+Low-Memory Optimization (LOMO)
+44
+4 - Experiment
+!
+Source code
+Thanks!
+Any questions?
+45

@@ -1,0 +1,1544 @@
+Extra Class
+Introduction to Transformer
+Year 2023
+Nguyen Quoc Thai
+AI VIETNAM
+All-in-One Course
+1
+2
+CONTENT
+(1) – Attention
+(2) – Transformer-Encoder
+(3) – Text Classification
+(4) – Vision Transformer
+1 – Attention
+!
+3
+RNNs Model
+X1
+X2
+XN
+Embedding Layer
+Dense vector
+Hidden State
+Input
+RNN
+RNN
+RNN
+Output Sequence
+Last Hidden State
+1 – Attention
+!
+4
+Sequence-to-Sequence Architecture
+Input Sequence (Source)
+Output Sequence (Target)
+ENCODER
+DECODER
+❖Encoder: encoding the inputs into state (thought vector)
+❖Decoder: the state is passed into the decoder to generate 
+the output
+RNN
+!
+5
+Scaled Dot-Product Attention
+1 – Attention
+Encoder
+Decoder
+k1
+k2
+k3
+k4
+q1
+q2
+q3
+q4
+!
+6
+Scaled Dot-Product Attention
+1 – Attention
+q!k!
+"/ d#
+Encoder
+Attention 
+Score
+e! = q"k"
+#
+d$
+, q"k%
+#
+d$
+, … q"k%
+#
+d$
+Decoder
+k1
+k2
+k3
+k4
+q!k$
+"/ d#
+q!k%
+"/ d# q!k&
+"/ d#
+q1
+q2
+q3
+q4
+!
+7
+Scaled Dot-Product Attention
+1 – Attention
+q!k!
+"/ d#
+Encoder
+Attention 
+Score
+e! = q"k"
+#
+d$
+, q"k%
+#
+d$
+, … q"k%
+#
+d$
+Decoder
+Attention
+distribution
+α"
+α%
+α&
+α'
+α! = softmax(e!)
+k1
+k2
+k3
+k4
+q!k$
+"/ d#
+q!k%
+"/ d# q!k&
+"/ d#
+q1
+q2
+q3
+q4
+!
+8
+Scaled Dot-Product Attention
+1 – Attention
+q!k!
+"/ d#
+Encoder
+Attention 
+Score
+e! = q"k"
+#
+d$
+, q"k%
+#
+d$
+, … q"k%
+#
+d$
+Decoder
+Attention
+distribution
+α"
+α%
+α&
+α'
+Attention 
+output
+a! = 2
+"
+(
+α)
+!v) ; v) = k)
+α! = softmax(e!)
+k1
+k2
+k3
+k4
+q!k$
+"/ d#
+q!k%
+"/ d# q!k&
+"/ d#
+q1
+q2
+q3
+q4
+o1
+!
+9
+Scaled Dot-Product Attention
+1 – Attention
+Encoder
+Decoder
+Attention 
+output
+k1
+k2
+k3
+k4
+q1
+q2
+q3
+q4
+Scaled Dot-Product Attention
+Attention Q, K, V = softmax QK#
+d$
+V; K = V
+Loss - Prediction
+!
+10
+Scaled Dot-Product Attention
+1 – Attention
+Encoder
+Decoder
+Attention 
+output
+k1
+k2
+k3
+k4
+q1
+q2
+q3
+q4
+Attention Q, K, V = softmax QK#
+d$
+V; K = V
+Loss - Prediction
+Scaled Dot-Product Attention
+o1
+o2
+o3
+o4
+!
+11
+Scaled Dot-Product Attention - Example
+1 – Attention
+Encoder
+Decoder
+k1
+k2
+k3
+k4
+q1
+q2
+q3
+q4
+1
+1
+1
+0
+1
+0
+1
+1
+1
+1
+1
+1
+1
+1
+0
+0
+0
+1
+0
+0
+Attention 
+Score
+Attention Q, K, V = softmax QK#
+d$
+V; K = V
+0.5
+0.0
+0.5
+0.5
+!
+12
+Scaled Dot-Product Attention - Example
+1 – Attention
+Encoder
+Decoder
+k1
+k2
+k3
+k4
+q1
+q2
+q3
+q4
+1
+1
+1
+0
+1
+0
+1
+1
+1
+1
+1
+1
+1
+1
+0
+0
+0
+1
+0
+0
+Attention 
+Score
+Attention Q, K, V = softmax QK#
+d$
+V; K = V
+0.5
+0.0
+0.5
+0.5
+0.28
+0.16
+0.28
+0.28
+Attention
+distribution
+1.00
+0.83
+0.72
+0.44
+!
+13
+Scaled Dot-Product Attention - Example
+1 – Attention
+Encoder
+Decoder
+k1
+k2
+k3
+k4
+q1
+q2
+q3
+q4
+1
+1
+1
+0
+1
+0
+1
+1
+1
+1
+1
+1
+1
+1
+0
+0
+0
+1
+0
+0
+Attention 
+Score
+Attention Q, K, V = softmax QK#
+d$
+V; K = V
+0.5
+0.0
+0.5
+0.5
+0.28
+0.16
+0.28
+0.28
+Attention
+distribution
+1.00
+0.83
+0.72
+0.44
+Attention 
+output
+!
+14
+Scaled Dot-Product Attention - Example
+1 – Attention
+Encoder
+Decoder
+k1
+k2
+k3
+k4
+q1
+q2
+q3
+q4
+1
+1
+1
+0
+1
+0
+1
+1
+1
+1
+1
+1
+1
+1
+0
+0
+0
+1
+0
+0
+1.00
+0.83
+0.72
+0.44
+0
+1
+0
+0
+1.00
+0.83
+0.72
+0.44
+0
+1
+0
+0
+1.00
+0.83
+0.72
+0.44
+0
+0
+1
+0
+1.00
+0.72
+0.83
+0.55
+Scaled Dot-Product Attention
+o1
+o2
+o3
+o4
+Attention Q, K, V = softmax QK#
+d$
+V; K = V
+!
+15
+Scaled Dot-Product Attention - Demo
+1 – Attention
+!
+16
+Transformer
+2 – Transformer-Encoder
+Encoder
+Decoder
+❖Architecture:
+N Encoder Layer
+N Decoder Layer
+❖Core technique: attention
+❖Loss function: cross-entropy
+!
+17
+Transformer-Encoder
+2 – Transformer-Encoder
+❖Input Embedding
+❖Positional Encoding
+❖Multi-Head Attention
+❖Feed Forward
+❖Add & Norm
+!
+18
+Input Embedding
+2 – Transformer-Encoder
+❖Input Embedding: Embedding Layer
+x1
+x2
+x3
+x4
+1
+1
+1
+0
+1
+0
+1
+1
+1
+1
+1
+1
+1
+1
+0
+0
+Embedding Layer
+Scaled Dot-Product Attention
+QUERY – KEY – VALUE ?
+!
+19
+Self-Attention
+2 – Transformer-Encoder
+x1
+x2
+x3
+x4
+1
+1
+1
+0
+1
+0
+1
+1
+1
+1
+1
+1
+1
+1
+0
+0
+Embedding Layer
+Scaled Dot-Product Attention
+QUERY = KEY = VALUE = EMBEDDED
+q3
+k3
+v3
+q2
+k2
+v2
+q1
+k1
+v1
+!
+20
+Self-Attention
+2 – Transformer-Encoder
+0
+1
+0
+0
+0
+0
+1
+1
+1
+0
+1
+0
+0
+1
+0
+0
+1
+0
+1
+1
+1
+1
+1
+1
+1
+1
+1
+0
+0
+0
+0
+0
+0
+0
+0
+0
+x1
+x2
+x3
+q3
+k3
+v3
+q2
+k2
+v2
+q1
+k1
+v1
+!
+21
+Self-Attention
+2 – Transformer-Encoder
+0
+1
+0
+0
+0
+0
+1
+1
+1
+0
+1
+0
+0
+1
+0
+0
+1
+0
+1
+1
+1
+1
+1
+1
+1
+1
+1
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1.7
+0.6
+0.0
+0.7
+0.2
+0.1
+x1
+x2
+x3
+q3
+k3
+v3
+q2
+k2
+v2
+q1
+k1
+v1
+!
+22
+Self-Attention
+2 – Transformer-Encoder
+0
+1
+0
+0
+0
+0
+1
+1
+1
+0
+1
+0
+0
+1
+0
+0
+1
+0
+1
+1
+1
+1
+1
+1
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1
+1
+1
+1.7
+0.6
+0.0
+0.7
+0.2
+0.1
+0.7
+0.9
+0.7
+x1
+x2
+x3
+q3
+k3
+v3
+q2
+k2
+v2
+q1
+k1
+v1
+!
+23
+Self-Attention
+2 – Transformer-Encoder
+0
+1
+0
+0
+0
+0
+1
+1
+1
+0
+1
+0
+0
+1
+0
+1
+1
+1
+1
+1
+1
+1
+1
+1
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0.7
+0.9
+0.7
+x1
+x2
+x3
+0
+1
+0
+0.6
+0.6
+0.0
+0.4
+0.4
+0.2
+q3
+k3
+v3
+q2
+k2
+v2
+q1
+k1
+v1
+!
+24
+Self-Attention
+2 – Transformer-Encoder
+0
+1
+0
+0
+0
+0
+1
+1
+1
+0
+1
+0
+0
+1
+0
+1
+1
+1
+1
+1
+1
+1
+1
+1
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0.7
+0.9
+0.7
+x1
+x2
+x3
+0
+1
+0
+0.6
+0.6
+0.0
+0.4
+0.4
+0.2
+0.4
+0.8
+0.4
+q3
+k3
+v3
+q2
+k2
+v2
+q1
+k1
+v1
+!
+25
+Self-Attention
+2 – Transformer-Encoder
+0
+1
+0
+0
+0
+0
+1
+1
+1
+0
+1
+0
+0
+1
+0
+1
+1
+1
+1
+1
+1
+1
+1
+1
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0.7
+0.9
+0.7
+x1
+x2
+x3
+0
+1
+0
+0.4
+0.8
+0.4
+0.0
+0.0
+0.0
+0.3
+0.3
+0.3
+q3
+k3
+v3
+q2
+k2
+v2
+q1
+k1
+v1
+!
+26
+Self-Attention
+2 – Transformer-Encoder
+0
+1
+0
+0
+0
+0
+1
+1
+1
+0
+1
+0
+0
+1
+0
+1
+1
+1
+1
+1
+1
+1
+1
+1
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0.7
+0.9
+0.7
+x1
+x2
+x3
+0
+1
+0
+0.0
+0.0
+0.0
+0.3
+0.3
+0.3
+0.3
+0.6
+0.3
+0.4
+0.8
+0.4
+q3
+k3
+v3
+q2
+k2
+v2
+q1
+k1
+v1
+!
+27
+Self-Attention
+2 – Transformer-Encoder
+0
+1
+0
+0
+0
+0
+1
+1
+1
+0
+1
+0
+0
+1
+0
+1
+1
+1
+1
+1
+1
+1
+1
+1
+0
+0
+0
+0
+0
+0
+0.7
+0.9
+0.7
+x1
+x2
+x3
+0
+1
+0
+0.7
+0.9
+0.7
+0.3
+0.6
+0.3
+0
+0
+0
+Self-Attention
+Scaled Dot-Product Attention
+❖To learn the relationship between word in the sentence
+Ignore the order of words in the sentence ?
+!
+28
+Positional Encoding
+2 – Transformer-Encoder
+❖The position of a token in a sentence as unique representation – each position is mapped to a vector
+❖Methods: Sinusoid; Learned positional embedding (as learned input embedding)
+1
+1
+1
+0
+0
+0
+1
+1
+1
+x1
+x2
+x3
+Embedding 
+Layer #1
+1
+2
+1
+0
+1
+0
+2
+1
+0
+x1
+x2
+x3
+Embedding 
+Layer #2
+2
+3
+2
+0
+1
+0
+3
+2
+1
++
+Self-Attention
+0.2
+0.3
+1.2
+0.7
+1.9
+0.8
+0.3
+2.1
+1.2
+!
+29
+Positional Encoding – Demo
+2 – Transformer-Encoder
+O1
+!
+30
+Multi-Head Attention
+2 – Transformer-Encoder
+❖Split into the multiple attention heads (process independently) => self-attention => concat
+Attention
+Score
+H: Heads
+S: Sequence Length
+D: Embedding Dim
+S x D
+Q
+V
+K
+Split
+H x S x (D/H)
+H x S x (D/H)
+H x S x (D/H)
+Q1
+Q2
+Q3
+K1
+K2
+K3
+V1
+V2
+V3
+H x S x (D/H)
+O2
+O3
+concat
+S x D
+!
+31
+Multi-Head Attention – Demo
+2 – Transformer-Encoder
+!
+32
+Transformer-Encoder
+2 – Transformer-Encoder
+!
+33
+Layer Normalization
+2 – Transformer-Encoder
+!
+34
+Feed Forward
+2 – Transformer-Encoder
+❖2 FC Layer
+!
+35
+Transformer-Encoder – Demo
+2 – Transformer-Encoder
+!
+36
+NTC-SCV Dataset
+3 – Text Classification
+Positive Example
+Negative Example
+Mình được 1 cô bạn giới_thiệu đến đây , tìm
+địa_chỉkhá dễ. Menu nước uống chất khỏi nói
+. Mình muốn cũng đc 8 loại nước ởđây , món
+nào cũng ngon và bổ_dưỡng cả.
+Quán chế_biến đồ_ăn lâu , Cá_Sapa nướng 
+uớp rất dở , sò Lông ko tươi , nước_chấm ko 
+ngon\n Tóm_lại sẽ ko bao_giờ ghé nữa , ăn_dở 
+mà uổng tiền
+Mỗi lần thèm trà sữa là làm 1 ly . Quán dễ
+kiếm , không_gian lại rộng_rãi . Nhân_viên thì
+dễ_thương gần_gũi . Nói_chung thèm trà sữa
+là mình ghé Quán ởđây vì gần nhà .
+Quán này thấy khá nhiều người bảo mình nên 
+mình đã đi ăn thử , nhưng thực_sự ăn xong 
+thấy không được như mong_đợi lắm .
+❖Sentiment Analysis
+!
+37
+Modeling
+3 – Text Classification
+Transformer-Encoder
+1
+1
+0
+0
+1
+1
+1
+1
+1
+1
+0
+0
+x1
+x2
+x3
+x4
+Token and Positional Embedding Layer
+Average Pooling
+Classifier
+!
+38
+Modeling – Demo
+3 – Text Classification
+!
+39
+Training
+3 – Text Classification
+❖Testing: 83.66%
+!
+40
+ViT
+4 – Vision Transformer
+Transformers are so successful in NLP, 
+Can we use them for images?
+!
+41
+From text to image
+4 – Vision Transformer
+Transformer-Encoder
+1
+1
+0
+0
+1
+1
+1
+1
+1
+1
+0
+0
+I 
+Love
+AI 
+VN
+Token and Positional Embedding Layer
+Average Pooling
+“I Love AI VN”
+Tokenization
+!
+42
+From text to image
+4 – Vision Transformer
+Can we tokenize an image?
+!
+43
+From text to image
+4 – Vision Transformer
+Can we tokenize an image?
+!
+44
+From text to image
+4 – Vision Transformer
+Can we tokenize an image?
+…
+𝑥!
+𝑥$
+𝑥%
+𝑥&
+𝑥'
+𝑥(
+𝑥)*%
+𝑥)*$
+𝑥)*!
+𝑥)
+Flattening
+!
+45
+ViT Architecture
+4 – Vision Transformer
+!
+46
+Patch embedding
+4 – Vision Transformer
+!
+47
+Patch embedding
+4 – Vision Transformer
+!
+48
+Patch embedding
+4 – Vision Transformer
+1  2
+4
+2
+2
+3
+3
+2
+1
+0
+2
+1
+2
+1
+1
+1
+2
+2
+3
+4
+3
+4
+1
+3
+2
+1
+3
+0
+0
+2
+3
+0
+3
+3
+4
+0
+2
+0
+2
+2
+1
+4
+4
+3
+4
+0
+4
+0
+1
+2
+0
+0
+0
+3
+2
+3
+4
+1
+4
+1
+0
+0
+0
+0
+Patch size: 4
+1
+0
+0
+1
+0
+1
+1
+0
+1
+0
+0
+1
+1
+1
+0
+1
+1
+1
+0
+0
+0
+0
+1
+0
+0
+1
+0
+0
+1
+1
+0
+0
+14
+10
+14
+12
+18
+17
+11
+9
+!
+49
+Positional embedding
+4 – Vision Transformer
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+76
+80
+Embed + add
+!
+50
+Positional embedding
+4 – Vision Transformer
+!
+51
+Positional embedding
+4 – Vision Transformer
+14
+10
+14
+12
+18
+17
+11
+9
+0
+0
+1
+1
+1
+1
+0
+0
++
+Positional 
+Embedding
+=
+14
+10
+15
+13
+19
+18
+11
+9
+!
+52
+[CLS] Token
+4 – Vision Transformer
+!
+53
+[CLS] Token – Why?
+4 – Vision Transformer
+Alternatives?
+- Global Average Pooling
+- Max Pooling
+- … 
+1
+1
+0
+0
+1
+1
+1
+1
+1
+Average Pooling
+1
+1
+0
+0
+1
+1
+1
+1
+1
+1
+0
+0
+Attention 1
+CLS
+t1
+t2
+t3
+…
+Attention n
+Have info of  
+other tokens
+t1
+t2
+t3
+!
+54
+[CLS] Token – Demo
+4 – Vision Transformer
+!
+55
+Modeling
+4 – Vision Transformer
+Change Token 
+Embedding with 
+Patch Embedding
+[CLS] token instead 
+of pooling (can still 
+use pooling)
+!
+56
+Training
+4 – Vision Transformer
+Thanks!
+Any questions?
+57

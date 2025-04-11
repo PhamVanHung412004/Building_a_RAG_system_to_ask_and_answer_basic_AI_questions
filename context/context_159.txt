@@ -1,0 +1,24 @@
+AI VIET NAM – AIO COURSE 2023
+Exercise: Image Inpainting using Denoising
+Diffusion Probabilistic Model
+Ngày 25 tháng 3 năm 2024
+Exercise: Image Inpainting using Denoising Diffusion Probabilistic Model - Rubric
+Phần
+Kiến Thức
+Đánh Giá
+1
+- Hiểu rõ bài toán Image Inpainting
+- Hiểu rõ mô hình Denoising Diffusion Prob-
+abilistic Model
+- Các bước thực hiện trong mô hình: For-
+ward Diffusion Process thêm nhiễu và Re-
+verse Diffusion Process đểkhửnhiễu.
+2.
+- Hiểu rõ mô hình UNet sửdụng trong Dif-
+fusion Model
+- Các kỹthuật cải tiến mô hình UNet
+- Xây dựng mô hình Image Inpainting dựa
+trên bộdữliệu CelebA
+- Cải tiến mô hình DCGAN với Distil-
+BERT
+1

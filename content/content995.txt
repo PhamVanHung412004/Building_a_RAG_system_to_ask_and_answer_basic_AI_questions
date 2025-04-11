@@ -1,3 +1,0 @@
-Mục tiêu là truy vấn được các thông
-tin liên quan nhất với câu hỏi đầu vào. Một số giải pháp có thể đề cập đến như:
-10

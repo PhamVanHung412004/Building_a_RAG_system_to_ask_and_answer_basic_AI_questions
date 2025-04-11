@@ -1,7 +1,0 @@
-unsqueeze ( -1). repeat (1 , 1, num_sample )
-25 label_j = label_i . transpose (1 , 2)
-26 edge = torch .eq( label_i , label_j ). float ()
-27 target_edge_mask = (
-28 torch .eq( label_i , self . mask_val ) + torch .eq( label_j , self .
-mask_val )
-29 ). 

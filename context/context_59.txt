@@ -1,0 +1,94 @@
+Track2-Kalapa
+TA Hùng An
+AI VIETNAM
+All-in-One Course
+Track2-Kalapa
+AI VIETNAM
+All-in-One Course
+2
+Problem statement:
+-
+Trong bài toán này, các đội thi sẽ xây dựng một model OCR light-weight giải quyết 
+bài toán OCR chữ viết tay tiếng Việt với ngữ liệu là địa chỉ Việt Nam.
+Input & Output
+Track2-Kalapa
+AI VIETNAM
+All-in-One Course
+3
+Limitation
+Track2-Kalapa
+AI VIETNAM
+All-in-One Course
+4
+Timeline                                                                                 Giải thưởng
+Track2-Kalapa
+AI VIETNAM
+All-in-One Course
+5
+Data - 2700 ảnh                                                                               
+Track2-Kalapa
+AI VIETNAM
+All-in-One Course
+6
+Pipeline 
+Mô hình CRNN 
+Track2-Kalapa
+AI VIETNAM
+All-in-One Course
+7
+Model Compression - Network Pruning 
+Track2-Kalapa
+AI VIETNAM
+All-in-One Course
+8
+Model Compression - Network Quantization 
+Track2-Kalapa
+AI VIETNAM
+All-in-One Course
+9
+Model Compression - Weight-Sharing
+Track2-Kalapa
+AI VIETNAM
+All-in-One Course
+10
+Model Compression - Knowledge Distillation (KD)
+Track2-Kalapa
+AI VIETNAM
+All-in-One Course
+11
+Model Compression - PACT - Paper
+PACT: Parameterized Clipping Activation for Quantized Neural Networks
+Track2-Kalapa
+AI VIETNAM
+All-in-One Course
+12
+PPOCR - v2 - Pipeline - Link colab
+Track2-Kalapa
+AI VIETNAM
+All-in-One Course
+13
+PPOCR - v2 - List model 
+Link List-model
+Track2-Kalapa
+AI VIETNAM
+All-in-One Course
+14
+PPOCR - v2 - Pipeline Detect + Recognition 
+Track2-Kalapa
+AI VIETNAM
+All-in-One Course
+15
+Một số lưu ý: 
+-
+Không nên sử dụng ensemble
+-
+Hậu xử lý bằng cách tìm từ tương đồng (trong vocab) 
+-
+Hậu xử lý bằng cách xây dựng tập luật Tiếng Việt 
+-
+Sử dụng augmentation 
+Track2-Kalapa
+AI VIETNAM
+All-in-One Course
+16
+Fuzzy Search - Link 

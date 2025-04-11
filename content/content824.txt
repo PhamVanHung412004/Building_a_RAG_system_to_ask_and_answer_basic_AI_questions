@@ -1,2 +1,0 @@
-Hình 3: Package được đăng tải lên PyPI
-5

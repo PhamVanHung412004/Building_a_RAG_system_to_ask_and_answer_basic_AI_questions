@@ -1,5 +1,0 @@
-AI VIETNAM (AIO2024) aivietnam.edu.vn
-II. Cài đặt chương trình
-Trong phần này, chúng ta sẽ tìm hiểu cách sử dụng YOLOv10 bao gồm việc sử dụng pre-trained
-model và huấn luyện (fine-tuning) YOLOv10 trên bộ dữ liệu Helmet Safety Detection.
-II.I. 

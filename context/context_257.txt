@@ -1,0 +1,782 @@
+AI VIET NAM – COURSE 2023
+Logistic Regression - Exercise
+Ngày 28 tháng 10 năm 2023
+Phần I: Giới thiệu
+Logistic Regression là một trong những thuật toán supervised-learning Machine Learning nền tảng
+quan trong nhất, được sửdụng đểgiải quyết bài toán Phân loại nhịphân (Binary Classification).
+Logistic Regression phân tích mối quan hệgiữa các biến phụthuộc và biến độc lập nhịphân trong dữ
+liệu huấn luyện, từđó có thểước lượng xác suất phân lớp cho một mẫu dữliệu mới.
+Trong bài tập này ởphần lập trình, chúng ta sẽthực hành cài đặt từđầu quá trình xây dựng một
+mô hình Logistic Regression, áp dụng vào giải quyết hai bài toán phân loại nhịphân là Titanic Survival
+Prediction và Twitter Sentiment Analysis. Đồng thời, ôn tập một sốlý thuyết vềLogistic Regression
+thông qua bài tập trắc nghiệm.
+1
+AI VIETNAM
+aivietnam.edu.vn
+Phần II: Bài tập
+A. Phần lập trình
+• Titanic Survival Prediction
+1. Tải bộdữliệu: Các bạn tải bộdữliệu tại đây.
+2. Import libraries:
+1 import
+pandas as pd
+2 import
+numpy as np
+3 import
+matplotlib.pyplot as plt
+4
+5 from
+sklearn. model_selection
+import
+train_test_split
+6 from
+sklearn.preprocessing
+import
+StandardScaler
+3. Đọc dữliệu: Sửdụng thư viện pandas đểđọc file .csv thành DataFrame như sau:
+1 dataset_path = ’titanic_modified_dataset .csv’
+2 df = pd.read_csv(
+3
+dataset_path ,
+4
+index_col=’PassengerId ’
+5 )
+Hình 1: DataFrame của bộdữliệu Titanic Survival Prediction.
+Trong đó:
+– PassengerId: Mã hàng khách. Đây được xem là chỉmục của bảng dữliệu.
+2
+AI VIETNAM
+aivietnam.edu.vn
+– Pclass: Hạng vé tàu của hàng khách.
+– Sex: Giới tính của hàng khách.
+– Age: Tuổi của hàng khách.
+– SibSp: Sốlượng anh chịem và/hoặc người yêu đi cùng chuyến tàu với hàng khách.
+– Parch: Sốlượng phụhuynh và/hoặc con cháu đi cùng chuyến tàu với hàng khách.
+– Fare: Giá vé tàu của hàng khách.
+– Embarked: Cảng xuất phát của hàng khách.
+– Title: Tước hiệu của hàng khách.
+– Survived: Hàng khách có (1) sống sót qua thảm kịch hay không (0)?
+4. Chia biến X, y: Chuyển đổi DataFrame hiện tại thành array và tách hai biến X, y:
+1 dataset_arr = df.to_numpy ().astype(np.float64)
+2 X, y = dataset_arr [:, :-1], dataset_arr [:,
+-1]
+Hình 2: Mô phỏng việc tách biến X và y từbộdữliệu gốc.
+5. Thêm bias vào X: Khi sửdụng thư viện, bias sẽđược thêm tựđộng vào X. Tuy nhiên, khi
+triển khai lại từđầu, chúng ta cần phải tựthêm bias vào mỗi mẫu dữliệu, nhằm thỏa mãn
+công thức hàm dựđoán:
+1 intercept = np.ones ((
+2
+X.shape [0], 1)
+3 )
+4 X_b = np.concatenate(
+5
+(intercept , X),
+6
+axis =1
+7 )
+6. Chia tập train, val, test: Sau khi đã hoàn chỉnh biến X, chúng ta tiến hành chia ba bộ
+train, val, test với tỉlệ7:2:1. Thực hiện như sau:
+1 val_size = 0.2
+2 test_size = 0.125
+3 random_state = 2
+4 is_shuffle = True
+5
+6 X_train , X_val , y_train , y_val = train_test_split (
+7
+X_b , y,
+3
+AI VIETNAM
+aivietnam.edu.vn
+8
+test_size=val_size ,
+9
+random_state=random_state ,
+10
+shuffle=is_shuffle
+11 )
+12
+13 X_train , X_test , y_train , y_test = train_test_split (
+14
+X_train , y_train ,
+15
+test_size=test_size ,
+16
+random_state=random_state ,
+17
+shuffle=is_shuffle
+18 )
+Hình 3: Mô phỏng chia bộdữliệu gốc thành ba bộtrain, val, test với tỉlệ7:2:1.
+7. Chuẩn hóa dữliệu: Ta sửdụng X_train vừa tạo ởbước trên fit vào hàm chuẩn hóa
+StandardScaler. Sau đó, đem scaler này chuẩn hóa cho tập X_val và X_test (lưu ý rằng ta
+không chuẩn hóa bias nên sẽbỏqua cột đầu tiên trong X):
+1 normalizer = StandardScaler ()
+2 X_train [:, 1:] = normalizer. fit_transform (X_train [:, 1:])
+3 X_val[:, 1:] = normalizer.transform(X_val [:, 1:])
+4 X_test [:, 1:] = normalizer.transform(X_test [:, 1:])
+8. Cài đặt các hàm quan trọng: Đểthuận tiện trong việc cài đặt chương trình, ta định
+nghĩa sẵn một sốhàm sẽđược dùng trong quá trình huấn luyện mô hình:
+– Hàm sigmoid: Xây dựng hàm sigmoid với công thức như sau:
+sigmoid(Z) =
+1
+1 + e−Z
+1 def
+sigmoid(z):
+2
+return 1 / (1 + np.exp(-z))
+– Hàm dựđoán:
+1 def
+predict(X, theta):
+2
+dot_product = np.dot(X, theta)
+3
+y_hat = sigmoid(dot_product)
+4
+5
+return
+y_hat
+– Hàm tính loss: Xây dựng hàm tính loss với công thức Cross-entropy như sau:
+loss(y, y_hat) = −
+1
+batch_size
+batch_size
+X
+i=1
+(yi × log(y_hati) + (1 −yi) × log(1 −y_hati))
+4
+AI VIETNAM
+aivietnam.edu.vn
+1 def
+compute_loss(y_hat , y):
+2
+y_hat = np.clip(
+3
+y_hat , 1e-7, 1 - 1e-7
+4
+)
+5
+6
+return (
+7
+-y * \
+8
+np.log(y_hat) - (1 - y) * \
+9
+np.log(1 - y_hat)
+10
+).mean ()
+– Hàm tính gradient: Xây dựng hàm tính gradient với công thức như sau:
+gradient(X, y, y_hat) = XT · (y_hat −y)
+batch_size
+1 def
+compute_gradient (X, y, y_hat):
+2
+return np.dot(
+3
+X.T, (y_hat - y)
+4
+) / y.size
+– Hàm cập nhật trọng số: Khi áp dụng giải thuật Gradient Descent, trọng sốtheta sẽ
+được cập nhật bằng công thức như sau:
+theta = theta −learning_rate × gradient
+1 def
+update_theta(theta , gradient , lr):
+2
+return
+theta - lr * gradient
+– Hàm tính độchính xác: Xây dựng hàm tính độchính xác với công thức như sau:
+accuracy = Sốlần dựđoán đúng
+Tổng sốlần dựđoán
+1 def
+compute_accuracy (X, y, theta):
+2
+y_hat = predict(X, theta).round ()
+3
+acc = (y_hat == y).mean ()
+4
+5
+return acc
+9. Khai báo các siêu tham sốvà khởi tạo weights:
+1 lr = 0.01
+2 epochs = 100
+3 batch_size = 16
+4
+5 np.random.seed(random_state)
+6 theta = np.random.uniform(
+7
+size=X_train.shape [1]
+8 )
+10. Huấn luyện mô hình: Chúng ta sẽtriển khai quá trình huấn luyện mô hình với ý tưởng
+chính như sau: Khởi tạo vòng lặp với sốlần lặp bằng sốepochs. Với mỗi lần lặp, duyệt qua
+toàn bộmẫu dữliệu (trong training set) theo từng bộmẫu dữliệu có kích thước batch_size
+(tạm gọi là cặp X_i và y_i) và thực hiện các bước tính toán sau:
+(a) Tính y_hat sửdụng hàm predict(X_i, theta). Đây là kết quảdựđoán của mô hình
+với các mẫu dữliệu tại batch đang xét.
+5
+AI VIETNAM
+aivietnam.edu.vn
+(b) Tính loss sửdụng hàm compute_loss(y_hat, y_i). Lưu trữgiá trịnày vào một list
+batch_losses, dùng cho việc trực quan hóa kết quảhuấn luyện sau này.
+(c) Tính gradient sửdụng hàm compute_gradient(X_i, y_i, y_hat).
+(d) Sửdụng kết quảgradient vừa tìm được đểcập nhật bộtrọng sốtheta sửdụng hàm
+update_theta(theta, gradient, lr).
+Hình 4: Mô tảquá trình huấn luyện mô hình Logistic Regression sửdụng Gradient Descent.
+Tổng kết lại, chúng ta sẽcó toàn bộcode cài đặt như sau:
+1 train_accs = []
+2 train_losses = []
+3 val_accs = []
+4 val_losses = []
+5
+6 for epoch in range(epochs):
+7
+train_batch_losses = []
+8
+train_batch_accs = []
+9
+val_batch_losses = []
+10
+val_batch_accs = []
+11
+12
+for i in range(0, X_train.shape [0], batch_size):
+13
+X_i = X_train[i:i+batch_size]
+14
+y_i = y_train[i:i+batch_size]
+15
+16
+y_hat = predict(X_i , theta)
+17
+18
+train_loss = compute_loss (y_hat , y_i)
+19
+6
+AI VIETNAM
+aivietnam.edu.vn
+20
+gradient = compute_gradient (X_i , y_i , y_hat)
+21
+22
+theta = update_theta (theta , gradient , lr)
+23
+24
+25
+train_batch_losses .append(train_loss)
+26
+27
+train_acc = compute_accuracy (X_train , y_train , theta)
+28
+train_batch_accs .append(train_acc)
+29
+30
+y_val_hat = predict(X_val , theta)
+31
+val_loss = compute_loss(y_val_hat , y_val)
+32
+val_batch_losses .append(val_loss)
+33
+34
+val_acc = compute_accuracy (X_val , y_val , theta)
+35
+val_batch_accs .append(val_acc)
+36
+37
+train_batch_loss = sum( train_batch_losses ) / len( train_batch_losses )
+38
+val_batch_loss = sum( val_batch_losses ) / len( val_batch_losses )
+39
+train_batch_acc = sum( train_batch_accs ) / len( train_batch_accs )
+40
+val_batch_acc = sum( val_batch_accs ) / len( val_batch_accs )
+41
+42
+train_losses.append( train_batch_loss )
+43
+val_losses.append( val_batch_loss )
+44
+train_accs.append( train_batch_acc )
+45
+val_accs.append(val_batch_acc )
+46
+47
+print(f’\nEPOCH {epoch + 1}:\ tTraining
+loss: { train_batch_loss :.3f}\
+tValidation
+loss: { val_batch_loss :.3f}’)
+Khi chạy thuật toán, nếu các bạn quan sát thấy giá trịloss giảm và độchính xác tăng dần
+khi sốepoch tăng, điều đó là dấu hiệu cho thấy code huấn luyện mô hình của chúng ta hoạt
+động ổn.
+Hình 5: Kết quảhuấn luyện in trên màn hình ởnhững epoch cuối cùng
+Bên cạnh đó, với các danh sách batch loss và batch accuracy trên hai bộdữliệu train và val,
+chúng ta còn có thểtrực quan hóa kết quảhuấn luyện lên đồthịnhư sau:
+7
+AI VIETNAM
+aivietnam.edu.vn
+1 fig , ax = plt.subplots (2, 2, figsize =(12 , 10))
+2 ax[0, 0]. plot(train_losses)
+3 ax[0, 0]. set(xlabel=’Epoch ’, ylabel=’Loss ’)
+4 ax[0, 0]. set_title(’Training
+Loss ’)
+5
+6 ax[0, 1]. plot(val_losses , ’orange ’)
+7 ax[0, 1]. set(xlabel=’Epoch ’, ylabel=’Loss ’)
+8 ax[0, 1]. set_title(’Validation
+Loss ’)
+9
+10 ax[1, 0]. plot(train_accs)
+11 ax[1, 0]. set(xlabel=’Epoch ’, ylabel=’Accuracy ’)
+12 ax[1, 0]. set_title(’Training
+Accuracy ’)
+13
+14 ax[1, 1]. plot(val_accs , ’orange ’)
+15 ax[1, 1]. set(xlabel=’Epoch ’, ylabel=’Accuracy ’)
+16 ax[1, 1]. set_title(’Validation
+Accuracy ’)
+17
+18 plt.show ()
+Hình 6: Hình ảnh trực quan kết quảhuấn luyện trên tập train và val cho bài Titanic Survival Prediction.
+8
+AI VIETNAM
+aivietnam.edu.vn
+11. Đánh giá mô hình: Sửdụng bộtrọng sốmô hình tìm được sau quá trình huấn luyện, ta
+đánh giá độchính xác của mô hình trên hai tập val và test:
+1 val_set_acc = compute_accuracy (X_val , y_val , theta)
+2 test_set_acc = compute_accuracy (X_test , y_test , theta)
+3 print(’Evaluation on validation
+and test set:’)
+4 print(f’Accuracy: {val_set_acc}’)
+5 print(f’Accuracy: {test_set_acc}’)
+• Twitter Sentiment Analysis
+1. Tải bộdữliệu: Các bạn tải bộdữliệu tại đây.
+2. Import libraries:
+1 import
+pandas as pd
+2 import
+numpy as np
+3 import re
+4 import
+nltk
+5 import
+matplotlib.pyplot as plt
+6
+7 from
+sklearn. model_selection
+import
+train_test_split
+8 from
+sklearn.preprocessing
+import
+StandardScaler
+9 from nltk.tokenize
+import
+TweetTokenizer
+10 from
+collections
+import
+defaultdict
+3. Đọc bộdữliệu: Sửdụng thư viện pandas đểđọc file .csv thành DataFrame:
+1 dataset_path = ’sentiment_analysis .csv’
+2 df = pd.read_csv(
+3
+dataset_path ,
+4
+index_col=’id’
+5 )
+Hình 7: DataFrame của bộdữliệu Twitter Sentiment Analysis.
+9
+AI VIETNAM
+aivietnam.edu.vn
+4. Tiền xửlý bộdữliệu: Dữliệu đầu vào của chúng ta lúc này hiện đang ởdạng văn bản
+(string), chưa có đặc trưng rõ ràng cũng như không thểđưa vào huấn luyện mô hình được.
+Vì vậy, chúng ta sẽtiền xửlý dữliệu văn bản đầu vào đểđưa vềmột dạng vector đặc trưng
+nào đó:
+(a) Xây dựng hàm chuẩn hóa văn bản: Văn bản gốc có rất nhiều kí tựthừa thải, vô
+nghĩa... Vì vậy, ta cần loại bỏchúng cũng như áp dụng thêm vài các bước chuẩn hóa văn
+bản khác đểvăn bản đầu vào trởnên ít phức tạp hơn, nhằm tăng cường hiệu quảbiểu
+diễn của vector đặc trưng sau này:
+1 def
+text_normalize (text):
+2
+# Retweet
+old
+acronym "RT" removal
+3
+text = re.sub(r’^RT[\s]+’, ’’, text)
+4
+5
+# Hyperlinks
+removal
+6
+text = re.sub(r’https ?:\/\/.*[\r\n]*’, ’’, text)
+7
+8
+# Hashtags
+removal
+9
+text = re.sub(r’#’, ’’, text)
+10
+11
+# Punctuation
+removal
+12
+text = re.sub(r’[^\w\s]’, ’’, text)
+13
+14
+# Tokenization
+15
+tokenizer = TweetTokenizer (
+16
+preserve_case =False ,
+17
+strip_handles =True ,
+18
+reduce_len=True
+19
+)
+20
+text_tokens = tokenizer.tokenize(text)
+21
+22
+return
+text_tokens
+Trong đó:
+– Dòng 1: Khai báo hàm text_normalize() nhận đầu vào là một string (text).
+– Dòng 2, 3: Loại bỏcác từ"RT" trong text (đây là một cụm từviết tắt cũ cho
+"Retweet").
+– Dòng 5, 6: Loại bỏcác đường dẫn trong text.
+– Dòng 8, 9: Loại bỏcác hashtag.
+– Dòng 11, 12: Loại bỏcác dấu câu.
+– Dòng 14, 15, 16, 17, 18, 19: Khai báo tokenizer.
+– Dòng 20: Tokenize text (kết quảtrảvềlà danh sách các token).
+– Dòng 22: Trảvềdanh sách các token.
+(b) Xây dựng bộlưu giữtần suất xuất hiện của các từ: Có rất nhiều cách đểta có
+thểtạo vector biểu diễn cho một đoạn văn bản. Trong bài tập này, chúng ta sẽsửdụng
+loại vector lưu trữsốlần xuất hiện của các từthuộc class "positive" và các từthuộc
+class "negative" trong một văn bản. Đểlàm được điều này, đầu tiên chúng ta cần phải
+xây dựng một bộtừđiển lưu trữtần suất xuất hiện của toàn bộmọi từtrong bộdữliệu
+với class tương ứng của nó. Cách làm như sau:
+1 def
+get_freqs(df):
+2
+freqs = defaultdict(lambda: 0)
+3
+for idx , row in df.iterrows ():
+4
+tweet = row[’tweet ’]
+5
+label = row[’label ’]
+6
+10
+AI VIETNAM
+aivietnam.edu.vn
+7
+tokens = text_normalize (tweet)
+8
+for token in tokens:
+9
+pair = (token , label)
+10
+freqs[pair] += 1
+11
+12
+return
+freqs
+Trong đó:
+– Dòng 1: Khai báo hàm get_freqs() với tham sốđầu vào là DataFrame chứa bộdữ
+liệu (df).
+– Dòng 2: Khai báo một defaultdict (defaultdict khác với dict thông thường ởđiểm
+defaultdict tựđộng gán giá trịmặc định cho các key mới, ởđây ta gán bằng 0).
+– Dòng 3, 4, 5: Duyệt qua từng dòng tweet và label tương ứng:
+– Dòng 7: Chuẩn hóa dòng tweet hiện tại.
+– Dòng 8, 9, 10: Duyệt qua từng từ(token) trong tweet hiện tại, khai báo key có
+dạng tuple (token, label) và tăng giá trịcủa key lên 1.
+– Dòng 12: Trảvềdictionary lưu giữtần suất xuất hiện của các từ.
+(c) Xây dựng hàm tạo vector đặc trưng: Kết hợp hai thành phần trên, ta xây dựng
+một hàm tạo vector đặc trưng cho văn bản đầu vào. Cách làm như sau:
+1 def
+get_feature(text , freqs):
+2
+tokens = text_normalize (text)
+3
+4
+X = np.zeros (3)
+5
+X[0] = 1
+6
+7
+for token in tokens:
+8
+X[1] += freqs [(token , 0)]
+9
+X[2] += freqs [(token , 1)]
+10
+11
+return X
+Trong đó:
+– Dòng 1: Khai báo hàm get_feature() nhận tham sốđầu vào là đoạn văn bản (text)
+và dictionary lưu giữtần suất xuất hiện các từ(freqs).
+– Dòng 2: Chuẩn hóa văn bản đầu vào.
+– Dòng 4: Tạo một vector biểu diễn văn bản giá trị0 có 3 phần tử, đại diện cho
+(intercept, n_positives, n_negatives)
+– Dòng 5: Gán phần tửđầu tiên giá trị1 (intercept).
+– Dòng 7, 8, 9: Duyệt qua từng từtrong văn bản đầu vào, lấy giá trịtần suất của từ
+ứng với từng label và cộng dồn vào vịtrí phần tửtrong vector biểu diễn tương ứng.
+– Dòng 11: Trảvềvector biểu diễn.
+(d) Trích xuất đặc trưng toàn bộdữliệu: Cuối cùng, ta sửdụng hàm get_feature() ở
+trên đểđổi toàn bộvăn bản thành vector biểu diễn mới như sau:
+1 X = []
+2 y = []
+3
+4 freqs = get_freqs(df)
+5 for idx , row in df.iterrows ():
+6
+tweet = row[’tweet ’]
+7
+label = row[’label ’]
+8
+9
+X_i = get_feature(tweet , freqs)
+11
+AI VIETNAM
+aivietnam.edu.vn
+10
+X.append(X_i)
+11
+y.append(label)
+12
+13 X = np.array(X)
+14 y = np.array(y)
+5. Chia bộtrain, val, test: Thực hiện tương tựnhư bài Titanic.
+1 val_size = 0.2
+2 test_size = 0.125
+3 random_state = 2
+4 is_shuffle = True
+5
+6 X_train , X_val , y_train , y_val = train_test_split (
+7
+X, y,
+8
+test_size=val_size ,
+9
+random_state=random_state ,
+10
+shuffle=is_shuffle
+11 )
+12
+13 X_train , X_test , y_train , y_test = train_test_split (
+14
+X_train , y_train ,
+15
+test_size=test_size ,
+16
+random_state=random_state ,
+17
+shuffle=is_shuffle
+18 )
+6. Chuẩn hóa dữliệu: Thực hiện tương tựnhư bài Titanic.
+1 normalizer = StandardScaler ()
+2 X_train [:, 1:] = normalizer. fit_transform (X_train [:, 1:])
+3 X_val[:, 1:] = normalizer.transform(X_val [:, 1:])
+4 X_test [:, 1:] = normalizer.transform(X_test [:, 1:])
+7. Cài đặt các hàm quan trọng: Sửdụng lại các hàm đã định nghĩa trong bài Titanic.
+1 def
+sigmoid(z):
+2
+return 1 / (1 + np.exp(-z))
+3
+4 def
+compute_loss(y_hat , y):
+5
+y_hat = np.clip(
+6
+y_hat , 1e-7, 1 - 1e-7
+7
+)
+8
+9
+return (-y * np.log(y_hat) - (1 - y) * np.log(1 - y_hat)).mean ()
+10
+11 def
+predict(X, theta):
+12
+dot_product = np.dot(X, theta)
+13
+y_hat = sigmoid(dot_product)
+14
+15
+return
+y_hat
+16
+17 def
+compute_gradient (X, y, y_hat):
+18
+return np.dot(
+19
+X.T, (y_hat - y)
+20
+) / y.size
+21
+22 def
+update_theta(theta , gradient , lr):
+23
+return
+theta - lr * gradient
+24
+25 def
+compute_accuracy (X, y, theta):
+26
+y_hat = predict(X, theta).round ()
+12
+AI VIETNAM
+aivietnam.edu.vn
+27
+acc = (y_hat == y).mean ()
+28
+29
+return acc
+8. Khai báo các siêu tham sốvà khởi tạo weights: Trong bài này, vì sốlượng mẫu dữliệu
+nhiều hơn bài Titanic, ta có thểcân nhắc tăng sốbatch size lên đểtăng tốc độhuấn luyện
+(ví dụởđây ta cài batch_size=128).
+1 lr = 0.01
+2 epochs = 200
+3 batch_size = 128
+4
+5 np.random.seed(random_state)
+6 theta = np.random.uniform(
+7
+size=X_train.shape [1]
+8 )
+9. Huấn luyện mô hình: Sửdụng code huấn luyện tương tựnhư trong bài Titanic. Kết quả
+của quá trình huấn luyện được trực quan trên đồthịnhư sau:
+13
+AI VIETNAM
+aivietnam.edu.vn
+Hình 8: Hình ảnh trực quan kết quảhuấn luyện trên tập train và val cho bài Twitter Sentiment Analysis.
+10. Đánh giá mô hình: Sửdụng code đánh giá tương tựnhư trong bài Titanic:
+1 val_set_acc = compute_accuracy (X_val , y_val , theta)
+2 test_set_acc = compute_accuracy (X_test , y_test , theta)
+3 print(’Evaluation on validation
+and test set:’)
+4 print(f’Accuracy: {val_set_acc}’)
+5 print(f’Accuracy: {test_set_acc}’)
+14
+AI VIETNAM
+aivietnam.edu.vn
+B. Phần trắc nghiệm
+1. Logisitic Regression là một thuật toán thuộc nhánh học nào trong Machine Learning?
+(a) Supervised Learning
+(b) Unsupervised Learning
+(c) Self-supervised Learning
+(d) Reinforcement Learning
+2. Mô hình Logistic Regression thường được áp dụng đểgiải quyết loại bài toán nào sau đây?
+(a) Regression
+(b) Clustering
+(c) Dimension Reduction
+(d) Classification
+3. Bài toán nào sau đây có thểgiải quyết một cách hiệu quảsửdụng Logistic Regression?
+(a) House Price Prediction
+(b) Spam Email Classification
+(c) Movies Recommendation
+(d) Stock Price Prediction
+4. Trong việc huấn luyện mô hình Logistic Regression sửdụng Gradient Descent, khi cài đặt 1 <
+batch_size < n_samples, kiểu cài đặt này được gọi là gì?
+(a) Batch Gradient Descent
+(b) Mini-batch Gradient Descent
+(c) Gradient Descent
+(d) Stochastic Gradient Descent
+5. Trong việc huấn luyện mô hình Logistic Regression sửdụng Gradient Descent, khi cài đặt
+batch_size = 1, kiểu cài đặt này được gọi là gì?
+(a) Batch Gradient Descent
+(b) Mini-batch Gradient Descent
+(c) Gradient Descent
+(d) Stochastic Gradient Descent
+6. Trong Logistic Regression, hàm loss nào sau đây được sửdụng?
+(a) Mean Squared Error
+(b) Hinge Loss
+(c) Cross-Entropy Loss
+(d) Mean Absolute Error
+7. Với một mẫu dữliệu được dựđoán đúng trong Logistic Regression, giá trịloss tương ứng của mẫu
+dữliệu này là?
+(a) Gần bằng 0.5
+(b) Gần bằng 0
+(c) Bằng 0.5
+(d) Bằng 1
+8. Hàm nào sau đây mô tảđúng vềphép tính gradient trong Logistic Regression?
+(a) ∇J(θ) = 1
+mXT (hθ(X) −y)
+(b) ∇J(θ) = 1
+mXT (y −hθ(X))
+(c) ∇J(θ) = 1
+mX(hθ(X) −y)
+(d) ∇J(θ) = 1
+m
+P(hθ(X) −y)
+9. Lý do chính trong việc Logistic Regression sửdụng hàm Cross-entropy mà không sửdụng hàm
+Mean Squared Error làm hàm loss?
+15
+AI VIETNAM
+aivietnam.edu.vn
+(a) Vì nó giúp việc huấn luyện mô hình nhanh hơn
+(b) Vì nó giúp kết quảdựđoán nằm trong khoảng [0, 1]
+(c) Vì nó là hàm lồi, giúp việc tối ưu trởnên dễdàng hơn
+(d) Vì nó giúp mô hình có độchính xác cao hơn
+10. Hàm nào sau đây mô tảhàm loss của Logistic Regression cho một mẫu dữliệu với y là giá trị
+thực tếvà hθ(x) là giá trịdựđoán?
+(a) L(y, hθ(x)) = −[y log(hθ(x)) + (1 −y) log(1 −hθ(x))]
+(b) L(y, hθ(x)) = (y −hθ(x))2
+(c) L(y, hθ(x)) = |y −hθ(x)|
+(d) L(y, hθ(x)) = y log(1 −hθ(x)) + (1 −y) log(hθ(x))
+11. Trong các độđo dưới đây, độđo nào thường không được dùng đểđánh giá một mô hình Logistic
+Regression?
+(a) Accuracy
+(b) Precision
+(c) Binary Cross Entropy
+(d) Mean Absolute Error
+12. Hàm Sigmoid có miền giá trịtrảvềthuộc miền nào dưới đây?
+(a) [−1, 1]
+(b) (−∞, +∞)
+(c) [−1, 0]
+(d) [0, 1]
+13. Cho đoạn chương trình sau:
+1 def
+predict(X, theta):
+2
+z = np.dot(X, theta)
+3
+4
+return 1 / (1 + np.exp(-z))
+Khi truyền vector X = [[22.3, -1.5, 1.1, 1]] và vector theta = [0.1, -0.15, 0.3, -0.2] vào hàm
+predict() trên, kết quảtrảvềcủa hàm là:
+(a) 0.14239088
+(b) 0.71259201
+(c) 0.92988994
+(d) 0.54991232
+14. Cho đoạn chương trình sau:
+1 def
+compute_loss(y_hat , y):
+2
+y_hat = np.clip(
+3
+y_hat , 1e-7, 1 - 1e-7
+4
+)
+5
+6
+return (-y * np.log(y_hat) - (1 - y) * np.log(1 - y_hat)).mean ()
+Khi truyền vector y = np.array([1, 0, 0, 1]) và vector y_hat = np.array([0.8, 0.75, 0.3, 0.95]) vào
+hàm compute_loss() trên, kết quảtrảvềcủa hàm là (làm tròn đến hàng thập phân thứ3):
+(a) 0.504
+(b) 0.201
+(c) 0.921
+(d) 0.623
+16
+AI VIETNAM
+aivietnam.edu.vn
+15. Bạn đang giải quyết một bài toán vềphân loại cảm xúc văn bản có tích cực (1) hay không (0) sử
+dụng mô hình Logistic Regression đã được huấn luyện. Dựa trên các đặc trưng từmột văn bản
+đầu vào, mô hình của bạn trảvềkết quảdựđoán là 0.8. Điều này có nghĩa là:
+(a) Văn bản đầu vào có 80% tỉlệlà tiêu cực
+(b) Văn bản đầu vào có 80% tỉlệlà tích cực
+(c) Văn bản đầu vào có 20% tỉlệlà tích cực
+(d) Chưa thểxác định tỉlệ
+- Hết -
+17

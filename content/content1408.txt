@@ -1,6 +1,0 @@
-AI VIETNAM aivietnam.edu.vn
-25 for original_gray , gray , color in tqdm ( self . train_loader ):
-26 cond_gray = gray .to( self . device )
-27 gt_color = color .to( self . device )
-28
-29 self . 

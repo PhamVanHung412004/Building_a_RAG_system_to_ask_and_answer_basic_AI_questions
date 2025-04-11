@@ -1,7 +1,0 @@
-AI VIETNAM aivietnam.edu.vn
-(b) Xây dựng class CatDogDataset:Chúng ta xây dựng classCatDogDataset để đọc dữ
-liệu cho DataLoader:
-1 class CatDogDataset ( Dataset ):
-2 def __init__ (self , data , transform = None ):
-3 self . data = data
-4 self . 

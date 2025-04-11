@@ -1,5 +1,0 @@
-AI VIETNAM (AIO2024) aivietnam.edu.vn
-3. Khởi tạo mô hình ngôn ngữ lớn:Trong project này, ta sẽ sử dụng mô hình Vicuna,
-một mô hình ngôn ngữ lớn nguồn mở có hiệu suất rất ổn, có thể phản hồi tốt với tiếng
-Việt. Các bạn có thể đọc thêm về mô hình Vicuna tại đây.
-Hình 6: Mô hình Vicuna. Ảnh: link.

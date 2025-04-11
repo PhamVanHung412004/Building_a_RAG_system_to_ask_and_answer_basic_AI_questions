@@ -1,0 +1,22 @@
+AI VIET NAM – AIO COURSE 2023
+Exercise: Text-to-Image using Stable Diffusion
+Model
+Ngày 8 tháng 4 năm 2024
+Exercise: Text To Image Generation using Stable Diffusion Model - Rubric
+Phần
+Kiến Thức
+Đánh Giá
+1
+- Hiểu rõ bài toán Text To Image và các mô
+hình có thểgiải quyết bài toán này
+- Hiểu rõ mô hình Stable Diffusion
+- Huấn luyện mô hình Stable Diffusion cho
+bài toán Text to Image trên bộdữliệu
+CelebA-HQ
+2.
+- Hiểu rõ mô hình ngôn ngữứng dụng
+biểu diễn văn bản thành vector như BERT,
+CLIP,...
+- Sửdụng CLIP đểbổsung vào mô hình
+Stable Diffusion.
+1

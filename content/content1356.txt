@@ -1,3 +1,0 @@
-Input: Ảnh xám G (L channel).
-2. Output: Trường ảnh màu C (ab channels).
-2

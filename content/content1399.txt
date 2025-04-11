@@ -1,9 +1,0 @@
-AI VIETNAM aivietnam.edu.vn
-42 """
-43 Compute the mean and variance of the diffusion posterior :
-44
-45 q(x_{t -1} | x_t , x_0 )
-46
-47 """
-48 posterior_mean = (
-49 get_index_from_list ( self . posterior_mean_coef1 , t, y_t . 

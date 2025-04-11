@@ -1,8 +1,0 @@
-AI VIETNAM aivietnam.edu.vn
-(a) Supervised fine-tuning (SFT)
-Trong phần này chúng ta sử dụng 1 tập các prompt và response để tinh chỉnh mô hình ngôn ngữ.
-Mô hình GPT2 được chọn với 12 khối Transformer-Decoder. Ngoài ra, có nhiều mô hình ngôn ngữ
-có thể chọn phù hợp với mục tiêu và open source như BLOOM, LLaMa,...
-(b) Reward Modeling (RM)
-Trong phần này chúng ta sử dụng tập dữ liệu Helpful and Harmless để huấn luyện mô hình RM.
-Với mỗi prompt chúng ta sẽ có 1 response là có nhãn "chosen" và 1 response có nhãn là "rejected".

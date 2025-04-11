@@ -1,0 +1,1106 @@
+Applications of 
+Transformer Encoder
+Year 2023
+Quang-Vinh Dinh
+Ph.D. in Computer Science
+AI VIETNAM
+All-in-One Course
+➢Layer Normalization
+➢Transformers Block
+➢BERT and Text Classification
+➢Vision Transformer and Image Classification
+➢For Time-series and Tabular Data
+Outline
+https://arxiv.org/pdf/1803.08494.pdf
+𝜎𝑐=
+1
+𝑁× 𝐻× 𝑊෍
+𝑖=1
+𝑁
+෍
+𝑗=1
+𝐻
+෍
+𝑘=1
+𝑊
+𝐹𝑖𝑗𝑘−𝜇𝑐
+2
+𝜇𝑐=
+1
+𝑁× 𝐻× 𝑊෍
+𝑖=1
+𝑁
+෍
+𝑗=1
+𝐻
+෍
+𝑘=1
+𝑊
+𝐹𝑖𝑗𝑘
+Normalization
+AI VIETNAM
+All-in-One Course
+❖ Overview
+1
+Batch Normalization
+𝜖= 10−5
+AI VIETNAM
+All-in-One Course
+𝜇= [2.0, 3.0]
+𝜎2 = [3.5, 3.25]
+𝛾= 1.0
+β = 0.0
+𝑋=  
+, 
+෠𝑌= …
+batch-size = 2
+input_shape = (2, 2, 2, 2)
+sample 1 sample 2
+6 4
+5 2
+0 5
+3 0
+2 3
+0 2
+1 4
+3 0
+෠𝑋=  
+, 
+sample 1 sample 2
+1.6 
+0.5
+1.1 
+−0.5
+1.6 
+−1.1
+−1.1 
+0.5
+−0.5 1.1
+0.5 
+−1.1
+−0.5 
+0.0
+−1.6 
+−0.5
+Batch-Norm Layer
+2
+Layer Normalization
+AI VIETNAM
+All-in-One Course
+𝑋= 5 
+1
+2 
+8
+shape=(1, 2, 2, 1)
+Layer Norm
+(mean=4 & std=2.73)
+෠𝑋= 0.36 
+−1.09
+−0.73 
+1.46
+shape=(1, 2, 2, 1)
+𝜎𝑛=
+1
+𝐶× 𝐻× 𝑊෍
+𝑐=1
+𝐶
+෍
+𝑗=1
+𝐻
+෍
+𝑘=1
+𝑊
+𝐹𝑐𝑗𝑘−𝜇𝑛
+2
+𝜇𝑛=
+1
+𝐶× 𝐻× 𝑊෍
+𝑐=1
+𝐶
+෍
+𝑗=1
+𝐻
+෍
+𝑘=1
+𝑊
+𝐹𝑐𝑗𝑘
+https://arxiv.org/pdf/
+1607.06450.pdf
+3
+𝑋=
+8 
+6
+2 
+4 ; 0 
+2
+1 
+5
+input_shape=(2, 2, 2, 1)
+Layer Norm
+(mean1=5.0 & mean2=2.0)
+ (std1=2.23 & std2=1.87)
+shape=(2, 2, 2, 1)
+෠𝑋=
+1.34 
+0.44
+−1.34 −0.44 ; −1.06 
+0.0 
+−0.53 
+1.6
+sample 1
+sample 2
+Layer Normalization
+sample 1
+sample 2
+𝑋=
+8 
+6
+2 
+4 , 0 
+2
+1 
+5
+input_shape=(1, 2, 2, 2)
+Layer Norm
+(mean=3.5 & std=2.54)
+shape=(1, 2, 2, 2)
+෠𝑋=
+1.76 
+0.98
+−0.58 
+0.19 , −1.37 
+−0.58
+−0.98 
+0.58
+a sample 
+4
+Instance Normalization
+AI VIETNAM
+All-in-One Course
+𝜎𝑖𝑛𝑠𝑡𝑎𝑛𝑐𝑒=
+1
+𝐻× 𝑊෍
+𝑖=1
+𝐻
+෍
+𝑗=1
+𝑊
+𝐹𝑖𝑗−𝜇𝑖𝑛𝑠𝑡𝑎𝑛𝑐𝑒
+2
+𝜇𝑖𝑛𝑠𝑡𝑎𝑛𝑐𝑒=
+1
+𝐻× 𝑊෍
+𝑖=1
+𝐻
+෍
+𝑗=1
+𝑊
+𝐹𝑖𝑗
+𝑋= 1 
+5
+4 
+0
+shape=(1, 2, 2, 1)
+෠𝑋= −0.7276 
+1.2127
+ 0.7276 
+−1.2127
+shape=(1, 2, 2, 1)
+https://arxiv.org/pdf/
+1607.08022.pdf
+Instance-Norm Layer
+𝜇= 2.5
+𝜎2 = 2.06
+5
+Instance Normalization
+𝜇= [2.5, 4.75]
+𝜎2 = [4.25, 6.18]
+෠𝑋=
+−0.72 
+1.21
+ 0.72 
+−1.21
+0.1 
+1.3
+0.1 
+−1.5
+𝑋=  
+batch-size = 1
+input_shape = (1, 2, 2, 2)
+5 8
+5 1
+1 5
+4 0
+sample 1
+AI VIETNAM
+All-in-One Course
+𝛾= 1.0
+β = 0.0
+𝜖= 10−5
+𝜎𝑖𝑛𝑠𝑡𝑎𝑛𝑐𝑒=
+1
+𝐻× 𝑊෍
+𝑖=1
+𝐻
+෍
+𝑗=1
+𝑊
+𝐹𝑖𝑗−𝜇𝑖𝑛𝑠𝑡𝑎𝑛𝑐𝑒
+2
+𝜇𝑖𝑛𝑠𝑡𝑎𝑛𝑐𝑒=
+1
+𝐻× 𝑊෍
+𝑖=1
+𝐻
+෍
+𝑗=1
+𝑊
+𝐹𝑖𝑗
+Instance-Norm Layer
+6
+Instance Normalization
+AI VIETNAM
+All-in-One Course
+𝜇= [2.5, 5.0]
+𝜎2 = [4.25, 7.7]
+𝛾= 1.0
+β = 0.0
+𝑋=  
+, 
+෠𝑌= …
+batch-size = 2
+input_shape = (2, 2, 2, 2)
+sample 1 sample 2
+9 2
+6 3
+1 5
+4 0
+0 2
+1 4
+6 3
+1 7
+෠𝑋=  
+, 
+sample 1 sample 2
+1.46 
+−1.09
+0.36 
+−0.73
+−0.72 
+1.21
+ 0.72 −1.21
+ 0.73 −0.52
+−1.36 
+1.15
+−1.12 
+0.16
+−0.5 
+−1.52
+Instance-Norm Layer
+𝜖= 10−5
+𝜇= [4.25, 1.75]
+𝜎2 = [5.68, 2.18]
+7
+N
+C
+H, W
+Group Normalization
+AI VIETNAM
+All-in-One Course
+𝑛𝑢𝑚_𝑐ℎ𝑎𝑛𝑒𝑙𝑠(𝐶) = 4
+𝑛𝑢𝑚_𝑔𝑟𝑜𝑢𝑝𝑠(𝐺) = 2
+𝜎𝑔𝑟=
+1
+𝑚෍
+𝑘∈𝑆𝑖
+𝑥𝑘−𝜇𝑔𝑟
+2
+𝜇𝑔𝑟= 1
+𝑚෍
+𝑘∈𝑆𝑖
+𝑥𝑘
+𝑆𝑖= 𝑘 | 𝑘𝑛= 𝑖𝑛, ቞
+቟
+𝑘𝐶
+𝐶/𝐺= ቞
+቟
+𝑖𝐶
+𝐶/𝐺
+Group-Norm Layer
+𝑋1 =
+1 5
+4 7 , 1 2
+4 0 , 9 2
+0 3 , 6 3
+1 8
+𝑋2 =
+5 2
+6 3 , 1 7
+0 7 , 0 2
+3 3 , 1 4
+2 5
+𝜇= 3
+𝜎2 = 5
+𝜇= 4
+𝜎2 = 9.5
+𝜇= 3.8
+𝜎2 = 6.6
+𝜇= 2.5
+𝜎2 = 2.25
+shape=(2, 2, 2, 4)
+෠𝑋1 =
+−0. 89 0.89
+0.44 1.78 , −0.9 −0.44
+0.44 −1.3 ,
+1.62 −0.64
+−1.29 −0.32 , 0.64 −0.32
+−0.97 1.29
+෠𝑋2 =
+0.43 −0.72
+0.82 −0.34 , −1.11 1.21
+−1.5 
+1.21 ,
+−1.66 −0.33
+0.33 
+0.33 , −1.0 
+1.0
+−0.33 1.67
+shape=(2, 2, 2, 4)
+𝑛𝑢𝑚_𝑠𝑎𝑚𝑝𝑙𝑒𝑠=  2
+8
+Group Normalization
+AI VIETNAM
+All-in-One Course
+𝑛𝑢𝑚_𝑐ℎ𝑎𝑛𝑒𝑙𝑠= 6
+𝑛𝑢𝑚_𝑔𝑟𝑜𝑢𝑝𝑠= 1
+𝑛𝑢𝑚_𝑐ℎ𝑎𝑛𝑒𝑙𝑠= 6
+𝑛𝑢𝑚_𝑔𝑟𝑜𝑢𝑝𝑠= 6
+9
+➢Layer Normalization
+➢Transformers Block
+➢BERT and Text Classification
+➢Vision Transformer and Image Classification
+➢For Time-series and Tabular Data
+Outline
+https://arxiv.org/pdf/
+1803.08494.pdf
+Input Embedding
+(N, Seq_len, E_dim)
+Multi-head 
+Attention
+Add & Norm
+Feed Forward
+Add & Norm
+Output
+(N, Seq_len, E_dim) 
+Transformer Block (-)
+10
+1
+𝑧1
+𝑧2
+𝑧𝑛
+Softmax
+𝑥1
+𝑥2
+𝑥3
+𝑥𝑛
+ොy1
+ොy2
+ොy𝑛
+…
+…
+…
+X
+Conv
+Conv
+Y
++
+Skip Connection
+MLP + Softmax
+X
+Conv
+Conv
+Y
+f
+11
+Group Normalization
+AI VIETNAM
+All-in-One Course
+Multi-head Attention
+Transformer Block
+−0.1 
+0.1 
+0.3
+ 0.4 −1.1 −0.3
+𝑊𝑄=
+−0.35 
+0.51 
+0.50
+ 0.36 −0.47 −0.29
+−0.51 −0.14 −0.56
+𝑊𝐾=
+−0.49 
+−0.68 0.18
+−0.44 
+−0.46 0.18
+ 0.07 
+−0.10 0.44
+𝑊𝑉=
+−0.41 
+0.39 −0.65
+−0.40 −0.07 −0.34
+−0.55 −0.13 −0.29
+𝑊𝑂=
+−0.36 −0.08 0.32
+ 0.27 
+0.05 0.15
+−0.05 −0.28 0.05
+𝑌= 𝑠𝑖𝑔𝑚𝑜𝑖𝑑𝑄𝐾𝑇
+𝑑
+𝑉
+bs = 1 
+sequence_length = 2
+        embed_dim = 3
+𝑊𝑄
+𝑊𝐾
+𝑊𝑉
+−0.029 −0.028 0.065
+−0.025 −0.025 0.058
+bs = 1 
+sequence_length = 2
+        embed_dim = 3
+12
+Multi-head Attention
+Transformer Block
+−0.1 
+0.1 
+0.3
+ 0.4 −1.1 −0.3
+𝑊𝑄
+𝑊𝐾
+𝑊𝑉
+−0.029 −0.028 0.065
+−0.025 −0.025 0.058
++
+−0.12 
+0.07 
+0.36
+ 0.37 −1.12 −0.24
+Input Embedding
+(N, Seq_len, E_dim)
+Multi-head 
+Attention
+Add & Norm
+Feed Forward
+Add & Norm
+Output
+(N, Seq_len, E_dim) 
+13
+𝑌= 𝑠𝑜𝑓𝑡𝑚𝑎𝑥𝑄𝐾𝑇
+𝑑
+𝑉
+Multi-head Attention
+Transformer Block
+−0.1 
+0.1 
+0.3
+ 0.4 −1.1 −0.3
+𝑊𝑄
+𝑊𝐾
+𝑊𝑉
+−0.029 −0.028 0.065
+−0.025 −0.025 0.058
++
+−0.12 
+0.07 
+0.36
+ 0.37 −1.12 −0.24
+Input Embedding
+(N, Seq_len, E_dim)
+Multi-head 
+Attention
+Add & Norm
+Feed Forward
+Add & Norm
+Output
+(N, Seq_len, E_dim) 
+Layer Norm
+−1.14 −0.15 1.29
+ 1.14 −1.29 0.14
+https://openaccess.thecvf.com/content/ICCV2021W/Ne
+urArch/papers/Yao_Leveraging_Batch_Normalization_
+for_Vision_Transformers_ICCVW_2021_paper.pdf
+14
+Multi-head Attention
+Transformer Block
+−0.1 
+0.1 
+0.3
+ 0.4 −1.1 −0.3
+Input Embedding
+(N, Seq_len, E_dim)
+Multi-head 
+Attention
+Add & Norm
+Feed Forward
+Add & Norm
+Output
+(N, Seq_len, E_dim) 
+Layer Norm
+−1.14 −0.15 1.29
+ 1.14 −1.29 0.14
+Feed Forward
+𝑊=
+ 0.15 
+0.39 −0.34
+−0.41 
+0.54 
+0.49
+ 0.50 −0.07 −0.41
+0.53 −0.62 −0.22
+0.78 −0.26 −1.08
+15
+Multi-head Attention
+Transformer Block
+−0.1 
+0.1 
+0.3
+ 0.4 −1.1 −0.3
+Input Embedding
+(N, Seq_len, E_dim)
+Multi-head 
+Attention
+Add & Norm
+Feed Forward
+Add & Norm
+Output
+(N, Seq_len, E_dim) 
+Layer Norm
+−1.14 −0.15 1.29
+ 1.14 −1.29 0.14
+Feed Forward
+Layer Norm
+−0.59 −0.81 
+1.40
+ 1.39 −0.90 −0.49
+bs = 1 
+sequence_length = 2
+        embed_dim = 3
+bs = 1 
+sequence_length = 2
+        embed_dim = 3
+16
+https://arxiv.org/pdf/
+1803.08494.pdf
+Positional 
+Embedding
+Input Embedding
++
+Multi-head 
+Attention
+Add & Norm
+Feed Forward
+Add & Norm
+Linear
+Softmax
+Transformer Models for Text Classification
+N×
+17
+𝑣pos
+0 , 𝑣pos
+1 , 𝑣pos
+2 , 𝑣pos
+3 , … , 𝑣pos
+𝑑−2, 𝑣pos
+𝑑−1
+𝑘= 𝑑
+2
+𝑠𝑖𝑛𝑤𝑘× pos
+𝑐𝑜𝑠𝑤𝑘× pos
+𝑘= 𝑑−1
+2
+𝑤𝑘=
+1
+𝑇2𝑘/𝑑
+𝒗pos =
+𝑠𝑖𝑛𝑤0 × pos
+𝑐𝑜𝑠𝑤0 × pos
+𝑠𝑖𝑛𝑤1 × pos
+𝑐𝑜𝑠𝑤1 × pos
+……
+𝑠𝑖𝑛𝑤𝑑
+2
+× pos
+𝑐𝑜𝑠𝑤𝑑−1
+2
+× pos
+𝑇= 10000
+Transformer
+AI VIETNAM
+All-in-One Course
+❖ Positional encoding
+0 ≤pos ≤99
+𝑇= 10
+0 ≤d ≤127
+𝑇= 100
+𝑇= 1000
+𝑇= 10000
+19
+0 ≤pos ≤9
+𝑇= 100
+0 ≤d ≤127
+0 ≤pos ≤99
+0 ≤pos ≤499
+0 ≤pos ≤199
+𝑤𝑘=
+1
+𝑇2𝑘/𝑑
+𝒗pos =
+𝑠𝑖𝑛𝑤0 × pos
+𝑐𝑜𝑠𝑤0 × pos
+𝑠𝑖𝑛𝑤1 × pos
+𝑐𝑜𝑠𝑤1 × pos
+……
+𝑠𝑖𝑛𝑤𝑑
+2
+× pos
+𝑐𝑜𝑠𝑤𝑑−1
+2
+× pos
+𝑇= 100
+0 ≤pos ≤2
+0 ≤d ≤3
+𝒗=
+𝒗0
+𝒗1
+𝒗2
+=
+𝑠𝑖𝑛𝑤0 × 0 , 𝑐𝑜𝑠𝑤0 × 0 , 𝑠𝑖𝑛𝑤1 × 0 , 𝑐𝑜𝑠𝑤1 × 0
+𝑠𝑖𝑛𝑤0 × 1 , 𝑐𝑜𝑠𝑤0 × 1 , 𝑠𝑖𝑛𝑤1 × 1 , 𝑐𝑜𝑠𝑤1 × 1
+𝑠𝑖𝑛𝑤0 × 2 , 𝑐𝑜𝑠𝑤0 × 2 , 𝑠𝑖𝑛𝑤1 × 2 , 𝑐𝑜𝑠𝑤1 × 2
+=
+0.0 
+1.0 
+0.0 
+1.0 
+0.84 
+0.54 0.09 0.99
+0.91 −0.41 0.19 0.98
+https://kazemnejad.com/blog/transformer
+_architecture_positional_encoding/
+❖ Positional encoding
+➢Layer Normalization
+➢Transformers Block
+➢BERT and Text Classification
+➢Vision Transformer and Image Classification
+➢For Time-series and Tabular Data
+Outline
+-
+50,000 movie review for sentiment analysis (data)
+-
+Consist of:
++ 25,000 movie review for training
++ 25,000 movie review for testing
+-
+Label: positive – negative = 1 – 1
+“A wonderful little production. <br /><br />The filming technique is very unassuming- very old-time-
+BBC fashion and gives a comforting, and sometimes discomforting, sense of realism to the entire piece 
+… ”
+positive
+“This show was an amazing, fresh & innovative idea in the 70's when it first aired. The first 7 or 8 years 
+were brilliant, but things dropped off after that. By 1990, the show was not really funny anymore, and it's 
+continued its decline further to the complete waste of time it is today….”
+negative
+“I thought this was a wonderful way to spend time on a too hot summer weekend, sitting in the air 
+conditioned theater and watching a light-hearted comedy. The plot is simplistic, but the dialogue is witty 
+and the characters are likable (even the well bread suspected serial killer)….”
+positive
+“BTW Carver gets a very annoying sidekick who makes you wanna shoot him the first three minutes he's 
+on screen.”
+negative
+Text Classification
+AI VIETNAM
+All-in-One Course
+❖ IMDB dataset
+Positional 
+Embedding
+Input Embedding
++
+Transformer Models for Text Classification
+❖ Embedding
+23
+Transformer Models for Text Classification
+❖ Transformer block
+Multi-head 
+Attention
+Add & Norm
+Feed Forward
+Add & Norm
+24
+Positional 
+Embedding
+Input Embedding
++
+Multi-head 
+Attention
+Add & Norm
+Feed Forward
+Add & Norm
+Linear
+Softmax
+N×
+Transformer Models for Text Classification
+25
+Transformer Models 
+for Text Classification
+❖ Results
+40
+50
+60
+70
+80
+90
+100
+1
+2
+3
+4
+5
+6
+7
+8
+9 10 11 12 13 14 15 16 17 18 19 20
+Training Accuracy
+Test Accuracy
+Train Transformer from Scratch
+Test accuracy: ~82%
+transfer learning
+Text Deep Models
+Long short-term memory
+Word-1
+Word-2
+Word-500
+LSTM Cell
+LSTM Cell
+LSTM Cell
+LSTM Cell
+LSTM Cell
+LSTM Cell
+hidden_dim=64
+dim=2
+embed_dim = 128
+50
+55
+60
+65
+70
+75
+80
+85
+1
+2
+3
+4
+5
+6
+7
+8
+9 10 11 12 13 14 15 16 17 18 19 20
+Train Accuracy
+Test Accuracy
+(RNN) Test accuracy: ~68%
+50
+60
+70
+80
+90
+100
+110
+1
+2
+3
+4
+5
+6
+7
+8
+9 10 11 12 13 14 15 16 17 18 19 20
+Train Accuracy
+Test Accuracy
+(LSTM) Test accuracy: ~87%
+27
+-
+Training samples: 7613
+-
+Total Number of disaster tweets: 4342
+-
+Total Number of non-disaster tweets: 3271
+Text Classification
+AI VIETNAM
+All-in-One Course
+❖ Tweets dataset
+28
+Text Classification
+AI VIETNAM
+All-in-One Course
+❖ Tweets dataset
+Text Classification
+AI VIETNAM
+All-in-One Course
+❖ Tweets dataset
+Transformer Models for Text Classification
+Positional 
+Embedding
+Input Embedding
++
+Multi-head 
+Attention
+Add & Norm
+Feed Forward
+Add & Norm
+Linear
+Softmax
+N×
+31
+Text Classification
+AI VIETNAM
+All-in-One Course
+❖ Results
+40
+50
+60
+70
+80
+90
+100
+1
+3
+5
+7
+9
+11 13 15 17 19 21 23 25 27 29 31 33 35 37 39
+Training Accuracy
+Test Accuracy
+Train Transformer from Scratch
+Test accuracy: ~78%
+Model Inputs
+Model Architecture
+Trained on Wikipedia (~2.5B words) and Google’s 
+BooksCorpus (~800M words)
+64 TPUs trained BERT over the course of 4 days
+DistilBERT offers a lighter version of BERT; runs 60% 
+faster while maintaining over 95% of BERT’s performance.
+https://arxiv.org/pdf/1810.04805.pdf
+Bidirectional Encoder 
+Representations from Transformers
+Bidirectional Encoder 
+Representations from Transformers
+https://huggingface.co/blog/bert-101
+35
+https://github.com/jessevig/bertviz
+Attention Visualization
+➢Layer Normalization
+➢Transformers Block
+➢BERT and Text Classification
+➢Vision Transformer and Image Classification
+➢For Time-series and Tabular Data
+Outline
+𝑌= 𝑠𝑖𝑔𝑚𝑜𝑖𝑑𝑄𝐾𝑇
+𝑚
+𝑉
+𝑂= 𝐴𝑊𝑂
+word-0
+word-1
+word-n
+…
+𝑋0
+𝑋1
+𝑋𝑛
+…
+𝑄0
+𝐾0
+𝑉0
+𝑊𝑄
+𝑊𝐾
+𝑊𝑉
+𝑄1
+𝐾1
+𝑉1
+𝑊𝑄
+𝑊𝐾
+𝑊𝑉
+𝑄𝑛
+𝐾𝑛
+𝑉𝑛
+𝑊𝑄
+𝑊𝐾
+𝑊𝑉
+Self-Attention
+𝑌0
+𝑌1
+𝑌𝑛
+…
+Vision Transformer
+Embedding
+37
+Projection and Embedding
+𝑌= 𝑠𝑖𝑔𝑚𝑜𝑖𝑑𝑄𝐾𝑇
+𝑚
+𝑉
+𝑂= 𝐴𝑊𝑂
+patch-0
+patch-1
+patch-n
+…
+𝑋0
+𝑋1
+𝑋𝑛
+…
+𝑄0
+𝐾0
+𝑉0
+𝑊𝑄
+𝑊𝐾
+𝑊𝑉
+𝑄1
+𝐾1
+𝑉1
+𝑊𝑄
+𝑊𝐾
+𝑊𝑉
+𝑄𝑛
+𝐾𝑛
+𝑉𝑛
+𝑊𝑄
+𝑊𝐾
+𝑊𝑉
+Self-Attention
+𝑌0
+𝑌1
+𝑌𝑛
+…
+Vision Transformer
+38
+Vision Transformer
+❖From text to image
+AI VIETNAM
+All-in-One Course
+39
+Vision Transformer
+❖Get patches
+AI VIETNAM
+All-in-One Course
+40
+Vision Transformer
+❖Get patches
+AI VIETNAM
+All-in-One Course
+41
+Vision Transformer
+❖Get patches
+AI VIETNAM
+All-in-One Course
+1
+2
+3
+4
+5
+6
+7
+8
+9
+42
+Vision Transformer
+❖Patch and position embedding
+Linear
+Linear
+Linear
+Linear
+Linear
+Linear
+Linear
+Linear
+Linear
+4800
+128
+0
+1
+2
+3
+4
+5
+6
+7
+8
+128
+128
+position 
+embedding
++
++
++
++
++
++
++
++
++
+flatten
+Pretrained Vision 
+Transformer
+❖JFT-300M
+Internal Google dataset
+300M images
+For training image classification models
+Vision Transformer
+From text to image
+https://arxiv.org/pdf/2010.11929.pdf
+Performance of ViT using Cifar-10 dataset
+Train from scratch
+Transfer Learning
+78%
+98%
+* You may have different results in your own experiments
+➢Layer Normalization
+➢Transformers Block
+➢BERT and Text Classification
+➢Vision Transformer and Image Classification
+➢For Time-series and Tabular Data
+Outline
+Patch 
+Time-Series 
+Transformer
+❖For time-series data
+https://github.com/yu
+qinie98/PatchTST
+Patch 
+Time-Series 
+Transformer
+❖For time-series data
+https://github.com/yuqinie98/PatchTST
+47
+Patch 
+Time-Series 
+Transformer
+❖For time-series data
+TabTransformer
+❖For Tabular Data
+AI VIETNAM
+All-in-One Course
+TabTransformer
+❖For Tabular Data
+AI VIETNAM
+All-in-One Course
+Categorical Embeddings
+https://towardsdatascience.com/transformers-for-tabular-
+data-tabtransformer-deep-dive-5fb2438da820
+50
+TabTransformer
+❖For Tabular Data
+AI VIETNAM
+All-in-One Course
+https://keras.io/examples/structured_data/tabtransformer/
+Contextual Embeddings
+https://towardsdatascience.com/transformers-for-tabular-
+data-tabtransformer-deep-dive-5fb2438da820
+51

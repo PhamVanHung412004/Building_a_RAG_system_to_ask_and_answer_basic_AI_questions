@@ -1,0 +1,724 @@
+AI VIET NAM – 2024
+Graph Neural Network - Exercise
+Minh-Duc Bui và Vinh Dinh Nguyen
+Ngày 28 tháng 4 năm 2024
+Phần I: Giới thiệu
+Graph Neural Network - GNN là một nerual network sửdụng đểxửlý dữliệu được biểu diễn dưới dạng
+graph. Trong graph, các đỉnh (node) biểu diễn các thực thể, và các cạnh (edge) thểhiện các mối quan
+hệgiữa các node. GNN được thiết kếđểtrích xuất thông tin từcấu trúc graph đểthực hiện các bài
+toán như classification, prediction, clustering, và labeling graph data.
+Đặc điểm chính của GNN là khảnăng tổng hợp thông tin từcác node lân cận trong graph. Mỗi node
+trong graph có thểđược xem như một feature vector, và GNN sửdụng các cơ chếlan truyền thông tin
+qua các edge đểcập nhật các vector này. Quá trình này thường được thực hiện qua nhiều layer của
+network, mỗi layer thực hiện một bước lan truyền và cập nhật thông tin.
+GNN có hiệu suất mạnh mẽtrong nhiều ứng dụng thực tế, bao gồm social network analysis, predicting
+molecular interactions, graph image classification, và nhiều tác vụkhác.
+Trong buổi hôm nay, ta sẽsửdụng GNN vào bài toán classification nói chung và image classification
+nói riêng.
+1
+AI VIETNAM
+aivietnam.edu.vn
+Phần II: Nội dung
+1. Ý tưởng chung
+GNN hoạt động bằng cách tổng hợp thông tin từcác node có liên quan với nhau (có edge),
+trong các dataset dành riêng cho GNN (ví dụCora, Citeseer, Pubmed,...), các edge được đã được
+định nghĩa sẵn, điều này gây ra khó khăn khi sửdụng GNN vào các bài toán khác (ví dụimage
+classification, object detection,...).
+Đểcó thểsửdụng GNN vào các bài toán bất kì, ta cần trảlời tuần tự3 câu hỏi sau:
+• Node là gì?
+• Edge là gì?
+• Ta có thểthêm hàm loss phụtrợkhông?
+Ba câu hỏi trên sẽquyết định việc ta có thểsửdụng GNN vào một bài toán bất kì được hay
+không.
+Tuy nhiên, đểGNN có thểcải thiện performance của model hiện tại ta cần phải trảlời câu
+hỏi quan trọng sau:
+• GNN sẽhoạt động như thếnào?
+Ta cần phải giải thích rõ cách GNN sẽhoạt động trước khi tiến hành code thay vì hoàn thành 3
+câu hỏi đầu tiên và cầu nguyện model sẽchạy tốt.
+2. Ý tưởng GNN cho bài toán image classification
+Đểcó thểsửdụng GNN cho bài toán image classification, ta cần trảphải trảlời 3 câu hỏi ởphần
+trên.
+• Node: Ta có thểđịnh nghĩa mỗi sample (image) là một node.
+• Edge: Khi mỗi sample là một node thì edge chính là liên kết giữa 2 sample khi 2 sample đó
+có cùng class. Nếu 2 sample không cùng class thì sẽkhông có edge.
+• Hàm loss phụtrợ: Trong các bài toán mà các edge được định nghĩa rõ ràng (ví dụtrong
+bài này là cùng class với nhau) thì thêm hàm loss phụtrợchắc chắn sẽtăng performance so
+với không thêm.
+Sau khi đã trảlời được 3 câu hỏi trên thì ta đã chắc chắn rằng đã có thểtriển khai code. Tuy
+nhiên, ta cần phải giải thích vai trò của GNN là gì trong model mới này.
+Ta thấy, trong 1 batch data sẽcó nhiều sample có cùng class, và trong các sample cùng class sẽcó
+các sample khó học và các sample dễhọc. Ví dụclass vềghếsofa, các sample dễhọc là các sample
+mà trong đó chỉcó mỗi ghếsofa, các sample khó học sẽbao gồm ghếsofa và bàn gần vịtrí đó.
+Việc này là hoàn toàn bình thường vì ghếsofa và bàn thường nằm cùng nhau trong nhà, nên khi
+chụp ảnh ghếthì sẽdính phải bàn. Khi sửdụng GNN đểtổng hợp thông tin từcác sample cùng
+class trong 1 batch thì ta sẽdùng các sample dễđể“cung cấp” thông tin cho các sample khó, từ
+2
+AI VIETNAM
+aivietnam.edu.vn
+đó giúp model học tốt các sample khó và performance tổng quát của model sẽđược cải thiện.
+Ta sẽtăng độkhó của dataset trong bài toán này đểthấy sựhiệu quảcủa GNN.
+3. Dataset PACS
+PACS là một tập dữliệu hình ảnh vềdomain generalization. PACS bao gồm 4 domain: photo
+(1.670 ảnh), art painting (2.048 ảnh), cartoon (2.344 ảnh) và sketch (3.929 ảnh). Mỗi domain bao
+gồm 7 class.
+Điểm khó của PACS là việc sẽcó nhiều domain cho cùng 1 class, ví dụtrong class person sẽcó 4
+domain (cột số2 trong hình 1):
+• Ảnh person được chụp từthực tế(photo)
+• Ảnh person được vẽphác thảo (sketch)
+• Ảnh person từphim hoạt hình (cartoon)
+• Ảnh vẽperson (art painting)
+Việc có nhiều domain cho cùng một class như vậy sẽtăng độkhó của dataset, đòi hỏi model phải
+có khảnăng generalize tốt hơn.
+Hình 1: Dataset PACS.
+Sau đây là đoạn code download dataset PACS và tạo dataloader. Vì có 4 domain khác nhau nên
+ta sẽcó 4 dataset khác nhau.
+1 # means and
+standard
+deviations
+ImageNet
+because
+the
+network is pretrained
+2 means , stds = (0.485 , 0.456 , 0.406) , (0.229 , 0.224 , 0.225)
+3
+4 # Define
+transforms to apply to each
+image
+5 transf = transforms.Compose(
+6
+[
+3
+AI VIETNAM
+aivietnam.edu.vn
+7
+transforms.CenterCrop (224) ,
+8
+transforms.ToTensor (),
+9
+transforms.Normalize(means , stds),
+10
+]
+11 )
+12
+13 # Clone
+github
+repository
+with data
+14 if not os.path.isdir("./ Homework3 -PACS"):
+15
+!git clone
+https :// github.com/ MachineLearning2020 /Homework3 -PACS
+16
+17 # Define
+datasets
+root
+18 DIR_PHOTO = "Homework3 -PACS/PACS/photo"
+19 DIR_ART = "Homework3 -PACS/PACS/art_painting"
+20 DIR_CARTOON = "Homework3 -PACS/PACS/cartoon"
+21 DIR_SKETCH = "Homework3 -PACS/PACS/sketch"
+22
+23 # Prepare
+Pytorch
+train/test
+Datasets
+24 photo_dataset = torchvision.datasets.ImageFolder(DIR_PHOTO , transform=transf
+)
+25 art_dataset = torchvision.datasets.ImageFolder(DIR_ART , transform=transf)
+26 cartoon_dataset = torchvision.datasets.ImageFolder(DIR_CARTOON , transform=
+transf)
+27 sketch_dataset = torchvision.datasets.ImageFolder(DIR_SKETCH , transform=
+transf)
+Trong bài toán này, ta sẽsửdụng domain photo làm tập train, và sửdụng tập val của photo
+và toàn bộcác domain còn lại đểtest. Tiếp theo ta sẽtạo train và test data loader. Ta sẽdùng
+ConcatDataset đểconcat các dataset với nhau.
+1 # Split
+dataset
+into
+train and test
+2 train_size = int (0.8 * len( photo_dataset ))
+3 test_size = len(photo_dataset ) - train_size
+4
+5 train_dataset , test_dataset = torch.utils.data.random_split(
+6
+photo_dataset , [train_size , test_size]
+7 )
+8
+9 # Concatenate
+all
+datasets
+10 test_datasets = torch.utils.data. ConcatDataset ([ test_dataset , art_dataset ])
+11
+12 # Create
+Dataloaders
+13 trainloader = DataLoader(
+14
+train_dataset , batch_size =128, shuffle=True , num_workers =4, drop_last=
+True
+15 )
+16 testloader = DataLoader(test_datasets , batch_size =128 , shuffle=False ,
+num_workers =4)
+4. Áp dụng GNN cho bài toán image classification
+Ta sẽđịnh nghĩa model GNN trước khi tích hợp GNN vào model chính. GNN sẽbao gồm 2 phần
+chính là Edge và Node network. Edge network sẽlàm nhiệm vụedge prediction, cụthể, ta sẽdùng
+edge network đểpredict giữa 2 sample bất kì trong 1 batch có liên kết với nhau không. Ta cần
+dùng 1 model đểpredict edge giữa 2 sample bất kì và dùng hàm loss đểgiúp edge network predict
+tốt hơn. Nói cách khác, vì khi inference ta không có label nên không thểbiết 2 sample bất kì có
+4
+AI VIETNAM
+aivietnam.edu.vn
+edge với nhau hay không, nên ta mới cần edge network làm nhiệm vụedge prediction.
+1 class GCN(nn.Module):
+2
+def
+__init__(self , in_features , edge_features , out_feature , device ,
+ratio =(1,)):
+3
+super(GCN , self).__init__ ()
+4
+5
+self.edge_net = EdgeNet(
+6
+in_features=in_features ,
+7
+num_features=edge_features ,
+8
+device=device ,
+9
+ratio=ratio ,
+10
+)
+11
+# set edge to node
+12
+self.node_net = NodeNet(
+13
+in_features=in_features ,
+14
+num_features=out_feature ,
+15
+device=device ,
+16
+ratio=ratio ,
+17
+)
+18
+# mask
+value for no -gradient
+edges
+19
+self.mask_val = -1
+20
+21
+def
+label2edge(self , targets):
+22
+""" convert
+node
+labels to affinity
+mask for
+backprop """
+23
+num_sample = targets.size ()[1]
+24
+label_i = targets.unsqueeze (-1).repeat (1, 1, num_sample)
+25
+label_j = label_i.transpose (1, 2)
+26
+edge = torch.eq(label_i , label_j).float ()
+27
+target_edge_mask = (
+28
+torch.eq(label_i , self.mask_val) + torch.eq(label_j , self.
+mask_val)
+29
+).type(torch.bool)
+30
+source_edge_mask = ~ target_edge_mask
+31
+init_edge = edge * source_edge_mask .float ()
+32
+return
+init_edge [0], source_edge_mask
+33
+34
+def
+forward(self , init_node_feat ):
+35
+#
+compute
+normalized
+and not
+normalized
+affinity
+matrix
+36
+edge_feat , edge_sim = self.edge_net( init_node_feat )
+37
+# compute
+node
+features
+and class
+logits
+38
+logits_gnn = self.node_net(init_node_feat , edge_feat)
+39
+return
+logits_gnn , edge_sim
+Sau đây là đoạn code vềedge network. Ta thấy output của edge network là edge_feat có shape
+là (batch_size, batch_size), đây chính là correlation matrix. Mỗi vịtrí ij trong matrix này là mối
+liên hệgiữa sample i và sample j, giá trịcàng gần 1 thì 2 sample càng có mối liên hệcao, và ngược
+lại, giá trịcàng thấp thì mối liên hệcàng thấp. Nói cách khác, mối liên hệcao là các sample có
+cùng class với nhau, mối quan hệthấp là các sample khác class với nhau.
+1 class
+EdgeNet(nn.Module):
+2
+def
+__init__(self , in_features , num_features , device , ratio =(1 ,)):
+3
+super(EdgeNet , self).__init__ ()
+4
+num_features_list = [ num_features * r for r in ratio]
+5
+AI VIETNAM
+aivietnam.edu.vn
+5
+self.device = device
+6
+# define
+layers
+7
+layer_list = OrderedDict ()
+8
+for l in range(len( num_features_list )):
+9
+layer_list["conv {}".format(l)] = nn.Conv2d(
+10
+in_channels= num_features_list [l - 1] if l > 0 else
+in_features ,
+11
+out_channels= num_features_list [l],
+12
+kernel_size =1,
+13
+bias=False ,
+14
+)
+15
+layer_list["norm {}".format(l)] = nn.BatchNorm2d(
+16
+num_features= num_features_list [l]
+17
+)
+18
+layer_list["relu {}".format(l)] = nn.LeakyReLU ()
+19
+# add final
+similarity
+kernel
+20
+layer_list["conv_out"] = nn.Conv2d(
+21
+in_channels= num_features_list [-1], out_channels =1, kernel_size =1
+22
+)
+23
+self.sim_network = nn.Sequential(layer_list).to(device)
+24
+25
+def
+forward(self , node_feat):
+26
+node_feat = node_feat.unsqueeze(dim =0)
+# (1, bs , dim)
+27
+num_tasks = node_feat.size (0)
+# 1
+28
+num_data = node_feat.size (1)
+# bs
+29
+x_i = node_feat.unsqueeze (2)
+# (1, bs , 1, dim)
+30
+x_j = torch.transpose(x_i , 1, 2)
+# (1, 1, bs , dim)
+31
+x_ij = torch.abs(x_i - x_j)
+# (1, bs , bs , dim)
+32
+x_ij = torch.transpose(x_ij , 1, 3)
+# (1, dim , bs , bs)
+33
+# compute
+similarity/ dissimilarity (batch_size x feat_size x
+num_samples x num_samples)
+34
+sim_val = (
+35
+torch.sigmoid(self.sim_network(x_ij)).squeeze (1).squeeze (0).to(
+self.device)
+36
+)
+# (bs , bs)
+37
+# normalize
+affinity
+matrix
+38
+force_edge_feat = (
+39
+torch.eye(num_data).unsqueeze (0).repeat(num_tasks , 1, 1).to(self
+.device)
+40
+)
+# (1, bs , bs)
+41
+edge_feat = sim_val + force_edge_feat
+# (bs , bs)
+42
+edge_feat = edge_feat + 1e-6
+# add small
+value to avoid nan
+43
+edge_feat = edge_feat / torch.sum(edge_feat , dim =1).unsqueeze (1)
+#
+normalize
+44
+return
+edge_feat , sim_val
+# (bs , bs), (bs , bs)
+Lưu ý: edge_feat là tensor sau khi đã normalize sim_val, ta sẽdùng sim_val đểcập nhật hàm
+loss cho model nên cần return về.
+Tiếp theo, node network sẽdùng edge_feat đểtổng hợp thông tin. Node network sẽdùng các giá
+trịtrong edge_feat đểtổng hợp thông tin cho các sample, giá trịcàng cao sẽđược tổng hợp càng
+nhiều, và ngược lại.
+1 class
+NodeNet(nn.Module):
+2
+def
+__init__(self , in_features , num_features , device , ratio =(1 ,)):
+6
+AI VIETNAM
+aivietnam.edu.vn
+3
+super(NodeNet , self).__init__ ()
+4
+num_features_list = [ num_features * r for r in ratio]
+5
+self.device = device
+6
+# define
+layers
+7
+layer_list = OrderedDict ()
+8
+for l in range(len( num_features_list )):
+9
+layer_list["conv {}".format(l)] = nn.Conv2d(
+10
+in_channels= num_features_list [l - 1] if l > 0 else
+in_features * 2,
+11
+out_channels= num_features_list [l],
+12
+kernel_size =1,
+13
+bias=False ,
+14
+)
+15
+layer_list["norm {}".format(l)] = nn.BatchNorm2d(
+16
+num_features= num_features_list [l]
+17
+)
+18
+if l < (len( num_features_list ) - 1):
+19
+layer_list["relu {}".format(l)] = nn.LeakyReLU ()
+20
+self.network = nn.Sequential(layer_list).to(device)
+21
+22
+def
+forward(self , node_feat , edge_feat):
+23
+""" node_feat: (bs , dim), edge_feat: (bs , bs)"""
+24
+node_feat = node_feat.unsqueeze(dim =0)
+# (1, bs , dim)
+25
+num_tasks = node_feat.size (0)
+# 1
+26
+num_data = node_feat.size (1)
+# bs
+27
+# get eye matrix (batch_size x node_size x node_size) only use inter
+dist.
+28
+diag_mask = 1.0 - torch.eye(num_data).unsqueeze (0).repeat(num_tasks ,
+1, 1).to(
+29
+self.device
+30
+)
+# (1, bs , bs)
+31
+# set
+diagonal as zero and
+normalize
+32
+edge_feat = F.normalize(edge_feat * diag_mask , p=1, dim=-1)
+# (bs ,
+bs)
+33
+# compute
+attention
+and
+aggregate
+34
+aggr_feat = torch.bmm(edge_feat.squeeze (1), node_feat)
+# (bs , dim)
+35
+node_feat = torch.cat([ node_feat , aggr_feat],
+-1).transpose(
+36
+1, 2
+37
+)
+# (1, 2*dim , bs)
+38
+# non -linear
+transform
+39
+node_feat = self.network(node_feat.unsqueeze (-1)).transpose(
+40
+1, 2
+41
+)
+# (1, bs , dim)
+42
+node_feat = node_feat.squeeze (-1).squeeze (0)
+# (bs , dim)
+43
+return
+node_feat
+Tóm lại, input của GNN sẽcó shape [batch_size, dim_1] và output có shape [batch_size, dim_2],
+ta hoàn toàn có thểđặt dim_1 = dim_2 hoặc dim_2 = num_classes.
+Bước cuối cùng là tích hợp GNN vào một backbone bất kì:
+1 from
+torchvision.models
+import
+mobilenet_v3_small
+2
+3 class
+Model(nn.Module):
+4
+def
+__init__(self , num_classes =7):
+5
+super(Model , self).__init__ ()
+7
+AI VIETNAM
+aivietnam.edu.vn
+6
+self.backbone = mobilenet_v3_small (pretrained=True)
+7
+self.backbone.classifier = nn.Sequential ()
+8
+9
+self.gcn = GCN(
+10
+in_features =576 ,
+11
+edge_features =576 ,
+12
+out_feature=num_classes ,
+13
+device="cuda",
+14
+ratio =(1,),
+15
+)
+16
+17
+def
+forward(self , x):
+18
+x = self.backbone(x)
+19
+x, edge_sim = self.gcn(x)
+20
+return x, edge_sim
+Đểdễdàng hình dung hơn nữa thì ta hãy nhìn vào model bình thường không có GNN:
+1 from
+torchvision.models
+import
+mobilenet_v3_small
+2
+3 class
+Model(nn.Module):
+4
+def
+__init__(self , num_classes =2):
+5
+super(Model , self).__init__ ()
+6
+self.backbone = mobilenet_v3_small (pretrained=True)
+7
+self.backbone.classifier = nn.Sequential ()
+8
+9
+self.head = nn.Sequential(OrderedDict ([
+10
+(’fc1’, nn.Linear (576 , 256)),
+11
+(’relu ’, nn.ReLU ()),
+12
+(’fc2’, nn.Linear (256 ,
+num_classes))
+13
+]))
+14
+15
+def
+forward(self , x):
+16
+x = self.backbone(x)
+17
+x = self.head(x)
+18
+return x
+Qua 2 đoạn code trên ta thấy chỉcần một thay đổi đơn giản là ta đã có thểtích hợp GNN vào
+backbone bất kì cho bài toán image classification.
+Tiếp theo ta cần định nghĩa thêm hàm loss đểgiúp model predict edge giữa các sample chính xác
+hơn. Hàm edge loss này sẽgiúp model predict 1 cho 2 sample cùng class và 0 khi 2 sample khác
+class, do đó ta cần dùng Binary Cross Entroy (dòng 2). Hàm edege loss sẽđược tính toán ởdòng
+18-21. Biến edge_sim mà model return vềchính là dạng chưa normalize của correlation matrix có
+shape [bs, bs]. Các label ta dùng đểtrain model không thểtrực tiếp sửdụng cho hàm edge loss,
+các label này cần phải chuyển sang dạng mới có shape [bs, bs] và mang các giá trị0 hoặc 1 (được
+tính toán thông qua hàm label2edge).
+1 criterion = nn. CrossEntropyLoss ()
+2 criterion_edge = nn.BCELoss ()
+3 ...
+4 for i, (inputs , labels) in enumerate(trainloader , 0):
+8
+AI VIETNAM
+aivietnam.edu.vn
+5
+# Move
+inputs and labels to the device
+6
+inputs , labels = inputs.to(device), labels.to(device)
+7
+8
+# Zero the
+parameter
+gradients
+9
+optimizer.zero_grad ()
+10
+11
+# Forward
+pass
+12
+outputs , edge_sim = model(inputs)
+13
+14
+# Cls loss
+15
+loss_cls = criterion(outputs , labels)
+16
+17
+# Edge loss
+18
+edge_gt , edge_mask = model.gcn.label2edge(labels.unsqueeze(dim =0))
+19
+loss_edge = criterion_edge (
+20
+edge_sim.masked_select (edge_mask), edge_gt. masked_select (edge_mask)
+21
+)
+22
+23
+# Total
+loss
+24
+loss = 0.3 * loss_cls + loss_edge
+25
+26
+running_loss += loss.item ()
+27
+28
+# Backward
+pass and
+optimization
+29
+loss.backward ()
+30
+optimizer.step ()
+31 ...
+Lưu ý: file pdf này chỉcung cấp một sốđoạn code chính đểtránh người đọc phân tâm. Tất cả
+các phần code còn lại như một bài toán image classification bình thường, full code sẽnằm ởfile
+notebook.
+9
+AI VIETNAM
+aivietnam.edu.vn
+Phần III: Câu hỏi trắc nghiệm
+1. Đâu là lưu ý khi áp dụng GNN vào các bài toán bất kì?
+(a) Label là gì?
+(b) Độlớn dataset
+(c) Độphức tạp của model
+(d) Edge là gì?
+2. Đâu là lưu ý khi áp dụng GNN vào các bài toán bất kì?
+(a) Label là gì?
+(b) Node là gì?
+(c) Sốlượng param
+(d) Loss là gì?
+3. Đâu là lưu ý khi áp dụng GNN vào các bài toán bất kì?
+(a) Có cần hàm loss phụtrợhay không?
+(b) Loại hàm loss của model hiện tại.
+(c) Model có tính toán song song hay không?
+(d) Loss là gì?
+4. Sau khi chắc chắn GNN có thểsửdụng, điều gì ta cần cân nhắc tiếp theo là phù hợp nhất?
+(a) Không cần gì
+(b) Độlớn của model sau khi thêm GNN
+(c) Hiểu rõ cách GNN tổng hợp thông tin
+(d) Tốc độcủa model sau khi thêm GNN
+5. Nếu input của GNN có shape [batch_size, dim_1] và output có shape [batch_size, dim_2] thì
+nhận định nào sau đây là SAI:
+(a) dim_2 có thểbằng dim_1 * 2
+(b) dim_2 có thểbằng sốlượng class
+(c) dim_1 và dim_2 không bắt buộc bằng nhau
+(d) dim_1 và dim_2 phải bằng nhau
+6. Khi muốn kết hợp nhiều dataset với nhau ta có thểdùng:
+(a) torch.utils.data.MergeDataset
+(b) torch.utils.data.ConcatDataset
+(c) torch.utils.data.MergeData
+(d) torch.utils.data.ConcatData
+7. Trong GNN, cơ chếnào được sửdụng đểlan truyền thông tin qua các node và edge?
+(a) Feedforward
+(b) Backpropagation
+(c) Message passing
+10
+AI VIETNAM
+aivietnam.edu.vn
+(d) Gradient descent
+8. Đâu là điểm yếu của GNN?
+(a) Tốc độtrain model chậm
+(b) Tốc độinference nhanh
+(c) Sốlượng param cực lớn
+(d) Không có điểm yếu nào
+9. Đâu là điểm yếu của GNN?
+(a) Cần train model theo 2 stage
+(b) Cần inference model theo 2 stage
+(c) Tốc độinference chậm
+(d) Tốc độtrain model nhanh
+10. Đâu là những yếu cầu của GNN?
+(a) Batch size bất kì, data bất kì
+(b) Batch size = 1, data clean
+(c) Batch size > 1, data bất kì
+(d) Batch size > 1, data clean
+- Hết -
+11

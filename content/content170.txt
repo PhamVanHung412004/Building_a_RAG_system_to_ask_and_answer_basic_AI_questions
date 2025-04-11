@@ -1,9 +1,0 @@
-AI VIETNAM aivietnam.edu.vn
-14.6 Variance Preserving SDE (VP SDE)
-Ở phần này chúng ta sẽ tìm hiểu về Variance Preserving (VP) trong SDE.
-Phương trình SDE cho VP được định nghĩa bởi:
-˙x = −β(t)
-2 x +
-p
-β(t) η(t) (37)
-Trong đó,β(t) là một hàm tăng dần vàx(t) thuộc không gianRN . 

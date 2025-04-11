@@ -1,4 +1,0 @@
-append ( loss . item ())
-56
-57 avg_losses = { task : sum ( task_loss )/ len ( task_loss ) for task , task_loss in losses .
-7

@@ -1,0 +1,237 @@
+NÂNG CAO HIỆU QUẢVIẾT CODE VỚI
+TYPE HINTS VÀ MYPY
+Dinh-Tiem Nguyen và Quang-Vinh Dinh
+1
+Mởđầu
+Làm sao đểviết code Python dễđọc, dễhiểu và dễbảo trì hơn? Làm thếnào đểcó thểkiểm tra tính
+đúng đắn của code trước khi thực thi chúng? Và liệu có cách nào đểphát hiện và sửa lỗi kiểu dữliệu
+một cách dễdàng và nhanh chóng không? Trong bài viết này sẽhướng dẫn sửdụng Type Hints đểxác
+định và gợi ý kiểu dữliệu của các biến, giá trịtrảvềcủa các hàm, phương thức... Đồng thời kết hợp
+với Mypy-một công cụkiểm tra kiểu dữliệu static mạnh mẽcho các chương trình Python, giúp nâng
+cao hiệu quảviết code trong quá trình phát triển dựán.
+Yêu cầu:
+• Máy tính đã cài đặt python>=3.10, Vscode.
+• Đã biết lập trình Python cơ bản.
+2
+Hướng dẫn sửdụng Type Hints và Mypy
+2.1
+Hướng dẫn sửdụng Type Hints
+Type Hints là một tính năng đã được tích hợp sẵn trong Python, cho phép ta khi viết code có thểkhai
+báo kiểu dữliệu của các biến, tham sốvà giá trịtrảvềcủa hàm. Và điều thú vịlà khi thực thi chương
+trình Python trình thông dịch sẽbỏqua các gợi ý kiểu dữliệu trong code. Chúng ta sẽhiểu rõ hơn
+thông qua các ví dụ.
+2.1.1
+Type hints cho biến
+Chúng ta sẽbắt đầu bằng ví dụtạo biến theo cách thông thường:
+1 # Cách không dùng type
+hints
+2 name = "AI VIETNAM"
+3 year = 2024
+4
+5 print(f"Welcome to {name} {year }!")
+=================
+Output
+================
+Welcome to AI VIETNAM
+2024!
+==========================================
+Đểgợi ý vềkiểu dữliệu của một biến, ta có thểsửdụng Type Hints như sau:
+Daily AI Exercise (AIO)
+aivietnam.edu.vn
+1 name: str = "AI VIETNAM"
+2 year: int = 2024
+3
+4 print(f"Welcome to {name} {year }!")
+5 print( __annotations__ )
+=================
+Output
+================
+Welcome to AI VIETNAM
+2024!
+{’name ’: <class ’str ’>, ’year ’: <class ’
+int ’>}
+==========================================
+Trong ví dụtrên chúng ta khai báo kiểu dữliệu cho name là string, year với kiểu int tuy nhiên khi thực
+thi chương trình thì đều cho kết quảgiống nhau vì Python sẽbỏqua phần gợi ý kiểu dữliệu. Khác biệt
+duy nhất là khi sửdụng type hints chương trình sẽtạo ra một thộc tính đặc biệt __annotations__ để
+chứa thông tin vềkiểu dữliệu của các biến, điều này sẽgiúp IDE(Vscode) đưa ra những gợi ý cú pháp
+chính xác. Ngoài ra thuộc tính này sẽlà thông tin quan trọng đểcác công cụhỗtrợnhư Mypy có thể
+kiểm tra kiểu dữliệu của chương trình.
+Khi sửdụng type hints, có nhiều trường hợp gợi ý kiểu cho biến là kiểu list, tuple, boolean, hoặc biến
+đó có thểcó nhiều kiểu dữliệu khác nhau.
+1 # Biến với Type Hint là list chứa các sốnguyên
+2 numbers: list[int]
+3
+4 # Biến với Type Hint là tuple chứa một chuỗi và một sốnguyên
+5 person: tuple[str , int]
+6
+7 # Biến với Type Hint là int hoặc float
+8 value: int|float
+9
+10 # Biến với Type Hint là list chứa chuỗi và tuple chứa sốnguyên
+11 data: list[str]| tuple[int , int]
+12
+13 # Biến với Type Hint là Tuple chứa một list các sốnguyên và một dict
+14 info: tuple[list[int], dict]
+15
+16 # Biến với Type hint là boolean
+17 is_active: bool
+Trong ví dụtrên, chúng ta đã sửdụng Type Hints đểchỉđịnh kiểu dữliệu của các biến numbers, person,
+value, data, và info. Khi chúng ta tạo type hints cho biến mà không gán giá trịnhư vậy, thì các biến
+này vẫn chưa thực sựđược tạo ra. Mà chỉcó __annotations__ được tạo ra chứa thông tin gợi ý kiểu
+dữliệu cho từng biến. Chúng ta có thểkiểm tra điều này bằng cách in biến đó ra đểxem thông tin.
+1 print( __annotations__ )
+2 print(numbers , person , value , data , info)
+======================================
+Output
+========================================
+{’numbers ’: list[int], ’person ’: tuple[str , int], ’value ’: int | float , ’data ’: list[
+str] | tuple[int , int], ’info ’: tuple[list[int], dict], ’is_active ’: <class ’bool
+’>}
+Traceback (most
+recent
+call last):
+File " create_type_hints .py", line 20, in <module >
+print(numbers , person , value , data , info , is_active)
+NameError: name ’numbers ’ is not
+defined
+======================================================================================
+2.1.2
+Type hints cho hàm
+Đểgợi ý vềkiểu dữliệu của các tham sốvà giá trịtrảvềcủa một hàm, ta có thểsửdụng Type Hints
+như ví dụphía dưới. Trong hàm add, chúng ta gợi ý rằng x và y là các sốnguyên (int) và hàm trảvềlà
+một sốnguyên (int). Nhưng nếu ta cốtình sửdụng kiểu dữliệu float thì chương trình vẫn hoạt động
+bình thường, không một cảnh báo lỗi nào xuất hiện.
+2
+Daily AI Exercise (AIO)
+aivietnam.edu.vn
+1 def add(x: int , y: int) -> int:
+2
+return x + y
+3
+4 if __name__ == "__main__":
+5
+print(add(x= 1.5,
+y=2))
+6
+print(add.__annotations__ )
+=================
+Output
+================
+3.5
+{’x’: <class ’int ’>, ’y’: <class ’int ’>,
+’return ’: <class ’int ’>}
+==========================================
+Ưu điểm của việc sửdụng type hints là giúp code của chúng ta dễđọc hơn, ngoài ra thì giúp công cụ
+IDE code gợi ý cú pháp hiệu quảhơn. Thông thường, khi chúng ta tạo hàm, nếu các tham sốtrong
+hàm không được gán giá trịmặc định thì IDE không biết kiểu dữliệu của tham sốđó là gì, nên không
+đưa ra gợi ý code cho chúng ta được. Nhưng khi sửdụng type hints, điều này lại được khắc phục.
+Hình 1: Gợi ý code trong Vscode xuất hiện khi sửdụng type hints
+2.1.3
+Type hints cho class
+Đểsửdụng type hints cho class, đối với thuộc tính chúng ta tạo type hints cho chúng như cách làm với
+biến, đối với các phương thức thì chúng ta tạo type hints như cách chúng ta làm với hàm.
+1 class
+Person:
+2
+name: str
+3
+age: int
+4
+5
+def
+__init__(self , name: str , age: int) -> None:
+6
+self.name = name
+7
+self.age = age
+8
+9
+def greet(self) -> str:
+10
+return f"Xin chào, Tôi là {self.name} năm nay tôi {self.age} tuổi."
+11
+12 if __name__
+== "__main__":
+13
+person_1 = Person("Tom", 25)
+14
+print(person_1.greet ())
+======================================
+Output
+========================================
+Tôi là Tom năm nay tôi 25 tuổi.
+======================================================================================
+3
+Daily AI Exercise (AIO)
+aivietnam.edu.vn
+Trong lớp Person trên, chúng ta gợi ý rằng thuộc tính name là một chuỗi (str), thuộc tính age là một
+sốnguyên (int) và phương thức greet trảvềmột chuỗi (str).
+Lưu ý: Việc tạo type hints trong code chương trình là không bắt buộc, không có chúng thì chương
+trình vẫn chạy bình thường. Vậy thì khi nào nên và không nên sửdụng type hints? Thì sẽtùy vào từng
+dựán, nhóm bạn làm việc có muốn sửdụng type hints không. Nhìn chung, type hints có nhiều ưu điểm
+giúp code chương trình rõ ràng và dễphát hiện và sửa lỗi bảo trì hơn so với nhược điểm như phải dành
+thêm nhiều thời gian hơn đểviết mã.
+2.2
+Kết hợp Type Hints với Mypy
+Type hints giúp code của chúng ta rõ ràng, dễđọc và dễsửa lỗi hơn, tuy nhiên việc phát hiện lỗi chúng
+ta vẫn thực hiện thủcông, người lập trình phải tựđọc hiểu và cốgắng kiểm soát các kiểu dữliệu để
+đảm bảo tính logic nhưng điều này có thểgây mất nhiều thời gian mà không hiệu quả.
+Công cụmypy ra đời đểkhắc phục điều này, nó là một công cụkiểm tra kiểu dữliệu static Python, cho
+phép chúng ta kiểm tra kiểu dữliệu trong chương trình mà không cần phải thực thi chúng. Nó được
+phát triển bởi Jukka Lehtosalo và được công bốdưới dạng mã nguồn mở.
+Đểsửdụng mypy, trước tiên chúng ta cần cài đặt nó thông qua câu lệnh sau:
+1 pip
+install
+mypy
+Sau khi cài đặt thành công, chúng ta có thểsửdụng mypy đểkiểm tra kiểu dữliệu trong chương trình
+của chúng ta bằng cách chạy lệnh:
+1 mypy
+my_script.py
+Trong đó my_script.py là file chứa code chương trình và các type hints. Ta cần lưu ý là mypy chỉkiểm
+tra được cho tệp có đuôi .py, đối với tệp notebook.ipynb chúng ta cần sửdụng công cụkhác như nbqa.
+Trong phạm vi bài viết này, chúng ta chỉkiểm tra kiểu đối với file .py.
+Chúng ta cùng quay trởlại ví dụtính tổng hai số, ta tạo type hints cho các tham sốlà kiểu int, nhưng
+trong ví dụ, chúng ta truyền giá trịcho hai tham sốlà kiểu float và int thì chương trình vẫn chạy bình
+thường. Dưới đây, chúng ta sẽkiểm tra kiểu bằng mypy.
+1 def add(x: int , y: int) -> int:
+2
+return x + y
+3
+4 if __name__ == "__main__":
+5
+print(add(x= 1,
+y=2))
+6
+print(add(x= 1.5,
+y=2))
+7
+print(add.__annotations__ )
+======================================
+Output
+========================================
+mypy add.py
+add.py:6: error: Argument "x" to "add" has
+incompatible
+type "float "; expected "int"
+[arg -type]
+Found 1 error in 1 file (checked 1 source
+file)
+======================================================================================
+Kết quảmypy trảvềcho thấy trong file code của chúng ta add.py xuất hiện lỗi kiểu ởdòng 6 tức là
+dòng print(add(x= 1.5, y=2)), lỗi này do x=1.5 có kiểu là float không khớp với kiểu dữliệu dựkiến từ
+type hints là int. Sau khi xác định lỗi, chúng ta dễdàng sửa lỗi và chương trình sẽtrởlên đúng đắn
+hơn. Ta thấy mypy thật tiện lợi phải không?
+4
+Daily AI Exercise (AIO)
+aivietnam.edu.vn
+3
+Bài tập
+Viết một chương trình Python đểkiểm tra xem một sốcó phải là sốnguyên tốhay không. Sốnguyên
+tốlà sốnguyên dương lớn hơn 1 và chỉcó hai ước sốdương là 1 và chính nó.
+Yêu cầu:
+• Viết một hàm có tên là is_prime nhận một sốnguyên dương n và trảvềmột giá trịboolean. Nếu
+n là sốnguyên tố, hàm sẽtrảvềTrue, ngược lại trảvềFalse.
+• Sửdụng Type Hints đểgợi ý vềkiểu dữliệu của tham sốvà giá trịtrảvềcủa hàm.
+• Sửdụng mypy đểkiểm tra kiểu dữliệu trong chương trình
+5

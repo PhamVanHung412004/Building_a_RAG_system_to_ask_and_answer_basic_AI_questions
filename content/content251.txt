@@ -1,3 +1,0 @@
-• S là số lượng các phần tử trong tập hợp dữ liệu.
-• Si là số lượng các phần tử trong tập hợp dữ liệu.
-12

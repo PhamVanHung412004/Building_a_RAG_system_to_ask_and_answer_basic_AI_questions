@@ -1,0 +1,717 @@
+Traffic Sign Detection
+Dinh-Thang Duong – TA
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Project
+Year 2023
+Outline
+2
+Ø Introduction
+Ø Project Pipeline
+Ø Traffic Sign Classification
+Ø Traffic Sign Localization
+Ø Question
+Outline
+AI VIETNAM
+All-in-One Course
+(TA Session)
+3
+Introduction
+v Object Detection
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Object Detection: A computer vision task that involves 
+indentifying and locating objects of interest in an image or 
+video. 
+4
+Introduction
+v Image Classification vs Object Detection
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Unlike image classification, where the goal is to assign a label to an entire image, object detection aims to identify 
+multiple objects and provide bounding boxes around them, specifying where each of object is in the image.
+5
+Introduction
+v Two-stage Object Detection
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Two-stage Object Detection: A combination of Object Localization and Object Classification. 
+6
+Introduction
+v Object Localization
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Object Localization: A computer vision task that seeks to 
+pinpoint the location of a specific object in an image. The 
+primary output for object localization is usually a bounding 
+box that encompasses the objects of interest.
+7
+Introduction
+v Object Localization
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Example: Multiple bounding boxes are presented to identify the position of two dogs. Green seems more 
+accurate than Blue.
+8
+Introduction
+v Object Localization: Bounding box
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Bouding box
+Bounding box: A rectangular box used to describe the 
+location of an object within an image. Bounding box is 
+often represented as a tuple of (x_center, y_center, width, 
+height) or (xmin, ymin, xmax, ymax).
+9
+Introduction
+v Object Localization: Bounding box
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Height
+Width
+Center
+YOLO format
+(x_center, y_center, width, height)
+(0, 0)
+X
+y
+(x_center, y_center)
+10
+Introduction
+v Object Localization: Bounding box
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Top Left
+Bottom Right
+Pascal VOC format
+(xmin, ymin, xmax, ymax)
+(0, 0)
+X
+y
+(xmax, ymax)
+(xmin, ymin)
+11
+Introduction
+v Object Localization: Draw bounding box to an image
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Draw bounding box into image using cv2.rectangle
+We can use cv2.rectangle() to draw a bounding box
+12
+Introduction
+v Object Localization: Convert bounding box format
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Given a tuple bbox of (x_center, y_center, width, height):
+13
+Introduction
+v Object Localization: Convert bounding box format
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Given an image and a tuple bbox of (xmin, ymin, xmax, ymax):
+crop_object(img, bbox)
+14
+Introduction
+v Object Localization: Methods
+AI VIETNAM
+All-in-One Course
+(TA Session)
+There are several methods to solve the object 
+localization task. In this project, we will use Sliding 
+Window technique.
+15
+Introduction
+v Object Classification
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Object Classification (Image Classification): A computer 
+vision task that involes assigning a predefined category or 
+label to an image. In this project, we will use SVM to build 
+an image classifier.
+16
+Introduction
+v Object Detection Output
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Output: A list of predicted bounding boxes in the 
+form of (xmin, ymin, xmax, ymax, 
+confidence_score)
+Output Visualization
+17
+Introduction
+v Object Detection Confidence Score
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Confidence Score: A value represents how ‘confident’ the model is 
+to assign a class to the corresponding object. Confidence Score is 
+often taken from the output of Object Classifier.
+18
+Project Pipeline
+v Introduction
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Object 
+Detection 
+Dataset
+Get all objects and 
+their label
+Sliding Window 
+(Multiple 
+window sizes)
+Pyramid Images
+Non-maximum 
+Suppression
+Object Localization
+Input Image
+List of bounding 
+boxes
+Classification
+Output
+Object Classification
+19
+Project Pipeline
+v Import essential libraries
+AI VIETNAM
+All-in-One Course
+(TA Session)
+20
+Traffic Sign Classification
+v Introduction
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Description: Given a dataset of Traffic Sign Detection. Build a Traffic Sign Image Classifier using SVM model.
+21
+Traffic Sign Classification
+v Step 1: Read dataset
+AI VIETNAM
+All-in-One Course
+(TA Session)
+22
+Traffic Sign Classification
+v Step 1: Read dataset
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Folder contains the image
+Filename of the image
+Shape of the image
+Label of the object (classname)
+Bounding box (Pascal VOC format) of the 
+object
+23
+Traffic Sign Classification
+v Step 1: Read dataset
+AI VIETNAM
+All-in-One Course
+(TA Session)
+24
+Traffic Sign Classification
+v Step 1: Read dataset
+AI VIETNAM
+All-in-One Course
+(TA Session)
+We want to extract all objects as images using bounding box 
+and their corresponding label as string.
+25
+Traffic Sign Classification
+v Step 1: Read dataset
+AI VIETNAM
+All-in-One Course
+(TA Session)
+26
+Traffic Sign Classification
+v Step 1: Read dataset
+AI VIETNAM
+All-in-One Course
+(TA Session)
+We ignore 
+‘trafficlight’ class 
+since we do Traffic 
+Sign Classification
+27
+Traffic Sign Classification
+v Step 2: Preprocess image
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Currently, we cannot feed the entire image (len(shape) == 3) as X to train 
+an SVM model. 
+3x3
+9x1
+We can flatten 
+image to have the 
+len(shape) == 1.
+28
+Traffic Sign Classification
+v Step 2: Preprocess image
+AI VIETNAM
+All-in-One Course
+(TA Session)
+3x3
+9x1
+Flattening on raw image does not seem good enough since the vector does 
+not represent the image well. 
+We need 
+to use a 
+better 
+representa
+tion
+29
+Traffic Sign Classification
+v HoG
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Histogram of Oriented Gradients (HoG): A feature 
+descriptor used primarily in object detection. It was 
+introduced in a 2005 paper by Dalal and Triggs, where it 
+was applied to pedestrian detection and achieved 
+significant improvements over then-existing algorithms.
+30
+Traffic Sign Classification
+v HoG
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Objective: Convert raw image to HoG representation, then do flattening on HoG.
+31
+Traffic Sign Classification
+v HoG
+AI VIETNAM
+All-in-One Course
+(TA Session)
+1. Split the images into cells. Each cell 
+contains 8x8 pixels.
+2. For each cell, compute the Gradient 
+Direction and Gradient Magnitude.
+32
+Traffic Sign Classification
+v HoG: Compute Histogram of Gradients
+AI VIETNAM
+All-in-One Course
+(TA Session)
+We create a vector of 9 elements (9 bins), 
+representing the value range of Gradient 
+Direction [0, 180]. If direction is in a bin, assign 
+magnitude to the bin.
+33
+Traffic Sign Classification
+v HoG: Compute Histogram of Gradients
+AI VIETNAM
+All-in-One Course
+(TA Session)
+If not, assign magnitude to two adjacent bins 
+𝑥∈[𝑥!, 𝑥"] using the following formulas:
+𝑥#$" = (𝑥" −𝑥)
+𝑥" −𝑥!
+∗𝑚𝑎𝑔𝑛𝑖𝑡𝑢𝑑𝑒
+𝑥# = (𝑥−𝑥!)
+𝑥" −𝑥!
+∗𝑚𝑎𝑔𝑛𝑖𝑡𝑢𝑑𝑒
+34
+Traffic Sign Classification
+v HoG: Compute Histogram of Gradients
+AI VIETNAM
+All-in-One Course
+(TA Session)
+35
+Traffic Sign Classification
+v HoG: Normalize block of cells
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Do normalization on each 2x2 cells block = 
+normalization on 1x36 vector.  
+36
+Traffic Sign Classification
+v Step 2: Preprocess image
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Convert all raw 
+images to HOG 
+representation
+We resize all images to 
+the same size to 
+ensure HOG vectors 
+have the same shape.
+37
+Traffic Sign Classification
+v Step 2: Preprocess image
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Convert all raw 
+images to HOG 
+representation
+38
+Traffic Sign Classification
+v Step 3: Encode label
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Label Encoder
+‘crosswalk’
+0
+‘speedlimit’
+1
+‘stop’
+2
+39
+Traffic Sign Classification
+v Step 4: Create train, val set
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Original Dataset
+Train Set
+Val set
+40
+Traffic Sign Classification
+v Step 5: Normalization
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Using sklearn.preprocessing.StandardScaler() 
+to scale all values in dataset.
+41
+Traffic Sign Classification
+v Step 6, 7: Train and evaluate SVM model
+AI VIETNAM
+All-in-One Course
+(TA Session)
+42
+Traffic Sign Classification
+v Step 6, 7: Train and evaluate SVM model
+AI VIETNAM
+All-in-One Course
+(TA Session)
+43
+Traffic Sign Localization
+v Introduction
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Sliding Window 
+(Multiple 
+window sizes)
+Pyramid Images
+Non-maximum 
+Suppression
+Input Image
+List of 
+bounding boxes
+List of 
+bounding boxes
+SVM model
+List of bounding boxes 
+with classname and 
+confidence socre
+44
+Traffic Sign Localization
+v Sliding Window
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Sliding Window: A technique used in computer 
+vision and signal processing where a fixed-size 
+“window” (or a sub-rectangle) is moved across an 
+image (or a signal) to analyze a local region at a time.
+Example: Using sliding window to find a 
+cup within an image.
+window 1
+window 2
+window 3
+45
+Traffic Sign Localization
+v Sliding Window
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Target of finding
+46
+Traffic Sign Localization
+v Sliding Window
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Window size 1
+Window size 2
+Small stride 
+archive with 
+high accuracy
+A bigger 
+stride archive 
+with high 
+speed
+Stride = 10
+Stride = 20
+Difference  
+window size
+Detect 
+objects of 
+different sizes
+47
+Traffic Sign Localization
+v Sliding Window
+AI VIETNAM
+All-in-One Course
+(TA Session)
+48
+Traffic Sign Localization
+v Small objects problem
+AI VIETNAM
+All-in-One Course
+(TA Session)
+In many situations, the objects of 
+interest are often presented very 
+small in the image. Directly apply a 
+fixed-size window might not be 
+effectively handle this.
+49
+Traffic Sign Localization
+v Pyramid Images
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Pyramid Image: A multi-scale representation of an input 
+image where the image is processed at various scales 
+(resolutions) to detect objects at different sizes.
+50
+Traffic Sign Localization
+v Pyramid Images
+AI VIETNAM
+All-in-One Course
+(TA Session)
+51
+Traffic Sign Localization
+v Pyramid Images
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Apply sliding window on each scaled image to find the 
+objects of interest.
+52
+Traffic Sign Localization
+v Pyramid Images
+AI VIETNAM
+All-in-One Course
+(TA Session)
+53
+Traffic Sign Localization
+v Apply Sliding Window on Pyramid Images
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Source: https://pyimagesearch.com/wp-content/uploads/2015/03/sliding-window-animated-adrian.gif
+54
+Traffic Sign Localization
+v Visualize bounding box
+AI VIETNAM
+All-in-One Course
+(TA Session)
+With this list of bounding box, we need to put them  
+on the image for a better understanding of the final 
+results.
+55
+Traffic Sign Localization
+v Visualize bounding box
+AI VIETNAM
+All-in-One Course
+(TA Session)
+56
+Traffic Sign Localization
+v Prediction
+AI VIETNAM
+All-in-One Course
+(TA Session)
+57
+Traffic Sign Localization
+v Prediction
+AI VIETNAM
+All-in-One Course
+(TA Session)
+We want to select certain bounding boxes (e.g: bounding 
+boxes which have a higher or equal than the minimum 
+confidence score => Threshold the confidence score.
+58
+Traffic Sign Localization
+v Prediction
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Results with a confidence score threshold = 0.95
+59
+Traffic Sign Localization
+v Prediction
+AI VIETNAM
+All-in-One Course
+(TA Session)
+60
+Traffic Sign Localization
+v Overlapped bounding boxes problem
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Usually, the raw outcome of object detection 
+may have a lot of bounding boxes overlapping 
+each other, with almost the same confidence 
+score. We need to compress into the best one.
+61
+Traffic Sign Localization
+v Non-maximum Suppression
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Non-Maximum 
+Suppression
+62
+Traffic Sign Localization
+v Non-maximum Suppression
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Non-maximum suppression (NMS): A technique used in 
+object detection tasks to prune multiple bounding 
+boxes that are overlapping and refer to the same object.
+63
+Traffic Sign Localization
+v Non-maximum suppression
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Non-maximum suppression:
+1. Select the bounding box with highest 
+confidence score (A).
+2. Compute IoU between (A) with other 
+images.
+3. Only retain images that have IoU less 
+than a threshold (iou_threshold). 
+Otherwise, remove all.
+64
+Traffic Sign Localization
+v Intersection over Union
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Intersection over Union (IoU): A metric used to 
+measure the overlap between two bounding boxes.
+65
+Traffic Sign Localization
+v Intersection over Union
+AI VIETNAM
+All-in-One Course
+(TA Session)
+𝐼𝑂𝑈=
+𝑥!
+", 𝑦!
+"
+𝑥!
+#, 𝑦!
+#
+𝑥$
+", 𝑦$
+"
+𝑥$
+#, 𝑦$
+#
+A
+B
+𝑥$
+#, 𝑦$
+#
+𝑥$
+", 𝑦$
+"
+𝑥!
+#, 𝑦!
+#
+𝑥!
+", 𝑦!
+"
+A
+B
+𝑥!
+%, 𝑦!
+%
+𝑥$
+%, 𝑦$
+%
+𝑖𝑛𝑡𝑒𝑟= 𝑚𝑎𝑥𝑥!
+" −𝑥#
+", 0
+∗𝑚𝑎𝑥𝑦!
+" −𝑦#
+", 0
+𝑥"
+% = 𝑚𝑎𝑥𝑥"
+&, 𝑥"
+'
+𝑦"
+% = 𝑚𝑎𝑥𝑦"
+&, 𝑦"
+'
+𝑥(
+% = 𝑚𝑖𝑛𝑥(
+&, 𝑥(
+'
+𝑦(
+% = 𝑚𝑖𝑛𝑦(
+&, 𝑦(
+'
+𝑢𝑛𝑖𝑜𝑛= 𝑆$ + 𝑆% −𝑖𝑛𝑡𝑒𝑟
+66
+Traffic Sign Localization
+v Intersection over Union
+AI VIETNAM
+All-in-One Course
+(TA Session)
+𝐴∪𝐵
+𝐴∩𝐵
+𝐼𝑜𝑈= 𝐴𝑟𝑒𝑎𝑜𝑓𝑂𝑣𝑒𝑟𝑙𝑎𝑝
+𝐴𝑟𝑒𝑎𝑜𝑓𝑈𝑛𝑖𝑜𝑛
+Poor
+Good
+Excellent
+67
+Traffic Sign Localization
+v Non-maximum suppression
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Non-maximum suppression:
+1. Select the bounding box with highest confidence 
+score (A).
+2. Compute IoU between (A) with other images.
+3. Only retain images that have IoU less than a 
+threshold (iou_threshold). Otherwise, remove all.
+68
+Traffic Sign Localization
+v Final Results
+AI VIETNAM
+All-in-One Course
+(TA Session)
+?
+69
+Question
+AI VIETNAM
+All-in-One Course
+(TA Session)
+70

@@ -1,0 +1,1189 @@
+Multi-layer Perception
+Quang-Vinh Dinh
+Ph.D. in Computer Science
+AI VIETNAM
+All-in-One Course
+➢Image Data Loading Using Numpy&PyTorch
+➢Softmax+Normalization for Fashion-MNIST
+➢MLP and Examples
+➢Step-by-Step Implementation
+➢Training Strategy (optional)
+Outline
+Image Classification: Image Data
+❖ Grayscale images
+AI VIETNAM
+All-in-One Course
+(Height, Width)
+Pixel p = scalar
+0 ≤p ≤255
+Resolution: #pixels
+Resolution = HeightxWidth
+1
+Image Classification: Image Data
+❖ Color images
+AI VIETNAM
+All-in-One Course
+(Height, Width, channel)
+Pixel p=
+𝑟
+𝑔
+𝑏
+0 ≤r,g,b ≤255
+RGB color image
+Resolution: #pixels
+Resolution = HeightxWidth
+2
+Important Packages
+❖ Some functions
+import urllib.request as req
+req.urlretrieve(url, name)
+To download a file
+from PIL import Image
+img = Image.open(name)
+To open an image
+import matplotlib.pyplot as plt
+plt.imshow(img)
+To show an image
+3
+MNIST dataset
+Image Data
+Grayscale images
+Resolution=28x28
+Training set: 60000 samples
+Testing set: 10000 samples
+4
+MNIST dataset
+Image Data
+Grayscale images
+Resolution=28x28
+Training set: 60000 samples
+Testing set: 10000 samples
+http://yann.lecun.com/exdb/mnist/
+5
+T-shirt
+Trouser
+Pullover
+Dress
+Coat
+Sandal
+Shirt
+Sneaker
+Bag
+Ankle
+Boot
+Image Data
+Fashion-MNIST dataset
+Grayscale images
+Resolution=28x28
+Training set: 60000 samples
+Testing set: 10000 samples
+Image Classification
+AI VIETNAM
+All-in-One Course
+Download data
+Fashion-MNIST dataset
+Grayscale images
+Resolution=28x28
+Training set: 60000 samples
+Testing set: 10000 samples
+28
+28
+784
+7
+Image Data
+Fashion-MNIST data
+AI VIETNAM
+All-in-One Course
+Download data
+28
+28
+784
+Demo
+8
+Image Data
+❖ Using Pytorch
+AI VIETNAM
+All-in-One Course
+data 
+(ndarray, tensor)
+data 
+(ndarray, tensor)
+Size
+Mode
+…
+…
+9
+Fashion MNIST
+❖ Using Pytorch
+…
+…
+…
+…
+60000 samples
+Each sample is a tuple (PIL image, label)
+AI VIETNAM
+All-in-One Course
+10
+Fashion MNIST
+❖ Using Pytorch
+…
+…
+…
+…
+60000 samples
+Each sample is a tuple (image tensor, label)
+AI VIETNAM
+All-in-One Course
+11
+Fashion MNIST
+❖ Using Pytorch
+approximately
+…
+…
+…
+…
+1024 samples
+Each sample is a tuple (image tensor, label)
+…
+…
+…
+…
+1024 samples
+…
+…
+…
+Batch index 0
+Batch index n
+AI VIETNAM
+All-in-One Course
+Fashion MNIST
+❖ Using Pytorch
+…
+…
+…
+…
+1024 samples
+Each sample is a tuple 
+(image tensor, label)
+…
+…
+…
+…
+1024 samples
+…
+…
+…
+Batch index 0
+Batch index n
+AI VIETNAM
+All-in-One Course
+➢Image Data Loading Using Numpy&PyTorch
+➢Softmax+Normalization for Fashion-MNIST
+➢MLP and Examples
+➢Step-by-Step Implementation
+➢Training Strategy (optional)
+Outline
+Softmax Regression
+𝑧0 = 𝑥𝑤0 + 𝑏0
+𝑧1 = 𝑥𝑤1 + 𝑏1
+ොy0 =
+𝑒𝑧0
+σ𝑗=0
+1
+𝑒𝑧𝑗
+ොy1 =
+𝑒𝑧1
+σ𝑗=0
+1
+𝑒𝑧𝑗
+𝒛= 𝑧0
+𝑧1 = 𝑏0 𝑤0
+𝑏1 𝑤1
+1
+𝑥= 𝜽0
+𝑇
+𝜽1
+𝑇
+1
+𝑥= 𝜽𝑇𝒙
+ො𝐲= ොy0
+ොy1 =
+1
+σ𝑗=0
+1
+𝑒𝑧𝑗
+𝑒𝑧0
+𝑒𝑧1 =
+𝑒𝒛
+σ𝑗=0
+1
+𝑒𝑧𝑗
+𝐿𝜽= −෍
+𝑖=0
+1
+𝑦𝑖logො𝑦𝑖= −𝒚𝑇𝑙𝑜𝑔ෝ𝒚
+1
+𝑤1
+ොy0
+𝑥
+Softmax
+function
+𝑤0
+𝑏0
+𝑤1
+𝑏1
+ොy1
+Model
+𝑧0
+𝑧1
+Derivative
+𝜕𝐿
+𝜕𝑧𝑖
+= ො𝑦𝑖−𝑦𝑖
+𝜕𝐿
+𝜕𝑤𝑖
+= 𝑥ො𝑦𝑖−𝑦𝑖
+𝜕𝐿
+𝜕𝑏𝑖
+= ො𝑦𝑖−𝑦𝑖
+𝜕ො𝑦𝑖
+𝜕𝑧𝑗
+= ൝ො𝑦𝑖1 −ො𝑦𝑖 𝑖𝑓 𝑖= 𝑗
+−ො𝑦𝑖ො𝑦𝑗 
+𝑖𝑓 𝑖≠𝑗 
+𝜕𝐿
+𝜕ො𝑦𝑖
+= −𝑦𝑖
+ො𝑦𝑖
+One-hot encoding for label
+𝑦= 0 →𝒚𝑇= [1 0]
+𝑦= 1 →𝒚𝑇= [0 1]
+𝑦0 𝑦1
+vector
+scalar
+𝒙= 1
+𝑥
+𝜽=
+𝑏0 𝑏1
+𝑤0 𝑤1
+Where to 
+put Flatten
+784 Nodes
+Input layer
+Output
+1
+𝑧1
+𝑧10
+Softmax 
+activation
+Fully 
+connect
+10 Nodes
+Output layer
+28
+28
+784
+flatten data
+. . .
+. . .
+Normalization
+Fully 
+connect
+256 Nodes
+Hidden layer
+1
+. . .
+15
+Where to put Flatten
+784 Nodes
+Input layer
+Output
+1
+𝑧1
+𝑧10
+Softmax 
+activation
+Fully 
+connect
+10 Nodes
+Output layer
+28
+28
+784
+flatten data
+. . .
+. . .
+Normalization
+Fully 
+connect
+256 Nodes
+Hidden layer
+1
+. . .
+16
+784 Nodes
+Flatten
+Output
+1
+𝑧1
+𝑧10
+Softmax 
+activation
+Fully 
+connect
+10 Nodes
+Output layer
+28
+28
+. . .
+. . .
+Normalization
+Fully 
+connect
+256 Nodes
+Hidden layer
+1
+. . .
+28x28
+Input Layer
+Where to 
+put Flatten
+17
+Softmax 
+Regression
+784 Nodes
+Input layer
+Output
+1
+𝑧1
+𝑧10
+Softmax 
+activation
+Fully 
+connect
+10 Nodes
+Output layer
+28
+28
+784
+flatten data
+. . .
+. . .
+Data Sets
+without 
+normalization
+learning rate = 0.01
+Case 1
+18
+Softmax 
+Regression
+784 Nodes
+Input layer
+Output
+1
+𝑧1
+𝑧10
+Softmax 
+activation
+Fully 
+connect
+10 Nodes
+Output layer
+28
+28
+784
+flatten data
+. . .
+. . .
+Data Sets
+without 
+normalization
+learning rate = 0.00001
+Case 2
+20
+Softmax Regression 
++ Normalization
+784 Nodes
+Input layer
+Output
+1
+𝑧1
+𝑧10
+Softmax 
+activation
+Fully 
+connect
+10 Nodes
+Output layer
+28
+28
+784
+flatten data
+. . .
+. . .
+Normalization-1
+Image = Image
+255
+Case 3
+22
+Softmax Regression 
++ Normalization
+784 Nodes
+Input layer
+Output
+1
+𝑧1
+𝑧10
+Softmax 
+activation
+Fully 
+connect
+10 Nodes
+Output layer
+28
+28
+784
+flatten data
+. . .
+. . .
+Normalization-1
+Image = Image
+127.5 −1
+Case 4
+24
+Softmax Regression 
++ Normalization
+784 Nodes
+Input layer
+Output
+1
+𝑧1
+𝑧10
+Softmax 
+activation
+Fully 
+connect
+10 Nodes
+Output layer
+28
+28
+784
+flatten data
+. . .
+. . .
+Normalization-2
+Image = Image −μ
+σ
+Case 5
+26
+➢Image Data Loading Using Numpy&PyTorch
+➢Softmax+Normalization for Fashion-MNIST
+➢MLP and Examples
+➢Step-by-Step Implementation
+➢Training Strategy (optional)
+Outline
+MLP - Motivation
+❖ More parameters → better capacity (~stronger model)
+AI VIETNAM
+All-in-One Course
+❖John Von Neumann's quote “with four parameters I can fit an elephant, with five 
+I can make him wiggle his trunk”
+784 Nodes
+Input layer
+Output
+1
+𝑧1
+𝑧10
+Softmax 
+activation
+Fully 
+connect
+10 Nodes
+Output layer
+28
+28
+784
+flatten data
+. . .
+. . .
+Normalization
+28
+Multi-layer Perceptron
+❖ An idea: More parameters → better capacity (~stronger model)
+❖ Adding more layers
+AI VIETNAM
+All-in-One Course
+Input layer
+Output layer
+Output
+1
+𝑧1
+𝑧2
+𝑧3
+activation
+Input
+1
+. . .
+. . .
+Fully connect
+activation
+called Hidden Layers
+#hidden layers is arbitrary
+#nodes in a hidden layer is arbitrary
+28
+Multi-layer Perceptron
+❖ ReLU function
+AI VIETNAM
+All-in-One Course
+ReLU 𝑥= ቊ0 
+if 𝑥< 0
+𝑥 
+if 𝑥≥0
+𝑥
+𝑅𝑒𝐿𝑈(𝑥)
+30
+Multi-layer Perceptron
+An instance
+AI VIETNAM
+All-in-One Course
+Input layer
+Output
+1
+𝑧1
+𝑧2
+𝑧3
+Softmax 
+activation
+Input
+1
+ReLU 
+activation
+Hidden layer
+Fully 
+connect
+Fully 
+connect
+Ouptut layer
+Multi-layer Perceptron
+AI VIETNAM
+All-in-One Course
+Input layer
+Output
+1
+𝑧1
+𝑧2
+𝑧3
+Softmax 
+activation
+Input
+1
+ReLU 
+activation
+Hidden layer 1
+Fully 
+connect
+Fully 
+connect
+1
+ReLU 
+activation
+Hidden layer 2
+Fully 
+connect
+Ouptut layer
+32
+Back to 
+Fashion-MNIST
+Image = Image
+255.0
+784 Nodes
+Input layer
+Output
+1
+𝑧1
+𝑧10
+Softmax 
+activation
+Fully 
+connect
+10 Nodes
+Output layer
+28
+28
+784
+flatten data
+. . .
+. . .
+Normalization
+Fully 
+connect
+256 Nodes
+Hidden layer
+1
+. . .
+33
+MLP Example
+AI VIETNAM
+All-in-One Course
+Feature
+Label
+𝒙=
+𝒙(1)
+𝒙(2)
+𝒙(3)
+=
+1.5 0.2
+4.7 1.6
+5.6 2.2
+𝒚=
+0
+1
+2
+=
+0.0 
+0.0
+0.86 
+−1.04
+0.41 −0.65
+𝑾ℎ= 𝑾𝒉1 𝑾ℎ2
+=
+0.0 
+0.0 
+0.0
+0.32 
+0.25 
+0.14
+−0.47 −1.06 0.063
+𝑾𝑧= 𝑾𝒛1 𝑾𝑧2 𝑾𝑧3
+1
+Softmax
+𝑥1
+𝑥2
+1
+ReLU
+ReLU
+Input layer
+Hidden layer
+Ouptut layer
+ොy1
+ොy2
+ොy3
+𝑧1
+𝑧2
+𝑧3
+ℎ1
+ℎ2
+34
+𝒉= 𝒙𝑾ℎ=
+1 1.5 0.2
+1 4.7 1.6
+1 5.6 2.2
+0.0 
+0.0
+0.86 
+−1.04
+0.41 −0.65
+=
+1.373 
+−1.696
+4.708 
+−5.951
+5.731 
+−7.281
+ReLU(𝒉) =
+1.373 
+0
+4.708 
+0
+5.731 
+0
+Feature
+Label
+1
+Softmax
+𝑥1
+𝑥2
+1
+ReLU
+ReLU
+Input layer
+Hidden layer
+Ouptut layer
+ොy1
+ොy2
+ොy3
+𝑧1
+𝑧2
+𝑧3
+ℎ1
+ℎ2
+=
+0.0 
+0.0
+0.86 
+−1.04
+0.41 −0.65
+𝑾ℎ= 𝑾𝒉1 𝑾ℎ2
+=
+0.0 
+0.0 
+0.0
+0.32 
+0.25 
+0.14
+−0.47 −1.06 0.063
+𝑾𝑧= 𝑾𝒛1 𝑾𝑧2 𝑾𝑧3
+𝒙=
+𝒙(1)
+𝒙(2)
+𝒙(3)
+=
+1 1.5 0.2
+1 4.7 1.6
+1 5.6 2.2
+𝒚=
+0
+1
+2
+35
+ReLU(𝒉) =
+1.373 
+0
+4.708 
+0
+5.731 
+0
+𝟏 ReLU(𝒉) =
+1 1.373 
+0
+1 4.708 
+0
+1 5.731 
+0
+𝒛= 𝟏 ReLU(𝒉) 𝑾𝑧=
+1 1.373 
+0
+1 4.708 
+0
+1 5.731 
+0
+0.0 
+0.0 
+0.0
+0.32 
+0.25 
+0.14
+−0.47 −1.06 0.063
+=
+0.439 0.356 0.195
+1.507 1.220 0.670
+1.835 1.485 0.816
+Feature
+Label
+1
+Softmax
+𝑥1
+𝑥2
+1
+ReLU
+ReLU
+Input layer
+Hidden layer
+Ouptut layer
+ොy1
+ොy2
+ොy3
+𝑧1
+𝑧2
+𝑧3
+ℎ1
+ℎ2
+=
+0.0 
+0.0
+0.86 
+−1.04
+0.41 −0.65
+𝑾ℎ= 𝑾𝒉1 𝑾ℎ2
+=
+0.0 
+0.0 
+0.0
+0.32 
+0.25 
+0.14
+−0.47 −1.06 0.063
+𝑾𝑧= 𝑾𝒛1 𝑾𝑧2 𝑾𝑧3
+𝒙=
+𝒙(1)
+𝒙(2)
+𝒙(3)
+=
+1 1.5 0.2
+1 4.7 1.6
+1 5.6 2.2
+𝒚=
+0
+1
+2
+36
+loss = 1.269
+Feature
+Label
+1
+Softmax
+𝑥1
+𝑥2
+1
+ReLU
+ReLU
+Input layer
+Hidden layer
+Ouptut layer
+ොy1
+ොy2
+ොy3
+𝑧1
+𝑧2
+𝑧3
+ℎ1
+ℎ2
+=
+0.0 
+0.0
+0.86 
+−1.04
+0.41 −0.65
+𝑾ℎ= 𝑾𝒉1 𝑾ℎ2
+=
+0.0 
+0.0 
+0.0
+0.32 
+0.25 
+0.14
+−0.47 −1.06 0.063
+𝑾𝑧= 𝑾𝒛1 𝑾𝑧2 𝑾𝑧3
+𝒛=
+0.439 0.356 0.195
+1.507 1.220 0.670
+1.835 1.485 0.816
+ෝ𝒚= softmax(𝒛) =
+ෝ𝒚(1)
+ෝ𝒚(2)
+ෝ𝒚(3)
+=
+0.369 0.340 0.289
+0.458 0.343 0.198
+0.484 0.341 0.174
+𝒙=
+𝒙(1)
+𝒙(2)
+𝒙(3)
+=
+1 1.5 0.2
+1 4.7 1.6
+1 5.6 2.2
+𝒚=
+0
+1
+2
+37
+Softmax and MLP
+AI VIETNAM
+All-in-One Course
+Training Accuracy: ~86%
+Training Accuracy: ~90%
+➢Image Data Loading Using Numpy&PyTorch
+➢Softmax+Normalization for Fashion-MNIST
+➢MLP and Examples
+➢Step-by-Step Implementation
+➢Training Strategy (optional)
+Outline
+Step-by-Step Implementation
+AI VIETNAM
+All-in-One Course
+❖ 1. Data Preparation
+…
+…
+…
+…
+1024 samples
+Each sample is a tuple (image tensor, label)
+…
+…
+…
+…
+1024 samples
+…
+…
+…
+Batch index 0
+Batch index n
+39
+Step-by-Step Implementation
+❖ 2. Model, loss and optimizer
+784 Nodes
+Flatten
+Output
+1
+𝑧1
+𝑧10
+Softmax 
+activation
+Fully 
+connect
+10 Nodes
+Output layer
+28
+28
+. . .
+. . .
+Normalization
+Fully 
+connect
+256 Nodes
+Hidden layer
+1
+. . .
+28x28
+Input Layer
+40
+Step-by-Step 
+Implementation
+❖ 3. Training
+Training 
+Dataset
+Model
+Model
+GPU
+Step-by-Step Implementation
+AI VIETNAM
+All-in-One Course
+❖ 4. Inference
+Test 
+Dataset
+Model
+Model
+GPU
+42
+Step-by-Step 
+Implementation
+❖ Addition 1: Compute
+    Training Loss and Accuracy
+Step-by-Step Implementation
+❖ Addition 2: Compute  Test Loss and Accuracy
+Step-by-Step 
+Implementation
+❖ Addition 2: Compute
+    Test Loss and Accuracy
+➢Image Data Loading Using Numpy&PyTorch
+➢Softmax+Normalization for Fashion-MNIST
+➢MLP and Examples
+➢Step-by-Step Implementation
+➢Training Strategy (optional)
+Outline
+To-do List for Training
+AI VIETNAM
+All-in-One Course
+Data Preparation
+Data 
+Normalization
+Model (Network) 
+Construction
+Parameter 
+Initialization
+Optimizer 
+Selection
+Loss function 
+Selection
+Metric Selection
+46
+To-do List for Training
+AI VIETNAM
+All-in-One Course
+Data Preparation
+Training
+Data
+Testing
+Data
+Model
+≠
+Used to train model
+(Teach the model by examples)
+Used to validate model
+(Check how good the model is)
+47
+To-do List for Training
+AI VIETNAM
+All-in-One Course
+Data Preparation
+Data 
+Normalization
+Model (Network) 
+Construction
+Parameter 
+Initialization
+Optimizer 
+Selection
+Loss function 
+Selection
+Metric Selection
+48
+To-do List for Training
+AI VIETNAM
+All-in-One Course
+Data Normalization
+28
+28
+Image = Image
+255
+Convert to the range [0,1]
+Image = Image
+127.5 −1
+Convert to the range [-1,1]
+Image = Image −μ
+σ
+Z-score normalization
+μ is the mean of 
+ the image or training data
+σ is thestandard deviation
+ of the image or training data
+49
+Implmentation
+Image = Image
+255
+Convert to the range [0,1]
+Image = Image
+127.5 −1
+Convert to the range [-1,1]
+Image = Image −μ
+σ
+Z-score normalization
+Image = Image −𝑚𝑒𝑎𝑛
+std
+In Pytorch
+Normalize(𝑚𝑒𝑎𝑛, std)
+[0,1]
+mean = 0 ; std = 1
+[-1,1]
+mean = 0.5; std = 0.5
+Compute mean and std 
+from data
+In Theory
+𝑋∈0, 255
+𝑋∈0, 1
+50
+To-do List for Training
+AI VIETNAM
+All-in-One Course
+Data Preparation
+Data 
+Normalization
+Model (Network) 
+Construction
+Parameter 
+Initialization
+Optimizer 
+Selection
+Loss function 
+Selection
+Metric Selection
+51
+To-do List for Training
+AI VIETNAM
+All-in-One Course
+Model (Network) Construction
+Input layer
+Ouptut layer
+Output
+1
+𝑧1
+𝑧2
+𝑧3
+activation
+Input
+1
+. . .
+. . .
+Fully connect
+activation
+Hidden Layers
+How many hidden layers?
+How many nodes in a hidden layer?
+Which activation function?
+Which network components?
+52
+How many nodes?
+AI VIETNAM
+All-in-One Course
+784 Nodes
+Input layer
+Output
+1
+𝑧1
+𝑧10
+Softmax 
+activation
+1
+Sigmoid 
+activation
+How many nodes?
+Fully 
+connect
+Fully 
+connect
+10 Nodes
+Output layer
+28
+28
+784
+flatten data
+. . .
+. . .
+53
+How many nodes?
+AI VIETNAM
+All-in-One Course
+784 Nodes
+Input layer
+Output
+1
+𝑧1
+𝑧10
+Softmax 
+activation
+1
+Sigmoid 
+activation
+Grid Search
+Fully 
+connect
+Fully 
+connect
+10 Nodes
+Output layer
+28
+28
+784
+flatten data
+. . .
+. . .
+𝑁1 𝑁2 … 𝑁𝑘
+54
+airplane
+automobile
+bird
+cat
+deer
+dog
+frog
+horse
+ship
+truck
+Image Classification
+Cifar-10 dataset
+Color images
+Resolution=32x32
+Training set: 50000 samples
+Testing set: 10000 samples

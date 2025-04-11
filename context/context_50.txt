@@ -1,0 +1,466 @@
+1
+AI VIETNAM
+All-in-One Course
+1
+Denoising Diffusion Probabilistic Model
+Vinh Dinh Nguyen
+PhD in Computer Science
+2
+AI VIETNAM
+All-in-One Course
+2
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Objective
+Ø What is Denoising Probability Diffusion Model
+Ø Forward Diffusion Process: Review
+Ø Reverse Diffusion Process: Explain and Implementation
+Ø Denoise Probability Diffusion Model: Implementation
+Ø Summary
+Outline
+3
+AI VIETNAM
+All-in-One Course
+3
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Objective
+Ø What is Denoising Probability Diffusion Model
+Ø Forward Diffusion Process: Review
+Ø Reverse Diffusion Process: Explain and Implementation
+Ø Denoise Probability Diffusion Model: Implementation
+Ø Summary
+Outline
+4
+AI VIETNAM
+All-in-One Course
+4
+Vinh Dinh Nguyen- PhD in Computer Science
+Objective
+1
+•Understand a Probability Diffusion Model
+2
+•Understand a Forward Diffusion Process
+3
+•Understand a Reverse Diffusion Process
+4
+•Be able to Implement a Denoising Diffusion Model Using Pytorch
+5
+AI VIETNAM
+All-in-One Course
+5
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Objective
+Ø What is Denoising Probability Diffusion Model
+Ø Forward Diffusion Process: Review
+Ø Reverse Diffusion Process: Explain and Implementation
+Ø Denoise Probability Diffusion Model: Implementation
+Ø Summary
+Outline
+6
+AI VIETNAM
+All-in-One Course
+6
+Vinh Dinh Nguyen- PhD in Computer Science
+Denoise Probability Diffusion Model
+7
+AI VIETNAM
+All-in-One Course
+7
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Objective
+Ø What is Denoising Probability Diffusion Model
+Ø Forward Diffusion Process: Review
+Ø Reverse Diffusion Process: Explain and Implementation
+Ø Denoise Probability Diffusion Model: Implementation
+Ø Summary
+Outline
+8
+AI VIETNAM
+All-in-One Course
+8
+Vinh Dinh Nguyen- PhD in Computer Science
+Forward Diffusion Process: Review
+Time: t=0
+Generate noise for current step t
+Input
+Add noise to using 
+linear scheduler
+Time: t=1
+Add noise to using 
+linear scheduler
+Time: t=2
+Time: t=n
+Generate noise for current step t
+Generate noise for current step t
+Output
+The forward diffusion method progressively adds Gaussian noise to the input picture x0, for a total of T steps. The technique will generate a 
+series of noisy picture samples x1,..., x T.
+When T is large, the resultant image will be fully noisy, as if it were sampled from an isotropic Gaussian distribution.
+9
+AI VIETNAM
+All-in-One Course
+9
+Vinh Dinh Nguyen- PhD in Computer Science
+Forward Diffusion Process: Review
+Instead of creating an algorithm to
+add noise to the picture repeatedly,
+we may use a closed-form formula to
+directly sample a noisy image at a
+specified time step t.
+10
+AI VIETNAM
+All-in-One Course
+10
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Objective
+Ø What is Denoising Probability Diffusion Model
+Ø Forward Diffusion Process: Review
+Ø Reverse Diffusion Process: Explain and Implementation
+Ø Denoise Probability Diffusion Model: Implementation
+Ø Summary
+Outline
+11
+AI VIETNAM
+All-in-One Course
+11
+Vinh Dinh Nguyen- PhD in Computer Science
+Reverse Diffusion Process
+12
+AI VIETNAM
+All-in-One Course
+12
+Vinh Dinh Nguyen- PhD in Computer Science
+Reverse Diffusion Process
+13
+AI VIETNAM
+All-in-One Course
+13
+Vinh Dinh Nguyen- PhD in Computer Science
+Reverse Diffusion Process
+14
+AI VIETNAM
+All-in-One Course
+14
+Vinh Dinh Nguyen- PhD in Computer Science
+Reverse Diffusion Process
+15
+AI VIETNAM
+All-in-One Course
+15
+Vinh Dinh Nguyen- PhD in Computer Science
+Reverse Diffusion Process
+16
+AI VIETNAM
+All-in-One Course
+16
+Vinh Dinh Nguyen- PhD in Computer Science
+Reverse Diffusion Process
+17
+AI VIETNAM
+All-in-One Course
+17
+Vinh Dinh Nguyen- PhD in Computer Science
+Reverse Diffusion Process
+18
+AI VIETNAM
+All-in-One Course
+18
+Vinh Dinh Nguyen- PhD in Computer Science
+Reverse Diffusion Process
+Unlike the forward process, we cannot use
+q(xₜ₋₁|xₜ) to reverse the noise since it is
+intractable (uncomputable).
+Train
+a
+neural
+network
+pθ(xₜ₋₁|xₜ)
+to
+approximate
+q(xₜ₋₁|xₜ).
+The
+approximation
+pθ(xₜ₋₁|xₜ) follows a normal distribution and its
+mean and variance are set as follows:
+19
+AI VIETNAM
+All-in-One Course
+19
+Vinh Dinh Nguyen- PhD in Computer Science
+Loss Function
+Define a loss as a Negative Log-Likelihood :
+Instead of optimizing the intractable loss function itself, we can optimize the Variational Lower Bound.
+This term compares the target denoising step q and the approximated denoising step pθ.
+20
+AI VIETNAM
+All-in-One Course
+20
+Vinh Dinh Nguyen- PhD in Computer Science
+Loss Function
+To approximate the target denoising step q, we only need to
+approximate its mean using a neural network. So we set the
+approximated mean μθ to be in the same form as the target
+mean μ̃ₜ (with a learnable neural network εθ):
+21
+AI VIETNAM
+All-in-One Course
+21
+Vinh Dinh Nguyen- PhD in Computer Science
+Loss Function
+The comparison between the target mean and the approximated mean can be done using a mean squared error (MSE):
+Experimentally, better results can be achieved by ignoring the weighting term and simply comparing the target and predicted noises with MSE.
+So, it turns out that to approximate the desired denoising step q, we just need to approximate the noise εₜ using a neural network εθ.
+22
+AI VIETNAM
+All-in-One Course
+22
+Vinh Dinh Nguyen- PhD in Computer Science
+Reverse Diffusion Output Visualization
+Each time we predict the noise using a neural network, we 
+subtract part of it and move to the next step. That is how 
+the diffusion process works. But what will happen if we 
+just subtract all the noise?
+Full noise 
+removed
+Full noise 
+removed
+Input a t
+Input a t
+Predicted 
+Noise
+Predicted 
+Noise
+•
+You can use fewer timesteps in your schedule when 
+doing the inference after the model is trained.
+•
+You can use a different schedule when doing the 
+inference.
+23
+AI VIETNAM
+All-in-One Course
+23
+Vinh Dinh Nguyen- PhD in Computer Science
+Diffusion Model Architecture
+U-Net Architecture
+24
+AI VIETNAM
+All-in-One Course
+24
+Vinh Dinh Nguyen- PhD in Computer Science
+Diffusion Model Architecture
+U-Net Architecture
+Skip connection
+25
+AI VIETNAM
+All-in-One Course
+25
+Vinh Dinh Nguyen- PhD in Computer Science
+Diffusion Model Architecture
+U-Net Architecture
+Time embedding
+26
+AI VIETNAM
+All-in-One Course
+26
+Vinh Dinh Nguyen- PhD in Computer Science
+Embedding: Positional encoding visualization
+27
+AI VIETNAM
+All-in-One Course
+27
+Vinh Dinh Nguyen- PhD in Computer Science
+U-Net Time Embedding: Implementation
+28
+AI VIETNAM
+All-in-One Course
+28
+Vinh Dinh Nguyen- PhD in Computer Science
+U-Net Downsampling: Implementation
+29
+AI VIETNAM
+All-in-One Course
+29
+Vinh Dinh Nguyen- PhD in Computer Science
+U-Net Upsample: Implementation
+30
+AI VIETNAM
+All-in-One Course
+30
+Vinh Dinh Nguyen- PhD in Computer Science
+U-Net ResNet: Implementation
+The classic models use linear convolutional layers and
+the layers are followed by an activation function to scan
+the input, while the NiN uses multilayer perceptron
+convolutional layers, at which each layer includes a
+micro-network.
+31
+AI VIETNAM
+All-in-One Course
+31
+Vinh Dinh Nguyen- PhD in Computer Science
+U-Net ResNet: Implementation
+32
+AI VIETNAM
+All-in-One Course
+32
+Vinh Dinh Nguyen- PhD in Computer Science
+U-Net ResNet: Implementation
+33
+AI VIETNAM
+All-in-One Course
+33
+Vinh Dinh Nguyen- PhD in Computer Science
+U-Net ResNet: Fully Implementation
+34
+AI VIETNAM
+All-in-One Course
+34
+Vinh Dinh Nguyen- PhD in Computer Science
+Diffusion Model Architecture
+35
+AI VIETNAM
+All-in-One Course
+35
+Vinh Dinh Nguyen- PhD in Computer Science
+Diffusion Model Architecture
+36
+AI VIETNAM
+All-in-One Course
+36
+Vinh Dinh Nguyen- PhD in Computer Science
+Diffusion Model Architecture
+37
+AI VIETNAM
+All-in-One Course
+37
+Vinh Dinh Nguyen- PhD in Computer Science
+Diffusion Model Architecture
+38
+AI VIETNAM
+All-in-One Course
+38
+Vinh Dinh Nguyen- PhD in Computer Science
+Diffusion Model Architecture
+39
+AI VIETNAM
+All-in-One Course
+39
+Vinh Dinh Nguyen- PhD in Computer Science
+Achitecture: Detailed Discussion
+ResNet Block
+Downsampling Block
+Self-Attention Block
+Upsample block
+40
+AI VIETNAM
+All-in-One Course
+40
+Vinh Dinh Nguyen- PhD in Computer Science
+Local Network Deployment: Real Device 
+Flask Rest API and Mobile
+41
+AI VIETNAM
+All-in-One Course
+41
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Objective
+Ø What is Denoising Probability Diffusion Model
+Ø Forward Diffusion Process: Review
+Ø Reverse Diffusion Process: Explain and Implementation
+Ø Denoise Probability Diffusion Model: Implementation
+Ø Summary
+Outline
+42
+AI VIETNAM
+All-in-One Course
+42
+Vinh Dinh Nguyen- PhD in Computer Science
+Diffusion Model: Training
+Workflow
+Explaination
+43
+AI VIETNAM
+All-in-One Course
+43
+Vinh Dinh Nguyen- PhD in Computer Science
+UNet
+In each epoch:
+•A random time step t will be selected for each training sample 
+(image).
+•Apply the Gaussian noise (corresponding to t) to each image.
+•Convert the time steps to embeddings (vectors).
+44
+AI VIETNAM
+All-in-One Course
+44
+Vinh Dinh Nguyen- PhD in Computer Science
+Diffusion Model: Training Implementation
+Workflow
+45
+AI VIETNAM
+All-in-One Course
+45
+Vinh Dinh Nguyen- PhD in Computer Science
+Diffusion Model: Sampling Implementation
+Workflow
+46
+AI VIETNAM
+All-in-One Course
+46
+Vinh Dinh Nguyen- PhD in Computer Science
+UNet
+Workflow
+47
+AI VIETNAM
+All-in-One Course
+47
+Vinh Dinh Nguyen- PhD in Computer Science
+Preparing MNIST Dataset
+48
+AI VIETNAM
+All-in-One Course
+48
+Vinh Dinh Nguyen- PhD in Computer Science
+Diffusion Model: Sampling Implementation
+Epoch 1
+Epoch 39999
+49
+AI VIETNAM
+All-in-One Course
+49
+Vinh Dinh Nguyen- PhD in Computer Science
+Inpainting with Diffusion Model
+50
+AI VIETNAM
+All-in-One Course
+50
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Objective
+Ø Application of Diffusion Models
+Ø Why Do We Need Diffusion Model?
+Ø Diffusion Model Detail Explanation and Implementation
+Ø Summary
+Outline
+51
+AI VIETNAM
+All-in-One Course
+51
+Vinh Dinh Nguyen- PhD in Computer Science
+Summary
+1
+• The Diffusion model is divided into two parts: forward 
+diffusion and reverse diffusion. 
+2
+• The forward diffusion can be done using the closed-form 
+formula.
+3
+• The backward diffusion can be done using a trained neural 
+network. 
+4
+• To approximate the desired denoising step q, we just need to 
+approximate the noise εₜ using a neural network εθ. 
+• Training on the simplified loss function yields better sample 
+quality.
+52
+AI VIETNAM
+All-in-One Course

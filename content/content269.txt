@@ -1,5 +1,0 @@
-update ( llm_config )
-18 assistant . client = OpenAIWrapper (** assistant . llm_config )
-19
-20 if user_message . strip (). lower (). startswith (" show file :"):
-21 filename = user_message . strip (). 

@@ -1,5 +1,0 @@
-Vì vậy, chúng ta sẽ tiến hành cài đặt Docker và Docker compose tại bước này. Các
-bạn hãy lên trang chủ của Docker và thực hiện theo hướng dẫn cài đặt theo đúng hệ điều hành
-của máy mình tại đây:
-Hình 3: Các lựa chọn cài đặt Docker cho từng hệ điều hành riêng biệt
-2

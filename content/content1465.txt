@@ -1,7 +1,0 @@
-githubusercontent . com / milvus -io/ milvus / master / scripts /
-standalone_embed .sh
-Khi chạy xong lệnh này, tại vị trí chạy lệnh, các bạn sẽ thấy filestandalone_embed.sh. Các bạn
-cần lưu ý vị trí tải file này, vì chúng ta cần phải ở đúng vị trí tải file hoặc thay đổi đường
-dẫn hợp lý thì mới chạy lệnh gọi file này được.
-(b) Chạy file script:
-3

@@ -1,8 +1,0 @@
-Ví dụ chương trình dưới đây, chúng ta khai báo sử dụng thư viện pypdf và sử dụng PdfReader để đọc
-file yolov9.pdf sau đó lưu kết quả vào biến reader. Tiếp theo ta sử dụng reader.pages, phương thức
-này trả về một danh sách các trang trong tập tin PDF đã được đọc bằng PdfReader. Mỗi phần tử
-trong danh sách này đại diện cho một trang trong tập tin PDF và có thể được truy cập bằng cách sử
-dụng chỉ mục hoặc vòng lặp. Ví dụ, để truy cập trang thứ hai trong tập tin PDF, ta có thể sử dụng
-reader.pages[1], vì chỉ mục trong Python bắt đầu từ 0. Điều này sẽ trả về một đối tượng đại diện cho
-trang thứ hai trong tài liệu PDF. Để truy cập vào nội dung của một trang cụ thể, ta có thể sử dụng
-phương thức extract_text(), như trong ví dụ.

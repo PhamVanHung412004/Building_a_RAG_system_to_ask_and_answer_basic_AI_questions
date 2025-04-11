@@ -1,0 +1,430 @@
+Daily AI Exercise (AIO)
+Ngày 8 tháng 4 năm 2024
+Basic Python - Work with SQLite Database
+Hoàng-Nguyên Vũ
+1. Mô tả: Làm quen với Cơ sởdữliệu SQLite
+• SQLite là một hệquản trịcơ sởdữliệu hay còn gọi là hệthống cơ sởdữliệu
+quan hệnhỏgọn, khác với các hệquản trịkhác như MySQL, SQL Server, Ocr-
+acle, PostgreSQL. . . SQLite là một thư viện phần mềm mà triển khai một SQL
+Database Engine truyền thống, không cần mô hình client-server nên rất nhỏgọn.
+SQLite được sửdụng vào rất nhiều chương trình từdesktop đến mobile hay là
+website..
+• Ngoài những lý do trên thì không thểkhông kểđến những ưu điểm khi sửdụng
+SQLite, sau đây là phần ưu điểm của SQLite. Ưu điểm của SQLite:
+– Nhẹvà dễsửdụng: SQLite không yêu cầu cài đặt máy chủriêng biệt và
+có thểđược nhúng trực tiếp vào ứng dụng Python của bạn.
+– Hiệu suất cao: SQLite cung cấp hiệu suất truy vấn nhanh và có thểxửlý
+lượng dữliệu lớn.
+– Đa nền tảng: SQLite có sẵn trên hầu hết các nền tảng, bao gồm Windows,
+MacOS, Linux và Android.
+– Miễn phí và mã nguồn mở: SQLite là phần mềm miễn phí và mã nguồn
+mở, có nghĩa là bạn có thểsửdụng và sửa đổi nó cho mục đích của riêng bạn.
+2. Làm quen với các câu lệnh SQL trong SQLite Database:
+- Ví dụchúng ta cần quản lý thông tin khách hàng gồm các trường dữliệu cơ bản như
+sau:
+aivietnam.edu.vn
+www.facebook.com/aivietnam.edu.vn
+Daily AI Exercise (AIO)
+Ngày 8 tháng 4 năm 2024
+Bảng 1: Bảng quản lý thông tin của khách hàng
+CUSTOMER
+Email
+Name
+Phone
+Phân tích sơ lược, chúng ta dễthấy mỗi khách hàng chỉcó duy nhất 1 email, nên email
+sẽđóng vai trò là khóa chính, nhằm dễxác định thông tin của một khách hàng trong
+hệthống. Đểquản lý các thông tin trên và và truy vấn chúng ta sẽcó những thao
+tác chính như sau: Tạo bảng (CREATE TABLE), lấy dữliệu từbảng (SELECT),
+thêm mới dữliệu (INSERT), cập nhật dữliệu (UPDATE), xóa dữliệu (DELETE).
++ Tạo bảng mới (CREATE TABLE): Đểtạo bảng trên ta sẽsửdụng như sau:
+1 -- Tạo Bảng CUSTOMERS gồm 3 cột email , name , phone với email là
+khóa chính
+2 CREATE
+TABLE
+customers (
+3
+email
+TEXT
+PRIMARY KEY ,
+4
+name TEXT NOT NULL ,
+5
+phone
+TEXT
+6 );
++ Lấy dữliệu (SELECT): Chúng ta có 2 cách lấy dữliệu từbảng trong cơ sởdữ
+liệu bao gồm: lấy hết dữliệu của toàn bộcột trong bảng và lấy dữliệu từcác cột
+được chỉđịnh. Cách truy vấn (Query) có cấu trúc tổng quát như sau:
+1 SELECT
+column1 , column2 , ...
+2 FROM
+table_name;
+A. Lấy toàn bộdữliệu của tất cảcột trong bảng:
+1 -- Lấy toàn bộdữliệu của tất cảcột trong bảng CUSTOMERS
+2 SELECT *
+3 FROM
+CUSTOMERS;
+B. Lấy dữliệu từcác cột được chỉđịnh trong bảng:
+1 -- Lấy dữliệu từcác cột được chỉđịnh trong bảng CUSTOMERS
+2 SELECT NAME , PHONE
+3 FROM
+CUSTOMERS;
+C. Lấy dữliệu theo điều kiện trong bảng (Filter):
+1 -- Lấy dữliệu theo điều kiện email = giá trịtruyền vào từbảng
+CUSTOMERS
+2 SELECT NAME , PHONE
+3 FROM
+CUSTOMERS
+4 WHERRE 1 = 1
+5 AND EMAIL = ’aivietnam@aivietnam .edu.vn’;
++ Thêm dữliệu (INSERT): Đểthêm dữliệu vào bảng chúng ta có thểthực thi
+với câu lệnh có cấu trúc tổng quát như sau:
+1 INSERT
+INTO
+table_name (column1 , column2 , column3 , ...)
+2 VALUES (value1 , value2 , value3 , ...);
+aivietnam.edu.vn
+www.facebook.com/aivietnam.edu.vn
+Daily AI Exercise (AIO)
+Ngày 8 tháng 4 năm 2024
+Ví dụ:
+1 -- Thêm mới 1 dòng trong bảng CUSTOMERS
+2 INSERT
+INTO
+CUSTOMERS(EMAIL , NAME , PHONE)
+3 VALUES(’nguyen@nguyen.com’, ’Nguyen ’, ’123456789 ’);
+4
+5 -- Thêm mới nhiều dòng trong bảng CUSTOMERS
+6 INSERT
+INTO
+CUSTOMERS(EMAIL , NAME , PHONE)
+7 VALUES
+8
+(’nguyen@aivietnam .edu.vn’, ’Nguyen ’, ’123456789 ’),
+9
+(’admin@aivietnam .edu.vn’, ’Vinh ’, ’1122334455 ’);
++ Cập nhật dữliệu (UPDATE): Đểcập nhật dữliệu vào bảng chúng ta có thể
+thực thi với câu lệnh có cấu trúc tổng quát như sau:
+1 UPDATE
+table_name
+2 SET
+column1 = value1 , column2 = value2 , ...
+3 WHERE
+condition;
+Ví dụ: Cập nhật tên của email là nguyen@aivietnam.edu.vn thành Hoang Nguyen.
+1 -- Cập nhật tên của email là nguyen@aivietnam .edu.vn thành Hoang
+Nguyen
+2 UPDATE
+CUSTOMERS
+3 SET NAME = ’Hoang
+Nguyen ’
+4 WHERE 1 = 1
+5 AND EMAIL = ’nguyen@aivietnam .edu.vn’;
++ Xóa dữliệu (DELETE): Đểxóa dữliệu khỏi bảng chúng ta có thểthực thi
+với câu lệnh có cấu trúc tổng quát như sau:
+1 DELETE
+FROM
+table_name
+2 WHERE
+condition;
+Ví dụ: Xóa email nguyen@aivietnam.edu.vn khỏi bảng CUSTOMERS
+1 -- Xóa email: nguyen@aivietnam .edu.vn khỏi bảng CUSTOMERS
+2 DELETE
+FROM
+CUSTOMERS
+3 WHERE 1 = 1
+4 AND EMAIL = ’nguyen@aivietnam .edu.vn’;
+3. Sửdụng SQLite trong Python:
+• Tạo kết nối đến CSDL: Đểsửdụng SQLite và tương tác với cơ sửdữliệu
+SQLite trong python, chúng ta cần tạo kết nối đến CSDL bằng câu lệnh như sau:
+1 import
+sqlite3
+2 # Tạo kết nối tới CSDL có tên là database.sqlite
+3 # Nếu database.sqlite chưa tồn tại trong hệthống thì nó sẽ
+4 # tựtạo mới
+5 connection = sqlite3.connect(’database.sqlite ’)
+6 cursor = connection.cursor ()
+→Sau khi tạo kết nối đến cơ sởdữliệu xong, chúng ta có Object có tên cursor
+nhằm giúp chúng ta thực thi và tương tác các câu lệnh truy vấn (SELECT,
+INSERT, UPDATE, DELETE,...) đến cơ sởdữliệu.
+aivietnam.edu.vn
+www.facebook.com/aivietnam.edu.vn
+Daily AI Exercise (AIO)
+Ngày 8 tháng 4 năm 2024
+• Tạo bảng: Đểtạo bảng mới xong cơ sởdữliệu chúng ta sẽthực hiện như sau:
+1 # Tạo bảng CUSTOMERS:
+2 cursor.execute("""
+3 CREATE
+TABLE
+CUSTOMERS (
+4
+EMAIL
+TEXT
+PRIMARY KEY ,
+5
+NAME TEXT NOT NULL ,
+6
+PHONE
+TEXT NOT NULL
+7 );
+8 """)
+• Thêm dữliệu vào bảng (INSERT): Sau khi thực hiện tạo bảng ởbước trên,
+lúc này bảng CUSTOMERS của chúng ta hoàn toàn không có dữliệu, nên chúng
+ta sẽthêm dữliệu vào bảng bằng cách thực thi câu SQL như sau:
+1 # Insert
+data mới
+2 cursor.execute("""
+3 INSERT
+INTO
+CUSTOMERS(EMAIL , NAME , PHONE)
+4 VALUES
+5
+(’ nguyen@aivietnam .edu.vn ’, ’Nguyen ’,
+’123456789 ’) ,
+6
+(’ admin@aivietnam .edu.vn ’, ’Vinh ’,
+’1122334455 ’);
+7 """)
+8
+9 connection.commit ()
+→Mởrộng: Khi thực hiện thao tác INSERT/UPDATE/DELETE, khi thực hiện
+cursor.execute() trên cơ sởdữliệu SQLite, những thay đổi này chỉđược lưu trữ
+tạm thời trong bộnhớ. Nên chúng ta cần phải thực bước commit đểlưu những
+thay đổi này vào CSDL, đảm bảo chúng được lưu trữvĩnh viễn.
+• Lấy dữliệu (SELECT): Sau khi thực hiện bước tạo dữliệu ởtrên, chúng ta sẽ
+kiểm tra dữliệu vừa thêm bằng cách thực thi câu SQL như sau:
+1 import
+pandas as pd
+2 # Lấy tất cảdata từbảng CUSTOMER
+3 data=pd. read_sql_query("SELECT * FROM
+CUSTOMERS", connection)
+4 print(data)
+→Kết quả:
+Hình 1: Kết quảsau khi thực hiện SELECT
+• Cập nhật dữliệu (UPDATE): Đểthực hiện cập nhật dữliệu trong CSDL,
+chúng ta sẽthực thi câu SQL như sau:
+aivietnam.edu.vn
+www.facebook.com/aivietnam.edu.vn
+Daily AI Exercise (AIO)
+Ngày 8 tháng 4 năm 2024
+Cập nhật tên của email : nguyen@aivietnam.edu.vn sang giá trịmới và kiểm tra
+kết quảsau khi cập nhật.
+1 # Update
+name của email: nguyen@aivietnam .edu.vn
+2 cursor.execute("""
+3 UPDATE
+CUSTOMERS
+4 SET NAME = ’Hoang
+Nguyen ’
+5 WHERE 1 = 1
+6 AND EMAIL = ’nguyen@aivietnam .edu.vn ’;
+7 """)
+8
+9 connection.commit ()
+10
+11 data=pd. read_sql_query("SELECT * FROM
+CUSTOMERS", connection)
+12 print(data)
+→Kết quả:
+Hình 2: Kết quảsau khi thực hiện UPDATE
+• Xóa dữliệu (DELETE): Đểthực hiện xóa dữliệu trong CSDL, chúng ta sẽ
+thực thi câu SQL như sau:
+Xóa email : nguyen@aivietnam.edu.vn khỏi bảng CUSTOMERS và kiểm tra kết
+quảsau khi cập nhật.
+1 # Update
+name của email: nguyen@aivietnam .edu.vn
+2 cursor.execute("""
+3 DELETE
+FROM
+CUSTOMERS
+4 WHERE 1 = 1
+5 AND EMAIL = ’nguyen@aivietnam .edu.vn ’;
+6 """)
+7
+8 connection.commit ()
+9
+10 data=pd. read_sql_query("SELECT * FROM
+CUSTOMERS", connection)
+11 print(data)
+→Kết quả:
+Hình 3: Kết quảsau khi thực hiện DELETE
+aivietnam.edu.vn
+www.facebook.com/aivietnam.edu.vn
+Daily AI Exercise (AIO)
+Ngày 8 tháng 4 năm 2024
+4. Bài tập:
+• Hãy tạo mới bảng có tên PRODUCT có các cột như sau:
+Bảng 2: Bảng quản lý sản phẩm
+PRODUCT
+Cột
+Kiểu dữliệu
+Chú thích
+ID
+INTEGER
+Khóa chính
+NAME
+TEXT
+Not null
+PRICE
+INTEGER
+Not null
+Câu 1: Hãy thêm mới các dòng có giá trịnhư sau và kiểm tra kết quả:
+PRODUCT
+ID
+NAME
+PRICE
+1
+iPhone 15
+18000000
+2
+Galaxy Z-Fold 5
+30000000
+→Kết quả:
+Câu 2: Hãy cập nhật giá mới cho Galaxy Z-Fold 5 thành 50.000.000 và kiểm tra
+kết quả:
+→Kết quả:
+Câu 3: Hãy xóa iPhone 15 ra khỏi CSDL và kiểm tra kết quả:
+→Kết quả:
+aivietnam.edu.vn
+www.facebook.com/aivietnam.edu.vn
+Daily AI Exercise (AIO)
+Ngày 9 tháng 4 năm 2024
+Basic Python - Work with SQLite Database
+Hoàng-Nguyên Vũ
+1. Mô tả: Thống kê cơ bản trong SQLite
+• SQL cung cấp nhiều hàm đểthực hiện các phép tính thống kê cơ bản trên dữ
+liệu. Các hàm này được sửdụng đểtính toán các giá trịnhư tổng, trung bình,
+giá trịtối đa, giá trịtối thiểu, v.v. Dưới đây là một sốhàm thống kê cơ bản trong
+SQL:
+– SUM(): Tính tổng của các giá trịtrong một cột.
+– AVG(): Tính trung bình của các giá trịtrong một cột.
+– MIN(): Tìm giá trịnhỏnhất trong một cột.
+– MAX(): Tìm giá trịlớn nhất trong một cột.
+– COUNT(): Đếm sốlượng các giá trịtrong một cột.
+Ví dụ: Giảsửbạn có một bảng Product với các cột name, brand và price. Bạn
+muốn biết:
+– Tổng doanh thu của tất cảcác sản phẩm.
+– Doanh thu trung bình của các sản phẩm.
+– Giá sản phẩm cao nhất.
+– Sốlượng các sản phẩm khác nhau.
+Câu lệnh SQL cho các yêu cầu trên sẽnhư sau:
+1 # Query đểlấy tổng giá bán toàn bộsản phẩm trong bảng Product
+2 query = """
+3 SELECT SUM(price) AS total_revenue
+4 FROM
+PRODUCT;
+5 """
+6
+7 data_sum = pd. read_sql_query (query , connection)
+8 print(data_sum)
+9
+aivietnam.edu.vn
+www.facebook.com/aivietnam.edu.vn
+Daily AI Exercise (AIO)
+Ngày 9 tháng 4 năm 2024
+10 # Query đểlấy thông tin sản phẩm có giá bán cao nhất
+11 query = """
+12 SELECT NAME , MAX(price) AS PRICE
+13 FROM
+PRODUCT;
+14 """
+15 data_max = pd. read_sql_query (query , connection)
+16 print(data_max)
+→Kết quả:
+• Hàm thống kê với GROUP BY:
+GROUP BY là một mệnh đềtrong SQL được sửdụng đểnhóm các hàng dựa
+trên các giá trịchung trong một hoặc nhiều cột và thực hiện các phép tính tổng
+hợp trên các nhóm đó.
+Hàm thống kê được sửdụng đểtính toán các giá trịnhư tổng, trung bình, giá trị
+tối đa, giá trịtối thiểu, v.v. trên các nhóm dữliệu.
+Ví dụ: Giảsửbạn có một bảng Product với các cột name, brand và price. Bạn
+muốn biết:
+– Doanh thu tổng cho mỗi hãng (BRAND) của sản phẩm.
+aivietnam.edu.vn
+www.facebook.com/aivietnam.edu.vn
+Daily AI Exercise (AIO)
+Ngày 9 tháng 4 năm 2024
+– Giá bán thấp nhất của mỗi danh mục.
+Cách thực thi câu lệnh SQL cho 2 yêu cầu trên sẽnhư sau:
+1 # Query đểlấy tổng giá bán toàn bộsản phẩm theo hãng trong bảng
+Product
+2 query = """
+3 SELECT BRAND , SUM(price) AS total_revenue
+4 FROM
+PRODUCT
+5 GROUP BY BRAND;
+6 """
+7 data_sum_by_brand = pd. read_sql_query(query , connection)
+8 print( data_sum_by_brand )
+9
+10 # Query đểlấy thông tin sản phẩm có giá bán thấp nhất
+11 query = """
+12 SELECT NAME , BRAND , MIN(price) AS PRICE
+13 FROM
+PRODUCT
+14 GROUP BY BRAND;
+15 """
+16 data_min_by_brand = pd. read_sql_query(query , connection)
+17 print( data_min_by_brand )
+→Kết quả:
+aivietnam.edu.vn
+www.facebook.com/aivietnam.edu.vn
+Daily AI Exercise (AIO)
+Ngày 9 tháng 4 năm 2024
+2. Bài tập:
+• Hãy tạo mới bảng có tên STOCK có các cột như sau:
+Bảng 1: Bảng quản lý cổphiếu
+STOCK
+Cột
+Kiểu dữliệu
+Chú thích
+ID
+INTEGER
+Khóa chính
+NAME
+TEXT
+Not null
+BUY
+INTEGER
+Not null
+INVESTOR
+TEXT
+Not null
+Hãy thêm mới các dòng có giá trịnhư sau:
+STOCK
+ID
+NAME
+BUY
+INVESTOR
+1
+ACB
+29.45
+Nguyen
+2
+VIC
+44.55
+Nguyen
+3
+GMD
+74.30
+Nguyen
+4
+ACB
+28.45
+Vinh
+5
+VIC
+40.55
+Vinh
+6
+GMD
+60.30
+Vinh
+Câu 1: Hãy viết lệnh SQL đểtruy vấn và in ra kết quảthống kê tổng giá bán
+(BUY) của bảng STOCK:
+Kết quả: Tổng giá bán = 277.69
+Câu 2: Hãy viết lệnh SQL đểthống kê mã cổphiếu có giá mua (BUY) lớn nhất
+theo nhà đầu tư (Investor):
+→Kết quả:
+aivietnam.edu.vn
+www.facebook.com/aivietnam.edu.vn

@@ -1,0 +1,767 @@
+Foundation of Prompt Engineering
+Team GenAIO
+Hoang-Bach Ngo
+Minh-Hung An
+Ngày 6 tháng 3 năm 2024
+Phần I: Tổng quan vềPrompt Engineering
+1
+LLM Settings
+Khi tương tác với các mô hình ngôn ngữlớn, bạn sẽthường xuyên điều chỉnh một loạt các tham
+sốvà cài đặt. Việc tinh chỉnh những tham sốnày là bước không thểthiếu đểlàm cho các phản
+hồi trởnên đáng tin cậy và phù hợp hơn với yêu cầu của bạn, và điều này đôi khi đòi hỏi phải thử
+nghiệm đểxác định được cách cấu hình tối ưu. Dưới đây là một sốtham sốcơ bản bạn thường gặp
+trong quá trình sửdụng các mô hình LLM.
+Temperature - Như chúng ta có thểđã biết thì Large Language Model (LLM) hoạt động theo
+cơ chếphân loại từtiếp theo, và như bao bài toán phân loại khác thì output đầu ra của LLM sẽ
+áp dụng thêm một hàm softmax đểtạo ra phân phối xác suất từtiếp theo sao cho tổng xác suất
+cộng lại bằng 1. Temperature thật ra là một tham sốđiều khiển độ“mượt mà” của hàm softmax
+đó bằng cách lấy logits output ra từLLM chia cho tham sốtemperature.
+P(i) =
+exp(logiti/T)
+P
+j exp(logitj/T)
+(1)
+Công thức trên là công thức hàm softmax, trong đó tham sốtemperature được kĩ hiệu bằng
+chữT, và logitn kí hiệu output thứn ởlớp cuối của mô hình LLM. Đểgiúp bạn dễhình dung,
+sau đây là một visualization nho nhỏvới hàm sigmoid - một hàm có những đặc điểm tương tựnhư
+softmax.
+1
+AI VIETNAM
+aivietnam.edu.vn
+Hình 1: Khi temperature được set bằng 1.0, tức là không có một sựthay đổi nào so với hàm softmax
+bình thường, lúc này sẽlà như apply một hàm softmax bình thường.
+Hình 2: Khi temperature được đặt thành giá trịlớn hơn 1.0, nó sẽ"làm mượt" lại phân bốxác
+suất, làm cho phân bốxác suất trởnên phẳng hơn. Điều này có nghĩa là các từcó xác suất thấp
+hơn sẽcó cơ hội được chọn cao hơn, dẫn đến output model có tính ngẫu nhiên cao hơn.
+2
+AI VIETNAM
+aivietnam.edu.vn
+Hình 3: Ngược lại, khi temperature được đặt thành giá trịnhỏhơn 1.0 (ví dụ: 0,5), nó sẽ"làm sắc
+nét" phân bốxác suất. Điều này làm cho mô hình có nhiều khảnăng chọn các từcó xác suất cao
+hơn, dẫn đến kết quảđầu ra tập trung và mang tính xác định hơn. Khi temperature bằng 0 (hình
+4), phân bốxác suất sẽđược đẩy từcó logits cao nhất bằng 1 và tất cảcác từcòn lại bằng 0, dẫn
+đến output của model sẽluôn là từcó xác suất cao nhất.
+top_p - Tham sốnày được áp dụng trong kỹthuật sampling gọi là nucleus sampling, giúp
+điều chỉnh độđa dạng trong kết quảmà mô hình sinh ra. Theo phương pháp này, chúng ta sẽchọn
+ra nhóm các từcó xác suất cao nhất, đảm bảo rằng tổng xác suất của nhóm này vượt qua một
+ngưỡng nhất định, ngưỡng này là top_p. Cách làm này giúp mởrộng khảnăng chọn từcủa mô
+hình, tạo ra kết quảphong phú hơn. Nếu chúng ta cần câu trảlời chính xác, dựa trên dữliệu cụ
+thể, giá trịtop_p nên được giữởmức thấp. Trong trường hợp muốn nhận được đầu ra đa dạng
+hơn, có thểtăng giá trịnày. Tuy nhiên, lưu ý chỉđiều chỉnh hoặc tham sốtemperature hoặc top_p,
+không nên cùng lúc thay đổi cảhai đểtránh gây rối loạn cho mô hình.
+Max Length - Chúng ta có thểdễdàng điều chỉnh sốlượng từtối đa mà mô hình sinh ra bằng
+cách thiết lập giới hạn Max Length. Việc này giúp hạn chếnhững kết quảquá dài hoặc không mấy
+liên quan, đồng thời cũng giúp chúng ta kiểm soát được chi phí tốt hơn.
+Stop Sequences - Đây là cách thiết lập một chuỗi dừng giúp ngăn mô hình sinh thêm từ. Khi
+mô hình nhận diện một từtrong chuỗi dừng này, nó sẽngừng việc tạo thêm nội dung. Xác định
+stop sequences là một phương pháp hữu ích đểkiểm soát chiều dài và bốcục của đầu ra mô hình.
+Chẳng hạn, nếu muốn mô hình chỉtạo ra danh sách tối đa 10 mục, ta có thểđặt từ"11." vào trong
+danh sách stop sequences.
+Frequency Penalty - Tham sốnày giúp chúng ta có thểáp dụng một hình phạt lên từtiếp
+theo dựa trên sốlần từđó xuất hiện trong kết quảvà prompt. frequency penalty càng cao, từđó
+càng ít có cơ hội xuất hiện lại. Cơ chếnày giúp giảm thiểu việc lặp lại các từtrong kết quảmà mô
+hình tạo ra, bằng cách áp đặt mức phạt lớn hơn cho những từthường xuyên xuất hiện.
+Presence Penalty - Tham sốnày giúp ta có thểáp dụng hình phạt cho các từlặp lại, nhưng
+khác với frequency penalty, mức phạt này được áp dụng như nhau cho mọi từlặp lại, không phân
+biệt một từxuất hiện hai lần hay mười lần, chúng đều nhận mức phạt giống nhau. Cách làm này
+giúp hạn chếviệc mô hình lặp đi lặp lại một cụm từnhiều lần trong kết quảcủa mình. Đểtạo ra
+nội dung đa dạng và sáng tạo hơn, chúng ta có thểtăng mức độphạt này lên. Ngược lại, nếu muốn
+mô hình tập trung hơn vào một sốý tưởng nhất định, chúng ta có thểgiảm mức phạt xuống.
+Đểtổng kết lại, sau đây là một sốđềxuất của nhóm khi khởi tạo các tham sốnày:
+3
+AI VIETNAM
+aivietnam.edu.vn
+• Temperature: Ban đầu khi nhìn vào tham sốnày, chúng ta sẽdễbịlầm tưởng đây là tham
+sốchạy từ0 đến 1. Thực tếthì như giải thích ởtrên thì ta có thểthấy là temperature không
+hềlà một biến chạy từ0 đến 1. Vậy ta nên chọn tham sốnày như thếnào đểtối ưu nhất?
+– Chọn temperature = 0.0 nếu chúng ta muốn kết quảmodel không có tính ngẫu nhiên
+và luôn giống nhau với những input giống nhau. Lúc nào mô hình LLM luôn chọn từcó
+xác suất cao nhất.
+– Chọn temperature = 0.7, 0.8 nếu chúng ta muốn kết quảmodel “sắc nét” hơn nhưng
+vẫn có tính random, đây cũng là khoảng các “cao nhân” trên mạng hay truyền tai nhau
+đểmodel ra kết quảtốt và vẫn có tính sáng tạo.
+– Chọn temperature > 1 nếu chúng ta muốn model có tính sáng tạo cao, tuy nhiên
+điều này cũng đem lại rủi ro là kết quảmodel có thểkhông quá tốt, và nếu set quá cao
+thì kết quảtừmodel sẽlà ngẫu nhiên hoàn toàn.
+• Top P
+– Tìm câu trảlời chính xác: Giữgiá trịTop P thấp (0.1 - 0.5).
+– Tìm câu trảlời sáng tạo: Tăng giá trịTop P (0.6 - 0.9).
+• Max Length
+– Điều chỉnh tùy theo nhu cầu của task: đối với phản hồi ngắn, giới hạn sốlượng
+token (ví dụ: 100-200 tokens); đối với bài viết dài hơn, tăng sốlượng token tối đa.
+• Stop Sequences
+– Đặt các chuỗi cụthểđểkết thúc kết quảtrảvề: nếu bạn muốn mô hình chỉtạo
+ra một danh sách với 10 item, bạn có thểthêm "11" làm Stop Sequences.
+• Frequency Penalty
+– Đểgiảm sựlặp lại của từ: Sửdụng giá trịtrung bình đến cao (0.5 - 1.0).
+– Nếu không quan tâm đến sựlặp lại: Giữgiá trịthấp (0.0 - 0.4).
+• Presence Penalty
+– Đểtạo kết quảđa dạng: Sửdụng giá trịcao (0.6 - 1.0).
+– Đểduy trì độchính xác của mô hình:Sửdụng giá trịthấp (0.0 - 0.4).
+2
+Prompt Engineering
+Chất lượng của các câu trảlời được tạo ra bởi LLM đã qua huấn luyện và điều chỉnh phụthuộc trực
+tiếp vào chất lượng của prompts, hay cấu trúc của prompt (instructions prompt) do người dùng
+cung cấp. Vì vậy, việc thiết kếprompts mà LLM có thểhiểu và trảlời một cách hiệu quảlà rất
+quan trọng. Prompts đóng vai trò như một phương tiện đểlập trình cuộc tương tác giữa người dùng
+và LLM, giúp nâng cao khảnăng xửlý đa dạng các nhiệm vụ. Điều này đòi hỏi phải hiểu biết sâu
+rộng vềcách hoạt động và hành vi của LLMs, cơ chếđằng sau chúng và các nguyên tắc điều khiển
+phản ứng của chúng. Dựa vào bài báo:"Principled Instructions Are All You Need for Questioning
+LLaMA-1/2, GPT-3.5/4" Bsharat et al., 2024, nhóm sẽtrích dẫn lại một sốinstructions prompt
+hữu ích giúp tăng chất lượng trảlời của LLM.
+4
+AI VIETNAM
+aivietnam.edu.vn
+Principle
+Prompt Principle for Instructions
+1
+Nếu bạn muốn một câu trảlời ngắn gọn, không cần phải lịch sựvới mô hình
+LLM, không cần thêm những cụm từnhư "please", "if you don’t mind", "thank
+you", "I would like to", v.v. Ta nên đi thẳng vào vấn đề
+2
+Nên đềcập đến đối tượng của câu trảlời ởtrong prompt, ví dụ: những người
+đọc này là chuyên gia trong lĩnh vực của họ
+3
+Chia nhỏcác tác vụphức tạp thành một chuỗi prompt đơn giản hơn trong cuộc
+trò chuyện tương tác với mô hình.
+4
+Sửdụng các chỉthịkhẳng định như “do”, đồng thời tránh dùng ngôn ngữphủ
+định như “don’t”.
+5
+Khi bạn cần xác nhận hoặc hiểu biết sâu sắc hơn vềmột chủđề, ý tưởng hoặc
+bất kỳthông tin nào, hãy sửdụng những prompt sau:
+• Explain [insert specific topic] in simple terms.
+• Explain to me like I’m 11 years old.
+• Explain to me as if I’m a beginner in [field].
+• Write the [essay/text/paragraph] using simple English like you’re explain-
+ing something to a 5-year-old.
+6
+Thêm “I’m going to tip $xxx“ (tôi sẽbo cho bạn $xxx) đểkết quảcho ra tốt
+hơn
+7
+Triển khai prompt dựa trên ví dụ(Dùng few-shot prompting).
+8
+Khi soạn prompt của bạn, bắt đầu với “###Instruction###”, theo sau đó
+bằng “###Example###” hoặc “###Question###” nếu cần thiết. Sau đó,
+trình bày ngữcảnh của bạn. Sửdụng một hoặc nhiều dấu ngắt dòng đểphân
+tách các hướng dẫn, ví dụ, câu hỏi, ngữcảnh và dữliệu đầu vào.
+9
+Kết hợp các cụm từsau: “Your task is” và “You MUST”.
+10
+Kết hợp các cụm từsau: “You will be penalized”. (bạn sẽbịphạt nếu)
+11
+Sửdụng những cụm như “Answer a question given in a natural, human-like
+manner” (trảlời câu hỏi theo các tựnhiên, giống con người) trong prompt của
+bạn.
+12
+Sửdụng những từdẫn đầu như viết “think step by step” (Hãy suy nghĩ theo
+từng bước).
+13
+Thêm vào prompt của bạn cụm sau “Ensure that your answer is unbiased and
+avoids relying on stereotypes.” (Đảm bảo rằng câu trảlời của bạn không thiên
+vịvà tránh dựa vào khuôn mẫu.)
+14
+Cho phép mô hình gợi ra các chi tiết và yêu cầu chính xác từbạn bằng cách
+đặt câu hỏi cho bạn cho đến khi mô hình có đủthông tin đểcung cấp kết quả
+đầu ra cần thiết (ví dụ: “From now on, I would like you to ask me questions to
+...” (từbây giờtôi muốn bạn hỏi câu hỏi cho đến khi ...)).
+5
+AI VIETNAM
+aivietnam.edu.vn
+15
+Đểhỏi vềmột chủđềhoặc ý tưởng cụthểhoặc bất kỳthông tin nào và bạn
+muốn kiểm tra sựhiểu biết của mình, bạn có thểsửdụng cụm sau: “Teach
+me any [theorem/topic/rule name] and include a test at the end, and let me
+know if my answers are correct after I respond, without providing the answers
+beforehand.” (Hãy dạy tôi bất kỳ[định lý/chủđề/tên quy tắc] nào và kèm theo
+một bài kiểm tra ởcuối, đồng thời cho tôi biết liệu câu trảlời của tôi có đúng
+sau khi tôi trảlời mà không cần cung cấp câu trảlời trước hay không.)
+16
+Gán vai trò cho các mô hình ngôn ngữlớn.
+17
+Sửdụng các dấu phân cách.
+18
+Lặp lại một từhoặc cụm từcụthểnhiều lần trong prompt.
+19
+Kết hợp Chain-of-thought với few-Shot prompts.
+20
+Sửdụng đoạn mởđầu đầu ra, bao gồm việc kết thúc lời nhắc của bạn với phần
+đầu của đầu ra mong muốn. Sửdụng đoạn mồi đầu ra bằng cách kết thúc
+prompt của bạn bằng phần bắt đầu phản hồi bạn muốn nhận được
+21
+Đểviết một bài luận/văn bản/đoạn/bài viết hoặc bất kỳloại văn bản nào cần
+chi tiết: “Write a detailed [essay/text/paragraph] for me on [topic] in detail by
+adding all the information necessary" (Viết một [bài luận/văn bản/đoạn văn]
+chi tiết cho tôi về[chủđề] một cách chi tiết bằng cách thêm tất cảthông tin
+cần thiết).
+22
+Đểsửa/thay đổi văn bản cụthểmà không thay đổi văn phong: “Try to revise
+every paragraph sent by users. You should only improve the user’s grammar and
+vocabulary and make sure it sounds natural. You should maintain the original
+writing style, ensuring that a formal paragraph remains formal.” (Cốgắng sửa
+lại mọi đoạn văn do người dùng gửi. Bạn chỉnên cải thiện ngữpháp và từvựng
+của người dùng và đảm bảo rằng nó nghe tựnhiên. Bạn nên giữnguyên phong
+cách viết ban đầu, đảm bảo rằng đoạn văn trang trọng vẫn giữđược hình thức
+trang trọng.)
+23
+Khi bạn có một prompt vềlập trình phức tạp và có thểnằm trong các tệp khác
+nhau: “From now and on whenever you generate code that spans more than one
+file, generate a [programming language ] script that can be run to automatically
+create the specified files or make changes to existing files to insert the generated
+code. [your question]”.
+24
+Khi bạn muốn bắt đầu hoặc tiếp tục một văn bản bằng các từ, cụm từhoặc
+câu cụthể, hãy sửdụng những prompt sau:
+• I’m providing you with the beginning [song lyrics/story/paragraph/es-
+say...]: [Insert lyrics/words/sentence].
+Finish it based on the words provided. Keep the flow consistent.
+25
+Nêu rõ các yêu cầu mà mô hình phải tuân theo đểtạo sinh nội dung, dưới dạng
+từkhóa, quy định, gợi ý hoặc hướng dẫn
+6
+AI VIETNAM
+aivietnam.edu.vn
+26
+Đểviết bất kỳvăn bản nào, chẳng hạn như một bài luận hoặc đoạn văn, và bạn
+muốn văn phong tương tựnhư mẫu được cung cấp, hãy bao gồm các prompt
+sau:
+• Use the same language based on the provided paragraph[/title/text /es-
+say/answer].
+Phần II: Prompt Techniques
+3
+Zero-Shot Prompting
+Zero-Shot Prompting là một phương pháp nhằm cải thiện zero-shot learning trong LLMs. Học
+zero-shot giúp mô hình có khảnăng nắm bắt và thực hiện những nhiệm vụmà nó chưa từng được
+huấn luyện một cách cụthể. Phương pháp này bao gồm việc tinh chỉnh các mô hình ngôn ngữđã
+được huấn luyện trước trên một loạt các nhiệm vụNLP được mô tảtrong prompt bằng ngôn ngữ
+tựnhiên. Cách tiếp cận này đã được chứng minh là cải thiện đáng kểkhảnăng của mô hình trong
+việc thực hiện các nhiệm vụchưa được nhìn thấy (unseen tasks). Hiệu quảcủa việc tinh chỉnh
+prompt được thểhiện qua sựcải thiện hiệu suất đáng kểso với các mô hình ngôn ngữ, lợi ích càng
+trởnên rõ rệt khi sốlượng nhiệm vụtăng lên và khi được áp dụng với LLM. Trong nghiên cứu
+"Finetuned Language Models Are Zero-shot learners" Wei et al., n.d. kết luận rằng việc tinh chỉnh
+prompt là một kỹthuật triển vọng đểcải thiện khảnăng tổng quát hóa và hiệu suất của LLMs
+trong các tình huống zero-shot learning.
+Hình 4: Ví dụminh họa vềáp dụng zero-shot prompting trong việc phân tích, đánh giá thái độ
+nhân viên chăm sóc khách hàng qua email.
+7
+AI VIETNAM
+aivietnam.edu.vn
+4
+Few-Shot Prompting
+Khi zero-shot learning không mang lại kết quảnhư mong đợi, việc đưa ra các mẫu ví dụcụthể
+trong prompt sẽlà phương pháp khuyến khích được lựa chọn tiếp theo, từđó tiến tới kỹthuật gợi
+ý với một sốlượng nhỏví dụ. Đây cũng chính là cơ sởcho kỹthuật Few-Shot Prompting.
+Trong paper "Language Models are Few-Shot Learners" Brown et al., 2020 - Few-shot learning
+được giới thiệu như một cách đểmô hình hóa các mô hình ngôn ngữcó thểthích nghi và thực hiện
+các nhiệm vụdựa trên một sốít ví dụcụthểđược cung cấp trong quá trình suy luận, mà không
+cần cập nhật trọng sốmô hình hay tinh chỉnh cụthểcho nhiệm vụđó. Điều này cho phép mô hình
+hoạt động gần giống với cách con người học: chúng ta thường có thểhọc và thực hiện tác vụmới
+với chỉvài hướng dẫn cụthể. Kết quảtừpaper cho thấy mô hình GPT-3 có khảnăng thực hiện
+khá tốt trên nhiều tập dữliệu với few-shot, thỉnh thoảng ngang bằng hoặc thậm chí vượt qua hiệu
+suất của các mô hình được tinh chỉnh cụthể(fine-tuning). Điều này cho thấy tiềm năng lớn của
+việc sửdụng few-shot learning đểcải thiện khảnăng tổng quát hóa và thích ứng nhanh của các
+mô hình ngôn ngữlớn với các nhiệm vụmới mà chúng không được tinh chỉnh trực tiếp.
+Hình 5: Few shot giúp chúng ta phân loại nhanh một sốvấn đềtrong bài đánh giá bình luận của
+người dùng
+Với Few-Shot Prompting chúng ta có thểmột ví dụduy nhất (nghĩa là học 1-shot) đối với một
+sốtác vụdễ. Đối với một sốtác vụkhó khăn hơn, chúng ta có thểthửnghiệm bằng cách tăng số
+lượng mẫu lên (3-shot, 5-shot, 10-shot,...). Dựa vào paper "Rethinking the Role of Demonstrations:
+What Makes In-Context Learning Work?" chúng ta có một sốtricks đểgiúp few-shot prompting
+hiệu quảhơn.
+• Không chỉviệc lựa chọn nhãn một cách chính xác mới quan trọng, mà cảkhông gian nhãn
+và cách phân phối văn bản đầu vào từnhững ví dụcũng đóng một vai trò quan trọng.
+• Cách thức chúng ta trình bày dữliệu cũng có ảnh hưởng đáng kểđến kết quả, thậm chí việc
+sửdụng nhãn một cách ngẫu nhiên cũng tốt hơn là không sửdụng nhãn.
+• Ngoài ra, việc lựa chọn nhãn một cách ngẫu nhiên nhưng phản ánh đúng phân phối thực tế
+của nhãn (không theo phân phối đều) cũng đem lại lợi ích rõ rệt.
+8
+AI VIETNAM
+aivietnam.edu.vn
+5
+Chain-of-Thought Prompting
+Phương pháp "Chain of Thought" (COT) được giới thiệu này như một cách đểcải thiện hiệu suất
+của các mô hình ngôn ngữlớn (LLMs) trong việc giải quyết các bài toán đòi hỏi suy luận phức tạp.
+Phương pháp này dựa trên việc kích thích mô hình tạo ra một chuỗi các bước suy nghĩ trung gian
+tựnhiên, giúp dẫn đến kết quảcuối cùng. Điều này cho phép mô hình phân rã các vấn đềthành
+các bước nhỏhơn, làm cho quá trình suy luận trởnên minh bạch và dễhiểu hơn. Từkết quảthực
+nghiệm trong paper "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models"
+Wei et al., 2022 cho thấy rằng việc sửdụng COT cải thiện đáng kểhiệu suất của mô hình trên các
+tác vụtoán học, suy luận thông thường và suy luận biểu tượng. Phương pháp này mởra hướng
+mới trong việc tối ưu hóa các mô hình ngôn ngữlớn, giúp chúng có khảnăng giải quyết các tác vụ
+phức tạp hơn mà không cần tinh chỉnh cụthểcho từng tác vụ.
+Hình 6: COT giúp các mô hình ngôn ngữlớn giải quyết các nhiệm vụsuy luận sốhọc phức tạp,
+suy luận thông thường và suy luận biểu tượng.
+6
+Zero-shot Chain-of-Thought Prompting
+Zero-shot Chain of Thought (Zero-shot COT) là một cách tiếp cận giúp cải thiện khảnăng suy
+luận của các mô hình ngôn ngữlớn (LLMs) mà không cần hướng dẫn cụthểtừmột sốví dụmẫu
+từdữliệu(few-shot). Phương pháp này cho phép mô hình tạo ra chuỗi suy nghĩ một cách tựnhiên
+và logic đểgiải quyết các bài toán, mà không cần dựa trên các ví dụcụthểđã được cung cấp
+trước đó. Zero-shot COT thểhiện sựlinh hoạt và khảnăng áp dụng rộng rãi trong các tác vụsuy
+luận khác nhau, từtoán học đến suy luận thông thường, mởra hướng mới trong việc khám phá và
+tận dụng tiềm năng sẵn có của các LLMs. Trong bài báo "Large Language Models are Zero-Shot
+Reasoners" Kojima et al., 2022 chỉra rằng chúng ta chỉcần đơn giản thêm cụm "Let’s think step
+by step" vào prompt gốc sẽgiúp model đưa ra kết quảtốt hơn.
+9
+AI VIETNAM
+aivietnam.edu.vn
+7
+Automatic Chain-of-Thought Prompting
+Auto-CoT: Automatic Chain-of-Thought Prompting (Auto-COT) được đềxuất trong paper "Au-
+tomatic Chain of Thought Prompting in Large Language Models" Zhang et al., 2023a là một cách
+tiếp cận đểtựđộng tạo ra các chuỗi suy nghĩ trong các mô hình ngôn ngữlớn (LLMs). Auto-CoT
+tận dụng khảnăng của LLMs đểtựsinh ra các chuỗi suy nghĩ, từđó xây dựng các ví dụminh họa.
+Phương pháp này giảm bớt sựcần thiết của việc tạo ví dụminh họa thủcông, mởra khảnăng áp
+dụng rộng rãi trong việc giải quyết các bài toán suy luận phức tạp mà không cần tới sựcan thiệp
+thủcông từngười dùng. Auto-CoT hứa hẹn sẽcải thiện hiệu suất và khảnăng tựhọc của LLMs,
+đặc biệt trong các tác vụđòi hỏi suy luận nhiều bước.
+10
+AI VIETNAM
+aivietnam.edu.vn
+8
+Self-Consistency
+Self-Consistency được đềxuất trong paper "Self-Consistency Improves Chain of Thought Reasoning
+in Language Models" Wang et al., 2022 giúp cải thiện khảnăng suy luận của LLMs bằng cách sử
+dụng COT. Nó hoạt động bằng cách tạo ra nhiều hướng suy nghĩ đa dạng và sau đó chọn câu trả
+lời phổbiến nhất từnhững hướng suy nghĩ đó. Điều này giúp tăng cường khảnăng suy luận chính
+xác của mô hình, đồng thời cung cấp cái nhìn sâu sắc và dễhiểu vềquá trình suy nghĩ của mô
+hình, giúp người dùng có thểkiểm tra và hiểu rõ cách mô hình đưa ra kết quả.
+Trong paper nhóm tác giảđềxuất thay thếcho chiến lược giải mã tham lam (greedy decoding)
+thường được sửdụng trong COT. Chiến lược này khắc phục một sốnhược điểm của COT như:
+• Đa dạng hóa hướng suy nghĩ: Self-Consistency sinh ra một tập hợp đa dạng các hướng
+suy nghĩ, thay vì chỉchọn một suy nghĩ duy nhất. Điều này dựa trên quan điểm rằng một
+bài toán suy luận phức tạp thường có nhiều cách suy nghĩ khác nhau dẫn đến một câu trả
+lời đúng duy nhất.
+• Cải thiện hiệu suất suy luận: Self-Consistency đã được chứng minh là cải thiện hiệu suất
+của COT một cách đáng kểtrên các bài toán suy luận thông thường và toán học.
+• Khắc phục hạn chếcủa COT: Nghiên cứu cho thấy rằng COT có thểlàm giảm hiệu suất
+so với gợi ý thông thường trong một sốtrường hợp. Self-Consistency giúp khắc phục điểm
+yếu này, đặc biệt trong các tác vụfew-shot learning.
+• Ứng dụng rộng rãi: Self-Consistency được ứng dụng trong nhiều tác vụNLP, như trảlời
+câu hỏi không dựa trên nguồn thông tin (Closed-Book Question Answering) và suy luận ngôn
+ngữtựnhiên (Natural Language Inference)
+11
+AI VIETNAM
+aivietnam.edu.vn
+Hình 7: Self-Consistency gồm 3 bước: (1) Kỹthuật prompt sửdụng COT, (2) Thay thế“greedy
+decode” trong COT bằng cách lấy mẫu từlanguage model’s decoder đểtạo ra một tập hợp đa dạng
+các đường suy luận, (3) loại bỏcác đường suy luận và tổng hợp bằng cách chọn câu trảlời nhất
+quán nhất trong câu trảlời cuối cùng.
+9
+Generated Knowledge Prompting
+Trong paper "Generated Knowledge Prompting for Commonsense Reasoning" Liu et al., 2021,
+Generated Knowledge Prompting được giới thiệu là một cách tiếp cận mới đểcải thiện hiệu suất
+của các mô hình ngôn ngữlớn trong các tác vụsuy luận thông thường. Phương pháp này bao gồm
+hai bước chính: sinh ra các phát biểu kiến thức liên quan đến câu hỏi từmột mô hình ngôn ngữ,
+sau đó sửdụng kiến thức này như một phần của đầu vào khi trảlời câu hỏi. Điều này giúp tăng
+cường khảnăng suy luận của mô hình mà không cần truy cập vào một cơ sởkiến thức có cấu trúc
+hay tinh chỉnh cụthểcho việc tích hợp kiến thức. Phương pháp này được chứng minh là hiệu quả
+thông qua việc cải thiện hiệu suất trên nhiều bài toán suy luận thông thường và đạt kết quảhàng
+đầu trên một sốtác vụ.
+Sau đây là chi tiết 2 bước của Generated Knowledge Prompting đểtrảlời các câu hỏi thông
+thường:
+• Bước Tạo Kiến Thức (Knowledge Generation): Sửdụng mô hình ngôn ngữđểsinh ra
+các phát biểu kiến thức dựa trên câu hỏi Kq = {km : km ∼pG(k|q), m = 1 . . . M}, với mỗi
+phát biểu kiến thức km là một chuỗi văn bản có độdài biến đổi. Bản chất, mỗi phát biểu
+chứa thông tin hữu ích cho việc trảlời câu hỏi. Khi tạo kiến thức cho một câu hỏi mới, câu
+hỏi được chèn vào vịtrí dành cho câu hỏi mới và lấy mẫu liên tục các tiếp nối của prompt
+này đểthu được một tập hợp các phát biểu kiến thức K|q.
+• Bước Tích Hợp Kiến Thức (Knowledge Integration): Trong bước này, kiến thức sinh
+ra được tích hợp vào quá trình đưa ra quyết định của mô hình ngôn ngữsửdụng cho suy
+luận ˆa = arg maxa∈Aq max0≤m≤M pI(a|qm), Điều này được thực hiện bằng cách sửdụng
+từng phát biểu kiến thức đểgợi ý cho mô hình, tạo ra M câu hỏi được bổsung kiến thức:
+12
+AI VIETNAM
+aivietnam.edu.vn
+q0 = q, q1 = [k1||q], . . . , qM = [kM||q], với [·||·] biểu thịsựkết hợp văn bản. Điểm tổng hợp
+cho mỗi lựa chọn trảlời được tính dựa trên câu hỏi bổsung hỗtrợtốt nhất lựa chọn đó dưới
+mô hình suy luận. Câu trảlời dựđoán cuối cùng là lựa chọn được hỗtrợnhiều nhất từmột
+trong các phát biểu kiến thức. Mô hình suy luận có thểlà một mô hình ngôn ngữhiện có
+hoặc được tinh chỉnh cụthểcho tác vụ. Không cần tinh chỉnh thêm với kỹthuật gợi ý kiến
+thức.
+Hình 8: Generated Knowledge Prompting bao gồm 2 bước: (1) sửdụng few-shot đểtạo ra các phát
+biểu liên quan đến câu hỏi từmột mô hình ngôn ngữ, (2) sửdụng một mô hình ngôn ngữkhác để
+đưa ra dựđoán với mỗi phát biểu, sau đó chọn dựđoán có độtin cậy cao nhất.
+10
+Tree of Thoughts
+Tree of Thoughts (TOT) là phương pháp mởrộng cách tiếp cận COT bằng cách cho phép khám
+phá trên các đơn vịvăn bản nhất quán ("thoughts") mà phục vụnhư những bước trung gian hướng
+tới giải quyết vấn đề. Nó cho phép mô hình ngôn ngữthực hiện quá trình ra quyết định một cách
+cẩn trọng, bằng cách xem xét nhiều hướng suy nghĩ khác nhau và tựđánh giá các lựa chọn đểquyết
+định hành động tiếp theo, cũng như nhìn vềphía trước hoặc lùi lại (forward and backward) khi
+cần thiết đểđưa ra các quyết định. Trong paper "Tree of Thoughts: Deliberate Problem Solving
+with Large Language Models" Yao et al., 2023a, TOT đã được chứng minh là cải thiện đáng kể
+khảnăng giải quyết vấn đềcủa các mô hình ngôn ngữtrên ba nhiệm vụmới đòi hỏi kếhoạch hoặc
+tìm kiếm không đơn giản: Game of 24, Creative Writing, and Mini Crosswords.
+ToT giải quyết vấn đềbằng cách trảlời bốn câu hỏi:
+• Làm thếnào đểphân rã quá trình trung gian thành các bước suy nghĩ?
+• Làm thếnào đểsinh ra các suy nghĩ tiềm năng từmỗi trạng thái?
+• Làm thếnào đểđánh giá các trạng thái một cách có hệthống?
+• Sửdụng thuật toán tìm kiếm nào?
+13
+AI VIETNAM
+aivietnam.edu.vn
+Thought decomposition: khi các mẫu COT có thểtạo ra suy nghĩ mà không cần phân rã
+rõ ràng, TOT tận dụng đặc tính của vấn đềđểthiết kếvà phân rã các bước suy nghĩ trung gian.
+Tùy thuộc vào từng vấn đềcụthể, một suy nghĩ có thểlà một vài từ, một dòng của phương trình,
+hoặc một đoạn văn mô tả. Điều quan trọng là suy nghĩ phải đủnhỏđểcó thểquản lý được, nhưng
+cũng phải đủ"lớn" đểcó thểđánh giá tiến trình giải quyết vấn đềmột cách có ý nghĩa.
+Thought generator: với mục đích tạo ra các suy nghĩ mới, khi có một trạng thái cây s =
+[x, z1...zi] có hai cách đểsinh ra k ứng viên cho bước suy nghĩ tiếp theo:
+• Sample: Đầu tiên chúng ta lấy mẫu độc lập và phân phối đồng đều theo COT prompt. Đây
+là việc chọn ra các suy nghĩ tiếp theo mà không phụthuộc lẫn nhau và mỗi suy nghĩ đều có
+cùng khảnăng xuất hiện. Đềxuất theo COT prompt là một dạng câu hỏi hoặc mệnh đềmà
+từđó, mô hình có thểphát sinh ra các suy nghĩ tiếp theo. Một CoT prompt có thểlà một
+nhiệm vụmởra cho mô hình, như yêu cầu mô tảmột cảnh hoặc tạo ra một câu chuyện dựa
+trên các thông tin đã cho. Kết quảbước này là k suy nghĩ tiếp theo mà không cần các suy
+nghĩ đó phải liên quan mật thiết với nhau. Mỗi suy nghĩ tiếp theo có thểhoàn toàn độc lập
+với nhau, đảm bảo sựđa dạng trong chuỗi suy nghĩ. Chiến lược này được cho là hoạt
+động tốt khi không gian suy nghĩ rất phong phú, ví dụnhư khi mỗi suy nghĩ là
+một đoạn văn dài. Điều này cho phép mô hình tạo ra nhiều suy nghĩ tiềm năng
+và đa dạng mà không bịgiới hạn bởi các suy nghĩ trước đó.
+• Propose: Đầu tiên chúng ta đềxuất các suy nghĩ một cách tuần tựtức thay vì lấy mẫu ngẫu
+nhiên các suy nghĩ như trong sample thì propose đềxuất các suy nghĩ tiếp theo dựa trên suy
+nghĩ hiện tại. Điều này giúp cho các suy nghĩ được tạo ra có mối liên kết logic và tuần tự
+với nhau. Việc đềxuất này là đặt ra một khuôn khổhoặc hướng dẫn cho mô hình vềcách
+tạo ra suy nghĩ tiếp theo. Một điều đáng lưu ý là khi không gian suy nghĩ bịhạn chếviệc sử
+dụng đềxuất prompt giúp tránh tạo ra các suy nghĩ trùng lặp, bởi vì mô hình sẽcân nhắc
+đến bối cảnh hiện tại đểtạo ra suy nghĩ mới. Kết quảlà k suy nghĩ tiếp theo một cách có
+trật tự, mỗi suy nghĩ tiếp nối từsuy nghĩ trước đó, tạo ra một chuỗi suy nghĩ có cấu trúc và
+liền mạch hơn. Chiến lược này phù hợp khi không gian suy nghĩ bịhạn chếvà cần
+một cách tiếp cận có cấu trúc đểtạo ra các suy nghĩ mới mà khôn g bịlặp lại ý
+đã nêu trước đó.
+State evaluator hoạt động như một hàm heuristic giúp thuật toán tìm kiếm quyết định trạng
+thái nào cần được khám phá thêm và thứtựưu tiên. Có hai chiến lược đểđánh giá các trạng thái:
+• Đánh giá từng trạng thái độc lập: Mỗi trạng thái được đánh giá độc lập đểtạo ra một
+giá trịvô hướng (ví dụtừ1 đến 10) hoặc một phân loại. Cách tiếp cận này sửdụng suy luận
+14
+AI VIETNAM
+aivietnam.edu.vn
+đánh giá đểchuyển đổi một heuristic thành một giá trị. Sựsuy luận đánh giá có thểthay đổi
+tùy thuộc vào vấn đềvà các bước suy nghĩ.
+• Bầu chọn các trạng thái: Đánh giá dựa trên việc so sánh và bầu chọn giữa các trạng thái
+khác nhau, nơi "trạng thái tốt" là trạng thái nhận được nhiều phiếu bầu nhất từviệc so sánh
+cẩn thận giữa các trạng thái. Khi đánh giá bằng cách bầu chọn, LM sẽxem xét các trạng
+thái khác nhau và bầu chọn cho trạng thái "ưu tú" nhất.
+Cảhai chiến lược này đều nhằm mục đích tăng cường linh hoạt cho việc sửdụng heuristic trong
+thuật toán tìm kiếm, đặc biệt là khi sửdụng các mô hình ngôn ngữđểsuy nghĩ một cách có chủ
+đích vềcác trạng thái.
+Search algorithm có hai loại tìm kiếm cơ bản trong TOT là: Tìm kiếm theo chiều rộng
+(Breadth-first search - BFS) và Tìm kiếm theo chiều sâu (Depth-first search - DFS).
+Một sốlợi ích của TOT:
+• Generalizability: Các cách tiếp cận khác như IO, CoT, CoT-SC, và tựtinh chỉnh có thểđược
+coi là trường hợp đặc biệt của TOT.
+• Modularity: cũng như việc phân rã suy nghĩ, đánh giá và thuật toán tìm kiếm có thểđược
+thay đổi độc lập.
+• Adaptability: TOT có thểthích ứng với các tính chất vấn đềkhác nhau và khảnăng của LM.
+• Convenience: Không cần đào tạo thêm, chỉcần một LM đã được đào tạo sẵn.
+11
+Automatic Prompt Engineer (APE)
+Automatic Prompt Engineer là một kĩ thuật được đềxuất trong paper "Large Language Models
+Are Human-Level Prompt Engineers" Zhou et al., 2022. Paper này đềxuất một phương pháp tự
+động hóa việc prompt engineer bằng cách sửdụng các mô hình ngôn ngữlớn đểtựđộng tạo sinh
+và đánh giá prompt trong một không gian tìm kiếm.
+Phương pháp APE hoạt động như sau:
+• Đầu tiên, sửdụng một mô hình LLMs đểtạo sinh ra một tập instruction đềxuất.
+• Chọn một subset từtập train, sau đó đánh giá score của từng prompt đềxuất trên subset
+đó.
+• Lọc ra top k prompt có kết quảcao nhất, có thểsửdụng mô hình LLM đểresample lại từ
+top k đó.
+• Lặp lại các bước trên đến khi hội tụ.
+15
+AI VIETNAM
+aivietnam.edu.vn
+Hình 9: Thuật toán của APE
+Hình 10: Phương pháp APE, các bước được đánh sốtừ1 đến 5
+APE giúp tìm kiếm những prompt cho ra kết quảtốt hơn khi sửdụng trong zero-shot CoT so
+với prompt được định nghĩa bởi con người như "Let’s think step by step" được đềxuất bởi Kojima
+et al., 2022.
+16
+AI VIETNAM
+aivietnam.edu.vn
+Hình 11: Prompt được tạo sinh bằng phương pháp APE và prompt được định nghĩa bởi con người.
+Lợi ích của việc sửdụng APE:
+• tựđộng hóa quá trình prompt engineering.
+• APE đạt được kết quảngang hoặc hơn con người trong một sốtask nhất định, bao gồm
+zero-shot và few-shot learning.
+12
+Active-Prompt
+Một trong những nhược điểm của Chain-of-Thought là phương pháp này phụthuộc vào một tập ví
+dụgiống nhau cho tất cảcác task, tuy nhiên tập ví dụnày có thểkhông phải là tập thích hợp nhất
+cho các task khác nhau. Phương pháp Active-Prompt được đềxuất trong bài "Active Prompting
+with Chain-of-Thought for Large Language Models" Diao et al., 2023. Phương pháp này hoạt động
+theo các bước như sau.
+• Đầu tiên sửdụng mô hình LLM đểgấn nhãn cho data train, có thểcó hoặc không sửdụng
+CoT với một sốví dụởbước này.
+• k câu trảlời được tạo ra cho mỗi câu hỏi trong tập train. Sau đó ta sẽsửdụng một sốphương
+pháp khác nhau đểtính độbất định cho từng câu hỏi.
+• Những câu hỏi bất định nhất sẽđược lựa chọn đểgấn nhãn thủcông bởi con người. Những
+câu hỏi này sẽđược lựa chọn đểlàm ví dụcho CoT trong quá trình inference.
+17
+AI VIETNAM
+aivietnam.edu.vn
+Hình 12: Các bước trong Active-Prompting
+Các thang đo đểtính độbất định được sửdụng trong paper bao gồm:
+• Disagreement: Ta có kết quảcho k câu hỏi A = a1, a2, ...ak. Thang đo disagreement được
+tính bằng sốđáp án trảlời riêng biệt chia cho tổng sốđáp án.
+• Entropy: Sửdụng hàm entropy đểtính độbất định. vời hàm entropy được định nghĩa như
+sau:
+u = arg max
+i
+−
+k
+X
+j=1
+Pθ(aj|qi) ln Pθ(aj|qi)
+(2)
+Trong đó Pθ(aj|qi) là tần sốxuất hiện của một câu trảlời j nhất định trong tập tất cảcác
+dựđoán. Entropy càng cao chứng tỏđộbất định càng lớn.
+• Variance: Sửdụng variance cho các câu hỏi liên quan đến toán học. Các tác giảnhận ra
+rằng độvariance trong các câu trảlời là rất lớn. Vì độvariance trong các câu trảlời là rất
+lớn, ta cần phải normalize các câu trảlời lại.
+• Self-Confidence: Sửdụng một mô hình LLM đểtạo sinh ra thang điểm cho độbất định
+của các câu trảlời. Thang điểm này hoạt động không quá tốt do các mô hình LLM có xu hứ
+tựtin thái quá vào các câu trảlời.
+Nhìn chung disagreement và entropy là 2 phương pháp tính độbất định cho ra kết quảtốt nhất.
+Trong đó disagreement cho ra kết quảtốt hơn entropy trong nhiều task.
+13
+Directional Stimulus Prompting
+Đây là một kĩ thuật prompting giúp LLM có thểtóm tắt văn bản theo ý muốn. Kĩ thuật này được
+giới thiệu trong paper "Guiding Large Language Models via Directional Stimulus Prompting" Li
+et al., 2023. DSP sửdụng các kích thích/chỉdẫn hướng (directional stimulus, trong trường hợp này
+là các từkhóa), đểcung cấp hướng dẫn cụthểcho từng trường hợp cho các mô hình ngôn ngữlớn
+18
+AI VIETNAM
+aivietnam.edu.vn
+(LLMs) trong việc tạo ra các bản tóm tắt phù hợp hơn với bản tóm tắt tham khảo mong muốn.
+Hình 13 minh họa cách hoạt động của DSP.
+Hình 13: So sánh giữa DSP và Prompting truyền thống cho tác vụtóm tắt văn bản. DSP sửdụng
+các kích thích/chỉdẫn hướng, trong trường hợp này là các keyword được đánh dấu bằng màu cam,
+đểcác mô hình LLM có thểsinh ra bản tóm tắt phù hợp với mong muốn.
+Trong paper này, một mô hình language model nhỏvà có thểtune được (chẳng hạn như T5)
+được sửdụng đểtạo sinh các kích thích/chỉdẫn. Hướng tiếp cận này cho phép tránh việt phải
+fine-tune một mô hình ngôn ngữlớn, thay vào đó ta có thểfine-tune một mô hình chỉdẫn nhỏhơn
+một cách dễdàng hơn. Hướng tiếp cận này được mô tảtrong hình 14.
+Hình 14: DSP sửdụng một mô hình ngôn ngữnhỏhơn đểtạo sinh ra các kích thích/chỉdẫn
+định hướng, trong trường hợp này là keyword. Mô hình này có thểđược huấn luyện bằng SFT
+(supervised fine-tuning) và/hoặc là RL.
+19
+AI VIETNAM
+aivietnam.edu.vn
+14
+PAL: Program-aided Language Models
+Điểm đặc biệt của PAL là việc giải quyết vấn đềđược chuyển giao cho trình thông dịch, như
+Python, giúp tận dụng sức mạnh tính toán và độchính xác cao của máy tính. Được đềxuất trong
+bài báo "PAL: Program-aided Language Models" Gao et al., 2023, phương pháp này tập trung vào
+việc phân tách vấn đềthành các bước có thểthực thi, giải phóng LLM khỏi trách nhiệm giải quyết
+vấn đềmà thay vào đó, giao cho trình thông dịch. Qua việc áp dụng PAL trong 13 nhiệm vụsuy
+luận toán học, biểu tượng, và thuật toán từcác bài kiểm tra khó như BIG-Bench Hard và các tiêu
+chuẩn khác.
+Hình 15: Sơ đồPAL: Đối với một câu hỏi suy luận toán học, Chain-of-Thought tạo ra các bước
+suy luận trung gian dưới dạng văn bản tựdo. Ngược lại, PAL tạo ra các bước trung gian và mã
+Python. Điều này chuyển vai trò thực thi các bước suy luận từmô hình ngôn ngữsang trình thông
+dịch Python. Câu trảlời cuối cùng được thu bằng cách chạy chuỗi suy luận đã tạo.
+PAL là một phương pháp độc đáo và sáng tạo trong việc giải quyết các vấn đềngôn ngữtự
+nhiên bằng cách kết hợp mạch lạc giữa ngôn ngữtựnhiên (Natural Language - NL) và ngôn ngữ
+lập trình (Programming Language - PL). Trong tác vụnày, một vấn đềđược đặt ra trong ngôn
+ngữtựnhiên được biến đổi thành một loạt các câu lệnh xen kẽgiữa NL và PL, tạo ra một dạng
+hợp nhất giữa hai loại ngôn ngữnày. Điều này cho phép mô hình không chỉphân tích và hiểu vấn
+đềmà còn tựđộng tạo ra mã lập trình như một phần của quy trình giải quyết vấn đề, mà không
+cần cung cấp trực tiếp các câu trảlời cuối cùng trong prompt của mình.
+Điểm đặc biệt của PAL là việc giải quyết vấn đềđược chuyển giao cho một trình thông dịch, ví
+dụnhư trình thông dịch Python, cho phép mô hình tập trung vào việc xây dựng và tối ưu hóa các
+20
+AI VIETNAM
+aivietnam.edu.vn
+bước giải quyết vấn đềmột cách logic và hiệu quả. Các bước trung gian và câu lệnh lập trình được
+mô hình tạo ra sau đó được thực thi bởi trình thông dịch đểthu được kết quảcuối cùng. Điều này
+không chỉtăng cường khảnăng của mô hình trong việc xửlý các vấn đềphức tạp mà còn mởrộng
+khảnăng tương tác của nó với các ngôn ngữlập trình thực tế.
+Trong quá trình thiết lập PAL, việc tận dụng các prompt có sẵn từcác nghiên cứu trước đây
+và bổsung vào đó các ví dụngẫu nhiên đểtạo nên một prompt đa dạng và phong phú, được tối
+ưu hóa bằng cách sửdụng các cấu trúc lập trình phổbiến như vòng lặp và dictionary. Quá trình
+này không chỉgiúp tạo ra các prompts chất lượng cao mà còn đảm bảo rằng các biến trong code
+được tạo ra có tên phản ánh chính xác vai trò và ý nghĩa của chúng trong vấn đềđược giải quyết.
+PAL mởra một hướng đi mới trong việc sửdụng trí tuệnhân tạo đểgiải quyết vấn đề, nơi
+sựkết hợp giữa suy luận ngôn ngữtựnhiên và lập trình cung cấp một cách tiếp cận linh hoạt và
+mạnh mẽtrong việc xửlý các thách thức phức tạp, từđó thúc đẩy sựphát triển của các hệthống
+AI thông minh và có khảnăng thích ứng cao.
+15
+ReAct Prompting
+ReAct Prompting được giới thiệu trong paper "ReAct: Synergizing Reasoning and Acting in Lan-
+guage Models" Yao et al., 2023b, là một kỹthuật đểtạo ra cảdấu vết suy luận và hành động cụ
+thểcho nhiệm vụmột cách xen kẽ, cho phép sựkết hợp chặt chẽhơn giữa hai phần: theo vết suy
+luận giúp mô hình khởi tạo, theo dõi và cập nhật kếhoạch hành động cũng như xửlý ngoại lệ,
+trong khi hành động cho phép nó tương tác với và thu thập thông tin bổsung từcác nguồn bên
+ngoài như cơ sởdữliệu tri thức hoặc môi trường. ReAct cho một tập hợp đa dạng các nhiệm vụvề
+ngôn ngữvà ra quyết định, đã đạt hiệu quảso với các tiêu chuẩn hàng đầu cũng như cải thiện tính
+dễhiểu và đáng tin cậy đối với con người. Cụthể, trên các nhiệm vụtrảlời câu hỏi (HotpotQA)
+và xác minh sựthật (Fever), ReAct giải quyết các vấn đềphổbiến vềảo giác và lan truyền lỗi
+trong COT bằng cách tương tác với API Wikipedia đơn giản, và tạo ra quỹđạo giải quyết nhiệm
+vụgiống như con người dễhiểu hơn so với các tiêu chuẩn không có dấu vết suy luận.
+Thông qua việc sửdụng một sốít ví dụđiển hình trong prompt, với mỗi quỹđạo bao gồm
+nhiều bước suy nghĩ-hành động-quan sát. ReAct khai thác sức mạnh của suy nghĩ tựdo cho nhiều
+mục đích, từphân rã câu hỏi, trích xuất thông tin từWikipedia, suy luận thông thường và toán
+học, đến hướng dẫn cải tiến tìm kiếm và tổng hợp câu trảlời cuối cùng. Đối với các tiêu chuẩn so
+sánh, loại bỏtừng phần trong quỹđạo ReAct đểxây dựng các lời nhắc cho nhiều cơ sởso sánh, từ
+CoT chỉtập trung vào suy luận, đến hành động duy nhất mà không cần suy nghĩ, và kết hợp cả
+hai đểtạo ra quyết định dựa trên cảkiến thức nội bộvà bên ngoài.
+21
+AI VIETNAM
+aivietnam.edu.vn
+Hình 16: So sánh 4 phương pháp prompting, standard, Chain-of-thought (CoT, Reason Only), Act-
+only và ReAct (Reason+Act)
+16
+Reflexion
+Reflexion được đềxuất trong bài báo "Reflexion: Language Agents with Verbal Reinforcement
+Learning" Shinn et al., 2023, đánh dấu bước tiến trong việc cải thiện khảnăng của các language
+agents - những mô hình ngôn ngữlớn được sửdụng ngày càng nhiều đểtương tác với môi trường
+bên ngoài như trò chơi, trình biên dịch, API với vai trò là các đại diện có mục tiêu. Mặc dù việc áp
+dụng các phương pháp học tăng cường truyền thống đang đối mặt với thách thức lớn, do yêu cầu
+lượng dữliệu huấn luyện rộng lớn và việc tinh chỉnh mô hình tốn kém, Reflexion mởra một hướng
+đi mới. Thay vì cập nhật trọng số, Reflexion tăng cường khảnăng của language agents thông qua
+phản hồi ngôn ngữ. Cụthể, Reflexion agents phản ánh vềtín hiệu phản hồi công việc thông qua
+lời nói, sau đó duy trì văn bản phản ánh của chính nó trong một bộđệm theo dõi đểthúc đẩy
+quyết định tốt hơn trong các lần thửtiếp theo. Reflexion đủlinh hoạt đểkết hợp các loại (giá trị
+vô hướng hoặc ngôn ngữtựdo) và nguồn (bên ngoài hoặc mô phỏng nội bộ) tín hiệu phản hồi, và
+đạt được những cải thiện đáng kểso với một đại diện cơ sởtrên nhiều nhiệm vụđa dạng (quyết
+định tuần tự, lập trình, suy luận ngôn ngữ).
+22
+AI VIETNAM
+aivietnam.edu.vn
+Hình 17: Quá trình hoạt động của Reflexion qua 3 tác vụdecision-making, programming và rea-
+soning.
+Reflexion là một khái niệm đột phá trong lĩnh vực trí tuệnhân tạo, tạo ra một cách tiếp cận
+mới cho việc tăng cường khảnăng tựhọc của các language agents thông qua ba thành phần chính:
+Actor, Evaluator và Self-Reflection. Actor sửdụng mô hình ngôn ngữlớn đểtạo ra văn bản và
+hành động dựa trên quan sát. Evaluator đánh giá chất lượng của các kết quảnày và cung cấp điểm
+thưởng, trong khi Self-Reflection tạo ra phản hồi ngôn từđểhỗtrợActor phát triển qua từng lần
+thử. Phản hồi này sau đó được lưu trữtrong bộnhớ, giúp Actor điều chỉnh hành động trong các
+lần thửtiếp theo. Quy trình này không chỉtối ưu hóa việc học từkinh nghiệm mà còn cho phép
+các đại diện nhanh chóng cải thiện quyết định của mình thông qua việc sửdụng phản hồi có giá
+trị, tạo ra một cơ chếhọc tập mạnh mẽvà linh hoạt.
+Hình 18: Diagram và Pseudo-Code của Reflexion
+23
+AI VIETNAM
+aivietnam.edu.vn
+17
+Multimodal CoT Prompting
+Các mô hình ngôn ngữlớn đã thểhiện hiệu suất ấn tượng trong việc giải quyết các bài toán suy
+luận phức tạp bằng cách sửdụng COT đểtạo ra các chuỗi suy luận trung gian như rationale (lý do)
+đểsuy luận ra câu trảlời. Tuy nhiên, các nghiên cứu vềCOT trước đó đã tập trung vào mô hình
+ngôn ngữ. Multimodal-CoT được đềxuất trong paper "Multimodal Chain-of-Thought Reasoning
+in Language Models" Zhang et al., 2023b, là một phương pháp kết hợp cảhai mô hình ngôn ngữ
+và hình ảnh vào một two-stage framework tách biệt việc tạo lý do và suy luận câu trảlời. Nhờ
+đó, việc suy luận câu trảlời có thểtận dụng tốt hơn các lý do được tạo ra dựa trên thông tin đa
+phương tiện.
+Hình 19: Multimodal-CoT bao gồm hai giai đoạn: (i) tạo lập lý do và (ii) suy luận câu trảlời. Cả
+hai giai đoạn đều sửdụng cùng một kiến trúc mô hình nhưng khác nhau vềđầu vào và đầu ra.
+Trong giai đoạn đầu tiên, cung cấp cho mô hình đầu vào ngôn ngữvà hình ảnh đểtạo ra lý do.
+Trong giai đoạn thứhai, thêm đầu vào ngôn ngữban đầu với lý do được tạo ra từgiai đoạn đầu
+tiên. Sau đó, cung cấp đầu vào ngôn ngữđã được cập nhật cùng với đầu vào hình ảnh ban đầu cho
+mô hình đểsuy luận ra câu trảlời.
+Multimodal-CoT hoạt động với 2-stage kết hợp giữa ngôn ngữvà thịgiác đểcải thiện suy luận
+và đưa ra câu trảlời cho các mô hình ngôn ngữlớn. Giai đoạn đầu tiên, tạo các lý do, nhận đầu
+vào là dữliệu ngôn ngữvà hình ảnh đểsinh ra chuỗi lý do. Giai đoạn thứhai, suy luận câu trảlời,
+bắt đầu bằng việc thêm chuỗi lý do vào đầu vào ngôn ngữgốc, và sau đó kết hợp với đầu vào thị
+giác ban đầu đểmô hình có thểsuy luận ra câu trảlời. Cảhai giai đoạn này sửdụng chung kiến
+trúc mô hình nhưng khác biệt vềdữliệu đầu vào và đầu ra.
+Trong cảhai giai đoạn, mô hình được huấn luyện đểxửlý thông tin đa phương tiện: đầu vào
+ngôn ngữđược mã hóa bởi một bộmã hóa ngôn ngữ, trong khi đầu vào hình ảnh được xửlý bởi
+một bộtrích xuất đặc trưng hình ảnh và sau đó được kết hợp thông qua một single-head attention
+network đểtạo đầu ra hợp nhất. Đầu ra này sau đó được đưa vào Transformer decoder đểsinh ra
+dựđoán cuối cùng. Cách tiếp cận này không chỉtận dụng được sức mạnh của cảvăn bản và hình
+ảnh mà còn cho phép mô hình tạo ra các lý do suy luận phong phú và đa dạng, tăng cường khả
+năng đưa ra câu trảlời chính xác và có cơ sở
+24
+AI VIETNAM
+aivietnam.edu.vn
+18
+Synthetic Prompting
+Bài báo "Synthetic Prompting: Generating Chain-of-Thought Demonstrations for Large Language
+Models" Shao et al., 2023, khám phá ý tưởng sửdụng kỹthuật chain-of-thought (CoT) đểhướng
+dẫn các mô hình ngôn ngữlớn (LLMs) giải quyết các nhiệm vụsuy luận khác nhau. Ý tưởng chính
+là LLMs có thểtìm ra câu trảlời tốt hơn bằng cách theo dõi một loạt các bước giải thích từng
+bước. Tuy nhiên, việc tạo ra những bước giải thích này một cách thủcông là tốn thời gian và đắt
+đỏ. Bài báo giới thiệu một phương pháp gọi là Synthetic Prompting, sửdụng một vài ví dụthủ
+công đểgợi ý cho mô hình tựtạo ra thêm ví dụ. Phương pháp này bao gồm một quá trình ngược
+đểtạo ra các câu hỏi phù hợp với chuỗi suy nghĩ được lấy mẫu, đảm bảo các câu hỏi rõ ràng và có
+thểgiải quyết, và một quá trình đểtạo ra chuỗi suy nghĩ chi tiết hơn, từđó cải thiện chất lượng
+của các ví dụ. Việc đánh giá phương pháp này trên các nhiệm vụsuy luận toán học, biểu tượng và
+thuật toán cho thấy nó vượt trội hơn các kỹthuật prompting hiện có.
+Với phương pháp này, thay vì đưa trực tiếp các ví dụvềchuỗi suy luận cho từng câu hỏi như
+chain-of-thought, phương pháp này lại sửdụng những ví dụnày như những ví dụmồi đểmô hình
+LLM tựđộng sinh ra các ví dụkhác qua 2 quá trình backward-forward.
+25
+AI VIETNAM
+aivietnam.edu.vn
+• Ởquá trình backward, câu hỏi sẽđược LLM tạo ra dựa trên những câu hỏi mồi, cộng với
+một topic cho trước, một độphức tạp dựkiến và một chuỗi suy luận được tạo tựđộng. Có
+một điểm cần lưu ý là chuỗi suy luận sẽđược tạo ra trước dựa trên từchủđềvà đô phức tạp
+dựkiến, sau đó mô hình LLM sẽtạo ra câu hỏi dựa trên chuỗi suy luận đó.
+• Quá trình forward có mục đích là tạo ra chuỗi suy luận dựa vào câu hỏi vừa được tạo ra. Các
+tác giảnhận ra rằng chuỗi suy luận được tạo ra trong quá trình forward sẽphù hợp và chính
+xác hơn cái được tạo ra trong quá trình backward, vì nó trực tiếp phụthuộc vào câu hỏi.
+Cuối cùng một ví dụmới được hình thành bằng cách sửdụng chuỗi suy luận từquá trình
+forward và câu hỏi từquá trình backward.
+Cuối cùng, trong quá trình inference, một tập nhỏcác câu hỏi được tạo sinh ra sẽđược sửdụng
+đểlàm ví dụmẫu cho mô hình. Phương pháp này nhìn chung cho thấy sựvượt trội trong các task
+liên quan đến lập trình, toán học, và suy luận dựa trên biểu tượng.
+Phần III: Tổng kết
+Prompt engineering là yếu tốthen chốt đểkhai thác hết khảnăng của các mô hình ngôn ngữtiên
+tiến. Sựhiệu quảvà độchính xác của các phản hồi từmô hình ngôn ngữlớn phụthuộc rất nhiều
+vào cách thức ta thiết kếvà cung cấp các prompt. Việc tinh chỉnh và tạo ra những prompts thông
+minh và sáng tạo không chỉgiúp các mô hình ngôn ngữlớn hiểu rõ hơn yêu cầu của người dùng
+mà còn tối ưu hóa khảnăng phản hồi của nó. Bài viết này mang lại cái nhìn tổng quan vềnhững
+kỹthuật prompt engineering đang được áp dụng hiện nay, mởra những khảnăng mới trong việc
+tương tác với các hệthống trí tuệnhân tạo.
+References
+Bsharat, S. M., Myrzakhan, A., & Shen, Z. (2024). Principled instructions are all you need for
+questioning llama-1/2, gpt-3.5/4.
+Wei, J., Bosma, M., Zhao, V., Guu, K., Yu, A. W., Lester, B., Du, N., Dai, A. M., & Le, Q. V. Fine-
+tuned language models are zero-shot learners. In: In International conference on learning
+representations.
+Brown, T., Mann, B., Ryder, N., Subbiah, M., Kaplan, J. D., Dhariwal, P., Neelakantan, A., Shyam,
+P., Sastry, G., Askell, A., Agarwal, S., Herbert-Voss, A., Krueger, G., Henighan, T., Child,
+R., Ramesh, A., Ziegler, D., Wu, J., Winter, C., . . . Amodei, D. Language models are
+few-shot learners (H. Larochelle, M. Ranzato, R. Hadsell, M. Balcan, & H. Lin, Eds.). In:
+Advances in neural information processing systems (H. Larochelle, M. Ranzato, R. Hadsell,
+M. Balcan, & H. Lin, Eds.). Ed. by Larochelle, H., Ranzato, M., Hadsell, R., Balcan, M.,
+& Lin, H. 33. Curran Associates, Inc., 2020, 1877–1901. https://proceedings.neurips.cc/
+paper_files/paper/2020/file/1457c0d6bfcb4967418bfb8ac142f64a-Paper.pdf
+Wei, J., Wang, X., Schuurmans, D., Bosma, M., Ichter, B., Xia, F., Chi, E., Le, Q., & Zhou,
+D. (2022). Chain-of-thought prompting elicits reasoning in large language models [cite
+arxiv:2201.11903]. http://arxiv.org/abs/2201.11903
+Kojima, T., Gu, S. S., Reid, M., Matsuo, Y., & Iwasawa, Y. Large language models are zero-shot
+reasoners. In: In Advances in neural information processing systems. 35. 2022, 22199–22213.
+Zhang, Z., Zhang, A., Li, M., & Smola, A. Automatic chain of thought prompting in large language
+models. In: In The eleventh international conference on learning representations (iclr 2023).
+2023.
+26
+AI VIETNAM
+aivietnam.edu.vn
+Wang, X., Wei, J., Schuurmans, D., Le, Q., hsin Chi, E. H., & Zhou, D. (2022). Self-consistency
+improves chain of thought reasoning in language models. ArXiv, abs/2203.11171. https:
+//api.semanticscholar.org/CorpusID:247595263
+Liu, J., Liu, A., Lu, X., Welleck, S., West, P., Bras, R. L., Choi, Y., & Hajishirzi, H. (2021). Gen-
+erated knowledge prompting for commonsense reasoning. arXiv preprint arXiv:2110.08387.
+Yao, S., Yu, D., Zhao, J., Shafran, I., Griffiths, T. L., Cao, Y., & Narasimhan, K. (2023a). Tree of
+thoughts: Deliberate problem solving with large language models.
+Zhou, Y., Muresanu, A. I., Han, Z., Paster, K., Pitis, S., Chan, H., & Ba, J. (2022). Large language
+models are human-level prompt engineers.
+Diao, S., Wang, P., Lin, Y., & Zhang, T. (2023). Active prompting with chain-of-thought for large
+language models.
+Li, Z., Peng, B., He, P., Galley, M., Gao, J., & Yan, X. (2023). Guiding large language models via
+directional stimulus prompting. arXiv preprint arXiv:2302.11520.
+Gao, L., Madaan, A., Zhou, S., Alon, U., Liu, P., Yang, Y., Callan, J., & Neubig, G. (2023). Pal:
+Program-aided language models.
+Yao, S., Zhao, J., Yu, D., Du, N., Shafran, I., Narasimhan, K., & Cao, Y. (2023b). React: Synergizing
+reasoning and acting in language models.
+Shinn, N., Cassano, F., Berman, E., Gopinath, A., Narasimhan, K., & Yao, S. (2023). Reflexion:
+Language agents with verbal reinforcement learning.
+Zhang, Z., Zhang, A., Li, M., Zhao, H., Karypis, G., & Smola, A. (2023b). Multimodal chain-of-
+thought reasoning in language models.
+Shao, Z., Gong, Y., Shen, Y., Huang, M., Duan, N., & Chen, W. (2023). Synthetic prompting:
+Generating chain-of-thought demonstrations for large language models.
+- Hết -
+27

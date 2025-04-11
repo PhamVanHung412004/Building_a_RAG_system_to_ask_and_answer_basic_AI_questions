@@ -1,0 +1,744 @@
+Introduction to Medical Image Analysis
+Nguyen Thanh Huy
+1
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Outline
+2
+❖Medical Image Analysis in General
+❖Medical Research Team – AIMI (AI VIETNAM)  
+❖Medical Image Processing
+❖Deep Learning on Medical Imaging
+❖Research Project: Breast Ultrasound Cancer Diagnosis
+❖Research Idea Completion and Research Directions 
+❖Exercises
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Medical Image Analysis in General
+Nguyen Thanh Huy
+3
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Medical Applications
+❖Overview of Applications
+4
+Medical Applications
+5
+Medical Image Modalities
+X-Ray
+6
+Ultrasound
+MRI
+Microscopy
+CT
+Endoscopy
+Histopathology
+PET
+AI Tasks in Medical Imaging
+7
+2D Modalities:
+❖Classification
+❖Detection
+❖Segmentation
+3D Modalities:
+❖Registration
+❖Domain Conversion
+Video-based:
+❖Tracking
+❖Prognosis (Future Prediction)
+❖3D Reconstruction
+Other Tasks:
+❖Quality Enhancement
+❖Multi-modalities
+❖Synthesis
+Technical Solutions:
+❖Active Learning
+❖Unsupervised, Semi-supervised
+❖Image Restoration, Enhancement
+❖Noisy labeling
+❖Weakly-Supervised
+❖Domain Adaptation, Generalization
+❖Multi-modality
+❖Federated learning
+❖Explainable AI
+Medical Domain Challenges
+8
+Data Limitation:
+❖Time-consuming for labelling, experts required.
+❖Lack of public data (Private data is better).
+❖Data is low quality, missing
+Model Reliability:
+❖Model bias should be concerned for workflow.
+❖Protocol for labelling procedure is a must.
+❖Domain gap between multiple subjects.
+❖Conclusion based on multiple data types.
+Fairness:
+❖Private data license is required (equity)
+❖Medical bias while labeling.
+Other Challenges:
+❖Accountability (Regulations & Responsibilities)
+Medical Domain Challenges
+9
+Data Limitation:
+❖Time-consuming for labelling, experts required.
+❖Lack of public data (Private data is better).
+❖Data is low quality, missing
+Model Reliability:
+❖Model bias should be concerned for workflow.
+❖Protocol for labelling procedure is a must.
+❖Domain gap between multiple subjects.
+❖Conclusion based on multiple data types.
+Fairness:
+❖Private data license is required (equity)
+❖Medical bias while labeling.
+Other Challenges:
+❖Accountability (Regulations & Responsibilities)
+Technical Solutions:
+❖Active Learning
+❖Unsupervised, Semi-supervised
+❖Image Restoration, Enhancement
+❖Noisy labeling
+❖Weakly-Supervised
+❖Domain Adaptation, Generalization
+❖Multi-modality
+❖Federated learning
+❖Explainable AI
+➢Trustworthy model is a must for 
+clinical implementation
+➢MedAI is deployed to assist doctors 
+and radiologists, not replacing them 
+Medical Research Team – AIMI (AI VIETNAM) 
+Nguyen Thanh Huy
+10
+AI VIETNAM
+All-in-One Course
+(TA Session)
+AI in Medical Imaging (AIMI) – AI VIETNAM
+11
+AIMI Research Group Information:
+❖Leader: Thanh Huy
+❖Foundation: April 2023
+❖Achievements: 
+➢8 Accepted conference/journal papers.
+➢6 Submitted conference/journal papers.
+➢Total: 2 Q1 journals, 1 rank A*, 4 rank A conf
+❖Research Networks:
+➢National Cheng Kung University (TW)
+➢Taipei Medical University (TW)
+➢National Taiwan University (TW)
+➢National Central University (TW)
+➢Nanyang Technological University (SG)
+➢National Skin Center (SG)
+➢Saigonmec (VN)
+➢Blood Transfusion and Hematology Center (VN)
+➢Other Domestic Universities (VN)
+AIMI Publications
+12
+• (ICCV 2023): Nguyen, Thanh-Huy, et al. "Towards Robust Natural-Looking Mammography Lesion Synthesis on Ipsilateral Dual-Views Breast Cancer 
+Analysis." Proceedings of the IEEE/CVF International Conference on Computer Vision. 2023. 
+• (MICCAI 2023): Truong, T. T., Nguyen, H. T., Lam, T. B., Nguyen, D. V., & Nguyen, P. H. (2023, October). Delving into Ipsilateral Mammogram Assessment 
+Under Multi-view Network. In International Workshop on Machine Learning in Medical Imaging (pp. 367-376). Cham: Springer Nature Switzerland. 
+• (IEEE SSP 2023): H. T. Nguyen, T. B. Lam, Q. T. D. Tran, M. T. Nguyen, D. T. Chung and V. Q. Dinh, "In-context Cross-Density Adaptation on Noisy 
+Mammogram Abnormalities Detection," 2023 IEEE Statistical Signal Processing Workshop (SSP), Hanoi, Vietnam, 2023, pp. 383-387. 
+• (TAAI 2023): Gia-Van To, Thanh-Huy Nguyen, Manh-The Nguyen. SMOTE-MD: Synthetic Algorithm using Mahalanobis Distance for Casualty Insurance.
+• (TAAI 2023): Quan Dinh Dai Tran, Toan Thai Ngoc Truong, Quoc-Vinh Luu, Anh H. Dao, Minh T. Nguyen, and Quang-Vinh Dinh. Delineating COVID-19 
+Pulmonary Infiltrate Manifestation Leveraging Auxiliary Tasks
+• (TAAI 2023): Thinh B. Lam, Hien Q. Kha, Huy T. Nguyen, Dinh-Tan Nguyen, Quan D. Nguyen, Toan T. N. Truong, Manh D. Vu, Nguyen Quoc Khanh Le. 
+Redesigned Dual-Task Learning Framework for Diagnosis Mammography Screening with BI-RADS and Density Classification. 
+• (ICISN 2024): Quoc-Vinh Luu, Khanh-Duy Le, Thanh-Huy Nguyen, Thanh-Minh Nguyen, Tien-Thinh Nguyen, and Quang-Vinh Dinh. (2024) Semi-supervised 
+Semantic Segmentation using Redesigned Self-Training for White Blood Cells. 
+• (ICISN 2024): Dat T. Chung, Minh-Anh Dang, Mai-Anh Vu, Minh T. Nguyen, Thanh-Huy Nguyen, and Vinh Q. Dinh. (2024) Beyond Traditional Approaches: 
+Multi-Task Network for Breast Ultrasound Diagnosis. 
+• (ISBI 2024): Thanh-Huy Nguyen, Thi Kim Ngan Ngo, Mai Anh Vu, Ting-Yuan Tu. Blurry Consistency Segmentation Framework with In-focus Spatial Stacking 
+on 3D Breast Cancer Cell. 
+• (ISBI 2024): , Hien Q. Kha, Dinh T. Nguyen, Thinh B. Lam, Thanh-Huy Nguyen, Cao T. Tran, Manh D. Vu, Lan T. Ho-Pham, Liem Pham, Nguyen Quoc Khanh 
+Le. (2024) M2Net: Two-stage Multi-label Breast Cancer Detection Networks.
+• (TNU Journal): Thuy Phuong Nhu Le, Thanh-Huy Nguyen. Using convolutional neural network (CNN) for COVID-19 chest X-ray diagnosis. 
+• (Q1 Journal): Ba Hung Ngo, Ba Thinh Lam, Thanh-Huy Nguyen, Quang Vinh Dinh, Tae Jong Choi. Dual Dynamic Consistency Regularization for Semi-
+supervised Domain Adaptation. 
+• (Q1 Journal): Toan T. Nguyen, Huy T. Nguyen, Huy Q. Ung, Hieu T. Ung and Binh T. Nguyen. Deep-Wide Learning Assistance for Insect Pest Classification.
+Red: AIO 2021 
+Green: AIO 2022 
+Blue: AIO 2023
+Research Projects
+13
+AIMI Research Projects:
+❖3D Microscopy Breast Cancer Cell Tracking (Affiliated with NCKU)
+❖Drug Response Prediction on Lung Cancer Cell Lines (Affiliated with TMU)
+❖MRI-based 3D Liver and Cancer Segmentation. (Affiliated with TMU)
+❖Mammography Abnormalities Detection (Affiliated with Saigonmec x TMU)
+❖Skin Lesions Classification and Segmentation (Affiliated with NTU-SG x NSC)
+❖Cardiac Signal Diseases Prediction (Affiliated with NTU-TW x Harvard x Yale)
+❖White Blood Cell Segmentation and Subtypes Recognition (Affiliated with BTH)
+❖Semi-supervised Biomedical Segmentation (AIMI)
+Looking for AIO 2023 Research Members
+14
+Requirement:
+❖Self-motivated and independent research members.
+❖Active and curious research members.
+❖Pursuing the long-term goal towards AI in medical field.
+❖Good technical skill (implement and debug) is a big plus
+❖No need prior research experience.
+Benefit:
+❖Be trained to equip all core research mindsets and skills.
+❖Boosting research profile and achievements (especially for higher education)
+❖GPU supported (more than one AIVIETNAM 24GB, one AIMI 24GB, Project extra*)
+❖Publication fee partially or fully supported (depends on impact of venue)
+❖Letter of Recommendation; Reference for MSc, PhD position if needed.
+Medical Image Processing
+Nguyen Thanh Huy
+15
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Medical Image Processing
+16
+Digital Image Processing (DIP)
+17
+❖ N-Bit Image
+Digital Image Processing (DIP)
+18
+❖ 8-Bit Image
+❑8-bit is the most popular format for human vision and commercial purpose.
+❑Most of Computer Vision tasks are all about 8-bit image (except 12-bit in DICOM 
+medical images and some specialized tasks).
+Digital Image Processing (DIP)
+19
+❖Image Representation by pixels
+Digital Image Processing (DIP)
+20
+❖Image Representation by pixels
+Digital Image Processing (DIP)
+21
+❖Image Representation by pixels
+❑Digital image contains discrete pixels.
+❑Pixel values:
+Digital Image Processing (DIP)
+22
+❖Pixel value transformation
+Digital Image Processing (DIP)
+23
+❖Pixel value transformation
+24
+❖Brightness
+❑Average Brightness of all pixels. 
+❑Represent a light level and dark level of image.
+Digital Image Processing (DIP)
+Digital Image Processing (DIP)
+25
+❖Contrast
+❑Formular:
+❖Standard Deviation of all bright values in image.
+❖The difference between max and min of bright values.
+Digital Image Processing (DIP)
+26
+❖Histogram & Brightness
+Digital Image Processing (DIP)
+27
+❖Histogram - Examples
+DIP: Contrast Enhancement
+28
+❖Histogram equalization
+❑Histogram of image tends to become uniform distribution
+❑Histogram of image tends to become uniform distribution
+DIP: Contrast Enhancement
+29
+❖Histogram equalization
+Before
+After
+DIP: Contrast Enhancement
+30
+❖Histogram equalization
+HistEq
+Solution & Reference:
+https://theailearner.com/2019/04/01/histogram-equalization/
+DIP: Contrast Enhancement
+31
+❖Histogram equalization
+Example 1
+Example 2
+DIP: Contrast Enhancement
+32
+❖Histogram equalization
+DIP: Contrast Enhancement
+33
+❖Contrast Limited Adaptive Histogram Equalization (CLAHE)
+Fig1. Algorithm
+Fig2. Histogram-based concept
+Fig3. Visualization
+DIP: Contrast Enhancement
+34
+❖Comparison: HE vs CLAHE
+Medical Image Processing
+35
+❖Example
+Medical Image Processing: Demo
+36
+❖Library
+❖Preprocess DICOM file
+Medical Image Processing: Demo
+37
+❖Original
+Medical Image Processing: Demo
+38
+❖Histogram Equalization (HE)
+Medical Image Processing: Demo
+39
+❖CLAHE
+Medical Image Processing: Demo
+40
+Medical Image Processing
+41
+❖Our previous contribution related to image enhancement
+H. T. Nguyen, T. B. Lam, Q. T. D. Tran, M. T. Nguyen, D. T. Chung and V. Q. Dinh, "In-context Cross-Density Adaptation on Noisy Mammogram Abnormalities 
+Detection," 2023 IEEE Statistical Signal Processing Workshop (SSP), Hanoi, Vietnam, 2023, pp. 383-387, doi: 10.1109/SSP53291.2023.10208020.
+Deep Learning on Medical Imaging
+Nguyen Thanh Huy
+42
+AI VIETNAM
+All-in-One Course
+(TA Session)
+U-Net for Biomedical Image Segmentation
+43
+Ronneberger, O., Fischer, P., & Brox, T. (2015). U-net: Convolutional networks for biomedical image segmentation. In Medical Image Computing and Computer-Assisted 
+Intervention–MICCAI 2015: 18th International Conference, Munich, Germany, October 5-9, 2015, Proceedings, Part III 18 (pp. 234-241). Springer International Publishing.
+Standard Convolutional Layers
+44
+✓Standard Convolutional Layer does a down-sampling i.e. the spatial dimensions of the output are less than that of the input.
+Transposed Convolutional Layers
+45
+✓Transposed convolutional layer is carried out for upsampling i.e. to generate an output feature map that has a spatial dimension 
+greater than that of the input feature map. 
+U-Net for Biomedical Image Segmentation
+46
+Ronneberger, O., Fischer, P., & Brox, T. (2015). U-net: Convolutional networks for biomedical image segmentation. In Medical Image Computing and Computer-Assisted 
+Intervention–MICCAI 2015: 18th International Conference, Munich, Germany, October 5-9, 2015, Proceedings, Part III 18 (pp. 234-241). Springer International Publishing.
+Encoder
+Decoder
+Encoder – Contracting Path
+47
+Ronneberger, O., Fischer, P., & Brox, T. (2015). U-net: Convolutional networks for biomedical image segmentation. In Medical Image Computing and Computer-Assisted 
+Intervention–MICCAI 2015: 18th International Conference, Munich, Germany, October 5-9, 2015, Proceedings, Part III 18 (pp. 234-241). Springer International Publishing.
+- The encoder in U-Net is the contracting path.
+- Motivation: Extract context and compresses the input 
+image by gradually decreasing the spatial dimensions. 
+- Components: Convolutional Layers + Max Pooling to 
+downsample the feature maps. 
+- Goals: 
+➢Obtaining high-level characteristics
+➢Learning global context
+➢Decreasing spatial resolution.
+➢Compressing and abstracting the input image
+➢Capturing relevant information for segmentation.
+Encoder – Contracting Path
+48
+Ronneberger, O., Fischer, P., & Brox, T. (2015). U-net: Convolutional networks for biomedical image segmentation. In Medical Image Computing and Computer-Assisted 
+Intervention–MICCAI 2015: 18th International Conference, Munich, Germany, October 5-9, 2015, Proceedings, Part III 18 (pp. 234-241). Springer International Publishing.
+- The decoder in U-Net is the expanding path.
+- Motivation: Upsampling the feature maps from the 
+contracting path, it recovers spatial information and 
+generates the final segmentation map. 
+- Components: Transposed Convolutional Layers + 
+Upsampling layers to upsample the feature maps. 
+- Goals:
+➢Reconstructs the original spatial dimensions via 
+skip connections by integrating the upsampled 
+feature maps with the equivalent maps from the 
+encoder. 
+➢Enables the network to recover fine-grained 
+features and properly localize items.
+Skip Connection in U-net
+49
+Ronneberger, O., Fischer, P., & Brox, T. (2015). U-net: Convolutional networks for biomedical image segmentation. In Medical Image Computing and Computer-Assisted 
+Intervention–MICCAI 2015: 18th International Conference, Munich, Germany, October 5-9, 2015, Proceedings, Part III 18 (pp. 234-241). Springer International Publishing.
+Skip connections (SC) are essential to the UNET 
+design because:
+➢Allow information to travel between the 
+contracting (encoding) and expanding 
+(decoding) paths. 
+➢Maintaining spatial information and 
+improving segmentation accuracy.
+To be specific, the abilities of SC are:
+➢Preserving Spatial Information.
+➢Multi-scale Information Fusion.
+➢Combining High-Level Context and Low-Level 
+Details 
+Skip connection 
+Loss Function – Dice Loss and CE Loss
+50
+The Dice coefficient is a similarity statistic that calculates the 
+overlap between the anticipated and true segmentation masks. 
+The Dice coefficient loss, or soft Dice loss, is calculated by 
+subtracting one from the Dice coefficient. When the 
+anticipated and ground truth masks align well, the loss 
+minimizes, resulting in a higher Dice coefficient.
+The Dice coefficient loss is effective for unbalanced datasets in 
+which the background class has many pixels. By penalizing false 
+positives & false negatives, it promotes the network to divide 
+both foreground and background regions accurately.
+Cross-Entropy (CE) loss  function in image segmentation tasks 
+measures the dissimilarity between the predicted class 
+probabilities and the ground truth labels. Treat each pixel as 
+independent classification tasks in segmentation.
+Cross-Entropy loss is computed pixel-wise, effective when: 
+➢Foreground and background classes are balanced.
+➢Multiple classes are involved in the segmentation task.
+Unet – Demo code
+51
+Encoder
+Decoder
+Decoder
+Encoder
+Unet – Demo code
+52
+Decoder
+Unet – Demo code
+53
+Decoder
+Unet++: A Nested U-Net Architecture
+54
+Zhou, Z., Rahman Siddiquee, M. M., Tajbakhsh, N., & Liang, J. (2018). Unet++: A nested u-net architecture for medical image segmentation. In Deep Learning in Medical Image 
+Analysis and Multimodal Learning for Clinical Decision Support: 4th International Workshop, DLMIA 2018, and 8th International Workshop, ML-CDS 2018, Held in Conjunction 
+with MICCAI 2018, Granada, Spain, September 20, 2018, Proceedings 4 (pp. 3-11). Springer International Publishing.
+Other Extensions of U-Net Architecture
+55
+➢MAnet
+➢Linknet
+➢FPN
+➢PSPNet
+➢PAN
+➢DeepLabV3
+➢DeepLabV3+
+Research Project: Breast Ultrasound Cancer Diagnosis
+Nguyen Thanh Huy
+56
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Breast Ultrasound Segmentation 
+57
+Breast cancer is the leading cause of cancer deaths in women (Highest incidence 
+rate of cancer).
+Breast ultrasound imaging is noninvasive, nonradioactive, and cost-effective. 
+Besides previous studies using x-rays to diagnose cancer mammograms, breast 
+ultrasound diagnosis achieves promising abilities overall.
+BUSI: Dataset of Breast Ultrasound Images
+58
+The dataset consists of the medical images of breast cancer 
+using ultrasound scan, which is categorized into three 
+classes: normal, benign, and malignant images.
+Breast ultrasound images can produce great results in 
+classification, detection, and segmentation of breast cancer 
+when combined with machine learning.
+Access: https://scholar.cu.edu.eg/?q=afahmy/pages/dataset
+At the beginning, the number of images collected was 1100. 
+After performing preprocessing to the dataset, the number 
+of images was reduced to 780 images.
+LOGIQ E9 ultrasound system and LOGIQ E9 Agile ultrasound 
+system produce image resolution of 1280×1024. All images 
+were cropped. The average image size of 500×500 pixels.
+Single Task Model: ResNet Classification
+59
+➢Normal
+➢Benign
+➢Malignant
+Resnet 50
+Single Task Model: U-Net Segmentation
+60
+Research Questions & Research Gaps
+61
+Decoder
+Encoder
+Encoder
+Extract context and compresses the input image by 
+gradually decreasing the spatial dimensions
+In fact, Encoder is CNN architecture that we already 
+known in the classification task in the previous lessions
+Encoder can be AlexNet, VGG, ResNet, Densenet,…
+Motivation
+Can we redesign U-net model to do both segmentation 
+(seg) task and classification (cls)? (Encoder is used for 
+cls and Encoder-Decoder are used for seg)
+Yes, We can take the high-level feature from the end of 
+encoder path to connect with MLP for classification.
+Design Idea for New Proposed Architecture
+62
+Encoder
+Decoder
+➢Normal
+➢Benign
+➢Malignant
+Multi-task Model: Seg + Cls
+63
+Research Idea Completion and Research Directions 
+Nguyen Thanh Huy
+64
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Some suggested research questions
+65
+Conference publication
+1. There are two tasks, how can we redesign loss functions?
+2. If we design combined weighted loss, what is the optimal lambda for best overall or each task performance?
+3. Why do we use U-net? What about U-Net++ and others? (Similar to Encoder selection)
+Journal publication
+4. Single-task learning (STL) or Multi-task learning (MTL) is better?
+5. In which encoder and architecture, STL is better than MTL and vice versa?
+6. Quantitative results are might be clear, what about qualitative results? (Visualization)
+7. What are the advantages and disadvantages of using STL and MTL in visualization (prediction mask)?
+Future Work 
+(How to overcome the current the disadvantages if you choose to approach MTL?)
+8. Are Focal Loss for cls and Dice Loss for seg the best? What are alternative options? (Easy)
+9. Transformer shows the better performance compared to CNNs, should we leverage ViT? (Easy)
+10. Should we use some techniques of preprocessing, post-processing or data augmentation? (Easy)
+11. Can we redesign the architecture, loss or any specific part of framework? (Hard)
+12. Can we add module to fill the current limitation of model (e.g. contrastive learning, noisy labeling,… )? (Hard)
+13. Can we try some DL-based synthesis approach for resampling? (Hard)
+➢For “Hard” contributions, suggestion is make good assumption, have wide knowledge, and understand deeply.
+Question 1: Loss Function?
+66
+Loss Function
+If there are 2 losses, how can the model update loss?
+Question 2: Best lambda for multi-task?
+67
+Lambda 
+Classification
+Segmentation
+Overall
+Accuracy
+F1-score
+Precision
+Recall
+IoU
+Dice 
+F1-score
+0.1
+0.713
+0.663
+0.705
+0.642
+0.604
+0.663
+0.679
+0.656
+0.3
+0.783
+0.669
+0.745
+0.635
+0.679
+0.743
+0.759
+0.698
+0.5
+0.828
+0.618
+0.669
+0.586
+0.693
+0.758
+0.774
+0.680
+0.7
+0.834
+0.658
+0.707
+0.628
+0.703
+0.766
+0.782
+0.704
+0.9
+0.637
+0.594
+0.662
+0.573
+0.69
+0.771
+0.771
+0.669
+Question 3: Why Unet? Which encoder?
+68
+Multitask
+Model
+Unet
+Resnet50
+0.682
+0.648
+0.746
+0.620
+0.682
+0.756
+0.756
+Resnext50
+0.873
+0.663
+0.694
+0.643
+0.692
+0.758
+0.774
+WideResnet50
+0.783
+0.630
+0.695
+0.594
+0.683
+0.763
+0.763
+Efficientnet_b4
+0.904
+0.723
+0.754
+0.701
+0.749
+0.817
+0.817
+Unet++
+Resnet50
+0.815
+0.637
+0.687
+0.606
+0.662
+0.746
+0.746
+Resnext50
+0.822
+0.651
+0.704
+0.621
+0.760
+0.771
+0.838
+WideResnet50
+0.790
+0.664
+0.738
+0.628
+0.680
+0.761
+0.761
+Efficientnet_b4
+0.847
+0.650
+0.694
+0.623
+0.769
+0.795
+0.837
+FPN
+Resnet50
+0.688
+0.627
+0.679
+0.604
+0.606
+0.601
+0.668
+Resnext50
+0.745
+0.652
+0.738
+0.621
+0.714
+0.752
+0.794
+WideResnet50
+0.758
+0.547
+0.610
+0.518
+0.710
+0.749
+0.790
+Efficientnet_b4
+0.796
+0.680
+0.738
+0.649
+0.741
+0.776
+0.817
+DeepLabV3+
+Resnet50
+0.809
+0.676
+0.729
+0.649
+0.715
+0.769
+0.794
+Resnext50
+0.726
+0.651
+0.746
+0.617
+0.745
+0.781
+0.823
+WideResnet50
+0.809
+0.610
+0.669
+0.572
+0.722
+0.797
+0.797
+Efficientnet_b4
+0.892
+0.694
+0.726
+0.672
+0.798
+0.813
+0.864
+Type
+Architecture
+Backbone
+Classification
+Segmentation
+Acc
+F1-Score
+Precision
+Recall
+IoU
+Dice
+F1-Score
+Exercises
+Nguyen Thanh Huy
+69
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Question 1: Loss Function?
+70
+Kaggle Competition
+71
+Competition:  https://www.kaggle.com/t/10e9c6922c354876a0c14dcffa7084b4
+Kaggle Competition
+72
+Baseline:  https://www.kaggle.com/code/bachngoh/aio-icisn-homework-in-class/notebook
+Inference Notebook
+73
+Inference:  https://www.kaggle.com/code/bachngoh/aio-medical-image-analysis-infer
+Metrics
+74
+Rewards
+75
+Publications
+✓Be co-authored of our on-going paper.
+✓If novelty is unique, the work will be supported 
+towards separate publication.
+Opportunities
+✓Be offered many abroad research opportunities. 
+(Including RA job, or Exchange and PhD offers)
+✓Invited to join AIMI.
+Questions
+?
+76
+77

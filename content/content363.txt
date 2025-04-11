@@ -1,4 +1,0 @@
-AI VIETNAM aivietnam.edu.vn
-feature từ mỗi frame độc lập và dùng các feature đó để đưa vào LSTM, mỗi frame sẽ tương
-ứng với mỗi input của model LSTM. Model được mô tả như hình sau:
-1 class Model (nn. 

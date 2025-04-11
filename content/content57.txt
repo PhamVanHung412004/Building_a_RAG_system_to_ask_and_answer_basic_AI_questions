@@ -1,8 +1,0 @@
-AI VIETNAM (AIO2024) aivietnam.edu.vn
-Hình 19: Thư mục chứa bộ dữ liệu
-Quan sát thư mục, có thể thấy bộ dữ liệu này đã được gán nhãn và đưa vào format cấu
-trúc dữ liệu training theo yêu cầu của YOLO. Vì vậy, chúng ta sẽ không cần thực hiện
-bước chuẩn bị dữ liệu ở bài này.
-2. Cài đặt và import các thư viện cần thiết:Tương tự như phần trước, các bạn chạy
-các đoạn code sau để cài đặt các gói thư viện để sử dụng được YOLOv10:
-1 ! git clone https :// github . 

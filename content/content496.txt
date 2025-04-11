@@ -1,5 +1,0 @@
-AI VIETNAM aivietnam.edu.vn
-(b) Khai báo prompt:Chúng ta sẽ khởi tạo một biến chứa đoạn prompt, câu mệnh lệnh hoặc
-một đoạn tin nhắn mà chúng ta muốn gửi vào mô hình. Cụ thể trong VinaLLaMA, chúng ta
-sẽ có format cố định cho đoạn prompt như sau:
-Hình 2: Format prompt của VinaLLaMA. 

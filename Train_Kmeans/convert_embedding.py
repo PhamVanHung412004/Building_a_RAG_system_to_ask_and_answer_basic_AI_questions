@@ -1,6 +1,6 @@
-from package import pd
-from package import np
-from package import ast
+import pandas as pd
+import numpy as np
+import ast
 
 class Embedding_To_Numpy:   
     def __init__(self, array_embedding : pd.core.series.Series = None) -> None:

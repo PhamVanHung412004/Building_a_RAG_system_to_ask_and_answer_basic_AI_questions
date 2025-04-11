@@ -1,0 +1,1164 @@
+Chủ đề:
+Mạng nơ-ron (neural network) 
+Mục đích buổi học
+●
+Lý thuyết xây dựng mạng Nơ ron nhân tạo
+●
+Thuật toán học cho mạng Nơron nhân tạo: Gradient 
+Descend
+Lịch sử
+●1958: Nhà tâm lý học Frank Rosenblatt tạo ra mạng nơron (neural) 
+nhân tạo
+○
+Đặt tên là Perceptron
+○
+Mục đích mô hình hoá quá trình nhận thức của con người
+○
+Trong một thời gian dài, Neural Nets chỉ là một khái niệm hơn 
+là một công cụ thực tế.
+●1986: Bài báo về thuật toán backpropagation bởi Rumelhar et al.
+○
+Cách huấn luyện mạng nơron
+○
+Neural network đã tạo được những bước tiến nhỏ nhưng 
+chắc chắn nhờ sự hỗ trợ của sức mạnh tính toán
+●2012: mạng nơ ron tích chập (CNN) AlexNet đã chiến thắng trong 
+ImageNet 2012
+○
+Deeplearning trở thành tâm điểm chú ý đến ngày nay
+4
+Lịch sử
+Sự phát triển neural net nhờ sự phát triển của sức mạnh tính toán
+5
+Mạng neural trong não người
+●
+Neural: thành phần chính của mô thần kinh ở hầu hết các loài 
+động vật
+○
+Mạng neural trong não người
+○
+Tiếp nhận tín hiệu đầu vào (input) qua các dendrites
+○
+Các tín hiệu sẽ được neural quyết định xem có được đi qua 
+không tại nucleus
+■
+Nếu được qua: các tín hiệu này sẽ đến axon và truyền 
+qua các dendrites của các neural khác
+○
+Một axon xuất các tín hiệu đầu ra (output)
+6
+Mạng nơ-ron nhân tạo: Giới thiệu
+■Mạng nơ-ron nhân tạo (Artificial neural network – ANN)
+❑Mô phỏng các hệ thống nơ-ron sinh học (các bộ não con người)
+❑ANN là một cấu trúc (structure/network) được tạo nên bởi một 
+số lượng các nơ-ron (artificial neurons) liên kết  với nhau
+■Mỗi nơ-ron
+❑Có một đặc tính vào/ra
+❑Thực hiện một tính toán cục bộ (một hàm cục bộ)
+■Giá trị đầu ra của một nơ-ron được xác định bởi
+❑Đặc tính vào/ra của nó
+❑Các liên kết của nó với các nơ-ron khác
+❑(Có thể) các đầu vào bổ sung
+7
+Mạng nơ-ron nhân tạo: Giới thiệu
+8
+■ANN có thể được xem như một cấu trúc xử lý thông tin một
+cách phân tán và song song ở mức cao
+■ANN có khả năng học (learn), nhớ lại (recall), và khái quát hóa
+(generalize) từ các dữ liệu học
+■Khả năng của một ANN phụ thuộc vào
+❑Kiến trúc (topology) của mạng nơ-ron
+❑Đặc tính đầu vào/ra của mỗi nơ-ron
+❑Thuật toán học (huấn luyện)
+❑Dữ liệu học
+●
+Các tín hiệu đầu vào (input 
+signals) của nơ-ron (xi, i=1..m)
+●
+Trọng số điều chỉnh (bias) w0 
+(với x0 = 1)
+●
+Đầu vào tổng thể (Net input) là 
+một hàm tích hợp của các tín 
+hiệu đầu vào – 
+●
+Hàm tác động/truyền 
+(Activation/transfer function) 
+tính giá trị đầu ra của nơ-ron – 
+●
+Giá trị đầu ra (Output) của nơ- 
+ron:
+Cấu trúc và hoạt động của một nơ-ron
+9
+Đầu vào nơ-ron
+10
+●
+Thông tin đầu vào được tổng 
+hợp lại và đưa vào đầu vào 
+tổng thể
+●
+Mỗi nút bổ sung thêm thông tin 
+và đóng góp thêm một phần 
+vào output của nơ-ron
+●
+Càng có nhiều nút (thông tin), 
+chúng ta càng có thể nắm bắt 
+được nhiều tác động hơn
+●
+Mỗi nút đi kèm một trọng số 
+điều chỉnh wi thể hiện độ quan 
+trọng của thông tin đầu vào đó 
+đối với thông tin đầu ra
+●
+Đầu vào tổng thể (net input) thường được tính toán bởi một hàm 
+tuyến tính 
+Đầu vào tổng thể
+11
+●
+Ý nghĩa của trọng số điều chỉnh (bias) w0
+→ Họ các hàm Net=w1x1 không thể phân tách được các ví dụ thành 2
+lớp (two classes)
+→ Nhưng: họ các hàm Net=w1x1+w0 có thể!
+Hàm tác động trong nơ-ron
+●
+Hàm tác động mô phỏng tỷ lệ truyền xung qua axon của một neuron 
+thần kinh. Trong một mạng nơ-ron nhân tạo, hàm kích hoạt đóng vai 
+trò là thành phần phi tuyến tại output của các nơ-ron.
+Tại sao lại cần các hàm kích hoạt phi tuyến?
+●
+Câu trả lời là nếu không có các hàm kích hoạt phi tuyến, thì mạng 
+nơ-ron của chúng ta dù có nhiều lớp vẫn sẽ có hiệu quả như một lớp 
+tuyến tính mà thôi.
+12
+Hàm tác động: Giới hạn cứng
+Out
+θ
+Binary
+hard-limiter
+1
+0
+Net
+Net
+Out
+1
+-1
+0
+Bipolar
+hard-limiter
+13
+θ
+• Còn được gọi là hàm ngưỡng 
+(threshold function)
+• Giá trị đầu ra lấy một trong 2 giá trị 
+• θ là giá trị ngưỡng
+• Nhược điểm: không liên tục, không có 
+đạo hàm
+Hàm tác động: Logic ngưỡng
+Out
+1
+0
+1/α
+Net
+-θ
+(1/α)-θ
+14
+(α >0)
+• Còn được gọi là hàm tuyến tính bão
+hòa (saturating linear function)
+• Kết hợp của 2 hàm tác động: tuyến  
+tính và giới hạn chặt
+• α xác định độ dốc của khoảng tuyến
+tính
+• Nhược điểm: Liên tục, nhưng không  
+có đạo hàm
+Hàm tác động: Sigmoid
+-θ
+0
+Net
+1
+ 
+0.5
+Out
+15
+•Được dùng phổ biến
+•Tham số α xác định độ dốc
+•Giá trị đầu ra trong khoảng (0,1)
+•Ưu điểm
+• Liên tục, và đạo hàm liên tục
+• Đạo hàm của một hàm sigmoid
+được biểu diễn bằng một hàm 
+của chính nó
+Hàm tác động: Hyperbolic tangent
+-θ
+0
+Net
+1
+ 
+-1
+Out
+Out(Net) = tanh( Net,α,θ ) = 
+16
+■Cũng hay được sử dụng
+■Tham số α xác định độ dốc
+■Giá trị đầu ra trong khoảng (-1,1)
+■Ưu điểm
+❑Liên tục, và đạo hàm liên tục
+❑Đạo hàm của một hàm tanh có 
+thể  được biểu diễn bằng một 
+hàm của  chính nó
+■Được sử dụng nhiều nhất hiện nay
+■Giá trị đầu ra luôn không âm
+■Ưu điểm
+❑Liên tục
+❑Không có đạo hàm tại điểm 0 duy  
+nhất.
+❑Dễ tính toán
+Hàm tác động: rectified linear unit  (ReLU)
+17
+𝑂𝑢𝑡  𝑛𝑒𝑡
+= max(0, 𝑛𝑒𝑡)
+ANN: Kiến trúc mạng (1)
+input
+18
+hidden
+layer
+output  
+layer
+output
+bias
+■Kiến trúc của một ANN được xác định bởi:
+❑Số lượng các tín hiệu đầu vào và đầu ra
+❑Số lượng các tầng
+❑Số lượng các nơ-ron trong mỗi tầng
+❑Số lượng các liên kết đối với mỗi nơ-ron
+❑Cách thức các nơ-ron (trong một tầng,  
+hoặc giữa các tầng) liên kết với nhau
+■Một ANN phải có
+❑Một tầng đầu vào (input layer)
+❑Một tầng đầu ra (output layer)
+❑Không, một, hoặc nhiều tầng ẩn (hidden  
+layer(s))
+Ví dụ: Một ANN với một tầng ẩn
+• Đầu vào: 3 tín hiệu
+• Đầu ra: 2 giá trị
+• Tổng cộng, có 6 neurons
+- 4 ở tầng ẩn
+- 2 ở tầng đầu ra
+ANN: Kiến trúc mạng (2)
+■Một tầng (layer) chứa một nhóm các nơ-ron
+■Tầng ẩn (hidden layer) là một tầng nằm ở giữa tầng đầu  vào (input 
+layer) và tầng đầu ra (output layer)
+■Các nút ở tầng ẩn (hidden nodes) không tương tác trực  tiếp với 
+môi trường bên ngoài (của mạng nơ-ron)
+■Một ANN được gọi là liên kết đầy đủ (fully connected)  nếu mọi 
+đầu ra từ một tầng liên kết với mọi nơ-ron của tầng kế tiếp
+19
+ANN: Kiến trúc mạng (3)
+20
+■Một ANN được gọi là mạng lan truyền tiến (feed- forward 
+network) nếu không có bất kỳ đầu ra của một nút là đầu vào của 
+một nút khác thuộc cùng tầng (hoặc thuộc một tầng phía trước)
+■Khi các đầu ra của một nút liên kết ngược lại làm các đầu vào của 
+một nút thuộc cùng tầng (hoặc thuộc một tầng phía trước), thì đó là 
+một mạng phản hồi (feedback  network)
+❑Nếu phản hồi là liên kết đầu vào đối với các nút thuộc cùng tầng,  
+thì đó là phản hồi bên (lateral feedback)
+■Các mạng phản hồi có các vòng lặp kín (closed loops)
+được gọi là các mạng hồi quy (recurrent networks)
+ANN: Kiến trúc mạng (4)
+Mạng lan  
+truyền tiến  
+một tầng
+21
+Mạng lan  
+truyền tiến  
+nhiều tầng
+Một nơ-ron với  
+phản hồi đến  
+chính nó
+Mạng hồi  
+quy một  
+tầng
+Mạng hồi  
+quy nhiều  
+tầng
+ANN: Cách huấn luyện
+• 2 kiểu học trong các mạng nơ-ron nhân tạo
+• Học tham số (Parameter learning)
+→ Mục tiêu là thay đổi thích nghi các trọng số (weights) của 
+các liên kết trong mạng nơ-ron
+• Học cấu trúc (Structure learning)
+→ Mục tiêu là thay đổi thích nghi cấu trúc mạng, bao gồm số 
+lượng các nơ-ron và các kiểu liên kết giữa chúng
+Or
+• 2 kiểu học này có thể được thực hiện đồng thời hoặc 
+riêng rẽ
+• Trong bài học này, chúng ta sẽ chỉ xét việc học tham số
+22
+ANN: ý tưởng
+■Huấn luyện một mạng nơron (khi cố định kiến trúc) chính là
+việc học các trọng số w của mạng từ tập học D.
+■Đưa việc học về bài toán cực tiểu hoá một hàm lỗi thực  
+nghiệm:
+❑Trong đó out(x) là đầu ra của mạng, với đầu vào x có nhãn tương 
+ứng là  dx; loss là một hàm đo lỗi phán đoán.
+■Nhiều phương pháp lặp dựa trên Gradient:
+❑Backpropagation
+❑SGD
+❑Adam
+❑AdaGrad
+Σ
+x2
+xm
+x0  
+x1
+w0
+w1
+w2
+wm
+…
+Out
+23
+●
+Một perceptron là một kiểu  
+đơn giản nhất của ANNs (chỉ  
+gồm duy nhất một nơ-ron)
+●
+Sử dụng hàm tác động giới  
+hạn chặt
+Perceptron
+Σ
+xm
+0
+x =1
+w0
+w1
+w2
+wm
+x1
+x2
+…
+Out
+24
+●
+Đối với một ví dụ x, giá trị
+đầu ra của perceptron là
+○
+1, nếu Net(w,x) > 0
+○
+-1, nếu ngược lại
+Perceptron: Minh họa
+Mặt phẳng phân tách  
+w0+w1x1+w2x2=0
+Đầu ra = 1
+x1
+25
+Đầu ra = -1
+x2
+Perceptron: Giải thuật học
+26
+■Với một tập các ví dụ học D= {(x,d)}
+❑x là vectơ đầu vào
+❑d là giá trị đầu ra mong muốn (-1 hoặc 1)
+■Quá trình học của perceptron nhằm xác định một vectơ trọng  số 
+cho phép perceptron sinh ra giá trị đầu ra chính xác (-1  hoặc 1) 
+cho mỗi ví dụ học
+■Với một ví dụ học x được perceptron phân lớp chính xác, thì
+vectơ trọng số w không thay đổi
+■Nếu d=1 nhưng perceptron lại sinh ra -1 (Out=-1), thì w cần  
+được thay đổi sao cho giá trị Net(w,x) tăng lên
+■Nếu d=-1 nhưng perceptron lại sinh ra 1 (Out=1), thì w cần
+được thay đổi sao cho giá trị Net(w,x) giảm đi
+2323
+Perceptron: Giải thuật học
+Khởi tạo tham số w (wi ← giá trị ngẫu nhiên nhỏ)
+bắt đầu
+∆w ← 0
+với mỗi quan sát (x,d) ∈ D  
+Dự đoán giá trị đầu ra tương ứng với dữ liệu x 
+Nếu (Out≠d)
+∆w ← ∆w + η(d - Out) x
+kết thúc vòng lặp
+w ← w + ∆w
+Tới khi toàn bộ dữ liệu trong D được phân loại đúng trả về w
+Perceptron: Giới hạn
+• Giải thuật học cho perceptron được chứng
+minh là hội tụ (converge) nếu:
+28
+• Các ví dụ học là có thể phân tách 
+tuyến tính  (linearly separable)
+• Sử dụng một tốc độ học η đủ nhỏ
+• Giải thuật học perceptron có thể không 
+hội tụ nếu như các ví dụ học không thể 
+phân tách tuyến tính (not linearly 
+separable)
+Một perceptron không  
+thể phân lớp chính xác  
+đối với tập học này!
+Hàm đánh giá lỗi (Loss function)
+■Lỗi học gây ra bởi vectơ trọng số (hiện tại) w đối với
+toàn bộ tập học D:
+29
+■Xét một ANN có n nơ-ron đầu ra
+■Đối với một ví dụ học (x,d), giá trị lỗi học (training error)
+gây ra bởi vectơ trọng số (hiện tại) w:
+■Gradient của E (ký hiệu là ∇E) là một vectơ
+❑trong đó N là tổng số các trọng số (các liên kết) trong mạng
+■Gradient ∇E xác định hướng gây ra việc tăng nhanh nhất (steepest  
+increase) đối với giá trị lỗi E
+■Vì vậy, hướng gây ra việc giảm nhanh nhất (steepest decrease) là
+hướng ngược với gradient của E
+■Yêu cầu: Các hàm tác động được sử dụng trong mạng phải có đạo
+hàm liên tục
+Tối thiểu hoá lỗi với Gradient
+30
+Gradient descent: Minh họa
+Không gian một chiều
+E(w)
+Không gian 2 chiều
+E(w1,w2)
+31
+28
+Gradient descent
+Khởi tạo tham số w (wi ← giá trị ngẫu nhiên nhỏ)
+bắt đầu
+Với mỗi quan sát (x,d)∈D
+Tính toán giá trị dự đoán của 
+mạng wi
+Kết thúc vòng lặp
+Lặp lại tới khi (thoả mãn điều kiện dừng lại)
+Trả về giá trị tham số w
+Điều kiện dừng lại: Số chu kỳ học (epochs), Ngưỡng lỗi, ...
+28
+Nếu ta lấy từng tập nhỏ 
+một cách ngẫu nhiên từ 
+D, ta có “mini-batch 
+training"
+Gradient descent incremental
+ANN nhiều tầng và giải thuật lan truyền ngược
+33
+■Một perceptron chỉ có thể biểu diễn một hàm phân tách tuyến tính
+(linear separation function)
+■Một mạng nơ-ron nhiều tầng (multi-layer NN) được học bởi giải thuật  
+lan truyền ngược (Back Propagation - BP) có thể biểu diễn một hàm  
+phân tách phi tuyến phức tạp (highly non-linear separation function)
+■Giải thuật học BP được sử dụng để học các trọng số của một 
+mạng  nơ-ron nhiều tầng
+❑Cấu trúc mạng cố định (các nơ-ron và các liên kết giữa chúng là cố định)
+❑Đối với mỗi nơ-ron, hàm tác động phải có đạo hàm liên tục
+■Giải thuật BP áp dụng chiến lược gradient descent trong quy tắc cập  
+nhật các trọng số
+❑Để cực tiểu hóa lỗi (khác biệt) giữa các giá trị đầu ra thực tế và các giá trị 
+đầu ra mong muốn, đối với các ví dụ học
+34
+Giải thuật học lan truyền ngược (1)
+■Giải thuật học lan truyền ngược tìm kiếm một vectơ các trọng  số 
+(weights vector) giúp cực tiểu hóa lỗi tổng thể của hệ thống đối 
+với tập học
+■Giải thuật BP bao gồm 2 giai đoạn (bước)
+❑Giai đoạn lan truyền tiến tín hiệu (Signal forward). Các tín hiệu  
+đầu vào (vectơ các giá trị đầu vào) được lan truyền tiến từ tầng  đầu 
+vào đến tầng đầu ra (đi qua các tầng ẩn)
+❑Giai đoạn lan truyền ngược lỗi (Error backward)
+■Căn cứ vào giá trị đầu ra mong muốn của vectơ đầu vào, hệ thống tính 
+toán giá trị lỗi
+■Bắt đầu từ tầng đầu ra, giá trị lỗi được lan truyền ngược qua mạng, từ 
+tầng này qua tầng khác (phía trước), cho đến tầng đầu vào
+■Việc lan truyền ngược lỗi (error back-propagation) được thực hiện 
+thông qua việc tính toán (một cách truy hồi) giá trị gradient cục bộ của  
+mỗi nơ-ron
+Giải thuật học lan truyền ngược (2)
+Giai đoạn lan truyền tiến  
+tín hiệu:
+•Kích hoạt (truyền tín hiệu
+qua) mạng
+Giai đoạn lan truyền
+ngược lỗi:
+•Tính toán lỗi ở đầu ra
+•Lan truyền (ngược) lỗi
+35
+Giải thuật BP: Cấu trúc mạng
+Hidden  
+neuron zq  
+(q=1..l)
+w
+qj
+Outq
+w
+iq
+Outi
+...
+...
+...
+...
+x1
+xj
+xm
+...
+...
+Input xj
+(j=1..m)
+36
+Output  
+neuron yi  
+(i=1..n)
+• Xét mạng nơ-ron 3 tầng (trong
+hình vẽ) để minh họa giải thuật 
+học BP
+• m tín hiệu đầu vào xj (j=1..m)
+• l nơ-ron tầng ẩn zq (q=1..l)
+• n nơ-ron đầu ra yi (i=1..n)
+• w là trọng số của liên kết từ tín
+qj
+hiệu đầu vào xj tới nơ-ron tầng ẩn
+zq
+• wiq là trọng số của liên kết từ nơ-  
+ron tầng ẩn zq tới nơ-ron đầu ra yi
+• Outq là giá trị đầu ra (cục bộ) của  
+nơ-ron tầng ẩn zq
+• Outi là giá trị đầu ra của mạng
+tương ứng với nơ-ron đầu ra yi
+■Đối với mỗi ví dụ học x
+❑Vectơ đầu vào x được lan truyền từ tầng đầu vào đến tầng đầu ra
+❑Mạng sẽ sinh ra một giá trị đầu ra dự đoán (predicted output) 
+Out (là một vectơ của các giá trị Outi, i=1..n)
+■Đối với một vectơ đầu vào x, một nơ-ron zq ở tầng ẩn sẽ nhận 
+được giá trị đầu vào tổng thể (net input) bằng:
+trong đó f () là hàm tác động (activation function) của nơ-ron zq
+37
+Giải thuật BP: Lan truyền tiến (1)
+…và sinh ra một giá trị đầu ra (cục bộ) bằng:
+■Giá trị đầu vào tổng thể (net input) của nơ-ron yi ở tầng
+đầu ra
+38
+■Nơ-ron yi  sinh ra giá trị đầu ra (là một giá trị đầu ra của mạng)
+■Vectơ các giá trị đầu ra Outi (i=1..n) chính là giá trị đầu ra
+thực tế của mạng, đối với vectơ đầu vào x
+Giải thuật BP: Lan truyền tiến (2)
+Giải thuật BP: Lan truyền ngược (1)
+39
+■Đối với mỗi ví dụ học x
+❑Các tín hiệu lỗi (error signals) do sự khác biết giữa giá trị đầu ra  
+mong muốn d và giá trị đầu ra thực tế Out được tính toán
+❑Các tín hiệu lỗi này được lan truyền ngược (back-propagated) từ  
+tầng đầu ra tới các tầng phía trước, để cập nhật các trọng số  
+(weights)
+■Để xét các tín hiệu lỗi và việc lan truyền ngược của  chúng, 
+cần định nghĩa một hàm lỗi
+Giải thuật BP: Đạo hàm chuỗi
+40
+Với quy tắc đạo hàm chuỗi ta biết được rằng
+Trực quan hoá bước lan truyền ngược:
+Giải thuật BP: Lan truyền ngược (2)
+41
+■Theo phương pháp gradient-descent, các trọng số của các liên
+kết từ tầng ẩn tới tầng đầu ra được cập nhật bởi
+■Sử dụng quy tắc chuỗi đạo hàm đối với ∂E/∂wiq, ta có
+(Lưu ý: dấu “–” đã được kết hợp với giá trị ∂E/∂Outi)
+◼ i là tín hiệu lỗi (error signal) của nơ-ron yi ở tầng đầu ra
+trong đó Neti là đầu vào tổng thể (net input) của nơ-ron yi ở tầng
+đầu ra, và f'(Neti)=f(Neti)/Neti
+Giải thuật BP: Lan truyền ngược (4)
+42
+■Áp dụng quy tắc chuỗi đạo hàm, ta có
+■δq là tín hiệu lỗi (error signal) của nơ-ron zq ở tầng ẩn
+trong đó Netq là đầu vào tổng thể (net input) của nơ-ron zq ở tầng 
+ẩn, và f'(Netq)=∂f(Netq)/∂Netq
+Giải thuật BP: Lan truyền ngược (5)
+43
+■Theo các công thức tính các tín hiệu lỗi δi và δq đã nêu, thì tín  hiệu 
+lỗi của một nơ-ron ở tầng ẩn khác với tín hiệu lỗi của một nơ-ron ở 
+tầng đầu ra
+■Do sự khác biệt này, thủ tục cập nhật trọng số trong giải thuật
+BP còn được gọi là quy tắc học delta tổng quát
+■Tín hiệu lỗi δq của nơ-ron zq ở tầng ẩn được xác định bởi
+❑Các tín hiệu lỗi δi của các nơ-ron yi ở tầng đầu ra (mà nơ-ron zq
+liên kết tới)
+❑Các hệ số chính là các trọng số wiq
+Giải thuật BP: Lan truyền ngược (6)
+44
+■Quá trình tính toán tín hiệu lỗi (error signals) như trên có  thể được 
+mở rộng (khái quát) dễ dàng đối với mạng nơ-ron có nhiều hơn 1 
+tầng ẩn (hidden layer)
+■Dạng tổng quát của quy tắc cập nhật trọng số trong giải
+thuật BP là:
+Δwab =
+ηδaxb
+❑b và a là 2 chỉ số tương ứng với 2 đầu của liên kết (b→a) (từ một
+nơ-ron (hoặc tín hiệu đầu vào) b đến nơ-ron a)
+❑xb là giá trị đầu ra của nơ-ron ở tầng ẩn (hoặc tín hiệu đầu vào) b
+❑δa là tín hiệu lỗi của nơ-ron a
+45
+●
+Mạng nơ-ron gồm Q tầng, q = 1,2,...,Q
+●
+qNeti và qOuti là đầu vào tổng thể (net input) và giá trị đầu ra của 
+nơ-ron i ở tầng q
+●
+Mạng có m tín hiệu đầu vào và n nơ-ron đầu ra
+●
+qwij là trọng số của liên kết từ nơ-ron j ở tầng (q-1) đến nơ-ron i ở 
+tầng q
+Back_propagation_incremental(D, η)
+Bước 0 (Khởi tạo)
+Chọn ngưỡng lỗi Ethreshold (giá trị lỗi có thể chấp nhận được)
+Khởi tạo giá trị ban đầu của các trọng số với các giá trị nhỏ ngẫu nhiên
+Gán E=0
+46
+Bước 1 (Bắt đầu một chu kỳ học)
+Áp dụng vectơ đầu vào của ví dụ học k đối với tầng đầu vào (q=1)
+Back propagation incremental 
+Bước 3 Tính toán lỗi đầu ra của mạng và tín hiệu lỗi Qi của mỗi 
+nơ-ron ở tầng đầu ra 
+Bước 2 (Lan truyền tiến)
+Lan truyền tiến các tín hiệu đầu vào qua mạng, cho đến khi nhận được 
+các giá trị đầu ra của mạng (ở tầng đầu ra) QOuti
+47
+Bước 4 (Lan truyền ngược lỗi)
+Lan truyền ngược lỗi để cập nhật các trọng số và tính toán các tín hiệu lỗi 
+q-1δi cho các tầng phía trước
+Bước 5 (Kiểm tra kết thúc một chu kỳ học – epoch)
+Kiểm tra xem toàn bộ tập học đã được sử dụng (đã xong một chu kỳ học 
+– epoch)
+Nếu toàn bộ tập học đã được dùng, chuyển đến Bước 6; ngược lại, 
+chuyển đến Bước 1
+Bước 6 (Kiểm tra lỗi tổng thể)
+Nếu lỗi tổng thể E nhỏ hơn ngưỡng lỗi chấp nhận được (<Ethreshold), thì 
+quá trình học kết thúc và trả về các trọng số học được;
+Ngược lại, gán lại E=0, và bắt đầu một chu kỳ học mới (quay về Bước 1)
+Back_propagation_incremental(D, η)
+x1
+x2
+Giải thuật BP: Lan truyền tiến (1)
+48
+f(Net1)
+2
+f(Net )
+f(Net3)
+f(Net4)
+Out6
+f(Net5)
+f(Net6)
+x1
+x2
+1
+49
+2
+1
+1x
+1x
+1
+f (w x + w x2 )
+Out =
+w
+1x x
+1
+1
+w x
+1x2 2
+Giải thuật BP: Lan truyền tiến (2)
+f(Net1)
+Out6
+2
+f(Net )
+f(Net3)
+f(Net4)
+f(Net5)
+f(Net6)
+x1
+2x
+w2
+50
+2 x2
+w
+2 x
+2
+2 x2 2
+2 x1 1x + w
+x
+)
+Out
+= f 
+(w
+Giải thuật BP: Lan truyền tiến (3)
+f(Net1)
+Out6
+2
+f(Net )
+f(Net3)
+4
+f(Net )
+f(Net5)
+f(Net6)
+x1
+x2
+3
+51
+w
+3
+3x2 2
+3x1 1x + w
+x
+)
+Out = f 
+(w
+Giải thuật BP: Lan truyền tiến (4)
+f(Net1)
+Out6
+2
+f(Net )
+w
+3x
+x
+2 f(Net 
+)
+2
+3
+f(Net4)
+f(Net5)
+f(Net6)
+x1
+x2
+2
+52
+42
+w
+Out
+w41Out
+1
+w4 O
+2+ w43Out3 )
+Out4  =f (w41Out1 + w42Out
+Giải thuật BP: Lan truyền tiến (5)
+f(Net1)
+Out6
+2
+f(Net )
+f(Net3)
+f(Net4)
+f(Net5)
+f(Net6)
+x1
+x2
+w52Out2
+53
+w51Out1
+w5 O
+Out5  = f (w51Out1  + w52Out2  + w53Out3 )
+Giải thuật BP: Lan truyền tiến (6)
+f(Net1)
+Out6
+2
+f(Net )
+f(Net3)
+4
+f(Net )
+f(Net5)
+f(Net6)
+x1
+x2
+w65Out5
+54
+4
+64
+w Out
+4+ w65Out5 )
+Out6  =   f 
+(w64Out
+Giải thuật BP: Lan truyền tiến (7)
+f(Net1)
+Out6
+2
+f(Net )
+f(Net3)
+4
+f(Net )
+f(Net5)
+f(Net6)
+x1
+x2
+Giải thuật BP: Tính toán lỗi
+f(Net1)
+Out6
+2
+f(Net )
+f(Net3)
+f(Net4)
+f(Net5)
+d is the desired  
+output value
+f(Net6)
+55
+δ6
+1
+56
+x
+x2
+64
+w
+δ4  =
+f '(Net 4 )(w64δ6 )
+Giải thuật BP: Lan truyền ngược (1)
+δ6
+δ4
+f(Net1)
+Out6
+2
+f(Net )
+f(Net3)
+f(Net4)
+f(Net5)
+f(Net6)
+x1
+x2
+65
+w
+δ5  =
+f '(Net5 )(w65δ6 )
+57
+δ6
+δ5
+f(Net1)
+Out6
+f(Net2)
+f(Net3)
+4
+f(Net )
+f(Net5)
+f(Net6)
+Giải thuật BP: Lan truyền ngược (2)
+x1
+x2
+41
+w
+δ1  =
+f '(Net1 )(w41δ4  + w51δ5 
+)
+58
+w
+δ4
+δ5
+δ1
+f(Net1)
+Out6
+f(Net2)
+f(Net3)
+4
+f(Net )
+f(Net5)
+f(Net6)
+Giải thuật BP: Lan truyền ngược (3)
+x1
+x2
+w
+42
+δ2  =
+f '(Net2 )(w42δ4  + w52δ5 
+)
+59
+w
+52
+δ4
+δ5
+δ2
+f(Net1)
+Out6
+2
+f(Net )
+f(Net3)
+4
+f(Net )
+f(Net5)
+f(Net6)
+Giải thuật BP: Lan truyền ngược (4)
+x1
+x2
+43
+δ3  =
+f '(Net3 )(w43δ4  + w53δ5 )
+w
+δ4
+60
+δ5
+δ3
+f(Net1)
+Out6
+2
+f(Net ) w
+f(Net3)
+4
+f(Net )
+f(Net5)
+f(Net6)
+Giải thuật BP: Lan truyền ngược (5)
+x1
+x2
+1
+61
+w
+1x
+2
+w
+1x
+2
+2
+1
+1
+w
+1x
+1x
+w
+1x
+= w1x +ηδ1 x2
+= w
++ηδ1 x1
+Giải thuật BP: Cập nhật trọng số (1)
+δ1
+f(Net1)
+Out6
+2
+f(Net )
+3
+f(Net )
+4
+f(Net )
+f(Net5)
+f(Net6)
+x1
+2x
+w
+62
+2
+w
+2 
+x
+2
+2
+1
+1
+w
+2 x
+2 x
+w
+2 x
+= w2 x +ηδ2 x2
+= w
++ηδ2 x1
+δ2
+f(Net1)
+Out6
+2
+f(Net )
+f(Net3)
+4
+f(Net )
+f(Net5)
+f(Net6)
+Giải thuật BP: Cập nhật trọng số (2)
+x1
+x2
+2
+63
+w
+3x
+w
+2
+2
+w
+3 x
+3 x1 3
+1
+3 x1
+= w3 x +ηδ3 x2
+w = w
++ηδ
+x
+δ3
+f(Net1)
+Out6
+2
+f(Net )
+3
+f(Net )
+f(Net4)
+f(Net5)
+f(Net6)
+Giải thuật BP: Cập nhật trọng số (3)
+1x
+x2
+w
+41
+w
+42
+43
+w
+w43 = w43 +ηδ4Out3
+64
++ηδ4Out2
+w
+42 = w
+42
+w41 = w41 +ηδ4Out1
+δ4
+f(Net1)
+Out6
+f(Net2)
+f(Net3)
+f(Net4)
+f(Net5)
+6
+f(Net )
+Giải thuật BP: Cập nhật trọng số (4)
+x1
+2x
+51
+w
+w
+52
+w
+53
+w53 = w53 +ηδ5Out3
+65
++ηδ5Out2
+w
+52 = w
+52
+w51 = w51 +ηδ5Out1
+δ5
+f(Net1)
+Out6
+f(Net2)
+f(Net3)
+f(Net4)
+f(Net5)
+f(Net6)
+Giải thuật BP: Cập nhật trọng số (5)
+x1
+x2
+64
+w
+66
+w
+64 = w
+64  
+w65 = w65
+δ6
+f(Net1)
+Out6
+2
+f(Net )
+3
+f(Net )
+4
+f(Net )
+f(Net5)
+f(Net6)
+w
+65
+Giải thuật BP: Cập nhật trọng số (6)
++ηδ5Out2
++ηδ5Out2
+■Thông thường, các trọng số được khởi tạo với các giá trị nhỏ
+ngẫu nhiên
+■Nếu các trọng số có các giá trị ban đầu lớn
+❑Các hàm sigmoid sẽ đạt trạng thái bão hòa sớm
+❑Hệ thống sẽ tắc ở một điểm yên ngựa (saddle/stationary points)
+67
+BP: Khởi tạo giá trị của các trọng số
+■Ảnh hưởng quan trọng đến hiệu quả và khả năng hội tụ của giải 
+thuật học BP
+❑Một giá trị η lớn có thể đẩy nhanh sự hội tụ của quá trình học, nhưng có  
+thể làm cho hệ thống bỏ qua điểm tối ưu toàn cục hoặc hội tụ vào điểm 
+không tốt (saddle points)
+❑Một giá trị η nhỏ có thể làm cho quá trình học kéo dài rất lâu
+■Thường được chọn theo thực nghiệm (experimentally) đối với mỗi 
+bài toán
+■Các giá trị tốt của tốc độ học ở lúc bắt đầu (quá trình học) có thể 
+không tốt ở  một thời điểm sau đấy
+❑Sử dụng một tốc độ học thích nghi (động)?
+68
+BP: Tốc độ học (Learning rate)
+BP: Momentum
+αΔw(t)
+-η∇E(t’+1) + αΔw(t’)
+-η∇E(t’+1)
+Δw(t’)
+B’
+A’
+69
+A
+-η∇E(t+1) + αΔw(t)
+-η∇E(t+1)
+αΔw(t)
+B
+Δw(t)
+Gradient descent đối với một hàm 
+lỗi bậc 2 đơn giản.
+Quỹ đạo bên trái không sử dụng
+momentum.
+Quỹ đạo bên phải có sử 
+dụng momentum.
+• Phương pháp Gradient descent có 
+thể rất chậm nếu η nhỏ, và có thể 
+dao động mạnh nếu η quá lớn
+• Để giảm mức độ dao động, cần 
+đưa  vào một thành phần 
+momentum
+Δw
+(t) = -η∇E(t) + αΔw(t-1)
+trong đó α (∈[0,1]) là một tham số  
+momentum (thường lấy =0.9)
+• Dựa trên các kinh nghiệm, ta nên 
+chọn
+các giá trị hợp lý cho tốc độ học 
+và  momentum thoả mãn
+(η + α) ≳
+1 
+trong đó α > η để tránh dao động
+BP: Số lượng các nơ-ron ở tầng ẩn
+70
+■Kích thước (số nơ-ron) của tầng ẩn là một câu hỏi quan trọng  
+đối với việc áp dụng các mạng nơ-ron lan truyền tiến nhiều tầng  
+để giải quyết các bài toán thực tế
+■Trong thực tế, rất khó để xác định chính xác số lượng các 
+nơ-ron cần thiết để đạt được một độ chính xác mong muốn 
+của hệ  thống
+■Kích thước của tầng ẩn thường được xác định qua thí nghiệm
+(experiment/trial and test)
+ANN: Giới hạn học
+71
+• Các hàm nhị phân (Boolean functions)
+• Bất kỳ hàm nhị phân nào cũng có thể học được (xấp xỉ tốt) bởi một ANN  
+sử dụng 1 tầng ẩn
+• Các hàm liên tục (Continuous functions)
+• Bất kỳ một hàm liên tục bị giới hạn (bounded continuous function) nào  
+cũng có thể học được (xấp xỉ) bởi một ANN sử dụng 1 tầng ẩn [Cybenko,  
+1989; Hornik et al., 1991]
+ANN: Ưu điểm, Nhược điểm
+72
+• Các ưu điểm
+• Bản chất (về cấu trúc) hỗ trợ tính toán song song ở mức cao
+• Đạt độ chính xác cao trong nhiều bài toán (ảnh, video, âm thanh, văn  
+bản)
+• Rất linh động trong kiến trúc mạng
+• Các nhược điểm
+• Không có quy tắc tổng quát để xác định cấu trúc mạng và các tham số
+học tối ưu cho một (lớp) bài toán nhất định
+• Không có phương pháp tổng quát để đánh giá hoạt động bên trong của  
+ANN (vì vậy, hệ thống ANN bị xem như một “hộp đen”)
+• Rất khó (không thể) đưa ra giải thích cho người dùng
+• Lý thuyết nền tảng còn ít, để giúp giải thích được những thành công 
+trong thực tế
+ANN: Áp dụng khi nào?
+73
+• Dạng của hàm học không xác định được trước
+• Không cần thiết (hoặc không quan trọng) phải đưa ra giải thích  cho 
+người dùng đối với các kết quả
+• Chấp nhận thời gian (khá) lâu cho quá trình huấn luyện
+• Có thể thu thập một lượng lớn các nhãn cho dữ liệu.
+• Các miền liên quan đến: image, video, speech, text
+-
+Các thành phần cấu tạo thành mạng nơ ron nhân tạo
+-
+Các thuật toán học cho mạng nơ ron nhân tạo
+Tổng kết buổi học

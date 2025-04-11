@@ -1,0 +1,652 @@
+AI VIET NAM – AI COURSE 2024
+Phân tích thông tin chiều sâu của ảnh
+Dinh-Thang Duong, Quang-Vinh Dinh
+Ngày 2 tháng 8 năm 2024
+I.
+Giới thiệu
+Stereo Matching là một bài toán lớn trong lĩnh vực Thịgiác máy tính (Computer Vision), với
+mục tiêu phục hồi kiến trúc 3D thực tếtừmột cặp ảnh 2D, gọi là ảnh stereo. Stereo Matching
+thường được ứng dụng trong các ứng dụng liên quan đến Xe tựhành (Autonomous Driving),
+Thực tếảo (Augmented Reality)...
+Hình 1: Minh họa bài toán Depth Information Reconstruction. Kết quảbài toán là ảnh mô phỏng
+độsâu (disparity map) từmột cặp ảnh.
+Trong project này, các bạn sẽlàm quen với bài toán Stereo Matching thông qua việc triển
+khai một sốthuật toán tính Disparity Map từcặp ảnh stereo cho trước. Với Disparity Map, ta
+có thểbiết được thông tin chiều sâu (Depth Information) thực tế. Các cặp ảnh stereo sẽsửdụng
+trong project bao gồm:
+• Ảnh Tsukuba: Sửdụng trong Problem 1. Các bạn có thểtải bộảnh Tsukuba tại đây.
+• Ảnh Aloe: Sửdụng trong Problem 2, 3, 4. Các bạn có thểtải bộảnh Aloe tại đây.
+1
+AI VIETNAM (AIO2024)
+aivietnam.edu.vn
+II.
+Nội dung
+Problem 1: Xây dựng hàm tính disparity map của hai ảnh stereo đầu vào (ảnh bên trái (L) và
+ảnh bên phải (R)) theo phương thức pixel-wise matching. Các bước tính toán trong phương
+pháp này có thểđược miêu tảqua các bước dưới đây:
+1. Đọc ảnh chụp bên trái (left) và ảnh chụp bên phải (right) dưới dạng ảnh grayscale (ảnh
+mức xám) đồng thời ép kiểu ảnh vềnp.float32.
+2. Khởi tạo hai biến height, width có giá trịbằng chiều cao, chiều rộng của ảnh trái.
+3. Khởi tạo một ma trận không - zero matrix (depth) với kích thước bằng height, width.
+4. Với mỗi pixel tại vịtrí (h, w) (duyệt từtrái qua phải, trên xuống dưới) thực hiện các bước
+sau:
+(a) Tính cost (L1 hoặc L2) giữa các cặp pixel left[h, w] và right[h, w - d] (trong đó
+d ∈[0, disparity_range]). Nếu (w - d) < 0 thì gán giá trịcost = max_cost (max_cost
+= 255 nếu dùng L1 hoặc 2552 nếu dùng L2).
+(b) Với danh sách cost tính được, chọn giá trịd (doptimal) mà ởđó cho giá trịcost là nhỏ
+nhất.
+(c) Gán depth[h, w] = doptimal × scale. Trong đó, scale =
+255
+disparity_range (ỞProblem 01,
+các bạn gán mặc định giá trịscale = 16).
+Dựa theo mô tảcác bước triển khai thuật toán, các bạn có thểcài đặt code như sau:
+1 import cv2
+2 import
+numpy as np
+3
+4 def
+distance(x, y):
+5
+return abs(x - y)
+6
+7 def
+pixel_wise_matching (left_img , right_img , disparity_range , save_result=True
+):
+8
+# Read left , right
+images
+then
+convert to grayscale
+9
+left
+= cv2.imread(left_img , 0)
+10
+right = cv2.imread(right_img , 0)
+11
+12
+left
+= left.astype(np.float32)
+13
+right = right.astype(np.float32)
+14
+15
+height , width = left.shape [:2]
+16
+17
+# Create
+blank
+disparity
+map
+18
+depth = np.zeros ((height , width), np.uint8)
+19
+scale = 16
+20
+max_value = 255
+21
+22
+for y in range(height):
+23
+for x in range(width):
+24
+# Find j where
+cost has
+minimum
+value
+2
+AI VIETNAM (AIO2024)
+aivietnam.edu.vn
+25
+disparity = 0
+26
+cost_min
+= max_value
+27
+28
+for j in range( disparity_range ):
+29
+cost = max_value if (x - j) < 0 else
+distance(int(left[y, x]),
+int(right[y, x - j]))
+30
+31
+if cost < cost_min:
+32
+cost_min
+= cost
+33
+disparity = j
+34
+35
+# Let depth at (y, x) = j (disparity)
+36
+# Multiply by a scale
+factor for
+visualization
+purpose
+37
+depth[y, x] = disparity * scale
+38
+39
+if save_result == True:
+40
+print(’Saving
+result ...’)
+41
+# Save
+results
+42
+cv2.imwrite(f’pixel_wise_l1.png’, depth)
+43
+cv2.imwrite(f’pixel_wise_l1_color .png’, cv2.applyColorMap(depth , cv2.
+COLORMAP_JET))
+44
+45
+print(’Done.’)
+46
+47
+return
+depth
+Hình 2: Các bước tính toán giá trịdisparity tại vịtrí của một pixel bất kì theo phương pháp
+pixel-wise matching
+Tận dụng phần cài đặt gợi ý trên, các bạn sẽthực hiện thêm một sốyêu cầu sau:
+3
+AI VIETNAM (AIO2024)
+aivietnam.edu.vn
+• Thiết kếhai hàm có tên gọi lần lượt là:
+– pixel_wise_matching_l1()
+– pixel_wise_matching_l2()
+Hai hàm này có chung tham sốđầu vào là:
+– left_img: đường dẫn đến ảnh chụp bên trái.
+– right_img: đường dẫn đến ảnh chụp bên phải.
+– disparity_range: độdài tối đa của vùng tìm kiếm giá trịdisparity tại mỗi pixel.
+Trong Problem 01, các bạn gán mặc định giá trịnày = 16.
+– save_result: giá trịboolean đại diện cho việc có lưu disparity map hay không? Mặc
+định sẽcó giá trịlà True.
+Cuối cùng, kết quảtrảvềcủa hàm sẽlà một numpy.ndarray đại diện cho disparity map
+tính được.
+• Đối với hàm pixel_wise_matching_l1(), ta dùng hàm tính cost là L1.
+• Đối với hàm pixel_wise_matching_l2(), ta dùng hàm tính cost là L2.
+• Khi lưu kết quả, ta in ra màn hình dòng chữ"Saving result..." và lưu ý rằng sẽlưu cả
+hai phiên bản ảnh grayscale và ảnh color map của disparity map.
+• Sau khi kết thúc toàn bộquá trình tính toán, in ra dòng chữ"Done.".
+Kết quảminh họa khi chạy hàm pixel_wise_matching() với cặp ảnh Tsukuba sẽcó kết quả
+trảvềnhư sau (các dòng comment tượng trưng cho nội dung trảvề):
+1 left_img_path = ’tsukuba/left.png’
+2 right_img_path = ’tsukuba/right.png’
+3 disparity_range = 16
+4
+5 pixel_wise_result_l1 = pixel_wise_matching_l1 (
+6
+left_img_path ,
+7
+right_img_path ,
+8
+disparity_range ,
+9
+save_result=True
+10 )
+11
+12 # Saving
+result ...
+13 # Done.
+14
+15 pixel_wise_result_l2 = pixel_wise_matching_l2 (
+16
+left_img_path ,
+17
+right_img_path ,
+18
+disparity_range ,
+19
+save_result=True
+20 )
+21
+22 # Saving
+result ...
+23 # Done.
+4
+AI VIETNAM (AIO2024)
+aivietnam.edu.vn
+(a) Ảnh grayscale
+(b) Ảnh color map
+Hình 3: Kết quảdisparity map của phương pháp pixel-wise matching sửdụng L1
+(a) Ảnh grayscale
+(b) Ảnh color map
+Hình 4: Kết quảdisparity map của phương pháp pixel-wise matching sửdụng L2
+Problem 2: Xây dựng hàm tính disparity map của hai ảnh stereo đầu vào (ảnh bên trái (L)
+và ảnh bên phải (R)) theo phương thức window-based matching. Các bước tính toán trong
+phương pháp này có thểđược miêu tảqua các bước dưới đây:
+1. Đọc ảnh chụp bên trái (left) và ảnh chụp bên phải (right) dưới dạng ảnh grayscale (ảnh
+mức xám) đồng thời ép kiểu ảnh vềnp.float32.
+2. Khởi tạo hai biến height, width có giá trịbằng chiều cao, chiều rộng của ảnh trái.
+3. Khởi tạo một ma trận không - zero matrix (depth) với kích thước bằng height, width.
+4. Tính nửa kích thước của window tính từtâm đến cạnh của window (có kích thước k x k)
+theo công thức kernel_half = k−1
+2
+(lấy nguyên).
+5. Với mỗi pixel tại vịtrí (h, w) (h ∈[kernel_half, height - kernel_half], w ∈[kernel_half,
+width - kernel_half]; duyệt từtrái qua phải, trên xuống dưới), thực hiện các bước sau:
+5
+AI VIETNAM (AIO2024)
+aivietnam.edu.vn
+(a) Tính tổng các cost (l1 hoặc l2) giữa các cặp pixel left[h + v, w + u] và right [h + v,
+w + u - d] (trong đó d ∈[0, disparity_range] và u, v ∈[-kernel_half, kernel_half])
+nằm trong vùng window với tâm là vịtrí của pixel đang xét. Nếu tại vịtrí cho (w +
+u - d) < 0 thì gán giá trịcost của cặp pixel đang xét = max_cost (max_cost = 255
+nếu dùng L1 hoặc 2552 nếu dùng L2).
+(b) Với danh sách cost tính được, chọn giá trịd (doptimal) mà ởđó cho giá trịcost tổng là
+nhỏnhất.
+(c) Gán depth[h, w] = doptimal × scale. Trong đó, scale =
+255
+disparity_range (ỞProblem 02,
+các bạn gán mặc định giá trịscale = 3).
+Dựa theo mô tảcác bước triển khai thuật toán, các bạn có thểcài đặt code như sau:
+1 import cv2
+2 import
+numpy as np
+3
+4 def
+distance(x, y):
+5
+return abs(x - y)
+6
+7 def
+window_based_matching (left_img , right_img , disparity_range , kernel_size =5,
+save_result=True):
+8
+# Read left , right
+images
+then
+convert to grayscale
+9
+left
+= cv2.imread(left_img , 0)
+10
+right = cv2.imread(right_img , 0)
+11
+12
+left
+= left.astype(np.float32)
+13
+right = right.astype(np.float32)
+14
+15
+height , width = left.shape [:2]
+16
+17
+# Create
+blank
+disparity
+map
+18
+depth = np.zeros ((height , width), np.uint8)
+19
+20
+kernel_half = int(( kernel_size - 1) / 2)
+21
+scale = 3
+22
+max_value = 255 * 9
+23
+24
+for y in range(kernel_half , height -kernel_half + 1):
+25
+for x in range(kernel_half , width -kernel_half + 1):
+26
+27
+# Find j where
+cost has
+minimum
+value
+28
+disparity = 0
+29
+cost_min
+= 65534
+30
+31
+for j in range( disparity_range ):
+32
+total = 0
+33
+value = 0
+34
+35
+for v in range(-kernel_half , kernel_half):
+36
+for u in range(-kernel_half , kernel_half):
+37
+value = max_value
+38
+if (x + u - j) >= 0:
+39
+value = l1_distance(int(left[y + v, x + u]),
+int(
+right[y + v, (x + u) - j]))
+6
+AI VIETNAM (AIO2024)
+aivietnam.edu.vn
+40
+total += value
+41
+42
+if total < cost_min:
+43
+cost_min = total
+44
+disparity = j
+45
+46
+# Let depth at (y, x) = j (disparity)
+47
+# Multiply by a scale
+factor for
+visualization
+purpose
+48
+depth[y, x] = disparity * scale
+49
+50
+if save_result == True:
+51
+print(’Saving
+result ...’)
+52
+# Save
+results
+53
+cv2.imwrite(f’window_based_l1.png’, depth)
+54
+cv2.imwrite(f’window_based_l1_color .png’, cv2.applyColorMap(depth , cv2
+.COLORMAP_JET))
+55
+56
+print(’Done.’)
+57
+58
+return
+depth
+Hình 5: Các bước tính toán giá trịdisparity tại vịtrí của một pixel bất kì theo phương pháp
+window-based matching
+Tận dụng phần cài đặt gợi ý trên, các bạn sẽthực hiện thêm một sốyêu cầu sau:
+• Thiết kếhai hàm có tên gọi lần lượt là:
+– window_based_matching_l1()
+– window_based_matching_l2()
+7
+AI VIETNAM (AIO2024)
+aivietnam.edu.vn
+Hai hàm này có chung tham sốđầu vào là:
+– left_img: đường dẫn đến ảnh chụp bên trái.
+– right_img: đường dẫn đến ảnh chụp bên phải.
+– disparity_range: độdài tối đa của vùng tìm kiếm giá trịdisparity tại mỗi pixel.
+Trong Problem 02, các bạn gán giá mặc định giá trịnày = 64.
+– kernel_size: tham sốvềkích thước k của window. Trong Problem 02, các bạn gán
+mặc định giá trịnày = 3.
+– save_result: giá trịboolean đại diện cho việc có lưu disparity map hay không? Mặc
+định sẽcó giá trịlà True.
+Cuối cùng, kết quảtrảvềcủa hàm sẽlà một numpy.ndarray đại diện cho disparity map
+tính được.
+• Đối với hàm window_based_matching_l1(), ta dùng hàm tính cost là L1.
+• Đối với hàm window_based_matching_l2(), ta dùng hàm tính cost là L2.
+• Khi lưu kết quả, ta in ra màn hình dòng chữ"Saving result..." và lưu ý rằng sẽlưu cả
+hai phiên bản ảnh grayscale và ảnh color map của disparity map.
+• Sau khi kết thúc toàn bộquá trình tính toán, in ra dòng chữ"Done.".
+Kết quảminh họa khi chạy hàm window_based_matching() với cặp ảnh Aloe_1 sẽcó kết
+quảtrảvềnhư sau (các dòng comment tượng trưng cho nội dung trảvề):
+1 left_img_path = ’Aloe/Aloe_left_1.png’
+2 right_img_path = ’Aloe/Aloe_right_1.png’
+3 disparity_range = 64
+4 kernel_size = 3
+5
+6 window_based_result = window_based_matching_l1 (
+7
+left_img_path ,
+8
+right_img_path ,
+9
+disparity_range ,
+10
+kernel_size=kernel_size ,
+11
+save_result=True
+12 )
+13
+14 # Saving
+result ...
+15 # Done.
+16
+17 window_based_result = window_based_matching_l2 (
+18
+left_img_path ,
+19
+right_img_path ,
+20
+disparity_range ,
+21
+kernel_size=kernel_size ,
+22
+save_result=True
+23 )
+24
+25 # Saving
+result ...
+26 # Done.
+8
+AI VIETNAM (AIO2024)
+aivietnam.edu.vn
+(a) Ảnh grayscale
+(b) Ảnh color map
+Hình 6: Kết quảdisparity map của phương pháp window-based matching sửdụng L1
+(a) Ảnh grayscale
+(b) Ảnh color map
+Hình 7: Kết quảdisparity map của phương pháp window-based matching sửdụng L2
+Problem 3: Khi sửdụng hàm tính disparity map đã xây dựng ởProblem 2 cho cặp ảnh
+Aloe_left_1.png và Aloe_right_2.png với tham sốđầu vào disparity_range = 64 và kernel_size
+= 5 ởcảhai hàm cost, ta được kết quảdisparity map như ảnh minh họa sau:
+9
+AI VIETNAM (AIO2024)
+aivietnam.edu.vn
+(a) Ảnh chụp bên trái
+(b) Ảnh chụp bên phải
+Hình 8: Ảnh stereo đầu vào của Problem 3
+(a) Ảnh grayscale
+(b) Ảnh color map
+Hình 9: Kết quảdisparity map của phương pháp window-based matching với cài đặt dispar-
+ity_range = 64 và kernel_size = 5
+Có thểthấy với sựthay đổi của các giá trịtham sốđầu vào như trên, kết quảdispar-
+ity map đã phần nào tệđi (bịnhiễu). Các bạn hãy sửdụng code ởProblem 2 đểtạo ra ảnh
+disparity map với cài đặt này và giải thích (sửdụng markdown) vì sao lại xảy ra kết quảnhư vậy.
+Problem 4: Dựa trên hàm tính disparity map theo phương thức window-based matching ở
+Problem 2 và coi các window là các vector, hãy cài đặt Cosine Similarity trong việc tính sựtương
+quan giữa hai pixel ảnh trái phải đểgiải quyết vấn đềởProblem 3. Công thức Cosine Similarity
+được mô tảnhư sau:
+cosine_similarity(⃗x, ⃗y) =
+⃗x · ⃗y
+∥⃗x∥∥⃗y∥=
+Pn
+i=1 xiyi
+pPn
+i=1 x2
+i
+pPn
+i=1 y2
+i
+10
+AI VIETNAM (AIO2024)
+aivietnam.edu.vn
+Như vậy, phần cài đặt thuật toán gần như tương tựvới phiên bản ởProblem 02. Tại đây, ta
+sẽthay đổi lại một chút cách sửdụng giá trịcủa các window đểcó thểđưa vào công thức cosine
+similarity. Bằng cách coi cửa sổlà vector, phần cài đặt code sẽthay đổi lại như sau:
+1 import cv2
+2 import
+numpy as np
+3
+4 def
+cosine_similarity (x, y):
+5
+numerator = np.dot(x, y)
+6
+denominator = np.linalg.norm(x) * np.linalg.norm(y)
+7
+8
+return
+numerator / denominator
+9
+10 def
+window_based_matching (left_img , right_img , disparity_range , kernel_size =5,
+save_result=True):
+11
+# Read left , right
+images
+then
+convert to grayscale
+12
+left
+= cv2.imread(left_img , 0)
+13
+right = cv2.imread(right_img , 0)
+14
+15
+left
+= left.astype(np.float32)
+16
+right = right.astype(np.float32)
+17
+18
+height , width = left.shape [:2]
+19
+20
+# Create
+blank
+disparity
+map
+21
+depth = np.zeros ((height , width), np.uint8)
+22
+kernel_half = int(( kernel_size - 1) / 2)
+23
+scale = 3
+24
+25
+for y in range(kernel_half , height -kernel_half):
+26
+for x in range(kernel_half , width -kernel_half):
+27
+28
+# # Find j where
+cost has
+minimum
+value
+29
+disparity = 0
+30
+cost_optimal
+= -1
+31
+32
+for j in range( disparity_range ):
+33
+d = x - j
+34
+cost = -1
+35
+if (d - kernel_half) > 0:
+36
+wp = left [(y-kernel_half):(y+kernel_half)+1, (x-
+kernel_half):(x+kernel_half)+1]
+37
+wqd = right [(y-kernel_half):(y+kernel_half)+1, (d-
+kernel_half):(d+kernel_half)+1]
+38
+39
+wp_flattened = wp.flatten ()
+40
+wqd_flattened = wqd.flatten ()
+41
+42
+cost = cosine_similarity (wp_flattened , wqd_flattened)
+43
+44
+if cost > cost_optimal:
+45
+cost_optimal = cost
+46
+disparity = j
+47
+48
+# Let depth at (y, x) = j (disparity)
+11
+AI VIETNAM (AIO2024)
+aivietnam.edu.vn
+49
+# Multiply by a scale
+factor for
+visualization
+purpose
+50
+depth[y, x] = disparity * scale
+51
+52
+if save_result == True:
+53
+print(’Saving
+result ...’)
+54
+# Save
+results
+55
+cv2.imwrite(’window_based_cosine_similarity .png’, depth)
+56
+cv2.imwrite(’window_based_cosine_similarity_color .png’, cv2.
+applyColorMap(depth , cv2.COLORMAP_JET))
+57
+58
+print(’Done.’)
+59
+60
+return
+depth
+(a) Ảnh grayscale
+(b) Ảnh color map
+Hình 10: Kết quảdisparity map của phương pháp window-based matching sửdụng Cosine
+Similarity với cài đặt tham sốvà cặp ảnh đầu vào ởProblem 3
+12
+AI VIETNAM (AIO2024)
+aivietnam.edu.vn
+III.
+Trắc nghiệm
+1. Ứng dụng nào sau đây có thểliên quan đến việc sửdụng disparity map?
+(a) Object Detection.
+(b) Image Classification.
+(c) Text Retrieval.
+(d) Depth Estimation for 3D Reconstruction.
+2. Lý do nào sau đây là lợi ích trong việc sửdụng phương pháp window-based matching so
+với phương pháp pixel-wise matching?
+(a) Tốc độtính toán và xửlý nhanh hơn.
+(b) Hoạt động tốt trên độphân giải ảnh thấp.
+(c) Kết quảdisparity map mượt hơn.
+(d) Loại bỏđược bước Calibration trong hệthống.
+3. Câu nào sau đây mô tảmột điểm yếu của phương pháp pixel-wise matching?
+(a) Yêu cầu ảnh có độphân giải cao.
+(b) Độphức tạp thuật toán cao.
+(c) Kết quảdisparity map bịnhiễu cao.
+(d) Nhạy cảm với điều kiện ánh sáng.
+4. Vai trò của Disparity Range là gì?
+(a) Kích thước của search window.
+(b) Vùng tìm kiếm giá trịdisparity.
+(c) Định nghĩa hàm cost.
+(d) Ảnh hưởng đến độsáng của disparity map.
+5. Trong phương pháp window-based matching, kích thước window sẽảnh hưởng đến điều gì?
+(a) Độchính xác của disparity map.
+(b) Độsáng của disparity map.
+(c) Tốc độcủa thuật toán.
+(d) Độsâu của disparity map.
+6. Lý do nào sau đây giải thích việc nhân disparity value với tỉsố255
+D ?
+(a) Cải thiện độphân giải.
+(b) Tăng cường độchính xác.
+(c) Tăng độsáng ảnh.
+(d) Dùng trong việc visualization kết quả.
+- Hết -
+13

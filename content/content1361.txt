@@ -1,6 +1,0 @@
-AI VIETNAM aivietnam.edu.vn
-Hình 4: Minh họa quá trình đảo ngược của mô hình Color Diffusion
-Ở quá trình đảo ngược, mô hình UNet nhận đầu vào bao gồm: timestep embedding t và một ảnh 3
-chiều (được hợp thành bởi đầu ra của mô hình UNet tại thời điểmt + 1và thành phần điều kiện
-là kênh màu xám). Sau đó, mô hình học cách dự đoán và trả về một nhiễu Gauss cho timestept
--1. 

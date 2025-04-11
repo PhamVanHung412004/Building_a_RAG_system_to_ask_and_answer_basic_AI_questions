@@ -1,0 +1,1213 @@
+Trustworthy and Explainable 
+Artificial Intelligence
+Anh Nguyen
+1
+http://anhnguyen.me  
+April 5, 2024
+@anh_ng8
+2
+Vietnam
+Thailand
+Singapore
+3
+Research Area: Trustworthy and Explainable Artificial Intelligence
+2009 Front-end programming
+Vietnam
+Thailand
+Singapore
+Editor for Business Rules
+Business Executive
+Software
+4
+Vietnam
+Thailand
+Singapore
+Research Area: Trustworthy and Explainable Artificial Intelligence
+Front-end programming
+2014 M.S. in Human-Computer Interaction
+Sensors = IMU + optical CMOS
+●
+01 paper at IEEE Virtual Reality 2015
+●
+01 patent
+●
+Industry commercialization interests
+5
+Vietnam
+Thailand
+Singapore
+Research Area: Trustworthy and Explainable Artificial Intelligence
+2017 Ph.D. in Artificial Intelligence
+Jeff Clune
+6
+Vietnam
+Thailand
+Singapore
+Research Area: Trustworthy and Explainable Artificial Intelligence
+2017 – present Assistant Professor
+7
+Vietnam
+Thailand
+Singapore
+Research Area: Trustworthy and Explainable Artificial Intelligence
+2017 – present Assistant Professor
+School bus
+Trustworthy AI
+Explainable AI
+8
+AI is everywhere
+9
+https://www.bbc.com/news/business-44849492
+?
+2019 Elon Musk
+"Feature complete for 
+full self-driving this year”
+10
+https://www.bbc.com/news/business-44849492
+?
+2019 Elon Musk
+"Feature complete for 
+full self-driving this year”
+2021 Tesla: the moon is a yellow traffic light 
+https://twitter.com/giacaglia/status/1414605317841702914
+11
+https://www.bbc.com/news/business-44849492
+https://twitter.com/giacaglia/status/1414605317841702914
+As of 07/2021, Tesla FSD 9.0:
+1.
+Thinks the moon is a yellow traffic light and 
+keeps slowing down
+2.
+Doesn't recognize planters in the street and 
+almost hits them
+3.
+Doesn't recognize the monorails in the 
+middle of the street and drives towards it!
+4.
+Goes through a bus lane instead of staying in 
+the right lane
+5.
+Doesn't recognize a one-way street and the 
+one-way sign in the street, and it drives 
+towards the wrong way
+6.
+Can't decide which lane to use when turning 
+a right in the next road. It keeps changing 
+lanes
+7.
+Turns left but it goes to a lane that is not 
+supposed to
+…
+12
+https://www.bbc.com/news/business-44849492
+13
+https://www.bbc.com/news/business-44849492
+?
+14
+Query image
+…
+Found him!
+✅
+AI
+high-stake decisions
+COMPAS: Machine bias
+in the court
+https://www.propublica.org/article/m
+achine-bias-risk-assessments-in-
+criminal-sentencing
+https://www.theverge.com/2021/9/28/22698388/tesla-
+texas-lawsuit-cops-autopilot-crash-injury
+https://www.accc.gov.au/media-release
+15
+16
+17
+Long-term Research Goals
+Explainable AI 
+Trustworthy AI
+1. Build AIs that are accurate in edge cases 
+(and common cases)
+AI
+input
+decision
+2. Build AIs that maximize human-AI team accuracy
+AI
+input
+decision
+3. Build AIs that humans can debug and edit 
+(AI’s decision-making process)
+AI
+input
+decision
+Long-term Research Goals
+Explainable AI 
+Trustworthy AI
+1. Build Test AIs in edge cases 
+(and common cases)
+AI
+input
+decision
+2. Build AIs that maximize human-AI team accuracy
+AI
+input
+decision
+3. Build AIs that humans can debug and edit 
+(their decision-making process)
+AI
+input
+decision
+18
+Part 1
+19
+Image classification on ImageNet
+School bus
+100%
+school bus
+?
+i.i.d. test image
+training set
+AI
+Image classifier
+20
+R
+G
+B
+x
+y
+Evolutionary Algorithm (MAP-Elites) evolves images that maximize AI confidence scores
++ image diversity
+Image generator
+Fast and stable MAP-Elites in noisy domains using deep grids
+AI
+Image classifier
+school bus
+A naïve attempt to draw a school bus that AI wants to see
+Diversity
+Confidence score
+21
+R
+G
+B
+x
+y
+Evolutionary Algorithm (MAP-Elites)
+Image generator
+AI
+Image classifier
+99%
+school bus
+Nguyen et al. CVPR 2015
+Deep neural networks are easily fooled: High confidence predictions for unrecognizable images
+>= 96% confidence
+How robust are fooling images?
+22
+Nguyen et al. CVPR 2015
+Deep neural networks are easily fooled: High confidence predictions for unrecognizable images
+How robust are fooling images?
+23
+Dileep George
+Nguyen et al. CVPR 2015
+Deep neural networks are easily fooled: High confidence predictions for unrecognizable images
+How robust are fooling images?
+24
+Dileep George
+Nguyen et al. CVPR 2015
+Deep neural networks are easily fooled: High confidence predictions for unrecognizable images
+AI
+Image classifier
+99%
+school bus
+Nguyen et al. CVPR 2015
+99% 
+school  bus
+Deep neural networks are easily fooled: High confidence predictions for unrecognizable images
+25
+26
+•
+OpenCV Top Paper Award at CVPR 2015
+•
+Altmetric 63rd most influential paper worldwide in 2015
+What about the text domain?
+27
+NLU benchmarks
+●
+GLUE
+●
+SuperGLUE
+●
+Adversarial NLI
+●
+MNLI + HANS
+28
+Human
+ICLR 2019
+NLU benchmarks
+●
+GLUE
+●
+SuperGLUE
+●
+Adversarial NLI
+●
+MNLI + HANS
+29
+Human
+ICLR 2019
+BERT variants
+NLU benchmarks
+●
+GLUE
+●
+SuperGLUE
+●
+Adversarial NLI
+●
+MNLI + HANS
+30
+BERT variants
+Human
+JMLR 2020
+ICLR 2020
+*ICLR 2020
+ICLR 2021
+ACL 2019
+*ICLR 2020
+*ICLR 2021
+ICLR 2020
+ICLR 2020
+NeurIPS 2020
+ICLR 2019
+outperformed
+●
+Averaging normalized scores over 9 different tasks
+31
+GLUE
+We studied
+7 out of 9
+Out of Order: How important is the sequential order of words in a sentence in Natural Language Understanding tasks? Pham, Bui, Mai, Nguyen. ACL 2021
+●
+Averaging normalized scores over 9 different tasks
+32
+GLUE
+We studied
+7 out of 9
+How important is the sequential order of 
+words in a sentence in GLUE?
+Out of Order: How important is the sequential order of words in a sentence in Natural Language Understanding tasks? Pham, Bui, Mai, Nguyen. ACL 2021
+33
+How can smoking marijuana give you lung cancer?
+AI
+marijuana can smoking you how cancer give lung?
+AI
+shuffling n-grams
+Accuracy
+Accuracy
+𝛥
+Out of Order: How important is the sequential order of words in a sentence in Natural Language Understanding tasks? Pham, Bui, Mai, Nguyen. ACL 2021
+34
+How can smoking marijuana give you lung cancer?
+AI
+marijuana can smoking you how cancer give lung?
+AI
+shuffling n-grams
+Accuracy
+Accuracy
+𝛥
+Out of Order: How important is the sequential order of words in a sentence in Natural Language Understanding tasks? Pham, Bui, Mai, Nguyen. ACL 2021
+Marginal
+35
+How can smoking marijuana give you lung cancer?
+AI
+marijuana can smoking you how cancer give lung?
+AI
+shuffling n-grams
+Accuracy
+Accuracy
+𝛥
+Out of Order: How important is the sequential order of words in a sentence in Natural Language Understanding tasks? Pham, Bui, Mai, Nguyen. ACL 2021
+Marginal
+36
+37
+…
+Adversarial Patch
+One-pixel attack
+Adversarial stop-sign
+Universal perturbations
+Can we fool vision models by a rotation?
+38
+39
+Strike (with) a Pose. Alcorn et al. CVPR 2019
+100%
+school bus
+0%
+0% school bus!
+Inception-v3 
+78% accuracy on ImageNet
+0% school bus!
+?
+(b)  2D image
+(a) 3D scene
+“school bus”
+background
+objects (shapes, textures)
+3D
+renderer
+image
+classifier
+light source
+camera
+forward pass
+error vs. desired output
+backward pass
+target network
+i.i.d. test image
+40
+100%
+school bus
+0%
+Inception-v3 
+78% accuracy on ImageNet
+chain
+cinema
+scabbard
+forklift
+crutch
+amphibian
+100% confidence
+Strike (with) a Pose. Alcorn et al. CVPR 2019
+i.i.d. test image
+(b)  2D image
+(a) 3D scene
+“school bus”
+background
+objects (shapes, textures)
+3D
+renderer
+image
+classifier
+light source
+camera
+forward pass
+error vs. desired output
+backward pass
+target network
+Fine-grained control over stimuli changes
+41
+Alcorn et al. Strike (with) a Pose. CVPR 2019
+Long Mai
+Qi Li
+Alcorn
+Jeff Ku
+Gong
+Wang
+42
+100%
+school bus
+0%
+Inception-v3 
+78% accuracy on ImageNet
+cinema
+forklift
+crutch
+Strike (with) a Pose. Alcorn et al. CVPR 2019
+DNNs correctly label only 3% of the poses
+43
+100%
+school bus
+0%
+Inception-v3 
+78% accuracy on ImageNet
+chain
+cinema
+scabbard
+forklift
+crutch
+amphibian
+100% confidence
+Strike (with) a Pose. Alcorn et al. CVPR 2019
+DNNs correctly label only 3% of the poses
+Solution: Re-train AIs on misclassified examples?
+44
+Training set
++
+…
++
++
+Strike (with) a Pose. Alcorn et al. CVPR 2019
+Solution: Re-train AIs on misclassified examples?
+45
+Training set
++
+…
++
++
+Image space: 10!"
+RGB images of dim 256x256
+Scalable?
+ImageNet accuracy over time
+46
+Image source: Papers With Code
+AlexNet
+47
+CLIP
+48
+Q: The key 
+challenge 
+= zooming 
+to the object?
+Continuous Zoom Increases The Probability Of The Correct Class
+Image source: ImageNet-A 
+49
+ResNet-50’s Predictions
+The Hardest Images Remaining from a Study of the Power of Zoom and Spatial Biases in Image Classification. Taesiri, Nguyen, Habchi, Bezemer, Nguyen. NeurIPS 2023
+Image source: ImageNet-A and Sketch
+Predictions from ResNet-50 and ViT-B/32 classifiers 
+Zooming in allows 
+us to see patterns 
+more clearly and 
+eliminate 
+distractions.
+50
+Image source: ImageNet-A and Sketch
+Predictions from ResNet-50 and ViT-B/32 classifiers 
+51
+Zooming out 
+enables us to have 
+a better view of the 
+entire object.
+Zooming in allows 
+us to see patterns 
+more clearly and 
+eliminate 
+distractions.
+52
+Defining Zoom Transforms
+The Hardest Images Remaining from a Study of the Power of Zoom and Spatial Biases in Image Classification. Taesiri, Nguyen, Habchi, Bezemer, Nguyen. NeurIPS 2023
+Our Zoom Operation Consists Of Resize And Crop Operations
+53
+-
+We test 36 different zoom levels (T) 
+-
+T varies from 10 to 1024 pixels
+-
+An image will be transformed into 324
+different “zoomed” versions
+Image source: ImageNet-A, Predictions are from ResNet-50 
+If One Out Of 324 Zoomed Versions Is Classified Correctly, We Deem The Image Classifiable
+54
+…
+Upper-bound Accuracy: The ratio of a dataset that can be correctly classified after
+N = 36 or 324 zoom attempts
+Image source: ImageNet
+bald eagle
+55
+…
+This image is “classifiable”
+If One Out Of 324 Zoomed Versions Is Classified Correctly, We Deem The Image Classifiable
+Upper-bound Accuracy: The ratio of a dataset that can be correctly classified after
+N = 36 or 324 zoom attempts
+Image source: ImageNet, Predictions are from ResNet-50 
+bald eagle
+bald eagle
+brass
+baboon
+book jacket
+Significant Gap Between 1-crop and Maximum Possible Accuracy
+56
+Positional Bias: Maximum Possible Accuracy Is Higher At Center
+58
+Classifier: ResNet-50
+ImageNet-ReaL
+ImageNet-A
+ImageNet-R
+ObjectNet
+ObjectNet images taken by mobile phones
+Exploiting ImageNet-A and ObjectNet Center Bias
+59
+Simply center-cropping the image improve the accuracy of classifiers on ImageNet and ObjectNet.
+4 to 14 % points
+ResNet-50 accuracy on ImageNet-A:        ~0% 
+14%
+(+14 increase)
+The Hardest Images Remaining from a Study of the Power of Zoom and Spatial Biases in Image Classification. Taesiri, Nguyen, Habchi, Bezemer, Nguyen. NeurIPS 2023
+60
+ResNet-50 (GradCAM) focuses on object after MEMO update
+The Hardest Images Remaining from a Study of the Power of Zoom and Spatial Biases in Image Classification. Taesiri, Nguyen, Habchi, Bezemer, Nguyen. NeurIPS 2023
+Introducing ImageNet-Hard
+61
+The Hardest Images Remaining from a Study of the Power of Zoom and Spatial Biases in Image Classification. Taesiri, Nguyen, Habchi, Bezemer, Nguyen. NeurIPS 2023
+Creating ImageNet-Hard
+Different Crops
+62
+Image
+The Hardest Images Remaining from a Study of the Power of Zoom and Spatial Biases in Image Classification. Taesiri, Nguyen, Habchi, Bezemer, Nguyen. NeurIPS 2023
+Creating ImageNet-Hard
+Different Crops
+Keeping 
+Unclassifiable
+Images
+63
+Image
+CLIP ViT-L/14
+Filtered Dataset
+The Hardest Images Remaining from a Study of the Power of Zoom and Spatial Biases in Image Classification. Taesiri, Nguyen, Habchi, Bezemer, Nguyen. NeurIPS 2023
+Unclassifiable: None of the 324 crops are correctly classified
+Imagenet-Hard Consists Of 10,980 Unclassifiable Images Even After 324 Zoom Attempts
+64
+Filtered Dataset
+Keeping 
+Unclassifiable
+Images
+Black Images
+Human Feedback
+Confusing Classes 
+(“sunglass” vs “sunglasses”)
+ImageNet-Hard
+13,925 Images
+10,980 Images
+Manual Filtering Stages 
+Final Dataset
+The Hardest Images Remaining from a Study of the Power of Zoom and Spatial Biases in Image Classification. Taesiri, Nguyen, Habchi, Bezemer, Nguyen. NeurIPS 2023
+The Best model only scores 39% on Imagenet-Hard
+65
+Accuracy
+66
+The Hardest Images Remaining from a Study of the Power of Zoom and Spatial Biases in Image Classification. Taesiri, Nguyen, Habchi, Bezemer, Nguyen. NeurIPS 2023
+groundtruth label
+predicted label by EfficientNet-L2@800px
+GlitchBench
+Testing LMMs on game glitch detection
+67
+https://glitchbench.github.io/
+GlitchBench: Can large multimodal models detect video game glitches? Taesiri, Nguyen, Bezemer. CVPR 2024
+68
+The video game industry is the largest and 
+fastest growing sector of the entertainment 
+industry, surpassing the film and music industries.
+184 billion 
+USD in 2022
+https://www.forbes.com/sites/forbesagencycouncil/2023/11/17/the-gaming-industry-a-behemoth-with-unprecedented-global-reach/?sh=1aa27970512f
+• Music: 26.2 B
+• Movie: 26B
+What is wrong with this scene?
+69
+What is wrong with this scene?
+70
+71
+72
+https://www.reddit.com/r/GamePhysics
+73
+74
+75
+Long-term Research Goals
+Explainable AI 
+Trustworthy AI
+1. Build AIs that are accurate in edge cases 
+(and common cases)
+AI
+input
+decision
+2. Build AIs that maximize human-AI team accuracy
+AI
+input
+decision
+3. Build AIs that humans can debug and edit 
+(AI’s decision-making process)
+AI
+input
+decision
+Long-term Research Goals
+Explainable AI 
+Trustworthy AI
+1. Build AIs that are accurate in edge cases 
+(and common cases)
+AI
+input
+decision
+2. Build AIs that maximize human-AI team accuracy
+AI
+input
+decision
+3. Build AIs that humans can debug and edit 
+(their decision-making process)
+AI
+input
+decision
+76
+Part 2
+Existing AI and XAI
+77
+Input
+Output
+Understand?
+1-way
+Post-hoc?
+78
+https://www.darpa.mil/attachments/XAIProgramUpdate.pdf
+DARPA XAI 2016-2021
+Attribution maps: What input features cause 0.54 matchstick?
+79
+0.54 matchstick
+for matchstick
+against matchstick
+attribution map
+(hypothetical)
+input
+model
+hyperparameters
+Deconvnet: Visualizing and understanding convolutional networks. Zeiler et al. 2014
+Guided-backprop: Striving for simplicity: The all convolutional net. Springenberg et al. 2015
+Integrated Gradients: Axiomatic Attribution for Deep Networks. Sundararajan et al. 2018
+CAM: Learning Deep Features for Discriminative Localization. Zhou et al. 2016
+LIME: Why should i trust you?: Explaining the predictions of any classifier. Ribeiro et al. 2016
+SmoothGrad: removing noise by adding noise. Smilkov et al. 2017
+MP: Interpretable Explanations of Black Boxes by Meaningful Perturbation. Fong et al. 2017
+SHAP: A Unified Approach to Interpreting Model Predictions. Lundberg et al. 2017
+PDA: Visualizing deep neural network decisions: Prediction difference analysis. Zintgraf et al. 2017 
+Grad-CAM: Visual Explanations from Deep Networks via Gradient-based Localization. Selvaraju et al. 2017
+Grad-CAM++: Improved Visual Explanations for Deep Convolutional Networks. Chattopadhyay et al. 2017
+LRP: Beyond saliency: understanding convolutional neural networks from saliency prediction on layer-wise relevance propagation
+DeepLIFT: Learning important features through propagating activation differences. Shrikumar et al. 2017
+RISE: Randomized Input Sampling for Explanation of Black-box Models. Petsiuk et al. 2018
+FIDO: Explaining image classifiers by counterfactual generation. Chang et al. 2019
+Expected Gradients: Learning Explainable Models Using Attribution Priors. Erion et al. 2019
+FG-Vis: Interpretable and Fine-Grained Visual Explanations for Convolutional Neural Networks. Wagner et al. CVPR 2019
+Understanding Deep Networks via Extremal Perturbations and Smooth Masks. Fong et al. ICCV 2019
+MP-G: Removing input features via a generative model to explain their attributions to classifier's decisions. Agarwal et al. 2020
+80
+. . .
+Deconvnet: Visualizing and understanding convolutional networks. Zeiler et al. 2014
+Guided-backprop: Striving for simplicity: The all convolutional net. Springenberg et al. 2015
+Integrated Gradients: Axiomatic Attribution for Deep Networks. Sundararajan et al. 2018
+CAM: Learning Deep Features for Discriminative Localization. Zhou et al. 2016
+LIME: Why should i trust you?: Explaining the predictions of any classifier. Ribeiro et al. 2016
+SmoothGrad: removing noise by adding noise. Smilkov et al. 2017
+MP: Interpretable Explanations of Black Boxes by Meaningful Perturbation. Fong et al. 2017
+SHAP: A Unified Approach to Interpreting Model Predictions. Lundberg et al. 2017
+PDA: Visualizing deep neural network decisions: Prediction difference analysis. Zintgraf et al. 2017 
+Grad-CAM: Visual Explanations from Deep Networks via Gradient-based Localization. Selvaraju et al. 2017
+Grad-CAM++: Improved Visual Explanations for Deep Convolutional Networks. Chattopadhyay et al. 2017
+LRP: Beyond saliency: understanding convolutional neural networks from saliency prediction on layer-wise relevance propagation
+DeepLIFT: Learning important features through propagating activation differences. Shrikumar et al. 2017
+RISE: Randomized Input Sampling for Explanation of Black-box Models. Petsiuk et al. 2018
+FIDO: Explaining image classifiers by counterfactual generation. Chang et al. 2019
+Expected Gradients: Learning Explainable Models Using Attribution Priors. Erion et al. 2019
+FG-Vis: Interpretable and Fine-Grained Visual Explanations for Convolutional Neural Networks. Wagner et al. CVPR 2019
+Understanding Deep Networks via Extremal Perturbations and Smooth Masks. Fong et al. ICCV 2019
+MP-G: Removing input features via a generative model to explain their attributions to classifier's decisions. Agarwal et al. 2020
+81
+. . .
+Natural images
+Fong et al. 2017
+MRI brain scans
+Zintgraf et al. 2017
+Text
+Ribeiro et al. 2016
+Videos
+Srinivasan et al. 2017
+Audio
+Becker et al. 2019
+82
+Gradient
+SmoothGrad
+SP
+LIME
+MP
+0.54 matchstick
+Are these explanations correct and reliable?
+Gradient
+Perturbation
+Gradient + Perturbation
+Smilkov et al. 2017
+Zeiler & Fergus 2014 Ribeiro et al. 2016
+Fong & Vedaldi 2017
+Problems with most attribution methods (“saliency methods”)
+1. After-the-fact (posthoc) explanations attempting to explain a black-box AI.
+83
+Gradient
+SmoothGrad
+SP
+LIME
+MP
+0.54 matchstick
+Gradient
+Perturbation
+Both
+Problems with most attribution methods (“saliency methods”)
+1. After-the-fact explanations attempting to explain a black-box AI.
+2. Sensitive to (many) hyperparameters (some of which are arbitrarily tuned)
+84
+The sensitivity of attribution maps to hyperparameters. Bansal*, Agarwal*, Nguyen*, CVPR 2020
+Problems with most attribution methods (“saliency methods”)
+1. After-the-fact explanations attempting to explain a black-box AI.
+2. Sensitive to (many) hyperparameters (some of which are arbitrarily tuned)
+3. Hard to reproduce (due to iterative optimization & random sampling)
+85
+Meaningful Perturbations (MP)
+Problems with most attribution methods (“saliency methods”)
+1. After-the-fact explanations attempting to explain a black-box AI.
+2. Sensitive to (many) hyperparameters (some of which are arbitrarily tuned)
+3. Hard to reproduce (due to iterative optimization & random sampling)
+4. Can be misleading
+86
+GoogLeNet-R (adversarially trained)
+Gradient
+GoogLeNet
+Gradient
+≠
+SmoothGrad
+Problems with most attribution methods (“saliency methods”)
+1. After-the-fact explanations attempting to explain a black-box AI.
+2. Sensitive to (many) hyperparameters (some of which are arbitrarily tuned)
+3. Hard to reproduce (due to iterative optimization & random sampling)
+4. Can be misleading
+5. Highlights the same main object when AI is either correct or wrong
+87
+The effectiveness of attribution maps. Giang Nguyen, Kim, Anh Nguyen. NeurIPS 2021
+Problems with most attribution methods (“saliency methods”)
+1. After-the-fact explanations attempting to explain a black-box AI.
+2. Sensitive to (many) hyperparameters (some of which are arbitrarily tuned)
+3. Hard to reproduce (due to iterative optimization & random sampling)
+4. Can be misleading
+5. Highlights the same main object when AI is either correct or wrong
+88
+The effectiveness of attribution maps. Giang Nguyen, Kim, Anh Nguyen. NeurIPS 2021
+Existing AI and XAI
+89
+Input
+Output
+Understand?
+1-way
+Post-hoc?
+Future AI
+90
+Input
+Output
+Bottleneck XAI
+Anh Nguyen (2023)
+1. Understand rules
+2. Debug / Audit rules
+3. Edit rules / knowledge
+2-way
+Query image
+An example in Face Identification
+…
+Gallery images
+Found him!
+✅
+Solution: “Slow-thinking” System 2, Explainable AIs
+●
+First explain, Then decide
+●
+Harness external knowledge-bases to make informed decisions
+91
+DeepFace-EMD: Re-ranking Using Patch-wise Earth Mover’s Distance Improves Out-Of-Distribution Face Identiﬁcation. Phan, Nguyen. CVPR 2022
+AI
+Challenge: Zero-shot, fine-grained classification
+2022 
+92
+93
+98.41%
+P@1 on LFW
+39.79%
+P@1 on MLFW
+Masked
+48.23%
+P@1 on MLFW
+Ours: No training
+on masked faces
+DeepFace-EMD: Re-ranking Using Patch-wise Earth Mover’s Distance Improves Out-Of-Distribution Face Identiﬁcation. Hai Phan, Anh Nguyen. CVPR 2022
+Interactive demo: https://anhnguyen.me/project/deepface-emd/
+94
+…
+…
+…
+…
+…
+…
+…
+Query image
+Gallery images
+CNN
+CNN
+Image embeddings
+Stage 1: Image similarity-based ranking
+Query image
+Top-! candidates
+CNN
+CNN
+Feature
+Weighting
+!!
+""
+Ground distance matrix
+Optimal flow
+0.1
+0.3
+0.2
+0.7
+0.01
+0.1
+0.6
+0.02
+0.01
+0.01
+0.4
+0.8
+0.3
+0.5
+0.7
+0.4
+⨂
+0.1
+0.0
+0.0
+0.0
+0.0
+0.2
+0.6
+0.01
+0.0
+0.0
+0.4
+0.4
+0.0 
+0.0
+0.01
+0.8
+=
+Stage 2: Patch-wise similarity-based re-ranking
+{ ##!}
+{ #$"}
+flow
+distance /#, /$ = 1 −
+/#, /$
+/#
+/$
+/#
+/$
+EMD distance
+DeepFace-EMD: Re-ranking Using Patch-wise Earth Mover’s Distance Improves Out-Of-Distribution Face Identiﬁcation. Phan, Nguyen. CVPR 2022
+First, global
+Then, local
+Ranking
+Re-ranking
+95
+Query image
+Top-! candidates
+CNN
+CNN
+Feature
+Weighting
+!!
+""
+Ground distance matrix
+Optimal flow
+0.1
+0.3
+0.2
+0.7
+0.01
+0.1
+0.6
+0.02
+0.01
+0.01
+0.4
+0.8
+0.3
+0.5
+0.7
+0.4
+⨂
+0.1
+0.0
+0.0
+0.0
+0.0
+0.2
+0.6
+0.01
+0.0
+0.0
+0.4
+0.4
+0.0 
+0.0
+0.01
+0.8
+=
+Stage 2: Patch-wise similarity-based re-ranking
+{ ##!}
+{ #$"}
+flow
+EMD distance
+DeepFace-EMD: Re-ranking Using Patch-wise Earth Mover’s Distance Improves Out-Of-Distribution Face Identiﬁcation. Phan, Nguyen. CVPR 2022
+Find patch-wise correspondence between two images using optimal transport
+Cross correlation to filter out irrelevant regions
+96
+97
+DeepFace-EMD improves robustness for all tested backbone CNNs
+Ranking
+Re-Ranking
+Re-Ranking
+Re-Ranking
+98
+DeepFace-EMD improves robustness for all tested backbone CNNs
+Solution: “Slow-thinking” System 2, Explainable AIs
+●
+First explain, Then decide
+●
+Harness external knowledge-bases to make informed decisions
+99
+AI
+XAI
+97%
+Evening
+Grosbeak
+Explanation
+Input
+. . .
+100
+101
+Idea: Rank using image similarity, then, re-rank using patch-wise similarity
+1.
+Zoom-in to find important, discriminative patches
+2.
+Use only 5 most important patches per image to make (zero-shot) classification decisions.
+Zoom-in to find important, discriminative patches
+102
+Visual correspondence-based explanations improve AI robustness and human-AI team accuracy. Nguyen, Taesiri, Nguyen. NeurIPS 2022
+Zoom-in to find important, discriminative patches
+103
+Visual correspondence-based explanations improve AI robustness and human-AI team accuracy. Nguyen, Taesiri, Nguyen. NeurIPS 2022
+Solution: “Slow-thinking” System 2, Explainable AIs
+●
+First explain, Then decide
+●
+Harness external knowledge-bases to make informed decisions
+104
+AI
+XAI
+97%
+Evening
+Grosbeak
+Explanation
+Input
+. . .
+Fine-grained Bird identification (CUB200-2011) 200 classes
+105
+Fine-grained Bird identification (CUB200-2011) 200 classes
+106
+Acadian Flycatcher
+American Crow
+American Goldfinch
+Common Raven
+House Sparrow
+House Wren
+. . .
+. . .
+. . .
+Task: Choose one among 200 classes
+Too hard for lay users
+Visual correspondence-based explanations improve AI robustness and human-AI team accuracy. Nguyen, Taesiri, Nguyen. 2022
+Fine-grained Bird identification 
+Yes / No question
+107
+Acadian Flycatcher
+American Crow
+American Goldfinch
+House Sparrow
+House Wren
+. . .
+. . .
+. . .
+AI
+I’m 60% confident this is…
+Task: Choose one among 200 classes
+Fine-grained Bird identification 
+Yes / No question
+108
+Acadian Flycatcher
+American Crow
+American Goldfinch
+House Sparrow
+House Wren
+. . .
+. . .
+. . .
+AI
+I’m 30% confident this is…
+Task: Choose one among 200 classes
+Evening Grosbeak
+Visual correspondence-based explanations improve AI robustness and human-AI team accuracy. Nguyen, Taesiri, Nguyen. 2022
+Nearest neighbors hurts user accuracy
+109
+Acadian Flycatcher
+American Crow
+American Goldfinch
+House Sparrow
+House Wren
+. . .
+. . .
+. . .
+AI
+I’m 30% confident this is…
+Task: Choose one among 200 classes
+Evening Grosbeak
+Visual correspondence-based explanations improve AI robustness and human-AI team accuracy. Nguyen, Taesiri, Nguyen. 2022
+Random explanations
+3-NN explanations
+110
+111
+Visual correspondence improves user accuracy
+112
+Visual correspondence-based explanations improve AI robustness and human-AI team accuracy. Nguyen, Taesiri, Nguyen. NeurIPS 2022
+3-NN explanations
+Random explanations
+113
+Long-term Research Goals
+Explainable AI 
+Trustworthy AI
+1. Build AIs that are accurate in edge cases 
+(and common cases)
+AI
+input
+decision
+2. Build AIs that maximize human-AI team accuracy
+AI
+input
+decision
+3. Build AIs that humans can debug and edit 
+(their decision-making process)
+AI
+input
+decision
+Long-term Research Goals
+Explainable AI 
+Trustworthy AI
+1. Build AIs that are accurate in edge cases 
+(and common cases)
+AI
+input
+decision
+2. Build AIs that maximize human-AI team accuracy
+AI
+input
+decision
+3. Build AIs that humans can debug and edit 
+(their decision-making process)
+AI
+input
+decision
+114
+Part 3
+115
+CLIP
+116
+CLIP
+What is a key limitation of CLIP classifiers?
+117
+CLIP
+What is a key limitation of CLIP classifiers?
+118
+CLIP
+What is a key limitation of CLIP classifiers?
+A photo of a Blue Jay
+A photo of a Cyanocitta cristata
+Yellow warbler
+Part-based, Explainable, Editable Language Bottleneck
+119
+NAACL 24
+Indigo Bunting
+Junco
+.….
+text embeddings
+visual part embeddings
+Indigo Bunting
+200 classes
+Yellow warbler
+120
+NACCL 24
+Indigo Bunting
+Junco
+.….
+Indigo Bunting
+❌
+200 classes
+Part-based, Explainable, Editable Language Bottleneck
+Yellow warbler
+Part-based, Explainable, Editable Language Bottleneck
+121
+Indigo Bunting
+Junco
+.….
+Eastern Bluebird
+edit
+edit
+Yellow warbler
+122
+Indigo Bunting
+Junco
+.….
+Eastern Bluebird
+Eastern Bluebird
+✅
+200 + 1 classes
+Part-based, Explainable, Editable Language Bottleneck
+Eastern Bluebird
+123
+Part-based, Explainable, Editable Language Bottleneck
+•
+Build Bird-11K, the largest bird-image dataset ever. 290,000 images and 11,000 images
+•
+Collect an additional 55,000 (10,534 classes) from Macaulay Library
+•
+Use GPT-4 to generate descriptors
+•
+Contrastive learning + finetuning on a target dataset
+~ all birds on Earth
+124
+125
+Pre-training Step 1
+Loss 1
+126
+Pre-training Step 2
+Loss 2
+Loss 3
+•
+Loss 1: SCE (part name)
+•
+Loss 2: SCE (part descriptor)
+•
+Loss 3: DETR
+127
+Finetuning on CUB-200
+•
+Loss 1: SCE (part name)
+•
+Loss 2: CE (part descriptor)
+•
+Loss 3: DETR
+128
+PEEB obtains SotA zero-shot performance on birds
+CLIP depends heavily on the known class names in the prompt “a photo of a painted bunting”
+CLIP’s zero-shot: CZSL (test on both seen and unseen classes, 
+BUT samples of unseen classes may be in the training set)
+129
+PEEB obtains SotA generalized zero-shot performance 
+Generalized zero-shot: GZSL (test on both seen and unseen classes)
+130
+131
+132
+Future XAI
+Wikipedia
+133
+Thank you!
+Trustworthy AI
+Explainable AI
+1. Build AIs that are accurate in edge cases
+2. Build AIs that maximize human-AI team accuracy
+3. Build AIs that humans can debug and edit
+Research gratefully funded by
+School bus
+Conclusion

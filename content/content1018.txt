@@ -1,7 +1,0 @@
-AI VIETNAM aivietnam.edu.vn
-Trong các ứng dụng RAG thông thường, thông tin ngữ cảnh truy vấn sẽ được đưa vào mô hình để
-sinh ra kết quả, bất kết rằng thông tin đó có liên quan hay không. Điều này làm cho kết quả sinh ra
-bởi mô hình trở nên nhiễu và làm chậm tốc độ tạo sinh đi rất nhiều. Vì vậy nghiên cứu "Corrective
-Retrieval Augmented Generation" Yan et al., 2024 được đưa ra nhằm giải quyết vấn đề này. Bài báo này
-đi vào nghiên cứu những trường hợp khi những thông tin truy vấn được không liên quan hoặc không
-chính xác, đồng thời đề xuất 1 cơ chế tự động điều chỉnh và tối ưu những văn bản truy vấn.

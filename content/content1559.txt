@@ -1,3 +1,0 @@
-Mặc dù tabula-py còn khá nhiều hạn chế đối với cấu trúc bảng phức tạp tuy nhiên nó cũng có
-nhiều ưu điểm đáng để ta ưu tiên sử dụng khi trích xuất bảng trong pdf.
-6

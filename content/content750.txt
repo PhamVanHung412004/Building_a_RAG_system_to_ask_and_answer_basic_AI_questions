@@ -1,2 +1,0 @@
-. 22
-7.9 Một số hàm thông dụng khác . . 

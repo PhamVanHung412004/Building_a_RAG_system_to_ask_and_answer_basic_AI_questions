@@ -1,0 +1,670 @@
+AI VIET NAM – COURSE 2023
+Foundation of Prompt Engineering
+Ngày 19 tháng 3 năm 2024
+Phần I: Tổng quan vềRAG
+Phần II: Retrieval Augmented Generation
+(RAG)
+Trong bối cảnh các mô hình ngôn ngữlớn (LLM) phát triển mạnh mẽ, sựxuất hiện của các mô hình
+GPT (OpenAI), LLama (Meta), Gemini (Google) đã thểhiện khảnăng ấn tượng trong việc sinh ngôn
+ngữ, thực hiện tác tác vụvới ngôn ngữtựnhiên. Cho dù vậy, các mô hình ngôn ngữlớn vẫn cho thấy
+còn nhiều điểm yếu như dữliệu thiếu tính cập nhật, thiếu dữliệu chuyên môn cho các lĩnh vực cụthể
+hay sinh ngôn ngữthiếu chính xác (hay được biết đến với thuật ngữ"hallucination").
+Bên cạnh đó, nhu cầu sửdụng mô hình ngôn ngữđểtương tác với dữliệu riêng, dữliệu doanh
+nghiệp cũng gặp nhiều khó khăn với việc các giải pháp fine-tuning, training LLM bởi chi phí lớn và yêu
+cầu kỹthuật cao. RAG ra đời cung cấp giải pháp nhanh chóng, tiện lợi cho phép LLM sửdụng thông
+tin bổsung đểgiao tiếp, ...
+1
+Khái niệm RAG
+Retrieval Augmented Generation (RAG) lần đầu được giới thiệu bởi nhóm kỹsư thuộc Meta AI là một
+kỹthuật trong lĩnh vực xửlý ngôn ngữtựnhiên (NLP) nhằm nâng cao độchính xác và tin cậy của các
+mô hình tạo văn bản (Generative language models - LLMs). RAG kết hợp hai thành phần chính: cấu
+phần truy xuất thông tin (Retriever) và mô hình sinh ngôn ngữ(Generator):
+• Truy xuất thông tin (Retrieval): RAG không chỉdựa vào dữliệu đào tạo ban đầu của LLM
+mà còn truy cập một nguồn kiến thức bên ngoài, thường là các văn bản được xác định trước và
+có độtin cậy cao. Khi nhận được yêu cầu, RAG sẽphân tích nó và tìm kiếm thông tin liên quan
+trong nguồn kiến thức bên ngoài.
+• Tạo văn bản (Generation): Dựa trên thông tin đã truy xuất, LLM sẽtạo ra văn bản phản hồi
+phù hợp với yêu cầu. Quá trình này có thểbao gồm tóm tắt, giải thích, trảlời câu hỏi, viết văn
+bản sáng tạo, v.v.
+Trong bài báo của Lewis et al. (2021), khi lần đầu đềcấp đến hệthống RAG, Lewis đã sửdụng một
+mô hình seq2seq huấn luyện trước ...
+1
+AI VIETNAM
+aivietnam.edu.vn
+Hình 1: Giải pháp RAG cung cấp bởi Lewis (2020). Giải pháp kết hợp một mô hình truy vấn được huấn
+luyện trước (Query Encoder + Document Index) và một mô hình seq2seq huấn luyện trước (Generator).
+Với đầu vào là truy vấn x, Maximum Inner Product Search (MIPS) được sửdụng đểtìm ra top-k tài
+liệu liên quan. Tài liệu tìm thấy được sửdụng trong phần dựbáo của mô hình seq2seq.
+Hình 2: Hệthống RAG cơ bản với các cấu phần: Nguồn thông tin tra cứu (Knowledge Base), Truy vấn
+(Retriever), Mô hình sinh (Generator), Truy vấn đầu vào và Kết quảđầu ra.
+Hệthống RAG cho phép tìm kiếm và nhận vềcác tài liệu liên quan đến câu hỏi truy vấn của người
+dùng. Các tài liệu này được sửdụng như nguồn thông tin kết hợp với câu hỏi truy vấn đểtạo ra câu
+trảlời cuối cùng thông qua một mô hình sinh ngôn ngữ. Phương pháp này cho phép RAG thích ứng với
+các yêu cầu mà nguồn thông tin thay đổi theo thời gian thực, truy cập thông tin mới nhất, tạo ra kết
+quảđáng tin câỵmà không cần phải huấn luyện lại mô hình. Đây cũng là lý do giúp RAG trởthành
+giải pháp hữu hiệu giải quyết nhược điểm "hallucination" của các mô hình ngôn ngữhuấn luyện trước.
+2
+Cấu trúc tổng quan
+Tương tựnhư các giải pháp LLM khác, hệthống RAG tiếp nhận yêu cầu người dùng (User Query) và
+xửlý đểđưa ra kết quảtrảvề(Output). Ngoài ra hai cấu phần chính của hệthống RAG là bộtruy
+vấn (Retriever) và mô hình sinh (Generator). Thông thường, bên cạnh Retriever, một cơ sởdữliệu phi
+cấu trúc (Knowledge Base) cần được được thiết lập và xửlý trước.
+2
+AI VIETNAM
+aivietnam.edu.vn
+Hình 3: Ví dụchi tiết hoạt động của hệthống RAG. Nguồn: Gao et al. (2024)
+Các thành phần trong ví dụcó thểgiải thích như sau:
+• Input: Câu hỏi đầu vào, thường được cung cấp/yêu cầu bởi người dùng nhằm truy vấn và tương
+tác với mô hình ngôn ngữ.
+• Indexing: Trong hệthống RAG, đểxây dựng Knowledge Base, các văn bản/tài liệu cần được xử
+lý (indexing) và lưu trữdưới các định dạng dễdàng truy vấn như vector. Các thao tác cần xử
+lý có thểkểđến như phân đoạn (chunking), vector hoá (embedding), lưu trữtrên cơ sởdữliệu
+vector (vector store database). Trong quá trình truy vấn, câu hỏi người dùng sẽđược embedded
+đểsẵn sàng cho các thuật toán tìm kiếm.
+• Retrieval: Quá trình tìm kiếm các đoạn tài liệu (chunks) liên quan đến câu hỏi truy vấn. Công
+tác tìm kiếm thường được thực hiện thông qua phép tìm kiếm mức độtương đồng (similarity), so
+sánh vector truy vấn và vector đã được xửlý (index) trong cơ sởdữliệu vector. Các kết quảcó
+similarity score cao thểhiện mức độtương quan tốt với câu hỏi truy vấn. Giá trịtop-k cũng được
+thiết lập tại bước này nhằm thểhiện sốlượng k tài liệu có score cao nhất được lấy ra từbước này.
+• Generation: Khái niệm thểhiện cho các mô hình sinh ngôn ngữ, có thểbiết đến như các mô
+hình ngôn ngữlớn (từcác mô hình thương mại như GPT - OpenAI, Gemini - Google, Claude
+- Anthropic cho đến các mô hình mã nguồn mởnhư Llama - MetaAI, BLOOM, BERT, Falcon,
+Mixtral, Vicuna, PhoGPT,...). Trong hệthống RAG, các tài liệu liên quan được đưa vào mô hình
+ngôn ngữcùng câu hỏi dưới dạng prompt (ngữcảnh bổsung thông tin). Kết quảtừmô hình ngôn
+ngữđược đưa vềngười dùng như câu trảlời.
+3
+Phân loại RAG
+Theo Yunfan Gao et al, một khảo sát tổng hợp chi tiết vềsựphát triển của các hệthống RAG đã được
+thực hiện và ra công bốvào những ngày đầu năm dương lịch 2024 Gao et al. (2024). Theo đó, các hệ
+3
+AI VIETNAM
+aivietnam.edu.vn
+thống RAG có thểđược phân loại theo các bước phát triển của mô hình từRAG cơ bản (Naive) đến
+RAG nâng cao (Advanced) và Mô-đun RAG (Modular). Các mô hình có sựcập nhật và giải quyết được
+các giới hạn của mô hình trước vềcác mặt mức độthểhiện (performance), thời gian và hiệu quả(cost
+and efficiency).
+Hình 4: Phân loại hệthống RAG. Nguồn: Gao et al. (2024)
+(a) RAG cơ bản bao gồm các bước thực hiện truyền thống từ: xửlý dữliệu nguồn (indexing), truy
+vấn (retrieval) và sinh câu trảlời (generation). RAG cơ bản tồn tại các giới hạn như chỉlệchính
+xác chưa cao đén từviệc truy vấn thiếu chính xác các phân đoạn tài liệu (chunks) liên quan. Điều
+này cũng là nguyên nhân khiến các vấn đềvề"tựcho mình đúng" (hallucination) từcác mô hình
+LLM còn tồn tại.
+(b) RAG nâng cao cung cấp các giải pháp giải quyết nhược điểm của RAG cơ bản như cải thiện
+chất lượng truy vấn bằng cách thực thi các giải pháp tiền truy vấn, trong truy vấn và sau truy
+vấn.
+• Giải pháp tiền truy vấn: bao gồm tối ưu quá trình xửlý dữliệu nguồn như tối ưu cấu
+trúc tài liệu đã xửlý bằng các phương pháp tách tài liệu (chunking khác nhau: sentence
+splitter, sentence window, semantic splitter, hierarchical,...), bổsung metadata, tối ưu mô
+hình embedding bằng embedding fine-tuning,...
+• Giải pháp truy vấn: Quá trình truy vấn có thểđược cải thiện bằng các giải pháp viết lại
+câu hỏi truy vấn (Sub-queries), truy vấn mởrộng (sửdụng bộlọc metadata), truy vấn với
+các phương pháp khác nhau (full-text search, semantic-search, hybrid-search).
+• Giải pháp sau truy vấn: Các kết quảsau khi truy vấn với nhiều phương pháp được xếp
+hạng lại nhằm đánh giá lại mức độtương quan trước khi chọn ra top-k tài liệu liên quan
+nhất.
+4
+AI VIETNAM
+aivietnam.edu.vn
+(c) Mô-đun RAG: Một cách hệthống, giải pháp RAG bao gồm nhiều cấu phần, mỗi cấu phần thực
+hiện các chức năng khác nhau. Mô-đun RAG được thiết kếvới các mô đun chức năng nhằm cải
+thiện chất lượng của các cấu phần thuộc hệthống RAG. Một cách tổng quan, RAG cơ bản là một
+giải pháp thuộc RAG nâng cao, RAG nâng cao là một trường hợp của Mô-đun RAG với các chức
+năng cốđịnh. Các mô đun RAG bao gồm tìm kiếm (Search), bộnhớ(Memory), kết hợp (Fusion),
+(Routing), (Predict), (Task Adaptable Module). Các mô đun này được sắp xếp đểgiải quyết các
+vấn đềcụthể.
+Nhằm tăng tính linh hoạt của hệthống RAG, một sốkỹthuật có thểáp dụng như:
+• Hybrid Search Exploration: Là giải pháp kết hợp hai giải pháp tìm kiếm là tìm kiếm với
+từkhoá (keyword) và tìm kiếm theo ngữnghĩa (semantic). Giải pháp này tối ưu được kết
+quảchính xác từviệc tìm theo từkhoá và việc linh hoạt tìm kiếm với các từcùng ngữcảnh.
+Kết hợp với giải pháp này thường là các thuật toán xếp hạng (reranker) đểphân hạng lại
+các kết quảcó được từhai phương pháp tìm kiếm.
+• Recursive Retrieval and Query Engine: Giải pháp cung cấp phương pháp phân chia
+tài liệu hiệu quảvới các cấp phân chia. Cấp nhỏđểphân chia thành các đoạn tài liệu ngắn
+nhằm gia tăng khảnăng tìm kiếm các nội dung tương đồng. Sau đó, cấp lớn chứa đoạn tài
+liệu dài hơn, bao chùm ngữcảnh tốt hơn (chứa đoạn nhỏ) được trảvềnhư kết quảtìm kiếm.
+Giải pháp cho phép tìm kiếm chính xác hơn mà vẫn giữđược ngữcảnh của tài liệu.
+• Sub-Queries: Trong bối cảnh thực tế, rất nhiều loại truy vấn được thực hiện. Nhằm tối ưu
+việc truy vấn, các giải pháp vềtruy vấn được đềxuất, từviệc đơn giản hoá truy vấn, truy
+vấn nhiều cấp hay xác định chủđích truy vấn. Các giải pháp này nhằm tăng cường mức độ
+hoàn thiện của đầu vào truy vấn, cũng như nâng cao mức độchính xác của kết quảtruy vấn.
+• Hypotherical Document Embeddings: Gao et al. (2022) đã đưa ra giải pháp mới với
+quan điểm tìm kiếm dựa trên một câu trảlời giảthuyết sẽcho kết quảtốt hơn tìm kiếm
+trực tiếp với câu hỏi truy vấn. Giải pháp HyDE sửdụng một LLM đểtạo ra một câu trảlời
+giảthuyết cho câu hỏi truy vấn. Sau đó câu trảlời này được sửdụng làm đầu vào cho việc
+tìm kiếm thông tin liên quan. Kết quảtìm kiếm sẽđược đưa trởlại LLM cùng câu hỏi truy
+vấn đểtạo ra câu trảlời cuối cùng. Trên thực tế, giải pháp này không phải lúc nào cũng
+hiệu quảdo phụthuộc hoàn toàn vào câu trảlời giảthuyết. Khi chủđềcủa câu hỏi không
+có sẵn trong dữliệu được huấn luyện trước của LLM, kết quảnhận vềthường không được
+như mong đợi.
+4
+Cấu phần RAG
+Trong nội dung này, chi tiết các giải pháp cho từng cấu phần của hệthống RAG: Retrieval, Augmented,
+Generation sẽđược đềcập. Mỗi giải pháp có điểm mạnh riêng và phù hợp với các trường hợp cụthể.
+4.1
+Tăng cường (Augmented) và Truy vấn (Retrieval) dữliệu
+Tăng cường và truy vấn là cấu phần quan trọng trong việc tổchức và tìm kiếm tài liệu liên quan với
+yêu cầu người dùng (user query). Việc xây dựng một quy trình truy vấn hiệu quảluôn là vấn đềthen
+chốt trong mọi hệthống RAG.
+Trong các mô hình RAG, công tác tổchức truy vấn bao gồm cảnhiệm vụtăng cường (augmented)
+tổchức cơ sởdữliệu (xửlý dữliệu thô, lưu trữ, duy trì ngữnghĩa,...) và nhiệm vụtìm kiếm tài liệu
+(tra cứu thông tin liên quan theo yêu cầu của người dùng). Dưới góc nhìn của người viết, ba cấu phần
+chính của công tác Truy vấn được phân loại bao gồm: Xửlý dữliệu đầu vào (Data Structure), Xửlý
+lưu trữvà đại diện ngữnghĩa (Semantic Representation), Truy vấn - tìm kiếm (Searching).
+5
+AI VIETNAM
+aivietnam.edu.vn
+Hình 5: Các nhiệm vụtrong công tác Truy vấn - Retrieval
+4.1.1
+Xửlý dữliệu
+Các mô hình RAG tốt thường thích ứng với đa dạng các định dạng dữliệu đầu vào. Tuy nhiên, một số
+bài toán cho dữliệu riêng cần được thiết kếcông cụđọc và bóc tách dữliệu hiệu quả.
+Vềphía các mô hình ngôn ngữlớn (LLM) ởthời điểm hiện tại đều gặp giới hạn vềđộdài ngữcảnh
+(context) văn bản mà LLM có thểxửlý. Ví dụ: giới hạn 128k với GPT4 phiên bản mới nhất, 16k với
+GPT3.5, 32k với Gemini, 32k Llama-2, 8k Mixtral 8x7b,...
+Ngoài ra, việc đưa lượng lớn dữliệu vào ngữ
+cảnh cho LLM được chứng minh là không hiệu quả
+với một sốvịtrí. Liu et al. (2023) bằng cách thử
+nghiệm với các ngữcảnh dài đã chỉra rằng việc sử
+dụng ngữcảnh dài sẽgặp khó khăn với các câu hỏi
+mà thông tin liên quan nằm giữa ngữcảnh. Các
+câu hỏi sửdụng thông tin nằm ởđầu và cuối của
+ngữcảnh thường cho kết quảtốt hơn.
+Đểgiải quyết vấn đềnày, việc chia nhỏdữliệu
+đầu vào với tham sốđộdài và chiến lược phân
+chia (chunking) phù hợp là giải pháp vô cùng quan
+trọng. Đềbài đặt ra là xây dựng phép chia tài liệu
+mà ởđó kết quảsau khi phân chia, các thông tin
+nằm trong một đoạn phải có ý nghĩa liên quan với
+nhau và việc phân tách không được làm mất thông
+tin.
+Đi từgiải pháp RAG cơ bản, việc phân đoạn đơn
+giản là phân chia đoạn theo độdài (chunk size) với
+đơn vịlà tokens, hay bổsung phân đoạn chồng lấn
+(overlap chunk) nhằm giữlại thông tin giữa các
+chunks, phân chia theo câu (Sentence Splitter).
+Hình 6: Hiện tượng Lost in the Middle chỉra các
+mô hình LLM thểhiện kém với việc hỏi đáp liên
+quan đến thông tin nằm ởgiữa ngữcảnh dài.
+Tuy nhiên các giải pháp phân chia cơ bản thường gặp nhiều vấn đềnhư không các đoạn chia (chunk)
+không chứa thông tin liên quan. Độdài của các phân đoạn thường là cốđịnh nên không phù hợp. Nếu
+độdài quá lớn sẽdẫn đến khó tìm kiếm với thông tin chi tiết. Nếu độdài quá ngắn sẽdẫn đến khó có
+được bối cảnh tổng quan.
+Với giải pháp RAG nâng cao, các hướng tiếp cận hiệu quảhơn được đềcập nhằm đưa ra các phương
+án chia nhỏtối ưu đểcó thểvừa nâng cao khảnăng tìm kiếm chi tiết mà vẫn có được thông tin bối
+6
+AI VIETNAM
+aivietnam.edu.vn
+cảnh. Độdài của các phân đoạn có thểlinh hoạt ấn định cho phù hợp với nội dung ngữnghĩa. Một số
+giải pháp có thểkểđến như sau:
+• Sentence Window: là giải pháp phân chia theo câu kết hợp cửa sổmởrộng. Dữliệu được ngữ
+nghĩa hoá (word2vec) là đơn vịcâu, tuy nhiên dữliệu trảvềlà dữliệu mởrộng cho câu lân cận.
+Tham sốđộrộng cửa sổđược khai báo cho phép người dùng tuỳchỉnh độdài văn bản trảvề.
+• Hierarchical Splitter: là giải pháp chia nhỏdữliệu theo nhiều cấp. Trong đó, các cấp được
+phân loại theo độdài và được ví như các đoạn mẹ(parent) và các đoạn con (child). Các đoạn mẹ
+có độdài lớn hơn sẽbao gồm nhiều đoạn con, đoạn mẹmang thông tin vềngữcảnh. Ngược lại,
+các đoạn con có độdài ngắn hơn sẽchứa thông tin chi tiết vềcác đối tượng, phù hợp hơn cho các
+phép tìm kiếm chi tiết. Giải pháp này cho phép việc truy vấn có thểtìm kiếm với thông tin chi
+tiết mà không bịmất đi dữkiện bối cảnh.
+• Semantic Splitter: Kamradt (2024) đã giới
+thiệu giải pháp phân đoạn thông minh nhằm tối
+ưu sựliên quan của các câu trong văn bản. Giải
+pháp sửdụng một mô hình embedding đểđại
+diện ngữnghĩa cho các phân đoạn. Tác giảcoi
+mỗi câu văn như một đơn vịtrong một bài toán
+chuỗi thời gian (Time Series). Một thuật toán
+chạy lặp qua các cửa sổđược thực hiện đểtìm
+ra điểm ngắt của các phân đoạn không liên quan
+với nhau vềmặt ngữnghĩa. Theo cách tiếp cận
+này, việc phân chia văn bản được thực hiện tự
+động mà vẫn giữđược thông tin liên quan giữa
+các câu văn trong cùng một phân đoạn (chunk).
+Hình 7: Giải pháp Semantic Splitter.
+• Agentic Splitter: Cũng trong phần trình bày của mình Kamradt (2024) đã giới thiệu giải pháp
+chia nhỏAgentic dựa trên bài báo Chen et al. (2023).
+• Enhancing Semantic Representations, Aligning Queries and Documents, Aligning Re-
+triever and LLM
+Xửlý dữliệu dạng bảng: Bên cạnh các giải pháp xửlý dữliệu chữ, thông tin từhệthống bảng biểu
+cũng được cân nhắc. Bởi việc bóc tách xửlý chữthông thường không giữlại được cấu trúc và mối quan
+hệtrong các bảng biểu. Các phương pháp đơn giản sẽchuyển đổi cấu trúc bảng thành các cấu trúc dễ
+hiểu hơn với máy như markdown hoặc html.
+7
+AI VIETNAM
+aivietnam.edu.vn
+Hình 8: Xửlý thông tin dạng bảng với phép biến đổi markdown và html. Thông tin trích xuất trực tiếp
+với Raw-text cho thấy cấu trúc bảng không rõ ràng. Cấu trúc bảng của markdown và html cho phép
+các LLM dễhiểu hơn nội dung trong bảng.
+Dữliệu có cấu trúc: Một sốgiải pháp coi dữliệu dạng bảng như một nguồn dữliệu cung cấp
+các thông tin chính xác. Các giải pháp này tập trung vào việc nâng cao khảnăng suy luận và truy vấn
+thông tin từcác cơ sởdữliệu có cấu trúc.Wang et al. (2024) đềcập giải pháp có tên gọi Chain of Table,
+trong đó phương pháp thiết lập một chuỗi các lập luận với LLM đểthực thi các truy vấn nhằm đạt
+được kết quảliên quan nhất với câu hỏi đầu vào.
+Hình 9: So sánh giải pháp truy vấn thông tin bảng biểu (a) generic reasoning, (b) program-aided
+reasoning, and (c) CHAIN-OF-TABLE..
+Knowledge Graph: Bên cạnh các kiến trúc lưu trữdữliệu truyền thống, Graph database hay
+8
+AI VIETNAM
+aivietnam.edu.vn
+Knowledge Graph được cân nhắc như một giải pháp hiệu quảđểquản lý kiến thức. Bởi sựphát triển
+mối quan hệtheo chiều ngang, việc thiết lập các lập luận (reasoning) được thực hiện dễdàng hơn. Tuy
+nhiên, các mô hình Knowledge Graph thường tốn công sức đểxây dựng hơn các kiến trúc dữliệu khác.
+4.1.2
+Embedding Models
+Trong các tác vụxửlý ngôn ngữ, embeddings đóng vai trò chuyển đổi, đại diện thông tin từcác các
+chủthểnhư hình ảnh, âm thanh hay chữ. Trong giải pháp RAG, embeddings được sửdụng trong thuật
+toán tìm kiếm theo ngữnghĩa (semantic search).
+Vềmặt toán học, kết quảembeddings được lưu trữdưới dạng các vector. Mỗi vector là một chuỗi
+các số, trong đó mỗi sốtương ướng với một chiều không gian. Tại các chiều không gian đó, thuật toán
+tìm kiếm tương đồng (similar) được thực thi đểtìm ra các vector gần nhau trong cơ sởdữliệu vector.
+Như vậy, mục tiêu của embeddings là việc đại diện hoá thông tin từngữcảnh (chữ) sang không gian
+vector sao cho các thông tin có nghĩa giống nhau sẽcó khoảng cách gần nhau.
+Hình 10: Embedding đại diện thông tin văn bản dưới dạng vector.
+Các mô hình embedding: Muennighoff et al. (2023) đã thực hiện đánh giá 08 tác vụembedding
+trên 15 tập dataset, phủ112 ngôn ngữ. Kết quảcủa đánh giá được thểhiện trên một bảng xếp hạng
+chất lượng của các mô hình embeddings.
+Hình 11: Kết quảđánh giá mô hình embeddings dựa trên mức độthểhiện, tốc độ, sốchiều, kích thước
+dữliệu. Đánh giá được thực hiện trên phần cứng Nvidia A100 80GB, CUDA 11.6.
+9
+AI VIETNAM
+aivietnam.edu.vn
+Dựa trên kết quảđánh giá, một bảng xếp hạng các mô hình embedding đã được xây dựng dựa vào
+các tiêu chí.
+Hình 12: Bảng xếp hạng các mô hình embeddings dựa trên kết quảđánh giá của Muennighoff et al.
+(2023)
+Hiệu chỉnh (fine-tuning) mô hình embedding: Trong các giải pháp RAG, hiệu chỉnh embedding
+là một cách được cân nhắc đểcải thiện chất lượng truy vấn. Các mô hình embedding gốc không được
+huấn luyện với dữliệu riêng của người dùng nên việc đại diện ngữnghĩa có thểkhông hoàn toàn tốt.
+Công tác hiệu chỉnh mô hình embedding là quá trình cập nhật lại tham sốcủa mô hình với nhằm đưa
+thêm thông tin dữliệu riêng vào mô hình.
+Các bước thực hiện hiệu chỉnh mô hình bao gồm:
+• Tạo dữliệu huấn luyện: Bên cạnh việc xây dựng các tập dữliệu huấn luyện một cách thủcông,
+nhiều giải pháp sửdụng các mô hình ngôn ngữlớn đểtạo dataset được sửdụng. Trong đó, LLM
+tạo ra câu hỏi giảthuyết tương ứng với thông tin chứa trong đoạn văn bản đểtạo ra bộcâu hỏi -
+đoạn chứa thông tin liên quan.
+• Hiệu chỉnh mô hình embedding: Sửdụng tập dữliệu được chuẩn bịtrước và một mô hình
+embedding mã nguồn mởvới thuật toán SentenceTransformers, việc huấn luyện hiệu chỉnh mô
+hình được thực hiện cùng các phép đánh giá đảm bảo mô hình đầu ra phù hợp với các tác vụtruy
+vấn. Code tham khảo cho hiệu chỉnh embedding model được viết bởi Jerry Liu.
+• Đánh giá mô hình: Đánh giá được thực thi đểkiểm tra chất lượng mô hình sau khi hiệu chỉnh.
+Thông thường, việc hiệu chỉnh tốt sẽtăng cường chất lượng của mô hình hỏi đáp từ5-10 phần
+trăm.
+4.1.3
+Giải pháp truy vấn (Retrieval)
+Dữliệu sau khi xửlý được lưu trữtrên các cơ sởdữliệu như Vector database, Knowledge graph hay
+non-sql (Mongodb). Công việc tiếp theo là thực thi các truy vấn. Mục tiêu là truy vấn được các thông
+tin liên quan nhất với câu hỏi đầu vào. Một sốgiải pháp có thểđềcập đến như:
+10
+AI VIETNAM
+aivietnam.edu.vn
+• Viết lại câu hỏi: Trong quá trình hỏi đáp, việc làm rõ câu hỏi đầu vào giúp cho việc tổchức
+truy vấn hiệu quả. Việc sửdụng một LLM có hướng dẫn (instruction) đểviết lại câu hỏi đầu vào
+của người dùng là giải pháp phù hợp với những câu hỏi quá đơn giản hoặc quá phức tạp.
+• Hypothetical Document Embedding: Tạo ra câu hỏi giảthuyết đểphục vụembedding và
+tìm kiếm thông tin liên quan.
+• Hybrid Search and Reranker: Áp dụng tìm kiếm với từkhoá và ngữnghĩa sau đó thực hiện
+xếp hạng lại kết quảtìm kiếm giúp nâng cao kết quảso với việc tìm kiếm đơn thuần với một
+phương pháp.
+• Metadata Filter: Giải pháp sửdụng thông tin bổsung đểtạo bộlọc được sửdụng khi nắm rõ
+được cấu trúc của cơ sởdữliệu cũng như nắm được các trường hợp truy vấn. Bộlọc tìm kiếm
+giúp thu gọn phạm vi tìm kiếm, nâng cao chất lượng truy vấn.
+4.2
+Mô hình sinh ngôn ngữ(Generation)
+Generation là công đoạn cuối trong chu trình RAG với nhiệm vụchuyển đổi thông tin nhận được từ
+bối cảnh thành câu trảlời cho câu hỏi đầu vào của người dùng thông qua một mô hình ngôn ngữlớn.
+Quá trình sinh câu trảlời cần đảm bảo câu trảlời đầu ra sửdụng thông tin từngữcảnh được cung
+cấp, hạn chếcâu trảlời sai (hallucination).
+Với các yêu cầu vềchất lượng, các giải pháp có thểtiếp cận đểnâng cao kết quảbao gồm tối ưu
+hoá kết quảtìm kiếm từkhâu truy vấn (retrieval) bằng các giải pháp hậu truy vấn. Quá trình sinh văn
+bản có thểđược tác đông bằng các phương thức:
+• Prompt Engineering: Prompt Engineering là giải pháp can thiệp vào cách trảlời của LLM mà
+không cần hiệu chỉnh lại bộtham sốgốc. Prompt Engineering đóng vai trò như một bộlọc trong
+quá trình sinh ngôn ngữđảm bảo kết quảđầu ra theo phong cách trình bày mong muốn. Ngoài
+ra, một sốgiải pháp như yêu cầu LLM không tạo ra câu trảlời nếu không có đủthông tin sẽgiúp
+hạn chếviệc hallucination. Trong trường hợp khác khi ngữcảnh không đủdữkiện, hãy sửdụng
+dữliệu được huấn luyện cũng là giải pháp tốt. Bên cạnh đó, trong các kiến trúc RAG kết hợp
+Multi-Agents, prompt engineering đóng vai trò cốt lõi trong việc điều hướng Agents đểtạo ra sự
+mượt mà ởgiải pháp cuối.
+11
+AI VIETNAM
+aivietnam.edu.vn
+Hình 13: Kojima et al. (2023) sửdụng Zero-Shot-CoT đểcải thiện chất lượng câu trảlời của LLM
+• Hiệu chỉnh mô hình ngôn ngữlớn (Fine-tuning LLM): Công tác hiệu chỉnh mô hình ngôn
+ngữlớn thực hiện việc huấn luyện lại một phần tham sốcủa mô hình LLM gốc. Các dữliệu huấn
+luyện được chuẩn bịtrước từnguồn dữliệu riêng, chưa được học bởi LLM. Công tác huấn luyện
+sẽghi đè một phần tham sốtrong bộtham sốgốc. Giải pháp Fine-tuning được đánh giá là giải
+pháp hiệu quảcho chất lượng kiểm soát tốt khi lượng dữliệu huấn luyện đầy đủ, phủkhắp các
+trường hợp hỏi đáp. Điểm trừcủa giải pháp là giải pháp yêu cầu nhiều công sức cho việc chuẩn
+bịdữliệu, nhiều tài nguyên cho việc huấn luyên bổsung cho mô hình ngôn ngữlớn. Bên cạnh đó,
+người xây dựng cũng cần có kiến thức và kỹthuật làm việc với mô hình tốt, tránh trường hợp kết
+quảsau khi fine-tuning tệhơn trước khi fine-tuning.
+4.3
+Đánh giá hệthống RAG
+Giống với các loại mô hình khác, việc đánh giá mô hình luôn là yếu tốquan trọng đểđánh giá chất
+lượng của giải pháp. Thông thường, hệthống RAG được đánh giá bằng việc đo lường mức độthểhiện
+trong các tác vụcuối (hỏi đáp). Hệthống đánh giá RAG đo lường hai yếu tốchính là khảnăng truy
+vấn dữliệu (retrieval) và khảnăng sinh câu trảlời (generation).
+Công tác đánh giá RAG tập trung vào ba yếu tốđo lường và bốn khảnăng. Ba yếu tốđo lường gồm
+"context relevance" (sựchính xác của kết quảtìm kiếm), "answer faithfulness" (sựthành thực của câu
+trảlời với ngữcảnh), "answer relevance" (sựliên quan giữa câu trảlời và câu hỏi). Bên cạnh đó, bốn
+khảnăng được cân nhắc bao gồm: "noise robustness", "negative rejection", "information integration",
+và "counterfactual robustness".
+12
+AI VIETNAM
+aivietnam.edu.vn
+Hình 14: Gao et al. (2024) đã hệthống các giải pháp đánh giá hệthống RAG và danh sách các công cụ
+sửdụng đểđánh giá.
+Việc tựđộng hoá công tác đánh giá các hệthống RAG ngày càng phổbiến với sựxuất hiện của các
+công cụnhư RAGAS, ARES, TruLens.
+Phần III: Advanced RAG
+Ởphần này chúng ta sẽcùng tìm hiểu vềvấn đềcủa Naive RAG và một sốkỹthuật RAG nâng cao
+nhằm nâng cao chất lượng cho một hệthống sửdụng RAG.
+5
+Vấn đềcủa Naive RAG
+RAG đã nhanh chóng được ứng dụng rộng rãi trong nhiều sản phẩm và dịch vụ, nó đóng vai trò quan
+trọng trong việc cải thiện khảnăng tương tác và trải nghiệm người dùng bằng cách cung cấp câu trả
+lời chính xác và tức thời cho các truy vấn phức tạp. Tuy nhiên, sựphổbiến và tính ứng dụng rộng rãi
+13
+AI VIETNAM
+aivietnam.edu.vn
+của RAG cũng dẫn đến một loạt thách thức cần giải quyết. Vấn đềchính mà RAG đối mặt là việc tối
+ưu hóa hiệu suất của nó, cụthểlà làm thếnào đểquá trình truy xuất thông tin diễn ra nhanh chóng
+hơn và kết quảthu được chính xác hơn. Bây giờchúng ta sẽtìm hiểu một sốlý do mà một hệthống
+Naive RAG sẽgặp phải làm ảnh hưởng tới hiệu suất của nó.
+Hình 15: Một sốvấn đềcủa Naive RAG
+Với hình trên chúng ta thấy rằng cảba quá trình Indexing, Retrieval và Generation đều gặp phải
+những vấn đềriêng của chúng. Những vấn đềnày có thểlà độc lập hoặc liên quan với nhau để"cùng
+14
+AI VIETNAM
+aivietnam.edu.vn
+nhau" làm giảm hiệu suất của hệthống RAG.
+Với quá trình Indexing:
+• Quá trình Indexing còn chưa hoàn thiện, vì nó chưa xửlý hiệu quảthông tin hữu ích trong hình
+ảnh, biểu đồvà bảng biểu trong các tệp dữliệu không cấu trúc như PDF.
+• Quá trình chunking sửdụng chiến lược “one-size-fits-all” thay vì chọn lựa các chiến lược tối ưu
+dựa trên đặc điểm của các loại tệp khác nhau. Điều này đã dẫn đến việc mỗi phần chứa thông tin
+ngữnghĩa chưa đầy đủ. Hơn nữa, nó không xem xét các chi tiết quan trọng, như các tiêu đềhiện
+có trong văn bản.
+• Cấu trúc indexing chưa được tối ưu hóa đủmức, dẫn đến chức năng truy xuất chưa hiệu quả.
+• Khảnăng biểu diễn ngữnghĩa của embedding model chưa đủmạnh.
+Đối với quá trình Retrieval
+• Mức độliên quan của các ngữcảnh được ghi nhớkhông đủvà độchính xác thấp.
+• Recall Rate thấp ngăn cản việc truy vấn tất cảcác đoạn văn bản liên quan, do đó cản trởkhả
+năng của LLMs trong việc tạo ra các câu trảlời toàn diện.
+• Truy vấn có thểkhông chính xác hoặc khảnăng biểu diễn ngữnghĩa của embedding model có thể
+yếu, dẫn đến khảnăng không thểtruy vấn thông tin có giá trị.
+• Thuật toán truy vấn bịhạn chếvì nó không kết hợp các loại phương pháp hoặc thuật toán truy
+vấn khác nhau, như kết hợp truy vấn từkhóa, ngữnghĩa và vector.
+• Sựtrùng lặp thông tin xảy ra khi nhiều ngữcảnh được truy vấn chứa thông tin tương tự, dẫn đến
+nội dung lặp lại trong các câu trảlời được tạo ra.
+Đối với quá trình Generation
+• Việc tích hợp hiệu quảgiữa hai tác vụretrieved context và generation có thểkhông khảthi, dẫn
+đến kết quảkhông nhất quán.
+• Sựphụthuộc quá mức vào thông tin được cải thiện trong quá trình generation mang lại rủi ro
+cao. Điều này có thểdẫn đến việc tạo ra những kết quảchỉđơn giản lặp lại nội dung đã truy vấn
+mà không cung cấp thông tin có giá trị.
+• LLM có thểtạo ra các phản hồi sai, không liên quan, có hại, hoặc thiên vị.
+6
+Unveiling PDF Parsing
+Việc trích xuất thông tin từtài liệu, đặc biệt là từcác tệp PDF không cấu trúc, đã trởthành một yếu
+tốkhông thểthiếu trong việc cải thiện chất lượng và hiệu suất của các hệthống tựđộng như RAG.
+Quá trình này yêu cầu một sựchú ý đặc biệt với mục tiêu đảm bảo rằng nội dung được trích xuất một
+cách chính xác và hiệu quả, từđó nâng cao giá trịcủa sản phẩm cuối cùng. Việc ứng dụng công nghệ
+phân tích cú pháp thông tin từnhững tài liệu này là cực kỳquan trọng, bởi vì dữliệu không cấu trúc
+chiếm một tỷlệlớn trong dữliệu được tạo ra và lưu trữhằng ngày.
+Tài liệu PDF, vốn là một trong những dạng phổbiến nhất của dữliệu không cấu trúc, yêu cầu các
+phương pháp tiếp cận đặc thù đểcó thểkhai thác trọn vẹn giá trịthông tin bên trong vì vậy việc trích
+xuất thông tin từtài liệu PDF lại là một quá trình đầy thách thức. Thay vì là một định dạng dữliệu,
+PDF chính xác hơn khi được mô tảlà một tập hợp các hướng dẫn in ấn. Một tệp PDF bao gồm một
+15
+AI VIETNAM
+aivietnam.edu.vn
+loạt hướng dẫn cho máy đọc hoặc máy in PDF biết cách hiển thịcác ký tựtrên màn hình hoặc giấy.
+Điều này trái ngược với các định dạng tệp như HTML và docx, sửdụng các thẻnhư <p>, <w:p>,
+<table>, và <w:tbl> đểtổchức các cấu trúc logic khác nhau. Thách thức trong việc phân tích cú pháp
+tài liệu PDF nằm ởviệc chính xác trích xuất bốcục của toàn bộtrang và dịch nội dung, bao gồm bảng,
+tiêu đề, đoạn văn, và hình ảnh, thành một biểu diễn văn bản của tài liệu. Quá trình này đòi hỏi phải
+xửlý những không chính xác trong trích xuất văn bản, nhận dạng hình ảnh, và sựnhầm lẫn vềmối
+quan hệhàng-cột trong bảng.
+Hình 16: HTML và PDF
+Thông thường chúng ta sẽcó ba cách tiếp cận cơ bản đểparse tài liệu PDF:
+• Rule-based approach: nơi mà phong cách và nội dung của từng phần được xác định dựa trên đặc
+điểm tổchức của tài liệu.
+• Deep learning models: Sửdụng một sốmodel kết hợp như Optical Character Recognition, Docu-
+ment Layout Analysis, Key Information Extraction,...
+• Phân tích cấu trúc phức tạp hoặc trích xuất thông tin chính trong PDF dựa trên các multimodal
+large models.
+16
+AI VIETNAM
+aivietnam.edu.vn
+Hình 17: Hình minh họa cho việc kết hợp nhiều Deep learning Model cho quá trình parse PDF
+7
+Re-ranking
+Re-ranking đóng vai trò quan trọng trong RAG. Trong naive RAG, một sốlượng lớn ngữcảnh có thể
+được truy vấn, nhưng không phải tất cảđều cần thiết liên quan đến câu hỏi. Re-ranking cho phép sắp
+xếp lại và lọc các tài liệu, đặt những cái liên quan lên hàng đầu, từđó nâng cao hiệu quảcủa RAG.
+Nhiệm vụcủa re-ranking là đánh giá mức độliên quan của các ngữcảnh này và ưu tiên những cái có
+khảnăng cung cấp câu trảlời chính xác và liên quan nhất. Điều này cho phép LLM ưu tiên những ngữ
+cảnh được xếp hạng cao này khi tạo ra câu trảlời, từđó cải thiện độchính xác và chất lượng của phản
+hồi.
+Các phương pháp re-ranking chủyếu được chia thành hai loại:
+• Re-ranking models: những mô hình này xem xét các đặc điểm tương tác giữa tài liệu và truy vấn
+đểđánh giá mức độliên quan một cách chính xác hơn.
+• Large Language Model: sựxuất hiện của mô hình ngôn ngữlớn đã mởra những khảnăng mới
+cho việc re-ranking. Bằng cách hiểu sâu toàn bộtài liệu và truy vấn, có thểnắm bắt thông tin
+ngữnghĩa một cách toàn diện hơn.
+8
+Exploring Semantic Chunking
+9
+Exploring Query Rewriting
+Phần VI: Research in RAG
+9.1
+FLARE
+https://arxiv.org/pdf/2305.06983.pdf
+17
+AI VIETNAM
+aivietnam.edu.vn
+Trong bài báo "Active Retrieval Augmented Generation" Jiang et al., 2023, các tác giảgiới thiệu
+phương pháp mới có tên FLARE, viết tắt của Forward-Looking Active Retrieval Augmented Generation.
+Phương pháp này cho phép các mô hình ngôn ngữlớn tích cực lựa chọn thời điểm và loại thông tin cần
+truy vấn trong suốt quá trình tạo ra văn bản. FLARE hoạt động bằng cách tạo ra các câu tạm thời,
+và nếu nhận thấy có từnào trong câu đó không chắc chắn, nó sẽtìm kiếm thông tin liên quan đểcải
+thiện câu tiếp theo. Điều này tiếp tục diễn ra cho đến khi hoàn thành văn bản. Một ưu điểm đáng chú
+ý là FLARE có thểáp dụng cho bất kỳmô hình ngôn ngữnào mà không cần phải huấn luyện lại từ
+đầu. Bài báo cũng trình bày hai cách thức truy vấn chủđộng khác nhau: phương pháp đầu tiên, gọi là
+FLAREinstruct, tạo ra truy vấn dựa trên một chỉdẫn đặc biệt đểkhuyến khích việc truy vấn thông tin,
+trong khi phương pháp thứhai, FLAREdirect, sửdụng kết quảtạo sinh trực tiếp từmô hình ngôn ngữ
+làm truy vấn, đặc biệt khi có từkhông chắc chắn trong câu đó.
+FLAREntruct: Một phương pháp đơn giản đểtạo ra thông tin truy vấn trong quá trình tạo nội dung
+là sửdụng token đặc biệt "[Search(query)]" mỗi khi cần thông tin bổsung. Khi mô hình ngôn ngữsinh
+ra token này, quá trình tạo nội dung tạm thời dừng lại, và câu truy vấn bên trong token sẽđược dùng
+đểtìm kiếm thông tin liên quan. Phương pháp này được lấy cảm hứng từnghiên cứu "Toolformer:
+Language Models Can Teach Themselves to Use Tools" Schick et al., 2023.
+18
+AI VIETNAM
+aivietnam.edu.vn
+FLAREdirect Trong phương pháp FLAREinstruct, có lúc các câu truy vấn được tạo ra không chính
+xác, làm giảm độtin cậy của quá trình truy vấn. Đểgiải quyết vấn đềnày, bài báo đềxuất một cách
+tiếp cận truy vấn chủđộng khác, dựa vào việc xem xét câu tiếp theo đểquyết định thời điểm truy vấn.
+Cụthể, mô hình ngôn ngữsẽtrước tiên tạo ra một câu tiếp theo mà không dựa vào kết quảtruy vấn.
+Nếu mô hình tựtin vềcâu trảlời đó, câu trảlời sẽđược chấp nhận mà không cần truy vấn thêm. Trong
+trường hợp mô hình không tựtin, một câu truy vấn sẽđược tạo dựa trên câu tiếp theo đểtìm kiếm
+thông tin cần thiết, và sau đó câu trảlời sẽđược tạo ra lại. Cách tiếp cận này hiệu quảbởi vì thường
+xuyên từcó độtựtin thấp thì liên quan đến việc thiếu thông tin.
+9.2
+Self RAG: Learning to retrieve, generate, and critique through self-reflection
+https://arxiv.org/pdf/2310.11511.pdf https://www.youtube.com/watch?v=i4V9iJcxzZ4
+Bài báo "Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection" giới thiệu
+một framework mới có tên là Self-Reflective Retrieval-Augmented Generation (Self-RAG). Framework
+này nhằm mục đích cải thiện chất lượng và độchính xác vềthông tin của các mô hình ngôn ngữlớn
+(LLMs) bằng cách cho phép chúng tựđộng tìm kiếm thông tin và phản ánh vềnội dung được trích xuất
+cũng như phản hồi của chính mình. Khác với các mô hình RAG truyền thống có thểtrích xuất thông
+tin không liên quan, Self-RAG sửdụng các mã token đặc biệt gọi là token phản ánh đểlàm cho mô hình
+có thểkiểm soát và thích nghi với nhiều nhiệm vụkhác nhau. Các tác giảchứng minh rằng Self-RAG
+vượt trội hơn các mô hình LLM hiện tại và các mô hình tăng cường tìm kiếm trong các nhiệm vụnhư
+QA miền mở, suy luận, xác minh sựthật và tạo ra văn bản dài, làm nổi bật những cải thiện đáng kể
+vềtính chính xác và độchính xác của trích dẫn.
+19
+AI VIETNAM
+aivietnam.edu.vn
+Trong nghiên cứu này, các tác giảhuấn luyện mô hình LLM đểtựsinh ra 4 loại token phải ứng
+(reflection token) đểhỗtrợcho quá trình trảlời, bao gồm:
+• Retrieve: Cho mô hình biết có nên truy vấn/tiếp tục truy vấn hay không.
+• IsRel: Đánh giá xem kết quảtruy vấn có cung cấp thông tin hữu dụng cho quá trình trảlời câu
+hỏi hay không.
+• IsSup: Cho biết mực độkết quảtruy vấn cung cấp dẫn chứng hỗtrợcho câu trả, bao gồm: support
+hoàn toàn, support một phần, và hoàn toàn không support cho câu trảlời.
+• IsUse: Đánh giá xem mức độhữu dụng của câu trảlời, trên thang điểm từ1-5.
+Ởquá trình inference, thuật toán Self-RAG hoạt động như sau:
+• Đầu tiên ta có một câu hỏi prompt từngười dùng và câu trảlời từbước trước đó (nếu có). Model
+sẽtựtạo ra token Retrieve đểdựđoán xem có cần truy vấn thông tin từcơ sởdữliệu hay không.
+• Nếu cần Retrieve thì:
+– Truy vấn thông tin cần thiết từcơ sởdữliệu.
+– Mô hình dựđoán token IsRel đểdựđoán kết quảtruy vấn có cung cấp thông tin cần thiết.
+– Mô hình dựđoán token IsSup và IsUse đểđánh giá từng kết quảtruy vấn.
+– Rerank lại kết quảtruy vấn dựa trên 3 token IsRel, IsSup và IsUse.
+• Nếu không cần Retrieve, mô hình sẽtrảlời mà không cần retrieve, sau đó dựđoán độhữu ích của
+câu trảlời qua token IsUse.
+20
+AI VIETNAM
+aivietnam.edu.vn
+9.3
+SELF-DISCOVER: Large Language Models Self-Compose Reasoning Struc-
+tures
+https://arxiv.org/pdf/2402.03620.pdf 52 y Trong các nghiên cứu, các phương pháp prompting khác
+nhau thường được đềxuất đểgiải quyết một vấn đềhết sức cụthể, chẳng hạn như giải toán, suy luận
+theo từng bước, hay suy luận sốhọc. Tuy nhiên các phương pháp prompting này lại không thật sự
+phù hợp với tất cảcác task, chẳng hạn những phương pháp prompting chuyên vềgiải toán sẽkhông
+tốt bằng những phương pháp khác khi được ứng dụng trong tác vụtrảlời câu hỏi suy luận logic. Vì
+vậy nghiên cứu "SELF-DISCOVER: Large Language Models Self-Compose Reasoning Structures" Zhou
+et al., 2024 nhắm đến tựtìm kiếm những cấu trúc suy luận phù hợp nahast cho từng task, trong khi
+vẫn giữtính hiệu quảvềmặt tính toán.
+Phương pháp này được lấy cảm hứng từcách con người chúng ta suy luận một vấn đề. Phương pháp
+này được chia thành 2 gai đoạn. Ởgiai đoạn đầu tiên, phương pháp self-discover sẽtìm ra những cấu
+trúc prompt suy luận phù hợp nhất cho từng task. Sau đó các cấu trúc này sẽđược format vềdạng
+JSON, bới cấu trúc này được chứng minh là tăng cường khảnăng suy luận của mô hình Zhou et al.,
+2023. Bước này có mục tiêu là tìm những cấu trúc suy luận hợp lý nhất cho từng tác vụ, và không chỉ
+một tác vụtrong một lần. Ởgiai đoạn thứ2, phương pháp này sửdụng những cấu trúc suy luận ởbước
+trước và tìm ra cấu trúc phù hợp nhất với mỗi câu hỏi của người dùng.
+Giai 1 bao gồm 3 hành động chính:
+• SELECT: Những cấu trúc suy luận có thểcần thiết đểgiải quyết tác vụđược chọn từmột tập
+mô tảcác cấu trúc suy luân.
+• ADAPT: Cấu trúc suy luận ởbước trước sẽđược viết lại đểphù hợp hơn với tác vụmà mô hình
+đang muốn giải quyết.
+• IMPLEMENT: cấu trúc vừa được tạo ra sẽđược tiến hành thành một cấu trúc từng bước các
+hành động đểgiải quyết tác vụ.
+Sau 3 bước ởgiai đoạn 1, ta đã tìm được cấu trúc phù hợp đểgiải 1 tác vụcụthể. Sau đó ta sẽ
+prompt mô hình ngôn ngữlớn đểlàm theo cấu trúc đó, từđó tạo ra câu trảlời chính xác cho người
+dùng.
+9.4
+Corrective RAG
+https://arxiv.org/abs/2401.15884 https://www.youtube.com/watch?v=pbAd8O1Lvm4
+21
+AI VIETNAM
+aivietnam.edu.vn
+Trong các ứng dụng RAG thông thường, thông tin ngữcảnh truy vấn sẽđược đưa vào mô hình để
+sinh ra kết quả, bất kết rằng thông tin đó có liên quan hay không. Điều này làm cho kết quảsinh ra
+bởi mô hình trởnên nhiễu và làm chậm tốc độtạo sinh đi rất nhiều. Vì vậy nghiên cứu "Corrective
+Retrieval Augmented Generation" Yan et al., 2024 được đưa ra nhằm giải quyết vấn đềnày. Bài báo này
+đi vào nghiên cứu những trường hợp khi những thông tin truy vấn được không liên quan hoặc không
+chính xác, đồng thời đềxuất 1 cơ chếtựđộng điều chỉnh và tối ưu những văn bản truy vấn.
+Cụthể, phương pháp này hoạt động như sau. Cho một câu query và nhiều văn bản được truy vấn.
+Một mô hình đánh giá gọn nhẹsẽđược sửdụng đểđánh giá độphù hợp của các văn bản với câu query
+đầu vào, quy thành 3 mức độ: Đúng, Không đúng và không rõ ràng, tương ứng với những hành động
+khác nhau. Nếu những văn bản truy vấn được là Đúng, những văn bản đó sẽđược chắt lọc lại thành
+những thông tin liên quan. Quá trình này bao gồm: phân rã kiến thức, chắt lọc và sắp xếp lại kiến thức.
+Nếu những văn bản truy vấn được là không chính xác, những văn bản này sẽđược bỏđi, thay vào đó
+là bước tìm kiếm trên internet. Khi những thông tin truy vấn là không rõ ràng, cả2 quá trình chắt lọc
+và tìm kiếm trên web sẽđồng thời được diễn ra.
+Một trong những thành phần quan trọng nhất trong phương pháp này là mô hình đánh giá văn bản
+truy vấn. Trong nghiên cứu này, mô hình T5-Large được sửdụng đểfine-tune cho tác vụnày. Với mỗi
+câu query, sẽcó 10 văn bản được truy vấn. Từng câu sẽkết hợp với câu query đểthành input đầu vào
+đưa vào mô hình T5, từđó đưa ra một thang điểm độliên quan. Dựa trên thang điểm này, ta sẽphân
+loại văn bản đầu vào thành 3 loại: Đúng, Không Đúng, hoặc không liên quan.
+Khi những văn bản truy vấn được là Đúng, quá trình chắt lọc kiến thức sẽđược bắt đầu. Đầu tiên,
+những văn bản này sẽđược cắt ra thành những đoạn kiến thức. Lúc này mô hình đánh giá truy vấn ở
+bước trên sẽđược sửdụng lại độliên quan của những dải kiến thức này, và những dải không quá liên
+22
+AI VIETNAM
+aivietnam.edu.vn
+quan sẽđược loại bỏđi, trong khi những dải có liên quan sẽđược giữlại.
+Khi những văn bản truy vấn là Không Đúng, quá trình tìm kiếm trên web sẽđược bắt đầu. Cụthể
+câu đầu vào sẽđược viết lại thành những keyword đểmô phỏng quá trình tìm kiếm trên web. Sau đó
+quá trình chắt lọc thông tin tương tựnhư bước trên sẽđược sửdụng đểđưa ra những dải kiến thức
+liên quan nhất.
+9.5
+WikiChat
+https://arxiv.org/pdf/2305.14292v2.pdf Đây là một phương pháp được nghiên cứu trong paper "Wi-
+kiChat: Stopping the Hallucination of Large Language Model Chatbots by Few-Shot Grounding on
+Wikipedia" Semnani et al., 2023, nhằm giải quyết vấn đền câu trảlời đưa ra bởi mô hình ngôn ngữlớn
+có độtrung thực không cao và có tỉlệtưởng tượng (hallucination) lớn. Phương pháp này bao gồm 7
+bước chính, với mỗi bước sửdụng few-shot prompting đểhướng mô hình trảlời theo ý muốn của người
+dùng. Nhìn tổng quan, WikiChat bao gồm 2 giai đoạn chính, giai đoạn đầu là thu thập thông tin dựa
+trên đoạn chat với người dùng, và giai đoạn hai đưa ra câu trảlời dựa trên thông tin thu thập được. 5
+bước đầu của phương pháp này thuộc vềgiai đoạn 1, và 2 bước sau thuộc vềgiai đoạn 2, sau đây chúng
+ta đi chi tiết từng giai đoạn.
+Giai đoạn 1: Thu thập thông tin Trong quá trình giao tiếp với người dùng, WikiChat sẽtự
+nhận biết lúc nào nên thu thập thông tin, (khi người dùng đưa ra câu hỏi trực tiếp). Giai đoạn này bao
+gồm 5 bước chính
+• Bước 1: WikiChat sẽtựtạo một câu query có thểbao hàm được ý muốn của người dùng, cộng thêm
+một mốc thời gian chẳng hạn như "recent" nếu câu trảlời cần cập nhật nhất có thể, "year=xxxx"
+cho một năm cụthể, hoặc là none nếu thời gian là không quan trọng.
+• Bước 2: WikiChat trích xuất những thông tin liên quan từnhững văn bản truy vấn được thành
+dạng những gạch đầu dòng tóm tắt, và những thông tin không liên quan sẽđược lọc đi.
+• Bước 3: Mô hình LLM sẽđược sửdụng đểtạo ra câu trảlời, câu trảlời này thường sẽđềcập
+những thông tin liên quan và thú vị, tuy nhiên thường không đáng tin cậy.
+• Bước 4: Câu trảlời của mô hình sẽđược chia nhỏra thành từng câu khẳng định một. Sau đó một
+hệthống truy vấn thông tin sẽđược sửdụng đểtruy vấn những bằng chứng cho khẳng định đó.
+• Bước 5: Sửdụng một mô hình LLM khác, từng câu khẳng định sẽđược chia thành 3 nhóm chính,
+những bằng chứng truy vấn được ủng hộkhẳng định, phủđịnh, hoặc không đủthông tin đểkết
+luận. Chỉnhững khẳng định được ủng hộbởi bằng chứng mới được giữlại.
+23
+AI VIETNAM
+aivietnam.edu.vn
+Giai đoạn 2: Tạo ra câu trảlời Bước tiếp theo là dùng những thông tin đã thu thập được tạo ra
+câu trảlời chính xác. Nghiên cứu này chỉra rằng việc trực tiếp tạo ra câu trảlời sẽgây khó khăn trong
+việc duy trì tính hội thoại cho câu trảlời của mô hình. Vì vậy, giai đoạn này sẽchia thành 2 bước nhỏ.
+• Bước 6: WikiChat tạo ra một câu trảlời tạm dựa trên những gạch đầu dòng được truy vấn từ
+bước trước.
+• Bước 7: Sau đó WikiChat sẽtạo ra nhận xét và chỉnh sửa lại câu trảlời dựa trên các yếu tốtính
+phù hợp, tính tựnhiên, tính không lặp lại và tính đúng đắn vềmặt thời gian.
+Chắt lọc kiến thức sáng các mô hình nhỏhơn Đểgiảm độtrễ, chi phí và đảm bảo tính riêng
+tư, nghiên cứu này đểxuất phương pháp đểchắt lọc kiến thức từmột mô hình lớn và mã nguồn đóng
+(chẳng hạn như GPT-4) sang một mô hình nhỏhơn và mã nguồn mở(chẳng hạn như Llama-7B). Một
+mô hình ngôn ngữgiảlập người dùng sẽđược sửdụng đểhội thọai với WikiChat vềnhững chủđề
+được lấy từWikipedia, và ghi lại những đầu vào và đầu ra của mô hình. Dữliệu này sẽđược giữlại để
+fine-tune mô hình Llama nhỏ. Kết quảthu được cho thấy mô hình nhỏnày có khảnăng trảlời tiệm
+cận so với mô hình lớn, trong khi giảm đi độtrễ, chi phí và vẫn đảm bảo được tính riêng tư cho dữliệu
+người dùng.
+References
+Lewis, P., Perez, E., Piktus, A., Petroni, F., Karpukhin, V., Goyal, N., K¨uttler, H., Lewis, M., tau
+Yih, W., Rockt¨aschel, T., Riedel, S., & Kiela, D. (2021). Retrieval-augmented generation for
+knowledge-intensive nlp tasks.
+Gao, Y., Xiong, Y., Gao, X., Jia, K., Pan, J., Bi, Y., Dai, Y., Sun, J., Guo, Q., Wang, M., & Wang, H.
+(2024). Retrieval-augmented generation for large language models: A survey.
+Gao, L., Ma, X., Lin, J., & Callan, J. (2022). Precise zero-shot dense retrieval without relevance labels.
+Liu, N. F., Lin, K., Hewitt, J., Paranjape, A., Bevilacqua, M., Petroni, F., & Liang, P. (2023). Lost in
+the middle: How language models use long contexts.
+24
+AI VIETNAM
+aivietnam.edu.vn
+Kamradt, G. (2024). The 5 levels of text splitting for retrieval. https://youtu.be/8OJC21T2SL4
+Chen, T., Wang, H., Chen, S., Yu, W., Ma, K., Zhao, X., Zhang, H., & Yu, D. (2023). Dense x retrieval:
+What retrieval granularity should we use?
+Wang, Z., Zhang, H., Li, C.-L., Eisenschlos, J. M., Perot, V., Wang, Z., Miculicich, L., Fujii, Y., Shang,
+J., Lee, C.-Y., & Pfister, T. (2024). Chain-of-table: Evolving tables in the reasoning chain for
+table understanding.
+Muennighoff, N., Tazi, N., Magne, L., & Reimers, N. (2023). Mteb: Massive text embedding benchmark.
+Kojima, T., Gu, S. S., Reid, M., Matsuo, Y., & Iwasawa, Y. (2023). Large language models are zero-shot
+reasoners.
+Jiang, Z., Xu, F. F., Gao, L., Sun, Z., Liu, Q., Dwivedi-Yu, J., Yang, Y., Callan, J., & Neubig, G.
+(2023). Active retrieval augmented generation.
+Schick, T., Dwivedi-Yu, J., Dessi, R., Raileanu, R., Lomeli, M., Zettlemoyer, L., Cancedda, N., &
+Scialom, T. Toolformer: Language models can teach themselves to use tools. In: 2023.
+Zhou, P., Pujara, J., Ren, X., Chen, X., Cheng, H.-T., Le, Q. V., Chi, E. H., Zhou, D., Mishra, S., &
+Zheng, H. S. (2024). Self-discover: Large language models self-compose reasoning structures.
+Zhou, Y., Muresanu, A. I., Han, Z., Paster, K., Pitis, S., Chan, H., & Ba, J. (2023). Large language
+models are human-level prompt engineers.
+Yan, S.-Q., Gu, J.-C., Zhu, Y., & Ling, Z.-H. (2024). Corrective retrieval augmented generation.
+Semnani, S. J., Yao, V. Z., Zhang, H. C., & Lam, M. S. (2023). Wikichat: Stopping the hallucination
+of large language model chatbots by few-shot grounding on wikipedia.
+- Hết -
+25

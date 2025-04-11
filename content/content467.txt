@@ -1,4 +1,0 @@
-AI VIETNAM aivietnam.edu.vn
-3
-4 from pathlib import Path
-5 sys . path . 

@@ -1,9 +1,0 @@
-AI VIETNAM aivietnam.edu.vn
-16 N = 2
-17 results = check_the_number (N)
-18 print ( results )
-a) True ==
-b) False
-c) None
-d) Raise an Error
-Câu hỏi 6:(Code) Hãy hoàn thành chương trình dưới đây. Đầu ra của chương trình là gì?

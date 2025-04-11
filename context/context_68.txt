@@ -1,0 +1,1176 @@
+Deploy Deep Learning models with 
+FastAPI
+Dinh-Thang Duong – TA
+Nguyen-Thuan Duong – STA 
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Extra Class
+Year 2024
+2
+Getting Started
+v Objectives
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Our objectives:
+-
+Discuss about the definition of API.
+-
+Learn the basis of FastAPI.
+-
+Learn how to deploy a Deep Learning model 
+as an API service with FastAPI.
+3
+Ø Introduction
+Ø API
+Ø FastAPI
+Ø Model Deployment
+Ø Question
+Outline
+AI VIETNAM
+All-in-One Course
+(TA Session)
+4
+Introduction
+AI VIETNAM
+All-in-One Course
+(TA Session)
+5
+Introduction
+v Getting Started
+AI VIETNAM
+All-in-One Course
+(TA Session)
+How do we actually interact with ChatGPT behind the scene?  
+6
+Introduction
+v Getting Started
+AI VIETNAM
+All-in-One Course
+(TA Session)
+https://semaphoreci.com/blog/function-calling
+The ChatGPT website get the response from a something called API
+7
+API
+AI VIETNAM
+All-in-One Course
+(TA Session)
+8
+API
+v Getting Started
+AI VIETNAM
+All-in-One Course
+(TA Session)
+•
+API (Application Programming Interface) is a facilitator that enables apps, databases, softwares and IoT 
+devices to communicate with each other.
+Server
+Application
+User
+API
+9
+API
+v Getting Started
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Make the order
+Take the order
+Delivery of order
+Bringing from 
+kitchen
+Customer
+Waiter
+Chef
+10
+API
+v Getting Started
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Client
+Server
+•
+The application sending the request is called the client, and the application sending the response is called 
+the server.
+Client
+11
+API
+v How do APIs work ?
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Request
+Response
+API server
+•
+A client sends a request to API server. The request is made using a specific protocol (such as HTTP) and 
+includes information about the operation the client wants to perform, e.g., retrieving data or updating a 
+resource.
+•
+The API server receives the request and processes it. The API server sends a response back to the client, 
+which may include data, an error message, or a status code indicating the result of the operation.
+•
+The client receives the response and processes it.
+12
+API
+v Types of APIs
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Private API
+Public API
+Partner API
+Database 
+API
+Remote API
+Web API
+13
+API
+v Private / Public / Partner API
+AI VIETNAM
+All-in-One Course
+(TA Session)
+APIs are open to any 
+developer
+Apps are more targeted 
+towards end consumers
+APIs are open to select 
+business partners
+Apps could be targeted at end 
+consumers or business users
+APIs are exposed only to 
+existing developers within the 
+enterprise
+App are usually targeted at 
+employees of the enterprise
+14
+API
+v Database API
+AI VIETNAM
+All-in-One Course
+(TA Session)
+•
+A database API allows applications to interact with a database to access and manipulate data.
+Client
+Database
+Request
+Response with data
+Query database
+Data
+15
+API
+v Remote API
+AI VIETNAM
+All-in-One Course
+(TA Session)
+•
+Using a remote API, two distant applications communicate across a communications network, primarily the 
+internet.
+Server
+Database
+Application
+Internet
+16
+API
+v Web API
+AI VIETNAM
+All-in-One Course
+(TA Session)
+•
+Web API (or Web Service API) is an application inferface between a web browser and a web server.
+Web Server
+Request
+Response
+Request
+Response
+Web Application
+REST / SOAP 
+API
+•
+All web services are APIs but not all APIs are web services.
+•
+Web services require an internet connection to work, but APIs do not.
+17
+API
+v API protocol types
+AI VIETNAM
+All-in-One Course
+(TA Session)
+18
+API
+v Timeline
+AI VIETNAM
+All-in-One Course
+(TA Session)
+1999
+SOAP
+2000
+REST
+2016
+gRPC
+2015
+GraphQL
+1998
+XML-RPC
+2005
+Json-RPC
+19
+API
+v Conclusion
+AI VIETNAM
+All-in-One Course
+(TA Session)
+REST
+GraphQL
+SOAP
+RPC
+Structure
+Follows six 
+architectural 
+constraints
+Schema and type
+Message structure
+Local procedural 
+calls
+Format
+Json, XLM, HTML, 
+plain text
+Json
+XML
+Json, XML, 
+Flatbuffers, etc
+Advantages
+Flexible terms of 
+data format and 
+structure
+Sovles over-fetching 
+and under-fetching
+Highly secure and 
+extensible
+Lightweight 
+payloads make it 
+high performing
+Use cases
+Resources based 
+apps
+Mobile APIs
+Payment gateways
+Command-focused 
+systems
+20
+FastAPI
+AI VIETNAM
+All-in-One Course
+(TA Session)
+21
+FastAPI
+v Introduction
+AI VIETNAM
+All-in-One Course
+(TA Session)
+FastAPI is a modern, fast (high-performance), web 
+framework for building APIs with Python 3.8+ based on 
+standard Python type hints.
+22
+FastAPI
+v Python Web Framework
+AI VIETNAM
+All-in-One Course
+(TA Session)
+23
+FastAPI
+v Django vs Flask vs FastAPI
+AI VIETNAM
+All-in-One Course
+(TA Session)
+24
+FastAPI
+v Which companies use FastAPI ?
+AI VIETNAM
+All-in-One Course
+(TA Session)
+25
+FastAPI
+v The key features of FastAPI
+AI VIETNAM
+All-in-One Course
+(TA Session)
+High performance
+On par with NodeJS and GO
+Fast to code
+Increase the speed to develop features by about 200% to 300%
+Easy
+Easy to use and learn. Less time reading docs
+Robust
+Get production-ready code. With automatic interactive documentation
+26
+FastAPI
+v Practice
+AI VIETNAM
+All-in-One Course
+(TA Session)
+https://www.apisec.ai/blog/rest-api-and-its-significance-to-web-service-providers
+Learn how to use FastAPI to deploy an API service
+27
+FastAPI
+v Practice: Initialize first API
+AI VIETNAM
+All-in-One Course
+(TA Session)
+1. Create a FastAPI instance
+2. Run uvicorn to deploy the API
+28
+FastAPI
+v Practice: Initialize first API
+AI VIETNAM
+All-in-One Course
+(TA Session)
+29
+FastAPI
+v Practice: Initialize first API
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Swagger UI: https://127.0.0.1:8000/docs
+30
+FastAPI
+v Practice: Initialize first API
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Swagger UI: An interface to 
+visualize and interact with 
+API. Can be accessed 
+through subfix /docs.
+https://swagger.io/tools/swagger-ui/
+31
+FastAPI
+v Practice: Initialize first API
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Swagger UI: An interface to 
+visualize and interact with 
+API. Can be accessed 
+through subfix /docs.
+https://swagger.io/tools/swagger-ui/
+32
+FastAPI
+v Practice: Path Operations
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Client
+Request
+Response
+“Hello world”
+Make API to return “Hello world” when we access to it 
+33
+FastAPI
+v Practice: Path Operations GET Method
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Define a function with decorator  “@app.get(‘/’)”:
+- The root() function is the handler for requests to the 
+root URL path ‘/’ using HTTP GET method.
+Defining a route
+34
+FastAPI
+v Practice: Path Operations GET Method
+AI VIETNAM
+All-in-One Course
+(TA Session)
+35
+FastAPI
+v Practice: Path Operations
+AI VIETNAM
+All-in-One Course
+(TA Session)
+An API service may have several operations with 
+difference purposes. To separate those, we 
+define them as API Endpoints (routes, paths).
+36
+FastAPI
+v Practice: Path Operations
+AI VIETNAM
+All-in-One Course
+(TA Session)
+API
+https://api_domain.com
+POST    https://api_domain.com/catdog_classification/predict
+POST    https://api_domain.com/speech_classification/predict
+GET    https://api_domain.com/speech_classification/results/{task_id}
+GET    https://api_domain.com/features_database/{features_id}
+37
+FastAPI
+v Practice: Path Operations
+AI VIETNAM
+All-in-One Course
+(TA Session)
+https://api.arcadier.com/introduction-to-arcadier-api
+38
+FastAPI
+v Practice: Path Operations 
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Database
+How to retrieve and upload data from 
+a database through API ?
+39
+FastAPI
+v Practice: Path Operations GET Method
+AI VIETNAM
+All-in-One Course
+(TA Session)
+40
+FastAPI
+v Practice: Path Operations (Path Parameters)
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Path Parameter: A part of URL path that is expected 
+to be a variable and is used to capture a value 
+directly from the path.
+41
+FastAPI
+v Practice: Path Operations POST Method
+AI VIETNAM
+All-in-One Course
+(TA Session)
+42
+FastAPI
+v Practice: Path Operations PUT Method
+AI VIETNAM
+All-in-One Course
+(TA Session)
+43
+FastAPI
+v Practice: Path Operations DELETE Method
+AI VIETNAM
+All-in-One Course
+(TA Session)
+44
+FastAPI
+v Practice: Path Operations
+AI VIETNAM
+All-in-One Course
+(TA Session)
+45
+FastAPI
+v Practice: Pydantic Model
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Request body: Data that is sent by Client.
+Response body: Data that is sent by API.
+Item: {
+    ”name”: string,
+    ”price”: number,
+    “description”: string,
+    “tax”: number
+}
+An example of request body
+46
+FastAPI
+v Practice: Pydantic Model
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Item: {
+    ”name”: string,
+    ”price”: number,
+    “description”: string,
+    “tax”: number
+}
+An example of request body
+To ensure API to receive the exact 
+structure, we can use Pydantic 
+Model.
+47
+FastAPI
+v Practice: Pydantic Model
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Pydantic Model is a way of defining data 
+structures with type annotations, ensuring 
+that the data adheres to a specified format 
+and type (Data Validator). We can call a 
+pydantic model as a model or schema.
+48
+FastAPI
+v Practice: Pydantic Model
+AI VIETNAM
+All-in-One Course
+(TA Session)
+E.g: Define student information record:
+-
+ID: string
+-
+Name: string
+-
+Age: number
+-
+Gender: string
+49
+FastAPI
+v Practice: Pydantic Model
+AI VIETNAM
+All-in-One Course
+(TA Session)
+50
+FastAPI
+v Practice: Pydantic Model
+AI VIETNAM
+All-in-One Course
+(TA Session)
+51
+FastAPI
+v Practice: Pydantic Model
+AI VIETNAM
+All-in-One Course
+(TA Session)
+A pydantic model can be nested
+52
+FastAPI
+v Practice: Pydantic Model
+AI VIETNAM
+All-in-One Course
+(TA Session)
+53
+FastAPI
+v Practice: Parameters Annotation
+AI VIETNAM
+All-in-One Course
+(TA Session)
+FastAPI allows us to provide additional 
+information for parameters (path and 
+query) using typing Annotated.
+54
+FastAPI
+v Practice: Parameters Annotation
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Use Annotated to give additional information 
+for read_items() function.
+55
+FastAPI
+v Practice: Response Model
+AI VIETNAM
+All-in-One Course
+(TA Session)
+We can specify the response type of the route
+56
+FastAPI
+v Practice: Status Code
+AI VIETNAM
+All-in-One Course
+(TA Session)
+HTTP status codes are three-digit response codes or 
+messages sent by a server to user at the other end of the 
+server. These codes or responses enable servers to 
+communicate with users on the internet.
+https://www.infidigit.com/blog/http-status-codes/
+57
+FastAPI
+v Practice: Status Code
+AI VIETNAM
+All-in-One Course
+(TA Session)
+When a request is completed successfully, we got 200 OK
+https://www.infidigit.com/blog/http-status-codes/
+58
+FastAPI
+v Practice: Status Code
+AI VIETNAM
+All-in-One Course
+(TA Session)
+We can define the status code return in decorator
+59
+FastAPI
+v Practice: Upload File
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Beside Pydantic model, we can also have request body as a uploaded file 
+60
+FastAPI
+v Practice: Upload File
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Use File or UploadFile module in FastAPI
+61
+FastAPI
+v Practice: Middleware
+AI VIETNAM
+All-in-One Course
+(TA Session)
+https://semaphoreci.com/blog/custom-middleware-fastapi
+A "middleware" is a function that works 
+with every request before it is processed 
+by any specific path operation. And also 
+with every response before returning it.
+62
+FastAPI
+v Practice: Middleware
+AI VIETNAM
+All-in-One Course
+(TA Session)
+https://semaphoreci.com/blog/custom-middleware-fastapi
+63
+FastAPI
+v Practice: Middleware
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Add a response time (process time) to response headers.
+64
+FastAPI
+v Practice: Middleware
+AI VIETNAM
+All-in-One Course
+(TA Session)
+65
+FastAPI
+v Practice: CORS Middleware
+AI VIETNAM
+All-in-One Course
+(TA Session)
+CORS (Cross-Origin Resource Sharing) refers to the 
+situations when a frontend running in a browser has 
+JavaScript code that communicates with a backend, and 
+the backend is in a different "origin" than the frontend.
+66
+FastAPI
+v Practice: CORS Middleware
+AI VIETNAM
+All-in-One Course
+(TA Session)
+https://www.haproxy.com/blog/enabling-cors-in-haproxy
+67
+FastAPI
+v Practice: CORS Middleware
+AI VIETNAM
+All-in-One Course
+(TA Session)
+68
+Quiz
+AI VIETNAM
+All-in-One Course
+(TA Session)
+69
+Model Deployment
+AI VIETNAM
+All-in-One Course
+(TA Session)
+70
+Model Deployment
+v Introduction
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Deep 
+Learning 
+Model
+You trained a new model
+You want to share it for 
+other people to use…
+But how … ?
+71
+Model Deployment
+v Pipeline
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Data Collection
+Model Training
+Model Serving
+Applications
+72
+Model Deployment
+v Practice
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Request
+Response
+{
+  "prediction_id": 0, 
+  "prediction_cls": "cat"
+}
+User
+API
+Problem statement: Deploy a Cat Dog Image Classification model as an API service using FastAPI.
+73
+Model Deployment
+v Practice
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Problem statement: Deploy a Cat Dog Image Classification model as an API service using FastAPI.
+Client
+Model
+Request
+Response with 
+prediction
+Query model
+Model prediction
+Build a Deep Learning model
+1
+Build an API service
+2
+74
+Model Deployment
+v Build model
+AI VIETNAM
+All-in-One Course
+(TA Session)
+https://www.analyticsvidhya.com/blog/2021/06/beginner-friendly-project-cat-and-dog-classification-using-cnn/
+75
+Model Deployment
+v Build model: Dataset
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Cat Dog dataset on HuggingFace.
+76
+Model Deployment
+v Build model step 1: Install and import libraries
+AI VIETNAM
+All-in-One Course
+(TA Session)
+77
+Model Deployment
+v Build model step 2: Load dataset and train val test split
+AI VIETNAM
+All-in-One Course
+(TA Session)
+78
+Model Deployment
+v Build model step 3: Create DataLoader
+AI VIETNAM
+All-in-One Course
+(TA Session)
+79
+Model Deployment
+v Build model step 4: Build model
+AI VIETNAM
+All-in-One Course
+(TA Session)
+80
+Model Deployment
+v Build model step 5: Training and saving model weights
+AI VIETNAM
+All-in-One Course
+(TA Session)
+81
+Model Deployment
+v Build API
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Problem statement: Deploy a Cat Dog Image Classification model as an API service using FastAPI.
+Client
+Model
+Request
+Response with 
+prediction
+Query model
+Model prediction
+Build a Deep Learning model
+1
+Build an API service
+2
+82
+Model Deployment
+v Build API Step 1: Organize source code
+AI VIETNAM
+All-in-One Course
+(TA Session)
+We build this API in local computer with the 
+following source code structure
+-
+config/: Folder containing configuration for some modules.
+-
+logs/: Folder containing logging information when running API.
+-
+middleware/: Folder containing code for middleware.
+-
+models/: Folder containing Deep Learning weights.
+-
+routes/: Folder containing API Endpoints declaration.
+-
+schemas/: Folder containing Pydantic model declaration.
+-
+utils/: Folder containing codes for general purpose (varying 
+between projects).
+-
+app.py: Python file containing codes for FastAPI app initialization.
+-
+requirements.txt: File containing packages version information to 
+run the soruce code.
+-
+server.py: Python file containing codes to host the API service.
+83
+Model Deployment
+v Build API Step 1: Organize source code
+AI VIETNAM
+All-in-One Course
+(TA Session)
+84
+Model Deployment
+v Build API Step 2: List packages requirements
+AI VIETNAM
+All-in-One Course
+(TA Session)
+85
+Model Deployment
+v Build API Step 3: Define configuration
+AI VIETNAM
+All-in-One Course
+(TA Session)
+We define configuration for Deep Learning model 
+and logging module
+86
+Model Deployment
+v Build API Step 3: Define configuration
+AI VIETNAM
+All-in-One Course
+(TA Session)
+87
+Model Deployment
+v Build API Step 4: Build logging function
+AI VIETNAM
+All-in-One Course
+(TA Session)
+88
+Model Deployment
+v Build API Step 4: Build logging function
+AI VIETNAM
+All-in-One Course
+(TA Session)
+89
+Model Deployment
+v Build API Step 5: Define models folder
+AI VIETNAM
+All-in-One Course
+(TA Session)
+catdog_model.py
+90
+Model Deployment
+v Build API Step 5: Define models folder
+AI VIETNAM
+All-in-One Course
+(TA Session)
+catdog_predictor.py
+91
+Model Deployment
+v Build API Step 6: Define middleware folder 
+AI VIETNAM
+All-in-One Course
+(TA Session)
+We declare each Middleware in separated 
+files 
+cors.py
+92
+Model Deployment
+v Build API Step 6: Define middleware folder 
+AI VIETNAM
+All-in-One Course
+(TA Session)
+http.py
+93
+Model Deployment
+v Build API Step 7: Define Schemas
+AI VIETNAM
+All-in-One Course
+(TA Session)
+We define all Pydantic model in 
+schemas folder
+94
+Model Deployment
+v Build API Step 8: Define routes
+AI VIETNAM
+All-in-One Course
+(TA Session)
+95
+Model Deployment
+v Build API Step 9: Define app.py and server.py
+AI VIETNAM
+All-in-One Course
+(TA Session)
+96
+Model Deployment
+v Result
+AI VIETNAM
+All-in-One Course
+(TA Session)
+2
+1
+3
+97
+Model Deployment (MLOps)
+AI VIETNAM
+All-in-One Course
+(TA Session)
+98
+Model Deployment (MLOps)
+v Getting Started
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Data Collection
+Model Training
+Model Serving
+Applications
+99
+Model Deployment (MLOps)
+v Data Drift Problem
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Data Collection
+Applications
+User input
+User input
+100
+Model Deployment (MLOps)
+v Data Drift Solution
+AI VIETNAM
+All-in-One Course
+(TA Session)
+More Data Collection
+Model Training
+Model Serving
+Applications
+101
+Model Deployment (MLOps)
+v Machine Learning Life Cycle
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Data Collection
+Model Training
+Model Serving
+Monitoring
+Data drift
+Concept drift
+Performing Poorly
+102
+Model Deployment (MLOps)
+v Machine Learning Operations (MLOps) pipeline
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Source Control
+CI/CD
+Caching
+Data Source
+Data Pipeline
+Experiments
+Model Registry
+Monitoring
+Model Serving
+Training Pipeline
+103
+Model Deployment (MLOps)
+v MLOps simple pipeline
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Source Control
+Caching
+Data Source
+Data Pipeline
+Experiments
+Model Registry
+Model Serving
+Training Pipeline
+104
+Model Deployment (MLOps)
+v Runing steps
+AI VIETNAM
+All-in-One Course
+(TA Session)
+FastAPI
+Data Source
+Data Pipeline
+Experiments
+Training Pipeline
+Source Control
+Push Model
+Pull Model
+105
+Model Deployment (MLOps)
+v Source code: https://github.com/ThuanNaN/mlops-simple-pipeline.git
+AI VIETNAM
+All-in-One Course
+(TA Session)
+106
+Model Deployment (MLOps)
+v Start MLflow server
+AI VIETNAM
+All-in-One Course
+(TA Session)
+make mlflow_up
+Makefile command
+localhost:8000
+Use MLflow for tracking 
+and versioning the 
+trained model.
+107
+Model Deployment (MLOps)
+v Prepare dataset for training
+AI VIETNAM
+All-in-One Course
+(TA Session)
+python3 src/data_processing.py --version v1.0
+Bash command
+Split data into train/val/test for training and versioning based 
+on folder name.
+108
+Model Deployment (MLOps)
+v Training model (resnet_18)
+AI VIETNAM
+All-in-One Course
+(TA Session)
+python3 src/model_training.py --data_version 
+v1.0 --model_name resnet_18 --device cpu
+Bash command
+Training model with dataset version 1.0. The model trained 
+will be saved to Mlflow server.
+localhost:8000
+109
+Model Deployment (MLOps)
+v Registry model trained
+AI VIETNAM
+All-in-One Course
+(TA Session)
+python3 src/model_registry.py --best_metric 
+best_val_loss --model_alias Production --
+config_name raw_data
+Bash command
+Registry model trained which have highest metric to serving.
+localhost:8000
+110
+Model Deployment (MLOps)
+v Serving best model
+AI VIETNAM
+All-in-One Course
+(TA Session)
+make model_name=resnet_18 
+model_alias=Production port=5000 serving_up
+Makefile command
+Pulling the best model from MLflow and serving at port 5000 
+by FastAPI (take a minute for building docker container).
+localhost:5000
+111
+Model Deployment (MLOps)
+v Test in web application
+AI VIETNAM
+All-in-One Course
+(TA Session)
+cd /frontend
+pip3 install –r requirements.txt 
+python app.py
+Bash command
+localhost:3000
+112
+Model Deployment (MLOps)
+v Collect more data to improve performance
+AI VIETNAM
+All-in-One Course
+(TA Session)
+python3 src/data_processing.py --
+merge_collected --version v1.1
+Bash command
+Merge raw data with collected data and split into train/val/test 
+and named v1.1 for training new model.
+113
+Model Deployment (MLOps)
+v Training new model with new dataset
+AI VIETNAM
+All-in-One Course
+(TA Session)
+python3 src/model_training.py --data_version 
+v1.1 --model_name resnet_18 --device cpu
+Bash command
+Train renset_18 with v1.1 dataset
+localhost:8000
+114
+Model Deployment (MLOps)
+v Registry model with a specific tag
+AI VIETNAM
+All-in-One Course
+(TA Session)
+python3 src/model_registry.py --filter_string 
+"tags.data_version LIKE 'v1.1'" --best_metric 
+best_val_loss --model_alias Challenger  --
+config_name add_collect
+Bash command
+Registry model trained that version of dataset training is v1.1 
+and tagging it to “Challenger”.
+115
+Model Deployment (MLOps)
+v Restart FastAPI
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Restart serving container to load the new model with specific 
+tag is “Challenger” for testing the performance of new model.
+- make serving_down 
+- make model_name=resnet_18 
+model_alias=Challenger port=5000 serving_up
+Makefile command
+localhost:5000
+116
+Model Deployment (MLOps)
+v Refresh the web app and predict again
+AI VIETNAM
+All-in-One Course
+(TA Session)
+localhost:3000
+117
+Summarization
+AI VIETNAM
+All-in-One Course
+(TA Session)
+118
+Summarization
+v What we have learned so far
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Summarization:
+-
+Discuss about the definition of API.
+-
+Learn the basis of FastAPI:
+-
+Path Operations.
+-
+Pydantic Model.
+-
+Response Code.
+-
+Middleware.
+-
+Learn how to deploy a Deep Learning model 
+as an API service with FastAPI.
+-
+Deploy a Cat Dog Classification model.
+-
+Simple MLOps pipeline.
+?
+119
+Question
+AI VIETNAM
+All-in-One Course
+(TA Session)
+120

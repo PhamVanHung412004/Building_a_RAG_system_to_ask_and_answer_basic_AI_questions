@@ -1,3 +1,0 @@
-Module ):
-4 def __init__ (self , num_classes =2 , image_size =224 , num_frames =15) :
-11

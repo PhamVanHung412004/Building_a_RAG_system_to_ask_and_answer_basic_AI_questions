@@ -1,0 +1,864 @@
+Pytorch
+Deep Learning Framework
+Quang-Vinh Dinh
+Ph.D. in Computer Science
+AI VIETNAM
+All-in-One Course
+➢Introduction to PyTorch
+➢Model Construction 
+➢Model Training and Inference
+➢Applying Softmax for Image Data
+Outline
+Introduction
+AI VIETNAM
+All-in-One Course
+Create a tensor in PyTorch
+2
+Introduction
+❖ Tensor
+❖ Broadcasting
+AI VIETNAM
+All-in-One Course
+data 
+1
+3
+2
+4
+Axis 0
+Axis 1
+1
++
+2
+4
+3
+5
+Introduction
+AI VIETNAM
+All-in-One Course
+data 
+1
+3
+2
+4
+Axis 0
+Axis 1
+2
++
+3
+5
+4
+6
+❖ Tensor
+❖ Broadcasting
+4
+Introduction
+❖ Tensor
+❖ Important functions
+AI VIETNAM
+All-in-One Course
+𝑠𝑑= 𝒙−𝒚2
+Squared Difference
+x 
+1
+2
+3
+4
+𝒙−𝑦2 =
+16
+9
+4
+1
+sd
+5
+Introduction
+❖ Tensor
+❖ Important functions
+AI VIETNAM
+All-in-One Course
+𝑠𝑑= ෍
+𝑖
+𝒙𝑖−𝒚𝑖2
+Mean Squared Error
+y 
+5
+5
+5
+5
+16
+9
+4
+1
+sd
+x 
+1
+2
+3
+4
+σ𝑖𝒙𝑖−𝒚𝑖2 = σ𝑖( 
+) = 7.5
+6
+Introduction
+AI VIETNAM
+All-in-One Course
+x 
+1
+3
+2
+4
+Axis 0
+Axis 1
+y 
+3
+5
+4
+6
+1
+3
+2
+4
+3
+5
+4
+6
+tensor2 
+1
+3
+2
+4
+3
+5
+4
+6
+tensor1 
+❖ Tensor
+❖ Important functions
+Introduction
+AI VIETNAM
+All-in-One Course
+.argmax(axis=0) = 1
+0
+4
+4
+3
+1
+1
+2
+.argmax(axis=1) =
+1
+0
+0
+4
+4
+3
+1
+1
+2
+❖ Tensor
+❖ Important functions
+8
+Introduction
+AI VIETNAM
+All-in-One Course
+𝑦= 𝑥2
+𝑧= 3𝑦+ 2
+❖ Gradient computation
+𝑥
++
+∙2
+∗
+3
+2
+𝑧
+9
+Example 1
+ො𝑦
+𝑥
+∗
+𝑤
++
+𝑏
+1 output
+1+1 variables
+Model
+𝑥 = 6.7
+𝑏= −0.0393
+w = -0.655
+𝑦 = 9.1
+ො𝑦= 𝑥𝑤+ 𝑏 
+Input
+Label
+Loss
+𝐿𝑜𝑠𝑠=
+ො𝑦−𝑦2
+Parameters
+10
+ො𝑦
+𝑥
+∗
+𝑤
++
+𝑏
+1 output
+1+1 variables
+Model
+𝑥 = 6.7
+𝑏= 0.04
+w = −0.34
+𝑦 = 9.1
+ො𝑦= 𝑥𝑤+ 𝑏 
+Input
+Label
+Loss
+𝐿𝑜𝑠𝑠=
+ො𝑦−𝑦2
+Parameters
+Example 1
+ො𝑦
+𝑥
+∗
+𝑤
++
+𝑏
+Model
+𝑥 = 6.7
+𝑏= 0.04
+w = −0.34
+𝑦 = 9.1
+ො𝑦= 𝑥𝑤+ 𝑏 
+Input
+Label
+Loss
+𝐿𝑜𝑠𝑠=
+ො𝑦−𝑦2
+Parameters
+𝐿
+𝑦
+𝐿𝑤
+′
+𝐿𝑏
+′
+Example 1
+Model
+𝑥 = 6.7
+𝑏= −0.0393
+w = -0.655
+𝑦 = 9.1
+ො𝑦= 𝑥𝑤+ 𝑏 
+Input
+Label
+Loss
+𝐿𝑜𝑠𝑠=
+ො𝑦−𝑦2
+Parameters
+ො𝑦
+𝑥
+∗
+𝑤
++
+𝑏
+𝐿
+𝑦
+𝐿𝑤
+′ = 0
+𝐿𝑏
+′ = 0
+𝐿𝑤
+′ = ⋯
+𝐿𝑏
+′ = ⋯
+1
+2
+3
+4
+5
+1
+2
+3
+4
+5
+Example 1
+13
+Model
+𝑥 = 6.7
+𝑏= 0.04
+w = -0.34
+𝑦 = 9.1
+ො𝑦= 𝑥𝑤+ 𝑏 = -2.238 
+Input
+Label
+Loss
+ො𝑦−𝑦2 = 128.55
+Parameters
+Initialize b and 
+w randomly
+Example 1
+Logistic Regression
+ො𝑦
+𝑥
+∗
+𝑤
++
+𝑏
+1 output
+1+1 variables
+𝜎()
+Model
+Loss
+0.1
+𝑦
+𝑥
+-0.1
+𝑦= 0
+𝑏
+𝑤
+ො𝑦= 𝜎(𝑧) =
+1
+1 + 𝑒−𝑧
+𝑧= 𝑤𝑥+ 𝑏
+−ylogොy−(1−y)log(1−ොy )
+Model
+Loss
+𝒙= 1 1.5 0.2
+1 4.1 1.3
+𝜽=
+0.1
+0.5
+−0.1
+ෝ𝒚= 𝜎𝒙𝜽 = 0.6963
+0.8828
+𝐿(𝜽) = 0.65815
+𝒚= 0
+1
+4
+𝛻𝜽𝐿=
+0.28961
+0.28217
+−0.0064
+𝛉−ηL𝛉
+′ =
+0.1
+0.5
+−0.1
+−η
+0.28961
+0.28217
+−0.0064
+=
+0.0971
+0.4971
+−0.099
+5
+3
+Logistic Regression
+Loss Functions
+AI VIETNAM
+All-in-One Course
+𝐿(ෝ𝒚, 𝒚) = ෍
+𝑖
+−𝑦𝑖log ො𝑦𝑖
+❖ Cross-entropy
+𝑥
+L = −𝑦0logො𝑦0 −𝑦1logො𝑦1
+𝑧0 = 𝑤0𝑥+ 𝑏0
+0.2
+0.1
+𝑦
+𝑧1 = 𝑤1𝑥+ 𝑏1
+−0.1
+0.05
+ො𝑦0 =
+𝑒𝑧0
+σ𝑖=0
+1
+𝑒𝑧𝑖
+ො𝑦1 =
+𝑒𝑧1
+σ𝑖=0
+1
+𝑒𝑧𝑖
+𝒙= 1.4
+4.5
+𝒚= [1 0]
+[0 1]
+𝑤0
+𝑏0
+𝑤1
+𝑏1
+𝒛0 = 0.38
+1.0
+𝒛1 = −0.09
+−0.4
+ෝ𝒚0 = 0.615
+0.802
+ෝ𝒚1 = 0.385
+0.198
+𝐿= 1.0530
+17
+nn.Sequential()
+AI VIETNAM
+All-in-One Course
+1
+𝑧
+Model
+𝑥1
+𝑥2
+𝑥3
+dense(units=1)
+input_shape = (3,)
+1
+𝑧1
+𝑧2
+𝑧3
+Softmax
+Model
+𝑥1
+𝑥2
+𝑥3
+𝑥4
+𝑦1
+𝑦2
+𝑦3
+dense(units=3)
+input_shape = (4,)
+softmax
+18
+nn.Sequential()
+AI VIETNAM
+All-in-One Course
+…
+Model
+nn.Sequential()
+1
+𝑧1
+𝑧2
+𝑧3
+𝑥1
+𝑥2
+𝑥3
+𝑥4
+1
+𝑧
+𝑥1
+𝑥2
+𝑥3
+nn.Sequential()
+AI VIETNAM
+All-in-One Course
+1
+𝑧1
+𝑧2
+𝑧3
+Softmax
+𝑥1
+𝑥2
+𝑥3
+𝑥4
+𝑦1
+𝑦2
+𝑦3
+…
+Model
+nn.Sequential()
+dense(units=3)
+input_shape = (4,)
+softmax
+20
+➢Introduction to PyTorch
+➢Model Construction 
+➢Model Training and Inference
+➢Applying Softmax for Image Data
+Outline
+Model Construction
+❖ Linear regression
+AI VIETNAM
+All-in-One Course
+Feature
+Label
+House price data
+price = w ∗𝑎𝑟𝑒𝑎+ 𝑏
+ො𝑦 = 𝑤𝑥+ 𝑏
+Model
+area
+price
+Input layer
+a layer
+dense(units=1)
+input_shape = (1,)
+1
+w
+𝑏
+21
+Model Construction
+AI VIETNAM
+All-in-One Course
+Features
+Label
+Advertising-based sale data
+ො𝑦 = 𝑤1𝑥1 + 𝑤2𝑥2 + 𝑤3𝑥3 + 𝑏
+Sale = 𝑤1 ∗𝑇𝑉+ 𝑤2 ∗𝑅𝑎𝑑𝑖𝑜+ 𝑤3 ∗𝑁𝑒𝑤𝑠𝑝𝑎𝑝𝑒𝑟+ 𝑏
+Model
+1
+𝑧
+𝑥1
+𝑥2
+𝑥3
+Input layer
+a layer
+dense(units=1)
+input_shape = (3,)
+❖ Linear regression
+Model Construction
+AI VIETNAM
+All-in-One Course
+Boston House 
+Price Data
+Features
+Label
+medv = 𝑤1 ∗𝑥1 + ⋯+ 𝑤13 ∗𝑥13 + 𝑏
+Model
+❖ Linear regression
+23
+Model Construction
+AI VIETNAM
+All-in-One Course
+medv = 𝑤1 ∗𝑥1 + ⋯+ 𝑤13 ∗𝑥13 + 𝑏
+Model
+1
+𝑧
+𝑥1
+…
+𝑥13
+Input layer
+a layer
+dense(units=1)
+input_shape = (13,)
+…
+❖ Linear regression
+24
+Model Construction
+❖ Logistic regression
+AI VIETNAM
+All-in-One Course
+Feature
+Label
+z = 𝜽𝑇𝒙
+Model
+ො𝑦=
+1
+1 + 𝑒−𝑧
+Input layer
+A layer
+dense(units=1)
+input_shape = (1,)
+1
+ොy
+𝑥
+Sigmoid
+function
+𝑧
+criterion = nn.BCEWithLogitsLoss()
+25
+Model Construction
+❖ Logistic regression
+AI VIETNAM
+All-in-One Course
+Feature
+Label
+Model
+ො𝑦=
+1
+1 + 𝑒−𝑧
+𝑧= 𝜽𝑇𝒙
+Input layer
+A layer
+dense(units=1)
+input_shape = (2,)
+1
+ොy
+Sigmoid
+function
+𝑧
+𝑥2
+𝑥1
+criterion = nn.BCEWithLogitsLoss()
+26
+Model Construction
+❖ Logistic regression
+AI VIETNAM
+All-in-One Course
+Input layer
+A layer
+dense(units=1)
+input_shape = (4,)
+1
+𝑧
+Sigmoid
+function
+𝑥1
+𝑥2
+𝑥3
+𝑥4
+ොy
+Feature
+Label
+Model
+ො𝑦=
+1
+1 + 𝑒−𝑧
+𝑧= 𝜽𝑇𝒙
+criterion = nn.BCEWithLogitsLoss()
+27
+Model Construction
+❖ Softmax regression
+AI VIETNAM
+All-in-One Course
+Feature
+Label
+Iris Classification Data
+𝑧1 = 𝑥𝑤1 + 𝑏1
+𝑧2 = 𝑥𝑤2 + 𝑏2
+ොy1 =
+𝑒𝑧1
+σ𝑗=1
+2
+𝑒𝑧𝑗
+ොy2 =
+𝑒𝑧1
+σ𝑗=1
+2
+𝑒𝑧𝑗
+Input layer
+A layer
+dense(units=2)
+input_shape = (1,)
+1
+𝑤1
+ොy1
+𝑥
+Softmax
+function
+𝑤1
+𝑏1
+𝑤2
+𝑏2
+ොy2
+𝑧1
+𝑧2
+Activation layer
+softmax
+criterion = nn.CrossEntropyLoss()
+28
+Model Construction
+❖ Softmax regression
+AI VIETNAM
+All-in-One Course
+Input layer
+A layer
+dense(units=3)
+input_shape = (1,)
+1
+𝑥
+𝑧1
+𝑧2
+𝑧3
+Softmax
+ොy1
+ොy2
+ොy3
+criterion = nn.CrossEntropyLoss()
+29
+Model Construction
+❖ Softmax regression
+AI VIETNAM
+All-in-One Course
+Input layer
+A layer
+dense(units=3)
+input_shape = (4,)
+1
+𝑧1
+𝑧2
+𝑧3
+Softmax
+𝑥1
+𝑥2
+𝑥3
+𝑥4
+ොy1
+ොy2
+ොy3
+𝒛= 𝜽𝑇𝒙
+ො𝐲=
+𝑒𝒛
+σ𝑖=1
+𝑘
+𝑒𝑧𝑖
+Forward computation
+➢Introduction to PyTorch
+➢Model Construction 
+➢Model Training and Inference
+➢Applying Softmax for Image Data
+Outline
+Training
+❖ Logistic regression
+AI VIETNAM
+All-in-One Course
+→ Tính đạo hàm
+→ Cập nhật tham số (Stochastic 
+gradient descent)
+→ Tính output ො𝑦
+→ Tính loss (binary cross-entropy)
+ො𝑦= 𝜎(𝑧) =
+1
+1 + 𝑒−𝒛
+𝐿(𝜽) = −𝐲Tlogො𝐲−(1−y)Tlog(1−ො𝐲 )
+𝐿𝜽
+′ = 𝐱T(ො𝐲−𝒚)
+𝜽= 𝜽−𝜂𝐿𝜽
+′
+𝒛= 𝜽𝑇𝒙
+Declare optimizer and loss function
+Start training
+31
+Training
+❖ Softmax regression
+AI VIETNAM
+All-in-One Course
+→ Tính đạo hàm
+→ Cập nhật tham số (Stochastic 
+gradient descent)
+→ Tính output ො𝑦
+→ Tính loss (cross-entropy)
+𝜽= 𝜽−𝜂𝐿𝜽
+′
+𝒛= 𝜽𝑇𝒙
+ො𝐲=
+𝑒𝒛
+σ𝑖=1
+𝑘
+𝑒𝑧𝑖
+𝐿(𝜽) = −෍
+𝑖=1
+𝑘
+𝑦𝑖logො𝑦𝑖
+𝜕𝐿
+𝜕𝜽𝑖
+= 𝒙ො𝑦𝑖−𝑦𝑖
+Delaration and Training
+32
+Training
+❖ Softmax regression
+AI VIETNAM
+All-in-One Course
+𝒛= 𝜽𝑇𝒙
+ො𝐲=
+𝑒𝒛
+σ𝑖=1
+𝑘
+𝑒𝑧𝑖
+Model
+33
+Training
+❖ Softmax regression
+AI VIETNAM
+All-in-One Course
+𝒛= 𝜽𝑇𝒙
+ො𝐲=
+𝑒𝒛
+σ𝑖=1
+𝑘
+𝑒𝑧𝑖
+Model
+34
+➢Introduction to PyTorch
+➢Model Construction 
+➢Model Training and Inference
+➢Applying Softmax for Image Data
+Outline
+Image Classification: Image Data
+❖ Grayscale images
+AI VIETNAM
+All-in-One Course
+(Height, Width)
+Pixel p = scalar
+0 ≤p ≤255
+Resolution: #pixels
+Resolution = HeightxWidth
+35
+Image Classification: Image Data
+❖ Color images
+AI VIETNAM
+All-in-One Course
+(Channel, Height, Width,)
+Pixel p=
+𝑟
+𝑔
+𝑏
+0 ≤r,g,b ≤255
+RGB color image
+Resolution: #pixels
+Resolution = HeightxWidth
+36
+Important Packages
+❖ Some functions
+import urllib.request as req
+req.urlretrieve(url, name)
+To download a file
+from PIL import Image
+img = Image.open(name)
+To open an image
+import matplotlib.pyplot as plt
+plt.imshow(img)
+To show an image
+37
+MNIST dataset
+Image Data
+Grayscale images
+Resolution=28x28
+Training set: 60000 samples
+Testing set: 10000 samples
+38
+Fashion-MNIST dataset
+T-shirt
+Trouser
+Pullover
+Dress
+Coat
+Sandal
+Shirt
+Sneaker
+Bag
+Ankle
+Boot
+Image Data
+Grayscale images
+Resolution=28x28
+Training set: 60000 samples
+Testing set: 10000 samples
+Using 
+Softmax 
+Regression
+784 Nodes
+Input layer
+Output
+1
+𝑧1
+𝑧10
+Softmax 
+activation
+Fully 
+connect
+10 Nodes
+Output layer
+28
+28
+784
+flatten data
+. . .
+. . .
+Data Sets
+Demo
+AI VIETNAM
+All-in-One Course
+Test Accuracy
+ 91.97%

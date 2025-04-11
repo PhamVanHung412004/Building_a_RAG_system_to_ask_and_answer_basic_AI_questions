@@ -1,4 +1,0 @@
-AI VIETNAM aivietnam.edu.vn
-của RAG cũng dẫn đến một loạt thách thức cần giải quyết. Vấn đề chính mà RAG đối mặt là việc tối
-ưu hóa hiệu suất của nó, cụ thể là làm thế nào để quá trình truy xuất thông tin diễn ra nhanh chóng
-hơn và kết quả thu được chính xác hơn. 

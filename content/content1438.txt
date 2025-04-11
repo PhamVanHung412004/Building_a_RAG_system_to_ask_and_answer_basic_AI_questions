@@ -1,5 +1,0 @@
-Daily AI Exercise (AIO) aivietnam.edu.vn
-hoạt có thể do Terminal của bạn đang sử dụng Powershell, bạn hãy thay đổi sang Command Prompt
-bằng cách nhấn vào biểu tượng dấu cộng trong cửa sổ terminal và chọn Command Prompt.
-3.5 Tạo notebook Jupyter
-Vscode hỗ trợ chúng ta sử dụng file jupyter notebook mà không cần phải mở phần mềm này. 

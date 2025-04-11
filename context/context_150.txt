@@ -1,0 +1,594 @@
+IMAGE COLORIZATION PROBLEM USING 
+(VARIATIONAL) AUTO-ENCODER
+Prepared by: 
+Khanh Duong, Tien-Huy Nguyen, Nhu-Tai Do
+taidn@ueh.edu.vn
+Agenda
+2
+1. Introduction
+2. Image Colorization Problem
+3. Context Auto-Encoder Approach
+4.    Variational Auto-Encoder Approach
+Introduction about (Variational) 
+Auto-Encoder
+3
+4
+Introduction
+[1] Russ Salakhutdinov, Deep Unsupervised Learning, Slides, CMU
+Massive increase in the amount 
+of the data
+Mostly Unlabeled
+Bag of Word
+Deep Unsupervised Model
+Learned latent code
+(Hinton & Salakhutdinov, 
+Science 2006)
+Reuters dataset: 804,414
+newswire stories: unsupervised
+Inference and discover 
+structure at multiple levels
+underlying structure, 
+cause, or statistical
+correlation
+5
+What is Unsupervised Learning?
+Supervised Learning
+Unsupervised Learning
+Data
+(x, y) - x is data, y is label
+x - Just data, no labels
+Goal
+Learn a function to map x -> y
+Learn some underlying hidden 
+structure of the data
+Application
+Classification, Regression, Object 
+detection, Semantic segmentation, 
+Image Captioning, …
+Clustering, Dimensionality reduction, 
+Feature learning, Density estimation, …
+Clustering
+Dimensionality reduction
+Feature learning
+[2] CS231n Convolutional Neural Networks for Visual Recognition, Standford
+Training data is cheap
+Solve unsupervised learning => understand structure of visual world
+6
+Technical mind-map in Unsupervised Learning
+Unsupervised Learning
+Non-probabilistic 
+(Parametric) Models
+Probabilistic 
+(Generative) Models
+Explicit Density
+p(x)
+Implicit Density
+p(x)
+Approximate 
+Density
+Tractable 
+Density
+- Sparse Coding
+- Autoencoders
+- Others (e.g. k-means)
+- Fully observed Belief Nets
+- NADE
+- PixelRNN
+- Boltzmann Machines
+- Variational Autoencoders
+-Helmholtz Machines
+-Many others…
+- Generative Adversarial Networks
+- Moment Matching Networks
+- Markov Chain
+[1] Russ Salakhutdinov, Deep Unsupervised Learning, Slides, CMU
+Figure copyright and adapted from 
+Ian Goodfellow, Tutorial on 
+Generative Adversarial Networks, 
+2017
+Dimensionality Reduction Problem
+• Given input data X with N samples in D dimension space
+𝑋= 𝑋𝑁= 𝑥1, 𝑥2, … , 𝑥𝑁, 𝑥𝑖∈ℝ𝐷
+• Find feature matrix W: 𝑊= 𝑊𝑀= 𝑤1, 𝑤2, … , 𝑤𝑀, 𝑤𝑖∈ℝ𝐷
+• Use W to transform X into weight matrix ෨𝑍 : ෨𝑍= 𝑊𝑇𝑋
+• Find a good representation?
+• Reduce redundancy in the data?
+7
+=
+features
+samples
+dimensions
+samples
+features
+dimensions
+Input Matrix
+Feature Matrix
+Weight Matrix
+Dimensionality Reduction Problem
+• Desirable feature features:
+– Avoid feature similarity →    𝑤𝑖
+𝑇𝑤𝑗= 0 → linear combination
+– Give “simple” weights   →    𝐶𝑜𝑣𝑧𝑖, 𝑧𝑗= 𝐼 → minimize relation of the 
+two dimensions
+• Satisfy minimising the total squared reconstruction error:
+𝑊𝐷𝑋−𝑊𝑀𝑋2 →𝑚𝑖𝑛
+Where 𝑀≪𝐷, 𝑊𝑀⊂𝑊𝐷
+8
+PCA 2D
+[3] https://en.wikipedia.org/wiki/Principal_component_analysis
+Feature Learning
+Motivation
+•
+Training very deep neural networks is difficult:
+– Magnitudes of gradients in lower layers and in higher layers are different
+– The landscape of objective function is difficult for SGD to find a good local 
+optimum
+– Many parameters to remember training data and do not generalize well
+•
+The goal of pretraining is to address the above problems:
+– Pretraining step: train a sequence of shallow autoencoders, greedily one layer at 
+a time, using unsupervised data
+– Fine-tuning step 1: train the last layer using supervised data
+– Fine-tuning step 2: use backpropagation to fine-tune the entire network using 
+supervised data
+9
+[7] Quoc V.Le, A Tutorial on Deep Learning Part 2: Autoencoders, Convolutional Neural Networks and Recurrent Neural Networks, Google 
+Brain, robotics.stanford.edu/~quocle/tutorial2.pdf
+Feature Learning
+General Architecture
+10
+[8] T.Paine, An analysis of unsupervised pre-training in light of recent advances, ICLR 2015
+𝑥
+෤𝑥
+Hidden 1
+Hidden 2
+Hidden 3
+𝑥−ǁ𝑥2
+𝟐
+𝑥
+Hidden 1
+Hidden 2
+FC
+Softmax
+≈𝐿𝑎𝑏𝑒𝑙𝑠
+Phase 1
+Train the Autoencoder 
+using all data
+Phase 2
+Train the Autoencoder 
+on “labeled” data
+Work often better:
+•
+learns internal data representation: may 
+be useful features
+•
+initializes optimization from more 
+favorable initial approximation: good for 
+solving vanishing gradient problem
+•
+especially useful when few labelled 
+examples and many unlabeled
+Deep Learning 
+General AutoEncoders
+•
+Autoencoders: artificial neural networks
+–
+Capable of learning efficient representations of the input data, called latent code
+–
+Without any supervision, simply learning to reconstruct original data
+–
+Need to constrain complexity: (1) by architectural constraint (2) by penalty on internal 
+representation
+11
+𝑥
+෤𝑥
+𝑧
+Encoder
+Decoder
+Input  Data
+Features
+(Latent Code)
+Reconstructed 
+Data
+𝑥−ǁ𝑥2
+𝟐
+Loss function
+Goal: Train such that features used 
+to reconstruct original data, don’t 
+use labels
+Hidden layer z: features
++ smaller than x (dimensionality 
+reduction)
++ sparse constraint (larger than x) 
+Encoder, Decoder:
++ Linear + Nonlinearity (sigmoid)
++ Deep, fully – connected
++ ReLU CNN
+[2] CS231n Convolutional Neural Networks for Visual Recognition, Standford
+12
+Vanilla (Undercomplete) AutoEncoder
+Input
+(None, 784)
+Dense
+(None, 32)
+Dense
+(None, 784)
+Encoder
+Decoder
+Auto Encoder
+Sigmoid
+Normalize 
+[0, 1]
+Normalize 
+[0, 1]
+PCA Role
+𝑋
+𝑧
+෨𝑋
+𝑊
+𝑉
++ Encoding: X (input data), f (activation 
+function)
+ 𝑧= 𝒇𝑊𝑋
++ Decoding: g (activation function)
+෩𝑋 = 𝒈𝑉𝑧= 𝒈𝑉𝒇𝑊𝑋
++ If g, f is linear function:
+෩𝑋 = 𝑉𝑊𝑋
++ Loss function MSE:
+min
+𝑊,𝑉𝑋−෨𝑋
+min
+𝑊,𝑉𝑋−𝑉𝑊𝑋 
+Dimensionality reduction with z as new 
+subspace for input data X, ability 
+reconstruct X with ෨𝑋.
+If g, f is non-linear function (sigmoid) → 
+Non-Linear PCA
+Denoising Autoencoder
+•
+To avoid overfitting and improve the robustness, the input is partially corrupted by
+adding noises to or masking some values of the input vector in a stochastic manner
+13
+Variational Autoencoder
+•
+Instead of mapping the input into a fixed vector, we want to map it into a
+distribution.
+14
+Image Colorization Problem
+15
+Introduction
+•
+Problem: Image Colorization is the task of colorizing gray-scale images.
+•
+Practical applications: coloring old black and white images, movies etc.
+•
+Main approaches: Scribble-based, Example-based, and Fully Automatic.
+16
+User Stroke on Image
+Reference image
+Gray-scale image
+Gray-scale image
+Scribble-based colorization
+Example-based colorization
+Fully Automatic colorization
+Introduction
+•
+Our problem focuses on Fully Automatic Colorization: Given the grayscale 
+image, produce a plausible colorization to fool a human observer.
+– Input: Grayscale image in grids of pixels from 0 – 255
+– Output: Channel a, b of color image in CIE Lab color space
+– 94% of the cells in our eyes determine brightness, only 6% for 
+colors → grayscale image is a lot sharper than the color layers.
+17
+https://www.freecodecamp.org/news/colorize-b-w-photos-with-a-100-line-neural-network-53d9b4449f8d/
+Related works
+•
+Non-parametric methods: transfer color reference images onto input image 
+from analogous regions
+•
+Parametric methods: learn prediction functions from large datasets
+– Problem define: (1) regression onto continuous color space, (2) classification of 
+quantized color values
+– Approach: (1) Hand-engineered Features  (2) Deep networks
+18
+Related works
+•
+Parametric methods: Hand-engineered Features
+– Cheng et al.1: adaptive image clustering according to global information, every 
+neural network trained on specific cluster for colorization with L2 Regression 
+loss, using joint bilateral filtering for post-processing.
+– Charpiat et al.2: deal with multimodality in colorization with the probability 
+distribution of all possible colors on every pixel, use graph-cut to maximize 
+the probability, discretization of the color space.
+19
+[1] Z. Cheng, Q. Yang, and B. Sheng, “Deep colorization,” IEEE International Conference on Computer Vision, pp. 415–423, 2015.
+[2] G. Charpiat, M. Hofmann, and B. Schölkopf, “Automatic image colorization via multimodal predictions,” Lecture Notes in Computer 
+Science (including subseries Lecture Notes in Artificial Intelligence and Lecture Notes in Bioinformatics), vol. 5304 LNCS, pp. 126–139, 2008.
+Cheng et al.
+Charpiat et al.
+Regression
+Classification
+Related works
+•
+Parametric methods: Deep Learning Approach:
+– Larsson et al.1:  use un-rebalanced classification loss, build on hypercolumns on a 
+VGG network,  train on ImageNet, evaluate on PSNR, RMSE.
+– Iizuka et al.2: use a regression loss, build a two-stream architecture fusing global 
+and local features, train on Places scene dataset, evaluate on naturalness of the 
+colorizations by user asking
+20
+[1] G. Larsson, M. Maire, and G. Shakhnarovich, “Learning Representations for Automatic Colorization,” in Lecture Notes in Computer 
+Science (including subseries Lecture Notes in Artificial Intelligence and Lecture Notes in Bioinformatics), vol. 9908 LNCS, 2016, pp. 577–593.
+[2] S. Iizuka, E. Simo-Serra, and H. Ishikawa, “Let there be Color: Joint End-to-end Learning of Global and Local Image Priors for Automatic 
+Image Colorization with Simultaneous Classificatio,” ACM Transactions on Graphics, vol. 35, no. 4, pp. 1–11, Jul. 2016.
+Larsson et al.
+Iizuka et al.
+Regression
+Classification
+Related works
+•
+Zhang et. at1: Main idea
+– Multinomial classification problem by quantize ab space into grid size 10, keep 
+313 bins in gamut.
+– Cross entropy loss with class rebalancing to encourage learning of rare colors.
+– Post-processing: per-pixel color distribution to single point estimate by 
+interpolating  between mean and mode with annealed-mean.
+21
+[1] R. Zhang, P. Isola, and A. A. Efros,Colorful Image Colorization, ECCV, pp. 649–666, 2016
+Deep network model
+Related works
+•
+Quantization process in classification approach from Richard Zhang et. al.:
+– Quantization Lab Color Space into 313 bins
+– Using soft-encoding scheme instead of nearest searching
+•
+Benefits from this quantization process to classify:
+– Prevent the averaging effect of regression loss: easy to favor grayish, desaturated 
+results
+– Increase the correlation between nearest color pixels by soft-encoding.
+22
+𝐿መ𝑍, 𝑍= −1
+𝐻𝑊෍
+ℎ,𝑤
+𝑣𝑍ℎ,𝑤෍
+𝑞
+𝑍ℎ,𝑤,𝑞𝑙𝑜𝑔መ𝑍ℎ,𝑤,𝑞
+Rarity weighting
+Target distribution
+Predicted distribution
+Category Cross entropy loss 
+Related works
+•
+Smoothing the color prior probability:
+23
+Distribution of probability vs smoothness probability
+Smoothness of color probability, Invert Probability
+Related works
+•
+More details: The ab color distribution
+–
+Soft-Encoding Process:
+• Step 1: For every pixel of image, convert from ab values to color index q (encoding) 
+using K-Nearest
+• Step 2: Convert to one-hot encoding representation
+• Step 3: Apply label smoothing 
+– Use K-Nearest neighbors  to get 4 color indexes nearest q, 
+– Generate 5 gaussian values, and normalize 
+24
+𝐼𝑎𝑏𝑝= (𝑎, 𝑏)
+q ∈[0,312]
+…
+0
+0
+1
+0
+0
+…
+…
+0.05
+0.24
+0.42
+0.24
+0.05
+…
+quantize ab space  with grid size 
+10 (313 bins)
+0
+n-1
+0
+312
+…
+0
+312
+…
+q
+q
+Context Auto-Encoder Approach
+25
+Challenges
+•
+Averaging effect: grayish, desaturated results 
+due to 94% of the cells in our eyes determine 
+brightness, only 6% for colors. Grayscale 
+image is a lot sharper than the color layers.
+•
+Rare colors in images: strongly biased due to 
+the appearance of backgrounds such as 
+clouds, pavement, dirt, and walls.
+•
+Semantic information matters: In order to 
+colorize any kind of image, a system must 
+interpret the semantic composition of the 
+scene (what is in the image: faces, cars, 
+plants, . . . ) as well as localize objects (where 
+things are). 
+26
+Context-Aware Colorization
+•
+Objectives:
+– Integrate scene-context classification and pixel-wise semantic segmentation
+27
+pixel-wise semantic segmentation
++ what object the pixels belong to
+scene-context classification
++ global scene information
+Segmentation classes in Coco-Stuff
+(0: unlabeld, 1 – 182: objects & stuffes)
+Scene-context classes
+(totally 365 classes)
+Context-Aware Colorization
+•
+Objectives:
+– Use ab color distribution to encourage rare color (rebalancing colors), and multi-
+modal in colorization
+28
+0
+n-1
+ab color distribution
+vs.
+ab color value
+With a pixel
+Gray
+Ours
+GT
+Sky (common colors)
+Tree
+Multi-Modal Attribute or Bias
+(many choice in colorization)
+leading to
+Grayish or Desaturated Effect
+GT
+Gray
+Grayish result
+Shirt (diversity colors, rare colors)
+Semantic Image Colorization Auto-Encoder
+•
+Take advantage of skip connections between the contracting and expanding path at 
+the same depth level using U-Net model (prevent dying ReLU and vanishing problem)
+•
+Use multi-task learning with end-end training from gray-scale image to four outputs 
+for learning mutual benefits of global/local context, content accuracy and color 
+biases.
+29
+flexible colorize for rare 
+color
+Global-style context from 
+Scene Types of Places365
+Local context at pixel-level 
+with 183 objects and 
+stuffes from Coco-Stuff
+365
+W x H x 183
+W x H x 313
+W x H x 2
+Content accuracy 
+(grayish effects)
+encoding features
+(7x7x1024)
+decoding feature map
+(W x H x 64) 
+Input image
+(224 x 224 x 1) 
+[1] Nhu-Tai Do et al. "Image colorization using the global scene-context style and pixel-wise semantic segmentation." IEEE Access 8 (2020): 
+214098-214114.
+Scene-context classification
+•
+Extract the scene probabilities of training dataset (without scene-context 
+ground-truth) based on pre-trained model on Places3651.
+•
+Label Smoothing2 with top-5 prediction: keep 5 highest probabilities, set all 
+remain values  to 0, and normalize the probabilities with sum 1.
+30
+Image
+Pre-trained 
+Model
+0
+1
+2
+3
+…
+n-1
+Scene probability with n=365
+Top-1: Cafeteria (0.179)
+Top-2: Restaurant (0.167)
+Top-3: dining_hall (0.091)
+Top-4: coffe_shop (0.086)
+Top-5: restaurant_patio (0.080)
+Top-1: Cafeteria (0.297)
+Top-2: Restaurant (0.277)
+Top-3: dining_hall (0.151)
+Top-4: coffe_shop (0.143)
+Top-5: restaurant_patio (0.132)
+[1] B. Zhou, A. Lapedriza, A. Khosla, A. Oliva, and A. Torralba, “Places: A 10 Million Image Database for Scene Recognition,” IEEE transactions on pattern analysis and machine 
+intelligence (TPAMI), vol. 40, no. 6, pp. 1452–1464, 2018 
+[2] R. Müller, S. Kornblith, and G. Hinton, “When Does Label Smoothing Help?,” In Advances in Neural Information Processing Systems (NeurIPS), pp.4696-4705, 2019.
+Regression/Color Distribution/Segmentation 
+Branches
+•
+Compute backward gradients of three branches to enhance decoding feature map 
+Xmap and encoding feature Xenc
+–
+regression branch to keep the accuracy between prediction/ground-truth → output results 
+with grayish and desaturated effects (not used as colorized result)
+–
+color distribution branch to encourage rare color (rebalancing colors) and multi-modal in 
+colorization →output results with more vivid
+–
+segmentation branch to help the system understand what object the pixels belong to (with 
+183 object & stuff labels) →output results with more precise edge
+31
+Gray
+Ground-Truth
+Reg
+Soft
+Seg
+Learning mutual benefits at 
+pixel-level
+colorize 
+result
+Quantitative comparisons
+32
+–
+Larsson et al.: better on PSNR for ImageNet,DIV2K, and COCO-Stuff and on SSIM results for 
+ImageNet and DIV2K.
+–
+Our methods: better on L2ab metric for DIV2K, Places365, and COCO-Stuff
+–
+Semantic segmentation played an important role in enhancing the colorization results, and 
+it helped our method improve the accuracy of the ab channels.
+Qualitive Comparisions
+33
+SegClasRegSoft
+RegSoft
+Ground-truth
+Input
+Zhang
+Iizuka
+Larsson
+ClasRegSoft
+Div2k
+Coco-Stuff
+ImageNet
+Places365
+❖SUCCESSFUL CASES
+Results were more vibrant and had more precise edges than the other methods. Moreover, the 
+yellow color noise also was reduced in our ClasRegSoft versions comparison on RegSoft version.
+Qualitive Comparisions
+34
+❖SOME FAIL CASES
+SegClasRegSoft
+RegSoft
+Ground-truth
+Input
+Zhang
+Iizuka
+Larsson
+ClasRegSoft
+My results met difficulties for colorization with incorrect colors, noise occurrences. These defects are 
+similar to the results of Iizuka et al. and Larsson et al..
+Project: VAE-Based Image 
+Colorization
+35
+THANKS FOR LISTENING!
+Waiting for question!
+36

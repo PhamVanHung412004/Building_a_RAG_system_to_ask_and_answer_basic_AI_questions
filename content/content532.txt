@@ -1,5 +1,0 @@
-page_content for doc in docs )
-8. Cập nhật filesrc/rag/utils.py: Tại file này, ta khai báo hàm tách phần trả lời của model từ câu
-prompt (phần bắt đầu từ"Answer:"):
-1 import re
-9

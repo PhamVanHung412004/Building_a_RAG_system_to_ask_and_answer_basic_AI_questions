@@ -1,0 +1,491 @@
+AI VIET NAM – AI COURSE 2024
+Tutorial: Phát hiện đối tượng trong ảnh với
+YOLOv10
+Dinh-Thang Duong, Nguyen-Thuan Duong, Minh-Duc Bui và
+Quang-Vinh Dinh
+Ngày 30 tháng 5 năm 2024
+I.
+Giới thiệu
+Object Detection (Tạm dịch: Phát hiện đối tượng) là một bài toán cổđiển thuộc lĩnh vực
+Computer Vision. Mục tiêu của bài toán này là tựđộng xác định vịtrí của các đối tượng trong
+một tấm ảnh. Tính tới thời điểm hiện tại, đã có rất nhiều phương pháp được phát triển nhằm
+giải quyết hiệu quảbài toán này. Trong đó, các phương pháp thuộc họYOLO (You Only Look
+Once) thu hút được sựchú ý rất lớn từcộng đồng nghiên cứu bởi độchính xác và tốc độthực
+thi mà loại mô hình này mang lại.
+Hình 1: Logo của mô hình YOLO. Ảnh: link.
+Thời gian vừa qua, Ao Wang và các cộng sựtại Đại học Thanh Hoa (Tsinghua University)
+đã đềxuất mô hình YOLOv10 trong bài báo YOLOv10: Real-Time End-to-End Object
+Detection [10]. Với những cải tiến mới, mô hình đã đạt được hiệu suất vượt trội hơn so với các
+phiên bản YOLO trước đó ởcác khía cạnh khác nhau, tăng cường khảnăng phát hiện đối tượng
+theo thời gian thực (real-time object detection).
+1
+AI VIETNAM (AIO2024)
+aivietnam.edu.vn
+Hình 2: Hiệu suất của YOLOv10 khi so sánh với các mô hình khác. Trên tập dữliệu COCO,
+YOLOv10 đạt được kết quảtốt nhất vềkhía cạnh Độtrễ(Latency) và Sốlượng tham sốmô
+hình (Number of parameters) trong khi vẫn giữđược độchính xác (COCO AP) cao. Ảnh: [10].
+Trong bài viết này, chúng ta sẽcùng nhau tìm hiểu vềYOLOv10 và cách sửdụng mô hình này.
+Thông qua đó, nhóm cũng sẽtrình bày sơ lược vềbài toán Object Detection cũng như tóm tắt
+ngắn gọn các phiên bản YOLO trước đó đểbạn đọc có một cái nhìn tổng quan hơn vềnội dung
+này.
+Theo đó, bài viết được bốcục như sau:
+- Phần I: Giới thiệu vềnội dung bài viết.
+- Phần II: Tóm tắt vềbài toán Object Detection và các phiên bản YOLO đời trước.
+- Phần III: Trình bày nội dung YOLOv10.
+- Phần IV: Hướng dẫn cách cài đặt, huấn luyện và sửdụng YOLOv10.
+- Phần V: Trích dẫn tài liệu.
+2
+AI VIETNAM (AIO2024)
+aivietnam.edu.vn
+II.
+Bài toán Object Detection và các
+phiên bản YOLO đời trước
+II.I.
+Bài toán Object Detection
+Trong Computer Vision, bài toán Object Detection hướng đến xây dựng một chương trình có
+thểtựđộng xác định vịtrí và nhận diện tên (class) của các vật thểtrong một bức ảnh. Tổng
+hợp hai thông tin đầu ra này còn được gọi với tên là bounding box. Từđây, ta có thểmô tả
+Input/Output của một chương trình Object Detection như sau:
+- Input: Một bức ảnh.
+- Output: Bounding box của các vật thểcần phát hiện trong ảnh.
+Hình 3: Minh họa Input/Output của bài toán Object Detection.
+Đến thời điểm hiện tại, các phương pháp sửdụng mạng Deep Learning cho thấy hiệu suất vượt
+trội. Ta có thểtóm tắt các hướng tiếp cận theo ba dạng như sau:
+1. One-stage Object Detection: Việc xác định vịtrí tọa độvà phân loại tên class của các
+vật thểđược thực hiện trên một bước duy nhất. Điển hình cho hướng tiếp cận này có thể
+kểđến SSD [13] và YOLO [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].
+2. Two-stage Object Detection: Việc xác định vịtrí tọa độvà phân loại tên class của các
+vật thểđược thực hiện riêng biệt. Điển hình cho hướng tiếp cận này có thểkểđến RCNN
+[14] và Faster RCNN [15].
+3. End-to-end Object Detection: Việc xác định vịtrí tọa độvà phân loại tên class của
+các vật thểđược dựđoán bởi một mô hình duy nhất (không sửdụng các bước tiền và hậu
+xửlý bounding box). Điển hình cho hướng tiếp cận này có thểkểđến DETR [16], DINO
+[17], và DeFCN [18].
+3
+AI VIETNAM (AIO2024)
+aivietnam.edu.vn
+Ởphần sau, chúng ta sẽtập trung điểm qua các phiên bản YOLO (từv1 đến v9).
+II.II.
+YOLOv1
+YOLOv1 [1] là mô hình one-stage (hoặc single-stage) real-time object detection được giới thiệu
+vào năm 2016.
+Hình 4: Kiến trúc mô hình YOLOv1 với 24 lớp conv và 2 lớp mlp. Ảnh: [1].
+- Điểm mới: YOLOv1 sửdụng một mạng neural đơn đểdựđoán cảvịtrí và tên class của
+các object trực tiếp từảnh đầu vào.
+- Ưu điểm: Tốc độnhanh, khảnăng object detection theo thời gian thực.
+- Nhược điểm: Độchính xác không cao với các object nhỏhoặc bịche khuất.
+II.III.
+YOLOv2
+YOLOv2 [2], còn được gọi là YOLO9000, được giới thiệu vào năm 2017 với nhiều cải tiến so với
+YOLOv1.
+Hình 5: Hình ảnh minh họa vềanchor boxes. Ảnh: Zixuan Zhang.
+4
+AI VIETNAM (AIO2024)
+aivietnam.edu.vn
+- Điểm mới: Sửdụng anchor boxes, mạng Darknet-19, và tăng training data đểtăng độ
+chính xác.
+- Ưu điểm: Tăng độchính xác và khảnăng nhận diện nhiều object trong 1 cell.
+- Nhược điểm: Phức tạp hơn, cần nhiều tài nguyên tính toán, và khó detect các object
+nhỏ.
+II.IV.
+YOLOv3
+YOLOv3 [3] ra mắt năm 2018, tiếp tục cải tiến từYOLOv2.
+Hình 6: Kiến trúc mô hình YOLOv3. Ảnh: [3].
+- Điểm mới: Sửdụng mạng Darknet-53 và detect object ởba cấp độkhác nhau (multi-scale
+detection) đểcải thiện độchính xác.
+- Ưu điểm: Độchính xác cao hơn, khảnăng phát hiện object nhỏtốt hơn.
+- Nhược điểm: Tốc độchậm hơn so với các phiên bản trước do sựphức tạp của mô hình.
+II.V.
+YOLOv4
+YOLOv4 [4] ra mắt năm 2020, với mục tiêu cải thiện cảđộchính xác và tốc độ.
+- Điểm mới: Sửdụng nhiều kỹthuật mới như CSPDarknet53, PANet, và nhiều cải tiến
+khác.
+- Ưu điểm: Cân bằng tốt giữa tốc độvà độchính xác, dễdàng sửdụng và triển khai.
+- Nhược điểm: Yêu cầu phần cứng mạnh đểđạt hiệu năng tối ưu.
+5
+AI VIETNAM (AIO2024)
+aivietnam.edu.vn
+II.VI.
+YOLOv5
+YOLOv5 [5], không phải do tác giảgốc phát triển, nhưng được cộng đồng sửdụng rộng rãi từ
+năm 2020.
+- Điểm mới: Tập trung vào tối ưu hóa và dễdàng sửdụng với các framework như PyTorch.
+Sửdụng CSPNet làm backbone và PANet đểfusion giúp cải thiện độchính xác của mô
+hình.
+- Ưu điểm: Dễdàng triển khai, tối ưu hóa tốt, cộng đồng hỗtrợmạnh mẽ.
+- Nhược điểm: Yêu cầu tài nguyên tính toán cao và khó detect được các object nhỏ.
+II.VII.
+YOLOv6
+YOLOv6 [6] là phiên bản tiếp theo với nhiều cải tiến vềtốc độvà độchính xác.
+- Điểm mới: Sửdụng backbone mới EfficientRep và Rep-PAN Neck đểtối ưu hóa và tăng
+hiệu năng của mô hình. SimOTA, một phương pháp Label Assignment, cũng được sửdụng
+đểtăng tính ổn định khi training.
+- Ưu điểm: Hiệu năng cao hơn, tốc độnhanh hơn.
+- Nhược điểm: Yêu cầu tài nguyên tính toán cao hơn.
+II.VIII.
+YOLOv7
+YOLOv7 [7] tiếp tục phát triển với các cải tiến vềmô hình và thuật toán.
+- Điểm mới: Sửdụng backbone E-ELAN kết hợp với phương pháp trainable bag-of-freebies
+đểtăng độchính xác của mô hình mà không làm tăng chi phí tính toán.
+- Ưu điểm: Tăng độchính xác và khảnăng nhận diện trong các điều kiện phức tạp.
+- Nhược điểm: Mức độphức tạp cao, cần nhiều thời gian và tài nguyên đểhuấn luyện.
+II.IX.
+YOLOv8
+YOLOv8 [8] được giới thiệu vào năm 2023 bởi Ultralytics. Mô hình này cải thiện độchính xác
+và tốc độso với YOLOv7 và giới thiệu nhiều tính năng mới như anchor-free detection.
+6
+AI VIETNAM (AIO2024)
+aivietnam.edu.vn
+Hình 7: So sánh 2 phương pháp hand-crafted anchor (trên) và anchor-free (dưới). Ảnh: [11].
+- Điểm mới: Sửdụng anchor-free detection, giúp đơn giản hóa kiến trúc mô hình và cải
+thiện hiệu suất.
+- Ưu điểm:
++ Độchính xác cao hơn: YOLOv8 đạt mAP 50.2% trên bộdữliệu COCO, cao hơn so
+với YOLOv7.
++ Dễsửdụng: YOLOv8 có giao diện Python và CLI dễsửdụng, giúp người dùng dễ
+dàng triển khai và huấn luyện mô hình.
+- Nhược điểm: Yêu cầu tài nguyên tính toán cao: Mặc dù có nhiều cải tiến, YOLOv8 vẫn
+yêu cầu nhiều tài nguyên tính toán, đặc biệt là khi xửlý hình ảnh độphân giải cao.
+II.X.
+YOLOv9
+YOLOv9 [9] được giới thiệu vào năm 2024 bởi Chien-Yao Wang, I-Hau Yeh, và Hong-Yuan Mark
+Liao. Mô hình này cải thiện độchính xác và tốc độso với YOLOv8 và giới thiệu nhiều kỹthuật
+mới như Programmable Gradient Information (PGI) và Generalized Efficient Layer Aggregation
+Network (GELAN).
+7
+AI VIETNAM (AIO2024)
+aivietnam.edu.vn
+Hình 8: PGI và các kiến trúc tương tự. Ảnh: [9].
+- Điểm mới: YOLOv9 sửdụng PGI và GELAN đểcải thiện độchính xác và hiệu suất của
+mô hình.
+- Ưu điểm:
++ Kiến trúc tiên tiến: Sửdụng PGI và GELAN giúp mô hình duy trì thông tin quan
+trọng và tối ưu hóa quá trình huấn luyện, làm cho YOLOv9 trởnên mạnh mẽvà linh
+hoạt hơn trong nhiều ứng dụng khác nhau.
++ Tốc độnhanh hơn: YOLOv9 có thểxửlý hình ảnh nhanh hơn so với YOLOv8 nhờ
+vào các cải tiến trong kiến trúc mạng.
+- Nhược điểm:
++ Mặc dù nhanh hơn YOLOv8, YOLOv9 vẫn yêu cầu nhiều tài nguyên tính toán, đặc
+biệt là khi xửlý hình ảnh độphân giải cao.
++ Mặc dù cải thiện so với YOLOv8, YOLOv9 vẫn gặp khó khăn trong việc phát hiện
+các object rất nhỏ.
+Hình 9: GELAN và các kiến trúc tương tự. Ảnh: [9].
+8
+AI VIETNAM (AIO2024)
+aivietnam.edu.vn
+III.
+YOLOv10: Real-Time End-to-End
+Object Detection
+Ao Wang và các cộng sựđã đặt nghi vấn vềsựtối ưu trong việc phụthuộc vào kỹthuật hậu xử
+lý Non-maximum Suppresion (NMS) và cách thiết kếmô hình của các phiên bản YOLO trước
+đó. Với các hạn chếquan sát được từhai điều trên và mục tiêu xây dựng một mô hình object
+detection thời gian thực, YOLOv10 đã được đềxuất với những thay đổi mới. Theo đó, có hai
+điểm nhấn chính trong phương pháp mà nhóm tác giảYOLOv10 đềxuất bao gồm:
+1. Consistent Dual Assignments for NMS-free Training: Trong quá trình dựđoán của
+các mạng YOLO đời trước, rất nhiều bounding box được mô hình đưa ra (ví dụ: anchors
+box,...) và nhiệm vụcủa chúng ta là tìm ra đại diện chính xác nhất cho mỗi vật thểcó
+trong ảnh. Đểtận dụng tối đa các đềxuất bounding box đúng trong việc huấn luyện,
+các phương pháp thường ứng dụng kỹthuật Task Alignment Learning (TAL). Trong đó,
+chiến lược one-to-many label assignment được áp dụng đểgán các bounding box “positive”
+(bounding box chính xác) vào ground-truth của vật thểtương ứng đểtăng cường khảnăng
+nhận biết vật thểcủa mô hình. Tuy vậy, việc này lại gây ra độtrễ(latency) lớn trong quá
+trình inference của mô hình bởi việc phụthuộc vào thuật toán NMS đểlọc các dựđoán
+thừa.
+Một cách tiếp cận khác đó là sửdụng chiến lược one-to-one label assignment, bằng cách
+chỉgán một đềxuất bouding box “positive” với ground-truth của vật thểtương ứng, qua
+đó tránh việc hậu xửlý với NMS. Tuy vậy, chiến lược này lại dẫn đến hiệu suất mô hình
+không được tốt.
+Hình 10: Minh họa chiến lược one-to-one và one-to-many label assignemnts.
+9
+AI VIETNAM (AIO2024)
+aivietnam.edu.vn
+Đểkhắc phục trình trạng của hai cách nêu trên, YOLOv10 cài đặt một chiến lược huấn
+luyện mới là sựkết hợp của one-to-one và one-to-many, mang tên Dual label assignments.
+Chiến lược này được minh họa theo như hình sau:
+Hình 11: Minh họa chiến lược Dual label assignments. Ảnh: [10].
+Vềcơ bản, trong quá trình huấn luyện, tác giảsửdụng thông tin của cảhai chiến lược.
+Đến quá trình inference, nhánh one-to-many sẽđược bỏđi đểtránh việc sửdụng NMS. Về
+cách bắt cặp ground-truth và bounding box dựđoán, cảhai chiến lược đều sửdụng chung
+một độđo là Consistent Matching Metric.
+2. Holistic Efficiency-Accuracy Driven Model Design: Bên cạnh kỹthuật huấn luyện,
+việc thiết kếkiến trúc mô hình cho YOLO vẫn còn đó những thách thức và hạn chếđểkhắc
+phục theo tiêu chí độhiệu quả(efficiency) và độchính xác (accuracy). Vềđộhiệu quả, dựa
+trên kiến trúc YOLO của bản trước (YOLOv8), nhóm tác giảthực hiện hiệu chỉnh các nội
+dung sau:
+- Lightweight classification head: Nhóm tác giảthực hiện giảm bớt độlớn vềkích
+thước của nhánh Classification khi nhận thấy với cùng một kiến trúc, nhánh Regres-
+sion cho thấy mức độảnh hưởng lớn đến hiệu suất của YOLO hơn. Vì vậy, tác giảsử
+dụng hai layer depth-wise convolution với kernel 3x3 đi kèm với point-wise convolution
+với kernel 1x1. Điều này sẽlàm giảm đáng kểsốlượng tham sốcủa kiến trúc mô hình
+cũng như thời gian xửlý.
+- Spatial-channel decoupled downsampling: Các mạng YOLO thường sửdụng
+layer convolution với kernel 3x3 và stride=2 đểgiảm kích thước feature map xuống.
+Điều này được nhóm tác giảquan sát cho thấy chi phí tính toán còn lớn. Vì vậy, tương
+tựnhư với classification head, YOLOv10 cũng sửdụng kết hợp phép point-wise và
+depth-wise convolution đểthay thếphương thức thông thường.
+10
+AI VIETNAM (AIO2024)
+aivietnam.edu.vn
+Hình 12: Minh họa vềphép depth-wise convolution và point-wise convolution đểthay thếphép
+convolution thông thường. Ảnh: link.
+- Rank-guided block design: Quan sát YOLOv8, tác giảnhận thấy toàn bộcác
+stage trong kiến trúc đều sửdụng chung một building block. Tuy nhiên, thông qua
+việc tính intrinsic rank của mỗi stage, tác giảchỉra rằng ởcác stage gần cuối có sự
+dư thừa (redundancy) vềmặt tham sốlớn, dẫn đến sựkhông tối ưu vềchi phí tính
+toán và lưu trữ. Vì vậy, đểkhắc phục, nhóm tác giảáp dụng chiến lược: duyệt qua
+các stage trong một mô hình theo thứtựtăng dần vềintrinsic rank, thực hiện thay
+thếbasic block bằng một block được đềxuất là Compact Inverted Block (CIB). Các
+bạn có thểquan sát thành phần của block này ởảnh dưới đây:
+Hình 13: Minh họa cấu trúc của Compact Inverted Block (CIB). Ảnh: [10].
+11
+AI VIETNAM (AIO2024)
+aivietnam.edu.vn
+Vềđộchính xác, dựa trên ý tưởng liên quan đến receptive field và phép self-attention,
+nhóm tác giảthực hiện hiệu chỉnh các nội dung sau:
+- Large-kernel convolution: Ởcác phiên bản YOLOv10 kích thước nhỏ, nhóm tác
+giảthực hiện tăng kích thước kernel từ3x3 lên 7x7 của phép depth-wise convolution
+trong CIB nhằm cải thiện receptive field. Việc gia tăng này chỉđược áp dụng ởcác
+stage cuối.
+- Partial self-attention (PSA): Đểtận dụng sức mạnh của phép self-attention. Kểtừ
+sau stage 4 của mô hình, nhóm tác giảtách features sau phép point-wise convolution
+của CIB làm hai phần. Một phần sẽđược đẩy vào NPSA block bao gồm sựkết hợp của
+lớp Multi-head self-attention (MHSA) và Feed-forward network (FFN), khá giống với
+Transformer Encoder. Phần LayerNorm sẽđược thay thếbằng BatchNorm đểtăng
+tốc độxửlý. Sau đó, kết quảcủa bước này sẽđược kết hợp với phần tách còn lại bởi
+phép point-wise convolution.
+Hình 14: Minh họa Partial self-attention (PSA). Ảnh: [10].
+12
+AI VIETNAM (AIO2024)
+aivietnam.edu.vn
+IV.
+Cài đặt chương trình và đánh giá
+Trong phần này, nhóm sẽtrình bày cách cài đặt, sửdụng và huấn luyện YOLOv10 trên bộdữ
+liệu mới. Đồng thời, nhóm cũng thực hiện một thực nghiệm nhỏnhằm so sánh hiệu suất của
+YOLOv10 so với hai phiên bản gần nhất là YOLOv8 và YOLOv9. Môi trường lập trình nhóm
+sửdụng là Google Colab.
+IV.I.
+Cài đặt và sửdụng pre-trained model
+Một cách nhanh chóng đểsửdụng được YOLOv10 đó là sửdụng pre-trained model (mô hình đã
+được huấn luyện sẵn trên bộdữliệu COCO - một bộdữliệu rất lớn). Đểsửdụng pre-trained
+model, các bạn làm như sau:
+1. Cài đặt các thư viện cần thiết:
+Tải vềmã nguồn của YOLOv10 và cài đặt các thư
+viện trong file requirements.txt bằng các chạy đoạn code sau:
+1 !git clone
+https :// github.com/THU -MIG/yolov10.git
+2 %cd yolov10
+3 !pip
+install -q -r requirements.txt
+4 !pip
+install -e .
+2. Tải trọng sốcủa pre-trained models: Đểsửdụng được pre-trained models, chúng ta
+cần tải vềfile trọng số(file .pt). Các bạn chạy đoạn code sau đểtải vềfile trọng sốphiên
+bản YOLOv10n:
+1 !wget
+https :// github.com/THU -MIG/yolov10/releases/download/v1.1/
+yolov10n.pt
+3. Khởi tạo mô hình: Đểkhởi tạo mô hình với trọng sốvừa tải về, các bạn chạy đoạn code
+sau:
+1 from
+ultralytics
+import
+YOLOv10
+2
+3 model = YOLOv10("yolov10n.pt")
+4. Tải ảnh cần dựđoán: Chúng ta sẽtest mô hình trên một ảnh bất kì. Các bạn có thểtự
+chọn ảnh của riêng mình hoặc sửdụng ảnh tại đây. Các bạn có thểchạy đoạn code sau để
+tải ảnh này vào colab tựđộng:
+1 !gdown "1tr9PSRRdlC2pNir7jsYugpSMG -7 v32VJ" -O "./ images/"
+13
+AI VIETNAM (AIO2024)
+aivietnam.edu.vn
+5. Dựđoán: Đểchạy dựđoán cho ảnh đã tải về, các bạn truyền đường dẫn ảnh vào mô hình
+như đoạn code sau:
+1 image_path = "./ images/HCMC_Street.jpg"
+2 result = model(source=image_path)[0]
+Hình 15: Ảnh cần dựđoán.
+6. Lưu kết quảdựđoán: Đểlưu lại ảnh đã được dựđoán, các bạn chạy đoạn code sau:
+1 result.save("./ images/ HCMC_Street_predict .png")
+Hình 16: Kết quảdựđoạn của mô hình YOLOv10 phiên bản nano (yolov10n.pt).
+7. Dựđoán youtube video: Đểdựđoán với input là youtube video, các bạn chỉcần thay
+thếimage_path bằng đường dẫn youtube video như đoạn code sau:
+14
+AI VIETNAM (AIO2024)
+aivietnam.edu.vn
+1 youtube_video_path = "https :// youtu.be/wqPSsu7XQ74"
+2 video_result = model(source= youtube_video_path )
+Kết quảdựđoán sẽlà một video được lưu dưới dạng .avi trong thư mục: /content/yolov10
+/runs/detect/predict
+IV.II.
+Huấn luyện YOLOv10 trên tập dữliệu mới
+Trong phần này, chúng ta sẽthực hiện huấn luyện mô hình YOLOv10 (fine-tuning) trên một bộ
+dữliệu với các class mới. Đểtránh sựnhầm lẫn, phần này sẽđược thực hiện ởmột file colab
+khác so với phần trước. Các bước thực hiện như sau:
+1. Tải bộdữliệu: Chúng ta sẽgiải quyết bài toán phát hiện các loại lá được phân biệt theo
+trình trạng bệnh của chúng. Bộdữliệu được sửdụng trong bài toán này là PlantDoc [12].
+Đểdễhình dung, các bạn có thểquan sát ảnh minh họa sau:
+Hình 17: Một vài mẫu dữliệu trong bộdữliệu vềbệnh của lá.
+Đểtải bộdữliệu trên, các bạn hãy chạy đoạn code sau:
+1 !gdown "1 LBpKKXFcfvUVgyk3tgQH6YxNp1KXX0Va "
+Giải nén bộdữliệu vào folder datasets và xóa file nén không còn dùng đến. Các bạn thực
+thi đoạn code sau:
+15
+AI VIETNAM (AIO2024)
+aivietnam.edu.vn
+1 !mkdir
+datasets
+2 !unzip -q "/content/PlantDocv4.zip" -d "/content/datasets/PlantDocv4
+/"
+3 !rm /content/PlantDocv4.zip
+Quan sát thư mục giải nén, có thểthấy bộdữliệu này đã được gán nhãn và đưa vào format
+cấu trúc dữliệu training theo yêu cầu của YOLO. Vì vậy, chúng ta sẽkhông cần thực hiện
+bước chuẩn bịdữliệu ởbài này.
+2. Cài đặt và import các thư viện cần thiết: Tương tựnhư phần trước, các bạn chạy
+các đoạn code sau đểcài đặt các gói thư viện đểsửdụng được YOLOv10:
+1 !git clone
+https :// github.com/THU -MIG/yolov10.git
+2 %cd yolov10
+3 !pip
+install -q -r requirements.txt
+4 !pip
+install -e .
+3. Khởi tạo mô hình YOLOv10: Chúng ta sẽkhởi tạo mộhình YOLOv10 với phiên
+bản nano (n) từtrọng sốđã được huấn luyện trên bộdữliệu COCO. Đểtải trọng số
+yolov10n.pt, các bạn chạy đoạn code sau:
+1 !wget
+https :// github.com/THU -MIG/yolov10/releases/download/v1.1/
+yolov10n.pt
+Sau đó, đểkhởi tạo mô hình từtrọng sốđã tải về, các bạn chạy đoạn code sau:
+1 from
+ultralytics
+import
+YOLOv10
+2
+3 model = YOLOv10("yolov10n.pt")
+4. Huấn luyện mô hình: Chúng ta tiến hành huấn luyện YOLOv10 trên bộdữliệu PlantDoc
+với 100 epochs và kích thước ảnh là 640. Các bạn chạy đoạn code sau:
+1 model.train(data="../ datasets/PlantDocv4/data.yaml",
+2
+epochs =100,
+3
+imgsz =640)
+16
+AI VIETNAM (AIO2024)
+aivietnam.edu.vn
+Hình 18: Quá trình huấn luyện mô mình YOLOv10 trên tập dữliệu PlantDoc.
+5. Đánh giá mô hình: Đểthực hiện đánh giá mô hình trên tập test, các bạn chạy đoạn code
+sau:
+1 model = YOLOv10("./ runs/detect/train/weights/best.pt")
+2
+3 model.val(data="../ datasets/PlantDocv4/data.yaml",
+4
+imgsz =640 ,
+5
+split="test")
+Hình 19: Đánh giá mô hình sau khi huấn luyện trên tập test.
+17
+AI VIETNAM (AIO2024)
+aivietnam.edu.vn
+IV.III.
+Đánh giá
+Nhóm thực hiện đánh giá mô hình YOLO qua các phiên bản v8, v9 và v10. Bằng cách lựa chọn
+cả3 phiên bản có cùng sốlượng tham sốkhoảng 25M tương ứng là YOLOv8-M, YOLOv9-C và
+YOLOv10-L. Các thửnghiệm được thực hiện trên cùng một thiết bị, python version, random
+seed và một sốhyperparameter như: batch_size=16, image_size=640,... Sau khi quá trình huấn
+luyện kết thúc, thực hiện đánh giá trên tập test và ghi lại kết quảvào bảng 1 dưới đây:
+Bảng 1: Bảng thực nghiệm kết quảtrên tập test của các mô hình YOLO phiên bản YOLOv8-M,
+YOLOv9-C, YOLOv10-M, YOLOv10-L sau khi fine-tuning.
+Model
+params
+GFLOPs
+layers
+inference time
+mAP@50
+mAP@50-95
+YOLOv8-M
+25.9M
+78.9
+295
+6.5 ms
+0.614
+0.476
+YOLOv9-C
+25.3M
+102.1
+618
+8.1 ms
+0.653
+0.503
+YOLOv10-M
+16.5 M
+64.5
+498
+5.5 ms
+0.626
+0.479
+YOLOv10-L
+24.4M
+120.3
+628
+7.8 ms
+0.659
+0.498
+Quan sát kết quảtrên, ta có thểthấy trên cùng một phiên bản, YOLOv10 có mức độtối ưu tốt
+hơn vềmặt tham sốmô hình cũng như độtrễtrong inference trong khi vẫn giữđược độchính
+xác ngang hoặc hơn so với các phiên bản trước.
+18
+AI VIETNAM (AIO2024)
+aivietnam.edu.vn
+V.
+Trích dẫn
+[1] Redmon, J., Divvala, S., Girshick, R., & Farhadi, A. (2015). You Only Look Once: Unified,
+Real-Time Object Detection. ArXiv. /abs/1506.02640
+[2] Redmon,
+J.,
+&
+Farhadi,
+A.
+(2016).
+YOLO9000:
+Better,
+Faster,
+Stronger.
+ArXiv.
+/abs/1612.08242
+[3] Redmon, J., & Farhadi, A. (2018). YOLOv3: An Incremental Improvement. ArXiv.
+/abs/1804.02767
+[4] Bochkovskiy, A., Wang, C. Y., & Liao, H. Y. M. (2020). YOLOv4: Optimal Speed and
+Accuracy of Object Detection. ArXiv. /abs/2004.10934
+[5] Jocher, G. (2020). YOLOv5 by Ultralytics. Zenodo. /record/3908559
+[6] Li, C., Li, L., Jiang, H., Weng, K., Geng, Y., & Wei, X. (2022). YOLOv6: A Single-Stage
+Object Detection Framework for Industrial Applications. ArXiv. /abs/2209.02976
+[7] Wang, C. Y., Bochkovskiy, A., & Liao, H. Y. M. (2022). YOLOv7: Trainable bag-of-freebies
+sets new state-of-the-art for real-time object detectors. ArXiv. /abs/2207.02696
+[8] Jocher, G., Stoken, A., Borovec, J., Christopher, S. T. A. N., Laughing, L. C., & Ultralytics.
+(2023). YOLOv8 by Ultralytics. GitHub. /ultralytics/ultralytics
+[9] Wang, C., Yeh, I., & Liao, H. (2024). YOLOv9: Learning What You Want to Learn Using
+Programmable Gradient Information. ArXiv. /abs/2402.13616
+[10] Wang, A., Chen, H., Liu, L., Chen, K., Lin, Z., Han, J., & Ding, G. (2024). YOLOv10:
+Real-Time End-to-End Object Detection. ArXiv. /abs/2405.14458
+[11] Zhang, X., Wan, F., Liu, C., Ji, R., Ye, Q. (2019). FreeAnchor: Learning to Match Anchors
+for Visual Object Detection. ArXiv. /abs/1909.02466
+[12] Singh, Davinder and Jain, Naman and Jain, Pranjali and Kayal, Pratik and Kumawat,
+Sudhakar and Batra, Nipun (2020). PlantDoc: A Dataset for Visual Plant Disease Detection.
+https://doi.org/10.1145/3371158.3371196
+[13] Liu, W., Anguelov, D., Erhan, D., Szegedy, C., Reed, S., Fu, C., & Berg, A. C. (2015). SSD:
+Single Shot MultiBox Detector. ArXiv. https://doi.org/10.1007/978-3-319-46448-0_2
+[14] Girshick, R., Donahue, J., Darrell, T., & Malik, J. (2013). Rich feature hierarchies for accu-
+rate object detection and semantic segmentation. ArXiv. /abs/1311.2524
+[15] Ren, S., He, K., Girshick, R., & Sun, J. (2015). Faster R-CNN: Towards Real-Time Object
+Detection with Region Proposal Networks. ArXiv. /abs/1506.01497
+[16] Carion, N., Massa, F., Synnaeve, G., Usunier, N., Kirillov, A., & Zagoruyko, S. (2020).
+End-to-End Object Detection with Transformers. ArXiv. /abs/2005.12872
+19
+AI VIETNAM (AIO2024)
+aivietnam.edu.vn
+[17] Caron, M., Touvron, H., Misra, I., Jégou, H., Mairal, J., Bojanowski, P., & Joulin, A. (2021).
+Emerging Properties in Self-Supervised Vision Transformers. ArXiv. /abs/2104.14294
+[18] Wang, J., Song, L., Li, Z., Sun, H., Sun, J., & Zheng, N. (2020). End-to-End Object Detection
+with Fully Convolutional Network. ArXiv. /abs/2012.03544
+- Hết -
+20

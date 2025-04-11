@@ -1,4 +1,0 @@
-YOLOv8
-YOLOv8 [8] được giới thiệu vào năm 2023 bởi Ultralytics. Mô hình này cải thiện độ chính xác
-và tốc độ so với YOLOv7 và giới thiệu nhiều tính năng mới như anchor-free detection.
-6

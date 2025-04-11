@@ -1,0 +1,1009 @@
+Visualize Time Series Data 
+in Python
+Year 2023
+Trung-Nghia Cao
+Minh-Duc Bui
+AI VIETNAM
+Time Series Data
+Outline
+§
+Line Plots
+§
+Summary Statistics and Diagnostics
+§
+Seasonality, Trend and Noise
+§
+Work with Multiple Time Series
+§
+Case Study: Unemployment Rate
+Time Series in the Field of Data Science
+3
+AI VIETNAM
+Time Series Data
+Time Series in the Field of Data Science
+4
+AI VIETNAM
+Time Series Data
+Univariate Time Series
+Multivariate Time Series
+Time Series in the Field of Data Science
+5
+AI VIETNAM
+Time Series Data
+Multiple Time Series
+§
+Line Plots
+§
+Summary Statistics and Diagnostics
+§
+Seasonality, Trend and Noise
+§
+Work with Multiple Time Series
+§
+Case Study: Unemployment Rate
+Outline
+Reading data with Pandas
+7
+import pandas as pd
+   df = pd.read_csv('ch2_co2_levels.csv’)  
+   print(df)
+datestamp
+co2
+0
+1958-03-29
+316.1
+1
+1958-04-05
+317.3
+2
+1958-04-12
+317.6
+...
+...
+...
+2281
+2001-12-15
+371.2
+2282
+2001-12-22
+371.3
+2283
+2001-12-29
+371.5
+AI VIETNAM
+Time Series Data
+Preview data with Pandas
+8
+    print(df.head(n=5))
+datestamp
+co2
+0
+1958-03-29
+316.1
+1
+1958-04-05
+317.3
+2
+1958-04-12
+317.6
+3
+1958-04-19
+317.5
+4
+1958-04-26
+316.4
+print(df.tail(n=5))
+datestamp
+co2
+2279
+2001-12-01
+370.3
+2280
+2001-12-08
+370.8
+2281
+2001-12-15
+371.2
+2282
+2001-12-22
+371.3
+2283
+2001-12-29
+371.5
+AI VIETNAM
+Time Series Data
+Check data types with Pandas
+9
+   print(df.dtypes)
+datestamp  
+co2
+object  
+float64
+dtype:
+object
+AI VIETNAM
+Time Series Data
+Working with dates
+10
+To work with time series data in pandas, your date columns needs to be of 
+the datetime64 type.
+pd.to_datetime(['2009/07/31', 'test'])
+ValueError: Unknown string format)
+AI VIETNAM
+Time Series Data
+pd.to_datetime(['2009/07/31', 'test'], errors='coerce')
+DatetimeIndex(['2009-07-31', 'NaT'],
+dtype='datetime64[ns]', freq=None)
+The Matplotlib library
+11
+In Python, matplotlib is an extensive package used to plot data
+The pyplot submodule of matplotlib is traditionally imported using
+the plt alias
+  import matplotlib.pyplot as plt
+AI VIETNAM
+Time Series Data
+Plotting time series data
+12
+import matplotlib.pyplot as plt
+  import pandas as pd
+   plt.style.use(‘fivethirtyeight’)
+   df = df.set_index('date_column’)  
+   df.plot()
+   plt.show()
+AI VIETNAM
+Time Series Data
+   print(plt.style.available)
+['seaborn-dark-palette', 'seaborn-darkgrid',  
+'seaborn-dark', 'seaborn-notebook',  'seaborn-
+pastel', 'seaborn-white',  'classic', 'ggplot', 
+'grayscale',  'dark_background', 'seaborn-
+poster',  'seaborn-muted', 'seaborn',
+'bmh','seaborn-paper', 'seaborn-whitegrid',  
+'seaborn-bright', 'seaborn-talk',  
+'fivethirtyeight', 'seaborn-colorblind',  
+'seaborn-deep', 'seaborn-ticks']
+Describing your graphs with labels
+13
+ax = df.plot(color='blue')
+ax.set_xlabel('Date’)
+   ax.set_ylabel('The values of my Y axis’)  
+   ax.set_title('The title of my plot’)  
+   plt.show()
+AI VIETNAM
+Time Series Data
+Figure size, linewidth, linestyle and fontsize
+14
+ax = df.plot(figsize=(12, 5), fontsize=12, 
+                linewidth=3, linestyle='--’)
+   ax.set_xlabel('Date', fontsize=16)
+   ax.set_ylabel('The values of my Y axis', fontsize=16)  
+   ax.set_title('The title of my plot', fontsize=16)  
+   plt.show()
+AI VIETNAM
+Time Series Data
+Plotting subset of your time series data
+15
+import matplotlib.pyplot as plt
+   plt.style.use('fivethirtyeight’)  
+   df_subset = discoveries[‘1950':’1960']
+ax = df_subset.plot(color='blue', fontsize=14)  
+   plt.show()
+AI VIETNAM
+Time Series Data
+discoveries['1960':'1970']
+discoveries['1950-01':'1950-12'] 
+discoveries['1960-01-01':'1960-01-15'] 
+Using markers
+16
+AI VIETNAM
+Time Series Data
+ax = discoveries.plot(color='blue’)
+   ax.set_xlabel('Date’)
+   ax.set_ylabel('Number of great discoveries’)
+   ax.axvline(‘1940-01-01', color='red', linestyle='--’)
+   ax.axhline(4, color='green', linestyle='--')
+Highlighting regions of interest
+17
+ax = discoveries.plot(color='blue’)     
+   ax.set_xlabel('Date’)
+   ax.set_ylabel('Number of great discoveries')
+ax.axvspan(‘1900-01-01', ‘1915-01-01', color='red',  alpha=0.3)
+   ax.axhspan(8, 6, color='green', alpha=0.3)
+AI VIETNAM
+Time Series Data
+§
+Line Plots
+§
+Summary Statistics and Diagnostics
+§
+Seasonality, Trend and Noise
+§
+Work with Multiple Time Series
+§
+Case Study: Unemployment Rate
+§
+Feature Engineering in General
+§
+Feature Engineering for Time Series Data
+Outline
+The CO2 level time series
+19
+A snippet of the weekly measurements of CO2 levels at the Mauna Loa 
+Observatory, Hawaii.
+datastamp
+co2
+1958-03-29
+316.1
+1958-04-05
+317.3
+1958-04-12
+317.6
+...
+...
+2001-12-15
+371.2
+2001-12-22
+371.3
+2001-12-29
+371.5
+AI VIETNAM
+Time Series Data
+Finding missing values in a DataFrame
+20
+print(df.isnull())
+datestamp  
+1958-03-29
+1958-04-05
+1958-04-12
+co2  
+False  
+False  
+False
+print(df.notnull())
+datestamp
+co2  
+1958-03-29
+True
+1958-04-05
+True
+1958-04-12
+True
+...
+AI VIETNAM
+Time Series Data
+Counting missing values in a DataFrame
+21
+print(df.isnull().sum())
+0
+59
+datestamp  
+co2
+dtype: int64
+AI VIETNAM
+Time Series Data
+Replacing missing values in a DataFrame
+22
+print(df)
+...
+5
+1958-05-03
+316.9
+6
+1958-05-10
+NaN
+7
+1958-05-17
+317.5
+...
+df = df.fillna(method='bfill’)
+   print(df)
+...
+5
+1958-05-03
+316.9
+6
+1958-05-10
+317.5
+7
+1958-05-17
+317.5
+...
+AI VIETNAM
+Time Series Data
+Moving averages
+23
+In the field of time series analysis, a moving average can be used for many 
+different purposes:
+§
+smoothing out short-term fluctuations
+§
+removing outliers
+§
+highlighting long-term trends or cycles
+AI VIETNAM
+Time Series Data
+The moving average model
+24
+co2_levels_mean = co2_levels.rolling(window=52).mean()
+   ax = co2_levels_mean.plot()     
+   ax.set_xlabel("Date")
+   ax.set_ylabel("The values of my Y axis")  
+   ax.set_title("52 weeks rolling mean of my time series")
+   plt.show()
+AI VIETNAM
+Time Series Data
+Computing aggregate values
+25
+co2_levels.index
+DatetimeIndex(['1958-03-29', '1958-04-05',...],
+dtype='datetime64[ns]', name='datestamp',  
+length=2284, freq=None)
+print(co2_levels.index.month)
+array([ 3,
+4,
+4, ..., 12, 12, 12], dtype=int32)
+print(co2_levels.index.year)
+array([1958, 1958, 1958, ..., 2001,
+2001, 2001], dtype=int32)
+AI VIETNAM
+Time Series Data
+Plotting aggregate values
+26
+index_month = co2_levels.index.month
+   co2_levels_by_month = co2_levels.groupby(index_month).mean()     
+   co2_levels_by_month.plot()
+   plt.show()
+AI VIETNAM
+Time Series Data
+Obtaining numerical summaries
+27
+What is the average value of this data?
+What is the maximum value observed in this time series?
+AI VIETNAM
+Time Series Data
+Obtaining numerical summaries
+28
+The .describe() method automatically computes key statistics of all numeric 
+columns in your DataFrame
+print(df.describe())
+co2
+count
+2284.000000
+mean
+339.657750
+std
+17.100899
+min
+313.000000
+25%
+323.975000
+50%
+337.700000
+75%
+354.500000
+max
+373.900000
+AI VIETNAM
+Time Series Data
+Histogram plot
+29
+# Generate a histogram
+ax = co2_levels.plot(kind='hist', bins=50)
+# Annotate labels
+ax.set_xlabel('CO2', fontsize=10)
+ax.set_ylabel('Histogram plot of CO2 levels in Maui Hawaii', fontsize=10)
+plt.show()
+AI VIETNAM
+Time Series Data
+Density plot
+30
+# Display density plot of CO2 levels values
+ax = co2_levels.plot(kind='density', linewidth=4)
+# Annotate labels
+ax.set_xlabel('CO2', fontsize=10)
+ax.set_ylabel('Density plot of CO2 levels in Maui Hawaii', fontsize=10)
+plt.show()
+AI VIETNAM
+Time Series Data
+The continuous and smoothed 
+version of the Histogram
+Histogram & Density plots
+31
+import seaborn as sns
+ax = sns.distplot(co2_levels, hist=True, kde=True, bins=50)
+# Annotate labels
+ax.set_xlabel('CO2', fontsize=10)
+ax.set_ylabel('Density plot of CO2 levels in Maui Hawaii', fontsize=10)
+plt.show()
+AI VIETNAM
+Time Series Data
+kernel density estimate
+Box Plot
+32
+ax1 = df.boxplot()  
+   ax1.set_xlabel('Your first boxplot’)    
+   ax1.set_ylabel('Values of your data’)      
+   ax1.set_title('Boxplot values of your data’)
+   plt.show()
+AI VIETNAM
+Time Series Data
+CO2
+count
+2284.000000
+mean
+339.657750
+std
+17.100899
+min
+313.000000
+25% (Q1)
+323.975000
+50% (Q2)
+337.700000
+75% (Q3)
+354.500000
+max
+373.900000
+Q1
+Q3
+Q2
+Box Plot
+33
+AI VIETNAM
+Time Series Data
+§
+Line Plots
+§
+Summary Statistics and Diagnostics
+§
+Seasonality, Trend and Noise
+§
+Work with Multiple Time Series
+§
+Case Study: Unemployment Rate
+Outline
+Statsmodels
+35
+Statsmodels is a Python module that provides classes and functions for 
+the estimation of many di erent statistical models, as well as for conducting 
+statistical tests, and statistical data exploration.
+AI VIETNAM
+Time Series Data
+Autocorrelation in time series data
+36
+§
+Autocorrelation is measured as the correlation between a time series and a delayed copy of itself.
+§
+For example, an autocorrelation of order 3 returns the correlation between a time series at points 
+(t_1, t_2, t_3, ...) and its own values lagged by 3 time points, i.e. (t_4, t_5, t_6, ...)
+§
+It is used to find repetitive patterns or periodic signal in time series
+AI VIETNAM
+Time Series Data
+Plotting Autocorrelations
+37
+import matplotlib.pyplot as plt
+   from statsmodels.graphics import tsaplots
+   fig = tsaplots.plot_acf(co2_levels['co2'], lags=40)
+   plt.show()
+AI VIETNAM
+Time Series Data
+ACF Plot
+(Autocorrelations Function)
+38
+ch1_discoveries.csv
+ch2_co2_levels.csv
+Partial autocorrelation in time series data
+39
+§
+Contrary to autocorrelation, partial autocorrelation removes the effect of previous time points.
+§
+For example, a partial autocorrelation function of order 3 returns the correlation between our 
+time series (t_1, t_2, t_3, ...) and lagged values of itself by 3 time points (t_4, t_5, t_6, ...), 
+but only after removing all effects attributable to lags 1 and 2.
+AI VIETNAM
+Time Series Data
+Plotting Partial Autocorrelations
+40
+import matplotlib.pyplot as plt
+   from statsmodels.graphics import tsaplots
+   fig = tsaplots.plot_pacf(co2_levels['co2'], lags=40)
+   plt.show()
+AI VIETNAM
+Time Series Data
+PACF Plot
+(Partial Autocorrelations Function)
+Properties of time series
+41
+§
+Seasonality: does the data display a clear periodic pattern?
+§
+Trend: does the data follow a consistent upwards or downwards slope?
+§
+Noise: are there any outlier points or missing values that are not consistent 
+with the rest of the data?
+AI VIETNAM
+Time Series Data
+Time Series Decomposition
+42
+import statsmodels.api as sm  
+   import matplotlib.pyplot as plt  
+   from pylab import rcParams
+   rcParams['figure.figsize'] = 11, 9
+   decomposition = sm.tsa.seasonal_decompose(
+co2_levels['co2’]
+   fig = decomposition.plot()
+   plt.show()
+AI VIETNAM
+Time Series Data
+Seasonality Component
+43
+decomposition = sm.tsa.seasonal_decompose(
+co2_levels['co2’]   
+   decomp_seasonal = decomposition.seasonal
+   ax = decomp_seasonal.plot(figsize=(14, 2))    
+   ax.set_xlabel('Date’)  
+   ax.set_ylabel('Seasonality of time series’)
+   ax.set_title('Seasonal values of the time series’)
+   plt.show()
+  
+AI VIETNAM
+Time Series Data
+§
+Line Plots
+§
+Summary Statistics and Diagnostics
+§
+Seasonality, Trend and Noise
+§
+Work with Multiple Time Series
+§
+Case Study: Unemployment Rate
+Outline
+Working with multiple time series
+45
+date
+ts1
+1949-01
+112
+1949-02
+118
+1949-03
+132
+date
+ts1
+ts2
+ts3
+ts4
+ts5
+ts6
+ts7
+2012-01-01
+2113.8
+10.4
+1987.0
+12.1
+3091.8
+43.2
+476.7
+2012-02-01
+2009.0
+9.8
+1882.9
+12.3
+2954.0
+38.8
+466.8
+2012-03-01
+2159.8
+10.0
+1987.9
+14.3
+3043.7
+40.1
+502.1
+An isolated time series
+A file with multiple time series
+AI VIETNAM
+Time Series Data
+The Meat Production Dataset
+46
+import pandas as pd
+   meat = pd.read_csv("meat.csv")  
+   print(meat.head(10))
+  
+AI VIETNAM
+Time Series Data
+Summarizing and Plotting Multiple Time Series
+47
+import matplotlib.pyplot as plt   
+   plt.style.use('fivethirtyeight’)
+   ax = df.plot(figsize=(12, 4), fontsize=14)
+   plt.show()
+  
+AI VIETNAM
+Time Series Data
+Clarity is key
+48
+In this plot, the default matplotlib color scheme assigns the same color to 
+the beef and turkey time series.
+AI VIETNAM
+Time Series Data
+The colormap argument
+49
+ax = df.plot(colormap='Dark2', figsize=(14, 7)) 
+   ax.set_xlabel('Date’)  
+   ax.set_ylabel('Production Volume (in tons)’)
+   plt.show()
+  
+https://matplotlib.org/2.0.2/examples/color/colormaps_reference.html
+AI VIETNAM
+Time Series Data
+Enhancing your plot with information
+50
+ax = df.plot(colormap='Dark2', figsize=(14, 7))  
+df_summary = df.describe()
+# Specify values of cells in the table  
+ax.table(cellText=df_summary.values,
+# Specify width of the table  
+colWidths=[0.3]*len(df.columns), 
+# Specify row labels  
+rowLabels=df_summary.index,
+# Specify column labels  
+colLabels=df_summary.columns,  
+# Specify location of the table  
+loc='top')
+plt.show()
+AI VIETNAM
+Time Series Data
+Adding Statistical summaries to your plots
+51
+AI VIETNAM
+Time Series Data
+Dealing with different scales
+52
+AI VIETNAM
+Time Series Data
+Facet plots
+53
+AI VIETNAM
+Time Series Data
+df.plot(subplots=True,
+ 
+   linewidth=0.5,  
+ 
+   layout=(2, 4),
+ 
+   figsize=(16, 10),  
+ 
+   sharex=False,  
+ 
+   sharey=False)
+   plt.show()
+Correlations between two variables
+54
+The correlation coefficient is a measure used to 
+determine the strength or lack of  relationship between 
+two variables:
+§
+Pearson's coefficient can be used to compute the 
+correlation coefficient between variables for which 
+the  relationship is thought to be linear.
+§
+Kendall Tau or Spearman rank can be used to 
+compute the correlation coefficient between variables 
+for which the relationship is thought to be non-linear.
+AI VIETNAM
+Time Series Data
+Compute Correlations
+55
+from scipy.stats.stats import pearsonr
+   from scipy.stats.stats import spearmanr
+   from scipy.stats.stats import kendalltau
+   x = [1, 2, 4, 7]
+y = [1, 3, 4, 8]
+pearsonr(x, y)
+SpearmanrResult(correlation=0.9843, pvalue=0.01569)
+spearmanr(x, y)
+SpearmanrResult(correlation=1.0, pvalue=0.0)
+kendalltau(x, y)
+KendalltauResult(correlation=1.0, pvalue=0.0415)
+AI VIETNAM
+Time Series Data
+What is a correlation matrix?
+56
+When computing the correlation coefficient between more than two variables, 
+you obtain a correlation matrix:
+§
+Range: [-1, 1]
+§
+0: no relationship
+§
+1: strong positive relationship
+§
+-1: strong negative relationship
+AI VIETNAM
+Time Series Data
+What is a correlation matrix?
+57
+§
+A correlation matrix is always "symmetric"  
+§
+The diagonal values will always be equal to 1
+x
+y
+z
+x
+1.00 -0.46
+0.49
+y -0.46
+1.00 -0.61
+z
+0.49 -0.61
+1.00
+AI VIETNAM
+Time Series Data
+Computing Correlation Matrices with Pandas
+58
+corr_p = meat[['beef', 'veal','turkey']].corr(method='pearson’)      
+   print(corr_p)
+beef
+veal
+turkey
+beef
+1.000
+-0.829
+0.738
+veal
+-0.829
+1.000
+-0.768
+turkey
+0.738
+-0.768
+1.000
+corr_p = meat[['beef', 'veal','turkey']].corr(method='spearman’)      
+   print(corr_p)
+beef
+veal
+turkey
+beef
+1.000
+-0.812
+0.778
+veal
+-0.812
+1.000
+-0.829
+turkey
+0.778
+-0.829
+1.000
+AI VIETNAM
+Time Series Data
+59
+Computing Correlation Matrices with Pandas
+corr_mat = meat.corr(method='pearson')
+If you want to compute the correlation between all time series in your 
+DataFrame, simply remove the references to the columns.
+AI VIETNAM
+Time Series Data
+Heatmap
+60
+import seaborn as sns  
+   sns.heatmap(corr_mat)
+AI VIETNAM
+Time Series Data
+Heatmap
+61
+import seaborn as sns  
+   sns.heatmap(corr_mat, annot=True)
+AI VIETNAM
+Time Series Data
+Clustermap
+62
+sns.clustermap(corr_mat)
+AI VIETNAM
+Time Series Data
+§
+Line Plots
+§
+Summary Statistics and Diagnostics
+§
+Seasonality, Trend and Noise
+§
+Work with Multiple Time Series
+§
+Case Study: Unemployment Rate
+Outline
+The Jobs dataset
+64
+AI VIETNAM
+Time Series Data
+Facet plots of the jobs dataset
+65
+jobs.plot(subplots=True,
+layout=(4, 4),
+figsize=(20, 16),  
+sharex=True,  
+sharey=False)
+   plt.show()
+AI VIETNAM
+Time Series Data
+Facet plots
+66
+AI VIETNAM
+Time Series Data
+Annotating events in the jobs dataset
+67
+ax = jobs.plot(figsize=(20, 14), colormap='Dark2’)  
+   ax.axvline('2008-01-01', color='black’, 
+               linestyle='--’)
+   ax.axvline('2009-01-01', color='black’,
+ linestyle='--’)
+AI VIETNAM
+Time Series Data
+Taking seasonal average in the jobs dataset
+68
+print(jobs.index)
+DatetimeIndex(['2000-01-01', '2000-02-01', '2000-03-01',
+'2000-04-01', '2009-09-01','2009-10-01',
+'2009-11-01', '2009-12-01','2010-01-01', '2010-02-01'],
+dtype='datetime64[ns]', name='datestamp',  
+length=122, freq=None)
+index_month = jobs.index.month
+   jobs_by_month = jobs.groupby(index_month).mean()    
+   print(jobs_by_month)
+datestamp
+Agriculture
+Business services
+Construction
+1
+13.763636
+7.863636
+12.909091
+2
+13.645455
+7.645455
+13.600000
+3
+13.830000
+7.130000
+11.290000
+4
+9.130000
+6.270000
+9.450000
+5
+7.100000
+6.600000
+8.120000
+...
+AI VIETNAM
+Time Series Data
+Monthly averages in the jobs dataset
+69
+ax = jobs_by_month.plot(figsize=(12, 5),  
+   colormap='Dark2')
+ax.legend(bbox_to_anchor=(1.0, 0.5),  
+   loc='center left')
+AI VIETNAM
+Time Series Data
+Monthly averages in the jobs dataset
+70
+AI VIETNAM
+Time Series Data
+Python dictionaries
+71
+# Initialize a Python dictionnary  
+my_dict = {}
+# Add a key and value to your dictionnary  
+my_dict['your_key'] = 'your_value'
+# Add a second key and value to your dictionnary  
+my_dict['your_second_key'] = 'your_second_value'
+# Print out your dictionnary  
+print(my_dict)
+{'your_key': 'your_value',  
+'your_second_key': 'your_second_value'}
+AI VIETNAM
+Time Series Data
+Decomposing multiple time series with 
+Python  dictionaries
+72
+# Import the statsmodel library  
+import statsmodels.api as sm
+# Initialize a dictionary  
+my_dict = {}
+# Extract the names of the time series  
+ts_names = df.columns
+print(ts_names)
+['ts1', 'ts2', 'ts3']
+# Run time series decomposition  
+for ts in ts_names:
+ts_decomposition = sm.tsa.seasonal_decompose(jobs[ts])  
+my_dict[ts] = ts_decomposition
+AI VIETNAM
+Time Series Data
+Extract decomposition components of 
+multiple time series
+73
+# Initialize a new dictionnary  
+my_dict_trend = {}
+# Extract the trend component  
+for ts in ts_names:
+my_dict_trend[ts] = my_dict[ts].trend  
+# Convert to a DataFrame
+trend_df = pd.DataFrame.from_dict(my_dict_trend)  
+print(trend_df)
+datestamp
+ts1
+ts2 ts3
+2000-01-01
+2.2
+1.3 3.6
+2000-02-01
+3.4
+2.1 4.7
+...
+AI VIETNAM
+Time Series Data
+Trends in Jobs data
+74
+print(trend_df)
+datestamp
+Agriculture
+Business services
+Construction
+2000-01-01
+NaN
+NaN
+NaN
+2000-02-01
+NaN
+NaN
+NaN
+2000-03-01
+NaN
+NaN
+NaN
+2000-04-01
+NaN
+NaN
+NaN
+2000-05-01
+NaN
+NaN
+NaN
+2000-06-01
+NaN
+NaN
+NaN
+2000-07-01
+9.170833
+4.787500
+6.329167
+2000-08-01
+9.466667
+4.820833
+6.304167
+...
+AI VIETNAM
+Time Series Data
+Plotting a clustermap of the jobs
+correlation matrix
+75
+# Get correlation matrix of the seasonality_df DataFrame  
+trend_corr = trend_df.corr(method='spearman')
+# Customize the clustermap of the seasonality_corr  
+correlation matrix
+fig = sns.clustermap(trend_corr, annot=True, linewidth=0.4)
+plt.setp(fig.ax_heatmap.yaxis.get_majorticklabels(),  
+rotation=0)
+plt.setp(fig.ax_heatmap.xaxis.get_majorticklabels(),  
+rotation=90)
+AI VIETNAM
+Time Series Data
+The jobs correlation matrix
+76
+AI VIETNAM
+Time Series Data

@@ -1,0 +1,1189 @@
+Reinforcement Learning
+Markov Decision Processes
+Instructor: Ngoc-Hoang LUONG, PhD.
+[These slides were adapted from the slides created by Dan Klein and Pieter Abbeel for CS188 Intro to AI at UC Berkeley. http://ai.berkeley.edu.]
+Behavior from Computation
+Video of Demo Mystery Pacman
+Adversarial Games
+A simple game
+▪You choose one of the three bins.
+▪I choose a number from that bin.
+▪Your goal is to maximize the chosen number.
+A
+-$50
+$50
+B
+$1 $5
+C
+-$10
+$20
+Game tree
+▪Each node is a decision point for a player.
+▪Each root-to-leaf path is a possible outcome of the game.
+▪Your goal is to maximize the chosen number.
+Adversarial Search
+Single-Agent Trees
+8
+2
+0
+2
+6
+4
+6
+…
+…
+Value of a State
+Non-Terminal States:
+8
+2
+0
+2
+6
+4
+6
+…
+…
+Terminal States:
+Value of a state: 
+The best achievable 
+outcome (utility) 
+from that state
+Adversarial Game Trees
+-20
+-8
+-18
+-5
+-10
++4
+…
+…
+-20
++8
+Minimax Values
++8
+-10
+-5
+-8
+States Under Agent’s Control:
+Terminal States:
+States Under Opponent’s Control:
+Tic-Tac-Toe Game Tree
+X O X
+O O X
+X O X
+O O X
+X
+X O X
+O O X
+X
+X O X
+O O X
+X
+X O X
+O O X
+X O
+X O X
+O O X
+X
+O
+X O X
+O O X
+X X O
+X O X
+O O X
+O X
+X O X
+O O X
+X O
+X O X
+O O X
+O X X
+X O X
+O O X
+X X O
+-1
+0
+0
+-1
++1
+0
++1
+0
+0
++1
++1
+X’s turn (MAX)
+O’s turn (MIN)
+X’s turn (MAX)
+Adversarial Search (Minimax)
+▪Deterministic, zero-sum games:
+▪Tic-tac-toe, chess, checkers
+▪One player maximizes result
+▪The other minimizes result
+▪Minimax search:
+▪A state-space search tree
+▪Players alternate turns
+▪Compute each node’s minimax value: 
+the best achievable utility against a 
+rational (optimal) adversary
+8
+2
+5
+6
+max
+min
+2
+5
+5
+Terminal values:
+part of the game 
+Minimax values:
+computed recursively
+Minimax Efficiency
+▪How efficient is minimax?
+▪Just like (exhaustive) DFS
+▪Time: O(bm)
+▪Space: O(bm)
+▪Example: For chess, b ≈ 35, m ≈ 100
+▪Exact solution is completely infeasible
+▪But, do we need to explore the whole 
+tree?
+Resource Limits
+Resource Limits
+▪Problem: In realistic games, cannot search to leaves!
+▪Solution: Depth-limited search
+▪Instead, search only to a limited depth in the tree
+▪Replace terminal utilities with an evaluation function for 
+non-terminal positions
+▪Example:
+▪Suppose we have 100 seconds, can explore 10K nodes / sec
+▪So can check 1M nodes per move
+▪α-β reaches about depth 8 – decent chess program
+▪Guarantee of optimal play is gone
+▪More plies makes a BIG difference
+▪Use iterative deepening for an anytime algorithm
+?
+?
+?
+?
+-1
+-2
+4
+9
+4
+min
+max
+-
+2
+4
+Evaluation Functions
+▪Evaluation functions score non-terminals in depth-limited search
+▪Ideal function: returns the actual minimax value of the position
+▪In practice: typically weighted linear sum of features:
+▪e.g.  f1(s) = (num white queens – num black queens), etc.
+Video of Demo Limited Depth (2)
+Video of Demo Limited Depth (10)
+Minimax Properties
+▪You choose one of the three bins.
+▪I toss a fair coin. If head, the bigger number is 
+returned. If tail, the smaller number is returned.
+▪Your goal is to maximize the chosen number.
+A
+-$50
+$50
+B
+$1 $5
+C
+-$10
+$20
+Minimax Properties
+▪You choose one of the three bins.
+▪I toss a fair coin. If head, the bigger number is 
+returned. If tail, the smaller number is returned.
+▪Your goal is to maximize the chosen number.
+Minimax Properties
+Optimal against a perfect player.  Otherwise?
+1
+0
+1
+0
+9
+1
+0
+0
+max
+min
+Video of Demo Min vs. Exp (Min)
+Video of Demo Min vs. Exp (Exp)
+Expectimax Search
+▪Why wouldn’t we know what the result of an action will be?
+▪Explicit randomness: rolling dice
+▪Unpredictable opponents: the ghosts respond randomly
+▪Actions can fail: when moving a robot, wheels might slip
+▪Values should now reflect average-case (expectimax) 
+outcomes, not worst-case (minimax) outcomes
+▪Expectimax search: compute the average score under 
+optimal play
+▪Max nodes as in minimax search
+▪Chance nodes are like min nodes but the outcome is uncertain
+▪Calculate their expected utilities
+▪I.e. take weighted average (expectation) of children
+▪Later, we’ll learn how to formalize the underlying 
+uncertain-result problems as Markov Decision Processes
+1
+0
+4
+5
+7
+max
+chance
+1
+0
+1
+0
+9
+1
+0
+0
+Expectimax Example
+12
+9
+6
+0
+3
+2
+15
+4
+6
+8
+4
+7
+8
+Non-Deterministic Search
+Example: Grid World
+▪
+A maze-like problem
+▪
+The agent lives in a grid
+▪
+Walls block the agent’s path
+▪
+Noisy movement: actions do not always go as planned
+▪
+80% of the time, the action North takes the agent North 
+(if there is no wall there)
+▪
+10% of the time, North takes the agent West; 10% East
+▪
+If there is a wall in the direction the agent would have been 
+taken, the agent stays put
+▪
+The agent receives rewards each time step
+▪
+Small “living” reward each step (can be negative)
+▪
+Big rewards come at the end (good or bad)
+▪
+Goal: maximize sum of rewards
+Grid World Actions
+Deterministic Grid World
+Stochastic Grid World
+Markov Decision Processes
+▪An MDP is defined by:
+▪A set of states s ∈ S
+▪A set of actions a ∈ A
+▪A transition function T(s, a, s’)
+▪Probability that a from s leads to s’, i.e., P(s’| s, a)
+▪Also called the model or the dynamics
+▪A reward function R(s, a, s’) 
+▪Sometimes just R(s) or R(s’)
+▪A start state
+▪Maybe a terminal state
+▪MDPs are non-deterministic search problems
+▪One way to solve them is with expectimax search
+▪We’ll have a new tool soon
+What is Markov about MDPs?
+▪“Markov” generally means that given the present state, the 
+future and the past are independent
+▪For Markov decision processes, “Markov” means action 
+outcomes depend only on the current state
+Andrey Markov 
+(1856-1922)
+Policies
+Optimal policy when R(s, a, s’) = -0.03 
+for all non-terminals s
+▪In deterministic single-agent search problems, 
+we wanted an optimal plan, or sequence of 
+actions, from start to a goal
+▪A policy π: S → A gives an action for each 
+state.
+▪E.g, π((1,1)) = “north”, π((4,1)) = “west”, π
+((3,3))=“east”, π((3,2))=“north”,…
+▪For MDPs, we want an optimal policy π*: S → 
+A
+▪An optimal policy is one that maximizes        expected 
+utility if followed
+Policy
+(1,1)
+(3,3)
+(4,1)
+Example: Bridge Crossing
+Example: Volcano
+123RF.com
+shutterstock.com
+MDP Search Tree
+action a = “south”
+state s = (2,2) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+MDP Search Tree
+action a = “east”
+state s = (2,2) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+MDP Search Tree
+action a = “east”
+state s = (4,1) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+MDP Search Trees
+▪Each MDP state projects an expectimax-like search tree
+a
+s
+’s
+s, a
+(s,a,s’) called a transition
+T(s,a,s’) = P(s’|s,a)
+R(s,a,s’)
+s,a,s’
+s is a state
+(s, a) is a 
+q-state
+Optimal Policies
+R(s) = -2.0
+R(s) = -0.4
+R(s) = -0.03
+R(s) = -0.01
+R(s) = the “living reward”
+Policy Evaluation
+Example: Policy Evaluation
+Always Go Right
+Always Go Forward
+Example: Policy Evaluation
+ 
+ 
+State
+Action
+(2,1)
+“east”
+(2,2)
+“east”
+(2,3)
+“east”
+(2,4)
+“exit”
+(1,3)
+“exit”
+…
+…
+ 
+ 
+State
+Action
+(2,1)
+“north”
+(2,2)
+“north”
+(2,3)
+“north”
+(2,4)
+“exit”
+(1,3)
+“exit”
+…
+…
+ 
+ 
+Example: Policy Evaluation
+ 
+ 
+State
+Action
+Value
+(2,1)
+“east”
+-9.06
+(2,2)
+“east”
+-8.25
+(2,3)
+“east”
+0.76
+(2,4)
+“exit”
+100
+(1,3)
+“exit”
+-10
+…
+…
+…
+ 
+ 
+State
+Action
+Value
+(2,1)
+“north”
+32.62
+(2,2)
+“north”
+48.23
+(2,3)
+“north”
+69.60
+(2,4)
+“exit”
+100
+(1,3)
+“exit”
+-10
+…
+…
+…
+ 
+ 
+ 
+ 
+ 
+Policy Evaluation
+▪ 
+ 
+ 
+Utility of a sequence of actions
+ 
+Exit
+ 
+Living Reward = 0, Noise = 0
+Utility of a sequence of actions
+ 
+Exit
+ 
+Living Reward = -0.3, Noise = 0.0
+ 
+Utility of a sequence of actions
+ 
+Exit
+Living Reward = -0.3, Noise = 0.2
+Exit
+ 
+ 
+ 
+ 
+Utilities of Sequences
+Utilities of Sequences
+▪What preferences should an agent have over reward sequences?
+▪More or less?
+▪Now or later?
+[1, 2, 2]
+[2, 3, 4]
+ or
+[0, 0, 1]
+[1, 0, 0]
+ or
+Discounting
+▪It’s reasonable to maximize the sum of rewards
+▪It’s also reasonable to prefer rewards now to rewards later
+▪One solution: values of rewards decay exponentially
+Worth Now
+Worth Next Step
+Worth In Two Steps
+Discounting
+▪How to discount?
+▪Each time we descend a level, we 
+multiply in the discount once
+▪Why discount?
+▪Sooner rewards probably do have 
+higher utility than later rewards
+▪Also helps our algorithms converge
+▪Example: discount of 0.5
+▪U([1,2,3]) = 1*1 + 0.5*2 + 0.25*3
+▪U([1,2,3]) < U([3,2,1])
+Utility of a sequence of actions
+ 
+Exit
+Living Reward = -0.3, Noise = 0.0
+ 
+Exit
+ 
+ 
+Utility of a sequence of actions
+ 
+Exit
+Living Reward = -0.3, Noise = 0.2
+ 
+ 
+ 
+Exit
+ 
+Exit
+ 
+Exit
+ 
+Solving MDPs
+Policy Evaluation
+Policy Evaluation
+state s = (2,2) 
+Regarding the current state, 
+how good is it according to a policy π?
+Policy Evaluation
+action a = “south”
+state s = (2,2) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Expected Utility of taking action 
+a=“south” in state s = (2,2)
+= ?
+expected utility 
+of state (1,2)
+expected utility 
+of state (2,1)
+expected utility 
+of state (3,2)
+ 
+ 
+ 
+?
+ 
+ 
+ 
+expected utility 
+of state (1,2)
+by following 𝜋 
+expected utility 
+of state (2,1)
+by following 𝜋
+expected utility 
+of state (3,2)
+by following 𝜋
+Expected Utility of taking action 
+a=“south” in state s = (2,2)
+and then following 𝜋
+ 
+ 
+ 
+ 
+State
+Action
+(2,2)
+“south”
+(1,2)
+“east”
+(2,1)
+“east”
+(3,2)
+“exit”
+…
+…
+ 
+Exit
+Policy Evaluation
+▪ 
+ 
+ 
+ 
+π(s)
+s
+s, π(s)
+s, π(s),s’
+’s
+ 
+ 
+a
+s
+s, a
+s,a,s’
+’s
+ 
+ 
+Policy Evaluation
+ 
+[2,1]
+“east”
+[2,2]
+“east”
+[2,3]
+“east”
+[2,4]
+“exit”
+[1,3]
+“exit”
+…
+…
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Solving a system of linear equations
+(Iterative) Policy Evaluation
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Iterative Approach
+Example: Policy Evaluation
+Always Go Right
+Always Go Forward
+Example: Policy Evaluation
+Noise = 0.2
+Discount = 0.9
+Living reward = -0.3
+ 
+ 
+(2,1)
+“east”
+(2,2)
+“east”
+(2,3)
+“east”
+(2,4)
+“exit”
+(1,3)
+“exit”
+…
+…
+ 
+(2,1)
+“north”
+(2,2)
+“north”
+(2,3)
+“north”
+(2,4)
+“exit”
+(1,3)
+“exit”
+…
+…
+ 
+t=0
+ 
+Noise = 0.2
+Discount = 0.9
+Living reward = -0.3
+t=0 🡪 t=1
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Noise = 0.2
+Discount = 0.9
+Living reward = -0.3
+t=1 🡪 t=2
+ 
+ 
+ 
+ 
+ 
+Noise = 0.2
+Discount = 0.9
+Living reward = -0.3
+ 
+t=2 🡪 t=3
+ 
+ 
+ 
+ 
+ 
+Noise = 0.2
+Discount = 0.9
+Living reward = -0.3
+ 
+t=3 🡪 t=4
+ 
+ 
+ 
+ 
+ 
+Noise = 0.2
+Discount = 0.9
+Living reward = -0.3
+ 
+t=4 🡪 t=5
+ 
+ 
+ 
+ 
+ 
+Noise = 0.2
+Discount = 0.9
+Living reward = -0.3
+ 
+t=5 🡪 t=6
+ 
+ 
+ 
+ 
+ 
+Noise = 0.2
+Discount = 0.9
+Living reward = -0.3
+ 
+t=6 🡪 t=7
+ 
+ 
+ 
+ 
+ 
+Noise = 0.2
+Discount = 0.9
+Living reward = -0.3
+ 
+ 
+Example: Policy Evaluation
+ 
+ 
+Noise = 0.2
+Discount = 0.9
+Living reward = -0.3
+ 
+ 
+ 
+Summary: Policy Evaluation
+▪ 
+π(s)
+s
+s, π(s)
+s, π(s),s’
+’s
+ 
+ 
+ 
+Value Iteration
+Policy Evaluation
+state s = (2,2) 
+Regarding the current state, 
+how good is it according to a policy π?
+Value Iteration
+state s = (2,2) 
+Regarding the current state, 
+how good is it according to an optimal policy? 
+Value Iteration
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Optimal Policy
+Expectimax trees max over all actions to compute the optimal values
+a
+s
+s, a
+s,a,s’
+’s
+π(s)
+s
+s, π(s)
+s, π(s),s’
+’s
+Do the optimal action
+Do what π says to do
+Optimal Quantities
+▪The value (utility) of a state s:
+V*(s) = expected utility starting in s and 
+acting optimally
+▪The value (utility) of a q-state (s,a):
+Q*(s,a) = expected utility starting out 
+having taken action a from state s and 
+(thereafter) acting optimally
+▪The optimal policy:
+π*(s) = optimal action from state s
+a
+s
+’s
+s, a
+(s,a,s’) is a 
+transition
+s,a,s’
+s is a 
+state
+(s, a) is a 
+q-state
+ 
+Optimal Values of States
+▪Fundamental operation: compute the (expectimax) value of a state
+▪Expected utility under optimal action
+▪Average sum of (discounted) rewards
+▪This is just what expectimax computed!
+▪Recursive definition of optimal values:
+a
+s
+s, a
+s,a,s’
+’s
+ 
+ 
+ 
+ 
+Bellman Equations
+▪Recursive definition of value: 
+▪Bellman Equation: 
+Necessary condition for optimality in optimization problems 
+formulated as Dynamic Programming
+▪Dynamic Programing:
+Process to simplify an optimization problem by breaking it 
+down into an optimal substructure.
+Richard E. Bellman
+       (1920–1984)
+ 
+Policy Evaluation
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Iterative Approach
+Value Iteration
+ 
+ 
+ 
+Value Iteration
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Policy Evaluation
+ 
+Evaluate an optimal policy
+t=0
+ 
+ 
+Noise = 0.2
+Discount = 0.9
+Living reward = 0
+t=1
+Noise = 0.2
+Discount = 0.9
+Living reward = 0
+ 
+ 
+ 
+ 
+ 
+t=2
+Noise = 0.2
+Discount = 0.9
+Living reward = 0
+ 
+ 
+ 
+ 
+ 
+t=3
+Noise = 0.2
+Discount = 0.9
+Living reward = 0
+ 
+ 
+ 
+ 
+ 
+t=4
+Noise = 0.2
+Discount = 0.9
+Living reward = 0
+ 
+ 
+ 
+ 
+ 
+t=5
+Noise = 0.2
+Discount = 0.9
+Living reward = 0
+ 
+ 
+ 
+ 
+ 
+t=6
+Noise = 0.2
+Discount = 0.9
+Living reward = 0
+ 
+ 
+ 
+ 
+ 
+t=7
+Noise = 0.2
+Discount = 0.9
+Living reward = 0
+ 
+ 
+ 
+ 
+ 
+t=100
+Noise = 0.2
+Discount = 0.9
+Living reward = 0
+ 
+ 
+ 
+ 
+ 
+Policy Extraction
+Computing Actions from Values
+▪Let’s imagine we have the optimal values V*(s)
+▪How should we act?
+▪It’s not obvious!
+▪We need to do a mini-expectimax (one step)
+▪This is called policy extraction, since it gets the policy implied by the values
+ 
+Computing Actions from Q-Values
+▪Let’s imagine we have the optimal q-values:
+▪How should we act?
+▪Completely trivial to decide!
+▪Important lesson: actions are easier to select from q-values than values!
+ 
+ 
+The Bellman Equations
+▪Definition of “optimal utility” via expectimax recurrence 
+gives a simple one-step lookahead relationship amongst 
+optimal utility values
+a
+s
+s, a
+s,a,s’
+’s
+ 
+ 
+How to be optimal:
+  Step 1: Take correct first action
+  Step 2: Keep being optimal
+ 
+Value Iteration
+▪Bellman equations characterize the optimal values:
+▪Value iteration computes them:
+a
+V(s)
+s, a
+s,a,s’
+V(s’)
+ 
+ 
+Policy Iteration
+Problems with Value Iteration
+▪Value iteration repeats the Bellman updates:
+▪Problem 1: It’s slow – O(S2A) per iteration
+▪Problem 2: The “max” at each state rarely changes
+▪Problem 3: The policy often converges long before the values
+a
+s
+s, a
+s,a,s’
+’s
+ 
+t=0
+Noise = 0.2
+Discount = 0.9
+Living reward = 0
+t=1
+Noise = 0.2
+Discount = 0.9
+Living reward = 0
+t=2
+Noise = 0.2
+Discount = 0.9
+Living reward = 0
+t=3
+Noise = 0.2
+Discount = 0.9
+Living reward = 0
+t=4
+Noise = 0.2
+Discount = 0.9
+Living reward = 0
+t=5
+Noise = 0.2
+Discount = 0.9
+Living reward = 0
+t=6
+Noise = 0.2
+Discount = 0.9
+Living reward = 0
+t=7
+Noise = 0.2
+Discount = 0.9
+Living reward = 0
+t=8
+Noise = 0.2
+Discount = 0.9
+Living reward = 0
+t=9
+Noise = 0.2
+Discount = 0.9
+Living reward = 0
+t=10
+Noise = 0.2
+Discount = 0.9
+Living reward = 0
+t=11
+Noise = 0.2
+Discount = 0.9
+Living reward = 0
+t=12
+Noise = 0.2
+Discount = 0.9
+Living reward = 0
+t=100
+Noise = 0.2
+Discount = 0.9
+Living reward = 0
+Policy Iteration
+▪Alternative approach for optimal values:
+▪Step 1: Policy evaluation: calculate utilities for some fixed policy (not optimal 
+utilities!) until convergence
+▪Step 2: Policy improvement: update policy using one-step look-ahead with resulting 
+converged (but not optimal!) utilities as future values
+▪Repeat steps until policy converges
+▪This is policy iteration
+▪It’s still optimal!
+▪Can converge (much) faster under some conditions
+Policy Iteration
+▪ 
+ 
+ 
+Policy Evaluation - t=0, t=1
+Noise = 0.2
+Discount = 0.9
+Living reward = 0
+ 
+Policy Evaluation - t=1, t=2
+Noise = 0.2
+Discount = 0.9
+Living reward = 0
+ 
+Policy Evaluation - t=2, t=3
+Noise = 0.2
+Discount = 0.9
+Living reward = 0
+ 
+Policy Evaluation - t=3, t=4
+Noise = 0.2
+Discount = 0.9
+Living reward = 0
+ 
+Policy Evaluation - t=4, t=5
+Noise = 0.2
+Discount = 0.9
+Living reward = 0
+ 
+Policy Evaluation - t=5, t=6
+Noise = 0.2
+Discount = 0.9
+Living reward = 0
+ 
+Policy Improvement – t=6
+Noise = 0.2
+Discount = 0.9
+Living reward = 0
+ 
+Policy Improvement – Policy Evaluation
+Noise = 0.2
+Discount = 0.9
+Living reward = 0
+ 
+Comparison
+▪Both value iteration and policy iteration compute the same thing (all optimal values)
+▪In value iteration:
+▪Every iteration updates both the values and (implicitly) the policy
+▪We don’t track the policy, but taking the max over actions implicitly recomputes it
+▪In policy iteration:
+▪We do several passes that update utilities with fixed policy (each pass is fast because we 
+consider only one action, not all of them)
+▪After the policy is evaluated, a new policy is chosen (slow like a value iteration pass)
+▪The new policy will be better (or we’re done)
+▪Both are dynamic programs for solving MDPs

@@ -1,0 +1,485 @@
+1
+AI VIETNAM
+All-in-One Course
+1
+Mobile Application Development Using AI 
+with Pytorch By Examples
+Vinh Dinh Nguyen- PhD in Computer Science
+Number generator
+Picture Generator
+Object Detection
+Object Classification
+2
+AI VIETNAM
+All-in-One Course
+2
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Deployment Workflow of Machine Learning in Mobile
+Ø Example 1: Number Generation
+Ø Example 2: Image Generation
+Ø Example 3: Object Detection with Yolo
+Ø Example 4: Image Classification using Transfer Learning
+Outline
+3
+AI VIETNAM
+All-in-One Course
+3
+Vinh Dinh Nguyen- PhD in Computer Science
+Today’s Contents
+4
+AI VIETNAM
+All-in-One Course
+4
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Deployment Workflow of Machine Learning in Mobile
+Ø Example 1: Number Generation
+Ø Example 2: Image Generation
+Ø Example 3: Object Detection with Yolo
+Ø Example 4: Image Classification using Transfer Learning
+Outline
+5
+AI VIETNAM
+All-in-One Course
+5
+Vinh Dinh Nguyen- PhD in Computer Science
+Author a Model in Pytorch
+Model = torch.quantization.convert(mobile_model)
+Scripted_model = torch.jit.script(model)
+Opt_model = optimize_for_mobile(scripted_model)
+Opt_model_save_for_lite_interpreter(“mobile_model.ptl”)
+Implementation
+‘org.pytorch:torch_android_lite:version’
+Implementation
+Pod ‘LibTorch_Lite’, ‘~>version’
+Quantize model (optional)
+Script/Trace model
+Model Optimization (optional)
+Save model
+Android
+IOS
+DEPLOYMENT WORKFLOW
+6
+AI VIETNAM
+All-in-One Course
+6
+Vinh Dinh Nguyen- PhD in Computer Science
+PyTorch JIT and TorchScript
+With TorchScript, PyTorch aims to create a unified framework from research to production. TorchScript will take your PyTorch modules as input 
+and convert them into a production-friendly format
+PyTorch supports 2 separate modes to handle research and production environment.
+•
+First is the Eager mode. It is built for faster prototyping, training, and experimentation.
+•
+Second is the Script mode. It is focused on the production use case. It has 2 components PyTorch JIT and TorchScript.
+7
+AI VIETNAM
+All-in-One Course
+7
+Vinh Dinh Nguyen- PhD in Computer Science
+PyTorch JIT and TorchScript
+With TorchScript, PyTorch aims to create a unified framework from research to production. TorchScript will take your PyTorch modules as input 
+and convert them into a production-friendly format
+PyTorch supports 2 separate modes to handle research and production environment.
+•
+First is the Eager mode. It is built for faster prototyping, training, and experimentation.
+•
+Second is the Script mode. It is focused on the production use case. It has 2 components PyTorch JIT and TorchScript.
+8
+AI VIETNAM
+All-in-One Course
+8
+Vinh Dinh Nguyen- PhD in Computer Science
+PyTorch JIT and TorchScript
+With TorchScript, PyTorch aims to create a unified framework from research to production. TorchScript will take your PyTorch modules as input 
+and convert them into a production-friendly format
+PyTorch supports 2 separate modes to handle research and production environment.
+•
+First is the Eager mode. It is built for faster prototyping, training, and experimentation.
+•
+Second is the Script mode. It is focused on the production use case. It has 2 components PyTorch JIT and TorchScript.
+9
+AI VIETNAM
+All-in-One Course
+9
+Vinh Dinh Nguyen- PhD in Computer Science
+PyTorch JIT and TorchScript
+With TorchScript, PyTorch aims to create a unified framework from research to production. TorchScript will take your PyTorch modules as input 
+and convert them into a production-friendly format
+PyTorch supports 2 separate modes to handle research and production environment.
+•
+First is the Eager mode. It is built for faster prototyping, training, and experimentation.
+•
+Second is the Script mode. It is focused on the production use case. It has 2 components PyTorch JIT and TorchScript.
+10
+AI VIETNAM
+All-in-One Course
+10
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Deployment Workflow of Machine Learning in Mobile
+Ø Example 1: Number Generation
+Ø Example 2: Image Generation
+Ø Example 3: Object Detection with Yolo
+Ø Example 4: Image Classification using Transfer Learning
+Outline
+11
+AI VIETNAM
+All-in-One Course
+11
+Vinh Dinh Nguyen- PhD in Computer Science
+Example 1: Number Generation
+Simple model that takes N noise vectors as input
+and outputs N numbers between 0 and 9
+Input: 2
+Output: 07
+The model will take in a vector with 2 elements
+(which is just some arbitrary number I chose) and
+output a vector with 10 elements where each
+element in the output vector is the probability the
+model thinks that number should be chosen
+12
+AI VIETNAM
+All-in-One Course
+12
+Vinh Dinh Nguyen- PhD in Computer Science
+Model Creation
+Basic MLP with 2 inputs, 4 hidden layers
+# and 10 outputs where each output is
+# the softmax probabilities of a number 0 to 9
+13
+AI VIETNAM
+All-in-One Course
+13
+Vinh Dinh Nguyen- PhD in Computer Science
+Model Evaluation
+Basic MLP with 2 inputs, 4 hidden layers
+# and 10 outputs where each output is
+# the softmax probabilities of a number 0 to 9
+Before working on the app, you can imagine a
+normal
+model
+has
+several
+problems.
+For
+example:
+A good model is probably very large
+A model can take a while to load
+Models can take a while to make a prediction
+14
+AI VIETNAM
+All-in-One Course
+14
+Vinh Dinh Nguyen- PhD in Computer Science
+Optimize the model for deployment
+To reduce these problems, PyTorch has a very useful feature called TorchScript which optimizes the model for deployment
+Now we have an optimized model to put in our app!
+15
+AI VIETNAM
+All-in-One Course
+15
+Vinh Dinh Nguyen- PhD in Computer Science
+Creating the Mobile App
+Step 1: Create New Project
+16
+AI VIETNAM
+All-in-One Course
+16
+Vinh Dinh Nguyen- PhD in Computer Science
+Creating the Mobile App
+Step 2: Create UI
+XML Design
+17
+AI VIETNAM
+All-in-One Course
+17
+Vinh Dinh Nguyen- PhD in Computer Science
+Creating the Mobile App
+Step 2: Create UI
+18
+AI VIETNAM
+All-in-One Course
+18
+Vinh Dinh Nguyen- PhD in Computer Science
+Creating the Mobile App
+Step 3: Run apps on the Android Emulator
+19
+AI VIETNAM
+All-in-One Course
+19
+Vinh Dinh Nguyen- PhD in Computer Science
+Creating the Mobile App
+Step 4: PyTorch Android API Configuration
+20
+AI VIETNAM
+All-in-One Course
+20
+Vinh Dinh Nguyen- PhD in Computer Science
+Creating the Mobile App
+Step 5: Create Assests folder to store Pytorch Lite Model
+21
+AI VIETNAM
+All-in-One Course
+21
+Vinh Dinh Nguyen- PhD in Computer Science
+Creating the Mobile App
+Step 6: Update MainActivtity to use Pytorch Android Library
+22
+AI VIETNAM
+All-in-One Course
+22
+Vinh Dinh Nguyen- PhD in Computer Science
+Number Generation: Demo
+23
+AI VIETNAM
+All-in-One Course
+23
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Deployment Workflow of Machine Learning in Mobile
+Ø Example 1: Number Generation
+Ø Example 2: Image Generation
+Ø Example 3: Object Detection with Yolo
+Ø Example 4: Image Classification using Transfer Learning
+Outline
+24
+AI VIETNAM
+All-in-One Course
+24
+Vinh Dinh Nguyen- PhD in Computer Science
+Example 2: Image Generation
+https://blog.runpod.io/training-stylegan3-on-runpod/
+StyleGAN3 on Anime Faces
+25
+AI VIETNAM
+All-in-One Course
+25
+Vinh Dinh Nguyen- PhD in Computer Science
+Example 2: Image Generation
+26
+AI VIETNAM
+All-in-One Course
+26
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Deployment Workflow of Machine Learning in Mobile
+Ø Example 1: Number Generation
+Ø Example 2: Image Generation
+Ø Example 3: Object Detection with Yolo
+Ø Example 4: Image Classification using Transfer Learning
+Outline
+27
+AI VIETNAM
+All-in-One Course
+27
+Vinh Dinh Nguyen- PhD in Computer Science
+Example 3: Object Detection with YOLO
+YOLO (You Only Look Once) is one of the fastest and most popular object detection models. YOLOv5 is an open-source implementation of the
+latest version of YOLO. This Object Detection with YOLOv5 Android sample app uses the PyTorch scripted YOLOv5 model to detect objects of
+the 80 classes trained with the model.
+28
+AI VIETNAM
+All-in-One Course
+28
+Vinh Dinh Nguyen- PhD in Computer Science
+Step 1: Install Yolov5
+Example 3: Object Detection with YOLO
+29
+AI VIETNAM
+All-in-One Course
+29
+Vinh Dinh Nguyen- PhD in Computer Science
+Step 2: Generate the optimized TorchScript lite model yolov5s.torchscript.ptl
+Example 3: Object Detection with YOLO
+30
+AI VIETNAM
+All-in-One Course
+30
+Vinh Dinh Nguyen- PhD in Computer Science
+Step 3: Design Android UI
+Example 3: Object Detection with YOLO
+31
+AI VIETNAM
+All-in-One Course
+31
+Vinh Dinh Nguyen- PhD in Computer Science
+Step 4: Load Yolov5 model and class label
+Example 3: Object Detection with YOLO
+32
+AI VIETNAM
+All-in-One Course
+32
+Vinh Dinh Nguyen- PhD in Computer Science
+Step 5: Use Yolov5 for detection
+Example 3: Object Detection with YOLO
+33
+AI VIETNAM
+All-in-One Course
+33
+Vinh Dinh Nguyen- PhD in Computer Science
+Step 6: Setup CameraX for live detection
+Example 3: Object Detection with YOLO
+34
+AI VIETNAM
+All-in-One Course
+34
+Vinh Dinh Nguyen- PhD in Computer Science
+Example 3: Object Detection with YOLO
+35
+AI VIETNAM
+All-in-One Course
+35
+Vinh Dinh Nguyen- PhD in Computer Science
+36
+AI VIETNAM
+All-in-One Course
+36
+Vinh Dinh Nguyen- PhD in Computer Science
+Mini Quiz
+37
+AI VIETNAM
+All-in-One Course
+37
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Deployment Workflow of Machine Learning in Mobile
+Ø Example 1: Number Generation
+Ø Example 2: Image Generation
+Ø Example 3: Object Detection with Yolo
+Ø Example 4: Image Classification using Transfer Learning
+Outline
+38
+AI VIETNAM
+All-in-One Course
+38
+Vinh Dinh Nguyen- PhD in Computer Science
+Example 4: Transfer Learning
+Train a convolutional neural network for image classification using transfer learning
+In practice, very few people train an entire Convolutional Network from scratch (with random initialization), because it is relatively rare to have a 
+dataset of sufficient size. Instead, it is common to pretrain a ConvNet on a very large dataset (e.g. ImageNet, which contains 1.2 million images 
+with 1000 categories), and then use the ConvNet either as an initialization or a fixed feature extractor for the task of interest.
+These two major transfer learning scenarios look as follows:
+q Finetuning the ConvNet: Instead of random initialization, we initialize the network with a pretrained network, like the one that is 
+trained on imagenet 1000 dataset. Rest of the training looks as usual.
+q ConvNet as fixed feature extractor: Here, we will freeze the weights for all of the network except that of the final fully connected 
+layer. This last fully connected layer is replaced with a new one with random weights and only this layer is trained.
+39
+AI VIETNAM
+All-in-One Course
+39
+Vinh Dinh Nguyen- PhD in Computer Science
+Example 4: Transfer Learning
+Train a convolutional neural network for image classification using transfer learning
+The problem we’re going to solve today is to train a model to classify ants and bees. We have 
+about 120 training images each for ants and bees. There are 75 validation images for each 
+class. Usually, this is a very small dataset to generalize upon, if trained from scratch. Since we 
+are using transfer learning, we should be able to generalize reasonably well.
+40
+AI VIETNAM
+All-in-One Course
+40
+Vinh Dinh Nguyen- PhD in Computer Science
+Example 4: Transfer Learning
+Ants vs Bee Classification
+41
+AI VIETNAM
+All-in-One Course
+41
+Vinh Dinh Nguyen- PhD in Computer Science
+Example 4: Transfer Learning
+Ants vs Bee Classification
+42
+AI VIETNAM
+All-in-One Course
+42
+Vinh Dinh Nguyen- PhD in Computer Science
+Example 4: Transfer Learning
+Step 1: Dataset Preparation
+Ants vs Bee Classification
+43
+AI VIETNAM
+All-in-One Course
+43
+Vinh Dinh Nguyen- PhD in Computer Science
+Example 4: Transfer Learning
+Step 2: 
+q Data augmentation and normalization for training 
+q Normalization for validation
+Ants vs Bee Classification
+44
+AI VIETNAM
+All-in-One Course
+44
+Vinh Dinh Nguyen- PhD in Computer Science
+Example 4: Transfer Learning
+Step 3: 
+q Train the model
+45
+AI VIETNAM
+All-in-One Course
+45
+Vinh Dinh Nguyen- PhD in Computer Science
+Example 4: Transfer Learning
+Step 4: 
+q Finetuning the ConvNet
+q Load a pretrained model and reset final fully 
+connected layer
+46
+AI VIETNAM
+All-in-One Course
+46
+Vinh Dinh Nguyen- PhD in Computer Science
+Example 4: Transfer Learning
+Step 5: 
+q Create a class to run an inference over an image using our Pytorch model
+47
+AI VIETNAM
+All-in-One Course
+47
+Vinh Dinh Nguyen- PhD in Computer Science
+Example 4: Transfer Learning
+Step 6: 
+q Converting to TorchScript
+Pytorch has multiple operators and methods that are not supported by Android. For that purpose, Pytorch Mobile was created. It 
+enables us to convert a Pytorch model to a model that our mobile application is able to work with
+48
+AI VIETNAM
+All-in-One Course
+48
+Vinh Dinh Nguyen- PhD in Computer Science
+https://opencv.org/releases/
+Step 7: 
+q Import the Pytorch Android and OpenCV dependencies
+Example 4: Transfer Learning
+49
+AI VIETNAM
+All-in-One Course
+49
+Vinh Dinh Nguyen- PhD in Computer Science
+Step 7: 
+q Import the Pytorch Android and OpenCV dependencies
+Example 4: Transfer Learning
+50
+AI VIETNAM
+All-in-One Course
+50
+Vinh Dinh Nguyen- PhD in Computer Science
+Step 7: 
+q Import the Pytorch Android and OpenCV dependencies
+Example 4: Transfer Learning
+51
+AI VIETNAM
+All-in-One Course
+51
+Vinh Dinh Nguyen- PhD in Computer Science
+Summary
+52
+AI VIETNAM
+All-in-One Course
+52
+Vinh Dinh Nguyen- PhD in Computer Science
+Summary
+53
+AI VIETNAM
+All-in-One Course
+53
+Vinh Dinh Nguyen- PhD in Computer Science
+54
+AI VIETNAM
+All-in-One Course

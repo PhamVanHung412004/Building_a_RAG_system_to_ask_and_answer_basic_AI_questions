@@ -1,9 +1,0 @@
-Module ):
-2 def __init__ (self , num_classes =2) :
-3 super ( Model , self ). __init__ ()
-4 self . resnet = resnet18 ( pretrained = True )
-5 self . resnet .fc = nn. Sequential (nn. Linear ( self . resnet .fc.
-in_features , 512) )
-6 self . lstm = nn. LSTM ( input_size =512 , hidden_size =389 , num_layers
-=3)
-7 self . fc1 = nn. 

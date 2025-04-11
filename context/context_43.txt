@@ -1,0 +1,1444 @@
+Decision Tree and Random Forest
+Dinh-Thang Duong – TA
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Exercise
+Year 2023
+Outline
+2
+Ø Review
+Ø Code Implementation
+Ø Question
+Outline
+AI VIETNAM
+All-in-One Course
+(TA Session)
+3
+Review
+v Getting Started
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Mileage
+Has AC?
+Age
+Price
+7.5
+yes
+3
+8.5
+6.0
+no
+2
+9.2
+9.0
+yes
+4
+7.8
+4.5
+yes
+1
+10.0
+6.8
+no
+3
+8.9
+8.0
+yes
+2
+8.3
+5.5
+no
+2
+9.5
+Program
+•
+Mileage
+•
+Has AC?
+•
+Age
+Price
+Car Price Prediction
+4
+Review
+v Getting Started
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Program
+•
+Mileage
+•
+Has AC?
+•
+Age
+Price
+Tradional programming
+5
+Review
+v Getting Started
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Mileage
+Has AC?
+Age
+Price
+7.5
+yes
+3
+8.5
+6.0
+no
+2
+9.2
+9.0
+yes
+4
+7.8
+4.5
+yes
+1
+10.0
+6.8
+no
+3
+8.9
+8.0
+yes
+2
+8.3
+5.5
+no
+2
+9.5
+To utilize exisiting dataset for this problem, we could use 
+Machine Learning.
+Machine 
+Learning 
+Model
+Training
+•
+Mileage
+•
+Has AC?
+•
+Age
+Price
+Machine Learning learns to map a set of features X to target 
+value y based on existing dataset.
+Features
+Target
+6
+Review
+v Getting Started
+AI VIETNAM
+All-in-One Course
+(TA Session)
+https://scikit-learn.org/stable/tutorial/machine_learning_map/index.html
+7
+Review
+v Decision Tree
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Decision Tree: A supervised-learning machine 
+learning algorithm that build a tree-based structure. 
+It can perform both classification and regression 
+tasks.
+8
+Review
+v Decision Tree Terminologies
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Is it raining right 
+now?
+Not go running
+Go running
+True
+False
+Statement: I will go running if it is not raining outside.
+9
+Review
+v Decision Tree Terminologies
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Is it raining right 
+now?
+Not go running
+Go running
+True
+False
+A statement.
+A decision whether the 
+statement is True or False.
+10
+Review
+v Decision Tree Terminologies
+AI VIETNAM
+All-in-One Course
+(TA Session)
+A general Decsion Tree may contain many conditions and 
+outcomes.
+11
+Review
+v Decision Tree Terminologies
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Root Node: The initial condition (the first 
+split) of the tree.
+12
+Review
+v Decision Tree Terminologies
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Internal Nodes (Branch Nodes): The 
+conditions within the tree that receive inputs 
+from previous node and produce output to 
+new nodes.
+13
+Review
+v Decision Tree Terminologies
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Leaf Nodes (Terminal Nodes): The final 
+decision of the tree. It does not make any 
+further splits.
+14
+Review
+v Decision Tree Terminologies
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Is it raining right 
+now?
+Not go running
+Go running
+True
+False
+Is it raining right 
+now?
+Average 
+Temperature ≅ 26
+Average 
+Temperature ≅ 32
+True
+False
+Classification Tree: Output of leaf nodes are 
+categorical. 
+Regression Tree: Output of leaf nodes are 
+numerical. 
+15
+Review
+v Build a Regression Tree
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Mileage
+Has AC?
+Age
+Price
+7.5
+yes
+3
+8.5
+6.0
+no
+2
+9.2
+9.0
+yes
+4
+7.8
+4.5
+yes
+1
+10.0
+6.8
+no
+3
+8.9
+8.0
+yes
+2
+8.3
+5.5
+no
+2
+9.5
+How to build a tree from a dataset?
+16
+Review
+v Build a Regression Tree
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Mileage
+Has AC?
+Age
+Price
+7.5
+yes
+3
+8.5
+6.0
+no
+2
+9.2
+9.0
+yes
+4
+7.8
+4.5
+yes
+1
+10.0
+6.8
+no
+3
+8.9
+8.0
+yes
+2
+8.3
+5.5
+no
+2
+9.5
+Consider Mileage feature.
+Mileage
+Has AC?
+Age
+Price
+4.5
+yes
+1
+10.0
+5.5
+no
+2
+9.5
+6.0
+no
+2
+9.2
+6.8
+no
+3
+8.9
+7.5
+yes
+3
+8.5
+8.0
+yes
+2
+8.3
+9.0
+yes
+4
+7.8
+Sort the dataset by Mileage in ascending order
+17
+Review
+v Build a Regression Tree
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Mileage
+Has AC?
+Age
+Price
+4.5
+yes
+1
+10.0
+5.5
+no
+2
+9.5
+6.0
+no
+2
+9.2
+6.8
+no
+3
+8.9
+7.5
+yes
+3
+8.5
+8.0
+yes
+2
+8.3
+9.0
+yes
+4
+7.8
+Calculate the average of each adjacent pair of Mileage: 
+•
+Pair 1: (4.5 + 5.5) / 2 = 5.0
+•
+Pair 2: (5.5 + 6.0) / 2 = 5.75
+•
+Pair 3: (6.0 + 6.8) / 2 = 6.4
+•
+Pair 4: (6.8 + 7.5) / 2 = 7.15
+•
+Pair 5: (7.5 + 8.0) / 2 = 7.75
+•
+Pair 6: (8.0 + 9.0) / 2 = 8.5
+18
+Review
+v Build a Regression Tree
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Mileage
+Has AC?
+Age
+Price
+4.5
+yes
+1
+10.0
+5.5
+no
+2
+9.5
+6.0
+no
+2
+9.2
+6.8
+no
+3
+8.9
+7.5
+yes
+3
+8.5
+8.0
+yes
+2
+8.3
+9.0
+yes
+4
+7.8
+Mileage < 5.0
+?
+?
+True
+False
+5.0
+Put the first 
+average value as 
+the condition 
+How to determine the leaf node for this condition?
+19
+Review
+v Build a Regression Tree
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Mileage
+Has AC?
+Age
+Price
+4.5
+yes
+1
+10.0
+5.5
+no
+2
+9.5
+6.0
+no
+2
+9.2
+6.8
+no
+3
+8.9
+7.5
+yes
+3
+8.5
+8.0
+yes
+2
+8.3
+9.0
+yes
+4
+7.8
+Mileage < 5.0
+10.0
+8.7
+True
+False
+5.0
+Use the average value of Price that satisfying the condition in 
+the dataset.
+10.0
+1
+= 10.0
+!.#$!.%$&.!$&.#$&.'$(.&
+)
+= 8.7
+20
+Review
+v Build a Regression Tree
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Mileage < 5.0
+10.0
+8.7
+True
+False
+Mileage = 3
+Input
+Predicted Price = 10
+Output
+21
+Review
+v Build a Regression Tree
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Mileage
+Has AC?
+Age
+Price
+4.5
+yes
+1
+10.0
+5.5
+no
+2
+9.5
+6.0
+no
+2
+9.2
+6.8
+no
+3
+8.9
+7.5
+yes
+3
+8.5
+8.0
+yes
+2
+8.3
+9.0
+yes
+4
+7.8
+Mileage < 5.0
+10.0
+8.7
+True
+False
+5.0
+How to determine whether this tree is good enogh or not?
+22
+Review
+v Build a Regression Tree
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Mileage < 5.0
+10.0
+8.7
+True
+False
+How to determine whether this tree is good enogh or not? 
+(Impurity Measurement)
+=> Using the prediction of the tree to evaluate on training 
+dataset.
+Residual
+Compare the predicted value and the true value.
+=> Residual Sum of Squares 𝑅𝑆𝑆= ∑*+,
+-
+𝑦* −𝑓𝑥*
+%
+23
+Review
+v Build a Regression Tree
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Mileage
+Has AC?
+Age
+Price
+4.5
+yes
+1
+10.0
+5.5
+no
+2
+9.5
+6.0
+no
+2
+9.2
+6.8
+no
+3
+8.9
+7.5
+yes
+3
+8.5
+8.0
+yes
+2
+8.3
+9.0
+yes
+4
+7.8
+Mileage < 5.0
+10.0
+8.7
+True
+False
+5.0
+Calculate the Residual Sum of Squares of the tree:
+10 −10 % + 9.5 −8.7 % + 9.2 −8.7 % + 8.9 −8.7 %
++ 8.5 −8.7 % + 8.3 −8.7 % + 7.8 −8.7 % = 1.94
+24
+Review
+v Build a Regression Tree: Consider each pair
+AI VIETNAM
+All-in-One Course
+(TA Session)
+We can plot the Residual Sum of Squares of each pair to 2D 
+chart.
+5.0
+|
+Mileage Threshold
+Residual Sum of Squares
+|
+1.94
+The objective is to find the threshold that have the minimum 
+Residual Sum of Squares.
+25
+Review
+v Build a Regression Tree
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Mileage
+Has AC?
+Age
+Price
+4.5
+yes
+1
+10.0
+5.5
+no
+2
+9.5
+6.0
+no
+2
+9.2
+6.8
+no
+3
+8.9
+7.5
+yes
+3
+8.5
+8.0
+yes
+2
+8.3
+9.0
+yes
+4
+7.8
+Mileage < 5.75
+9.75
+8.54
+True
+False
+5.75
+We will do the same for other pairs
+10 −9.75 % + 9.5 −9.75 % + 9.2 −8.54 % + 8.9 −8.54 %
++ 8.5 −8.54 % + 8.3 −8.54 % + 7.8 −8.54 % = 1.297
+26
+Review
+v Build a Regression Tree
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Mileage
+Has AC?
+Age
+Price
+4.5
+yes
+1
+10.0
+5.5
+no
+2
+9.5
+6.0
+no
+2
+9.2
+6.8
+no
+3
+8.9
+7.5
+yes
+3
+8.5
+8.0
+yes
+2
+8.3
+9.0
+yes
+4
+7.8
+Mileage < 6.4
+9.57
+8.375
+True
+False
+6.4
+We will do the same for other pairs
+10 −9.57 % + 9.5 −9.57 % + 9.2 −9.57 %
++ 8.9 −8.375 % + 8.5 −8.375 % + 8.3 −8.375 %
++ 7.8 −8.375 % = 0.9542
+27
+Review
+v Build a Regression Tree
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Mileage
+Has AC?
+Age
+Price
+4.5
+yes
+1
+10.0
+5.5
+no
+2
+9.5
+6.0
+no
+2
+9.2
+6.8
+no
+3
+8.9
+7.5
+yes
+3
+8.5
+8.0
+yes
+2
+8.3
+9.0
+yes
+4
+7.8
+Mileage < 7.15
+9.4
+8.2
+True
+False
+7.15
+We will do the same for other pairs
+10 −9.4 % + 9.5 −9.4 % + 9.2 −9.4 % + 8.9 −9.4 %
++ 8.5 −8.2 % + 8.3 −8.2 % + 7.8 −8.2 % = 0.92
+28
+Review
+v Build a Regression Tree
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Mileage
+Has AC?
+Age
+Price
+4.5
+yes
+1
+10.0
+5.5
+no
+2
+9.5
+6.0
+no
+2
+9.2
+6.8
+no
+3
+8.9
+7.5
+yes
+3
+8.5
+8.0
+yes
+2
+8.3
+9.0
+yes
+4
+7.8
+Mileage < 7.75
+9.22
+8.05
+True
+False
+7.75
+We will do the same for other pairs
+10 −9.22 % + 9.5 −9.22 % + 9.2 −9.22 % + 8.9 −9.22 %
++ 8.5 −9.22 % + 8.3 −8.05 % + 7.8 −8.05 % = 1.433
+29
+Review
+v Build a Regression Tree
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Mileage
+Has AC?
+Age
+Price
+4.5
+yes
+1
+10.0
+5.5
+no
+2
+9.5
+6.0
+no
+2
+9.2
+6.8
+no
+3
+8.9
+7.5
+yes
+3
+8.5
+8.0
+yes
+2
+8.3
+9.0
+yes
+4
+7.8
+Mileage < 8.5
+9.067
+7.8
+True
+False
+8.5
+We will do the same for other pairs
+10 −9.067 % + 9.5 −9.067 % + 9.2 −9.067 %
++ 8.9 −9.067 % + 8.5 −9.067 % + 8.3 −9.067 %
++ 7.8 −7.8 % = 2.0134
+30
+Review
+v Build a Regression Tree: RSS Visualization
+AI VIETNAM
+All-in-One Course
+(TA Session)
+5.0
+|
+Mileage Threshold
+Residual Sum of Squares
+|
+1.94
+With the chart, we now know that Mileage < 7.15 gives the 
+smallest Residual Sum of Squares.
+5.75
+|
+|
+1.297
+6.4
+|
+|
+0.954
+7.15
+|
+|
+0.92
+7.75
+|
+|
+1.433
+|
+2.0134
+8.5
+|
+Mileage < 7.15
+9.4
+8.2
+True
+False
+31
+Review
+v Build a Regression Tree
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Mileage
+Has AC?
+Age
+Price
+4.5
+yes
+1
+10.0
+5.5
+no
+2
+9.5
+6.0
+no
+2
+9.2
+6.8
+no
+3
+8.9
+7.5
+yes
+3
+8.5
+8.0
+yes
+2
+8.3
+9.0
+yes
+4
+7.8
+How about other features?
+We also need to consider other features to find which one 
+produce the least RSS.
+To do that, apply the same step as for Mileage.
+32
+Review
+v Build a Regression Tree
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Mileage < 7.15
+9.4
+8.2
+True
+False
+Has AC?
+8.65
+9.2
+True
+False
+Age < 1.5
+10
+8.7
+True
+False
+10 −9.4 ! + 9.5 −9.4 ! + 9.2 −9.4 !
++ 8.9 −9.4 ! + 8.5 −8.2 ! + 8.3 −8.2 !
++ 7.8 −8.2 ! = 0.92
+8.5 −8.65 ! + 7.8 −8.65 ! + (
+)
+10 −
+8.65 ! + 8.3 −8.65 ! + 9.2 −9.2 ! +
+8.9 −9.2 ! + 9.5 −9.2 ! = 2.87 
+10 −10 ! + 9.2 −8.7 ! + 8.3 −8.7 !
++ 9.5 −8.7 ! + 8.9 −8.7 ! + 8.5 −8.7 !
++ 7.8 −8.7 ! = 1.94
+Mileage < 7.15 is the most appropriate
+33
+Review
+v Build a Regression Tree
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Tree built from sklearn with only root node
+34
+Review
+v Build a Regression Tree
+AI VIETNAM
+All-in-One Course
+(TA Session)
+35
+Review
+v Build a Regression Tree: Further expand the tree
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Mileage < 7.15
+Mileage < 5.75
+8.2
+True
+False
+9.05
+9.75
+False
+True
+In theory, we can further expand the tree by 
+adding more internal node (conditions) to the tree.
+A bigger tree might get better performance. But it might also 
+subject to overfitting problem.
+Therefore, it is crucial to appropriately choose optimal 
+hyperparameters of the decision tree.
+36
+Review
+v Ensemble Learning
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Mileage
+Has AC?
+Age
+Price
+4.5
+yes
+1
+10.0
+5.5
+no
+2
+9.5
+6.0
+no
+2
+9.2
+6.8
+no
+3
+8.9
+7.5
+yes
+3
+8.5
+8.0
+yes
+2
+8.3
+9.0
+yes
+4
+7.8
+Consider the Car Price Prediction problem again
+Feaures: [7.8, 
+‘no’, 5].
+True Label: 6.5
+8.2
+This prediction is unrealiable, how do we make sure 
+that we receive a more stable result?
+37
+Review
+v Ensemble Learning
+AI VIETNAM
+All-in-One Course
+(TA Session)
+If the result from 1 tree is not good…
+Why don’t we just use more trees?
+38
+Review
+v Ensemble Learning
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Ensemble Learning: A machine learning technique that combines 
+the predictions from multiple individual models to produce a more 
+accurate and robust prediction that any single model.
+These are Decision Trees
+39
+Review
+v Random Forest
+AI VIETNAM
+All-in-One Course
+(TA Session)
+In previous example, there is an algorithm that uses multiple Decision Trees to produce a 
+new single output called Random Forest.
+40
+Review
+v Random Forest
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Random Forest: A supervised-learning machine learning 
+algorithm that combines the output of multiple Decision 
+Trees to reach a single outcome. It can perform both 
+classification and regression tasks.
+41
+Review
+v Random Forest: Key idea
+AI VIETNAM
+All-in-One Course
+(TA Session)
+From original dataset, create multiple 
+Bootstrap Dataset using Bootstrapping 
+technique.
+With Bootstrap Datasets, train n Decision 
+Trees (estimators).
+In inference phrase, with the predictions 
+of n trees, we do voting/averaging them 
+to get final result (Aggregating).
+42
+Review
+v Random Forest: Bootstrapping
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Bootstrapping = Random sampling with replacement
+S1
+S2
+S3
+S4
+S5
+S6
+S7
+S8
+S9
+S10
+S5
+S4
+S7
+S3
+S2
+S2
+S8
+S1
+S10
+S1
+S7
+S6
+S9
+S9
+S9
+S2
+S1
+S10
+S4
+S8
+Original Dataset
+Bootstrap Dataset 1
+Bootstrap Dataset 2
+We create new dataset by taking samples from 
+original dataset (sampling) which can be 
+duplicated.
+43
+Review
+v Random Forest: Bootstrapping
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Index
+X1
+X2
+X3
+Y
+0
+1
+2
+3
+4
+Index
+X1
+Y
+1
+1
+4
+3
+4
+Index
+X3
+Y
+0
+3
+1
+4
+4
+Bootstrap Dataset 1
+Bootstrap Dataset 2
+Original Dataset
+In Random Forest, we 
+also randomly select 
+features for 
+Bootstrap Datasets.
+44
+Review
+v Random Forest: Aggregating
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Bootstrap Dataset 1
+Bootstrap Dataset 2
+Bootstrap Dataset 3
+Feaures: [7.8, 
+‘no’, 5].
+True Label: 6.5
+8.2
+6.8
+5.5
+6.83
+Final Result
+Training
+45
+Code Implementation
+v Introduction
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Code exercise description: Given Housing.csv dataset, train a Decision Tree and a Random Forest models to predict house 
+price based on some input features about the house.
+46
+Code Implementation
+v Step 1: Import necessary libraries
+AI VIETNAM
+All-in-One Course
+(TA Session)
+scikit-learn (sklearn): An open-source library for 
+Python language that features various 
+classification, regression and clustering 
+algorithms.
+47
+Code Implementation
+v Step 1: Import necessary libraries
+AI VIETNAM
+All-in-One Course
+(TA Session)
+sklearn.tree: The module includes decision tree-
+based models for classification and regression. (In 
+this case we will use regression).
+sklearn.ensemble: The module includes 
+ensemble-based methods for classification, 
+regression and anomaly detection. (In this case we 
+will use regression).
+48
+Code Implementation
+v Step 2: Load dataset
+AI VIETNAM
+All-in-One Course
+(TA Session)
+To read .csv file, we use pandas.read_csv():
+49
+Code Implementation
+v Step 3: Check missing values and get numerical features statistic
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Using pandas.DataFrame.info() and pandas.DataFrame.describe() to 
+check missing values and get statistic of numerical features.
+50
+Code Implementation
+v Step 4: Deal with categorical variables
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Categorical variable: A type of variable that represents distinct categories or groups. These variables often in the form of 
+string.
+51
+Code Implementation
+v Step 4: Deal with categorical variables
+AI VIETNAM
+All-in-One Course
+(TA Session)
+X1
+X2
+X3
+Y
+12
+5.5
+yes
+9.0
+4
+1.0
+no
+6.8
+9
+3.2
+no
+8.0
+10
+4.4
+yes
+8.5
+X3 has unique values of [‘yes’, ‘no’]
+Idea: Convert strings using integer number starting from 0.
+=> 
+•
+‘yes’: 1
+•
+‘no’: 0
+X1
+X2
+X3
+Y
+12
+5.5
+yes
+9.0
+4
+1.0
+no
+6.8
+9
+3.2
+no
+8.0
+10
+4.4
+yes
+8.5
+X1
+X2
+X3
+Y
+12
+5.5
+1
+9.0
+4
+1.0
+0
+6.8
+9
+3.2
+0
+8.0
+10
+4.4
+1
+8.5
+52
+Code Implementation
+v Step 4: Deal with categorical variables
+AI VIETNAM
+All-in-One Course
+(TA Session)
+1. Check all features that are in form of 
+string (object).
+2. Check number of unique values for each feature that are in form of string 
+(object).
+53
+Code Implementation
+v Step 4: Deal with categorical variables
+AI VIETNAM
+All-in-One Course
+(TA Session)
+3. Apply OrdinalEncoder() for all categorical features.
+Create an instance of OrdinalEncoder().
+Apply OrdinalEncoder() to all categorical 
+columns using fit_transform().
+Create a new DataFrame that only contains 
+encoded categorical data.
+Drop all categorical data in original 
+dataframe.
+Concatenate both DataFrames.
+54
+Code Implementation
+v Step 4: Deal with categorical variables
+AI VIETNAM
+All-in-One Course
+(TA Session)
+55
+Code Implementation
+v Step 5: Normalization
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Using sklearn.preprocessing.StandardScaler() 
+to scale all values in dataset.
+56
+Code Implementation
+v Step 6: Split X, y
+AI VIETNAM
+All-in-One Course
+(TA Session)
+•
+Dependent Variable: Price.
+•
+Independent Variables: area, bedrooms, bathrooms, 
+stories, parking, mainroad, guestroom, basement, 
+hotwaterheating, airconditioning, prefarea, 
+furnishingstatus.
+57
+Code Implementation
+v Step 7: Split train, val set
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Train set
+Val set
+Original Dataset
+58
+Code Implementation
+v Step 8: Train models
+AI VIETNAM
+All-in-One Course
+(TA Session)
+For Decision Tree:
+For Random Forest:
+Training Data
+Loss
+Compute 
+gradients
+Paramaters
+True Label
+Predictions
+Model
+Update
+59
+Code Implementation
+v Step 9: Evaluation
+AI VIETNAM
+All-in-One Course
+(TA Session)
+Let trained model predict X of val, then calculating 
+MAE and MSE:
+Performance of Random Forest on Validation set.
+?
+60
+Question
+AI VIETNAM
+All-in-One Course
+(TA Session)
+61

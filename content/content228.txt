@@ -1,5 +1,0 @@
-a. Single Inheritance
-b. Multiple Inheritance
-c. Multilevel Inheritance
-d. Hierarchical Inheritance
-13

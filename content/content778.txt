@@ -1,3 +1,0 @@
-Hình 10: Minh họa cách thêm chiều dữ liệu
-Ví dụ sau đây thực hiện thêm một chiều mới vào array sử dụngnewaxis:
-10

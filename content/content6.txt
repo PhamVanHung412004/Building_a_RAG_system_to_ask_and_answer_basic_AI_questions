@@ -1,2 +1,0 @@
-Theo như nội dung project, với dữ liệu nguồn là một file pdf, chúng ta sẽ thực hiện
-3

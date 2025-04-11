@@ -1,3 +1,0 @@
-AI VIETNAM aivietnam.edu.vn
-7 transforms . CenterCrop (224) ,
-8 transforms . 

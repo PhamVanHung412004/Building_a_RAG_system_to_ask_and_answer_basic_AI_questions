@@ -1,8 +1,0 @@
-masonry . api "
-Phần đầu tiên trong file là [tool.poetry], trong phần này chứa thông tin:
-• name : Tên của thư mục dự án
-• version : Phiên bản mà chúng ta đang phát triển
-• description : Mô tả ngắn về package
-• authors : Thông tin về tác giả, nhóm phát triển package
-• readme : Tệp để viết các mô tả, hướng dẫn chi tiết về package
-2

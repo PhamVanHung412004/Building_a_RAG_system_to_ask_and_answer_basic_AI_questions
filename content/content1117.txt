@@ -1,9 +1,0 @@
-AI VIETNAM (AIO2024) aivietnam.edu.vn
-1 youtube_video_path = " https :// youtu .be/ wqPSsu7XQ74 "
-2 video_result = model ( source = youtube_video_path )
-Kết quả dự đoán sẽ là một video được lưu dưới dạng .avi trong thư mục:/content/yolov10
-/runs/detect/predict
-IV.II. Huấn luyện YOLOv10 trên tập dữ liệu mới
-Trong phần này, chúng ta sẽ thực hiện huấn luyện mô hình YOLOv10 (fine-tuning) trên một bộ
-dữ liệu với các class mới. Để tránh sự nhầm lẫn, phần này sẽ được thực hiện ở một file colab
-khác so với phần trước. 

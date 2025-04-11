@@ -1,3 +1,0 @@
-AI VIETNAM aivietnam.edu.vn
-(g) Áp dụng mô hình hỏi-đáp để trả lời câu hỏi:Như vậy, chúng ta đã có hai thành
-phần Retriever và Reader. 

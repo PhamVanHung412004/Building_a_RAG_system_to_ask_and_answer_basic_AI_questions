@@ -1,0 +1,104 @@
+Model Evaluation
+TA Hùng An
+AI VIETNAM
+All-in-One Course
+Nội dung
+1.
+Tour of Model Evaluation Metrics
+2.
+Data Sampling
+3.
+Imbalanced data processing
+AI VIETNAM
+All-in-One Course
+2
+Tour of Model Evaluation Metrics
+AI VIETNAM
+All-in-One Course
+3
+Challenge of Evaluation Metrics
+Các biện pháp đánh giá đóng một vai trò quan trọng trong cả việc đánh giá hiệu suất phân loại và 
+hướng dẫn model phân loại.
+Tour of Model Evaluation Metrics
+AI VIETNAM
+All-in-One Course
+4
+Challenge of Evaluation Metrics - Link paper
+Trong trường hợp mất cân bằng, việc đánh giá hiệu suất và hướng dẫn model phân loại càng 
+được chú trọng hơn vì mặc định, các kỹ thuật xử lý trên dữ liệu cân bằng và điều này này làm 
+ảnh hưởng lớn khi áp dụng để giải quyết vấn đề mất cân bằng 
+Feature distribution smoothing
+Label distribution smoothing
+Tour of Model Evaluation Metrics
+AI VIETNAM
+All-in-One Course
+5
+Challenge of Evaluation Metrics
+Trên thực tế, việc sử dụng các metric phổ biến trong bài toán imbalanced có thể dẫn đến kết quả 
+chưa tối ưu cho model và tạo ra kết quả sai lệch vì các phương pháp này nhạy cảm với các class 
+bị lệch.
+Tour of Model Evaluation Metrics
+AI VIETNAM
+All-in-One Course
+6
+Taxonomy of Classifier Evaluation Metrics - Threshold Metrics
+Metrics based on a threshold and a qualitative understanding of error. These measures 
+are used when we want a model to minimise the number of errors. 
+Accuracy là Threshold Metrics được sử 
+dụng phổ biến trong bài toán classification
+Đi kèm với Accuracy là Error dùng để xác 
+định số lượng sai của model 
+Tour of Model Evaluation Metrics
+AI VIETNAM
+All-in-One Course
+7
+Taxonomy of Classifier Evaluation Metrics - Threshold Metrics
+Hầu hết các Threshold Metrics phổ 
+biến đều có thể biểu diễn với 
+confusion metric
+Sensitivity Metrics - đề cập đến
+ true positive rate
+Specificity Metrics - đề cập đến 
+true negative rate
+Trong bài toán Imbalanced, 
+G-mean thường được sử dụng để 
+cân bằng Sensitivity và Specificity
+Tour of Model Evaluation Metrics
+AI VIETNAM
+All-in-One Course
+8
+Taxonomy of Classifier Evaluation Metrics - Threshold Metrics
+Precision cho biết tỷ lệ của positive 
+class thuộc về positive class
+Recall cho biết tỷ lệ dự đoán của 
+positive class 
+F-score/F-measure là sự kết hợp và 
+cân bằng giữa Precision và Recall
+F-beta là một phiên bản đặc biệt 
+của F-measure việc tính toán được 
+kiểm soát bởi beta
+Data Sampling
+AI VIETNAM
+All-in-One Course
+9
+Một số phương pháp Data Sampling cơ bản
+Data Sampling
+AI VIETNAM
+All-in-One Course
+10
+Một số phương pháp Data Sampling cơ bản
+Imbalanced data processing
+AI VIETNAM
+All-in-One Course
+11
+Hệ thống xử lý data cho bài toán Imbalanced
+Imbalanced data processing
+AI VIETNAM
+All-in-One Course
+12
+Hệ thống xử lý data cho bài toán Imbalanced
+Imbalanced data processing
+AI VIETNAM
+All-in-One Course
+13
+Self-paced Ensemble for Highly Imbalanced Massive Data Classification - Link

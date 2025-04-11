@@ -1,7 +1,0 @@
-AI VIETNAM aivietnam.edu.vn
-Câu 3: Policy Gradient
-Cho môi trường game LunarLander-v2 trong thư viện OpenAI Gym, với một số thông tin chính như
-sau (các bạn có thể đọc thêm thông tin chi tiết về môi trường này tại đây):
-Hình 8: Hình ảnh trực quan của môi trường LunarLander
-• Kiểu môi trường:Box2D (Stochastic Environment).
-• Không gian hành động (Actions Space):4 (Discrete).

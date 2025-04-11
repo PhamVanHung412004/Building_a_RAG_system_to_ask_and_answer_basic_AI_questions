@@ -1,5 +1,0 @@
-CrossEntropyLoss ()
-2 criterion_edge = nn. BCELoss ()
-3 ...
-4 for i, ( inputs , labels ) in enumerate ( trainloader , 0):
-8

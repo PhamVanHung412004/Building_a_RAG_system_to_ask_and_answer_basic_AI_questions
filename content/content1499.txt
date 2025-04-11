@@ -1,9 +1,0 @@
-float (). unsqueeze (1) .to( device )
-6
-7 if task_type == ’ semantic ’:
-8 # semantic loss : depth - wise cross entropy
-9 loss = F. nll_loss ( x_pred , x_output , ignore_index = -1)
-10
-11 if task_type == ’depth ’:
-12 # depth loss : l1 norm
-13 loss = torch . sum ( torch . 

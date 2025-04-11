@@ -1,2 +1,0 @@
-. 4
-2.6 Tạo ma trận đơn vị với eye() . . 

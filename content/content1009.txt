@@ -1,8 +1,0 @@
-Bằng cách hiểu sâu toàn bộ tài liệu và truy vấn, có thể nắm bắt thông tin
-ngữ nghĩa một cách toàn diện hơn.
-8 Exploring Semantic Chunking
-9 Exploring Query Rewriting
-Phần VI: Research in RAG
-9.1 FLARE
-https://arxiv.org/pdf/2305.06983.pdf
-17

@@ -1,0 +1,508 @@
+Reinforcement Learning
+Instructor: Ngoc-Hoang LUONG, PhD.
+[These slides were adapted from the slides created by Dan Klein and Pieter Abbeel for CS188 Intro to AI at UC Berkeley. http://ai.berkeley.edu.]
+Reinforcement Learning
+Double Bandits
+Double-Bandit MDP
+▪Actions: Blue, Red
+▪States: Win, Lose
+W
+L
+$1
+1.0
+$1
+1.0
+0.25 
+$0
+0.75 
+$2
+0.75 
+$2
+0.25 
+$0
+No discount
+10 time steps
+Both states have 
+the same value
+Offline Planning
+▪Solving MDPs is offline planning
+▪You determine all quantities through computation
+▪You need to know the details of the MDP
+▪You do not actually play the game!
+Play Red
+Play Blue
+Value
+No discount
+10 time steps
+Both states have 
+the same value
+15
+10
+W
+L
+$1
+1.0
+$1
+1.0
+0.25 
+$0
+0.75 
+$2
+0.75 
+$2
+0.25 
+$0
+Let’s Play!
+$2 $2 $0 $2 $2
+$2 $2 $0 $0 $0
+Online Planning
+▪Rules changed!  Red’s win chance is different.
+W
+L
+$1
+?
+$1
+??
+?? $0
+?? 
+$2
+?? $2
+?? 
+$0
+Let’s Play!
+$0 $0 $0 $2
+$1 $1 $1
+What Just Happened?
+▪That wasn’t planning, it was learning!
+▪Specifically, reinforcement learning
+▪There was an MDP, but you couldn’t solve it with just computation
+▪You needed to actually act to figure it out
+▪Important ideas in reinforcement learning that came up
+▪Exploration: you have to try unknown actions to get information
+▪Exploitation: eventually, you have to use what you know
+▪Regret: even if you learn intelligently, you make mistakes
+▪Sampling: because of chance, you have to try things repeatedly
+▪Difficulty: learning can be much harder than solving a known MDP
+Offline (MDPs) vs. Online (RL)
+Offline Solution
+Online Learning
+Reinforcement Learning
+▪Basic idea:
+▪Receive feedback in the form of rewards
+▪Agent’s utility is defined by the reward function
+▪Must (learn to) act so as to maximize expected rewards
+▪All learning is based on observed samples of outcomes!
+Environment
+Agent
+Actions: a
+State: s
+Reward: r
+Reinforcement Learning
+▪Still assume a Markov decision process (MDP):
+▪A set of states s ∈ S
+▪A set of actions (per state) A
+▪A model T(s,a,s’) = P(s’|s,a)
+▪A reward function R(s,a,s’)
+▪Still looking for a policy π(s)
+▪New twist: don’t know T or R
+▪i.e. we don’t know which states are good or what the actions do
+▪Must actually try actions and states out to learn
+Offline (MDPs) vs. Online (RL)
+Offline Solution
+Online Learning
+Model-Based Learning
+Model-Based Learning
+▪Model-Based Idea:
+▪Learn an approximate model based on experiences
+▪Solve for values as if the learned model were correct
+▪Step 1: Learn empirical MDP model
+▪Count outcomes s’ for each s, a
+▪Normalize to give an estimate of
+▪Discover each                       when we experience (s, a, s’)
+▪Step 2: Solve the learned MDP
+▪For example, use value iteration, as before
+Example: Model-Based Learning
+Input Policy π 
+Assume: γ = 1
+Observed Episodes (Training)
+Learned Model
+A
+B
+C
+D
+E
+B, east, C, -1
+C, east, D, -1
+D, exit,  x, +10
+B, east, C, -1
+C, east, D, -1
+D, exit,  x, +10
+E, north, C, -1
+C, east,   A, -1
+A, exit,    x, -10
+Episode 1
+Episode 2
+Episode 3
+Episode 4
+E, north, C, -1
+C, east,   D, -1
+D, exit,    x, +10
+T(s,a,s’).
+T(B, east, C) = 1.00
+T(C, east, D) = 0.75
+T(C, east, A) = 0.25
+…
+R(s,a,s’).
+R(B, east, C) = -1
+R(C, east, D) = -1
+R(D, exit, x) = +10
+…
+T(B, east, C) =
+T(C, east, D) =
+T(C, east, A) =
+…
+R
+R(B, east, C) =
+R(C, east, D) =
+R(D, exit, x) =
+…
+Example: Expected Age
+Goal: Compute expected age of CS106 students
+Unknown P(A): “Model Based”
+Unknown P(A): “Model Free”
+Without P(A), instead collect samples [a1, a2, … aN]
+Known P(A)
+Why does this 
+work?  Because 
+samples appear 
+with the right 
+frequencies.
+Why does this 
+work?  Because 
+eventually you 
+learn the right 
+model.
+Model-Free Learning
+Passive Reinforcement Learning
+Passive Reinforcement Learning
+▪Simplified task: policy evaluation
+▪Input: a fixed policy π(s)
+▪You don’t know the transitions T(s,a,s’)
+▪You don’t know the rewards R(s,a,s’)
+▪Goal: learn the state values
+▪In this case:
+▪Learner is “along for the ride”
+▪No choice about what actions to take
+▪Just execute the policy and learn from experience
+▪This is NOT offline planning!  You actually take actions in the world.
+Direct Evaluation
+▪ 
+Example: Direct Evaluation
+Input Policy π 
+Assume: γ = 1
+Observed Episodes (Training)
+Output Values
+A
+B
+C
+D
+E
+B, east, C, -1
+C, east, D, -1
+D, exit,  x, +10
+B, east, C, -1
+C, east, D, -1
+D, exit,  x, +10
+E, north, C, -1
+C, east,   A, -1
+A, exit,    x, -10
+Episode 1
+Episode 2
+Episode 3
+Episode 4
+E, north, C, -1
+C, east,   D, -1
+D, exit,    x, +10
+A
+B
+C
+D
+E
++8
++4
++10
+-10
+-2
+Problems with Direct Evaluation
+▪What’s good about direct evaluation?
+▪It’s easy to understand
+▪It doesn’t require any knowledge of T, R
+▪It eventually computes the correct average values, 
+using just sample transitions
+▪What bad about it?
+▪It wastes information about state connections
+▪Each state must be learned separately
+▪So, it takes a long time to learn
+Output Values
+ A
+ B
+ C
+ D
+ E
++8
++4
++10
+-10
+-2
+If B and E both go to C 
+under this policy, how can 
+their values be different?
+First-visit Monte Carlo Policy Evaluation
+▪ 
+Why Not Use Policy Evaluation?
+▪Simplified Bellman updates calculate V for a fixed policy:
+▪Each round, replace V with a one-step-look-ahead layer over V
+▪This approach fully exploited the connections between the states
+▪Unfortunately, we need T and R to do it!
+▪Key question: how can we do this update to V without knowing T and R?
+▪In other words, how to we take a weighted average without knowing the weights?
+π(s)
+s
+s, π(s)
+s, π(s),s’
+’s
+Sample-Based Policy Evaluation?
+▪We want to improve our estimate of V by computing these averages:
+▪Idea: Take samples of outcomes s’ (by doing the action!) and average
+π(s)
+s
+s, π(s)
+'s1
+'s2
+'s3
+s, π(s),s’
+'s
+Almost!  But we can’t 
+rewind time to get sample 
+after sample from state s.
+Temporal Difference Learning
+▪Big idea: learn from every experience!
+▪Update V(s) each time we experience a transition (s, a, s’, r)
+▪Likely outcomes s’ will contribute updates more often
+▪Temporal difference learning of values
+▪Policy still fixed, still doing evaluation!
+▪Move values toward value of whatever successor occurs: running average
+π(s)
+s
+s, π(s)
+’s
+Sample of V(s):
+Update to V(s):
+Same update:
+Temporal Difference Learning
+▪ 
+Exponential Moving Average
+▪Exponential moving average 
+▪The running interpolation update:
+▪Makes recent samples more important:
+▪Forgets about the past (distant past values were wrong anyway)
+▪Decreasing learning rate (alpha) can give converging averages
+Example: Temporal Difference Learning
+Assume: γ = 1, α = 1/2
+Observed Transitions
+B, east, C, -2
+0
+0
+0
+8
+0
+0
+-1
+0
+8
+0
+0
+-1
+3
+8
+0
+C, east, D, -2
+A
+B
+C
+D
+E
+States
+ 
+ 
+ 
+ 
+ 
+Problems with TD Value Learning
+▪TD value leaning is a model-free way to do policy evaluation, mimicking 
+Bellman updates with running sample averages
+▪However, if we want to turn values into a (new) policy, we’re sunk:
+▪Idea: learn Q-values, not values
+▪Makes action selection model-free too!
+a
+s
+s, a
+s,a,s’
+’s
+Active Reinforcement Learning
+Active Reinforcement Learning
+▪Full reinforcement learning: optimal policies (like value iteration)
+▪You don’t know the transitions T(s,a,s’)
+▪You don’t know the rewards R(s,a,s’)
+▪You choose the actions now
+▪Goal: learn the optimal policy / values
+▪In this case:
+▪Learner makes choices!
+▪Fundamental tradeoff: exploration vs. exploitation
+▪This is NOT offline planning!  You actually take actions in the world and find 
+out what happens…
+Detour: Q-Value Iteration
+▪Value iteration: find successive (depth-limited) values
+▪Start with V0(s) = 0, which we know is right
+▪Given Vk, calculate Vk+1 values for all states:
+▪But Q-values are more useful, so compute them instead
+▪Start with Q0(s,a) = 0, which we know is right
+▪Given Qk, calculate the depth Qk+1 q-values for all q-states:
+Q-Learning
+▪ 
+[Demo: Q-learning – gridworld (L10D2)]
+Video of Demo Q-Learning -- Gridworld
+Q-Learning Properties
+▪Amazing result: Q-learning converges to optimal policy -- even 
+if you’re acting suboptimally!
+▪This is called off-policy learning
+▪Caveats:
+▪You have to explore enough
+▪You have to eventually make the learning rate
+small enough
+▪… but not decrease it too quickly
+▪Basically, in the limit, it doesn’t matter how you select actions (!)
+Summary
+▪Reinforcement Learning: learn from experience, not from a ‘teacher’
+▪RL problems can be cast as MDPs with unknown T and R
+▪Model-based RL: estimate R and T from experience
+▪Model-free RL: estimate V(s) or Q(s,a) from experience. Q-Learning can 
+give optimal policies.
+Exploration vs. Exploitation
+ 
+▪ 
+ 
+▪ 
+ 
+▪ 
+SARSA & Q-Learning
+▪ 
+Approximate Q-Learning
+Generalizing Across States
+▪Basic Q-Learning keeps a table of all q-values
+▪In realistic situations, we cannot possibly learn 
+about every single state!
+▪Too many states to visit them all in training
+▪Too many states to hold the q-tables in memory
+▪Instead, we want to generalize:
+▪Learn about some small number of training states from 
+experience
+▪Generalize that experience to new, similar situations
+▪This is a fundamental idea in machine learning, and we’ll 
+see it over and over again
+[demo – RL pacman]
+Example: Pacman
+Let’s say we discover 
+through experience 
+that this state is bad:
+In naïve q-learning, 
+we know nothing 
+about this state:
+Or even this one!
+Feature-Based Representations
+▪Solution: describe a state using a vector of features 
+(properties)
+▪Features are functions from states to real numbers (often 
+0/1) that capture important properties of the state
+▪Example features:
+▪Distance to closest ghost
+▪Distance to closest dot
+▪Number of ghosts
+▪1 / (dist to dot)2
+▪Is Pacman in a tunnel? (0/1)
+▪…… etc.
+▪Is it the exact state on this slide?
+▪Can also describe a q-state (s, a) with features (e.g. action 
+moves closer to food)
+Linear Value Functions
+▪Using a feature representation, we can write a q function (or value function) for any 
+state using a few weights:
+▪Advantage: our experience is summed up in a few powerful numbers
+▪Disadvantage: states may share features but actually be very different in value!
+Approximate Q-Learning
+▪Q-learning with linear Q-functions:
+▪Intuitive interpretation:
+▪Adjust weights of active features
+▪E.g., if something unexpectedly bad happens, blame the features that were on: 
+disprefer all states with that state’s features
+▪Formal justification: online least squares
+Exact Q’s
+Approximate Q’s
+Example: Q-Pacman
+Video of Demo Approximate Q-Learning -- Pacman
+Q-Learning and Least Squares
+0
+2
+0
+0
+2
+0
+4
+0
+0
+1
+0
+2
+0
+3
+0
+4
+0
+0
+1
+0
+2
+0
+3
+0
+2
+0
+2
+2
+2
+4
+2
+6
+Linear Approximation: Regression
+Prediction:
+Prediction:
+Optimization: Least Squares
+0
+2
+0
+0
+Error or “residual”
+Prediction
+Observation
+Minimizing Error
+Approximate q update explained:
+Imagine we had only one point x, with features f(x), target value y, and weights w:
+“target”
+“prediction”
+More Powerful Function Approximation
+▪Linear:
+▪Polynomial:
+▪Neural Network:
+Learn These Too
+More Powerful Function Approximation
+o Summary of iterative feature update equation!

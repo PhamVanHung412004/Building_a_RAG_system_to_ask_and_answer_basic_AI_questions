@@ -1,3 +1,0 @@
-AI VIETNAM aivietnam.edu.vn
-b. Multiple Inheritance (Kế thừa đa kế)
-Kế thừa đa kế là khi một lớp con kế thừa từ nhiều lớp cha.

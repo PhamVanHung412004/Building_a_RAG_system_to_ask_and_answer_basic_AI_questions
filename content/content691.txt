@@ -1,2 +1,0 @@
-. 2
-2 Các phương pháp tạo mảng. . 

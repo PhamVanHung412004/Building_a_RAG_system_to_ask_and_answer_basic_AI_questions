@@ -1,0 +1,62 @@
+ZALO AI 2023
+TA Hùng An
+AI VIETNAM
+All-in-One Course
+Problem - NLP  
+Challenge focuses on developing a language model/system capable of answering 
+elementary-level math questions in alignment with the Vietnamese Education Program
+Input: A multiple choices math question which have 4 possible choices which only one is the 
+correct answer. 
+Output: The correct choice for the given math question.
+AI VIETNAM
+All-in-One Course
+2
+Problem 
+AI VIETNAM
+All-in-One Course
+3
+Problem 
+AI VIETNAM
+All-in-One Course
+4
+Problem 
+Allowances:
+-
+You are encouraged to utilize pre-trained  Large Language Models (LLMs) that are freely available 
+online, such as Bloom, Llama, and others. However, it is essential to ensure that the pre-trained  models 
+you use are both free and publicly accessible on the internet. If you decide to train your own pre-trained  
+models, you must provide us with the original textual data and the complete script outlining the entire 
+process of creating these models.
+-
+We have set a limit on the size of pre-trained  models to 14 billion parameters, which allows you to make 
+use of some open-source pre-trained  models.
+Restrictions:
+-
+Using APIs that call any external services (e.g. Open AI, Google, ...) during training and inference.
+-
+Training & inference with Internet access.
+AI VIETNAM
+All-in-One Course
+5
+Problem 
+Additional finetuning data:
+-
+You have the option to leverage the capabilities of other large language models to enhance your models or 
+collect data from the internet for fine-tuning. However, it is mandatory to declare and submit all data 
+sources and the data cleaning process to ensure that the results can be replicated.
+Constraints:
+-
+The inference time for each test case must not exceed 30 seconds on a single A30 or RTX 3090 GPU.
+AI VIETNAM
+All-in-One Course
+6
+Data Augmentation 
+Text Augmentation 
+AI VIETNAM
+All-in-One Course
+7
+Data Augmentation 
+Augmentation with LLM 
+AI VIETNAM
+All-in-One Course
+8

@@ -1,4 +1,0 @@
-AI VIETNAM aivietnam.edu.vn
-Phần II: Cài đặt chương trình
-Trong phần này, chúng ta sẽ tiến hành cài đặt nội dung của project. Mã nguồn được xây dựng trên hệ
-điều hành Ubuntu với GPU 24GB. 

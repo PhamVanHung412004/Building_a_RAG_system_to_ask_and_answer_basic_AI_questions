@@ -1,7 +1,0 @@
-BASIC PYTHON - VARIABLE
-Dinh-Tiem Nguyen và Quang-Vinh Dinh
-1 Biến trong Python
-Biến trong Python là tên được sử dụng để tham chiếu đến một vùng lưu trữ dữ liệu trong bộ nhớ, tên
-của biến là cách chúng ta đặt cho vùng lưu trữ đó để có thể truy cập và thao tác với dữ liệu trong
-chương trình của mình. Khi đặt tên biến sẽ có một số quy tắc mà bạn cần chú ý:
-• Tên biến có thể chứa chữ cái, số, dấu gạch dưới "_"nhưng không được là số. 

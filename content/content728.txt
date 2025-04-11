@@ -1,2 +1,0 @@
-. 13
-6.3 Tìm chỉ số của giá trị lớn nhất và nhỏ nhất . . 

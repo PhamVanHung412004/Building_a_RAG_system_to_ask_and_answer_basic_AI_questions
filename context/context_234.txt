@@ -1,0 +1,918 @@
+Text Classification
+using Neural Network
+Year 2023
+Nguyen Quoc Thai
+AI VIETNAM
+All-in-One Course
+1
+2
+CONTENT
+(1) – Introduction
+(2) – Preprocessing
+(3) – Representation
+(4) – Modeling
+(5) – Training, Prediction
+1 - Introduction
+!
+3
+Text Classification
+v Input
+Ø A fixed set of classes C = {c1, c2, …, cN}
+Ø A training set of M hand-labeled documents: (d1, c1),…, (dM, cN)
+Ø A document d
+v Output
+Ø A learned classifier d => c (C) 
+1 - Introduction
+!
+4
+Text Classification
+v Token-level Classification
+Ø Sequence labeling: Word Segmentation, POS Tagging, NER,…
+1 - Introduction
+!
+5
+Text Classification
+v Token-level Classification
+Ø Sequence labeling: Word Segmentation, POS Tagging, NER,…
+v Document-level Classification
+Ø Sentiment Analysis
+1 - Introduction
+!
+6
+Text Classification
+v Binary Classification
+v Multiclass Classification
+v Multilabel Classification
+Binary Classification
+Multiclass 
+Classification
+Multilabel 
+Classification
+1 - Introduction
+!
+7
+Text Classification (Sentiment Analysis)
+v NTC-SCV Dataset
+v Document-level Classification
+v Binary Classification (2 Classes: Positive, Negative)
+Positive Example
+Negative Example
+Mình được 1 cô bạn giới_thiệu đến đây , tìm
+địa_chỉkhá dễ. Menu nước uống chất khỏi nói
+. Mình muốn cũng đc 8 loại nước ởđây , món
+nào cũng ngon và bổ_dưỡng cả.
+Quán chế_biến đồ_ăn lâu , Cá_Sapa nướng 
+uớp rất dở , sò Lông ko tươi , nước_chấm ko 
+ngon\n Tóm_lại sẽ ko bao_giờ ghé nữa , ăn_dở 
+mà uổng tiền
+Mỗi lần thèm trà sữa là làm 1 ly . Quán dễ
+kiếm , không_gian lại rộng_rãi . Nhân_viên thì
+dễ_thương gần_gũi . Nói_chung thèm trà sữa
+là mình ghé Quán ởđây vì gần nhà .
+Quán này thấy khá nhiều người bảo mình nên 
+mình đã đi ăn thử , nhưng thực_sự ăn xong 
+thấy không được như mong_đợi lắm .
+1 - Introduction
+!
+8
+Pipeline
+2 - Preprocessing
+!
+9
+Text Preprocessing
+v Language Detection
+Vietnamese Language
+Other Language
+Quán này thấy khá nhiều người bảo mình nên mình đã đi ăn thử
+, nhưng thực_sựăn xong thấy không được ngon. 👍👍</p>
+Mình được 1 cô bạn giới_thiệu đến đây , tìm địa_chỉkhá dễ.
+Menu nước uống chất khỏi nói . https://foody.com
+Visiting_Da_Nang frequently but this is the first time I have
+found a coffee shop which has a creative design ( korean style )
+The room is cheap ! ! ! ! It ' s near the city center . The staff is
+so nice : - D 👍👍👍👍👍👍\n
+Language 
+Detector
+langid library
+2 - Preprocessing
+!
+10
+Text Preprocessing
+v Language Detection
+v Text Cleaning
+Vietnamese Language
+Quán này thấy khá nhiều người bảo mình nên mình đã đi ăn thử
+, nhưng thực_sựăn xong thấy không được ngon. 👍👍</p>
+Mình được 1 cô bạn giới_thiệu đến đây , tìm địa_chỉkhá dễ.
+Menu nước uống chất khỏi nói . https://foody.com
+1 – Removal URLs, HTML Tags
+2 – Removal punctuations, digits
+3 – Removal emoticons, flags,…
+4 – Normalize whitespace
+5 – Lowercasing
+3 - Representation
+!
+11
+Numeric Representation
+𝒙=
+1 1.4 0.2
+1 1.5 0.2
+1 3.0 1.1
+1 4.1 1.3
+𝒚=
+0
+0
+1
+1
+Convert to Vector
+3 - Representation
+!
+12
+Numeric Representation
+3 - Representation
+!
+13
+Numeric Representation
+Natural Language 
+Understanding (NLU)
+a computer’s ability to 
+understand language
+q Syntax
+q Semantics
+q Phonology
+q Pragmatics
+q Morphology
+Natural Language 
+Generation (NLG)
+generate natural 
+language by a computer
+I go to school
+[0 0 0 0 1 0 1 0 1 ]
+Convert
+3 - Representation
+!
+14
+Numeric Representation
+I go to school
+I go to school
+I
+go
+to
+school
+Tokenization
+v Token-Level
+v Document-Level
+3 - Representation
+!
+15
+Numeric Representation
+Basic Representation
+One-hot Encoding
+Bag of Words (BoW)
+Bag of N-grams
+TF-IDF
+3 - Representation
+!
+16
+Numeric Representation
+Distributed Representation 
+(Dense Vector)
+Word2Vec
+Glove
+Fasttext
+ELMO
+3 - Representation
+!
+17
+One-hot Encoding
+v Token-Level
+v Represented by a V-dimensional binary vector of 0s and 1s
+- All 0s barring the index, index = wid
+- At this index, put 1
+Dog bites man.
+Man bites dog.
+Dog eats meat.
+Man eats food.
+[dog, bites, man]
+[man, bites, dog]
+[dog, eats, meat]
+[man, eats, food]
+Preprocessing
+Tokenization
+IDX
+Token
+0
+bites
+1
+dog
+2
+eats
+3
+food
+4
+man
+5
+meat
+Vocabulary
+Build
+Vocabulary
+3 - Representation
+!
+18
+One-hot Encoding
+v Token-Level
+v Represented by a V-dimensional binary vector of 0s and 1s
+- All 0s barring the index, index = wid
+- At this index, put a 1
+IDX
+Token
+0
+bites
+1
+dog
+2
+eats
+3
+food
+4
+man
+5
+meat
+Vocabulary
+Dog bites man.
+[dog, bites, man]
+0
+1
+0
+0
+0
+0
+1
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1
+0
+dog
+bites
+man
+[[0, 1, 0, 0, 0, 0],
+[1, 0, 0, 0, 0, 0],
+[0, 0, 0, 0, 1, 0]]
+3 - Representation
+!
+19
+Bag of Words (BoW)
+v Document-Level: Consider text as a bag (collection) of words
+v Represented by a V-dimensional
+Use: the number of occurrences of the word in the document
+[dog, bites, man]
+Vocabulary
+IDX
+0
+1
+2
+3
+4
+5
+Token
+bites
+dog
+eats
+food
+man
+meat
+1
+1
+0
+0
+1
+0
+Counter
+3 - Representation
+!
+20
+Bag of Words (BoW)
+v Document-Level: Consider text as a bag (collection) of words
+v Represented by a V-dimensional
+Use: the number of occurrences of the word in the document
+[man, bites, dog]
+1
+1
+0
+0
+1
+0
+[dog, eats, meat]
+0
+1
+1
+0
+0
+1
+[man, eats, food]
+0
+0
+0
+1
+1
+0
+[dog, bites, man]
+1
+1
+0
+0
+1
+0
+3 - Representation
+!
+21
+Index-based Representation
+v Document-Level:
+v Represented by a N-dimensional (length of sentence)
+The ith component off the vector,  i = wid is index of the word w occurs in vocabulary
+v Attention to the order of words in the sentence
+v Use word-based tokenization
+v Build a vocabulary
+3 - Representation
+!
+22
+Index-based Representation
+IDX
+Token
+0
+<unk>
+1
+dog
+2
+man
+3
+bites
+4
+eats
+5
+food
+6
+meat
+3 - Representation
+!
+23
+Index-based Representation
+IDX
+Token
+0
+<unk>
+1
+dog
+2
+man
+3
+bites
+4
+eats
+5
+food
+6
+meat
+Vocabulary
+[man, bites, dog]
+[dog, eats, meat]
+[man, eats, food]
+2
+4
+5
+[dog, bites, man]
+1
+4
+6
+2
+3
+1
+1
+3
+2
+v Use word-based tokenization
+v Build a vocabulary
+v Convert text into features
+3 - Representation
+!
+24
+Index-based Representation
+IDX
+Token
+0
+<unk>
+1
+dog
+2
+man
+3
+bites
+4
+eats
+5
+food
+6
+meat
+Vocabulary
+[dog, bites, man]
+1
+3
+2
+v Use word-based tokenization
+v Build a vocabulary
+v Convert text into features
+3 - Representation
+!
+25
+Index-based Representation
+v Padding all sentences => the same length
+v Append token “<pad>”
+[dog, bites, man]
+2
+4
+3
+[dog, dog, bites, man]
+2
+2
+4
+3
+2
+4
+3
+0
+Padding
+IDX
+Token
+0
+<pad>
+1
+<unk>
+2
+dog
+3
+man
+4
+bites
+5
+eats
+6
+food
+7
+meat
+Vocabulary
+3 - Representation
+!
+26
+Index-based Representation
+v Padding all sentences => the same length
+v Append token “<pad>”
+IDX
+Token
+0
+<pad>
+1
+<unk>
+2
+dog
+3
+man
+4
+bites
+5
+eats
+6
+food
+7
+meat
+Vocabulary
+3 - Representation
+!
+27
+Index-based Representation
+v Padding all sentences => the same length
+v Append token “<pad>”
+v Truncating
+[dog, bites, man]
+2
+4
+3
+[dog, dog, bites, man]
+2
+2
+4
+3
+IDX
+Token
+0
+<pad>
+1
+<unk>
+2
+dog
+3
+man
+4
+bites
+5
+eats
+6
+food
+7
+meat
+Vocabulary
+Truncating
+2
+2
+4
+3 - Representation
+!
+28
+Index-based Representation
+v Padding all sentences => the same length
+v Append token “<pad>”
+v Truncating
+IDX
+Token
+0
+<pad>
+1
+<unk>
+2
+dog
+3
+man
+4
+bites
+5
+eats
+6
+food
+7
+meat
+Vocabulary
+3 - Representation
+!
+29
+Dense Representation
+v Token-level: dense vectors (low dimensional, hardly any zeros)
+v Learn during training (weights)
+IDX
+Token
+0
+<pad>
+1
+<unk>
+2
+dog
+3
+man
+4
+bites
+5
+eats
+6
+food
+7
+meat
+Vocabulary
+[dog, bites, man]
+[man, bites, dog]
+[dog, eats, meat]
+[man, eats, food]
+0
+0.1
+3.1
+1
+0.5
+2.5
+2
+1.3
+0.6
+3
+0.4
+0.1
+4
+0.7
+1.4
+5
+2.3
+1.7
+6
+2.5
+2.5
+7
+0.3
+1.2
+Embedding Matrix
+(Lookup Table)
+Initial 
+weights
+v Index-based Representation
+v Get vectors from embedding matrix
+3 - Representation
+!
+30
+Dense Representation
+[dog, bites, man]
+[man, bites, dog]
+2
+4
+3
+3
+4
+2
+Input matrix
+Index-based Representation
+Input shape: 2x3
+IDX
+Token
+0
+<pad>
+1
+<unk>
+2
+dog
+3
+man
+4
+bites
+5
+eats
+6
+food
+7
+meat
+v Index-based Representation
+3 - Representation
+!
+31
+Dense Representation
+[dog, bites, man]
+[man, bites, dog]
+2
+4
+3
+3
+4
+2
+Input matrix
+Index-based Representation
+Input shape: 2x3
+0
+0.1
+3.1
+1
+0.5
+2.5
+2
+1.3
+0.6
+3
+0.4
+0.1
+4
+0.7
+1.4
+5
+2.3
+1.7
+6
+2.5
+2.5
+7
+0.3
+1.2
+Embedding Matrix
+(Lookup Table)
+w[2]
+w[4]
+w[3]
+w[3]
+w[4]
+w[2]
+Select 
+Operation
+0.6 1.4 0.1
+1.3 0.7 0.4
+0.4 0.7 1.3
+Shape: 2x3x2
+Output matrix
+3 - Representation
+!
+32
+Dense Representation
+3 - Representation
+!
+33
+Dense Representation
+3 - Representation
+!
+34
+Dense Representation
+[dog, bites, man]
+[man, bites, dog]
+2
+4
+3
+3
+4
+2
+Input matrix
+Index-based Representation
+Input shape: N x M
+0
+0.1
+3.1
+1
+0.5
+2.5
+2
+1.3
+0.6
+Embedding Matrix
+(Lookup Table)
+V   Vocabulary
+D: Embedding Dim
+IDX
+Token
+0
+<pad>
+1
+<unk>
+2
+dog
+0.6 1.4 0.1
+1.3 0.7 0.4
+0.4 0.7 1.3
+N Samples
+M: Sequence Length
+Shape: V x D
+Output shape: N x M x D
+Model
+4 - Modeling
+!
+35
+Classifier
+X1
+X2
+XN
+Embedding Layer
+Dense vector
+Flatten
+Classifier
+Input
+4 - Modeling
+!
+36
+Classifier
+X1
+X2
+XN
+Embedding Layer
+Dense vector
+Flatten
+Classifier
+Input
+EmbeddingBag
+4 - Modeling
+!
+37
+Classifier
+X1
+X2
+XN
+EmbeddingBag Layer
+Classifier
+Input
+4 - Modeling
+!
+38
+EmbeddingBag Layer
+[dog, bites, man]
+[man, bites, dog]
+2
+4
+3
+3
+4
+2
+Input matrix
+Index-based Representation
+Input shape: N x M
+V   Vocabulary
+IDX
+Token
+0
+<pad>
+1
+<unk>
+2
+dog
+N Samples
+M
+Sequence Length
+2
+4
+3
+3
+4
+2
+0
+3
+Inputs
+Offsets
+4 - Modeling
+!
+39
+EmbeddingBag Layer
+Embedding Matrix
+(Lookup Table)
+1.3
+0.6
+0.7
+1.4
+0.4
+0.1
+Slicing: [0:3]
+2
+4
+3
+3
+4
+2
+0
+3
+Inputs
+Offsets
+0
+0.1
+3.1
+1
+0.5
+2.5
+2
+1.3
+0.6
+3
+0.4
+0.1
+4
+0.7
+1.4
+5
+2.3
+1.7
+6
+2.5
+2.5
+7
+0.3
+1.2
+2
+4
+3
+2.4
+2.1
+0.4
+0.1
+0.7
+1.4
+1.3
+0.6
+Slicing: [3:]
+3
+4
+2
+2.4
+2.1
+2.4
+2.1
+2.4
+2.1
+Shape: N x D
+4 - Modeling
+!
+40
+EmbeddingBag Layer
+4 - Modeling
+!
+41
+EmbeddingBag Layer
+4 - Modeling
+!
+42
+Model
+5 – Training, Prediction
+!
+43
+Source Code
+Thanks!
+Any questions?
+44

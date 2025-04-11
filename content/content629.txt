@@ -1,7 +1,0 @@
-AIO2024 aivietnam.edu.vn
-Câu 15: Hoán đổi các cột trong mảng hai chiều
-1 # Python code ( aivietnam )
-2 import numpy as np
-3
-4 # create a 3x3 matrix
-5 data = np. arange (9) . 

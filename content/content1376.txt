@@ -1,9 +1,0 @@
-out_channel ,
-144 ),
-145 )
-146 self . out_layers = nn. Sequential (
-147 normalization ( self . out_channel ),
-148 SiLU () ,
-149 nn. Dropout (p= dropout ),
-150 zero_module (
-151 nn. Conv2d ( self . 

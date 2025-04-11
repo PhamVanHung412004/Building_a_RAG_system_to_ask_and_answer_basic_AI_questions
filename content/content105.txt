@@ -1,4 +1,0 @@
-• Output: Có là tin nhắn spam hay không (bool).
-Dựa vào các thông tin trên, ta sẽ xây dựng được một luồng xử lý (pipeline) cho bài toán này
-như sau:
-1

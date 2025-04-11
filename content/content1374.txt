@@ -1,6 +1,0 @@
-out_channel , 3, padding =1) ,
-126 )
-127
-128 self . updown = up or down
-129
-9

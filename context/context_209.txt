@@ -1,0 +1,2152 @@
+1
+U-Netmer: U-Net meets Transformer for medical
+image segmentation
+Sheng He, Rina Bao, P. Ellen Grant, Yangming Ou
+Abstract—The combination of the U-Net based deep learning
+models and Transformer is a new trend for medical image
+segmentation. U-Net can extract the detailed local semantic and
+texture information and Transformer can learn the long-rang
+dependencies among pixels in the input image. However, directly
+adapting the Transformer for segmentation has “token-ﬂatten”
+problem (ﬂattens the local patches into 1D tokens which losses
+the interaction among pixels within local patches) and “scale-
+sensitivity” problem (uses a ﬁxed scale to split the input image
+into local patches). Compared to directly combining U-Net and
+Transformer, we propose a new global-local fashion combination
+of U-Net and Transformer, named U-Netmer, to solve the two
+problems. The proposed U-Netmer splits an input image into local
+patches. The global-context information among local patches is
+learnt by the self-attention mechanism in Transformer and U-
+Net segments each local patch instead of ﬂattening into tokens to
+solve the ‘token-ﬂatten” problem. The U-Netmer can segment
+the input image with different patch sizes with the identical
+structure and the same parameter. Thus, the U-Netmer can be
+trained with different patch sizes to solve the “scale-sensitivity”
+problem. We conduct extensive experiments in 7 public datasets
+on 7 organs (brain, heart, breast, lung, polyp, pancreas and
+prostate) and 4 imaging modalities (MRI, CT, ultrasound, and
+endoscopy) to show that the proposed U-Netmer can be generally
+applied to improve accuracy of medical image segmentation.
+These experimental results show that U-Netmer provides state-
+of-the-art performance compared to baselines and other models.
+In addition, the discrepancy among the outputs of U-Netmer
+with different scales is linearly correlated to the segmentation
+accuracy which can be considered as a conﬁdence score to rank
+test images by difﬁculty without ground-truth. The code will be
+available on GitHub.
+Index Terms—Medical image segmentation, U-Net, Trans-
+former, Image ranking without ground-truth, Deep learning,
+Conﬁdence score
+I. INTRODUCTION
+Medical image segmentation aims to use machine learning
+models (e.g., Convolutional Neural Networks or CNNs for
+short) to automatically segment the target regions (organs
+or lesions) from the input medical images with different
+modalities [1], [2], [3], [4]. One popular backbone of the
+deep learning model for segmentation is U-Net [5], which is
+a general CNN model with an encoder and decoder structure
+(Fig. 1(a)). The encoder path decomposes the input image from
+local to global deep features where the spatial size is gradually
+reduced by using the max-pooling operation. As the layer
+(Sheng He and Yangming Ou are the corresponding authors.)
+S. He, R. Bao, P. Grant and Y. Ou are with the Boston Children’s Hospital and
+Harvard Medical School, Harvard University, 300 Longwood Ave., Boston,
+MA, USA. E-mail: heshengxgd@gmail.com; rina.bao@childrens.harvard.edu,
+ellen.grant@childrens.harvard.edu, yangming.ou@childrens.harvard.edu
+Local
+Transformer
+Local
+Global
+shared
+shared
+Local information
+(a) U-Net
+(b) U-Netmer on single scale
+𝑠= 1
+ACDC
+BraTS
+BUID
+CIR
+Kvasir
+Pancreas
+Prostate
+𝑠= 2
+𝑠= 4
+𝑠= 8
+𝑠= 1
+𝑠= 2
+𝑠= 4
+𝑠= 8
+(c) Multiple Scales 
+(d) Performance percentage of scales 
+The input image can be split into 
+patches with different scales 
+𝑠= 2
+(𝒔)
+Fig. 1. Sketch of the proposed algorithm. (a) U-Net based models implicitly
+integrate local information by down-sampling the features. (b) The proposed
+U-Netmer model on single scale (s = 2) explicitly splits the input image into
+4 equal-size local patches and uses U-Net to segment each local patch and
+uses Transformer to fuse the local information among local patches. (c) The
+input images can be split into patches with different scales s = 1, 2, 4, 8.
+When s = 1, the input is the whole image and s = 2, 4, 8 means splitting
+the input image into s2 equal-size and no-overlap patches. (d) The percentage
+of the best performance achieved with different scales s on test samples of 7
+public datasets.
+goes to deep, it extracts the high-level contextual information
+by discarding the detailed information on each local pixel to
+remove noise and irrelevant information [6]. To recover the lost
+detailed spatial information, the decoder path hierarchically
+fuses global features from the output of the encoder and local
+features from the intermediate output of the encoder [5] for
+computing the ﬁnal segmentation map. In summary, as shown
+in Fig. 1(a), the U-Net model implicitly extracts features from
+local information towards global contextual information and
+fuses these features gradually for the ﬁnal segmentation output
+which has the same spatial size as the input image.
+Based on the basic structure of the U-Net, many variations
+have been proposed [4], [7]. For example, U-Net++ [1] uses
+multiple decoder paths on different scales to fuse the global
+and local information. Inspired by the attention mechanism
+which can perform feature recalibration in deep neural net-
+works [8], an attention module has been introduced in U-
+Net for medical image segmentation [2]. Inspired by the
+success of vision transformer [9], there is a new trend to
+integrate Transformer into U-Net to fuse information from
+different scales or resources to boost the performance of the
+U-Net [10], [11], [12]. For example, MedT [12] uses a two-
+arXiv:2304.01401v1  [eess.IV]  3 Apr 2023
+2
+branch structure including a global branch to learn global
+information by CNN-based neural networks and a local branch
+to learn local information using Transformer. Trans U-Net [10]
+applies the Transformer on the last layer of the encoder from
+the U-Net to boost the encoder of the U-Net. UCTransNet [11]
+uses the Transformer to fuse the intermediate features of U-
+Net in different scales obtained after max-pooling operations.
+Most models of combing the U-Net and Transformer follow
+the same structure of U-Net and consider the Transformer as
+a sub-module which can learn the long-range dependencies
+on deep features with different sizes to boost the performance
+of segmentation [7]. Few studies use the strategy of cutting
+the input image into local patches (which is also known
+as “patchiﬁcation” [13]) for medical image segmentation (as
+shown in Fig. 1(c)) which which raises at least two issues
+existed [12]: (1) “token-ﬂatten issue”: the vision Transformer
+ﬂattens the local patches into 1D tokens, but the 1D function-
+ality losses the interaction of the tokenized information on the
+local patches [11] and (2) “scale-sensitivity issue”: the vision
+Transformer usually uses a ﬁxed scale to split the input image
+into patches and the performance of medical image segmenta-
+tion is sensitive to the scale s when cutting the input image into
+patches with different sizes (as shown in Fig. 1(c)). Fig. 1(d)
+shows the percentage of different scales which achieve the
+best performance on test images of 7 different datasets (the
+description of datasets can be see in Section III-A and the
+experiment is described in Section IV-A1). It shows that not
+all test samples have the highest segmentation accuracy with
+scale s = 1 and some test images achieve the best accuracy
+with other scales s = 2, 3, 4. For example, on BraTS, 36.5% of
+the test images have the best segmentation accuracy with scale
+s = 1, and 23.0%, 20.3%, 20.3% of the test images achieve
+the best accuracy with scale s = 2, 3, 4, respectively. Thus,
+directly cutting the input image into patches with a ﬁxed scale
+and feeding them into Transformer is not necessarily optimal
+for segmentation.
+In this paper, we propose a simple and efﬁcient neural
+network to optimally combine the U-Net and Transformer
+for segmentation, named U-Netmer. Similar to vision Trans-
+former, it explicitly splits the input image into local patches
+and uses Transformer to integrate local information among
+these patches (shown in Fig. 1(b)). The “patchiﬁcation” can
+provide many potential applications for segmentation inspired
+by the successful application for classiﬁcation, such as infor-
+mation fusion from different modalities [14], patch dropping
+and reconstruction for self-supervised learning [15] and few-
+shot learning for dense prediction [16].
+To solve the “token-ﬂatten issue”, U-Netmer uses a back-
+bone of a standard segmentation neural network (such as U-
+Net) to perform the segmentation on local patches instead of
+ﬂatten each patch into 1D tokens. A standard neural network
+usually contains an encoder and a decoder (as shown in
+Fig. 1(a)). The output deep feature of the encoder is reshaped
+into 1D tokens and all tokens from the local patches segmented
+from the input image are concatenated as a sequence of tokens
+as the input of a standard Transformer [17] (as shown in
+Fig. 1(b)). The Transformer uses a self-attention mechanism
+to learn the global-contextual information among local patches
+to enhance the segmentation for each local patch.
+To solve the “scale-sensitivity issue”, an identical U-
+Netmer with the same parameter is trained on local patches
+segmented with different scales s = 1, 2, 4, 8. Thanks to the
+ﬂexible structure of the U-Netmer, it can be used on arbitrary
+patch sizes without any changes of the network structure (as
+shown in Fig. 3). Multi-scale patches are designed to reduce
+segmentation’s sensitivity to patches at single scale [13].
+The main contributions of the work are summarized below:
+• We propose U-Netmer which consists of a backbone to
+extract deep features on local patches and a Transformer
+block to learn global-context information among local
+patches. The backbone can be any encoder and decoder
+structure for segmenting on local patches and we have
+evaluated three backbones of U-Net [5], Attention U-
+Net [2] and U-Net++ [1], yielding three variations of
+U-Netmer.
+• U-Netmer is a ﬂexible model which can segment the
+input image with different patch sizes with identical
+structure and the same parameters. Jointly training the
+U-Netmer with different patch sizes can solve the scale-
+sensitivity problem. Such crafted design and astutely
+devised training strategies of U-Netmer allow the net-
+work to seamlessly imbibe and incorporate bountiful
+multi-scale contextual knowledge in learning procedures.
+Therefore, U-Netmer consistently provide better results
+on 7 public datasets compared to baselines and state-of-
+the-art models for segmentation.
+• U-Netmer can also output the segmentation maps with
+different scales and the discrepancy of these outputs is
+linearly correlated to the segmentation accuracy, which
+can be considered as a conﬁdence score indicating the
+conﬁdence of the segmentation map and ranks the test
+images by the difﬁculty.
+II. METHOD
+A. Basic structure of U-Netmer
+Fig. 2 shows the framework of the U-Netmer (with single
+scale s = 2 as an example). U-Netmer can be denoted
+as Ms = (Ps, E, T , D), which consists of “patchiﬁcation”
+Ps, encoder E, Transformer T , and decoder D, where s ∈
+[1, 2, 4, 8] is the scale (see Fig. 1(c)). Given the input image x
+with the size of h×w (h is height and w is width, 2D image as
+an example), the segmentation output y can be computed by:
+y = Ms(x) = D(T (E(Ps(x)))). Each operation is described
+in the following sections.
+1) Patchiﬁcation Ps: Patchiﬁcation cuts the input image
+into (typically equal-sized and non-overlapping) patches which
+is an important step in vision Transformer [9]. Let s be the
+number of the patches on one side of the input image and the
+output of the Ps is a set of s × s patches (for 2D input image
+as an example): p = Ps(x). The size of each local patch is
+h/s×w/s. Fig. 1(c) shows the examples of patchiﬁcation with
+different scales s = 1, 2, 4, 8.
+2) Encoder E: In vision Transformer [9], the ith patch
+pi ∈p, i = 1, 2, ..., s × s is ﬂatten into 1D feature vector.
+However, for medical image segmentation, the aim is to make
+3
+Shared
+Shared
+Transformer
+Encoder
+Decoder
+Weights Sharing
+Weights Sharing
+Token
+Reshape
+Position embedding
+Convolutional block
+𝑠= 2
+Fig. 2. Framework of the U-Netmer with an example of the scale s = 2, indicating 2 patches on each side. The input image is ﬁrst split into 4 local patches
+and each local patch is encoded into tokens by an encoder. Tokens of all local patches are fed into Transformer for learning the global context among patches.
+The global-context enhanced tokens are then decoded by a decoder with the integrated information from the encoder for output prediction on each local patch.
+The weights on the encoder and decoder are shared among all local patches.
+predictions on each pixel within local patches. Thus, we use
+a segmentation backbone to convert the patches into deep
+features instead of directly converting the patches into 1D
+tokens. The aim of using segmentation backbone is to learn
+the rich information among pixels within local patches for
+the pixel-level prediction. Given the local patch pi ∈p, the
+encoder outputs fi, τi = E(pi), where f is a set of intermediate
+deep features while τi is the deep feature from the last layer
+which contains the deep abstract and contextual information
+of the input local patch. Any encoder block can be applied
+here to extract the deep features f and τ, such as the encoder
+part of the U-Net [5] and U-Net++ [1], which usually consists
+of several convolutional layers, followed by Rectiﬁed Linear
+Unit (ReLU), Batch Normalization and Max-pooling layers.
+The size of τi is h/(2ns) × w/(2ns) where n is the number
+of max-pooling layer in the encoder E. As shown in Fig. 2, the
+encoder is shared for all local patches, which can be efﬁciently
+computed in parallel.
+3) Transformer T : Although it is efﬁcient to segment small
+local patches p, the global-context information of the input
+image is missed when splitting the image into local patches.
+To solve this problem, Transformer [17] is used to learn the
+global-context information among the local patches to enhance
+the segmentation on each local patch and further improve
+the accuracy of the ﬁnal segmentation. We ﬁrst reshape the
+deep feature τi obtained from the encoder into a sequence
+of h/(2ns) × w/(2ns). Note that the number of tokens does
+not vary with the scale s. The tokens from all local patches
+are concatenated as 1D sequences τ = [τ1, τ2, ..., τs×s] with
+the number of s×s×h/(2ns)×w/(2ns) = (hw)/2n tokens,
+indicating the number of tokens does not related to the scale s.
+To keep the position information of local patches, a learnable
+position embedding vector ν is added to tokens: τ = τ + ν,
+which is fed into the standard Transformer block [17] with a
+multi-head self-attention (MSA) ˆτl = MSA(ˆτl−1) + τl−1 and
+a feed-forward network (MLP): ˆτl = MLP(ˆτl) + ˆτl where l
+is the number of Transformer block and ˆτ0 = τ. The detailed
+information on the multi-head self-attention (MSA) and feed-
+forward networks (MLP) can be found in studies [17], [9].
+The output of Transformer ˆτ = T (τ) contains the global-
+context information among all local patches learned by the
+self-attention mechanism.
+4) Decoder D: Similar to the encoder E, the decoder
+aims to fuse the intermediate feature fi and global-context
+embedded feature ˆτi ∈ˆτ to segment each pixel on the local
+patch pi. The output of the decoder D is the segmentation
+result oi = D(ˆτi, fi). All the outputs of local patches are
+stitched together as the ﬁnal segmentation map B of the input
+image x. The detailed structure of the decoder D is related
+to the encoder E, which also consists several convolutional
+layers, followed by Rectiﬁed Linear Unit (ReLU), Batch
+Normalization and Up-pooling layers. Any decoder block of
+the typical segmentation neural networks can be applied, such
+as the encoder part of the U-Net [5], attention U-Net [2], and
+U-Net++ [1]. As shown in Fig. 2, the decoder is also shared
+among all local patches which can be efﬁciently computed in
+parallel.
+4
+U-Netmer
+1 patch
+𝑠= 1
+U-Netmer
+4 patches
+𝑠= 2
+U-Netmer
+16 patches
+𝑠= 4
+U-Netmer
+64 patches
+𝑠= 8
+Weight
+Sharing
+Weight
+Sharing
+Weight
+Sharing
+One U-Netmer with different scales 𝑠
+𝐵𝑠=1
+𝐵𝑠=2
+𝐵𝑠=4
+𝐵𝑠=8
+Fig. 3.
+An illustration of U-Netmer at different scales. The identical U-
+Netmer (with the same structure and parameters) which can be trained and
+tested with different scales s. Bs=i is the segmentation map on scale s = i
+(where i ∈[1, 2, 4, 8]).
+B. Variations of U-Netmer
+As discussed before, the encoder E and decoder D can be
+obtained from any segmentation backbone. In this paper, we
+use encoders and decoders from three typical segmentation
+neural networks: U-Net [5], attention U-Net [2], and U-
+Net++ [1], yielding to the U-Netmer, attention U-Netmer, and
+U-Netmer++, respectively. Any other Transformer can be used
+as Transformer T block to learn the global-context information
+among local patches. In this paper, we use the standard
+Transformer block for simpliﬁcation and generalization.
+C. Joint training U-Netmer with multiple scales
+Segmentation accuracy is sensitive to patch scale s (as show
+in Fig. 1(d)). To overcome this limitation, we train the U-
+Netmer with different scale s. The reasons are that (1) the
+encoder E and decoder D can compute the deep features on
+any size of local patches (with a minimal size of 2n due to
+the n number of max-pooling layers) and (2) the number of
+tokens (hw)/2n in Transformer T does not rely on the scale s,
+indicating that cutting the input image into local patches with
+different scales s results in the same number of tokens. As
+shown in Fig. 3, the same model can be trained with different
+scales s = 1, 2, 4, 8 with no added change and cost. Thus,
+the U-Netmer can learn the information across different patch
+sizes to boost the segmentation accuracy with an identical
+setup. The patch size (h/s×w/s) is small when the scale size
+is large and we only consider the scale values s = 1, 2, 4, 8
+for easy computation.
+In the following sections, we use s = ⟨i|j|...⟩to denote the
+U-Netmer which is trained on all local patches segmented
+with multiple scales i, j and others where i < j and
+i, j ∈[1, 2, 4, 8]. For example, U-Netmer++s=⟨1|2|4⟩is the U-
+Netmer++ trained with all local patches split with scales of
+s = 1, 2, 4 from the input image. U-Netmers=⟨2⟩means the
+U-Netmer is only trained on local patches split with single
+scale s = ⟨2⟩.
+III. EXPERIMENTS
+A. Datasets
+To evaluate the accuracy of U-Netmer, we conduct exper-
+iments on 7 publicly available datasets for medical image
+segmentation. The datasets used in the experiments include
+(1) ACDC is from the Automated Cardiac Diagnosis Chal-
+lenge [18] with the purpose of cardiac MRI (CMR) assess-
+ment. It consists of 150 cardiac magnetic resonance images
+with 100 for training and the rest of 50 for testing. (2)
+BraTS is from 2020 Multimodal Brain Tumor Segmentation
+Challenge [19], [20], [21] with the purpose of segmenting
+brain tumor (including the peritumoral edema and tumor core)
+segmentation. 369 scans with four modalities (T1, T1GT,
+T2, FLAIR) have been split into 295 (≈80%) for training
+and 74 (≈20%) for testing. (3) BUID is from Ultrasound &
+Breast Ultrasound Images Dataset [22] with the purpose of
+breast cancer segmentation. There are 780 images which are
+randomly split into training (80%) and testing (20%) samples.
+(4) CIR [23] consists of 956 CT images on segmented lung
+nodules from two public datasets which are randomly split
+into training (80%) and testing (20%) samples. (5) Kvasir is
+from Kvasir-Seg [24] which consists of 1000 polyp images
+(800 for training and 200 for testing). (6) Pancreas [25],
+[3] consists of 285 CT scans with the purpose of pancreatic
+parenchyma and mass segmentation. The dataset is randomly
+split into 228 (80%) scans for training and 57 (20%) scans for
+testing. (7) Prostate is from a Multi-site Dataset [26] which
+consists 116 prostate T2-weighted MRI from three different
+sites. The dataset is separated into 80% and 20% for training
+and testing. For 3D images, we extract 2D slices for training
+which are stitched into 3D for evaluation. For CT scans, the
+intensity values are truncated to the range of 5% and 95%
+percentile to remove the irrelevant details [3]. All images are
+normalized with zero mean and one standard deviation. Fig. 4
+shows examples of images for the 7 datasets.
+B. Neural network training
+All models are trained with the PyTorch package, with the
+Adam optimizer of an initial learning rate 0.0001 which is
+decayed to half after every 20 epochs. We totally trained 100
+epochs with a batch size of 16. The cross-entropy is used as
+the loss function in the training and Dice score is used as the
+evaluation metric in the testing. To evaluate the performance
+of the model itself, no data augmentation or post-processing
+is applied for all models. All segmentation models, including
+U-Netmer and other state-of-the-art models, are trained with
+the same dataset and same training conﬁguration for a fair
+comparison.
+5
+Pancreas
+ACDC
+Prostate
+CIR
+LA
+BraTS
+BUID
+Kvasir
+Fig. 4. Examples of images in the 7 datasets used in the experiments. The
+green contours are the boundary of ground-truth. The 7 public datasets contain
+images from 7 organs (brain, heart, breast, lung, poly, pancreas, and prostate)
+and 4 imaging modalities (MRI, CT, Ultrasound, and endoscopy).
+IV. RESULTS
+In this section, we present the ablation studies of the U-
+Netmer with the comparison to state-of-the-art models and its
+potential application for ranking the test images by difﬁculty
+without ground-truth.
+A. Accuracy of U-Netmer
+1) Transformer supplements U-Net: To evaluate the impor-
+tance of Transformer T on U-Netmer with different encoders
+and decoders, we train models of U-Netmers=⟨i⟩, attention U-
+Netmers=⟨i⟩and U-Netmer++s=⟨i⟩with and without Trans-
+former on local patches segmented from input image with a
+single scale s = i. Without Transformer T , the U-Netmers=⟨i⟩,
+attention U-Netmers=⟨i⟩and U-Netmer++s=⟨i⟩are similar
+to original U-Net, attention U-Net, and U-Net++ which are
+applied on local patches segmented from the input image with
+scale s = i.
+Fig. 5 shows the accuracy of these models on 7 datasets.
+Several observations can be obtained: (1) Models trained with
+Transformer T have a higher accuracy than models trained
+without Transformer T , especially on local patches segmented
+from scale i = 2, 4, 8. The results show that Transformer T
+can learn the global-context information among these patches.
+The results are consistent of three different backbones (U-Net,
+attention U-Net and U-Net++) over 7 datasets. (2) Unlike the
+visioan Transformer [9], splitting the input image into local
+patches with a single scale does not improve the accuracy
+for medical image segmentation on the 7 datasets and the
+accuracy decreases when patch sizes decrease (the scale s
+increases) for all models with and without Transformer T .
+We also plot the percentage of the best performance of U-
+Netmer with Transformer T
+among different scales s on
+test images (shown in Fig. 1(d)). Results show that most
+test images achieve the highest accuracy on s = 1. For
+example, 85.0%, 36.5%, 55.4%, 45.4%, 54.5%, 66.7%, and
+75.0% of test samples achieve the best accuracy with scale
+s = 1 on ACDC, BraTS, BUID, CIR, Kvasir, Pancreas, and
+Prostate datasets, respectively, which are larger than other
+scales s = 2, 4, 8. Thus, the average accuracy decreases when
+the scale s increases in single-scale split of input images.
+2) Joint training U-Netmer with multi-scales improves
+the accuracy compared with single-scale split: This section
+presents the results of the U-Netmers=⟨i|j|...⟩trained with
+local patches segmented with multi-scales. If the U-Netmer
+is trained only on the single scale s = ⟨1⟩, the structure of the
+U-Netmer is the same to the Trans U-Net [10] with U-Net as
+the backbone. Thus, U-Netmers=1 is the one baseline for com-
+parison. The advantage of the U-Netmer is that it can be also
+jointly trained with local patches segmented from multi-scales.
+For example, U-Netmers=⟨1|2⟩indicates that the U-Netmer
+is trained on all local patches segmented with both scales
+s = 1 and scale s = 2. We train the three variations of U-
+Netmers=⟨1⟩(baseline), U-Netmers=⟨1|2⟩, U-Netmers=⟨1|2|4⟩,
+and U-Netmers=⟨1|2|4|8⟩. When applying the trained U-Netmer
+with multi-scale patches, different segmentation outputs Bs=i
+can also be obtained on the corresponding scale s = i (see
+Fig. 3). We evaluate the accuracy of each output Bs=i and the
+results are shown in Fig. 6. During testing, the accuracy of the
+output Bs=i slightly decreases when scale s = i increases. For
+three models of U-Netmers=⟨1|2⟩, U-Netmers=⟨1|2|4⟩and U-
+Netmers=⟨1|2|4|8⟩, the best results is achieved by the output of
+Bs=1 of U-Netmer jointly trained with multi-scale split, which
+are reported in the following sections.
+Fig. 7 shows the accuracy of Bs=1 obtained from U-
+Netmer models trained with different number of scales:
+U-Netmers=⟨1⟩, U-Netmers=⟨1|2⟩, U-Netmers=⟨1|2|4⟩and U-
+Netmers=⟨1|2|4|8⟩. Three variations of the U-Netmer have
+consistent accuracy on datasets ACDC, BraTS, Pancreas and
+Prostate. For ACDC, the best accuracy is achieved by U-
+Netmers=⟨1|2⟩and for BraTS, Pancreas and Prostate, the best
+accuracy is obtained on U-Netmers=⟨1|2|4⟩. For Kvasir, U-
+Netmers=⟨1|2|4⟩provides the best performance with U-Net as
+the backbone while the highest accuracies are achieved by
+attention U-Netmers=⟨1|2|4|8⟩and U-Netmer++s=⟨1|2|4|8⟩with
+attention U-Net and U-Net++ as the backbone, respectively. A
+similar trend is found on BUID and CIR where the best ac-
+curacy is achieved on different scales for different backbones.
+In general, the results on Fig. 7 show that training U-Netmer
+with multi-scales with different backbones can improve the
+performance on all 7 datasets, providing higher accuracies
+than training the U-Netmers=⟨1⟩which is the baseline model.
+Table I shows the accuracy of the U-Netmer with single-
+scale split and multi-scale split. The results show that training
+the U-Netmer with multi-scale split improves the accuracy.
+Similar results have also found on attention U-Netmer and
+U-Netmer++.
+3) U-Netmer trained with multi-scales outperforms state-of-
+the-art models: We ﬁrst compare three variations of U-Netmer
+with their corresponding baselines: U-Net [5], Attention U-
+Net [2], U-Net++ [1] and Trans U-Net [10]. Table II shows
+the accuracy measured by Jaccard index, Dice coefﬁcient, pix-
+elwise accuracy, sensitivity and and speciﬁcity on 7 datasets.
+Results show that U-Netmer outperforms its baseline models
+in most cases. We also conduct the comparison study between
+the U-Netmer and other state-of-the-art models including
+other pure U-Net based models (such as BiOnet [27], Con-
+vUNeXt [28], ResUnet [29]) and U-Net with Transformer
+models (such as UNext [30], UCTransNet [11], MedT [12]).
+6
+<1>
+<2>
+<4>
+<8>
+Scale (s)
+70
+75
+80
+85
+90
+Dice (%)
+w/o
+w/
+ACDC
+<1>
+<2>
+<4>
+<8>
+Scale (s)
+87.0
+87.5
+88.0
+88.5
+89.0
+89.5
+90.0
+90.5
+Dice (%)
+BraTS
+<1>
+<2>
+<4>
+<8>
+Scale (s)
+35
+40
+45
+50
+55
+60
+65
+70
+75
+Dice (%)
+BUID
+<1>
+<2>
+<4>
+<8>
+Scale (s)
+35
+40
+45
+50
+55
+60
+65
+Dice (%)
+CIR
+<1>
+<2>
+<4>
+<8>
+Scale (s)
+40
+45
+50
+55
+60
+65
+70
+Dice (%)
+Kvasir
+<1>
+<2>
+<4>
+<8>
+Scale (s)
+40
+45
+50
+55
+60
+65
+70
+75
+Dice (%)
+Pancreas
+<1>
+<2>
+<4>
+<8>
+Scale (s)
+55
+60
+65
+70
+75
+80
+85
+Dice (%)
+Prostate
+U-Netmer
+<1>
+<2>
+<4>
+<8>
+Scale (s)
+65
+70
+75
+80
+85
+90
+Dice (%)
+w/o
+w/
+<1>
+<2>
+<4>
+<8>
+Scale (s)
+87.5
+88.0
+88.5
+89.0
+89.5
+90.0
+Dice (%)
+<1>
+<2>
+<4>
+<8>
+Scale (s)
+35
+40
+45
+50
+55
+60
+65
+70
+Dice (%)
+<1>
+<2>
+<4>
+<8>
+Scale (s)
+35
+40
+45
+50
+55
+60
+65
+Dice (%)
+<1>
+<2>
+<4>
+<8>
+Scale (s)
+45
+50
+55
+60
+65
+70
+Dice (%)
+<1>
+<2>
+<4>
+<8>
+Scale (s)
+45
+50
+55
+60
+65
+70
+75
+Dice (%)
+<1>
+<2>
+<4>
+<8>
+Scale (s)
+50
+55
+60
+65
+70
+75
+80
+85
+Dice (%)
+attention U-Netmer
+<1>
+<2>
+<4>
+<8>
+Scale (s)
+65
+70
+75
+80
+85
+90
+Dice (%)
+w/o
+w/
+<1>
+<2>
+<4>
+<8>
+Scale (s)
+87.5
+88.0
+88.5
+89.0
+89.5
+90.0
+90.5
+Dice (%)
+<1>
+<2>
+<4>
+<8>
+Scale (s)
+35
+40
+45
+50
+55
+60
+65
+70
+75
+Dice (%)
+<1>
+<2>
+<4>
+<8>
+Scale (s)
+40
+45
+50
+55
+60
+65
+Dice (%)
+<1>
+<2>
+<4>
+<8>
+Scale (s)
+45
+50
+55
+60
+65
+70
+Dice (%)
+<1>
+<2>
+<4>
+<8>
+Scale (s)
+45
+50
+55
+60
+65
+70
+75
+Dice (%)
+<1>
+<2>
+<4>
+<8>
+Scale (s)
+55
+60
+65
+70
+75
+80
+85
+Dice (%)
+U-Netmer++
+Fig. 5. Dice accuracy comparison of different variations of U-Netmer trained with a single scale s = ⟨i⟩with Transformer T (w/, orange lines) and without
+Tranformer (w/o, green lines) on 7 datasets. The accuracy signiﬁcantly drops for models without Transformer when the scale s = i increases, indicating that
+the global-context information learned by Transformer is important for segmentation,especially with a high scale s = ⟨i⟩.
+Bs = 1
+Bs = 2
+Segmentation maps
+0
+20
+40
+60
+80
+Dice (%)
+U-Netmers=⟨1|2⟩
+(a)
+Bs = 1
+Bs = 2
+Bs = 4
+Segmentation maps
+0
+20
+40
+60
+80
+U-Netmers=⟨1|2|4⟩
+(b)
+Bs = 1
+Bs = 2
+Bs = 4
+Bs = 8
+Segmentation maps
+0
+20
+40
+60
+80
+ACDC
+BraTS
+Prostate
+Pancreas
+Kvasir
+BUID
+CIR
+U-Netmers=⟨1|2|4|8⟩
+(c)
+Fig. 6.
+The segmentation accuracy of different outputs Bs=i from the joint training of (a) U-Netmers=⟨1|2⟩, (b) U-Netmers=⟨1|2|4⟩, and (c) U-
+Netmers=⟨1|2|4|8⟩.
+<1>
+<1|2>
+<1|2|4> <1|2|4|8>
+Scale (s)
+92.50
+92.75
+93.00
+93.25
+93.50
+93.75
+94.00
+94.25
+Dice (%)
+U-Netmer
+attention U-Netmer
+U-Netmer++
+ACDC
+<1>
+<1|2>
+<1|2|4> <1|2|4|8>
+Scale (s)
+89.8
+90.0
+90.2
+90.4
+90.6
+90.8
+91.0
+Dice (%)
+U-Netmer
+attention U-Netmer
+U-Netmer++
+BraTS
+<1>
+<1|2>
+<1|2|4> <1|2|4|8>
+Scale (s)
+70
+71
+72
+73
+74
+75
+76
+Dice (%)
+U-Netmer
+attention U-Netmer
+U-Netmer++
+BUID
+<1>
+<1|2>
+<1|2|4> <1|2|4|8>
+Scale (s)
+64.5
+65.0
+65.5
+66.0
+66.5
+67.0
+67.5
+68.0
+Dice (%)
+U-Netmer
+attention U-Netmer
+U-Netmer++
+CIR
+<1>
+<1|2>
+<1|2|4> <1|2|4|8>
+Scale (s)
+72
+74
+76
+78
+80
+Dice (%)
+U-Netmer
+attention U-Netmer
+U-Netmer++
+Kvasir
+<1>
+<1|2>
+<1|2|4> <1|2|4|8>
+Scale (s)
+75.5
+76.0
+76.5
+77.0
+77.5
+78.0
+78.5
+79.0
+79.5
+Dice (%)
+U-Netmer
+attention U-Netmer
+U-Netmer++
+Pancreas
+<1>
+<1|2>
+<1|2|4> <1|2|4|8>
+Scale (s)
+87.0
+87.5
+88.0
+88.5
+89.0
+89.5
+Dice (%)
+U-Netmer
+attention U-Netmer
+U-Netmer++
+Prostate
+Fig. 7. Accuracy of U-Netmer trained with multiple scales on 7 datasets. s = ⟨1|2⟩indicates that models trained on local patches segmented with scales
+s = 1, 2. The same deﬁnition to s = ⟨1⟩(baseline), s = ⟨1|2|4⟩and s = ⟨1|2|4|8⟩.
+TABLE I
+THE DICE PERFORMANCE OF U-NETMER WITH SINGLE SCALE s = ⟨i⟩, i = 1, 2, 4, 8 AND MULTI-SCALE s = ⟨1|2⟩, s = ⟨1|2|4⟩, AND s = ⟨1|2|4|8⟩ON 7
+DATASETS.
+Scale
+ACDC
+BUID
+BraTS
+CIR
+Kvasir
+Pancreas
+Prostate
+Single-Scale
+s = ⟨1⟩
+92.84±4.11
+74.00±26.47
+90.36±5.73
+66.48±23.00
+72.63±26.56
+75.52±9.18
+87.26±3.97
+s = ⟨2⟩
+88.98±7.69
+68.22±28.59
+90.13±5.54
+64.51±22.08
+64.49±25.85
+72.92±10.09
+84.29±5.68
+s = ⟨4⟩
+86.81±11.64
+63.33±27.89
+89.85±5.88
+63.66±21.71
+57.14±27.05
+70.69±10.98
+84.82±5.26
+s = ⟨8⟩
+86.46±11.52
+62.78±28.89
+89.58±6.61
+63.52±21.06
+61.63±25.85
+64.84±13.10
+81.52±5.28
+Multi-Scale
+s = ⟨1|2⟩
+93.79±3.30
+74.82±26.40
+90.67±5.25
+66.22±21.62
+78.20±22.58
+77.62±8.67
+88.62±3.52
+s = ⟨1|2|4⟩
+93.37±4.83
+73.27±28.61
+90.66±5.48
+67.29±21.65
+80.16±20.94
+79.42±7.59
+88.83±3.30
+s = ⟨1|2|4|8⟩
+92.90±5.04
+73.91±25.71
+90.41±5.27
+64.51±23.14
+78.36±21.22
+78.94±7.90
+89.14±3.46
+All of these models are trained with the same training setup
+for a fair comparison. Table III shows the accuracies on the
+7 datasets which shows that U-Netmer based methods (U-
+Netmer, Attention U-Netmer and U-Netmer++) provide higher
+accuracy than other models. U-Netmer provides the highest
+accuracy on the Pancreas dataset, Attention U-Netmer provides
+the highest accuracy on the BUID, Prostate datasets and U-
+Netmer++ provides the highest accuracy on ACDC, BraTS,
+7
+TABLE II
+ACCURACY COMPARISON IN TERMS OF JACCARD INDEX, DICE,
+PIXEL-WISE ACCURACY, SENSITIVITY AND SPECIFICITY BETWEEN THE
+U-NETMER AND CORRESPONDING BASELINES ON THE 8 DATASETS.
+ACDC
+Jaccard index
+Dice
+Accuracy
+Sensitivity
+Speciﬁcity
+U-Net [5]
+86.88±6.42
+92.84±4.06
+99.38±0.31
+92.04±6.54
+99.74±0.16
+Attention U-Net [2]
+86.78±5.88
+92.81±3.58
+99.37±0.31
+92.15±5.89
+99.72±0.16
+U-Net++ [1]
+87.41±5.96
+93.16±3.68
+99.41±0.27
+92.70±5.69
+99.73±0.14
+Trans U-Net [10]
+86.89±6.52
+92.84±4.11
+99.38±0.30
+92.15±6.65
+99.73±0.16
+U-Netmer
+88.48±5.52
+93.79±3.30
+99.46±0.27
+93.12±5.66
+99.76±0.13
+Attention U-Netmer
+88.55±6.40
+93.79±4.01
+99.46±0.30
+93.06±6.44
+99.77±0.11
+U-Netmer++
+89.23±5.49
+94.21±3.26
+99.49±0.34
+92.89±4.73
+99.80±0.20
+BraTS
+Jaccard index
+Dice
+Accuracy
+Sensitivity
+Speciﬁcity
+U-Net [5]
+82.31±8.66
+90.01±6.00
+98.41±0.79
+88.33±9.18
+99.32±0.48
+Attention U-Net [2]
+82.51±8.12
+90.17±5.49
+98.43±0.72
+88.74±8.24
+99.30±0.48
+U-Net++ [1]
+82.72±7.96
+90.31±5.36
+98.44±0.73
+89.12±8.26
+99.28±0.49
+Trans U-Net [10]
+82.86±8.37
+90.36±5.73
+98.46±0.76
+89.09±8.62
+99.30±0.47
+U-Netmer
+83.31±7.82
+90.67±5.25
+98.50±0.75
+89.38±8.23
+99.32±0.47
+Attention U-Netmer
+83.38±7.82
+90.72±5.24
+98.49±0.75
+90.13±7.78
+99.26±0.48
+U-Netmer++
+83.76±7.72
+90.95±5.17
+98.52±0.73
+90.37±7.57
+99.29±0.46
+BUID
+Jaccard index
+Dice
+Accuracy
+Sensitivity
+Speciﬁcity
+U-Net [5]
+62.65±29.13
+71.81±29.57
+95.93±5.07
+72.84±31.58
+98.63±1.77
+Attention U-Net [2]
+61.70±29.36
+71.09±29.20
+95.87±5.20
+70.45±31.22
+98.88±1.48
+U-Net++ [1]
+63.73±26.85
+73.58±26.51
+96.00±4.74
+74.62±28.23
+98.61±1.83
+Trans U-Net [10]
+64.33±27.11
+74.00±26.47
+96.08±4.93
+74.16±28.44
+98.70±1.68
+U-Netmer
+65.41±27.17
+74.82±26.40
+95.96±5.16
+76.47±28.12
+98.60±1.78
+Attention U-Netmer
+66.35±25.81
+75.97±24.95
+95.95±5.17
+76.60±26.85
+98.61±1.88
+U-Netmer++
+64.64±27.10
+74.28±26.24
+95.90±5.05
+72.75±28.65
+98.90±1.46
+CIR
+Jaccard index
+Dice
+Accuracy
+Sensitivity
+Speciﬁcity
+U-Net [5]
+52.80±22.71
+65.71±23.24
+97.57±2.86
+67.59±25.51
+98.98±1.20
+Attention U-Net [2]
+52.09±24.09
+64.62±24.89
+97.57±2.90
+66.38±27.57
+99.00±1.21
+U-Net++ [1]
+52.25±24.53
+64.57±25.64
+97.57±2.93
+65.58±28.20
+99.03±1.24
+Trans U-Net [10]
+53.61±22.58
+66.48±23.00
+97.68±2.68
+67.78±25.63
+99.04±1.24
+U-Netmer
+54.21±21.86
+67.29±21.65
+97.60±2.93
+70.67±24.32
+98.96±1.25
+Attention U-Netmer
+54.13±21.92
+67.22±21.61
+97.58±2.82
+69.90±24.05
+98.99±1.14
+U-Netmer++
+55.02±21.35
+68.15±20.96
+97.65±3.02
+70.31±23.86
+99.05±1.11
+Kvasir
+Jaccard index
+Dice
+Accuracy
+Sensitivity
+Speciﬁcity
+U-Net [5]
+62.01±28.11
+71.88±27.34
+92.31±10.00
+71.91±30.10
+97.87±3.69
+Attention U-Net [2]
+59.11±28.89
+69.18±28.65
+91.92±10.27
+67.73±31.57
+98.24±2.87
+U-Net++ [1]
+61.42±26.88
+71.87±25.87
+92.12±9.93
+71.62±28.50
+97.81±3.38
+Trans U-Net [10]
+62.65±27.48
+72.63±26.56
+92.53±9.80
+71.85±29.05
+97.95±3.64
+U-Netmer
+70.95±23.64
+80.16±20.94
+93.87±8.40
+82.80±22.71
+97.63±4.26
+Attention U-Netmer
+70.57±23.62
+79.86±21.17
+93.91±8.16
+83.19±23.31
+97.42±3.85
+U-Netmer++
+71.66±23.34
+80.76±20.40
+93.98±8.10
+84.53±21.48
+97.35±3.96
+Pancreas
+Jaccard index
+Dice
+Accuracy
+Sensitivity
+Speciﬁcity
+U-Net [5]
+62.51±10.63
+76.38±8.53
+99.39±0.26
+75.64±12.05
+99.74±0.16
+Attention U-Net [2]
+62.95±10.08
+76.76±8.03
+99.41±0.24
+75.18±12.82
+99.77±0.13
+U-Net++ [1]
+61.52±10.56
+75.61±8.64
+99.37±0.26
+74.88±13.07
+99.73±0.16
+Trans U-Net [10]
+61.47±10.98
+75.52±9.18
+99.38±0.25
+73.79±13.71
+99.75±0.15
+U-Netmer
+66.46±9.63
+79.42±7.59
+99.47±0.23
+78.49±11.77
+99.78±0.11
+Attention U-Netmer
+66.02±9.58
+79.09±7.63
+99.46±0.23
+77.67±11.63
+99.79±0.13
+U-Netmer++
+65.50±9.69
+78.71±7.56
+99.46±0.21
+76.62±12.87
+99.80±0.11
+Prostate
+Jaccard index
+Dice
+Accuracy
+Sensitivity
+Speciﬁcity
+U-Net [5]
+76.91±5.59
+86.83±3.74
+98.99±0.50
+86.62±6.78
+99.58±0.23
+Attention U-Net [2]
+78.17±5.57
+87.63±3.66
+99.05±0.48
+87.64±6.36
+99.59±0.21
+U-Net++ [1]
+77.38±5.30
+87.14±3.58
+99.01±0.48
+86.60±6.55
+99.60±0.22
+Trans U-Net [10]
+77.60±5.82
+87.26±3.97
+99.03±0.47
+86.65±6.53
+99.62±0.22
+U-Netmer
+80.58±5.39
+89.14±3.46
+99.15±0.56
+87.01±6.91
+99.73±0.10
+Attention U-Netmer
+81.02±4.85
+89.43±3.13
+99.19±0.41
+88.71±5.27
+99.68±0.14
+U-Netmer++
+80.63±4.94
+89.19±3.13
+99.16±0.49
+87.23±6.11
+99.73±0.13
+CIR, and Kvasir datasets.
+4) Deep features learned by U-Netmer have higher seg-
+mentation ability than those from its counterpart (U-Net):
+This section presents the segemtnation ability (SA) scores
+of each layer of the U-Netmers=⟨1|2|4⟩and the original U-
+Net computed by the ProtoSeg [6] which can compute the
+binary segmentation map on deep features based on prototypes
+of background and target regions. There are 18 layers in a
+typical U-Net and the U-Netmer with U-Net as the backbone.
+The ProtoSeg can also be applied on input image which is
+considered as a speciﬁcal feature map [6]. Fig. 8 shows the SA
+scores of U-Net and U-Netmer including input images (index
+0), 18 deep features (index 1-19) and the ﬁnal segmentation
+output (index 20). It can be seen from the ﬁgure that the seg-
+mentation ability scores of the U-Netmer trained with different
+patch sizes are higher than the corresponding SA scores of
+the U-Net trained with the whole input image, especially on
+ACDC, BUID, CIR, Kvasir, and Prostate datasets. The results
+show that U-Netmer trained with multi-scales can improve the
+segmentation ability on deep features as well as on the ﬁnal
+output.
+5) Discussion: Experimental results show that the vanilla
+U-Net [5] provides a moderate accuracy based on small input
+patches which contain limited information for separating the
+target region and background. Applying a Transformer block
+among the local patches segmented from the same input image
+can signiﬁcantly improve the accuracy (see Fig. 5) because the
+local patches can learn the global-context information by the
+self-attention mechanism in Transformer [31]. This inspires
+the design of the U-Netmer which can make a prediction based
+on local patches with different patch sizes without changes
+to the model structure and parameters. However, training the
+U-Netmer with a single scale (a ﬁxed patch size) does not
+improve the accuracy (see Fig. 5) due to the fact that seg-
+mentation is sensitive to the scales. To solve this problem, we
+train the U-Netmer with local patches segmented with multi-
+scales which can improve the accuracies for segmentation. The
+same results are also found on the three different variations
+(see Fig. 7). The U-Netmer trained by patches with different
+sizes (multi-scales) provides the highest accuracy compared
+to four different baselines and other U-Net based and U-Net
+combined with Transformer models (see Table III), indicating
+that training neural networks with multiscale information can
+improve the accuracy of segmentation. By computing the
+segmentation ability scores [6] on layers of the U-Netmer,
+we ﬁnd that the training U-Netmer with different patch sizes
+can improve the segmentation ability on different layers and
+further improve the ﬁnal segmentation. Overall, experimental
+results have shown that U-Netmer trained with multi-scales
+can improve the accuracy on the test 7 datasets with different
+modalities.
+B. U-Netmer can be used to rank test images by difﬁculty
+without ground-truth
+Ranking the test images by difﬁculty without ground-truth
+can provide useful information for end users to automatically
+identify the most challenging examples for human experts to
+review [32], [6]. Most segmentation models only output the
+segmentation result without such a “conﬁdence” evaluation.
+This limits the use of segmentation algorithms in clinical
+practice when certain acceptance criteria are required [33]
+or when we need to prioritize users’ time on inspection and
+auditing [32]. There is an unmet need to evaluate segmen-
+tation accuracies and even to reject failed segmentations in
+the real-world applications when the ground-truth is absent
+in reality [34]. Most studies estimate the pixel/voxel level
+uncertainty [32], [35], [36] to highlight the challenging regions
+8
+TABLE III
+THE DICE SCORES OF THE U-NETMER AND OTHER STATE-OF-THE-ART MODELS ON THE 7 DATASETS.
+Models
+ACDC
+BUID
+BraTS
+CIR
+Kvasir
+Pancreas
+Prostate
+U-Net [5]
+92.84±4.06
+71.81±29.57
+90.01±6.00
+65.71±23.24
+71.88±27.34
+76.38±8.53
+86.83±3.74
+Attention U-Net [2]
+92.81±3.58
+71.09±29.20
+90.17±5.49
+64.62±24.89
+69.18±28.65
+76.76±8.03
+87.63±3.66
+U-Net++ [1]
+93.16±3.68
+73.58±26.51
+90.31±5.36
+64.57±25.64
+71.87±25.87
+75.61±8.64
+87.14±3.58
+BiOnet [27]
+91.01±4.93
+67.91±32.27
+90.51±4.91
+65.77±22.72
+68.29±29.08
+77.59±8.49
+86.39±4.71
+ConvUNeXt [28]
+85.28±8.59
+64.21±27.79
+88.23±6.67
+60.97±25.43
+49.30±26.47
+56.25±12.60
+80.46±6.49
+ResUnet [29]
+91.94±6.08
+57.91±29.84
+90.29±4.93
+58.03±28.39
+67.66±23.35
+76.31±8.78
+87.01±4.42
+UNext [30]
+86.32±7.63
+64.12±30.62
+89.23±5.90
+58.31±28.61
+57.26±25.50
+56.08±11.73
+81.86±5.99
+UCTransNet [11]
+93.39±4.19
+72.39±28.12
+90.53±5.77
+64.79±23.99
+78.25±24.05
+75.31±8.99
+88.57±3.31
+Trans U-Net [10]
+92.84±4.11
+74.00±26.47
+90.36±5.73
+66.48±23.00
+72.63±26.56
+75.52±9.18
+87.26±3.97
+MedT [12]
+77.41±12.03
+48.67±29.51
+89.91±6.29
+59.73±26.29
+37.69±29.27
+43.27±14.87
+74.65±5.93
+U-Netmer
+93.79±3.30
+74.82±26.40
+90.67±5.25
+67.29±21.65
+80.16±20.94
+79.42±7.59
+89.14±3.46
+Attention U-Netmer
+93.79±4.01
+75.97±24.95
+90.72±5.24
+67.22±21.61
+79.86±21.17
+79.09±7.63
+89.43±3.13
+U-Netmer++
+94.21±3.26
+74.28±26.24
+90.95±5.17
+68.15±20.96
+80.76±20.40
+78.71±7.56
+89.19±3.13
+0
+2
+4
+6
+8
+10
+12
+14
+16
+18
+20
+Layer Index
+20
+30
+40
+50
+60
+70
+80
+90
+SA Score (%)
+U-Net
+U-Netmer
+ACDC
+0
+2
+4
+6
+8
+10
+12
+14
+16
+18
+20
+Layer Index
+60
+65
+70
+75
+80
+85
+90
+SA Score (%)
+U-Net
+U-Netmer
+BraTS
+0
+2
+4
+6
+8
+10
+12
+14
+16
+18
+20
+Layer Index
+20
+30
+40
+50
+60
+70
+SA Score (%)
+U-Net
+U-Netmer
+BUID
+0
+2
+4
+6
+8
+10
+12
+14
+16
+18
+20
+Layer Index
+30
+40
+50
+60
+SA Score (%)
+U-Net
+U-Netmer
+CIR
+0
+2
+4
+6
+8
+10
+12
+14
+16
+18
+20
+Layer Index
+40
+45
+50
+55
+60
+65
+70
+75
+80
+SA Score (%)
+U-Net
+U-Netmer
+Kvasir
+0
+2
+4
+6
+8
+10
+12
+14
+16
+18
+20
+Layer Index
+10
+20
+30
+40
+50
+60
+70
+80
+SA Score (%)
+U-Net
+U-Netmer
+Pancreas
+0
+2
+4
+6
+8
+10
+12
+14
+16
+18
+20
+Layer Index
+10
+20
+30
+40
+50
+60
+70
+80
+90
+SA Score (%)
+U-Net
+U-Netmer
+Prostate
+Fig. 8. The segmentation ability (SA) scores of the U-Net and U-Netmers=<1|2|4> on different layers (there are 18 layers on U-Net indexed from 1 to 19)
+measured by the ProtoSeg [6]. The input image is indexed as 0 while the segmentation output is indexed as 20.
+Diﬃcult
+Easy
+Fig. 9. Examples of difﬁcult and easy examples for segmentation. The red
+contours are the segmentation results of U-Netmer with scale s = 1 and the
+green contours are the segmentation results with scale s = 2.
+ACDC
+BraTS
+BUID
+CIR
+Kvasir
+Pancreas
+Prostate
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+Pearson Coefficient
+ProtoSeg
+C12
+C14
+C24
+Fig. 10.
+Comparison of the Pearson coefﬁcient between the segmentation
+accuracy and conﬁdence scores computed by ProtoSeg [6] and C12, C14, ad
+C24 from U-Netmers=⟨1|2|4⟩.
+within the target region or background on the single input im-
+age. These methods do not provide the image level conﬁdence
+scores to automatically select a subset of challenging samples.
+The U-Netmer can provide an estimation of the conﬁdence
+score which can be used to rank the test image by difﬁculty
+without ground-truth. Given a test image, U-Netmer can make
+predictions with different scales. We use Bs=i to denote
+the segmentation map computed with scale s = i. Fig. 9
+shows testing examples of the segmentation maps from the
+scale s = 1 (Bs=1) and s = 2 (Bs=2) of the trained
+U-Netmers=⟨1|2|4⟩. One observation is that the segmentation
+maps of Bs=1 and Bs=2 are similar on easy samples while
+they are different on difﬁcult samples. Part of the reason is that
+the target regions (e.g., lesions) on difﬁcult samples have low
+contrast information compared to their background or have
+a small size, yielding to different segmentation results with
+different scales. Therefore, their discrepancy can be used to
+measure the difﬁculty of the test images or rank the test images
+by difﬁculty without ground-truth for segmentation.
+To measure the difﬁculty of the test images without ground-
+truth, we compute the discrepancy between the estimation of
+Bs=i and Bs=j (where i ̸= j) by: Cij = D
+ Bs=i, Bs=j
+
+,
+where D is a distance metric to measure the difference between
+two estimated segmentation maps of Bs=i and Bs=j. C has a
+different meanings given different distance metric D. If the
+distance metric is deﬁned as D = |Bs=i −Bs=j|, the C
+indicates the uncertainty regions of the segmentation map [37].
+In this paper, we use the Dice coefﬁcient as the distance metric
+to measure the difﬁculty to segment each image, deﬁned as:
+Cij = 2|Bs=i ∩Bs=j|/|Bs=i + Bs=j| where Cij measures the
+consistency between the segmentation maps between Bs=i and
+Bs=j obtained from U-Netmer with different scales s = i and
+s = j. Cij is considered as the conﬁdence score to estimate the
+segmentation accuracy of the testing images without ground-
+9
+0
+20
+40
+60
+80
+100
+Percentile range of score
+94.5
+95.0
+95.5
+96.0
+96.5
+Dice (%)
+ProtoSeg
+C12
+ACDC
+0
+20
+40
+60
+80
+100
+Percentile range of score
+92.0
+92.5
+93.0
+93.5
+94.0
+Dice (%)
+ProtoSeg
+C12
+BraTS
+0
+20
+40
+60
+80
+100
+Percentile range of score
+78
+80
+82
+84
+86
+88
+90
+92
+Dice (%)
+ProtoSeg
+C12
+BUID
+0
+20
+40
+60
+80
+100
+Percentile range of score
+70.0
+72.5
+75.0
+77.5
+80.0
+82.5
+85.0
+87.5
+Dice (%)
+ProtoSeg
+C12
+CIR
+0
+20
+40
+60
+80
+100
+Percentile range of score
+84
+86
+88
+90
+92
+Dice (%)
+ProtoSeg
+C12
+Kvasir
+0
+20
+40
+60
+80
+100
+Percentile range of score
+81
+82
+83
+84
+85
+86
+Dice (%)
+ProtoSeg
+C12
+Pancreas
+0
+20
+40
+60
+80
+100
+Percentile range of score
+85
+86
+87
+88
+89
+90
+Dice (%)
+ProtoSeg
+C12
+Prostate
+Fig. 11.
+The segmentation accuracy (y-axis) for the test images thresholded by the conﬁdence score (x-axis) computed by ProtoSeg [6] and U-Netmer.
+ACDC
+BraTS
+BUID
+CIR
+Kvasir
+Pancrease
+Prostate
+Low
+High
+Score C12
+Fig. 12. Examples of the images (the ﬁrst row on each data set) and their
+corresponding segmentation results (the second row on each dataset) ranked
+by the conﬁdence score C12. The red masks denote the ground-truth and the
+green and pink contours denote the segmentation results of the Bs=1 and
+Bs=2, respectively.
+truth for end users.
+Fig. 10 shows the Pearson correlation between the Dice
+accuracy of the ﬁnal segmentation and the conﬁdence score Cij
+obtained by U-Netmers=⟨1|2|4⟩. We also compare them with
+the baseline of the mean SA score computed by ProtoSeg [6]
+which is the mean segmentation ability score computed on
+the last two layers of the neural network for ranking the test
+images by difﬁculty. The results show that the Pearson corre-
+lation between C and the segmentation accuracy is higher than
+the one between ProtoSeg and the segmentation accuracy on
+6 datasets except on ACDC dataset. In addition, C12 provides
+the highest correlation on BraTS, CIR, Kvasir, Pancreas while
+C14 provides the highest correlation on the BUID and Prostate
+datasets.
+To test whether the conﬁdence score obtained by U-Netmer
+is discriminative between easy and difﬁcult test samples, we
+plot the segmentation accuracy of test samples bucketed by
+the decile of conﬁdence scores [32]. We ﬁrst rank all testing
+samples based on the estimated conﬁdence score and the
+testing samples within the d% percentile are included to com-
+pute the accuracy of the segmentation. This is similar to the
+coverage [38] which rejects the (100-d)% difﬁcult samples for
+further attention. Fig. 11 shows the accuracy of segmentation
+with different percentile d. We show that examples at the
+highest percentiles on the rank often have high segmentation
+accuracy and the scores computed by U-Netmer provide higher
+accuracy than ProtoSeg [6] on 6 datasets except for Pancreas.
+The results also demonstrate that the conﬁdence scores have a
+high correlation with the segmentation accuracies on the test
+images.
+Fig. 12 visualizes test images and their corresponding
+segmentation results ranked by the conﬁdence scores C on
+the 7 datasets. Images with low conﬁdence scores tend to
+have small target regions, smooth boundaries and poor contrast
+between the target and background tissues. The accuracies
+of their segmentation results are usually low. Images with
+high conﬁdence scores often have large target regions and
+clear boundaries, yielding more consistent segmentation maps
+obtained from different scales of U-Netmer. For test images
+without ground-truth, the conﬁdence score can be used by
+end-users with a human-in-the-loop strategy: it can suggest
+the segmentation results of these images with low conﬁdence
+scores to the human users for further review.
+V. CONCLUSION
+In conclusion, we have presented the U-Netmer which is a
+combination of CNN-based neural network and Transformer
+for medical image segmentation. We have studied three vari-
+ations of the U-Netmer where the backbones are from three
+typical segmentation neural networks: U-Netmer, Attention U-
+Netmer, and U-Netmer++. Experimental results on 7 datasets
+for medical image segmentation with different modalities have
+shown that the U-Netmer can provide competitive results
+compared to four baselines and six state-of-the-art models. The
+U-Nemter can also provide segmentation maps with different
+scales on test images. The discrepancy of these segmentations
+is linearly correlated to the segmentation accuracy, which can
+be considered as a conﬁdence score to rank the test images by
+difﬁculty when the ground-truth is absent. This is important in
+real world applications, as it can highlight most difﬁcult cases,
+or least accuracy cases, for users’ further inspection and edit.
+10
+REFERENCES
+[1] Z. Zhou, M. M. R. Siddiquee, N. Tajbakhsh, and J. Liang, “Unet++:
+Redesigning skip connections to exploit multiscale features in image
+segmentation,” IEEE transactions on medical imaging, vol. 39, no. 6,
+pp. 1856–1867, 2019.
+[2] J. Schlemper, O. Oktay, M. Schaap, M. Heinrich, B. Kainz, B. Glocker,
+and D. Rueckert, “Attention gated networks: Learning to leverage salient
+regions in medical images,” Medical image analysis, vol. 53, pp. 197–
+207, 2019.
+[3] M. Antonelli, A. Reinke, S. Bakas, K. Farahani, A. Kopp-Schneider,
+B. A. Landman, G. Litjens, B. Menze, O. Ronneberger, R. M. Summers
+et al., “The medical segmentation decathlon,” Nature communications,
+vol. 13, no. 1, p. 4128, 2022.
+[4] F. Isensee, P. F. Jaeger, S. A. Kohl, J. Petersen, and K. H. Maier-Hein,
+“nnU-Net: a self-conﬁguring method for deep learning-based biomedical
+image segmentation,” Nature methods, vol. 18, no. 2, pp. 203–211, 2021.
+[5] O. Ronneberger, P. Fischer, and T. Brox, “U-net: Convolutional networks
+for biomedical image segmentation,” in International Conference on
+Medical image computing and computer-assisted intervention. Springer,
+2015, pp. 234–241.
+[6] S. He, Y. Feng, P. E. Grant, and Y. Ou, “Segmentation ability map:
+Interpret deep features for medical image segmentation,” Medical Image
+Analysis, vol. 84, p. 102726, 2023.
+[7] R. Azad, E. K. Aghdam, A. Rauland, Y. Jia, A. H. Avval, A. Bozorgpour,
+S. Karimijafarbigloo, J. P. Cohen, E. Adeli, and D. Merhof, “Medical
+image segmentation review: The success of u-net,” arXiv preprint
+arXiv:2211.14830, 2022.
+[8] J. Hu, L. Shen, and G. Sun, “Squeeze-and-excitation networks,” in
+Proceedings of the IEEE conference on computer vision and pattern
+recognition, 2018, pp. 7132–7141.
+[9] A. Dosovitskiy, L. Beyer, A. Kolesnikov, D. Weissenborn, X. Zhai,
+T. Unterthiner, M. Dehghani, M. Minderer, G. Heigold, S. Gelly et al.,
+“An image is worth 16x16 words: Transformers for image recognition at
+scale,” in International Conference on Learning Representations, 2020.
+[10] J. Chen, Y. Lu, Q. Yu, X. Luo, E. Adeli, Y. Wang, L. Lu, A. L. Yuille, and
+Y. Zhou, “Transunet: Transformers make strong encoders for medical
+image segmentation,” arXiv preprint arXiv:2102.04306, 2021.
+[11] H. Wang, P. Cao, J. Wang, and O. R. Zaiane, “Uctransnet: rethinking the
+skip connections in u-net from a channel-wise perspective with trans-
+former,” in Proceedings of the AAAI conference on artiﬁcial intelligence,
+vol. 36, no. 3, 2022, pp. 2441–2449.
+[12] J. M. J. Valanarasu, P. Oza, I. Hacihaliloglu, and V. M. Patel, “Medical
+transformer: Gated axial-attention for medical image segmentation,” in
+International Conference on Medical Image Computing and Computer-
+Assisted Intervention.
+Springer, 2021, pp. 36–46.
+[13] L. Beyer, P. Izmailov, A. Kolesnikov, M. Caron, S. Kornblith, X. Zhai,
+M. Minderer, M. Tschannen, I. Alabdulmohsin, and F. Pavetic, “Flex-
+iViT: One model for all patch sizes,” arXiv preprint arXiv:2212.08013,
+2022.
+[14] Q. Diao, Y. Jiang, B. Wen, J. Sun, and Z. Yuan, “Metaformer: A
+uniﬁed meta framework for ﬁne-grained recognition,” arXiv preprint
+arXiv:2203.02751, 2022.
+[15] K. He, X. Chen, S. Xie, Y. Li, P. Doll´ar, and R. Girshick, “Masked au-
+toencoders are scalable vision learners,” in Proceedings of the IEEE/CVF
+Conference on Computer Vision and Pattern Recognition, 2022, pp.
+16 000–16 009.
+[16] K. Donggyun, K. Jinwoo, C. Seongwoong, L. Chong, and H. Seunghoon,
+“Universal few-shot learning of dense prediction tasks with visual token
+matching,” https://openreview.net/forum?id=88nT0j5jAn, 2023.
+[17] A. Vaswani, N. Shazeer, N. Parmar, J. Uszkoreit, L. Jones, A. N. Gomez,
+Ł. Kaiser, and I. Polosukhin, “Attention is all you need,” Advances in
+neural information processing systems, vol. 30, 2017.
+[18] O. Bernard, A. Lalande, C. Zotti, F. Cervenansky, X. Yang, P.-A.
+Heng, I. Cetin, K. Lekadir, O. Camara, M. A. G. Ballester et al.,
+“Deep learning techniques for automatic mri cardiac multi-structures
+segmentation and diagnosis: is the problem solved?” IEEE transactions
+on medical imaging, vol. 37, no. 11, pp. 2514–2525, 2018.
+[19] B. H. Menze, A. Jakab, S. Bauer, J. Kalpathy-Cramer, K. Farahani,
+J. Kirby, Y. Burren, N. Porz, J. Slotboom, R. Wiest et al., “The
+multimodal brain tumor image segmentation benchmark (BRATS),”
+IEEE transactions on medical imaging, vol. 34, no. 10, pp. 1993–2024,
+2014.
+[20] S. Bakas, H. Akbari, A. Sotiras, M. Bilello, M. Rozycki, J. S. Kirby,
+J. B. Freymann, K. Farahani, and C. Davatzikos, “Advancing the cancer
+genome atlas glioma mri collections with expert segmentation labels and
+radiomic features,” Scientiﬁc data, vol. 4, no. 1, pp. 1–13, 2017.
+[21] S. Bakas, M. Reyes, A. Jakab, S. Bauer, M. Rempﬂer, A. Crimi, R. T.
+Shinohara, C. Berger, S. M. Ha, M. Rozycki et al., “Identifying the best
+machine learning algorithms for brain tumor segmentation, progression
+assessment, and overall survival prediction in the BRATS challenge,”
+arXiv preprint arXiv:1811.02629, 2018.
+[22] W. Al-Dhabyani, M. Gomaa, H. Khaled, and A. Fahmy, “Dataset of
+breast ultrasound images,” Data in brief, vol. 28, p. 104863, 2020.
+[23] W. Choi, N. Dahiya, and S. Nadeem, “CIRDataset: A large-scale
+dataset for clinically-interpretable lung nodule radiomics and malignancy
+prediction,” in International Conference on Medical Image Computing
+and Computer-Assisted Intervention.
+Springer, 2022, pp. 13–22.
+[24] D. Jha, P. H. Smedsrud, M. A. Riegler, P. Halvorsen, T. d. Lange, D. Jo-
+hansen, and H. D. Johansen, “Kvasir-seg: A segmented polyp dataset,”
+in International Conference on Multimedia Modeling.
+Springer, 2020,
+pp. 451–462.
+[25] M. A. Attiyeh, J. Chakraborty, A. Doussot, L. Langdon-Embry,
+S. Mainarich, M. G¨onen, V. P. Balachandran, M. I. D’Angelica, R. P.
+DeMatteo, W. R. Jarnagin et al., “Survival prediction in pancreatic ductal
+adenocarcinoma by quantitative computed tomography image analysis,”
+Annals of surgical oncology, vol. 25, no. 4, pp. 1034–1042, 2018.
+[26] Q. Liu, Q. Dou, L. Yu, and P. A. Heng, “MS-Net: multi-site network
+for improving prostate segmentation with heterogeneous mri data,” IEEE
+transactions on medical imaging, vol. 39, no. 9, pp. 2713–2724, 2020.
+[27] T. Xiang, C. Zhang, D. Liu, Y. Song, H. Huang, and W. Cai, “BiO-
+Net: learning recurrent bi-directional connections for encoder-decoder
+architecture,” in International conference on medical image computing
+and computer-assisted intervention.
+Springer, 2020, pp. 74–84.
+[28] Z. Han, M. Jian, and G.-G. Wang, “ConvUNeXt: An efﬁcient convolu-
+tion neural network for medical image segmentation,” Knowledge-Based
+Systems, vol. 253, p. 109512, 2022.
+[29] Z. Zhang, Q. Liu, and Y. Wang, “Road extraction by deep residual u-
+net,” IEEE Geoscience and Remote Sensing Letters, vol. 15, no. 5, pp.
+749–753, 2018.
+[30] J. M. J. Valanarasu and V. M. Patel, “UNeXt: Mlp-based rapid medical
+image segmentation network,” arXiv preprint arXiv:2203.04967, 2022.
+[31] S. He, P. E. Grant, and Y. Ou, “Global-local transformer for brain age
+estimation,” IEEE transactions on medical imaging, vol. 41, no. 1, pp.
+213–224, 2021.
+[32] C. Agarwal, D. D’souza, and S. Hooker, “Estimating example difﬁculty
+using variance of gradients,” in Proceedings of the IEEE/CVF Confer-
+ence on Computer Vision and Pattern Recognition, 2022, pp. 10 368–
+10 378.
+[33] S. Budd, E. C. Robinson, and B. Kainz, “A survey on active learning and
+human-in-the-loop deep learning for medical image analysis,” Medical
+Image Analysis, vol. 71, p. 102062, 2021.
+[34] V. V. Valindria, I. Lavdas, W. Bai, K. Kamnitsas, E. O. Aboagye, A. G.
+Rockall, D. Rueckert, and B. Glocker, “Reverse classiﬁcation accuracy:
+predicting segmentation performance in the absence of ground truth,”
+IEEE transactions on medical imaging, vol. 36, no. 8, pp. 1597–1606,
+2017.
+[35] Y. Shi, J. Zhang, T. Ling, J. Lu, Y. Zheng, Q. Yu, L. Qi, and
+Y. Gao, “Inconsistency-aware uncertainty estimation for semi-supervised
+medical image segmentation,” IEEE transactions on medical imaging,
+vol. 41, no. 3, pp. 608–620, 2021.
+[36] K. Wickstrøm, M. Kampffmeyer, and R. Jenssen, “Uncertainty and inter-
+pretability in convolutional neural networks for semantic segmentation
+of colorectal polyps,” Medical image analysis, vol. 60, p. 101619, 2020.
+[37] T. Nair, D. Precup, D. L. Arnold, and T. Arbel, “Exploring uncertainty
+measures in deep networks for multiple sclerosis lesion detection and
+segmentation,” Medical image analysis, vol. 59, p. 101557, 2020.
+[38] F. C. Ghesu, B. Georgescu, A. Mansoor, Y. Yoo, E. Gibson, R. Vish-
+wanath, A. Balachandran, J. M. Balter, Y. Cao, R. Singh et al.,
+“Quantifying and leveraging predictive uncertainty for medical image
+assessment,” Medical Image Analysis, vol. 68, p. 101855, 2021.

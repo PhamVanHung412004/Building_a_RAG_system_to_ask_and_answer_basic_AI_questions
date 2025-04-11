@@ -1,4 +1,0 @@
-- Cấu trúc đơn giản và dễ dàng truy cập dữ liệu theo vùng.
-Nhược điểm:
-- Có thể sử dụng nhiều bộ nhớ hơn so với cây KD cho cùng một lượng dữ liệu điểm.
-5

@@ -1,0 +1,1608 @@
+Style Transfer
+Beyond the content and style losses
+Year 2024
+Quang-Vinh Dinh
+Ph.D. in Computer Science
+AI VIETNAM
+All-in-One Course
+Objectives
+✓Study about content loss + style loss
+✓Implementation of a simple method
+Pretrained 
+Model
+Content 
+Loss
+Style Image
+Pretrained 
+Model
+Feature map
+Pretrained 
+Model
+Content Image
+Output 
+Image
+Style 
+Loss
+Total 
+Loss
+➢Quick Review
+➢Content Loss+Style Loss
+➢Implementation
+➢Einstein Summation
+➢Extensions
+Outline
+Review
+❖ Pretrained model (VGG19)
+AI VIETNAM
+All-in-One Course
+(3x3) Convolution
+padding=‘same’
+stride=1 + ReLU
+(2x2) max pooling
+Dense Layer
++ ReLU
+(4096) 
+Dense Layer
++ Softmax
+(1000) 
+Block-1
+Block-2
+Block-3
+Block-4
+Block-5
+Dense Block
+input
+(224,224,3)
+(64,112,112)
+(256,56,56)
+(512,7,7)
+(512,28,28)
+(512,14,14)
+output
+Low abstract feature
+High abstract feature
+Local and Global
+Spatial Information Constraint
+?
+?
+Detection Problem
+Copying Problem
+1
+Review
+❖ Content Loss
+AI VIETNAM
+All-in-One Course
+Target 
+Image
+Noise 
+Image
+Pretrained 
+Model
+Pretrained 
+Model
+Feature 
+map
+Feature 
+map
+Variable
+Constant
+Content Loss
+2
+Review
+AI VIETNAM
+All-in-One Course
+𝐺𝑖𝑗= ෍
+𝑘
+𝑉𝑖𝑘𝑉𝑗𝑘
+.
+=
+Gram matrix
+𝑉𝑇
+𝑉
+.
+=
+26 17 19
+17 14 18
+19 18 50
+Gram matrix
+𝑉𝑇
+𝑉
+4
+0
+3
+3
+0
+1
+4
+5
+0
+1
+2
+3
+4
+0
+3
+3
+0
+1
+4
+5
+0
+1
+2
+3
+❖ Gram Matrix
+3
+Review
+AI VIETNAM
+All-in-One Course
+.
+=
+Gram matrix
+𝑉𝑇
+𝑉
+.
+=
+26 17 19
+17 14 18
+19 18 50
+Gram matrix
+𝑉𝑇
+𝑉
+4
+0
+3
+3
+0
+1
+4
+5
+0
+1
+2
+3
+4
+0
+3
+3
+0
+1
+4
+5
+0
+1
+2
+3
+𝐺𝑖𝑗= ෍
+𝑘
+𝑉𝑖𝑘𝑉𝑗𝑘
+❖ Gram Matrix
+4
+Gram 
+Matrix
+𝐺𝑖𝑗= ෍
+𝑘
+𝑉𝑖𝑘𝑉𝑗𝑘
+.
+=
+26 17 19
+17 14 18
+19 18 50
+Gram matrix
+𝑉𝑇
+𝑉
+4
+0
+3
+3
+0
+1
+4
+5
+0
+1
+2
+3
+4
+0
+3
+3
+0
+1
+4
+5
+0
+1
+2
+3
+4
+0
+3
+1
+4
+0
+3
+1
+.
+= 26
+4
+0
+3
+1
+4
+0
+3
+1
+.
+= 26
+x. y = ෍
+1
+𝑛
+𝑥𝑖𝑦𝑖
+Algebra
+x. y =
+x
+y 𝑐𝑜𝑠𝛼
+Geometry
+x
+𝛼
+x 𝑐𝑜𝑠𝛼
+y
+Inner Product
+Position-invariant measure
+Review
+❖ Gram matrix
+https://pytorchtaipei.github.io/articles/PyTorchTP-Style-Transfer/
+6
+Review
+❖ Style Loss
+AI VIETNAM
+All-in-One Course
+Target 
+Image
+Noise 
+Image
+Pretrained 
+Model
+Pretrained 
+Model
+Feature 
+map 𝐹1
+Feature 
+map 𝐹2
+Style Loss
+𝐺𝐹1 −𝐺𝐹2
+2
+7
+➢Quick Review
+➢Content Loss+Style Loss
+➢Implementation
+➢Einstein Summation
+➢Extensions
+Outline
+Style Transfer
+❖ Content Loss + Style Loss
+AI VIETNAM
+All-in-One Course
+Pretrained 
+Model
+Content 
+Loss
+Style Image
+Pretrained 
+Model
+Feature map
+Pretrained 
+Model
+Content Image
+Output 
+Image
+Style 
+Loss
+Total 
+Loss
+8
+Style Transfer
+❖ Using the content image as initialization for the output image
+AI VIETNAM
+All-in-One Course
+Pretrained 
+Model
+Content 
+Loss
+Style Image
+Pretrained 
+Model
+Feature map
+Pretrained 
+Model
+Content Image
+Output 
+Image
+Style 
+Loss
+Total 
+Loss
+9
+https://arxiv.org/pdf/1508.06576v2.pdf
+10
+Shape=(3, 32, 32)
+Shape=(3, 32, 32)
+Shape=(3, 32, 32)
+212
+215
+214
+217
+…
+…
+128
+120
+123
+116
+…
+…
+…
+…
+…
+223
+214
+232
+195
+…
+…
+66
+79
+102
+94
+Content image
+Output image
+Style image
+204
+207
+206
+209
+…
+…
+131
+123
+126
+119
+…
+…
+…
+…
+…
+182
+173
+189
+152
+…
+…
+45
+55
+82
+72
+168
+171
+170
+172
+…
+…
+112
+104
+107
+100
+…
+…
+…
+…
+…
+150
+141
+155
+118
+…
+…
+44
+55
+83
+74
+212
+215
+214
+217
+…
+…
+128
+120
+123
+116
+…
+…
+…
+…
+…
+223
+214
+232
+195
+…
+…
+66
+79
+102
+94
+204
+207
+206
+209
+…
+…
+131
+123
+126
+119
+…
+…
+…
+…
+…
+182
+173
+189
+152
+…
+…
+45
+55
+82
+72
+168
+171
+170
+172
+…
+…
+112
+104
+107
+100
+…
+…
+…
+…
+…
+150
+141
+155
+118
+…
+…
+44
+55
+83
+74
+251
+253
+253
+254
+…
+…
+197
+193
+197
+192
+…
+…
+…
+…
+…
+252
+254
+253
+253
+…
+…
+183
+181
+184
+182
+72
+75
+72
+75
+…
+…
+102
+106
+104
+107
+…
+…
+…
+…
+…
+43
+45
+44
+44
+…
+…
+24
+28
+22
+26
+123
+124
+121
+123
+…
+…
+111
+113
+111
+113
+…
+…
+…
+…
+…
+85
+87
+86
+86
+…
+…
+65
+66
+64
+65
+❖ Example
+AI VIETNAM
+All-in-One Course
+11
+Shape=(3, 32, 32)
+Shape=(3, 32, 32)
+Shape=(3, 32, 32)
+Content image
+Output image
+Style image
+ContentLoss
+(MSE)
+VGG19
+VGG19
+Conv_1
+Conv_1
+0.00
+0.00
+…
+0.00
+0.00
+0.1404
+1.1997
+…
+0.00
+0.00
+0.1497
+1.2336
+…
+0.00
+0.00
+…
+…
+……
+…
+0.00
+0.00
+…
+0.3542
+0.00
+0.00
+0.00
+…
+0.363
+0.00
+0.00
+0.3599
+…
+0.3546
+0.00
+0.00
+0.00
+…
+0.00
+0.00
+0.00
+1.1288
+…
+0.00
+0.00
+0.00
+1.403
+…
+0.00
+0.00
+…
+…
+……
+…
+0.00
+0.00
+…
+1.2826
+0.00
+0.00
+0.00
+…
+1.2425
+0.00
+0.00
+0.4229
+…
+1.0897
+0.00
+4.18𝑒−5
+4.39𝑒−4
+4.39𝑒−4
+3.72𝑒−2
+…
+…
+4.7𝑒−5
+0.00
+1.35𝑒−2
+0.00
+…
+…
+…
+…
+…
+4.7𝑒−5
+1.35𝑒−2
+0.00
+0.00
+…
+…
+1.04𝑒−2
+0.00
+0.00
+0.00
+0.00
+0.00
+0.00
+2.75𝑒−2
+…
+…
+0.00
+0.00
+1.38𝑒−2
+0.00
+…
+…
+…
+…
+…
+0.00
+1.38𝑒−2
+0.00
+0.00
+…
+…
+1.93𝑒−2
+0.00
+0.00
+0.00
+StyleLoss
+(MSE)
+Gram matrix
+12
+ContentLoss
+(MSE)
+StyleLoss
+(MSE)
+ContentWeight
+(1)
+StyleWeight
+(1e6)
+TotalLoss (L)
+0.0231
+−0.0083
+0.0434
+0.0678
+…
+…
+−0.037
+−0.1309
+0.0996
+−0.0534
+…
+…
+…
+…
+…
+−0.017
+−0.0192
+0.0175
+0.0347
+…
+…
+0.0358
+−0.0135
+0.1084
+0.0578
+0.0407
+0.0107
+0.0652
+0.01011
+…
+…
+−0.0027
+−0.1198
+0.1118
+−0.0578
+…
+…
+…
+…
+…
+0.022
+0.0262
+0.0164
+0.0203
+…
+…
+0.0299
+−0.0281
+0.0662
+0.0242
+0.0245
+0.0201
+0.0283
+0.0521
+…
+…
+0.0312
+−0.0136
+0.04
+−0.003
+…
+…
+…
+…
+…
+0.0382
+0.0378
+−0.0006
+−0.009
+…
+…
+0.0021
+−0.0126
+−0.021
+−0.0168
+Shape=(3, 32, 32)
+Output image
+212
+215
+214
+217
+…
+…
+128
+120
+123
+116
+…
+…
+…
+…
+…
+223
+214
+232
+195
+…
+…
+66
+79
+102
+94
+204
+207
+206
+209
+…
+…
+131
+123
+126
+119
+…
+…
+…
+…
+…
+182
+173
+189
+152
+…
+…
+45
+55
+82
+72
+168
+171
+170
+172
+…
+…
+112
+104
+107
+100
+…
+…
+…
+…
+…
+150
+141
+155
+118
+…
+…
+44
+55
+83
+74
+199
+227
+201
+204
+…
+…
+140
+132
+110
+128
+…
+…
+…
+…
+…
+235
+226
+219
+182
+…
+…
+53
+91
+89
+81
+191
+194
+193
+196
+…
+…
+143
+135
+113
+131
+…
+…
+…
+…
+…
+169
+160
+176
+139
+…
+…
+32
+67
+69
+59
+155
+158
+157
+159
+…
+…
+99
+116
+94
+112
+…
+…
+…
+…
+…
+137
+128
+167
+130
+…
+…
+31
+67
+95
+86
+𝑇𝑎𝑟𝑔𝑒𝑡= Target −𝑙𝑟× 𝑑𝐿
+Update Parameters
+(𝑙𝑟= 0.05)
+−0.05 ×
+−0.05 ×
+−0.05 ×
+Note: the pixel value of the ouput image 
+when training will be normalized, not in 
+uint8 type. 
+13
+➢Quick Review
+➢Content Loss+Style Loss
+➢Implementation
+➢Einstein Summation
+➢Extensions
+Outline
+Style Transfer
+❖ Content Loss + Style Loss
+14
+AI VIETNAM
+All-in-One Course
+Content 
+Loss
+Style Image
+Pretrained 
+Model
+Feature map
+Pretrained 
+Model
+Content Image
+Output 
+Image
+Style 
+Loss
+Total 
+Loss
+Style Transfer
+(1) Data Preparation
+AI VIETNAM
+All-in-One Course
+Style Image
+Content Image
+Output 
+Image
+Style Transfer
+(2) Content Loss
+16
+AI VIETNAM
+All-in-One Course
+Content 
+Loss
+Content Image
+Output 
+Image
+Style Transfer
+❖ Content Loss + Style Loss
+17
+Style Image
+Pretrained 
+Model
+Feature map 𝐹2
+Pretrained 
+Model
+Output Image
+Feature map 𝐹1
+Style Transfer
+❖ Content Loss + Style Loss
+Pretrained 
+Model
+Pretrained 
+Model
+Style Loss
+𝐺𝐹1
+𝐺𝐹2
+Feature map 𝐹2
+Feature map 𝐹1
+Style Transfer
+❖ Content Loss + Style Loss
+Content 
+Loss
+Style Image
+Feature map
+Output 
+Image
+Style Loss
+Total 
+Loss
+…
+…
+Style Transfer
+❖ Content Loss + Style Loss
+20
+AI VIETNAM
+All-in-One Course
+➢Quick Review
+➢Content Loss+Style Loss
+➢Implementation
+➢Einstein Summation
+➢Extensions
+Outline
+Gram Matrix
+4
+AI VIETNAM
+All-in-One Course
+21
+𝐺𝑖𝑗= ෍
+𝑘
+𝑉𝑖𝑘𝑉𝑗𝑘
+.
+=
+Gram matrix
+𝑉𝑇
+𝑉
+.
+=
+26 17 19
+17 14 18
+19 18 50
+Gram matrix
+𝑉𝑇
+𝑉
+4
+0
+3
+3
+0
+1
+4
+5
+0
+1
+2
+3
+4
+0
+3
+3
+0
+1
+4
+5
+0
+1
+2
+3
+Einstein Summation
+4
+AI VIETNAM
+All-in-One Course
+22
+Dot product
+0
+3
+=
+11
+𝑢
+𝑣
+𝑟
+3
+2
+4
+1
+2
+1
+𝑖, 𝑖 → 
+0
+3
+𝑢
+𝑣
+2
+1
+𝑖→
+𝑟= ෍
+𝑖
+𝑢𝑖𝑣𝑖= 𝑢1𝑣1 + 𝑢2𝑣2 + ⋯
+4
+1
+3
+2
+𝑖→
+Einstein Summation
+4
+AI VIETNAM
+All-in-One Course
+23
+0
+3
+=
+𝑢
+𝑣
+𝑟
+2
+1
+𝑖, 𝑗 → 𝑖
+0
+3
+𝑢
+𝑣
+2
+1
+𝑗→
+𝑟𝑖= ෍
+𝑗
+𝑢𝑖𝑣𝑗= 𝑢𝑖𝑣1 + 𝑢𝑖𝑣2 + ⋯
+4
+1
+3
+2
+𝑖→
+4
+1
+3
+2
+24
+6
+18
+12
+Einstein Summation
+4
+AI VIETNAM
+All-in-One Course
+24
+𝑖, 𝑗 →𝑗
+0
+3
+𝑢
+𝑣
+2
+1
+𝑗→
+𝑟𝑗= ෍
+𝑖
+𝑢𝑖𝑣𝑗= 𝑢1𝑣𝑗+ 𝑢1𝑣𝑗+ ⋯
+4
+1
+3
+2
+𝑖→
+0
+3
+=
+𝑢
+𝑣
+𝑟
+2
+1
+4
+1
+3
+2
+0
+30
+20
+10
+Einstein Summation
+4
+AI VIETNAM
+All-in-One Course
+25
+Outer product
+𝑖, 𝑗 → 𝑖𝑗
+0
+3
+𝑢
+𝑣
+2
+1
+𝑗→
+𝑟𝑖𝑗= 𝑢𝑖𝑣𝑗
+4
+1
+3
+2
+𝑖→
+=
+𝑢
+𝑣
+𝑟
+2
+1
+0
+3
+4
+1
+3
+2
+8
+2
+6
+4
+4
+1
+3
+2
+0
+0
+0
+0
+12
+3
+9
+6
+Einstein Summation
+4
+AI VIETNAM
+All-in-One Course
+26
+Transpose
+𝐴
+0
+2
+1
+3
+1
+4
+𝐴𝑇
+transpose
+0
+2
+3
+1
+4
+1
+𝑖𝑗 → 𝑗𝑖
+𝐴
+0
+2
+1
+3
+1
+4
+2
+0
+3
+5
+1
+4
+𝐴𝑇
+𝑖→
+→
+𝑗
+𝑗→
+→
+𝑘
+𝐴𝑇𝑗𝑖= 𝐴𝑖𝑗
+Einstein Summation
+4
+AI VIETNAM
+All-in-One Course
+27
+Diagonal
+𝐴
+𝑟
+3
+5
+1
+2
+5
+3
+4
+2
+1
+3
+1
+6
+diagonal
+𝑖𝑖 → 𝑖
+2
+5
+3
+4
+2
+1
+3
+1
+6
+𝑖→
+→
+𝑖
+3
+5
+1
+𝑖→
+𝑟𝑖= 𝐴𝑖𝑖
+Einstein Summation
+4
+AI VIETNAM
+All-in-One Course
+28
+Trace
+𝐴
+𝑟
+9
+2
+5
+3
+4
+2
+1
+3
+1
+6
+trace
+𝑖𝑖 → 
+2
+5
+3
+4
+2
+1
+3
+1
+6
+𝑖→
+→
+𝑖
+𝑟= ෍
+𝑖
+𝐴𝑖𝑖
+Einstein Summation
+4
+AI VIETNAM
+All-in-One Course
+29
+𝑖𝑗, 𝑖𝑗 → 𝑖𝑗
+𝐴
+3
+0
+1
+2
+2
+3
+𝐵
+𝐶
+𝑖→
+→
+𝑗
+𝐶𝑖𝑗= 𝐴𝑖𝑗𝐵𝑖𝑗
+Element-wise multiplication
+=
+𝐴
+3
+0
+1
+2
+2
+3
+𝐵
+𝐶
+1
+0
+2
+3
+2
+1
+⨀
+3
+0
+2
+6
+4
+3
+1
+0
+2
+3
+2
+1
+𝑖→
+→
+𝑗
+3
+0
+2
+6
+4
+3
+𝑖→
+→
+𝑗
+Einstein Summation
+4
+AI VIETNAM
+All-in-One Course
+30
+.
+=
+3
+6
+18 32
+𝐴
+0
+2
+1
+3
+1
+4
+2
+0
+3
+5
+1
+4
+𝐵
+𝐶
+𝑖𝑗, 𝑗𝑘 → 𝑖𝑘
+3
+6
+18 32
+𝐴
+0
+2
+1
+3
+1
+4
+2
+0
+3
+5
+1
+4
+𝐵
+𝐶
+𝑖→
+→
+𝑗
+𝑗→
+→
+𝑘
+𝑖→
+→
+𝑘
+𝐶𝑖𝑘= ෍
+𝑗
+𝐴𝑖𝑗𝐵𝑗𝑘= 𝐴𝑖1𝐵1𝑘+ 𝐴𝑖2𝐵2𝑘+ ⋯
+Matrix multiplication
+Einstein Summation
+AI VIETNAM
+All-in-One Course
+.
+=
+3
+6
+18 32
+𝐴
+0
+2
+1
+3
+1
+4
+2
+0
+3
+5
+1
+4
+𝐵
+𝐶
+𝑖𝑗, 𝑗𝑘 →
+3
+6
+18 32
+𝐴
+0
+2
+1
+3
+1
+4
+2
+0
+3
+5
+1
+4
+𝐵
+𝐶
+𝑖→
+→
+𝑗
+𝑗→
+→
+𝑘
+𝑖→
+→
+𝑘
+𝐶𝑖𝑘= ෍
+𝑗
+𝐴𝑖𝑗𝐵𝑗𝑘= 𝐴𝑖1𝐵1𝑘+ 𝐴𝑖2𝐵2𝑘+ ⋯
+Matrix multiplication
+Repeated indices are summed if the output indices are not specified.
+➢Quick Review
+➢Content Loss+Style Loss
+➢Implementation
+➢Einstein Summation
+➢Extensions
+Outline
+Multi-modal 
+Style Transfer
+Multi-modal Style Transfer
+AI VIETNAM
+All-in-One Course
+32
+33
+Multi-modal 
+Style Transfer
+❖ Shuffle feature maps
+34
+Output 
+Image 1
+Output 
+Image 2
+Multi-modal Style Transfer
+❖ Deep feature rotation
+AI VIETNAM
+All-in-One Course
+35
+Multi-modal 
+Style Transfer
+❖ Deep feature rotation
+Multi-modal 
+Style Transfer
+❖ Results
+❖ Two style images
+7.2.Style_transfer_1content_2style.ipynb
+Multi-modal Style Transfer
+❖ Two style images
+39
+AI VIETNAM
+All-in-One Course
+7.3.Style_transfer_1content_2style.ipynb
+Epoch 1
+Epoch 3
+Epoch 10
+Multi-modal Style Transfer
+❖ Two style images
+40
+AI VIETNAM
+All-in-One Course
+7.4.Style_transfer_1content_2style.ipynb
+Epoch 1
+Epoch 3
+Epoch 10
+Multi-modal Style Transfer
+❖ Using the Euclidian Distance
+41
+AI VIETNAM
+All-in-One Course
+Epoch 1
+Epoch 3
+Epoch 10
+Multi-modal 
+Style Transfer
+❖ Different measures
+Multi-modal Style Transfer
+❖ Results
+AI VIETNAM
+All-in-One Course
+43
+Multi-modal 
+Style Transfer
+❖ Results
+➢Quick Review
+➢Content Loss+Style Loss
+➢Implementation
+➢Einstein Summation
+➢Extensions
+Summary
+Summary
+✓Studied about content loss + style loss
+✓Implemented simple methods
+✓Studied the Einsum and applied to style transfer
+✓Discussed ideas beyond the traditional style transfer

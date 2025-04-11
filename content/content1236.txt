@@ -1,4 +1,0 @@
-Hình 3: Một số mô hình MLLMs điển hình hiện nay.
-Trong phần tiếp theo, chúng ta sẽ huấn luyện mô hình cơ bản BLIP-2 trên bài toán VQA - Visual
-Question Answering.
-2

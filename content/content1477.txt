@@ -1,6 +1,0 @@
-AI VIETNAM aivietnam.edu.vn
-21 contexts = []
-22
-23 for hit in hits :
-24 ids . append ( hit .id)
-25 distances . 

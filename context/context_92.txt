@@ -1,0 +1,431 @@
+Module 10 - Exercise
+Text Summarization 
+with Human Feedback (RLHF)
+Year 2023
+AI VIET NAM
+Nguyen Quoc Thai
+AI VIETNAM
+All-in-One Course
+1
+2
+Objective
+Ø ChatGPT
+Ø Text Summarization
+Ø Human Feedback
+3
+ChatGPT
+4
+ChatGPT
+5
+Ø Large Language Models
+Ø InstructGPT (RLHF)
+Ø Text Summarization using RLHF
+Outline
+6
+Large Language Models
+ChatGPT
+!
+7
+Large Language Models
+Large Language Models
+!
+Ø Medium-sized models: BERT/RoBERTa models (100M or 300M), T5 models (220M, 
+700M, 3B, 11B)
+Ø “Very” large LMs: models of 100+ billion parameters
+GPT3 (175B), BLOOM (176B), PaLM (540B), GLaM (1200B)…
+Ø Larger model sizes => Larger compute, more expensive during inference
+8
+Large Language Models
+Large Language Models
+!
+Ø Data scale: usually in the order of trillions of tokens
+GPT3 (0.5 trillion tokens), LLaMA (1.4 trillion tokens), …
+Ø Training data: Low-quality data 
+9
+Large Language Models
+Large Language Models
+!
+10
+Large Language Models
+Large Language Models
+!
+Ø Pre-training: trained on huge amounts of unlabeled text using “self-supervised” 
+training objective
+Ø Adaptation: how to use a pre-trained model for downstream task?
+11
+Large Language Models
+Large Language Models
+!
+Ø The promise: one single model to solve 
+many NLP tasks
+Ø Emergent properties in LLMs
+12
+Large Language Models
+Prompts
+!
+Ø Prompts involve instructions and context passed to a language model to achieve a
+desired task
+Ø Prompt engineering is the practice of developing and optimizing prompts to
+efficiently use language models (LMs) for a variety of applications
+13
+Large Language Models
+Elements of Prompts
+!
+Prompt
+Response
+Language
+Model
+TASK DESCRIPTION
+CURRENT INPUT
+OUTPUT INDICATOR
+EXAMPLE 1
+EXAMPLE 2
+One-shot
+Few-shot
+14
+Large Language Models
+Three setting for In-Context-Learning
+!
+15
+Ø Large Language Models
+Ø InstructGPT (RLHF)
+Ø Text Summarization using RLHF
+Outline
+16
+InstructGPT (RLHF)
+Overview
+!
+17
+InstructGPT (RLHF)
+Pre-training LLMs
+!
+18
+InstructGPT (RLHF)
+Supervised Fine-Tuning (SFT)
+!
+Ø Goal: optimize the LLM to generate the response that users are 
+looking for
+19
+InstructGPT (RLHF)
+Supervised Fine-Tuning (SFT)
+!
+Ø Goal: optimize the LLM to generate the response that users are 
+looking for
+20
+InstructGPT (RLHF)
+Supervised Fine-Tuning (SFT)
+!
+Ø A large collections of prompts:
+q Labeler-written prompts
+Plain
+Labelers to come up with  an arbitrary task, while 
+ensuring diversity of tasks
+Few-shot
+Labelers to come up with an instruction and multiple 
+query/response pairs for that instruction
+“Given the sentiment for a tweet”
+User-based
+Collect use-cases stated in applications to the 
+OpenAI API. Labelers to come up with prompts 
+correspponding to these use-cases
+21
+InstructGPT (RLHF)
+Supervised Fine-Tuning (SFT)
+!
+Ø A large collections of prompts:
+q Labeler-written prompts
+q API user prompts (From OpenAI GPT3 Playground)
+- 200 prompts / per organization
+- 10 use cases
+22
+InstructGPT (RLHF)
+Supervised Fine-Tuning (SFT)
+!
+Ø A large collections of prompts:
+23
+InstructGPT (RLHF)
+Supervised Fine-Tuning (SFT)
+!
+Ø A large collections of prompts:
+24
+InstructGPT (RLHF)
+Supervised Fine-Tuning (SFT)
+!
+Ø Fine tune the model, call this model SFT Model
+q Initialized with pretrained GPT3 175B model
+q Trained for 16 epochs on demonstration data
+q Notation:
+𝜋!"#
+25
+InstructGPT (RLHF)
+Supervised Fine-Tuning (SFT)
+!
+Ø Task: language modeling
+Ø Training data: high-quality in the format of (prompt, response)
+Ø Data scale: 10,000 – 100,000 (prompt, response) pairs
+Ø Model: LLMs
+- Input: prompt
+- Output: response for this prompt
+Ø Loss: cross entropy
+26
+InstructGPT (RLHF)
+Reward Modeling
+!
+Ø Training a model to output a score on a given input (a pair of 
+prompt – response)
+Ø A classification or regression task
+27
+InstructGPT (RLHF)
+Reward Modeling
+!
+Ø Given K = 4 to 9 outputs to rank for each prompt
+28
+InstructGPT (RLHF)
+Reward Modeling
+!
+Ø Given K = 4 to 9 outputs to rank for each prompt
+Ø For 4 ranked responses:  D > C > A = B
+=> 5 ranked pairs: (D > C), (D > A), (D > B), (C > A), (C > B)
+29
+InstructGPT (RLHF)
+Reward Modeling
+!
+Ø The reward model: 𝒓𝜽
+x: the prompt, yw: the better completion, yl: the worse completion
+loss 𝜃= E %,'!,'" ~) log 𝜎r* x, y+ −r* x, y,
+Reward on better 
+completion
+Reward on worse 
+completion
+30
+InstructGPT (RLHF)
+Reward Modeling
+!
+Ø The reward model: 𝒓𝜽
+Ø Overfitting problem
+Each prompt has K completions => K choose 2 pairs to compare
+Each completion can appear in K-1 gradient updates
+31
+InstructGPT (RLHF)
+Reward Modeling
+!
+Ø The reward model: 𝒓𝜽
+Ø Overfitting problem
+Each prompt has K completions => K choose 2 pairs to compare
+Each completion can appear in K-1 gradient updates
+Ø Solution: train on all comparisons from each prompt as a single 
+batch element
+Ø Normalization in loss with -1/(K choose 2):
+loss 𝜃= −1
+K
+2
+E %,'!,'" ~) log 𝜎r* x, y+ −r* x, y,
+32
+InstructGPT (RLHF)
+Reward Modeling
+!
+Ø The reward model: 𝒓𝜽
+Ø Training data: high-quality data
+x: the prompt, yw: the better completion, yl: the worse completion
+Ø Data scale: 100K – 1M examples
+InstructGPT: 50,000 prompts (each prompt: 4 to 9 responses) => 
+300K to 1.8M training examples
+Ø Training sample (x, yw, yl )
+loss 𝜃= −1
+K
+2
+E %,'!,'" ~) log 𝜎r* x, y+ −r* x, y,
+33
+InstructGPT (RLHF)
+Reinforcement Learning
+!
+Ø Goal: train the SFT model to generate output responses that will 
+maximize the scores by the RM model
+Ø Training data: randomly selected prompts
+Ø Data sacle: 10,000 – 100,0000 prompts
+34
+InstructGPT (RLHF)
+Reinforcement Learning
+!
+ML Task: Reinforcement Learning
+Ø Action space: the vocabulary of tokens the LLM uses. Taking 
+action means choosing a token to generate
+Ø Observation space: the distribution over all possible prompts
+Ø Policy: the probability distribution over all actions to take (all 
+tokens to generate) given an observation (a  prompt)
+Ø Reward function: the reward model from stage 2
+35
+InstructGPT (RLHF)
+Reinforcement Learning
+!
+Ø DRL: the distribution of prompts used for RL model
+Ø LLM 𝜋-
+./: the model being trained with RL, parameterized by 𝜙
+Ø For each x from DRL: y: 𝜋-
+./(x)
+objective0 x, y; 𝜙= 𝒓𝜽(x, y)
+Ø For all training data DRL
+objective0 x, y; 𝜙= E(2,')~4#$./𝒓𝜽(x, y)
+36
+InstructGPT (RLHF)
+Reinforcement Learning
+!
+Ø Worse reward esimates: as RLHF is updated, its outputs become 
+very different from what the RM was trained on
+Ø Solution: add a KL penalty that makes sure PPO model output 
+does not deviate too far from SFT model
+objective0 x, y; 𝜙= E %,5 ~4#$67 𝒓𝜽x, y −𝛽log
+𝜋-
+./ 𝑦𝑥
+𝜋89: 𝑦𝑥
+37
+InstructGPT (RLHF)
+Reinforcement Learning
+!
+Ø Just using RL objective leads to performance degradation 
+on many NLP tasks
+Ø Solution: add a auxiliary LM ojective on the pretraining data. 
+Call this variant PPO-ptx
+Ø Dpretrain: the distribution of the pretraining data for the pretrain 
+model
+objective; x<=>?=@AB; 𝜙= 𝛾E2~4%&'(&)*+ log 𝝅𝝓
+./ x
+38
+InstructGPT (RLHF)
+Reinforcement Learning
+!
+Ø Maximize the objective function in RL training:
+objective 𝝓= objective0 x, y; 𝜙+ objective; x<=>?=@AB; 𝜙
+objective 𝝓= E %,5 ~4#$67 𝒓𝜽x, y −𝛽log
+𝜋-
+./ 𝑦𝑥
+𝜋89: 𝑦𝑥
++ 𝛾E2~4%&'(&)*+ log 𝝅𝝓
+./ x
+39
+InstructGPT (RLHF)
+Summary
+!
+40
+Ø Large Language Models
+Ø InstructGPT (RLHF)
+Ø Text Summarization using RLHF
+Outline
+41
+Text Summarization using RLHF
+Text Summarization
+!
+Document
+Summary
+42
+Text Summarization using RLHF
+Text Summarization
+!
+43
+Text Summarization using RLHF
+Types of Text Summarization
+!
+Ø Based on Output Type
+Document
+Summary
+Document
+Summary
+Extrective
+Abstractive
+44
+Text Summarization using RLHF
+Types of Text Summarization
+!
+Ø Based on Input Type
+Document
+Summary
+Document
+Summary
+Single-Document
+Multi-Document
+45
+Text Summarization using RLHF
+Dataset
+!
+CarperAI/openai_summarize_tldr
+46
+Text Summarization using RLHF
+Dataset
+!
+CarperAI/openai_summarize_comparisions
+47
+Text Summarization using RLHF
+Pipeline
+!
+Document
+Summary
+LM
+Document + Summary
+Reward Model
+Reward
+Document + Summary
+LM
+LM
+log-probs
+log-probs
+Reward
+KL-div
+PPO
+-
++
+Active Model
+Reference Model
+Policy gradients optimize model
+48
+Text Summarization using RLHF
+Pipeline – Supervised Fine-Tuning
+!
+Document
+Summary
+LM
+Task: Text Generation
+Dataset: CarperAI/openai_summarize_tldr
+Metric: ROUGE
+Tokenization
+Generation
+Document + Summary
+49
+Text Summarization using RLHF
+Pipeline – Reward Modeling
+!
+Reward Model
+Reward
+Task: Text Classification (Document-Level)
+Dataset:CarperAI/openai_summarize_comparisions
+Metric: Accuracy
+Tokenization
+Classification
+Chosen: 1
+Rejected: 0
+50
+Text Summarization using RLHF
+Pipeline – PPO
+!
+Task: Reinforcement Learning
+Dataset: CarperAI/openai_summarize_tldr
+Document + Summary
+LM
+LM
+log-probs
+Log-probs
+Reward
+KL-div
+PPO
+-
++
+Active Model
+Policy gradients optimize model
+51
+Text Summarization using RLHF
+Experiment
+!
+52
+Summary
+Thanks!
+Any questions?
+53

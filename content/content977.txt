@@ -1,5 +1,0 @@
-AI VIETNAM aivietnam.edu.vn
-Hình 1: Giải pháp RAG cung cấp bởi Lewis (2020). Giải pháp kết hợp một mô hình truy vấn được huấn
-luyện trước (Query Encoder + Document Index) và một mô hình seq2seq huấn luyện trước (Generator).
-Với đầu vào là truy vấn x, Maximum Inner Product Search (MIPS) được sử dụng để tìm ra top-k tài
-liệu liên quan. Tài liệu tìm thấy được sử dụng trong phần dự báo của mô hình seq2seq.

@@ -1,0 +1,672 @@
+AI VIET NAM – 2024
+Text Classification with Mamba - Project
+Minh-Duc Bui, Khai-Xuan Trinh, và Quang-Vinh Dinh
+Ngày 25 tháng 2 năm 2024
+Phần I: Giới thiệu
+Gần đây, Mamba là kiến trúc mới ra mắt và được sựhưởng ứng mạnh mẽtừcộng đồng các nhà nghiên
+cứu. Mamba trởthành trend vì khảnăng vượt trội hơn Transformer (kiến trúc phổbiến ởthời điểm
+hiện tại). Sựvượt trội được thểhiện ởcả3 tiêu chí chính đểđánh giá 1 model: accuracy, speed, và
+computional cost.
+Trong project này, ta sẽtìm hiểu cơ bản vềkiến trúc Mamba và áp dụng Mamba vào bài toán text
+classification.
+1
+AI VIETNAM
+aivietnam.edu.vn
+Phần II: Nội dung
+1. Mô tảdataset IMDB
+IMDB dataset là bộdata bao gồm 50,000 đánh giá vềphim. Đây là bộdữliệu được sửdụng cho
+việc phân loại đánh giá tiêu cực và tích cực. Bộdữliệu được chia làm 2 phần bằng nhau, 25,000
+mẫu đểtrain, và 25,000 mẫu đểkiểm thử. Bên cạnh đó, bộdữliệu cũng cung cấp 50,000 mẫu dữ
+liệu chưa đánh nhãn đểhỗtrợquá trình train. Tuy nhiên trong project này ta chỉsửdụng phần
+dữliệu đã được đánh nhãn đểtrain model.
+Hình 1: Ví dụminh họa vềdataset IMDB.
+2. Model Mamba cho bài toán Text classification
+(a) Install and import libraries: Đầu tiên ta sẽinstall một sốthư viện cần thiết của Hug-
+gingface và Mamba:
+1 !pip
+install
+datasets
+evaluate
+accelerate
+2 !pip
+install
+causal -conv1d >=1.1.0
+3 !pip
+install mamba -ssm
+Sau đó ta sẽtiến hành login vào HuggingFace đểdownload dataset và model có sẵn. Khi
+chạy block code này thì HuggingFace sẽđưa ra một đường dẫn đến trang HuggingFace để
+lấy mã token. Lưu ý đểthuận tiện cho quá trình train và đưa model lên Huggingface Hub
+thì ta nên sửdụng token có quyền ghi của Huggingface.
+1 from
+huggingface_hub
+import
+notebook_login
+2 notebook_login ()
+Cuối cùng ta sẽimport các thư viện chính được sửdụng trong phần này:
+2
+AI VIETNAM
+aivietnam.edu.vn
+1 import os
+2 import
+random
+3 import
+json
+4 import
+torch
+5 import
+torch.nn as nn
+6 from
+collections
+import
+namedtuple
+7 from
+dataclasses
+import
+dataclass , field , asdict
+8 from
+mamba_ssm.models. mixer_seq_simple
+import
+MambaLMHeadModel
+9 from
+mamba_ssm.utils.hf import
+load_config_hf , load_state_dict_hf
+10
+11 import
+evaluate
+12 import
+numpy as np
+13 from
+datasets
+import
+load_dataset
+14 from
+transformers
+import
+Trainer
+15 from
+transformers
+import
+AutoTokenizer , TrainingArguments
+(b) Download dataset:
+1 # Tải bộdataset
+2 imdb = load_dataset("imdb")
+(c) Build Custom Mamba Model: Xây dựng model Mamba đểphân loại văn bản.
+3
+AI VIETNAM
+aivietnam.edu.vn
+• Setup config:
+1 # Config
+class của Mamba
+2 class
+MambaConfig:
+3
+d_model: int = 2560
+4
+n_layer: int = 64
+5
+vocab_size: int = 50277
+6
+ssm_cfg: dict = field( default_factory =dict)
+7
+rms_norm: bool = True
+8
+residual_in_fp32 : bool = True
+9
+fused_add_norm : bool = True
+10
+pad_vocab_size_multiple : int = 8
+11
+12
+def
+to_json_string (self):
+13
+return
+json.dumps(asdict(self))
+14
+15
+def
+to_dict(self):
+16
+return
+asdict(self)
+• Định nghĩa class head (classifier) đểphục vụcho việc phân loại văn bản:
+1 # Định nghĩa class
+head đểphân loại
+2 class
+MambaClassificationHead (nn.Module):
+3
+def
+__init__(self , d_model , num_classes , ** kwargs):
+4
+super(MambaClassificationHead , self).__init__ ()
+5
+# Sửdụng một lớp tuyến tính đểthực hiện phân loại dựa trên
+đầu vào có kích thước d_model và num_classes cần phân loại.
+6
+self. classification_head = nn.Linear(d_model , num_classes ,
+** kwargs)
+7
+8
+def
+forward(self , hidden_states ):
+9
+return
+self. classification_head (hidden_states)
+• Định nghĩa model Mamba:
+1 class
+MambaTextClassification ( MambaLMHeadModel ):
+2
+def
+__init__(
+3
+self ,
+4
+config: MambaConfig ,
+5
+initializer_cfg=None ,
+6
+device=None ,
+7
+dtype=None ,
+8
+) -> None:
+9
+super ().__init__(config , initializer_cfg , device , dtype)
+10
+11
+# Tạo một đầu phân loại sửdụng
+MambaClassificationHead với
+kích thước đầu vào là d_model và sốlớp là 2.
+12
+self. classification_head = MambaClassificationHead (d_model=
+config.d_model , num_classes =2)
+13
+14
+del self.lm_head
+15
+16
+def
+forward(self , input_ids , attention_mask =None , labels=None):
+4
+AI VIETNAM
+aivietnam.edu.vn
+17
+# Truyền input_ids
+qua model gốc đểnhận hidden_states.
+18
+hidden_states = self.backbone(input_ids)
+19
+20
+# Lấy trung bình của hidden_states
+theo chiều thứ2 đểtạo
+ra [CLS] feature đại điện
+21
+mean_hidden_states = hidden_states.mean(dim =1)
+22
+23
+# Đưa mean_hidden_states
+qua đầu phân loại đểnhận logits.
+24
+logits = self. classification_head ( mean_hidden_states )
+25
+26
+if labels is None:
+27
+ClassificationOutput = namedtuple(" ClassificationOutput ",
+["logits"])
+28
+return
+ClassificationOutput (logits=logits)
+29
+else:
+30
+ClassificationOutput = namedtuple(" ClassificationOutput ",
+["loss", "logits"])
+31
+32
+# Sửdụng hàm mất mát CrossEntropyLoss đểtính loss.
+33
+loss_fct = nn. CrossEntropyLoss ()
+34
+loss = loss_fct(logits , labels)
+35
+36
+return
+ClassificationOutput (loss=loss , logits=logits)
+37
+38
+def
+predict(self , text , tokenizer , id2label=None):
+39
+input_ids = torch.tensor(tokenizer(text)[’input_ids ’],
+device=’cuda ’)[None]
+40
+with
+torch.no_grad ():
+41
+logits = self.forward(input_ids).logits [0]
+42
+label = np.argmax(logits.cpu().numpy ())
+43
+44
+if id2label is not None:
+45
+return
+id2label[label]
+46
+else:
+47
+return
+label
+48
+49
+@classmethod
+50
+def
+from_pretrained (cls , pretrained_model_name , device=None ,
+dtype=None , ** kwargs):
+51
+# Tải cấu hình từmodel đã được train trước đó.
+52
+config_data = load_config_hf ( pretrained_model_name )
+53
+config = MambaConfig (** config_data)
+54
+55
+# Khởi tạo model từcấu hình và chuyển nó đến thiết bịvà ki
+ểu dữliệu mong muốn.
+56
+model = cls(config , device=device , dtype=dtype , ** kwargs)
+57
+58
+# Tải trạng thái model đã được train trước đó.
+59
+model_state_dict = load_state_dict_hf (pretrained_model_name ,
+device=device , dtype=dtype)
+60
+model. load_state_dict (model_state_dict , strict=False)
+61
+62
+# In ra các tham sốembedding mới được khởi tạo.
+63
+print("Newly
+initialized
+embedding:", set(model.state_dict ()
+.keys ()) - set( model_state_dict .keys ()))
+64
+return
+model
+• Cuối cùng ta sẽtải trọng sốvà tokenizer của model Mamba đã được pretrain từtrước.
+5
+AI VIETNAM
+aivietnam.edu.vn
+Trọng sốcủa model Mamba pretrain sẽkhông bao gồm các tham sốcủa phần head
+(classifier) MambaClassificationHead mà ta tựđịnh nghĩa. Do đó, phần head này sẽđược
+khởi tạo tham sốtừđầu:
+1 # Tải model
+Mamba từmodel đã được train trước đó.
+2 model = MambaTextClassification . from_pretrained ("state -spaces/mamba
+-130m")
+3 model.to("cuda")
+4
+5 # Tải tokenizer của model
+Mamba từmodel gpt -neox -20b.
+6 tokenizer = AutoTokenizer. from_pretrained ("EleutherAI/gpt -neox -20b")
+7 # Đặt id của token pad bằng id của token eos trong
+tokenizer.
+8 tokenizer.pad_token_id = tokenizer.eos_token_id
+(d) Preprocess dataset: Trong phần này ta sẽtiến hành tokenize dataset cho tập train và tập
+test. Vì sốlượng sample của tập test khá lớn nên đểthuận tiện cho quá trình train ta sẽlấy
+ra 1 phần nhỏcủa tập test đểđánh giá model.
+1 # Tạo chức năng tiền xửlý đểmã hóa văn bản và cắt bớt các chuỗi không
+dài hơn độdài đầu vào tối đa của mã thông báo
+2 def
+preprocess_function (examples):
+3
+samples = tokenizer(examples["text"], truncation=True)
+4
+# Không cần attention_mask
+5
+# Cụthểhơn vềtoken
+masking của mamba có thểtham khảo: https ://
+github.com/state -spaces/mamba/issues /49
+6
+samples.pop(’attention_mask ’)
+7
+return
+samples
+8
+9 # Thực hiện mã hóa văn bản
+10 tokenized_imdb = imdb.map(preprocess_function , batched=True)
+11
+12 # Set seed cho hàm random
+13 random.seed (42)
+14
+15 # Tạo tập train và test
+16 train_dataset = tokenized_imdb ["train"]
+17 test_dataset = tokenized_imdb ["test"]
+18
+19 # Tạo tập evaluation đểđánh giá trong lúc train
+20 # Do sốlượng tập test lớn nên chỉlấy mẫu 1% tập dữliệu test đểđánh
+giá
+21 total_samples = len(test_dataset)
+22 eval_samples = int (0.1 * total_samples )
+23 eval_indices = random.sample(range( total_samples ), eval_samples)
+24 eval_dataset = test_dataset.select(eval_indices)
+(e) Evaluation metric: Đểđánh giá performance của model ta sẽsửdụng metric accuracy từ
+thư viện evaluate:
+1 # Tải module "accuracy" từthư viện evaluate.
+2 accuracy = evaluate.load("accuracy")
+3
+6
+AI VIETNAM
+aivietnam.edu.vn
+4 # Định nghĩa hàm compute_metrics đểtính các độđo hiệu suất (metrics)
+cho việc đánh giá model.
+5 def
+compute_metrics (eval_pred):
+6
+predictions , labels = eval_pred
+7
+8
+# Lấy chỉsốcủa lớp có xác suất cao nhất trong
+predictions.
+9
+predictions = np.argmax(predictions , axis =1)
+10
+11
+# Sửdụng module "accuracy" đểtính độchính xác dựa trên
+predictions và labels.
+12
+return
+accuracy.compute(predictions=predictions , references=labels)
+(f) Train model: Sau khi đã chuẩn bịxong dataset, ta sẽtiến hành setup một sốtham sốtrong
+quá trình train và tiến hành train model.
+• Trước hết, ta sẽđịnh nghĩa một sốhyper-parameter mà ta sẽsửdụng đểtrain model:
+1 # Định nghĩa tên project đểlog thông tin quá trình train trên wandb
+2 # os.environ [" WANDB_PROJECT "] = " mamba_tutorial"
+3
+4 # Định nghĩa các tham sốtrain
+trong
+class
+TrainingArguments .
+5 # Cụthểhơn vềcác tham sốhỗtrợcó thểtham khảo: https ://
+huggingface.co/docs/ transformers /main_classes/trainer
+6 training_args = TrainingArguments (
+7
+output_dir=" mamba_text_classification ", # Tên folder
+output
+8
+learning_rate =5e-5,
+9
+per_device_train_batch_size =4, # Sốlượng train
+sample trên mỗi
+device
+10
+per_device_eval_batch_size =16, # Sốlượng eval
+sample trên mỗi
+device
+11
+num_train_epochs =1, # Sốepoch
+train
+12
+warmup_ratio =0.01 , # Tỉlệtăng dần lr trong
+giai đoạn warmup
+13
+lr_scheduler_type ="cosine", # Loại scheduler đểgiảm lr
+14
+report_to="none", # "wandb" nếu muốn log kết quả
+15
+evaluation_strategy ="steps", # Xác định metric đánh giá sau mỗi
+sốbước
+16
+eval_steps =0.1, # Sốbước giữa các đợt đánh giá
+17
+save_strategy="steps", # Xác định khi nào lưu checkpoint
+18
+save_steps =0.1, # Sốbước giữa các lần lưu checkpoint
+19
+logging_strategy ="steps", # Xác định khi nào in thông tin log
+20
+logging_steps =1, # Sốbước giữa các lần in thông tin log
+21
+push_to_hub=True ,
+# Đẩy kết quảlên Hub
+22
+load_best_model_at_end =True , # Load
+model có kết quảevaluation
+tốt nhất trong quá trình train
+23 )
+• Sau đó ta sẽkhởi tạo class MambaTrainer kếthừa từclass Trainer. Đầu tiên, ta sẽtạo hàm
+compute_loss() đểđịnh nghĩa hàm loss sửdụng trong quá trình train. Vì ta đã triển khai
+hàm loss là cross-entropy trong hàm forward của model, nên ta chỉcần trích xuất giá trị
+mất mát từkết quảtrảvềcủa hàm forward. Sau đó ta sẽtiếp tục code hàm save_model()
+đểđịnh nghĩa cách lưu model. Đểlưu model, ta cần ghi lại các tham số, tokenizer, và
+cấu hình (config) của model.
+7
+AI VIETNAM
+aivietnam.edu.vn
+1 # Định nghĩa một class
+MambaTrainer kếthừa từclass
+Trainer.
+2 class
+MambaTrainer(Trainer):
+3
+4
+# Định nghĩa hàm compute_loss đểtính toán hàm mất mát trong quá
+trình train.
+5
+def
+compute_loss(self , model , inputs , return_outputs =False):
+6
+# Lấy giá trịinput_ids và labels từinputs.
+7
+input_ids = inputs.pop("input_ids")
+8
+labels = inputs.pop(’labels ’)
+9
+10
+# Gọi hàm forward của model với input_ids và labels đểnhận
+các kết quả.
+11
+outputs = model(input_ids=input_ids , labels=labels)
+12
+13
+# Lấy giá trịloss từkết quảcủa model.
+14
+loss = outputs.loss
+15
+16
+# Trảvềcảloss và outputs nếu return_outputs là True , ngượ
+c lại chỉtrảvềloss.
+17
+return (loss , outputs) if return_outputs
+else loss
+18
+19
+# Định nghĩa hàm save_model đểlưu model
+trong quá trình train.
+20
+def
+save_model(self , output_dir = None , _internal_call = False):
+21
+# Kiểm tra nếu thư mục lưu trữkhông được chỉđịnh , sửdụng
+thư mục mặc định từđối số’args ’.
+22
+if output_dir is None:
+23
+output_dir = self.args.output_dir
+24
+25
+# Nếu thư mục đầu ra không tồn tại, tạo mới nó.
+26
+if not os.path.exists(output_dir):
+27
+os.makedirs(output_dir)
+28
+29
+# Lưu trạng thái của model
+PyTorch vào file ’pytorch_model .
+bin’ trong thư mục đầu ra.
+30
+torch.save(self.model.state_dict (), f"{output_dir }/
+pytorch_model.bin")
+31
+32
+# Lưu trạng thái của tokenizer vào thư mục đầu ra.
+33
+self.tokenizer. save_pretrained (output_dir)
+34
+35
+# Lưu cấu hình của model vào file ’config.json ’ trong thư mụ
+c đầu ra.
+36
+with open(f’{output_dir }/ config.json ’, ’w’) as f:
+37
+json.dump(self.model.config.to_dict (), f)
+• Cuối cùng ta sẽkhởi tạo class MambaTrainer, đây là class chính đểtrain model. Sau khi đã
+khởi tạo thì ta chỉcần gọi trainer.train() thì quá trình train model sẽđược tiến hành:
+1 # Khởi tạo classs
+MambaTrainer đểthực hiện quá trình train của
+model.
+2 trainer = MambaTrainer(
+3
+model=model , # Model cần train
+4
+train_dataset=train_dataset , # Dữliệu train
+5
+eval_dataset=eval_dataset , # Dữliệu đánh giá
+8
+AI VIETNAM
+aivietnam.edu.vn
+6
+tokenizer=tokenizer , # Tokenizer sửdụng đểmã hóa dữliệu
+7
+args=training_args , # Các tham sốtrain đã được định nghĩa trước
+đó
+8
+compute_metrics = compute_metrics # Hàm tính các độđo hiệu suất (
+metrics) cho đánh giá
+9
+)
+10 # Bắt đầu quá trình train bằng cách gọi hàm train () trên classs
+trainer.
+11 trainer.train ()
+• Sau khi quá trình train hoàn tất, ta sẽđưa weight, config của model lên HuggingFace
+Hub đểlưu lại:
+1 # Đẩy model lên huggingface
+hub
+2 trainer.push_to_hub(commit_message ="Training
+complete")
+3
+4 >> Output: CommitInfo(commit_url=’https :// huggingface.co/
+trinhxuankhai/ mamba_text_classification /commit /816827
+ae91a91dd9006a9ef66ecefd837382998b ’, commit_message =’Training
+complete ’, commit_description =’’, oid=’816827
+ae91a91dd9006a9ef66ecefd837382998b ’, pr_url=None , pr_revision=
+None , pr_num=None)
+(g) Run Testing: Sau khi đã hoàn tất quá trình train, ta sẽđánh giá model trên tập test và in
+ra kết quảđánh giá của model:
+1 # Thực hiện dựđoán trên tập dữliệu validation
+2 outputs = trainer.predict( test_dataset )
+3 print(outputs.metrics)
+4
+5 >> Output: {’test_loss ’: 0.21128389239311218 , ’test_accuracy ’: 0.94708 ,
+’test_runtime ’: 1308.2019 , ’test_samples_per_second ’: 19.11 , ’
+test_steps_per_second ’: 1.195}
+9
+AI VIETNAM
+aivietnam.edu.vn
+(h) Load and inference model from Hub: Ởphần trước, sau khi ta đưa model lên Hugging-
+face Hub, nếu muốn inference model ta có thểgọi hàm from_pretrained của model Mamba ta
+đã định nghĩa ởtrước đểload pretrain model. Sau đó ta sẽtruyền văn bản cần phân loại,
+tokenize và id của từng class vô hàm predict của model đểthực hiện dựđoán kết quả.
+1 # Tải model
+Mamba từmodel đã được train trước đó.
+2 model = MambaTextClassification . from_pretrained ("trinhxuankhai /
+mamba_text_classification ")
+3 model.to("cuda")
+4
+5 # Tải tokenizer của model
+Mamba từmodel đã được train trước đó.
+6 tokenizer = AutoTokenizer . from_pretrained (" trinhxuankhai /
+mamba_text_classification ")
+7 # Đặt id của token pad bằng id của token eos trong
+tokenizer.
+8 tokenizer.pad_token_id = tokenizer. eos_token_id
+Sau đây ta sẽchạy thửmột sample trên tập test:
+1 id2label = {0: "NEGATIVE", 1: "POSITIVE"}
+2 text = imdb[’test ’][0][ ’text ’]
+3 label = imdb[’test ’][0][ ’label ’]
+4 response = model.predict(text , tokenizer , id2label)
+5 print(f’Classify: {text }\nGT: {id2label[label ]}\ nPredict: {response}’)
+6
+7 >> Output:
+8 - Classify: I love sci -fi and am willing to put up with a lot. Sci -fi
+movies/TV are
+usually
+underfunded , under -appreciated
+and
+misunderstood. I tried to like this , I really did , but it is to good
+TV sci -fi as Babylon 5 is to Star Trek (the
+original).
+9 - GT: NEGATIVE
+10 - Predict: NEGATIVE
+10
+AI VIETNAM
+aivietnam.edu.vn
+Phần III: Câu hỏi trắc nghiệm
+1. Trong state space model, dạng recurrent phù hợp cho quá trình inference vì?
+(a) Khảnăng tính toán song song.
+(b) Độphức tạp O(n2).
+(c) Độphức tạp O(n).
+(d) Khảnăng xửlý long sequence.
+2. Trong state space model, dạng convolutional có tính chất nào sau đây?
+(a) Độphức tạp O(n2).
+(b) Không thểtính toán song song.
+(c) Khảnăng tính toán song song.
+(d) Khảnăng attention.
+3. Trong structured state space model (S4), ma trận HiPPO được sửdụng đểkhởi tạo ma trận A vì:
+(a) Khảnăng tính toán song song.
+(b) Tăng tham sốđểmodel học.
+(c) Giảm tham sốđểmodel học.
+(d) Tăng khảnăng ghi nhớsequence.
+4. Trong state space model, biểu thức Dxt trong công thức yt = Cht + Dxt đóng vai trò gì?
+(a) Activation function.
+(b) LayerNorm.
+(c) Skip-connection.
+(d) BatchNorm.
+5. Trong state space model, ta chỉcó thểsửdụng dạng recurrent đểinference là nhận định:
+(a) True
+(b) False
+6. Trong state space model, dạng convolutional phù hợp đểtrain vì độphức tạp O(n) so với O(n2)
+của dạng recurrent là nhận định:
+(a) True
+(b) False
+7. Trong state space model, dạng convolutional phù hợp đểtrain vì khảnăng tính toán song song là
+nhận định:
+(a) True
+(b) False
+8. Trong state space model, dạng recurrent phù hợp đểinference vì có khảnăng tính toán song song
+là nhận định:
+(a) True
+(b) False
+11
+AI VIETNAM
+aivietnam.edu.vn
+9. Trong state space model, dạng recurrent phù hợp đểinference vì độphức tạp O(1) khi tạo ra từng
+token là nhận định:
+(a) True
+(b) False
+10. Đâu là contribution của Mamba?
+(a) Khảnăng tính toán song song ởdạng convolutional.
+(b) Khảnăng tính toán song song ởdạng recurrent.
+(c) Khảnăng tính toán song song ở2 dạng convolutional và recurrent.
+(d) Khảnăng tính toán song song khi inference.
+11. Đâu là contribution của Mamba?
+(a) Khảnăng tạo ra trọng sốphụthuộc vào input
+(b) Khảnăng tạo ra trọng sốkhông dựa vào input.
+(c) Khảnăng tạo ra trọng sốphụthuộc vào label.
+(d) Khảnăng tạo ra trọng sốkhông phụthuộc vào label.
+- Hết -
+12

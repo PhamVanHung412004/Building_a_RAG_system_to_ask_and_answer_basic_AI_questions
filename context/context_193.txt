@@ -1,0 +1,2517 @@
+Multi-layer Perception
+Activation and Initialization
+Year 2023
+Quang-Vinh Dinh
+Ph.D. in Computer Science
+AI VIETNAM
+All-in-One Course
+➢Pipeline Recommendation
+➢Data Normalization
+➢Activation Functions
+➢MLP Examples
+➢Initialization Methods
+Outline
+To-do List for Training
+Training
+Data
+Testing
+Data
+Model
+≠
+Used to train model
+(Teach the model 
+by examples)
+Used to validate model
+(Check how good the model is)
+Data Preparation
+Data 
+Normalization
+Model (Network) 
+Construction
+Parameter 
+Initialization
+Optimizer 
+Selection
+Loss function Selection
+Metric 
+Selection
+Data Preparation
+1
+Image = Image
+255
+Convert to the range [0,1]
+Image = Image
+127.5 −1
+Convert to the range [-1,1]
+Image = Image −μ
+σ
+Z-score normalization
+Image = Image −𝑚𝑒𝑎𝑛
+std
+In Pytorch
+Normalize(𝑚𝑒𝑎𝑛, std)
+[0,1]
+mean = 0 ; std = 1
+[-1,1]
+mean = 0.5; std = 0.5
+Compute mean and std 
+from data
+In Theory
+𝑋∈0, 255
+𝑋∈0, 1
+Data Preparation
+Data 
+Normalization
+Model (Network) 
+Construction
+Parameter 
+Initialization
+Optimizer 
+Selection
+Loss function Selection
+Metric 
+Selection
+Data Normalization
+(a) [0, 1] Normalization
+(b) [-1, 1] Normalization
+(c) z-score Normalization
+1
+2
+3
+[0, 1] Normalization
+[-1, 1] Normalization
+z-score Normalization
+Data Normalization
+Training Pipeline
+AI VIETNAM
+All-in-One Course
+Data Preparation
+Data 
+Normalization
+Model (Network) 
+Construction
+Parameter 
+Initialization
+Optimizer 
+Selection
+Loss function 
+Selection
+Metric Selection
+Multi-layer Perceptron
+1) #Hidden Layers?
+2) #Nodes in a Hidden Layers?
+3) Which activation functions?
+4) Which Initializers?
+5
+Training Pipeline
+AI VIETNAM
+All-in-One Course
+Model (Network) Construction
+Input layer
+Ouptut layer
+Output
+1
+𝑧1
+𝑧2
+𝑧3
+activation
+Input
+1
+. . .
+. . .
+Fully connect
+activation
+Hidden Layers
+How many hidden layers?
+How many nodes in a hidden layer?
+Which activation function?
+Which network components?
+6
+How many nodes?
+AI VIETNAM
+All-in-One Course
+784 Nodes
+Input layer
+Output
+1
+𝑧1
+𝑧10
+Softmax 
+activation
+1
+Sigmoid 
+activation
+How many nodes?
+Fully 
+connect
+Fully 
+connect
+10 Nodes
+Output layer
+28
+28
+784
+flatten data
+. . .
+. . .
+Model (Network) Construction
+7
+How many nodes?
+AI VIETNAM
+All-in-One Course
+784 Nodes
+Input layer
+Output
+1
+𝑧1
+𝑧10
+Softmax 
+activation
+1
+Sigmoid 
+activation
+Grid Search
+Fully 
+connect
+Fully 
+connect
+10 Nodes
+Output layer
+28
+28
+784
+flatten data
+. . .
+. . .
+𝑁1 𝑁2 … 𝑁𝑘
+Model (Network) Construction
+8
+256 nodes
+[-1, 1] Normalization
+64 nodes
+1024 nodes
+Cross-entropy Loss
+SGD with lr=0.01
+How many nodes?
+Train-Acc: 90%
+Test-Acc: 87%
+Train-Acc: 89%
+Test-Acc: 86%
+Train-Acc: 90%
+Test-Acc: 87%
+9
+2 Hidden Layers
+3 Hidden Layers
+4 Hidden Layers
+Train-Acc: 92%
+Test-Acc: 88%
+Train-Acc: 91%
+Test-Acc: 88%
+Train-Acc: 92%
+Test-Acc: 88%
+1 Hidden Layer
+Train-Acc: 90%
+Test-Acc: 87%
+Activation Functions
+AI VIETNAM
+All-in-One Course
+Model (Network) Construction
+Which activation function?
+tanh 𝑥=
+2
+1 + 𝑒−2𝑥−1
+sigmoid 𝑥=
+1
+1 + 𝑒−𝑥
+PReLU 𝑥= ቊ𝛼𝑥 if 𝑥< 0
+𝑥 
+if 𝑥≥0
+ELU 𝑥= ቊ𝛼𝑒𝑥−1  if 𝑥< 0
+𝑥 
+if 𝑥≥0
+softplus 𝑥= log 1 + 𝑒𝑥
+ReLU 𝑥= ቊ0 
+if 𝑥< 0
+𝑥 
+if 𝑥≥0
+2001
+2015
+2010
+𝑆𝐸𝐿𝑈𝑥= ቊ𝜆𝑥 
+if 𝑥≥0
+𝜆α 𝑒𝑥−1  if 𝑥< 0
+2017
+2015
+𝑠𝑤𝑖𝑠ℎ𝑥= 𝑥∗
+1
+1 + 𝑒−𝑥
+2017
+𝜆≈1.0507
+α ≈1.6733
+11
+Activation Functions
+❖Step function
+AI VIETNAM
+All-in-One Course
+𝑓𝑥= ቊ0 𝑖𝑓 𝑥< 0
+1 𝑖𝑓 𝑥≥0
+Binary Step Function
+Input layer
+1
+1
+. . .
+Step
+Function
+𝑧1
+𝑧10
+Softmax 
+activation
+Fully 
+connect
+10 Nodes
+Output layer
+. . .
+https://www.analyticsvidhya.com/blog/2020/01/fundamentals-deep-learning-activation-functions-when-to-use-them/
+12
+Activation Functions
+❖Sigmoid function
+AI VIETNAM
+All-in-One Course
+sigmoid 𝑥=
+1
+1 + 𝑒−𝑥
+sigmoid′ 𝑥= sigmoid 𝑥
+1 −sigmoid 𝑥
+13
+Activation Functions
+AI VIETNAM
+All-in-One Course
+sigmoid 𝑥=
+1
+1 + 𝑒−𝑥
+= sigmoid 𝑥
+1 −sigmoid 𝑥
+sigmoid′(𝑥) =
+1
+1 + 𝑒−𝑥
+′
+=
+−1
+1 + 𝑒−𝑥2 −𝑒−𝑥
+=
+𝑒−𝑥
+1 + 𝑒−𝑥2 = 𝑒−𝑥+ 1 −1
+1 + 𝑒−𝑥2
+=
+1
+1 + 𝑒−𝑥−
+1
+1 + 𝑒−𝑥2
+=
+1
+1 + 𝑒−𝑥
+1 −
+1
+1 + 𝑒−𝑥
+14
+Activation Functions
+❖Tanh function
+AI VIETNAM
+All-in-One Course
+𝑡𝑎𝑛ℎ′ 𝑥= 1 −𝑡𝑎𝑛ℎ2(𝑥)
+tanh 𝑥= 𝑒𝑥−𝑒−𝑥
+𝑒𝑥+ 𝑒−𝑥
+=
+2
+1 + 𝑒−2𝑥−1
+= 1 −
+2
+𝑒2𝑥+ 1
+15
+Activation Functions
+AI VIETNAM
+All-in-One Course
+tanh 𝑥= 𝑒𝑥−𝑒−𝑥
+𝑒𝑥+ 𝑒−𝑥= 1 −
+2
+𝑒2𝑥+ 1 =
+2
+𝑒−2𝑥+ 1 −1
+tanh′(𝑥) =
+𝑒𝑥−𝑒−𝑥
+𝑒𝑥+ 𝑒−𝑥
+′
+= 𝑒𝑥+ 𝑒−𝑥
+𝑒𝑥+ 𝑒−𝑥−𝑒𝑥−𝑒−𝑥
+𝑒𝑥−𝑒−𝑥
+𝑒𝑥+ 𝑒−𝑥2
+= 𝑒𝑥+ 𝑒−𝑥2 −𝑒𝑥−𝑒−𝑥2
+𝑒𝑥+ 𝑒−𝑥2
+= 1 −
+𝑒𝑥−𝑒−𝑥
+𝑒𝑥+ 𝑒−𝑥
+2
+= 1 −𝑡𝑎𝑛ℎ2(𝑥)
+16
+Activation Functions
+AI VIETNAM
+All-in-One Course
+tanh 𝑥= 𝑒𝑥−𝑒−𝑥
+𝑒𝑥+ 𝑒−𝑥= 1 −
+2
+𝑒2𝑥+ 1 =
+2
+𝑒−2𝑥+ 1 −1
+𝑡𝑎𝑛ℎ′(𝑥) =
+2
+𝑒−2𝑥+ 1 −1 
+′
+=
+4𝑒−2𝑥
+𝑒−2𝑥+ 1 2 = 4 𝑒−2𝑥+ 1 −1
+𝑒−2𝑥+ 1 2  
+= 4
+1
+𝑒−2𝑥+ 1 −
+1
+𝑒−2𝑥+ 1 2
+= −
+4
+𝑒−2𝑥+ 1 2 −
+4
+𝑒−2𝑥+ 1
+= −
+4
+𝑒−2𝑥+ 1 2 −
+4
+𝑒−2𝑥+ 1 + 1 −1
+= 1 −
+2
+𝑒−2𝑥+ 1 −1
+2
+= 1 −𝑡𝑎𝑛ℎ2(𝑥)
+17
+Activation Functions
+❖Softplus function
+AI VIETNAM
+All-in-One Course
+softplus 𝑥= log 1 + 𝑒𝑥
+softplus′ 𝑥=
+1
+1 + 𝑒−𝑥
+18
+Activation Functions
+❖ReLU function
+AI VIETNAM
+All-in-One Course
+ReLU 𝑥= ቊ0 
+if 𝑥≤0
+𝑥 
+if 𝑥> 0
+ReLU ′ 𝑥= ቊ0 
+if 𝑥≤0
+1 
+if 𝑥> 0
+19
+Activation Functions
+❖LeakyReLU function
+AI VIETNAM
+All-in-One Course
+LeakyReLU 𝑥= ቊ0.01𝑥 if 𝑥≤0
+𝑥 
+if 𝑥> 0
+LeakyReLU′ 𝑥= ቊ0.01 if 𝑥≤0
+1 
+if 𝑥> 0
+20
+Activation Functions
+❖ELU function
+AI VIETNAM
+All-in-One Course
+ELU 𝑥= ቊ𝛼𝑒𝑥−1  if 𝑥≤0
+𝑥 
+if 𝑥> 0
+ELU ′ 𝑥= ቊ𝛼𝑒𝑥 
+if 𝑥≤0
+1 
+if 𝑥> 0
+𝛼= 0.1
+21
+Activation Functions
+❖PReLU function
+AI VIETNAM
+All-in-One Course
+PReLU 𝑥= ቊ𝛼𝑥 if 𝑥< 0
+𝑥 
+if 𝑥≥0
+PReLU′ 𝑥= ቊ𝛼 
+if 𝑥≤0
+1 
+if 𝑥> 0
+𝛼= 0.1
+22
+Activation Functions
+❖Swish function
+AI VIETNAM
+All-in-One Course
+𝑠𝑤𝑖𝑠ℎ′ 𝑥= 𝑠𝑤𝑖𝑠ℎ𝑥+ σ 𝑥(1 −𝑠𝑤𝑖𝑠ℎ𝑥)
+𝑠𝑤𝑖𝑠ℎ𝑥=
+𝑥
+1 + 𝑒−𝑥= 𝑥σ 𝑥
+σ 𝑥=
+1
+1 + 𝑒−𝑥
+23
+Activation Functions
+AI VIETNAM
+All-in-One Course
+𝑠𝑤𝑖𝑠ℎ𝑥=
+𝑥
+1 + 𝑒−𝑥= 𝑥σ 𝑥
+σ 𝑥=
+1
+1 + 𝑒−𝑥
+𝑠𝑤𝑖𝑠h′ 𝑥 = 𝑥σ 𝑥
+′ = 𝑥′ σ 𝑥+ 𝑥σ 𝑥
+′
+= σ 𝑥+ 𝑥σ 𝑥
+1 −σ 𝑥
+= σ 𝑥+ 𝑥σ 𝑥−𝑥σ 𝑥2
+= 𝑥σ 𝑥+ σ 𝑥
+1 −𝑥σ 𝑥
+= 𝑠𝑤𝑖𝑠ℎ𝑥+ σ 𝑥(1 −𝑠𝑤𝑖𝑠ℎ𝑥)
+24
+➢Pipeline Recommendation
+➢Data Normalization
+➢Activation Functions
+➢MLP Examples
+➢Initialization Methods
+Outline
+To-do List for Training
+Train a model
+AI VIETNAM
+All-in-One Course
+Data Preparation
+Data 
+Normalization
+Model (Network) 
+Construction
+Parameter 
+Initialization
+Optimizer 
+Selection
+Loss function 
+Selection
+Metric Selection
+25
+MLP Example 1
+AI VIETNAM
+All-in-One Course
+Feature
+Label
+𝒙=
+𝒙(1)
+𝒙(2)
+𝒙(3)
+=
+1.5 0.2
+4.7 1.6
+5.6 2.2
+𝒚=
+0
+1
+2
+=
+0.0 
+0.0
+0.86 
+−1.04
+0.41 −0.65
+𝑾ℎ= 𝑾𝒉1 𝑾ℎ2
+=
+0.0 
+0.0 
+0.0
+0.32 
+0.25 
+0.14
+−0.47 −1.06 0.063
+𝑾𝑧= 𝑾𝒛1 𝑾𝑧2 𝑾𝑧3
+1
+Softmax
+𝑥1
+𝑥2
+1
+ReLU
+ReLU
+Input layer
+Hidden layer
+Output layer
+ොy1
+ොy2
+ොy3
+𝑧1
+𝑧2
+𝑧3
+ℎ1
+ℎ2
+26
+𝒉= 𝒙𝑾ℎ=
+1 1.5 0.2
+1 4.7 1.6
+1 5.6 2.2
+0.0 
+0.0
+0.86 
+−1.04
+0.41 −0.65
+=
+1.373 
+−1.696
+4.708 
+−5.951
+5.731 
+−7.281
+ReLU(𝒉) =
+1.373 
+0
+4.708 
+0
+5.731 
+0
+Feature
+Label
+1
+Softmax
+𝑥1
+𝑥2
+1
+ReLU
+ReLU
+Input layer
+Hidden layer
+Output layer
+ොy1
+ොy2
+ොy3
+𝑧1
+𝑧2
+𝑧3
+ℎ1
+ℎ2
+=
+0.0 
+0.0
+0.86 
+−1.04
+0.41 −0.65
+𝑾ℎ= 𝑾𝒉1 𝑾ℎ2
+=
+0.0 
+0.0 
+0.0
+0.32 
+0.25 
+0.14
+−0.47 −1.06 0.063
+𝑾𝑧= 𝑾𝒛1 𝑾𝑧2 𝑾𝑧3
+𝒙=
+𝒙(1)
+𝒙(2)
+𝒙(3)
+=
+1 1.5 0.2
+1 4.7 1.6
+1 5.6 2.2
+𝒚=
+0
+1
+2
+27
+ReLU(𝒉) =
+1.373 
+0
+4.708 
+0
+5.731 
+0
+𝟏 ReLU(𝒉) =
+1 1.373 
+0
+1 4.708 
+0
+1 5.731 
+0
+𝒛= 𝟏 ReLU(𝒉) 𝑾𝑧=
+1 1.373 
+0
+1 4.708 
+0
+1 5.731 
+0
+0.0 
+0.0 
+0.0
+0.32 
+0.25 
+0.14
+−0.47 −1.06 0.063
+=
+0.439 0.356 0.195
+1.507 1.220 0.670
+1.835 1.485 0.816
+Feature
+Label
+1
+Softmax
+𝑥1
+𝑥2
+1
+ReLU
+ReLU
+Input layer
+Hidden layer
+Output layer
+ොy1
+ොy2
+ොy3
+𝑧1
+𝑧2
+𝑧3
+ℎ1
+ℎ2
+=
+0.0 
+0.0
+0.86 
+−1.04
+0.41 −0.65
+𝑾ℎ= 𝑾𝒉1 𝑾ℎ2
+=
+0.0 
+0.0 
+0.0
+0.32 
+0.25 
+0.14
+−0.47 −1.06 0.063
+𝑾𝑧= 𝑾𝒛1 𝑾𝑧2 𝑾𝑧3
+𝒙=
+𝒙(1)
+𝒙(2)
+𝒙(3)
+=
+1 1.5 0.2
+1 4.7 1.6
+1 5.6 2.2
+𝒚=
+0
+1
+2
+28
+loss = 1.269
+Feature
+Label
+1
+Softmax
+𝑥1
+𝑥2
+1
+ReLU
+ReLU
+Input layer
+Hidden layer
+Output layer
+ොy1
+ොy2
+ොy3
+𝑧1
+𝑧2
+𝑧3
+ℎ1
+ℎ2
+=
+0.0 
+0.0
+0.86 
+−1.04
+0.41 −0.65
+𝑾ℎ= 𝑾𝒉1 𝑾ℎ2
+=
+0.0 
+0.0 
+0.0
+0.32 
+0.25 
+0.14
+−0.47 −1.06 0.063
+𝑾𝑧= 𝑾𝒛1 𝑾𝑧2 𝑾𝑧3
+𝒛=
+0.439 0.356 0.195
+1.507 1.220 0.670
+1.835 1.485 0.816
+ෝ𝒚= softmax(𝒛) =
+ෝ𝒚(1)
+ෝ𝒚(2)
+ෝ𝒚(3)
+=
+0.369 0.340 0.289
+0.458 0.343 0.198
+0.484 0.341 0.174
+𝒙=
+𝒙(1)
+𝒙(2)
+𝒙(3)
+=
+1 1.5 0.2
+1 4.7 1.6
+1 5.6 2.2
+𝒚=
+0
+1
+2
+29
+Example 2 - Dying ReLU
+Feature
+Label
+𝒙= 1.5
+0.2
+𝑦= 0
+1
+Softmax
+𝑥1
+𝑥2
+1
+ReLU
+ReLU
+Input layer
+Hidden layer
+Output layer
+ොy1
+ොy2
+ොy3
+𝑧1
+𝑧2
+𝑧3
+ℎ1
+ℎ2
+= 0.86 
+−1.04
+0.41 −0.65
+𝒎= 𝒎𝟏 𝒎2
+=
+0.32 
+0.25 
+0.14
+−0.47 −1.06 0.063
+𝒘= 𝒘1 𝒘2 𝒘3
+𝒃𝒎= 0.0
+0.0
+𝒃𝒘=
+0.0
+0.0
+0.0
+AI VIETNAM
+All-in-One Course
+30
+= 0.86 
+−1.04
+0.41 −0.65
+𝒎= 𝒎𝟏 
+𝒎2
+=
+0.32 
+0.25 
+0.14
+−0.47 −1.06 0.063
+𝒘= 𝒘1 
+𝒘2 
+𝒘3
+𝒃𝒎= 0.0
+0.0
+𝒃𝒘=
+0.0
+0.0
+0.0
+𝒙= 1.5
+0.2
+𝑦= 0
+→𝒚=
+1
+0
+0
+1
+Softmax
+𝑥1
+𝑥2
+1
+ReLU
+ReLU
+Input layer
+Hidden layer
+Output layer
+ොy1
+ොy2
+ොy3
+𝑧1
+𝑧2
+𝑧3
+ℎ1
+ℎ2
+Loss 
+Function
+−෍
+𝑖
+𝑦𝑖𝑙𝑜𝑔ො𝑦
+𝑚11
+𝑚21
+𝑤12
+𝑤21
+𝑤31
+𝑚12
+𝑏𝑚1
+𝑚22
+𝑏𝑚2
+𝑤11
+𝑏𝑤1
+𝑤22
+𝑏𝑤2
+𝑤32
+𝑏𝑤3
+31
+1
+Softmax
+𝑥1
+𝑥2
+1
+ReLU
+ReLU
+ොy1
+ොy2
+ොy3
+𝑧1
+𝑧2
+𝑧3
+ℎ1
+ℎ2
+Loss 
+Function
+−෍
+𝑖
+𝑦𝑖𝑙𝑜𝑔ො𝑦
+𝑚11
+𝑚21
+𝑤12
+𝑤21
+𝑤31
+𝑚12
+𝑏𝑚1
+𝑚22
+𝑏𝑚2
+𝑤11
+𝑏𝑤1
+𝑤22
+𝑏𝑤2
+𝑤32
+𝑏𝑤3
+= 0.86 
+−1.04
+0.41 −0.65
+𝒎= 𝒎𝟏 
+𝒎2
+=
+0.32 
+0.25 
+0.14
+−0.47 −1.06 0.063
+𝒘= 𝒘1 
+𝒘2 
+𝒘3
+𝒃𝒎= 0.0
+0.0
+𝒃𝒘=
+0.0
+0.0
+0.0
+𝒚=
+1
+0
+0
+𝒙= 1.5
+0.2
+𝒉= 1.372
+−1.68
+𝐑𝐞𝐋𝐔= 1.372
+0.0
+𝒛=
+0.439
+0.343
+0.192
+ෝ𝒚=
+0.372
+0.338
+0.290
+loss = −logොy1 = 0.989
+Forward pass
+zero value
+32
+1
+Softmax
+𝑥1
+𝑥2
+1
+ReLU
+ReLU
+ොy1
+ොy2
+ොy3
+𝑧1
+𝑧2
+𝑧3
+ℎ1
+ℎ2
+Loss 
+Function
+−෍
+𝑖
+𝑦𝑖𝑙𝑜𝑔ො𝑦𝑖
+𝑚11
+𝑚21
+𝑤12
+𝑤21
+𝑤31
+𝑚12
+𝑏𝑚1
+𝑚22
+𝑏𝑚2
+𝑤11
+𝑏𝑤1
+𝑤22
+𝑏𝑤2
+𝑤32
+𝑏𝑤3
+𝜕𝐿
+𝜕𝑧𝑖
+= ො𝑦𝑖−𝑦𝑖
+𝜕𝐿
+𝜕𝑤𝑖𝑗
+= ReLU𝑗
+𝜕𝐿
+𝜕𝑧𝑖
+𝜕𝐿
+𝜕𝑏𝑤𝑖
+= 𝜕𝐿
+𝜕𝑧𝑖
+ReLU ′ ℎ𝑗= ൝0 
+if ℎ𝑗≤0
+1 
+if ℎ𝑗> 0
+𝜕𝐿
+𝜕ℎ𝑗
+= ൞
+ 0 
+if ℎ𝑗≤0
+𝜕𝐿
+𝜕𝑟𝑒𝑙𝑢𝑗
+ 
+if ℎ𝑗> 0
+𝜕𝐿
+𝜕𝑟𝑒𝑙𝑢𝑗
+= ෍
+𝑖
+𝑤𝑖𝑗
+𝜕𝐿
+𝜕𝑧𝑖
+𝜕𝐿
+𝜕𝑚𝑗𝑘
+= 𝑥𝑘
+𝜕𝐿
+𝜕ℎ𝑗
+𝜕𝐿
+𝜕𝑏𝑚𝑗
+= 𝜕𝐿
+𝜕ℎ𝑗
+Backward 
+pass
+33
+𝒎= 0.86 
+−1.04
+0.41 −0.65
+𝒘=
+0.32 
+0.25 
+0.14
+−0.47 −1.06 0.063
+𝒃𝒎= 0.0
+0.0
+𝒃𝒘=
+0.0
+0.0
+0.0
+𝒙= 1.5
+0.2
+𝒉= 1.372
+−1.68
+𝐑𝐞𝐋𝐔= 1.372
+0.0
+𝒛=
+0.439
+0.343
+0.192
+ෝ𝒚=
+0.372
+0.338
+0.290
+1
+Softmax
+𝑥1
+𝑥2
+1
+ReLU
+ReLU
+ොy1
+ොy2
+ොy3
+𝑧1
+𝑧2
+𝑧3
+ℎ1
+ℎ2
+Loss 
+Function
+−෍
+𝑖
+𝑦𝑖𝑙𝑜𝑔ො𝑦
+𝑚11
+𝑚21
+𝑤12
+𝑤21
+𝑤31
+𝑚12
+𝑏𝑚1
+𝑚22
+𝑏𝑚2
+𝑤11
+𝑏𝑤1
+𝑤22
+𝑏𝑤2
+𝑤32
+𝑏𝑤3
+loss = 0.989
+𝜕𝐿
+𝜕𝑤𝑖𝑗
+= ReLU𝑗
+𝜕𝐿
+𝜕𝑧𝑖
+𝜕𝐿
+𝜕𝑧𝑖
+= ො𝑦𝑖−𝑦𝑖
+𝛁𝒛𝐿=
+−0.628
+0.338
+0.290
+𝛁𝒘𝐿= −0.861 
+0.463 
+0.398
+0.0 
+0.0 
+0.0
+𝜕𝐿
+𝜕𝑏𝑤𝑖
+= 𝜕𝐿
+𝜕𝑧𝑖
+𝛁𝒃𝒘𝐿=
+−0.628
+0.338
+0.290
+𝜕𝐿
+𝜕𝑟𝑒𝑙𝑢𝑗
+= ෍
+𝑖
+𝑤𝑖𝑗
+𝜕𝐿
+𝜕𝑧𝑖
+𝛁𝐑𝐞𝐋𝐔𝐿=
+−0.0759
+. −0.0445
+Backward 
+pass
+𝒎= 0.86 
+−1.04
+0.41 −0.65
+𝒘=
+0.32 
+0.25 
+0.14
+−0.47 −1.06 0.063
+𝒃𝒎= 0.0
+0.0
+𝒃𝒘=
+0.0
+0.0
+0.0
+𝒙= 1.5
+0.2
+𝒉= 1.372
+−1.68
+𝐑𝐞𝐋𝐔= 1.372
+0.0
+𝒛=
+0.439
+0.343
+0.192
+ෝ𝒚=
+0.372
+0.338
+0.290
+1
+Softmax
+𝑥1
+𝑥2
+1
+ReLU
+ReLU
+ොy1
+ොy2
+ොy3
+𝑧1
+𝑧2
+𝑧3
+ℎ1
+ℎ2
+Loss 
+Function
+−෍
+𝑖
+𝑦𝑖𝑙𝑜𝑔ො𝑦
+𝑚11
+𝑚21
+𝑤12
+𝑤21
+𝑤31
+𝑚12
+𝑏𝑚1
+𝑚22
+𝑏𝑚2
+𝑤11
+𝑏𝑤1
+𝑤22
+𝑏𝑤2
+𝑤32
+𝑏𝑤3
+loss = 0.989
+𝜕𝐿
+𝜕𝑚𝑗𝑘
+= 𝑥𝑘
+𝜕𝐿
+𝜕ℎ𝑗
+𝛁𝒎𝐿= −0.114 
+0.0
+−0.015 0.0
+𝜕𝐿
+𝜕𝑏𝑚𝑗
+= 𝜕𝐿
+𝜕ℎ𝑗
+𝛁𝒃𝒎𝐿= −0.0759
+0.0
+𝜕𝐿
+𝜕ℎ𝑗
+= ൞
+ 0 
+if ℎ𝑗≤0
+𝜕𝐿
+𝜕𝑟𝑒𝑙𝑢𝑗
+ 
+if ℎ𝑗> 0
+𝛁𝐡𝐿= −0.0759
+0.0
+𝜕𝐿
+𝜕𝑟𝑒𝑙𝑢𝑗
+= ෍
+𝑖
+𝑤𝑖𝑗
+𝜕𝐿
+𝜕𝑧𝑖
+𝛁𝐑𝐞𝐋𝐔𝐿= −0.0759
+−0.0445
+Backward 
+pass
+𝒎= 0.86 
+−1.04
+0.41 −0.65
+𝒘=
+0.32 
+0.25 
+0.14
+−0.47 −1.06 0.063
+𝒃𝒎= 0.0
+0.0
+𝒃𝒘=
+0.0
+0.0
+0.0
+𝛁𝒃𝒎𝐿= −0.0759
+0.0
+𝛁𝒎𝐿= −0.114 
+0.0
+−0.015 0.0
+𝛁𝒘𝐿= −0.628 
+0.338 0.29
+0.0 
+0.0 
+0.0
+𝛁𝒃𝒘𝐿=
+−0.628
+0.338
+0.290
+1
+Softmax
+𝑥1
+𝑥2
+1
+ReLU
+ReLU
+ොy1
+ොy2
+ොy3
+𝑧1
+𝑧2
+𝑧3
+ℎ1
+ℎ2
+Loss 
+Function
+−෍
+𝑖
+𝑦𝑖𝑙𝑜𝑔ො𝑦
+𝑚11
+𝑚21
+𝑤12
+𝑤21
+𝑤31
+𝑚12
+𝑏𝑚1
+𝑚22
+𝑏𝑚2
+𝑤11
+𝑏𝑤1
+𝑤22
+𝑏𝑤2
+𝑤32
+𝑏𝑤3
+loss = 0.989
+Update the parameters with 𝜂= 0.01
+𝒎= 0.861 
+−1.04
+0.4105 −0.65
+𝒘= 0.328 
+0.245 
+0.136
+−0.47 −1.06 0.063
+𝒃𝒎= 0.000759
+0.0
+𝒃𝒘=
+ 0.0062
+−0.0033
+−0.0029
+1
+Softmax
+𝑥1
+𝑥2
+1
+ReLU
+ReLU
+ොy1
+ොy2
+ොy3
+𝑧1
+𝑧2
+𝑧3
+ℎ1
+ℎ2
+Loss 
+Function
+−෍
+𝑖
+𝑦𝑖𝑙𝑜𝑔ො𝑦
+𝑚11
+𝑚21
+𝑤12
+𝑤21
+𝑤31
+𝑚12
+𝑏𝑚1
+𝑚22
+𝑏𝑚2
+𝑤11
+𝑏𝑤1
+𝑤22
+𝑏𝑤2
+𝑤32
+𝑏𝑤3
+𝒚=
+1
+0
+0
+= 0.861 
+−1.04
+0.4105 −0.65
+𝒎= 𝒎𝟏 
+𝒎2
+= 0.328 
+0.245 
+0.136
+−0.47 −1.06 0.063
+𝒘= 𝒘1 
+𝒘2 
+𝒘3
+𝒃𝒎= 0.000759
+0.0
+𝒃𝒘=
+ 0.0062
+−0.0033
+−0.0029
+𝒙= 1.5
+0.2
+𝒉= 1.374
+−1.68
+𝐑𝐞𝐋𝐔= 1.374
+0.0
+𝒛=
+0.458
+0.334
+0.184
+ෝ𝒚=
+0.378
+0.334
+0.287
+loss = −logොy1 = 0.972
+Forward pass again
+still zero value
+37
+Example 3 - Zero Initialization
+Diagram
+Model
+Input
+Label
+Loss
+Parameters
+𝑥
+𝑤
+𝑏
+ො𝑦= 𝑤𝑥+ 𝑏
+(ො𝑦−𝑦)2
+𝑦
+Cheat sheet
+Compute the output ො𝑦
+Compute the loss
+Compute derivative
+Update parameters
+ො𝑦= 𝑤𝑥+ 𝑏
+𝐿= (ො𝑦−𝑦)2
+𝐿𝑤
+′ = 2𝑥(ො𝑦−𝑦)
+𝐿𝑏
+′ = 2(ො𝑦−𝑦)
+𝑤= 𝑤−𝜂𝐿𝑤
+′
+𝑏= 𝑏−𝜂𝐿𝑏
+′
+❖Linear regression
+AI VIETNAM
+All-in-One Course
+38
+Example 3 - Zero Initialization
+AI VIETNAM
+All-in-One Course
+Given
+sample
+data
+Model
+𝑥 = 6.7
+𝑏= 0.0
+w = 0.0
+𝑦 = 9.1
+ො𝑦= 𝑥𝑤+ 𝑏 = 0.0 
+Input
+Label
+Loss
+ො𝑦−𝑦2 = 82.81
+Parameters
+Forward 
+propagation
+House price prediction
+Initialize 
+b=0.0 and 
+w=0.0
+Feature
+Label
+1
+39
+Forward 
+propagation
+New w and b help 
+the loss reduce
+Model
+𝑥 = 0.67
+𝑦 = 9.1
+ො𝑦= 𝑥𝑤+ 𝑏 = 8.351 
+Input
+Label
+Loss
+Parameters
+𝑏= 𝑏−𝜂𝐿′b
+ො𝑦−𝑦2 = 0.559
+𝑏= 0.182
+𝑤 = 1.2194
+w = w −𝜂𝐿′w
+3
+Model
+𝑥 = 0.67
+𝑏= 0.0
+𝑤 = 0.0
+𝑦 = 9.1
+ො𝑦= 𝑥𝑤+ 𝑏 = 0.0 
+Input
+Label
+Loss
+Parameters
+Backpropagation
+𝑏= 𝑏−𝜂𝐿′b
+w = w −𝜂𝐿′w
+ො𝑦−𝑦2 = 82.81
+𝐿𝑤
+′ = 2𝑥ො𝑦−𝑦
+ = −121.94
+𝐿𝑏
+′ = 2 ො𝑦−𝑦
+ = −18.2
+𝜂= 0.01
+2
+𝑏= 𝑏−𝜂𝐿′b = 0.182
+w = w −𝜂𝐿′w = 1.2194
+40
+Example 4 - Zero Initialization
+4) Compute derivative
+5) Update parameters
+1) Pick a sample (𝑥, 𝑦) from training data   
+2) Compute output ො𝑦
+3) Compute loss
+ො𝑦= 𝜎(𝑧) =
+1
+1 + 𝑒−𝑧
+𝐿(𝜽) = −ylogොy−(1−y)log(1−ොy )
+∇𝜽𝐿= 𝐱(ොy −𝑦)
+𝜽= 𝜽−𝜂𝐿𝜽
+′
+𝜂is learning rate
+𝑧= 𝜽𝑇𝒙
+𝜽𝑇 = [𝑏 𝑤1 𝑤2]
+𝒙𝑇 = [1 𝑥1 𝑥2]
+Model
+Label
+Loss
+𝑥1
+−ylogොy−(1−y)log(1−ොy )
+𝑦
+𝑥2
+ො𝑦= 𝜎(𝑧) =
+1
+1 + 𝑒−𝑧
+𝑧= 𝑤1𝑥1 + 𝑤2𝑥2 + 𝑏
+𝑤1
+𝑏
+𝑤2
+AI VIETNAM
+All-in-One Course
+❖Logistic regression
+41
+Example 4 - Zero Initialization
+Model
+Label
+Loss
+𝑥1
+0.0
+0.0
+𝑦
+𝑥2
+0.0
+𝑥1 = 1.4
+𝑥2 = 0.2
+𝑧= 0.0
+ො𝑦= 0.5
+𝑦= 0
+𝐿= 0.693
+𝑤1
+𝑏
+𝑤2
+ො𝑦= 𝜎(𝑧) =
+1
+1 + 𝑒−𝑧
+𝑧= 𝑤1𝑥1 + 𝑤2𝑥2 + 𝑏
+−ylogොy−(1−y)log(1−ොy )
+AI VIETNAM
+All-in-One Course
+𝒙 =
+1
+1.4
+0.2
+𝒚= 0
+Dataset
+42
+Example 4 - Zero Initialization
+Model
+Loss
+𝑥1
+0.0
+0.0
+𝑧= 𝑤1𝑥1 + 𝑤2𝑥2 + 𝑏
+𝑦
+ො𝑦= 𝜎(𝑧) =
+1
+1 + 𝑒−𝑧
+𝑥2
+0.0
+𝜂= 0.01
+𝑤1
+𝑏
+𝑤2
+𝐿𝜽
+′ = 𝐱(ොy −𝑦)
+=
+1
+1.4
+0.2
+0.5
+=
+0.5
+0.7
+0.1
+=
+𝐿𝑏
+′
+𝐿𝑤1
+′
+𝐿𝑤2
+′
+𝑏= 0.005
+𝑤1= 0.007
+𝑤2= 0.001
+𝐿𝑏
+′
+𝐿𝑤1
+′
+𝐿𝑤2
+′
+𝑧= 0.0
+ො𝑦= 0.5
+𝑦= 0
+𝐿= 0.693
+−ylogොy−(1−y)log(1−ොy )
+𝑥1 = 1.4
+𝑥2 = 0.2
+AI VIETNAM
+All-in-One Course
+𝒙 =
+1
+1.4
+0.2
+𝒚= 0
+Dataset
+43
+Example 4 - Zero Initialization
+Model
+Loss
+𝑥1
+0.0
+0.0
+𝑧= 𝑤1𝑥1 + 𝑤2𝑥2 + 𝑏
+𝑦
+ො𝑦= 𝜎(𝑧) =
+1
+1 + 𝑒−𝑧
+𝑥2
+0.0
+𝜂= 0.01
+𝑤1
+𝑏
+𝑤2
+𝐿𝑏
+′
+𝐿𝑤1
+′
+𝐿𝑤2
+′
+ො𝑦= 0.6856
+𝐿= 1.1573
+−ylogොy−(1−y)log(1−ොy )
+𝑧= 0.78
+𝑥1 = 1.4
+𝑥2 = 0.2
+𝑦= 0
+AI VIETNAM
+All-in-One Course
+𝒙 =
+1
+1.4
+0.2
+𝒚= 0
+Dataset
+𝐿𝜽
+′ = 𝐱(ොy −𝑦)
+=
+1
+1.4
+0.2
+0.5
+=
+0.5
+0.7
+0.1
+=
+𝐿𝑏
+′
+𝐿𝑤1
+′
+𝐿𝑤2
+′
+𝑏= −0.005
+𝑤1= −0.007
+𝑤2= −0.001
+44
+Example 4 - Zero Initialization
+𝒙 =
+1
+1.4
+0.2
+𝒚= 0
+Dataset
+AI VIETNAM
+All-in-One Course
+Model
+Loss
+𝑥1
+𝑧= 𝑤1𝑥1 + 𝑤2𝑥2 + 𝑏
+𝑦
+ො𝑦= 𝜎(𝑧) =
+1
+1 + 𝑒−𝑧
+𝑥2
+𝑤1
+𝑏
+𝑤2
+ො𝑦= 0.49
+𝐿= 0.68
+−ylogොy−(1−y)log(1−ොy )
+𝑧= −0.016
+previous 𝑳= 1.1573
+𝑥1 = 1.4
+𝑥2 = 0.2
+𝑦= 0
+−0.007
+−0.005
+−0.001
+45
+Example 5 - Zero Initialization
+Model
+Label
+𝑥
+L = −𝑦0logො𝑦0 −𝑦1logො𝑦1
+𝑧0 = 𝑤0𝑥+ 𝑏0
+𝑤0
+𝑏0
+𝑦
+𝑧1 = 𝑤1𝑥+ 𝑏1
+𝑤1
+𝑏1
+ො𝑦0 =
+𝑒𝑧0
+σ𝑖=0
+1
+𝑒𝑧𝑖
+ො𝑦1 =
+𝑒𝑧1
+σ𝑖=0
+1
+𝑒𝑧𝑖
+1
+𝑥
+𝑧0
+𝑧1
+Softmax
+ොy0 = 𝑃𝑙𝑎𝑏𝑒𝑙= 0|𝑥
+ොy1 = 𝑃𝑙𝑎𝑏𝑒𝑙= 1|𝑥
+Model
+Feature
+Label
+Category A
+Category B
+Training 
+data
+One-hot 
+encoding 
+for labels
+𝑦= 0 →𝒚𝑇= [1, 0]
+𝑦= 1 →𝒚𝑇= [0, 1]
+0 1
+index
+AI VIETNAM
+All-in-One Course
+❖Softmax regression
+46
+Example 5 - Zero Initialization
+AI VIETNAM
+All-in-One Course
+Model
+Label
+𝑥
+L = −𝑦0logො𝑦0 −𝑦1logො𝑦1
+𝑧0 = 𝑤0𝑥+ 𝑏0
+𝑤0
+𝑏0
+𝑦
+𝑧1 = 𝑤1𝑥+ 𝑏1
+𝑤1
+𝑏1
+ො𝑦0 =
+𝑒𝑧0
+σ𝑖=0
+1
+𝑒𝑧𝑖
+ො𝑦1 =
+𝑒𝑧1
+σ𝑖=0
+1
+𝑒𝑧𝑖
+𝑥= 1.4
+𝒚= 1
+0
+Feature
+Label
+Training data
+One-hot encoding for label
+𝑦= 0 →𝒚𝑇= [1 0]
+𝑦= 1 →𝒚𝑇= [0 1]
+𝑦0 𝑦1
+#class=2
+#feature=1
+𝑥, 𝑦= 1.4, 0
+Training example
+47
+Example 5 - Zero Initialization
+Feature
+Label
+Training data
+#class=2
+#feature=1
+One-hot encoding for label
+𝑦= 0 →𝒚𝑇= [1 0]
+𝑦= 1 →𝒚𝑇= [0 1]
+𝑦0 𝑦1
+𝑥, 𝑦= 1.4, 0
+Training example
+𝑥
+L = −𝑦0logො𝑦0 −𝑦1logො𝑦1
+𝑧0 = 𝑤0𝑥+ 𝑏0
+0.0
+0.0
+𝑦
+𝑧1 = 𝑤1𝑥+ 𝑏1
+0.0
+0.0
+ො𝑦0 =
+𝑒𝑧0
+σ𝑖=0
+1
+𝑒𝑧𝑖
+ො𝑦1 =
+𝑒𝑧1
+σ𝑖=0
+1
+𝑒𝑧𝑖
+𝒙= 1.4
+𝑤0
+𝑏0
+𝑤1
+𝑏1
+𝒛0 = 0.0
+𝒛1 = 0.0
+ෝ𝒚0 = 0.5
+ෝ𝒚1 = 0.5
+𝐿= −log0.5 = 0.693
+𝒚= 1
+0
+AI VIETNAM
+All-in-One Course
+48
+Example 5 - Zero Initialization
+AI VIETNAM
+All-in-One Course
+𝑦= 0 →𝒚𝑇= [1 0]
+𝑦= 1 →𝒚𝑇= [0 1]
+𝑦0 𝑦1
+𝜕𝐿
+𝜕𝒛0
+= ො𝑦0 −1
+= 0.5 −1 = −0.5
+𝜕𝐿
+𝜕𝑧𝑖
+= ො𝑦𝑖−𝑦𝑖
+𝜕𝐿
+𝜕𝑤𝑖
+= 𝑥ො𝑦𝑖−𝑦𝑖
+𝜕𝐿
+𝜕𝑏𝑖
+= ො𝑦𝑖−𝑦𝑖
+Derivative
+𝜕𝐿
+𝜕𝒛1
+= ො𝑦1 −0 = 0.5
+𝑥
+L = −𝑦0logො𝑦0 −𝑦1logො𝑦1
+𝑧0 = 𝑤0𝑥+ 𝑏0
+0.0
+0.0
+𝑦
+𝑧1 = 𝑤1𝑥+ 𝑏1
+0.0
+0.0
+ො𝑦0 =
+𝑒𝑧0
+σ𝑖=0
+1
+𝑒𝑧𝑖
+ො𝑦1 =
+𝑒𝑧1
+σ𝑖=0
+1
+𝑒𝑧𝑖
+𝑤0
+𝑏0
+𝑤1
+𝑏1
+𝜕𝑳
+𝜕𝒛0
+= −0.5
+𝜕𝑳
+𝜕𝒛1
+= 0.5
+𝒙= 1.4
+ෝ𝒚0 = 0.5
+ෝ𝒚1 = 0.5
+𝐿= −log0.5 = 0.693
+𝒚= 1
+0
+49
+Example 5 - Zero Initialization
+AI VIETNAM
+All-in-One Course
+𝜕𝑳
+𝜕𝑏0
+=
+ො𝑦0 −1 = −0.5
+𝜕𝐿
+𝜕𝑧𝑖
+= ො𝑦𝑖−𝑦𝑖
+𝜕𝐿
+𝜕𝑤𝑖
+= 𝑥ො𝑦𝑖−𝑦𝑖
+𝜕𝐿
+𝜕𝑏𝑖
+= ො𝑦𝑖−𝑦𝑖
+Derivative
+𝜕𝑳
+𝜕𝑏1
+=
+ො𝑦1 −0 = 0.5
+𝑦= 0 →𝒚𝑇= [1 0]
+𝑦= 1 →𝒚𝑇= [0 1]
+𝑦0 𝑦1
+𝑥
+L = −𝑦0logො𝑦0 −𝑦1logො𝑦1
+𝑧0 = 𝑤0𝑥+ 𝑏0
+0.0
+0.0
+𝑦
+𝑧1 = 𝑤1𝑥+ 𝑏1
+0.0
+0.0
+ො𝑦0 =
+𝑒𝑧0
+σ𝑖=0
+1
+𝑒𝑧𝑖
+ො𝑦1 =
+𝑒𝑧1
+σ𝑖=0
+1
+𝑒𝑧𝑖
+𝑤0
+𝑏0
+𝑤1
+𝑏1
+𝜕𝑳
+𝜕𝑏0
+= −0.5
+𝜕𝑳
+𝜕𝑏1
+= 0.5
+𝒙= 1.4
+ෝ𝒚0 = 0.5
+ෝ𝒚1 = 0.5
+𝐿= −log0.5 = 0.693
+𝒚= 1
+0
+50
+Example 5 - Zero Initialization
+AI VIETNAM
+All-in-One Course
+𝜕𝐿
+𝜕𝑧𝑖
+= ො𝑦𝑖−𝑦𝑖
+𝜕𝐿
+𝜕𝑤𝑖
+= 𝑥ො𝑦𝑖−𝑦𝑖
+𝜕𝐿
+𝜕𝑏𝑖
+= ො𝑦𝑖−𝑦𝑖
+Derivative
+𝑦= 0 →𝒚𝑇= [1 0]
+𝑦= 1 →𝒚𝑇= [0 1]
+𝑦0 𝑦1
+𝜕𝑳
+𝜕𝑤0
+= 𝑥(ො𝑦0 −1 )
+= −0.5∗1.4=−0.7
+𝜕𝑳
+𝜕𝑤1
+= 𝑥(ො𝑦1 −0 )
+= 0.5∗1.4=0.7
+𝑥
+L = −𝑦0logො𝑦0 −𝑦1logො𝑦1
+𝑧0 = 𝑤0𝑥+ 𝑏0
+0.0
+0.0
+𝑦
+𝑧1 = 𝑤1𝑥+ 𝑏1
+0.0
+0.0
+ො𝑦0 =
+𝑒𝑧0
+σ𝑖=0
+1
+𝑒𝑧𝑖
+ො𝑦1 =
+𝑒𝑧1
+σ𝑖=0
+1
+𝑒𝑧𝑖
+𝑤0
+𝑏0
+𝑤1
+𝑏1
+𝜕𝑳
+𝜕𝑤0
+= −0.7
+𝜕𝑳
+𝜕𝑤0
+= 0.7
+𝜕𝑳
+𝜕𝑏0
+= −0.5
+𝜕𝑳
+𝜕𝑏1
+= 0.5
+𝒙= 1.4
+ෝ𝒚0 = 0.5
+ෝ𝒚1 = 0.5
+𝐿= −log0.5 = 0.693
+𝒚= 1
+0
+51
+Example 5 - Zero Initialization
+AI VIETNAM
+All-in-One Course
+Update parameters
+𝜽= 𝜽−𝜂𝐿𝜽
+′
+𝜂 is learning rate
+𝜽= 𝑏0 𝑏1
+𝑤0 𝑤1
+𝜂= 0.1
+𝐿𝜽
+′ =
+𝜕𝐿
+𝜕𝑏0
+ 𝜕𝐿
+𝜕𝑏1
+𝜕𝐿
+𝜕𝑤0
+ 
+𝜕𝐿
+𝜕𝑤1
+𝜽= 0.0 
+0.0
+0.0 
+0.0 −0.01 −0.5 0.5
+−0.7 0.7
+= −0.005 0.005
+−0.007 0.007
+𝑥
+L = −𝑦0logො𝑦0 −𝑦1logො𝑦1
+𝑧0 = 𝑤0𝑥+ 𝑏0
+−0.007
+−0.005
+𝑦
+𝑧1 = 𝑤1𝑥+ 𝑏1
+0.007
+0.005
+ො𝑦0 =
+𝑒𝑧0
+σ𝑖=0
+1
+𝑒𝑧𝑖
+ො𝑦1 =
+𝑒𝑧1
+σ𝑖=0
+1
+𝑒𝑧𝑖
+𝑤0
+𝑏0
+𝑤1
+𝑏1
+𝜕𝑳
+𝜕𝑤0
+= −0.7
+𝜕𝑳
+𝜕𝑤0
+= 0.7
+𝜕𝑳
+𝜕𝑏0
+= −0.5
+𝜕𝑳
+𝜕𝑏1
+= 0.5
+𝒙= 1.4
+ෝ𝒚0 = 0.5
+ෝ𝒚1 = 0.5
+𝐿= −log0.5 = 0.693
+𝒚= 1
+0
+52
+Example 5 - Zero Initialization
+AI VIETNAM
+All-in-One Course
+Feature
+Label
+Training data
+One-hot encoding for label
+𝑦= 0 →𝒚𝑇= [1 0]
+𝑦= 1 →𝒚𝑇= [0 1]
+𝑦0 𝑦1
+𝑥, 𝑦= 1.4, 0
+Training example
+𝑥
+L = −𝑦0logො𝑦0 −𝑦1logො𝑦1
+𝑧0 = 𝑤0𝑥+ 𝑏0
+𝑦
+𝑧1 = 𝑤1𝑥+ 𝑏1
+ො𝑦0 =
+𝑒𝑧0
+σ𝑖=0
+1
+𝑒𝑧𝑖
+ො𝑦1 =
+𝑒𝑧1
+σ𝑖=0
+1
+𝑒𝑧𝑖
+𝑤0
+𝑏0
+𝑤1
+𝑏1
+𝒙= 1.4
+ෝ𝒚0 = 0.51
+ෝ𝒚1 = 0.49
+𝐿= −log0.51 = 0.678
+𝒛0 = 0.015
+𝒛1 = −0.015
+𝒚= 1
+0
+𝒛0 = 0.0
+𝒛1 = 0.0
+ෝ𝒚0 = 0.5
+ෝ𝒚1 = 0.5
+𝐿= −log0.5 = 0.693
+losses reduce!!!
+−0.007
+−0.005
+0.007
+0.005
+53
+Example 6 - Zero Initialization
+1
+Softmax
+𝑥1
+𝑥2
+1
+ReLU
+ReLU
+Input layer
+Hidden layer
+Output layer
+ොy1
+ොy2
+ොy3
+𝑧1
+𝑧2
+𝑧3
+ℎ1
+ℎ2
+= 0.0 0.0
+0.0 0.0
+𝒉= 𝒉𝟏 𝒉2
+= 0.0 
+0.0 
+0.0
+0.0 
+0.0 
+0.0
+𝒘= 𝒘1 𝒘2 𝒘3
+𝒃𝒉= 0.0
+0.0
+𝒃𝒘=
+0.0
+0.0
+0.0
+Feature
+Label
+𝒙=
+𝒙(1)
+𝒙(2)
+𝒙(3)
+=
+1.5 0.2
+4.7 1.6
+5.6 2.2
+𝒚=
+0
+1
+2
+AI VIETNAM
+All-in-One Course
+54
+1
+Softmax
+𝑥1
+𝑥2
+1
+ReLU
+ReLU
+ොy1
+ොy2
+ොy3
+𝑧1
+𝑧2
+𝑧3
+ℎ1
+ℎ2
+Loss 
+Function
+−෍
+𝑖
+𝑦𝑖𝑙𝑜𝑔ො𝑦
+𝑚11
+𝑚21
+𝑤12
+𝑤21
+𝑤31
+𝑚12
+𝑏𝑚1
+𝑚22
+𝑏𝑚2
+𝑤11
+𝑏𝑤1
+𝑤22
+𝑏𝑤2
+𝑤32
+𝑏𝑤3
+= 0.0 
+0.0
+0.0 
+0.0
+𝒎= 𝒎𝟏 
+𝒎2
+= 0.0 
+0.0 
+0.0
+0.0 
+0.0 
+0.0
+𝒘= 𝒘1 
+𝒘2 
+𝒘3
+𝒃𝒎= 0.0
+0.0
+𝒃𝒘=
+0.0
+0.0
+0.0
+𝒚=
+1 0 0
+0 1 0
+0 0 1
+𝒙=
+1.5 0.2
+4.7 1.6
+5.6 2.2
+𝒉=
+0.0 
+0.0
+0.0 
+0.0
+0.0 
+0.0
+𝐑𝐞𝐋𝐔=
+0.0 
+0.0
+0.0 
+0.0
+0.0 
+0.0
+𝒛=
+0.0 
+0.0 
+0.0
+0.0 
+0.0 
+0.0
+0.0 
+0.0 
+0.0
+ෝ𝒚=
+0.333 0.333 0.333
+0.333 0.333 0.333
+0.333 0.333 0.333
+loss =
+−log0.333
+−log0.333
+−log0.333
+55
+1
+Softmax
+𝑥1
+𝑥2
+1
+ReLU
+ReLU
+ොy1
+ොy2
+ොy3
+𝑧1
+𝑧2
+𝑧3
+ℎ1
+ℎ2
+Loss 
+Function
+−෍
+𝑖
+𝑦𝑖𝑙𝑜𝑔ො𝑦
+𝑚11
+𝑚21
+𝑤12
+𝑤21
+𝑤31
+𝑚12
+𝑏𝑚1
+𝑚22
+𝑏𝑚2
+𝑤11
+𝑏𝑤1
+𝑤22
+𝑏𝑤2
+𝑤32
+𝑏𝑤3
+= 0.0 
+0.0
+0.0 
+0.0
+𝒎= 𝒎𝟏 
+𝒎2
+= 0.0 
+0.0 
+0.0
+0.0 
+0.0 
+0.0
+𝒘= 𝒘1 
+𝒘2 
+𝒘3
+𝒃𝒎= 0.0
+0.0
+𝒃𝒘=
+𝑣
+𝑣
+𝑣
+𝒙=
+1.5 0.2
+4.7 1.6
+5.6 2.2
+𝒉=
+0.0 
+0.0
+0.0 
+0.0
+0.0 
+0.0
+𝐑𝐞𝐋𝐔=
+0.0 
+0.0
+0.0 
+0.0
+0.0 
+0.0
+𝒛=
+0.0 
+0.0 
+0.0
+0.0 
+0.0 
+0.0
+0.0 
+0.0 
+0.0
+ෝ𝒚=
+0.333 0.333 0.333
+0.333 0.333 0.333
+0.333 0.333 0.333
+𝒚=
+1 0 0
+0 1 0
+0 0 1
+loss =
+−log0.333
+−log0.333
+−log0.333
+56
+Optimizers
+AI VIETNAM
+All-in-One Course
+Optimizer Selection
+https://www.kdnuggets.com/2019/06/gradient-
+descent-algorithms-cheat-sheet.html
+Define a way to update parameters
+Data Preparation
+Data 
+Normalization
+Model (Network) 
+Construction
+Parameter 
+Initialization
+Optimizer 
+Selection
+Loss function 
+Selection
+Metric Selection
+57
+Summary
+Recommendation
+AI VIETNAM
+All-in-One Course
+Data Preparation
+Data 
+Normalization
+Model (Network) 
+Construction
+Parameter 
+Initialization
+Optimizer 
+Selection
+Loss function 
+Selection
+Metric Selection
+[-1, 1]
+ReLU Activation
+Batch norm
+He normal
+Adam
+58
+Discussion
+❖Sigmoid and SGD
+❖W/o using normalization
+784 Nodes
+Input layer
+Output
+1
+𝑧1
+𝑧10
+Softmax 
+activation
+1
+Sigmoid 
+activation
+128 Nodes
+Hidden layer
+Fully 
+connect
+Fully 
+connect
+10 Nodes
+Output layer
+28
+28
+784
+flatten data
+…
+…
+AI VIETNAM
+All-in-One Course
+59
+Discussion
+❖Sigmoid and SGD
+❖W/o using normalization
+784 Nodes
+Input layer
+Output
+1
+𝑧1
+𝑧10
+Softmax 
+activation
+7 hidden layers
+Fully 
+connect
+Fully 
+connect
+10 Nodes
+Output layer
+28
+28
+784
+flatten data
+…
+…
+AI VIETNAM
+All-in-One Course
+…
+60
+Discussion
+AI VIETNAM
+All-in-One Course
+2 hidden layers
+5 hidden layers (!)
+7 hidden layers
+Discussion
+AI VIETNAM
+All-in-One Course
+Tensorflow
+62
+Further Reading
+AI VIETNAM
+All-in-One Course
+https://www.deeplearning.ai/ai-notes/initialization/index.html
+https://towardsdatascience.com/the-dying-relu-problem-clearly-explained-42d0c54e0d24
+Dying ReLU
+Initialization
+63

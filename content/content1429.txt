@@ -1,3 +1,0 @@
-Nếu bạn
-chưa biết môi trường trong các dự án python thì nó là không gian làm việc độc lập chứa các phiên bản
-2

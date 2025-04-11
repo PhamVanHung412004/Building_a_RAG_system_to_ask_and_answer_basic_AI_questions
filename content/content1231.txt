@@ -1,3 +1,0 @@
-AI VIETNAM aivietnam.edu.vn
-(d) Gradient descent
-8. Đâu là điểm yếu của GNN?

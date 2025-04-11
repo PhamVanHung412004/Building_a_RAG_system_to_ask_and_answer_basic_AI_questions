@@ -1,7 +1,0 @@
-6. Khởi tạo mô hình ngôn ngữ lớn:
-1 def get_huggingface_llm ( model_name : str = " lmsys / vicuna -7b-v1 .5",
-2 max_new_token : int = 512) :
-3 nf4_config = BitsAndBytesConfig (
-4 load_in_4bit =True ,
-5 bnb_4bit_quant_type =" nf4 ",
-9

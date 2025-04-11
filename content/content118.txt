@@ -1,7 +1,0 @@
-classes_ }’)
-4 print (f’ Encoded labels : {y}’)
-5
-6 # >> Classes : [’ ham ’ ’spam ’]
-7 # >> Encoded labels : [0 0 1 ... 0 0 0]
-8
-7

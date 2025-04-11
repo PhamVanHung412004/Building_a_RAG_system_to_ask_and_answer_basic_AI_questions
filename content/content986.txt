@@ -1,5 +1,0 @@
-AI VIETNAM aivietnam.edu.vn
-Hình 5: Các nhiệm vụ trong công tác Truy vấn - Retrieval
-4.1.1 Xử lý dữ liệu
-Các mô hình RAG tốt thường thích ứng với đa dạng các định dạng dữ liệu đầu vào. Tuy nhiên, một số
-bài toán cho dữ liệu riêng cần được thiết kế công cụ đọc và bóc tách dữ liệu hiệu quả.

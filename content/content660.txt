@@ -1,2 +1,0 @@
-Hình 10: Bảng so sánh kết quả U-Mamba và các model khác trên dataset ảnh 2D.
-8

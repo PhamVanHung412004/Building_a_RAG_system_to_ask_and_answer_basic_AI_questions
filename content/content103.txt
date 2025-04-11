@@ -1,5 +1,0 @@
-(b) Tăng cường độ chính xác.
-(c) Tăng độ sáng ảnh.
-(d) Dùng trong việc visualization kết quả.
-- Hết -
-13

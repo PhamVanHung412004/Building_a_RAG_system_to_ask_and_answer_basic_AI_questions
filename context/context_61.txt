@@ -1,0 +1,20 @@
+AI VIET NAM – AIO COURSE 2023
+Exercise: Multimodal Large Language Models
+Ngày 22 tháng 4 năm 2024
+Exercise: Multimodal Large Language Models - Rubric
+Phần
+Kiến Thức
+Đánh Giá
+1
+- Giới thiệu vềMLLMs và các thành phần cơ
+bản trong MLLMs.
+- Giới thiệu vềcác mô hình MLLMs tiêu biểu
+hiện nay.
+- Sửdụng MLLMs cho các ứng dụng dựa
+vào các mô hình: BLIP-2, NExT-GPT.
+2.
+- Hiểu rõ mô hình BLIP-2 và các kỹthuật
+huấn luyện mô hình BLIP-2.
+- Huấn luyện mô hình BLIP-2 trên bộdữ
+liệu VQA.
+1

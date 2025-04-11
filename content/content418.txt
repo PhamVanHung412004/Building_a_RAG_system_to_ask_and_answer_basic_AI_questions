@@ -1,4 +1,0 @@
-4. When dealing with point clouds with smooth surfaces, which ICP variant might be
-more suitable?
-(A). Point-to-Point ICP. (B). Point-to-Plane ICP.
-(C). Both (a) and (b) are equally suitable. (D). Neither (a) nor (b) is suitable.

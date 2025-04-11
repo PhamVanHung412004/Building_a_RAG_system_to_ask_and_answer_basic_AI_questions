@@ -1,2 +1,0 @@
-. 15
-7 Các phép toán trên mảng. . 

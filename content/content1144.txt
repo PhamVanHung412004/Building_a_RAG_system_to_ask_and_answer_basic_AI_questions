@@ -1,2 +1,0 @@
-relu ( self . conv1 (x)))
-5

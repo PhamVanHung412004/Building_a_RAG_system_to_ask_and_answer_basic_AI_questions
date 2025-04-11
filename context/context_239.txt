@@ -1,0 +1,2498 @@
+1
+AI VIETNAM
+All-in-One Course
+1
+AI VIETNAM
+All-in-One Course
+Object Tracking: Mean-Shift
+(Computer Vision Foundation)
+Year 2023
+Vinh Dinh Nguyen
+PhD in Computer Science
+AI VIETNAM
+All-in-One Course
+2
+AI VIETNAM
+All-in-One Course
+2
+Vinh Dinh Nguyen- PhD in Computer Science
+Mean Shift Overview
+Calculate distribution (q)
+Initialize estimated center (y1 = y0)
+Calculate distribution (p)
+Calculate weight (w)
+Estimate new target center (y1)
+(
+)
+2
+(
+)
+i
+u
+i
+b x
+u
+q
+C
+k
+x
+=
+=
+å
+( )
+2
+(
+)
+i
+i
+u
+h
+b x
+u
+y
+x
+p
+y
+C
+k
+h
+=
+æ
+ö
+-
+=
+ç
+÷
+ç
+÷
+è
+ø
+å
+Update target center (y0 = y1)
+Repeat until end of the sequence
+0
+0.05
+0.1
+0.15
+0.2
+0.25
+0.3
+1
+2
+3
+.
+.
+.
+m
+color
+Probability
+0
+0.05
+0.1
+0.15
+0.2
+0.25
+0.3
+1
+2
+3
+.
+.
+.
+m
+color
+Probability
+d < 𝛼
+False
+True
+1
+2
+3
+4
+5
+1
+1
+1
+n
+i
+i
+i
+n
+i
+i
+x w
+y
+w
+=
+=
+= å
+å
+6
+6’
+7
+9
+3
+AI VIETNAM
+All-in-One Course
+3
+Vinh Dinh Nguyen- PhD in Computer Science
+Face Detection and Tracking: Static Background
+Face detection without tracking 
+(video)
+Face detection with  tracking-based template
+(video)
+Face detection with  tracking-based meanshift
+(video)
+4
+AI VIETNAM
+All-in-One Course
+4
+Vinh Dinh Nguyen- PhD in Computer Science
+Face Detection and Tracking: Dynamic Background
+Object detection & tracking (video)
+5
+AI VIETNAM
+All-in-One Course
+5
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Object Tracking and Its Application
+Ø Object Tracking Based on Template Matching
+Ø Object Tracking Based on Histogram Matching
+Ø Mean Shift Motivation
+Ø Mean Shift Object Tracking
+Ø Object Tracking by SIFT feature
+Ø Face Detection and Tracking
+Outline
+6
+AI VIETNAM
+All-in-One Course
+6
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Object Tracking and Its Application
+Ø Object Tracking Based on Template Matching
+Ø Object Tracking Based on Histogram Matching
+Ø Mean Shift Motivation
+Ø Mean Shift Object Tracking
+Ø Object Tracking by SIFT feature
+Ø Face Detection and Tracking
+Outline
+7
+AI VIETNAM
+All-in-One Course
+7
+Vinh Dinh Nguyen- PhD in Computer Science
+Tracking Applications
+Suppermarket
+Traffic monitoring
+Other applications
+Multicamera object tracking
+8
+AI VIETNAM
+All-in-One Course
+8
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Object Tracking and Its Application
+Ø Object Tracking Based on Template Matching
+Ø Object Tracking Based on Histogram Matching
+Ø Mean Shift Motivation
+Ø Mean Shift Object Tracking
+Ø Object Tracking by SIFT feature
+Ø Face Detection and Tracking
+Outline
+9
+AI VIETNAM
+All-in-One Course
+9
+Vinh Dinh Nguyen- PhD in Computer Science
+Object Tracking Based on Template
+Given: location of target in initial or previous frame
+Find: location of target in current frame
+Input image
+Image Template
+Appeareance based Tracking
+Histogram based Tracking
+Input image
+Histogram Template
+10
+AI VIETNAM
+All-in-One Course
+10
+Vinh Dinh Nguyen- PhD in Computer Science
+Tracking using Appearance Matching
+Frame t-1
+Frame t
+Object Template
+Neighborhood regions
+11
+AI VIETNAM
+All-in-One Course
+11
+Vinh Dinh Nguyen- PhD in Computer Science
+Similarity Metrics for Template Matching
+12
+AI VIETNAM
+All-in-One Course
+12
+Vinh Dinh Nguyen- PhD in Computer Science
+Similarity Metrics for Template Matching
+13
+AI VIETNAM
+All-in-One Course
+13
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Object Tracking and Its Application
+Ø Object Tracking Based on Template Matching
+Ø Object Tracking Based on Histogram Matching
+Ø Mean Shift Motivation
+Ø Mean Shift Object Tracking
+Ø Object Tracking by SIFT feature
+Ø Face Detection and Tracking
+Outline
+14
+AI VIETNAM
+All-in-One Course
+14
+Vinh Dinh Nguyen- PhD in Computer Science
+Tracking using Histogram Matching
+Frame t-1
+Frame t
+Histogram Template
+Neighborhood regions
+15
+AI VIETNAM
+All-in-One Course
+15
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Object Tracking and Its Application
+Ø Object Tracking Based on Template Matching
+Ø Object Tracking Based on Histogram Matching
+Ø Mean Shift Motivation
+Ø Mean Shift Object Tracking
+Ø Object Tracking by SIFT feature
+Ø Face Detection and Tracking
+Outline
+16
+AI VIETNAM
+All-in-One Course
+16
+Vinh Dinh Nguyen- PhD in Computer Science
+Mean Shift Motivation
+The mean-shift algorithm is an efficient approach to tracking objects whose appearance is defined by histograms 
+Motivation – to track non-rigid 
+objects, (like a walking person), 
+it is hard to specify
+an 
+explicit 
+2D 
+parametric 
+motion model.
+Appearances
+of
+non-rigid
+objects
+can
+sometimes
+be
+modeled
+with
+color
+distributions
+17
+AI VIETNAM
+All-in-One Course
+17
+AI VIETNAM
+All-in-One Course
+Intuitive Description
+Distribution of identical billiard balls
+Region of
+interest
+Center of
+mass
+Mean Shift
+vector
+Objective : Find the densest region
+18
+AI VIETNAM
+All-in-One Course
+18
+AI VIETNAM
+All-in-One Course
+Intuitive Description
+Distribution of identical billiard balls
+Region of
+interest
+Center of
+mass
+Mean Shift
+vector
+Objective : Find the densest region
+19
+AI VIETNAM
+All-in-One Course
+19
+AI VIETNAM
+All-in-One Course
+Intuitive Description
+Distribution of identical billiard balls
+Region of
+interest
+Center of
+mass
+Mean Shift
+vector
+Objective : Find the densest region
+20
+AI VIETNAM
+All-in-One Course
+20
+AI VIETNAM
+All-in-One Course
+Intuitive Description
+Distribution of identical billiard balls
+Region of
+interest
+Center of
+mass
+Mean Shift
+vector
+Objective : Find the densest region
+21
+AI VIETNAM
+All-in-One Course
+21
+AI VIETNAM
+All-in-One Course
+Intuitive Description
+Distribution of identical billiard balls
+Region of
+interest
+Center of
+mass
+Mean Shift
+vector
+Objective : Find the densest region
+22
+AI VIETNAM
+All-in-One Course
+22
+AI VIETNAM
+All-in-One Course
+Intuitive Description
+Distribution of identical billiard balls
+Region of
+interest
+Center of
+mass
+Mean Shift
+vector
+Objective : Find the densest region
+23
+AI VIETNAM
+All-in-One Course
+23
+AI VIETNAM
+All-in-One Course
+Intuitive Description
+Distribution of identical billiard balls
+Region of
+interest
+Center of
+mass
+Objective : Find the densest region
+24
+AI VIETNAM
+All-in-One Course
+24
+Vinh Dinh Nguyen- PhD in Computer Science
+Mean Shift Vector
+• Given: data points and approximate location of the mean of this data
+• Task: Estimate the exact location of the mean of the data by determining the shift vector from the initial mean.
+• Properties of mean shift : 
+•
+Always point towards the direction of the maximum increase in the density
+•
+Mean shift vector has the direction of the gradient of the density estimate
+M! y0 =
+"
+#! ∑$%"
+#! x$ - y&
+y0
+y1
+M! y0 =
+∑"#$
+%! ("(*&),"
+∑"#$
+%! ("(*&) - y&
+Standard version:
+Weighted version:
+n" : number of points in the kernel
+y# : initial mean location
+x$ : data points
+h: kernel radius
+Weights are determined using kernel (masks): uniform, 
+gaussian, epanechnikov
+Mean shift vector: How the mean is shifting 
+Weight
+25
+AI VIETNAM
+All-in-One Course
+25
+Vinh Dinh Nguyen- PhD in Computer Science
+Probability Vs Probability Density Function
+Coin Flipping
+Throwing dart
+What is the probability?
+26
+AI VIETNAM
+All-in-One Course
+26
+Vinh Dinh Nguyen- PhD in Computer Science
+What is Mean Shift
+Non-parametric
+Density Estimation
+Non-parametric
+Density GRADIENT Estimation 
+(Mean Shift)
+Data
+Discrete PDF Representation
+PDF Analysis
+PDF in feature space
+• Color space
+• Scale space
+• Actually any feature space you can conceive
+• … 
+A tool for:
+Finding modes (peaks)  in a set of data samples, manifesting an underlying probability density function (PDF) in RN
+27
+AI VIETNAM
+All-in-One Course
+27
+Vinh Dinh Nguyen- PhD in Computer Science
+Parametric/Non-parametric Estimation
+Parametric Density Estimation
+Non-Parametric Density Estimation
+28
+AI VIETNAM
+All-in-One Course
+28
+Vinh Dinh Nguyen- PhD in Computer Science
+Non-Parametric Density Estimation
+Assumption : The data points are sampled from an underlying PDF
+Assumed Underlying PDF
+Real Data Samples
+Data point density
+implies PDF value !
+29
+AI VIETNAM
+All-in-One Course
+29
+Vinh Dinh Nguyen- PhD in Computer Science
+Non-Parametric Density Estimation
+Assumed Underlying PDF
+Real Data Samples
+30
+AI VIETNAM
+All-in-One Course
+30
+Vinh Dinh Nguyen- PhD in Computer Science
+Parametric Density Estimation
+Assumption : The data points are sampled from an underlying PDF
+Assumed Underlying PDF
+2
+2
+(
+)
+2
+i
+PDF( ) = 
+i
+i
+ic e
+s
+-
+×
+å
+x-μ
+x
+Estimate
+Real Data Samples
+31
+AI VIETNAM
+All-in-One Course
+31
+Vinh Dinh Nguyen- PhD in Computer Science
+Kernel Density Estimation
+On every data point xi, we place a kernel function K
+Kernel Density Estimate:
+Kernel is simply a function which satisfies following three properties as mentioned below :
+•
+K(x) ≥0 for every x
+•
+Symmetric: K(x) = K(-x) for every x
+•
+Decreasing: K’(x) ≤ 0 for every x > 0
+•
+Area under the curve of the function must be equal to one
+32
+AI VIETNAM
+All-in-One Course
+32
+Vinh Dinh Nguyen- PhD in Computer Science
+Kernel Density Estimation (Bandwith)
+h is used to control bandwith of f(x)
+33
+AI VIETNAM
+All-in-One Course
+33
+Vinh Dinh Nguyen- PhD in Computer Science
+KDE: Example
+We have grade obtained by six students in a Computer Vision class. 
+We are going to construct kernel at each data point using Gaussian kernel function
+Xi = {65, 75, 67, 79, 81, 91}
+Three inputs are required to develop a kernel curve around a data point:
+•
+The observation data point which is Xi
+•
+The value of h
+•
+A linearly spaced series of data points which houses the observed data points 
+where K values are estimated.
+Xj = {50,51,52 …. 99}
+Calculation of K values for all values of Xj for a given 
+values of Xi and h is shown in the table below: 
+where Xi = 65 and h = 5.5
+34
+AI VIETNAM
+All-in-One Course
+34
+Vinh Dinh Nguyen- PhD in Computer Science
+KDE: Example
+We have grade obtained by six students in a Computer Vision class. 
+We are going to construct kernel at each data point using Gaussian kernel function
+Xi = {65, 75, 67, 79, 81, 91}
+Three inputs are required to develop a kernel curve around a data point:
+•
+The observation data point which is Xi
+•
+The value of h
+•
+A linearly spaced series of data points which houses the observed data points 
+where K values are estimated.
+Xj = {50,51,52 …. 99}
+35
+AI VIETNAM
+All-in-One Course
+35
+Vinh Dinh Nguyen- PhD in Computer Science
+KDE: Example
+k2
+36
+AI VIETNAM
+All-in-One Course
+36
+Vinh Dinh Nguyen- PhD in Computer Science
+Parametric Density Estimation
+Assumption : The data points are sampled from an underlying PDF
+Assumed Underlying PDF
+2
+2
+(
+)
+2
+i
+PDF( ) = 
+i
+i
+ic e
+s
+-
+×
+å
+x-μ
+x
+Estimate
+Real Data Samples
+Visualization: https://mathisonian.github.io/kde/
+38
+AI VIETNAM
+All-in-One Course
+38
+Vinh Dinh Nguyen- PhD in Computer Science
+Kernel Density Estimation
+1
+1
+( )
+(
+)
+n
+i
+i
+P
+K
+n
+=
+= å
+x
+x - x
+A function of some finite number of data points
+x1…xn
+Examples:
+• Epanechnikov Kernel
+• Uniform Kernel
+• Normal Kernel
+(
+)
+2
+1
+1
+( )
+     0
+    otherwise
+E
+c
+K
+ì
+-
+£
+ï
+= í
+ïî
+x
+x
+x
+1
+( )
+ 0   otherwise
+U
+c
+K
+ì
+£
+= í
+î
+x
+x
+2
+1
+( )
+exp
+ 
+2
+N
+K
+c
+æ
+ö
+= ×
+-
+ç
+÷
+è
+ø
+x
+x
+Data
+39
+AI VIETNAM
+All-in-One Course
+39
+Vinh Dinh Nguyen- PhD in Computer Science
+Profile and Kernel
+Radially Symmetric Kernel
+K x = ck( x 2)
+P x = 1
+n /
+$%&
+'
+K x −x$ = 1
+n c /
+$%&
+'
+k
+x −x$
+2
+∇P x = 1
+n c /
+$%&
+'
+∇k
+x −x$
+2
+∇P x = 1
+n 2c /
+$%&
+'
+x −x$ k(
+x −x$
+2
+∇P x = 1
+n 2c /
+$%&
+'
+x$ −x g
+x −x$
+2
+g = -k’(x)
+∇P x = 1
+n 2c /
+$%&
+'
+x$g
+x −x$
+2 −1
+n 2c /
+$%&
+'
+xg
+x −x$
+2
+∇P x = 1
+n 2c /
+$%&
+'
+g
+x −x$
+2
+∑$%&
+'
+x$g
+x −x$
+2
+∑$%&
+'
+g
+x −x$
+2
+−x
+∇P x = 1
+n 2c /
+$%&
+'
+gi
+∑$%&
+'
+x$gi
+∑$%&
+'
+gi
+−x
+40
+AI VIETNAM
+All-in-One Course
+40
+AI VIETNAM
+All-in-One Course
+Kernel Density Estimation
+Gradient
+1
+1
+   ( )
+   (
+)
+n
+i
+i
+P
+K
+n
+=
+= å
+x
+x - x
+Ñ
+Ñ
+Give up estimating the PDF !
+Estimate ONLY the gradient
+2
+(
+)
+i
+i
+K
+ck
+h
+æ
+ö
+=
+ç
+÷
+ç
+÷
+è
+ø
+x - x
+x - x
+Using the
+Kernel form:
+We get :
+1
+1
+1
+1
+( )
+n
+i
+i
+n
+n
+i
+i
+i
+n
+i
+i
+i
+i
+g
+c
+c
+P
+k
+g
+n
+n
+g
+=
+=
+=
+=
+é
+ù
+ê
+ú
+é
+ù
+ê
+ú
+Ñ
+=
+Ñ
+=
+-
+ê
+ú
+ê
+ú
+ë
+û
+ê
+ú
+ë
+û
+å
+å
+å
+å
+x
+x
+x
+
+Size of window
+   g( )
+( )
+k¢
+= -
+x
+x
+41
+AI VIETNAM
+All-in-One Course
+41
+AI VIETNAM
+All-in-One Course
+Kernel Density Estimation
+Gradient
+1
+1
+1
+1
+( )
+n
+i
+i
+n
+n
+i
+i
+i
+n
+i
+i
+i
+i
+g
+c
+c
+P
+k
+g
+n
+n
+g
+=
+=
+=
+=
+é
+ù
+ê
+ú
+é
+ù
+ê
+ú
+Ñ
+=
+Ñ
+=
+-
+ê
+ú
+ê
+ú
+ë
+û
+ê
+ú
+ë
+û
+å
+å
+å
+å
+x
+x
+x
+
+Computing The Mean Shift
+   g( )
+( )
+k¢
+= -
+x
+x
+42
+AI VIETNAM
+All-in-One Course
+42
+AI VIETNAM
+All-in-One Course
+1
+1
+1
+1
+( )
+n
+i
+i
+n
+n
+i
+i
+i
+n
+i
+i
+i
+i
+g
+c
+c
+P
+k
+g
+n
+n
+g
+=
+=
+=
+=
+é
+ù
+ê
+ú
+é
+ù
+ê
+ú
+Ñ
+=
+Ñ
+=
+-
+ê
+ú
+ê
+ú
+ë
+û
+ê
+ú
+ë
+û
+å
+å
+å
+å
+x
+x
+x
+
+Computing The Mean Shift
+Yet another Kernel 
+density estimation !
+Simple Mean Shift procedure:
+• Compute mean shift vector
+•Translate the Kernel window by m(x)
+2
+1
+2
+1
+( )
+n
+i
+i
+i
+n
+i
+i
+g
+h
+g
+h
+=
+=
+é
+ù
+æ
+ö
+ê
+ú
+ç
+÷
+ç
+÷
+ê
+ú
+è
+ø
+=
+-
+ê
+ú
+æ
+ö
+ê
+ú
+ç
+÷
+ê
+ú
+ç
+÷
+è
+ø
+ë
+û
+å
+å
+x - x
+x
+m x
+x
+x - x
+   g( )
+( )
+k¢
+= -
+x
+x
+Mean Shift is the gradient 
+of the PDF
+m 𝑥= ∇P(x)
+c
+n ∑$%&
+'
+gi
+43
+AI VIETNAM
+All-in-One Course
+43
+AI VIETNAM
+All-in-One Course
+Mean Shift Mode Detection
+Updated Mean Shift Procedure:
+• Find all modes using the Simple Mean Shift Procedure
+• Prune modes by perturbing them (find saddle points and plateaus)
+• Prune nearby – take highest mode in the window
+What happens if we
+reach a saddle point 
+?
+Perturb the mode position
+and check if we return back
+44
+AI VIETNAM
+All-in-One Course
+44
+AI VIETNAM
+All-in-One Course
+• Automatic convergence speed – the mean shift  
+vector size depends on the gradient itself.
+• Near maxima, the steps are small and refined
+• Convergence is guaranteed for infinitesimal  
+steps only è infinitely convergent, 
+(therefore set a lower bound)
+• For Uniform Kernel (      ), convergence is achieved in
+a finite number of steps
+• Normal Kernel (      ) exhibits a smooth trajectory, but 
+is slower than Uniform Kernel (      ).
+Adaptive
+Gradient 
+Ascent
+Mean Shift Properties
+45
+AI VIETNAM
+All-in-One Course
+45
+AI VIETNAM
+All-in-One Course
+Real Modality Analysis
+Tessellate the space 
+with windows
+Run the procedure in parallel
+46
+AI VIETNAM
+All-in-One Course
+46
+AI VIETNAM
+All-in-One Course
+Real Modality Analysis
+The blue data points were traversed by the windows towards the mode
+47
+AI VIETNAM
+All-in-One Course
+47
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Object Tracking and Its Application
+Ø Object Tracking Based on Template Matching
+Ø Object Tracking Based on Histogram Matching
+Ø Mean Shift Motivation
+Ø Mean Shift Object Tracking
+Ø Object Tracking by SIFT feature
+Ø Face Detection and Tracking
+Outline
+48
+AI VIETNAM
+All-in-One Course
+48
+Vinh Dinh Nguyen- PhD in Computer Science
+Mean-Shift Object Tracking
+Current 
+frame
+…
+…
+Choose a feature 
+space
+Represent the 
+model in the 
+chosen feature 
+space
+Choose a 
+reference model in 
+the current frame
+49
+AI VIETNAM
+All-in-One Course
+49
+Vinh Dinh Nguyen- PhD in Computer Science
+Mean-Shift Object Tracking
+Search in the 
+model’s 
+neighborhood in 
+next frame
+Start from the 
+position of the 
+model in the 
+current frame
+Find best candidate 
+by maximizing a 
+similarity func.
+Repeat the same 
+process in the next 
+pair of frames
+Current 
+frame
+…
+…
+Model
+Candidate
+50
+AI VIETNAM
+All-in-One Course
+50
+Vinh Dinh Nguyen- PhD in Computer Science
+Mean-Shift Object Tracking
+Choose a 
+reference target 
+model
+Quantized Color 
+Space
+Choose a feature 
+space
+Represent the 
+model by its PDF in 
+the feature space
+0
+0.05
+0.1
+0.15
+0.2
+0.25
+0.3
+0.35
+1
+2
+3
+.
+.
+.
+m
+color
+Probability
+Kernel Based Object Tracking, by Comaniniu, Ramesh, Meer
+51
+AI VIETNAM
+All-in-One Course
+51
+Vinh Dinh Nguyen- PhD in Computer Science
+Mean-Shift Object Tracking
+( )
+( )
+,
+f
+y
+f
+q p y
+=
+é
+ù
+ë
+û
+
+Similarity
+Function:
+Target Model
+(centered at 0)
+Target Candidate
+(centered at y)
+{ }
+1..
+1
+1
+m
+u
+u
+u
+m
+u
+q
+q
+q
+=
+=
+=
+=
+å
+
+0
+0.05
+0.1
+0.15
+0.2
+0.25
+0.3
+0.35
+1
+2
+3
+.
+.
+.
+m
+color
+Probability
+( )
+( )
+{
+}
+1..
+1
+1
+m
+u
+u
+u
+m
+u
+p y
+p
+y
+p
+=
+=
+=
+=
+å
+
+0
+0.05
+0.1
+0.15
+0.2
+0.25
+0.3
+1
+2
+3
+.
+.
+.
+m
+color
+Probability
+PDF Representation
+Color distribution 
+by discrete m-bin 
+color histogram
+Color distribution 
+by discrete m-bin 
+color histogram
+52
+AI VIETNAM
+All-in-One Course
+52
+Vinh Dinh Nguyen- PhD in Computer Science
+Bhattacharyya Coefficient
+Measure the similarity between two probability distributions; It tells us how much overlap there is between
+the two distributions, and can help us determine how similar or dissimilar they are
+Image credit:
+Danny Butvinik
+Mean Shift is applied to
+find find the solution.
+53
+AI VIETNAM
+All-in-One Course
+53
+Vinh Dinh Nguyen- PhD in Computer Science
+Mean-Shift Object Tracking
+( )
+( )
+( )
+(
+)
+1
+,
+,
+m
+p y
+p
+y
+p
+y
+=
+
+
+(
+)
+1,
+,
+m
+q
+q
+q
+=
+
+
+Target model:
+Target candidate:
+Similarity function:
+( )
+( ),
+?
+f
+y
+f
+p y
+q
+=
+=
+é
+ù
+ë
+û
+
+
+( )
+( )
+( )
+(
+)
+1
+,
+,
+m
+p
+y
+p
+y
+p
+y
+¢
+=
+
+
+(
+)
+1,
+,
+m
+q
+q
+q
+¢ =
+
+
+q¢
+( )
+p
+y
+¢
+y
+q
+1
+1
+The Bhattacharyya Coefficient
+( )
+( )
+( )
+( )
+1
+cos
+T
+m
+y
+u
+u
+u
+p
+y
+q
+f
+y
+p
+y q
+p
+y
+q
+q
+=
+¢
+¢
+=
+=
+=
+¢
+¢
+×
+å
+Large f means good match 
+between candidate and target 
+model
+54
+AI VIETNAM
+All-in-One Course
+54
+Vinh Dinh Nguyen- PhD in Computer Science
+Mean-Shift Object Tracking
+( )
+f
+y
+Similarity Function:
+( )
+( ),
+f
+y
+f
+p y
+q
+=
+é
+ù
+ë
+û
+
+
+Problem:
+Target is 
+represented by color 
+info only
+Spatial info is lost
+Solution:
+Mask the target with an 
+isotropic kernel in the 
+spatial domain
+f(y) becomes smooth in 
+y
+f is not smooth
+Gradient-based 
+optimizations are 
+not robust
+Large similarity 
+variations for 
+adjacent locations
+55
+AI VIETNAM
+All-in-One Course
+55
+Vinh Dinh Nguyen- PhD in Computer Science
+Mean-Shift Object Tracking: Distribution
+{ }
+1..
+i
+i
+n
+x
+=
+Target pixel locations
+( )
+k x
+A differentiable, isotropic, convex, monotonically decreasing kernel
+• Peripheral pixels are affected by occlusion and background interference
+( )
+b x
+The color bin index (1..m) of pixel x
+(
+)
+2
+(
+)
+i
+u
+i
+b x
+u
+q
+C
+k
+x
+=
+=
+å
+Normalization 
+factor
+Pixel weight
+Probability of feature u in model
+0
+0.05
+0.1
+0.15
+0.2
+0.25
+0.3
+1
+2
+3
+.
+.
+.
+m
+color
+Probability
+Probability of feature u in candidate
+0
+0.05
+0.1
+0.15
+0.2
+0.25
+0.3
+1
+2
+3
+.
+.
+.
+m
+color
+Probability
+( )
+2
+(
+)
+i
+i
+u
+h
+b x
+u
+y
+x
+p
+y
+C
+k
+h
+=
+æ
+ö
+-
+=
+ç
+÷
+ç
+÷
+è
+ø
+å
+Normalization 
+factor
+Pixel weight
+0
+model
+y
+candidate
+56
+AI VIETNAM
+All-in-One Course
+56
+Vinh Dinh Nguyen- PhD in Computer Science
+How to estimate Distribution
+S(xi) is the color at xi
+𝛿S x$ −u = :1 if S x$ = u
+0 if S x$ ≠𝑢
+57
+AI VIETNAM
+All-in-One Course
+57
+Vinh Dinh Nguyen- PhD in Computer Science
+Weighted Histogram
+58
+AI VIETNAM
+All-in-One Course
+58
+Vinh Dinh Nguyen- PhD in Computer Science
+Mean-Shift Object Tracking
+( ),
+f
+p y
+q
+é
+ù
+ë
+û
+
+
+Start from the position of the 
+model in the current frame
+q
+Search in the model’s 
+neighborhood in next 
+frame
+( )
+p y
+
+Find best candidate by 
+maximizing a similarity 
+func.
+59
+AI VIETNAM
+All-in-One Course
+59
+Vinh Dinh Nguyen- PhD in Computer Science
+Mean-Shift Object Tracking
+( )
+(
+)
+( )
+(
+)
+0
+1
+1
+0
+1
+1
+2
+2
+m
+m
+u
+u
+u
+u
+u
+u
+u
+q
+f
+y
+p
+y
+q
+p
+y
+p
+y
+=
+=
+»
++
+å
+å
+Linear approx.
+(around y0)
+0y
+Model location:
+y
+Candidate location:
+2
+1
+2
+n
+h
+i
+i
+i
+C
+y
+x
+w k
+h
+=
+æ
+ö
+-
+ç
+÷
+ç
+÷
+è
+ø
+å
+( )
+2
+(
+)
+i
+i
+u
+h
+b x
+u
+y
+x
+p
+y
+C
+k
+h
+=
+æ
+ö
+-
+=
+ç
+÷
+ç
+÷
+è
+ø
+å
+Independent of y
+Density estimate!
+(as a function of y)
+( )
+( )
+1
+m
+u
+u
+u
+f
+y
+p
+y q
+=
+=å
+60
+AI VIETNAM
+All-in-One Course
+60
+Vinh Dinh Nguyen- PhD in Computer Science
+Mean-Shift Object Tracking
+2
+1
+2
+n
+h
+i
+i
+i
+C
+y
+x
+w k
+h
+=
+æ
+ö
+-
+ç
+÷
+ç
+÷
+è
+ø
+å
+The mode of
+=  sought maximum
+Important Assumption:
+One mode in the 
+searched 
+neighborhood
+The target 
+representation provides 
+sufficient discrimination
+61
+AI VIETNAM
+All-in-One Course
+61
+Vinh Dinh Nguyen- PhD in Computer Science
+Mean-Shift Object Tracking
+Original Mean-
+Shift:
+2
+0
+1
+1
+2
+0
+1
+n
+i
+i
+i
+n
+i
+i
+y
+x
+x g
+h
+y
+y
+x
+g
+h
+=
+=
+æ
+ö
+-
+ç
+÷
+ç
+÷
+è
+ø
+=
+æ
+ö
+-
+ç
+÷
+ç
+÷
+è
+ø
+å
+å
+Find mode of
+2
+1
+n
+i
+i
+y
+x
+c
+k
+h
+=
+æ
+ö
+-
+ç
+÷
+ç
+÷
+è
+ø
+å
+using
+2
+1
+2
+n
+h
+i
+i
+i
+C
+y
+x
+w k
+h
+=
+æ
+ö
+-
+ç
+÷
+ç
+÷
+è
+ø
+å
+The mode of
+=  sought maximum
+Extended 
+Mean-Shift:
+2
+0
+1
+1
+2
+0
+1
+n
+i
+i
+i
+i
+n
+i
+i
+i
+y
+x
+x w g
+h
+y
+y
+x
+w g
+h
+=
+=
+æ
+ö
+-
+ç
+÷
+ç
+÷
+è
+ø
+=
+æ
+ö
+-
+ç
+÷
+ç
+÷
+è
+ø
+å
+å
+2
+1
+n
+i
+i
+i
+y
+x
+c
+w k
+h
+=
+æ
+ö
+-
+ç
+÷
+ç
+÷
+è
+ø
+å
+Find mode of
+using
+62
+AI VIETNAM
+All-in-One Course
+62
+Vinh Dinh Nguyen- PhD in Computer Science
+Mean-Shift Object Tracking
+A special class of radially 
+symmetric kernels:
+( )
+(
+)
+2
+K x
+ck
+x
+=
+The profile of 
+kernel K
+Extended 
+Mean-Shift:
+2
+0
+1
+1
+2
+0
+1
+n
+i
+i
+i
+i
+n
+i
+i
+i
+y
+x
+x w g
+h
+y
+y
+x
+w g
+h
+=
+=
+æ
+ö
+-
+ç
+÷
+ç
+÷
+è
+ø
+=
+æ
+ö
+-
+ç
+÷
+ç
+÷
+è
+ø
+å
+å
+2
+1
+n
+i
+i
+i
+y
+x
+c
+w k
+h
+=
+æ
+ö
+-
+ç
+÷
+ç
+÷
+è
+ø
+å
+Find mode of
+using
+( )
+( )
+k
+x
+g x
+¢
+= -
+63
+AI VIETNAM
+All-in-One Course
+63
+Vinh Dinh Nguyen- PhD in Computer Science
+Mean-Shift Object Tracking
+Epanechnikov kernel:
+( )
+1
+if x
+1
+0
+otherwise
+x
+k x
+ì -
+£ ü
+= í
+ý
+î
+þ
+A special class of radially 
+symmetric kernels:
+( )
+(
+)
+2
+K x
+ck
+x
+=
+1
+1
+1
+n
+i
+i
+i
+n
+i
+i
+x w
+y
+w
+=
+=
+= å
+å
+2
+0
+1
+1
+2
+0
+1
+n
+i
+i
+i
+i
+n
+i
+i
+i
+y
+x
+x w g
+h
+y
+y
+x
+w g
+h
+=
+=
+æ
+ö
+-
+ç
+÷
+ç
+÷
+è
+ø
+=
+æ
+ö
+-
+ç
+÷
+ç
+÷
+è
+ø
+å
+å
+( )
+( )
+1
+if x
+1
+0
+otherwise
+g x
+k x
+ì
+£ ü
+= -
+= í
+ý
+î
+þ
+Uniform  kernel:
+64
+AI VIETNAM
+All-in-One Course
+64
+Vinh Dinh Nguyen- PhD in Computer Science
+Mean-Shift Object Tracking
+Problem:
+The scale of the 
+target changes 
+in time
+The scale (h) of 
+the kernel must 
+be adapted
+Solution:
+Run localization 3 
+times with 
+different h
+Choose h that 
+achieves 
+maximum 
+similarity
+65
+AI VIETNAM
+All-in-One Course
+65
+Vinh Dinh Nguyen- PhD in Computer Science
+Mean Shift Summary
+Calculate distribution (q)
+Initialize estimated center (y1 = y0)
+Calculate distribution (p)
+Calculate weight (w)
+Estimate new target center (y1)
+(
+)
+2
+(
+)
+i
+u
+i
+b x
+u
+q
+C
+k
+x
+=
+=
+å
+( )
+2
+(
+)
+i
+i
+u
+h
+b x
+u
+y
+x
+p
+y
+C
+k
+h
+=
+æ
+ö
+-
+=
+ç
+÷
+ç
+÷
+è
+ø
+å
+Update target center (y0 = y1)
+Repeat until end of the sequence
+0
+0.05
+0.1
+0.15
+0.2
+0.25
+0.3
+1
+2
+3
+.
+.
+.
+m
+color
+Probability
+0
+0.05
+0.1
+0.15
+0.2
+0.25
+0.3
+1
+2
+3
+.
+.
+.
+m
+color
+Probability
+d < 𝛼
+False
+True
+1
+2
+3
+4
+5
+1
+1
+1
+n
+i
+i
+i
+n
+i
+i
+x w
+y
+w
+=
+=
+= å
+å
+6
+6’
+7
+9
+66
+AI VIETNAM
+All-in-One Course
+66
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Object Tracking and Its Application
+Ø Object Tracking Based on Template Matching
+Ø Object Tracking Based on Histogram Matching
+Ø Mean Shift Motivation
+Ø Mean Shift Object Tracking
+Ø Object Tracking by SIFT feature
+Ø Face Detection and Tracking
+Outline
+67
+AI VIETNAM
+All-in-One Course
+67
+Vinh Dinh Nguyen- PhD in Computer Science
+Tracking By Feature Detetection
+Object Detection/Localization
+Sift Features
+Object Model
+Background Model
+Frame t-1
+Frame t
+Sift Features
+Feature Matching
+Feature Matching
+Matching Result: Find a window that has a maximum number of object features
+Update feature
+Update feature
+68
+AI VIETNAM
+All-in-One Course
+68
+Vinh Dinh Nguyen- PhD in Computer Science
+Tracking By Feature Detetection
+1. Select a bounding 
+box W1 as object/target
+2. Compute Sift Feature 
+3. Classify features within the 
+box W1 as object and asign 
+them to set 01
+4. Classify remaining features 
+as background and asign them 
+to set 01
+Frame 1
+1. Compute Sift features. Sift 
+descriptors {v1, v2,..., vk}
+Frame t
+2. For each Sift descriptor vi : 
+a)
+Compute distance dO between vi  and the best match in 
+object set Ot-1
+b)
+Compute distance dB between vi  and the best match in 
+background set Bt-1
+c)
+ℒ(vi ) = $
++1 𝑖𝑓dO
+dB < 0.5 (𝑜𝑏𝑗𝑒𝑐𝑡)
+−1 𝑖𝑓dO
+dB < 0.5 (𝑏𝑎𝑐𝑘𝑔𝑟𝑜𝑢𝑛𝑑)
++1
+-1
+Discusion: How to find object location in frame t
+69
+AI VIETNAM
+All-in-One Course
+69
+Vinh Dinh Nguyen- PhD in Computer Science
+Tracking Results
+Credit video: Professor Shree Nayar who is faculty in the Computer Science Department, School of Engineering and Applied Sciences, Columbia University
+Robust to scale and orientation
+70
+AI VIETNAM
+All-in-One Course
+70
+Vinh Dinh Nguyen- PhD in Computer Science
+Ø Object Tracking and Its Application
+Ø Object Tracking Based on Template Matching
+Ø Object Tracking Based on Histogram Matching
+Ø Mean Shift Motivation
+Ø Mean Shift Object Tracking
+Ø Tracking by Feature Detection
+Ø Face Detection and Tracking
+Outline
+71
+AI VIETNAM
+All-in-One Course
+71
+Vinh Dinh Nguyen- PhD in Computer Science
+Face Detection and Tracking
+Face detection without tracking
+Face detection with  tracking-based template
+Face detection with  tracking-based meanshift
+72
+AI VIETNAM
+All-in-One Course
+Credits slides and videos: Several slides and video are borrowed from Professor Shree Nayar who is faculty in the Computer Science Department, School of
+Engineering and Applied Sciences, Columbia University

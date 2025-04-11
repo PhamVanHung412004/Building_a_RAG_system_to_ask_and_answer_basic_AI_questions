@@ -1,4 +1,0 @@
-com /THU - MIG / yolov10 . git
-2 %cd yolov10
-3 ! pip install -q -r requirements . txt
-4 ! pip install -e .

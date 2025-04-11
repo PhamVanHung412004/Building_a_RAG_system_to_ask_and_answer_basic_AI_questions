@@ -1,0 +1,2079 @@
+Softmax Regression
+Quang-Vinh Dinh
+Ph.D. in Computer Science
+AI VIETNAM
+All-in-One Course
+Year 2023
+➢Motivation
+➢Model Construction
+➢Loss Function
+➢Generalization (Further Reading)
+➢Another Approach  (Further Reading) 
+Outline
+Linear Regression
+❖ Prediction
+Find the line ො𝑦= 𝜽𝑇𝒙 that is best fitting to given 
+data, then use ො𝑦 to predict for new data 
+𝒙
+𝒚
+error
+error
+error
+error
+ො𝑦= 𝜽𝑇𝒙= 𝑤𝑥+ 𝑏
+ො𝑦∈−∞ 
++ ∞ 
+Feature
+Label
+Area-based House Price Data
+Training data
+Model
+construct
+AI VIETNAM
+All-in-One Course
+1
+Logistic Regression
+❖ Binary Classification
+Feature
+Label
+Category 0
+Category 1
+Feature
+Label
+Category 0
+Category 1
+Assign numbers 
+to categories
+Feature
+Category 0
+Category 1
+Plot data
+Feature
+A line is not suitable 
+for this data
+AI VIETNAM
+All-in-One Course
+2
+Idea of Logistic Regression
+❖ Binary Classification
+Feature
+Label
+Category 0
+Category 1
+Feature
+Label
+Category 0
+Category 1
+Assign numbers 
+to categories
+Sigmoid function 
+could fit the data
+ො𝑦= 𝜎(𝑧) =
+1
+1 + 𝑒−𝑧
+𝑧= 𝜽𝑇𝒙= 𝒙𝑇𝜽
+ො𝑦∈0 1 
+1
+1 + 𝑒−𝜽𝑇𝒙 
+Feature
+AI VIETNAM
+All-in-One Course
+L = −𝑦logො𝑦−1 −𝑦log 1 −ො𝑦
+Binary cross-entropy
+3
+Motivation
+4
+AI VIETNAM
+All-in-One Course
+Model
+Label
+Loss
+𝑥
+−ylogොy−(1−y)log(1−ොy )
+𝑦
+ො𝑦= 𝜎(𝑧) =
+1
+1 + 𝑒−𝑧
+𝑧= 𝑤𝑥+ 𝑏
+𝑤
+𝑏
+Model decides x belongs to the 
+category  (label=1) with the belief of p
+𝑃𝑦= 0|𝑥= 1 −𝑝
+Implicitly conclude that
+1
+Petal
+length
+𝑤
+𝑏
+p
+𝑃𝑦= 1|𝑥= 𝑝
+𝑥
+sigmoid
+Convert to probability
+Feature
+Label
+Motivation
+5
+AI VIETNAM
+All-in-One Course
+1
+Petal
+length
+p
+𝑃𝑦= 1|𝑥= 𝑝
+𝑥
+Model decides x belongs to category 
+(y=1) with the belief of p
+𝑃𝑙𝑎𝑏𝑒𝑙= 0|𝑥= 1 −𝑝
+Implicitly extract that
+sigmoid
+𝑤
+𝑏
+Training
+optimize
+How to have explicitly 𝑃𝑦= 0|𝑥? 
+Optimize 𝑤 and 𝑏 for 𝑃𝑙𝑎𝑏𝑒𝑙= 1|𝑥 affects 𝑃𝑙𝑎𝑏𝑒𝑙= 0|𝑥 and vice versa 
+Problem!
+Feature
+Label
+Motivation
+6
+AI VIETNAM
+All-in-One Course
+1
+Petal
+length
+p
+𝑥
+Convert to 
+probabilities
+𝑤0
+𝑏0
+??? Softmax function
+Explicitly output 𝑃𝑦= 0|𝑥 and 𝑃𝑦= 1|𝑥 
+1
+Petal
+length
+𝑤1
+𝑃𝑦= 0|𝑥
+𝑥
+Convert to 
+probabilities
+𝑤0
+𝑏0
+𝑤1
+𝑏1
+𝑃𝑦= 1|𝑥
+Optimize for 𝑃𝑦= 0|𝑥 
+Optimize for 𝑃𝑦= 1|𝑥 
+𝑧0
+𝑧1
+Feature
+Label
+Problem!
+Motivation
+7
+AI VIETNAM
+All-in-One Course
+Softmax function
+𝑧1 = 1.0
+𝑧2 = 3.0
+Softmax
+𝑓(𝑧1) = 0.12
+𝑓(𝑧2) = 0.88
+Input
+Probability
+𝑧1 = 1.0
+𝑧2 = 2.0
+Softmax
+𝑓(𝑧1) = 0.09
+𝑓(𝑧2) = 0.24
+Input
+Probability
+𝑧3 = 3.0
+𝑓(𝑧3) = 0.67
+𝑃𝑖= 𝑓𝑧𝑖=
+𝑒𝑧𝑖
+σ𝑗𝑒𝑧𝑗
+0 ≤𝑓𝑧𝑖≤1
+෍
+𝑖
+𝑓𝑧𝑖= 1
+Softmax function
+Chuyển các giá trị của một vector thành các giá trị xác suất
+𝑓𝑥𝑖=
+𝑒𝑥𝑖
+σ𝑗𝑒𝑥𝑗
+0 ≤𝑓𝑥𝑖≤1
+෍
+𝑖
+𝑓𝑥𝑖= 1
+Formula
+𝑥1 = 1.0
+𝑥2 = 2.0
+Softmax
+𝑓(𝑥1) = 0.09
+𝑓(𝑥2) = 0.24
+Input
+Probability
+𝑥3 = 3.0
+𝑓(𝑥3) = 0.67
+Giá trị nan vì 𝑒𝑥 vượt giới hạn lưu trữ của biến 
+Hàm mũ tăng rất 
+nhanh khi x tăng
+𝑒𝑥
+𝑥
+𝑒𝑥∈[0, +∞)
+𝑥∈[−∞, +∞)
+Implementation 
+(straightforward)
+8
+Softmax function (stable)
+𝑥1 = 1.0
+𝑥2 = 2.0
+X
+𝑥3 = 3.0
+Softmax
+𝑓(𝑥1) = 0.09
+𝑓(𝑥2) = 0.24
+Probability
+𝑓(𝑥3) = 0.67
+𝑓𝑥𝑖=
+𝑒(𝑥𝑖−𝑚)
+σ𝑗𝑒(𝑥𝑗−𝑚)
+(Stable) Formula
+𝑚= max(𝒙)
+𝑥1 = −2.0
+𝑥2 = −1.0
+X-m
+𝑥3 = 0
+𝑒𝑥
+𝑥
+𝑒𝑥∈(0, 1)
+𝑥∈(−∞, 0)
+Implementation 
+(stable)
+9
+Motivation
+AI VIETNAM
+All-in-One Course
+How about loss function?
+𝐿(𝜽) = −ylogොy1−(1−y)log(ොy0)
+Softmax function
+𝑃𝑖= 𝑓𝑧𝑖=
+𝑒𝑧𝑖
+σ𝑗𝑒𝑧𝑗
+0 ≤𝑓𝑧𝑖≤1
+෍
+𝑖
+𝑓𝑧𝑖= 1
+Explicitly output 𝑃𝑦= 1|𝑥 and 𝑃𝑦= 0|𝑥 
+1
+Petal
+length
+𝑤1
+ොy0 = 𝑃𝑦= 0|𝑥
+𝑥
+Softmax
+function
+ොy1 = 𝑃𝑦= 1|𝑥
+𝑤0
+𝑏0
+𝑤1
+𝑏1
+𝑧0
+𝑧1
+Feature
+Label
+10
+➢Motivation
+➢Model Construction
+➢Loss Function
+➢Generalization (Further Reading)
+➢Another Approach  (Further Reading) 
+Outline
+Model Construction
+AI VIETNAM
+All-in-One Course
+❖ 1-D Feature and two classes
+Feature is with one dimension
+→ Need one node for input
+Two categories
+→ Need two node for output
+1
+𝑥
+𝑧0
+𝑧2
+𝑧1
+Softmax
+ොy0 = 𝑃𝑦= 0
+ොy1 = 𝑃𝑦= 1
+Model
+Feature
+Label
+#class=2
+#feature=1
+11
+Model Construction
+AI VIETNAM
+All-in-One Course
+❖ 1-D Feature and three classes
+Feature is with one dimension
+→ Need one node for input
+Three categories
+→ Need three nodes for output
+1
+𝑥
+𝑧0
+𝑧1
+𝑧2
+Softmax
+ොy0 = 𝑃𝑦= 0
+ොy1 = 𝑃𝑦= 1
+ොy2 = 𝑃𝑦= 2
+Model
+Feature
+Label
+#class=3
+#feature=1
+12
+Model Construction
+AI VIETNAM
+All-in-One Course
+❖ 4-D Feature and three classes
+Feature is with two dimensions
+→ Need two nodes for input
+Three categories
+→ Need three nodes for output
+1
+𝑧0
+𝑧1
+𝑧2
+Softmax
+ොy0 = 𝑃𝑦= 0
+ොy1 = 𝑃𝑦= 1
+ොy2 = 𝑃𝑦= 2
+Model
+𝑥1
+𝑥2
+Feature
+Label
+#class=3
+#feature=2
+13
+Model Construction
+AI VIETNAM
+All-in-One Course
+Feature
+Label
+❖ 4-D Feature and three classes
+Feature is with four dimensions
+→ Need four nodes for input
+Three categories
+→ Need three nodes for output
+1
+𝑧0
+𝑧1
+𝑧2
+Softmax
+ොy0 = 𝑃𝑦= 0
+ොy1 = 𝑃𝑦= 1
+ොy2 = 𝑃𝑦= 2
+Model
+𝑥1
+𝑥2
+𝑥3
+𝑥4
+#class=3
+#feature=4
+14
+➢Motivation
+➢Model Construction
+➢Loss Function
+➢Generalization (Further Reading)
+➢Another Approach  (Further Reading) 
+Outline
+Loss function
+AI VIETNAM
+All-in-One Course
+❖ Simple illustration
+1
+Petal
+length
+𝑤1
+ොy0 = 𝑃𝑦= 0|𝑥
+𝑥
+Softmax
+function
+𝑤0
+𝑏0
+𝑤1
+𝑏1
+ොy1 = 𝑃𝑦= 1|𝑥
+Model
+𝑧0
+𝑧1
+𝑧0 = 𝑥𝑤0 + 𝑏0
+𝑧1 = 𝑥𝑤1 + 𝑏1
+One-hot encoding for label
+𝑦= 0 →𝒚= [1 0]
+𝑦= 1 →𝒚= [0 1]
+𝑦0 𝑦1
+vector
+scalar
+ොy0 =
+𝑒𝑧0
+σ𝑗=0
+1
+𝑒𝑧𝑗
+ොy1 =
+𝑒𝑧1
+σ𝑗=0
+1
+𝑒𝑧𝑗
+A vector is by default a column vector 𝜽0 = 𝑏0
+𝑤0  
+vector transpose 𝜽0
+𝑇= 𝑏0 𝑤0
+𝒛= 𝑧0
+𝑧1 = 𝑏0 𝑤0
+𝑏1 𝑤1
+1
+𝑥= 𝜽0
+𝑇
+𝜽1
+𝑇
+1
+𝑥= 𝜽𝑇𝒙
+ො𝐲= ොy0
+ොy1 =
+1
+σ𝑗=0
+1
+𝑒𝑧𝑗
+𝑒𝑧0
+𝑒𝑧1 =
+𝑒𝒛
+σ𝑗=0
+1
+𝑒𝑧𝑗
+Feature
+Label
+Loss function
+AI VIETNAM
+All-in-One Course
+Feature
+Label
+1
+Petal
+length
+𝑤1
+ොy0 = 𝑃𝑦= 0|𝑥
+𝑥
+Softmax
+function
+𝑤0
+𝑏0
+𝑤1
+𝑏1
+ොy1 = 𝑃𝑦= 1|𝑥
+Model
+𝑧0
+𝑧1
+One-hot encoding for label
+𝑦= 0 →𝒚= [1 0]
+𝑦= 1 →𝒚= [0 1]
+𝑦0 𝑦1
+vector
+scalar
+𝑧0 = 𝑥𝑤0 + 𝑏0
+𝑧1 = 𝑥𝑤1 + 𝑏1
+ොy0 =
+𝑒𝑧0
+σ𝑗=0
+1
+𝑒𝑧𝑗
+ොy1 =
+𝑒𝑧1
+σ𝑗=0
+1
+𝑒𝑧𝑗
+𝒛= 𝑧0
+𝑧1 = 𝑏0 𝑤0
+𝑏1 𝑤1
+1
+𝑥= 𝜽0
+𝑇
+𝜽1
+𝑇
+1
+𝑥= 𝜽𝑇𝒙
+ො𝐲= ොy0
+ොy1 =
+1
+σ𝑗=0
+1
+𝑒𝑧𝑗
+𝑒𝑧0
+𝑒𝑧1 =
+𝑒𝒛
+σ𝑗=0
+1
+𝑒𝑧𝑗
+𝐿𝜽= −𝑦0logොy0−𝑦1logොy1 = −෍
+𝑖=0
+1
+𝑦𝑖logො𝑦𝑖= −𝒚𝑇𝑙𝑜𝑔ෝ𝒚
+❖ Simple illustration
+Loss function
+AI VIETNAM
+All-in-One Course
+1
+𝑤1
+ොy0
+𝑥
+Softmax
+function
+𝑤0
+𝑏0
+𝑤1
+𝑏1
+ොy1
+Model
+𝑧0
+𝑧1
+𝐿(𝜽) = −𝑦0logොy0−𝑦1logොy1 = −෍
+𝑖=0
+1
+𝑦𝑖logො𝑦𝑖= −𝒚𝑇𝑙𝑜𝑔ෝ𝒚
+ොy0 =
+𝑒𝑧0
+σ𝑗=0
+1
+𝑒𝑧𝑗
+ොy1 =
+𝑒𝑧1
+σ𝑗=0
+1
+𝑒𝑧𝑗
+𝜕ො𝑦𝑖
+𝜕𝑧𝑗
+= ൝ො𝑦𝑖1 −ො𝑦𝑖 
+𝑖𝑓 𝑖= 𝑗
+−ො𝑦𝑖ො𝑦𝑗 
+𝑖𝑓 𝑖≠𝑗 
+Derivative
+𝜕𝐿
+𝜕𝑧𝑖
+= −෍
+𝑘
+𝑦𝑘
+𝜕log(ො𝑦𝑘)
+𝜕𝑧𝑖
+= −෍
+𝑘
+𝑦𝑘
+𝜕log(ො𝑦𝑘)
+𝜕ො𝑦𝑘
+𝜕ො𝑦𝑘
+𝜕𝑧𝑖
+= −෍
+𝑘
+𝑦𝑘
+1
+ො𝑦𝑘
+𝜕ො𝑦𝑘
+𝜕𝑧𝑖
+𝜕𝐿
+𝜕𝑧𝑖
+= −𝑦𝑖(1 −ො𝑦𝑖) −෍
+𝑘≠𝑖
+𝑦𝑘
+1
+ො𝑦𝑘
+(−ො𝑦𝑘ො𝑦𝑖)
+= −𝑦𝑖1 −ො𝑦𝑖+ ෍
+𝑘≠𝑖
+𝑦𝑘ො𝑦𝑖
+= −𝑦𝑖+ 𝑦𝑖ො𝑦𝑖+ ෍
+𝑘≠𝑖
+𝑦𝑘ො𝑦𝑖
+= ො𝑦𝑖
+𝑦𝑖+ ෍
+𝑘≠𝑖
+𝑦𝑘
+−𝑦𝑖
+= ො𝑦𝑖−𝑦𝑖
+Loss function
+AI VIETNAM
+All-in-One Course
+One-hot encoding for label
+𝑦= 0 →𝒚𝑇= [1 0]
+𝑦= 1 →𝒚𝑇= [0 1]
+𝑦0 𝑦1
+vector
+scalar
+𝑧0 = 𝑥𝑤0 + 𝑏0
+𝑧1 = 𝑥𝑤1 + 𝑏1
+ොy0 =
+𝑒𝑧0
+σ𝑗=0
+1
+𝑒𝑧𝑗
+ොy1 =
+𝑒𝑧1
+σ𝑗=0
+1
+𝑒𝑧𝑗
+𝒛= 𝑧0
+𝑧1 = 𝑏0 𝑤0
+𝑏1 𝑤1
+1
+𝑥= 𝜽0
+𝑇
+𝜽1
+𝑇
+1
+𝑥= 𝜽𝑇𝒙
+ො𝐲= ොy0
+ොy1 =
+1
+σ𝑗=0
+1
+𝑒𝑧𝑗
+𝑒𝑧0
+𝑒𝑧1 =
+𝑒𝒛
+σ𝑗=0
+1
+𝑒𝑧𝑗
+𝐿𝜽= −෍
+𝑖=0
+1
+𝑦𝑖logො𝑦𝑖= −𝒚𝑇𝑙𝑜𝑔ෝ𝒚
+1
+𝑤1
+ොy0
+𝑥
+Softmax
+function
+𝑤0
+𝑏0
+𝑤1
+𝑏1
+ොy1
+Model
+𝑧0
+𝑧1
+Derivative
+𝜕𝐿
+𝜕𝑧𝑖
+= ො𝑦𝑖−𝑦𝑖
+𝜕𝐿
+𝜕𝑤𝑖
+= 𝑥ො𝑦𝑖−𝑦𝑖
+𝜕𝐿
+𝜕𝑏𝑖
+= ො𝑦𝑖−𝑦𝑖
+𝜕ො𝑦𝑖
+𝜕𝑧𝑗
+= ൝ො𝑦𝑖1 −ො𝑦𝑖 𝑖𝑓 𝑖= 𝑗
+−ො𝑦𝑖ො𝑦𝑗 
+𝑖𝑓 𝑖≠𝑗 
+𝜕𝐿
+𝜕ො𝑦𝑖
+= −𝑦𝑖
+ො𝑦𝑖
+Simple Illustration - Summary
+Feature
+Label
+1
+𝑤1
+ොy0
+𝑥
+Softmax
+function
+𝑤0
+𝑏0
+𝑤1
+𝑏1
+ොy1
+Model
+𝑧0
+𝑧1
+One-hot encoding for label
+𝑦= 0 →𝒚𝑇= [1 0]
+𝑦= 1 →𝒚𝑇= [0 1]
+𝑦0 𝑦1
+vector
+scalar
+𝜽= 𝑏0 𝑏1
+𝑤0 𝑤1
+𝒙= 1
+𝑥
+AI VIETNAM
+All-in-One Course
+𝒛= 𝜽𝑇𝒙
+ො𝐲=
+𝑒𝒛
+σ𝑗=0
+1
+𝑒𝑧𝑗
+1. Forward computation
+𝐿(𝜽) = −𝒚𝑇𝑙𝑜𝑔ෝ𝒚
+2. Loss function
+3. Derivative
+𝜕𝐿
+𝜕𝑤𝑖
+= 𝑥ො𝑦𝑖−𝑦𝑖
+𝜕𝐿
+𝜕𝑏𝑖
+= ො𝑦𝑖−𝑦𝑖
+𝛻𝜽𝐿= 𝒙ො𝐲−𝒚𝑇
+4. Update
+𝜽= 𝜽−𝜂𝐿𝜽
+′
+𝜂is learning rate
+Explaining Cross-entropy in another way
+Motivation
+AI VIETNAM
+All-in-One Course
+Model
+Label
+Loss
+𝑥
+−ylogොy−(1−y)log(1−ොy )
+𝑦
+ො𝑦= 𝜎(𝑧) =
+1
+1 + 𝑒−𝑧
+𝑧= 𝑤𝑥+ 𝑏
+𝑤
+𝑏
+Model decides x belongs to the 
+category  (label=1) with the belief of p
+𝑃𝑦= 0|𝑥= 1 −𝑝
+Implicitly conclude that
+1
+Petal
+length
+𝑤
+𝑏
+p
+𝑃𝑦= 1|𝑥= 𝑝
+𝑥
+sigmoid
+Convert to probability
+Feature
+Label
+21
+Outputs of Model
+AI VIETNAM
+All-in-One Course
+Softmax function
+ොy𝑖=
+𝑒𝑧𝑖
+σ𝑗𝑒𝑧𝑗
+0 ≤𝑓𝑧𝑖≤1
+෍
+𝑖
+𝑓𝑧𝑖= 1
+Feature
+Label
+Explicitly output 𝑃𝑦= 1|𝑥 and 𝑃𝑦= 0|𝑥 
+1
+Petal
+length
+𝑤1
+ොy0 = 𝑃𝑦= 0|𝑥= 𝑎0
+𝑥
+Softmax
+function
+ොy1 = 𝑃𝑦= 1|𝑥= 𝑎1
+𝑤0
+𝑏0
+𝑤1
+𝑏1
+𝑧0
+𝑧1
+22
+For a Given Sample
+AI VIETNAM
+All-in-One Course
+Softmax function
+ොy𝑖=
+𝑒𝑧𝑖
+σ𝑗𝑒𝑧𝑗
+0 ≤𝑓𝑧𝑖≤1
+෍
+𝑖
+𝑓𝑧𝑖= 1
+1
+Petal
+length
+𝑤1
+ොy0 = 𝑃𝑦= 0|𝑥= 𝑎0
+𝑥= 1.3
+Softmax
+function
+ොy1 = 𝑃𝑦= 1|𝑥= 𝑎1
+𝑤0
+𝑏0
+𝑤1
+𝑏1
+𝑧0
+𝑧1
+Feature
+Label
+Given a sample (𝑥= 1.3, 𝑦= 0)
+With (𝑥= 1.3, 𝑦= 0), model becomes better when 𝑎0 increases 
+                                                                            and 𝑎1 decreases
+Differences between increasing 𝑎0 and decreasing 𝑎1?
+23
+Softmax function
+ොy𝑖=
+𝑒𝑧𝑖
+σ𝑗𝑒𝑧𝑗
+0 ≤𝑓𝑧𝑖≤1
+෍
+𝑖
+𝑓𝑧𝑖= 1
+Feature
+Label
+1
+Petal
+length
+𝑤1
+ොy0 = 𝑃𝑦= 0|𝑥= 𝑎0
+𝑥= 1.3
+Softmax
+function
+ොy1 = 𝑃𝑦= 1|𝑥= 𝑎1
+𝑤0
+𝑏0
+𝑤1
+𝑏1
+𝑧0
+𝑧1
+Given a sample (𝑥= 1.3, 𝑦= 0)
+With (𝑥= 1.3, 𝑦= 0), model becomes better when 𝑎0 increases 
+                                                                            and 𝑎1 decreases
+Increasing 𝑎0:
+ොy0 =
+𝑒𝑧0
+𝑒𝑧0 + 𝑒𝑧1
+increasing z0 
+decreasing z1
+Decreasing 𝑎1:
+ොy1 =
+𝑒𝑧1
+𝑒𝑧0 + 𝑒𝑧1
+increasing z0 
+decreasing z1
+For a Given 
+Sample
+24
+Feature
+Label
+Observation
+1
+Petal
+length
+𝑤1
+𝑥= 1.3
+Softmax
+function
+ොy1 = 𝑃𝑦= 1|𝑥= 𝑎1
+𝑤0
+𝑏0
+𝑤1
+𝑏1
+𝑧0
+𝑧1
+1
+Petal
+length
+𝑤1
+ොy0 = 𝑃𝑦= 0|𝑥= 𝑎0
+𝑥= 1.3
+Softmax
+function
+ොy1 = 𝑃𝑦= 1|𝑥= 𝑎1
+𝑤0
+𝑏0
+𝑤1
+𝑏1
+𝑧0
+𝑧1
+or    
+increasing z0 
+decreasing z1
+With (𝑥= 1.3, 𝑦= 0), 
+model becomes better 
+when 𝑎0 increases and 
+𝑎1 decreases
+1
+Petal
+length
+𝑤1
+ොy0 = 𝑃𝑦= 0|𝑥= 𝑎0
+𝑥= 1.3
+Softmax
+function
+𝑤0
+𝑏0
+𝑤1
+𝑏1
+𝑧0
+𝑧1
+either 
+Feature
+Label
+Loss 
+Computation
+1
+Petal
+length
+𝑤1
+ොy0 = 𝑃𝑦= 0|𝑥= 𝑎0
+𝑥= 1.3
+Softmax
+function
+𝑤0
+𝑏0
+𝑤1
+𝑏1
+𝑧0
+𝑧1
+selected 
+increasing z0 
+decreasing z1
+With (𝑥= 1.3, 𝑦= 0), 
+model becomes better 
+when 𝑎0 increases and 
+𝑎1 decreases
+𝑎0 ∈0,1
+When 𝑎0 = 0, the model (or θ) is worst
+When 𝑎0 = 1, the model (or θ) is perfect
+-log(ො𝑦)
+a0  →1 
+smaller losses
+𝑎0
+𝑙𝑜𝑠𝑠
+-log(1-ො𝑦)
+𝑎0
+a0  →1 
+larger losses
+𝑙𝑜𝑠𝑠
+Which one?
+Feature
+Label
+Loss 
+Computation
+1
+Petal
+length
+𝑤1
+ොy0 = 𝑃𝑦= 0|𝑥= 𝑎0
+𝑥= 1.3
+Softmax
+function
+𝑤0
+𝑏0
+𝑤1
+𝑏1
+𝑧0
+𝑧1
+increasing z0 
+decreasing z1
+With (𝑥= 1.3, 𝑦= 0), 
+model becomes better 
+when 𝑎0 increases and 
+𝑎1 decreases
+𝑎0 ∈0,1
+When 𝑎0 = 0, the model (or θ) is worst
+When 𝑎0 = 1, the model (or θ) is perfect
+-log(𝑎0)
+a0  →1 
+smaller losses
+𝑎0
+𝑙𝑜𝑠𝑠
+Loss function
+𝐿(𝜽) = −log(ොy0)
+27
+Feature
+Label
+Another 
+Sample
+1
+Petal
+length
+𝑤1
+ොy1 = 𝑃𝑦= 1|𝑥= 𝑎1
+𝑥= 4.1
+Softmax
+function
+𝑤0
+𝑏0
+𝑤1
+𝑏1
+𝑧0
+𝑧1
+increasing z1 
+decreasing z0
+With (𝑥= 4.1, 𝑦= 1), 
+model becomes better 
+when 𝑎1 increases and 
+𝑎0 decreases
+𝑎1 ∈0,1
+When 𝑎1 = 0, the model (or θ) is worst
+When 𝑎1 = 1, the model (or θ) is perfect
+-log(𝑎1)
+a1  →1 
+smaller losses
+𝑎1
+𝑙𝑜𝑠𝑠
+Loss function
+𝐿(𝜽) = −log(ොy1)
+28
+Observation
+1
+Petal
+length
+𝑤1
+ොy0 = 𝑃𝑦= 0|𝑥= 𝑎0
+𝑥= 1.3
+Softmax
+function
+𝑤0
+𝑏0
+𝑤1
+𝑏1
+𝑧0
+𝑧1
+𝑦= 0
+𝐿(𝜽) = −log(ොy0)
+With (𝑥= ⋯, 𝑦=?), 
+model becomes better 
+when 𝑎? increases
+Feature
+Label
+1
+Petal
+length
+𝑤1
+ොy1 = 𝑃𝑦= 1|𝑥= 𝑎1
+𝑥= 4.1
+Softmax
+function
+𝑤0
+𝑏0
+𝑤1
+𝑏1
+𝑧0
+𝑧1
+𝑦= 1
+𝐿(𝜽) = −log(ොy1)
+Loss function
+𝐿(𝜽) = −ylogොy1−(1−y)log(ොy0)
+What about 3+ classes?
+AI VIETNAM
+All-in-One Course
+Feature
+Label
+#classes = 3
+#features = 1
+𝑦∈0,1,2
+1
+𝑥
+𝑧0
+𝑧1
+𝑧2
+Softmax
+ොy0
+ොy1
+ොy2
+Model
+y = 0 →L(𝛉) = −log(ොy0)
+y = 1 →L(𝛉) = −log(ොy1)
+y = 2 →L(𝛉) = −log(ොy2)
+How to convert into a 
+single function?
+30
+A Suggested Function
+AI VIETNAM
+All-in-One Course
+Feature
+Label
+#classes = 3
+#features = 1
+𝑦∈0,1,2
+1
+𝑥
+𝑧0
+𝑧1
+𝑧2
+Softmax
+ොy0
+ොy1
+ොy2
+Model
+L(𝛉) = −y(1−y)
+−2
+log(ොy2)−y(2−y)log(ොy1)−(1−y)( 2−y
+2 )log(ොy0)
+𝑦= 2
+𝑦= 1
+𝑦= 0
+Ok! but awkward!!!    …  and how to improve?
+31
+Using One-Hot Encoding
+AI VIETNAM
+All-in-One Course
+1
+𝑥
+𝑧0
+𝑧1
+𝑧2
+Softmax
+ොy0
+ොy1
+ොy2
+Model
+L(𝛉) = −𝑦2log(ොy2)−𝑦1log(ොy1)−𝑦0log(ොy0)
+Loss function
+= −෍
+𝑖
+𝑦𝑖log(ොyi)
+Feature
+Label
+#classes = 3
+#features = 1
+𝑦∈0,1,2
+One-hot encoding for label
+𝑦= 0 →𝒚=
+1
+0
+0
+𝑦= 1 →𝒚=
+0
+1
+0
+𝑦= 2 →𝒚=
+0
+0
+1
+𝒚=
+𝑦0
+𝑦1
+𝑦2
+𝑦𝑖∈0,1
+෍
+𝑖
+𝑦𝑖= 1
+Summary
+𝑧0 = 𝑥𝑤0 + 𝑏0
+𝑧1 = 𝑥𝑤1 + 𝑏1
+ොy0 =
+𝑒𝑧0
+σ𝑗=0
+1
+𝑒𝑧𝑗
+ොy1 =
+𝑒𝑧1
+σ𝑗=0
+1
+𝑒𝑧𝑗
+𝒛= 𝑧0
+𝑧1 = 𝑏0 𝑤0
+𝑏1 𝑤1
+1
+𝑥= 𝜽0
+𝑇
+𝜽1
+𝑇
+1
+𝑥= 𝜽𝑇𝒙
+ො𝐲= ොy0
+ොy1 =
+1
+σ𝑗=0
+1
+𝑒𝑧𝑗
+𝑒𝑧0
+𝑒𝑧1 =
+𝑒𝒛
+σ𝑗=0
+1
+𝑒𝑧𝑗
+𝐿𝜽= −෍
+𝑖=0
+1
+𝑦𝑖logො𝑦𝑖= −𝒚𝑇𝑙𝑜𝑔ෝ𝒚
+1
+𝑤1
+ොy0
+𝑥
+Softmax
+function
+𝑤0
+𝑏0
+𝑤1
+𝑏1
+ොy1
+Model
+𝑧0
+𝑧1
+Derivative
+𝜕𝐿
+𝜕𝑧𝑖
+= ො𝑦𝑖−𝑦𝑖
+𝜕𝐿
+𝜕𝑤𝑖
+= 𝑥ො𝑦𝑖−𝑦𝑖
+𝜕𝐿
+𝜕𝑏𝑖
+= ො𝑦𝑖−𝑦𝑖
+𝜕ො𝑦𝑖
+𝜕𝑧𝑗
+= ൝ො𝑦𝑖1 −ො𝑦𝑖 𝑖𝑓 𝑖= 𝑗
+−ො𝑦𝑖ො𝑦𝑗 
+𝑖𝑓 𝑖≠𝑗 
+𝜕𝐿
+𝜕ො𝑦𝑖
+= −𝑦𝑖
+ො𝑦𝑖
+One-hot encoding for label
+𝑦= 0 →𝒚𝑇= [1 0]
+𝑦= 1 →𝒚𝑇= [0 1]
+𝑦0 𝑦1
+vector
+scalar
+𝒙= 1
+𝑥
+𝜽=
+𝑏0 𝑏1
+𝑤0 𝑤1
+➢Motivation
+➢Model Construction
+➢Loss Function
+➢Generalization (Further Reading)
+➢Another Approach  (Further Reading) 
+Outline
+Softmax Regression – Naïve
+Model
+Label
+𝑥
+L = −𝑦0logො𝑦0 −𝑦1logො𝑦1
+𝑧0 = 𝑤0𝑥+ 𝑏0
+𝑤0
+𝑏0
+𝑦
+𝑧1 = 𝑤1𝑥+ 𝑏1
+𝑤1
+𝑏1
+ො𝑦0 =
+𝑒𝑧0
+σ𝑖=0
+1
+𝑒𝑧𝑖
+ො𝑦1 =
+𝑒𝑧1
+σ𝑖=0
+1
+𝑒𝑧𝑖
+Feature
+Label
+Category A
+Category B
+1
+𝑥
+𝑧0
+𝑧1
+Softmax
+ොy0 = 𝑃𝑙𝑎𝑏𝑒𝑙= 0|𝑥
+ොy1 = 𝑃𝑙𝑎𝑏𝑒𝑙= 1|𝑥
+Model
+Training 
+data
+One-hot 
+encoding 
+for labels
+𝑦= 0 →𝒚𝑇= [1, 0]
+𝑦= 1 →𝒚𝑇= [0, 1]
+0 1
+index
+AI VIETNAM
+All-in-One Course
+34
+Softmax Regression - Naïve
+AI VIETNAM
+All-in-One Course
+Model
+Label
+𝑥
+L = −𝑦0logො𝑦0 −𝑦1logො𝑦1
+𝑧0 = 𝑤0𝑥+ 𝑏0
+𝑤0
+𝑏0
+𝑦
+𝑧1 = 𝑤1𝑥+ 𝑏1
+𝑤1
+𝑏1
+ො𝑦0 =
+𝑒𝑧0
+σ𝑖=0
+1
+𝑒𝑧𝑖
+ො𝑦1 =
+𝑒𝑧1
+σ𝑖=0
+1
+𝑒𝑧𝑖
+𝑥= 1.4
+𝒚= 1
+0
+Feature
+Label
+Training data
+One-hot encoding for label
+𝑦= 0 →𝒚𝑇= [1 0]
+𝑦= 1 →𝒚𝑇= [0 1]
+𝑦0 𝑦1
+#class=2
+#feature=1
+𝑥, 𝑦= 1.4, 0
+Training example
+35
+Softmax Regression Naïve
+Feature
+Label
+Training data
+#class=2
+#feature=1
+One-hot encoding for label
+𝑦= 0 →𝒚𝑇= [1 0]
+𝑦= 1 →𝒚𝑇= [0 1]
+𝑦0 𝑦1
+𝑥, 𝑦= 1.4, 0
+Training example
+𝑥
+L = −𝑦0logො𝑦0 −𝑦1logො𝑦1
+𝑧0 = 𝑤0𝑥+ 𝑏0
+0.2
+0.1
+𝑦
+𝑧1 = 𝑤1𝑥+ 𝑏1
+−0.1
+0.05
+ො𝑦0 =
+𝑒𝑧0
+σ𝑖=0
+1
+𝑒𝑧𝑖
+ො𝑦1 =
+𝑒𝑧1
+σ𝑖=0
+1
+𝑒𝑧𝑖
+𝒙= 1.4
+𝑤0
+𝑏0
+𝑤1
+𝑏1
+𝒛0 = 0.38
+𝒛1 = −0.09
+ෝ𝒚0 = 0.615
+ෝ𝒚1 = 0.385
+𝐿= −log0.615 = 0.486
+𝒚= 1
+0
+36
+Softmax Regression - Naïve
+AI VIETNAM
+All-in-One Course
+𝑦= 0 →𝒚𝑇= [1 0]
+𝑦= 1 →𝒚𝑇= [0 1]
+𝑦0 𝑦1
+𝜕𝐿
+𝜕𝒛0
+= ො𝑦0 −1
+= 0.615 −1 = −0.385
+𝜕𝐿
+𝜕𝑧𝑖
+= ො𝑦𝑖−𝑦𝑖
+𝜕𝐿
+𝜕𝑤𝑖
+= 𝑥ො𝑦𝑖−𝑦𝑖
+𝜕𝐿
+𝜕𝑏𝑖
+= ො𝑦𝑖−𝑦𝑖
+Derivative
+𝜕𝐿
+𝜕𝒛1
+= ො𝑦1 −0 = 0.385
+𝑥
+L = −𝑦0logො𝑦0 −𝑦1logො𝑦1
+𝑧0 = 𝑤0𝑥+ 𝑏0
+0.2
+0.1
+𝑦
+𝑧1 = 𝑤1𝑥+ 𝑏1
+−0.1
+0.05
+ො𝑦0 =
+𝑒𝑧0
+σ𝑖=0
+1
+𝑒𝑧𝑖
+ො𝑦1 =
+𝑒𝑧1
+σ𝑖=0
+1
+𝑒𝑧𝑖
+𝑤0
+𝑏0
+𝑤1
+𝑏1
+𝜕𝑳
+𝜕𝒛0
+= −0.385
+𝜕𝑳
+𝜕𝒛1
+= 0.385
+𝒙= 1.4
+ෝ𝒚0 = 0.615
+ෝ𝒚1 = 0.385
+𝐿= −log0.615 = 0.486
+𝒚= 1
+0
+37
+Softmax Regression - Naïve
+AI VIETNAM
+All-in-One Course
+𝜕𝑳
+𝜕𝑏0
+=
+ො𝑦0 −1 = −0.385
+𝜕𝐿
+𝜕𝑧𝑖
+= ො𝑦𝑖−𝑦𝑖
+𝜕𝐿
+𝜕𝑤𝑖
+= 𝑥ො𝑦𝑖−𝑦𝑖
+𝜕𝐿
+𝜕𝑏𝑖
+= ො𝑦𝑖−𝑦𝑖
+Derivative
+𝜕𝑳
+𝜕𝑏1
+=
+ො𝑦1 −0 = 0.385
+𝑦= 0 →𝒚𝑇= [1 0]
+𝑦= 1 →𝒚𝑇= [0 1]
+𝑦0 𝑦1
+𝑥
+L = −𝑦0logො𝑦0 −𝑦1logො𝑦1
+𝑧0 = 𝑤0𝑥+ 𝑏0
+0.2
+0.1
+𝑦
+𝑧1 = 𝑤1𝑥+ 𝑏1
+−0.1
+0.05
+ො𝑦0 =
+𝑒𝑧0
+σ𝑖=0
+1
+𝑒𝑧𝑖
+ො𝑦1 =
+𝑒𝑧1
+σ𝑖=0
+1
+𝑒𝑧𝑖
+𝑤0
+𝑏0
+𝑤1
+𝑏1
+𝜕𝑳
+𝜕𝑏0
+= −0.385
+𝜕𝑳
+𝜕𝑏1
+= 0.385
+𝒙= 1.4
+ෝ𝒚0 = 0.615
+ෝ𝒚1 = 0.385
+𝐿= −log0.615 = 0.486
+𝒚= 1
+0
+38
+Softmax Regression - Naïve
+AI VIETNAM
+All-in-One Course
+𝜕𝐿
+𝜕𝑧𝑖
+= ො𝑦𝑖−𝑦𝑖
+𝜕𝐿
+𝜕𝑤𝑖
+= 𝑥ො𝑦𝑖−𝑦𝑖
+𝜕𝐿
+𝜕𝑏𝑖
+= ො𝑦𝑖−𝑦𝑖
+Derivative
+𝑦= 0 →𝒚𝑇= [1 0]
+𝑦= 1 →𝒚𝑇= [0 1]
+𝑦0 𝑦1
+𝜕𝑳
+𝜕𝑤0
+= 𝑥(ො𝑦0 −1 )
+= −0.385∗1.4=−0.539
+𝜕𝑳
+𝜕𝑤1
+= 𝑥(ො𝑦1 −0 )
+= 0.385∗1.4=0.539
+𝑥
+L = −𝑦0logො𝑦0 −𝑦1logො𝑦1
+𝑧0 = 𝑤0𝑥+ 𝑏0
+0.2
+0.1
+𝑦
+𝑧1 = 𝑤1𝑥+ 𝑏1
+−0.1
+0.05
+ො𝑦0 =
+𝑒𝑧0
+σ𝑖=0
+1
+𝑒𝑧𝑖
+ො𝑦1 =
+𝑒𝑧1
+σ𝑖=0
+1
+𝑒𝑧𝑖
+𝑤0
+𝑏0
+𝑤1
+𝑏1
+𝜕𝑳
+𝜕𝑤0
+= −0.539
+𝜕𝑳
+𝜕𝑤0
+= 0.539
+𝜕𝑳
+𝜕𝑏0
+= −0.385
+𝜕𝑳
+𝜕𝑏1
+= 0.385
+𝒙= 1.4
+ෝ𝒚0 = 0.615
+ෝ𝒚1 = 0.385
+𝐿= −log0.615 = 0.486
+𝒚= 1
+0
+39
+Softmax Regression - Naïve
+AI VIETNAM
+All-in-One Course
+Update parameters
+𝜽= 𝜽−𝜂𝐿𝜽
+′
+𝜂 is learning rate
+𝜽= 𝑏0 𝑏1
+𝑤0 𝑤1
+𝜂= 0.1
+𝐿𝜽
+′ =
+𝜕𝐿
+𝜕𝑏0
+ 𝜕𝐿
+𝜕𝑏1
+𝜕𝐿
+𝜕𝑤0
+ 
+𝜕𝐿
+𝜕𝑤1
+𝜽= 0.1 
+0.05
+0.2 −0.1 −0.1 −0.385 0.385
+−0.539 0.539
+=
+0.138 
+0.011
+0.253 −0.153
+𝑥
+L = −𝑦0logො𝑦0 −𝑦1logො𝑦1
+𝑧0 = 𝑤0𝑥+ 𝑏0
+0.253
+0.138
+𝑦
+𝑧1 = 𝑤1𝑥+ 𝑏1
+−0.153
+0.011
+ො𝑦0 =
+𝑒𝑧0
+σ𝑖=0
+1
+𝑒𝑧𝑖
+ො𝑦1 =
+𝑒𝑧1
+σ𝑖=0
+1
+𝑒𝑧𝑖
+𝑤0
+𝑏0
+𝑤1
+𝑏1
+𝜕𝑳
+𝜕𝑤0
+= −0.539
+𝜕𝑳
+𝜕𝑤0
+= 0.539
+𝜕𝑳
+𝜕𝑏0
+= −0.385
+𝜕𝑳
+𝜕𝑏1
+= 0.385
+𝒙= 1.4
+ෝ𝒚0 = 0.615
+ෝ𝒚1 = 0.385
+𝐿= −log0.615 = 0.486
+𝒚= 1
+0
+40
+Softmax Regression - Naïve
+AI VIETNAM
+All-in-One Course
+Feature
+Label
+Training data
+One-hot encoding for label
+𝑦= 0 →𝒚𝑇= [1 0]
+𝑦= 1 →𝒚𝑇= [0 1]
+𝑦0 𝑦1
+𝑥, 𝑦= 1.4, 0
+Training example
+𝑥
+L = −𝑦0logො𝑦0 −𝑦1logො𝑦1
+𝑧0 = 𝑤0𝑥+ 𝑏0
+0.253
+0.138
+𝑦
+𝑧1 = 𝑤1𝑥+ 𝑏1
+−0.153
+0.011
+ො𝑦0 =
+𝑒𝑧0
+σ𝑖=0
+1
+𝑒𝑧𝑖
+ො𝑦1 =
+𝑒𝑧1
+σ𝑖=0
+1
+𝑒𝑧𝑖
+𝑤0
+𝑏0
+𝑤1
+𝑏1
+𝒙= 1.4
+ෝ𝒚0 = 0.667
+ෝ𝒚1 = 0.332
+𝐿= −log0.667 = 0.403
+𝒛0 = 0.49
+𝒛1 = −0.20
+𝜕𝐿
+𝜕𝑧𝑜
+= ො𝑦𝑜−𝑦𝑜
+𝜕𝐿
+𝜕𝑧1
+= ො𝑦1 −𝑦1
+𝒚= 1
+0
+𝒛0 = 0.38
+𝒛1 = −0.09
+ෝ𝒚0 = 0.615
+ෝ𝒚1 = 0.385
+𝐿= −log0.615 = 0.486
+losses reduce!!!
+41
+Softmax Regression - Naïve
+AI VIETNAM
+All-in-One Course
+𝑥
+L = −𝑦0logො𝑦0 −𝑦1logො𝑦1
+𝑧0 = 𝑤0𝑥+ 𝑏0
+0.253
+0.138
+𝑦
+𝑧1 = 𝑤1𝑥+ 𝑏1
+−0.153
+0.011
+ො𝑦0 =
+𝑒𝑧0
+σ𝑖=0
+1
+𝑒𝑧𝑖
+ො𝑦1 =
+𝑒𝑧1
+σ𝑖=0
+1
+𝑒𝑧𝑖
+𝑤0
+𝑏0
+𝑤1
+𝑏1
+𝜕𝐿
+𝜕𝑧𝑜
+𝜕𝐿
+𝜕𝑧1
+contribute
+𝜕𝐿
+𝜕𝑧𝑜
+= ො𝑦𝑜−𝑦𝑜
+𝜕𝐿
+𝜕𝑧1
+= ො𝑦1 −𝑦1
+𝜕𝐿
+𝜕𝑤0
+= 𝑥ො𝑦0 −𝑦0
+𝜕𝐿
+𝜕𝑏0
+= ො𝑦0 −𝑦0
+𝜕𝐿
+𝜕𝑤1
+= 𝑥ො𝑦1 −𝑦1
+𝜕𝐿
+𝜕𝑏1
+= ො𝑦1 −𝑦1
+42
+Softmax Regression - Naïve
+AI VIETNAM
+All-in-One Course
+𝒙= 1
+𝑥
+𝐿𝜽
+′ =
+𝜕𝐿
+𝜕𝑏0
+ 
+𝜕𝐿
+𝜕𝑏1
+𝜕𝐿
+𝜕𝑤0
+ 
+𝜕𝐿
+𝑤1
+=
+1 𝜕𝐿
+𝜕𝑧0
+ 
+1 𝜕𝐿
+𝜕𝑧1
+𝑥𝜕𝐿
+𝜕𝑧𝑜
+ 
+𝑥𝜕𝐿
+𝜕𝑧1
+𝐿𝜽
+′ =
+𝜕𝐿
+𝜕𝑏0
+ 
+𝜕𝐿
+𝜕𝑏1
+𝜕𝐿
+𝜕𝑤0
+ 
+𝜕𝐿
+𝑤1
+=
+1 𝜕𝐿
+𝜕𝑧0
+ 
+1 𝜕𝐿
+𝜕𝑧1
+𝑥𝜕𝐿
+𝜕𝑧𝑜
+ 
+𝑥𝜕𝐿
+𝜕𝑧1
+𝐿𝒛′ =
+𝜕𝐿
+𝜕𝑧𝑜
+𝜕𝐿
+𝜕𝑧1
+𝛻𝜽𝐿= 𝒙ො𝐲−𝒚𝑇
+1
+𝑤1
+ොy0
+𝑥
+Softmax
+function
+𝑤0
+𝑏0
+𝑤1
+𝑏1
+ොy1
+𝑧0
+𝑧1
+𝜽= 𝜽𝑜 
+𝜽1 =
+𝑏0 𝑏1
+𝑤0 𝑤1
+𝜕𝐿
+𝜕𝑧𝑜
+= ො𝑦𝑜−𝑦𝑜
+𝜕𝐿
+𝜕𝑧1
+= ො𝑦1 −𝑦1
+𝜕𝐿
+𝜕𝑤0
+= 𝑥ො𝑦0 −𝑦0
+𝜕𝐿
+𝜕𝑏0
+= ො𝑦0 −𝑦0
+𝜕𝐿
+𝜕𝑤1
+= 𝑥ො𝑦1 −𝑦1
+𝜕𝐿
+𝜕𝑏1
+= ො𝑦1 −𝑦1
+43
+Softmax Regression - Vectorization
+𝜕𝐿
+𝜕𝑧𝑜
+= ො𝑦𝑜−𝑦𝑜
+𝜕𝐿
+𝜕𝑧1
+= ො𝑦1 −𝑦1
+𝜕𝐿
+𝜕𝑤0
+= 𝑥𝜕𝐿
+𝜕𝑧𝑜
+𝜕𝐿
+𝜕𝑏0
+= 𝜕𝐿
+𝜕𝑧𝑜
+𝜕𝐿
+𝜕𝑤1
+= 𝑥𝜕𝐿
+𝜕𝑧1
+𝜕𝐿
+𝜕𝑏1
+= 𝜕𝐿
+𝜕𝑧1
+𝒙= 𝑥0
+𝑥1
+𝐿𝜽
+′ =
+𝜕𝐿
+𝜕𝑤00
+ 
+𝜕𝐿
+𝜕𝑤10
+𝜕𝐿
+𝜕𝑤01
+ 
+𝜕𝐿
+𝜕𝑤11
+=
+𝑥0
+𝜕𝐿
+𝜕𝑧0
+ 𝑥0
+𝜕𝐿
+𝜕𝑧1
+𝑥1
+𝜕𝐿
+𝜕𝑧𝑜
+ 𝑥1
+𝜕𝐿
+𝜕𝑧1
+𝐿𝜽
+′ =
+𝜕𝐿
+𝜕𝑤00
+ 
+𝜕𝐿
+𝜕𝑤10
+𝜕𝐿
+𝜕𝑤01
+ 
+𝜕𝐿
+𝜕𝑤11
+=
+𝑥0
+𝜕𝐿
+𝜕𝑧0
+ 𝑥0
+𝜕𝐿
+𝜕𝑧1
+𝑥1
+𝜕𝐿
+𝜕𝑧𝑜
+ 𝑥1
+𝜕𝐿
+𝜕𝑧1
+𝐿𝒛′ =
+𝜕𝐿
+𝜕𝑧𝑜
+𝜕𝐿
+𝜕𝑧1
+𝛻𝜽𝐿= 𝒙ො𝐲−𝒚𝑇
+1
+𝑤1
+ොy0
+𝑥
+Softmax
+function
+𝑤01
+𝑤00
+𝑤11
+𝑤10
+ොy1
+𝑧0
+𝑧1
+𝜽= 𝜽𝑜 
+𝜽1 = 𝑤00 𝑤10
+𝑤01 𝑤11
+44
+Softmax Regression - Vectorization
+4) Tính đạo hàm
+5) Cập nhật tham số
+1) Pick a sample from training data   
+2) Tính output ො𝑦
+3) Tính loss (cross-entropy)
+𝐿𝜽= −𝒚𝑇𝑙𝑜𝑔ෝ𝒚
+𝛻𝜽𝐿= 𝒙ො𝐲−𝒚𝑇
+𝜽= 𝜽−𝜂𝐿𝜽
+′
+𝜂is learning rate
+𝒛= 𝜽𝑇𝒙
+ෝ𝒚= 𝑒𝒛∅𝒅
+𝒅= 1 … 1 𝑒𝒛
+∅is Hadamard
+division
+𝜽= 𝜽𝑜 
+𝜽1 = 𝑤00 𝑤10
+𝑤01 𝑤11
+𝒙= 𝑥0
+𝑥1
+ෝ𝒚= ො𝑦0
+ො𝑦1
+𝑦= 0 →𝒚𝑇= [1 0]
+𝑦= 1 →𝒚𝑇= [0 1]
+𝐿𝜽= −𝒚𝑇𝑙𝑜𝑔ෝ𝒚= −𝑙𝑜𝑔ෝ𝒚0
+𝐿𝜽= −𝒚𝑇𝑙𝑜𝑔ෝ𝒚= −𝑙𝑜𝑔ෝ𝒚1
+𝐿𝜽
+′ = 𝑥0
+𝑥1
+𝜕𝐿
+𝜕𝑧0
+ 
+𝜕𝐿
+𝜕𝑧1
+=
+𝑥0
+𝜕𝐿
+𝜕𝑧0
+ 𝑥0
+𝜕𝐿
+𝜕𝑧1
+𝑥1
+𝜕𝐿
+𝜕𝑧𝑜
+ 𝑥1
+𝜕𝐿
+𝜕𝑧1
+𝜽= 𝑤00 𝑤10
+𝑤01 𝑤11 −𝜂
+𝑥0
+𝜕𝐿
+𝜕𝑧0
+ 𝑥0
+𝜕𝐿
+𝜕𝑧1
+𝑥1
+𝜕𝐿
+𝜕𝑧𝑜
+ 𝑥1
+𝜕𝐿
+𝜕𝑧1
+ෝ𝒚=
+𝑒𝒛
+σ𝑗𝑒𝑥𝑗
+45
+➢Motivation
+➢Model Construction
+➢Loss Function
+➢Generalization (Further Reading)
+➢Another Approach  (Further Reading) 
+Outline
+Softmax Regression - Batch
+AI VIETNAM
+All-in-One Course
+4) Tính đạo hàm
+5) Cập nhật tham số
+1) Pick N samples from training data   
+2) Tính output ො𝑦
+3) Tính loss (cross-entropy)
+𝐿𝜽= 𝟏(−𝒚⨀𝑙𝑜𝑔ෝ𝒚𝟏)
+𝐿𝜽
+′ = 𝒙𝑇ො𝐲−𝒚
+𝜽= 𝜽−𝜂𝐿𝜽
+′
+𝑁
+𝜂is learning rate
+𝒛= 𝒙𝜽
+ෝ𝒚= (𝟏∅𝒅)𝑒𝒛
+𝒅= 𝑒𝒛𝟏
+∅is Hadamard
+division
+1
+𝑧0
+𝑧1
+𝑧2
+Softmax
+ොy0 = 𝑃𝑦= 0
+ොy1 = 𝑃𝑦= 1
+ොy2 = 𝑃𝑦= 2
+𝑥1
+𝑥2
+𝑥3
+𝑥4
+#class = 3
+#feature = 4
+𝜽= 𝜽0 𝜽1 𝜽2
+=
+𝑤00 𝑤10 𝑤20
+𝑤01 𝑤11 𝑤21
+𝑤02 𝑤12 𝑤22
+𝑤03 𝑤13 𝑤23
+𝑤04 𝑤14 𝑤24
+𝒙= 𝑥0
+(1) 𝑥1
+(1) 𝑥2
+(1) 𝑥3
+1  𝑥4
+(1)
+𝑥0
+(2) 𝑥1
+(2) 𝑥2
+(2) 𝑥3
+2  𝑥4
+(2)
+𝒚= 1 
+0 
+0
+0 
+1 
+0
+Friday - Pytorch
+AI VIETNAM
+All-in-One Course

@@ -1,0 +1,464 @@
+AI VIET NAM – AI COURSE 2024
+Phân loại tin nhắn spam với Naive Bayes
+Dinh-Thang Duong, Anh-Khoi Nguyen, Quang-Vinh Dinh
+Ngày 2 tháng 8 năm 2024
+I.
+Giới thiệu
+Text Classification (Tạm dịch: Phân loại văn bản) là một trong những bài toán phổbiến
+trong lĩnh vực Machine Learning và Natural Language Processing. Trong đó, nhiệm vụcủa chúng
+ta là xây dựng một chương trình có khảnăng phân loại văn bản vào các phân lớp do chúng ta
+quy định. Các ứng dụng phổbiến liên quan đến loại chương trình này có thểkểđến phát hiện
+các bình luận tiêu cực trên không gian mạng, các đánh giá tích cực của sản phẩm...
+Trong project này, chúng ta sẽxây dựng một chương trình Text Classification liên quan đến
+việc phân loại một đoạn tin nhắn là tin nhắn spam hay không, sửdụng thuật toán Naive Bayes.
+Theo đó, Input/Output của chương trình bao gồm:
+• Input: Một đoạn tin nhắn (text).
+• Output: Có là tin nhắn spam hay không (bool).
+Dựa vào các thông tin trên, ta sẽxây dựng được một luồng xửlý (pipeline) cho bài toán này
+như sau:
+1
+AI VIETNAM (AIO2024)
+aivietnam.edu.vn
+Theo đó, với bộdữliệu có nhãn vềtin nhắn spam hoặc không spam, chúng ta sẽđưa qua
+một sốbước tiền xửlý dữliệu đểtách ra các đặc trưng và nhãn tương ứng. Khi đã chuẩn bịbộ
+dữliệu cho việc huấn luyện, ta thực hiện xây dựng mô hình Naive Bayes Classifier. Cuối cùng,
+sửdụng mô hình Naive Bayes đã huấn luyện được, ta có thểdựđoán một tin nhắn bất kì có là
+spam hay không. Như vậy, chương trình trong project của chúng ta đã hoàn tất.
+2
+AI VIETNAM (AIO2024)
+aivietnam.edu.vn
+II.
+Cài đặt chương trình
+Trong phần này, ta sẽtiến hành cài đặt chương trình phân loại tin nhắn rác hay không với Naive
+Bayes. Chương trình được cài đặt trên Google Colab. Các bước thực hiện như sau:
+1. Tải bộdữliệu: Đầu tiên, chúng ta cùng nhìn qua bộdataset sẽđược sửdụng trong bài
+này thông qua bảng sau:
+Category
+Message
+ham
+Go until jurong point, crazy.. Available only in bugis
+n great world la e buffet... Cine there got a...
+ham
+Ok lar... Joking wif u oni...
+spam
+Free entry in 2 a wkly comp to win FA Cup final tkts
+21st May 2005. Text FA to 87121 to receive entr...
+spam
+FreeMsg Hey there darling it’s been 3 week’s
+now and no word back! I’d like some fun you up for it s...
+...
+...
+Quan sát thấy bộdữliệu sẽgồm có 2 cột:
+1. Category: gồm 2 nhãn là Ham và Spam, với ý nghĩa như sau:
+• Ham: Là những tin nhắn bình thường, không có mục đích quảng cáo hoặc lừa
+đảo hoặc nói cách khác là người nhận mong muốn nhận được.
+• Spam: Là những tin nhắn không mong muốn, thường có mục đích quảng cáo sản
+phẩm, dịch vụ, hoặc lừa đảo.
+2. Message: là những nội dung bên trong một Messages.
+Nhiệm vụcủa chúng ta là dựa vào nội dung Message đểphân loại nhịphân với Naive
+Bayes, đểxem xét rằng, liệu với nội dung như thếnày thì Message đó là Spam hay Ham.
+Đểhuấn luyện mô hình Naive Bayes giải quyết bài toán này, ta cần tải bộdữliệu này về
+máy. Chúng ta có thểtải tại đây hoặc trực tiếp tại trang Kaggle của dataset này tại đây.
+Trong python, với đường dẫn google drive của bộdữliệu, ta có thểdùng lệnh sau đây để
+tải vềmột cách tựđộng vềmáy:
+1 # https :// drive.google.com/file/d/1N7rk -kfnDFIGMeX0ROVTjKh71gcgx -7R/view?
+usp=sharing
+2 !gdown
+--id 1N7rk -kfnDFIGMeX0ROVTjKh71gcgx -7R
+2. Import các thư viện cần thiết: Trước tiên, chúng ta cùng điểm qua một sốnhư viện
+chính được sửdụng trong bài:
+• string: Cung cấp các hàm cơ bản đểthao tác với chuỗi ký tự.
+• nltk (Natural Language Toolkit): Một trong những thư viện xửlý ngôn ngữtự
+nhiên phổbiến nhất trong Python.
+• pandas: Cung cấp các cấu trúc dữliệu hiệu quảvà các công cụđểlàm việc với dữ
+liệu.
+3
+AI VIETNAM (AIO2024)
+aivietnam.edu.vn
+• numpy: Cung cấp các đối tượng mảng đa chiều và các hàm toán học đểlàm việc với
+các mảng này.
+• scikit-learn: Thư viện học máy phổbiến, giúp xây dựng và triển khai các mô hình
+học máy phức tạp một cách nhanh chóng.
+Hình 1: Logo của một sốbộdữliệu kểtrên.
+Trong môi trường code, các bạn thực thi đoạn code sau:
+1 import
+string
+2 import
+nltk
+3 nltk.download(’stopwords ’)
+4 nltk.download(’punkt ’)
+5 import
+pandas as pd
+6 import
+numpy as np
+7 import
+matplotlib.pyplot as plt
+8
+9 from
+sklearn. model_selection
+import
+train_test_split
+10 from
+sklearn.naive_bayes
+import
+GaussianNB
+11 from
+sklearn.metrics
+import
+accuracy_score
+12 from
+sklearn.preprocessing
+import
+LabelEncoder
+3. Đọc dữliệu: Đểđọc bộdữliệu có dạng là một file .csv, chúng ta sẽdùng thư viện pandas.
+Đểtách riêng biệt phần đặc trưng và nhãn, sau khi có dataframe, chúng ta đọc và lưu trữ
+dữliệu của từng cột vào 2 biến tương ứng messages và labels:
+1 DATASET_PATH = ’/content /2 cls_spam_text_cls .csv’
+2 df = pd.read_csv(DATASET_PATH)
+3
+4 messages = df[’Message ’]. values.tolist ()
+5 labels = df[’Category ’]. values.tolist ()
+6
+4
+AI VIETNAM (AIO2024)
+aivietnam.edu.vn
+4. Tiền xửlý dữliệu:
+• Tiền xửlý dữliệu đặc trưng: Như chúng ta đã biết, nội dung của các Messages
+(như thư/SMS/email...) vô cùng nhiều và đa dạng các tổhợp từhoặc ký tựvới nhau.
+Trong các trường hợp đặc biệt, chúng có thểlà những từviết tắt (như "’m, ’s, ’re,
+...), từkhông mang nhiều ý nghĩa (như các dấu câu (.,’/), các biến thểcủa từ(ví dụ:
+change, changing, changes, changed, changer, ...) và rất nhiều trường hợp đặc biệt
+khác. Vì vậy, bước Tiền xửlý dữliệu là vô cùng quan trọng với các tác vụliên quan
+đến ngôn ngữ. Với bài này, chúng ta sẽđối phó với chúng với một sốhàm đơn giản
+như hình sau:
+Tương ứng với đoạn code sau:
+1 def
+lowercase(text):
+2
+return
+text.lower ()
+3
+4 def
+punctuation_removal (text):
+5
+translator = str.maketrans(’’, ’’, string.punctuation)
+6
+7
+return
+text.translate(translator)
+8
+9 def
+tokenize(text):
+10
+return
+nltk.word_tokenize(text)
+11
+12 def
+remove_stopwords (tokens):
+13
+stop_words = nltk.corpus.stopwords.words(’english ’)
+14
+15
+return [token for token in tokens if token not in stop_words]
+16
+17 def
+stemming(tokens):
+18
+stemmer = nltk.PorterStemmer ()
+19
+20
+return [stemmer.stem(token) for token in tokens]
+5
+AI VIETNAM (AIO2024)
+aivietnam.edu.vn
+21
+22 def
+preprocess_text (text):
+23
+text = lowercase(text)
+24
+text = punctuation_removal (text)
+25
+tokens = tokenize(text)
+26
+tokens = remove_stopwords (tokens)
+27
+tokens = stemming(tokens)
+28
+29
+return
+tokens
+30
+31 def
+preprocess_text (text):
+32
+text = lowercase(text)
+33
+text = punctuation_removal (text)
+34
+tokens = tokenize(text)
+35
+tokens = remove_stopwords (tokens)
+36
+tokens = stemming(tokens)
+37
+38
+return
+tokens
+39
+40 messages = [preprocess_text (message) for
+message in messages]
+41
+Tiếp theo, chúng ta cần tạo một bộtừđiển (Dictionary), chứa tất các từhoặc ký tự
+có xuất hiện trong toàn bộMessages sau khi được tiền xửlý và không tính trùng lặp.
+1 def
+create_dictionary (messages):
+2
+dictionary = []
+3
+4
+for tokens in messages:
+5
+for token in tokens:
+6
+if token not in dictionary:
+7
+dictionary.append(token)
+8
+9
+return
+dictionary
+6
+AI VIETNAM (AIO2024)
+aivietnam.edu.vn
+10
+11 dictionary = create_dictionary (messages)
+12
+Kếđến, chúng ta cần tạo ra những đặc trưng đại diện cho thông tin (là các từ) của
+các Message. Một trong những các đơn giản chính là dựa vào tần suất xuất hiện của
+từ. Với mỗi Message, vector đại diện sẽcó kích thước bằng với sốlượng từcó trong
+Dictionary.
+1 def
+create_features (tokens , dictionary):
+2
+features = np.zeros(len(dictionary))
+3
+4
+for token in tokens:
+5
+if token in dictionary:
+6
+features[dictionary.index(token)] += 1
+7
+8
+return
+features
+9
+10 X = np.array ([ create_features(tokens , dictionary) for tokens in
+messages ])
+• Tiền xửlý dữliệu nhãn: Đối với nhãn của bài toán này, chúng ta sẽxửlý đơn giản
+bằng cách chuyển 2 nhãn ham và spam thành các con số0 và 1 đểmáy tính có thể
+hiểu, cụthểnhư sau:
+1 le = LabelEncoder ()
+2 y = le.fit_transform(labels)
+3 print(f’Classes: {le.classes_}’)
+4 print(f’Encoded
+labels: {y}’)
+5
+6 # >> Classes: [’ham’ ’spam ’]
+7 # >> Encoded
+labels: [0 0 1 ... 0 0 0]
+8
+7
+AI VIETNAM (AIO2024)
+aivietnam.edu.vn
+5. Chia bộdữliệu train/val/test: Khi tiến hành huấn luyệnh một mô hình machine
+learning, chúng ta sẽkhông lấy toàn bộbộdữliệu hiện có đểhuấn luyện mà sẽtách ra làm
+3 bộkhác nhau. Tại bước này, chúng ta chia bộdữliệu thành 3 phần: Train, Validation và
+Test theo tỉlệlần lượt là 7/2/1 (trên tỉlệ100% của bộdữliệu gốc). Ngoài ra, chúng ta
+thêm tham sốSEED đểduy trì kết quảgiống nhau sau mỗi lần chạy lại.
+1 VAL_SIZE = 0.2
+2 TEST_SIZE = 0.125
+3 SEED = 0
+4
+5 X_train , X_val , y_train , y_val = train_test_split (X, y,
+6
+test_size=VAL_SIZE ,
+7
+shuffle=True ,
+8
+random_state=SEED)
+9
+10 X_train , X_test , y_train , y_test = train_test_split (X_train , y_train ,
+11
+test_size=TEST_SIZE ,
+12
+shuffle=True ,
+13
+random_state=SEED)
+14
+6. Huấn luyện mô hình: Sau các bước trên, chúng ta đã tạo ra 2 Input cần thiết, công việc
+bây giờchỉcần truyền chúng vào mô hình Gaussian Naive Bayes và tiến hành huấn luyện
+bằng các hàm trong thư viện sklearn.
+Theo đó, chúng ta thực thi đoạn code sau đểkhởi tạo và thực hiện việc huấn luyện mô
+hình Naive Bayes:
+1 model = GaussianNB ()
+8
+AI VIETNAM (AIO2024)
+aivietnam.edu.vn
+2 print(’Start
+training ...’)
+3 model = model.fit(X_train , y_train)
+4 print(’Training
+completed!’)
+5
+6 # >> Start
+training ...
+7 # >> Training
+completed!
+8 # >> CPU times: user 397 ms , sys: 162 ms , total: 559 ms
+9 # >> Wall time: 633 ms
+10
+7. Đánh giá mô hình: Sau khi huấn luyện, chúng ta đến phần đánh giá hiệu suất của mô
+hình. Bắt đầu với việc cho mô hình đã huấn luyện dựđoán trên tập Validation và Test.
+Sau đó, sửdụng độđo Accuracy Score đểđánh giá mô hình.
+1 y_val_pred = model.predict(X_val)
+2 y_test_pred = model.predict(X_test)
+3
+4 val_accuracy = accuracy_score(y_val , y_val_pred)
+5 test_accuracy = accuracy_score(y_test , y_test_pred)
+6
+7 print(f’Val
+accuracy: {val_accuracy}’)
+8 print(f’Test
+accuracy: {test_accuracy}’)
+9
+10 # >> Val
+accuracy: 0.8816143497757848
+11 # >> Test
+accuracy: 0.8602150537634409
+12
+8. Thực hiện dựđoán: Cuối cùng, đểsửdụng mô hình cho các Message mới, chúng ta sẽ
+phải thực lại các công đoạn Tiền xửlý, tạo đặc trưng cho Message mới này và truyền vào
+mô hình Naive Bayes. Lúc này, mô hình sẽtrảvềgiá trị0 hoặc 1, do đó, cần gọi hàm
+inverse_transform() đểchuyển đổi lại vềnhãn ban đầu là Ham hoặc Spam.
+1 def
+predict(text , model , dictionary):
+2
+processed_text = preprocess_text (text)
+3
+features = create_features (text , dictionary)
+4
+features = np.array(features).reshape (1,
+-1)
+5
+prediction = model.predict(features)
+6
+prediction_cls = le. inverse_transform (prediction)[0]
+7
+8
+return
+prediction_cls
+9
+10 test_input = ’I am actually
+thinking a way of doing
+something
+useful ’
+11 prediction_cls = predict(test_input , model , dictionary)
+12 print(f’Prediction: {prediction_cls}’)
+13
+14 # >> Prediction: ham
+15
+9
+AI VIETNAM (AIO2024)
+aivietnam.edu.vn
+III.
+Câu hỏi trắc nghiệm
+1. Naive Bayes là một thuật toán học máy thuộc loại nào?
+(a) Học có giám sát.
+(b) Học không giám sát.
+(c) Học bán giám sát.
+(d) Học tăng cường.
+2. Trong Naive Bayes, "Naive"(ngây thơ) ám chỉđiều gì?
+(a) Thuật toán đơn giản và dễhiểu.
+(b) Giảđịnh vềtính độc lập của các đặc trưng.
+(c) Thuật toán chỉhoạt động với dữliệu đơn giản.
+(d) Thuật toán không hiệu quảbằng các phương pháp khác.
+3. Naive Bayes thường được sửdụng trong các bài toán nào?
+(a) Hồi quy tuyến tính.
+(b) Phân cụm.
+(c) Phân loại văn bản.
+(d) Tối ưu hóa.
+4. Trong Naive Bayes, P(X|Y) được gọi là gì?
+(a) Xác suất tiên nghiệm.
+(b) Xác suất hậu nghiệm.
+(c) Hàm hợp lý.
+(d) Xác suất biên.
+5. Khi nào Naive Bayes có thểhoạt động kém hiệu quả?
+(a) Khi có nhiều đặc trưng độc lập.
+(b) Khi có quá nhiều dữliệu huấn luyện.
+(c) Khi các đặc trưng có mối tương quan mạnh.
+(d) Khi dữliệu có phân phối chuẩn.
+6. Công thức nào sau đây thểhiện đúng nguyên lý của Naive Bayes?
+(a) P(Y|X) = P(X|Y) * P(Y) / P(X)
+(b) P(X|Y) = P(Y|X) * P(X) / P(Y)
+(c) P(X,Y) = P(X|Y) * P(Y)
+(d) P(Y) = P(X|Y) * P(Y|X) / P(X)
+7. Tại sao cần tiền xửlý dữliệu trong bài toán phân loại email?
+10
+AI VIETNAM (AIO2024)
+aivietnam.edu.vn
+(a) Đểtăng kích thước dữliệu.
+(b) Đểgiảm nhiễu và chuẩn hóa dữliệu.
+(c) Đểthay đổi nội dung email.
+(d) Đểmã hóa email.
+8. Chọn đáp án đúng cho đoạn code sau:
+1 def
+remove_stopwords (tokens):
+2 stop_words = nltk.corpus.stopwords.words(’english ’)
+3 return [token for token in tokens if token not in stop_words]
+4
+5 input_text = ["Pho", "is", "a", "popular", "Vietnamese", "noodle", "soup"
+]
+6 result = remove_stopwords (input_text)
+7 print(result)
+(a) ["Pho", "is", "a", "popular", "Vietnamese", "noodle", "soup"]
+(b) ["Pho", "popular", "Vietnamese", "noodle", "soup"]
+(c) ["is", "a"]
+(d) ["Pho", "Vietnamese", "noodle", "soup"]
+9. Trong tiền xửlý văn bản, việc loại bỏstopwords có tác dụng gì?
+(a) Tăng độchính xác của mô hình.
+(b) Giảm kích thước từđiển và loại bỏcác từít quan trọng.
+(c) Thêm ngữcảnh cho văn bản.
+(d) Tăng sốlượng đặc trưng.
+10. Phương pháp nào được sửdụng đểtạo vector đặc trưng cho mỗi email trong đoạn code?
+(a) TF-IDF.
+(b) Word2Vec.
+(c) Đếm tần suất xuất hiện của từ.
+(d) One-hot encoding.
+11. Đáp án nào miêu tảđầy đủvà chính xác nhất đoạn code sau ?
+1 def
+create_features (tokens , dictionary):
+2
+features = np.zeros(len(dictionary))
+3
+for token in tokens:
+4
+if token in dictionary:
+5
+features[dictionary.index(token)] += 1
+6
+7
+return
+features
+(a) Tạo vector cho từng message, mỗi phần tửtương ứng với thứtựcác từtrong dictionary.
+(b) Tạo vector có kích thước bằng với dictionary cho từng message, mỗi phần tửtương
+ứng với thứtựcác từtrong dictionary
+11
+AI VIETNAM (AIO2024)
+aivietnam.edu.vn
+(c) Tạo vector có kích thước bằng với dictionary, mỗi phần tửtương ứng với thứtựcác từ
+trong dictionary và được gán giá trịbằng 1 nếu xuất hiện trong message.
+(d) Tạo vector có kích thước bằng với dictionary, mỗi phần tửtương ứng với thứtựcác từ
+trong dictionary và được gán giá trịbằng tần suất của từđó trong message.
+12

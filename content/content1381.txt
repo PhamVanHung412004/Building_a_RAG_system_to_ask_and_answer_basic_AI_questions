@@ -1,9 +1,0 @@
-norm (x))
-240 h = self . attention ( qkv )
-241 h = self . proj_out (h)
-242 return (x + h). reshape (b, c, * spatial )
-243
-244
-245 class QKVAttentionLegacy (nn. Module ):
-246 """
-11

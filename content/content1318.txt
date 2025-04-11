@@ -1,6 +1,0 @@
-AI VIETNAM aivietnam.edu.vn
-3. Reinforcement Learning
-Trong phần này chúng ta tối ưu mô hình SFT dựa vào mô hình Reward sử dụng thuật toán Proximal
-Policy Optimization (PPO).
-Hình 7: Proximal Policy Optimization.
-2.1. 

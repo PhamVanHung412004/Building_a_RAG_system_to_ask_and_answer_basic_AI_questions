@@ -1,0 +1,457 @@
+Momentum
+Gradient Descent with Momentum
+Nesterov Momentum
+Year 2023
+Nguyen Quoc Thai
+AI VIETNAM
+All-in-One Course
+1
+2
+CONTENT
+(1) – Multilayer Perceptron
+(2) – Gradient Descent with Momentum
+(3) – Nesterov Momentum
+1 – Multilayer Perceptron
+!
+3
+Multilayer Perceptron
+Input Layer
+Output Layer
+Activation
+1
+1
+Hidden Layer
+#parameters: 12
+1 – Multilayer Perceptron
+!
+4
+Multilayer Perceptron
+Input Layer
+Output Layer
+Activation
+1
+1
+Hidden Layer
+#parameters: 12
+1 – Multilayer Perceptron
+!
+5
+Forward
+Input Layer
+Output Layer
+Sigmoid
+1
+1
+Hidden Layer
+1.0
+2.0
+h1
+h2
+z
+W! = W!"
+W!#
+=
+0.1
+0.1
+0.1
+0.1
+0.1
+0.1
+W$ = W$
+=
+0.1
+0.1
+0.1
+x = 1.0
+2.0
+y = 0
+)y
+1 – Multilayer Perceptron
+!
+6
+Forward
+Input Layer
+Output Layer
+Sigmoid
+1
+1
+Hidden Layer
+1.0
+2.0
+h1
+h2
+z
+W! = W!"
+W!#
+=
+0.1
+0.1
+0.1
+0.1
+0.1
+0.1
+W$ = W$
+=
+0.1
+0.1
+0.1
+x = 1.0
+2.0
+y = 0
+h = [1.0 x]W! = 1.0
+1.0 2.0
+0.1
+0.1
+0.1
+0.1
+0.1
+0.1
+= 0.4
+0.4
+z = [1.0 h]W$ = 1.0
+0.4 0.4
+0.1
+0.1
+0.1
+= 0.18
+)y = 0.5449
+)y = σ z
+= 𝜎0.18
+= 0.5449
+L = 0.7872
+1 – Multilayer Perceptron
+!
+7
+Backward
+Input Layer
+Output Layer
+Sigmoid
+1
+1
+Hidden Layer
+1.0
+2.0
+h1
+h2
+z
+W! = W!"
+W!#
+=
+0.0946
+0.0946
+0.0946
+0.0891
+0.0946
+0.0891
+W$ = W$
+=
+0.0455
+0.0782
+0.0782
+x = 1.0
+2.0
+y = 0
+)y = 0.5449
+)y = σ z
+= 𝜎0.18
+= 0.5449
+L = 0.7872
+1 – Multilayer Perceptron
+!
+8
+Activation
+vSigmoid Function
+vReLU Function
+vTanh Function
+1 – Multilayer Perceptron
+!
+9
+Loss
+vBCELoss()
+vCrossEntropyLoss()
+1 – Multilayer Perceptron
+!
+10
+Optimizer
+vSGD()
+1 – Multilayer Perceptron
+!
+11
+Classification using Multilayer Perceptron
+Train 
+Dataset
+Data
+Preparation
+Model
+Feature Extraction
+Normalization
+Convert to Tensor
+Parameter 
+Initialization
+Optimizer: SGD
+Loss: CrossEntropyLoss
+Metric: Accuracy
+Trained
+Model
+Training
+Test 
+Dataset
+Evaluation
+Score: Accuracy
+vIris Dataset
+2 – GD with Momentum
+!
+12
+Gradient Descent
+4) Compute derivative
+5) Update parameters
+1) Pick a sample (𝑥, 𝑦) from training data   
+2) Compute output &𝑦
+3) Compute loss
+&𝑦= 𝜎(𝑧) =
+1
+1 + 𝑒!"
+𝐿(𝜽) = −ylog&y−(1−y)log(1−&y )
+∇#L = 𝐱(&y −𝑦)
+𝜽= 𝜽−𝜂∇#L
+𝜂is learning rate
+𝑧= 𝜽$𝒙
+4) Compute derivative
+5) Update parameters
+1) Pick a sample from training data   
+2) Compute output &𝑦
+3) Compute loss (cross-entropy)
+𝐿𝜽= −𝒚$𝑙𝑜𝑔=𝒚
+∇#L = 𝒙&𝐲−𝒚$
+𝜽= 𝜽−𝜂∇#L
+𝜂is learning rate
+𝒛= 𝜽$𝒙
+=𝒚= 𝑒𝒛∅𝒅
+𝒅= 1 … 1 𝑒𝒛
+∅is 
+Hadamard
+division
+2 – GD with Momentum
+!
+13
+Gradient Descent
+Ø Objective function: 2𝑥C
+Ø Derivative: 2𝑥
+Ø Gradient:
+𝑥= 𝑥−𝜂∗𝑓D(𝑥)
+2 – GD with Momentum
+!
+14
+Gradient Descent
+Ø Objective function: 2𝑥C
+Ø Derivative: 2𝑥
+Ø Gradient:
+𝑥= 𝑥−𝜂∗𝑓D(𝑥)
+Initial weight
+Minimum cost
+Incremental step
+Gradient
+𝑥= −2.0
+𝜂= 0.1
+𝑥= −2.0 −0.1 ∗2 ∗−2.0
+= −1.6
+2 – GD with Momentum
+!
+15
+Gradient Descent
+Ø Objective function: 2𝑥C
+Ø Derivative: 2𝑥
+Ø Gradient:
+𝑥= 𝑥−𝜂∗𝑓D(𝑥)
+Minimum cost
+Incremental step
+2 – GD with Momentum
+!
+16
+Gradient Descent
+2 – GD with Momentum
+!
+17
+Gradient Descent
+2 – GD with Momentum
+!
+18
+Gradient Descent
+Ø Objective function:
+xE + xF −2xC −2x + 2
+Ø Derivative: 
+4𝑥F + 3𝑥C −4𝑥
+Ø Gradient:
+𝑥= 𝑥−𝜂∗𝑓D(𝑥)
+2 – GD with Momentum
+!
+19
+Gradient Descent
+Ø Objective function:
+xE + xF −2xC −2x + 2
+Ø Derivative: 
+4𝑥F + 3𝑥C −4𝑥
+Ø Gradient:
+𝑥= 𝑥−𝜂∗𝑓D(𝑥)
+𝑥= −2.0
+𝜂= 0.1
+𝑥= −2.0 −0.1 ∗−12
+= −0.8
+2 – GD with Momentum
+!
+20
+Gradient Descent
+Ø Objective function:
+xE + xF −2xC −2x + 2
+Ø Derivative: 
+4𝑥F + 3𝑥C −4𝑥
+Ø Gradient:
+𝑥= 𝑥−𝜂∗𝑓D(𝑥)
+x = −2.0
+η = 0.1
+num_epochs = 5
+Local minimum
+Global 
+minimum
+Cost = 2.05
+2 – GD with Momentum
+!
+21
+Gradient Descent
+2 – GD with Momentum
+!
+22
+Gradient Descent
+2 – GD with Momentum
+!
+23
+Gradient Descent
+Local minimum
+Global 
+minimum
+2 – GD with Momentum
+!
+24
+GD with Momentum
+Ø Objective function:
+xE + xF −2xC −2x + 2
+Ø Derivative: 
+4𝑥F + 3𝑥C −4𝑥
+Ø Gradient with Momentum:
+𝑣G = 𝛾𝑣GHI + 𝜂𝑓D(𝑥)
+𝑥= 𝑥−𝑣G
+𝛾: momentum
+2 – GD with Momentum
+!
+25
+GD with Momentum
+Ø Objective function:
+xE + xF −2xC −2x + 2
+Ø Derivative: 
+4𝑥F + 3𝑥C −4𝑥
+Ø Gradient with Momentum:
+𝑣G = 𝛾𝑣GHI + 𝜂𝑓D(𝑥)
+𝑥= 𝑥−𝑣G
+𝑥= −2. 0
+𝑣! = 0.8 ∗0.0 + 0.1 ∗−12 = −1.2
+𝜂= 0.1
+𝛾= 0.8
+𝑥= −2.0 −(−1.2) = −0.8
+𝑣" = 0.0
+2 – GD with Momentum
+!
+26
+GD with Momentum
+Ø Objective function:
+xE + xF −2xC −2x + 2
+Ø Derivative: 
+4𝑥F + 3𝑥C −4𝑥
+Ø Gradient with Momentum:
+𝑣G = 𝛾𝑣GHI + 𝜂𝑓D(𝑥)
+𝑥= 𝑥−𝑣G
+𝑥= −2. 0
+𝑣! = 0.8 ∗(−1.2) + 0.1 ∗3.072 = −0.65
+𝜂= 0.1
+𝛾= 0.8
+𝑥= −0.8 −(−0.65) = −0.15
+𝑣! = −1.2
+2 – GD with Momentum
+!
+27
+GD with Momentum
+Ø Objective function:
+xE + xF −2xC −2x + 2
+Ø Derivative: 
+4𝑥F + 3𝑥C −4𝑥
+Ø Gradient with Momentum:
+𝑣G = 𝛾𝑣GHI + 𝜂𝑓D(𝑥)
+𝑥= 𝑥−𝑣G
+Cost = 0.12
+num_epochs = 5
+𝑥= −2. 0
+𝜂= 0.1
+𝛾= 0.8
+𝑣" = 0.0
+2 – GD with Momentum
+!
+28
+GD with Momentum
+Ø Gradient with Momentum:
+𝑣G = 𝛾𝑣GHI + 𝜂𝑓D(𝑥)
+𝑥= 𝑥−𝑣G
+Negative of Gradient
+Real movement
+Momentum
+Movement = Negative of Gradient + Momentum
+2 – GD with Momentum
+!
+29
+GD with Momentum
+2 – GD with Momentum
+!
+30
+GD with Momentum
+3 – Nesterov Momentum
+!
+31
+Problem of GD with Momentum
+Ø Objective function:
+xE + xF −2xC −2x + 2
+Ø Derivative: 
+4𝑥F + 3𝑥C −4𝑥
+Ø Gradient with Momentum:
+𝑣G = 𝛾𝑣GHI + 𝜂𝑓D(𝑥)
+𝑥= 𝑥−𝑣G
+num_epochs = 10
+𝑥= −2. 0
+𝜂= 0.1
+𝛾= 0.9
+𝑣" = 0.0
+3 – Nesterov Momentum
+!
+32
+Nesterov Momentum
+Ø Objective function:
+xE + xF −2xC −2x + 2
+Ø Derivative: 
+4𝑥F + 3𝑥C −4𝑥
+Ø Gradient with Momentum:
+𝑣G = 𝛾𝑣GHI −𝜂𝑓D(𝑥+ 𝛾∗𝑣GHI)
+𝑥= 𝑥+ 𝑣G
+𝑥= −2. 0
+𝜂= 0.1
+𝛾= 0.9
+𝑣" = 0.0
+3 – Nesterov Momentum
+!
+33
+Source
+3 – Nesterov Momentum
+!
+34
+3 – Nesterov Momentum
+!
+35
+Thanks!
+Any questions?
+36
