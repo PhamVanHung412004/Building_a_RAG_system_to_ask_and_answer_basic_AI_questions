@@ -17,8 +17,11 @@ class Build_KMeans:
         model_train = KMeans(n_clusters=self.__number_clusters, random_state=42)
         return model_train.fit(self.__data)
 
-    def get_labels(self) -> np.array:
+    def test(self) -> np.array:
         return self.run().labels_
+
+    def get_labels(self) -> np.array:
+        return self.run().predict(self.__data)
 
     def get_center_point(self) -> np.array:
         return self.run().cluster_centers_

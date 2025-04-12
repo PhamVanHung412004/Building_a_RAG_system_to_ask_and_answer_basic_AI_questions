@@ -7,6 +7,8 @@ from package import(
     pandas as pd,
     Path
 )
+
+from sklearn.preprocessing import StandardScaler
 def main():
     file_path = Path(__file__).parent.parent / "dataset.csv"
     file_path_save_image = Path(__file__).parent.parent / "image"
@@ -14,9 +16,11 @@ def main():
     datas = Read_File(file_path).run()
 
     get_datas_embedding = Embedding_To_Numpy(datas["embedding"]).convert_to_numpy()
-    
+
+    data_news = StandardScaler().fit_transform(get_datas_embedding)
+
     pca = PCA(n_components=2)
-    data_PCA = pca.fit_transform(get_datas_embedding)
+    data_PCA = pca.fit_transform(data_news)
 
     data_x = data_PCA[ :, 0]
     data_y = data_PCA[ :, 1]
@@ -29,4 +33,6 @@ def main():
     plt.tight_layout()
     plt.savefig(file_path_save_image / "PCA_Show.png", dpi=300)
     plt.show()
+
+
 main()
