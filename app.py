@@ -22,18 +22,11 @@ def load_model() -> tuple:
     DATASET_TEXT = Read_File_CSV(file_path_dataset_file_csv).run()["text"]
     VECTOR_DATABASE = faiss.read_index(str(file_path_dataset_file_vector_database))
     MODEL_EMBEDDING = SentenceTransformer("BAAI/bge-small-en-v1.5")
-    return (MODEL_EMBEDDING,DATASET_TEXT,VECTOR_DATABASE)
-# print("hung hung")
-# use_query = input("Bạn hãy nhập vào câu hỏi: ")
+    DATA_jSON = Read_File_JSON(file_path_json)
+    return (MODEL_EMBEDDING,DATASET_TEXT,VECTOR_DATABASE, DATA_jSON)
 
-# search_sematic = Sematic_search(MODEL_EMBEDDING,use_query,1)
-# vector_neighr = search_sematic.run(VECTOR_DATABASE)
-# print(vector_neighr)
 
 list_chat_history = []
-
-
-# st.title('Chatbot hỏi đáp các câu hỏi liên quan đến mô hình đảo Trường Sa lớn')
 
 # Store LLM generated responses
 if "messages" not in st.session_state.keys():
@@ -116,7 +109,7 @@ def check_input_user(model, dataset,vector_database):
 
 
 def main(): 
-    model,dataset,vector_database = load_model()
+    model,dataset,vector_database, data_json = load_model()
     print(type(model))
     print(type(dataset))
     print(type(vector_database))
