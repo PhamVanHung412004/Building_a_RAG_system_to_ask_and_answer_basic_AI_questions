@@ -1,0 +1,1 @@
+use_query = input("entern : ")
