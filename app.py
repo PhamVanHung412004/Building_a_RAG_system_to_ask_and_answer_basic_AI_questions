@@ -10,16 +10,16 @@ from read_file import (
 )
 from langdetect import detect,LangDetectException
 from deep_translator import GoogleTranslator
+from typing as Dict
+from numpy.typing as NDArray
+
 file_path_dataset_file_csv = Path(__file__).parent / "dataset.csv" 
 file_path_dataset_file_vector_database = Path(__file__).parent / "save_vector_and_file_json" / "vector_database.faiss" 
 file_path_json = Path(__file__).parent / "save_vector_and_file_json" / "clusters_points.json" 
-# print("Pham Van Hung")
-# # load model
-
 
 @st.cache_resource
 def load_model() -> tuple:
-    DATASET_TEXT = Read_File_CSV(file_path_dataset_file_csv).run()["text"]
+    DATASET_TEXT = Read_File_CSV(file_path_dataset_file_csv).run()["text"].to_numpy()
     VECTOR_DATABASE = faiss.read_index(str(file_path_dataset_file_vector_database))
     MODEL_EMBEDDING = SentenceTransformer("BAAI/bge-small-en-v1.5")
     DATA_jSON = Read_File_JSON(file_path_json)
@@ -47,11 +47,13 @@ with st.sidebar:
 
 # Function for generating LLM response
 def generate_response(model : SentenceTransformer, 
-                    dataset : pd.core.series.Series,
+                    dataset : NDArray[np.str_],
                     vector_database : faiss.swigfaiss_avx2.IndexFlatL2,
+                    data_json : Dict[str , NDArray[np.float32]]
                     use_query : str):
+
     search_sematic = Sematic_search(model,use_query,1)
-    labels_neghir = search_sematic.run(vector_database)[0][0]
+    labels_neghir = search_sematic.run(vector_database)[0][0][0]
     print(labels_neghir)
     
     pass
