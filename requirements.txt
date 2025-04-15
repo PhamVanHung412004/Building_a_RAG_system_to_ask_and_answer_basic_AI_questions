@@ -1,10 +1,13 @@
-
 qdrant-client
 pandas
 numpy
+streamlit
 scikit-learn
 yellowbrick
 matplotlib
 faiss-cpu
 sentence-transformers
 rank-bm25
+langdetect
+deep-translator
+seaborn

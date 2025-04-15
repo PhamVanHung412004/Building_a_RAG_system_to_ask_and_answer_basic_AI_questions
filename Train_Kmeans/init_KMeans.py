@@ -7,8 +7,8 @@ from package import (
 class Build_KMeans:
     def __init__(self,data : np.array = None, number_clusters : int = None) -> None:
         '''
-        data : vector embedding sau khi chunking
-        number_clusters : so cum muon phan
+        data : Vector embedding sau khi chunking
+        number_clusters : Số cụm muốn phân loại
         '''
         self.__data : np.array = data
         self.__number_clusters : int = number_clusters

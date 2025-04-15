@@ -5,7 +5,7 @@ import ast
 class Embedding_To_Numpy:   
     def __init__(self, array_embedding : pd.core.series.Series = None) -> None:
         '''
-        array_embedding : vector embedding sau khi chunking cua tung doan
+        array_embedding : Vector embedding sau khi chunking của từng đoạn
         '''
         self.__array_embedding : pd.core.series.Series = array_embedding
 

@@ -1,7 +1,7 @@
 # Dự án: Xây dựng Chatbot hỏi đáp các câu hỏi liên quan đến AI.
 ## Giới thiệu: Dự án do tôi làm nhằm mục đích giúp mọi người có thể hỏi đáp các câu hỏi về AI một cách thuận tiện hơn.
 # Các công nghệ sử dụng.
-Tôi sử dụng kỹ thuật RAG.
+Tôi sử dụng kỹ thuật RAG. 
 Sử dụng KMeans để phân cụm dữ liệu.
 # Tổ chức dự án
 ```bash

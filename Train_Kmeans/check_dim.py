@@ -7,9 +7,9 @@ from package import(
     pandas as pd,
     Path
 )
-
 from sklearn.preprocessing import StandardScaler
 def main():
+    
     file_path = Path(__file__).parent.parent / "dataset.csv"
     file_path_save_image = Path(__file__).parent.parent / "image"
 

@@ -3,12 +3,14 @@ import numpy
 import ast
 import faiss
 import json
-from KMeans_FAISS import Init_KMeans_FAISS
 from sklearn.cluster import KMeans
+from sklearn.metrics import silhouette_score
 from yellowbrick.cluster import KElbowVisualizer
+from init_KMeans import Build_KMeans
 import joblib
 import matplotlib.pyplot as plt
-from sklearn.metrics import silhouette_score
+
+
 from pathlib import Path
 
 from convert_embedding import Embedding_To_Numpy

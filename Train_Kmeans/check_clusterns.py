@@ -8,7 +8,7 @@ from package import (
 class Check_Cluster:
     def __init__(self, data : np.array) -> None:
         '''
-        data : vector embedding cua tung cau da chunking
+        data : vector embedding của từng cầu đã chunking
         '''
         self.data : np.array = data
     

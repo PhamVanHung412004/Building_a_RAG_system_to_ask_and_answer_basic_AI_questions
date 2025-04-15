@@ -8,7 +8,6 @@ class Get_Data:
         path_data : Đường dẫn đến folder chứa file pdf cần sử dụng
         '''
     def run(self) -> list:
-        
         try:
             return SimpleDirectoryReader(self.path_data).load_data()    
         except ZeroDivisionError as e:

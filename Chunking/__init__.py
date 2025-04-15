@@ -8,7 +8,7 @@ class Chunking_Data:
         model_embedding : là model embedding do mình lựa chọn để chunking data
         '''
         self.__documents : list = documents
-        self.__model_embedding = model_embedding
+        self.__model_embedding : HuggingFaceEmbedding = model_embedding
 
     def Get_nodes(self) -> list:        
         try:

@@ -6,7 +6,6 @@ from package import (
     Path,
     Check_Cluster,
     joblib,
-    Init_KMeans_FAISS,
     Build_KMeans,
     json,
     faiss,
@@ -17,8 +16,11 @@ from sklearn.decomposition import PCA
 from sklearn.cluster import DBSCAN
 import seaborn as sns
 
-from sklearn.preprocessing import StandardScaler
+from sentence_transformers import SentenceTransformer
 
+from sklearn.decomposition import PCA
+
+# chuyển hóa các kiểu dữ liệu
 def convert_ndarray_to_list(obj):
     if isinstance(obj, dict):
         return {int(k) if isinstance(k, (np.integer,)) else k: convert_ndarray_to_list(v) for k, v in obj.items()}
@@ -33,11 +35,26 @@ def convert_ndarray_to_list(obj):
     
 
 def main():
-
     file_path = Path(__file__).parent.parent
     data = Read_File(file_path /  "dataset.csv").run()
     data_embedding = Embedding_To_Numpy(data["embedding"]).convert_to_numpy()
 
+    
+    
+    # pcd2d = PCA(n_components=2).fit_transform(embedding)
+    # train_kmeans = Build_KMeans(embedding,3)
+    # data_labels = train_kmeans.get_labels()
+    # data_x = pcd2d[ :, 0]
+    # data_y = pcd2d[ :, 1]
+
+    # plt.figure(figsize=(10, 6))
+    # plt.scatter(data_x, data_y, alpha=0.7, s=60, c='skyblue', edgecolors='k')
+    # plt.title("Biểu diễn Embedding bằng PCA (2D)")
+    # plt.xlabel("Thành phần chính 1")
+    # plt.ylabel("Thành phần chính 2")
+    # plt.grid(True)
+    # plt.tight_layout()
+    # plt.show()
     # data_new = StandardScaler().fit_transform(data_embedding)
 
     # Draw eblow
@@ -45,8 +62,9 @@ def main():
 
 
     # build kmeans
-    train_kmeans = Build_KMeans(data_embedding,3)
-    data_labels = train_kmeans.get_labels()
+    # train_kmeans = Build_KMeans(embedding,3)
+    # data_labels = train_kmeans.get_labels()
+
     '''
     pcd2d = PCA(n_components=2)
     data_tmp = pcd2d.fit_transform(data_embedding)
@@ -75,25 +93,25 @@ def main():
     '''
 
     # Write clusters and points , save vector database 
-    clusters_points = {}
-    set_data_labels = set(data_labels)
-    for i in set_data_labels:
-        clusters_points[int(i)] = []        
+    # clusters_points = {}
+    # set_data_labels = set(data_labels)
+    # for i in set_data_labels:
+    #     clusters_points[int(i)] = []        
 
-    for i in range(len(data_labels)):
-        clusters_points[int(data_labels[i])].append(data_embedding[i])
+    # for i in range(len(data_labels)):
+    #     clusters_points[int(data_labels[i])].append(data_embedding[i])
 
-    clusters_points_new = convert_ndarray_to_list(clusters_points)
-    file_path = Path(__file__).parent.parent / "save_vector_and_file_json"
+    # clusters_points_new = convert_ndarray_to_list(clusters_points)
+    # file_path = Path(__file__).parent.parent / "save_vector_and_file_json"
 
-    with open(file_path / "clusters_points.json", "w") as f:
-        json.dump(clusters_points_new, f, ensure_ascii=False, indent=4)
+    # with open(file_path / "clusters_points.json", "w") as f:
+    #     json.dump(clusters_points_new, f, ensure_ascii=False, indent=4)
     
-    datas_center_new = train_kmeans.get_center_point()
+    # datas_center_new = train_kmeans.get_center_point()
 
     d = 384
     index = faiss.IndexFlatL2(d)
-    index.add(datas_center_new)
+    index.add(data_embedding)
 
     faiss.write_index(index, str(file_path / "vector_database.faiss"))
     
@@ -113,6 +131,4 @@ def main():
     plt.tight_layout()
     plt.show()
     '''
-
-
 main()      
