@@ -1,6 +1,5 @@
 import numpy as np
-from pathlib import Path
-from Input import Init_Input
+from chatbotaio.Input import Init_Input
 
 class Sematic_search(Init_Input):
     def __init__(self, model, use_query: str, top_k: int) -> None:

@@ -1,4 +1,4 @@
-from package import (
+from .package import (
     KElbowVisualizer,
     plt,
     numpy as np,

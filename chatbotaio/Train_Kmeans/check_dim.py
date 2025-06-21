@@ -1,8 +1,8 @@
-from convert_embedding import Embedding_To_Numpy
+from .convert_embedding import Embedding_To_Numpy
 from sklearn.decomposition import PCA
 import matplotlib.pyplot as plt
-from read_file import Read_File
-from package import(
+from .read_file import Read_File
+from .package import(
     numpy as np,
     pandas as pd,
     Path

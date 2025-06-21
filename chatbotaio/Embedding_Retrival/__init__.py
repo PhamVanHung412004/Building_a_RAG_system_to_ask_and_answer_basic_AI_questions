@@ -1,4 +1,4 @@
-from Tutorial import *
+from chatbotaio.Tutorial import *
 class Vector_Database_Qdrant:
     def __init__(self, noder : list, 
                 Name_database : str, 

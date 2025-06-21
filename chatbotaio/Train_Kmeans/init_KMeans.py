@@ -1,4 +1,4 @@
-from package import (
+from .package import (
     KMeans,
     numpy as np,
     silhouette_score
