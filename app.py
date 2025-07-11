@@ -2,8 +2,8 @@ import streamlit as st
 import faiss
 from sentence_transformers import SentenceTransformer
 from pathlib import Path
-from semantic_search import Sematic_search
-from read_file import (
+from chatbotaio.semantic_search import Sematic_search
+from chatbotaio.read_file import (
     Read_File_CSV,
     Read_File_JSON,
     pd,
@@ -13,12 +13,12 @@ from langdetect import detect,LangDetectException
 from deep_translator import GoogleTranslator
 from typing import Dict
 from numpy.typing import NDArray
-from distance import Distance
-from search_k_point_netghir import Search
+from chatbotaio.distance import Distance
+from chatbotaio.search_k_point_netghir import Search
 
-file_path_dataset_file_csv = Path(__file__).parent / "dataset.csv" 
-file_path_dataset_file_vector_database = Path(__file__).parent / "save_vector_and_file_json" / "vector_database.faiss" 
-file_path_json = Path(__file__).parent / "save_vector_and_file_json" / "clusters_points.json" 
+file_path_dataset_file_csv = Path(__file__).parent / "dataset.csv"
+file_path_dataset_file_vector_database = Path(__file__).parent / "chatbotaio" / "save_vector_and_file_json" / "vector_database.faiss"
+file_path_json = Path(__file__).parent / "chatbotaio" / "save_vector_and_file_json" / "clusters_points.json"
 
 
 @st.cache_resource

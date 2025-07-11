@@ -1,4 +1,4 @@
-from package import (
+from .package import (
     numpy as np,
     pandas as pd,
     Read_File,

@@ -1,6 +1,4 @@
-import sys
-sys.path.append("/content/drive/MyDrive/LLM/chatbot/ChatbotAIO")
-from Tutorial import *
+from chatbotaio.Tutorial import *
 class Chunking_Data:
     def __init__(self,documents : list, model_embedding : HuggingFaceEmbedding) -> None:
         '''

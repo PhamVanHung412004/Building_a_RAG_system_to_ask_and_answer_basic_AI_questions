@@ -1,6 +1,4 @@
-import sys
-sys.path.append("/content/drive/MyDrive/LLM/chatbot/ChatbotAIO")
-from Tutorial import *
+from chatbotaio.Tutorial import *
 class Get_Data:
     def __init__(self, path_data: str) -> None:
         self.path_data: str = path_data
